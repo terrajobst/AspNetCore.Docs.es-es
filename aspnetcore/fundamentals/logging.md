@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e5c97ce868e281310aa75c16e73298e2aaa0d9d
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 30e00e2a442225bbe04be0d343f7048efe484477
+ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al inicio de sesión principal de ASP.NET
 
@@ -283,7 +283,7 @@ Las plantillas de proyecto crean código que llama a `CreateDefaultBuilder` para
 
 Los datos de configuración especifican niveles de registro mínimo al proveedor y categoría, como en el ejemplo siguiente:
 
-[!code-json[](logging/sample2/AppSettings.json)]
+[!code-json[](logging/sample2/appsettings.json)]
 
 Este archivo JSON crea seis reglas de filtro, uno para el proveedor de depuración, 4 para el proveedor de la consola y que se aplica a todos los proveedores. Podrá ver más adelante cómo solamente una de estas reglas se elige para cada proveedor cuando un `ILogger` se crea el objeto.
 
