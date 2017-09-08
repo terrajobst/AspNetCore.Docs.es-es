@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 1140f4916ca39cb454eaa41fdf6adfe7ad26cc31
-ms.sourcegitcommit: dfd6af48cf66813eaf04b011cb9341339a751254
+ms.openlocfilehash: bc2896d0eeda7e84cef06ee3f235e637bfe04318
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordenación, filtrado, paginación y agrupar - Core EF con el tutorial de MVC de ASP.NET Core (3 de 10)
 
@@ -116,7 +116,7 @@ Para agregar paginación a la página de índice de estudiantes, podrá crear un
 
 ![Página con vínculos de paginación de índice de estudiantes](sort-filter-page/_static/paging.png)
 
-En la carpeta del proyecto crea `PaginatedList.cs`y, a continuación, reemplace el código de plantilla con el código siguiente.
+En la carpeta del proyecto, crear `PaginatedList.cs`y, a continuación, reemplace el código de plantilla con el código siguiente.
 
 [!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
 
@@ -213,7 +213,7 @@ Para el sitio Web de Contoso Universidad **sobre** página, podrá mostrar alumn
 
 Crear un *SchoolViewModels* carpeta en el *modelos* carpeta.
 
-En la nueva carpeta, agregue un archivo de clase EnrollmentDateGroup.cs y reemplace el código de plantilla con el código siguiente:
+En la nueva carpeta, agregue un archivo de clase *EnrollmentDateGroup.cs* y reemplace el código de plantilla con el código siguiente:
 
 [!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
@@ -247,7 +247,7 @@ Ejecutar la aplicación y haga clic en el **sobre** vínculo. El número de alum
 
 ## <a name="summary"></a>Resumen
 
-En este tutorial ha visto cómo realizar la ordenación, filtrado, paginación y agrupación. En el tutorial siguiente aprenderá cómo controlar los cambios del modelo de datos mediante el uso de las migraciones.
+En este tutorial, ha visto cómo realizar la ordenación, filtrado, paginación y agrupación. En el siguiente tutorial, aprenderá cómo controlar los cambios del modelo de datos mediante el uso de las migraciones.
 
 >[!div class="step-by-step"]
 [Anterior](crud.md)

@@ -11,8 +11,8 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: fa5e0a66f22cc14f34d05481ce2e4381085d122d
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: d1c6ece833672af3ef2003510ef96c4ff0d63fbf
+ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/05/2017
@@ -179,7 +179,7 @@ Aunque el código fuente está abierto, Entity Framework Core es totalmente comp
 
 Para aplicar ingeniería inversa a un modelo de datos, incluidas las clases de entidad de una base de datos existente, use la [scaffold dbcontext](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell#scaffold-dbcontext) comando. Consulte la [tutorial de introducción](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db).
 
-<a id="dynamic-linq">
+<a id="dynamic-linq"></a>
 ## <a name="use-dynamic-linq-to-simplify-sort-selection-code"></a>Utilizar LINQ dinámicos para simplificar código de selección de ordenación
 
 El [tercer tutorial de esta serie](sort-filter-page.md) muestra cómo escribir código LINQ codificar de forma rígida los nombres de columna en un `switch` instrucción. Con dos columnas para elegir, esto funciona bien, pero si tiene muchas columnas el código podría considerarse detallado. Para solucionar este problema, puede usar el `EF.Property` método para especificar el nombre de la propiedad como una cadena. Para probar este enfoque, reemplace la `Index` método en la `StudentsController` con el código siguiente.

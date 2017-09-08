@@ -11,8 +11,8 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 4c402aee195d6614733be71c9c422e33553ad646
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/05/2017
@@ -176,8 +176,6 @@ El `ModelState.Remove` instrucción es necesaria porque `ModelState` tiene la an
 
 En *Views/Departments/Edit.cshtml*, realice los cambios siguientes:
 
-* Quitar el `<div>` elemento que fue scaffolding para el `RowVersion` campo.
-
 * Agregar un campo oculto para guardar la `RowVersion` valor de propiedad, inmediatamente después de un campo oculto para el `DepartmentID` propiedad.
 
 * Agregar una opción "Seleccionar Administrador" a la lista desplegable.
@@ -251,7 +249,7 @@ Esto hace que los cambios siguientes:
 
 * Agrega un mensaje de error entre la `h2` y `h3` encabezados.
 
-* Reemplaza LastName con FullName en la **administrador** campo.
+* Reemplaza FirstMidName por FullName en la **administrador** campo.
 
 * Quita el campo RowVersion.
 

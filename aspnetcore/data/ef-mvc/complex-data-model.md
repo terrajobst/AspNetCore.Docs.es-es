@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: ad34a86c90c06dcddeeba7a0deba95f8057b4513
-ms.sourcegitcommit: def90564eff4adfeed0a8e511e4c201b040e9a5e
+ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/26/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Crear un modelo de datos complejos - Core EF con el tutorial de MVC de ASP.NET Core (5 de 10)
 
@@ -215,7 +215,7 @@ public int InstructorID { get; set; }
 
 También puede usar el `Key` atributo si la entidad tiene su propia clave principal, pero desea asignar nombre a la propiedad algo que no sean classnameID o identificador.
 
-De forma predeterminada EF trata la clave como no generada por base de datos porque la columna es para una relación de identificación.
+De forma predeterminada, EF trata la clave como no generada por base de datos porque la columna es para una relación de identificación.
 
 ### <a name="the-instructor-navigation-property"></a>La propiedad de navegación de Instructor
 
@@ -397,7 +397,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 }
 ```
 
-En este tutorial está utilizando la API fluida solo para la asignación de base de datos que no se puede realizar con atributos. Sin embargo, también puede utilizar la API fluida para especificar casi todo el formato, la validación y las reglas de asignación que se pueden realizar mediante el uso de atributos. Algunos atributos como `MinimumLength` no se puede aplicar con la API fluida. Como se mencionó anteriormente, `MinimumLength` no cambia el esquema, sólo se aplica una regla de validación del lado cliente y el servidor.
+En este tutorial, que está usando la API fluida solo para la asignación de base de datos que no se puede realizar con atributos. Sin embargo, también puede utilizar la API fluida para especificar casi todo el formato, la validación y las reglas de asignación que se pueden realizar mediante el uso de atributos. Algunos atributos como `MinimumLength` no se puede aplicar con la API fluida. Como se mencionó anteriormente, `MinimumLength` no cambia el esquema, sólo se aplica una regla de validación del lado cliente y el servidor.
 
 Algunos desarrolladores prefieren usar la API fluida exclusivamente para que pueden mantener las clases de entidad "limpia". Puede mezclar atributos y API fluida si quieres, hay algunas personalizaciones que solo pueden realizarse mediante el uso de la API fluida, pero en general la práctica recomendada es elegir uno de estos dos enfoques y utilizar ese constantemente lo máximo posible. Si utiliza ambos, tenga en cuenta que siempre que hay un conflicto, API fluida de invalidaciones de atributos.
 

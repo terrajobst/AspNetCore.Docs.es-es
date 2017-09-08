@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d04b740f1ded3fb41ef1c3edd0adad276d8fcef0
-ms.sourcegitcommit: d7e0df365a6112240b5560212759b1e3525850a2
+ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
+ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/05/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lectura relacionadas con datos - Core EF con el tutorial de MVC de ASP.NET Core (6 de 10)
 
@@ -91,7 +91,7 @@ Ejecute la página (seleccione la pestaña de cursos en la página de inicio de 
 
 ## <a name="create-an-instructors-page-that-shows-courses-and-enrollments"></a>Crear una página de instructores que muestra los cursos y las inscripciones
 
-En esta sección creará un controlador y la vista de la entidad Instructor con el fin de mostrar la página de instructores:
+En esta sección, creará un controlador y la vista de la entidad Instructor con el fin de mostrar la página de instructores:
 
 ![Página de índice de instructores](read-related-data/_static/instructors-index.png)
 
@@ -167,7 +167,7 @@ A continuación, si se ha seleccionado un curso, el curso seleccionado se recupe
 
 En *Views/Instructors/Index.cshtml*, reemplace el código de plantilla con el código siguiente. Los cambios aparecen resaltados.
 
-[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,18-19,41-54,56)]
+[!code-html[](intro/samples/cu/Views/Instructors/Index1.cshtml?range=1-64&highlight=1,3-7,15-19,24,26-31,41-54,56)]
 
 Ha realizado los siguientes cambios en el código existente:
 
