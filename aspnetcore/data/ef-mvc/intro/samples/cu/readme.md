@@ -1,0 +1,1 @@
+Este proyecto se utiliza para proporcionar los fragmentos de código a [la serie de tutoriales de EF MVC Core](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro). Es el proyecto de ejemplo que se crea siguiendo los tutoriales en https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final.
