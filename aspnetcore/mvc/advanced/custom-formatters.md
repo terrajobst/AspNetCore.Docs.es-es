@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: af3b2174c73583832868d2062e6c7ab4689a1229
-ms.sourcegitcommit: 9d3f27a1ee5b7014fb40e4f2ec9b2a9cd744751c
+ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Formateadores personalizados en las API web de MVC de ASP.NET Core
 
@@ -23,7 +23,7 @@ Por [Tom Dykstra](https://github.com/tdykstra)
 
 Núcleo de ASP.NET MVC tiene compatibilidad integrada para el intercambio de datos en las API web mediante el uso de formatos de texto sin formato, JSON o XML. Este artículo muestra cómo agregar compatibilidad con formatos adicionales mediante la creación de formateadores personalizados.
 
-[Ver o descargar el ejemplo desde GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample).
+[Ver o descargar el ejemplo desde GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample).
 
 ## <a name="when-to-use-custom-formatters"></a>Cuándo utilizar a formateadores personalizados
 
@@ -100,7 +100,7 @@ Formateadores se evalúan en el orden en que se insertaron. La primera de ellas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/Sample), que implementa vCard simple entrada y salida formateadores.  La aplicación lee y escribe vCards que tengan un aspecto similar al ejemplo siguiente:
+Consulte la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-formatters/sample), que implementa vCard simple entrada y salida formateadores.  La aplicación lee y escribe vCards que tengan un aspecto similar al ejemplo siguiente:
 
 ```
 BEGIN:VCARD

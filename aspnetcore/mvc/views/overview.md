@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: 7abfa7ef855eb95e1a27ba6a699dd923c9e4d7c0
+ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/11/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>Representación HTML con vistas de MVC de ASP.NET Core
 
@@ -76,7 +76,7 @@ Cuando una acción devuelve el `View` método, como `return View();`, el nombre 
 >[!TIP]
 > Recomendamos seguir la convención de devolver simplemente `View()` de acciones siempre que sea posible, como resultado más flexible y fácil a refactorizar el código.
 
-Se puede proporcionar una ruta de acceso del archivo de vista, en lugar de un nombre de vista. Si utiliza una ruta de acceso absoluta a partir de la raíz de la aplicación (si lo desea, a partir de "/" o "~ /"), el *.cshtml* extensión debe especificarse como parte de la ruta de acceso de archivo. Por ejemplo: `return View("Views/Home/About.cshtml");`. Como alternativa, puede usar una ruta de acceso relativa desde el directorio específico del controlador dentro de la *vistas* directorio para especificar vistas en directorios distintos. Por ejemplo: `return View("../Manage/Index");` dentro de la *inicio* controlador. Del mismo modo, puede recorrer el directorio específico del controlador actual: `return View("./About");`. Tenga en cuenta que no use rutas de acceso relativas del *.cshtml* extensión. Como se mencionó anteriormente, siga el procedimiento recomendado de organizar la estructura de archivos para las vistas reflejar las relaciones existentes entre controladores, acciones y vistas para mayor claridad y mantenimiento.
+Se puede proporcionar una ruta de acceso del archivo de vista en lugar de un nombre de vista. Si utiliza una ruta de acceso absoluta a partir de la raíz de la aplicación (si lo desea, a partir de "/" o "~ /"), el *.cshtml* extensión debe especificarse como parte de la ruta de acceso de archivo (por ejemplo, `return View("Views/Home/About.cshtml");`). Como alternativa, puede usar una ruta de acceso relativa desde el directorio específico del controlador dentro de la *vistas* directorio para especificar vistas en directorios diferentes (por ejemplo, `return View("../Manage/Index");` dentro de la `HomeController`). Del mismo modo, puede recorrer el directorio específico del controlador actual (por ejemplo, `return View("./About");`). Tenga en cuenta que no use rutas de acceso relativas del *.cshtml* extensión. Como se mencionó anteriormente, siga el procedimiento recomendado de organizar la estructura de archivos para las vistas reflejar las relaciones existentes entre controladores, acciones y vistas para mayor claridad y mantenimiento.
 
 > [!NOTE]
 > [Las vistas parciales](partial.md) y [ver componentes](view-components.md) utilizar mecanismos de detección similares (pero no idénticos).
