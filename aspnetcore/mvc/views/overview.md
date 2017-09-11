@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: a93ee8165be52e33c2e7da4d3fee2c8225864db9
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 318d8832dadadd6946c7ffe58f9d89aaf68f54fc
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="rendering-html-with-views-in-aspnet-core-mvc"></a>Representación HTML con vistas de MVC de ASP.NET Core
 
@@ -39,7 +39,7 @@ Las vistas proporcionan [separación de intereses](http://deviq.com/separation-o
 
 ## <a name="creating-a-view"></a>Crear una vista
 
-Se crean vistas que son específicas para un controlador en el *vistas / [ControllerName]* carpeta. Vistas que se comparten entre los controladores se colocan en la */vistas/Shared* carpeta. Asignar nombre al archivo de vista igual que su acción de controlador asociado y agregue el *.cshtml* la extensión de archivo. Por ejemplo, para crear una vista para la *sobre* acción en el *inicio* controlador, debe crear el *About.cshtml* un archivo en el   */vistas/inicio*carpeta.
+Se crean vistas que son específicas para un controlador en el *vistas / [ControllerName]* carpeta. Vistas que se comparten entre los controladores se colocan en la */vistas/Shared* carpeta. Asignar nombre al archivo de vista igual que su acción de controlador asociado y agregue el *.cshtml* la extensión de archivo. Por ejemplo, para crear una vista para la *sobre* acción en el *inicio* controlador, debe crear el *About.cshtml* un archivo en el  * /vistas/inicio*carpeta.
 
 Un ejemplo de archivo de vista (*About.cshtml*):
 
@@ -69,14 +69,14 @@ Cuando una acción devuelve una vista, un proceso llamado *detección de vista* 
 
 Cuando una acción devuelve el `View` método, como `return View();`, el nombre de acción se usa como el nombre de vista. Por ejemplo, si esto se le llama desde un método de acción denominado "Índice", sería equivalente a pasar un nombre de vista de "Índice". Un nombre de vista se puede pasar explícitamente al método (`return View("SomeView");`). En ambos casos, ver detección busca un archivo de vista de búsqueda de coincidencias en:
 
-   1. Vistas /<ControllerName>/<ViewName>.cshtml
+   1. Vistas /\<ControllerName > /\<ViewName > .cshtml
 
-   2. Vistas/compartida/<ViewName>.cshtml
+   2. Vistas/compartida/\<ViewName > .cshtml
 
 >[!TIP]
 > Recomendamos seguir la convención de devolver simplemente `View()` de acciones siempre que sea posible, como resultado más flexible y fácil a refactorizar el código.
 
-Se puede proporcionar una ruta de acceso del archivo de vista, en lugar de un nombre de vista. En este caso, el *.cshtml* extensión debe especificarse como parte de la ruta de acceso de archivo. La ruta de acceso debe ser relativa a la raíz de la aplicación (y, opcionalmente, puede comenzar con "/" o "~ /"). Por ejemplo: `return View("Views/Home/About.cshtml");`.
+Se puede proporcionar una ruta de acceso del archivo de vista, en lugar de un nombre de vista. Si utiliza una ruta de acceso absoluta a partir de la raíz de la aplicación (si lo desea, a partir de "/" o "~ /"), el *.cshtml* extensión debe especificarse como parte de la ruta de acceso de archivo. Por ejemplo: `return View("Views/Home/About.cshtml");`. Como alternativa, puede usar una ruta de acceso relativa desde el directorio específico del controlador dentro de la *vistas* directorio para especificar vistas en directorios distintos. Por ejemplo: `return View("../Manage/Index");` dentro de la *inicio* controlador. Del mismo modo, puede recorrer el directorio específico del controlador actual: `return View("./About");`. Tenga en cuenta que no use rutas de acceso relativas del *.cshtml* extensión. Como se mencionó anteriormente, siga el procedimiento recomendado de organizar la estructura de archivos para las vistas reflejar las relaciones existentes entre controladores, acciones y vistas para mayor claridad y mantenimiento.
 
 > [!NOTE]
 > [Las vistas parciales](partial.md) y [ver componentes](view-components.md) utilizar mecanismos de detección similares (pero no idénticos).

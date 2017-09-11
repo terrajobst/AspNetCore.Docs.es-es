@@ -11,11 +11,11 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: bf90698bbac850b1917cd93dbf0a5fc5b6792aa0
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
+ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/08/2017
 ---
 # <a name="filters"></a>Filtros
 
@@ -117,7 +117,7 @@ Puede agregar un filtro a la canalización en uno de los tres *ámbitos*. Puede 
 
 Cuando hay varios filtros para una determinada fase de la canalización, ámbito determina el orden predeterminado de la ejecución del filtro.  Filtros globales especifica los filtros de clase, que a su vez rodean filtros de método. Esto se conoce a veces como anidamiento "Ruso muñeca", tal y como cada aumento en el ámbito se ajusta alrededor del ámbito anterior, como un [muñeca anidamiento](https://en.wikipedia.org/wiki/Matryoshka_doll). Por lo general, obtendrá el comportamiento deseado de reemplazo sin tener que determinar el orden de forma explícita.
 
-Resultado asa de este anidamiento, la *después* código de filtros se ejecuta en el orden inverso de la *antes de* código. La secuencia tiene el siguiente aspecto:
+Como resultado de este anidamiento, la *después* código de filtros se ejecuta en el orden inverso de la *antes de* código. La secuencia tiene el siguiente aspecto:
 
 * El *antes de* código de filtros aplicados globalmente
   * El *antes de* código de filtros aplicados a los controladores
