@@ -11,15 +11,15 @@ ms.assetid: b20e3b23-1c51-47bf-adac-91b5048567e0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/knockout
-ms.openlocfilehash: 87b4fdc86f6bb870ae0a8cc85688a549fd0740ac
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d1c5cbd430587b757bb550f8f04355e67f04eb54
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="knockoutjs-mvvm-framework-in-aspnet-core"></a>Marco de knockout.js MVVM en ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Knockout es una biblioteca de JavaScript popular que simplifica la creación de interfaces de usuario complejas de bases de datos. Se puede utilizar por sí solo o con otras bibliotecas, como jQuery. Su objetivo principal es enlazar elementos de interfaz de usuario para un modelo de datos subyacente que se define como un objeto de JavaScript, de forma que cuando se realizan cambios en la interfaz de usuario, se actualiza el modelo y viceversa. Knockout facilita el uso de un modelo Model-View-ViewModel (MVVM) en el comportamiento del lado cliente de la aplicación web. Los dos conceptos principales uno necesario saber cuando se trabaja con la implementación de MVVM del Knockout son objetos Observables y enlaces.
 

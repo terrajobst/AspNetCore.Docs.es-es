@@ -11,17 +11,17 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 371fb0f721797e4d8f7a26858ae0a709cb5cd39e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Inyección de dependencia en controladores
 
 <a name=dependency-injection-controllers></a>
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Controladores MVC de ASP.NET Core deben solicitar sus dependencias explícitamente a través de sus constructores. En algunos casos, las acciones de controlador individuales pueden requerir un servicio y puede que no tenga sentido para solicitar en el nivel de controlador. En este caso, también puede insertar un servicio como un parámetro del método de acción.
 
@@ -29,7 +29,7 @@ Controladores MVC de ASP.NET Core deben solicitar sus dependencias explícitamen
 
 ## <a name="dependency-injection"></a>Inyección de dependencia
 
-Inserción de dependencias es una técnica que sigue a la [principio de inversión de dependencia](http://deviq.com/dependency-inversion-principle), lo cual permite aplicaciones componerse de módulos de acoplamiento flexible. ASP.NET Core tiene compatibilidad integrada para [inyección de dependencia](../../fundamentals/dependency-injection.md), lo que facilita las aplicaciones probar y mantener.
+Inserción de dependencias es una técnica que sigue a la [principio de inversión de dependencia](http://deviq.com/dependency-inversion-principle/), lo cual permite aplicaciones componerse de módulos de acoplamiento flexible. ASP.NET Core tiene compatibilidad integrada para [inyección de dependencia](../../fundamentals/dependency-injection.md), lo que facilita las aplicaciones probar y mantener.
 
 ## <a name="constructor-injection"></a>Inyección de constructor
 
@@ -70,7 +70,7 @@ Una vez que se ha configurado el servicio, ejecutar la aplicación y navegar a l
 ![Saludo del servidor](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Vea [lógica del controlador de pruebas](testing.md) para obtener información sobre cómo solicitar explícitamente dependencias [http://deviq.com/explicit-dependencies-principle](http://deviq.com/explicit-dependencies-principle) en los controladores de facilita código de prueba.
+> Vea [lógica del controlador de pruebas](testing.md) para obtener información sobre cómo solicitar explícitamente dependencias [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) en los controladores de facilita código de prueba.
 
 Inyección de dependencia integrados de ASP.NET Core admite solo un constructor único para las clases que soliciten servicios. Si tiene más de un constructor, es posible recibir una excepción que indica:
 

@@ -9,15 +9,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: 466453bff68f3e0da8b90924edb13095c7548db5
-ms.sourcegitcommit: 4f075f2c22c5a4b5345ffa759be4365824110788
+ms.openlocfilehash: 3c0f90dd9894c362c0d7fef5d1f1da076991605c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Prevención de ataques de falsificación (XSRF/CSRF) de solicitud entre sitios en ASP.NET Core
 
-[Steve Smith](http://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), y [Rick Anderson](https://twitter.com/RickAndMSFT)
+[Steve Smith](https://ardalis.com/), [Fiyaz Hasan](https://twitter.com/FiyazBinHasan), y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>¿Qué ataque evita antifalsificación?
 
@@ -354,7 +354,7 @@ Cuando un usuario inicia sesión un sistema, una sesión de usuario se crea en e
 
 ### <a name="user-tokens"></a>Tokens de usuario
 
-Autenticación basada en token no almacena la sesión en el servidor. En su lugar, cuando un usuario ha iniciado sesión se emiten un token (no un token antiforgery). Este token contiene todos los datos que es necesario para validar el token. También contiene información de usuario, en forma de [notificaciones](https://msdn.microsoft.com/library/ff359101.aspx). Cuando un usuario desea tener acceso a un recurso de servidor que requiera autenticación, el token se envía al servidor con un encabezado de autorización adicionales en forma de portador {token}. Esto hace que la aplicación sin estado ya que en cada solicitud posterior se pasa el token de la solicitud de validación del lado servidor. Este token no es *cifrados*; en su lugar es *codificado*. En el lado del servidor puede descodificar el token para tener acceso a la información sin procesar en el token. Para enviar el token en solicitudes posteriores, o bien puede almacenarlo en el almacenamiento local del explorador o en una cookie. No tiene que preocuparse de vulnerabilidad XSRF si el token se almacena en el almacenamiento local, pero es un problema si el token está almacenado en una cookie.
+Autenticación basada en token no almacena la sesión en el servidor. En su lugar, cuando un usuario ha iniciado sesión se emiten un token (no un token antiforgery). Este token contiene todos los datos que es necesario para validar el token. También contiene información de usuario, en forma de [notificaciones](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Cuando un usuario desea tener acceso a un recurso de servidor que requiera autenticación, el token se envía al servidor con un encabezado de autorización adicionales en forma de portador {token}. Esto hace que la aplicación sin estado ya que en cada solicitud posterior se pasa el token de la solicitud de validación del lado servidor. Este token no es *cifrados*; en su lugar es *codificado*. En el lado del servidor puede descodificar el token para tener acceso a la información sin procesar en el token. Para enviar el token en solicitudes posteriores, o bien puede almacenarlo en el almacenamiento local del explorador o en una cookie. No tiene que preocuparse de vulnerabilidad XSRF si el token se almacena en el almacenamiento local, pero es un problema si el token está almacenado en una cookie.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Varias aplicaciones se hospedan en un dominio
 

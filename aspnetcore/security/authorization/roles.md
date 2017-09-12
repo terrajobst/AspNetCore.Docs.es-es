@@ -11,17 +11,17 @@ ms.assetid: 5e014da1-8bc0-409b-951a-88b92c661fdf
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/roles
-ms.openlocfilehash: d8dfcbb16ee7977d197b019c4e5e1b30fff17755
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1dc76f316b70d486febe386cc47cd1f843d8d8e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="role-based-authorization"></a>Autorización basada en roles
 
 <a name=security-authorization-role-based></a>
 
-Cuando se crea una identidad puede pertenecer a uno o más roles, por ejemplo Tracy puede pertenecer a los roles de administrador y usuario aunque Scott solo puede pertenecer al rol de usuario. ¿Cómo se crean y administran estas funciones depende del almacén de copias de seguridad del proceso de autorización. Las funciones se exponen al programador a través de la [IsInRole](https://msdn.microsoft.com/library/system.security.claims.claimsprincipal.isinrole(v=vs.110).aspx) propiedad en el [ClaimsPrincipal](https://msdn.microsoft.com/library/system.security.claims.claimsprincipal(v=vs.110).aspx) clase.
+Cuando se crea una identidad puede pertenecer a uno o más roles, por ejemplo Tracy puede pertenecer a los roles de administrador y usuario aunque Scott solo puede pertenecer al rol de usuario. ¿Cómo se crean y administran estas funciones depende del almacén de copias de seguridad del proceso de autorización. Las funciones se exponen al programador a través de la [IsInRole](https://docs.microsoft.com/dotnet/api/system.security.principal.genericprincipal.isinrole) propiedad en el [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal) clase.
 
 ## <a name="adding-role-checks"></a>Agregar comprobaciones de la función
 

@@ -11,17 +11,17 @@ ms.assetid: 94c988f9-95fd-425d-b37e-7f846598c6d4
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 4282e992ea80420181f9d7a2e3d6a55d6614c4de
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 128612eb2f7c6c8fdd0cc01f10b8e522df46dcf6
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introducción a las aplicaciones de estilo con menos, Sass y fuente Maravilla en ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
-Los usuarios de aplicaciones web tienen cada vez más altas expectativas en cuanto a estilo y experiencia general. Aplicaciones web modernas aprovechan con frecuencia completas herramientas y marcos de trabajo para definir y administrar su apariencia y funcionamiento de una manera coherente. Marcos de trabajo como [arranque](http://getbootstrap.com/) puede ir mucho a definir un conjunto común de estilos y opciones de diseño para los sitios web. Sin embargo, no trivial mayoría de los sitios también se beneficiará de poder definir y mantener estilos y archivos (CSS) de la hoja de estilos en cascada de forma eficaz, así como tener un acceso sencillo a los iconos de imagen no que ayudan a hacer más intuitiva interfaz del sitio. Ahí es donde lenguajes y herramientas que admiten [menos](http://lesscss.org/) y [Sass](http://sass-lang.com/), y las bibliotecas como [fuente Maravilla](http://fortawesome.github.io/Font-Awesome/), vienen en.
+Los usuarios de aplicaciones web tienen cada vez más altas expectativas en cuanto a estilo y experiencia general. Aplicaciones web modernas aprovechan con frecuencia completas herramientas y marcos de trabajo para definir y administrar su apariencia y funcionamiento de una manera coherente. Marcos de trabajo como [arranque](http://getbootstrap.com/) puede ir mucho a definir un conjunto común de estilos y opciones de diseño para los sitios web. Sin embargo, no trivial mayoría de los sitios también se beneficiará de poder definir y mantener estilos y archivos (CSS) de la hoja de estilos en cascada de forma eficaz, así como tener un acceso sencillo a los iconos de imagen no que ayudan a hacer más intuitiva interfaz del sitio. Ahí es donde lenguajes y herramientas que admiten [menos](http://lesscss.org/) y [Sass](http://sass-lang.com/), y las bibliotecas como [fuente Maravilla](http://fontawesome.io/), vienen en.
 
 ## <a name="css-preprocessor-languages"></a>Idiomas de preprocesador de CSS
 

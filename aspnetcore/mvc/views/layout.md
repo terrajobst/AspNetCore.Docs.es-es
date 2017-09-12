@@ -11,15 +11,15 @@ ms.assetid: 29f12d1f-9734-48bd-bf1a-cee53a8ab700
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: 9a7f140722548b51bbce33d44389ff5646aa6047
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 25aa5fc730d9076fdcf9d29cb5d9dfa75a246a1a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="layout"></a>Diseño
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Vistas a menudo compartan elementos visuales y mediante programación. En este artículo, aprenderá a usar diseños comunes, compartir directivas y ejecutar el código común antes de la representación de vistas en la aplicación ASP.NET.
 

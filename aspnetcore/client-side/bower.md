@@ -12,17 +12,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 409f7afba8dd7d03b7b9aa27d93ec9167252b965
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: f5d208072f55d78de6ec8c238ebbe723cc0ec598
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Administrar paquetes de cliente con Bower en ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel arroz](http://blog.falafel.com/author/noel-rice/), y [Scott Addie](https://scottaddie.com) 
+Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Noel arroz](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/), y [Scott Addie](https://scottaddie.com) 
 
-[Bower](https://bower.io/) llama a sí mismo "Un administrador de paquetes para la web." Dentro del ecosistema de. NET, que se llena el espacio vacío a la izquierda incapacidad de NuGet para entregar archivos de contenido estático. Para los proyectos de ASP.NET Core, estos archivos estáticos son inherentes a las bibliotecas de cliente como [jQuery](http://jquery.com/) y [arranque](http://getbootstrap.com/). Para las bibliotecas. NET, seguir usando [NuGet](https://nuget.org/) Administrador de paquetes.
+[Bower](https://bower.io/) llama a sí mismo "Un administrador de paquetes para la web." Dentro del ecosistema de. NET, que se llena el espacio vacío a la izquierda incapacidad de NuGet para entregar archivos de contenido estático. Para los proyectos de ASP.NET Core, estos archivos estáticos son inherentes a las bibliotecas de cliente como [jQuery](http://jquery.com/) y [arranque](http://getbootstrap.com/). Para las bibliotecas. NET, seguir usando [NuGet](https://www.nuget.org/) Administrador de paquetes.
 
 Proceso de compilación de proyectos nuevos creados con las plantillas de proyecto de ASP.NET Core configurar el cliente. [jQuery](http://jquery.com/) y [arranque](http://getbootstrap.com/) están instalados, y se admite Bower.
 
@@ -36,7 +36,7 @@ En este tutorial, vamos a agregar compatibilidad para [fuente Maravilla](http://
 
 * Haga clic en el proyecto en el Explorador de soluciones y seleccione **administrar paquetes de Bower** (o bien en el menú principal, **proyecto** > **administrar paquetes de Bower**).
 
-* En el **Bower: \<nombre del proyecto\>**  ventana, haga clic en la ficha "Examinar" y, a continuación, filtre la lista de paquetes especificando `font-awesome` en el cuadro de búsqueda:
+* En el **Bower: \<nombre del proyecto\> ** ventana, haga clic en la ficha "Examinar" y, a continuación, filtre la lista de paquetes especificando `font-awesome` en el cuadro de búsqueda:
 
  ![Administrar paquetes de bower](bower/_static/manage-bower-packages.png)
 

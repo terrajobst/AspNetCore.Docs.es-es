@@ -11,15 +11,15 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: d5b2bd0200082000aeaf8015cfff9c8c1ec1bdd9
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e8a464e75dea3a0ec08c13a11888884e6bb6a4c7
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Controladores en las aplicaciones de ASP.NET MVC deben ser pequeño y se centra en los problemas de la interfaz de usuario. Controladores de grandes que tratan con problemas de interfaz de usuario no son más difíciles de probar y mantener.
 
@@ -47,7 +47,7 @@ Responsabilidades del controlador típico:
 Si va a escribir filtros personalizados, rutas, etcetera, debería prueba unitaria de ellas, pero no como parte de las pruebas en una acción de controlador determinado. Deben probar de forma aislada.
 
 > [!TIP]
-> [Crear y ejecutar pruebas unitarias con Visual Studio](https://www.visualstudio.com/get-started/code/create-and-run-unit-tests-vs).
+> [Crear y ejecutar pruebas unitarias con Visual Studio](https://www.visualstudio.com/docs/code/create-and-run-unit-tests-vs).
 
 Para mostrar las pruebas unitarias, revise el siguiente controlador. Muestra una lista de las sesiones de lluvia de ideas y permite que las sesiones que se creará con una entrada de blog de lluvia de ideas nuevas:
 

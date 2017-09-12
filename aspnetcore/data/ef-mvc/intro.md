@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: b8ef101458e0a6e6284624693689181646ced051
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
@@ -39,7 +39,7 @@ Núcleo EF 2.0 es la versión más reciente de EF pero todavía no tiene todas l
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Si experimenta un problema no se puede resolver, por lo general puede encontrar la solución comparando el código para el [proyecto completado](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Para obtener una lista de errores comunes y cómo resolverlos, vea [la sección de solución de problemas del último tutorial de la serie](advanced.md#common-errors). Si no encuentra lo que necesita no existe, puede publicar una pregunta en StackOverflow.com para [ASP.NET Core](http://stackoverflow.com/questions/tagged/asp.net-core) o [Core EF](http://stackoverflow.com/questions/tagged/entity-framework-core).
+Si experimenta un problema no se puede resolver, por lo general puede encontrar la solución comparando el código para el [proyecto completado](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Para obtener una lista de errores comunes y cómo resolverlos, vea [la sección de solución de problemas del último tutorial de la serie](advanced.md#common-errors). Si no encuentra lo que necesita no existe, puede publicar una pregunta en StackOverflow.com para [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Core EF](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
 > Se trata de una serie de tutoriales de 10, cada uno de los cuales se basa en lo que se realiza en los tutoriales anteriores.  Considere la posibilidad de guardar una copia del proyecto tras cada tutorial finalizar correctamente.  A continuación, si experimenta problemas, puede iniciar desde el tutorial anterior en lugar de volver al principio de la serie completa.
@@ -330,7 +330,7 @@ La cantidad de código que tenía que escribir en orden para Entity Framework po
 
 * Propiedades de la entidad que se denominan identificador o classnameID se reconocen como propiedades de clave principal.
 
-* Una propiedad se interpreta como una propiedad de clave externa si se denomina  *<navigation property name> <primary key property name>*  (por ejemplo, `StudentID` para el `Student` propiedad de navegación desde el `Student` clave principal de la entidad es `ID`). Propiedades de clave externa también se pueden denominar simplemente  *<primary key property name>*  (por ejemplo, `EnrollmentID` desde el `Enrollment` clave principal de la entidad es `EnrollmentID`).
+* Una propiedad se interpreta como una propiedad de clave externa si se denomina * <navigation property name> <primary key property name> * (por ejemplo, `StudentID` para el `Student` propiedad de navegación desde el `Student` clave principal de la entidad es `ID`). Propiedades de clave externa también se pueden denominar simplemente * <primary key property name> * (por ejemplo, `EnrollmentID` desde el `Enrollment` clave principal de la entidad es `EnrollmentID`).
 
 Puede reemplazarse un comportamiento convencional. Por ejemplo, puede especificar explícitamente los nombres de tabla, tal y como se vio anteriormente en este tutorial. Y puede establecer los nombres de columna y establecer cualquier propiedad como clave principal o clave externa, como verá en un [tutorial posterior](complex-data-model.md) de esta serie.
 

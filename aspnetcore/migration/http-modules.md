@@ -11,17 +11,17 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: f99c2751138ac789e7105ff256ce7254e280463e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrar controladores HTTP y módulos ASP.NET Core middleware 
 
 Por [Matt Perdeck](https://www.linkedin.com/in/mattperdeck)
 
-Este artículo muestra cómo migrar ASP.NET existente [módulos HTTP y controladores](https://msdn.microsoft.com/library/bb398986.aspx) a ASP.NET Core [middleware](../fundamentals/middleware.md).
+Este artículo muestra cómo migrar ASP.NET existente [módulos HTTP y controladores de system.webserver](https://docs.microsoft.com/iis/configuration/system.webserver/) a ASP.NET Core [middleware](../fundamentals/middleware.md).
 
 ## <a name="modules-and-handlers-revisited"></a>Módulos y controladores revisan
 
@@ -31,15 +31,15 @@ Antes de proceder con middleware de ASP.NET Core, primero Resumamos cómo funcio
 
 **Los controladores son:**
 
-   * Las clases que implementan [IHttpHandler](https://msdn.microsoft.com/library/system.web.ihttphandler.aspx)
+   * Las clases que implementan [IHttpHandler](https://docs.microsoft.com/dotnet/api/system.web.ihttphandler)
 
    * Utilizado para controlar solicitudes con un nombre de archivo especificado o una extensión, como *informes*
 
-   * [Configurar](https://msdn.microsoft.com/library/46c5ddfy.aspx) en *Web.config*
+   * [Configurar](https://docs.microsoft.com//iis/configuration/system.webserver/handlers/) en *Web.config*
 
 **Los módulos son:**
 
-   * Las clases que implementan [IHttpModule](https://msdn.microsoft.com/library/system.web.ihttpmodule.aspx)
+   * Las clases que implementan [IHttpModule](https://docs.microsoft.com/dotnet/api/system.web.ihttpmodule)
 
    * Se invoca para cada solicitud
 
@@ -47,11 +47,11 @@ Antes de proceder con middleware de ASP.NET Core, primero Resumamos cómo funcio
 
    * Puede agregar a la respuesta HTTP, o crear sus propios
 
-   * [Configurar](https://msdn.microsoft.com/library/ms227673.aspx) en *Web.config*
+   * [Configurar](https://docs.microsoft.com//iis/configuration/system.webserver/modules/) en *Web.config*
 
 **El orden en el que los módulos de procesan las solicitudes entrantes viene determinado por:**
 
-   1. El [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx), que es un eventos serie desencadenados por ASP.NET: [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), etcetera. Cada módulo puede crear un controlador para uno o varios eventos.
+   1. El [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx), que es un eventos serie desencadenados por ASP.NET: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest), etcetera. Cada módulo puede crear un controlador para uno o varios eventos.
 
    2. Para el mismo evento, el orden en el que se configuran en *Web.config*.
 
@@ -245,7 +245,7 @@ Se ha visto anteriormente que el `Invoke` método en el middleware toma un pará
 public async Task Invoke(HttpContext context)
 ```
 
-`HttpContext`ha cambiado significativamente en ASP.NET Core. Esta sección muestra cómo traducir las propiedades más utilizadas de [System.Web.HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) al nuevo `Microsoft.AspNetCore.Http.HttpContext`.
+`HttpContext`ha cambiado significativamente en ASP.NET Core. Esta sección muestra cómo traducir las propiedades más utilizadas de [System.Web.HttpContext](https://docs.microsoft.com/dotnet/api/system.web.httpcontext) al nuevo `Microsoft.AspNetCore.Http.HttpContext`.
 
 ### <a name="httpcontext"></a>HttpContext
 
@@ -382,7 +382,7 @@ El `SetCookies` método de devolución de llamada sería similar al siguiente:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Información general de los módulos HTTP y controladores HTTP](https://msdn.microsoft.com/library/bb398986.aspx)
+* [Información general de los módulos HTTP y controladores HTTP](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
 * [Configuración](../fundamentals/configuration.md)
 

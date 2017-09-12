@@ -11,15 +11,15 @@ ms.assetid: 9da9eb52-8583-4069-af91-155ba3529d7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
-ms.openlocfilehash: b7d6341c0312b3f5f122acfb2ee01210151b33bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Solicitudes de administración con los controladores de MVC de ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com) y [Scott Addie](https://github.com/scottaddie)
+Por [Steve Smith](https://ardalis.com/) y [Scott Addie](https://github.com/scottaddie)
 
 Controladores, acciones y resultados de la acción son una parte fundamental de cómo los desarrolladores crear aplicaciones con MVC de ASP.NET Core.
 
@@ -38,7 +38,7 @@ Un controlador es una clase se pueden crear instancias en las que al menos una d
 
 Una clase de controlador no debe tener asociado un `[NonController]` atributo.
 
-Los controladores deben seguir la [principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle). Existen dos enfoques para implementar este principio. Si varias acciones de controlador requieren el mismo servicio, considere la posibilidad de usar [inyección de constructor](xref:mvc/controllers/dependency-injection#constructor-injection) para solicitar esas dependencias. Si el servicio es necesario sólo un método de acción única, considere la posibilidad de usar [acción inyección](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) para solicitar la dependencia.
+Los controladores deben seguir la [principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle/). Existen dos enfoques para implementar este principio. Si varias acciones de controlador requieren el mismo servicio, considere la posibilidad de usar [inyección de constructor](xref:mvc/controllers/dependency-injection#constructor-injection) para solicitar esas dependencias. Si el servicio es necesario sólo un método de acción única, considere la posibilidad de usar [acción inyección](xref:mvc/controllers/dependency-injection#action-injection-with-fromservices) para solicitar la dependencia.
 
 En el **M**odelo -**V**er -**C**ontroller patrón, un controlador es responsable de la creación de instancias del modelo y el procesamiento inicial de la solicitud. Por lo general, las decisiones empresariales deben realizarse dentro del modelo.
 

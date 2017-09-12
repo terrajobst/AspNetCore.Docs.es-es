@@ -11,15 +11,15 @@ ms.assetid: ebd98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 8dae9cf1597ae2bddf2943af4a7ab9d50620825b
-ms.sourcegitcommit: 26166785ad181a8519cb008800d71d96499b0499
+ms.openlocfilehash: 2b95073bc0972908d0c0b2158a036e4374c7df4d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-model-binding"></a>Enlace de modelos personalizados
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Enlace de modelos permite acciones de controlador trabajar directamente con los tipos de modelos (pasados como argumentos de método), en su lugar que las solicitudes HTTP. Asignación entre los modelos de datos y aplicaciones de solicitud entrantes se controla por enlazadores de modelos. Los programadores pueden ampliar la funcionalidad de enlace de modelo integrado mediante la implementación de enlazadores de modelos personalizados (aunque por lo general, no es necesario escribir su propio proveedor).
 
@@ -137,4 +137,4 @@ Agregar el proveedor al final de la colección, se puede producir un enlazador d
 Enlazadores de modelos personalizados:
 - No debe intentar establecer códigos de estado o devolver resultados (por ejemplo, 404 no encontrado). Si se produce un error en el enlace de modelos, un [filtro de acción](xref:mvc/controllers/filters) o lógica en el propio método de acción debe controlar los errores.
 - Son muy útiles para eliminar código repetitivo y problemas surgidos de corte del cruce de los métodos de acción.
-- Normalmente no debe usarse para convertir una cadena en un tipo personalizado, un [ `TypeConverter` ](https://msdn.microsoft.com/library/ayybcxe5.aspx) suele ser una mejor opción.
+- Normalmente no debe usarse para convertir una cadena en un tipo personalizado, un [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) suele ser una mejor opción.

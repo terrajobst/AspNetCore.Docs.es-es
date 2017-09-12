@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15abe93d881aed3b6950a859dc9445ec50ee9bb5
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al inicio de sesión principal de ASP.NET
 
-Por [Steve Smith](http://ardalis.com) y [Tom Dykstra](https://github.com/tdykstra)
+Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core es compatible con una API de registro que funciona con una variedad de proveedores de registro. Proveedores integrados permiten enviar registros a uno o varios destinos, y puede conectar un marco de trabajo de registro de aplicaciones de terceros. Este artículo muestra cómo usar las API de registro integrados y los proveedores en el código.
 
@@ -244,7 +244,7 @@ El mensaje del registro resultante sería similar al siguiente:
 Parameter values: parm1, parm2
 ```
 
-El marco de trabajo de registro de mensajes de formato de esta manera para que sea posible para los proveedores de registro implementar [registro semántica, también conocido como registro estructurado](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Dado que los argumentos se pasan al sistema de registro, no solo la cadena de mensaje con formato, los proveedores de registro pueden almacenar los valores de parámetro como campos además de la cadena de mensaje. Por ejemplo, si dirigen el registro de salida en el almacenamiento de tabla de Azure y la llamada al método de registrador tiene el siguiente aspecto:
+El marco de trabajo de registro de mensajes de formato de esta manera para que sea posible para los proveedores de registro implementar [registro semántica, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging). Dado que los argumentos se pasan al sistema de registro, no solo la cadena de mensaje con formato, los proveedores de registro pueden almacenar los valores de parámetro como campos además de la cadena de mensaje. Por ejemplo, si dirigen el registro de salida en el almacenamiento de tabla de Azure y la llamada al método de registrador tiene el siguiente aspecto:
 
 ```csharp
 _logger.LogInformation("Getting item {ID} at {RequestTime}", id, DateTime.Now);
@@ -514,7 +514,7 @@ Captura de eventos en Nano Server, requiere alguna configuración adicional:
   New-EtwTraceSession -Name "MyAppTrace" -LocalFilePath C:\trace.etl
   ```
 
-* Agregar proveedores ETW para [CLR](https://msdn.microsoft.com/library/ff357718), ASP.NET Core y otros elementos según sea necesario. El proveedor de ASP.NET Core GUID es `3ac73b97-af73-50e9-0822-5da4367920d0`. 
+* Agregar proveedores ETW para [CLR](https://docs.microsoft.com/dotnet/framework/performance/clr-etw-providers), ASP.NET Core y otros elementos según sea necesario. El proveedor de ASP.NET Core GUID es `3ac73b97-af73-50e9-0822-5da4367920d0`. 
 
   ```powershell
   Add-EtwTraceProvider -Guid "{e13c0d23-ccbc-4e12-931b-d9cc2eee27e4}" -SessionName MyAppTrace
@@ -555,7 +555,7 @@ loggerFactory.AddEventLog()
 <a id="tracesource"></a>
 ### <a name="the-tracesource-provider"></a>El proveedor de TraceSource
 
-El [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) proveedor paquete utiliza la [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) bibliotecas y los proveedores.
+El [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) proveedor paquete utiliza la [System.Diagnostics.TraceSource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracesource) bibliotecas y los proveedores.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -573,7 +573,7 @@ loggerFactory.AddTraceSource(sourceSwitchName);
 
 [Las sobrecargas de AddTraceSource](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.tracesourcefactoryextensions) permiten pasar en un modificador de origen y un agente de escucha de seguimiento.
 
-Para utilizar este proveedor, una aplicación debe ejecutarse en el .NET Framework (en lugar de .NET Core). El proveedor permite enrutar mensajes a una variedad de [los agentes de escucha](https://msdn.microsoft.com/library/4y5y10s7), como el [TextWriterTraceListener](https://msdn.microsoft.com/library/system.diagnostics.textwritertracelistener) usado en la aplicación de ejemplo.
+Para utilizar este proveedor, una aplicación debe ejecutarse en el .NET Framework (en lugar de .NET Core). El proveedor permite enrutar mensajes a una variedad de [los agentes de escucha](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/trace-listeners), como el [TextWriterTraceListener](https://docs.microsoft.com/dotnet/api/system.diagnostics.textwritertracelistenerr) usado en la aplicación de ejemplo.
 
 En el ejemplo siguiente se configura un `TraceSource` proveedor que registra `Warning` y mensajes superior en la ventana de consola.
 
@@ -621,9 +621,9 @@ Estos son algunos marcos de registro de aplicaciones de terceros que funcionan c
 
 * [NLog](https://github.com/NLog/NLog.Extensions.Logging) -proveedor para la biblioteca de NLog
 
-* [Serilog](https://github.com/serilog/serilog-framework-logging) -proveedor para la biblioteca de Serilog
+* [Serilog](https://github.com/serilog/serilog-extensions-logging) -proveedor para la biblioteca de Serilog
 
-Algunos marcos de terceros pueden hacer [registro semántica, también conocido como registro estructurado](http://programmers.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Algunos marcos de terceros pueden hacer [registro semántica, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
 Con el marco de terceros es similar al uso de uno de los proveedores integrados: agregar un paquete de NuGet al proyecto y llame a un método de extensión en `ILoggerFactory`. Para obtener más información, consulte la documentación de cada marco de trabajo.
 

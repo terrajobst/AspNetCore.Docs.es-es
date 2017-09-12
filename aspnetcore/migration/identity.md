@@ -11,17 +11,17 @@ ms.assetid: 0db145cb-41a5-448a-b889-72e2d789ad7f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/identity
-ms.openlocfilehash: c86e9b98bcb43b383ac1077fe2749d0dfcd7392a
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: b5a9bab4399714c481d4f38eeeaeba19d8bdd5b2
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-authentication-and-identity"></a>Migrar de autenticación e identidad
 
 <a name=migration-identity></a>
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 En la versión anterior del artículo se [migrar configuración desde un proyecto de MVC de ASP.NET a ASP.NET MVC de núcleo](configuration.md). En este artículo, nos migrar las características de administración de registro, el inicio de sesión y el usuario.
 

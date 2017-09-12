@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5898892c63e978adfabf9939394fef4ea1848d49
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 96a4fed19887a7a9eba08ec70296147f22e41569
+ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Introducción a control de errores en ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com) y [Tom Dykstra](https://github.com/tdykstra/)
+Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdykstra/)
 
 Este artículo tratan appoaches común para controlar los errores en las aplicaciones de ASP.NET Core.
 
@@ -111,13 +111,13 @@ Además, tenga en cuenta que una vez que se ha enviado los encabezados de respue
 
 ## <a name="server-exception-handling"></a>Control de excepciones de servidor
 
-Además de la lógica de la aplicación de control de excepciones del [server](servers/index.md) hospeda la aplicación realizará algunas excepciones. Si el servidor detecta una excepción antes de que se han enviado los encabezados que envía una respuesta de Error de servidor interno 500 sin cuerpo. Si detecta una excepción después de han enviado los encabezados, cierra la conexión. Las solicitudes que no son controladas por la aplicación será procesadas por el servidor y controlará cualquier excepción que se produce por la excepción del servidor de control. Las páginas de errores personalizadas o control middleware o ha configurado para la aplicación de filtros de excepciones no afectará a este comportamiento.
+Además de la lógica de la aplicación de control de excepciones del [server](servers/index.md) hospede su aplicación realiza algunas excepciones. Si el servidor detecta una excepción antes de que se envían los encabezados, el servidor envía una respuesta de Error de servidor interno 500 sin cuerpo. Si el servidor detecta una excepción después de han enviado los encabezados, el servidor cierra la conexión. El servidor controla las solicitudes no están administradas por la aplicación. Cualquier excepción que se está controlando de excepción del servidor de control. Cualquier configurar páginas de errores personalizadas o middleware de control de excepciones o filtros no afectan a este comportamiento.
 
 ## <a name="startup-exception-handling"></a>Control de excepciones de inicio
 
-Solo el nivel de hospedaje puede controlar las excepciones que tienen lugar durante el inicio de la aplicación. Las excepciones que se producen durante el inicio de la aplicación pueden afectar al comportamiento del servidor. Por ejemplo, si se produce una excepción antes de llamar a `KestrelServerOptions.UseHttps`, el nivel de hospedaje detecta la excepción, inicia el servidor y se muestra una página de error en el puerto no SSL. Si se produce una excepción cuando se ejecuta esa línea, se sirve la página de error a través de HTTPS en su lugar.
+Solo el nivel de hospedaje puede controlar las excepciones que tienen lugar durante el inicio de la aplicación. También puede [configurar cómo se comporta el host en respuesta a los errores durante el inicio](hosting.md#detailed-errors) con `captureStartupErrors` y `detailedErrors` clave.
 
-También puede [configurar cómo se comportará el host en respuesta a errores durante el inicio](hosting.md#configuring-a-host) con `CaptureStartupErrors` y `detailedErrors` clave.
+Hospedaje sólo puede mostrar una página de error para un error de inicio capturada si el error se produce después de enlace de dirección/puerto de host. Si se produce un error en cualquier enlace por cualquier motivo, el nivel de hospedaje registra una excepción crítica, el bloqueo del proceso de dotnet, y no se muestra ninguna página de error.
 
 ## <a name="aspnet-mvc-error-handling"></a>Control de errores de ASP.NET MVC
 

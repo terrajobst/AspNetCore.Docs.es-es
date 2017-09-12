@@ -11,11 +11,11 @@ ms.assetid: 3606b251-8324-4485-8d52-582a2cd5cffb
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: fb74905660015b9a83503e1f74b25c66ae9df9e3
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: ed84b6dc257d5fd9e4c1cf6106df3c8bd6e14f64
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="key-management-extensibility"></a>Extensibilidad de administración de claves
 
@@ -67,7 +67,7 @@ La interfaz IKeyManager representa un objeto responsable de la manipulación, re
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-El tipo de XmlKeyManager es la implementación concreta en el cuadro de IKeyManager. Proporciona varias funciones útiles, incluidas la custodia de clave y el cifrado de claves en reposo. Las claves en este sistema se representan como elementos XML (en concreto, [XElement](https://msdn.microsoft.com/library/system.xml.linq.xelement(v=vs.110).aspx)).
+El tipo de XmlKeyManager es la implementación concreta en el cuadro de IKeyManager. Proporciona varias funciones útiles, incluidas la custodia de clave y el cifrado de claves en reposo. Las claves en este sistema se representan como elementos XML (en concreto, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview).
 
 XmlKeyManager depende de otros componentes en el curso de cumplir sus tareas:
 

@@ -11,11 +11,11 @@ ms.assetid: fda0c2a8-1743-4505-be1a-7f8ceeef8647
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/yeoman
-ms.openlocfilehash: 3a7cd83becc570d2f73014b356977fedb16f29bb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 61561b55774faf375090c92b574a64f1a12f9647
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-building-projects-with-yeoman-in-aspnet-core"></a>Introducción a la creación de proyectos con Yeoman en ASP.NET Core
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/11/2017
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Se requiere para Yeoman Node.js y npm. Descargar desde [Node.js](https://nodejs.org/en/). El instalador incluye [Node.js](https://nodejs.org/en/) y [npm](https://www.npmjs.com/). Bower también es necesario para la instalación de marcos de interfaz de usuario como de arranque.
+Se requiere para Yeoman Node.js y npm. Descargar desde [Node.js](https://nodejs.org/). El instalador incluye [Node.js](https://nodejs.org/) y [npm](https://www.npmjs.com/). Bower también es necesario para la instalación de marcos de interfaz de usuario como de arranque.
 
 Para instalar Yeoman y Bower, ejecute el siguiente comando:
 
@@ -135,7 +135,7 @@ Abra un explorador web y navegue hasta `http://localhost:5000`.
 
 ## <a name="adding-to-your-project-with-sub-generators"></a>Agregar a un proyecto con los generadores de sub
 
-Usando Yeoman [sub generadores](https://www.github.com/omnisharp/generator-aspnet#sub-generators), puede agregar un `nuget.config` o `web.config` después de crear el proyecto. Por ejemplo, ejecute el siguiente comando desde el directorio en el que se debe crear el archivo:
+Usando Yeoman [sub generadores](https://github.com/omnisharp/generator-aspnet), puede agregar un `nuget.config` o `web.config` después de crear el proyecto. Por ejemplo, ejecute el siguiente comando desde el directorio en el que se debe crear el archivo:
 
 ```console
 yo aspnet:nugetconfig

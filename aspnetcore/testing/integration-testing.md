@@ -11,15 +11,15 @@ ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: d30af6edc31fbce2ebb77c57be3fd78231c54b50
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Pruebas de integración garantizan que los componentes de una aplicación funcionan correctamente cuando se ensamblan juntos. Integración de es compatible con ASP.NET Core pruebas con marcos de pruebas unitarias y un host de web de prueba integrados que puede usarse para controlar las solicitudes sin la sobrecarga de la red.
 
@@ -130,7 +130,7 @@ Con este middleware en vigor y algunos útil métodos de extensión creados para
 Después de esta operación de refactorización, esté seguro de que la aplicación web sigue funcionando como antes, ya que las pruebas de integración se superan.
 
 > [!NOTE]
-> Es una buena idea para confirmar los cambios al control de código fuente después de completar una refactorización y pasan las pruebas. Si está realizando la práctica de desarrollo controlado por pruebas, [considere la adición de confirmación a la fase del ciclo rojo-verde-refactorizar](http://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
+> Es una buena idea para confirmar los cambios al control de código fuente después de completar una refactorización y pasan las pruebas. Si está realizando la práctica de desarrollo controlado por pruebas, [considere la adición de confirmación a la fase del ciclo rojo-verde-refactorizar](https://ardalis.com/rgrc-is-the-new-red-green-refactor-for-test-first-development).
 
 ## <a name="resources"></a>Recursos
 

@@ -11,11 +11,11 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 513726e209401d158ac98d5874942765751ac07d
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="machine-wide-policy"></a>Directiva para todo el equipo
 
@@ -77,4 +77,4 @@ Si EncryptionType está "administrado", el sistema se configurará para utilizar
 Si EncryptionType tiene cualquier otro valor (que no sea null o vacío), el sistema de protección de datos producirá una excepción en el inicio.
 
 >[!WARNING]
-> Al configurar una configuración de directiva predeterminada que afecta a los nombres de tipo (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), los tipos deben ser disponibles para la aplicación. En la práctica, esto significa que para aplicaciones que se ejecutan en CLR de escritorio, los ensamblados que contienen estos tipos deben ser GACed. Para aplicaciones de ASP.NET Core que se ejecutan en [.NET Core](https://microsoft.com/net/core), se deben instalar los paquetes que contienen estos tipos.
+> Al configurar una configuración de directiva predeterminada que afecta a los nombres de tipo (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), los tipos deben ser disponibles para la aplicación. En la práctica, esto significa que para aplicaciones que se ejecutan en CLR de escritorio, los ensamblados que contienen estos tipos deben ser GACed. Para aplicaciones de ASP.NET Core que se ejecutan en [.NET Core](https://www.microsoft.com/net/core), se deben instalar los paquetes que contienen estos tipos.

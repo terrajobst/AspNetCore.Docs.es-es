@@ -11,17 +11,17 @@ ms.assetid: 5ac13589-3837-4b4d-8abe-81f843942120
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/replacing-machinekey
-ms.openlocfilehash: b7f260bd5d548588a51095537c9c1b1802553c54
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 29229b9507ece6aff8278b0ad66169c9e4e7498b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="replacing-machinekey-in-aspnet"></a>Reemplazar `<machineKey>` en ASP.NET
 
 <a name=compatibility-replacing-machinekey></a>
 
-La implementación de la `<machineKey>` elemento en ASP.NET [es reemplazable](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx). Esto permite la mayoría de las llamadas a rutinas criptográficas de ASP.NET se enruten a través de un mecanismo de protección de datos de reemplazo, incluido el nuevo sistema de protección de datos.
+La implementación de la `<machineKey>` elemento en ASP.NET [es reemplazable](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/). Esto permite la mayoría de las llamadas a rutinas criptográficas de ASP.NET se enruten a través de un mecanismo de protección de datos de reemplazo, incluido el nuevo sistema de protección de datos.
 
 ## <a name="package-installation"></a>Instalación del paquete
 
@@ -30,7 +30,7 @@ La implementación de la `<machineKey>` elemento en ASP.NET [es reemplazable](ht
 
 Para instalar el nuevo sistema de protección de datos en un proyecto de 4.5.1+ ASP.NET existente, instale el paquete Microsoft.AspNetCore.DataProtection.SystemWeb. Esto creará una instancia del sistema de protección de datos mediante la [configuración predeterminada](../configuration/default-settings.md#data-protection-default-settings) configuración.
 
-Cuando se instala el paquete, inserta una línea en *Web.config* que le indica a ASP.NET para usarla para [más operaciones criptográficas](http://blogs.msdn.com/b/webdev/archive/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2.aspx), como la autenticación de formularios, estado de vista y llamadas a MachineKey.Protect. La línea que se inserta quede como sigue.
+Cuando se instala el paquete, inserta una línea en *Web.config* que le indica a ASP.NET para usarla para [más operaciones criptográficas](https://blogs.msdn.microsoft.com/webdev/2012/10/23/cryptographic-improvements-in-asp-net-4-5-pt-2/), como la autenticación de formularios, estado de vista y llamadas a MachineKey.Protect. La línea que se inserta quede como sigue.
 
 ```xml
 <machineKey compatibilityMode="Framework45" dataProtectorType="..." />

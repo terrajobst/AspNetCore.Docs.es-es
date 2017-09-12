@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/app-state
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdc93b2c06b7f0314b5bf49e0e3ea5aa3c1eb3cf
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8b451bde1e3180d12781d55113638cc1a99182c8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introducción al estado de sesión y la aplicación de ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](http://ardalis.com), y [Diana LaRose](https://github.com/DianaLaRose)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), y [Diana LaRose](https://github.com/DianaLaRose)
 
 HTTP es un protocolo sin estado. Un servidor web trata cada solicitud HTTP como una solicitud independiente y no retiene los valores de usuario de las solicitudes anteriores. Este artículo describe diferentes maneras de mantener la aplicación y el estado de sesión entre las solicitudes. 
 
@@ -58,7 +58,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-Los datos de la cookie se codifican con el [Base64UrlTextEncoder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.authentication.base64urltextencoder). Dado que la cookie se cifra y fragmentada, el límite de tamaño de cookie único no se aplica. No se comprimieron los datos de cookies, porque la compresión de datos de encryped puede provocar problemas de seguridad como la [CRIME](https://en.wikipedia.org/wiki/CRIME_(security_exploit)) y [infracción](https://en.wikipedia.org/wiki/BREACH_(security_exploit)) ataques. Para obtener más información sobre el proveedor TempData basado en cookies, consulte [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
+Los datos de la cookie se codifican con el [Base64UrlTextEncoder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.authentication.base64urltextencoder). Dado que la cookie se cifra y fragmentada, el límite de tamaño de cookie único no se aplica. No se comprimieron los datos de cookies, porque la compresión de datos de encryped puede provocar problemas de seguridad como la [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) y [infracción](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataques. Para obtener más información sobre el proveedor TempData basado en cookies, consulte [CookieTempDataProvider](https://github.com/aspnet/Mvc/blob/dev/src/Microsoft.AspNetCore.Mvc.ViewFeatures/ViewFeatures/CookieTempDataProvider.cs).
 
 ### <a name="query-strings"></a>Cadenas de consulta
 

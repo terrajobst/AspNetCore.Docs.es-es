@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 28bd52edbdb3159642ce523dd63fde9d6001678c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 796d075d4d0c6b888be4fc2225fc482acdbad498
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Introducción a abrir la interfaz Web para .NET (OWIN)
 
-Por [Steve Smith](http://ardalis.com) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ASP.NET Core es compatible con la interfaz Web abierta para .NET (OWIN). OWIN permite que las aplicaciones web se desacople de servidores web. Define un método estándar para middleware para usarse en una canalización para controlar las solicitudes y respuestas asociadas. El software intermedio y las aplicaciones de ASP.NET Core pueden interoperar con middleware, servidores y aplicaciones basadas en OWIN.
 

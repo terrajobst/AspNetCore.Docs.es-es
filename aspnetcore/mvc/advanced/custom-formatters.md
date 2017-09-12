@@ -11,11 +11,11 @@ ms.assetid: 1fb6fdc2-e199-4469-9012-b909d1913422
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/custom-formatters
-ms.openlocfilehash: 0285b40cfacb79745d3a6488401677130f55a95b
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 792e007232c751d3db9dc5e50adbedfb2bb1a7ae
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="custom-formatters-in-aspnet-core-mvc-web-apis"></a>Formateadores personalizados en las API web de MVC de ASP.NET Core
 
@@ -29,7 +29,7 @@ Núcleo de ASP.NET MVC tiene compatibilidad integrada para el intercambio de dat
 
 Utilizar un formateador personalizado cuando desee que el [negociación de contenido](xref:mvc/models/formatting) proceso para admitir un tipo de contenido que no es compatible con los formateadores integrados (JSON, XML y texto sin formato).
 
-Por ejemplo, si algunos de los clientes para la API web pueden controlar la [Protobuf](https://github.com/google/protobuf) formato, puede usar Protobuf con dichos clientes porque es más eficaz.  También puede enviar contacto nombres y direcciones en la API de web [vCard](https://en.wikipedia.org/wiki/VCard) formato, un formato comúnmente utilizado para intercambiar datos de contacto. La aplicación de ejemplo proporcionada con este artículo implementa a un formateador de vCard simple.
+Por ejemplo, si algunos de los clientes para la API web pueden controlar la [Protobuf](https://github.com/google/protobuf) formato, puede usar Protobuf con dichos clientes porque es más eficaz.  También puede enviar contacto nombres y direcciones en la API de web [vCard](https://wikipedia.org/wiki/VCard) formato, un formato comúnmente utilizado para intercambiar datos de contacto. La aplicación de ejemplo proporcionada con este artículo implementa a un formateador de vCard simple.
 
 ## <a name="overview-of-how-to-use-a-custom-formatter"></a>Información general sobre cómo utilizar a un formateador personalizado
 

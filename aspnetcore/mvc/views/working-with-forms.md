@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd69e008a81abc4f6785d93b89823c03e1a7df83
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: c3f7792d7458013f837a48ca2caa459f35658f02
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introducción al uso de aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 
@@ -34,7 +34,7 @@ El [formulario](https://www.w3.org/TR/html401/interact/forms.html) auxiliar de e
 
 * Genera el código HTML [ \<formulario >](https://www.w3.org/TR/html401/interact/forms.html) `action` valor de atributo para una acción de controlador MVC o la ruta con nombre
 
-* Genera oculto [comprobación de solicitud de Token](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) para impedir la falsificación de solicitud entre sitios (cuando se usa con el `[ValidateAntiForgeryToken]` atributo en el método de acción HTTP Post)
+* Genera oculto [comprobación de solicitud de Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) para impedir la falsificación de solicitud entre sitios (cuando se usa con el `[ValidateAntiForgeryToken]` atributo en el método de acción HTTP Post)
 
 * Proporciona el `asp-route-<Parameter Name>` atributo, donde `<Parameter Name>` se agrega a los valores de ruta. El `routeValues` parámetros `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.
 
@@ -53,7 +53,7 @@ El Ayudante de etiqueta de formulario anterior genera el siguiente código HTML:
     </form>
    ```
 
-El tiempo de ejecución MVC genera el `action` valor del atributo de los atributos de la aplicación auxiliar de etiqueta de formulario `asp-controller` y `asp-action`. La aplicación auxiliar de etiqueta de formulario también genera oculto [comprobación de solicitud de Token](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) para impedir la falsificación de solicitud entre sitios (cuando se usa con el `[ValidateAntiForgeryToken]` atributo en el método de acción HTTP Post). Protección de un formulario HTML puro de falsificación de solicitudes entre sitios es difícil, la aplicación auxiliar de etiqueta de formulario proporciona este servicio.
+El tiempo de ejecución MVC genera el `action` valor del atributo de los atributos de la aplicación auxiliar de etiqueta de formulario `asp-controller` y `asp-action`. La aplicación auxiliar de etiqueta de formulario también genera oculto [comprobación de solicitud de Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) para impedir la falsificación de solicitud entre sitios (cuando se usa con el `[ValidateAntiForgeryToken]` atributo en el método de acción HTTP Post). Protección de un formulario HTML puro de falsificación de solicitudes entre sitios es difícil, la aplicación auxiliar de etiqueta de formulario proporciona este servicio.
 
 ### <a name="using-a-named-route"></a>Uso de una ruta con nombre
 
@@ -61,7 +61,7 @@ El `asp-route` atributo de aplicación auxiliar de etiquetas también puede gene
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Muchas de las vistas en el *Views/Account* carpeta (generan cuando se crea una nueva aplicación web con *cuentas de usuario individuales*) contienen el [returnurl de ruta de asp](http://docs.asp.net/en/latest/mvc/views/working-with-forms.html#the-form-tag-helper) atributo:
+Muchas de las vistas en el *Views/Account* carpeta (generan cuando se crea una nueva aplicación web con *cuentas de usuario individuales*) contienen el [returnurl de ruta de asp](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) atributo:
 
 <!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "none", "highlight_args": {"hl_lines": [2]}} -->
 
@@ -88,11 +88,11 @@ La aplicación auxiliar de etiqueta de entrada:
 
 * Genera el `id` y `name` atributos HTML para el nombre de la expresión especificada en el `asp-for` atributo. `asp-for="Property1.Property2"` es equivalente a `m => m.Property1.Property2`. El nombre de la expresión es lo que se usa para la `asp-for` valor de atributo. Consulte la [nombres de la expresión](#expression-names) sección para obtener información adicional.
 
-* Establece el código HTML `type` según el tipo de modelo de valor de atributo y [anotación de datos](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) atributos aplicados a la propiedad de modelo
+* Establece el código HTML `type` según el tipo de modelo de valor de atributo y [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos aplicados a la propiedad de modelo
 
 * No se sobrescribirá el código HTML `type` valor de atributo cuando se especifica uno
 
-* Genera [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) atributos de validación de [anotación de datos](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) atributos aplicados a las propiedades del modelo
+* Genera [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) atributos de validación de [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos aplicados a las propiedades del modelo
 
 * Tiene una característica de la aplicación auxiliar HTML que se superponen con `Html.TextBoxFor` y `Html.EditorFor`. Consulte la **alternativas de la aplicación auxiliar HTML para la aplicación auxiliar de etiqueta de entrada** sección para obtener más información.
 
@@ -121,7 +121,7 @@ El `Input` etiqueta auxiliar establece el código HTML `type` atributo basado en
 |Single, Double|tipo = "number"|
 
 
-La siguiente tabla muestra algunos común [las anotaciones de datos](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) atributos que la aplicación auxiliar de la etiqueta de entrada se asigne a tipos de entrada específicos (no cada atributo de validación se muestra):
+La siguiente tabla muestra algunos común [las anotaciones de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos que la aplicación auxiliar de la etiqueta de entrada se asigne a tipos de entrada específicos (no cada atributo de validación se muestra):
 
 
 |Atributo|Tipo de entrada|
@@ -260,7 +260,7 @@ El *Views/Shared/EditorTemplates/ToDoItem.cshtml* plantilla:
 
 El `Textarea Tag Helper` auxiliar de etiqueta es similar a la aplicación auxiliar de etiqueta de entrada.
 
-* Genera el `id` y `name` atributos y los atributos de validación de datos del modelo para un [ \<textarea >](http://www.w3.org/wiki/HTML/Elements/textarea) elemento.
+* Genera el `id` y `name` atributos y los atributos de validación de datos del modelo para un [ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea) elemento.
 
 * Proporciona el establecimiento inflexible de tipos.
 
@@ -324,7 +324,7 @@ Hay dos aplicaciones auxiliares de etiquetas de validación. El `Validation Mess
 
 ### <a name="the-validation-message-tag-helper"></a>El Ayudante de etiqueta de mensaje de validación
 
-* Agrega el [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` atribuir a la [abarcan](https://developer.mozilla.org/docs/Web/HTML/Element/span) elemento, que asocia los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificado.   Cuando se produce un error de validación del lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en la `<span>` elemento.
+* Agrega el [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` atribuir a la [abarcan](https://developer.mozilla.org/docs/Web/HTML/Element/span) elemento, que asocia los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificado. Cuando se produce un error de validación del lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en la `<span>` elemento.
 
 * La validación también tiene lugar en el servidor. Los clientes pueden tener JavaScript deshabilitado y alguna validación solo puede realizarse en el servidor.
 
@@ -594,12 +594,12 @@ El valor correcto `<option>` se seleccionará el elemento (contienen el `selecte
 
 * [Elemento de formulario HTML](https://www.w3.org/TR/html401/interact/forms.html)
 
-* [Solicitud de Token de comprobación](http://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
+* [Solicitud de Token de comprobación](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
 
 * [Enlace de modelos](../models/model-binding.md)
 
 * [Validación del modelo](../models/validation.md)
 
-* [anotaciones de datos](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx)
+* [anotaciones de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
 
 * [Fragmentos de este documento de código](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample).

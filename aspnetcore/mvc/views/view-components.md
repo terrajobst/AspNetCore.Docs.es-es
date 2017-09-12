@@ -11,11 +11,11 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 68efa1f313c73e2aee3e0e3c2fcb9eba0e12a62f
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 07a2aca731b8017450a1b0da00ddef25306c122e
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="view-components"></a>Componentes de la vista
 
@@ -103,7 +103,7 @@ Para ASP.NET Core 1.1 y versiones posteriores, puede invocar un componente de vi
 
 [!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-Parámetros de clase y método la grafía Pascal para aplicaciones auxiliares de etiquetas se convierten en sus [reducir caso kebab](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101). La aplicación auxiliar de etiquetas para invocar un componente de vista utiliza la `<vc></vc>` elemento. El componente de vista se especifica como sigue:
+Parámetros de clase y método la grafía Pascal para aplicaciones auxiliares de etiquetas se convierten en sus [reducir caso kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). La aplicación auxiliar de etiquetas para invocar un componente de vista utiliza la `<vc></vc>` elemento. El componente de vista se especifica como sigue:
 
 ```html
 <vc:[view-component-name]

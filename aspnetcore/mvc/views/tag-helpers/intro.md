@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b1de37d93f5dca2d6b6be24c429b5971692e17e
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 53a31ed8ca6ff24a19a33a56c3a896aa58cbb62a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introducción a las aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET 
 
@@ -151,7 +151,7 @@ Tan pronto como se escribe un atributo de aplicación auxiliar de etiquetas, cam
 
 ![imagen](intro/_static/labelaspfor2.png)
 
-Puede escribir el Visual Studio *CompleteWord* acceso directo (Ctrl + barra espaciadora es el [predeterminado](https://msdn.microsoft.com/library/da5kh0wa.aspx)) dentro de las comillas dobles (""), y ahora se encuentran en C#, al igual que sería en una clase de C#. IntelliSense muestra todos los métodos y propiedades en el modelo de páginas. Los métodos y propiedades están disponibles porque el tipo de propiedad es `ModelExpression`. En la imagen siguiente, estoy editando el `Register` vista, por lo que el `RegisterViewModel` está disponible.
+Puede escribir el Visual Studio *CompleteWord* acceso directo (Ctrl + barra espaciadora es el [predeterminado](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) dentro de las comillas dobles (""), y ahora se encuentran en C#, al igual que sería en una clase de C#. IntelliSense muestra todos los métodos y propiedades en el modelo de páginas. Los métodos y propiedades están disponibles porque el tipo de propiedad es `ModelExpression`. En la imagen siguiente, estoy editando el `Register` vista, por lo que el `RegisterViewModel` está disponible.
 
 ![imagen](intro/_static/intellemail.png)
 
@@ -169,7 +169,7 @@ Aplicaciones auxiliares de etiquetas asociar a elementos HTML en las vistas de R
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-El en (`@`) símbolo solicita Razor es el inicio del código. Los dos parámetros siguientes ("FirstName" y "nombre:") son cadenas, por lo que [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx) no sirve de ayuda. El último argumento:
+El en (`@`) símbolo solicita Razor es el inicio del código. Los dos parámetros siguientes ("FirstName" y "nombre:") son cadenas, por lo que [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) no sirve de ayuda. El último argumento:
 
 ```html
 new {@class="caption"}
@@ -245,7 +245,7 @@ El editor de Visual Studio le ayuda a escribir **todos los** del marcado en el m
 
 * Controles de servidor Web usan convertidores de tipos para convertir cadenas en objetos. Con aplicaciones auxiliares de etiquetas, trabaja forma nativa en C#, por lo que no necesita la conversión de tipos.
 
-* Uso de controles de servidor Web [System.ComponentModel](https://msdn.microsoft.com/library/system.componentmodel%28v=vs.110%29.aspx) para implementar el comportamiento de tiempo de ejecución y tiempo de diseño de componentes y controles. `System.ComponentModel`incluye las clases base e interfaces para implementar atributos y convertidores de tipos, componentes de licencias y orígenes de enlace a datos. Esto contrasta con las aplicaciones auxiliares de etiquetas, que normalmente se derivan de `TagHelper`y el `TagHelper` clase base expone dos métodos: `Process` y `ProcessAsync`.
+* Uso de controles de servidor Web [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) para implementar el comportamiento de tiempo de ejecución y tiempo de diseño de componentes y controles. `System.ComponentModel`incluye las clases base e interfaces para implementar atributos y convertidores de tipos, componentes de licencias y orígenes de enlace a datos. Esto contrasta con las aplicaciones auxiliares de etiquetas, que normalmente se derivan de `TagHelper`y el `TagHelper` clase base expone dos métodos: `Process` y `ProcessAsync`.
 
 ## <a name="customizing-the-tag-helper-element-font"></a>Personalizar la fuente del elemento de aplicación auxiliar de etiqueta
 

@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/memory
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f872cd0c355f7961ae8628c28c62d3b51c8db2c5
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1e2d43d837ba76c6ef8b5136f3751edb44d6606a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-in-memory-caching-in-aspnet-core"></a>Introducción al almacenamiento en caché en memoria de ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), y [Steve Smith](http://ardalis.com)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.com/JunTaoLuo), y [Steve Smith](https://ardalis.com/)
 
 [Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/memory/sample)
 
@@ -28,7 +28,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [John Luo](https://github.
 
 Almacenamiento en caché puede mejorar significativamente el rendimiento y la escalabilidad de una aplicación al reducir el trabajo necesario para generar el contenido. Almacenamiento en caché funciona mejor con datos que cambian con poca frecuencia. Almacenamiento en caché realiza una copia de datos que se pueden devolver mucho más rápida que la de la fuente original. Debe escribir y probar la aplicación para que nunca dependen de datos almacenados en caché.
 
-ASP.NET Core es compatible con varias memorias caché diferentes. La memoria caché más sencilla se basa en el [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), que representa una caché almacenada en la memoria del servidor web. Las aplicaciones que se ejecutan en una granja de servidores de varios servidores deben asegurarse de que las sesiones son rápidas cuando se usa la memoria caché en memoria. Sesiones permanentes Asegúrese de que las solicitudes posteriores de un cliente todos los vayan al mismo servidor. Por ejemplo, el uso de aplicaciones Web de Azure [enrutamiento de solicitud de aplicación](http://www.iis.net/learn/extensions/planning-for-arr) (ARR) para enrutar las solicitudes subsiguientes en el mismo servidor.
+ASP.NET Core es compatible con varias memorias caché diferentes. La memoria caché más sencilla se basa en el [IMemoryCache](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.imemorycache), que representa una caché almacenada en la memoria del servidor web. Las aplicaciones que se ejecutan en una granja de servidores de varios servidores deben asegurarse de que las sesiones son rápidas cuando se usa la memoria caché en memoria. Sesiones permanentes Asegúrese de que las solicitudes posteriores de un cliente todos los vayan al mismo servidor. Por ejemplo, el uso de aplicaciones Web de Azure [enrutamiento de solicitud de aplicación](https://www.iis.net/learn/extensions/planning-for-arr) (ARR) para enrutar las solicitudes subsiguientes en el mismo servidor.
 
 Las sesiones no son permanentes en una granja de servidores web requieren un [caché distribuida](distributed.md) para evitar problemas de coherencia de la memoria caché. Para algunas aplicaciones, una memoria caché distribuida puede admitir una escala mayor espera que una caché en memoria. Uso de una memoria caché distribuida, descarga la memoria caché para un proceso externo. 
 

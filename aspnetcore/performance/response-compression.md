@@ -11,11 +11,11 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: b79d86358a8f1552118fac508c4cc02cf674f169
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 5705e9f879af4be3fe338716a4310bf9f0530039
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware de compresión de respuesta para ASP.NET Core
 
@@ -169,7 +169,7 @@ Enviar una solicitud a la aplicación de ejemplo con el `Accept-Encoding: mycust
 ![Ventana de Fiddler Mostrar resultado de una solicitud con el encabezado Accept-Encoding y un valor de mycustomcompression. Los encabezados pueden variar y la codificación de contenido se agregan a la respuesta.](response-compression/_static/request-custom-compression.png)
 
 ## <a name="compression-with-secure-protocol"></a>Compresión con protocolo seguro
-Las respuestas comprimidas a través de conexiones seguras pueden controlarse con el `EnableForHttps` opción, que está deshabilitada de forma predeterminada. Utilice la compresión con páginas generadas dinámicamente puede provocar problemas de seguridad como la [CRIME](https://en.wikipedia.org/wiki/CRIME_(security_exploit)) y [infracción](https://en.wikipedia.org/wiki/BREACH_(security_exploit)) ataques.
+Las respuestas comprimidas a través de conexiones seguras pueden controlarse con el `EnableForHttps` opción, que está deshabilitada de forma predeterminada. Utilice la compresión con páginas generadas dinámicamente puede provocar problemas de seguridad como la [CRIME](https://wikipedia.org/wiki/CRIME_(security_exploit)) y [infracción](https://wikipedia.org/wiki/BREACH_(security_exploit)) ataques.
 
 ## <a name="adding-the-vary-header"></a>Agregar el encabezado Vary
 Al comprimir las respuestas según el `Accept-Encoding` encabezado, hay potencialmente varias versiones comprimidas de la respuesta y una versión sin comprimir. Para indicar a las memorias caché de cliente y servidor proxy que existen varias versiones y deben almacenarse el `Vary` encabezado se agrega con un `Accept-Encoding` valor. En ASP.NET Core 1.x, agregar el `Vary` encabezado en la respuesta se realiza manualmente. En ASP.NET Core 2.x, el middleware agrega el `Vary` encabezado automáticamente cuando se comprime la respuesta.

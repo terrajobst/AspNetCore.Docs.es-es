@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: aaed75c78a99e59954add959a76a2fd68ea5f3fc
-ms.sourcegitcommit: f2fb0b45284e4f8c4a9c422bec790aede7c1f0ac
+ms.openlocfilehash: 2f99a5d3db84c3fd3f7ebcb8bccd9a4b8bc8e2b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 
@@ -62,7 +62,7 @@ dotnet new mvc --auth Individual
 
 ## <a name="test-new-user-registration"></a>Probar el nuevo registro de usuario
 
-Ejecutar la aplicación, seleccione la **registrar** vincular y registrar un usuario. Siga las instrucciones para ejecutar migraciones de Entity Framework Core. En este punto, es la única validación en el correo electrónico con el [[EmailAddress]](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.emailaddressattribute(v=vs.110).aspx) atributo. Una vez enviado el registro, se registran en la aplicación. Más adelante en el tutorial, esto cambiaremos para que nuevos usuarios no pueden iniciar sesión hasta que se ha validado el correo electrónico.
+Ejecutar la aplicación, seleccione la **registrar** vincular y registrar un usuario. Siga las instrucciones para ejecutar migraciones de Entity Framework Core. En este punto, es la única validación en el correo electrónico con el [[EmailAddress]](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.emailaddressattribute) atributo. Una vez enviado el registro, se registran en la aplicación. Más adelante en el tutorial, esto cambiaremos para que nuevos usuarios no pueden iniciar sesión hasta que se ha validado el correo electrónico.
 
 ## <a name="view-the-identity-database"></a>Vista de la base de datos de identidad
 

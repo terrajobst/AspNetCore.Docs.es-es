@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 9554d66712f93df6d2c50503b60162757986e707
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: da019ad3fd6cefa23b8331c98cc36e50ac9c1105
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Configurar la autenticación de Facebook
 
@@ -23,11 +23,11 @@ ms.lasthandoff: 08/25/2017
 
 Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuenta de Facebook mediante un proyecto de ASP.NET Core 2.0 de ejemplo creado en el [página anterior](index.md). Comenzamos creando un Facebook App ID siguiendo el [pasos oficiales](https://developers.facebook.com/docs/apps/register).
+Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuenta de Facebook mediante un proyecto de ASP.NET Core 2.0 de ejemplo creado en el [página anterior](index.md). Comenzamos creando un Facebook App ID siguiendo el [pasos oficiales](https://www.facebook.com/unsupportedbrowser).
 
 ## <a name="create-the-app-in-facebook"></a>Crear la aplicación de Facebook
 
-*  Navegue hasta la [Facebook para los desarrolladores](https://developers.facebook.com/apps) página e inicie sesión. Si ya no tiene una cuenta de Facebook, use la **registrarse para Facebook** vínculo en la página de inicio de sesión para crear uno.
+*  Navegue hasta la [Facebook para los desarrolladores](https://www.facebook.com/unsupportedbrowser) página e inicie sesión. Si ya no tiene una cuenta de Facebook, use la **registrarse para Facebook** vínculo en la página de inicio de sesión para crear uno.
 
 * Pulse la **crear aplicación** botón en la esquina superior derecha para crear un nuevo identificador de aplicación.
 

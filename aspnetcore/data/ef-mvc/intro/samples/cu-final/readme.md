@@ -4,7 +4,7 @@ Universidad de Contoso se muestra cómo usar Entity Framework Core en una aplica
 
 ## <a name="build-it-from-scratch"></a>Compilar desde el principio
 
-Puede compilar la aplicación siguiendo los pasos descritos en [una serie de tutoriales](https://docs.asp.net/en/latest/data/ef-mvc/intro.html).
+Puede compilar la aplicación siguiendo los pasos descritos en [una serie de tutoriales](https://docs.microsoft.com/aspnet/core/data/ef-mvc/intro).
 
 ## <a name="download-it"></a>Descargarlo
 

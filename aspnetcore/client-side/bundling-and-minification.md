@@ -11,11 +11,11 @@ ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 810d89798330aeb1c387ec85eb05b1f4efde167a
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: d8512bdd49b61019f22a49900bdd65086d821a6b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="bundling-and-minification-in-aspnet-core"></a>Agrupar y minificar en ASP.NET Core
 
@@ -91,8 +91,8 @@ Opciones de agrupación se incluyen:
 * minificar - escriba opciones de reducción de la salida. **opcional**, *predeterminado:`minify: { enabled: true }`*
   * Opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [Minificador de JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/jsminifier)
-    * [Minificador de HTML](https://github.com/madskristensen/BundlerMinifier/wiki/htmlminifier)
+    * [Minificador de JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki)
+    * [Minificador de HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
 * includeInProject - agregar archivos generados al archivo del proyecto. **opcional**, *predeterminado: false*
 * sourceMaps - generar mapas de código fuente para el archivo agrupado. **opcional**, *predeterminado: false*
 
@@ -106,7 +106,7 @@ Seleccione ver extensiones e instalar la **paquete de instalación & Minificador
 
 ![Sugerencia de extensión BuildBundlerMinifier](../client-side/bundling-and-minification/_static/view-extension.png)
 
-Una vez completado el reinicio, debe configurar la compilación para ejecutar los procesos de minificación y agrupación de los activos de cliente. Haga clic en el `bundleconfig.json` de archivos y seleccione *habilitar agrupación en la compilación...* .
+Una vez completado el reinicio, debe configurar la compilación para ejecutar los procesos de minificación y agrupación de los activos de cliente. Haga clic en el `bundleconfig.json` de archivos y seleccione *habilitar agrupación en la compilación... *.
 
 Compile el proyecto y el `bundleconfig.json` se incluye en el proceso de compilación para generar los archivos de salida en función de la configuración.
 
@@ -202,7 +202,7 @@ Si el flujo de trabajo de agrupación y minificación de aplicación requiere pr
 > [!NOTE]
 > Opción de conversión solo está disponible en Visual Studio 2015 y de 2017.
 
-Haga clic en el `bundleconfig.json` y seleccione **convertir en Gulp...** . Esto generará el `gulpfile.js` e instalar los paquetes de npm necesarios.
+Haga clic en el `bundleconfig.json` y seleccione **convertir en Gulp... **. Esto generará el `gulpfile.js` e instalar los paquetes de npm necesarios.
 
 ![Convertir en Gulp](../client-side/bundling-and-minification/_static/convert-togulp.png)
 

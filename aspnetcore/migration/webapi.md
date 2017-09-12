@@ -11,15 +11,15 @@ ms.assetid: 4f0564b4-ed4e-4e1e-9755-c1144d21a0ef
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/webapi
-ms.openlocfilehash: 55125e711a8b04f5a363ba965ab2223da02aab78
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 2dd2d40aef3803ad2f75504920a1174fee5c2444
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="migrating-from-aspnet-web-api"></a>Migrar de ASP.NET Web API
 
-Por [Steve Smith](http://ardalis.com) y [Scott Addie](https://scottaddie.com)
+Por [Steve Smith](https://ardalis.com/) y [Scott Addie](https://scottaddie.com)
 
 Las API Web son servicios HTTP que llegan a una amplia gama de clientes, incluidos los exploradores y dispositivos móviles. Núcleo de ASP.NET MVC incluye compatibilidad para la creación de las API Web proporcionan una manera única y coherente de la creación de aplicaciones web. En este artículo, se muestran los pasos necesarios para migrar una implementación de la API Web de ASP.NET Web API para MVC de ASP.NET Core.
 
@@ -27,7 +27,7 @@ Las API Web son servicios HTTP que llegan a una amplia gama de clientes, incluid
 
 ## <a name="review-aspnet-web-api-project"></a>Proyecto de revisión ASP.NET Web API
 
-Este artículo utiliza el proyecto de ejemplo, *ProductsApp*, creado en el artículo [Introducción a ASP.NET Web API](http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) como punto de partida. En el proyecto, un proyecto de ASP.NET Web API simple se configura como se indica a continuación.
+Este artículo utiliza el proyecto de ejemplo, *ProductsApp*, creado en el artículo [Introducción a ASP.NET Web API](https://docs.microsoft.com/aspnet/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api) como punto de partida. En el proyecto, un proyecto de ASP.NET Web API simple se configura como se indica a continuación.
 
 En *Global.asax.cs*, se realiza una llamada a `WebApiConfig.Register`:
 
@@ -38,7 +38,7 @@ En *Global.asax.cs*, se realiza una llamada a `WebApiConfig.Register`:
 [!code-csharp[Main](../migration/webapi/sample/ProductsApp/App_Start/WebApiConfig.cs?highlight=15,16,17,18,19,20)]
 
 
-Esta clase configura [atributo enrutamiento](http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), aunque realmente no se usa en el proyecto. También configura la tabla de enrutamiento que se usa por la API Web de ASP.NET. En este caso, ASP.NET Web API esperará direcciones URL para que coincida con el formato */api/ {controller} / {id}*, con *{id}* que es opcional.
+Esta clase configura [atributo enrutamiento](https://docs.microsoft.com/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2), aunque realmente no se usa en el proyecto. También configura la tabla de enrutamiento que se usa por la API Web de ASP.NET. En este caso, ASP.NET Web API esperará direcciones URL para que coincida con el formato */api/ {controller} / {id}*, con *{id}* que es opcional.
 
 El *ProductsApp* proyecto incluye un solo controlador simple, que hereda de `ApiController` y expone dos métodos:
 

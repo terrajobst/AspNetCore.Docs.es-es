@@ -11,15 +11,15 @@ ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 18046389becd17135ff831e71e700244d48552d3
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 1a5d461809afeef0f485fd3a665250631d855b36
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-the-application-model"></a>Trabajar con el modelo de aplicación
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Núcleo ASP.NET MVC define un *modelo de aplicación* que representan los componentes de una aplicación MVC. Puede leer y manipular el modelo para modificar cómo se comportan los elementos MVC. De forma predeterminada, MVC sigue ciertas convenciones para determinar qué clases se consideran controladores, los métodos de esas clases son las acciones y el comportan de enrutamiento y parámetros. Puede personalizar este comportamiento para satisfacer las necesidades de su aplicación mediante la creación de sus propias convenciones y aplicarla globalmente o como atributos.
 
@@ -70,13 +70,13 @@ El `DefaultApplicationModelProvider` establece muchos de los comportamientos pre
 
 Algunos comportamientos integrados se implementan mediante el `DefaultApplicationModelProvider`. Este proveedor es responsable de construir el [ `ControllerModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), que hace referencia a su vez [ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), y [ `ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) instancias. La `DefaultApplicationModelProvider` clase es un detalle de implementación de marco interno que puede y cambiarán en el futuro. 
 
-El `AuthorizationApplicationModelProvider` es responsable de aplicar el comportamiento asociado a la `AuthorizeFilter` y `AllowAnonymousFilter` atributos. [Más información acerca de estos atributos](https://docs.microsoft.com/aspnet/core/security/authorization/simple).
+El `AuthorizationApplicationModelProvider` es responsable de aplicar el comportamiento asociado a la `AuthorizeFilter` y `AllowAnonymousFilter` atributos. [Más información acerca de estos atributos](xref:security/authorization/simple).
 
-El `CorsApplicationModelProvider` implementa el comportamiento asociado con el `IEnableCorsAttribute` y `IDisableCorsAttribute`y el `DisableCorsAuthorizationFilter`. [Obtener más información acerca de CORS](https://docs.microsoft.com/aspnet/core/security/cors).
+El `CorsApplicationModelProvider` implementa el comportamiento asociado con el `IEnableCorsAttribute` y `IDisableCorsAttribute`y el `DisableCorsAuthorizationFilter`. [Obtener más información acerca de CORS](xref:security/cors).
 
 ## <a name="conventions"></a>Convenciones
 
-El modelo de aplicación define abstracciones de convención que proporcionan una forma más sencilla para personalizar el comportamiento de los modelos que reemplazar el modelo completo o el proveedor. Estas abstracciones son la forma recomendada para modificar el comportamiento de la aplicación. Convenciones de proporcionan una manera de escribir código que se aplicará dinámicamente las personalizaciones. Mientras [filtros](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters) proporcionan un medio de modificar el comportamiento del marco, las personalizaciones le permiten controlar cómo se conecta la aplicación completa juntos.
+El modelo de aplicación define abstracciones de convención que proporcionan una forma más sencilla para personalizar el comportamiento de los modelos que reemplazar el modelo completo o el proveedor. Estas abstracciones son la forma recomendada para modificar el comportamiento de la aplicación. Convenciones de proporcionan una manera de escribir código que se aplicará dinámicamente las personalizaciones. Mientras [filtros](xref:mvc/controllers/filters) proporcionan un medio de modificar el comportamiento del marco, las personalizaciones le permiten controlar cómo se conecta la aplicación completa juntos.
 
 Las convenciones siguientes están disponibles:
 
@@ -85,7 +85,7 @@ Las convenciones siguientes están disponibles:
 * [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-Se aplican las convenciones agregándolas a opciones de MVC o implementando `Attribute`s y aplicarla a los controladores, acciones o parámetros de acción (similar a [ `Filters` ](https://docs.microsoft.com/aspnet/core/mvc/controllers/filters)). A diferencia de los filtros, convenciones solo se ejecutan cuando se inicia la aplicación, no como parte de cada solicitud.
+Se aplican las convenciones agregándolas a opciones de MVC o implementando `Attribute`s y aplicarla a los controladores, acciones o parámetros de acción (similar a [ `Filters` ](xref:mvc/controllers/filters)). A diferencia de los filtros, convenciones solo se ejecutan cuando se inicia la aplicación, no como parte de cada solicitud.
 
 ### <a name="sample-modifying-the-applicationmodel"></a>Ejemplo: Modificar el ApplicationModel
 
@@ -159,7 +159,7 @@ La convención se agrega como una opción de inicio.
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Puede agregar una convención para su [middleware](https://docs.microsoft.com/aspnet/core/fundamentals/middleware) accediendo `MvcOptions` con`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Puede agregar una convención para su [middleware](xref:fundamentals/middleware) accediendo `MvcOptions` con`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
 
 En este ejemplo se aplica esta convención a las rutas que no se están usando la ruta de atributo donde el controlador tiene "Namespace" en su nombre. El siguiente controlador muestra esta convención:
 
@@ -170,7 +170,7 @@ En este ejemplo se aplica esta convención a las rutas que no se están usando l
 Núcleo de ASP.NET MVC utiliza un conjunto diferente de convenciones de ASP.NET Web API 2. Mediante convenciones personalizadas, puede modificar el comportamiento de una aplicación de MVC de ASP.NET Core para que sea coherente con el de una aplicación de API de Web. Se suministra Microsoft la [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) específicamente para este propósito.
 
 > [!NOTE]
-> Obtenga más información sobre [migrar de ASP.NET Web API](https://docs.microsoft.com/aspnet/core/migration/webapi)).
+> Obtenga más información sobre [migrar de ASP.NET Web API](xref:migration/webapi).
 
 Para usar la corrección de compatibilidad de API de Web, debe agregar el paquete al proyecto y, a continuación, agregar las convenciones para MVC mediante una llamada a `AddWebApiConventions` en `Startup`:
 
@@ -199,7 +199,7 @@ El `UseWebApiParameterConventionsAttribute` se usa para aplicar la `WebApiParame
 
 ### <a name="routes"></a>Rutas
 
-El `UseWebApiRoutesAttribute` controles si el `WebApiApplicationModelConvention` se aplica la convención de controlador. Cuando se habilita, esta convención se utiliza para agregar compatibilidad con [áreas](https://docs.microsoft.com/aspnet/core/mvc/controllers/areas) a la ruta.
+El `UseWebApiRoutesAttribute` controles si el `WebApiApplicationModelConvention` se aplica la convención de controlador. Cuando se habilita, esta convención se utiliza para agregar compatibilidad con [áreas](xref:mvc/controllers/areas) a la ruta.
 
 Además de un conjunto de convenciones, el paquete de compatibilidad incluye un `System.Web.Http.ApiController` clase base que reemplaza proporcionado por la API Web. Esto permite que los controladores escritos para API Web y hereda de su `ApiController` para trabajar como si estuvieran diseñados, mientras se ejecuta en el núcleo de ASP.NET MVC. Esta clase de controlador base se decora con todos los `UseWebApi*` atributos mencionados anteriormente. La `ApiController` expone propiedades, métodos y tipos de resultado que son compatibles con las que se encuentran en Web API.
 

@@ -11,15 +11,15 @@ ms.assetid: ebc98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 78cc9cd846f9b0963dbba9069c86ca295f7a32e4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 3d42fd0657bcfb4b0fdab699bbcb572e5736688c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Cargas de archivos en ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 Acciones de ASP.NET MVC admiten la carga de uno o más archivos con un modelo simple de enlace de archivos más pequeños o transmisión por secuencias para archivos de mayor tamaño.
 
@@ -75,7 +75,7 @@ Al cargar archivos con el enlace de modelos y la `IFormFile` interfaz, el métod
 
 [!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
-Archivos cargados mediante la `IFormFile` técnica se almacenan en búfer en memoria o en disco en el servidor web antes de ser procesados. Dentro del método de acción, el `IFormFile` contenido es accesible como una secuencia. Además del sistema de archivos local, los archivos se pueden transmitir a [almacenamiento de blobs de Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs) o [Entity Framework](https://docs.microsoft.com/ef/core/index).
+Archivos cargados mediante la `IFormFile` técnica se almacenan en búfer en memoria o en disco en el servidor web antes de ser procesados. Dentro del método de acción, el `IFormFile` contenido es accesible como una secuencia. Además del sistema de archivos local, los archivos se pueden transmitir a [almacenamiento de blobs de Azure](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) o [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
 Para almacenar datos de archivo binario en una base de datos mediante Entity Framework, definir una propiedad de tipo `byte[]` en la entidad:
 
@@ -197,7 +197,7 @@ El valor predeterminado es `30000000`, que es aproximadamente 28,6 MB. El valor 
 </system.webServer>
 ```
 
-Esta configuración solo se aplica a IIS. El comportamiento no se produce de forma predeterminada cuando se hospedan en Kestrel. Para obtener más información, consulte [límites de las solicitudes \<requestLimits\>](https://www.iis.net/configreference/system.webserver/security/requestfiltering/requestlimits).
+Esta configuración solo se aplica a IIS. El comportamiento no se produce de forma predeterminada cuando se hospedan en Kestrel. Para obtener más información, consulte [límites de las solicitudes \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/).
 
 ### <a name="null-reference-exception-with-iformfile"></a>Excepción de referencia nula con IFormFile
 

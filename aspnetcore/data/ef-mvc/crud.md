@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 855f060a6404dedff310b288ada9738689069ceb
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Crear, leer, actualizar y eliminar - Core EF con el tutorial de MVC de ASP.NET Core (2 de 10)
 
@@ -122,7 +122,7 @@ Este código agrega la entidad de estudiantes creada por el enlazador de modelos
 
 Que se han suprimido `ID` desde el `Bind` atributo porque Id. es el valor de clave principal que SQL Server establecerá automáticamente cuando se inserta la fila. Entrada del usuario no establece el valor de identificador.
 
-Distinto de la `Bind` atributo, el bloque try-catch es el único cambio que haya realizado en el código con scaffolding. Si una excepción que se deriva de `DbUpdateException` es detecta mientras se guardan los cambios, se muestra un mensaje de error genérico. `DbUpdateException`excepciones se deben a veces por algo externo a la aplicación en lugar de un error de programación, por lo que el usuario se recomienda que vuelva a intentarlo. Aunque no ha implementado en este ejemplo, una aplicación de calidad de producción debería registrar la excepción. Para obtener más información, consulte el **registro para obtener información** sección [supervisión y telemetría (creación reales en la nube de aplicaciones con Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Distinto de la `Bind` atributo, el bloque try-catch es el único cambio que haya realizado en el código con scaffolding. Si una excepción que se deriva de `DbUpdateException` es detecta mientras se guardan los cambios, se muestra un mensaje de error genérico. `DbUpdateException`excepciones se deben a veces por algo externo a la aplicación en lugar de un error de programación, por lo que el usuario se recomienda que vuelva a intentarlo. Aunque no ha implementado en este ejemplo, una aplicación de calidad de producción debería registrar la excepción. Para obtener más información, consulte el **registro para obtener información** sección [supervisión y telemetría (creación reales en la nube de aplicaciones con Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 El `ValidateAntiForgeryToken` atributo ayuda a evitar ataques de falsificación (CSRF) de solicitud entre sitios. El token se inserta automáticamente en la vista de la [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) y se incluye cuando se envía el formulario por el usuario. El token se valida mediante el `ValidateAntiForgeryToken` atributo. Para obtener más información acerca de CSRF, consulte [falsificación de Anti-solicitudes](../../security/anti-request-forgery.md).
 
@@ -274,7 +274,7 @@ Haga clic en **eliminar**. Se abrirá la página de índice sin los estudiantes 
 
 Para liberar los recursos que contiene una conexión de base de datos, la instancia de contexto debe eliminarse tan pronto como sea posible cuando haya terminado con él. Integrado ASP.NET Core [inyección de dependencia](../../fundamentals/dependency-injection.md) se encarga de esa tarea.
 
-En *Startup.cs*, se llama a la [método de extensión AddDbContext](https://github.com/aspnet/EntityFramework/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) para aprovisionar el `DbContext` clase en el contenedor de DI de ASP.NET. Que el método establece la duración del servicio en `Scoped` de forma predeterminada. `Scoped`significa que la duración del objeto de contexto coincide con el tiempo de vida de solicitud web, y el `Dispose` método llamará automáticamente al final de la solicitud web.
+En *Startup.cs*, se llama a la [método de extensión AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) para aprovisionar el `DbContext` clase en el contenedor de DI de ASP.NET. Que el método establece la duración del servicio en `Scoped` de forma predeterminada. `Scoped`significa que la duración del objeto de contexto coincide con el tiempo de vida de solicitud web, y el `Dispose` método llamará automáticamente al final de la solicitud web.
 
 ## <a name="handling-transactions"></a>Controlar transacciones
 

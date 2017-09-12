@@ -10,15 +10,15 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 16969386c55ae2fd2ab574c1799a765e74f59278
-ms.sourcegitcommit: 4147d2d29ea50e7e9b87879c572ac2a9fb51798c
+ms.openlocfilehash: 69af91de6d2c48af58bc10a32d8857af18a41b6a
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Inicio de la aplicación de ASP.NET Core
 
-Por [Steve Smith](http://ardalis.com) y [Tom Dykstra](https://github.com/tdykstra/)
+Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdykstra/)
 
 La `Startup` clase configura servicios y la canalización de solicitud de la aplicación. 
 
@@ -26,7 +26,7 @@ La `Startup` clase configura servicios y la canalización de solicitud de la apl
 
 Las aplicaciones de ASP.NET Core requieren un `Startup` clase. Por convención, el `Startup` clase se denomina "Inicio". Especifique el nombre de clase de inicio en el `Main` del programa [WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) método. Vea [hospedaje](xref:fundamentals/hosting) para obtener más información acerca de `WebHostBuilder`, que se ejecuta antes de `Startup`.
 
-Puede definir independiente `Startup` clases para diferentes entornos y uno se seleccionará en tiempo de ejecución adecuado. Si especifica `startupAssembly` en el [configuración WebHost](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host) opciones de hospedaje, se carga dicho ensamblado de inicio y buscar un `Startup` o `Startup[Environment]` tipo. La clase cuyos coincidencias de sufijo de nombre se les dará prioridad el entorno actual, por lo que si la aplicación se ejecuta en el *desarrollo* entorno e incluye tanto una `Startup` y un `StartupDevelopment` (clase), el `StartupDevelopment` clase será usar. Vea [FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs) en `StartupLoader` y [trabajar con varios entornos](environments.md#startup-conventions).
+Puede definir independiente `Startup` clases para diferentes entornos y uno se seleccionará en tiempo de ejecución adecuado. Si especifica `startupAssembly` en el [configuración WebHost](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host) opciones de hospedaje, se carga dicho ensamblado de inicio y buscar un `Startup` o `Startup[Environment]` tipo. La clase cuyos coincidencias de sufijo de nombre se les dará prioridad el entorno actual, por lo que si la aplicación se ejecuta en el *desarrollo* entorno e incluye tanto una `Startup` y un `StartupDevelopment` (clase), el `StartupDevelopment` clase será usar. Vea [FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs) en `StartupLoader` y [trabajar con varios entornos](environments.md#startup-conventions).
 
 Como alternativa, puede definir un fijo `Startup` clase que se usará independientemente del entorno mediante una llamada a `UseStartup<TStartup>`. Éste es el enfoque recomendado.
 
@@ -38,9 +38,9 @@ Obtenga información acerca de [control de excepciones durante el inicio de la a
 
 ## <a name="the-configureservices-method"></a>El método ConfigureServices
 
-El [ConfigureServices](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) método es opcional; pero si utiliza, se llama antes de la `Configure` método por el host de web. Puede configurar el host de web algunos servicios antes de ``Startup`` se denominan métodos (consulte [hospedaje](xref:fundamentals/hosting)). Por convención, [opciones de configuración](xref:fundamentals/configuration) se establecen en este método.
+El [ConfigureServices](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.startupbase#Microsoft_AspNetCore_Hosting_StartupBase_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_) método es opcional; pero si utiliza, se llama antes de la `Configure` método por el host de web. Puede configurar el host de web algunos servicios antes de ``Startup`` se denominan métodos (consulte [hospedaje](xref:fundamentals/hosting)). Por convención, [opciones de configuración](xref:fundamentals/configuration) se establecen en este método.
 
-Funciones que requieren el programa de instalación sustancial hay `Add[Service]` métodos de extensión en [IServiceCollection](https://docs.microsoft.com/en-us/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). Este ejemplo de la plantilla de sitio web predeterminado configura la aplicación para usar los servicios de Entity Framework, identidad y MVC:
+Funciones que requieren el programa de instalación sustancial hay `Add[Service]` métodos de extensión en [IServiceCollection](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.dependencyinjection.iservicecollection). Este ejemplo de la plantilla de sitio web predeterminado configura la aplicación para usar los servicios de Entity Framework, identidad y MVC:
 
 [!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 

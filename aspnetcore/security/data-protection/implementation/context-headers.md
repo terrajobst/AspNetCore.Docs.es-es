@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 16da0a4f78875ee26fa9ca7c9920b8dafd0ce417
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="context-headers"></a>Encabezados de contexto
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="background-and-theory"></a>Segundo plano y la teoría
 
-En el sistema de protección de datos, una "clave" significa autenticado de un objeto que puede proporcionar servicios de cifrado. Cada clave está identificada por un identificador único (GUID) y lleva con él algorítmica información y al material entropic. Se pretende que cada clave llevar entropía único, pero el sistema no puede exigir y también es necesario tener en cuenta para los desarrolladores que cambiaría el anillo de clave manualmente mediante la modificación de la información de una clave existente en el anillo de clave algorítmica. Para lograr los requisitos de seguridad tiene estos casos, el sistema de protección de datos tiene un concepto de [agilidad criptográfica](http://research.microsoft.com/apps/pubs/default.aspx?id=121045), que permite de forma segura mediante un único valor entropic entre varios algoritmos criptográficos.
+En el sistema de protección de datos, una "clave" significa autenticado de un objeto que puede proporcionar servicios de cifrado. Cada clave está identificada por un identificador único (GUID) y lleva con él algorítmica información y al material entropic. Se pretende que cada clave llevar entropía único, pero el sistema no puede exigir y también es necesario tener en cuenta para los desarrolladores que cambiaría el anillo de clave manualmente mediante la modificación de la información de una clave existente en el anillo de clave algorítmica. Para lograr los requisitos de seguridad tiene estos casos, el sistema de protección de datos tiene un concepto de [agilidad criptográfica](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045), que permite de forma segura mediante un único valor entropic entre varios algoritmos criptográficos.
 
 Mayoría de los sistemas que son compatibles con agilidad criptográfica hacerlo mediante la inclusión de cierta información de identificación sobre el algoritmo en la carga. OID del algoritmo suele ser un buen candidato para esto. Sin embargo, un problema que encontramos es que hay varias maneras de especificar el mismo algoritmo: "AES" (CNG) y los administrados Aes, AesManaged, AesCryptoServiceProvider, AesCng y RijndaelManaged (determinados parámetros específicos) clases todo realmente son las mismas lo y se tendría que mantener una asignación de todos estos para el OID correcto. Si un desarrollador desea proporcionar un algoritmo personalizado (o incluso otra implementación de AES), tendría que Díganos su OID. Este paso de registro adicional, la configuración de sistema es especialmente muy complicada.
 
@@ -53,7 +53,7 @@ El encabezado de contexto está formada por los siguientes componentes:
 
 Lo ideal es que podemos pasar como vectores de ceros para K_E y K_H. Sin embargo, debe evitar la situación donde el algoritmo subyacente comprueba la existencia de claves débiles antes de realizar cualquier operación (especialmente DES y 3DES), lo que impide utilizar un modelo simple o repeatable como un vector de ceros.
 
-En su lugar, usamos NIST SP800-108 KDF en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), seg. 5.1) con una clave de longitud cero, etiqueta y contexto y HMACSHA512 como el PRF subyacente. Se derivan | K_E | + | K_H | bytes de salida, a continuación, descomponer el resultado en K_E y K_H por sí mismos. Matemáticamente, se representa como se indica a continuación.
+En su lugar, usamos NIST SP800-108 KDF en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con una clave de longitud cero, etiqueta y contexto y HMACSHA512 como el PRF subyacente. Se derivan | K_E | + | K_H | bytes de salida, a continuación, descomponer el resultado en K_E y K_H por sí mismos. Matemáticamente, se representa como se indica a continuación.
 
 (K_E || K_H) = SP800_108_CTR (prf = HMACSHA512, key = "", etiqueta = "", contexto = "")
 

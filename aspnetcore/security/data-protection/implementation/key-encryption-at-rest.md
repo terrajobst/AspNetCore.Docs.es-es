@@ -11,11 +11,11 @@ ms.assetid: f2bbbf4e-0945-43ce-be59-8bf19e448798
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: cef7644d29168e9560d1175885ea85a525fec435
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 16a9385630d88c4c9f33954f83fce2bbce5be719
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="key-encryption-at-rest"></a>Cifrado de claves en reposo
 
@@ -74,7 +74,7 @@ A partir de Windows 8, el sistema operativo admite DPAPI-NG (también denominado
 
    Informática en nube, sin embargo, a menudo requiere que ese contenido cifrado en un equipo pueden descifrar en otro. Por lo tanto, a partir de Windows 8, Microsoft ampliado la idea de usar una API relativamente sencilla para abarcar escenarios de nube. Esta nueva API, denominada DPAPI-NG, permite compartir de forma segura secretos (claves, contraseñas, material de clave) y mensajes protegiéndolos a un conjunto de entidades de seguridad que puede utilizarse para desproteger en equipos diferentes después de la autorización y la autenticación correcta.
 
-   De [https://msdn.microsoft.com/library/windows/desktop/hh706794 (v=vs.85).aspx](https://msdn.microsoft.com/library/windows/desktop/hh706794(v=vs.85).aspx)
+   Desde [sobre DPAPI CNG](https://msdn.microsoft.com/library/windows/desktop/hh706794(v=vs.85).aspx)
 
 La entidad de seguridad se codifica como una regla de descriptor de protección. Considere el ejemplo siguiente, que cifra el material de clave de modo que solo el usuario unido al dominio con el SID especificado puede descifrar el material de clave.
 
@@ -97,7 +97,7 @@ En este escenario, el controlador de dominio de AD es responsable de distribuir 
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Cifrado basada en certificados con Windows DPAPI-NG
 
-Si se está ejecutando en Windows 8.1 / Windows Server 2012 R2 o versiones posteriores, puede usar Windows DPAPI-NG para realizar el cifrado basada en certificados, incluso si la aplicación se ejecuta en [.NET Core](https://microsoft.com/net/core). Para aprovechar estas características, utilice la cadena de descriptor de la regla "certificado = HashId:thumbprint", donde la huella digital es la huella digital con codificación hexadecimal SHA1 del certificado que se va a usar. Vea a continuación para obtener un ejemplo.
+Si se está ejecutando en Windows 8.1 / Windows Server 2012 R2 o versiones posteriores, puede usar Windows DPAPI-NG para realizar el cifrado basada en certificados, incluso si la aplicación se ejecuta en [.NET Core](https://www.microsoft.com/net/core). Para aprovechar estas características, utilice la cadena de descriptor de la regla "certificado = HashId:thumbprint", donde la huella digital es la huella digital con codificación hexadecimal SHA1 del certificado que se va a usar. Vea a continuación para obtener un ejemplo.
 
 ```csharp
 sc.AddDataProtection()

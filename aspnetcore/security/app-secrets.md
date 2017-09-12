@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 99a1129549d6b9802315c7e5accfa22907994a41
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core
 
@@ -37,7 +37,7 @@ Por ejemplo, si crea una nueva aplicación web de ASP.NET Core con cuentas de us
 
 ## <a name="secret-manager"></a>Administrador de secreto
 
-La herramienta Administrador de secreto almacena datos confidenciales en el trabajo de desarrollo fuera de su árbol de proyecto. La herramienta Administrador de secreto es una herramienta de proyecto que puede usarse para almacenar secretos de un [.NET Core](https://microsoft.com/net/core) proyecto durante el desarrollo. Con la herramienta Administrador de secreto, puede asociar los secretos de aplicación a un proyecto específico y compartirlos en varios proyectos.
+La herramienta Administrador de secreto almacena datos confidenciales en el trabajo de desarrollo fuera de su árbol de proyecto. La herramienta Administrador de secreto es una herramienta de proyecto que puede usarse para almacenar secretos de un [.NET Core](https://www.microsoft.com/net/core) proyecto durante el desarrollo. Con la herramienta Administrador de secreto, puede asociar los secretos de aplicación a un proyecto específico y compartirlos en varios proyectos.
 
 >[!WARNING]
 > La herramienta Administrador de secreto no cifra los secretos almacenados y no debe tratarse como un almacén de confianza. Es solo con fines de desarrollo. Las claves y los valores se almacenan en un archivo de configuración de JSON en el directorio del perfil de usuario.

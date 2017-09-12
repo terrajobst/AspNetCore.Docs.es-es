@@ -11,15 +11,15 @@ ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 6baeb472770daf1d54b2d9ea894fc710f4f40780
-ms.sourcegitcommit: 4693cb02d845adf2efa00e07ad432c81867bfa12
+ms.openlocfilehash: b96a70a2446cab7b1af9bd689469584868980595
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="filters"></a>Filtros
 
-Por [Tom Dykstra](https://github.com/tdykstra/) y [Steve Smith](http://ardalis.com)
+Por [Tom Dykstra](https://github.com/tdykstra/) y [Steve Smith](https://ardalis.com/)
 
 *Filtros* en MVC de ASP.NET Core permite ejecutar código antes o después de ciertas fases de la canalización de procesamiento de la solicitud.
 
@@ -115,7 +115,7 @@ Puede agregar un filtro a la canalización en uno de los tres *ámbitos*. Puede 
 
 ### <a name="default-order-of-execution"></a>Orden de ejecución predeterminado
 
-Cuando hay varios filtros para una determinada fase de la canalización, ámbito determina el orden predeterminado de la ejecución del filtro.  Filtros globales especifica los filtros de clase, que a su vez rodean filtros de método. Esto se conoce a veces como anidamiento "Ruso muñeca", tal y como cada aumento en el ámbito se ajusta alrededor del ámbito anterior, como un [muñeca anidamiento](https://en.wikipedia.org/wiki/Matryoshka_doll). Por lo general, obtendrá el comportamiento deseado de reemplazo sin tener que determinar el orden de forma explícita.
+Cuando hay varios filtros para una determinada fase de la canalización, ámbito determina el orden predeterminado de la ejecución del filtro.  Filtros globales especifica los filtros de clase, que a su vez rodean filtros de método. Esto se conoce a veces como anidamiento "Ruso muñeca", tal y como cada aumento en el ámbito se ajusta alrededor del ámbito anterior, como un [muñeca anidamiento](https://wikipedia.org/wiki/Matryoshka_doll). Por lo general, obtendrá el comportamiento deseado de reemplazo sin tener que determinar el orden de forma explícita.
 
 Como resultado de este anidamiento, la *después* código de filtros se ejecuta en el orden inverso de la *antes de* código. La secuencia tiene el siguiente aspecto:
 

@@ -11,15 +11,15 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 5e41920c9745f903d33fa25922727e920c1efc26
-ms.sourcegitcommit: 8f5277871eff86134ebf68d3737196cfd4a62c2c
+ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>Trabajar con varios entornos
 
-Por [Steve Smith](http://ardalis.com)
+Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core proporciona compatibilidad para controlar el comportamiento de la aplicación en varios entornos, como desarrollo, ensayo y producción. Las variables de entorno se utilizan para indicar el entorno en tiempo de ejecución, que permite a la aplicación que se configurará para ese entorno.
 
@@ -27,7 +27,7 @@ ASP.NET Core proporciona compatibilidad para controlar el comportamiento de la a
 
 ## <a name="development-staging-production"></a>Desarrollo, prueba, producción
 
-ASP.NET Core hace referencia a un determinado [variable de entorno](https://github.com/aspnet/Home/wiki/Environment-Variables), `ASPNETCORE_ENVIRONMENT` para describir el entorno se está ejecutando actualmente en la aplicación. Esta variable se puede establecer en cualquier valor que desee, pero por convención, se utilizan tres valores: `Development`, `Staging`, y `Production`. Encontrará estos valores utilizados en los ejemplos y las plantillas proporcionadas con ASP.NET Core.
+ASP.NET Core hace referencia a un determinado [variable de entorno](https://github.com/aspnet/Home/wiki), `ASPNETCORE_ENVIRONMENT` para describir el entorno se está ejecutando actualmente en la aplicación. Esta variable se puede establecer en cualquier valor que desee, pero por convención, se utilizan tres valores: `Development`, `Staging`, y `Production`. Encontrará estos valores utilizados en los ejemplos y las plantillas proporcionadas con ASP.NET Core.
 
 Se pueden detectar mediante programación la configuración del entorno actual desde dentro de la aplicación. Además, puede usar el entorno de [etiqueta auxiliar](../mvc/views/tag-helpers/index.md) para incluir determinadas secciones en su [vista](../mvc/views/index.md) según el entorno de aplicación actual.
 

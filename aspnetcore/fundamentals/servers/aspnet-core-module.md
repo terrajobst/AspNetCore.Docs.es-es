@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4124f71f30b758d82a6bf641328a8d5abf779f2
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 50c3085c28be4e6ddc4a732aba489ce871ab9ab1
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Introducción al módulo principal de ASP.NET
 
-Por [Tom Dykstra](http://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), y [Chris Ross](https://github.com/Tratcher) 
+Por [Tom Dykstra](https://github.com/tdykstra), [Rick Strahl](https://github.com/RickStrahl), y [Chris Ross](https://github.com/Tratcher) 
 
 Módulo de núcleo ASP.NET (ANCM) le permite ejecutar aplicaciones de IIS, de ASP.NET Core mediante IIS para lo que es bueno (seguridad, facilidad de uso y mucho más) y [Kestrel](kestrel.md) para lo que es bueno (que se va a agilizar el proceso) y la obtención de la ventajas de ambas tecnologías al mismo tiempo. **ANCM solo funciona con Kestrel; no es compatible con WebListener (en ASP.NET Core 1.x) o HTTP.sys (en 2.x).** 
 

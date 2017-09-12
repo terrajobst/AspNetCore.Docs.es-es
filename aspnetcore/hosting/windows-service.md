@@ -11,17 +11,17 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: 1b3cdc18ded89ebdf7b7afa9f43af9669748eff4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 33a4eca48a04f9b29c60a446f4191d39d21e7e7d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Hospedar una aplicación ASP.NET básica en un servicio de Windows
 
 Por [Tom Dykstra](https://github.com/tdykstra)
 
-Es la manera recomendada para hospedar una aplicación de ASP.NET Core en Windows si no usa IIS para que se ejecute un [servicio de Windows](https://msdn.microsoft.com/library/d56de412). De este modo puede iniciar automáticamente después de reiniciar el equipo y se bloquea, sin esperar a que alguien inicie sesión.
+Es la manera recomendada para hospedar una aplicación de ASP.NET Core en Windows si no usa IIS para que se ejecute un [servicio de Windows](https://docs.microsoft.com/dotnet/framework/windows-services/introduction-to-windows-service-applications). De este modo puede iniciar automáticamente después de reiniciar el equipo y se bloquea, sin esperar a que alguien inicie sesión.
 
 [Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample) consulte la [pasos](#next-steps) sección para obtener instrucciones sobre cómo ejecutarlo.
 
@@ -121,5 +121,5 @@ Si la aplicación no se inicia como se esperaba cuando se ejecuta en un servicio
 
 En este artículo se escribió con la Ayuda de los orígenes que ya se han publicado. La primera y más útiles de ellos fueron estos:
 
-* [Hospedaje de ASP.NET Core como servicio de Windows](http://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074#37464074)
-* [Cómo hospedar el núcleo de ASP.NET en un servicio de Windows](http://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)
+* [Hospedaje de ASP.NET Core como servicio de Windows](https://stackoverflow.com/questions/37346383/hosting-asp-net-core-as-windows-service/37464074)
+* [Cómo hospedar el núcleo de ASP.NET en un servicio de Windows](https://dotnetthoughts.net/how-to-host-your-aspnet-core-in-a-windows-service/)

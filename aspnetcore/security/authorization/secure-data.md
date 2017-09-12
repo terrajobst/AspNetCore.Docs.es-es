@@ -10,11 +10,11 @@ ms.assetid: abeb2f8e-dfbf-4398-a04c-338a613a65bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 7ce59816d106cce9fabd8393ee764454bd0f7f27
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: db05ffb585022c3d9512d32da28c54788f97129c
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -103,7 +103,7 @@ dotnet ef database update
 
 ### <a name="require-ssl-and-authenticated-users"></a>Requerir SSL y los usuarios autenticados
 
-En el `ConfigureServices` método de la *Startup.cs* , agregue el [RequireHttpsAttribute](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/RequireHttpsAttribute/index.html.md#Microsoft.AspNetCore.Mvc.RequireHttpsAttribute.md) filtro de autorización:
+En el `ConfigureServices` método de la *Startup.cs* , agregue el [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api) filtro de autorización:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=snippet_SSL&highlight=1)]
 
@@ -161,7 +161,7 @@ Crear un `ContactAdministratorsAuthorizationHandler` clase en el *autorización*
 
 ## <a name="register-the-authorization-handlers"></a>Registrar los controladores de autorización
 
-Servicios mediante Entity Framework Core deben estar registrados para [inyección de dependencia](xref:fundamentals/dependency-injection) con [AddScoped](http://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/Extensions/DependencyInjection/ServiceCollectionServiceExtensions/index.html.md#Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddScoped.md). El `ContactIsOwnerAuthorizationHandler` usa ASP.NET Core [identidad](xref:security/authentication/identity), que se basa en Entity Framework Core. Registre los controladores con la colección de servicio para que estén disponibles para la `ContactsController` a través de [inyección de dependencia](xref:fundamentals/dependency-injection). Agregue el código siguiente al final de `ConfigureServices`:
+Servicios mediante Entity Framework Core deben estar registrados para [inyección de dependencia](xref:fundamentals/dependency-injection) con [AddScoped](https://docs.microsoft.com/aspnet/core/api). El `ContactIsOwnerAuthorizationHandler` usa ASP.NET Core [identidad](xref:security/authentication/identity), que se basa en Entity Framework Core. Registre los controladores con la colección de servicio para que estén disponibles para la `ContactsController` a través de [inyección de dependencia](xref:fundamentals/dependency-injection). Agregue el código siguiente al final de `ConfigureServices`:
 
 [!code-csharp[Main](secure-data/samples/final/Startup.cs?name=AuthorizationHandlers)]
 
@@ -264,7 +264,7 @@ Crear un contacto en el Explorador de administradores. Copie la dirección URL p
 
 Siga estas instrucciones para crear la aplicación de inicio.
 
-* Crear un **aplicación Web de ASP.NET Core** con [2017 de Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) denominado "ContactManager"
+* Crear un **aplicación Web de ASP.NET Core** con [2017 de Visual Studio](https://www.visualstudio.com/) denominado "ContactManager"
 
   * Crear la aplicación con **cuentas de usuario individuales**.
   * Asígnele el nombre "ContactManager" para que el espacio de nombres coincidirá con el uso de espacio de nombres en el ejemplo.

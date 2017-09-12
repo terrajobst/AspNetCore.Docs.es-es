@@ -11,15 +11,15 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 930ea062ffb914cbd4f1500308b813167c1f601b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 597d4058a410e0b5991b1d5a74c9fc7bfe8171b8
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="model-binding"></a>Enlace de modelos
 
-Por [Rachel Appel](http://github.com/rachelappel)
+Por [Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-binding"></a>Introducción al modelo de enlace
 
@@ -103,7 +103,7 @@ Datos de la solicitud pueden proceder de una variedad de formatos como JSON, XML
 > Puede haber a lo sumo un parámetro por cada acción decorada con `[FromBody]`. El tiempo de ejecución de MVC de ASP.NET Core delega la responsabilidad de leer la secuencia de solicitud en el formateador. Una vez que se lee la secuencia de solicitud para un parámetro, por lo general no es posible leer la secuencia de solicitud nuevo para otro enlace `[FromBody]` parámetros.
 
 > [!NOTE]
-> El `JsonInputFormatter` es el formateador predeterminado y se basa en [Json.NET](http://www.newtonsoft.com/json).
+> El `JsonInputFormatter` es el formateador predeterminado y se basa en [Json.NET](https://www.newtonsoft.com/json).
 
 ASP.NET selecciona entradas formateadores tomando como base la [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) encabezado y el tipo del parámetro, a menos que haya un atributo aplicado a especificando en caso contrario. Si le gustaría usar XML u otro formato, debe configurarla en el *Startup.cs* archivo, pero primero tiene que obtener una referencia a `Microsoft.AspNetCore.Mvc.Formatters.Xml` mediante NuGet. El código de inicio debe tener un aspecto similar al siguiente:
 

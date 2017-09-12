@@ -11,11 +11,11 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 735c53ab8a01d995c4945a95705ee9adb2fcdf02
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 05a92c4eee6b26e49831c11e1251aedba87ed717
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Dirección URL de reescritura de Middleware en ASP.NET Core
 
@@ -221,7 +221,7 @@ El middleware admite las siguientes variables de servidor de Apache mod_rewrite:
 * TIME_YEAR
 
 ### <a name="iis-url-rewrite-module-rules"></a>Reglas del módulo URL Rewrite de IIS
-Para utilizar reglas que se aplican en el módulo URL Rewrite de IIS, utilice `AddIISUrlRewrite`. Asegúrese de que el archivo de reglas se implementa con la aplicación. No dirigir el middleware para usar su *web.config* archivo cuando se ejecuta en Windows Server IIS. Con IIS, estas reglas deben estar almacenadas fuera de su *web.config* para evitar conflictos con el módulo Rewrite para IIS. Para obtener más información y ejemplos de reglas de módulo URL Rewrite de IIS, consulte [utilizando Url Rewriter 2.0 módulo](https://www.iis.net/learn/extensions/url-rewrite-module/using-url-rewrite-module-20) y [referencia de configuración del módulo de volver a escribir dirección URL](https://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
+Para utilizar reglas que se aplican en el módulo URL Rewrite de IIS, utilice `AddIISUrlRewrite`. Asegúrese de que el archivo de reglas se implementa con la aplicación. No dirigir el middleware para usar su *web.config* archivo cuando se ejecuta en Windows Server IIS. Con IIS, estas reglas deben estar almacenadas fuera de su *web.config* para evitar conflictos con el módulo Rewrite para IIS. Para obtener más información y ejemplos de reglas de módulo URL Rewrite de IIS, consulte [utilizando Url Rewriter 2.0 módulo](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) y [referencia de configuración del módulo de volver a escribir dirección URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference).
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -381,8 +381,8 @@ Solicitud original:`/image.jpg`
 * [Expresiones regulares en .NET](/dotnet/articles/standard/base-types/regular-expressions)
 * [Lenguaje de expresiones regulares: referencia rápida](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)
-* [Usar módulo Url Rewrite 2.0 (para IIS)](https://www.iis.net/learn/extensions/url-rewrite-module/using-url-rewrite-module-20)
-* [Referencia de configuración del módulo de reescritura de dirección URL](https://www.iis.net/learn/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
+* [Usar módulo Url Rewrite 2.0 (para IIS)](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20)
+* [Referencia de configuración del módulo de reescritura de dirección URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference)
 * [Foro de módulo de reescritura de dirección URL de IIS](https://forums.iis.net/1152.aspx)
 * [Mantener una estructura de dirección URL simple](https://support.google.com/webmasters/answer/76329?hl=en)
 * [Reescritura de direcciones URL en 10 sugerencias y trucos](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/)

@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 451a548403c8fa0ed2befeb6969a3ee28fe34790
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: baf1a979e4f18cbc7818f78b866e6cb6958efccf
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Introducción a la implementación de servidor web Kestrel en ASP.NET Core
 
-Por [Tom Dykstra](http://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), y [Stephen Halter](https://twitter.com/halter73)
+Por [Tom Dykstra](https://github.com/tdykstra), [Chris Ross](https://github.com/Tratcher), y [Stephen Halter](https://twitter.com/halter73)
 
 Kestrel es una plataforma de entre [servidor web de ASP.NET Core](index.md) basado en [libuv](https://github.com/libuv/libuv), una biblioteca de E/S asincrónica de multiplataforma. Kestrel es el servidor web que se incluye de forma predeterminada en las plantillas de proyecto de ASP.NET Core. 
 

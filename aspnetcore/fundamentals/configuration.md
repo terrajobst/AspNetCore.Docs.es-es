@@ -11,17 +11,17 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: 39e76b14af85de34b8443bf4e04d18d13ad2aa90
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 <a name=fundamentals-configuration></a>
 
   # <a name="configuration-in-aspnet-core"></a>Configuración de ASP.NET Core
 
-[Rick Anderson](https://twitter.com/RickAndMSFT), [marca Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](http://ardalis.com), y [Daniel Roth](https://github.com/danroth27)
+[Rick Anderson](https://twitter.com/RickAndMSFT), [marca Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), y [Daniel Roth](https://github.com/danroth27)
 
 La API de configuración proporciona una manera de configurar una aplicación basada en una lista de pares nombre / valor. Se lee la configuración en tiempo de ejecución de varios orígenes. Los pares de nombre-valor se pueden agrupar en una jerarquía multinivel. Existen proveedores de configuración para:
 
@@ -33,7 +33,7 @@ La API de configuración proporciona una manera de configurar una aplicación ba
 * [Almacén de claves de Azure](xref:security/key-vault-configuration)
 * Proveedores personalizados, que se instale o cree
 
-Cada valor de configuración se asigna a una clave de cadena. No hay compatibilidad de enlace integrado para deserializar la configuración en un personalizado [POCO](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object) objeto (una clase .NET simple con propiedades).
+Cada valor de configuración se asigna a una clave de cadena. No hay compatibilidad de enlace integrado para deserializar la configuración en un personalizado [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) objeto (una clase .NET simple con propiedades).
 
 [Ver o descargar el código de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample)
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f16af1184a29b891a9aab0b38ab833836c326c44
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET, un tutorial con ejemplos de creación
 
@@ -98,7 +98,7 @@ Actualización de la `EmailTagHelper` clase por lo siguiente:
 
 **Notas:**
 
-* Nombres de propiedad y clase la grafía Pascal para aplicaciones auxiliares de etiquetas se convierten en sus [reducir caso kebab](http://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101#12273101). Por lo tanto, para usar el `MailTo` atributo, deberá usar `<email mail-to="value"/>` equivalente.
+* Nombres de propiedad y clase la grafía Pascal para aplicaciones auxiliares de etiquetas se convierten en sus [reducir caso kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). Por lo tanto, para usar el `MailTo` atributo, deberá usar `<email mail-to="value"/>` equivalente.
 
 * La última línea establece el contenido completado para nuestra herramienta etiqueta mínimamente funcional.
 
@@ -193,7 +193,7 @@ También puede usar el `[HtmlTargetElement]` para cambiar el nombre del elemento
     
     **Notas:**
     
-    * Como se mencionó anteriormente, aplicaciones auxiliares de etiquetas traduce los nombres de clase de C# la grafía Pascal y propiedades para aplicaciones auxiliares de etiquetas en [reducir caso kebab](http://c2.com/cgi/wiki?KebabCase). Por lo tanto, para usar el `WebsiteInformationTagHelper` en Razor, se escribirá `<website-information />`.
+    * Como se mencionó anteriormente, aplicaciones auxiliares de etiquetas traduce los nombres de clase de C# la grafía Pascal y propiedades para aplicaciones auxiliares de etiquetas en [reducir caso kebab](http://wiki.c2.com/?KebabCase). Por lo tanto, para usar el `WebsiteInformationTagHelper` en Razor, se escribirá `<website-information />`.
     
     * No se está identificando explícitamente el elemento de destino con el `[HtmlTargetElement]` atributo, por lo que el valor predeterminado de `website-information` se destinará. Si ha aplicado el atributo siguiente (tenga en cuenta no es el caso de kebab pero coincide con el nombre de clase):
     
@@ -209,7 +209,7 @@ También puede usar el `[HtmlTargetElement]` para cambiar el nombre del elemento
     
     * Elementos que se cierre automático no tienen ningún contenido. En este ejemplo, el marcado de Razor usará una etiqueta de cierre automático, pero se creará la aplicación auxiliar de etiqueta un [sección](http://www.w3.org/TR/html5/sections.html#the-section-element) elemento (que no se cierre automático y se escribe el contenido dentro de la `section` elemento). Por lo tanto, debe establecer `TagMode` a `StartTagAndEndTag` para escribir la salida. Como alternativa, puede convertir en comentario la línea donde se establece `TagMode` y escribir marcado con una etiqueta de cierre. (Marcado de ejemplo se proporciona más adelante en este tutorial.)
     
-    * El `$` (signo de dólar) en la siguiente línea usa un [interpolan cadena](https://msdn.microsoft.com/library/Dn961160.aspx):
+    * El `$` (signo de dólar) en la siguiente línea usa un [interpolan cadena](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
     ```cshtml
     $@"<ul><li><strong>Version:</strong> {Info.Version}</li>
@@ -272,11 +272,11 @@ La aplicación auxiliar de etiquetas de condición presenta la salida cuando se 
 4.  Ejecutar la aplicación y vaya a la página principal. El marcado en el atributo conditional `div` no se representará. Anexar la cadena de consulta `?approved=true` a la dirección URL (por ejemplo, `http://localhost:1235/Home/Index?approved=true`). `approved`se establece en true y el atributo conditional aparecerá marcado.
 
 >[!NOTE]
->Use la [nameof](https://msdn.microsoft.com/library/dn986596.aspx) operador para especificar el atributo de destino en lugar de especificar una cadena como lo hizo con la aplicación auxiliar de etiqueta negrita:
+>Use la [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operador para especificar el atributo de destino en lugar de especificar una cadena como lo hizo con la aplicación auxiliar de etiqueta negrita:
 >
 >[!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/zConditionTagHelperCopy.cs?highlight=1,2,5&range=5-18)]
 >
->El [nameof](https://msdn.microsoft.com/library/dn986596.aspx) operador protegerá el código nunca se debería refactorizar (que queramos cambie el nombre a `RedCondition`).
+>El [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operador protegerá el código nunca se debería refactorizar (que queramos cambie el nombre a `RedCondition`).
 
 ### <a name="avoiding-tag-helper-conflicts"></a>Evitar conflictos de aplicación auxiliar de etiqueta
 
@@ -289,7 +289,7 @@ Dado que estas aplicaciones auxiliares de dos están estrechamente relacionados 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?range=7-19)]
 
     >[!NOTE]
-    >El `AutoLinkerHttpTagHelper` clase destinos `p` elementos y se utiliza [Regex](https://msdn.microsoft.com/library/system.text.regularexpressions.regex.aspx) para crear el delimitador.
+    >El `AutoLinkerHttpTagHelper` clase destinos `p` elementos y se utiliza [Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) para crear el delimitador.
 
 2.  Agregue el siguiente marcado al final de la *Views/Home/Contact.cshtml* archivo:
 

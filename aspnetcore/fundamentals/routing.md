@@ -11,15 +11,15 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 98756e2c5b336aabcf5155d929160b616baaf2ee
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 431b837dc93abdf305b77615409883fd54b99455
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento de ASP.NET Core
 
-Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](http://ardalis.com), y [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/), y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Función de enrutamiento es responsable de asignar una solicitud entrante a un controlador de ruta. Las rutas se definen en la aplicación ASP.NET y configuradas cuando se inicia la aplicación. Una ruta, opcionalmente, puede extraer valores de la dirección URL contenida en la solicitud y, a continuación, se pueden utilizar estos valores para procesar las solicitudes. Con información de ruta de la aplicación ASP.NET, la funcionalidad de enrutamiento también es capaz de generar direcciones URL que se asignan a los controladores de ruta. Por lo tanto, el enrutamiento puede encontrar un controlador de ruta basado en una dirección URL o la dirección URL correspondiente a un controlador de ruta determinado en función de la información de controlador de ruta.
 
@@ -325,9 +325,9 @@ La tabla siguiente muestran algunas restricciones de la ruta y el comportamiento
 
 ## <a name="regular-expressions"></a>Expresiones regulares 
 
-El marco de trabajo de ASP.NET Core agrega `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al constructor de expresión regular. Vea [enumeración RegexOptions](https://msdn.microsoft.com/library/system.text.regularexpressions.regexoptions(v=vs.110).aspx) para obtener una descripción de estos miembros.
+El marco de trabajo de ASP.NET Core agrega `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al constructor de expresión regular. Vea [enumeración RegexOptions](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) para obtener una descripción de estos miembros.
 
-Expresiones regulares utilizan delimitadores y símbolos (tokens) similares a aquellos utilizados con enrutamiento y el lenguaje C#. Deben convertirse los tokens de expresión regular. Por ejemplo, para usar la expresión regular `^\d{3}-\d{2}-\d{4}$` de enrutamiento, debe tener la `\` los caracteres escritos en como `\\` en el archivo de código fuente de C# para escapar el `\` carácter de escape de cadena (a menos que utilice [literalmente literales de cadena](https://msdn.microsoft.com/library/aa691090(v=vs.71).aspx)). El `{` , `}` , ' [' y ']' caracteres tienen que evitarse duplicándolas escape los caracteres delimitadores de parámetro de enrutamiento.  En la tabla siguiente se muestra una expresión regular y la versión de la secuencia de escape.
+Expresiones regulares utilizan delimitadores y símbolos (tokens) similares a aquellos utilizados con enrutamiento y el lenguaje C#. Deben convertirse los tokens de expresión regular. Por ejemplo, para usar la expresión regular `^\d{3}-\d{2}-\d{4}$` de enrutamiento, debe tener la `\` los caracteres escritos en como `\\` en el archivo de código fuente de C# para escapar el `\` carácter de escape de cadena (a menos que utilice [literalmente literales de cadena](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). El `{` , `}` , ' [' y ']' caracteres tienen que evitarse duplicándolas escape los caracteres delimitadores de parámetro de enrutamiento.  En la tabla siguiente se muestra una expresión regular y la versión de la secuencia de escape.
 
 | Expresión               | Nota |
 | ----------------- | ------------ | 
@@ -347,7 +347,7 @@ Expresiones regulares utilizadas en el enrutamiento a menudo se iniciará con la
 | `^[a-z]{2}$` |  hello | No | vea `^` y `$` anteriormente |
 | `^[a-z]{2}$` |  123abc456 | No | vea `^` y `$` anteriormente |
 
-Hacer referencia a [expresiones regulares de .NET Framework](https://msdn.microsoft.com/library/hs600312(v=vs.110).aspx) para obtener más información acerca de la sintaxis de expresión regular.
+Hacer referencia a [expresiones regulares de .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) para obtener más información acerca de la sintaxis de expresión regular.
 
 Para restringir un parámetro con un conjunto conocido de posibles valores, utilice una expresión regular. Por ejemplo `{action:regex(^(list|get|create)$)}` solo coincide con el `action` enrutar valor a `list`, `get`, o `create`. Si se pasa en el diccionario de restricciones, la cadena "^ (lista | get | crear) $" sería equivalente. Las restricciones que se pasan en el diccionario de restricciones (no alineado dentro de una plantilla) que no coinciden con una de las restricciones conocidas también se tratan como expresiones regulares.
 

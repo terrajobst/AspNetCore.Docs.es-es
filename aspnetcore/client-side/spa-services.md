@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 300e90912a03980d1dcde2edaf34677d80cab136
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 0dbe5e3567bb4feea7e56cff3dcf75be5df88310
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Usar JavaScriptServices para crear aplicaciones de una página con ASP.NET Core
 
@@ -33,9 +33,9 @@ Una aplicación de página única (SPA) es un tipo conocido de aplicación web d
 JavaScriptServices es un conjunto de tecnologías de cliente para ASP.NET Core. Su objetivo consiste en colocar ASP.NET Core como plataforma de servidor preferido de los desarrolladores para compilar SPAs.
 
 JavaScriptServices consta de tres paquetes de NuGet distintos:
-* [Microsoft.AspNetCore.NodeServices](http://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
-* [Microsoft.AspNetCore.SpaServices](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
-* [Microsoft.AspNetCore.SpaTemplates](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
+* [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
+* [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 Estos paquetes son útiles si se:
 * Ejecutar JavaScript en el servidor
@@ -75,7 +75,7 @@ Nota: Si va a implementar en un sitio web de Azure, no es necesario hacer nada a
 * [.NET core SDK](https://www.microsoft.com/net/download/core) 1.0 (o posterior)
     * Si está en Windows, esto se puede instalar mediante la selección de Visual Studio 2017 **.NET Core el desarrollo multiplataforma** carga de trabajo.
 
-* [Microsoft.AspNetCore.SpaServices](http://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) paquete de NuGet
+* [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) paquete de NuGet
 
 <a name="server-prerendering"></a>
 
@@ -264,7 +264,7 @@ Existen dos modos de configuración en tiempo de ejecución principal:
     * Excluye los mapas de código fuente.
     * Optimiza el código de cliente a través de agrupación y minificación.
 
-ASP.NET Core utiliza una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Vea  **[establecer el entorno de](xref:fundamentals/environments#setting-the-environment)**  para obtener más información.
+ASP.NET Core utiliza una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Vea ** [establecer el entorno de](xref:fundamentals/environments#setting-the-environment) ** para obtener más información.
 
 ### <a name="running-with-net-core-cli"></a>Ejecutar con .NET Core CLI
 

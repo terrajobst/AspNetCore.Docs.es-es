@@ -12,15 +12,15 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 514c7770b7f508893a059c1adcf56204160aceda
-ms.sourcegitcommit: 275a5381b6172b4f0b5fcd1d252aff03d3dae166
+ms.openlocfilehash: be130c24f5baf643a4c9493a33ec45bdd4cc66ed
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introducción a la validación del modelo en MVC de ASP.NET Core
 
-Por [Rachel Appel](http://github.com/rachelappel)
+Por [Rachel Appel](https://github.com/rachelappel)
 
 ## <a name="introduction-to-model-validation"></a>Introducción a la validación del modelo
 
@@ -58,7 +58,7 @@ Simplemente leer a través del modelo revela las reglas sobre los datos para est
 
 * `[Url]`: Valida la propiedad tiene un formato de dirección URL.
 
-MVC admite cualquier atributo que se deriva de `ValidationAttribute` para la validación. Muchos de los atributos de validación útil pueden encontrarse en el [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations(v=vs.110).aspx) espacio de nombres.
+MVC admite cualquier atributo que se deriva de `ValidationAttribute` para la validación. Muchos de los atributos de validación útil pueden encontrarse en el [System.ComponentModel.DataAnnotations](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations) espacio de nombres.
 
 Puede haber instancias donde necesita más características que proporcionan atributos integrados. En esas ocasiones, puede crear atributos de validación personalizado derivando de `ValidationAttribute` o cambiar el modelo para implementar `IValidatableObject`.
 

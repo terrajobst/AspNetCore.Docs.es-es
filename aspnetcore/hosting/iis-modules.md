@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 4d9d3d863e62373716ecd81b9e1880145a127e9b
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso de módulos IIS con ASP.NET Core
 
@@ -40,7 +40,7 @@ Módulo | .NET core activo | Opción de ASP.NET Core
 **Seguimiento**<br>`FailedRequestsTracingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging#the-tracesource-provider)
 **Almacenamiento en caché de archivo**<br>`FileCacheModule` | No | [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware)
 **Almacenamiento en caché de HTTP**<br>`HttpCacheModule` | No | [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware)
-**Registro HTTP**<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-framework-logging)
+**Registro HTTP**<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **Redirección HTTP**<br>`HttpRedirectionModule` | Sí | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting)
 **Autenticación de asignaciones de certificado de cliente IIS**<br>`IISCertificateMappingAuthenticationModule` | Sí | 
 **Restricciones de IP y dominio**<br>`IpRestrictionModule` | Sí | 
@@ -84,7 +84,7 @@ Cuando utiliza el Administrador de IIS para configurar, se modifica directamente
 Si tiene un módulo IIS configurado en el nivel de servidor que desea deshabilitar para una aplicación, puede hacerlo con un complemento de la *web.config* archivo. Deje el módulo en su lugar y desactivarlo mediante un valor de configuración (si está disponible) o quitar el módulo de la aplicación.
 
 ### <a name="module-deactivation"></a>Desactivación de módulo
-Muchos módulos ofrecen una opción de configuración que le permitirá hacer deshabilitarlas sin quitarlos de la aplicación. Se trata de la forma más sencilla y rápida para desactivar un módulo. Por ejemplo, si desea deshabilitar el módulo URL Rewrite de IIS, use el `<httpRedirect>` elemento tal y como se muestra a continuación. Para obtener más información acerca de cómo deshabilitar módulos con opciones de configuración, siga los vínculos en la *elementos secundarios* sección de [IIS `<system.webServer>` ](https://www.iis.net/configreference/system.webserver).
+Muchos módulos ofrecen una opción de configuración que le permitirá hacer deshabilitarlas sin quitarlos de la aplicación. Se trata de la forma más sencilla y rápida para desactivar un módulo. Por ejemplo, si desea deshabilitar el módulo URL Rewrite de IIS, use el `<httpRedirect>` elemento tal y como se muestra a continuación. Para obtener más información acerca de cómo deshabilitar módulos con opciones de configuración, siga los vínculos en la *elementos secundarios* sección de [IIS `<system.webServer>` ](https://docs.microsoft.com/iis/configuration/system.webServer/).
 
 ```xml
 <configuration>
@@ -150,6 +150,6 @@ Los módulos solo necesarios para ejecutar una aplicación de ASP.NET Core son e
 
 ## <a name="resources"></a>Recursos
 * [Publicar en IIS](xref:publishing/iis)
-* [Información general de los módulos IIS](https://www.iis.net/learn/get-started/introduction-to-iis/iis-modules-overview)
+* [Información general de los módulos IIS](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [Personalización de IIS 7.0 Roles y módulos](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS`<system.webServer>`](https://www.iis.net/configreference/system.webserver)
+* [IIS`<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
