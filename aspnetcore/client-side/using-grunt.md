@@ -11,15 +11,15 @@ ms.assetid: 471112e9-2c33-454b-96fc-32916102ce73
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: df20c3a31fce81ab039ef2f63bf38ed9943c7c6c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Usar Grunt en ASP.NET Core 
 
-Por [Noel arroz](http://blog.falafel.com/author/noel-rice/)
+Por [Noel arroz](https://blog.falafel.com/falafel-software-recognized-sitefinity-website-year/)
 
 Grunt es un ejecutor de tareas de JavaScript que automatiza la reducción de la secuencia de comandos, compilación de TypeScript, herramientas de "quitar" de calidad de código, preprocesadores CSS y casi cualquier tareas repetitivas que debe realizar para admitir el desarrollo de cliente. Grunt es totalmente compatible en Visual Studio, aunque las plantillas de proyecto ASP.NET utilizan Gulp de forma predeterminada (vea [utilizando Gulp](using-gulp.md)).
 
@@ -211,7 +211,7 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
 
 10.  Agregar el `uglify` tareas mediante el código siguiente.
 
-    La tarea minifica objeto el *combined.js* archivo se encuentra en el directorio temp y crea el archivo de resultados en wwwroot/lib sigue la convención de nomenclatura estándar  *\<nombre de archivo\>. min.js*.
+    La tarea minifica objeto el *combined.js* archivo se encuentra en el directorio temp y crea el archivo de resultados en wwwroot/lib sigue la convención de nomenclatura estándar * \<nombre de archivo\>. min.js*.
     
     ```javascript
     uglify: {
@@ -280,7 +280,7 @@ Haga clic en la tarea de inspección de explorador del ejecutor de tareas y sele
 
 ## <a name="binding-to-visual-studio-events"></a>Enlazar a eventos de Visual Studio
 
-A menos que desee iniciar manualmente las tareas de cada vez que funcionan en Visual Studio, puede enlazar tareas a **antes de compilar**, **después de compilar**, **limpiar**, y  **Proyecto abierto** eventos.
+A menos que desee iniciar manualmente las tareas de cada vez que funcionan en Visual Studio, puede enlazar tareas a **antes de compilar**, **después de compilar**, **limpiar**, y ** Proyecto abierto** eventos.
 
 Vamos a enlazar `watch` para que se ejecute cada vez que abre Visual Studio. En el explorador del ejecutor de tareas, haga clic en la tarea de inspección y seleccione **enlaces > abrir el proyecto** en el menú contextual.
 
