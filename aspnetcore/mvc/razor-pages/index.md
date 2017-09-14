@@ -1,20 +1,20 @@
 ---
 title: "Introducción a las páginas de Razor en ASP.NET Core"
 author: Rick-Anderson
-description: "Información general de las páginas de Razor en ASP.NET Core"
+description: "Este documento proporciona información general acerca del uso de las páginas de Razor en ASP.NET Core para facilitar el desarrollo de escenarios centrados en páginas."
 keywords: "ASP.NET Core, páginas de Razor"
 ms.author: riande
 manager: wpickett
-ms.date: 08/15/2017
+ms.date: 09/12/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 9301b99aed8fcb3bef91abf0fb269c4052cdb7e2
-ms.sourcegitcommit: 87900dffec8ad84a0f74357b23343e215f354dcb
+ms.openlocfilehash: e9678279db85ec03616e693b9772c6ee71c4fef8
+ms.sourcegitcommit: d2f705f7a8ef2c1a940f590e4de188621fd48d2a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -28,9 +28,9 @@ Si busca un tutorial que use el enfoque Model-View-Controller, consulte [Introdu
 
 ## <a name="aspnet-core-20-prerequisites"></a>Requisitos previos de ASP.NET Core 2.0
 
-Instale [.NET Core](https://dot.net/core) 2.0.0 o una versión posterior.
+Instale [.NET Core](https://www.microsoft.com/net/core) 2.0.0 o una versión posterior.
 
-Si usa Visual Studio, instale [Visual Studio](https://www.visualstudio.com/vs/) 15.3 o una versión posterior con las cargas de trabajo siguientes:
+Si usa Visual Studio, instale [Visual Studio](https://www.visualstudio.com/vs/) 2017 versión 15.3, o una versión posterior con las cargas de trabajo siguientes:
 
 * **Desarrollo de ASP.NET y web**
 * **Desarrollo multiplataforma de .NET Core**
@@ -63,15 +63,15 @@ Ejecute `dotnet new razor` desde la línea de comandos.
 
 Páginas de Razor está habilitada en *Startup.cs*:
 
-[!code-cs[main](index/sample/RazorPagesIntro/Startup.cs?name=Startup)]
+[!code-cs[main](index/sample/RazorPagesIntro/Startup.cs?name=snippet_Startup)]
 
 Considere la posibilidad de una página básica: <a name="OnGet"></a>
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index.cshtml)]
 
-El código anterior es muy parecido a un archivo de vista de Razor. La directiva `@page` lo hace diferente. `@page` transforma el archivo en una acción de MVC, lo que significa que administra las solicitudes directamente, sin tener que pasar a través de un controlador. `@page` debe ser la primera directiva de Razor de una página. `@page` afecta al comportamiento de otras construcciones de Razor. La directiva [@functions](xref:mvc/views/razor#functions) permite contenido de nivel de función.
+El código anterior es muy parecido a un archivo de vista de Razor. La directiva `@page` lo hace diferente. `@page` transforma el archivo en una acción de MVC, lo que significa que administra las solicitudes directamente, sin tener que pasar a través de un controlador. `@page` debe ser la primera directiva de Razor de una página. `@page` afecta al comportamiento de otras construcciones de Razor.
 
-Una página similar, con `PageModel` en un archivo independiente, se muestra en los dos archivos siguientes. El archivo *Pages/Index2.cshtml*:
+Una página similar, con una clase `PageModel`, se muestra en los dos archivos siguientes. El archivo *Pages/Index2.cshtml*:
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
@@ -81,8 +81,6 @@ El archivo de código subyacente *Pages/Index2.cshtml.cs*:
 
 Por convención, el archivo de clase `PageModel` tiene el mismo nombre que el archivo de páginas de Razor con *.cs* anexado. Por ejemplo, la página de Razor anterior es *Pages/Index2.cshtml*. El archivo que contiene la clase `PageModel` se denomina *Pages/Index2.cshtml.cs*.
 
-Para las páginas simples, se puede mezclar la clase `PageModel` con el marcado de Razor. En el caso de un código más complejo, se recomienda mantener el código de modelo de página separado.
-
 Las asociaciones de rutas de dirección URL a páginas se determinan según la ubicación de la página en el sistema de archivos. En la tabla siguiente, se muestra una ruta de acceso de página de Razor y la dirección URL correspondiente:
 
 | Ruta de acceso y nombre de archivo               | URL correspondiente |
@@ -90,7 +88,7 @@ Las asociaciones de rutas de dirección URL a páginas se determinan según la u
 | */Pages/Index.cshtml* | `/` o `/Index` |
 | */Pages/Contact.cshtml* | `/Contact` |
 | */Pages/Store/Contact.cshtml* | `/Store/Contact` |
-| */Pages/Store/Index.cshtml* | `/Store` o `/Store/Index`  |
+| */Pages/Store/Index.cshtml* | `/Store` o `/Store/Index` |
 
 Notas:
 
@@ -115,9 +113,9 @@ El archivo de vista *Pages/Create.cshtml*:
 
 El archivo de código subyacente *Pages/Movies/Create.cshtml.cs* de la vista:
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=ALL)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
-Por convención, la clase `PageModel` se denomina `<PageName>Model` y se encuentra en el mismo espacio de nombres que la página. No se necesitan muchos cambios para convertir desde una página con `@functions` para definir controladores y una página con una clase `PageModel`.
+Por convención, la clase `PageModel` se denomina `<PageName>Model` y se encuentra en el mismo espacio de nombres que la página.
 
 Al usar un archivo de código subyacente `PageModel`, se pueden usar las pruebas unitarias, pero se debe escribir un constructor y una clase explícitos. Las páginas sin archivos de código subyacente `PageModel` admiten la compilación en tiempo de ejecución, que puede ser una ventaja en el desarrollo.  <!-- review: advantage because you can make changes and refresh the browser without explicitly compiling the app -->
 
@@ -130,7 +128,7 @@ El sufijo de nombre `Async` es opcional, pero se usa a menudo por convención pa
 
 El método `OnPostAsync` anterior:
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=OnPostAsync)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_OnPostAsync)]
 
 El flujo básico de `OnPostAsync`:
 
@@ -145,18 +143,9 @@ Cuando el formulario enviado tiene errores de validación (que se pasan al servi
 
 La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el enlace de modelos.
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=PageModel&highlight=10-11)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
 De forma predeterminada, las páginas de Razor enlazan propiedades solo con verbos que no sean GET. Enlazar a propiedades puede reducir la cantidad de código que se debe escribir. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name" />`) y aceptar la entrada.
-
-El código siguiente muestra la versión combinada de la página Crear:
-
-[!code-cshtml[main](index/sample/RazorPagesContacts/Pages/CreateCombined.cshtml)]
-
-En lugar de usar `@model`, aprovechamos una característica nueva para las páginas. De forma predeterminada, la clase derivada de `Page` *es* el modelo. Se recomienda usar un *modelo de vista* con vistas de Razor. Con las páginas, obtiene un modelo de vista *automáticamente*.
-
-El cambio principal consiste en reemplazar la inserción de constructor con propiedades (`@inject`) insertadas. Esta página usa [@inject](xref:mvc/views/razor#inject) para la [inserción de dependencia de constructor](xref:mvc/controllers/dependency-injection#constructor-injection). La instrucción `@inject` genera e inicializa la propiedad `Db` que se usa en `OnPostAsync`. Las propiedades (`@inject`) insertadas se establecen antes de ejecutar los métodos de controlador.
-
 
 La página principal (*Index.cshtml*):
 
@@ -168,7 +157,7 @@ El archivo de código subyacente *Index.cshtml.cs*:
 
 El archivo *Index.cshtml* contiene el siguiente marcado para crear un vínculo de edición para cada contacto:
 
-```html
+```cshtml
 <a asp-page="./Edit" asp-route-id="@contact.Id">edit</a>
 ```
 
@@ -212,7 +201,7 @@ La propiedad [Layout](xref:mvc/views/layout#specifying-a-layout) se establece en
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/_ViewStart.cshtml)]
 
-Nota: El diseño está en la carpeta *Pages*. Las páginas buscan otras vistas (diseños, plantillas, parciales) de forma jerárquica, a partir de la misma carpeta que la página actual. Un diseño en la carpeta *Pages* se puede usar desde cualquier página de Razor en la carpeta *Pages*.
+**Nota:** El diseño está en la carpeta *Pages*. Las páginas buscan otras vistas (diseños, plantillas, parciales) de forma jerárquica, a partir de la misma carpeta que la página actual. Un diseño en la carpeta *Pages* se puede usar desde cualquier página de Razor en la carpeta *Pages*.
 
 Le recomendamos que **no** coloque el archivo de diseño en la carpeta *Views/Shared*. *Views/Shared* es un patrón de vistas de MVC. Las páginas de Razor están diseñadas para basarse en la jerarquía de carpetas, no en las convenciones de ruta de acceso.
 
@@ -222,7 +211,7 @@ Agregue un archivo *Pages/_ViewImports.cshtml*:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/_ViewImports.cshtml)]
 
-`@namespace` se explica más adelante en el tutorial. La directiva `@addTagHelper` pone las [aplicaciones auxiliares de etiquetas integradas](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/built-in/) en todas las páginas de la carpeta *Pages*.
+`@namespace` se explica más adelante en el tutorial. La directiva `@addTagHelper` pone las [aplicaciones auxiliares de etiquetas integradas](xref:mvc/views/tag-helpers/builtin-th/Index) en todas las páginas de la carpeta *Pages*.
 
 <a name="namespace"></a>
 
@@ -236,7 +225,7 @@ Cuando la directiva `@namespace` se encuentra en *_ViewImports.cshtml*, el espac
 
 Por ejemplo, el archivo de código subyacente *Pages/Customers/Edit.cshtml.cs* establece explícitamente el espacio de nombres:
 
-[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=namespace)]
+[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/Edit.cshtml.cs?name=snippet_namespace)]
 
 El archivo *Pages/_ViewImports.cshtml* establece el espacio de nombres siguiente:
 
@@ -244,15 +233,13 @@ El archivo *Pages/_ViewImports.cshtml* establece el espacio de nombres siguiente
 
 El espacio de nombres generado para la página de Razor *Pages/Customers/Edit.cshtml* es el mismo que el archivo de código subyacente. La directiva `@namespace` se ha diseñado para que las clases de C# agregadas a un proyecto y el código generado de páginas *funcionen* sin tener que agregar una directiva `@using` para el archivo de código subyacente.
 
-Nota: `@namespace` también funciona con las vistas de Razor convencionales.
+**Nota:** `@namespace` también funciona con las vistas de Razor convencionales.
 
 El archivo de vista *Pages/Create.cshtml* original:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Create.cshtml?highlight=2)]
 
-La página actualizada:
-
-El archivo de vista *Pages/Create.cshtml*:
+El archivo de vista *Pages/Create.cshtml* actualizado:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/Create.cshtml?highlight=2)]
 
@@ -264,9 +251,9 @@ El [proyecto de inicio de las páginas de Razor](#rpvs17) contiene *Pages/_Valid
 
 La página `Create`, mostrada anteriormente, usa `RedirectToPage`:
 
-[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=OnPostAsync&highlight=10)]
+[!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_OnPostAsync&highlight=10)]
 
-La aplicación tiene la siguiente estructura de archivos o carpetas
+La aplicación tiene la siguiente estructura de archivos o carpetas:
 
 * */Pages*
 
@@ -304,8 +291,9 @@ ASP.NET Core expone la propiedad [TempData](https://docs.microsoft.com/aspnet/co
 
 El atributo `[TempData]` es nuevo en ASP.NET Core 2.0 y es compatible con controladores y páginas.
 
-El siguiente código establece el valor de `Message` mediante `TempData`.
-[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateDot.cshtml.cs?highlight=10-11,27-28&name=snippetTemp)]
+El siguiente código establece el valor de `Message` mediante `TempData`:
+
+[!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateDot.cshtml.cs?highlight=10-11,25&name=snippet_Temp)]
 
 El siguiente marcado en el archivo *Pages/Customers/Index.cshtml* muestra el valor de `Message` mediante `TempData`.
 
@@ -349,7 +337,6 @@ Si no le gusta la cadena de consulta `?handler=JoinList` en la dirección URL, p
 
 [!code-cshtml[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateRoute.cshtml?highlight=1)]
 
-
 La ruta anterior coloca el nombre del controlador en la ruta de dirección URL en lugar de la cadena de consulta. El signo `?` que sigue a `handler` significa que el parámetro de ruta es opcional.
 
 Puede usar `@page` para agregar segmentos y parámetros adicionales a la ruta de la página. Todo lo que se **anexe** a la ruta predeterminada de la página. No se puede usar una ruta de acceso absoluta o virtual para cambiar la ruta de la página (como `"~/Some/Other/Path"`).
@@ -358,7 +345,7 @@ Puede usar `@page` para agregar segmentos y parámetros adicionales a la ruta de
 
 Para configurar opciones avanzadas, use el método de extensión `AddRazorPagesOptions` en el generador de MVC:
 
-[!code-cs[main](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet1)]
+[!code-cs[main](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet_1)]
 
 Actualmente, puede usar `RazorPagesOptions` para establecer el directorio raíz de páginas, o agregar convenciones de modelo de aplicación a las páginas. Esperamos habilitar más extensibilidad de este modo en el futuro.
 
