@@ -11,11 +11,11 @@ ms.assetid: 0dd63913-a041-48b6-96a4-3aeaedbdf5d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 7d216bc07d0a8d739f0cecbc5b571b6144c13e61
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: a9e255040c300bc5ce55a356e17e6912dbaeaf88
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Crear un modelo de datos complejos - Core EF con el tutorial de MVC de ASP.NET Core (5 de 10)
 
@@ -93,7 +93,7 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-El `migrations add` comando advierte de que se puede producir pérdida de datos, porque hace que el cambio de la longitud máxima más corta de dos columnas.  Migraciones crea un archivo denominado  *\<timeStamp > _MaxLengthOnNames.cs*. Este archivo contiene código en el `Up` método que actualizará la base de datos para que coincida con el modelo de datos actual. El `database update` que el código ejecutó el comando.
+El `migrations add` comando advierte de que se puede producir pérdida de datos, porque hace que el cambio de la longitud máxima más corta de dos columnas.  Migraciones crea un archivo denominado * \<timeStamp > _MaxLengthOnNames.cs*. Este archivo contiene código en el `Up` método que actualizará la base de datos para que coincida con el modelo de datos actual. El `database update` que el código ejecutó el comando.
 
 La marca de tiempo como precedida el nombre de archivo de las migraciones se usa por Entity Framework para ordenar las migraciones. Puede crear varias migraciones antes de ejecutar el comando de actualización de bases de datos y, a continuación, todas las migraciones se aplican en el orden en el que se crearon.
 
@@ -374,7 +374,7 @@ Se requiere una tabla de combinación en la base de datos para la relación de v
 
 Puesto que las claves externas no son que aceptan valores NULL y juntos forma única identifican cada fila de la tabla, no es necesario para una clave principal independiente. El *InstructorID* y *CourseID* propiedades deben funcionar como una clave principal compuesta. Es la única manera de identificar las claves principales compuestas a EF mediante la *API fluida* (no se puede realizar mediante el uso de atributos). Verá cómo configurar la clave principal compuesta en la sección siguiente.
 
-La clave compuesta garantiza que, aunque es posible tener varias filas para un curso y varias filas para un instructor, no puede tener varias filas para el mismo instructor y el curso. El `Enrollment` combinación entidad define su propia clave principal, por lo que son posibles duplicados de este tipo. Para evitar los duplicados, podría agregar un índice único en los campos de clave externos o configurar `Enrollment` con una clave compuesta principal similar a `CourseAssignment`. Para obtener más información, consulte [índices](https://docs.efproject.net/en/latest/modeling/indexes.html).
+La clave compuesta garantiza que, aunque es posible tener varias filas para un curso y varias filas para un instructor, no puede tener varias filas para el mismo instructor y el curso. El `Enrollment` combinación entidad define su propia clave principal, por lo que son posibles duplicados de este tipo. Para evitar los duplicados, podría agregar un índice único en los campos de clave externos o configurar `Enrollment` con una clave compuesta principal similar a `CourseAssignment`. Para obtener más información, consulte [índices](https://docs.microsoft.com/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Actualizar el contexto de base de datos
 

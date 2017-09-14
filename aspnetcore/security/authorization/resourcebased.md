@@ -2,7 +2,7 @@
 title: "Autorización basada en recursos"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 2f799588ba4aca4664e1679e4c34657e7ca121fb
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
+ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="resource-based-authorization"></a>Autorización basada en recursos
 
@@ -52,7 +52,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
 
 <a name=security-authorization-resource-based-imperative></a>
 
-Para llamar a la carga del servicio del recurso dentro de la acción, a continuación, llame a la `AuthorizeAsync` sobrecarga necesita. Por ejemplo
+Para llamar al servicio, cargar el recurso dentro de la acción, a continuación, llame a la `AuthorizeAsync` sobrecarga necesita. Por ejemplo:
 
 ```csharp
 public async Task<IActionResult> Edit(Guid documentId)
@@ -77,12 +77,12 @@ public async Task<IActionResult> Edit(Guid documentId)
 
 ## <a name="writing-a-resource-based-handler"></a>Escribir un controlador basada en recursos
 
-Escribir un controlador para la autorización basada en recursos no es tan muy diferente a [escribir un controlador de requisitos sin formato](policies.md#security-authorization-policies-based-authorization-handler). Crear un requisito y, a continuación, implemente un controlador para el requisito, especificar los requisitos como antes y el tipo de recurso. Por ejemplo, un controlador que podría aceptar un recurso de documento tendría el siguiente aspecto;
+Escribir un controlador para la autorización basada en recursos no es tan muy diferente a [escribir un controlador de requisitos sin formato](policies.md#security-authorization-policies-based-authorization-handler). Crear un requisito y, a continuación, implemente un controlador para el requisito, especificar los requisitos como antes y el tipo de recurso. Por ejemplo, un controlador que podría aceptar un recurso de documento sería como sigue:
 
 ```csharp
 public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, Document>
 {
-    public override Task HandleRequirementAsync(AuthorizationHandlerContext context,
+    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
                                                 MyRequirement requirement,
                                                 Document resource)
     {
@@ -93,7 +93,7 @@ public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, 
 }
 ```
 
-No olvide que también tenga que registrar el controlador en el `ConfigureServices` método;
+No olvide que también tenga que registrar el controlador en el `ConfigureServices` método:
 
 ```csharp
 services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
@@ -101,7 +101,7 @@ services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
 
 ### <a name="operational-requirements"></a>Requisitos operativos
 
-Si va a realizar decisiones basadas en operaciones como lectura, escritura, actualización y eliminación, puede usar el `OperationAuthorizationRequirement` clase en el `Microsoft.AspNetCore.Authorization.Infrastructure` espacio de nombres. Esta clase de requisito creada previamente permite escribir un único controlador que tiene un nombre de la operación con parámetros, en lugar de crear clases individuales para cada operación. Para usar proporcionan algunos nombres de operación:
+Si va a realizar decisiones basadas en operaciones como lectura, escritura, actualización y eliminación, puede usar el `OperationAuthorizationRequirement` clase en el `Microsoft.AspNetCore.Authorization.Infrastructure` espacio de nombres. Esta clase de requisito creada previamente permite escribir un único controlador que tiene un nombre de la operación con parámetros, en lugar de crear clases individuales para cada operación. Para usarla, proporcionar algunos nombres de operación:
 
 ```csharp
 public static class Operations
@@ -117,7 +117,7 @@ public static class Operations
 }
 ```
 
-El controlador puede, a continuación, implementarse como sigue, utilizando un hipotético `Document` clase como el recurso;
+El controlador puede, a continuación, implementarse como sigue, utilizando un hipotético `Document` clase como el recurso:
 
 ```csharp
 public class DocumentAuthorizationHandler :
@@ -137,7 +137,7 @@ public class DocumentAuthorizationHandler :
 
 Puede ver el controlador funciona en `OperationAuthorizationRequirement`. El código dentro del controlador debe asumir la propiedad Name del requisito proporcionado en cuenta al realizar sus evaluaciones.
 
-Para llamar a un controlador de recursos operativos es necesario especificar la operación cuando se llama a `AuthorizeAsync` en la acción. Por ejemplo
+Para llamar a un controlador de recursos operativos es necesario especificar la operación cuando se llama a `AuthorizeAsync` en la acción. Por ejemplo:
 
 ```csharp
 if (await _authorizationService.AuthorizeAsync(User, document, Operations.Read))

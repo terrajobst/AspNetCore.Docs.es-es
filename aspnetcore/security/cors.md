@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 44936c6db8a003a61091ec9a7fd3be5786d89b5b
-ms.sourcegitcommit: 8cafdd1dd409d5070d227100ba0e094c779ac47b
+ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Habilitación de solicitudes entre orígenes (CORS)
 
@@ -23,7 +23,7 @@ Por [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter
 
 Seguridad del explorador impide que una página web que realiza las solicitudes AJAX a otro dominio. Esta restricción se denomina la *directiva de mismo origen*y se impide que un sitio malintencionado pueda leer los datos confidenciales desde otro sitio. Sin embargo, en ocasiones, puede permitir que otros sitios realizar solicitudes entre orígenes en la API web.
 
-[Entre el uso compartido de recursos de origen](http://www.w3.org/TR/cors/) (CORS) es un estándar de W3C que permite que un servidor relajar la directiva de mismo origen. Con CORS, un servidor puede permitir explícitamente algunas solicitudes entre orígenes y rechazar los otros usuarios. CORS es más seguro y más flexible que técnicas anteriores como [JSONP](http://en.wikipedia.org/wiki/JSONP). En este tema se muestra cómo habilitar CORS en una aplicación de ASP.NET Core.
+[Entre el uso compartido de recursos de origen](http://www.w3.org/TR/cors/) (CORS) es un estándar de W3C que permite que un servidor relajar la directiva de mismo origen. Con CORS, un servidor puede permitir explícitamente algunas solicitudes entre orígenes y rechazar los otros usuarios. CORS es más seguro y más flexible que técnicas anteriores como [JSONP](https://wikipedia.org/wiki/JSONP). En este tema se muestra cómo habilitar CORS en una aplicación de ASP.NET Core.
 
 ## <a name="what-is-same-origin"></a>¿Qué es el "mismo origen"?
 
