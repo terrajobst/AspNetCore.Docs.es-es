@@ -11,15 +11,15 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: a14bc7fbcdac9acddfdab4fcd6e40385ca48bcc4
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 041bb04a3a3699a166a03338865da154403d8c07
+ms.sourcegitcommit: f535ce61c6a5e615bc6399b5d763c734396231f4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/13/2017
 ---
 <a name=fundamentals-configuration></a>
 
-  # <a name="configuration-in-aspnet-core"></a>Configuración de ASP.NET Core
+# <a name="configuration-in-aspnet-core"></a>Configuración de ASP.NET Core
 
 [Rick Anderson](https://twitter.com/RickAndMSFT), [marca Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), y [Daniel Roth](https://github.com/danroth27)
 
@@ -65,8 +65,8 @@ En el ejemplo anterior utiliza el indizador de configuración para leer los valo
 
 Es habitual tener distintos valores de configuración para los entornos diferentes, por ejemplo, desarrollo, prueba y producción. El `CreateDefaultBuilder` método de extensión en una aplicación de ASP.NET Core 2.x (o mediante `AddJsonFile` y `AddEnvironmentVariables` directamente en una aplicación de ASP.NET Core 1.x) agrega proveedores de configuración para leer archivos JSON y sistema de orígenes de configuración:
 
-* *appSettings.JSON que se*
-* * appsettings. \<EnvironmentName > .json
+* *appsettings.json*
+* *appSettings. \<EnvironmentName > .json*
 * variables de entorno
 
 Vea [AddJsonFile](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.jsonconfigurationextensions) para obtener una explicación de los parámetros. `reloadOnChange`solo se admite en ASP.NET Core 1.1 y versiones posteriores. 
@@ -356,6 +356,6 @@ A *web.config* archivo es necesario cuando se hospeda la aplicación en IIS o II
 ### <a name="additional-resources"></a>Recursos adicionales
 
 * [Trabajar con varios entornos](environments.md)
-* [Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo](../security/app-secrets.md)
-* [Inyección de dependencia](dependency-injection.md)
-* [Proveedor de configuración de almacén de claves de Azure](xref:security/key-vault-configuration)
+* [Almacenamiento seguro de secretos de aplicación durante el desarrollo](../security/app-secrets.md)
+* [Inserción de dependencias](dependency-injection.md)
+* [Proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration)

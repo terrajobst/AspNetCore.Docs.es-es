@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 7790f38dda61eabd3cbbc6088ad455c07289b739
-ms.sourcegitcommit: 70089de5bfd8ecd161261aa95faf07a4e1534cf8
+ms.openlocfilehash: 4013619f738b3b8b58e45d9dfd205e7b75e056b4
+ms.sourcegitcommit: 029dd7fbc0793e84b9ed91f2b45624bbc187fb32
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -125,7 +125,7 @@ Al probar y solucionar problemas de comportamiento de almacenamiento en caché, 
 * El `Set-Cookie` encabezado no debe estar presente.
 * `Vary`parámetros del encabezado deben ser válida y no es igual a `*`.
 * La `Content-Length` valor de encabezado (si establece) debe coincidir con el tamaño del cuerpo de respuesta.
-* El `HttpSendFileFeature` no se utiliza.
+* El [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) no se utiliza.
 * La respuesta no debe ser obsoleta según lo especificado por el `Expires` encabezado y el `max-age` y `s-maxage` directivas de caché.
 * Búfer de respuesta es correcto y el tamaño de la respuesta es menor que el configurado o default `SizeLimit`.
 * La respuesta debe ser almacenable en caché según el [RFC 7234](https://tools.ietf.org/html/rfc7234) especificaciones. Por ejemplo, el `no-store` directiva no debe existir en los campos de encabezado de solicitud o respuesta. Vea *sección 3: almacenar respuestas en las cachés* de [RFC 7234](https://tools.ietf.org/html/rfc7234) para obtener más información.
@@ -136,4 +136,4 @@ Al probar y solucionar problemas de comportamiento de almacenamiento en caché, 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Inicio de aplicaciones](xref:fundamentals/startup)
-* [Software intermedio](xref:fundamentals/middleware)
+* [Middleware](xref:fundamentals/middleware)
