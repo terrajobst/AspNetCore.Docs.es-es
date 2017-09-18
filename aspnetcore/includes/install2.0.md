@@ -1,0 +1,4 @@
+<span data-ttu-id="d98ed-101">Instale el software siguiente:</span><span class="sxs-lookup"><span data-stu-id="d98ed-101">Install the following:</span></span>
+
+* <span data-ttu-id="d98ed-102">[SDK de .NET Core 2.0.0](https://dot.net/core) o versiones posteriores</span><span class="sxs-lookup"><span data-stu-id="d98ed-102">[.NET Core 2.0.0 SDK](https://dot.net/core) or later.</span></span>
+* <span data-ttu-id="d98ed-103">[Visual Studio 2017](https://www.visualstudio.com/downloads/) versión 15.3 o posterior con la carga de trabajo **ASP.NET y desarrollo web**</span><span class="sxs-lookup"><span data-stu-id="d98ed-103">[Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.3 or later with the **ASP.NET and web development** workload.</span></span>
