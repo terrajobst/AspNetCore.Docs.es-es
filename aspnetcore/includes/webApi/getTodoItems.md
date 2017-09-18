@@ -3,7 +3,7 @@
 El código anterior:
 
 * Define una clase de controlador vacía. En las secciones siguientes, agregaremos métodos para implementar la API.
-* El constructor usa la [inserción de dependencias](xref:fundamentals/dependency-injection) para insertar el contexto de base de datos (`TodoContext `) en el controlador. El contexto de base de datos se usa en cada uno de los métodos [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) del controlador.
+* El constructor usa la [inserción de dependencias](xref:fundamentals/dependency-injection) para insertar el contexto de base de datos (`TodoContext `) en el controlador. El contexto de base de datos se usa en cada uno de los métodos [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) del controlador.
 * El constructor agrega un elemento a la base de datos en memoria si no existe ninguno.
 
 ## <a name="getting-to-do-items"></a>Obtención de tareas pendientes

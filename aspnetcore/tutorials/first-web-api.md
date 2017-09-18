@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api
-ms.openlocfilehash: c57c73c6f9c60874ef88749b838ed1cc1d353ead
-ms.sourcegitcommit: 7fef13045e98d716c589a2982613dad261694a65
+ms.openlocfilehash: 4aab61c7ee4498b33a4ea8bbec6033ce9828e2af
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/12/2017
 ---
 #<a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-windows"></a>Crear una API web con ASP.NET Core y Visual Studio para Windows
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://github.com/mikewasson)
 
-En este tutorial compilará una API web para administrar una lista de tareas pendientes (no creará ninguna interfaz de usuario).
+En este tutorial compilará una API Web para administrar una lista de tareas pendientes. No compilará ninguna interfaz de usuario.
 
 Hay tres versiones de este tutorial:
 
@@ -36,7 +36,7 @@ Hay tres versiones de este tutorial:
 
 [!INCLUDE[install 2.0](../includes/install2.0.md)]
 
-Vea [este PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) para la versión 1.1 de ASP.NET Core.
+Vea [este PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-web-api/_static/_webAPI.pdf) para la versión 1.1 de ASP.NET Core.
 
 ## <a name="create-the-project"></a>Crear el proyecto
 
@@ -68,11 +68,11 @@ Nota: Las clases de modelo pueden ir en cualquier lugar del proyecto, pero la ca
 
 Agregue una clase `TodoItem`. Haga clic con el botón derecho en la carpeta *Modelos* y seleccione **Agregar** > **Clase**. Asigne a la clase el nombre `TodoItem` y seleccione **Agregar**.
 
-Reemplace el código generado por el siguiente:
+Reemplace el código generado con el siguiente:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
-La base de datos genera el `Id` cuando se crea una `TodoItem`.
+La base de datos genera el `Id` cuando se crea `TodoItem`.
 
 ### <a name="create-the-database-context"></a>Crear el contexto de base de datos
 
@@ -80,7 +80,7 @@ El *contexto de base de datos* es la clase principal que coordina la funcionalid
 
 Agregue una clase `TodoContext`. Haga clic con el botón derecho en la carpeta *Modelos* y seleccione **Agregar** > **Clase**. Asigne a la clase el nombre `TodoContext` y seleccione **Agregar**.
 
-Reemplace el código generado por el siguiente:
+Reemplace el código generado con el siguiente:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
 

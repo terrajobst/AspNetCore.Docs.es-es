@@ -6,7 +6,7 @@
 
   ![Crear vista con campos de género, precio, fecha de lanzamiento y título](../../tutorials/first-mvc-app/adding-model/_static/movies.png)
 
-* Es posible no que pueda escribir comas ni puntos decimales en el campo `Price`. Para admitir la [validación de jQuery](http://jqueryvalidation.org/) para configuraciones regionales distintas del inglés que usan una coma (",") en lugar de un punto decimal y formatos de fecha distintos de Estados Unidos, debe seguir unos pasos globalizar la aplicación. Consulte https://github.com/aspnet/Docs/issues/4076 y [recursos adicionales](#additional-resources) para obtener más información. Por ahora, tan solo debe escribir números enteros como 10.
+* Es posible no que pueda escribir comas ni puntos decimales en el campo `Price`. Para admitir la [validación de jQuery](https://jqueryvalidation.org/) para configuraciones regionales distintas del inglés que usan una coma (",") en lugar de un punto decimal y formatos de fecha distintos de Estados Unidos, debe seguir unos pasos globalizar la aplicación. Consulte https://github.com/aspnet/Docs/issues/4076 y [recursos adicionales](#additional-resources) para obtener más información. Por ahora, tan solo debe escribir números enteros como 10.
 
 <a name="displayformatdatelocal"></a>
 

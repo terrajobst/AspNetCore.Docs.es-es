@@ -1,27 +1,27 @@
 ---
 title: Crear una API web con ASP.NET Core y Visual Studio para Mac
-author: rick-anderson
 description: Crear una API web con ASP.NET Core MVC y Visual Studio para Mac
-keywords: ASP.NET Core, WebAPI, API web, REST, mac, macOS, HTTP, servicio, servicio HTTP
+author: rick-anderson
 ms.author: riande
-manager: wpickett
-ms.date: 5/24/2017
+ms.date: 09/15/2017
 ms.topic: get-started-article
-ms.assetid: 830b4af5-ed14-1638-7734-764a6f13a8f6
-ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-web-api-mac
-ms.openlocfilehash: 08619d3b4ab2d6fdb04794dcbafac0b696dd8504
-ms.sourcegitcommit: 3273675dad5ac3e1dc1c589938b73db3f7d6660a
+helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Service, HTTP Service
+ms.technology: aspnet
+keywords: ASP.NET Core, WebAPI, API web, REST, mac, macOS, HTTP, servicio, servicio HTTP
+manager: wpickett
+ms.openlocfilehash: 992059f7abd7650f82c1307acf3ba3219a6fcbb5
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Crear una API web con ASP.NET Core MVC y Visual Studio para Mac
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://github.com/mikewasson)
 
-En este tutorial compilará una API web para administrar una lista de tareas pendientes (no creará ninguna interfaz de usuario).
+En este tutorial compilará una API Web para administrar una lista de tareas pendientes. No compilará ninguna interfaz de usuario.
 
 Hay tres versiones de este tutorial:
 
@@ -37,14 +37,14 @@ Hay tres versiones de este tutorial:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Instale los elementos siguientes:
+Instale el software siguiente:
 
 - [SDK de .NET Core](https://www.microsoft.com/net/core#macos)  
 - [Visual Studio para Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
 ## <a name="create-the-project"></a>Crear el proyecto
 
-En Visual Studio, seleccione **Archivo > Nueva solución**.
+Desde Visual Studio, seleccione **Archivo > Nueva solución**.
 
 ![macOS: Nueva solución](first-web-api-mac/_static/sln.png)
 
@@ -127,15 +127,15 @@ Vaya al controlador `Todo` en `http://localhost:port/api/todo`:
 
 ## <a name="implement-the-other-crud-operations"></a>Implementar las otras operaciones CRUD
 
-Vamos a agregar al controlador los métodos `Create`, `Update` y `Delete`. Son variaciones de un tema, así que solo mostraré el código y comentaré las diferencias principales. Compile el proyecto después de agregar o cambiar el código.
+Vamos a agregar los métodos `Create`, `Update` y `Delete` al controlador. Son variaciones de un tema, así que solo mostraré el código y comentaré las diferencias principales. Compile el proyecto después de agregar o cambiar el código.
 
 ### <a name="create"></a>Crear
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Se trata de un método HTTP POST, indicado por el atributo [`[HttpPost]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/HttpPostAttribute/index.html). El atributo [`[FromBody]`](https://docs.asp.net/projects/api/en/latest/autoapi/Microsoft/AspNetCore/Mvc/FromBodyAttribute/index.html) indica a MVC que obtenga el valor de la tarea pendiente del cuerpo de la solicitud HTTP.
+Se trata de un método HTTP POST, indicado por el atributo [`[HttpPost]`](https://docs.microsoft.com/aspnet/core/api). El atributo [`[FromBody]`](https://docs.microsoft.com/aspnet/core/api) indica a MVC que obtenga el valor de la tarea pendiente del cuerpo de la solicitud HTTP.
 
-El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor. `CreatedAtRoute` también agrega un encabezado de ubicación a la respuesta. El encabezado de ubicación especifica el URI de la tarea pendiente recién creada. Vea [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).
+El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta estándar para un método HTTP POST que crea un nuevo recurso en el servidor. `CreatedAtRoute` también agrega un encabezado de ubicación a la respuesta. El encabezado de ubicación especifica el URI de la tarea pendiente recién creada. Vea [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (10.2.2 201 creada).
 
 ### <a name="use-postman-to-send-a-create-request"></a>Usar Postman para enviar una solicitud de creación
 
@@ -144,10 +144,10 @@ El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta est�
 
 ![Consola de Postman](first-web-api/_static/pmc.png)
 
-* Establecer el método HTTP en `POST`
-* Seleccione el botón de radio **Body** (Cuerpo)
-* Seleccione el botón de radio **raw** (sin formato)
-* Establecer el tipo en JSON
+* Establezca el método HTTP en `POST`.
+* Seleccione el botón de radio **Body** (Cuerpo).
+* Seleccione el botón de radio **Raw** (Sin formato).
+* Establezca el tipo en JSON.
 * En el editor de pares clave-valor, escriba una tarea pendiente como la siguiente:
 
 ```json
@@ -157,13 +157,13 @@ El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta est�
 }
 ```
 
-* Seleccione **Send** (Enviar)
+* Seleccione **Send** (Enviar).
 
-* Seleccione la pestaña Headers (Encabezados) en el panel inferior y copie el encabezado **Location**:
+* Seleccione la pestaña Headers (Encabezados) en el panel inferior y copie el encabezado **Location** (Ubicación):
 
 ![Pestaña Headers (Encabezados) de la consola de Postman](first-web-api/_static/pmget.png)
 
-Puede usar el URI del encabezado Location para obtener acceso al recurso que acaba de crear. Recuerde que el método `GetById` creó la ruta denominada `"GetTodo"`:
+Puede usar el URI del encabezado Location (Ubicación) para acceder al recurso que acaba de crear. Recuerde que el método `GetById` creó la ruta denominada `"GetTodo"`:
 
 ```csharp
 [HttpGet("{id}", Name = "GetTodo")]
@@ -174,7 +174,7 @@ public IActionResult GetById(string id)
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
-`Update` es similar a `Create`, pero usa HTTP PUT. La respuesta es [204 (Sin contenido)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Según la especificación HTTP, una solicitud PUT requiere que el cliente envíe toda la entidad actualizada, no solo los deltas. Para admitir las actualizaciones parciales, use HTTP PATCH.
+`Update` es similar a `Create`, pero usa HTTP PUT. La respuesta es [204 Sin contenido](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html). Según la especificación HTTP, una solicitud PUT requiere que el cliente envíe toda la entidad actualizada, no solo los deltas. Para admitir actualizaciones parciales, use HTTP PATCH.
 
 ```json
 {
@@ -184,20 +184,20 @@ public IActionResult GetById(string id)
 }
 ```
 
-![Consola de Postman que muestra la respuesta 204 (Sin contenido)](first-web-api/_static/pmcput.png)
+![Consola de Postman que muestra la respuesta 204 Sin contenido](first-web-api/_static/pmcput.png)
 
 ### <a name="delete"></a>Eliminar
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
-La respuesta es [204 (Sin contenido)](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+La respuesta es [204 Sin contenido](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
 
-![Consola de Postman que muestra la respuesta 204 (Sin contenido)](first-web-api/_static/pmd.png)
+![Consola de Postman que muestra la respuesta 204 Sin contenido](first-web-api/_static/pmd.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Enrutamiento a las acciones del controlador](xref:mvc/controllers/routing)
-* Para información sobre la implementación de la API, vea [Publicación e implementación](../publishing/index.md).
+* [Routing to Controller Actions](xref:mvc/controllers/routing) (Enrutamiento a acciones del controlador)
+* Para saber más sobre la implementación de la API, vea [Publishing and Deployment](../publishing/index.md) (Publicación e implementación).
 * [Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample)
 * [Postman](https://www.getpostman.com/)
-* [Fiddler](http://www.fiddler2.com/fiddler2/)
+* [Fiddler](https://www.telerik.com/download/fiddler)

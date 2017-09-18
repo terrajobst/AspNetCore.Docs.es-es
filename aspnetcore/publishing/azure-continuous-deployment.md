@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: b576ef6bce3b211afe7465f33dfe62c25dac1f62
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Implementación continua en Azure para ASP.NET Core con Visual Studio y Git
 
@@ -26,7 +26,7 @@ En este tutorial se muestra cómo crear una aplicación web de ASP.NET Core con 
 Vea también [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic) (Usar VSTS para crear y publicar una aplicación web de Azure con la implementación continua), donde se muestra cómo configurar un flujo de trabajo de una entrega continua (CD) para [Azure App Service](https://azure.microsoft.com/documentation/articles/app-service-changes-existing-services/) con Visual Studio Team Services. La entrega continua de Azure en Team Services simplifica la configuración de una canalización de implementación sólida para publicar actualizaciones de la aplicación en Azure App Service. La canalización se puede configurar desde Azure Portal para crear y ejecutar pruebas, implementarlas en un espacio de ensayo y luego implementarlas en un entorno de producción.
 
 > [!NOTE]
-> Para seguir este tutorial necesita una cuenta de Microsoft Azure. Si no tiene una, puede [activar las ventajas como suscriptor a MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o [registrarse para obtener una evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Para seguir este tutorial necesita una cuenta de Microsoft Azure. Si no tiene una, puede [activar las ventajas como suscriptor a MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) o [registrarse para obtener una evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -34,9 +34,9 @@ En este tutorial se da por hecho que ya ha instalado lo siguiente:
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](http://go.microsoft.com/fwlink/?LinkId=627627) (tiempo de ejecución y herramientas)
+* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe) (tiempo de ejecución y herramientas)
 
-* [Git](http://git-scm.com/downloads) para Windows
+* [Git](https://git-scm.com/downloads) para Windows
 
 ## <a name="create-an-aspnet-core-web-app"></a>Crear una aplicación web de ASP.NET Core
 

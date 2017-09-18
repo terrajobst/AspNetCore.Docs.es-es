@@ -11,11 +11,11 @@ ms.assetid: 1d18b589-1638-4dc6-1638-fb0f41998d78
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/start-mvc
-ms.openlocfilehash: 82ce5bbc695b190759ac2c05cdceebb5f7854eb7
-ms.sourcegitcommit: e6a8f171f26fab1b2195a2d7f14e7d258a2e690e
+ms.openlocfilehash: cfce91271ca21dd800fb68a14389606ce6d835f5
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc--on-mac-linux-or-windows"></a>Introducción a ASP.NET Core MVC en Mac, Linux o Windows
 
@@ -31,11 +31,11 @@ Hay tres versiones de este tutorial:
 
 ## <a name="install-vs-code-and-net-core"></a>Instalación de VS Code y .NET Core
 
-Para realizar este tutorial se necesita el [SDK de .NET Core 2.0.0](https://dot.net/core) o una versión posterior. Vea [este PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) para la versión 1.1 de ASP.NET Core.
+Para realizar este tutorial se necesita el [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o una versión posterior. Vea [este PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/first-mvc-app-mac/start-mvc/8-23-17.pdf) para la versión 1.1 de ASP.NET Core.
 
 Instale el software siguiente:
 
-* [SDK de .NET Core 2.0.0](https://dot.net/core) o versiones posteriores
+* [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
 * [Visual Studio Code](https://code.visualstudio.com)
 * [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) de VS Code 
 
@@ -72,12 +72,12 @@ En la siguiente sección de este tutorial obtendrá información sobre MVC y emp
 
 - [Introducción](https://code.visualstudio.com/docs)
 - [Depuración](https://code.visualstudio.com/docs/editor/debugging)
-- [Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) (Terminal integrado)
-- [Keyboard shortcuts](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference) (Métodos abreviados de teclado)
+- [Terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal)
+- [Métodos abreviados de teclado](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Mac keyboard shortcuts](https://go.microsoft.com/fwlink/?linkid=832143) (Métodos abreviados de teclado de Mac)
-  - [Linux keyboard shortcuts](https://go.microsoft.com/fwlink/?linkid=832144) (Métodos abreviados de teclado de Linux)
-  - [Windows keyboard shortcuts](https://go.microsoft.com/fwlink/?linkid=832145) (Métodos abreviados de teclado de Windows)
+  - [Métodos abreviados de teclado de Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Métodos abreviados de teclado de Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Windows keyboard shortcuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf) (Métodos abreviados de teclado de Windows)
 
 >[!div class="step-by-step"]
 [Next - Add a controller](adding-controller.md) (Siguiente - Agregar un controlador)

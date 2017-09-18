@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 9636e0e51e506d294ffb50a21165195c9d04fe20
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 283a3869300b83235197951cbbee92a82532c6e3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Introducción a ASP.NET Core MVC y Visual Studio
 
@@ -24,8 +24,8 @@ En este tutorial aprenderá los aspectos básicos de la creación de una aplicac
 
 Hay tres versiones de este tutorial:
 
-* macOS: [Crear una aplicación de ASP.NET Core MVC con Visual Studio para Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
-* Windows: [Crear una aplicación de ASP.NET Core MVC con Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
+* macOS: [Creación de una aplicación de ASP.NET Core MVC con Visual Studio para Mac](xref:tutorials/first-mvc-app-mac/start-mvc)
+* Windows: [Creación de una aplicación de ASP.NET Core MVC con Visual Studio](xref:tutorials/first-mvc-app/start-mvc)
 * macOS, Linux y Windows: [Crear una aplicación de ASP.NET Core MVC con Visual Studio Code](xref:tutorials/first-mvc-app-xplat/start-mvc)
 
 Para la versión de Visual Studio 2015 de este tutorial, vea la [versión de VS 2015 de la documentación de ASP.NET Core en formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
@@ -40,7 +40,7 @@ Para la versión de Visual Studio 2015 de este tutorial, vea la [versión de VS 
 
 Instale Visual Studio Community 2017. Seleccione la descarga de Community. Omita este paso si tiene instalado Visual Studio 2017.
 
-* [Página principal del instalador de Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Página principal del instalador de Visual Studio 2017](https://www.visualstudio.com/)
 
 Ejecute el instalador y seleccione las siguientes cargas de trabajo:
 
@@ -98,7 +98,7 @@ Pulse **F5** para ejecutar la aplicación en modo de depuración o **Ctrl-F5** p
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![aplicación en ejecución](start-mvc/_static/1.png)
 
-* Visual Studio inicia [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) y ejecuta la aplicación. Tenga en cuenta que en la barra de direcciones aparece `localhost:port#` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Cuando Visual Studio crea un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen anterior, el número de puerto es el 5000. Al ejecutar la aplicación verá otro número de puerto.
+* Visual Studio inicia [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) y ejecuta la aplicación. Tenga en cuenta que en la barra de direcciones aparece `localhost:port#` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Cuando Visual Studio crea un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen anterior, el número de puerto es el 5000. Al ejecutar la aplicación verá otro número de puerto.
 * Iniciar la aplicación con **CTRL+F5** (modo de no depuración) le permite efectuar cambios en el código, guardar el archivo, actualizar el explorador y ver los cambios de código. Muchos desarrolladores prefieren usar el modo de no depuración para iniciar la aplicación rápidamente y ver los cambios.
 * Puede iniciar la aplicación en modo de depuración o en modo de no depuración desde el elemento de menú **Depurar**:
 
@@ -108,13 +108,13 @@ Pulse **F5** para ejecutar la aplicación en modo de depuración o **Ctrl-F5** p
 
 ![IIS Express](start-mvc/_static/iis_express.png)
 
-La plantilla predeterminada le proporciona los vínculos **Inicio, Acerca de** y **Contacto**. En la imagen del explorador anterior no se muestran estos vínculos. Según el tamaño del explorador, tendrá que hacer clic en el icono de navegación para que se muestren.
+La plantilla predeterminada proporciona los vínculos **Inicio, Acerca de** y **Contacto**, totalmente funcionales. En la imagen del explorador anterior no se muestran estos vínculos. Según el tamaño del explorador, tendrá que hacer clic en el icono de navegación para que se muestren.
 
 ![icono de navegación en la esquina superior derecha](start-mvc/_static/2.png)
 
 Si iba a efectuar una ejecución en modo de depuración, pulse **MAYÚS-F5** para detener la depuración.
 
-En la siguiente sección de este tutorial obtendrá información sobre MVC y aprenderá a escribir código.
+En la siguiente sección de este tutorial obtendrá información sobre MVC y empezará a escribir código.
 
 >[!div class="step-by-step"]
 [Siguiente](adding-controller.md)  

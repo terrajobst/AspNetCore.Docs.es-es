@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: aa39de71addb2499af6d322db6da0ec635c54970
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 096a60dae171ac5dbfa935be4c16e0903d8f5bb3
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code
 
@@ -26,9 +26,9 @@ En este tutorial se enseñan los conceptos básicos de la compilación de una ap
 
 Instale el software siguiente:
 
-* [SDK de .NET Core 2.0.0](https://dot.net/core) o versiones posteriores
+* [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
 * [Visual Studio Code](https://code.visualstudio.com)
-* [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) de Visual Studio Code 
+* [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) de VS Code 
 
 ## <a name="create-a-razor-web-app"></a>Creación de una aplicación web de Razor
 

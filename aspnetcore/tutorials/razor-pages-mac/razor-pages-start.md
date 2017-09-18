@@ -10,28 +10,28 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: caadc3fcb3bb71abe0773aed4f6ff60a043e3a02
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 56ff18589d189b0d2760c761c58b5b030d02940b
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio para Mac
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En este tutorial se enseñan los conceptos básicos de la creación de una aplicación web de las páginas Razor de ASP.NET Core. Se recomienda completar [Introducción a las páginas Razor](xref:mvc/razor-pages/index) antes de iniciar este tutorial. Las páginas de Razor son el método recomendado para crear la interfaz de usuario de aplicaciones web en ASP.NET Core.
+En este tutorial se enseñan los conceptos básicos de la compilación de una aplicación web de páginas de Razor de ASP.NET Core. Se recomienda leer [Introduction to Razor Pages](xref:mvc/razor-pages/index) (Introducción a las páginas de Razor) antes de empezar este tutorial. Las páginas de Razor son el método recomendado para crear la interfaz de usuario de aplicaciones web en ASP.NET Core.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Instale los elementos siguientes:
+Instale el software siguiente:
 
-* [SDK de .NET Core 2.0.0](https://dot.net/core) o versiones posteriores
+* [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
 * [Visual Studio para Mac](https://www.visualstudio.com/vs/visual-studio-mac/)
 
-## <a name="create-a-razor-web-app"></a>Crear una aplicación web de Razor
+## <a name="create-a-razor-web-app"></a>Creación de una aplicación web de Razor
 
-Desde un terminal, ejecute los comandos siguientes:
+Desde un terminal, ejecute estos comandos:
 
 ```console
 dotnet new razor -o RazorPagesMovie
@@ -53,9 +53,9 @@ En Visual Studio, seleccione **Archivo > Abrir** y elija el archivo *RazorPagesM
 
 ### <a name="launch-the-app"></a>Iniciar la aplicación
 
-En Visual Studio, seleccione **Ejecutar > Iniciar sin depurar** para iniciar la aplicación. Visual Studio iniciará [IIS Express](http://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) y un explorador y se desplazará a `http://localhost:5000`.
+En Visual Studio, seleccione **Ejecutar > Iniciar sin depurar** para iniciar la aplicación. Visual Studio iniciará [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) y un explorador y se desplazará a `http://localhost:5000`.
 
 En el tutorial siguiente, agregaremos un modelo al proyecto.
 
 >[!div class="step-by-step"]
-[Siguiente: Agregar un modelo](xref:tutorials/razor-pages-mac/model)
+[Siguiente: Adición de un modelo](xref:tutorials/razor-pages-mac/model)

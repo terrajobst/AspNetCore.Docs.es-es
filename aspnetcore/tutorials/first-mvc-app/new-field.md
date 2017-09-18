@@ -11,17 +11,17 @@ ms.assetid: 16efbacf-fe7b-4b41-84b0-06a1574b95c2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: 52fe9ee7bf006553c7dcb17c00ff659d3797b204
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 7d7e7055dd6dc0a2aefd8f4a0a170483b8504267
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="adding-a-new-field"></a>Adición de un nuevo campo
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En esta sección se usa Migraciones de [Entity Framework](http://docs.efproject.net/en/latest/platforms/aspnetcore/new-db.html) Code First para agregar un nuevo campo al modelo y migrar ese cambio a la base de datos.
+En esta sección se usa Migraciones de [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First para agregar un nuevo campo al modelo y migrar ese cambio a la base de datos.
 
 Cuando se usa EF Code First para crear una base de datos de forma automática, Code First agrega una tabla a la base de datos para ayudar a saber si el esquema de la base de datos está sincronizado con las clases del modelo a partir del que se ha generado. Si no está sincronizado, EF produce una excepción. Esto facilita la detección de problemas de código o base de datos incoherentes.
 
@@ -65,7 +65,7 @@ Este error se puede resolver de varias maneras:
 
 Para este tutorial se usa Migraciones de Code First.
 
-Actualice la clase `SeedData` para que proporcione un valor para la nueva columna. A continuación se muestra un cambio de ejemplo, aunque es conveniente realizar este cambio para cada `new Movie`.
+Actualice la clase `SeedData` para que proporcione un valor para la nueva columna. A continuación se muestra un cambio de ejemplo, aunque es conveniente realizarlo con cada `new Movie`.
 
 [!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedDataRating.cs?name=snippet1&highlight=6)]
 

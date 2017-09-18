@@ -11,11 +11,11 @@ ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: abe088f2c9df94135209ce71540e6b345186ee70
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 17687e38aae066bdab4663268a2af54f20a6ad75
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Crear una Web API con ASP.NET Core MVC y Visual Studio Code en Linux, macOS y Windows
 
@@ -36,7 +36,7 @@ Hay tres versiones de este tutorial:
 ## <a name="set-up-your-development-environment"></a>Configuración del entorno de desarrollo
 
 Descargue e instale:
-- [Núcleo de .NET](https://microsoft.com/net/core)
+- [Núcleo de .NET](https://www.microsoft.com/net/core)
 - [Visual Studio Code](https://code.visualstudio.com)
 - [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) de Visual Studio Code
 
@@ -95,7 +95,7 @@ Agregue una clase `TodoContext` a la carpeta *Models*:
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 
-## <a name="add-a-controller"></a>Adición de un controlador
+## <a name="add-a-controller"></a>Agregar un controlador
 
 En la carpeta *Controladores*, cree una clase denominada `TodoController`. Agregue el código siguiente:
 
@@ -114,9 +114,9 @@ En VS Code, presione F5 para iniciar la aplicación. Vaya a http://localhost:500
 - [Terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal)
 - [Métodos abreviados de teclado](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Métodos abreviados de teclado de Mac](https://go.microsoft.com/fwlink/?linkid=832143)
-  - [Métodos abreviados de teclado de Linux](https://go.microsoft.com/fwlink/?linkid=832144)
-  - [Métodos abreviados de teclado de Windows](https://go.microsoft.com/fwlink/?linkid=832145)
+  - [Métodos abreviados de teclado de Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  - [Métodos abreviados de teclado de Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  - [Métodos abreviados de teclado de Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 [!INCLUDE[next steps](../includes/webApi/next.md)]
 

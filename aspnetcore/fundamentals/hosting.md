@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a1a789ff1bc6b3e3af99419e7d74d3fb46bb2345
-ms.sourcegitcommit: 368aabde4de3728a8e5a8c016a2ec61f9c0854bf
+ms.openlocfilehash: 4eb57cf80399abdb7c6d05546ea2b0d5718c56c3
+ms.sourcegitcommit: 0a3f215b4f665afc6f2678642968eea698102346
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>Hospedar en ASP.NET Core
 
@@ -34,7 +34,7 @@ Crear un host con una instancia de [WebHostBuilder](/dotnet/api/microsoft.aspnet
 
 `CreateDefaultBuilder`realiza las tareas siguientes:
 
-* Configura [Kestrel](servers/kestrel.md) como el servidor web.
+* Configura [Kestrel](servers/kestrel.md) como el servidor web. Para las opciones predeterminadas de Kestrel, consulte [el Kestrel opciones de sección de implementación de servidor web Kestrel en ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Establece la raíz del contenido en [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
 * Configuración opcional de cargas de:
   * *appSettings.JSON que se*.
@@ -43,7 +43,7 @@ Crear un host con una instancia de [WebHostBuilder](/dotnet/api/microsoft.aspnet
   * Variables de entorno.
   * Argumentos de línea de comandos.
 * Configura [registro](xref:fundamentals/logging) de la salida de consola y de depuración a [filtrado del registro](xref:fundamentals/logging#log-filtering) las reglas especificadas en una sección de configuración de registro de un *appSettings.JSON que se* o *appsettings. {Entorno} .json* archivo.
-* Cuando se ejecuta detrás de IIS, permite la integración de IIS mediante la configuración de la ruta de acceso base y el puerto que debe escuchar el servidor cuando se usa el [módulo principal de ASP.NET](xref:fundamentals/servers/aspnet-core-module). El módulo crea a un proxy inverso entre Kestrel e IIS. También configura la aplicación [capturar errores de inicio](#capture-startup-errors).
+* Cuando se ejecuta detrás de IIS, permite [integración con IIS](xref:publishing/iis) mediante la configuración de la ruta de acceso base y el puerto del servidor debe escuchar al usar el [módulo principal de ASP.NET](xref:fundamentals/servers/aspnet-core-module). El módulo crea a un proxy inverso entre IIS y Kestrel. También configura la aplicación [capturar errores de inicio](#capture-startup-errors). Para las opciones predeterminadas IIS, consulte [IIS opciones de sección de Host de ASP.NET Core en Windows con IIS](xref:publishing/iis#iis-options).
 
 El *contenido raíz* determina que el host busca archivos de contenido, como los archivos de vista MVC. La raíz de contenido de forma predeterminada es [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory). Esto resulta en el uso de carpeta raíz del proyecto web como la raíz de contenido cuando la aplicación se inicia desde la carpeta raíz (por ejemplo, al llamar a [dotnet ejecutar](/dotnet/core/tools/dotnet-run) desde la carpeta del proyecto). Se trata de los valores predeterminados utilizados en [Visual Studio](https://www.visualstudio.com/) y [dotnet nuevas plantillas](/dotnet/core/tools/dotnet-new).
 
@@ -182,7 +182,7 @@ Establece el entorno de la aplicación.
 **Predeterminado**: producción  
 **Establecer mediante**:`UseEnvironment`
 
-Puede establecer la *entorno* en cualquier valor. Incluyen valores definidos por el marco de trabajo `Development`, `Staging`, y `Production`. Valores no distinguen mayúsculas de minúsculas. De forma predeterminada, el *entorno* se lee desde el `ASPNETCORE_ENVIRONMENT` variable de entorno. Cuando se usa [Visual Studio](https://www.visualstudio.com/), se pueden establecer variables de entorno el *launchSettings.json* archivo. Para obtener más información, consulte [trabajar con varios entornos](xref:fundamentals/environments).
+Puede establecer la *entorno* en cualquier valor. Incluyen valores definidos por el marco de trabajo `Development`, `Staging`, y `Production`. Valores no distinguen mayúsculas de minúsculas. De forma predeterminada, el *entorno* se lee desde el `ASPNETCORE_ENVIRONMENT` variable de entorno. Cuando se usa [Visual Studio](https://www.visualstudio.com/), se pueden establecer variables de entorno el *launchSettings.json* archivo. Para obtener más información, consulte [Trabajar con varios entornos](xref:fundamentals/environments).
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -298,7 +298,7 @@ WebHost.CreateDefaultBuilder(args)
     ...
 ```
 
-Kestrel tiene su propia API de configuración de punto de conexión. Para obtener más información, consulte [implementación de servidor web Kestrel en ASP.NET Core](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration).
+Kestrel tiene su propia API de configuración de punto de conexión. Para más información, vea [Kestrel web server implementation in ASP.NET Core](xref:fundamentals/servers/kestrel?tabs=aspnetcore2x#endpoint-configuration) (Implementación del servidor web de Kestrel en ASP.NET Core).
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
