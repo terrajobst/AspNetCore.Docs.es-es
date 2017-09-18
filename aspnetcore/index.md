@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 10831719630bc638ce2f7424f53548518868d433
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d8516643393cdf9175adc78ab98420dc1dc5d1d9
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -44,7 +44,7 @@ ASP.NET Core ofrece las siguientes ventajas:
 * Capacidad para compilarse y ejecutarse en Windows, macOS y Linux.
 * De código abierto y centrado en la comunidad.
 
-ASP.NET Core se distribuye en su totalidad como paquetes [NuGet](https://nuget.org). Esto le permite optimizar la aplicación para incluir únicamente los paquetes NuGet que necesita. Entre las ventajas de una menor superficie de aplicación se incluyen una mayor seguridad, un mantenimiento reducido y un rendimiento mejorado.
+ASP.NET Core se distribuye en su totalidad como paquetes [NuGet](https://www.nuget.org/). Esto le permite optimizar la aplicación para incluir únicamente los paquetes NuGet que necesita. Entre las ventajas de una menor superficie de aplicación se incluyen una mayor seguridad, un mantenimiento reducido y un rendimiento mejorado.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Creación de API web e interfaces de usuario web mediante ASP.NET Core MVC
 

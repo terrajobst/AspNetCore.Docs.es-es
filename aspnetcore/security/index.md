@@ -2,7 +2,7 @@
 title: Seguridad
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: a8fb7eb7-e0e5-4394-84f3-1f1dbe012345
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/index
-ms.openlocfilehash: aa22d072a6ef0ff105d67c2bfc5c335511d6c0cd
-ms.sourcegitcommit: aa6951e0c2e62209bf7c25e3b3138f04eb92898d
+ms.openlocfilehash: e8045b8804d1e7915cd81d697d43a173e33a7119
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="security"></a>Seguridad
 
@@ -27,10 +27,10 @@ ms.lasthandoff: 08/18/2017
     *   [Autenticación en dos fases con SMS](authentication/2fa.md) 
     *   [Uso de la autenticación de cookies sin ASP.NET Core Identity](authentication/cookie.md)
     *   [Azure Active Directory](authentication/azure-active-directory/index.md)
-        *   [Integración de Azure AD en una aplicación web de ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore)
-        *   [Llamada a una API Web de ASP.NET Core desde una aplicación de WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore)
+        *   [Integración de Azure AD en una aplicación web de ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
+        *   [Llamada a una API Web de ASP.NET Core desde una aplicación de WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
         *   [Llamada a una API Web en una aplicación web de ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
-        *   [Una aplicación web de ASP.NET Core con Azure AD B2C](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore-b2c/)
+        *   [Una aplicación web de ASP.NET Core con Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
     *   [Protección de aplicaciones de ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
 *   [Autorización](authorization/index.md)
     *   [Introducción](authorization/introduction.md)
@@ -54,7 +54,7 @@ ms.lasthandoff: 08/18/2017
         *   [Limitación de la duración de cargas protegidas](data-protection/consumer-apis/limited-lifetime-payloads.md)
         *   [Desprotección de cargas cuyas claves se han revocado](data-protection/consumer-apis/dangerous-unprotect.md)
     *   [Configuración](data-protection/configuration/index.md)
-        *   [Configuración de protección de datos](data-protection/configuration/overview.md)
+        *   [Configuración de la protección de datos](data-protection/configuration/overview.md)
         *   [Configuración predeterminada](data-protection/configuration/default-settings.md)
         *   [Directiva para toda la máquina](data-protection/configuration/machine-wide-policy.md)
         *   [Escenarios no compatibles con DI](data-protection/configuration/non-di-scenarios.md)
