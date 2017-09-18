@@ -168,6 +168,7 @@
 # [Hospedaje e implementación](xref:publishing/index)
 ## [Hospedaje en Windows con IIS](xref:publishing/iis)
 ### [Referencia de configuración del módulo de ASP.NET Core](xref:hosting/aspnet-core-module)
+### [Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core](xref:publishing/development-time-iis-support)
 ### [Módulos de IIS con ASP.NET Core](xref:hosting/iis-modules)
 ## [Hospedaje en un servicio de Windows](xref:hosting/windows-service)
 ## [Hospedaje en Linux con Nginx](xref:publishing/linuxproduction)
