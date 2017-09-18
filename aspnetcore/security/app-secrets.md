@@ -1,20 +1,20 @@
 ---
-title: "Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo en ASP.NET Core"
+title: "Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core"
 author: rick-anderson
 description: "Muestra cómo almacenar secretos de forma segura durante el desarrollo"
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core,
 ms.author: riande
 manager: wpickett
-ms.date: 7/14/2017
+ms.date: 09/15/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 56214c2fbdca84591c5c1a6b7f2451f33ee64ef0
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: e112cc5ef9cba5aff6470ce4b9b1091a3c2b2600
+ms.sourcegitcommit: f1271b218d7dfdc806ec8f411c81f3750130463d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/15/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core
 
@@ -42,36 +42,19 @@ La herramienta Administrador de secreto almacena datos confidenciales en el trab
 >[!WARNING]
 > La herramienta Administrador de secreto no cifra los secretos almacenados y no debe tratarse como un almacén de confianza. Es solo con fines de desarrollo. Las claves y los valores se almacenan en un archivo de configuración de JSON en el directorio del perfil de usuario.
 
-### <a name="visual-studio-2017-installing-the-secret-manager-tool"></a>Visual Studio de 2017: Instalar la herramienta Administrador de secreto
+## <a name="installing-the-secret-manager-tool"></a>Instalar la herramienta Administrador de secreto
+
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Haga clic en el proyecto en el Explorador de soluciones y seleccione **editar \<Nombre_proyecto\>.csproj** en el menú contextual. Agregue la línea resaltada en el *.csproj* y guardar archivos para restaurar el paquete NuGet asociado:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
-Haga clic en el proyecto en el Explorador de soluciones y seleccione **administrar secretos del usuario** en el menú contextual. Este movimiento agrega un nuevo `UserSecretsId` nodo dentro de un `PropertyGroup` de la *.csproj* archivo. También se abre un `secrets.json` archivo en el editor de texto.
+Haga clic de nuevo en el proyecto en el Explorador de soluciones y seleccione **administrar secretos del usuario** en el menú contextual. Este movimiento agrega un nuevo `UserSecretsId` nodo dentro de un `PropertyGroup` de la *.csproj* archivo, como se resalta en el ejemplo siguiente:
 
-Agregue lo siguiente a `secrets.json`:
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
-```json
-{
-    "MySecret": "ValueOfMySecret"
-}
-```
-
-### <a name="visual-studio-2015-installing-the-secret-manager-tool"></a>Visual Studio 2015: La herramienta Administrador de secreto de la instalación
-
-Abra el proyecto `project.json` archivo. Agregue una referencia a `Microsoft.Extensions.SecretManager.Tools` dentro de la `tools` propiedad y en Guardar para restaurar el paquete NuGet asociado:
-
-```json
-"tools": {
-    "Microsoft.Extensions.SecretManager.Tools": "1.0.0-preview2-final",
-    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.0.0-preview2-final"
-},
-```
-
-Haga clic en el proyecto en el Explorador de soluciones y seleccione **administrar secretos del usuario** en el menú contextual. Este movimiento agrega un nuevo `userSecretsId` propiedad `project.json`. También se abre un `secrets.json` archivo en el editor de texto.
-
-Agregue lo siguiente a `secrets.json`:
+Guardar modificados *.csproj* archivo también se abre un `secrets.json` archivo en el editor de texto. Reemplace el contenido de la `secrets.json` archivo con el código siguiente:
 
 ```json
 {
@@ -79,11 +62,11 @@ Agregue lo siguiente a `secrets.json`:
 }
 ```
 
-### <a name="visual-studio-code-or-command-line-installing-the-secret-manager-tool"></a>Visual Studio Code o línea de comandos: instalar la herramienta Administrador de secreto
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Agregar `Microsoft.Extensions.SecretManager.Tools` a la *.csproj* de archivos y ejecutar `dotnet restore`.
+Agregar `Microsoft.Extensions.SecretManager.Tools` a la *.csproj* de archivos y ejecutar `dotnet restore`. Puede usar los mismos pasos para instalar la herramienta de administrador de secreto mediante la línea de comandos.
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?highlight=21)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Probar la herramienta Administrador de secreto ejecutando el siguiente comando:
 
@@ -100,7 +83,7 @@ La herramienta Administrador de secreto opera en valores de configuración espec
 
 Agregar un `UserSecretsId` para el proyecto en el *.csproj* archivo:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets.csproj?range=7-9&highlight=2)]
+[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Utilice la herramienta Administrador de secreto para establecer un secreto. Por ejemplo, en una ventana de comandos desde el directorio del proyecto, escriba lo siguiente:
 
@@ -115,6 +98,8 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 ```
 
 También puede usar la herramienta Administrador de secreto para enumerar, quitar y borrar secretos de la aplicación.
+
+-----
 
 ## <a name="accessing-user-secrets-via-configuration"></a>Obtener acceso a información confidencial del usuario mediante la configuración
 

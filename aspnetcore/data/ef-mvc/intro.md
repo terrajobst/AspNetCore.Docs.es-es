@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 949733119b4e3a4b8716f2bcc1f631949d5049bc
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
@@ -30,8 +30,8 @@ La aplicación de ejemplo es un sitio web de una universidad ficticia de Contoso
 Núcleo EF 2.0 es la versión más reciente de EF pero todavía no tiene todas las características de EF 6.x. Para obtener información sobre cómo elegir entre EF 6.x y EF Core, vea [frente a EF Core. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Si elige EF 6.x, consulte [la versión anterior de esta serie de tutoriales](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
-> * Para la versión 1.1 de ASP.NET Core de este tutorial, vea el [versión de VS de 2017 actualización 2 de este tutorial en formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/efmvc/intro/_static/efmvc1.1.pdf).
-> * Para la versión de Visual Studio 2015 de este tutorial, vea el [versión de VS 2015 de documentación de ASP.NET Core en formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
+> * Para la versión 1.1 de ASP.NET Core de este tutorial, vea el [versión de VS de 2017 actualización 2 de este tutorial en formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
+> * Para la versión de Visual Studio 2015 de este tutorial, vea la [versión de VS 2015 de la documentación de ASP.NET Core en formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/common/_static/aspnet-core-project-json.pdf).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -168,7 +168,7 @@ Digamos más sobre la `DatabaseGenerated` de atributo en un [tutorial posterior]
 
 ## <a name="create-the-database-context"></a>Crear el contexto de base de datos
 
-La clase principal que coordina la funcionalidad de Entity Framework para un modelo de datos especificada es la clase de contexto de base de datos. Crear esta clase derivando de la `Microsoft.EntityFrameworkCore.DbContext` clase. En el código se especifica qué entidades se incluyen en el modelo de datos. También puede personalizar cierto comportamiento de Entity Framework. En este proyecto, la clase se denomina `SchoolContext`.
+La clase principal que coordina la funcionalidad de Entity Framework para un modelo de datos especificada es la clase de contexto de base de datos. Esta clase se crea derivándola de la clase `Microsoft.EntityFrameworkCore.DbContext`. En el código se especifica qué entidades se incluyen en el modelo de datos. También puede personalizar cierto comportamiento de Entity Framework. En este proyecto, la clase se denomina `SchoolContext`.
 
 En la carpeta del proyecto, cree una carpeta denominada *datos*.
 
@@ -176,7 +176,7 @@ En el *datos* carpeta crear un nuevo archivo de clase denominado *SchoolContext.
 
 [!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
-Este código crea un `DbSet` propiedad para cada conjunto de entidades. En la terminología de Entity Framework, una entidad establecer normalmente corresponde a una tabla de base de datos y una entidad corresponde a una fila de la tabla.
+Este código crea un `DbSet` propiedad para cada conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponderse con una tabla de base de datos, mientras que una entidad lo hace con una fila de la tabla.
 
 Se podría omitir la `DbSet<Enrollment>` y `DbSet<Course>` instrucciones y funcionará la misma. Entity Framework incluiría ellos implícitamente porque el `Student` las referencias de entidad del `Enrollment` entidad y la `Enrollment` las referencias de entidad la `Course` entidad.
 
