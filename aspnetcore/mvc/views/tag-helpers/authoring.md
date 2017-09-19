@@ -5,18 +5,18 @@ description: "Obtenga información acerca de cómo crear aplicaciones auxiliares
 keywords: "Núcleo de ASP.NET, aplicaciones auxiliares de etiquetas"
 ms.author: riande
 manager: wpickett
-ms.date: 6/14/2017
+ms.date: 06/14/2017
 ms.topic: article
 ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97013d06273c0993b74cdacfa16cb0d655c73667
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 1a5222da1380c2fe768b287bfa1a49b300c02f2b
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET, un tutorial con ejemplos de creación
 
@@ -72,7 +72,7 @@ Es decir, una etiqueta delimitadora lo hace un vínculo de correo electrónico. 
     public class Email : TagHelper
     ```
 
-2.  Para realizar la `EmailTagHelper` clase disponible para todas las vistas de nuestro Razor, agregue el `addTagHelper` la directiva a la *Views/_ViewImports.cshtml* archivo: [!code-html [principal](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
+2.  Para realizar la `EmailTagHelper` clase disponible para todas las vistas de nuestro Razor, agregue el `addTagHelper` la directiva a la *Views/_ViewImports.cshtml* archivo:[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopyEmail.cshtml?highlight=2,3)]
     
     El código anterior utiliza la sintaxis de comodín para especificar que todas las aplicaciones auxiliares de etiqueta en el ensamblado estará disponibles. La primera cadena después `@addTagHelper` especifica la aplicación auxiliar de etiquetas para cargar (utilice "*" para todas las aplicaciones auxiliares de etiquetas), y la segunda cadena "AuthoringTagHelpers" especifica el ensamblado de la aplicación auxiliar de etiqueta. Además, tenga en cuenta que la segunda línea se pondrá en las aplicaciones auxiliares de la etiqueta principal de ASP.NET MVC usando la sintaxis de comodines (esas aplicaciones auxiliares se tratan en [Introducción a las aplicaciones auxiliares de etiquetas](intro.md).) Es el `@addTagHelper` directiva que hace la aplicación auxiliar de etiquetas esté disponible para la vista de Razor. Como alternativa, puede proporcionar el nombre completo (FQN) de una aplicación auxiliar de etiquetas tal y como se muestra a continuación:
     
@@ -108,7 +108,7 @@ Actualización de la `EmailTagHelper` clase por lo siguiente:
 
 Este enfoque funciona para el atributo "href" siempre y cuando no existe actualmente en la colección de atributos. También puede usar el `output.Attributes.Add` método para agregar un atributo de aplicación auxiliar de etiquetas al final de la colección de atributos de etiqueta.
 
-1.  Actualizar el marcado en el *Views/Home/Contact.cshtml* archivo con estos cambios: [!code-html [principal](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
+1.  Actualizar el marcado en el *Views/Home/Contact.cshtml* archivo con estos cambios:[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/ContactCopy.cshtml?highlight=15,16)]
 
 2.  Ejecute la aplicación y compruebe que éste genera los enlaces correctos.
     
@@ -155,7 +155,7 @@ En esta sección, se escribirá una aplicación auxiliar de correo electrónico 
 
     [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/AboutBoldOnly.cshtml?highlight=7)]
 
-3.  Ejecutar la aplicación. Puede utilizar el explorador que prefiera para inspeccionar el origen y compruebe el marcado.
+3.  Ejecute la aplicación. Puede utilizar el explorador que prefiera para inspeccionar el origen y compruebe el marcado.
 
     El `[HtmlTargetElement]` atributo anterior solo tiene como destino la marca HTML que proporciona un nombre de atributo de "bold". El `<bold>` elemento no fue modificado por la aplicación auxiliar de etiqueta.
 
@@ -183,7 +183,7 @@ También puede usar el `[HtmlTargetElement]` para cambiar el nombre del elemento
 
 1.  Agregar un *modelos* carpeta.
 
-2.  Agregue el siguiente `WebsiteContext` clase a la *modelos* carpeta:
+2.  Agregue la clase `WebsiteContext` siguiente a la carpeta *Models*:
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Models/WebsiteContext.cs)]
 
@@ -301,7 +301,7 @@ Dado que estas aplicaciones auxiliares de dos están estrechamente relacionados 
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Ejecutar la aplicación. Observe el texto de World Wide Web se representa como un vínculo, pero el texto HTTP no está. Si coloca un punto de interrupción en ambas clases, puede ver que la clase de aplicación auxiliar de etiqueta HTTP se ejecuta primera. El problema es que se almacena en caché el resultado de la aplicación auxiliar de etiqueta y, cuando se ejecuta la aplicación auxiliar de etiqueta de World Wide Web, sobrescribe la salida almacenada en caché de la aplicación auxiliar de etiqueta HTTP. Más adelante en el tutorial veremos cómo controlar el orden en que se ejecutan aplicaciones auxiliares de etiquetas en. Se corregirá el código con lo siguiente:
+5.  Ejecute la aplicación. Observe el texto de World Wide Web se representa como un vínculo, pero el texto HTTP no está. Si coloca un punto de interrupción en ambas clases, puede ver que la clase de aplicación auxiliar de etiqueta HTTP se ejecuta primera. El problema es que se almacena en caché el resultado de la aplicación auxiliar de etiqueta y, cuando se ejecuta la aplicación auxiliar de etiqueta de World Wide Web, sobrescribe la salida almacenada en caché de la aplicación auxiliar de etiqueta HTTP. Más adelante en el tutorial veremos cómo controlar el orden en que se ejecutan aplicaciones auxiliares de etiquetas en. Se corregirá el código con lo siguiente:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 

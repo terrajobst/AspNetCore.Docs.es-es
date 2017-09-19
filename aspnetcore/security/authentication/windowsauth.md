@@ -2,20 +2,20 @@
 title: "Configurar la autenticación de Windows en ASP.NET Core"
 author: ardalis
 description: "Cómo configurar la autenticación de Windows en ASP.NET Core"
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-548ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aa401f956d74680efd3964203af3e8866b129887
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f724584b43eb2be105cc8a207d5c7b6fec558881
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -36,11 +36,11 @@ La plantilla de aplicación Web de Visual Studio puede configurarse para admitir
 ### <a name="using-the-windows-authentication-app-template"></a>Con la plantilla de aplicación de autenticación de Windows
 
 En Visual Studio:
-* Cree una nueva aplicación Web de ASP.NET Core. 
+* Cree una aplicación web de ASP.NET Core. 
 * En la lista de plantillas, seleccione aplicación Web.
 * Seleccione el botón de cambio de la autenticación y seleccione **autenticación de Windows**. 
 
-Ejecutar la aplicación. El nombre de usuario aparece en la parte superior derecha de la aplicación.
+Ejecute la aplicación. El nombre de usuario aparece en la parte superior derecha de la aplicación.
 
 ![Captura de pantalla del explorador de la autenticación de Windows](windowsauth/_static/browser-screenshot.png)
 

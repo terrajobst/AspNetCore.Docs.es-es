@@ -5,17 +5,17 @@ description: "Obtenga información acerca de cómo utilizar componentes de la ap
 keywords: "Núcleo de ASP.NET, parte de la aplicación, se parte de la aplicación"
 ms.author: riande
 manager: wpickett
-ms.date: 1/4/2017
+ms.date: 01/04/2017
 ms.topic: article
 ms.assetid: b355a48e-a15c-4d58-b69c-899963613a98
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: a5205ebab6c827b4e6af63287e56fe2b8f72c933
-ms.sourcegitcommit: 418e6aa4ab79474ecc4d0a6af573a3759b113fe4
+ms.openlocfilehash: 77d3a58d58493bf1b0b760ab9037d2778ba23441
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>Partes de la aplicación de ASP.NET Core
 

@@ -11,11 +11,11 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 93e8b99e7fbac88aabd347c077d923214ba7aebe
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 6d9f5d2a488935f9512a12c7ce6d2400f109abdb
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener implementaciones del servidor web de ASP.NET Core
 
@@ -48,13 +48,13 @@ Versiones admitidas de Windows:
 
 WebListener es útil para las implementaciones donde es necesario exponer el servidor directamente a Internet sin usar IIS.
 
-![Weblistener se comunica directamente con Internet](weblistener/_static/weblistener-to-internet.png)
+![WebListener se comunica directamente con Internet](weblistener/_static/weblistener-to-internet.png)
 
 Dado que se basa en Http.Sys, WebListener no requiere un servidor proxy inverso para la protección frente a ataques. Http.Sys es una tecnología consolidada que le protege contra muchos tipos de ataques y proporciona la solidez, la seguridad y la escalabilidad de un servidor web con todas las características. El propio IIS se ejecuta como un agente de escucha HTTP sobre Http.Sys. 
 
 WebListener también es una buena elección para implementaciones internas cuando necesite una de las características que ofrece que no se puede obtener mediante el uso de Kestrel.
 
-![Weblistener se comunica directamente con la red interna](weblistener/_static/weblistener-to-internal.png)
+![WebListener se comunica directamente con la red interna](weblistener/_static/weblistener-to-internal.png)
 
 ## <a name="how-to-use-weblistener"></a>Cómo usar WebListener
 
@@ -80,7 +80,7 @@ También hay [configuración del registro de Http.Sys](https://support.microsoft
 
 * Instale el paquete NuGet [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). Esto también instala [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) como una dependencia.
 
-* Llame a la [ `UseWebListener` ](https://docs.microsoft.com/aspnet/core/api) método de extensión [WebHostBuilder](https://docs.microsoft.com/aspnet/core/api) en su `Main` método especifica cualquier WebListener [opciones](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) y [ configuración](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) que necesite, como se muestra en el ejemplo siguiente:
+* Llame a la `UseWebListener` método de extensión [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) en su `Main` método especifica cualquier WebListener [opciones](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) y [configuración](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) que necesita , como se muestra en el ejemplo siguiente:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 

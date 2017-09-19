@@ -2,7 +2,7 @@
 title: Encabezados de contexto
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: 7befd983f6a45839868639708ec5cf45bf2df35f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5688ff2c36907231f88d45cef4ae1b1c60ab44ab
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="context-headers"></a>Encabezados de contexto
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 09/12/2017
 
 ## <a name="background-and-theory"></a>Segundo plano y la teoría
 
-En el sistema de protección de datos, una "clave" significa autenticado de un objeto que puede proporcionar servicios de cifrado. Cada clave está identificada por un identificador único (GUID) y lleva con él algorítmica información y al material entropic. Se pretende que cada clave llevar entropía único, pero el sistema no puede exigir y también es necesario tener en cuenta para los desarrolladores que cambiaría el anillo de clave manualmente mediante la modificación de la información de una clave existente en el anillo de clave algorítmica. Para lograr los requisitos de seguridad tiene estos casos, el sistema de protección de datos tiene un concepto de [agilidad criptográfica](https://www.microsoft.com/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D121045), que permite de forma segura mediante un único valor entropic entre varios algoritmos criptográficos.
+En el sistema de protección de datos, una "clave" significa autenticado de un objeto que puede proporcionar servicios de cifrado. Cada clave está identificada por un identificador único (GUID) y lleva con él algorítmica información y al material entropic. Se pretende que cada clave llevar entropía único, pero el sistema no puede exigir y también es necesario tener en cuenta para los desarrolladores que cambiaría el anillo de clave manualmente mediante la modificación de la información de una clave existente en el anillo de clave algorítmica. Para lograr los requisitos de seguridad tiene estos casos, el sistema de protección de datos tiene un concepto de [agilidad criptográfica](https://www.microsoft.com/en-us/research/publication/cryptographic-agility-and-its-relation-to-circular-encryption/), que permite de forma segura mediante un único valor entropic entre varios algoritmos criptográficos.
 
 Mayoría de los sistemas que son compatibles con agilidad criptográfica hacerlo mediante la inclusión de cierta información de identificación sobre el algoritmo en la carga. OID del algoritmo suele ser un buen candidato para esto. Sin embargo, un problema que encontramos es que hay varias maneras de especificar el mismo algoritmo: "AES" (CNG) y los administrados Aes, AesManaged, AesCryptoServiceProvider, AesCng y RijndaelManaged (determinados parámetros específicos) clases todo realmente son las mismas lo y se tendría que mantener una asignación de todos estos para el OID correcto. Si un desarrollador desea proporcionar un algoritmo personalizado (o incluso otra implementación de AES), tendría que Díganos su OID. Este paso de registro adicional, la configuración de sistema es especialmente muy complicada.
 

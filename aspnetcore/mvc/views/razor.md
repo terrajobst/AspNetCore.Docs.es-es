@@ -5,16 +5,16 @@ description: Sintaxis de Razor de detalles
 keywords: "Núcleo de ASP.NET, Razor"
 ms.author: riande
 manager: wpickett
-ms.date: 07/4/2017
+ms.date: 07/04/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 7648bc2ac7b9efd1653725cda749d6cd271bae77
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: fff2f98592473a9baf6a2d4e360fec3026b7210d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Sintaxis de Razor para ASP.NET Core
 
@@ -36,7 +36,7 @@ Se representa sin modificar como `<p>Hello World</p>` por el servidor.
 
 ## <a name="razor-syntax"></a>Sintaxis de Razor
 
-Razor es compatible con C# y usa el `@` símbolo para realizar la transición de HTML para C#. Razor evalúa las expresiones de C# y los representa en la salida HTML. Razor puede realizar la transición de HTML en C# o en el marcado específico de Razor. Cuando un `@` va seguido de símbolo de un [palabra clave reservada de Razor](#razor-reserved-keywords) realiza la transición en el marcado específico de Razor, en caso contrario, realiza una transición sin formato C#.
+Razor es compatible con C# y usa el `@` símbolo para realizar la transición de HTML para C#. Razor evalúa las expresiones de C# y los representa en la salida HTML. Razor puede realizar la transición de HTML a C# o a un marcado específico de Razor. Cuando un `@` va seguido de símbolo de un [palabra clave reservada de Razor](#razor-reserved-keywords) realiza la transición en el marcado específico de Razor, en caso contrario, realiza una transición sin formato C#.
 
 <a name=escape-at-label></a>
 
@@ -494,7 +494,7 @@ Se genera este marcado HTML:
 
 Cuando se pasan "[Rick@contoso.com](mailto:Rick@contoso.com)" en el modelo:
 
-   Vea [diseño](layout.md) para obtener más información.
+   Vea [Layout](layout.md) (Diseño) para más información.
 
 ### `@inject`
 

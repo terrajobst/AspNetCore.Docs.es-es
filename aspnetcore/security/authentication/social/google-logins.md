@@ -2,19 +2,19 @@
 title: "Programa de instalación de inicio de sesión externo de Google en ASP.NET Core"
 author: rick-anderson
 description: "Programa de instalación de inicio de sesión externo de Google en ASP.NET Core"
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 8/2/2017
+ms.date: 08/02/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: c0bf20437dcdffc447dde3e6405cd6bf55bc8cfd
-ms.sourcegitcommit: 74e22e08e3b08cb576e5184d16f4af5656c13c0c
+ms.openlocfilehash: 7e37a8af4ae5a957483fa5f4a89ea4e8999a3d1d
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>Configurar la autenticación de Google en ASP.NET Core
 
@@ -26,7 +26,7 @@ Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuent
 
 ## <a name="create-the-app-in-google-api-console"></a>Crear la aplicación de consola de API de Google
 
-* Vaya a [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) e inicie sesión. Si ya no tiene una cuenta de Google, use **más opciones** > **[crear cuenta](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api)**  vínculo para crear una:
+* Vaya a [https://console.developers.google.com/projectselector/apis/library](https://console.developers.google.com/projectselector/apis/library) e inicie sesión. Si ya no tiene una cuenta de Google, use **más opciones** > **[crear cuenta](https://accounts.google.com/SignUpWithoutGmail?service=cloudconsole&continue=https%3A%2F%2Fconsole.developers.google.com%2Fprojectselector%2Fapis%2Flibrary&ltmpl=api) ** vínculo para crear una:
 
 ![Consola de API de Google](index/_static/GoogleConsoleLogin.png)
 

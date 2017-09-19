@@ -5,17 +5,17 @@ description: "Uso de la identidad con una aplicación de ASP.NET Core"
 keywords: "Autorización de ASP.NET Core, identidad, seguridad"
 ms.author: riande
 manager: wpickett
-ms.date: 7/7/2017
+ms.date: 07/07/2017
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 5a76cac1d64718b9dece3a3201db06c8192fb6f3
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 0c17daa96bc69dc0b8393811a4dfe0e5dc4a1884
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad de un núcleo de ASP.NET
 
@@ -38,7 +38,7 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
  
     ![Cuadro de diálogo Nuevo proyecto](identity/_static/01-mvc.png)
     
-    # <a name="net-core-clitabnetcore-cli"></a>[.NET core CLI](#tab/netcore-cli)
+    # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
     Si usa la CLI de núcleo. NET, cree el nuevo proyecto utilizando ``dotnet new mvc --auth Individual``. Esto creará un nuevo proyecto con el mismo código de plantilla de identidad que Visual Studio crea.
  
     El proyecto creado contiene el `Microsoft.AspNetCore.Identity.EntityFrameworkCore` paquete, que se conservará los datos de identidad y el esquema a SQL Server mediante [Entity Framework Core](https://docs.microsoft.com/ef/).
@@ -158,7 +158,7 @@ Para obtener información adicional e instrucciones sobre cómo migrar su identi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Migrar de autenticación e identidad](xref:migration/identity)
-* [Confirmación de la cuenta y de recuperación de contraseña](xref:security/authentication/accconfirm)
+* [Migración de la autenticación y la identidad](xref:migration/identity)
+* [Confirmación de cuentas y recuperación de contraseñas](xref:security/authentication/accconfirm)
 * [Autenticación en dos fases con SMS](xref:security/authentication/2fa)
-* [Cómo habilitar la autenticación con Facebook, Google y otros proveedores externos](xref:security/authentication/social/index)
+* [Habilitación de la autenticación con Facebook, Google y otros proveedores externos](xref:security/authentication/social/index)
