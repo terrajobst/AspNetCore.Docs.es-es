@@ -5,45 +5,45 @@ description: Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
 keywords: "ASP.NET Core, aplicación auxiliar de etiquetas"
 ms.author: riande
 manager: wpickett
-ms.date: 7/11/2017
+ms.date: 09/13/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 3f47cc571eff0c522aaf6543de58f158835384d4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e7c8c64283ca3740698300689b10497f984cfd3e
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/13/2017
 ---
-# <a name="aspnet-core-built-in-tag-helpers"></a><span data-ttu-id="a4531-104">Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="a4531-104">ASP.NET Core built-in Tag Helpers</span></span>
+# <a name="aspnet-core-built-in-tag-helpers"></a><span data-ttu-id="31856-104">Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="31856-104">ASP.NET Core built-in Tag Helpers</span></span>
 
-<span data-ttu-id="a4531-105">Por [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="a4531-105">By [Peter Kellner](http://peterkellner.net)</span></span> 
+<span data-ttu-id="31856-105">Por [Peter Kellner](http://peterkellner.net)</span><span class="sxs-lookup"><span data-stu-id="31856-105">By [Peter Kellner](http://peterkellner.net)</span></span> 
 
-<span data-ttu-id="a4531-106">El marco de ASP.NET Core incluye muchas aplicaciones auxiliares de etiquetas que le pueden ayudar a ser más productivo a la hora de escribir código sólido.</span><span class="sxs-lookup"><span data-stu-id="a4531-106">The ASP.NET Core framework includes many Tag Helpers that can help you be more productive in writing robust code.</span></span> <span data-ttu-id="a4531-107">En esta sección se proporciona un resumen de todas las aplicaciones auxiliares de etiquetas integradas.</span><span class="sxs-lookup"><span data-stu-id="a4531-107">This section provides an overview of all the built-in Tag Helpers.</span></span>
+<span data-ttu-id="31856-106">ASP.NET Core incluye varias aplicaciones auxiliares de etiquetas integradas para aumentar la productividad.</span><span class="sxs-lookup"><span data-stu-id="31856-106">ASP.NET Core includes many built-in Tag Helpers to boost your productivity.</span></span> <span data-ttu-id="31856-107">En esta sección se proporciona un resumen de las aplicaciones auxiliares de etiquetas integradas.</span><span class="sxs-lookup"><span data-stu-id="31856-107">This section provides an overview of the built-in Tag Helpers.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="a4531-108">Hay aplicaciones auxiliares de etiquetas integradas que no se tratan, puesto que se usan internamente en el motor de vistas de [Razor](xref:mvc/views/razor),</span><span class="sxs-lookup"><span data-stu-id="a4531-108">There are built-in Tag Helpers which are not discussed, since they are used internally by the [Razor](xref:mvc/views/razor) view engine.</span></span> <span data-ttu-id="a4531-109">que incluye una aplicación auxiliar de etiquetas para el carácter ~, que se expande hasta la ruta de acceso raíz del sitio web.</span><span class="sxs-lookup"><span data-stu-id="a4531-109">This includes a Tag Helper for the ~ character which expands to the root path of the web site.</span></span>
+> <span data-ttu-id="31856-108">Algunas aplicaciones auxiliares de etiquetas integradas no figuran en la sección, ya que se usan internamente en el motor de vistas de [Razor](xref:mvc/views/razor).</span><span class="sxs-lookup"><span data-stu-id="31856-108">There are built-in Tag Helpers which aren't discussed, since they're used internally by the [Razor](xref:mvc/views/razor) view engine.</span></span> <span data-ttu-id="31856-109">Esto incluye una aplicación auxiliar de etiquetas para el carácter ~, que se expande hasta la ruta de acceso raíz del sitio web.</span><span class="sxs-lookup"><span data-stu-id="31856-109">This includes a Tag Helper for the ~ character, which expands to the root path of the website.</span></span>
 
-## <a name="built-in-aspnet-core-tag-helpers"></a><span data-ttu-id="a4531-110">Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="a4531-110">Built-in ASP.NET Core Tag Helpers</span></span>
+## <a name="built-in-aspnet-core-tag-helpers"></a><span data-ttu-id="31856-110">Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="31856-110">Built-in ASP.NET Core Tag Helpers</span></span>
 
-<span data-ttu-id="a4531-111">**[Aplicación auxiliar de etiquetas de delimitador](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="a4531-111">**[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)**</span></span>
+<span data-ttu-id="31856-111">**[Aplicación auxiliar de etiquetas de delimitador](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="31856-111">**[Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/AnchorTagHelper)**</span></span>
 
-<span data-ttu-id="a4531-112">**[Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="a4531-112">**[Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper)**</span></span>
+<span data-ttu-id="31856-112">**[Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="31856-112">**[Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/CacheTagHelper)**</span></span>
 
-<span data-ttu-id="a4531-113">**[Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="a4531-113">**[Distributed Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper)**</span></span>
+<span data-ttu-id="31856-113">**[Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="31856-113">**[Distributed Cache Tag Helper](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper)**</span></span>
 
-<span data-ttu-id="a4531-114">**[Aplicación auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/EnvironmentTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="a4531-114">**[Environment Tag Helper](xref:mvc/views/tag-helpers/builtin-th/EnvironmentTagHelper)**</span></span>
+<span data-ttu-id="31856-114">**[Aplicación auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/EnvironmentTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="31856-114">**[Environment Tag Helper](xref:mvc/views/tag-helpers/builtin-th/EnvironmentTagHelper)**</span></span>
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormActionTagHelper)**
 
-[comment]: **[FormTagTagHelper](xref:mvc/views/tag-helpers/builtin-th/FormTagHelper)**
+<span data-ttu-id="31856-115">**[Aplicación auxiliar de etiquetas de formulario](xref:mvc/views/working-with-forms#the-form-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-115">**[Form Tag Helper](xref:mvc/views/working-with-forms#the-form-tag-helper)**</span></span>
 
-<span data-ttu-id="a4531-115">**[Aplicación auxiliar de etiquetas de imagen](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="a4531-115">**[Image Tag Helper](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**</span></span>
+<span data-ttu-id="31856-116">**[Aplicación auxiliar de etiquetas de imagen](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**</span><span class="sxs-lookup"><span data-stu-id="31856-116">**[Image Tag Helper](xref:mvc/views/tag-helpers/builtin-th/ImageTagHelper)**</span></span>
 
-[comment]: **[InputTagHelper](xref:mvc/views/tag-helpers/builtin-th/InputTagHelper)**
+<span data-ttu-id="31856-117">**[Aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-forms#the-input-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-117">**[Input Tag Helper](xref:mvc/views/working-with-forms#the-input-tag-helper)**</span></span>
 
-[comment]: **[LabelTagHelper](xref:mvc/views/tag-helpers/builtin-th/LabelTagHelper)**
+<span data-ttu-id="31856-118">**[Aplicación auxiliar de etiquetas de elementos de etiqueta](xref:mvc/views/working-with-forms#the-label-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-118">**[Label Tag Helper](xref:mvc/views/working-with-forms#the-label-tag-helper)**</span></span>
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/LinkTagHelper)**
 
@@ -51,21 +51,15 @@ ms.lasthandoff: 08/11/2017
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/ScriptTagTagHelper)**
 
-[comment]: **[SelectTagHelper](xref:mvc/views/tag-helpers/builtin-th/SelectTagTagHelper)**
+<span data-ttu-id="31856-119">**[Aplicación auxiliar de etiquetas de selección](xref:mvc/views/working-with-forms#the-select-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-119">**[Select Tag Helper](xref:mvc/views/working-with-forms#the-select-tag-helper)**</span></span>
 
-[comment]: **[TextAreaTagHelper](xref:mvc/views/tag-helpers/builtin-th/TextAreaTagHelper)**
+<span data-ttu-id="31856-120">**[Aplicación auxiliar de etiquetas de área de texto](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-120">**[Textarea Tag Helper](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**</span></span>
 
-[comment]: **[ValidationMessageTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationMessageTagHelper)**
+<span data-ttu-id="31856-121">**[Aplicación auxiliar de etiquetas de mensaje de validación](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-121">**[Validation Message Tag Helper](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**</span></span>
 
-[comment]: **[ValidationSummaryTagHelper](xref:mvc/views/tag-helpers/builtin-th/ValidationSummaryTagHelper)**  
-  
-  
-<!--
+<span data-ttu-id="31856-122">**[Aplicación auxiliar de etiquetas de resumen de validación](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**</span><span class="sxs-lookup"><span data-stu-id="31856-122">**[Validation Summary Tag Helper](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**</span></span>
 
-## Additional Resources
+## <a name="additional-resources"></a><span data-ttu-id="31856-123">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="31856-123">Additional resources</span></span>
 
-REQUIRED These must be xref links, not relative, that is ../../
-* [Client-Side Development](../../../client-side/index.md)
-
-* [Tag Helpers](xref:mvc/views/tag-helpers/intro)
--->
+* [<span data-ttu-id="31856-124">Desarrollo en el cliente</span><span class="sxs-lookup"><span data-stu-id="31856-124">Client-Side Development</span></span>](xref:client-side/index)
+* [<span data-ttu-id="31856-125">Aplicaciones auxiliares de etiquetas</span><span class="sxs-lookup"><span data-stu-id="31856-125">Tag Helpers</span></span>](xref:mvc/views/tag-helpers/intro)
