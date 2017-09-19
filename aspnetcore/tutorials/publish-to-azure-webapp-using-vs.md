@@ -11,11 +11,11 @@ ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 14ce45f0cd15b2de39f722767df076d2c0313787
-ms.sourcegitcommit: 6ece943781d8a56784bb6160f14da85210d3fcea
+ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
+ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2017
+ms.lasthandoff: 09/13/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Publicar una aplicación web de ASP.NET Core en Azure App Service con Visual Studio
 
@@ -23,7 +23,7 @@ De [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https
 
 ## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
 
-* Instale [.NET Core y las herramientas de Visual Studio](http://go.microsoft.com/fwlink/?LinkID=798306).
+* Instale la versión más reciente de [Azure SDK para Visual Studio](https://www.visualstudio.com/vs/azure-tools/). El SDK instala Visual Studio si aún no lo tiene.
 
 * Compruebe la [cuenta de Azure](https://portal.azure.com/). Puede [abrir una cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial/) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
@@ -95,7 +95,7 @@ En el cuadro de diálogo **Publicar**, seleccione **Microsoft Azure App Service*
 
 * Asigne un nombre único a la aplicación. 
 
-* Seleccione una suscripción a MSDN.
+* Seleccionar una suscripción.
 
 * Seleccione **Nuevo...** junto al grupo de recursos y escriba un nombre para el nuevo grupo de recursos.
 
@@ -160,7 +160,7 @@ Haga clic en **Publicar**. Visual Studio publica la aplicación en Azure e inici
 
 * Edite la página de Razor *Pages/About.cshtml* y modifique su contenido. Por ejemplo, puede editar el párrafo para que incluya el mensaje "¡Hola, ASP.NET Core!":
 
-    [!code-html[Acerca de](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[About](publish-to-azure-webapp-using-vs/sample/about.cshtml?highlight=9&range=1-9)]
 
 * Haga clic con el botón derecho sobre el proyecto y vuelva a seleccionar **Publicar...**.
 
