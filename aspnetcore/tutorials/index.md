@@ -5,16 +5,16 @@ description: "Una lista de guías detalladas para aprender a desarrollar aplicac
 keywords: ASP.NET Core,
 ms.author: tdykstra
 manager: wpickett
-ms.date: 7/14/2017
+ms.date: 07/14/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: b2b429ea591809a7a1bc58115c48b8b3ed8e4249
-ms.sourcegitcommit: d7e0df365a6112240b5560212759b1e3525850a2
+ms.openlocfilehash: b3ea7688eefa69171fd1179de42497c98cf9302e
+ms.sourcegitcommit: 4d9c6d47bded895f3d9a35e9550e31ae213c083c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -56,9 +56,9 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 
 ## <a name="client-side-development"></a>Desarrollo en el cliente
 * [Usar Gulp](../client-side/using-gulp.md)
-* [Usar Grunt](../client-side/using-grunt.md)
-* [Administrar paquetes de cliente con Bower](../client-side/bower.md)
-* [Crear buenos sitios con capacidad de respuesta con Bootstrap](../client-side/bootstrap.md)
+* [Uso de Grunt](../client-side/using-grunt.md)
+* [Administración de paquetes de cliente con Bower](../client-side/bower.md)
+* [Creación de sitios elegantes con capacidad de respuesta con Bootstrap](../client-side/bootstrap.md)
 
 ## <a name="testing"></a>Pruebas
 * [Pruebas unitarias de .NET Core mediante pruebas de dotnet](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
@@ -72,6 +72,6 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 
 <a name="download"></a> 
 ## <a name="how-to-download-a-sample"></a>Cómo descargar un ejemplo
-1. [Descargue el archivo ZIP del repositorio de ASP.NET](https://github.com/aspnet/docs/archive/master.zip).
+1. [Descargue el archivo ZIP del repositorio de ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
 1. Descomprima el archivo *Docs-master.zip*.
 1. Use la dirección URL del vínculo de ejemplo para ir al directorio de ejemplo. 

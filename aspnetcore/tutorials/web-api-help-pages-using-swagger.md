@@ -11,11 +11,11 @@ ms.assetid: 54bb961d-29d9-4dee-8e2c-a93fc33c16f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 92136a6e5db68b4d7e5245e38960e4a1f01bfb73
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 647ab48fb83c5e2c79b5de371173bc644c65d831
+ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/17/2017
 ---
 # <a name="aspnet-web-api-help-pages-using-swagger"></a>Páginas de ayuda de ASP.NET Web API mediante Swagger
 
@@ -25,11 +25,11 @@ Por [Shayne Boyer](https://twitter.com/spboyer) y [Scott Addie](https://twitter.
 
 Comprender los distintos métodos de una API puede representar un reto para un desarrollador a la hora de compilar una aplicación de consumo.
 
-Para generar páginas de ayuda y una documentación de calidad para la API web, por medio de [Swagger](http://swagger.io) con la implementación de .NET Core [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore), lo único que tiene que hacer es agregar un par de paquetes de NuGet y modificar el archivo *Startup.cs*.
+Para generar páginas de ayuda y una documentación de calidad para la API web, por medio de [Swagger](https://swagger.io/) con la implementación de .NET Core [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore), lo único que tiene que hacer es agregar un par de paquetes de NuGet y modificar el archivo *Startup.cs*.
 
 * [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) es un proyecto de código abierto para generar documentos de Swagger para las API web de ASP.NET Core.
 
-* [Swagger](http://swagger.io) es una representación de lectura mecánica de una API de REST que admite la compatibilidad con la documentación interactiva, la generación de SDK de cliente y la detectabilidad.
+* [Swagger](https://swagger.io/) es una representación de lectura mecánica de una API de REST que admite la compatibilidad con la documentación interactiva, la generación de SDK de cliente y la detectabilidad.
 
 Este tutorial se basa en el ejemplo de [Cree su primera API web con ASP.NET Core MVC y Visual Studio](xref:tutorials/first-web-api). Si quiere seguir, descargue el ejemplo en [https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample).
 
@@ -275,7 +275,7 @@ Fíjese en las mejoras de la interfaz de usuario con estos comentarios adicional
 
 ### <a name="data-annotations"></a>Anotaciones de datos
 
-Incorpore atributos al controlador de la API, que se encuentran en `System.ComponentModel.DataAnnotations`, para controlar los componentes de la interfaz de usuario de Swagger.
+Incorpore al modelo atributos que se encuentran en `System.ComponentModel.DataAnnotations` para controlar los componentes de la interfaz de usuario de Swagger.
 
 Agregue el atributo `[Required]` a la propiedad `Name` de la clase `TodoItem`:
 

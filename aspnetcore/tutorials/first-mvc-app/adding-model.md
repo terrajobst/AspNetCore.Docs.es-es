@@ -11,11 +11,11 @@ ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 8d0bebc22e1cfdc6d9b213d0c3159a7dab988020
-ms.sourcegitcommit: 0bd3f6ec577c648dd777877e97572ec2da1b36c4
+ms.openlocfilehash: 7469546494ec54bfe36bc5bd2f5f9702889ddf4a
+ms.sourcegitcommit: 2e61e287e220eddd5f3f4cd9147aa6417cfd9236
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2017
+ms.lasthandoff: 09/12/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -70,7 +70,7 @@ Visual Studio crea:
 * Un controlador de películas (*Controllers/MoviesController.cs*)
 * Archivos de vistas Razor para las páginas de creación, eliminación, detalles, edición e índice (*Views/Movies/&ast;.cshtml*)
 
-La creación automática del contexto de base de datos y de vistas y métodos de acción [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (crear, leer, actualizar y eliminar) se conoce como *scaffolding*. Pronto contará con una aplicación web totalmente funcional que le permitirá administrar una base de datos de películas.
+La creación automática del contexto de base de datos y de vistas y métodos de acción [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (crear, leer, actualizar y eliminar) se conoce como *scaffolding*. Pronto contará con una aplicación web totalmente funcional que le permitirá administrar una base de datos de películas.
 
 Si ejecuta la aplicación y hace clic en el vínculo **Mvc Movie**, aparece un error similar al siguiente:
 
@@ -98,7 +98,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet > Con
 <!-- following image shared with uid: tutorials/razor-pages/model -->
   ![Menú de PMC](adding-model/_static/pmc.png)
 
-En la PMC, escriba los siguientes comandos:
+En PCM, escriba los siguientes comandos:
 
 ``` PMC
 Install-Package Microsoft.EntityFrameworkCore.Tools
@@ -106,7 +106,7 @@ Add-Migration Initial
 Update-Database
 ```
 
-Nota: Vea el [enfoque de la CLI](#cli) si tiene problemas con la PMC.
+**Nota:** Si recibe un error con el comando `Install-Package`, abra el administrador de paquetes NuGet y busque el paquete `Microsoft.EntityFrameworkCore.Tools`. De esta forma, podrá instalar el paquete o comprobar si ya está instalado. Como alternativa, vea el [enfoque de la CLI](#cli) si tiene problemas con la PMC.
 
 El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial. El esquema se basa en el modelo especificado en `DbContext` (en el archivo *Data/MvcMovieContext.cs*). El argumento `Initial` se usa para asignar nombre a las migraciones. Puede usar cualquier nombre, pero se suele elegir uno que describa la migración. Vea [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) (Introducción a las migraciones) para obtener más información.
 

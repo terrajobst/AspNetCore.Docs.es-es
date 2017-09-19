@@ -5,17 +5,19 @@ description: "Agregue un modelo a una aplicación sencilla de ASP.NET Core."
 keywords: "ASP.NET Core, MVC, aplicar la técnica scaffolding, scaffolding"
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.devlang: csharp
+ms.date: 09/15/2017
 ms.topic: get-started-article
 ms.assetid: 8dc28498-eeee-1638-b903-b593059e9f39
 ms.technology: aspnet
-ms.prod: asp.net-core
+ms.prod: .net-core
+helpviewer_keywords: aspnet, csharp, mvc
 uid: tutorials/first-mvc-app-mac/adding-model
-ms.openlocfilehash: 4a158802a19011cbb45da1b3ca43d67706efe4cd
-ms.sourcegitcommit: d9e2c99c837078fcac0e315025f8fbfbd45ea6e8
+ms.openlocfilehash: 36819284073eb1cb20b19c41512944e34c54c6d3
+ms.sourcegitcommit: 3fece4e2869581df72090ff5e82af1a09d927699
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/15/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
@@ -46,9 +48,9 @@ Compile el proyecto para comprobar que no contiene errores. Ahora tiene un **m**
 
 - Guarde el archivo.
 
-- Cree un archivo *Modelos/MvcMovieContext.cs* y agregue la siguiente clase `MvcMovieContext`: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
+- Cree un archivo *Modelos/MvcMovieContext.cs* y agregue la siguiente clase `MvcMovieContext`:  [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Models/MvcMovieContext.cs)]
    
-- Abra el archivo *Startup.cs* y agregue dos instrucciones using: [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
+- Abra el archivo *Startup.cs* y agregue dos instrucciones using:  [!code-csharp[Main](../../tutorials/first-mvc-app-xplat/start-mvc/sample/MvcMovie/Startup.cs?name=snippet1&highlight=1,2)]
 
 - Agregue el contexto de base de datos al archivo *Startup.cs*:
 
@@ -82,7 +84,7 @@ El motor de scaffolding crea lo siguiente:
 * Un controlador de películas (*Controllers/MoviesController.cs*)
 * Archivos de vistas de Razor para las páginas Crear, Eliminar, Detalles, Editar e Índice (*Views/Movies/\*.cshtml*)
 
-La creación automática de vistas y métodos de acción [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) (crear, leer, actualizar y eliminar) se conoce como *scaffolding*. Pronto contará con una aplicación web totalmente funcional que le permitirá administrar una base de datos de películas.
+La creación automática de vistas y métodos de acción [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (crear, leer, actualizar y eliminar) se conoce como *scaffolding*. Pronto contará con una aplicación web totalmente funcional que le permitirá administrar una base de datos de películas.
 
 ### <a name="add-the-files-to-visual-studio"></a>Agregar los archivos a Visual Studio
 
