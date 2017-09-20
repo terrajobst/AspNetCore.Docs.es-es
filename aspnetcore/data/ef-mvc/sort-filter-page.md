@@ -10,11 +10,11 @@ ms.assetid: e6c1ff3c-5673-43bf-9c2d-077f6ada1f29
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 9de39ce59633036c0dd850a7552bd3f4806c5431
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 149af0ce88d55527a42ba3b88d40047a61d510c9
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordenación, filtrado, paginación y agrupar - Core EF con el tutorial de MVC de ASP.NET Core (3 de 10)
 
@@ -67,7 +67,7 @@ Reemplace el código de *Views/Students/Index.cshtml*, con el código siguiente 
 
 Este código usa la información de `ViewData` valores de cadena de propiedades para configurar hipervínculos con la consulta adecuada.
 
-Ejecute la página y haga clic en el **Last Name** y **fecha de inscripción** funciona encabezados de columna para comprobar que la ordenación.
+Ejecutar la aplicación, seleccione la **estudiantes** ficha y haga clic en el **Last Name** y **fecha de inscripción** funciona encabezados de columna para comprobar que la ordenación.
 
 ![Página de índice de estudiantes en orden de nombres](sort-filter-page/_static/name-order.png)
 
@@ -94,9 +94,9 @@ En *Views/Student/Index.cshtml*, agregue el código resaltado inmediatamente ant
 
 [!code-html[](intro/samples/cu/Views/Students/Index3.cshtml?range=9-23&highlight=5-13)]
 
-Este código usa el `<form>` [etiqueta auxiliar](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/intro) para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la `<form>` auxiliar de etiquetas envía datos de formulario con una entrada, lo que significa que se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como las cadenas de consulta de parámetros. Cuando se especifica HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta, lo que permite a los usuarios marcar la dirección URL. El W3C. se recomienda instrucciones que debe usar obtener cuando la acción no da como resultado una actualización.
+Este código usa el `<form>` [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro) para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la `<form>` auxiliar de etiquetas envía datos de formulario con una entrada, lo que significa que se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como las cadenas de consulta de parámetros. Cuando se especifica HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta, lo que permite a los usuarios marcar la dirección URL. El W3C. se recomienda instrucciones que debe usar obtener cuando la acción no da como resultado una actualización.
 
-Ejecute la página, escriba una cadena de búsqueda y haga clic en Buscar para comprobar que el filtrado está funcionando.
+Ejecutar la aplicación, seleccione la **estudiantes** ficha, escriba una cadena de búsqueda y haga clic en Buscar para comprobar que el filtrado está funcionando.
 
 ![Página de índice de los alumnos con filtrado](sort-filter-page/_static/filtering.png)
 
@@ -193,7 +193,7 @@ Se muestran los botones de paginación mediante aplicaciones auxiliares de etiqu
 </a>
 ```
 
-Ejecute la página.
+Ejecute la aplicación y vaya a la página de los alumnos.
 
 ![Página con vínculos de paginación de índice de estudiantes](sort-filter-page/_static/paging.png)
 
@@ -241,7 +241,7 @@ Reemplace el código de la *Views/Home/About.cshtml* archivo con el código sigu
 
 [!code-html[](intro/samples/cu/Views/Home/About.cshtml)]
 
-Ejecutar la aplicación y haga clic en el **sobre** vínculo. El número de alumnos para cada fecha de inscripción se muestra en una tabla.
+Ejecute la aplicación y vaya a la página acerca de. El número de alumnos para cada fecha de inscripción se muestra en una tabla.
 
 ![Acerca de la página](sort-filter-page/_static/about.png)
 

@@ -11,11 +11,11 @@ ms.assetid: 71fec30f-8ea7-4ca8-96e3-d2e26c5be44e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: a3badbfe365a99593b38fc3846a9984824438f16
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: e818411f2cc568afdfd0612a6367dc3e257d0dd7
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lectura relacionadas con datos - Core EF con el tutorial de MVC de ASP.NET Core (6 de 10)
 
@@ -85,7 +85,7 @@ Ha realizado los siguientes cambios en el código con scaffolding:
   @Html.DisplayFor(modelItem => item.Department.Name)
   ```
 
-Ejecute la página (seleccione la pestaña de cursos en la página de inicio de la Universidad de Contoso) para ver la lista con los nombres de departamento.
+Ejecute la aplicación y seleccione la **cursos** pestaña para ver la lista con los nombres de departamento.
 
 ![Página de índice de cursos](read-related-data/_static/courses-index.png)
 
@@ -203,7 +203,7 @@ Ha realizado los siguientes cambios en el código existente:
   <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
   ```
 
-Ejecute la aplicación y seleccione la pestaña de instructores. La página muestra la propiedad de ubicación de las entidades relacionadas de OfficeAssignment y una celda de tabla vacía cuando no hay ninguna entidad OfficeAssignment relacionada.
+Ejecute la aplicación y seleccione la **instructores** ficha. La página muestra la propiedad de ubicación de las entidades relacionadas de OfficeAssignment y una celda de tabla vacía cuando no hay ninguna entidad OfficeAssignment relacionada.
 
 ![Página de índice de instructores que no hay nada seleccionado](read-related-data/_static/instructors-index-no-selection.png)
 
@@ -213,7 +213,7 @@ En el *Views/Instructors/Index.cshtml* archivo, después de que el cierre de la 
 
 Este código lee el `Courses` propiedad del modelo de vista para mostrar una lista de cursos. También proporciona un **seleccione** hipervínculo que envía el Id. del curso seleccionado para la `Index` método de acción.
 
-Ejecute la página y seleccione un instructor. Ahora verá una cuadrícula que muestra los cursos asignados al instructor seleccionado, y para cada curso verá el nombre del departamento asignado.
+Actualice la página y seleccione un instructor. Ahora verá una cuadrícula que muestra los cursos asignados al instructor seleccionado, y para cada curso verá el nombre del departamento asignado.
 
 ![Instructor de página de índice de instructores seleccionado](read-related-data/_static/instructors-index-instructor-selected.png)
 
@@ -223,7 +223,7 @@ Después del bloque de código que acaba de agregar, agregue el código siguient
 
 Este código lee la propiedad de las inscripciones del modelo de vista para mostrar una lista de estudiantes inscritos en el curso.
 
-Ejecute la página y seleccione un instructor. A continuación, seleccione un curso para ver la lista de estudiantes inscritos y sus calificaciones.
+Actualice la página de nuevo y seleccione un instructor. A continuación, seleccione un curso para ver la lista de estudiantes inscritos y sus calificaciones.
 
 ![Instructor de página de índice de instructores y curso seleccionado](read-related-data/_static/instructors-index.png)
 
@@ -237,7 +237,7 @@ Suponga que esperaba a los usuarios apenas desea ver las inscripciones en un ins
 
 El nuevo código quita la *ThenInclude* método se llama para los datos de inscripción desde el código que recupera entidades instructor. Si se seleccionan un instructor y el curso, el código resaltado recupera entidades de inscripción para el curso seleccionado y entidades de estudiante para cada inscripción.
 
-Ejecute ahora la página de índice de Instructor y no verá ninguna diferencia en lo que se muestra en la página, aunque ha cambiado la forma en que se recuperan los datos.
+Ejecute que la aplicación, vaya a la página de índice de instructores ahora y no se verá ninguna diferencia en lo que se muestra en la página, aunque ha cambiado la forma en que se recuperan los datos.
 
 ## <a name="summary"></a>Resumen
 

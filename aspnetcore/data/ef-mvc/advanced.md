@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 210f8e8b91c2487e5c4b73fdeb6ff0d5aa35c0c5
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 70434d1c814af2a96493027c6a2ad87845cd5cae
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Temas avanzados - Core EF con el tutorial de MVC de ASP.NET Core (10 de 10)
 
@@ -61,7 +61,7 @@ Agregar un elemento using instrucción:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
-Ejecute la página acerca de. Muestra los mismos datos que lo hacía anteriormente.
+Ejecute la aplicación y vaya a la página acerca de. Muestra los mismos datos que lo hacía anteriormente.
 
 ![Acerca de la página](advanced/_static/about.png)
 
@@ -109,7 +109,7 @@ A veces resulta útil poder ver las consultas SQL reales que se envían a la bas
 
 Abra *StudentsController.cs* y en el `Details` método establece un punto de interrupción en el `if (student == null)` instrucción.
 
-Ejecute la aplicación en modo de depuración y vaya a la página de detalles para un estudiante.
+Ejecutar la aplicación en modo de depuración y vaya a la página de detalles acerca de un estudiante.
 
 Vaya a la **salida** de salida de ventana que muestra la depuración, y verá que la consulta:
 

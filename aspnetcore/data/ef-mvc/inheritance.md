@@ -11,11 +11,11 @@ ms.assetid: 41dc0db7-6f17-453e-aba6-633430609c74
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 3c86dea145d2d4dec10c77e008f511cfe67975f9
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 6102b426cb5aff78fedb9389df229cd8100e4f36
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Herencia - Core EF con el tutorial de MVC de ASP.NET Core (9 de 10)
 
@@ -131,7 +131,7 @@ dotnet ef database update
 
 ## <a name="test-with-inheritance-implemented"></a>Probar con herencia implementada
 
-Ejecute el sitio Web y vuelva a intentarlo varias páginas. El mismo todo funciona igual que antes.
+Ejecute la aplicación e intente distintas páginas. El mismo todo funciona igual que antes.
 
 En **Explorador de objetos de SQL Server**, expanda **las conexiones de datos/SchoolContext** y, a continuación, **tablas**, y verá que las tablas Student y Instructor se han reemplazado por un Tabla Person. Abra el Diseñador de tablas de la persona y puede ver que tiene todas las columnas que solían haber en las tablas Student y Instructor.
 

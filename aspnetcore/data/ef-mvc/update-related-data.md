@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 655fefc0f9d884300bea670795c39a7a9aa10bb8
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: 981a099630008eaf11599b17c4d4d5d6e86b8b90
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Actualizar datos relacionados - Core EF con el tutorial de MVC de ASP.NET Core (7 de 10)
 
@@ -71,7 +71,7 @@ Para optimizar el rendimiento de los detalles de curso y eliminar páginas, agre
 
 ### <a name="modify-the-course-views"></a>Modificar las vistas de curso
 
-En *Views/Courses/Create.cshtml*, agregar una opción de "Departamento de seleccionar" para el **departamento** lista desplegable lista, cambie el título de **DepartmentID** a  **Departamento**y agregar un mensaje de validación.
+En *Views/Courses/Create.cshtml*, agregar una opción de "Departamento de seleccionar" para el **departamento** lista desplegable lista, cambie el título de **DepartmentID** a ** Departamento**y agregar un mensaje de validación.
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
@@ -91,13 +91,13 @@ En *Views/Courses/Details.cshtml*, realizar el mismo cambio en la que se hizo si
 
 ### <a name="test-the-course-pages"></a>Probar las páginas de curso
 
-Ejecute el **crear** página (mostrar la página de índice de curso y haga clic en **crear nuevo**) y escriba los datos de un curso nuevo:
+Ejecutar la aplicación, seleccione la **cursos** , haga clic en **crear nuevo**y escriba los datos de un curso nuevo:
 
 ![Página de creación de curso](update-related-data/_static/course-create.png)
 
-Haga clic en **crear**. Se muestra la página de índice de cursos con el nuevo curso agregado a la lista. El nombre de departamento en la lista de páginas de índice proviene de la propiedad de navegación, que muestra que la relación se estableció correctamente.
+Haga clic en **Crear**. Se muestra la página de índice de cursos con el nuevo curso agregado a la lista. El nombre de departamento en la lista de páginas de índice proviene de la propiedad de navegación, que muestra que la relación se estableció correctamente.
 
-Ejecute el **editar** página (haga clic en **editar** en un curso en la página de índice de curso).
+Haga clic en **editar** en un curso en la página de índice de cursos.
 
 ![Página de edición de curso](update-related-data/_static/course-edit.png)
 
@@ -159,7 +159,7 @@ En *Views/Instructors/Edit.cshtml*, agregar un nuevo campo para editar la ubicac
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=30-34)]
 
-Ejecute la página (seleccione la **instructores** ficha y, a continuación, haga clic en **editar** en un instructor). Cambiar el **oficina** y haga clic en **guardar**.
+Ejecutar la aplicación, seleccione la **instructores** ficha y, a continuación, haga clic en **editar** en un instructor. Cambiar el **oficina** y haga clic en **guardar**.
 
 ![Página de edición de instructor](update-related-data/_static/instructor-edit-office.png)
 
@@ -215,7 +215,7 @@ Si no se ha seleccionado la casilla de verificación para un curso, pero el curs
 
 ### <a name="update-the-instructor-views"></a>Actualizar las vistas de Instructor
 
-En *Views/Instructors/Edit.cshtml*, agregar un **cursos** campo con una matriz de casillas de verificación agregando el siguiente código inmediatamente después de la `div` elementos para el **Office**  campo y antes de la `div` (elemento) para la **guardar** botón.
+En *Views/Instructors/Edit.cshtml*, agregar un **cursos** campo con una matriz de casillas de verificación agregando el siguiente código inmediatamente después de la `div` elementos para el **Office ** campo y antes de la `div` (elemento) para la **guardar** botón.
 
 <a id="notepad"></a>
 > [!NOTE] 
@@ -227,7 +227,7 @@ Este código crea una tabla HTML que tiene tres columnas. En cada columna es una
 
 Cuando inicialmente se representan las casillas de verificación, aquellos que por cursos asignados al instructor comprobaron atributos, que selecciona (muestra ellos activadas).
 
-Ejecute la página de índice de Instructor y haga clic en **editar** en un instructor para ver el **editar** página.
+Ejecutar la aplicación, seleccione la **instructores** ficha y haga clic en **editar** en un instructor para ver el **editar** página.
 
 ![Página de edición de instructor con cursos](update-related-data/_static/instructor-edit-courses.png)
 
@@ -287,7 +287,7 @@ En *Views/Instructor/Create.cshtml*, agregue un cuadro de texto de la ubicación
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Create.cshtml?range=29-61)]
 
-Prueba ejecutando el **crear** página y la adición de un instructor. 
+Pruebe ejecutando la aplicación y creando un instructor. 
 
 ## <a name="handling-transactions"></a>Controlar transacciones
 

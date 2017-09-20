@@ -11,11 +11,11 @@ ms.assetid: 15e79e15-bda5-441d-80c7-8032a2628605
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: f44a4f842180b4001eb1428316c24fd9cacc39db
-ms.sourcegitcommit: 5355c96a1768e5a1d5698a98c190e7addcc4ded5
+ms.openlocfilehash: fc6b218034183a9153c1ef22c99d920a942d2d09
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Controlar los conflictos de simultaneidad - Core EF con el tutorial de MVC de ASP.NET Core (8 de 10)
 
@@ -184,9 +184,7 @@ En *Views/Departments/Edit.cshtml*, realice los cambios siguientes:
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Conflictos de simultaneidad de prueba en la página Editar
 
-Ejecute el sitio Web y haga clic en Ir a la página de índice de los departamentos a los departamentos.
-
-Haga clic en el **editar** hipervínculo para el departamento de inglés y seleccione **abrir en nueva ficha**, a continuación, haga clic en el **editar** hipervínculo para el departamento de inglés. Las pestañas del dos explorador ahora muestran la misma información.
+Ejecute la aplicación y vaya a la página de índice de departamentos. Haga clic en el **editar** hipervínculo para el departamento de inglés y seleccione **abrir en nueva ficha**, a continuación, haga clic en el **editar** hipervínculo para el departamento de inglés. Las pestañas del dos explorador ahora muestran la misma información.
 
 Cambiar un campo en la primera pestaña de explorador y haga clic en **guardar**.
 
@@ -255,7 +253,7 @@ Esto hace que los cambios siguientes:
 
 * Agrega un campo oculto para el `RowVersion` propiedad.
 
-Ejecute la página de índice de departamentos. Haga clic con el **eliminar** hipervínculo para el departamento de inglés y seleccione **abrir en nueva ficha**, a continuación, en la primera ficha, haga clic en el **editar** hipervínculo para el departamento de inglés.
+Ejecute la aplicación y vaya a la página de índice de departamentos. Haga clic en el **eliminar** hipervínculo para el departamento de inglés y seleccione **abrir en nueva ficha**, a continuación, en la primera ficha, haga clic en el **editar** hipervínculo para el departamento de inglés.
 
 En la primera ventana, cambie uno de los valores y haga clic en **guardar**:
 

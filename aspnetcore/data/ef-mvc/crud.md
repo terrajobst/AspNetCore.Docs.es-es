@@ -11,11 +11,11 @@ ms.assetid: 6e1cd570-40f1-4b24-8b6e-7d2d27758f18
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 87aa7e63b1a08e457c5fdcbc052bfa039b8d2175
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 3393bb90d170cfc572d2307ec18f1a8e25bdce59
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Crear, leer, actualizar y eliminar - Core EF con el tutorial de MVC de ASP.NET Core (2 de 10)
 
@@ -108,7 +108,7 @@ Si no es correcta la sangría del código después de pegar el código, presione
 
 Este código recorre las entidades en el `Enrollments` propiedad de navegación. Para cada inscripción muestra el título del curso y el grado de. Se recupera el título del curso de la entidad de curso que se almacena en la `Course` propiedad de navegación de la entidad de inscripciones.
 
-Ejecute la aplicación, seleccione la **estudiantes** ficha y haga clic en el **detalles** vínculo acerca de un estudiante. Ver la lista de cursos y sus notas para el alumno seleccionado:
+Ejecutar la aplicación, seleccione la **estudiantes** ficha y haga clic en el **detalles** vínculo acerca de un estudiante. Ver la lista de cursos y sus notas para el alumno seleccionado:
 
 ![Página de detalles de estudiante](crud/_static/student-details.png)
 
@@ -156,7 +156,7 @@ Es una manera alternativa para evitar que overposting que muchos desarrolladores
 
 El código en *Views/Students/Create.cshtml* utiliza `label`, `input`, y `span` (para los mensajes de validación) aplicaciones auxiliares para cada campo de etiquetas.
 
-Ejecute la página seleccionando el **estudiantes** ficha y haga clic en **crear nuevo**.
+Ejecutar la aplicación, seleccione la **estudiantes** ficha y haga clic en **crear nuevo**.
 
 Especifique una fecha y nombres. Pruebe a escribir una fecha no válida si el explorador le permite hacerlo. (Algunos exploradores obligan a utilizar un selector de fecha.) A continuación, haga clic en **crear** para ver el mensaje de error.
 
@@ -222,7 +222,7 @@ Si desea evitar el enfoque basado principalmente de lectura, pero también desea
 
 ### <a name="test-the-edit-page"></a>Probar la página de edición
 
-Ejecute la aplicación y seleccione la **estudiantes** ficha, a continuación, haga clic en un **editar** hipervínculo.
+Ejecutar la aplicación, seleccione la **estudiantes** ficha, a continuación, haga clic en un **editar** hipervínculo.
 
 ![Página de edición de estudiantes](crud/_static/student-edit.png)
 
@@ -264,7 +264,7 @@ En *Views/Student/Delete.cshtml*, agregar un mensaje de error entre el encabezad
 
 [!code-html[](intro/samples/cu/Views/Students/Delete.cshtml?range=7-9&highlight=2)]
 
-Ejecute la página seleccionando el **estudiantes** ficha y haga clic en un **eliminar** hipervínculo:
+Ejecutar la aplicación, seleccione la **estudiantes** ficha y haga clic en un **eliminar** hipervínculo:
 
 ![Eliminar página de confirmación](crud/_static/student-delete.png)
 
