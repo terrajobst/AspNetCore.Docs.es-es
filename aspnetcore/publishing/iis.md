@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 48e67add785fc1d7e79c659565afb1ec68c1defb
-ms.sourcegitcommit: f531d90646b9d261c5fbbffcecd6ded9185ae292
+ms.openlocfilehash: 8ffadc1dede4053faa129a3b224aace901e70e14
+ms.sourcegitcommit: ad01283f299d346cf757c4f4744c48634dc27e73
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/18/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>Configuración de un entorno de hospedaje para ASP.NET Core en Windows con IIS e implementación en él
 
@@ -99,21 +99,22 @@ Tanto `UseKestrel` como `UseIISIntegration` son necesarios. La llamada al códig
 
 Para obtener más información sobre el hospedaje, consulte [Hosting in ASP.NET Core](xref:fundamentals/hosting) (Hospedaje en ASP.NET Core).
 
-### <a name="setting-iisoptions-for-the-iisintegration-service"></a>Configuración de IISOptions para el servicio IISIntegration
+### <a name="iis-options"></a>Opciones de IIS
 
-Para configurar las opciones del servicio *IISIntegration*, incluya una configuración del servicio para *IISOptions* en *ConfigureServices*.
+Para configurar las opciones del servicio *IISIntegration*, incluya una configuración del servicio para *IISOptions* en *ConfigureServices*:
 
 ```csharp
-services.Configure<IISOptions>(options => {
-  ...
+services.Configure<IISOptions>(options => 
+{
+    ...
 });
 ```
 
-| Opción | Parámetro|
-| --- | --- | 
-| AutomaticAuthentication | Si es true, el middleware de autenticación altera las solicitudes de usuario que llegan y responde a desafíos genéricos. Si es false, el middleware de autenticación solo proporciona una identidad y responde a los desafíos cuando así se lo indica de forma explícita theAuthenticationScheme |
-| ForwardClientCertificate | Si es true y el encabezado de solicitud `MS-ASPNETCORE-CLIENTCERT` está presente, se rellena `ITLSConnectionFeature`. |
-| ForwardWindowsAuthentication | Si es true, el middleware de autenticación intenta autenticar mediante la autenticación de Windows del controlador de plataforma. Si es false, no se agrega el middleware de autenticación. |
+| Opción                         | Default | Parámetro |
+| ------------------------------ | ------- | ------- |
+| `AutomaticAuthentication`      | `true`  | Si `true`, el middleware de autenticación configura el `HttpContext.User` y responde a los desafíos genéricos. Si `false`, el middleware de autenticación solo proporciona una identidad (`HttpContext.User`) y responde a los desafíos cuando se le solicita explícitamente mediante el `AuthenticationScheme`. Autenticación de Windows debe estar habilitado en IIS para que `AutomaticAuthentication` funcione. |
+| `AuthenticationDisplayName`    | `null`  | Establece el nombre para mostrar que se muestra a los usuarios en las páginas de inicio de sesión. |
+| `ForwardClientCertificate`     | `true`  | Si `HttpContext.Connection.ClientCertificate` y el encabezado de solicitud `true` está presente, se rellena `MS-ASPNETCORE-CLIENTCERT`. |
 
 ### <a name="webconfig"></a>web.config
 
@@ -449,7 +450,7 @@ Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, vea [Sugerencias para la solución de problemas](#troubleshooting-tips).
 
-* Examine el atributo *arguments* del elemento `<aspNetCore>` de *web.config* para confirmar que es (a) *.\my_applciation.dll* para una implementación dependiente del marco de trabajo; o (b) no está presente, es una cadena vacía (*arguments=""*) o una lista de argumentos de la aplicación (*arguments="arg1, arg2, ..."*) para una implementación independiente.
+* Examine el atributo *arguments* del elemento `<aspNetCore>` de *web.config* para confirmar que es (a) *.\my_application.dll* para una implementación dependiente del marco de trabajo; o (b) no está presente, es una cadena vacía (*arguments=""*) o una lista de argumentos de la aplicación (*arguments="arg1, arg2, ..."*) para una implementación independiente.
 
 ### <a name="missing-net-framework-version"></a>Falta la versión de .NET Framework
 
