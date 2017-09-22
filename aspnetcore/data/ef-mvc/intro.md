@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 6bde59ddbf153ada36034765b390892ec2ed5997
-ms.sourcegitcommit: 98ecb0f1bae4886507b090c84ecd99ff1e5c46ed
+ms.openlocfilehash: a4e9ab26fa49720aa2334101ee12916fc797d944
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
@@ -80,7 +80,7 @@ Abra Visual Studio y cree un nuevo proyecto de web en ASP.NET Core C# con el nom
 
 * Haga clic en **Aceptar**
 
-  ![Cuadro de diálogo nuevo proyecto de ASP.NET](intro/_static/new-aspnet.png)
+  ![Cuadro de diálogo Nuevo proyecto ASP.NET](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Configurar el estilo de sitio
 
@@ -168,7 +168,7 @@ Digamos más sobre la `DatabaseGenerated` de atributo en un [tutorial posterior]
 
 ## <a name="create-the-database-context"></a>Crear el contexto de base de datos
 
-La clase principal que coordina la funcionalidad de Entity Framework para un modelo de datos especificada es la clase de contexto de base de datos. Esta clase se crea derivándola de la clase `Microsoft.EntityFrameworkCore.DbContext`. En el código se especifica qué entidades se incluyen en el modelo de datos. También puede personalizar cierto comportamiento de Entity Framework. En este proyecto, la clase se denomina `SchoolContext`.
+La clase principal que coordina la funcionalidad de Entity Framework para un modelo de datos especificada es la clase de contexto de base de datos. Esta clase se crea al derivar de la clase `Microsoft.EntityFrameworkCore.DbContext`. En el código se especifica qué entidades se incluyen en el modelo de datos. También puede personalizar cierto comportamiento de Entity Framework. En este proyecto, la clase se denomina `SchoolContext`.
 
 En la carpeta del proyecto, cree una carpeta denominada *datos*.
 
@@ -204,7 +204,7 @@ Abra la *appSettings.JSON que se* de archivos y agregar una cadena de conexión 
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-La cadena de conexión especifica una base de datos de SQL Server LocalDB. LocalDB es una versión ligera del motor de base de datos de SQL Server Express y está diseñada para el desarrollo de aplicaciones, no su uso en producción. LocalDB a petición se inicia y se ejecuta en modo de usuario, así que no hay ninguna configuración compleja. De forma predeterminada, crea LocalDB *.mdf* archivos en la base de datos la `C:/Users/<user>` directory.
+La cadena de conexión especifica una base de datos de SQL Server LocalDB. LocalDB es una versión ligera del motor de base de datos de SQL Server Express y está diseñada para el desarrollo de aplicaciones, no su uso en producción. LocalDB se inicia a petición y se ejecuta en modo de usuario, sin necesidad de una configuración compleja. De forma predeterminada, crea LocalDB *.mdf* archivos en la base de datos la `C:/Users/<user>` directory.
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Agregue código para inicializar la base de datos con datos de prueba
 
@@ -242,7 +242,7 @@ La creación automática de los métodos de acción CRUD y vistas se conoce como
 
 * Haga clic en el **controladores** carpeta **el Explorador de soluciones** y seleccione **Agregar > nuevo elemento de scaffolding**.
 
-* En el **agregar dependencias de MVC** cuadro de diálogo, seleccione **dependencias mínimas**y seleccione **agregar**.
+* En el cuadro de diálogo **Agregar dependencias de MVC**, seleccione **Dependencias mínimas** y **Agregar**.
 
   ![Agregar dependencias](intro/_static/add-depend.png)
 

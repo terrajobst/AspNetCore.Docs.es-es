@@ -11,11 +11,11 @@ ms.assetid: fda0c2a8-1743-4505-be1a-7f8ceeef8647
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/yeoman
-ms.openlocfilehash: 61561b55774faf375090c92b574a64f1a12f9647
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: d7411c1635e9fef2857f9a03e7310224ee8d7344
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-building-projects-with-yeoman-in-aspnet-core"></a>Introducción a la creación de proyectos con Yeoman en ASP.NET Core
 
@@ -156,4 +156,4 @@ El resultado es un archivo de configuración de NuGet denominado `nuget.config` 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Servidores (Kestrel y WebListener)](xref:fundamentals/servers/index)
-* [Conceptos básicos](xref:fundamentals/index)
+* [Aspectos básicos](xref:fundamentals/index)

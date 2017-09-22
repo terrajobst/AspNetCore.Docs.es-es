@@ -2,7 +2,7 @@
 title: Uso compartido de las cookies entre aplicaciones
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET, ASP.NET, las cookies, interoperabilidad, cookie de uso compartido"
+keywords: Uso compartido de Core,ASP.NET,cookies,Interop,cookie de ASP.NET
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 9a7aae45-8e21-4c54-950c-3c29df6c1082
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/compatibility/cookie-sharing
-ms.openlocfilehash: c02a00a7f1defd081c5490a9cbc9ad4bcc6ba747
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: dbf52b0a990a3627b8eded22db033c45d51ba6ad
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="sharing-cookies-between-applications"></a>Uso compartido de las cookies entre aplicaciones
 

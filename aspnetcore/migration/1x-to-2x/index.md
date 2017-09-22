@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 7a845cec23f662dd6fe48044b819099f2c20ecb3
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: 541774d46bbf570ee860c72fdff5cece364935df
+ms.sourcegitcommit: 55759ae80e7039036a7c6da8e3806f7c88ade325
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migración de ASP.NET Core 1.x a ASP.NET Core 2.0
 
@@ -152,7 +152,7 @@ Los proyectos de ASP.NET Core 1.1 creados en Visual Studio 2017 han agregado App
 
 3. Quite la llamada API del lado cliente de Application Insights de *_Layout.cshtml*. Comprende las dos líneas de código siguientes:
 
-    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19)]
+    [!code-cshtml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Views/Shared/_Layout.cshtml?range=1,19&dedent=4)]
 
 Si usa el SDK de Application Insights directamente, siga haciéndolo. El [metapaquete](xref:fundamentals/metapackage) 2.0 incluye la versión más reciente de Application Insights, por lo que si se hace referencia a una versión anterior, aparece un error de degradación de paquete.
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/static-files
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ea6c180332dd5ab3a7238dcd73a4a1c8534c6243
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 11457cb8684e98147447303ae4653b74414a11fb
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-working-with-static-files-in-aspnet-core"></a>Introducción a trabajar con archivos estáticos en ASP.NET Core
 
@@ -199,7 +199,7 @@ Con el código anterior, se devolverá una solicitud para un archivo con un tipo
 ### <a name="considerations"></a>Consideraciones
 
 >[!WARNING]
-> `UseDirectoryBrowser`y `UseStaticFiles` puede producir la pérdida de información confidencial. Se recomienda **no** Habilitar examen de directorios en producción. Tenga cuidado acerca de los directorios que se habilita con `UseStaticFiles` o `UseDirectoryBrowser` como todo el directorio y todos los subdirectorios será accesibles. Se recomienda mantener contenido público en su propio directorio como  *\<contenido raíz > / wwwroot*, lejos de vistas de la aplicación, archivos de configuración, etcetera.
+> `UseDirectoryBrowser`y `UseStaticFiles` puede producir la pérdida de información confidencial. Se recomienda **no** Habilitar examen de directorios en producción. Tenga cuidado acerca de los directorios que se habilita con `UseStaticFiles` o `UseDirectoryBrowser` como todo el directorio y todos los subdirectorios será accesibles. Se recomienda mantener contenido público en su propio directorio como * \<contenido raíz > / wwwroot*, lejos de vistas de la aplicación, archivos de configuración, etcetera.
 
 * Las direcciones URL para el contenido que se exponen a través de `UseDirectoryBrowser` y `UseStaticFiles` están sujetos a las mayúsculas y minúsculas y restricciones de caracteres de su sistema de archivos subyacente. Por ejemplo, Windows distingue mayúsculas de minúsculas, pero no son Mac y Linux.
 
@@ -220,6 +220,6 @@ Con el código anterior, se devolverá una solicitud para un archivo con un tipo
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Software intermedio](middleware.md)
+* [Middleware](middleware.md)
 
 * [Introducción a ASP.NET Core](../index.md)

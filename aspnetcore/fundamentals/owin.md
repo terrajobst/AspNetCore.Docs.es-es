@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 796d075d4d0c6b888be4fc2225fc482acdbad498
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 9edacb494c38d7812f9e3826ab9277cd1dffd675
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Introducción a abrir la interfaz Web para .NET (OWIN)
 
@@ -339,6 +339,6 @@ Depende de OWIN un `IDictionary<string,object>` objeto para comunicar la informa
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Software intermedio](middleware.md)
+* [Middleware](middleware.md)
 
 * [Servidores](servers/index.md)

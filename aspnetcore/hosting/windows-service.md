@@ -11,11 +11,11 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: 33a4eca48a04f9b29c60a446f4191d39d21e7e7d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5b54c77ff9e019b1d550aa687923077a3e9ba5c2
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Hospedar una aplicación ASP.NET básica en un servicio de Windows
 
@@ -33,7 +33,7 @@ Es la manera recomendada para hospedar una aplicación de ASP.NET Core en Window
 
   Al crear un proyecto en Visual Studio, utilice el **aplicación de ASP.NET Core (.NET Framework)** plantilla.
 
-* Si la aplicación obtendrá las solicitudes de internet (no solo desde una red interna), debe utilizar el [WebListener](xref:fundamentals/servers/weblistener) servidor web en lugar de [Kestrel](xref:fundamentals/servers/kestrel).  Kestrel debe utilizarse con IIS para las implementaciones de borde.  Para obtener más información, consulte [cuándo utilizar Kestrel con un proxy inverso](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy).
+* Si la aplicación obtendrá las solicitudes de internet (no solo desde una red interna), debe utilizar el [WebListener](xref:fundamentals/servers/weblistener) servidor web en lugar de [Kestrel](xref:fundamentals/servers/kestrel).  Kestrel debe utilizarse con IIS para las implementaciones de borde.  Para más información, vea [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Cuándo se debe usar Kestrel con un proxy inverso).
 
 ## <a name="getting-started"></a>Introducción
 

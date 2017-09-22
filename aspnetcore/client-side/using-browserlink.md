@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2ff38288cee3e9ca42a07c219521bb79a00a359
-ms.sourcegitcommit: 4e84d8bf5f404bb77f3d41665cf7e7374fc39142
+ms.openlocfilehash: 211dd5d03e6b8414e0b2ed3234d8970c92f72452
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-browser-link-in-aspnet-core"></a>Introducción al vínculo de explorador en ASP.NET Core 
 
@@ -61,7 +61,7 @@ Por lo general es que el código dentro de un `if` bloque que permite el víncul
 
 [!code-csharp[Main](./using-browserlink/sample/BrowserLinkSample/src/BrowserLinkSample/Startup.cs?highlight=1,4&range=40-44)]
 
-Para obtener más información, consulte [trabajar con varios entornos](../fundamentals/environments.md).
+Para obtener más información, consulte [Trabajar con varios entornos](../fundamentals/environments.md).
 
 ## <a name="how-to-use-browser-link"></a>Cómo usar el vínculo de explorador
 
@@ -85,7 +85,7 @@ Para elegir un explorador web único para iniciar al iniciar el proyecto, utilic
 
 ![Menú desplegable de F5](using-browserlink/_static/debug-target-dropdown-menu.png)
 
-Para abrir varios exploradores a la vez, elija **examinar con...**  en la misma lista desplegable.  Mantenga presionada la tecla CTRL para seleccionar los exploradores que desee y, a continuación, haga clic en **examinar**:
+Para abrir varios exploradores a la vez, elija **examinar con... ** en la misma lista desplegable.  Mantenga presionada la tecla CTRL para seleccionar los exploradores que desee y, a continuación, haga clic en **examinar**:
 
 ![Abrir a la vez muchos exploradores](using-browserlink/_static/open-many-browsers-at-once.png)
 

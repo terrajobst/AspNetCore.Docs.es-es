@@ -11,11 +11,11 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 07a2aca731b8017450a1b0da00ddef25306c122e
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: bb8a889c66ec9ca0c0aec7b4a4184d7c19858d78
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="view-components"></a>Componentes de la vista
 
@@ -172,7 +172,7 @@ Notas sobre el código:
 
 * Crear el *vistas/Shared/componentes/PriorityList* carpeta. Este nombre de carpeta debe coincidir con el nombre de la clase de componente de vista o el nombre de la clase menos el sufijo (si se siguió convención y usa el *ViewComponent* sufijo en el nombre de clase). Si ha usado la `ViewComponent` atributo, necesitaría el nombre de clase para que coincida con la designación de atributo.
 
-* Crear un *Views/Shared/Components/PriorityList/Default.cshtml* vista Razor: [!code-html [principal](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Crear un *Views/Shared/Components/PriorityList/Default.cshtml* vista Razor:[!code-html[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    La vista Razor toma una lista de `TodoItem` y los muestra. Si el componente de vista `InvokeAsync` método no pasa el nombre de la vista (como en nuestro ejemplo), *predeterminado* por convención, se utiliza para el nombre de vista. Más adelante en el tutorial, mostraré cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregar una vista a la carpeta de la vista específica del controlador (por ejemplo *Views/Todo/Components/PriorityList/Default.cshtml)*.
     
@@ -250,4 +250,4 @@ Agregar un `using` instrucción para su Razor Ver archivo y usar el `nameof` ope
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Inyección de dependencia en las vistas](dependency-injection.md)
+* [Inserción de dependencias en vistas](dependency-injection.md)

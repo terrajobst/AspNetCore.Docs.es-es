@@ -2,7 +2,7 @@
 title: "Inicio de sesión principal de ASP.NET"
 author: ardalis
 description: "Presenta el marco de trabajo de registro de ASP.NET Core. Incluye una sección para cada proveedor de registro integrados y vínculos a algunos proveedores de terceros populares."
-keywords: "Establece el ámbito de ASP.NET Core, registro, proveedores de registro, Microsoft.Extensions.Logging, ILogger, ILoggerFactory, LogLevel, WithFilter, TraceSource, EventLog, EventSource,"
+keywords: "Núcleo de ASP.NET, el registro, el registro providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 10/14/2016
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9a4ae6e7d9b2fa998b91e643e63657239d4866b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al inicio de sesión principal de ASP.NET
 
@@ -448,7 +448,7 @@ Este código hace referencia a la `Logging` sección de la *appSettings.JSON que
 
 [!code-json[](logging/sample//appsettings.json)]
 
-La configuración que muestra registros de framework de límite para las advertencias mientras que permite a la aplicación para iniciar sesión en el nivel de depuración, como se explica en la [filtrado del registro](#log-filtering) sección. Para obtener más información, consulte [configuración](configuration.md).
+La configuración que muestra registros de framework de límite para las advertencias mientras que permite a la aplicación para iniciar sesión en el nivel de depuración, como se explica en la [filtrado del registro](#log-filtering) sección. Para obtener más información, vea [Configuración](configuration.md).
 
 ---
 

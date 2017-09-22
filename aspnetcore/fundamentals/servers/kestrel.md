@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: baf1a979e4f18cbc7818f78b866e6cb6958efccf
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a961d46d7804b7ac7e570692fe42727feae3d5c9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Introducción a la implementación de servidor web Kestrel en ASP.NET Core
 
@@ -46,13 +46,13 @@ Kestrel es compatible con todas las plataformas y versiones que admite .NET Core
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Puede usar Kestrel por sí solo o con un *servidor proxy inverso*, como IIS, Nginx o Apache. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y reenvía a Kestrel después de un control preliminar.
+Puede usar Kestrel por sí solo o con un *servidor proxy inverso*, como IIS, Nginx o Apache. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y las reenvía a Kestrel después de un control preliminar.
 
-![Kestrel se comunica directamente con Internet sin un servidor proxy inverso](kestrel/_static/kestrel-to-internet2.png)
+![Kestrel se comunica directamente con Internet sin ningún servidor proxy inverso](kestrel/_static/kestrel-to-internet2.png)
 
 ![Kestrel se comunica indirectamente con Internet a través de un servidor proxy inverso, como IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-Cualquiera de las configuraciones &mdash; con o sin un servidor proxy inverso &mdash; también puede usarse si Kestrel se expone solo a una red interna.
+También se puede usar cualquiera de las configuraciones (con o sin servidor proxy inverso) si Kestrel está expuesto solo a una red interna.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -60,11 +60,11 @@ Si la aplicación acepta solicitudes únicamente de una red interna, puede usar 
 
 ![Kestrel se comunica directamente con la red interna](kestrel/_static/kestrel-to-internal.png)
 
-Si expone la aplicación a Internet, debe utilizar IIS, Nginx o Apache como un *servidor proxy inverso*. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y reenvía a Kestrel después de un control preliminar.
+Si expone la aplicación a Internet, debe usar IIS, Nginx o Apache como *servidor proxy inverso*. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y las reenvía a Kestrel después de un control preliminar.
 
 ![Kestrel se comunica indirectamente con Internet a través de un servidor proxy inverso, como IIS, Nginx o Apache](kestrel/_static/kestrel-to-internet.png)
 
-Un proxy inverso es necesario para las implementaciones de borde (expuestas al tráfico de Internet) por motivos de seguridad. Las versiones 1.x de Kestrel no tienen un complemento completo de defensas frente a ataques. Esto incluye, pero no se limita a los tiempos de espera adecuado, límites de tamaño y los límites de conexiones simultáneas.
+Un proxy inverso es necesario para las implementaciones de borde (expuestas al tráfico de Internet) por motivos de seguridad. Las versiones 1.x de Kestrel no tienen un complemento completo de defensas frente a los ataques. Esto incluye, pero no se limita a los tiempos de espera adecuado, límites de tamaño y los límites de conexiones simultáneas.
 
 ---
 
@@ -107,9 +107,9 @@ Llame a la [UseKestrel](https://docs.microsoft.com/aspnet/core/api/microsoft.asp
 
 El servidor de web Kestrel tiene opciones de configuración de restricción que son especialmente útiles en las implementaciones con conexión a Internet. Estos son algunos de los límites que puede establecer:
 
-- Conexiones de cliente máximo
-- Tamaño del cuerpo de solicitud máximo
-- Velocidad de datos de cuerpo de solicitud mínima
+- Las conexiones máximas de cliente
+- El tamaño máximo del cuerpo de solicitud
+- La velocidad mínima de los datos del cuerpo de solicitud.
 
 Establezca estas restricciones y otras personas en la `Limits` propiedad de la [KestrelServerOptions](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerOptions.cs) clase. El `Limits` propiedad contiene una instancia de la [KestrelServerLimits](https://github.com/aspnet/KestrelHttpServer/blob/rel/2.0.0/src/Microsoft.AspNetCore.Server.Kestrel.Core/KestrelServerLimits.cs) clase. 
 

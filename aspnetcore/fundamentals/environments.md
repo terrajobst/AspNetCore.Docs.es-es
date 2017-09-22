@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 8f8612fd9c92370d9b0a86572dca654a6a034916
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="working-with-multiple-environments"></a>Trabajar con varios entornos
 
@@ -100,7 +100,7 @@ Consulte la *establecer variables de entorno* sección de la [referencia de conf
 
 **Por grupo de aplicaciones de IIS**
 
-Si es necesario establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aisladas (se admite en IIS 10.0 +), consulte el *comandos AppCmd.exe* sección de la [Variables de entorno \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) documentación de referencia de tema en IIS.
+Si tiene que establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite en IIS 10.0+), vea la sección *Comando AppCmd.exe* del tema [Variables de entorno \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) de la documentación de referencia de IIS.
 
 ### <a name="macos"></a>macOS
 Configurar el entorno actual para macOS puede realizarse en línea cuando se ejecuta la aplicación;

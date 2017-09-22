@@ -2,7 +2,7 @@
 title: "Módulo principal de ASP.NET"
 author: tdykstra
 description: "Presenta el módulo de núcleo de ASP.NET (ANCM), un módulo IIS que permite que el servidor de web Kestrel usa IIS o IIS Express como un servidor proxy inverso."
-keywords: "Núcleo de ASP.NET, IIS, IIS Express, módulo de núcleo de ASP.NET, UseIISIntegration"
+keywords: "Módulo de núcleo Express,ASP.NET núcleo de ASP.NET, IIS, IIS, UseIISIntegration"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50c3085c28be4e6ddc4a732aba489ce871ab9ab1
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 479fc3a389168bb08e278aa3d9da3bf7df1b49f4
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Introducción al módulo principal de ASP.NET
 
@@ -118,5 +118,5 @@ Para obtener más información, vea los siguientes recursos:
 
 * [Aplicación de ejemplo de este artículo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample)
 * [Código de origen del módulo principal ASP.NET](https://github.com/aspnet/AspNetCoreModule)
-* [Referencia de configuración del módulo de principal de ASP.NET](../../hosting/aspnet-core-module.md)
+* [Referencia de configuración del módulo de ASP.NET Core](../../hosting/aspnet-core-module.md)
 * [Publicar en IIS](../../publishing/iis.md)

@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 8fe21b1a1ccb93c124dbd12a540b195400d45ef6
-ms.sourcegitcommit: f8f6b5934bd071a349f5bc1e389365c52b1c00fa
+ms.openlocfilehash: b05dd2fee50f6cc96058971daa42b069dbb6d21d
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 
@@ -22,7 +22,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Este tutorial muestra cómo compilar una aplicación de ASP.NET Core con el restablecimiento de confirmación y la contraseña de correo electrónico.
 
-## <a name="create-a-new-aspnet-core-project"></a>Cree un nuevo proyecto de ASP.NET Core
+## <a name="create-a-new-aspnet-core-project"></a>Crear un proyecto de ASP.NET Core
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

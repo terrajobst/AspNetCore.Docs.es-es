@@ -2,7 +2,7 @@
 title: "Migración de MVC de ASP.NET a núcleo de ASP.NET MVC"
 author: ardalis
 description: 
-keywords: "Núcleo de ASP.NET, MVC, migrar"
+keywords: ASP.NET Core,MVC,migrar
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
@@ -11,11 +11,11 @@ ms.assetid: 3155cc9e-d0c9-424b-886c-35c0ec6f9f4e
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/mvc
-ms.openlocfilehash: 2bd689626e867e0ea82fbebdf92447a6029aa35b
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 385ab7dfea5b92687a427bdfe9558462227113b1
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migración de MVC de ASP.NET a núcleo de ASP.NET MVC
 
@@ -72,7 +72,7 @@ En esta sección, agregará un controlador mínima y la vista para que actúe co
 
 * Agregar un **clase de controlador MVC** con el nombre *HomeController.cs* a la *controladores* carpeta.
 
-![Agregar cuadro de diálogo nuevo elemento](mvc/_static/add_mvc_ctl.png)
+![Cuadro de diálogo Agregar nuevo elemento](mvc/_static/add_mvc_ctl.png)
 
 * Agregar un *vistas* carpeta.
 
@@ -80,7 +80,7 @@ En esta sección, agregará un controlador mínima y la vista para que actúe co
 
 * Agregar un *Index.cshtml* página de vista de MVC a la *vistas/inicio* carpeta.
 
-![Agregar cuadro de diálogo nuevo elemento](mvc/_static/view.png)
+![Cuadro de diálogo Agregar nuevo elemento](mvc/_static/view.png)
 
 A continuación se muestra la estructura del proyecto:
 
@@ -92,7 +92,7 @@ Reemplace el contenido de la *Views/Home/Index.cshtml* archivo con lo siguiente:
 <h1>Hello world!</h1>
 ```
 
-Ejecutar la aplicación.
+Ejecute la aplicación.
 
 ![Aplicación Web abierta en Microsoft Edge](mvc/_static/hello-world.png)
 
@@ -166,7 +166,7 @@ Abra *_Layout.cshtml* de archivos y realice los cambios siguientes (el código c
 
    * Reemplace `@Styles.Render("~/Content/css")` con un `<link>` elemento que se va a cargar *bootstrap.css* (ver abajo).
 
-   * Quitar `@Scripts.Render("~/bundles/modernizr")`.
+   * Quite `@Scripts.Render("~/bundles/modernizr")`.
 
    * Convierta en comentario la `@Html.Partial("_LoginPartial")` línea (incluya la línea con `@*...*@`). Se tendrá que volver a él en un tutorial posterior.
 
@@ -226,6 +226,6 @@ Vea **mediante la página de excepción para desarrolladores** en [control de er
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Desarrollo de cliente](../client-side/index.md)
+* [Desarrollo en el cliente](../client-side/index.md)
 
 * [Aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/index.md)

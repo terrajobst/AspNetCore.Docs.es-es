@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: 353cd4c18cb2708f2dece5ba2b5271f452379d52
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 97c5fb6db6fe2a1dbae5529c11479413fd4814fb
+ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/22/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso de módulos IIS con ASP.NET Core
 
@@ -36,22 +36,22 @@ Módulo | .NET core activo | Opción de ASP.NET Core
 **Documento predeterminado**<br>`DefaultDocumentModule` | No | [Middleware de archivos predeterminado](xref:fundamentals/static-files#serving-a-default-document)
 **Autenticación implícita**<br>`DigestAuthenticationModule` | Sí | 
 **Examen de directorios**<br>`DirectoryListingModule` | No | [Middleware de exploración de directorios](xref:fundamentals/static-files#enabling-directory-browsing)
-**Compresión dinámica**<br>`DynamicCompressionModule` | Sí | [Middleware de compresión de respuesta](xref:performance/response-compression)
+**Compresión dinámica**<br>`DynamicCompressionModule` | Sí | [Middleware de compresión de respuestas](xref:performance/response-compression)
 **Seguimiento**<br>`FailedRequestsTracingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging#the-tracesource-provider)
-**Almacenamiento en caché de archivo**<br>`FileCacheModule` | No | [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware)
-**Almacenamiento en caché de HTTP**<br>`HttpCacheModule` | No | [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware)
+**Almacenamiento en caché de archivo**<br>`FileCacheModule` | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
+**Almacenamiento en caché de HTTP**<br>`HttpCacheModule` | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
 **Registro HTTP**<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **Redirección HTTP**<br>`HttpRedirectionModule` | Sí | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting)
 **Autenticación de asignaciones de certificado de cliente IIS**<br>`IISCertificateMappingAuthenticationModule` | Sí | 
 **Restricciones de IP y dominio**<br>`IpRestrictionModule` | Sí | 
-**Filtros ISAPI**<br>`IsapiFilterModule` | Sí | [Software intermedio](xref:fundamentals/middleware)
-**ISAPI**<br>`IsapiModule` | Sí | [Software intermedio](xref:fundamentals/middleware)
+**Filtros ISAPI**<br>`IsapiFilterModule` | Sí | [Middleware](xref:fundamentals/middleware)
+**ISAPI**<br>`IsapiModule` | Sí | [Middleware](xref:fundamentals/middleware)
 **Compatibilidad con el protocolo**<br>`ProtocolSupportModule` | Sí | 
 **Filtrado de solicitudes**<br>`RequestFilteringModule` | Sí | [Middleware de reescritura de dirección URL`IRule`](xref:fundamentals/url-rewriting#irule-based-rule)
 **Monitor de solicitudes**<br>`RequestMonitorModule` | Sí | 
 **Reescritura de direcciones URL**<br>`RewriteModule` | Yes† | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting)
 **Inclusiones del lado servidor**<br>`ServerSideIncludeModule` | No | 
-**Compresión estática**<br>`StaticCompressionModule` | No | [Middleware de compresión de respuesta](xref:performance/response-compression)
+**Compresión estática**<br>`StaticCompressionModule` | No | [Middleware de compresión de respuestas](xref:performance/response-compression)
 **Contenido estático**<br>`StaticFileModule` | No | [Middleware de archivos estáticos](xref:fundamentals/static-files)
 **Símbolo (token) de almacenamiento en caché**<br>`TokenCacheModule` | Sí | 
 **Almacenamiento en caché de URI**<br>`UriCacheModule` | Sí | 
@@ -67,7 +67,7 @@ AnonymousIdentification | No |
 DefaultAuthentication | No | 
 FileAuthorization | No | 
 FormsAuthentication | No | [Middleware de autenticación de cookies.](xref:security/authentication/cookie)
-OutputCache | No | [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware)
+OutputCache | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
 Perfil | No | 
 RoleManager | No | 
 ScriptModule 4.0 | No | 
