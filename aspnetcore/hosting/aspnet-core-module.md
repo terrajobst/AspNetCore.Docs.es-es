@@ -11,15 +11,15 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: 903329069d69c7ab573e57483a895f98311f1d32
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: ac52b791e02ce52da35fe8d599465076d251b4da
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 
-Por [Luke Latham](https://github.com/GuardRex), [Rick Anderson](https://twitter.com/RickAndMSFT), y [Sourabh Shirhatti](https://twitter.com/sshirhatti)
+Por [Luke Latham](https://github.com/guardrex), [Rick Anderson](https://twitter.com/RickAndMSFT), y [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 Este documento proporciona información sobre cómo configurar el módulo de núcleo de ASP.NET para hospedar aplicaciones ASP.NET Core. Para obtener una introducción para el módulo principal de ASP.NET y las instrucciones de instalación, consulte el [información general del módulo de ASP.NET Core](xref:fundamentals/servers/aspnet-core-module).
 

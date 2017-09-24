@@ -11,15 +11,15 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 05a92c4eee6b26e49831c11e1251aedba87ed717
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 44c78a6304eacc70cdee9bb0d9407376017abcac
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Dirección URL de reescritura de Middleware en ASP.NET Core
 
-Por [Luke Latham](https://github.com/GuardRex) y [Mikael Mengistu](https://github.com/mikaelm12)
+Por [Luke Latham](https://github.com/guardrex) y [Mikael Mengistu](https://github.com/mikaelm12)
 
 [Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)
 
@@ -377,7 +377,7 @@ Solicitud original:`/image.jpg`
 
 ## <a name="additional-resources"></a>Recursos adicionales
 * [Inicio de aplicaciones](startup.md)
-* [Software intermedio](middleware.md)
+* [Middleware](middleware.md)
 * [Expresiones regulares en .NET](/dotnet/articles/standard/base-types/regular-expressions)
 * [Lenguaje de expresiones regulares: referencia rápida](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/)

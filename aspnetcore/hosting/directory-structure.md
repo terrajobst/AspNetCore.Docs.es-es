@@ -11,15 +11,15 @@ ms.assetid: e55eb131-d42e-4bf6-b130-fd626082243c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/directory-structure
-ms.openlocfilehash: 9ec635b596520e3d19f4040758dd59c1cbca97f4
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f406d866bb1c8ac2d4371c8ddf669fc08af0fada
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>Estructura de directorios de las aplicaciones ASP.NET Core publicadas
 
-Por [Luke Latham](https://github.com/GuardRex)
+Por [Luke Latham](https://github.com/guardrex)
 
 En el núcleo de ASP.NET, el directorio de la aplicación, *publicar*, consta de los archivos de la aplicación, archivos de configuración, activos estáticos, paquetes y el tiempo de ejecución (para aplicaciones independientes). Se trata de la misma estructura de directorios que en versiones anteriores de ASP.NET, donde toda la aplicación reside en el directorio raíz de web.
 
