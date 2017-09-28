@@ -5,28 +5,28 @@ description: "Introducción a las páginas de Razor en ASP.NET Core"
 keywords: "ASP.NET Core, páginas de Razor, Razor, MVC"
 ms.author: riande
 manager: wpickett
-ms.date: 8/27/2017
+ms.date: 08/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: c22ee2554992d15df2f6b92ee5da6805ab80b73a
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 8c6e281e761e69908fc742d1f19c14a00de4bd46
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/19/2017
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En este tutorial se enseñan los conceptos básicos de la compilación de una aplicación web de las páginas de Razor de ASP.NET Core. Se recomienda seguir [Introduction to Razor Pages](xref:mvc/razor-pages/index) (Introducción a las páginas de Razor) antes de empezar este tutorial. Las páginas de Razor son el método recomendado para crear la interfaz de usuario de aplicaciones web en ASP.NET Core.
+En este tutorial se enseñan los conceptos básicos de la compilación de una aplicación web de páginas de Razor de ASP.NET Core. Se recomienda leer [Introduction to Razor Pages](xref:mvc/razor-pages/index) (Introducción a las páginas de Razor) antes de empezar este tutorial. Las páginas de Razor son el método recomendado para crear la interfaz de usuario de aplicaciones web en ASP.NET Core.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
 
-## <a name="create-a-razor-web-app"></a>Crear una aplicación web de Razor
+## <a name="create-a-razor-web-app"></a>Creación de una aplicación web de Razor
 
 * En el menú **Archivo** de Visual Studio, seleccione **Nuevo > Proyecto**.
 * Cree una aplicación web de ASP.NET Core. Asigne al proyecto el nombre **RazorPagesMovie**. Es importante asignarle el nombre *RazorPagesMovie* para que los espacios de nombres coincidan al copiar y pegar el código.

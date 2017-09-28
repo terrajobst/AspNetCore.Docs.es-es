@@ -4,7 +4,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 En este tutorial se agregará un nuevo campo a la tabla `Movies`. Quitaremos la base de datos y crearemos una nueva cuando cambiemos el esquema (agregar un nuevo campo). Este flujo de trabajo funciona bien al principio de desarrollo si no tenemos que conservar datos de producción.
 
-Una vez que se haya implementado la aplicación y se tengan datos que se quieran conservar, no se podrá desconectar la base de datos cuando sea necesario cambiar el esquema. [Migraciones de Entity Framework Code First](http://docs.efproject.net/en/latest/platforms/aspnetcore/new-db.html) permite actualizar el esquema y migrar la base de datos sin perder datos. Migraciones es una característica muy usada con SQL Server, pero SQLite no admite muchas operaciones de esquema de migración, por lo que solo se pueden realizar migraciones muy sencillas. Para más información, vea [SQLite EF Core Database Provider Limitations](https://docs.microsoft.com/ef/core/providers/sqlite/limitations) (Limitaciones del proveedor de base de datos de SQLite EF Core).
+Una vez que se haya implementado la aplicación y se tengan datos que se quieran conservar, no se podrá desconectar la base de datos cuando sea necesario cambiar el esquema. [Migraciones de Entity Framework Code First](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) permite actualizar el esquema y migrar la base de datos sin perder datos. Migraciones es una característica muy usada con SQL Server, pero SQLite no admite muchas operaciones de esquema de migración, por lo que solo se pueden realizar migraciones muy sencillas. Para más información, vea [SQLite EF Core Database Provider Limitations](https://docs.microsoft.com/ef/core/providers/sqlite/limitations) (Limitaciones del proveedor de base de datos de SQLite EF Core).
 
 ## <a name="adding-a-rating-property-to-the-movie-model"></a>Adición de una propiedad de clasificación al modelo Movie
 
@@ -26,7 +26,7 @@ Edite el archivo */Views/Movies/Index.cshtml* y agregue un campo `Rating`:
 
 Actualice */Views/Movies/Create.cshtml* con un campo `Rating`.
 
-La aplicación no funcionará hasta que la base de datos se actualice para incluir el nuevo campo. Si la ejecuta ahora, obtendrá el siguiente `SqliteException`:
+La aplicación no funcionará hasta que la base de datos se actualice para incluir el nuevo campo. Si la ejecuta ahora, se producirá la siguiente `SqliteException`:
 
 ```
 SqliteException: SQLite Error 1: 'no such column: m.Rating'.

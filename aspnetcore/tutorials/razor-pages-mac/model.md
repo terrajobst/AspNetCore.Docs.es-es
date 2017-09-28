@@ -1,22 +1,22 @@
 ---
-title: "Agregar un modelo a una aplicación de páginas de Razor con Visual Studio para Mac"
+title: "Adición de un modelo a una aplicación de páginas de Razor con Visual Studio para Mac"
 author: rick-anderson
-description: "Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core con Visual Studio para Mac"
-keywords: "ASP.NET Core,páginas Razor,Razor,MVC,modelo"
+description: "Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core usando Visual Studio para Mac"
+keywords: "ASP.NET Core,páginas de Razor,Razor,MVC,modelo"
 ms.author: riande
 manager: wpickett
-ms.date: 8/27/2017
+ms.date: 08/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/model
-ms.openlocfilehash: b234eb93fbca1f4c83712990712b86e9941968fd
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: d000da06face3080cf81de4dc15a2596f2bfa7ea
+ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/19/2017
 ---
-# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core con Visual Studio para Mac
+# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core con Visual Studio para Mac
 
 [!INCLUDE[model1](../../includes/RP/model1.md)]
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 08/29/2017
 
 * En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **RazorPagesMovie** y seleccione **Agregar** > **Carpeta nueva**. Asigne un nombre a la carpeta *Modelos*.
 * Haga clic con el botón derecho en la carpeta *Modelos* y seleccione **Agregar** > **Archivo nuevo**.
-* En el cuadro de diálogo **Archivo nuevo**, haga lo siguiente:
+* En el cuadro de diálogo **Nuevo archivo**:
 
   * Seleccione **General** en el panel izquierdo.
   * Seleccione **Clase vacía** en el panel central.
@@ -43,7 +43,7 @@ Compile el proyecto para comprobar que no contenga errores.
 
 ### <a name="entity-framework-core-nuget-packages-for-migrations"></a>Paquetes de Entity Framework Core NuGet para migraciones
 
-Las herramientas de EF para la interfaz de nivel de llamada (CLI) se proporcionan en [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Para instalar este paquete, agréguelo a la colección `DotNetCliToolReference` del archivo *.csproj*. **Nota**: Tendrá que instalar este paquete mediante la edición del archivo *.csproj*; no se puede usar el comando `install-package` ni la interfaz gráfica de usuario del administrador de paquetes.
+Las herramientas de EF para la interfaz de nivel de la línea de comandos se proporcionan en [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Para instalar este paquete, agréguelo a la colección `DotNetCliToolReference` del archivo *.csproj*. **Nota**: Tendrá que instalar este paquete mediante la edición del archivo *.csproj*; no se puede usar el comando `install-package` ni la interfaz gráfica de usuario del administrador de paquetes.
 
 Para editar un archivo *.csproj*, haga lo siguiente:
 

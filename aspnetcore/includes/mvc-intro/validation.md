@@ -6,7 +6,7 @@ En esta sección se agregará lógica de validación al modelo `Movie` y se aseg
 
 ## <a name="keeping-things-dry"></a>Respetar el principio DRY
 
-Uno de los principios de diseño de MVC es [DRY](http://en.wikipedia.org/wiki/Don%27t_repeat_yourself) ("Una vez y solo una"). ASP.NET MVC le anima a que especifique la función o el comportamiento una sola vez y luego lo refleje en el resto de la aplicación. Esto reduce la cantidad de código que necesita escribir y hace que el código que escribe sea menos propenso a errores, así como más fácil probar y de mantener.
+Uno de los principios de diseño de MVC es [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("Una vez y solo una"). ASP.NET MVC le anima a que especifique la función o el comportamiento una sola vez y luego lo refleje en el resto de la aplicación. Esto reduce la cantidad de código que necesita escribir y hace que el código que escribe sea menos propenso a errores, así como más fácil probar y de mantener.
 
 La compatibilidad de validación proporcionada por MVC y Entity Framework Core Code First es un buen ejemplo del principio DRY. Puede especificar las reglas de validación mediante declaración en un lugar (en la clase del modelo) y las reglas se aplican en toda la aplicación.
 
@@ -31,13 +31,13 @@ Pulse el vínculo **Crear nueva** para agregar una nueva película. Rellene el f
 ![Formulario de vista de películas con varios errores de validación del lado cliente de jQuery](../../tutorials/first-mvc-app/validation/_static/val.png)
 
 > [!NOTE]
-> Es posible que no pueda escribir comas ni puntos decimales en el campo `Price`. Para que la [validación de jQuery](http://jqueryvalidation.org/) sea compatible con configuraciones regionales distintas del inglés que usan una coma (",") en lugar de un punto decimal y formatos de fecha distintos del de Estados Unidos, debe seguir unos pasos para globalizar la aplicación. Para más información, vea [Recursos adicionales](#additional-resources). Por ahora, escriba solamente números enteros como 10.
+> Es posible que no pueda escribir comas ni puntos decimales en el campo `Price`. Para que la [validación de jQuery](https://jqueryvalidation.org/) sea compatible con configuraciones regionales distintas del inglés que usan una coma (",") en lugar de un punto decimal y formatos de fecha distintos del de Estados Unidos, debe seguir unos pasos para globalizar la aplicación. Para más información, vea [Recursos adicionales](#additional-resources). Por ahora, escriba solamente números enteros como 10.
 
 Observe cómo el formulario presenta automáticamente un mensaje de error de validación adecuado en cada campo que contiene un valor no válido. Los errores se aplican en el lado cliente (con JavaScript y jQuery) y en el lado servidor (cuando un usuario tiene JavaScript deshabilitado).
 
 Una ventaja importante es que no fue necesario cambiar ni una sola línea de código en la clase `MoviesController` o en la vista *Create.cshtml* para habilitar esta interfaz de usuario de validación. El controlador y las vistas que creó en pasos anteriores de este tutorial seleccionaron automáticamente las reglas de validación que especificó mediante atributos de validación en las propiedades de la clase del modelo `Movie`. Pruebe la aplicación mediante el método de acción `Edit` y se aplicará la misma validación.
 
-Los datos del formulario no se envían al servidor hasta que no hay ningún error de validación del lado cliente. Puede comprobarlo colocando un punto de interrupción en el método `HTTP Post` mediante la [herramienta Fiddler](http://www.telerik.com/fiddler) o las [herramientas de desarrollo F12](https://dev.windows.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
+Los datos del formulario no se envían al servidor hasta que no hay ningún error de validación del lado cliente. Puede comprobarlo colocando un punto de interrupción en el método `HTTP Post` mediante la [herramienta Fiddler](http://www.telerik.com/fiddler) o las [herramientas de desarrollo F12](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/).
 
 ## <a name="how-validation-works"></a>Cómo funciona la validación
 
@@ -65,7 +65,7 @@ Abajo se muestra una parte de la plantilla de vista *Create.cshtml* a la que se 
 
 [!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Views/Movies/CreateRatingBrevity.cshtml)]
 
-La [aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-forms) usa los atributos [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) y genera los atributos HTML necesarios para la validación de jQuery en el lado cliente. La [aplicación auxiliar de etiquetas de validación](xref:mvc/views/working-with-forms#the-validation-tag-helpers) muestra errores de validación. Para más información, vea [Introduction to model validation in ASP.NET Core MVC](xref:mvc/models/validation) (Introducción a la validación de modelos en ASP.NET Core MVC).
+La [aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-forms) usa los atributos [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) y genera los atributos HTML necesarios para la validación de jQuery en el lado cliente. La [aplicación auxiliar de etiquetas de validación](xref:mvc/views/working-with-forms#the-validation-tag-helpers) muestra errores de validación. Para más información, vea [Introduction to model validation in ASP.NET Core MVC](xref:mvc/models/validation) (Introducción a la validación de modelos en ASP.NET Core MVC).
 
 Lo realmente bueno de este enfoque es que ni el controlador ni la plantilla de vista `Create` saben que las reglas de validación actuales se están aplicando ni conocen los mensajes de error específicos que se muestran. Las reglas de validación y las cadenas de error solo se especifican en la clase `Movie`. Estas mismas reglas de validación se aplican automáticamente a la vista `Edit` y a cualquier otra vista de plantillas creada que edite el modelo.
 
@@ -92,7 +92,7 @@ El valor `ApplyFormatInEditMode` especifica que el formato se debe aplicar tambi
 
 El atributo `DisplayFormat` puede usarse por sí solo, pero normalmente se recomienda usar el atributo `DataType`. El atributo `DataType` transmite la semántica de los datos en contraposición a cómo se representa en una pantalla y ofrece las siguientes ventajas que no proporciona DisplayFormat:
 
-* El explorador puede habilitar características de HTML5 (por ejemplo, mostrar un control de calendario, el símbolo de moneda adecuado a la configuración regional, vínculos de correo electrónico, etc.).
+* El explorador puede habilitar características de HTML5 (por ejemplo, mostrar un control de calendario, el símbolo de moneda adecuado según la configuración regional, vínculos de correo electrónico, etc.).
 
 * De manera predeterminada, el explorador representa los datos con el formato correcto según la configuración regional.
 

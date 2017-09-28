@@ -1,5 +1,5 @@
 
-En el próximo tutorial hablaremos de [DataAnnotations](http://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx). El atributo [Display](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayattribute.aspx) especifica qué se muestra para el nombre de un campo (en este caso, "Release Date" (Fecha de lanzamiento) en lugar de "ReleaseDate" (FechaDeLanzamiento). El atributo [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) especifica el tipo de datos (Date), de modo que la información de hora almacenada en el campo no se muestra.
+En el próximo tutorial hablaremos de [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6). El atributo [Display](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.metadata.displaymetadata) especifica qué se muestra como nombre de un campo (en este caso, "Release Date" en lugar de "ReleaseDate"). El atributo [DataType](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.internal.datatypeattributeadapter) especifica el tipo de datos (Date), de modo que la información de hora almacenada en el campo no se muestra.
 
 Vaya al controlador `Movies` y mantenga el puntero del mouse sobre un vínculo **Edit** (Editar) para ver la dirección URL de destino.
 
@@ -35,7 +35,7 @@ En el código siguiente se muestra el método `HTTP POST Edit`, que procesa los 
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MC1.cs?name=snippet_edit2)]
 
-El atributo `[Bind]` es una manera de proteger contra el [exceso de publicación](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Solo debe incluir propiedades en el atributo `[Bind]` que quiera cambiar. Para más información, vea [Protección del controlador frente al exceso de publicación](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) ofrece un enfoque alternativo para evitar el exceso de publicaciones.
+El atributo `[Bind]` es una manera de proteger contra el [exceso de publicación](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost). Solo debe incluir propiedades en el atributo `[Bind]` que quiera cambiar. Para más información, vea [Protección del controlador frente al exceso de publicación](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application). [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/) ofrece un enfoque alternativo para evitar el exceso de publicaciones.
 
 Observe que el segundo método de acción `Edit` va precedido del atributo `[HttpPost]`.
 
@@ -89,7 +89,7 @@ Todos los métodos `HttpGet` del controlador de películas siguen un patrón sim
 * [Introducción a las aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
 * [Creación de aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/authoring)
 * [Prevención de ataques de falsificación de solicitudes](xref:security/anti-request-forgery)
-* Protección del controlador frente al [exceso de publicación](http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application#overpost)
+* Protección del controlador frente al [exceso de publicación](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application)
 * [ViewModels](http://rachelappel.com/use-viewmodels-to-manage-data-amp-organize-code-in-asp-net-mvc-applications/)
 * [Aplicación auxiliar de etiquetas de formulario](xref:mvc/views/working-with-forms)
 * [Aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-forms)

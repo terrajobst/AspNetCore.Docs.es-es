@@ -5,16 +5,16 @@ description: "Adición de un modelo a una aplicación de páginas de Razor en AS
 keywords: "ASP.NET Core, páginas de Razor, Razor, MVC"
 ms.author: riande
 manager: wpickett
-ms.date: 7/27/2017
+ms.date: 07/27/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/modelz
-ms.openlocfilehash: 1a08ecf1ee12fa0860cb6a18c1a63eaff2ddfbed
-ms.sourcegitcommit: d9ec19e5452af83648074db5d96c0a0f4f9e7f9a
+ms.openlocfilehash: 8e370decfd81e62022478b0ab695ff876e5e0a10
+ms.sourcegitcommit: 74a8ad9c1ba5c155d7c4303e67632a0922c38e86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Adición de un modelo a una aplicación de páginas de Razor
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 08/29/2017
 
 En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **RazorPagesMovie** > **Agregar** > **Nueva carpeta**. Asigne a la carpeta el nombre *Modelos*.
 
-Haga clic con el botón derecho en la carpeta *Modelos* > **Agregar** > **Clase**. Asigne a la clase el nombre **Película** y agregue las siguientes propiedades:
+Haga clic con el botón derecho en la carpeta *Models* > **Agregar** > **Clase**. Asigne a la clase el nombre **Película** y agregue las siguientes propiedades:
 
 [!INCLUDE[model 2](../../includes/RP/model2.md)]
 
@@ -67,7 +67,7 @@ Update-Database
 
 El comando `Install-Package` instala las herramientas necesarias para ejecutar el motor de scaffolding.
 
-El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial. El esquema se basa en el modelo especificado en el `DbContext` (en el archivo *Models/MovieContext.cs*). El argumento `Initial` se usa para asignar un nombre a las migraciones. Puede usar cualquier nombre, pero se suele elegir un nombre que describa la migración. Consulte [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) (Introducción a las migraciones) para obtener más información.
+El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial. El esquema se basa en el modelo especificado en `DbContext` (en el archivo *Models/MovieContext.cs*). El argumento `Initial` se usa para asignar un nombre a las migraciones. Puede usar cualquier nombre, pero se suele elegir uno que describa la migración. Vea [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) (Introducción a las migraciones) para obtener más información.
 
 El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/\<time-stamp>_InitialCreate.cs*, que crea la base de datos.
 

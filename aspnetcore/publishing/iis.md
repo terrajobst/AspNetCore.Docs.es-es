@@ -11,15 +11,15 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: 8ffadc1dede4053faa129a3b224aace901e70e14
-ms.sourcegitcommit: ad01283f299d346cf757c4f4744c48634dc27e73
+ms.openlocfilehash: f506fc880e50aa2fdc772fd29b905dfad02cda2b
+ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2017
+ms.lasthandoff: 09/24/2017
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>Configuración de un entorno de hospedaje para ASP.NET Core en Windows con IIS e implementación en él
 
-Por [Luke Latham](https://github.com/GuardRex) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Luke Latham](https://github.com/guardrex) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 

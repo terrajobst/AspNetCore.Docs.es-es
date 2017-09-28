@@ -6,7 +6,7 @@ Cada método `public` en un controlador puede ser invocado como un punto de cone
 
 Un extremo HTTP es una dirección URL que se puede usar como destino en la aplicación web, como por ejemplo `http://localhost:1234/HelloWorld`. Combina el protocolo usado `HTTP`, la ubicación de red del servidor web (incluido el puerto TCP) `localhost:1234` y el URI de destino `HelloWorld`.
 
-El primer comentario dice que se trata de un método [HTTP GET](http://www.w3schools.com/tags/ref_httpmethods.asp) que se invoca mediante la anexión de "/HelloWorld/" a la dirección URL base. El segundo comentario dice que se trata de un método [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) que se invoca mediante la anexión de "/HelloWorld/Welcome/" a la dirección URL. Más adelante en el tutorial usaremos el motor de scaffolding para generar métodos `HTTP POST`.
+El primer comentario dice que se trata de un método [HTTP GET](https://www.w3schools.com/tags/ref_httpmethods.asp) que se invoca mediante la anexión de "/HelloWorld/" a la dirección URL base. El segundo comentario dice que se trata de un método [HTTP GET](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) que se invoca mediante la anexión de "/HelloWorld/Welcome/" a la dirección URL. Más adelante en el tutorial usaremos el motor de scaffolding para generar métodos `HTTP POST`.
 
 Ejecute la aplicación en modo de no depuración y anexione "HelloWorld" a la ruta de acceso en la barra de direcciones. El método `Index` devuelve una cadena.
 
@@ -46,7 +46,7 @@ Ejecute la aplicación y navegue a:
 
 ![Ventana del explorador que muestra una respuesta de la aplicación a "Hello Rick, NumTimes is: 4" (Hola Rick, NumTimes es: 4)](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
-En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](http://en.wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
+En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se usa, y los parámetros `name` y `numTimes` se pasan como [cadenas de consulta](https://wikipedia.org/wiki/Query_string). El `?` (signo de interrogación) en la dirección URL anterior es un separador y le siguen las cadenas de consulta. El carácter `&` separa las cadenas de consulta.
 
 Reemplace el método `Welcome` con el código siguiente:
 
