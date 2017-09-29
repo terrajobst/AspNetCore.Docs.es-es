@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 009df1416c822018d6e88912cc77e525c7349c34
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 94db2ff530b5de7fe357cfb591d09b984cb248f9
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Inicio de la aplicación de ASP.NET Core
 
@@ -24,7 +24,7 @@ La `Startup` clase configura servicios y la canalización de solicitud de la apl
 
 ## <a name="the-startup-class"></a>La clase de inicio
 
-Las aplicaciones de ASP.NET Core requieren un `Startup` clase. Por convención, el `Startup` clase se denomina "Inicio". Especifique el nombre de clase de inicio en el `Main` del programa [WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) método. Vea [hospedaje](xref:fundamentals/hosting) para obtener más información acerca de `WebHostBuilder`, que se ejecuta antes de `Startup`.
+Las aplicaciones de ASP.NET Core requieren un `Startup` (clase), que se denomina `Startup` por convención. Especifique el nombre de clase de inicio en el `Main` del programa [WebHostBuilderExtensions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions) [ `UseStartup<TStartup>` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilderextensions#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) método. Vea [hospedaje](xref:fundamentals/hosting) para obtener más información acerca de `WebHostBuilder`, que se ejecuta antes de `Startup`.
 
 Puede definir independiente `Startup` clases para diferentes entornos y uno se seleccionará en tiempo de ejecución adecuado. Si especifica `startupAssembly` en el [configuración WebHost](https://docs.microsoft.com/aspnet/core/fundamentals/hosting?tabs=aspnetcore2x#configuring-a-host) opciones de hospedaje, se carga dicho ensamblado de inicio y buscar un `Startup` o `Startup[Environment]` tipo. La clase cuyos coincidencias de sufijo de nombre se les dará prioridad el entorno actual, por lo que si la aplicación se ejecuta en el *desarrollo* entorno e incluye tanto una `Startup` y un `StartupDevelopment` (clase), el `StartupDevelopment` clase será usar. Vea [FindStartupType](https://github.com/aspnet/Hosting/blob/rel/1.1.0/src/Microsoft.AspNetCore.Hosting/Internal/StartupLoader.cs) en `StartupLoader` y [trabajar con varios entornos](environments.md#startup-conventions).
 

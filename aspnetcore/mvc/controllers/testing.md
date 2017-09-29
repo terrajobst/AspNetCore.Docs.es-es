@@ -11,11 +11,11 @@ ms.assetid: dd4135ec-2b15-410c-b3fb-3d12eed4a1ac
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: e8a464e75dea3a0ec08c13a11888884e6bb6a4c7
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5d81e0193fb042993452ed314e70fb63573e615c
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -122,9 +122,7 @@ Verá el `GetTestSession` método que se usan con frecuencia en las pruebas de i
 
 Cada clase de prueba de integración se configura el `TestServer` que ejecutará la aplicación de ASP.NET Core. De forma predeterminada, `TestServer` hospeda la aplicación web en la carpeta donde se está ejecutando - en este caso, la carpeta de proyecto de prueba. Por lo tanto, cuando intenta probar acciones del controlador que devuelven `ViewResult`, puede ver este error:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "none"} -->
-
-```none
+```
 The view 'Index' was not found. The following locations were searched:
 (list of locations)
 ```

@@ -2,7 +2,7 @@
 title: El enrutamiento a las acciones de controlador
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 03/14/2017
@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: da67124ffc874c4f83fff077c6429e9f3e571587
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="routing-to-controller-actions"></a>El enrutamiento a las acciones de controlador
 
@@ -103,8 +103,6 @@ app.UseMvc(routes =>
 
 `UseMvc`y `UseMvcWithDefaultRoute` agregar una instancia de `RouterMiddleware` a la canalización de middleware. MVC no interactúa directamente con middleware y usa el enrutamiento para controlar las solicitudes. MVC está conectado a las rutas a través de una instancia de `MvcRouteHandler`. El código dentro de `UseMvc` es similar al siguiente:
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 var routes = new RouteBuilder(app);
 
@@ -125,8 +123,6 @@ app.UseRouter(routes.Build());
 ## <a name="conventional-routing"></a>El enrutamiento convencional
 
 El `default` ruta:
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
@@ -152,15 +148,13 @@ Mediante este `default` ruta, la ruta de acceso de dirección URL `/Products/Lis
 
 Puede agregar varias rutas dentro de `UseMvc` agregando más llamadas a `MapRoute`. Si lo hace, le permite definir varias convenciones, o para agregar rutas convencionales que se dedican a una acción específica, como:
 
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
    routes.MapRoute("blog", "blog/{*article}",
             defaults: new { controller = "Blog", action = "Article" });
    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-}
+});
 ```
 
 El `blog` ruta aquí es un *ruta convencional dedicado*, lo que significa que utiliza el sistema de enrutamiento convencional, pero está dedicado a una acción específica. Puesto que `controller` y `action` no aparecen en la plantilla de ruta como parámetros, solo pueden tener los valores predeterminados y, por tanto, esta ruta siempre se asignará a la acción `BlogController.Article`.
@@ -177,8 +171,6 @@ Como parte del procesamiento de la solicitud, MVC comprobará que los valores de
 ### <a name="disambiguating-actions"></a>Eliminar la ambigüedad de acciones
 
 Cuando coinciden los dos acciones a través de enrutamiento, debe eliminar la ambigüedad de MVC para elegir al candidato 'mejor'; de lo contrario producen una excepción. Por ejemplo:
-
-<!-- literal_block {"ids": [], "names": [], "backrefs": [], "dupnames": [], "xml:space": "preserve", "classes": []} -->
 
 ```csharp
 public class ProductsController : Controller
@@ -284,8 +276,6 @@ public class MyDemoController : Controller
 
 Ruta de atributo también puede hacer uso de la `Http[Verb]` atributos como `HttpPostAttribute`. Todos estos atributos pueden aceptar una plantilla de ruta. Este ejemplo muestra dos acciones que coinciden con la misma plantilla de ruta:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [HttpGet("/products")]
 public IActionResult ListProducts()
@@ -339,8 +329,6 @@ Los nombres de ruta se pueden utilizar para generar una dirección URL basada en
 ### <a name="combining-routes"></a>Rutas de combinación
 
 Para realizar el enrutamiento de atributo menos repetitivos, atributos de ruta en el controlador se combinan con los atributos de ruta en las acciones individuales. Las plantillas de ruta definidas en el controlador se anteponen a plantillas de ruta en las acciones. Colocación de un atributo de ruta en el controlador hace **todos los** acciones en el controlador use el enrutamiento de atributo.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("products")]
@@ -432,8 +420,6 @@ Para que coincida con el delimitador de reemplazo del token literal `[` o `]`, e
 
 Atributo enrutamiento permite definir varias rutas que llegan a la misma acción. El uso más común de esto es imitar el comportamiento de la *ruta convencional de predeterminada* tal como se muestra en el ejemplo siguiente:
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 [Route("[controller]")]
 public class ProductsController : Controller
@@ -445,8 +431,6 @@ public class ProductsController : Controller
 ```
 
 Colocar varios atributos de ruta en el controlador significa que cada uno de ellos se combinará con cada uno de los atributos de ruta en los métodos de acción.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("Store")]
@@ -460,8 +444,6 @@ public class ProductsController : Controller
 ```
 
 Cuando varios atributos de ruta (que implementan `IActionConstraint`) se colocan en una acción, a continuación, cada acción de restricción se combina con la plantilla de ruta del atributo que lo define.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
 
 ```csharp
 [Route("api/[controller]")]
@@ -630,8 +612,6 @@ Los métodos de generador de resultados de acción siguen un patrón similar a l
 
 El enrutamiento convencional puede usar un tipo especial de definición de ruta denominada una *dedicado ruta convencional*. En el ejemplo siguiente, la ruta con el nombre `blog` es una ruta convencional dedicada.
 
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#"} -->
-
 ```csharp
 app.UseMvc(routes =>
 {
@@ -687,8 +667,6 @@ Los dos primeros controladores son miembros de las áreas y coincida solo cuando
 Al ejecutar una acción en un área, la ruta valor `area` estarán disponibles como un *valor ambiente* para el enrutamiento para que utilice para la generación de direcciones URL. Esto significa que de forma predeterminada las áreas actúen *rápidas* para la generación de dirección URL como se muestra en el ejemplo siguiente.
 
 [!code-csharp[Main](routing/sample/AreasRouting/Startup.cs?name=snippet3)]
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {"linenostart": 1}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "c#", "source": "/Users/shirhatti/src/Docs/aspnet/mvc/controllers/routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs"} -->
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 

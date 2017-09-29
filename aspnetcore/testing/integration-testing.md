@@ -2,20 +2,20 @@
 title: "Pruebas de integración en ASP.NET Core"
 author: ardalis
 description: "Cómo utilizar la integración de ASP.NET Core pruebas para asegurarse de que los componentes de una aplicación funcionen correctamente."
-keywords: "Núcleo de ASP.NET, las pruebas de integración"
+keywords: "Núcleo de ASP.NET, pruebas, Razor de integración"
 ms.author: riande
 manager: wpickett
-ms.date: 02/14/2017
+ms.date: 09/25/2017
 ms.topic: article
 ms.assetid: 40d534f2-89b3-4b09-9c2c-3494bf9991c9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
-ms.openlocfilehash: 02018299c9bd1d194c2c70c14f518786e803d572
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: fab1fb0e64debd8488713b3518cb3bc90182616b
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -64,6 +64,23 @@ Tenga en cuenta que realmente no intenta comprobar la corrección del Comprobado
 ![Explorador de pruebas](integration-testing/_static/test-explorer.png)
 
 Puede aprender más acerca de las pruebas unitarias en el [pruebas unitarias](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) artículo.
+
+
+### <a name="integration-testing-mvcrazor"></a>Mvc/Razor de pruebas de integración
+
+Los proyectos de prueba que contienen las vistas de Razor requieren `<PreserveCompilationContext>` se establece en true en la *.csproj* archivo:
+
+
+```xml
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+```
+
+Proyectos de este elemento generarán un error similar al siguiente:
+```
+Microsoft.AspNetCore.Mvc.Razor.Compilation.CompilationFailedException: 'One or more compilation failures occurred:
+ooebhccx.1bd(4,62): error CS0012: The type 'Attribute' is defined in an assembly that is not referenced. You must add a reference to assembly 'netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51'.
+```
+
 
 ## <a name="refactoring-to-use-middleware"></a>Para usar el middleware de refactorización
 
@@ -135,5 +152,5 @@ Después de esta operación de refactorización, esté seguro de que la aplicaci
 ## <a name="resources"></a>Recursos
 
 * [Pruebas unitarias](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Software intermedio](xref:fundamentals/middleware)
-* [Controladores de pruebas](xref:mvc/controllers/testing)
+* [Middleware](xref:fundamentals/middleware)
+* [Pruebas de controladores](xref:mvc/controllers/testing)

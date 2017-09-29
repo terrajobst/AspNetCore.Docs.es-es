@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: 07626ae7f40dc6f704d69d71cb7f95d318e6f503
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: f07b0cb44542b7da140d519e883c67901d6327e2
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -105,6 +105,17 @@ Almacenamiento en caché el middleware de respuesta se configura mediante encabe
 | Fecha | Cuando se trabaja desde la memoria caché, el `Date` encabezado será ajustado por el middleware si no se proporcionó en la respuesta original. |
 | Longitud del contenido | Cuando se trabaja desde la memoria caché, el `Content-Length` encabezado será ajustado por el middleware si no se proporcionó en la respuesta original. |
 | Edad | El `Age` encabezado enviado en la respuesta original se omite. El middleware calcula un nuevo valor al ofrecer servicio a una respuesta almacenada en caché. |
+
+## <a name="caching-respects-request-cache-control-directives"></a>Almacenamiento en caché respeta las directivas de solicitud Cache-Control
+
+El middleware respeta las reglas de la [especificación HTTP 1.1 Caching](https://tools.ietf.org/html/rfc7234#section-5.2). Las reglas requieren una memoria caché que se respeten válido `Cache-Control` encabezado enviado por el cliente. En la especificación, un cliente puede realizar las solicitudes con un `no-cache` fuerza un servidor para generar una nueva respuesta para cada solicitud y el valor del encabezado. Actualmente no hay ningún control del desarrollador sobre este comportamiento de almacenamiento en caché cuando se usa el middleware porque el middleware se adhiere a la especificación oficial de almacenamiento en caché.
+
+[Mejoras futuras en el middleware](https://github.com/aspnet/ResponseCaching/issues/96) permitirá configurar el middleware para almacenar en caché escenarios donde la solicitud `Cache-Control` encabezado debe omitirse la hora de decidir atender una respuesta almacenada en caché. Si busca más control sobre el almacenamiento en caché de comportamiento, explore otras características de almacenamiento en caché de ASP.NET Core. Consulte los temas siguientes:
+
+* [Introducción al almacenamiento en caché en memoria de ASP.NET Core](xref:performance/caching/memory)
+* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
+* [Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>Solución de problemas
 Si almacenamiento en caché de comportamiento no es como esperaba, confirme que las respuestas son almacenable en caché y puede enviarse desde la memoria caché mediante el examen de encabezados de la solicitud entrante y saliente encabezados de la respuesta. Habilitar [registro](xref:fundamentals/logging) puede ayudar a la depuración. Los registros de middleware almacenamiento en caché de comportamiento y cuando se recupera una respuesta de la memoria caché.

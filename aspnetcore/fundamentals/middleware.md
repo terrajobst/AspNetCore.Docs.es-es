@@ -11,11 +11,11 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: cb39d74b9293b3ab341beba08d2f0af90261ca5f
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 881cabdbb7814b36d97a977b30389506b99d16b9
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Conceptos básicos de Middleware de núcleo de ASP.NET
 
@@ -44,7 +44,7 @@ La canalización de solicitudes de ASP.NET Core consta de una secuencia de deleg
 
 ![Patrón de procesamiento de solicitud que muestra una solicitud que llega, el procesamiento a través de tres middlewares y la respuesta salir de la aplicación. Cada middleware ejecuta su lógica y entrega la solicitud al siguiente middleware en la instrucción next(). Después de que el tercer middleware procesa la solicitud es mano hacia atrás por la dos middlewares anteriores para un procesamiento adicional después de las instrucciones de next() a su vez antes de salir de la aplicación como una respuesta al cliente.](middleware/_static/request-delegate-pipeline.png)
 
-Cada delegado puede realizar operaciones antes y después de la siguiente delegado. También puede decidir que un delegado no pasar una solicitud para el delegado siguiente, que se denomina evaluación "cortocircuitada" de la canalización de solicitudes. Evaluación "cortocircuitada" es a menudo deseable porque permite un trabajo innecesario que deben evitarse. Por ejemplo, el middleware de archivos estáticos puede devolver una solicitud de un archivo estático y el resto de la canalización de cortocircuito. Los delegados de control de excepciones deben llamarse al principio de la canalización, por lo que pueden detectar las excepciones que se producen en fases posteriores de la canalización.
+Cada delegado puede realizar operaciones antes y después de la siguiente delegado. También puede decidir que un delegado no pasar una solicitud para el delegado siguiente, que se denomina evaluación "cortocircuitada" de la canalización de solicitudes. Evaluación "cortocircuitada" es a menudo deseable porque evita el trabajo innecesario. Por ejemplo, el middleware de archivos estáticos puede devolver una solicitud de un archivo estático y el resto de la canalización de cortocircuito. Los delegados de control de excepciones deben llamarse al principio de la canalización, por lo que pueden detectar las excepciones que se producen en fases posteriores de la canalización.
 
 La aplicación de ASP.NET Core más simple posible establece un delegado de solicitud único que controla todas las solicitudes. En este caso no incluye una canalización de solicitud real. En su lugar, se llama a una función anónima única en respuesta a cada solicitud HTTP.
 

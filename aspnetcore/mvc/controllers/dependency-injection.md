@@ -2,7 +2,7 @@
 title: "Inyección de dependencia en controladores"
 author: ardalis
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: b83bd4a24ccf7e90e9df06d6a8e229a2d5c6699a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f6b454da838308adddaaddb84073722f647af379
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Inyección de dependencia en controladores
 
@@ -49,8 +49,6 @@ Teniendo esto en su lugar, podemos utilizar el servicio en el controlador. En es
 
 Si se ejecuta la aplicación ahora, probablemente se producirá un error:
 
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
-
 ```
 An unhandled exception occurred while processing the request.
 
@@ -73,8 +71,6 @@ Una vez que se ha configurado el servicio, ejecutar la aplicación y navegar a l
 > Vea [lógica del controlador de pruebas](testing.md) para obtener información sobre cómo solicitar explícitamente dependencias [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) en los controladores de facilita código de prueba.
 
 Inyección de dependencia integrados de ASP.NET Core admite solo un constructor único para las clases que soliciten servicios. Si tiene más de un constructor, es posible recibir una excepción que indica:
-
-<!-- literal_block {"ids": [], "xml:space": "preserve"} -->
 
 ```
 An unhandled exception occurred while processing the request.

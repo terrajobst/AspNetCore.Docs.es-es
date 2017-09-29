@@ -1,60 +1,102 @@
 ---
-title: "Las respuestas en caché"
+title: "Las respuestas en caché de ASP.NET Core"
 author: rick-anderson
-description: "Explica cómo utilizar el almacenamiento en caché para reducir el ancho de banda y mejorar el rendimiento de respuesta."
+description: "Obtenga información acerca de cómo usar el almacenamiento en caché para reducir el ancho de banda y mejorar el rendimiento de respuesta."
 keywords: "Núcleo de ASP.NET, almacenamiento en caché, encabezados HTTP de respuesta"
 ms.author: riande
 manager: wpickett
-ms.date: 07/10/2017
+ms.date: 09/20/2017
 ms.topic: article
 ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: af114401d2f6f183291caba3c015359afb737d93
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 957bdf5fe24216fa3459ac7ecee0464a45226828
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="response-caching"></a>Las respuestas en caché
+# <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
-Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), y [Steve Smith](https://ardalis.com/)
+Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), y [Luke Latham](https://github.com/guardrex)
 
 [Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample)
 
-## <a name="what-is-response-caching"></a>¿Qué es el almacenamiento en caché de respuesta
+Las respuestas en caché reducen el número de solicitudes de que un cliente o proxy se realiza en un servidor web. Las respuestas en caché también reducen la cantidad de trabajo realiza el servidor web para generar una respuesta. Las respuestas en caché se controlan mediante encabezados que especifican cómo desea que cliente, el proxy y middleware para la memoria caché las respuestas.
 
-*Las respuestas en caché* aumenta encabezados relacionados con la memoria caché las respuestas. Estos encabezados especifican cómo desea que cliente, el proxy y middleware para la memoria caché las respuestas. Las respuestas en caché pueden reducir el número de solicitudes de que un cliente o proxy realiza al servidor web. Las respuestas en caché también pueden reducir la cantidad de trabajo realiza el servidor web para generar la respuesta. 
+El servidor web puede almacenar en caché las respuestas al agregar [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware).
 
-El encabezado HTTP principal que se usa para almacenar en caché es `Cache-Control`. Consulte la [caché de HTTP 1.1](https://tools.ietf.org/html/rfc7234#section-5.2) para obtener más información. Directivas de caché comunes:
+## <a name="http-based-response-caching"></a>Almacenamiento en caché de respuesta basado en HTTP
 
-* [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)
-* [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)
-* [sin caché](https://tools.ietf.org/html/rfc7234#section-5.2.1.4)
-* [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)
-* [Variar](https://tools.ietf.org/html/rfc7231#section-7.1.4)
+El [especificación HTTP 1.1 Caching](https://tools.ietf.org/html/rfc7234) describe el comportamiento de las cachés de Internet. El encabezado HTTP principal que se usa para almacenar en caché es [Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2), que se utiliza para especificar la caché *directivas*. Las directivas de controlan el comportamiento de almacenamiento en caché las solicitudes lleguen su desde los clientes a los servidores a medida que y respuestas lleguen su de servidores a los clientes. Mover las solicitudes y respuestas a través de servidores proxy y servidores proxy deben también ajustarse a la especificación HTTP 1.1 almacenamiento en memoria caché.
 
-El servidor web puede almacenar en caché las respuestas mediante la adición de la respuesta de almacenamiento en caché de middleware. Vea [respuesta almacenamiento en caché middleware](middleware.md) para obtener más información.
+Common `Cache-Control` directivas se muestran en la tabla siguiente.
 
-## <a name="distributed-cache-tag-helper"></a>Aplicación auxiliar de etiqueta de caché distribuida
+| Directiva                                                       | Acción |
+| --------------------------------------------------------------- | ------ |
+| [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una memoria caché puede almacenar la respuesta. |
+| [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | No se debe almacenar la respuesta de una memoria caché compartida. Una caché privada puede almacenar y reutilizar la respuesta. |
+| [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | El cliente no aceptará una respuesta cuya antigüedad es superior al número especificado de segundos. Ejemplos: `max-age=60` (60 segundos), `max-age=2592000` (1 mes) |
+| [sin caché](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **En las solicitudes**: una memoria caché no debe usar una respuesta almacenada para satisfacer la solicitud. Nota: El servidor de origen vuelve a genera la respuesta para el cliente y el software intermedio actualiza la respuesta almacenada en la memoria caché.<br><br>**En las respuestas**: la respuesta no debe usarse para una solicitud posterior sin la validación en el servidor de origen. |
+| [ningún almacén](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **En las solicitudes**: una memoria caché no debe almacenar la solicitud.<br><br>**En las respuestas**: una memoria caché no debe almacenar cualquier parte de la respuesta. |
 
-El [auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/DistributedCacheTagHelper) permite caching distribuido.
+Otros encabezados de caché que desempeñan un papel en el almacenamiento en caché se muestran en la tabla siguiente.
 
+| Header                                                     | Función |
+| ---------------------------------------------------------- | -------- |
+| [Edad](https://tools.ietf.org/html/rfc7234#section-5.1)     | Una estimación de la cantidad de tiempo en segundos desde que se generó la respuesta o se ha validado correctamente en el servidor de origen. |
+| [Expira](https://tools.ietf.org/html/rfc7234#section-5.3) | La fecha y hora después de que la respuesta se considera obsoleta. |
+| [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Existe para hacia atrás compatibilidad con HTTP/1.0 almacena en memoria caché de configuración `no-cache` comportamiento. Si el `Cache-Control` encabezado está presente, el `Pragma` se omite el encabezado. |
+| [Variar](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Especifica que una respuesta almacenada en caché no se debe enviar a menos que todos los de la `Vary` coinciden con campos de encabezado de solicitud original de la respuesta almacenada en caché y la solicitud nuevo. |
+
+## <a name="http-based-caching-respects-request-cache-control-directives"></a>Las directivas de Control de caché de solicitud de aspectos de almacenamiento en caché basado en HTTP
+
+El [especificación HTTP 1.1 almacenamiento en memoria caché para el encabezado Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2) requiere una memoria caché que se respeten válido `Cache-Control` encabezado enviado por el cliente. Un cliente puede realizar las solicitudes con un `no-cache` valor del encabezado y se fuerza el servidor para generar una nueva respuesta para cada solicitud.
+
+Siempre respetando cliente `Cache-Control` encabezados de solicitud tiene sentido si considera que el objetivo del almacenamiento en caché de HTTP. En la especificación oficial, el almacenamiento en caché está pensado para reducir la sobrecarga de red y latencia de satisfacer las solicitudes a través de una red de clientes, servidores proxy y servidores. No es necesariamente una manera de controlar la carga en un servidor de origen.
+
+No hay ningún control del desarrollador actual sobre este comportamiento de almacenamiento en caché cuando se usa el [Middleware de almacenamiento en caché de respuesta](xref:performance/caching/middleware) porque el middleware se adhiere a los oficiales especificación el almacenamiento en caché. [Mejoras futuras en el middleware](https://github.com/aspnet/ResponseCaching/issues/96) permitirá configurar el middleware para omitir una solicitud `Cache-Control` encabezado al decidir atender una respuesta almacenada en caché. Esto le ofrece la oportunidad para controlar mejor la carga en el servidor cuando se usa el middleware.
+
+## <a name="other-caching-technology-in-aspnet-core"></a>Otras tecnologías de almacenamiento en caché de ASP.NET Core
+
+### <a name="in-memory-caching"></a>Almacenamiento en caché en memoria
+
+Almacenamiento en caché en memoria utiliza memoria del servidor para almacenar los datos almacenados en caché. Este tipo de almacenamiento en caché es adecuado para un único servidor o varios servidores mediante *sesiones permanentes*. Sesiones permanentes significa que siempre se enrutan las solicitudes de un cliente en el mismo servidor para su procesamiento.
+
+Para obtener más información, consulte [Introducción al almacenamiento en caché en memoria de ASP.NET Core](xref:performance/caching/memory).
+
+### <a name="distributed-cache"></a>Caché distribuida
+
+Usar una memoria caché distribuida para almacenar datos en la memoria cuando la aplicación se hospeda en una granja de servidores en la nube o el servidor. La memoria caché se comparte entre los servidores que procesan las solicitudes. Un cliente puede enviar una solicitud que controla cualquier servidor en el grupo y los datos almacenados en caché para el cliente están disponibles. ASP.NET Core ofrece SQL Server y las cachés de Redis distribuida.
+
+Para obtener más información, consulte [trabajar con una memoria caché distribuida](xref:performance/caching/distributed).
+
+### <a name="cache-tag-helper"></a>Aplicación auxiliar de etiqueta de caché
+
+Puede almacenar en caché el contenido de una vista MVC o Razor página a la aplicación auxiliar de etiqueta de caché. La aplicación auxiliar de etiqueta de caché usa almacenamiento en caché en memoria para almacenar datos.
+
+Para obtener más información, consulte [aplicación auxiliar de la etiqueta de caché en MVC de ASP.NET Core](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
+
+### <a name="distributed-cache-tag-helper"></a>Aplicación auxiliar de etiqueta de caché distribuida
+
+Puede almacenar en caché el contenido de una vista MVC o la página de Razor en nube distribuida o escenarios de granja de servidores web con el Ayudante de etiqueta de caché distribuida. El Ayudante de etiqueta de caché distribuida usa SQL Server o Redis para almacenar datos.
+
+Para obtener más información, consulte [auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper).
 
 ## <a name="responsecache-attribute"></a>Atributo ResponseCache
 
-El `ResponseCacheAttribute` especifica los parámetros necesarios para establecer encabezados apropiados en las respuestas en caché. Vea [ResponseCacheAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) para obtener una descripción de los parámetros.
+El `ResponseCacheAttribute` especifica los parámetros necesarios para establecer encabezados apropiados en las respuestas en caché. Vea [ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) para obtener una descripción de los parámetros.
 
->[!WARNING]
-> Deshabilitar el almacenamiento en caché para el contenido que contiene información para clientes autenticados. Almacenamiento en caché solo debería habilitarse para contenido que no cambia en función de la identidad de un usuario, o si un usuario ha iniciado sesión.
+> [!WARNING]
+> Deshabilitar el almacenamiento en caché para el contenido que contiene información para clientes autenticados. Sólo debe habilitarse el almacenamiento en caché para el contenido que no cambia en función de la identidad de un usuario o si un usuario ha iniciado sesión.
 
-`VaryByQueryKeys string[]`(requiere ASP.NET Core 1.1.0 y versiones posteriores): cuando se establece, la respuesta de almacenamiento en caché middleware variará la respuesta almacenada en los valores de la lista de claves de consulta determinada. La respuesta middleware el almacenamiento en caché debe estar habilitada para establecer el `VaryByQueryKeys` propiedad, en caso contrario, una excepción en tiempo de ejecución se producirá. No hay ningún encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. Esta propiedad es una característica HTTP controlada la respuesta middleware el almacenamiento en caché. Para que el middleware atender una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la siguiente secuencia:
+`VaryByQueryKeys string[]`(requiere ASP.NET Core 1.1 y versiones posterior): cuando se establece, el Middleware de almacenamiento en caché de respuesta varía la respuesta almacenada en los valores de la lista de claves de consulta determinada. El Middleware de almacenamiento en caché de la respuesta debe estar habilitado para establecer el `VaryByQueryKeys` propiedad; en caso contrario, se produce una excepción en tiempo de ejecución. No hay ningún encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. Esta propiedad es una característica HTTP controlada el Middleware de almacenamiento en caché de respuesta. Para que el middleware atender una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la posibilidad de la secuencia de las solicitudes y resultados que se muestran en la tabla siguiente.
 
-| Solicitud          | Resultado |
-| ----------------- | ------------ | 
-| `http://example.com?key1=value1` | devuelta por el servidor |
+| Solicitud                          | Resultado                   |
+| -------------------------------- | ------------------------ |
+| `http://example.com?key1=value1` | devuelta por el servidor     |
 | `http://example.com?key1=value1` | procedentes de middleware |
-| `http://example.com?key1=value2` | devuelta por el servidor |
+| `http://example.com?key1=value2` | devuelta por el servidor     |
 
 La primera solicitud es devuelto por el servidor y en memoria caché de middleware. Dado que la cadena de consulta coincide con la solicitud anterior, se devuelve la segunda solicitud middleware. La tercera solicitud no está en la caché de middleware porque el valor de cadena de consulta no coincide con una solicitud anterior. 
 
@@ -66,54 +108,54 @@ El `ResponseCacheAttribute` se utiliza para crear y configurar (a través de `IF
 
 ### <a name="vary"></a>Variar
 
-Este encabezado solo cuando se escribe el `VaryByHeader` se establece la propiedad. Se establece en el `Vary` valor de la propiedad. El siguiente ejemplo se utiliza la `VaryByHeader` propiedad.
+Este encabezado solo cuando se escribe el `VaryByHeader` se establece la propiedad. Se establece en el `Vary` valor de la propiedad. El siguiente ejemplo se utiliza la `VaryByHeader` propiedad:
 
 [!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
-Puede ver los encabezados de respuesta con las herramientas de red de los exploradores. La siguiente imagen muestra la F12 de borde de salida en el **red** ficha cuando el `About2` se actualiza el método de acción. 
+Puede ver los encabezados de respuesta con las herramientas de red de su explorador. La siguiente imagen muestra la F12 de borde de salida en el **red** ficha cuando el `About2` se actualiza el método de acción:
 
-![Salida de F12 de arista en la ** red ** pestaña cuando se llama al método de acción 'About2'](response/_static/vary.png)
+![Arista F12 salida en la pestaña de la red cuando se llama al método de acción About2](response/_static/vary.png)
 
 ### <a name="nostore-and-locationnone"></a>NoStore y Location.None
 
-`NoStore`invalida la mayoría de las demás propiedades. Cuando esta propiedad se establece en `true`, el `Cache-Control` encabezado se establecerá en "no-store". Si `Location` está establecido en `None`:
+`NoStore`invalida la mayoría de las demás propiedades. Cuando esta propiedad se establece en `true`, `Cache-Control` encabezado se establece en `no-store`. Si `Location` está establecido en `None`:
 
-* El valor de `Cache-Control` está establecido en `"no-store, no-cache"`. 
-* El valor de `Pragma` está establecido en `no-cache`. 
+* El valor de `Cache-Control` está establecido en `no-store,no-cache`.
+* El valor de `Pragma` está establecido en `no-cache`.
 
-Si `NoStore` es `false` y `Location` es `None`, `Cache-Control` y `Pragma` se establecerá en `no-cache`.
+Si `NoStore` es `false` y `Location` es `None`, `Cache-Control` y `Pragma` se establecen en `no-cache`.
 
 Normalmente establece `NoStore` a `true` en las páginas de error. Por ejemplo:
 
 [!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
-Esto dará como resultado de los encabezados siguientes:
+Esto genera los encabezados siguientes:
 
-```javascript
+```
 Cache-Control: no-store,no-cache
 Pragma: no-cache
 ```
 
 ### <a name="location-and-duration"></a>Ubicación y la duración
 
-Para habilitar el almacenamiento en caché, `Duration` debe establecerse en un valor positivo y `Location` debe ser `Any` (valor predeterminado) o `Client`. En este caso, el `Cache-Control` encabezado se establecerá en el valor de ubicación seguido por "max-age" de la respuesta.
+Para habilitar el almacenamiento en caché, `Duration` debe establecerse en un valor positivo y `Location` debe ser `Any` (valor predeterminado) o `Client`. En este caso, el `Cache-Control` encabezado se establece en el valor de ubicación seguido por el `max-age` de la respuesta.
 
 > [!NOTE]
-> `Location`de opciones de `Any` y `Client` traducir `Cache-Control` valores de encabezado `public` y `private`, respectivamente. Como se indicó anteriormente, establecer `Location` a `None` establecerá ambos `Cache-Control` y `Pragma` encabezados para `no-cache`.
+> `Location`de opciones de `Any` y `Client` traducir `Cache-Control` valores de encabezado `public` y `private`, respectivamente. Como se indicó anteriormente, establecer `Location` a `None` establece ambas `Cache-Control` y `Pragma` encabezados para `no-cache`.
 
-A continuación se muestra un ejemplo que muestra los encabezados genera estableciendo `Duration` y deja el valor predeterminado `Location` valor.
+A continuación se muestra un ejemplo que muestra los encabezados genera estableciendo `Duration` y deja el valor predeterminado `Location` valor:
 
 [!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
-Genera los encabezados siguientes:
+Esto produce el siguiente encabezado:
 
-```javascript
+```
 Cache-Control: public,max-age=60
-   ```
+```
 
 ### <a name="cache-profiles"></a>Perfiles de memoria caché
 
-En lugar de duplicar `ResponseCache` configuración en muchos atributos de acción de controlador, perfiles de memoria caché se puede configurar como opciones al configurar MVC en la `ConfigureServices` método `Startup`. Valores que se encuentran en un perfil de caché que se hace referencia se usará como los valores predeterminados por el `ResponseCache` de atributo y serán reemplazadas por las propiedades especificadas en el atributo.
+En lugar de duplicar `ResponseCache` configuración en muchos atributos de acción de controlador, perfiles de memoria caché se puede configurar como opciones al configurar MVC en la `ConfigureServices` método `Startup`. Valores que se encuentran en un perfil de caché que se hace referencia se utilizan como los valores predeterminados por el `ResponseCache` de atributo y se reemplazan por las propiedades especificadas en el atributo.
 
 Cómo configurar un perfil de caché:
 
@@ -123,17 +165,18 @@ Hacer referencia a un perfil de caché:
 
 [!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
-El `ResponseCache` atributo se puede aplicar tanto para acciones (métodos), así como para controladores (clases). Atributos de nivel de método invalidará la configuración especificada en los atributos de nivel de clase.
+El `ResponseCache` atributo se puede aplicar tanto a las acciones (métodos) y controladores (clases). Atributos de nivel de método invalidan la configuración especificada en los atributos de nivel de clase.
 
-En el ejemplo anterior, un atributo de nivel de clase especifica una duración de 30 segundos, mientras que un atributos de nivel de método hace referencia a un perfil de caché con una duración establecida en 60 segundos.
+En el ejemplo anterior, un atributo de nivel de clase especifica una duración de 30 segundos, mientras que un atributo de nivel de método hace referencia a un perfil de caché con una duración establecida en 60 segundos.
 
 El encabezado resultante:
 
 ```
 Cache-Control: public,max-age=60
-   ```
+```
 
-  ### <a name="additional-resources"></a>Recursos adicionales
+## <a name="additional-resources"></a>Recursos adicionales
 
 * [Almacenamiento en caché de HTTP de la especificación](https://tools.ietf.org/html/rfc7234#section-3)
 * [Control de caché](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)

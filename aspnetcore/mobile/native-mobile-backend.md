@@ -2,7 +2,7 @@
 title: "Creación de servicios back-end para aplicaciones móviles nativas"
 author: ardalis
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 3b6a32f2-5af9-4ede-9b7f-17ab300526d0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 7b2b35b1519badbc8b8fbddab97a0c6336926185
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: be1cd9f4fe41f1a79669975cb6a89439cdd9e5c7
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="creating-backend-services-for-native-mobile-applications"></a>Creación de servicios back-end para aplicaciones móviles nativas
 
@@ -46,8 +46,6 @@ Al puntear en un elemento en la pantalla principal de lista, se abre un cuadro d
 ![Editar cuadro de diálogo elemento](native-mobile-backend/_static/todo-android-edit-item.png)
 
 En este ejemplo se configura de forma predeterminada para utilizar servicios de back-end alojados en developer.xamarin.com, lo que permite operaciones de solo lectura. Para probarlo usted mismo con la aplicación de ASP.NET Core que creó en la sección siguiente que se ejecutan en el equipo, debe actualizar la aplicación `RestUrl` constante. Navegue hasta la `ToDoREST` proyecto y abra el *Constants.cs* archivo. Reemplace la `RestUrl` con una dirección URL que incluye IP su equipo dirección (no localhost ni 127.0.0.1, puesto que esta dirección se utiliza desde el emulador de dispositivo, no desde el equipo). Incluya también el número de puerto (5000). Para comprobar que los servicios funcionan con un dispositivo, asegúrese de que no tiene un active firewall bloqueando el acceso a este puerto.
-
-<!-- literal_block {"ids": [], "names": [], "highlight_args": {}, "backrefs": [], "dupnames": [], "linenos": false, "classes": [], "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 // URL of REST service (Xamarin ReadOnly Service)

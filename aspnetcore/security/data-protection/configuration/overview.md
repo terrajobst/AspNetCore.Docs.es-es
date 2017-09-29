@@ -2,7 +2,7 @@
 title: "Configurar la protección de datos"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 39fab796c24456d61a6a103c4a3f7a8722b4718c
-ms.sourcegitcommit: bd05f7ea8f87ad076ef6e8b704698ebcba5ca80c
+ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="configuring-data-protection"></a>Configurar la protección de datos
 
@@ -66,8 +66,6 @@ public void ConfigureServices(IServiceCollection services)
 De forma predeterminada el sistema de protección de datos aísla las aplicaciones entre sí, incluso si comparte el mismo repositorio clave físico. Esto evita que las aplicaciones de la descripción de todas las demás cargas protegido. Para compartir protegidos cargas entre dos aplicaciones diferentes, configurar el sistema pasa en el mismo nombre de aplicación para las aplicaciones como en el ejemplo siguiente:
 
 <a name=data-protection-code-sample-application-name></a>
-
-<!-- literal_block {"ids": ["data-protection-code-sample-application-name"], "linenos": false, "names": ["data-protection-code-sample-application-name"], "xml:space": "preserve", "language": "csharp"} -->
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -291,5 +289,5 @@ Aunque no se expone como una API de primera clase, el sistema de protección de 
 
 ### <a name="see-also"></a>Vea también
 
-* [DI no es compatible con escenarios](non-di-scenarios.md)
-* [Directiva para todo el equipo](machine-wide-policy.md)
+* [Escenarios no compatibles con DI](non-di-scenarios.md)
+* [Directiva para toda la máquina](machine-wide-policy.md)

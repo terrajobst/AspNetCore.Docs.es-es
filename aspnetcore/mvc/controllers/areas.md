@@ -11,11 +11,11 @@ ms.assetid: 5e16d5e8-5696-4cb2-8ec7-d36be305c922
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/areas
-ms.openlocfilehash: 0f388ba090ada11a0ac7937606cbcd5a89d6263e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 3096d6404ff9c7e34eefcfb1990e7bf1ccab27ba
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="areas"></a>Áreas
 
@@ -105,8 +105,6 @@ Hay que destacar es que la estructura de la *vistas* carpeta es la única que se
 
 Una vez que haya definido la jerarquía de carpetas, se debe indicar MVC que cada controlador está asociado a un área. Para hacerlo, decorando el nombre del controlador con la `[Area]` atributo.
 
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4]}} -->
-
 ```csharp
 ...
    namespace MyStore.Areas.Products.Controllers
@@ -130,8 +128,6 @@ Una vez que haya definido la jerarquía de carpetas, se debe indicar MVC que cad
    ```
 
 Establecer una definición de ruta que funcione con sus áreas recién creados. El [enrutamiento a las acciones del controlador](routing.md) artículo entra en detalles acerca de cómo crear definiciones de route, incluido el uso de rutas convencionales frente a las rutas de atributo. En este ejemplo, vamos a usar una ruta convencional. Para ello, abra el *Startup.cs* archivo y modificarlo agregándole el `areaRoute` con el nombre de definición de ruta más adelante.
-
-<!-- literal_block {"ids": [], "linenos": false, "xml:space": "preserve", "language": "csharp", "highlight_args": {"hl_lines": [4, 5, 6]}} -->
 
 ```csharp
 ...
