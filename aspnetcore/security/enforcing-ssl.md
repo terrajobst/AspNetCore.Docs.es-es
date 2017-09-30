@@ -10,37 +10,33 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/enforcing-ssl
-ms.openlocfilehash: e8e7d4a69fd681534fb313ff113805bfd6a6d44e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 6f2755a606000717ca8a57f045b1ef613c7f14f6
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="enforcing-ssl-in-an-aspnet-core-app"></a><span data-ttu-id="afcc6-104">Exigir SSL en una aplicación ASP.NET básica</span><span class="sxs-lookup"><span data-stu-id="afcc6-104">Enforcing SSL in an ASP.NET Core app</span></span>
+# <a name="enforcing-ssl-in-an-aspnet-core-app"></a><span data-ttu-id="98074-104">Exigir SSL en una aplicación ASP.NET básica</span><span class="sxs-lookup"><span data-stu-id="98074-104">Enforcing SSL in an ASP.NET Core app</span></span>
 
-<span data-ttu-id="afcc6-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="afcc6-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="98074-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="98074-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="afcc6-106">Este documento se muestra cómo:</span><span class="sxs-lookup"><span data-stu-id="afcc6-106">This document shows how to:</span></span>
+<span data-ttu-id="98074-106">Este documento se muestra cómo:</span><span class="sxs-lookup"><span data-stu-id="98074-106">This document shows how to:</span></span>
 
-- <span data-ttu-id="afcc6-107">Requerir SSL para todas las solicitudes (sólo solicitudes HTTPS).</span><span class="sxs-lookup"><span data-stu-id="afcc6-107">Require SSL for all requests (HTTPS requests only).</span></span>
-- <span data-ttu-id="afcc6-108">Redirigir todas las solicitudes HTTP a HTTPS.</span><span class="sxs-lookup"><span data-stu-id="afcc6-108">Redirect all HTTP requests to HTTPS.</span></span>
+- <span data-ttu-id="98074-107">Requerir SSL para todas las solicitudes (sólo solicitudes HTTPS).</span><span class="sxs-lookup"><span data-stu-id="98074-107">Require SSL for all requests (HTTPS requests only).</span></span>
+- <span data-ttu-id="98074-108">Redirigir todas las solicitudes HTTP a HTTPS.</span><span class="sxs-lookup"><span data-stu-id="98074-108">Redirect all HTTP requests to HTTPS.</span></span>
 
-## <a name="require-ssl"></a><span data-ttu-id="afcc6-109">Requerir SSL</span><span class="sxs-lookup"><span data-stu-id="afcc6-109">Require SSL</span></span>
+## <a name="require-ssl"></a><span data-ttu-id="98074-109">Requerir SSL</span><span class="sxs-lookup"><span data-stu-id="98074-109">Require SSL</span></span>
 
-<span data-ttu-id="afcc6-110">El [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) se usa para requerir SSL.</span><span class="sxs-lookup"><span data-stu-id="afcc6-110">The [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) is used to require SSL.</span></span> <span data-ttu-id="afcc6-111">Puede decorar controladores o métodos con este atributo o se puede aplicar a todo el mundo tal y como se muestra a continuación:</span><span class="sxs-lookup"><span data-stu-id="afcc6-111">You can decorate controllers or methods with this attribute or you can apply it globally as shown below:</span></span>
+<span data-ttu-id="98074-110">El [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) se usa para requerir SSL.</span><span class="sxs-lookup"><span data-stu-id="98074-110">The [RequireHttpsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) is used to require SSL.</span></span> <span data-ttu-id="98074-111">Puede decorar controladores o métodos con este atributo o se puede aplicar a todo el mundo tal y como se muestra a continuación:</span><span class="sxs-lookup"><span data-stu-id="98074-111">You can decorate controllers or methods with this attribute or you can apply it globally as shown below:</span></span>
 
-<span data-ttu-id="afcc6-112">Agregue el código siguiente a `ConfigureServices` en `Startup`:</span><span class="sxs-lookup"><span data-stu-id="afcc6-112">Add the following code to `ConfigureServices` in `Startup`:</span></span>
+<span data-ttu-id="98074-112">Agregue el código siguiente a `ConfigureServices` en `Startup`:</span><span class="sxs-lookup"><span data-stu-id="98074-112">Add the following code to `ConfigureServices` in `Startup`:</span></span>
 
 [!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-)]
 
-<span data-ttu-id="afcc6-113">El código resaltado anterior requiere que todas las solicitudes usar `HTTPS`, por lo tanto, se omiten las solicitudes HTTP.</span><span class="sxs-lookup"><span data-stu-id="afcc6-113">The highlighted code above requires all requests use `HTTPS`, therefore HTTP requests are ignored.</span></span> <span data-ttu-id="afcc6-114">El código resaltado siguiente redirige todas las solicitudes HTTP a HTTPS:</span><span class="sxs-lookup"><span data-stu-id="afcc6-114">The following highlighted code redirects all HTTP requests to HTTPS:</span></span>
+<span data-ttu-id="98074-113">El código resaltado anterior requiere que todas las solicitudes usar `HTTPS`, por lo tanto, se omiten las solicitudes HTTP.</span><span class="sxs-lookup"><span data-stu-id="98074-113">The highlighted code above requires all requests use `HTTPS`, therefore HTTP requests are ignored.</span></span> <span data-ttu-id="98074-114">El código resaltado siguiente redirige todas las solicitudes HTTP a HTTPS:</span><span class="sxs-lookup"><span data-stu-id="98074-114">The following highlighted code redirects all HTTP requests to HTTPS:</span></span>
 
 [!code-csharp[Main](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet_AddRedirectToHttps&highlight=7-)]
 
-<span data-ttu-id="afcc6-115">Vea [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="afcc6-115">See [URL Rewriting Middleware](xref:fundamentals/url-rewriting) for more information.</span></span>
+<span data-ttu-id="98074-115">Vea [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="98074-115">See [URL Rewriting Middleware](xref:fundamentals/url-rewriting) for more information.</span></span>
 
-<span data-ttu-id="afcc6-116">Requerir HTTPS globalmente (`options.Filters.Add(new RequireHttpsAttribute());`) es una práctica recomendada de seguridad.</span><span class="sxs-lookup"><span data-stu-id="afcc6-116">Requiring HTTPS globally (`options.Filters.Add(new RequireHttpsAttribute());`) is a security best practice.</span></span> <span data-ttu-id="afcc6-117">Aplicar el `[RequireHttps]` atributo para todos los controladores no se considera tan seguro como requerir HTTPS globalmente.</span><span class="sxs-lookup"><span data-stu-id="afcc6-117">Applying the `[RequireHttps]` attribute to all controller is not considered as secure as requiring HTTPS globally.</span></span> <span data-ttu-id="afcc6-118">No puede garantizar nuevos controladores que se agregan a la aplicación le recordará que se aplicará la `[RequireHttps]` atributo.</span><span class="sxs-lookup"><span data-stu-id="afcc6-118">You can't guarantee new controllers added to your app will remember to apply the `[RequireHttps]` attribute.</span></span>
-
-## <a name="set-up-iis-express-for-sslhttps"></a><span data-ttu-id="afcc6-119">Configurar IIS Express para HTTPS/SSL</span><span class="sxs-lookup"><span data-stu-id="afcc6-119">Set up IIS Express for SSL/HTTPS</span></span>
-
-<span data-ttu-id="afcc6-120">Vea [configurar HTTPS para el desarrollo de ASP.NET Core](xref:security/https#iisxpress).</span><span class="sxs-lookup"><span data-stu-id="afcc6-120">See [Setting up HTTPS for development in ASP.NET Core](xref:security/https#iisxpress).</span></span>
+<span data-ttu-id="98074-116">Requerir HTTPS globalmente (`options.Filters.Add(new RequireHttpsAttribute());`) es una práctica recomendada de seguridad.</span><span class="sxs-lookup"><span data-stu-id="98074-116">Requiring HTTPS globally (`options.Filters.Add(new RequireHttpsAttribute());`) is a security best practice.</span></span> <span data-ttu-id="98074-117">Aplicar el `[RequireHttps]` atributo para todos los controladores no se considera tan seguro como requerir HTTPS globalmente.</span><span class="sxs-lookup"><span data-stu-id="98074-117">Applying the `[RequireHttps]` attribute to all controller is not considered as secure as requiring HTTPS globally.</span></span> <span data-ttu-id="98074-118">No puede garantizar nuevos controladores que se agregan a la aplicación le recordará que se aplicará la `[RequireHttps]` atributo.</span><span class="sxs-lookup"><span data-stu-id="98074-118">You can't guarantee new controllers added to your app will remember to apply the `[RequireHttps]` attribute.</span></span>
