@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
+ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/02/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento de ASP.NET Core
 
@@ -46,17 +46,17 @@ Enrutamiento está conectado a la [middleware](middleware.md) de canalización p
 
 Coincidencia de dirección URL es el proceso por qué enrutamiento envía una solicitud entrante a un *controlador*. Este proceso se suele basar en datos en la ruta de acceso de dirección URL, pero se puede extender para tener en cuenta los datos de la solicitud. La capacidad de distribuir las solicitudes para separar los controladores es clave para escalar el tamaño y la complejidad de una aplicación.
 
-Escriba las solicitudes entrantes el `RouterMiddleware`, que llama el `RouteAsync` método en cada ruta en secuencia. El `IRouter` instancia elige si *controlar* la solicitud estableciendo la `RouteContext` `Handler` a un valor no nulo `RequestDelegate`. Si una ruta establece un controlador para la solicitud, se invocará el procesamiento se detiene y el controlador de ruta para procesar la solicitud. Si todas las rutas se prueban y se encuentra ningún controlador para la solicitud, el middleware invoca *siguiente* y se invoca al siguiente middleware en la canalización de solicitudes.
+Escriba las solicitudes entrantes el `RouterMiddleware`, que llama el `RouteAsync` método en cada ruta en secuencia. El `IRouter` instancia elige si *controlar* la solicitud estableciendo la `RouteContext.Handler` a un valor no nulo `RequestDelegate`. Si una ruta establece un controlador para la solicitud, se invocará el procesamiento se detiene y el controlador de ruta para procesar la solicitud. Si todas las rutas se prueban y se encuentra ningún controlador para la solicitud, el middleware invoca *siguiente* y se invoca al siguiente middleware en la canalización de solicitudes.
 
-La entrada principal a `RouteAsync` es el `RouteContext` `HttpContext` asociado a la solicitud actual. El `RouteContext.Handler` y `RouteContext` `RouteData` son salidas que se establecerán después de que coincide con una ruta.
+La entrada principal a `RouteAsync` es el `RouteContext.HttpContext` asociado a la solicitud actual. El `RouteContext.Handler` y `RouteContext.RouteData` son salidas que se establecerán después de que coincide con una ruta.
 
 Una coincidencia durante la `RouteAsync` también establecerá las propiedades de la `RouteContext.RouteData` en los valores adecuados según el procesamiento de la solicitud hecho hasta ahora. Si una ruta coincide con una solicitud, el `RouteContext.RouteData` contendrá información de estado importante sobre la *resultado*.
 
-`RouteData``Values` es un diccionario de *valores de ruta* producidos a partir de la ruta. Estos valores se determinan normalmente por la dirección URL de la división de tokens y pueden utilizarse para aceptar proporcionados por el usuario, o para tomar decisiones más distribución dentro de la aplicación.
+`RouteData.Values`es un diccionario de *valores de ruta* producidos a partir de la ruta. Estos valores se determinan normalmente por la dirección URL de la división de tokens y pueden utilizarse para aceptar proporcionados por el usuario, o para tomar decisiones más distribución dentro de la aplicación.
 
-`RouteData``DataTokens` es un contenedor de propiedades de datos adicionales relacionados con la ruta coincidente. `DataTokens`se proporcionan para admitir el estado de asociar datos con las rutas para que la aplicación pueda tomar decisiones más adelante en función de qué ruta coinciden. Estos valores son definidos por el desarrollador y **no** afectan al comportamiento del enrutamiento de ninguna manera. Además, los valores que se esconde en tokens de datos pueden ser de cualquier tipo, a diferencia de los valores de ruta, que debe ser fácilmente convertible a y desde cadenas.
+`RouteData.DataTokens`es un contenedor de propiedades de datos adicionales relacionados con la ruta coincidente. `DataTokens`se proporcionan para admitir el estado de asociar datos con las rutas para que la aplicación pueda tomar decisiones más adelante en función de qué ruta coinciden. Estos valores son definidos por el desarrollador y **no** afectan al comportamiento del enrutamiento de ninguna manera. Además, los valores que se esconde en tokens de datos pueden ser de cualquier tipo, a diferencia de los valores de ruta, que debe ser fácilmente convertible a y desde cadenas.
 
-`RouteData``Routers` es una lista de las rutas que participaron en una coincidencia correcta con la solicitud. Las rutas se pueden anidar dentro de otra y el `Routers` propiedad refleja la ruta de acceso a través del árbol lógico de rutas que dan como resultado una coincidencia. Por lo general, el primer elemento de `Routers` es la colección de rutas y se debe usar para la generación de direcciones URL. El último elemento de `Routers` es el controlador de ruta que coincide.
+`RouteData.Routers`es una lista de las rutas que participaron en una coincidencia correcta con la solicitud. Las rutas se pueden anidar dentro de otra y el `Routers` propiedad refleja la ruta de acceso a través del árbol lógico de rutas que dan como resultado una coincidencia. Por lo general, el primer elemento de `Routers` es la colección de rutas y se debe usar para la generación de direcciones URL. El último elemento de `Routers` es el controlador de ruta que coincide.
 
 ### <a name="url-generation"></a>Generación de direcciones URL
 
@@ -66,11 +66,11 @@ Generación de direcciones URL sigue un proceso iterativo similar, pero se inici
 
 La principal entradas al `GetVirtualPath` son:
 
-* `VirtualPathContext` `HttpContext`
+* `VirtualPathContext.HttpContext`
 
-* `VirtualPathContext` `Values`
+* `VirtualPathContext.Values`
 
-* `VirtualPathContext` `AmbientValues`
+* `VirtualPathContext.AmbientValues`
 
 Las rutas usan principalmente los valores de ruta proporcionados por el `Values` y `AmbientValues` para decidir donde es posible generar una dirección URL y qué valores se deben para incluir. El `AmbientValues` son el conjunto de valores de ruta que se han producido en la coincidencia de la solicitud actual con el sistema de enrutamiento. En cambio, `Values` son los valores de ruta que especifica cómo generar la dirección URL deseada para la operación actual. El `HttpContext` se proporciona en caso de una ruta necesita obtener servicios o datos adicionales asociados con el contexto actual.
 
@@ -78,11 +78,11 @@ Sugerencia: Reflexión de `Values` como un conjunto de valores de reemplazo de l
 
 La salida de `GetVirtualPath` es una `VirtualPathData`. `VirtualPathData`es un paralelo de `RouteData`; contiene el `VirtualPath` para la dirección URL de salida, así como las algunas propiedades adicionales que se deben establecer la ruta.
 
-El `VirtualPathData` `VirtualPath` propiedad contiene el *ruta de acceso virtual* generados por la ruta. Dependiendo de sus necesidades debe procesar aún más la ruta de acceso. Por ejemplo, si desea representar la dirección URL generada en HTML debe anteponer la ruta de acceso base de la aplicación.
+El `VirtualPathData.VirtualPath` propiedad contiene el *ruta de acceso virtual* generados por la ruta. Dependiendo de sus necesidades debe procesar aún más la ruta de acceso. Por ejemplo, si desea representar la dirección URL generada en HTML debe anteponer la ruta de acceso base de la aplicación.
 
-El `VirtualPathData` `Router` es una referencia a la ruta que se generó correctamente la dirección URL.
+El `VirtualPathData.Router` es una referencia a la ruta que se generó correctamente la dirección URL.
 
-El `VirtualPathData` `DataTokens` propiedades es un diccionario de datos adicionales relacionados con la ruta que genera la dirección URL. Se trata el paralelo de `RouteData.DataTokens`.
+El `VirtualPathData.DataTokens` propiedades es un diccionario de datos adicionales relacionados con la ruta que genera la dirección URL. Se trata el paralelo de `RouteData.DataTokens`.
 
 ### <a name="creating-routes"></a>Crear rutas
 
