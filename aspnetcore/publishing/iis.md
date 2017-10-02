@@ -11,13 +11,13 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: f506fc880e50aa2fdc772fd29b905dfad02cda2b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 75fc1edec9050a4690a39d37307f2f95f5d534a5
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 09/28/2017
 ---
-# <a name="set-up-a-hosting-environment-for-aspnet-core-on-windows-with-iis-and-deploy-to-it"></a>Configuración de un entorno de hospedaje para ASP.NET Core en Windows con IIS e implementación en él
+# <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
 Por [Luke Latham](https://github.com/guardrex) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -26,12 +26,11 @@ Por [Luke Latham](https://github.com/guardrex) y [Rick Anderson](https://twitter
 Los siguientes sistemas operativos son compatibles:
 
 * Windows 7 y más recientes
-
 * Windows Server 2008 R2 y más recientes&#8224;
 
 &#8224;Conceptualmente, la configuración de IIS que se describe en este documento también se aplica al hospedaje de aplicaciones de ASP.NET Core en IIS de Nano Server, pero vea [ASP.NET Core con IIS en Nano Server](xref:tutorials/nano-server) para obtener instrucciones concretas.
 
-El [servidor WebListener](xref:fundamentals/servers/weblistener) no funciona en una configuración de proxy inverso con IIS. Debe usar el [servidor Kestrel](xref:fundamentals/servers/kestrel).
+El [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener)) no funciona en una configuración de proxy inverso con IIS. Debe usar el [servidor Kestrel](xref:fundamentals/servers/kestrel).
 
 ## <a name="iis-configuration"></a>Configuración de IIS
 
@@ -39,7 +38,7 @@ Habilite el rol **Servidor web (IIS)** y establezca los servicios de rol.
 
 ### <a name="windows-desktop-operating-systems"></a>Sistemas operativos de escritorio Windows
 
-Vaya a **Panel de control > Programas > Programas y características > Activar o desactivar las características de Windows** (lado izquierdo de la pantalla). Abra el grupo de **Internet Information Services** y **Herramientas de administración web**. Active la casilla de **Consola de administración de IIS**. Active la casilla de **Servicios World Wide Web**. Acepte las características predeterminadas de **Servicios World Wide Web** o personalice las características de IIS para satisfacer sus necesidades.
+Vaya a **Panel de control** > **Programas** > **Programas y características** > **Activar o desactivar las características de Windows** (lado izquierdo de la pantalla). Abra el grupo de **Internet Information Services** y **Herramientas de administración web**. Active la casilla de **Consola de administración de IIS**. Active la casilla de **Servicios World Wide Web**. Acepte las características predeterminadas de **Servicios World Wide Web** o personalice las características de IIS para satisfacer sus necesidades.
 
 ![Consola de administración de IIS y Servicios World Wide Web se activan en Características de Windows.](iis/_static/windows-features-win10.png)
 
@@ -57,7 +56,7 @@ Continúe con el paso **Confirmación** para instalar el rol y los servicios de 
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Instalación del lote de hospedaje .NET Core Windows Server
 
-1. Instale el [lote de hospedaje .NET Core Windows Server](https://aka.ms/dotnetcore.2.0.0-windowshosting) en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Nota: Si el sistema no tiene conexión a Internet, obtenga e instale *[Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840)* antes de instalar el lote de hospedaje .NET Core Windows Server.
+1. Instale el [lote de hospedaje .NET Core Windows Server](https://aka.ms/dotnetcore.2.0.0-windowshosting) en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el lote de hospedaje .NET Core Windows Server.
 
 2. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para obtener un cambio en la ruta de acceso del sistema.
 
@@ -66,7 +65,7 @@ Continúe con el paso **Confirmación** para instalar el rol y los servicios de 
 
 ## <a name="install-web-deploy-when-publishing-with-visual-studio"></a>Instalación de Web Deploy al publicar con Visual Studio
 
-Si piensa implementar las aplicaciones con Web Deploy en Visual Studio, instale la versión más reciente de Web Deploy en el sistema host. Para instalar Web Deploy, puede usar el [Instalador de plataforma web (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) u obtener un instalador directamente desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=43717). El método preferido es usar WebPI. WebPI ofrece una instalación independiente y una configuración para los proveedores de hospedaje.
+Si piensa implementar las aplicaciones con [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) en [Visual Studio](https://www.visualstudio.com/vs/), instale la versión más reciente de Web Deploy en el sistema host. Para instalar Web Deploy, puede usar el [Instalador de plataforma web (WebPI)](https://www.microsoft.com/web/downloads/platform.aspx) u obtener un instalador directamente desde el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=43717). El método preferido es usar WebPI. WebPI ofrece una instalación independiente y una configuración para los proveedores de hospedaje.
 
 ## <a name="application-configuration"></a>Configuración de aplicación
 
@@ -118,7 +117,7 @@ services.Configure<IISOptions>(options =>
 
 ### <a name="webconfig"></a>web.config
 
-El archivo *web.config* configura el módulo ASP.NET Core y proporciona otra configuración de IIS. `Microsoft.NET.Sdk.Web` controla la creación, transformación y publicación de *web.config* y se incluye cuando se establece el SDK del proyecto en la parte superior del archivo *.csproj*, `<Project Sdk="Microsoft.NET.Sdk.Web">`. Para evitar que el destino de MSBuild transforme el archivo *web.config*, agregue la propiedad **\<IsTransformWebConfigDisabled>** al archivo de proyecto con un valor de `true`:
+El archivo *web.config* configura el módulo ASP.NET Core y proporciona otra configuración de IIS. `Microsoft.NET.Sdk.Web` controla la creación, la transformación y la publicación de *web.config* y se incluye cuando se establece el SDK del proyecto en la parte superior del archivo del proyecto (*.csproj*), `<Project Sdk="Microsoft.NET.Sdk.Web">`. Para evitar que el destino de MSBuild transforme el archivo *web.config*, agregue la propiedad **\<IsTransformWebConfigDisabled>** al archivo de proyecto con un valor de `true`:
 
 ```xml
 <PropertyGroup>
@@ -126,13 +125,20 @@ El archivo *web.config* configura el módulo ASP.NET Core y proporciona otra con
 </PropertyGroup>
 ```
 
-Si no tiene un archivo *web.config* en el proyecto al publicar con *dotnet publish* o con Visual Studio, se crea el archivo en la salida publicada. Si tiene el archivo en el proyecto, se transforma con los elementos *processPath* y *arguments* correctos para configurar el módulo ASP.NET Core y se mueve a la salida publicada. La transformación no toca los valores de configuración de IIS que se han incluido en el archivo.
+Si no tiene un archivo *web.config* en el proyecto al publicar con *dotnet publish* o con Visual Studio, se crea el archivo en la [salida publicada](xref:hosting/directory-structure). Si tiene un archivo *web.config* en el proyecto, se transforma con los elementos *processPath* y *arguments* correctos para configurar el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) y se mueve a la salida publicada. La transformación no toca los valores de configuración de IIS que se han incluido en el archivo.
 
 ## <a name="create-the-iis-website"></a>Crear el sitio web de IIS
 
 1. En el sistema IIS de destino, cree una carpeta que contenga las carpetas y los archivos publicados de la aplicación, que se describen en [Estructura de directorios](xref:hosting/directory-structure).
 
-2. Dentro de la carpeta que ha creado, cree una carpeta de *registros* para contener los registros de la aplicación (si tiene previsto habilitar los registros). Si piensa implementar la aplicación con una carpeta de *registros* en la carga, puede omitir este paso.
+2. Dentro de la carpeta que ha creado, cree una carpeta de *registros* para contener los registros stdout (si tiene previsto habilitar los registros para solucionar problemas de inicio). Si piensa implementar la aplicación con una carpeta de *registros* en la carga, puede omitir este paso. Hay un [problema sin solucionar para crear la carpeta de forma automática](https://github.com/aspnet/AspNetCoreModule/issues/30). Si quiere que MSBuild cree la carpeta de *registros* automáticamente, agregue el siguiente elemento `Target` al archivo de proyecto:
+
+   ```xml
+   <Target Name="CreateLogsFolder" AfterTargets="AfterPublish">
+     <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
+     <MakeDir Directories="$(PublishUrl)logs" Condition="!Exists('$(PublishUrl)logs')" />
+   </Target>
+   ```
 
 3. En **Administrador de IIS**, cree un nuevo sitio web. Proporcione el **Nombre del sitio** y establezca la **Ruta de acceso física** a la carpeta de implementación de la aplicación que ha creado. Proporcione la configuración de **Enlace** y cree el sitio web.
 
@@ -158,10 +164,10 @@ Si no tiene un archivo *web.config* en el proyecto al publicar con *dotnet publi
 
 9. Confirme que la identidad del modelo de proceso tiene los permisos adecuados.
 
-    Si cambia la identidad predeterminada del grupo de aplicaciones (**Modelo de proceso** > **Identidad**) de **ApplicationPoolIdentity** a otra identidad, compruebe que la nueva identidad tenga los permisos necesarios para acceder a la carpeta de la aplicación, la base de datos y otros recursos necesarios.
+   Si cambia la identidad predeterminada del grupo de aplicaciones (**Modelo de proceso** > **Identidad**) de **ApplicationPoolIdentity** a otra identidad, compruebe que la nueva identidad tenga los permisos necesarios para acceder a la carpeta de la aplicación, la base de datos y otros recursos necesarios.
    
 ## <a name="deploy-the-application"></a>Implementar la aplicación
-Implemente la aplicación en la carpeta que ha creado en el sistema IIS de destino. Web Deploy es el mecanismo recomendado para la implementación. A continuación se ofrecen alternativas a Web Deploy.
+Implemente la aplicación en la carpeta que ha creado en el sistema IIS de destino. [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) es el mecanismo recomendado para la implementación. A continuación se ofrecen alternativas a Web Deploy.
 
 Confirme que la aplicación publicada para la implementación no se está ejecutando. Los archivos de la carpeta *publish* quedan bloqueados mientras se ejecuta la aplicación. No se puede llevar a cabo la implementación porque no se pueden copiar los archivos bloqueados.
 
@@ -171,7 +177,7 @@ Vea el tema [Create publish profiles for Visual Studio and MSBuild, to deploy AS
 ![Cuadro de diálogo Publicar](iis/_static/pub-dialog.png)
 
 ### <a name="web-deploy-outside-of-visual-studio"></a>Web Deploy fuera de Visual Studio
-También puede usar Web Deploy fuera de Visual Studio desde la línea de comandos. Para más información, vea [Web Deployment Tool (Herramienta de implementación web)](https://docs.microsoft.com/iis/publish/using-web-deploy/use-the-web-deployment-tool).
+También puede usar [Web Deploy](/iis/publish/using-web-deploy/introduction-to-web-deploy) fuera de Visual Studio desde la línea de comandos. Para más información, vea [Web Deployment Tool (Herramienta de implementación web)](/iis/publish/using-web-deploy/use-the-web-deployment-tool).
 
 ### <a name="alternatives-to-web-deploy"></a>Alternativas a Web Deploy
 Si no quiere usar Web Deploy o no usa Visual Studio, puede emplear cualquiera de los diversos métodos para mover la aplicación al sistema host, como Xcopy, Robocopy o PowerShell. Los usuarios de Visual Studio pueden usar los [Ejemplos de publicación](https://github.com/aspnet/vsweb-publish/blob/master/samples/samples.md).
@@ -179,8 +185,8 @@ Si no quiere usar Web Deploy o no usa Visual Studio, puede emplear cualquiera de
 ## <a name="browse-the-website"></a>Examinar el sitio web
 ![El explorador Microsoft Edge ha cargado la página de inicio de IIS.](iis/_static/browsewebsite.png)
    
->[!WARNING]
-> Las aplicaciones de .NET Core se hospedan a través de un servidor proxy inverso entre IIS y el servidor Kestrel. Para crear el servidor proxy inverso, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada, que es la ruta de acceso física del sitio web proporcionada a IIS. Los archivos confidenciales están en la ruta de acceso física de la aplicación, incluidas las subcarpetas, como *my_application.runtimeconfig.json*, *my_application.xml* (comentarios de documentación XML) y *my_application.deps.json*. El archivo *web.config* es necesario para crear el servidor proxy inverso para Kestrel, que evita que IIS entregue estos y otros archivos confidenciales. **Por lo tanto, es importante que el archivo *web.config* nunca se cambie de nombre ni se quite de la implementación accidentalmente.**
+> [!WARNING]
+> Las aplicaciones de .NET Core se hospedan a través de un servidor proxy inverso entre IIS y el servidor Kestrel. Para crear el servidor proxy inverso, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada, que es la ruta de acceso física del sitio web proporcionada a IIS. Los archivos confidenciales están en la ruta de acceso física de la aplicación, incluidas las subcarpetas, como *my_application.runtimeconfig.json*, *my_application.xml* (comentarios de documentación XML) y *my_application.deps.json*. El archivo *web.config* es necesario para crear el servidor proxy inverso para Kestrel, que evita que IIS entregue estos y otros archivos confidenciales. **Por lo tanto, es importante que el archivo *web.config* no se cambie de nombre ni se quite de la implementación accidentalmente.**
 
 ## <a name="data-protection"></a>Protección de datos
 
@@ -189,25 +195,25 @@ Una aplicación de ASP.NET Core almacena el conjunto de claves en memoria con la
 * Que haya un sitio web hospedado tras IIS.
 * Que la pila de protección de datos no se haya configurado para almacenar el conjunto de claves en un almacén persistente.
 
-Si el conjunto de claves se almacena en memoria, cuando se reinicia la aplicación:
+Si el conjunto de claves se almacena en memoria cuando se reinicia la aplicación:
 
-* Todos los tokens de autenticación de formularios se consideran no válidos. 
+* Todos los tokens de autenticación de formularios se invalidan. 
 * Los usuarios tienen que iniciar sesión de nuevo en la siguiente solicitud. 
-* Los datos protegidos con el conjunto de claves ya no están desprotegidos.
+* Los datos protegidos con el conjunto de claves ya no lo están.
 
 > [!WARNING]
-> Hay varios middlewares de ASP.NET que usan la protección de datos, incluidos los empleados en la autenticación. Aunque no llame específicamente a ninguna API de protección de datos desde su propio código, tiene que configurar la protección de datos con un script de implementación o en su propio código. Si no se configura la protección de datos, las claves se conservan en memoria y se descartan cuando se reinicia la aplicación de forma predeterminada. Al reiniciar se invalidan las cookies escritas por la autenticación con cookies y los usuarios tienen que iniciar sesión de nuevo.
+> Hay varios middlewares de ASP.NET que usan la protección de datos, incluidos los empleados en la autenticación. Aunque no llame a ninguna API de protección de datos desde su propio código, tiene que configurar la protección de datos con un script de implementación o en su código. Si no se configura la protección de datos, las claves se conservan en memoria y se descartan cuando se reinicia la aplicación de forma predeterminada. Al reiniciar se invalidan las cookies escritas por el middleware de autenticación con cookies y los usuarios tienen que iniciar sesión de nuevo.
 
 Para configurar la protección de datos en IIS se debe usar uno de los enfoques siguientes:
 
-* Ejecute un [script de PowerShell](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) para crear entradas del Registro adecuadas (por ejemplo, `.\Provision-AutoGenKeys.ps1 DefaultAppPool`). Esto almacena las claves en el Registro, protegidas mediante DPAPI con una clave a nivel de equipo.
-* Configure el grupo de aplicaciones de IIS para cargar el perfil de usuario. Esta opción está en la sección **Modelo de proceso**, en la **Configuración avanzada** del grupo de aplicaciones. Establezca **Cargar perfil de usuario** en `True`. Esto almacena las claves en el directorio del perfil de usuario protegidas mediante DPAPI con una clave específica de la cuenta de usuario usada para el grupo de aplicaciones.
-* Ajuste el código de la aplicación para [usar el sistema de archivos como un almacén de conjunto de claves](xref:security/data-protection/configuration/overview). Use un certificado X509 para proteger el conjunto de claves y asegúrese de que sea un certificado de confianza. Por ejemplo, si es un certificado autofirmado, debe colocarlo en el almacén raíz de confianza.
+* Ejecute un [script de PowerShell](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) para crear entradas del Registro adecuadas (por ejemplo, `.\Provision-AutoGenKeys.ps1 DefaultAppPool`). Esto almacena las claves en el Registro, protegidas mediante DPAPI con una clave de equipo.
+* Configure el grupo de aplicaciones de IIS para cargar el perfil de usuario. Esta opción está en la sección **Modelo de proceso**, en la **Configuración avanzada** del grupo de aplicaciones. Establezca **Cargar perfil de usuario** en `True`. Esto almacena las claves en el directorio del perfil de usuario y las protege mediante DPAPI con una clave específica de la cuenta de usuario usada para el grupo de aplicaciones.
+* Ajuste el código de la aplicación para [usar el sistema de archivos como un almacén de conjunto de claves](xref:security/data-protection/configuration/overview). Use un certificado X509 para proteger el conjunto de claves y asegúrese de que sea un certificado de confianza. Si es un certificado autofirmado, debe colocarlo en el almacén raíz de confianza.
 
 Cuando se usa IIS en una granja de servidores web:
 
 * Use un recurso compartido de archivos al que puedan acceder todos los equipos.
-* Implemente un certificado X509 en cada equipo.  Configure la [protección de datos en el código](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview).
+* Implemente un certificado X509 en cada equipo. Configure la [protección de datos en el código](https://docs.microsoft.com/aspnet/core/security/data-protection/configuration/overview).
 
 ### <a name="1-create-a-data-protection-registry-hive"></a>1. Crear un subárbol del Registro de protección de datos
 
@@ -215,14 +221,15 @@ Las claves de protección de datos usadas por las aplicaciones de ASP.NET se alm
 
 En las instalaciones independientes de IIS, puede usar el [script de PowerShell Provision-AutoGenKeys.ps1 de protección de datos](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) para cada grupo de aplicaciones usado con una aplicación de ASP.NET Core. Este script crea una clave del Registro especial en el registro HKLM que solo se incluye en la ACL de la cuenta de proceso de trabajo. Las claves se cifran en reposo con DPAPI.
 
-En escenarios de granja de servidores web, una aplicación puede configurarse para usar una ruta de acceso UNC para almacenar su conjunto de claves de protección de datos. De forma predeterminada, las claves de protección de datos no se cifran. Debe asegurarse de que los permisos de archivo de un recurso compartido de este tipo se limitan a la cuenta de Windows como la que se ejecuta la aplicación. Además puede optar por proteger las claves en reposo con un certificado X509. Es posible que quiera considerar un mecanismo que permita a los usuarios cargar certificados, colocarlos en el almacén de certificados de confianza del usuario y asegurarse de que están disponibles en todos los equipos en los que se va a ejecutar la aplicación del usuario. Vea [Configuración de la protección de datos](xref:security/data-protection/configuration/overview#data-protection-configuring) para obtener detalles.
+En escenarios de granja de servidores web, una aplicación puede configurarse para usar una ruta de acceso UNC para almacenar su conjunto de claves de protección de datos. De forma predeterminada, las claves de protección de datos no se cifran. Debe asegurarse de que los permisos de archivo de un recurso compartido de este tipo se limitan a la cuenta de Windows como la que se ejecuta la aplicación. Además puede optar por proteger las claves en reposo con un certificado X509. Es posible que quiera considerar un mecanismo que permita a los usuarios cargar certificados: coloque los certificados en el almacén de certificados de confianza del usuario y asegúrese de que están disponibles en todos los equipos en los que se ejecuta la aplicación del usuario. Vea [Configuración de la protección de datos](xref:security/data-protection/configuration/overview#data-protection-configuring) para obtener detalles.
 
 ### <a name="2-configure-the-iis-application-pool-to-load-the-user-profile"></a>2. Configurar el grupo de aplicaciones de IIS para cargar el perfil de usuario
-Esta opción está en la sección Modelo de proceso, en la Configuración avanzada del grupo de aplicaciones. Establezca Cargar perfil de usuario en True. Esto almacena las claves en el directorio del perfil de usuario protegidas mediante DPAPI con una clave específica de la cuenta de usuario usada para el grupo de aplicaciones.
+
+Esta opción está en la sección **Modelo de proceso**, en la **Configuración avanzada** del grupo de aplicaciones. Establezca Cargar perfil de usuario en `True`. Esto almacena las claves en el directorio del perfil de usuario y las protege mediante DPAPI con una clave específica de la cuenta de usuario usada para el grupo de aplicaciones.
 
 ### <a name="3-machine-wide-policy-for-data-protection"></a>3. Directiva a nivel de equipo para la protección de datos
 
-El sistema de protección de datos tiene compatibilidad limitada con el establecimiento de una [directiva a nivel de equipo](xref:security/data-protection/configuration/machine-wide-policy#data-protection-configuration-machinewidepolicy) predeterminada para todas las aplicaciones que usan las API de protección de datos. Vea la documentación de [protección de datos](xref:security/data-protection/index) para obtener más detalles.
+El sistema de protección de datos tiene compatibilidad limitada con el establecimiento de una [directiva de equipo](xref:security/data-protection/configuration/machine-wide-policy#data-protection-configuration-machinewidepolicy) predeterminada para todas las aplicaciones que usan las API de protección de datos. Vea la documentación de [protección de datos](xref:security/data-protection/index) para obtener más detalles.
 
 ## <a name="configuration-of-sub-applications"></a>Configuración de aplicaciones secundarias
 
@@ -233,9 +240,9 @@ Las aplicaciones secundarias agregadas bajo la aplicación raíz no deben inclui
 <configuration>
   <system.webServer>
     <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
+      arguments=".\MyApp.dll" 
+      stdoutLogEnabled="false" 
+      stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
@@ -250,9 +257,9 @@ Si piensa hospedar una aplicación secundaria que no es de ASP.NET Core bajo una
       <remove name="aspNetCore"/>
     </handlers>
     <aspNetCore processPath="dotnet" 
-        arguments=".\MyApp.dll" 
-        stdoutLogEnabled="false" 
-        stdoutLogFile=".\logs\stdout" />
+      arguments=".\MyApp.dll" 
+      stdoutLogEnabled="false" 
+      stdoutLogFile=".\logs\stdout" />
   </system.webServer>
 </configuration>
 ```
@@ -273,7 +280,7 @@ Al hospedar varios sitios web en un único sistema, debe aislar las aplicaciones
 
 ## <a name="application-pool-identity"></a>Identidad del grupo de aplicaciones
 
-Una cuenta de identidad del grupo de aplicaciones permite ejecutar una aplicación en una cuenta única sin tener que crear ni administrar dominios o cuentas locales. En IIS 8.0+, el proceso de trabajo de administración de IIS (WAS) crea una cuenta virtual con el nombre del nuevo grupo de aplicaciones y ejecuta los procesos de trabajo del grupo de aplicaciones en esta cuenta de forma predeterminada. En la Consola de administración de IIS, en la opción Configuración avanzada del grupo de aplicaciones, asegúrese de que la identidad está establecida para usar **ApplicationPoolIdentity**, como se muestra en la imagen siguiente.
+Una cuenta de identidad del grupo de aplicaciones permite ejecutar una aplicación en una cuenta única sin tener que crear ni administrar dominios o cuentas locales. En IIS 8.0+, el proceso de trabajo de administración de IIS (WAS) crea una cuenta virtual con el nombre del nuevo grupo de aplicaciones y ejecuta los procesos de trabajo del grupo de aplicaciones en esta cuenta de forma predeterminada. En la Consola de administración de IIS, en la opción **Configuración avanzada** del grupo de aplicaciones, asegúrese de que la **Identidad** está establecida para usar **ApplicationPoolIdentity**, como se muestra en la imagen siguiente.
 
 ![Cuadro de diálogo Configuración avanzada del grupo de aplicaciones](iis/_static/apppool-identity.png)
 
@@ -305,22 +312,26 @@ ICACLS C:\sites\MyWebApp /grant "IIS AppPool\DefaultAppPool":F
 
 ## <a name="troubleshooting-tips"></a>Sugerencias para la solución de problemas
 
-Para diagnosticar problemas con las implementaciones de IIS, estudie la salida del explorador, examine el registro **Aplicación** del sistema con el **Visor de eventos** y habilite los registros `stdout`. El registro del **módulo ASP.NET Core** se encuentra en la ruta de acceso proporcionada en el atributo *stdoutLogFile* del elemento `<aspNetCore>` de *web.config*. Las carpetas de la ruta de acceso proporcionada en el valor del atributo deben existir en la implementación. También debe establecer *stdoutLogEnabled="true"*. Las aplicaciones que usan el SDK de `Microsoft.NET.Sdk.Web` para crear el archivo *web.config* tienen como valor predeterminado *stdoutLogEnabled* establecido en *false*, por lo que debe proporcionar manualmente el archivo *web.config* o modificar el archivo con el fin de habilitar los registros `stdout`.
+Para diagnosticar problemas en las implementaciones de IIS:
+
+* Estudie la salida del explorador.
+* Examine el registro de **aplicaciones** del sistema mediante el **Visor de eventos**.
+* Habilite el registro `stdout`. El registro del **módulo ASP.NET Core** se encuentra en la ruta de acceso proporcionada en el atributo *stdoutLogFile* del elemento `<aspNetCore>` de *web.config*. Las carpetas de la ruta de acceso proporcionada en el valor del atributo deben existir en la implementación. También debe establecer *stdoutLogEnabled="true"*. Las aplicaciones que usan el SDK de `Microsoft.NET.Sdk.Web` para crear el archivo *web.config* tienen como valor predeterminado *stdoutLogEnabled* establecido en *false*, por lo que debe proporcionar manualmente el archivo *web.config* o modificar el archivo con el fin de habilitar los registros `stdout`.
 
 Algunos de los errores comunes no aparecen en el explorador, el registro de aplicaciones ni el registro del módulo ASP.NET Core hasta que se ha pasado el módulo *startupTimeLimit* (valor predeterminado: 120 segundos) y *startupRetryCount* (valor predeterminado: 2). Por lo tanto, espere seis minutos completos antes de deducir que el módulo no ha iniciado un proceso de la aplicación.
 
-Una manera rápida de determinar si la aplicación funciona correctamente es ejecutarla directamente en Kestrel. Si la aplicación se ha publicado como una implementación dependiente del marco de trabajo, ejecute **dotnet my_application.dll** en la carpeta de implementación, que es la ruta de acceso física de IIS a la aplicación. Si la aplicación se ha publicado como una implementación independiente, ejecute el ejecutable de la aplicación directamente desde un símbolo del sistema, **my_application.exe**, en la carpeta de implementación. Si Kestrel está escuchando en el puerto predeterminado 5000, debe ser capaz de examinar la aplicación en `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión Kestrel, lo más probable es que el problema esté relacionado con la configuración de IIS-módulo ASP.NET Core-Kestrel y menos con la propia aplicación.
+Una manera rápida de determinar si la aplicación funciona correctamente es ejecutarla directamente en Kestrel. Si la aplicación se ha publicado como una implementación dependiente del marco de trabajo (FDD), ejecute `dotnet my_application.dll` en la carpeta de implementación, que es la ruta de acceso física de IIS a la aplicación. Si la aplicación se ha publicado como una implementación independiente (SCD), ejecute el ejecutable de la aplicación directamente desde un símbolo del sistema, `my_application.exe`, en la carpeta de implementación. Si Kestrel está escuchando en el puerto predeterminado 5000, debe ser capaz de examinar la aplicación en `http://localhost:5000/`. Si la aplicación responde normalmente en la dirección del punto de conexión Kestrel, lo más probable es que el problema esté relacionado con la configuración de IIS-módulo ASP.NET Core-Kestrel y menos con la propia aplicación.
 
 Una manera de determinar si el servidor proxy inverso de IIS para el servidor Kestrel funciona correctamente es realizar una solicitud de archivo estático simple de una hoja de estilos, un script o una imagen de los archivos estáticos de la aplicación en *wwwroot* con [middleware de archivo estático](xref:fundamentals/static-files). Si la aplicación puede entregar archivos estáticos pero se producen errores en las vistas de MVC y otros puntos de conexión, es menos probable que el problema esté relacionado con la configuración de IIS-módulo ASP.NET Core-Kestrel y más con la propia aplicación (por ejemplo, el enrutamiento MVC o un error interno del servidor 500).
 
-Si Kestrel se inicia normalmente tras IIS pero la aplicación no se ejecuta en el sistema después de hacerlo correctamente en local, puede agregar provisionalmente una variable de entorno a *web.config* para establecer `ASPNETCORE_ENVIRONMENT` en `Development`. Siempre y cuando no se invalide el entorno en el inicio de la aplicación, esto le permite que la [página de excepción para el desarrollador](xref:fundamentals/error-handling) aparezca cuando la aplicación se ejecuta en el sistema. Solo se recomienda establecer la variable de entorno para `ASPNETCORE_ENVIRONMENT` de este modo para los sistemas de almacenamiento o pruebas que no están expuestos a Internet. Asegúrese de quitar la variable de entorno del archivo *web.config* cuando termine. Para más información sobre cómo establecer variables de entorno mediante el archivo *web.config* del proxy inverso, vea [environmentVariables child element of aspNetCore](xref:hosting/aspnet-core-module#setting-environment-variables) (Elemento secundario environmentVariables de aspNetCore).
+Si Kestrel se inicia normalmente tras IIS pero la aplicación no se ejecuta en el sistema después de hacerlo correctamente en local, puede agregar provisionalmente una variable de entorno a *web.config* para establecer `ASPNETCORE_ENVIRONMENT` en `Development`. Siempre y cuando no se invalide el entorno al inicio de la aplicación, esto permite que la [página de excepción para el desarrollador](xref:fundamentals/error-handling) aparezca cuando la aplicación se ejecuta en el sistema. Solo se recomienda establecer la variable de entorno para `ASPNETCORE_ENVIRONMENT` de este modo para los sistemas de almacenamiento o pruebas que no están expuestos a Internet. Asegúrese de quitar la variable de entorno del archivo *web.config* cuando termine. Para más información sobre cómo establecer variables de entorno mediante el archivo *web.config* del proxy inverso, vea [environmentVariables child element of aspNetCore](xref:hosting/aspnet-core-module#setting-environment-variables) (Elemento secundario environmentVariables de aspNetCore).
 
-En la mayoría de los casos, la habilitación del registro de la aplicación puede ayudar a solucionar problemas con el proxy inverso o la aplicación. Vea [Logging](xref:fundamentals/logging) (Registro) para más información.
+En la mayoría de los casos, la habilitación del registro de la aplicación ayuda a solucionar problemas con el proxy inverso o la aplicación. Vea [Logging](xref:fundamentals/logging) (Registro) para más información.
 
 La última sugerencia de solución de problemas se refiere a las aplicaciones que no se ejecutan después de actualizar el SDK de .NET Core en el equipo de desarrollo o las versiones de paquete en la aplicación. En algunos casos, los paquetes incoherentes pueden interrumpir una aplicación al realizar actualizaciones importantes. Puede corregir la mayoría de estos problemas mediante la eliminación de las carpetas `bin` y `obj` del proyecto, el borrado de las memorias caché de paquete en `%UserProfile%\.nuget\packages\` y `%LocalAppData%\Nuget\v3-cache`, la restauración del proyecto y la confirmación de que la implementación anterior en el sistema se ha eliminado por completo antes de volver a implementar la aplicación.
 
->[!TIP]
-> Una manera cómoda de borrar las memorias caché de paquete es obtener la herramienta `NuGet.exe` en [NuGet.org](https://www.nuget.org/), agregarla a la ruta de acceso del sistema y ejecutar `nuget locals all -clear` desde un símbolo del sistema.
+> [!TIP]
+> Una manera cómoda de borrar las memorias caché de paquete es obtener la herramienta *NuGet.exe* en [NuGet.org](https://www.nuget.org/), agregarla a la ruta de acceso del sistema y ejecutar `nuget locals all -clear` desde un símbolo del sistema. También puede ejecutar el comando `dotnet nuget locals all --clear` desde un símbolo del sistema sin obtener *NuGet.exe*.
 
 ## <a name="common-errors"></a>Errores comunes
 
@@ -336,7 +347,7 @@ La siguiente no es una lista completa de errores. Si detecta un error que no apa
 
 Solución del problema:
 
-* Si el sistema no tiene acceso a Internet al instalar el lote de hospedaje del servidor, se produce esta excepción cuando se evita que el instalador obtenga *Microsoft Visual C++ 2015 Redistributable*. Puede obtener un instalador en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53840). Si se produce un error en el instalador, es posible que no reciba el runtime de .NET Core necesario para hospedar implementaciones dependientes del marco de trabajo. Si va a hospedar implementaciones dependientes del marco de trabajo, confirme que el runtime está instalado en Programas y características. Puede obtener un instalador de runtime en [Descargas de .NET](https://www.microsoft.com/net/download/core). Después de instalar el runtime, reinicie el sistema o IIS al ejecutar **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
+* Si el sistema no tiene acceso a Internet al instalar el lote de hospedaje del servidor, se produce esta excepción cuando se evita que el instalador obtenga *Microsoft Visual C++ 2015 Redistributable*. Puede obtener un instalador en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53840). Si se produce un error en el instalador, es posible que no reciba el runtime de .NET Core necesario para hospedar una implementación dependiente del marco de trabajo (FDD). Si va a hospedar una FDD, confirme que el runtime está instalado en Programas y características. Puede obtener un instalador de runtime en [Descargas de .NET](https://www.microsoft.com/net/download/core). Después de instalar el runtime, reinicie el sistema o IIS al ejecutar **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
 
 ### <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>La actualización del sistema operativo ha quitado el módulo ASP.NET Core de 32 bits
 
@@ -358,7 +369,7 @@ Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, vea [Sugerencias para la solución de problemas](#troubleshooting-tips).
 
-* Confirme que no ha establecido un elemento `<PlatformTarget>` en *.csproj* que entre en conflicto con el RID. Por ejemplo, no especifique un elemento `<PlatformTarget>` de `x86` ni publique con un RID de `win10-x64`, ya sea mediante *dotnet publish -c Release -r win10-x64* o al establecer el elemento `<RuntimeIdentifiers>` de *.csproj * en `win10-x64`. El proyecto se publica sin advertencias ni errores, pero se produce un error con las excepciones registradas anteriores en el sistema.
+* Confirme que no ha establecido un elemento `<PlatformTarget>` en *.csproj* que entre en conflicto con el RID. Por ejemplo, no especifique un elemento `<PlatformTarget>` de `x86` ni publique con un RID de `win10-x64`, ya sea mediante *dotnet publish -c Release -r win10-x64* o al establecer el elemento `<RuntimeIdentifiers>` de *.csproj*  en `win10-x64`. El proyecto se publica sin advertencias ni errores, pero se produce un error con las excepciones registradas anteriores en el sistema.
 
 * Si esta excepción se produce en una implementación de aplicaciones de Azure al actualizar una aplicación e implementar ensamblados más recientes, elimine manualmente todos los archivos de la implementación anterior. Los ensamblados persistentes no compatibles pueden producir una excepción `System.BadImageFormatException` al implementar una aplicación actualizada.
 
@@ -410,7 +421,7 @@ Solución del problema:
 
 * Compruebe **Programas &amp; Características** y confirme que el **módulo Microsoft ASP.NET Core** se ha instalado. Si el **módulo Microsoft ASP.NET Core** no aparece en la lista de programas instalados, instálelo. Vea [Instalación del lote de hospedaje .NET Core Windows Server](#install-the-net-core-windows-server-hosting-bundle).
 
-* Asegúrese de que **Grupo de aplicaciones > Modelo de proceso > Identidad** esté establecido en **ApplicationPoolIdentity** o de que la identidad personalizada tenga los permisos correctos para acceder a la carpeta de implementación de la aplicación.
+* Asegúrese de que **Grupo de aplicaciones** > **Modelo de proceso** > **Identidad** esté establecido en **ApplicationPoolIdentity** o de que la identidad personalizada tenga los permisos correctos para acceder a la carpeta de implementación de la aplicación.
 
 ### <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Elemento processPath incorrecto, variable PATH que falta, lote de hospedaje no instalado, sistema o IIS no reiniciado, VC++ Redistributable no instalado o infracción de acceso de dotnet.exe
 
@@ -424,19 +435,19 @@ Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, vea [Sugerencias para la solución de problemas](#troubleshooting-tips).
 
-* Compruebe el atributo *processPath* del elemento `<aspNetCore>` de *web.config* para confirmar que es *dotnet* para una implementación dependiente del marco de trabajo o *.\my_application.exe* para una implementación independiente.
+* Compruebe el atributo *processPath* del elemento `<aspNetCore>` de *web.config* para confirmar que es *dotnet* para una implementación dependiente del marco de trabajo (FDD) o *.\my_application.exe* para una implementación independiente (SCD).
 
-* En el caso de una implementación dependiente del marco de trabajo, *dotnet.exe* podría no ser accesible a través del valor PATH. Confirme que *C:\Archivos de programa\dotnet\* existe en el valor PATH del sistema.
+* En el caso de una FDD, *dotnet.exe* podría no ser accesible a través del valor PATH. Confirme que *C:\Archivos de programa\dotnet\* existe en el valor PATH del sistema.
 
-* En el caso de una implementación dependiente del marco de trabajo, *dotnet.exe* podría no ser accesible para la identidad del usuario de AppPool. Confirme que la identidad del usuario de AppPool tiene acceso al directorio *C:\Archivos de programa\dotnet*. Confirme que no haya ninguna regla de denegación configurada para la identidad del usuario de AppPool en los directorios *C:\Archivos de programa\dotnet* y de la aplicación.
+* En el caso de una FDD, *dotnet.exe* podría no ser accesible para la identidad del usuario del grupo de aplicaciones. Confirme que la identidad del usuario de AppPool tiene acceso al directorio *C:\Archivos de programa\dotnet*. Confirme que no haya ninguna regla de denegación configurada para la identidad del usuario de AppPool en los directorios *C:\Archivos de programa\dotnet* y de la aplicación.
 
-* Es posible que haya realizado una implementación dependiente del marco de trabajo e instalado .NET Core sin reiniciar IIS. Ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para reiniciar el servidor o IIS.
+* Es posible que haya realizado una FDD e instalado .NET Core sin reiniciar IIS. Ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para reiniciar el servidor o IIS.
 
-* Quizás haya realizado una implementación dependiente del marco de trabajo sin instalar el runtime de .NET Core en el sistema host. Si está intentando realizar una implementación dependiente del marco de trabajo y no ha instalado el runtime de .NET Core, ejecute el **instalador del lote de hospedaje .NET Core Windows Server** en el sistema. Vea [Instalación del lote de hospedaje .NET Core Windows Server](#install-the-net-core-windows-server-hosting-bundle). Si está intentando instalar el runtime de .NET Core en un sistema sin conexión a Internet, obtenga el runtime en [Descargas de .NET](https://www.microsoft.com/net/download/core) y ejecute el instalador del lote de hospedaje para instalar el módulo ASP.NET Core. Para completar la instalación, reinicie el sistema o IIS mediante la ejecución de **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
+* Quizás haya realizado una FDD sin instalar el runtime de .NET Core en el sistema host. Si está intentando realizar una FDD y no ha instalado el runtime de .NET Core, ejecute el **instalador del lote de hospedaje .NET Core Windows Server** en el sistema. Vea [Instalación del lote de hospedaje .NET Core Windows Server](#install-the-net-core-windows-server-hosting-bundle). Si está intentando instalar el runtime de .NET Core en un sistema sin conexión a Internet, obtenga el runtime en [Descargas de .NET](https://www.microsoft.com/net/download/core) y ejecute el instalador del lote de hospedaje para instalar el módulo ASP.NET Core. Para completar la instalación, reinicie el sistema o IIS mediante la ejecución de **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
 
-* Es posible que haya realizado una implementación dependiente del marco de trabajo e instalado .NET Core sin reiniciar el sistema o IIS. Ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para reiniciar el sistema o IIS.
+* Es posible que haya realizado una FDD e instalado .NET Core sin reiniciar el sistema o IIS. Ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para reiniciar el sistema o IIS.
 
-* Quizás haya realizado una implementación dependiente del marco de trabajo y *Microsoft Visual C++ 2015 Redistributable (x64)* no esté instalado en el sistema. Puede obtener un instalador en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53840).
+* Quizás haya realizado una FDD y *Microsoft Visual C++ 2015 Redistributable (x64)* no esté instalado en el sistema. Puede obtener un instalador en el [Centro de descarga de Microsoft](https://www.microsoft.com/download/details.aspx?id=53840).
 
 ### <a name="incorrect-arguments-of-aspnetcore-element"></a>Argumentos incorrectos del elemento \<aspNetCore\>
 
@@ -450,7 +461,7 @@ Solución del problema:
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, vea [Sugerencias para la solución de problemas](#troubleshooting-tips).
 
-* Examine el atributo *arguments* del elemento `<aspNetCore>` de *web.config* para confirmar que es (a) *.\my_application.dll* para una implementación dependiente del marco de trabajo; o (b) no está presente, es una cadena vacía (*arguments=""*) o una lista de argumentos de la aplicación (*arguments="arg1, arg2, ..."*) para una implementación independiente.
+* Examine el atributo *arguments* del elemento `<aspNetCore>` de *web.config* para confirmar que (a) es *.\my_application.dll* para una implementación dependiente del marco de trabajo (FDD); o (b) no está presente, es una cadena vacía (*arguments=""*) o una lista de argumentos de la aplicación (*arguments="arg1, arg2, ..."*) para una implementación independiente (SCD).
 
 ### <a name="missing-net-framework-version"></a>Falta la versión de .NET Framework
 
@@ -464,7 +475,7 @@ Solución del problema:
 
 * Instale la versión de .NET Framework que falta en el sistema.
 
-* En el caso de una implementación dependiente del marco de trabajo, confirme que tiene instalado el runtime correcto en el sistema. Por ejemplo, si actualiza un proyecto de 1.0 a 1.1, implementa en el sistema host y recibe esta excepción, asegúrese de instalar la versión 1.1 del marco de trabajo en el sistema host.
+* En el caso de una implementación dependiente del marco de trabajo (FDD), confirme que tiene instalado el runtime correcto en el sistema. Si actualiza un proyecto de 1.1 a 2.0, implementa en el sistema host y recibe esta excepción, asegúrese de instalar la versión 2.0 del marco de trabajo en el sistema host.
 
 ### <a name="stopped-application-pool"></a>Grupo de aplicaciones detenido
 
@@ -490,7 +501,7 @@ Solución de problemas
 
 * Confirme que la aplicación se ejecuta localmente en Kestrel. Un error de proceso puede ser el resultado de un problema en la aplicación. Para más información, vea [Sugerencias para la solución de problemas](#troubleshooting-tips).
 
-* Confirme que ha hecho referencia correctamente al middleware de IIS Integration mediante una llamada al método *.UseIISIntegration()* en el elemento *WebHostBuilder()* de la aplicación.
+* Confirme que ha hecho referencia correctamente al middleware de IIS Integration mediante una llamada al método *.UseIISIntegration()* en el elemento *WebHostBuilder()* de la aplicación (ASP.NET Core 1.x) o ha usado el método `CreateDefaultBuilder` (ASP.NET Core 2.x). Vea [Hospedar en ASP.NET Core](xref:fundamentals/hosting) para obtener detalles.
 
 ### <a name="sub-application-includes-a-handlers-section"></a>La aplicación secundaria incluye una sección de \<controladores\>
 
@@ -519,13 +530,8 @@ Solución de problemas
 ## <a name="resources"></a>Recursos
 
 * [Introducción al módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
-
 * [Referencia de configuración del módulo ASP.NET Core](xref:hosting/aspnet-core-module)
-
 * [Uso de módulos de IIS con ASP.NET Core](xref:hosting/iis-modules)
-
 * [Introducción a ASP.NET Core](../index.md)
-
 * [Sitio oficial de Microsoft IIS](https://www.iis.net/)
-
 * [Biblioteca de TechNet de Microsoft: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)

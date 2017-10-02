@@ -1,7 +1,7 @@
 ---
 title: Enrutamiento de ASP.NET Core
 author: ardalis
-description: 
+description: "Descubra cómo la función de enrutamiento de ASP.NET Core es responsable de asignar una solicitud entrante a un controlador de ruta."
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 469c30cf66d28e82519d5eff7f2fc82d490827b7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 8bce642576b6b2f9326425d30ef95168da8f47e5
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento de ASP.NET Core
 
@@ -26,7 +26,7 @@ Función de enrutamiento es responsable de asignar una solicitud entrante a un c
 >[!IMPORTANT]
 > Este documento cubre el núcleo de ASP.NET de nivel bajo enrutamiento. Para el enrutamiento MVC de ASP.NET Core, vea [enrutamiento a las acciones del controlador](../mvc/controllers/routing.md)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Fundamentos del enrutamiento
 

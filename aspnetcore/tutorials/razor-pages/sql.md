@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 852bd2dff96c951f55a9b142d8e15b6ec5856921
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 42fa98886f3e87e79ea1ea4a2223a79319676006
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Trabajar con SQL Server LocalDB y ASP.NET Core
 
@@ -26,7 +26,7 @@ El objeto `MovieContext` controla la tarea de conexión a la base de datos y de 
 
 El sistema [Configuración](xref:fundamentals/configuration) de ASP.NET Core lee el elemento `ConnectionString`. Para el desarrollo local, obtiene la cadena de conexión del archivo *appsettings.json*:
 
-[!code-javascript[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
+[!code-json[Main](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
 Al implementar la aplicación en un servidor de producción o de prueba, puede usar una variable de entorno u otro enfoque para establecer la cadena de conexión en una instancia real de SQL Server. Para más información, vea [Configuración](xref:fundamentals/configuration).
 
@@ -39,15 +39,15 @@ LocalDB es una versión ligera del motor de base de datos de SQL Server Express 
 
   ![Menú Ver](sql/_static/ssox.png)
 
-* Haga clic con el botón derecho en la tabla `Movie` **> Diseñador de vistas**.
+* Haga clic con el botón derecho en la tabla `Movie` y seleccione **Diseñador de vistas**:
 
   ![Menú contextual abierto en la tabla Movie](sql/_static/design.png)
 
   ![Tabla Movie abierta en el diseñador](sql/_static/dv.png)
 
-Observe el icono de llave junto a `ID`. De forma predeterminada, EF convierte una propiedad denominada `ID` en la clave principal.
+Observe el icono de llave junto a `ID`. De forma predeterminada, EF crea una propiedad denominada `ID` para la clave principal.
 
-* Haga clic con el botón derecho en la tabla `Movie` **> Ver datos**
+* Haga clic con el botón derecho en la tabla `Movie` y seleccione **Ver datos**:
 
   ![Tabla Movie abierta mostrando datos de la tabla](sql/_static/vd22.png)
 
@@ -60,7 +60,7 @@ Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el 
 Si hay alguna película en la base de datos, se devuelve el inicializador y no se agrega ninguna película.
 
 ```csharp
-if (context.Movie.Any())
+if (context.Movies.Any())
 {
     return;   // DB has been seeded.
 }
@@ -77,7 +77,7 @@ Prueba de la aplicación
 * Elimine todos los registros de la base de datos. Puede hacerlo con los vínculos de eliminación en el explorador o desde [SSOX](xref:tutorials/razor-pages/new-field#ssox).
 * Obligue a la aplicación a inicializarse (llame a los métodos de la clase `Startup`) para que se ejecute el método de inicialización. Para forzar la inicialización, se debe detener y reiniciar IIS Express. Puede hacerlo con cualquiera de los siguientes enfoques:
 
-  * Haga clic con el botón derecho en el icono Bandeja del sistema de IIS Express del área de notificación y pulse en **Salir** o en **Detener sitio**.
+  * Haga clic con el botón derecho en el icono Bandeja del sistema de IIS Express del área de notificación y pulse en **Salir** o en **Detener sitio**:
 
     ![Icono Bandeja del sistema de IIS Express](../first-mvc-app/working-with-sql/_static/iisExIcon.png)
 
@@ -86,12 +86,12 @@ Prueba de la aplicación
    * Si está ejecutando VS en modo de no depuración, presione F5 para ejecutar en modo de depuración.
    * Si está ejecutando VS en modo de depuración, detenga el depurador y presione F5.
    
-La aplicación muestra los datos de inicialización.
+La aplicación muestra los datos inicializados:
 
 ![La aplicación Movie se abre en Chrome y muestra datos de la película](sql/_static/m55.png)
 
 El siguiente tutorial limpia la presentación de los datos.
 
 >[!div class="step-by-step"]
-[Anterior: Páginas de Razor con scaffolding](xref:tutorials/razor-pages/page)   
-[Siguiente: Actualización de páginas](xref:tutorials/razor-pages/da1)
+[Anterior: Páginas de Razor con scaffolding](xref:tutorials/razor-pages/page)
+[Siguiente: Actualización de las páginas](xref:tutorials/razor-pages/da1)

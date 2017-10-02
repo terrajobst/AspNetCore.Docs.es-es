@@ -1,7 +1,7 @@
 ---
 title: "Inicio de la aplicación de ASP.NET Core"
 author: ardalis
-description: Explica la clase de inicio de ASP.NET Core.
+description: "Descubra cómo la clase de inicio de ASP.NET Core configura servicios y la canalización de solicitud de la aplicación."
 keywords: "Núcleo de ASP.NET, inicio, el método Configure, ConfigureServices (método)"
 ms.author: tdykstra
 manager: wpickett
@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: 94db2ff530b5de7fe357cfb591d09b984cb248f9
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: bba0eafe3917fa850b3a07df8df6448409f4062d
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="application-startup-in-aspnet-core"></a>Inicio de la aplicación de ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdykstra/)
 
-La `Startup` clase configura servicios y la canalización de solicitud de la aplicación. 
+La `Startup` clase configura servicios y la canalización de solicitud de la aplicación.
 
 ## <a name="the-startup-class"></a>La clase de inicio
 

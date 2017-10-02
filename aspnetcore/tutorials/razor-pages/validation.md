@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: f8d86b48363675adaf27e2bed39f835f117e624a
-ms.sourcegitcommit: 67f54fabbfa4e3942f5bfe1f8a7fdfe4a7a75358
+ms.openlocfilehash: 9a822457d1581a70d59c553eb28133815f395d7d
+ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 09/28/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Adición de validación a una página de Razor
 
@@ -128,8 +128,6 @@ El código siguiente muestra la combinación de atributos en una línea:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
-Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos todos los comentarios que quiera hacernos. [Introducción a MVC y EF Core](xref:data/ef-mvc/intro) es un excelente seguimiento de este tutorial.
-
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Trabajar con formularios](xref:mvc/views/working-with-forms)
@@ -139,3 +137,4 @@ Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos 
 
 >[!div class="step-by-step"]
 [Anterior: Adición de un nuevo campo](xref:tutorials/razor-pages/new-field)
+[Siguiente: Carga de archivos](xref:tutorials/razor-pages/uploading-files)

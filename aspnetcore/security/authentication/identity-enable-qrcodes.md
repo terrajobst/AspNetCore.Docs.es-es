@@ -5,20 +5,20 @@ description: "Habilitar la generación de código QR para las aplicaciones de au
 keywords: "Núcleo de ASP.NET, MVC, la generación de código QR, autenticador, 2FA"
 ms.author: riande
 manager: wpickett
-ms.date: 07/24/2017
+ms.date: 09/24/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: fcadf9ca0ad66bb0fd56efc248fc7534965b48b3
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 36a3dc542f3321c5e6ebaa078efd8bde3f50948f
+ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 09/29/2017
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core
 
-Nota: En este tema se aplica a ASP.NET Core 2.x con páginas de Razor.
+Nota: En este tema se aplica a ASP.NET Core 2.x
 
 ASP.NET Core se suministra con compatibilidad para las aplicaciones de autenticador para la autenticación individual. Dos aplicaciones de autenticador de autenticación (2FA) de factor, con una duración única contraseña algoritmo (TOTP), son el sector recomendado approch para 2FA. 2FA uso TOTP es preferible a 2FA SMS. Una aplicación de autenticador proporciona un código de 6 a 8 dígitos que los usuarios deben escribir después de confirmar su nombre de usuario y contraseña. Normalmente, una aplicación autenticadora está instalada en un Smartphone.
 
@@ -30,7 +30,7 @@ Estas instrucciones usan *qrcode.js* desde el repositorio de https://davidshimjs
 
 * Descargue el [qrcode.js javascript biblioteca](https://davidshimjs.github.io/qrcodejs/) a la `wwwroot\lib` carpeta del proyecto.
 
-* En el *Pages\Account\Manage\EnableAuthenticator.cshtml* de archivos, busque la `Scripts` sección al final del archivo:
+* En *Pages\Account\Manage\EnableAuthenticator.cshtml* (las páginas de Razor) o *Views\Account\Manage\EnableAuthenticator.cshtml* (MVC), busque la `Scripts` sección al final del archivo:
 
 ```cshtml
 @section Scripts {
@@ -89,3 +89,7 @@ La dirección URL con el formato correcto para el código QR está disponible en
 * `data-url`propiedad en el `qrCodeData` elemento. 
 
 Use `@Html.Raw` para tener acceso a la propiedad de modelo en una vista (en caso contrario, los signos de y comercial en la dirección url se va a codificar double y se pasará por alto el parámetro de la etiqueta del código QR).
+
+## <a name="totp-client-and-server-time-skew"></a>TOTP cliente y servidor sesgo horario
+
+Autenticación de TOTP depende de dispositivo con el servidor y el autenticador tiene una hora precisa. Símbolos (tokens) solo duran durante 30 segundos. Si se producen errores en los inicios de sesión TOTP 2FA, compruebe que la hora del servidor es precisa y preferiblemente sincronizada para un servicio NTP preciso.

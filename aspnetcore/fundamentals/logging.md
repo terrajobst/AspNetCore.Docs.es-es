@@ -1,7 +1,7 @@
 ---
 title: "Inicio de sesión principal de ASP.NET"
 author: ardalis
-description: "Presenta el marco de trabajo de registro de ASP.NET Core. Incluye una sección para cada proveedor de registro integrados y vínculos a algunos proveedores de terceros populares."
+description: "Obtenga información sobre el marco de trabajo de registro de ASP.NET Core. Detectar los proveedores de registro integrados y obtener más información sobre los proveedores de terceros populares."
 keywords: "Núcleo de ASP.NET, el registro, el registro providers,Microsoft.Extensions.Logging,ILogger,ILoggerFactory,LogLevel,WithFilter,TraceSource,EventLog,EventSource,scopes"
 ms.author: tdykstra
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca81f01fe1c5026514eafedf852b4bc8f3b6fd21
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 9557e9f6915507450de3ffe500582839a28c3f0c
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al inicio de sesión principal de ASP.NET
 
@@ -26,11 +26,11 @@ ASP.NET Core es compatible con una API de registro que funciona con una variedad
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 ---
 

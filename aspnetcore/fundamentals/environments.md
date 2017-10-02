@@ -1,7 +1,7 @@
 ---
-title: Trabajar con varios entornos
+title: Trabajar con varios entornos de ASP.NET Core
 author: ardalis
-description: 
+description: "Obtenga información acerca de cómo ASP.NET Core proporciona compatibilidad para controlar el comportamiento de la aplicación en varios entornos."
 keywords: "Núcleo de ASP.NET, la configuración del entorno, ASPNETCORE_ENVIRONMENT"
 ms.author: riande
 manager: wpickett
@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: b66ef7e3626effff1c66c37a86865699fa8866f9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="working-with-multiple-environments"></a>Trabajar con varios entornos
 
@@ -23,7 +23,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core proporciona compatibilidad para controlar el comportamiento de la aplicación en varios entornos, como desarrollo, ensayo y producción. Las variables de entorno se utilizan para indicar el entorno en tiempo de ejecución, que permite a la aplicación que se configurará para ese entorno.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>Desarrollo, prueba, producción
 

@@ -1,7 +1,7 @@
 ---
 title: Control de errores en ASP.NET Core
 author: ardalis
-description: "Explica cómo controlar los errores en las aplicaciones de ASP.NET Core"
+description: "Descubra cómo controlar errores en las aplicaciones de ASP.NET Core."
 keywords: "Núcleo de ASP.NET, control de errores, control de excepciones"
 ms.author: tdykstra
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 93f0724dbe98316e2b5a0af0ac1760c3aac2f1d0
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: de2ba0ff9ad17c198c06b510ecfb49f808721bdf
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Introducción a control de errores en ASP.NET Core
 
@@ -24,7 +24,7 @@ Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdyks
 
 Este artículo tratan appoaches común para controlar los errores en las aplicaciones de ASP.NET Core.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="the-developer-exception-page"></a>La página de excepción para desarrolladores
 

@@ -11,11 +11,11 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: 5b54c77ff9e019b1d550aa687923077a3e9ba5c2
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: ca3b98f0b0405fcd5751cb7d9bc7a40257739084
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Hospedar una aplicación ASP.NET básica en un servicio de Windows
 
@@ -23,7 +23,7 @@ Por [Tom Dykstra](https://github.com/tdykstra)
 
 Es la manera recomendada para hospedar una aplicación de ASP.NET Core en Windows si no usa IIS para que se ejecute un [servicio de Windows](https://docs.microsoft.com/dotnet/framework/windows-services/introduction-to-windows-service-applications). De este modo puede iniciar automáticamente después de reiniciar el equipo y se bloquea, sin esperar a que alguien inicie sesión.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample) consulte la [pasos](#next-steps) sección para obtener instrucciones sobre cómo ejecutarlo.
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/hosting/windows-service/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample)). Consulte la [pasos](#next-steps) sección para obtener instrucciones sobre cómo ejecutarlo.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

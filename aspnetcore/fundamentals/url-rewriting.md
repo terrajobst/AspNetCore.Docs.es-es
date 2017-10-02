@@ -1,7 +1,7 @@
 ---
 title: "Dirección URL de reescritura de Middleware en ASP.NET Core"
 author: guardrex
-description: "Introducción a la dirección URL de reescritura y la redirección con instrucciones sobre cómo usar el Middleware de reescritura de dirección URL en las aplicaciones de ASP.NET Core."
+description: "Obtenga información acerca de la dirección URL de reescritura y la redirección con Middleware de reescritura de dirección URL en las aplicaciones de ASP.NET Core."
 keywords: "Núcleo de ASP.NET, volver a escribir, dirección URL de reescritura de direcciones URL, dirección URL de redirección, redirección de la dirección URL, middleware, apache_mod"
 ms.author: riande
 manager: wpickett
@@ -11,17 +11,17 @@ ms.assetid: e6130638-c410-4161-9921-b658ce988bd1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 44c78a6304eacc70cdee9bb0d9407376017abcac
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 0a4024edf13651e2ed7e0f87e554e8ba8d895619
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Dirección URL de reescritura de Middleware en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex) y [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 Reescritura de direcciones URL es el acto de modificar la solicitud las direcciones URL que se basan en una o varias reglas predefinidas. Reescritura de direcciones URL, crea una abstracción entre ubicaciones de los recursos y sus direcciones para que las ubicaciones y direcciones no están estrechamente vinculadas. Hay varios escenarios donde la reescritura de direcciones URL es útil:
 * Mover o reemplazar los recursos de servidor temporal o permanentemente mientras se mantiene estables localizadores para esos recursos

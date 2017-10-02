@@ -10,17 +10,17 @@ ms.topic: article
 ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 957bdf5fe24216fa3459ac7ecee0464a45226828
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 79d9246632aae0fe9c3629fd7202842836828151
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
 Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), y [Luke Latham](https://github.com/guardrex)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 Las respuestas en caché reducen el número de solicitudes de que un cliente o proxy se realiza en un servidor web. Las respuestas en caché también reducen la cantidad de trabajo realiza el servidor web para generar una respuesta. Las respuestas en caché se controlan mediante encabezados que especifican cómo desea que cliente, el proxy y middleware para la memoria caché las respuestas.
 

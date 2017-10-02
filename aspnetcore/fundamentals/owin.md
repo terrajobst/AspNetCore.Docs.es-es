@@ -1,7 +1,7 @@
 ---
 title: Abrir la interfaz Web para .NET (OWIN)
 author: ardalis
-description: "Introducción a abrir la interfaz Web para .NET (OWIN)."
+description: "Descubra cómo ASP.NET Core es compatible con la interfaz Web abierta para .NET (OWIN), que permite a las aplicaciones web se desacople de servidores web."
 keywords: "Núcleo de ASP.NET, la interfaz Web abierta para. NET, OWIN"
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/owin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cd32d6929f16a619ad2cc8c7752a0373cbdff034
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: e111a451bcc741f3e77f7ce756356cc1b57a5b52
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-open-web-interface-for-net-owin"></a>Introducción a abrir la interfaz Web para .NET (OWIN)
 
@@ -32,7 +32,7 @@ Esto permite que ASP.NET Core se hospede en un servidor compatible con OWIN/host
 
 Nota: Uso de estos adaptadores viene con un costo de rendimiento. Las aplicaciones que usan solo los componentes principales de ASP.NET no deben usar el paquete de Owin o adaptadores.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>Ejecuta el middleware de OWIN de la canalización ASP.NET
 

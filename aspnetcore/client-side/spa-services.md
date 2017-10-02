@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0dbe5e3567bb4feea7e56cff3dcf75be5df88310
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a93dae3edec73f1b5254aa60662834ca83de62fd
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Usar JavaScriptServices para crear aplicaciones de una página con ASP.NET Core
 
@@ -24,7 +24,7 @@ Por [Scott Addie](https://github.com/scottaddie) y [Fiyaz Hasan](http://fiyazhas
 
 Una aplicación de página única (SPA) es un tipo conocido de aplicación web debido a su experiencia de usuario enriquecida inherente. Integración de cliente marcos SPA o bibliotecas, como [Angular](https://angular.io/) o [reaccionar](https://facebook.github.io/react/), con marcos de trabajo de servidor como ASP.NET Core puede ser difícil. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) se desarrolló para reducir la fricción en el proceso de integración. Permite la operación sin problemas entre los distintos clientes y pilas de tecnología de servidor.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 <a name="what-is-js-services"></a>
 
@@ -87,7 +87,7 @@ ASP.NET Core [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/i
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Instalar lo siguiente:
+Instale el software siguiente:
 * [ASPNET-procesamiento previo](https://www.npmjs.com/package/aspnet-prerendering) npm paquete:
 
     ```console
@@ -144,7 +144,7 @@ El `postList` matriz definida dentro de la `globals` objeto se adjunta en el exp
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Instalar lo siguiente:
+Instale el software siguiente:
 * [ASPNET webpack](https://www.npmjs.com/package/aspnet-webpack) npm paquete:
 
     ```console
@@ -171,7 +171,7 @@ Piense del Webpack [activa sustitución del módulo](https://webpack.github.io/d
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Instalar lo siguiente:
+Instale el software siguiente:
 * [middleware caliente webpack](https://www.npmjs.com/package/webpack-hot-middleware) npm paquete:
 
     ```console
@@ -208,7 +208,7 @@ Considere el escenario en el que una ruta sin extensión de `/some/page` se util
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-Instalar lo siguiente:
+Instale el software siguiente:
 * El paquete de cliente de enrutamiento npm. Utilizando Angular como ejemplo:
 
     ```console
@@ -264,7 +264,7 @@ Existen dos modos de configuración en tiempo de ejecución principal:
     * Excluye los mapas de código fuente.
     * Optimiza el código de cliente a través de agrupación y minificación.
 
-ASP.NET Core utiliza una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Vea ** [establecer el entorno de](xref:fundamentals/environments#setting-the-environment) ** para obtener más información.
+ASP.NET Core utiliza una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Vea  **[establecer el entorno de](xref:fundamentals/environments#setting-the-environment)**  para obtener más información.
 
 ### <a name="running-with-net-core-cli"></a>Ejecutar con .NET Core CLI
 

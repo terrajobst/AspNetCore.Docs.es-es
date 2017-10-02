@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5dfebeddb3a9394fd1faf798e029a9312201089
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: f5c903a72d004afac55fbcc04ad157442e7a18ee
+ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/01/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introducción a la inyección de dependencia en el núcleo de ASP.NET
 
@@ -26,7 +26,7 @@ Por [Steve Smith](https://ardalis.com/) y [Scott Addie](https://scottaddie.com)
 
 ASP.NET Core está diseñado desde el principio para admitir y aprovechar la inserción de dependencias. Las aplicaciones principales de ASP.NET pueden aprovechar los servicios de marco integrado por indica que existen insertado en métodos de la clase de inicio y los servicios de aplicaciones pueden configurarse para la inyección de así. El contenedor de servicios predeterminado proporcionado por ASP.NET Core proporciona una característica mínimo establecido y no está diseñada para reemplazar otros contenedores.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-dependency-injection"></a>¿Qué es la inyección de dependencia?
 
