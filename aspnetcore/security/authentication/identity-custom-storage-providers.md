@@ -134,7 +134,7 @@ Crear un `UserStore` clase que proporciona los métodos para todas las operacion
 
 - IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
 - IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
-- Https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1 iuserpasswordstore.
+- IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
 - IUserSecurityStampStore<!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
