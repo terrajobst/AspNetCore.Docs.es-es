@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 9ff2fb92c81719c7278d70b5df5387f1244195bf
+ms.sourcegitcommit: e7f01a649f240b6b57118c53314ab82f7f36f2eb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), y [Ateya Hisham Bin](https://twitter.com/hishambinateya)
 
-Crear un sitio Web multilingüe con ASP.NET Core permitirá que su sitio llegar a una audiencia mayor. ASP.NET Core proporciona servicios y middleware para localizar a diferentes idiomas y referencias culturales.
+Crear un sitio Web multilingüe con ASP.NET Core permitirá que su sitio llegar a una audiencia mayor. ASP.NET Core proporciona servicios y software intermedio para la localización en diferentes idiomas y referencias culturales.
 
 Internacionalización implica [globalización](https://docs.microsoft.com/dotnet/api/system.globalization) y [localización](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). La globalización es el proceso de diseño de las aplicaciones que admiten distintas referencias culturales. Globalización agrega compatibilidad para entrada, visualización y salida de un conjunto definido de secuencias de comandos de lenguaje que se relacionan a áreas geográficas específicas.
 
@@ -43,7 +43,7 @@ Introdujo en ASP.NET Core, `IStringLocalizer` y `IStringLocalizer<T>` se han dis
 
 En el código anterior, el `IStringLocalizer<T>` implementación procede de [inyección de dependencia](dependency-injection.md). Si no se encuentra el valor localizado de "Sobre el título", se devuelve la clave de indizador, es decir, la cadena "Sobre el título". Puede dejar el valor predeterminado de cadenas literales de idioma en la aplicación y ajustarlas en el localizador, para que pueda centrarse en desarrollar la aplicación. Desarrollar la aplicación con el idioma predeterminado y prepararlo para el paso de localización sin crear primero un archivo de recursos predeterminado. Como alternativa, puede usar el enfoque tradicional y proporcionar una clave para recuperar la cadena de idioma predeterminado. Para muchos desarrolladores el nuevo flujo de trabajo por no disponer de un idioma predeterminado *.resx* archivo y sencillamente se ajustó los literales de cadena pueden reducir la sobrecarga de localizar una aplicación. Otros desarrolladores preferirán el flujo de trabajo tradicional, tal y como se puede hacer más fácil trabajar con literales de cadena más largos y que resulten más fáciles de actualizar las cadenas localizadas.
 
-Use la `IHtmlLocalizer<T>` implementación para los recursos que contienen HTML. `IHtmlLocalizer`Argumentos que se da formato de la cadena de recurso, pero no la cadena de recurso codifican en HTML. En el ejemplo de resaltado a continuación, solo el valor de `name` parámetro está codificado en HTML.
+Use la `IHtmlLocalizer<T>` implementación para los recursos que contienen HTML. `IHtmlLocalizer`Argumentos que se da formato a la cadena de recurso codifican en HTML, pero no HTML no codifica la cadena de recurso propio. En el ejemplo de resaltado a continuación, solo el valor de `name` parámetro está codificado en HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
@@ -317,6 +317,7 @@ Términos de:
 * Referencia cultural: Es un lenguaje y, opcionalmente, una región.
 * Referencia cultural neutra: una referencia cultural que tiene un idioma especificado, pero no una región. (por ejemplo "es-es", "es")
 * Referencia cultural específica: una referencia cultural que tiene un idioma especificado y la región. (por ejemplo "en-US", "en-GB", "es-CL")
+* Primario de la referencia cultural: referencia cultural neutra que contiene una referencia cultural concreta. (por ejemplo, "es-es" es la referencia cultural principal de "en-US" y "en-GB")
 * Configuración regional: Una configuración regional es el mismo que una referencia cultural.
 
 ## <a name="additional-resources"></a>Recursos adicionales
