@@ -11,11 +11,11 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: ca3b98f0b0405fcd5751cb7d9bc7a40257739084
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 107436d2d49816d18d230b86636a5ee7e39610f2
+ms.sourcegitcommit: 58ccf3f7d592b28eaff3534b73a45d9d190ac8c8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Hospedar una aplicación ASP.NET básica en un servicio de Windows
 
@@ -27,7 +27,7 @@ Es la manera recomendada para hospedar una aplicación de ASP.NET Core en Window
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Debe ejecutar la aplicación en el tiempo de ejecución de .NET framework.  En el *.csproj* de archivos, especifique los valores adecuados para [TargetFramework](https://docs.microsoft.com/nuget/schema/target-frameworks) y [RuntimeIdentifier](https://docs.microsoft.com/dotnet/articles/core/rid-catalog). Por ejemplo:
+* Debe ejecutar la aplicación en el tiempo de ejecución de .NET Framework.  En el *.csproj* de archivos, especifique los valores adecuados para [TargetFramework](https://docs.microsoft.com/nuget/schema/target-frameworks) y [RuntimeIdentifier](https://docs.microsoft.com/dotnet/articles/core/rid-catalog). Por ejemplo:
 
   [!code-xml[](windows-service/sample/AspNetCoreService.csproj?range=3-6)]
 

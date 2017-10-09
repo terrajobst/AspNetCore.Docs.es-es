@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 211d5fd3b8a736799155c2ab1c1cf92993e63fc3
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
+ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Páginas de Razor con scaffolding en ASP.NET Core
 
@@ -43,10 +43,10 @@ La directiva de Razor `@page` convierte el archivo en una acción &mdash; de MVC
 Examine la expresión lambda usada en la siguiente aplicación auxiliar HTML:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movies[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-La aplicación auxiliar HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. La expresión lambda se inspecciona, no se evalúa. Esto significa que no hay ninguna infracción de acceso si `model`, `model.Movies` o `model.Movies[0]` son `null` o están vacíos. Al evaluar la expresión lambda (por ejemplo, con `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.
+La aplicación auxiliar HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. La expresión lambda se inspecciona, no se evalúa. Esto significa que no hay ninguna infracción de acceso si `model`, `model.Movie` o `model.Movie[0]` son `null` o están vacíos. Al evaluar la expresión lambda (por ejemplo, con `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.
 
 <a name="md"></a>
 ### <a name="the-model-directive"></a>La directiva @model

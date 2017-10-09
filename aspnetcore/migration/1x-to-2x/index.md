@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: ea8ccbaf9ddc0d7ee18bb58dbc30d3b803143e81
-ms.sourcegitcommit: 25b43461de1f3a5df11c1e0118f911bf5ff220fa
+ms.openlocfilehash: 9574f1f8e0970e1b64c2910bf46794621583f18d
+ms.sourcegitcommit: 3cf879f6beaaca2d401ad980cd26cfec70c05c24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2017
+ms.lasthandoff: 10/06/2017
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migración de ASP.NET Core 1.x a ASP.NET Core 2.0
 
@@ -163,11 +163,11 @@ Es importante configurar sin esfuerzo la instrumentación de rendimiento de la a
 
 Los proyectos de ASP.NET Core 1.1 creados en Visual Studio 2017 han agregado Application Insights de forma predeterminada. Si no usa el SDK de Application Insights directamente, fuera de *Program.cs* y *Startup.cs*, siga estos pasos:
 
-1. Quite el siguiente nodo `<PackageReference />` del archivo *.csproj*:
+1. Si el destino es .NET Core, elimine el siguiente nodo `<PackageReference />` del archivo *.csproj*:
     
     [!code-xml[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App.csproj?range=10)]
 
-2. Quite la invocación del método de extensión `UseApplicationInsights` de *Program.cs*:
+2. Si el destino es .NET Core, elimine la invocación del método de extensión `UseApplicationInsights` de *Program.cs*:
 
     [!code-csharp[Main](../1x-to-2x/samples/AspNetCoreDotNetCore1App/AspNetCoreDotNetCore1App/Program.cs?name=snippet_ProgramCsMain&highlight=8)]
 
