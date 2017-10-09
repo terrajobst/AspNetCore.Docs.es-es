@@ -11,8 +11,8 @@ ms.assetid: 981852c9-78f9-4590-aaee-9d50a2838dfe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/index
-ms.openlocfilehash: 92f480236d035bafe329b14c7383e25c3edd3499
-ms.sourcegitcommit: af6c2a58ea828899d5fbe6bc442a1b1ea3e46cf7
+ms.openlocfilehash: 13aea4439e4aecd5715820b524540a6d8b3d547b
+ms.sourcegitcommit: e987c950caae7af9c4ece8a82228caa364e0a5df
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/05/2017
@@ -45,4 +45,4 @@ ms.lasthandoff: 10/05/2017
 
 * [Protección de aplicaciones de ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io/release/)
 
-* [Protección de aplicaciones de ASP.NET con la autenticación de Azure App Service (autenticación sencilla)](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
+* [Protección de aplicaciones de ASP.NET Core con Azure App Service Authentication (autenticación sencilla)](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
