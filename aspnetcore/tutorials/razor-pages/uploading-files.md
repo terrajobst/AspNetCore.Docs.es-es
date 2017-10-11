@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 5a3dc302186c7fd0a5730bc2c7599676fb543ba7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3c5841f8c623f09530b60cc9997281dcb8e3c4f6
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Carga de archivos en una página de Razor en ASP.NET Core
 
@@ -42,11 +42,9 @@ La clase usa los atributos `Display` y `DisplayFormat`, que generan títulos des
 
 ## <a name="update-the-moviecontext"></a>Actualización de MovieContext
 
-Especifique un elemento `DbSet` en `MovieContext` (*Models/MovieContext.cs*) para las programaciones y agregue una línea al método `OnModelCreating` que establezca un nombre de tabla de base de datos singular (`Schedule`) para la propiedad `DbSet`:
+Especifique `DbSet` en `MovieContext` (*Models/MovieContext.cs*) para las programaciones:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13,18)]
-
-Nota: Si no invalida `OnModelCreating` para usar nombres de tabla singulares, Entity Framework da por hecho que está usando nombres de tabla de base de datos plurales (por ejemplo, `Movies` y `Schedules`). Los desarrolladores están en desacuerdo sobre si los nombres de tabla deben ser plurales o no. Configure `MovieContext` y la base de datos del mismo modo. Use nombres de tabla de base de datos singulares o plurales en ambos lugares.
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Adición de la tabla Schedule a la base de datos
 
@@ -97,7 +95,7 @@ Cuando se carga la página con `OnGetAsync`, `Schedules` se rellena a partir de 
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-Cuando el formulario se publica en el servidor, se activa `ModelState`. Si no es válido, `Schedules` se vuelve a generar y la página se presenta con uno o más mensajes de validación que indican el motivo del error de validación de la página. Si es válido, las propiedades `FileUpload` se usan en *OnPostAsync* para completar la carga de archivos para las dos versiones de la programación y para crear un nuevo objeto `Schedule` para almacenar los datos. La programación luego se guarda en la base de datos:
+Cuando el formulario se publica en el servidor, se activa `ModelState`. Si no es válido, `Schedule` se vuelve a generar y la página se presenta con uno o más mensajes de validación que indican el motivo del error de validación de la página. Si es válido, las propiedades `FileUpload` se usan en *OnPostAsync* para completar la carga de archivos para las dos versiones de la programación y para crear un nuevo objeto `Schedule` para almacenar los datos. La programación luego se guarda en la base de datos:
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 

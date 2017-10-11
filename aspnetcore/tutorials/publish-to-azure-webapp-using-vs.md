@@ -5,27 +5,25 @@ description:
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 09/01/2017
+ms.date: 10/05/2017
 ms.topic: get-started-article
 ms.assetid: 78571e4a-a143-452d-9cf2-0860f85972e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/publish-to-azure-webapp-using-vs
-ms.openlocfilehash: 0c0ec1c7c1408b0460c594a47a3e5738cd170d5f
-ms.sourcegitcommit: d022d4b96795ee473fa3847a1d8a8c7430423a86
+ms.openlocfilehash: df22852d2daddb2a3faef8404d0d250a6a1697a5
+ms.sourcegitcommit: e987c950caae7af9c4ece8a82228caa364e0a5df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 10/05/2017
 ---
 # <a name="publish-an-aspnet-core-web-app-to-azure-app-service-using-visual-studio"></a>Publicar una aplicación web de ASP.NET Core en Azure App Service con Visual Studio
 
 De [Rick Anderson](https://twitter.com/RickAndMSFT), [Cesar Blum Silveira](https://github.com/cesarbs) y [Rachel Appel](https://twitter.com/rachelappel)
 
-## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
+## <a name="set-up"></a>Configurar
 
-* Instale la versión más reciente de [Azure SDK para Visual Studio](https://www.visualstudio.com/vs/azure-tools/). El SDK instala Visual Studio si aún no lo tiene.
-
-* Compruebe la [cuenta de Azure](https://portal.azure.com/). Puede [abrir una cuenta de Azure gratuita](https://azure.microsoft.com/pricing/free-trial/) o [activar las ventajas de suscriptor de Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+* Abra una [cuenta gratuita de Azure](https://aka.ms/K5y5yh) si no tiene una. 
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
@@ -186,8 +184,4 @@ Cuando haya terminado de probar la aplicación, vaya a [Azure Portal](https://po
 
 ### <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a ASP.NET Core MVC y Visual Studio](first-mvc-app/start-mvc.md)
-
-* [Introducción a ASP.NET Core](../index.md)
-
-* [Aspectos básicos](../fundamentals/index.md)
+* [Implementación continua en Azure con Visual Studio y Git](../publishing/azure-continuous-deployment.md)

@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
+ms.openlocfilehash: a7c545178f3cdc4bfc095d41ac997d2e46634d30
+ms.sourcegitcommit: 19acf7f85f36ecd5a0271fba0cff5e91b85f46ab
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/09/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -106,6 +106,10 @@ Para los ejemplos de este documento, `DbContext` se inicializa en el archivo [St
 El modelo de datos:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Data/Customer.cs)]
+
+El contexto de la base de datos:
+
+[!code-cs[main](index/sample/RazorPagesContacts/Data/AppDbContext.cs)]
 
 El archivo de vista *Pages/Create.cshtml*:
 
