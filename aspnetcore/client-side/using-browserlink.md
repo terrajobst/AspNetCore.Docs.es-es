@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 95062961877b8da843ce47fb1719ee85224fa8c8
+ms.sourcegitcommit: 9c27fa0f0c57ad611aa43f63afb9b9c9571d4a94
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core 
 
@@ -81,7 +81,7 @@ Desde el control de barra de herramientas de vínculo de explorador, hacer lo si
 * Actualizar la aplicación web en varios exploradores a la vez.
 * Abra la **panel de vínculos de explorador**.
 * Habilitar o deshabilitar **vínculo de explorador**. Nota: El vínculo de explorador está deshabilitada de forma predeterminada en Visual Studio 2017 (15.3).
-* Habilitar o deshabilitar la sincronización automática de CSS.
+* Habilitar o deshabilitar [sincronización automática de CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
 > Algunos complementos de Visual Studio, sobre todo *2015 de paquete de extensión de Web* y *2017 de paquete de extensión de Web*, ofrecen una funcionalidad extendida de vínculo de explorador, pero algunas de las características adicionales no funcionan con ASP. Proyectos de red principal.
