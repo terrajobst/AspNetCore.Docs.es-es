@@ -11,18 +11,18 @@ ms.assetid: 73543e9d-d9d5-47d6-9664-17a9beea6cd3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: getting-started
-ms.openlocfilehash: f7852f0dddb0585089f5ccd8f4c865f5b87b049b
-ms.sourcegitcommit: fb518f856f31fe53c09196a13309eacb85b37a22
+ms.openlocfilehash: c81e1328fda6d1652ab937bd580be2342924d241
+ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/12/2017
 ---
 # <a name="getting-started-with-aspnet-core"></a>Introducción a ASP.NET Core
 
 > [!NOTE]
 > Estas instrucciones corresponden a la versión más reciente de ASP.NET Core. Si busca la introducción de una versión anterior, vea [la versión 1.1 de este tutorial](xref:getting-started-1.1).
 
-1. Instale [.NET Core](https://microsoft.com/net/core/).
+1. Instale [.NET Core](https://www.microsoft.com/net/core/).
 
 2. Cree un nuevo proyecto de .NET Core.
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/08/2017
 
 5. Vaya a [http://localhost:5000](http://localhost:5000).
 
-6. Abra *Pages/About.cshtml* y modifique la página para que muestre el mensaje "¡Hola, mundo!". La hora del servidor es @DateTime.Now":
+6. Abra *Pages/About.cshtml* y modifique la página para que muestre el mensaje "¡Hola, mundo!". La hora del servidor es @DateTime.Now" :
 
     [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
