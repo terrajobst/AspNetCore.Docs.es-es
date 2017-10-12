@@ -15,5 +15,4 @@
 # [Autenticación en dos fases con SMS](2fa.md)
 <!--# [🔧 Supporting Third Party Clients using OAuth 2.0](oauth2.md)-->
 # [Uso del middleware de cookies sin ASP.NET Core Identity](cookie.md)
-# [Azure Active Directory](azure-active-directory/toc.md)
 # [Protección de aplicaciones de ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
