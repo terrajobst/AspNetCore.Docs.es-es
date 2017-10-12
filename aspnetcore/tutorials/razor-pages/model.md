@@ -16,7 +16,7 @@ ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/28/2017
 ---
-# <a name="adding-a-model-to-a-razor-pages-app"></a><span data-ttu-id="e5408-104">Adición de un modelo a una aplicación de páginas de Razor</span><span class="sxs-lookup"><span data-stu-id="e5408-104">Adding a model to a Razor Pages app</span></span>
+# <a name="adding-a-model-to-a-razor-pages-app"></a><span data-ttu-id="e5408-104">Adición de un modelo a una aplicación de páginas de Razor</span><span class="sxs-lookup"><span data-stu-id="e5408-104"></span></span>
 
 [!INCLUDE[model1](../../includes/RP/model1.md)]
 
