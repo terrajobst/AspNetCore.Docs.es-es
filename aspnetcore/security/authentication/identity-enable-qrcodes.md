@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 01bb5597033fef7e1cb08e980c81d37d88ed253e
-ms.sourcegitcommit: ab91aad2680efc4eb5c0642746e2b981db7f81b8
+ms.openlocfilehash: a3029e68164dd91d1bc43704c5e96bd591bcae05
+ms.sourcegitcommit: a73fb5161fbdbee1d2e8474205e9840a134ee2ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core
 
@@ -62,7 +62,7 @@ Ejecutar la aplicación y asegúrese de que puede examinar el código QR y valid
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>Cambiar el nombre del sitio en el código QR
 
-El nombre del sitio en el código QR se toma del nombre del proyecto que elegir al crear inicialmente el proyecto. Puede cambiarla si se busca la `GenerateQrCodeUri(string email, string unformattedKey)` método en el *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* archivo (las páginas de Razor) o la *Controllers\AccountController.cs* archivo (MVC). 
+El nombre del sitio en el código QR se toma del nombre del proyecto que elegir al crear inicialmente el proyecto. Puede cambiarla si se busca la `GenerateQrCodeUri(string email, string unformattedKey)` método en el *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* archivo (las páginas de Razor) o la *Controllers\ManageController.cs* archivo (MVC). 
 
 El código predeterminado de la plantilla tiene el siguiente aspecto:
 
