@@ -11,17 +11,17 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 5021b5d20f6d9b9a4d8889f25b5e41f2c9306f64
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 2e3bbcc9ffd90d7cba974466860738f1f462d3b3
+ms.sourcegitcommit: c29954cdfed0257eef92243175802ad6929e32bc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Autorización personalizada basada en directivas
 
 <a name=security-authorization-policies-based></a>
 
-Interiormente el [autorización rol](roles.md#security-authorization-role-based) y [autorización de notificaciones](claims.md#security-authorization-claims-based) hacer uso de un requisito y un controlador para el requisito y una directiva configurada previamente. Estos bloques de creación permiten expresar las evaluaciones de autorización en el código, lo que permite una experiencia mejor, reutilizables y la estructura de autorización puede probar fácilmente.
+Interiormente el [autorización rol](roles.md) y [autorización de notificaciones](claims.md) hacer uso de un requisito y un controlador para el requisito y una directiva configurada previamente. Estos bloques de creación permiten expresar las evaluaciones de autorización en el código, lo que permite una experiencia mejor, reutilizables y la estructura de autorización puede probar fácilmente.
 
 Una directiva de autorización está formada por uno o varios requisitos y registrada al iniciar la aplicación como parte de la configuración de servicio de autorización, en `ConfigureServices` en el *Startup.cs* archivo.
 

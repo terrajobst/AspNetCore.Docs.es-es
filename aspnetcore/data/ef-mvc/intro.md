@@ -11,11 +11,11 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: a4e9ab26fa49720aa2334101ee12916fc797d944
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
@@ -94,11 +94,11 @@ Abra *Views/Shared/_Layout.cshtml* y realice los cambios siguientes:
 
 Los cambios aparecen resaltados.
 
-[!code-html[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
+[!code-cshtml[](intro/samples/cu/Views/Shared/_Layout.cshtml?highlight=6,30,36-39,48)]
 
 En *Views/Home/Index.cshtml*, reemplace el contenido del archivo con el código siguiente para reemplazar el texto sobre ASP.NET y MVC con texto sobre esta aplicación:
 
-[!code-html[](intro/samples/cu/Views/Home/Index.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Home/Index.cshtml)]
 
 Presione CTRL + F5 para ejecutar el proyecto o elija **Depurar > Iniciar sin depurar** en el menú. Vea la página principal con pestañas para las páginas que se creará en estos tutoriales.
 
@@ -288,7 +288,7 @@ Obtendrá información acerca de los elementos de programación asincrónicos en
 
 El *Views/Students/Index.cshtml* vista muestra esta lista en una tabla:
 
-[!code-html[](intro/samples/cu/Views/Students/Index1.cshtml)]
+[!code-cshtml[](intro/samples/cu/Views/Students/Index1.cshtml)]
 
 Presione CTRL + F5 para ejecutar el proyecto o elija **Depurar > Iniciar sin depurar** en el menú.
 
@@ -330,7 +330,7 @@ La cantidad de código que tenía que escribir en orden para Entity Framework po
 
 * Propiedades de la entidad que se denominan identificador o classnameID se reconocen como propiedades de clave principal.
 
-* Una propiedad se interpreta como una propiedad de clave externa si se denomina * <navigation property name> <primary key property name> * (por ejemplo, `StudentID` para el `Student` propiedad de navegación desde el `Student` clave principal de la entidad es `ID`). Propiedades de clave externa también se pueden denominar simplemente * <primary key property name> * (por ejemplo, `EnrollmentID` desde el `Enrollment` clave principal de la entidad es `EnrollmentID`).
+* Una propiedad se interpreta como una propiedad de clave externa si se denomina  *<navigation property name> <primary key property name>*  (por ejemplo, `StudentID` para el `Student` propiedad de navegación desde el `Student` clave principal de la entidad es `ID`). Propiedades de clave externa también se pueden denominar simplemente  *<primary key property name>*  (por ejemplo, `EnrollmentID` desde el `Enrollment` clave principal de la entidad es `EnrollmentID`).
 
 Puede reemplazarse un comportamiento convencional. Por ejemplo, puede especificar explícitamente los nombres de tabla, tal y como se vio anteriormente en este tutorial. Y puede establecer los nombres de columna y establecer cualquier propiedad como clave principal o clave externa, como verá en un [tutorial posterior](complex-data-model.md) de esta serie.
 

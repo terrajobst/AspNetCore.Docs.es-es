@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: e5c53a7044edb56e065b2dc1536343fdaf9fb007
-ms.sourcegitcommit: 7d8f4e3443a2989a64343f8fec83e6a4c4ed2f97
+ms.openlocfilehash: ea9c93e34a3242b5b3716404228edb8902baf625
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Mediante la autenticación de Cookie sin identidad principal de ASP.NET
 
@@ -76,7 +76,7 @@ Los fragmentos de código anteriores configurar algunas o todas las opciones sig
 
 * `AccessDeniedPath`-Ésta es la ruta de acceso relativa a la que redirección las solicitudes cuando un usuario intenta obtener acceso a un recurso pero no pasa cualquier [directivas de autorización](xref:security/authorization/policies#security-authorization-policies-based) para ese recurso.
 
-* `AuthenticationScheme`-Éste es un valor por el que se conoce un esquema de autenticación de cookie en particular. Esto es útil cuando hay varias instancias de autenticación con cookies y desea [limitar la autorización a una instancia](xref:security/authorization/limitingidentitybyscheme#security-authorization-limiting-by-scheme).
+* `AuthenticationScheme`-Éste es un valor por el que se conoce un esquema de autenticación de cookie en particular. Esto es útil cuando hay varias instancias de autenticación con cookies y las necesidades de aplicación para [limitar la autorización a una instancia](xref:security/authorization/limitingidentitybyscheme).
 
 * `AutomaticAuthenticate`-Esta marca solo es relevante para ASP.NET Core 1.x. Indica que la autenticación con cookies debe ejecutarse en cada solicitud y que intentan validar y reconstruir cualquier entidad de seguridad serializado que creó.
 

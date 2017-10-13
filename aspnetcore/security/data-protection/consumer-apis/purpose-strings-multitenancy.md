@@ -2,7 +2,7 @@
 title: "Cadenas de propósito en ASP.NET Core"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 9d18c287-e0e6-4541-b09c-7fed45c902d9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: dd87d8bcaf0056b322908e9a3ef75678f603e1e6
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: b25af7c1f4dd3c63734290e6ac82e2e30a030c61
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Jerarquía de propósito y la arquitectura multiempresa en ASP.NET Core
 
 Puesto que un IDataProtector también es implícitamente una IDataProtectionProvider, con fines se pueden encadenar juntas. En este proveedor de sentido. CreateProtector (["purpose1", "purpose2"]) es equivalente al proveedor. CreateProtector("purpose1"). CreateProtector("purpose2").
 
-Esto permite algunas relaciones jerárquicas interesantes a través del sistema de protección de datos. En el ejemplo anterior de [Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose), el componente SecureMessage puede llamar al proveedor. CreateProtector("Contoso.Messaging.SecureMessage") una vez por adelantado y la memoria caché el resultado en un campo privado _myProvider. Protectores futuras, a continuación, pueden crearse a través de llamadas a _myProvider.CreateProtector ("usuario: nombre de usuario"), y se utilizan estos protectores para proteger los mensajes individuales.
+Esto permite algunas relaciones jerárquicas interesantes a través del sistema de protección de datos. En el ejemplo anterior de [Contoso.Messaging.SecureMessage](purpose-strings.md#data-protection-contoso-purpose), el componente SecureMessage puede llamar al proveedor. CreateProtector("Contoso.Messaging.SecureMessage") una vez por adelantado y la memoria caché el resultado en privado `_myProvide` campo. Protectores futuras, a continuación, pueden crearse a través de llamadas a `_myProvider.CreateProtector("User: username")`, y se utilizan estos protectores para proteger los mensajes individuales.
 
 Esto también se voltea. Considere la posibilidad de una sola aplicación lógica qué hosts de varios inquilinos (un CMS parece razonable) y cada inquilino pueden configurarse con su propio sistema de administración de autenticación y el estado. La aplicación aglutina tiene un proveedor de maestro único y llama a proveedor. CreateProtector ("inquilino 1") y el proveedor. CreateProtector ("inquilino 2") para proporcionar a cada inquilino de su propio segmento aislado del sistema de protección de datos. Los inquilinos, a continuación, pudieron derivar sus propios protectores individuales según sus propias necesidades, pero con independencia de forma rígida intentan no pueden crear protectores que estén en conflicto con otro inquilino en el sistema. Esto se representa gráficamente como sigue.
 

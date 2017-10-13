@@ -2,7 +2,7 @@
 title: "Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core"
 author: rick-anderson
 description: "Muestra cómo almacenar secretos de forma segura durante el desarrollo"
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 09/15/2017
@@ -10,15 +10,13 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: e112cc5ef9cba5aff6470ce4b9b1091a3c2b2600
-ms.sourcegitcommit: f1271b218d7dfdc806ec8f411c81f3750130463d
+ms.openlocfilehash: 280819a6a0afb72311f0d50f7d3b83a942e9fcc3
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core
-
-<a name=security-app-secrets></a>
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), y [Scott Addie](https://scottaddie.com) 
 
