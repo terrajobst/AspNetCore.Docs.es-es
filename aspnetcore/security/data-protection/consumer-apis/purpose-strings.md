@@ -2,7 +2,7 @@
 title: "Cadenas de propósito"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: c96ed361-c382-4980-8933-800e740cfc38
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: cc33bcfab4945e6d6f9ca7e61edeff4d1837661a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 799c3dc2768e264307783efafee626a346a9362c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="purpose-strings"></a>Cadenas de propósito
 
-<a name=data-protection-consumer-apis-purposes></a>
+<a name="data-protection-consumer-apis-purposes"></a>
 
 Componentes que consumen IDataProtectionProvider deben pasar un único *fines* parámetro al método CreateProtector. Los fines *parámetro* es inherente a la seguridad del sistema de protección de datos, ya que proporciona aislamiento entre los consumidores de cifrado, incluso si las claves criptográficas de raíz son los mismos.
 
@@ -38,7 +38,7 @@ La cadena de fin no tiene que ser secreto. Simplemente debe ser único en el sen
 
 Puesto que el parámetro fines CreateProtector es una matriz de cadenas, los pasos anteriores se han en su lugar especificados como ["Contoso.Security.BearerToken", "v1"]. Esto permite establecer una jerarquía de propósitos y se abre la posibilidad de escenarios de varios inquilinos con el sistema de protección de datos.
 
-<a name=data-protection-contoso-purpose></a>
+<a name="data-protection-contoso-purpose"></a>
 
 >[!WARNING]
 > Componentes no deben permitir proporcionados por el usuario de confianza como el único origen de entrada de la cadena con fines.

@@ -11,15 +11,15 @@ ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 2e3bbcc9ffd90d7cba974466860738f1f462d3b3
-ms.sourcegitcommit: c29954cdfed0257eef92243175802ad6929e32bc
+ms.openlocfilehash: 24585ed5b4c21a357fc0eed4de6ccedf9fa50d3e
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/13/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Autorización personalizada basada en directivas
 
-<a name=security-authorization-policies-based></a>
+<a name="security-authorization-policies-based"></a>
 
 Interiormente el [autorización rol](roles.md) y [autorización de notificaciones](claims.md) hacer uso de un requisito y un controlador para el requisito y una directiva configurada previamente. Estos bloques de creación permiten expresar las evaluaciones de autorización en el código, lo que permite una experiencia mejor, reutilizables y la estructura de autorización puede probar fácilmente.
 
@@ -74,13 +74,13 @@ public class MinimumAgeRequirement : IAuthorizationRequirement
 
 No tiene un requisito que tienen datos o propiedades.
 
-<a name=security-authorization-policies-based-authorization-handler></a>
+<a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>Controladores de autorización
 
 Un controlador de autorización es responsable de la evaluación de las propiedades de un requisito. El controlador de autorización debe evaluará con respecto a proporcionado `AuthorizationHandlerContext` para decidir si se permite la autorización. Puede tener un requisito [varios controladores](policies.md#security-authorization-policies-based-multiple-handlers). Los controladores deben heredar `AuthorizationHandler<T>` donde T es el requisito es capaz de abrir.
 
-<a name=security-authorization-handler-example></a>
+<a name="security-authorization-handler-example"></a>
 
 El controlador de antigüedad mínima podría ser similar al siguiente:
 
@@ -116,7 +116,7 @@ public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
 
 En el código anterior se busque primero para ver si la entidad de seguridad del usuario actual tiene una fecha de nacimiento que ha sido emitidos por un emisor que sabemos y confianza de notificaciones. Si falta la notificación se no autorizar por lo que se devuelven. Si tenemos una notificación, se pueda determinar la antigüedad del usuario es, y si cumple la antigüedad mínima que se pasa por el requisito, a continuación, autorización ha correcta. Una vez que la autorización es correcta llamamos `context.Succeed()` pasando el requisito de que ha tenido éxito como un parámetro.
 
-<a name=security-authorization-policies-based-handler-registration></a>
+<a name="security-authorization-policies-based-handler-registration"></a>
 
 Los controladores deben estar registrados en la colección de servicios durante la configuración, por ejemplo,
 
@@ -150,7 +150,7 @@ Puede ver en nuestro [controlador (ejemplo)](policies.md#security-authorization-
 
 Independientemente de lo que se llama a dentro de su controlador de todos los controladores para un requisito se llamará cuando una directiva exige el requisito. Esto permite requisitos tienen efectos secundarios, como el registro, que siempre se llevará a cabo aunque `context.Fail()` se ha llamado en otro controlador.
 
-<a name=security-authorization-policies-based-multiple-handlers></a>
+<a name="security-authorization-policies-based-multiple-handlers"></a>
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>¿Por qué desearía varios controladores para un requisito?
 

@@ -2,7 +2,7 @@
 title: "Autorización basada en recursos"
 author: rick-anderson
 description: 
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: d3575619c53e77dadc293ea2bb7dc72501a8a1e3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="resource-based-authorization"></a>Autorización basada en recursos
 
-<a name=security-authorization-resource-based></a>
+<a name="security-authorization-resource-based"></a>
 
 A menudo autorización depende de los recursos que se obtiene acceso. Por ejemplo, un documento puede tener una propiedad de autor. Solo el autor del documento se podrá actualizarla, el recurso se debe cargar desde el repositorio de documentos para poder realizar una evaluación de autorización. Esto no es posible con un atributo Authorize, como la evaluación de atributo tiene lugar antes del enlace de datos y antes de ejecutar su propio código para cargar un recurso dentro de una acción. En lugar de autorización declarativa, el método de atributo, debemos usar autorización imperativa, donde un desarrollador llama a una función de autorizar dentro de su propio código.
 
@@ -50,7 +50,7 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-<a name=security-authorization-resource-based-imperative></a>
+<a name="security-authorization-resource-based-imperative"></a>
 
 Para llamar al servicio, cargar el recurso dentro de la acción, a continuación, llame a la `AuthorizeAsync` sobrecarga necesita. Por ejemplo:
 

@@ -2,7 +2,7 @@
 title: "Autorización basada en notificaciones"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 51d747c3c295164b6c0e00b5bafe63c565d588b4
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="claims-based-authorization"></a>Autorización basada en notificaciones
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
 Cuando se crea una identidad se pueden asignar una o más notificaciones emitidos por una entidad de confianza. Una notificación es par que representa el asunto de qué es el valor de nombre, puede hacerlo no qué el sujeto. Por ejemplo puede tener una licencia de controladores, emitido por una entidad de licencia de conducir local. De conducir su permiso tiene tu fecha de nacimiento. En este caso, el nombre de notificación sería `DateOfBirth`, el valor de notificación sería tu fecha de nacimiento, por ejemplo `8th June 1970` y el emisor sería la autoridad de licencia de conducir. Autorización basada en notificaciones, en su forma más sencilla, comprueba el valor de una notificación y permite el acceso a un recurso basado en ese valor. Por ejemplo, si desea que el proceso de autorización el acceso a un club nocturno puede ser:
 

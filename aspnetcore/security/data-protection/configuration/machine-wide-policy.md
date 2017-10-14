@@ -2,7 +2,7 @@
 title: Directiva para todo el equipo
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: fde8f75422c9dd84311a65b21e1e38b47fbe0306
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="machine-wide-policy"></a>Directiva para todo el equipo
 
-<a name=data-protection-configuration-machinewidepolicy></a>
+<a name="data-protection-configuration-machinewidepolicy"></a>
 
 Cuando se ejecuta en Windows, el sistema de protección de datos tiene compatibilidad limitada para establecer la directiva de equipo predeterminada para todas las aplicaciones que consumen la protección de datos. La idea general es que un administrador puede que desee cambiar algún valor predeterminado (por ejemplo, los algoritmos utilizados o clave la duración) sin tener que actualizar manualmente cada aplicación en el equipo.
 
@@ -42,7 +42,7 @@ Los valores admitidos son:
 
 * KeyEscrowSinks [cadena] - especifica los tipos que se usará para la custodia de clave. Este valor es una lista delimitada por punto y coma de receptores de custodia de clave, donde cada elemento de la lista es el nombre del ensamblado de un tipo que implementa IKeyEscrowSink.
 
-<a name=data-protection-encryption-types></a>
+<a name="data-protection-encryption-types"></a>
 
 ### <a name="encryption-types"></a>Tipos de cifrado
 

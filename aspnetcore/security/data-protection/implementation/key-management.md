@@ -2,7 +2,7 @@
 title: "Administración de claves"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 687207cb6a1cea89166fd2b6172cdc0a013de4b3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management"></a>Administración de claves
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
 El sistema de protección de datos administra automáticamente la duración de claves maestras de usa para proteger y desproteger cargas. Cada clave puede estar en uno de cuatro fases.
 
@@ -46,7 +46,7 @@ El motivo por el sistema de protección de datos genera una nueva clave inmediat
 
 Hay una excepción. Si el desarrollador de aplicaciones tiene [deshabilita la generación automática de claves](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation), a continuación, el sistema de protección de datos debe elegir algo como la clave predeterminada. En este escenario de reserva, el sistema elegirá la clave no revocados con la fecha de activación más reciente, con preferencia otorgado a las claves que hayan tenido tiempo para propagar a otros equipos del clúster. El sistema de reserva puede acabar elegir una clave predeterminada expiradas como resultado. El sistema de reserva no elegirá nunca una clave revocada como la clave predeterminada y si el anillo de clave está vacío o todas las claves se ha revocado el sistema generará un error en la inicialización.
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>Expiración de la clave y gradual
 

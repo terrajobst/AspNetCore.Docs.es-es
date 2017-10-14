@@ -11,11 +11,11 @@ ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 9d24c2956c24a7995b3eeffc19e8c0a827349493
-ms.sourcegitcommit: ed401027aac45c5938c917c7f518a33ceffe9f95
+ms.openlocfilehash: 5dd8bee7228587d7e13f128bc8f16102fb70a412
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento de ASP.NET Core
 
@@ -26,7 +26,7 @@ Función de enrutamiento es responsable de asignar una solicitud entrante a un c
 >[!IMPORTANT]
 > Este documento cubre el núcleo de ASP.NET de nivel bajo enrutamiento. Para el enrutamiento MVC de ASP.NET Core, vea [enrutamiento a las acciones del controlador](../mvc/controllers/routing.md)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Fundamentos del enrutamiento
 
@@ -40,7 +40,7 @@ Por lo general, una aplicación tiene una sola colección de rutas. Cuando llega
 
 Enrutamiento está conectado a la [middleware](middleware.md) de canalización por la `RouterMiddleware` clase. [ASP.NET MVC](../mvc/overview.md) agrega enrutamiento a la canalización de middleware como parte de su configuración. Para obtener información sobre el uso de enrutamiento como un componente independiente, consulte [utilizando enrutamiento-software intermedio](#using-routing-middleware).
 
-<a name=url-matching-ref></a>
+<a name="url-matching-ref"></a>
 
 ### <a name="url-matching"></a>Coincidencia de dirección URL
 
@@ -159,7 +159,7 @@ Esta plantilla coincidirá con una ruta de acceso de dirección URL como `/Produ
 
 ![Tokens de Windows de variables locales](routing/_static/tokens.png)
 
-<a name=id1></a>
+<a name="id1"></a>
 
 ### <a name="url-generation"></a>Generación de direcciones URL
 

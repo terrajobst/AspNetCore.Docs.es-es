@@ -2,7 +2,7 @@
 title: Impedir el Scripting entre sitios
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: 1816977837efd82f374a03d9f776db21358e2850
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d0880fda4ee726bd30a48cce0907a3887f2a4545
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="preventing-cross-site-scripting"></a>Impedir el Scripting entre sitios
 
-<a name=security-cross-site-scripting></a>
+<a name="security-cross-site-scripting"></a>
 
 Scripting entre sitios (XSS) son una vulnerabilidad de seguridad que permite a un atacante colocar scripts del lado cliente (normalmente JavaScript) en las páginas web. Cuando otros usuarios cargar páginas afectadas se ejecutarán las secuencias de comandos de los atacantes, lo que podría robar cookies y tokens de sesión, cambiar el contenido de la página web mediante la manipulación de DOM o redirigir el explorador a otra página. Vulnerabilidades XSS suelen producen cuando una aplicación toma la entrada del usuario y genera en una página sin validación, codificación o secuencias de escape.
 
@@ -183,7 +183,7 @@ Después de la codificación del encodedValue variable contendrá `%22Quoted%20V
 >[!WARNING]
 > No se utilice la entrada no es de confianza como parte de una ruta de acceso de dirección URL. Siempre pase datos proporcionados no es de confianza como un valor de cadena de consulta.
 
-<a name=security-cross-site-scripting-customization></a>
+<a name="security-cross-site-scripting-customization"></a>
 
 ## <a name="customizing-the-encoders"></a>Personalizar los codificadores
 

@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: 5a0b5399f7441035cb1231a009681ca22b07ab4e
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: cc3277400aee956f47c53e5a4f3d4e84d3a3d1a3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="routing-to-controller-actions"></a>El enrutamiento a las acciones de controlador
 
@@ -118,7 +118,7 @@ app.UseRouter(routes.Build());
 
 `UseMvc`no se define directamente ninguna ruta, agrega un marcador de posición a la colección de rutas para la `attribute` ruta. La sobrecarga `UseMvc(Action<IRouteBuilder>)` le permite agregar sus propias rutas y también admite el enrutamiento del atributo.  `UseMvc`y todas sus variaciones agrega un marcador de posición para la ruta de atributo - siempre está disponible, independientemente de cómo configurar el enrutamiento de atributo `UseMvc`. `UseMvcWithDefaultRoute`define una ruta predeterminada y admite el enrutamiento del atributo. El [atributo enrutamiento](#attribute-routing-ref-label) sección incluye más detalles acerca del enrutamiento de atributo.
 
-<a name=routing-conventional-ref-label></a>
+<a name="routing-conventional-ref-label"></a>
 
 ## <a name="conventional-routing"></a>El enrutamiento convencional
 
@@ -190,7 +190,7 @@ Sólo necesitará escribir personalizado `IActionConstraint` implementaciones en
 
 Si coincide con varias rutas y MVC no encontró ninguna ruta 'recomendada', se producirá un `AmbiguousActionException`.
 
-<a name=routing-route-name-ref-label></a>
+<a name="routing-route-name-ref-label"></a>
 
 ### <a name="route-names"></a>Nombres de ruta
 
@@ -210,7 +210,7 @@ Los nombres de ruta proporcionan un nombre lógico de la ruta para que la ruta c
 
 Los nombres de ruta no tienen ningún impacto en la dirección URL que coinciden o control de solicitudes; se usan únicamente para la generación de direcciones URL. [Enrutamiento](xref:fundamentals/routing) contiene información sobre la generación de dirección URL incluyendo generación de direcciones URL en aplicaciones auxiliares de MVC específicos más detallada.
 
-<a name=attribute-routing-ref-label></a>
+<a name="attribute-routing-ref-label"></a>
 
 ## <a name="attribute-routing"></a>Ruta de atributo
 
@@ -324,7 +324,7 @@ Los nombres de ruta se pueden utilizar para generar una dirección URL basada en
 > [!NOTE]
 > Compare esto con el convencional *ruta predeterminada*, que define la `id` parámetro como opcional (`{id?}`). Esta capacidad de especificar con precisión las API tiene sus ventajas, como permitir que los `/products` y `/products/5` va a enviar a acciones diferentes.
 
-<a name=routing-combining-ref-label></a>
+<a name="routing-combining-ref-label"></a>
 
 ### <a name="combining-routes"></a>Rutas de combinación
 
@@ -369,7 +369,7 @@ public class HomeController : Controller
 }
 ```
 
-<a name=routing-ordering-ref-label></a>
+<a name="routing-ordering-ref-label"></a>
 
 ### <a name="ordering-attribute-routes"></a>Ordenación de las rutas de atributo
 
@@ -382,7 +382,7 @@ Rutas de atributo pueden configurar un pedido, mediante el `Order` propiedad de 
 > [!TIP]
 > Evitar según `Order`. Si el espacio de direcciones URL requiere que los valores de orden explícito para enrutar correctamente, es probable que confuso para los clientes, así. Por lo general la ruta de atributo seleccionará la ruta correcta con la coincidencia de dirección URL. Si el orden predeterminado que se usa para la generación de dirección URL no funciona, usando el nombre de ruta como una invalidación es normalmente más sencilla que aplicar la `Order` propiedad.
 
-<a name=routing-token-replacement-templates-ref-label></a>
+<a name="routing-token-replacement-templates-ref-label"></a>
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>Símbolo (token) de sustitución en plantillas de ruta ([controlador], [acción] [area])
 
@@ -414,7 +414,7 @@ Reemplazo del token también se aplica a los nombres de ruta definidos por las r
 
 Para que coincida con el delimitador de reemplazo del token literal `[` o `]`, escape repitiendo el carácter (`[[` o `]]`).
 
-<a name=routing-multiple-routes-ref-label></a>
+<a name="routing-multiple-routes-ref-label"></a>
 
 ### <a name="multiple-routes"></a>Varias rutas
 
@@ -458,7 +458,7 @@ public class ProductsController : Controller
 > [!TIP]
 > Aunque puede parecer eficaz utilizando varias rutas en acciones, es mejor mantener el espacio de direcciones URL de la aplicación simple y bien definidos. Utilice varias rutas de acciones solo cuando sea necesario, por ejemplo, para admitir a los clientes existentes.
 
-<a name=routing-attr-options></a>
+<a name="routing-attr-options"></a>
 
 ### <a name="specifying-attribute-route-optional-parameters-default-values-and-constraints"></a>Especificación de parámetros opcionales de ruta de atributo, valores predeterminados y restricciones
 
@@ -474,7 +474,7 @@ public IActionResult ShowProduct(int id)
 
 Vea [referencia de plantilla de ruta](../../fundamentals/routing.md#route-template-reference) para obtener una descripción detallada de la sintaxis de la plantilla de ruta.
 
-<a name=routing-cust-rt-attr-irt-ref-label></a>
+<a name="routing-cust-rt-attr-irt-ref-label"></a>
 
 ### <a name="custom-route-attributes-using-iroutetemplateprovider"></a>Atributos de ruta personalizados utilizando`IRouteTemplateProvider`
 
@@ -495,7 +495,7 @@ public class MyApiControllerAttribute : Attribute, IRouteTemplateProvider
 
 El atributo por el ejemplo anterior se establece automáticamente el `Template` a `"api/[controller]"` cuando `[MyApiController]` se aplica.
 
-<a name=routing-app-model-ref-label></a>
+<a name="routing-app-model-ref-label"></a>
 
 ### <a name="using-application-model-to-customize-attribute-routes"></a>Uso de modelo de aplicación para personalizar las rutas de atributo
 
@@ -503,7 +503,7 @@ El *modelo de aplicación* es un modelo de objetos creado durante el inicio con 
 
 [!code-csharp[Main](routing/sample/main/NamespaceRoutingConvention.cs)]
 
-<a name=routing-mixed-ref-label></a>
+<a name="routing-mixed-ref-label"></a>
 
 ## <a name="mixed-routing-attribute-routing-vs-conventional-routing"></a>Mixto enrutamiento: atributo enrutamiento enrutamiento convencional de vs
 
@@ -514,7 +514,7 @@ Acciones o se enrutan convencional o enruta de atributo. Genera una ruta en el c
 > [!NOTE]
 > Lo que distingue entre los dos tipos de sistemas de enrutamientos es el proceso que se aplica después de que una dirección URL coincide con una plantilla de ruta. En el enrutamiento convencional, se usan los valores de ruta de la búsqueda de coincidencias para elegir la acción y el controlador de una tabla de búsqueda de todas las acciones enrutadas convencionales. En el enrutamiento de atributo, cada plantilla ya está asociado a una acción y no es necesaria ninguna otra búsqueda.
 
-<a name=routing-url-gen-ref-label></a>
+<a name="routing-url-gen-ref-label"></a>
 
 ## <a name="url-generation"></a>Generación de direcciones URL
 
@@ -567,7 +567,7 @@ Más sobrecargas de `Url.Action` tener más *valores de ruta* objeto para propor
 > [!TIP]
 > Para crear una dirección URL absoluta, use una sobrecarga que acepta un `protocol`:`Url.Action("Buy", "Products", new { id = 17 }, protocol: Request.Scheme)`
 
-<a name=routing-gen-urls-route-ref-label></a>
+<a name="routing-gen-urls-route-ref-label"></a>
 
 ### <a name="generating-urls-by-route"></a>Generación de direcciones URL de ruta
 
@@ -575,7 +575,7 @@ El código anterior muestra generando una dirección URL al pasar el nombre de a
 
 [!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
-<a name=routing-gen-urls-html-ref-label></a>
+<a name="routing-gen-urls-html-ref-label"></a>
 
 ### <a name="generating-urls-in-html"></a>Generar direcciones URL en HTML
 
@@ -585,7 +585,7 @@ TagHelpers generar direcciones URL a través de la `form` TagHelper y `<a>` TagH
 
 Dentro de las vistas, la `IUrlHelper` está disponible a través de la `Url` propiedad para una generación de dirección URL de ad hoc no cubierta por los pasos anteriores.
 
-<a name=routing-gen-urls-action-ref-label></a>
+<a name="routing-gen-urls-action-ref-label"></a>
 
 ### <a name="generating-urls-in-action-results"></a>Generar direcciones URL en los resultados de acción
 
@@ -606,7 +606,7 @@ public Task<IActionResult> Edit(int id, Customer customer)
 
 Los métodos de generador de resultados de acción siguen un patrón similar a los métodos `IUrlHelper`.
 
-<a name=routing-dedicated-ref-label></a>
+<a name="routing-dedicated-ref-label"></a>
 
 ### <a name="special-case-for-dedicated-conventional-routes"></a>Caso especial para rutas convencionales dedicadas
 
@@ -625,7 +625,7 @@ app.UseMvc(routes =>
 
 Rutas convencionales dedicadas que se basan en un comportamiento especial de los valores predeterminados que no tienen un parámetro de ruta correspondiente que impide que la ruta se "demasiado expansiva" con la generación de direcciones URL. En este caso, los valores predeterminados son `{ controller = Blog, action = Article }`y ni `controller` ni `action` aparece como un parámetro de ruta. Cuando el enrutamiento realiza la generación de direcciones URL, los valores proporcionados deben coincidir con los valores predeterminados. Generación de dirección URL mediante `blog` se producirá un error porque los valores `{ controller = Home, action = Index }` no coincide con `{ controller = Blog, action = Article }`. Enrutamiento, a continuación, vuelve para probar `default`, que se realiza correctamente.
 
-<a name=routing-areas-ref-label></a>
+<a name="routing-areas-ref-label"></a>
 
 ## <a name="areas"></a>Áreas
 
@@ -670,7 +670,7 @@ Al ejecutar una acción en un área, la ruta valor `area` estarán disponibles c
 
 [!code-csharp[Main](routing/sample/AreasRouting/Areas/Duck/Controllers/UsersController.cs)]
 
-<a name=iactionconstraint-ref-label></a>
+<a name="iactionconstraint-ref-label"></a>
 
 ## <a name="understanding-iactionconstraint"></a>Descripción IActionConstraint
 
@@ -695,7 +695,7 @@ Cuando el `HttpGetAttribute` se ejecuta, lo dirá que *Edit()* es una coincidenc
 
 Conceptualmente, `IActionConstraint` es una forma de *sobrecarga*, pero en lugar de la sobrecarga de métodos con el mismo nombre, se sobrecarga entre las acciones que coinciden con la misma dirección URL. Ruta de atributo también utiliza `IActionConstraint` y puede dar lugar a acciones de diferentes controladores ambos están considerando candidatos.
 
-<a name=iactionconstraint-impl-ref-label></a>
+<a name="iactionconstraint-impl-ref-label"></a>
 
 ### <a name="implementing-iactionconstraint"></a>Implementar IActionConstraint
 

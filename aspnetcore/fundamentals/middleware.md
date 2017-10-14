@@ -11,19 +11,19 @@ ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: 730b4c281a766059b16ca1c36bbeb9611b979b72
-ms.sourcegitcommit: 0f23400cae837e90927043aa0dfd6c31108a4e2c
+ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Conceptos básicos de Middleware de núcleo de ASP.NET
 
-<a name=fundamentals-middleware></a>
+<a name="fundamentals-middleware"></a>
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ardalis.com/)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-middleware"></a>¿Qué es middleware
 
@@ -138,7 +138,7 @@ public void Configure(IApplicationBuilder app)
 }
 ```
 
-<a name=middleware-run-map-use></a>
+<a name="middleware-run-map-use"></a>
 
 ### <a name="use-run-and-map"></a>Usar, ejecutar y asignar
 
@@ -206,7 +206,7 @@ ASP.NET Core incluye los siguientes componentes de software intermedio:
 | [Archivos estáticos](xref:fundamentals/static-files) | Proporciona compatibilidad para servir archivos estáticos y examen de directorios. |
 | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) | Proporciona compatibilidad para volver a escribir las direcciones URL y redirigir las solicitudes. |
 
-<a name=middleware-writing-middleware></a>
+<a name="middleware-writing-middleware"></a>
 
 ## <a name="writing-middleware"></a>Middleware de escritura
 

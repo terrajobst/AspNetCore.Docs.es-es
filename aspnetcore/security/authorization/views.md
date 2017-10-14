@@ -11,15 +11,15 @@ ms.assetid: 24ce40d8-9b83-4bae-9d4c-a66350fcc8f8
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/views
-ms.openlocfilehash: 82c0c7282de34e496f529d964f99121ae2805c5a
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 58cafcfdc7946e82d1e0ea5de95e0e497b1b6bcf
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="view-based-authorization"></a>Autorización basada en la vista
 
-<a name=security-authorization-views></a>
+<a name="security-authorization-views"></a>
 
 A menudo un desarrollador desea mostrar, ocultar o que modifique una interfaz de usuario en función de la identidad del usuario actual. Puede acceder al servicio de autorización en las vistas MVC a través de [inyección de dependencia](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection). Para insertar el servicio de autorización en un uso de vista Razor el `@inject` directiva, por ejemplo `@inject IAuthorizationService AuthorizationService` (requiere `@using Microsoft.AspNetCore.Authorization`). Si desea que el servicio de autorización en cada vista, a continuación, coloque el `@inject` la directiva en el `_ViewImports.cshtml` un archivo en el `Views` directory. Para obtener más información sobre la inyección de dependencia en las vistas de consulta [inyección de dependencia en las vistas](../../mvc/views/dependency-injection.md).
 

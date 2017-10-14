@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff6fee6eee539fc77b6c6180a816daa760202848
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introducción al uso de aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 
@@ -26,7 +26,7 @@ Este documento muestra cómo trabajar con formularios y los elementos HTML que s
 
 En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazan métodos auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. Cuando existe una alternativa de la aplicación auxiliar HTML, se menciona.
 
-<a name=my-asp-route-param-ref-label></a>
+<a name="my-asp-route-param-ref-label"></a>
 
 ## <a name="the-form-tag-helper"></a>La aplicación auxiliar de etiqueta de formulario
 
@@ -174,7 +174,7 @@ Las anotaciones de datos que se aplica a la `Email` y `Password` propiedades gen
 
 ### <a name="expression-names"></a>Nombres de la expresión
 
-El `asp-for` valor del atributo es un `ModelExpression` y el lado derecho de una expresión lambda. Por lo tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario con el prefijo `Model`. Puede usar el « @ » caracteres para iniciar una expresión en línea y mover antes el `m.`:
+El `asp-for` valor del atributo es un `ModelExpression` y el lado derecho de una expresión lambda. Por lo tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario con el prefijo `Model`. Puede usar el "@" caracteres para iniciar una expresión en línea y mover antes el `m.`:
 
 ```HTML
 @{

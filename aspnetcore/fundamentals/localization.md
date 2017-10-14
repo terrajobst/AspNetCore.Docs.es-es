@@ -11,8 +11,8 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: b64af625dd280b40e3c743af9415e3a67155fe6e
-ms.sourcegitcommit: e9bd53f53c0ba148343cd2057c714a7c72ee81e9
+ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/13/2017
@@ -100,7 +100,7 @@ Los mensajes de error de DataAnnotations están localizados con `IStringLocalize
 
 Están localizados en MVC de ASP.NET Core 1.1.0 y atributos alta, no la validación. Núcleo de ASP.NET MVC 1.0 **no** buscar cadenas traducidas para atributos de no validación.
 
-<a name=one-resource-string-multiple-classes></a>
+<a name="one-resource-string-multiple-classes"></a>
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Utilizando una cadena de recurso para varias clases
 
 El código siguiente muestra cómo utilizar una cadena de recursos para los atributos de validación con varias clases:
@@ -180,7 +180,7 @@ Si crea un archivo de recursos en Visual Studio sin una referencia cultural en e
 
 ### <a name="adding-other-cultures"></a>Agregar otras referencias culturales
 
-Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y  **en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
+Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y ** en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementar una estrategia para seleccionar el idioma o referencia cultural para cada solicitud  
 

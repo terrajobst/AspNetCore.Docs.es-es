@@ -2,7 +2,7 @@
 title: "Derivación de subclave y cifrado autenticado"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,22 +11,22 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: e070742b5d9966c4772fd2f0a6d637d98a46137c
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Derivación de subclave y cifrado autenticado
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 La mayoría de las teclas en el anillo de clave contiene alguna forma de entropía y tendrá algorítmica información que indica "cifrado de modo CBC + validación HMAC" o "cifrado de GCM + validación". En estos casos, nos referimos a la entropía incrustada como el material de creación de claves maestras (o KM) para esta clave y llevamos a cabo una función de derivación de claves para derivar las claves que se usará para las operaciones criptográficas reales.
 
 > [!NOTE]
 > Las claves son abstractas, y una implementación personalizada posible que no funcionen como sigue. Si la clave proporciona su propia implementación de IAuthenticatedEncryptor en lugar de utilizar una de nuestras fábricas integradas, el mecanismo que se describe en esta sección ya no se aplica.
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Datos autenticados adicionales y subclave derivación
 
@@ -42,7 +42,7 @@ Dado que el AAD es única para la tupla de los tres componentes, podemos usar se
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, || keyModifier)
 
-En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), seg. 5.1) con los siguientes parámetros:
+En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con los siguientes parámetros:
 
 * Clave de derivación de claves (KDK) = K_M
 

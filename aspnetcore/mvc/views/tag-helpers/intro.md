@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78004aa370cac8b297fd7ede534260c83965ae79
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introducción a las aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET 
 
@@ -51,7 +51,7 @@ El `asp-for` atributo debe ponerse a disposición por la `For` propiedad en el `
 
 Ámbito de las aplicaciones auxiliares de etiqueta se controla mediante una combinación de `@addTagHelper`, `@removeTagHelper`y el "!" caracteres de desactivación.
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`pone a disposición aplicaciones auxiliares de etiquetas
 
@@ -82,7 +82,7 @@ Para agregar una aplicación auxiliar de etiqueta a una vista con un FQN, agregu
 
 Como se mencionó anteriormente, agregar el `@addTagHelper` directivas para la *Views/_ViewImports.cshtml* archivo pone a disposición de todos los archivos de vista de la aplicación auxiliar de etiqueta el *vistas* directorio y subdirectorios. Puede usar el `@addTagHelper` la directiva en los archivos de la vista específica si desea participar en exponer la aplicación auxiliar de etiqueta a solo aquellas vistas.
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Quita las aplicaciones auxiliares de etiquetas
 
@@ -104,7 +104,7 @@ Puede deshabilitar una aplicación auxiliar de etiquetas en el nivel de elemento
 
 Debe aplicar el carácter de desactivación de aplicación auxiliar de etiqueta a la apertura y la etiqueta de cierre. (El editor de Visual Studio agrega automáticamente el carácter de cancelación para la etiqueta de cierre al agregar una a la etiqueta de apertura). Después de agregar el carácter de cancelación, el elemento y atributos de la aplicación auxiliar de etiqueta ya no se muestran en una fuente distintos.
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Usar `@tagHelperPrefix` para hacer uso de la aplicación auxiliar de etiqueta explícita
 
@@ -127,7 +127,7 @@ Considere la posibilidad de escribir un elemento HTML `<label>` elemento. Tan pr
 
 ![imagen](intro/_static/label.png)
 
-No solo obtendrá la Ayuda HTML, pero el icono (el "@" símbolo con "<>" debajo de él).
+No solo obtendrá la Ayuda HTML, pero el icono (el "@" symbol with "<>" debajo de él).
 
 ![imagen](intro/_static/tagSym.png)
 

@@ -11,11 +11,11 @@ ms.assetid: b3a5984d-e172-42eb-8a48-547e4acb6806
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration
-ms.openlocfilehash: ca6b62dd4699536b24c3422a2a51fc3fe1744f0a
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: d626768fe1a485705e104a5c758cbdb0b46685a3
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -33,7 +33,7 @@ La API de configuración proporciona una manera de configurar una aplicación ba
 
 Cada valor de configuración se asigna a una clave de cadena. No hay compatibilidad de enlace integrado para deserializar la configuración en un personalizado [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) objeto (una clase .NET simple con propiedades).
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="simple-configuration"></a>Muestra una configuración sencilla
 
@@ -81,7 +81,7 @@ Consideraciones sobre la configuración:
 * **Nunca** almacenar contraseñas u otros datos confidenciales en el código de proveedor de configuración o en archivos de configuración de texto sin formato. No utilice secretos de producción en el desarrollo o entornos de prueba. En su lugar, especifique secretos fuera del árbol del proyecto, por lo que no se pueden confirmar accidentalmente en el repositorio. Obtenga más información sobre [trabajar con varios entornos](environments.md) y administrar [almacenamiento seguro para la ejecución de secretos de aplicación durante el desarrollo](../security/app-secrets.md).
 * Si `:` no se puede utilizar en variables de entorno en el sistema, reemplace `:` con `__` (subrayado doble).
 
-<a name=options-config-objects></a>
+<a name="options-config-objects"></a>
 
 ## <a name="using-options-and-configuration-objects"></a>Uso de opciones y objetos de configuración
 
@@ -94,7 +94,7 @@ La clase de opciones debe ser no abstracto con un constructor público sin pará
 
 [!code-csharp[Main](configuration/sample/UsingOptions/Models/MyOptions.cs)]
 
-<a name=options-example></a>
+<a name="options-example"></a>
 
 En el código siguiente, se habilita el proveedor de configuración de JSON. La `MyOptions` clase se agrega al contenedor de servicios y se enlaza a la configuración.
 
@@ -148,7 +148,7 @@ También puede proporcionar opciones en un modelo de vista o insertar `IOptions<
 
 [!code-html[Main](configuration/sample/UsingOptions/Views/Home/Index.cshtml?highlight=3-4,16-17,20-21)]
 
-<a name=in-memory-provider></a>
+<a name="in-memory-provider"></a>
 
 ## <a name="ioptionssnapshot"></a>IOptionsSnapshot
 
@@ -247,7 +247,7 @@ public void CanBindObjectTree()
 }
 ```
 
-<a name=custom-config-providers></a>
+<a name="custom-config-providers"></a>
 
 ## <a name="basic-sample-of-entity-framework-custom-provider"></a>Ejemplo básico de proveedor personalizado de Entity Framework
 

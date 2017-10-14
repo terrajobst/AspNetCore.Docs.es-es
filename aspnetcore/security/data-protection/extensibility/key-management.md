@@ -2,7 +2,7 @@
 title: "Extensibilidad de administración de claves"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: 3606b251-8324-4485-8d52-582a2cd5cffb
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: ed84b6dc257d5fd9e4c1cf6106df3c8bd6e14f64
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: ce23931e72404347ebc17c69ae90e70cd15328bc
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="key-management-extensibility"></a>Extensibilidad de administración de claves
 
-<a name=data-protection-extensibility-key-management></a>
+<a name="data-protection-extensibility-key-management"></a>
 
 >[!TIP]
 > Leer la [administración de claves](../implementation/key-management.md#data-protection-implementation-key-management) sección antes de leer esta sección, tal y como se explican algunos de los conceptos fundamentales de estas API.
@@ -63,7 +63,7 @@ La interfaz IKeyManager representa un objeto responsable de la manipulación, re
 >[!WARNING]
 > Escribir una IKeyManager es una tarea muy avanzada y la mayoría de los desarrolladores no debería intentar. En su lugar, la mayoría de los desarrolladores deben aprovechar las ventajas de las funciones que ofrece el [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) clase.
 
-<a name=data-protection-extensibility-key-management-xmlkeymanager></a>
+<a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
@@ -139,7 +139,7 @@ Las implementaciones de IXmlRepository no es necesario analizar el XML que se pa
 
 Hay dos tipos integrados concretos que implementan IXmlRepository: FileSystemXmlRepository y RegistryXmlRepository. Consulte la [documento de proveedores de almacenamiento de claves](../implementation/key-storage-providers.md#data-protection-implementation-key-storage-providers) para obtener más información. Registrar un IXmlRepository personalizado podría ser la manera adecuada para utilizar otra memoria auxiliar, p. ej., el almacenamiento de blobs de Azure. Para cambiar el valor predeterminado repositorio-toda la aplicación, registrar un singleton personalizado IXmlRepository en el proveedor de servicios.
 
-<a name=data-protection-extensibility-key-management-ixmlencryptor></a>
+<a name="data-protection-extensibility-key-management-ixmlencryptor"></a>
 
 ## <a name="ixmlencryptor"></a>IXmlEncryptor
 
