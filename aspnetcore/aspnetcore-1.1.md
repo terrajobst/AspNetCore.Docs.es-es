@@ -11,11 +11,11 @@ ms.assetid: 062f8353-d1bc-4e99-a821-c1d1bb162c47
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-1.1
-ms.openlocfilehash: 28a99d3040df9611995fc8aed4bb8751aa9845f8
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 07e0c382e0d29d680334b0a6fbefd3fd48c6f0d5
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Novedades de ASP.NET Core 1.1
 
@@ -25,7 +25,7 @@ ASP.NET Core 1.1 incluye las siguientes características nuevas:
 - [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
 - [Componentes de vista como aplicaciones auxiliares de etiquetas](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
 - [Middleware como filtros de MVC](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)
-- [Proveedor TempData basado en cookies](xref:fundamentals/app-state#cookie-based-tempdata-provider )
+- [Proveedor TempData basado en cookies](xref:fundamentals/app-state#tempdata-providers)
 - [Proveedor de registros de Azure App Service](xref:fundamentals/logging#appservice)
 - [Proveedor de configuración de Azure Key Vault](xref:security/key-vault-configuration)
 - [Repositorios de claves de protección de datos de almacenamiento de Azure y Redis](xref:security/data-protection/implementation/key-storage-providers#azure-and-redis)
