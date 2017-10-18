@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9557e9f6915507450de3ffe500582839a28c3f0c
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: b2e991ea37b1b726e472d78d839143546ebd559f
+ms.sourcegitcommit: 29da58de11e20c9c60448e36e7075c6b13622624
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al inicio de sesión principal de ASP.NET
 
@@ -26,11 +26,11 @@ ASP.NET Core es compatible con una API de registro que funciona con una variedad
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample2) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ---
 
@@ -585,9 +585,6 @@ En el ejemplo siguiente se configura un `TraceSource` proveedor que registra `Wa
 El [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) el paquete de proveedor escribe registros en archivos de texto en el sistema de archivos de una aplicación de servicio de aplicaciones de Azure y al [almacenamiento de blobs](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) en una cuenta de almacenamiento de Azure. El proveedor está disponible únicamente para las aplicaciones que tienen como destino ASP.NET Core 1.1.0 o superior. 
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-> [!NOTE]
-> Núcleo de ASP.NET 2.0 está en vista previa.  No pueden ejecutar las aplicaciones creadas con la versión preliminar más reciente cuando se implementa en el servicio de aplicaciones de Azure. Cuando se suelta el núcleo de ASP.NET 2.0, el servicio de aplicaciones de Azure se ejecutará 2.0 aplicaciones y el servicio de aplicaciones de Azure proveedor funcionará como se indica a continuación.
 
 No tienes que instalar el paquete de proveedor o llame a la `AddAzureWebAppDiagnostics` método de extensión.  El proveedor está disponible automáticamente para la aplicación al implementar la aplicación en el servicio de aplicaciones de Azure.
 
