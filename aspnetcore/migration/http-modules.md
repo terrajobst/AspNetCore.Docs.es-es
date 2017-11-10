@@ -2,7 +2,7 @@
 title: "Migrar controladores HTTP y módulos ASP.NET Core middleware"
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/07/2016
@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: e14664133abf010b80374036e4855fdff71d1d5f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrar controladores HTTP y módulos ASP.NET Core middleware 
 
@@ -97,7 +97,7 @@ Un módulo HTTP existente tendrá un aspecto similar al siguiente:
 
 Como se muestra en el [Middleware](../fundamentals/middleware.md) página, un middleware de ASP.NET Core es una clase que expone un `Invoke` tomar método un `HttpContext` y devolver un `Task`. El middleware de nuevo tendrá un aspecto similar al siguiente:
 
-<a name=http-modules-usemiddleware></a>
+<a name="http-modules-usemiddleware"></a>
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyMiddleware.cs?highlight=9,13,20,24,28,30,32)]
 
@@ -105,7 +105,7 @@ La plantilla de middleware anterior se realizó desde la sección de [escribir m
 
 El *MyMiddlewareExtensions* clase auxiliar resulta más fácil de configurar el middleware en su `Startup` clase. El `UseMyMiddleware` método agrega la clase de middleware a la canalización de solicitudes. Servicios requeridos por el middleware obtengan insertados en el constructor del middleware.
 
-<a name=http-modules-shortcircuiting-middleware></a>
+<a name="http-modules-shortcircuiting-middleware"></a>
 
 El módulo podría terminar una solicitud, por ejemplo, si el usuario no está autorizado:
 
@@ -388,4 +388,4 @@ El `SetCookies` método de devolución de llamada sería similar al siguiente:
 
 * [Inicio de aplicaciones](../fundamentals/startup.md)
 
-* [Software intermedio](../fundamentals/middleware.md)
+* [Middleware](../fundamentals/middleware.md)

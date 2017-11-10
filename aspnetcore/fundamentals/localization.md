@@ -11,17 +11,17 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 85a192bf0b2eb245ecdaaa8ffa1c8dd2f43b45b0
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Damien Bowden](https://twitter.com/damien_bod), [Bart Calixto](https://twitter.com/bartmax), [Nadeem Afana](https://twitter.com/NadeemAfana), y [Ateya Hisham Bin](https://twitter.com/hishambinateya)
 
-Crear un sitio Web multilingüe con ASP.NET Core permitirá que su sitio llegar a una audiencia mayor. ASP.NET Core proporciona servicios y middleware para localizar a diferentes idiomas y referencias culturales.
+Crear un sitio Web multilingüe con ASP.NET Core permitirá que su sitio llegar a una audiencia mayor. ASP.NET Core proporciona servicios y software intermedio para la localización en diferentes idiomas y referencias culturales.
 
 Internacionalización implica [globalización](https://docs.microsoft.com/dotnet/api/system.globalization) y [localización](https://docs.microsoft.com/dotnet/standard/globalization-localization/localization). La globalización es el proceso de diseño de las aplicaciones que admiten distintas referencias culturales. Globalización agrega compatibilidad para entrada, visualización y salida de un conjunto definido de secuencias de comandos de lenguaje que se relacionan a áreas geográficas específicas.
 
@@ -43,11 +43,11 @@ Introdujo en ASP.NET Core, `IStringLocalizer` y `IStringLocalizer<T>` se han dis
 
 En el código anterior, el `IStringLocalizer<T>` implementación procede de [inyección de dependencia](dependency-injection.md). Si no se encuentra el valor localizado de "Sobre el título", se devuelve la clave de indizador, es decir, la cadena "Sobre el título". Puede dejar el valor predeterminado de cadenas literales de idioma en la aplicación y ajustarlas en el localizador, para que pueda centrarse en desarrollar la aplicación. Desarrollar la aplicación con el idioma predeterminado y prepararlo para el paso de localización sin crear primero un archivo de recursos predeterminado. Como alternativa, puede usar el enfoque tradicional y proporcionar una clave para recuperar la cadena de idioma predeterminado. Para muchos desarrolladores el nuevo flujo de trabajo por no disponer de un idioma predeterminado *.resx* archivo y sencillamente se ajustó los literales de cadena pueden reducir la sobrecarga de localizar una aplicación. Otros desarrolladores preferirán el flujo de trabajo tradicional, tal y como se puede hacer más fácil trabajar con literales de cadena más largos y que resulten más fáciles de actualizar las cadenas localizadas.
 
-Use la `IHtmlLocalizer<T>` implementación para los recursos que contienen HTML. `IHtmlLocalizer`Argumentos que se da formato de la cadena de recurso, pero no la cadena de recurso codifican en HTML. En el ejemplo de resaltado a continuación, solo el valor de `name` parámetro está codificado en HTML.
+Use la `IHtmlLocalizer<T>` implementación para los recursos que contienen HTML. `IHtmlLocalizer`Argumentos que se da formato a la cadena de recurso codifican en HTML, pero no HTML no codifica la cadena de recurso propio. En el ejemplo de resaltado a continuación, solo el valor de `name` parámetro está codificado en HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 
-Nota: Por lo general desea localizar sólo texto y no HTML.
+**Nota:** generalmente desea localizar sólo texto y no HTML.
 
 En el nivel más bajo, puede obtener `IStringLocalizerFactory` de [inyección de dependencia](dependency-injection.md):
 
@@ -59,7 +59,7 @@ Puede dividir las cadenas localizadas mediante el controlador, área, o tiene un
 
 [!code-csharp[Main](localization/sample/Localization/Resources/SharedResource.cs)]
 
-Algunos programadores utilizan la `Startup` clase para contener cadenas globales o compartidas.  En el ejemplo siguiente, la `InfoController` y `SharedResource` se utilizan los localizadores:
+Algunos programadores utilizan la `Startup` clase para contener cadenas globales o compartidas. En el ejemplo siguiente, la `InfoController` y `SharedResource` se utilizan los localizadores:
 
 [!code-csharp[Main](localization/sample/Localization/Controllers/InfoController.cs?range=9-26)]
 
@@ -67,7 +67,7 @@ Algunos programadores utilizan la `Startup` clase para contener cadenas globales
 
 El `IViewLocalizer` servicio proporciona las cadenas adaptadas para un [vista](https://docs.microsoft.com/aspnet/core). La `ViewLocalizer` clase implementa esta interfaz y busca la ubicación del recurso de la ruta de acceso del archivo de vista. El código siguiente muestra cómo utilizar la implementación predeterminada de `IViewLocalizer`:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Home/About.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Home/About.cshtml)]
 
 La implementación predeterminada de `IViewLocalizer` busca el archivo de recursos basado en nombre de archivo de la vista. No hay ninguna opción para utilizar un archivo de recurso compartido global. `ViewLocalizer`implementa el localizador mediante `IHtmlLocalizer`, por lo que Razor no HTML codificar la cadena adaptada. Se pueden parametrizar las cadenas de recursos y `IViewLocalizer` HTML codificará los parámetros, pero no la cadena de recurso. Tenga en cuenta el siguiente marcado de Razor:
 
@@ -83,13 +83,11 @@ Un archivo de recursos en francés podría contener lo siguiente:
 
 La vista representada contendría el marcado HTML desde el archivo de recursos.
 
-Notas:
-- Localización de la vista requiere que el paquete NuGet "Localization.AspNetCore.TagHelpers".
-- Por lo general desea adaptar solo texto y no HTML.
+**Nota:** generalmente desea localizar sólo texto y no HTML.
 
 Para usar un archivo de recurso compartido en una vista, insertar `IHtmlLocalizer<T>`:
 
-[!code-HTML[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
+[!code-cshtml[Main](../fundamentals/localization/sample/Localization/Views/Test/About.cshtml?highlight=5,12)]
 
 ## <a name="dataannotations-localization"></a>Localización de DataAnnotations
 
@@ -102,7 +100,7 @@ Los mensajes de error de DataAnnotations están localizados con `IStringLocalize
 
 Están localizados en MVC de ASP.NET Core 1.1.0 y atributos alta, no la validación. Núcleo de ASP.NET MVC 1.0 **no** buscar cadenas traducidas para atributos de no validación.
 
-<a name=one-resource-string-multiple-classes></a>
+<a name="one-resource-string-multiple-classes"></a>
 ### <a name="using-one-resource-string-for-multiple-classes"></a>Utilizando una cadena de recurso para varias clases
 
 El código siguiente muestra cómo utilizar una cadena de recursos para los atributos de validación con varias clases:
@@ -182,7 +180,7 @@ Si crea un archivo de recursos en Visual Studio sin una referencia cultural en e
 
 ### <a name="adding-other-cultures"></a>Agregar otras referencias culturales
 
-Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y  **en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
+Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y ** en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementar una estrategia para seleccionar el idioma o referencia cultural para cada solicitud  
 
@@ -287,11 +285,11 @@ Use `RequestLocalizationOptions` para agregar o quitar proveedores de localizaci
 
 Este ejemplo **Localization.StarterWeb** proyecto en [GitHub](https://github.com/aspnet/entropy) contiene la interfaz de usuario para establecer el `Culture`. El *Views/Shared/_SelectLanguagePartial.cshtml* archivo le permite seleccionar la referencia cultural de la lista de referencias culturales admitidas:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_SelectLanguagePartial.cshtml)]
 
 El *Views/Shared/_SelectLanguagePartial.cshtml* archivo se agrega a la `footer` sección del archivo de diseño para que esté disponible para todas las vistas:
 
-[!code-HTML[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
+[!code-cshtml[Main](localization/sample/Localization/Views/Shared/_Layout.cshtml?range=43-56&highlight=10)]
 
 El `SetLanguage` método establece la cookie de la referencia cultural.
 
@@ -317,6 +315,7 @@ Términos de:
 * Referencia cultural: Es un lenguaje y, opcionalmente, una región.
 * Referencia cultural neutra: una referencia cultural que tiene un idioma especificado, pero no una región. (por ejemplo "es-es", "es")
 * Referencia cultural específica: una referencia cultural que tiene un idioma especificado y la región. (por ejemplo "en-US", "en-GB", "es-CL")
+* Primario de la referencia cultural: referencia cultural neutra que contiene una referencia cultural concreta. (por ejemplo, "es-es" es la referencia cultural principal de "en-US" y "en-GB")
 * Configuración regional: Una configuración regional es el mismo que una referencia cultural.
 
 ## <a name="additional-resources"></a>Recursos adicionales

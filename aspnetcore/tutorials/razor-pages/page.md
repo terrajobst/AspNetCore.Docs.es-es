@@ -10,17 +10,17 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: 3fd155c5e9a119717243a4bafff776fcbd06fab5
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 7ae83b9bdadf5ebf8846b0c09c585da406708d12
+ms.sourcegitcommit: 94b7e0f95b92c98b182a93d2b3dc0287e5f97976
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 10/04/2017
 ---
 # <a name="scaffolded-razor-pages-in-aspnet-core"></a>Páginas de Razor con scaffolding en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En este tutorial se examinan las páginas de Razor creadas por la técnica scaffolding en el [tutorial anterior](xref:tutorials/razor-pages/page). 
+En este tutorial se examinan las páginas de Razor creadas por la técnica scaffolding en el tema de tutorial anterior [Adición de un modelo](xref:tutorials/razor-pages/model#scaffold-the-movie-model). 
 
 [Vea o descargue](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) un ejemplo.
 
@@ -43,13 +43,13 @@ La directiva de Razor `@page` convierte el archivo en una acción &mdash; de MVC
 Examine la expresión lambda usada en la siguiente aplicación auxiliar HTML:
 
 ```cshtml
-@Html.DisplayNameFor(model => model.Movies[0].Title))
+@Html.DisplayNameFor(model => model.Movie[0].Title))
 ```
 
-La aplicación auxiliar HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. La expresión lambda se inspecciona, no se evalúa. Esto significa que no hay ninguna infracción de acceso si `model`, `model.Movies` o `model.Movies[0]` son `null` o están vacíos. Al evaluar la expresión lambda (por ejemplo, con `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.
+La aplicación auxiliar HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. La expresión lambda se inspecciona, no se evalúa. Esto significa que no hay ninguna infracción de acceso si `model`, `model.Movie` o `model.Movie[0]` son `null` o están vacíos. Al evaluar la expresión lambda (por ejemplo, con `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.
 
 <a name="md"></a>
-### <a name="the-model-directive"></a>La directiva @model
+### <a name="the-model-directive"></a>La directiva @model 
 
 [!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?range=1-2&highlight=2)]
 
@@ -144,5 +144,5 @@ La [aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-fo
 En el siguiente tutorial se describe SQL Server LocalDB y la propagación de la base de datos.
 
 >[!div class="step-by-step"]
-[Anterior: Adición de un modelo](xref:tutorials/razor-pages/modelz)
+[Anterior: Adición de un modelo](xref:tutorials/razor-pages/model)
 [Siguiente: SQL Server LocalDB](xref:tutorials/razor-pages/sql)

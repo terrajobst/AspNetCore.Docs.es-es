@@ -11,11 +11,11 @@ ms.assetid: b5bba985-be12-4464-9a01-df3599b2a6f1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/environments
-ms.openlocfilehash: 054b3e9f1e2bcfe1e4a75eca4d9dc6326ee6e44f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: becdfa647acb6483b39f5421ab881c4817f31c40
+ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="working-with-multiple-environments"></a>Trabajar con varios entornos
 
@@ -23,11 +23,11 @@ Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core proporciona compatibilidad para controlar el comportamiento de la aplicación en varios entornos, como desarrollo, ensayo y producción. Las variables de entorno se utilizan para indicar el entorno en tiempo de ejecución, que permite a la aplicación que se configurará para ese entorno.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="development-staging-production"></a>Desarrollo, prueba, producción
 
-ASP.NET Core hace referencia a un determinado [variable de entorno](https://github.com/aspnet/Home/wiki), `ASPNETCORE_ENVIRONMENT` para describir el entorno se está ejecutando actualmente en la aplicación. Esta variable se puede establecer en cualquier valor que desee, pero por convención, se utilizan tres valores: `Development`, `Staging`, y `Production`. Encontrará estos valores utilizados en los ejemplos y las plantillas proporcionadas con ASP.NET Core.
+ASP.NET Core hace referencia a una variable de entorno en particular, `ASPNETCORE_ENVIRONMENT` para describir el entorno se está ejecutando actualmente en la aplicación. Esta variable se puede establecer en cualquier valor que desee, pero por convención, se utilizan tres valores: `Development`, `Staging`, y `Production`. Encontrará estos valores utilizados en los ejemplos y las plantillas proporcionadas con ASP.NET Core.
 
 Se pueden detectar mediante programación la configuración del entorno actual desde dentro de la aplicación. Además, puede usar el entorno de [etiqueta auxiliar](../mvc/views/tag-helpers/index.md) para incluir determinadas secciones en su [vista](../mvc/views/index.md) según el entorno de aplicación actual.
 
@@ -50,7 +50,7 @@ Este es un `launchSettings.json` archivo que incluye los perfiles para `Developm
 Podrán que los cambios realizados en los perfiles de los proyectos no surtan efecto hasta que se reinicie el servidor web usado (en particular, Kestrel debe reiniciarse para que se detectarán los cambios realizados en su entorno).
 
 >[!WARNING]
-> Las variables de entorno se almacenan en *launchSettings.json* no están protegidos de cualquier forma y va a formar parte del repositorio de código fuente para el proyecto, si utiliza uno. **Nunca almacenan credenciales ni otros datos secretos en este archivo.** Si necesita un lugar para almacenar estos datos, use la *Manager secreto* herramienta se describe en [almacenamiento seguro para la ejecución de secretos de aplicación durante el desarrollo](../security/app-secrets.md#security-app-secrets).
+> Las variables de entorno se almacenan en *launchSettings.json* no están protegidos de cualquier forma y va a formar parte del repositorio de código fuente para el proyecto, si utiliza uno. **Nunca almacenan credenciales ni otros datos secretos en este archivo.** Si necesita un lugar para almacenar estos datos, use la *Manager secreto* herramienta se describe en [almacenamiento seguro para la ejecución de secretos de aplicación durante el desarrollo](xref:security/app-secrets).
 
 ### <a name="staging"></a>Almacenamiento provisional
 

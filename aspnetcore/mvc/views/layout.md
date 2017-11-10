@@ -2,7 +2,7 @@
 title: "Diseño"
 author: ardalis
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 29f12d1f-9734-48bd-bf1a-cee53a8ab700
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/layout
-ms.openlocfilehash: 25aa5fc730d9076fdcf9d29cb5d9dfa75a246a1a
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 064621d8756b007c5b8859111bf3a03a0d7dda81
+ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="layout"></a>Diseño
 
@@ -51,7 +51,7 @@ El diseño especificado puede usar una ruta de acceso completa (ejemplo: `/Views
 
 De forma predeterminada, deben llamar todos los diseños de `RenderBody`. Siempre que la llamada a `RenderBody` es colocar, se representará el contenido de la vista.
 
-<a name=layout-sections-label></a>
+<a name="layout-sections-label"></a>
 
 ### <a name="sections"></a>Secciones
 
@@ -77,7 +77,7 @@ Para indicar al motor de vista para pasar por alto el cuerpo o secciones, llame 
 
 El cuerpo y todas las secciones en una página de Razor deben ser representan o pasa por alto.
 
-<a name=viewimports></a>
+<a name="viewimports"></a>
 
 ## <a name="importing-shared-directives"></a>Importar directivas compartidas
 
@@ -121,7 +121,7 @@ Si hay varios `_ViewImports.cshtml` archivos se ejecutan para una vista, combina
 
 * `@inject`: para cada propiedad, lo más cercano a la vista invalida cualquier otra con el mismo nombre de propiedad
 
-<a name=viewstart></a>
+<a name="viewstart"></a>
 
 ## <a name="running-code-before-each-view"></a>Ejecutar código antes de cada vista
 
