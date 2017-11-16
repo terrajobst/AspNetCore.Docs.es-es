@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app-xplat/working-with-sql
 ms.openlocfilehash: 4579063d704e751dd566696020e1923a4a4387d2
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/sql.md)]
 
 >[!div class="step-by-step"]
-<span data-ttu-id="71190-104">[Anterior: Agregar un modelo](adding-model.md)
-[Siguiente: Vistas y métodos de controlador](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="71190-104">[Previous - Add a model](adding-model.md)
+<span data-ttu-id="d6aa1-104">[Anterior: Agregar un modelo](adding-model.md)
+[Siguiente: Vistas y métodos de controlador](controller-methods-views.md)</span><span class="sxs-lookup"><span data-stu-id="d6aa1-104">[Previous - Add a model](adding-model.md)
 [Next - Controller methods and views](controller-methods-views.md)</span></span>
