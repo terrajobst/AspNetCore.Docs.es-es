@@ -8,5 +8,4 @@ El patrón de arquitectura del controlador de vista de modelos (MVC) separa una 
 
 El patrón de MVC ayuda a crear aplicaciones que separan los diferentes aspectos de la aplicación (lógica de entrada, lógica comercial y lógica de la interfaz de usuario), a la vez que proporciona un acoplamiento vago entre estos elementos. El patrón especifica dónde debe ubicarse cada tipo de lógica en la aplicación. La lógica de la interfaz de usuario pertenece a la vista. La lógica de entrada pertenece al controlador. La lógica de negocios pertenece al modelo. Esta separación ayuda a administrar la complejidad al compilar una aplicación, ya que permite trabajar en uno de los aspectos de la implementación a la vez sin influir en el código de otro. Por ejemplo, puede trabajar en el código de vista sin depender del código de lógica de negocios.
 
-En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo usarlos para crear una aplicación de película. El proyecto de MVC contiene carpetas para *controladores* y *vistas*. La carpeta para *modelos* se agregará en un paso posterior.
-
+En esta serie de tutoriales se tratarán estos conceptos y se mostrará cómo usarlos para crear una aplicación de película. El proyecto de MVC contiene carpetas para *controladores* y *vistas*.
