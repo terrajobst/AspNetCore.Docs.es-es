@@ -11,11 +11,11 @@ ms.assetid: 2707c7a8-2350-4304-9856-fda58e5c0a16
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/azure-continuous-deployment
-ms.openlocfilehash: a9efad38b1c75bd3a186b4ec85861357ecf744b9
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: f7ea2e76fdee19a3d964e42053f0060a0a505e5b
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Implementación continua en Azure para ASP.NET Core con Visual Studio y Git
 
@@ -34,7 +34,7 @@ En este tutorial se da por hecho que ya ha instalado lo siguiente:
 
 * [Visual Studio](https://www.visualstudio.com)
 
-* [ASP.NET Core](https://download.microsoft.com/download/F/6/E/F6ECBBCC-B02F-424E-8E03-D47E9FA631B7/DotNetCore.1.0.1-VS2015Tools.Preview2.0.3.exe) (tiempo de ejecución y herramientas)
+* [ASP.NET Core](https://www.microsoft.com/net/download/core) (tiempo de ejecución y herramientas)
 
 * [Git](https://git-scm.com/downloads) para Windows
 
@@ -44,14 +44,16 @@ En este tutorial se da por hecho que ya ha instalado lo siguiente:
 
 2. En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
 
-3. Seleccione la plantilla de proyecto **Aplicación web ASP.NET**. Aparece en **Instalados** > **Plantillas** > **Visual C#** > **Web**. Dé un nombre al proyecto `SampleWebAppDemo`. Seleccione la opción **Crear nuevo repositorio de Git** y haga clic en **Aceptar**.
+3. Seleccione la plantilla de proyecto **Aplicación web ASP.NET Core**. Aparece en **Instalados** > **Plantillas** > **Visual C#** > **.NET Core**. Dé un nombre al proyecto `SampleWebAppDemo`. Seleccione la opción **Crear nuevo repositorio de Git** y haga clic en **Aceptar**.
 
    ![Cuadro de diálogo Nuevo proyecto](azure-continuous-deployment/_static/01-new-project.png)
 
-4. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, seleccione la plantilla **Vacía** de ASP.NET Core y haga clic en **Aceptar**.
+4. En el cuadro de diálogo **Nuevo proyecto ASP.NET Core**, seleccione la plantilla **Vacía** de ASP.NET Core y haga clic en **Aceptar**.
 
    ![Cuadro de diálogo Nuevo proyecto ASP.NET](azure-continuous-deployment/_static/02-web-site-template.png)
 
+>[!NOTE]
+    >La última versión de .NET Core es la 2.0
 
 ### <a name="running-the-web-app-locally"></a>Ejecutar la aplicación web de forma local
 
@@ -94,21 +96,17 @@ Git es un sistema de control de versiones distribuido que puede usar para implem
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com), si aún no lo ha hecho.
 
-2. Haga clic en **Examinar**, opción que se encuentra en la parte inferior del panel de navegación.
+2. Haga clic en **App Services** para ver una lista los servicios de aplicaciones asociados a su suscripción de Azure.
 
-3. Haga clic en **Aplicaciones web** para ver una lista de las aplicaciones web asociadas a su suscripción de Azure.
+3. Seleccione la aplicación web que creó en la sección anterior de este tutorial.
 
-4. Seleccione la aplicación web que creó en la sección anterior de este tutorial.
+4. En la hoja **Implementación**, seleccione **Opciones de implementación** > **Elegir origen** > **Repositorio de Git local**.
 
-5. Si no se muestra la hoja **Configuración**, seleccione **Configuración** en la hoja **Aplicación web**.
+   ![Hoja Configuración: Hoja Origen de implementación: Hoja Elegir origen](azure-continuous-deployment/_static/deployment-options.png)
 
-6. En la hoja **Configuración**, seleccione **Origen de implementación** > **Elegir origen** > **Repositorio de Git local**.
+5. Haga clic en **Aceptar**.
 
-   ![Hoja Configuración: Hoja Origen de implementación: Hoja Elegir origen](azure-continuous-deployment/_static/08-azure-localrepository.png)
-
-7. Haga clic en **Aceptar**.
-
-8. Si no ha configurado antes las credenciales de implementación para publicar una aplicación web u otra aplicación de App Service, configúrelas ahora:
+6. Si no ha configurado antes las credenciales de implementación para publicar una aplicación web u otra aplicación de App Service, configúrelas ahora:
 
    * Haga clic en **Configuración** > **Credenciales de implementación**. Se mostrará la hoja **Configurar credenciales de implementación**.
 
@@ -116,9 +114,9 @@ Git es un sistema de control de versiones distribuido que puede usar para implem
 
    * Haga clic en **Guardar**.
 
-9. En la hoja **Aplicación web**, haga clic en **Configuración** > **Propiedades**. La dirección URL del repositorio remoto de Git en el que va a efectuar la implementación aparece en **Dirección URL de Git**.
+7. En la hoja **Aplicación web**, haga clic en **Configuración** > **Propiedades**. La dirección URL del repositorio remoto de Git en el que va a efectuar la implementación aparece en **Dirección URL de Git**.
 
-10. Copie el valor de **Dirección URL de Git** para usarlo más adelante en el tutorial.
+8. Copie el valor de **Dirección URL de Git** para usarlo más adelante en el tutorial.
 
    ![Azure Portal: Hoja Propiedades de la aplicación](azure-continuous-deployment/_static/09-azure-giturl.png)
 
@@ -194,7 +192,7 @@ En esta sección crearemos un repositorio local de Git con Visual Studio y lo in
 
 Puede comprobar que transfirió correctamente la aplicación web del entorno local a Azure. Verá que aparece la implementación correcta.
 
-1. En [Azure Portal](https://portal.azure.com), seleccione la aplicación web. Luego, seleccione **Configuración** > **Implementación continua**.
+1. En [Azure Portal](https://portal.azure.com), seleccione la aplicación web. Después, seleccione **Implementación** > **Opciones de implementación**.
 
    ![Azure Portal: Hoja Configuración: Hoja Implementaciones donde se muestra una implementación correcta](azure-continuous-deployment/_static/13-verify-deployment.png)
 

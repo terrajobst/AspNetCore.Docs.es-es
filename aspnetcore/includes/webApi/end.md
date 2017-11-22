@@ -1,14 +1,22 @@
 ## <a name="implement-the-other-crud-operations"></a>Implementar las otras operaciones CRUD
 
-Vamos a agregar los métodos `Create`, `Update` y `Delete` al controlador. Son variaciones de un tema, así que solo mostraré el código y comentaré las diferencias principales. Compile el proyecto después de agregar o cambiar el código.
+En las secciones siguientes, se agregan los métodos `Create`, `Update` y `Delete` al controlador.
 
 ### <a name="create"></a>Crear
 
+Agregue el siguiente método `Create`.
+
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Create)]
 
-Se trata de un método HTTP POST, indicado por el atributo [`[HttpPost]`](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute). El atributo [`[FromBody]`](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) indica a MVC que obtenga el valor de la tarea pendiente del cuerpo de la solicitud HTTP.
+El código anterior es un método HTTP POST, indicado por el atributo [`[HttpPost]`](/aspnet/core/api/microsoft.aspnetcore.mvc.httppostattribute). El atributo [`[FromBody]`](/aspnet/core/api/microsoft.aspnetcore.mvc.frombodyattribute) indica a MVC que obtenga el valor de la tarea pendiente del cuerpo de la solicitud HTTP.
 
-El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta estándar para un método HTTP POST que crea un nuevo recurso en el servidor. `CreatedAtRoute` también agrega un encabezado de ubicación a la respuesta. El encabezado de ubicación especifica el URI de la tarea pendiente recién creada. Vea [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (10.2.2 201 creada).
+El método `CreatedAtRoute` realiza las acciones siguientes:
+
+* Devuelve una respuesta 201. HTTP 201 es la respuesta estándar para un método HTTP POST que crea un recurso en el servidor.
+* Agrega un encabezado de ubicación a la respuesta. El encabezado de ubicación especifica el URI de la tarea pendiente recién creada. Vea [10.2.2 201 Created](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (10.2.2 201 creada).
+* Usa la ruta denominada "GetTodo" para crear la dirección URL. La ruta con nombre "GetTodo" se define en `GetById`:
+
+[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_GetByID&highlight=1-2)]
 
 ### <a name="use-postman-to-send-a-create-request"></a>Usar Postman para enviar una solicitud de creación
 
@@ -18,7 +26,7 @@ El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta est�
 * Seleccione el botón de radio **Body** (Cuerpo).
 * Seleccione el botón de radio **Raw** (Sin formato).
 * Establezca el tipo en JSON.
-* En el editor de pares clave-valor, escriba una tarea pendiente como la siguiente: 
+* En el editor de pares clave-valor, escriba una tarea pendiente como la siguiente:
 
 ```json
 {
@@ -28,19 +36,15 @@ El método `CreatedAtRoute` devuelve una respuesta 201, que es la respuesta est�
 ```
 
 * Seleccione **Send** (Enviar).
-
 * Seleccione la pestaña Headers (Encabezados) en el panel inferior y copie el encabezado **Location** (Ubicación):
 
 ![Pestaña Headers (Encabezados) de la consola de Postman](../../tutorials/first-web-api/_static/pmget.png)
 
-Puede usar el URI del encabezado Location (Ubicación) para acceder al recurso que acaba de crear. Recuerde que el método `GetById` creó la ruta denominada `"GetTodo"`:
-
-```csharp
-[HttpGet("{id}", Name = "GetTodo")]
-public IActionResult GetById(long id)
-```
+El URI del encabezado de ubicación puede utilizarse para acceder al nuevo elemento.
 
 ### <a name="update"></a>Actualizar
+
+Agregue el siguiente método `Update`:
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Update)]
 
@@ -50,8 +54,12 @@ public IActionResult GetById(long id)
 
 ### <a name="delete"></a>Eliminar
 
+Agregue el siguiente método `Delete`:
+
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Controllers/TodoController.cs?name=snippet_Delete)]
 
-La respuesta es [204 Sin contenido](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+La respuesta de `Delete` es [204 Sin contenido](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html).
+
+Probar `Delete`: 
 
 ![Consola de Postman que muestra la respuesta 204 Sin contenido](../../tutorials/first-web-api/_static/pmd.png)

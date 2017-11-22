@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 5a3dc302186c7fd0a5730bc2c7599676fb543ba7
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 3b54bf0b40c396c8c141966219f65231fb362ca4
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Carga de archivos en una página de Razor en ASP.NET Core
 
@@ -25,6 +25,14 @@ En esta sección se muestra cómo cargar archivos con una página de Razor.
 La [aplicación de ejemplo Razor Pages Movie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) de este tutorial usa el enlace de modelo simple para cargar archivos, lo que funciona bien para cargar archivos pequeños. Para más información sobre la transmisión de archivos de gran tamaño, vea [Uploading large files with streaming (Carga de archivos grandes mediante transmisión)](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
 En los pasos siguientes se agrega una característica de carga de archivo de programación de película a la aplicación de ejemplo. Una programación de película está representada por una clase `Schedule`. La clase incluye dos versiones de la programación. Una versión se proporciona a los clientes, `PublicSchedule`. La otra se usa para los empleados de la empresa, `PrivateSchedule`. Cada versión se carga como un archivo independiente. El tutorial muestra cómo realizar dos cargas de archivos desde una página con un solo elemento POST en el servidor.
+
+## <a name="add-a-fileupload-class"></a>Adición de una clase FileUpload
+
+A continuación, cree una página de Razor para controlar un par de cargas de archivos. Agregue una clase `FileUpload`, que está enlazada a la página para obtener los datos de programación. Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Asigne a la clase el nombre **FileUpload** y agregue las siguientes propiedades:
+
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
+
+La clase tiene una propiedad para el título de la programación y otra para cada una de las dos versiones de la programación. Las tres propiedades son necesarias y el título debe tener entre 3 y 60 caracteres.
 
 ## <a name="add-a-helper-method-to-upload-files"></a>Agregar un método auxiliar para cargar archivos
 
@@ -42,11 +50,9 @@ La clase usa los atributos `Display` y `DisplayFormat`, que generan títulos des
 
 ## <a name="update-the-moviecontext"></a>Actualización de MovieContext
 
-Especifique un elemento `DbSet` en `MovieContext` (*Models/MovieContext.cs*) para las programaciones y agregue una línea al método `OnModelCreating` que establezca un nombre de tabla de base de datos singular (`Schedule`) para la propiedad `DbSet`:
+Especifique `DbSet` en `MovieContext` (*Models/MovieContext.cs*) para las programaciones:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13,18)]
-
-Nota: Si no invalida `OnModelCreating` para usar nombres de tabla singulares, Entity Framework da por hecho que está usando nombres de tabla de base de datos plurales (por ejemplo, `Movies` y `Schedules`). Los desarrolladores están en desacuerdo sobre si los nombres de tabla deben ser plurales o no. Configure `MovieContext` y la base de datos del mismo modo. Use nombres de tabla de base de datos singulares o plurales en ambos lugares.
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieContext.cs?highlight=13)]
 
 ## <a name="add-the-schedule-table-to-the-database"></a>Adición de la tabla Schedule a la base de datos
 
@@ -60,14 +66,6 @@ En la PMC, ejecute los siguientes comandos. Estos comandos agregan una tabla `Sc
 Add-Migration AddScheduleTable
 Update-Database
 ```
-
-## <a name="add-a-fileupload-class"></a>Adición de una clase FileUpload
-
-Luego agregue una clase `FileUpload`, que está enlazada a la página para obtener los datos de programación. Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Asigne a la clase el nombre **FileUpload** y agregue las siguientes propiedades:
-
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
-
-La clase tiene una propiedad para el título de la programación y otra para cada una de las dos versiones de la programación. Las tres propiedades son necesarias y el título debe tener entre 3 y 60 caracteres.
 
 ## <a name="add-a-file-upload-razor-page"></a>Adición de una página de Razor de carga de archivos
 
@@ -97,7 +95,7 @@ Cuando se carga la página con `OnGetAsync`, `Schedules` se rellena a partir de 
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet3)]
 
-Cuando el formulario se publica en el servidor, se activa `ModelState`. Si no es válido, `Schedules` se vuelve a generar y la página se presenta con uno o más mensajes de validación que indican el motivo del error de validación de la página. Si es válido, las propiedades `FileUpload` se usan en *OnPostAsync* para completar la carga de archivos para las dos versiones de la programación y para crear un nuevo objeto `Schedule` para almacenar los datos. La programación luego se guarda en la base de datos:
+Cuando el formulario se publica en el servidor, se activa `ModelState`. Si no es válido, `Schedule` se vuelve a generar y la página se presenta con uno o más mensajes de validación que indican el motivo del error de validación de la página. Si es válido, las propiedades `FileUpload` se usan en *OnPostAsync* para completar la carga de archivos para las dos versiones de la programación y para crear un nuevo objeto `Schedule` para almacenar los datos. La programación luego se guarda en la base de datos:
 
 [!code-csharp[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs?name=snippet4)]
 

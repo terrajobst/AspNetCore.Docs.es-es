@@ -1,4 +1,4 @@
-En el código resaltado anterior se muestra cómo se agrega el contexto de base de datos de películas al contenedor [inserción de dependencias](xref:fundamentals/dependency-injection). La línea siguiente a `services.AddDbContext<MvcMovieContext>(options =>` no se muestra (vea el código). Especifica la base de datos que se usará y la cadena de conexión. `=>` es un [operador lambda](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
+En el código resaltado anterior se muestra cómo se agrega el contexto de la base de datos de películas al contenedor [inserción de dependencias](xref:fundamentals/dependency-injection) (en el archivo *Startup.cs*). `services.AddDbContext<MvcMovieContext>(options =>` especifica la base de datos que se usará y la cadena de conexión. `=>` es un [operador lambda](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/operators/lambda-operator).
 
 Abra el archivo *Controllers/MoviesController.cs* y examine el constructor:
 
@@ -8,7 +8,7 @@ Abra el archivo *Controllers/MoviesController.cs* y examine el constructor:
 
 El constructor usa la [inserción de dependencias](xref:fundamentals/dependency-injection) para insertar el contexto de base de datos (`MvcMovieContext `) en el controlador. El contexto de base de datos se usa en cada uno de los métodos [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) del controlador.
 
-<a name=strongly-typed-models-keyword-label></a>
+<a name="strongly-typed-models-keyword-label"></a>
 
 ## <a name="strongly-typed-models-and-the-model-keyword"></a>Modelos fuertemente tipados y la palabra clave @model
 

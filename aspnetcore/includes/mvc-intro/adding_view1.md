@@ -10,4 +10,4 @@ Actualmente, el método `Index` devuelve una cadena con un mensaje que está cod
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-El código anterior devuelve un objeto `View`. Usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocidos como métodos de acción), como el método `Index` anterior, suelen devolver [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) (o una clase derivada de `ActionResult`), en lugar de tipos no primitivos como una cadena.
+El código anterior devuelve un objeto `View`. Usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocidos como métodos de acción), como el método `Index` anterior, suelen devolver [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) o una clase derivada de `ActionResult`, en lugar de un tipo como una cadena.
