@@ -11,11 +11,11 @@ ms.assetid: a4449ad3-5bad-410c-afa7-dc32d832b552
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/iis
-ms.openlocfilehash: e9e9019d5b879498e8800bb579c177dd3ad64061
-ms.sourcegitcommit: 96af03c9f44f7c206e68ae3ef8596068e6b4e5fd
+ms.openlocfilehash: 7eb1537df47fcf0b24db2a7d843b655a6f6f8f21
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -56,7 +56,7 @@ Continúe con el paso **Confirmación** para instalar el rol y los servicios de 
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Instalación del lote de hospedaje .NET Core Windows Server
 
-1. Instale el [lote de hospedaje .NET Core Windows Server](https://download.microsoft.com/download/5/C/1/5C190037-632B-443D-842D-39085F02E1E8/DotNetCore.2.0.3-WindowsHosting.exe) en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el lote de hospedaje .NET Core Windows Server.
+1. Instale el [lote de hospedaje .NET Core Windows Server](https://aka.ms/dotnetcore-2-windowshosting) en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el lote de hospedaje .NET Core Windows Server.
 
 2. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para obtener un cambio en la ruta de acceso del sistema.
 
@@ -272,7 +272,7 @@ La configuración de IIS aún se ve afectada por la sección `<system.webServer>
 
 ## <a name="configuration-sections-of-webconfig"></a>Secciones de configuración de web.config
 
-A diferencia de las aplicaciones de .NET Framework que se configuran con los elementos `<system.web>`, `<appSettings>`, `<connectionStrings>` y `<location>` de *web.config*, las aplicaciones de ASP.NET Core se configuran con otros proveedores de configuración. Para obtener más información, vea [Configuración](xref:fundamentals/configuration).
+A diferencia de las aplicaciones de .NET Framework que se configuran con los elementos `<system.web>`, `<appSettings>`, `<connectionStrings>` y `<location>` de *web.config*, las aplicaciones de ASP.NET Core se configuran con otros proveedores de configuración. Para obtener más información, vea [Configuración](xref:fundamentals/configuration/index).
 
 ## <a name="application-pools"></a>Grupos de aplicaciones
 
