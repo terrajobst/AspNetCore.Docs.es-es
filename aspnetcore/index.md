@@ -1,7 +1,7 @@
 ---
 title: "Introducción a ASP.NET Core"
 author: rick-anderson
-description: 
+description: "Proporciona una introducción a ASP.NET Core."
 keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: index
-ms.openlocfilehash: 748c8c0b9dd0e6eab0d7347bbf89ed80c10bdb54
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: a075c63fddb9e28a1da37d4ef6647808a0dcb583
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -35,7 +35,7 @@ ASP.NET Core ofrece las siguientes ventajas:
 
 * Un caso unificado para crear API web y una interfaz de usuario web.
 * Integración de [marcos del lado cliente modernos](xref:client-side/index) y flujos de trabajo de desarrollo.
-* Un [sistema de configuración](xref:fundamentals/configuration) basado en el entorno y preparado para la nube.
+* Un [sistema de configuración](xref:fundamentals/configuration/index) basado en el entorno y preparado para la nube.
 * [Inserción de dependencias](xref:fundamentals/dependency-injection) integrada.
 * Una canalización de solicitudes HTTP ligera, modular y de alto rendimiento.
 * Capacidad de hospedarse en IIS o de autohospedarse en su propio proceso.
