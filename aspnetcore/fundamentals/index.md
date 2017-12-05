@@ -12,49 +12,49 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/index
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e707bb92b2d8b1776ae2970001f1699248580e5f
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 83bed4676be3ca752442da3fe560f1f2a4d728a1
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
+# <a name="aspnet-core-fundamentals"></a><span data-ttu-id="cdfa6-104">Conceptos básicos de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="cdfa6-104">ASP.NET Core fundamentals</span></span>
 
-Una aplicación de ASP.NET Core es una aplicación de consola que crea un servidor web en su método `Main`:
+<span data-ttu-id="cdfa6-105">Una aplicación de ASP.NET Core es una aplicación de consola que crea un servidor web en su método `Main`:</span><span class="sxs-lookup"><span data-stu-id="cdfa6-105">An ASP.NET Core application is a console app that creates a web server in its `Main` method:</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="cdfa6-106">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="cdfa6-106">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs)]
 
-El método `Main` invoca a `WebHost.CreateDefaultBuilder`, que sigue el patrón de generador para crear un host de aplicación web. El generador tiene métodos que definen el servidor web (por ejemplo, `UseKestrel`) y la clase de inicio (`UseStartup`). En el ejemplo anterior, se asigna automáticamente el servidor web [Kestrel](xref:fundamentals/servers/kestrel). El host web de ASP.NET Core intenta ejecutarse en IIS, si está disponible. Otros servidores web, como [HTTP.sys](xref:fundamentals/servers/httpsys), se pueden usar al invocar el método de extensión adecuado. `UseStartup` se explica en la sección siguiente.
+<span data-ttu-id="cdfa6-107">El método `Main` invoca a `WebHost.CreateDefaultBuilder`, que sigue el patrón de generador para crear un host de aplicación web.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-107">The `Main` method invokes `WebHost.CreateDefaultBuilder`, which follows the builder pattern to create a web application host.</span></span> <span data-ttu-id="cdfa6-108">El generador tiene métodos que definen el servidor web (por ejemplo, `UseKestrel`) y la clase de inicio (`UseStartup`).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-108">The builder has methods that define the web server (for example, `UseKestrel`) and the startup class (`UseStartup`).</span></span> <span data-ttu-id="cdfa6-109">En el ejemplo anterior, se asigna automáticamente el servidor web [Kestrel](xref:fundamentals/servers/kestrel).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-109">In the preceding example, the [Kestrel](xref:fundamentals/servers/kestrel) web server is automatically allocated.</span></span> <span data-ttu-id="cdfa6-110">El host web de ASP.NET Core intenta ejecutarse en IIS, si está disponible.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-110">ASP.NET Core's web host attempts to run on IIS, if available.</span></span> <span data-ttu-id="cdfa6-111">Otros servidores web, como [HTTP.sys](xref:fundamentals/servers/httpsys), se pueden usar al invocar el método de extensión adecuado.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-111">Other web servers, such as [HTTP.sys](xref:fundamentals/servers/httpsys), can be used by invoking the appropriate extension method.</span></span> <span data-ttu-id="cdfa6-112">`UseStartup` se explica en la sección siguiente.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-112">`UseStartup` is explained further in the next section.</span></span>
 
-`IWebHostBuilder`, el tipo de valor devuelto de la invocación `WebHost.CreateDefaultBuilder`, proporciona muchos métodos opcionales. Algunos de estos métodos incluyen `UseHttpSys` para hospedar la aplicación en HTTP.sys y `UseContentRoot` para especificar el directorio de contenido raíz. Los métodos `Build` y `Run` crean el objeto `IWebHost` que hospeda la aplicación y empieza a escuchar las solicitudes HTTP.
+<span data-ttu-id="cdfa6-113">`IWebHostBuilder`, el tipo de valor devuelto de la invocación `WebHost.CreateDefaultBuilder`, proporciona muchos métodos opcionales.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-113">`IWebHostBuilder`, the return type of the `WebHost.CreateDefaultBuilder` invocation, provides many optional methods.</span></span> <span data-ttu-id="cdfa6-114">Algunos de estos métodos incluyen `UseHttpSys` para hospedar la aplicación en HTTP.sys y `UseContentRoot` para especificar el directorio de contenido raíz.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-114">Some of these methods include `UseHttpSys` for hosting the app in HTTP.sys and `UseContentRoot` for specifying the root content directory.</span></span> <span data-ttu-id="cdfa6-115">Los métodos `Build` y `Run` crean el objeto `IWebHost` que hospeda la aplicación y empieza a escuchar las solicitudes HTTP.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-115">The `Build` and `Run` methods build the `IWebHost` object that hosts the app and begins listening for HTTP requests.</span></span>
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="cdfa6-116">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="cdfa6-116">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs)]
 
-El método `Main` usa `WebHostBuilder`, que sigue el patrón de generador para crear un host de aplicación web. El generador tiene métodos que definen el servidor web (por ejemplo, `UseKestrel`) y la clase de inicio (`UseStartup`). En el ejemplo anterior, se usa el servidor web [Kestrel](xref:fundamentals/servers/kestrel). Si se invoca el método de extensión adecuado, se pueden usar otros servidores web, como [WebListener](xref:fundamentals/servers/weblistener). `UseStartup` se explica en la sección siguiente.
+<span data-ttu-id="cdfa6-117">El método `Main` usa `WebHostBuilder`, que sigue el patrón de generador para crear un host de aplicación web.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-117">The `Main` method uses `WebHostBuilder`, which follows the builder pattern to create a web application host.</span></span> <span data-ttu-id="cdfa6-118">El generador tiene métodos que definen el servidor web (por ejemplo, `UseKestrel`) y la clase de inicio (`UseStartup`).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-118">The builder has methods that define the web server (for example, `UseKestrel`) and the startup class (`UseStartup`).</span></span> <span data-ttu-id="cdfa6-119">En el ejemplo anterior, se usa el servidor web [Kestrel](xref:fundamentals/servers/kestrel).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-119">In the preceding example, the [Kestrel](xref:fundamentals/servers/kestrel) web server is used.</span></span> <span data-ttu-id="cdfa6-120">Si se invoca el método de extensión adecuado, se pueden usar otros servidores web, como [WebListener](xref:fundamentals/servers/weblistener).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-120">Other web servers, such as [WebListener](xref:fundamentals/servers/weblistener), can be used by invoking the appropriate extension method.</span></span> <span data-ttu-id="cdfa6-121">`UseStartup` se explica en la sección siguiente.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-121">`UseStartup` is explained further in the next section.</span></span>
 
-`WebHostBuilder` proporciona muchos métodos opcionales, incluido `UseIISIntegration` para hospedar en IIS e IIS Express, y `UseContentRoot` para especificar el directorio de contenido raíz. Los métodos `Build` y `Run` crean el objeto `IWebHost` que hospeda la aplicación y empieza a escuchar las solicitudes HTTP.
+<span data-ttu-id="cdfa6-122">`WebHostBuilder` proporciona muchos métodos opcionales, incluido `UseIISIntegration` para hospedar en IIS e IIS Express, y `UseContentRoot` para especificar el directorio de contenido raíz.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-122">`WebHostBuilder` provides many optional methods, including `UseIISIntegration` for hosting in IIS and IIS Express and `UseContentRoot` for specifying the root content directory.</span></span> <span data-ttu-id="cdfa6-123">Los métodos `Build` y `Run` crean el objeto `IWebHost` que hospeda la aplicación y empieza a escuchar las solicitudes HTTP.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-123">The `Build` and `Run` methods build the `IWebHost` object that hosts the app and begins listening for HTTP requests.</span></span>
 
 ---
 
-## <a name="startup"></a>Inicio
+## <a name="startup"></a><span data-ttu-id="cdfa6-124">Inicio</span><span class="sxs-lookup"><span data-stu-id="cdfa6-124">Startup</span></span>
 
-El método `UseStartup` de `WebHostBuilder` especifica la clase `Startup` para la aplicación:
+<span data-ttu-id="cdfa6-125">El método `UseStartup` de `WebHostBuilder` especifica la clase `Startup` para la aplicación:</span><span class="sxs-lookup"><span data-stu-id="cdfa6-125">The `UseStartup` method on `WebHostBuilder` specifies the `Startup` class for your app:</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="cdfa6-126">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="cdfa6-126">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program2x.cs?highlight=10&range=6-17)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="cdfa6-127">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="cdfa6-127">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 [!code-csharp[Main](../getting-started/sample/aspnetcoreapp/Program.cs?highlight=7&range=6-17)]
 
 ---
 
-La clase `Startup` es donde se define la canalización de control de solicitudes y donde se configuran los servicios necesarios para la aplicación. La clase `Startup` debe ser pública y contener los siguientes métodos:
+<span data-ttu-id="cdfa6-128">La clase `Startup` es donde se define la canalización de control de solicitudes y donde se configuran los servicios necesarios para la aplicación.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-128">The `Startup` class is where you define the request handling pipeline and where any services needed by the app are configured.</span></span> <span data-ttu-id="cdfa6-129">La clase `Startup` debe ser pública y contener los siguientes métodos:</span><span class="sxs-lookup"><span data-stu-id="cdfa6-129">The `Startup` class must be public and contain the following methods:</span></span>
 
 ```csharp
 public class Startup
@@ -73,144 +73,144 @@ public class Startup
 }
 ```
 
-`ConfigureServices` define los [servicios](#dependency-injection-services) que usa la aplicación (por ejemplo, ASP.NET Core MVC, Entity Framework Core, Identity). `Configure` define el [software intermedio](xref:fundamentals/middleware) en la canalización de solicitudes.
+<span data-ttu-id="cdfa6-130">`ConfigureServices` define los [servicios](#dependency-injection-services) que usa la aplicación (por ejemplo, ASP.NET Core MVC, Entity Framework Core, Identity).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-130">`ConfigureServices` defines the [Services](#dependency-injection-services) used by your app (for example, ASP.NET Core MVC, Entity Framework Core, Identity).</span></span> <span data-ttu-id="cdfa6-131">`Configure` define el [software intermedio](xref:fundamentals/middleware) en la canalización de solicitudes.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-131">`Configure` defines the [middleware](xref:fundamentals/middleware) for the request pipeline.</span></span>
 
-Para obtener más información, vea [Application startup](xref:fundamentals/startup) (Inicio de la aplicación).
+<span data-ttu-id="cdfa6-132">Para obtener más información, vea [Application startup](xref:fundamentals/startup) (Inicio de la aplicación).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-132">For more information, see [Application startup](xref:fundamentals/startup).</span></span>
 
-## <a name="content-root"></a>Raíz del contenido
+## <a name="content-root"></a><span data-ttu-id="cdfa6-133">Raíz del contenido</span><span class="sxs-lookup"><span data-stu-id="cdfa6-133">Content root</span></span>
 
-La raíz del contenido es la ruta de acceso base a cualquier contenido que usa la aplicación, como vistas, [páginas de Razor](xref:mvc/razor-pages/index) y activos estáticos. De forma predeterminada, la raíz del contenido es la misma que la ruta de acceso base de la aplicación para el archivo ejecutable que hospeda la aplicación.
+<span data-ttu-id="cdfa6-134">La raíz del contenido es la ruta de acceso base a cualquier contenido que usa la aplicación, como vistas, [páginas de Razor](xref:mvc/razor-pages/index) y activos estáticos.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-134">The content root is the base path to any content used by the app, such as views, [Razor Pages](xref:mvc/razor-pages/index), and static assets.</span></span> <span data-ttu-id="cdfa6-135">De forma predeterminada, la raíz del contenido es la misma que la ruta de acceso base de la aplicación para el archivo ejecutable que hospeda la aplicación.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-135">By default, the content root is the same as application base path for the executable hosting the app.</span></span>
 
-## <a name="web-root"></a>Raíz web
+## <a name="web-root"></a><span data-ttu-id="cdfa6-136">Raíz web</span><span class="sxs-lookup"><span data-stu-id="cdfa6-136">Web root</span></span>
 
-La raíz web de una aplicación es el directorio del proyecto que contiene recursos públicos y estáticos, como archivos de imagen, CSS y JavaScript.
+<span data-ttu-id="cdfa6-137">La raíz web de una aplicación es el directorio del proyecto que contiene recursos públicos y estáticos, como archivos de imagen, CSS y JavaScript.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-137">The web root of an app is the directory in the project containing public, static resources, such as CSS, JavaScript, and image files.</span></span>
 
-## <a name="dependency-injection-services"></a>Inserción de dependencias (servicios)
+## <a name="dependency-injection-services"></a><span data-ttu-id="cdfa6-138">Inserción de dependencias (servicios)</span><span class="sxs-lookup"><span data-stu-id="cdfa6-138">Dependency Injection (Services)</span></span>
 
-Un servicio es un componente que está pensado para su uso común en una aplicación. Los servicios se ponen a disposición a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection). ASP.NET Core incluye un contenedor **d**e **i**nversión del **c**ontrol (IoC) nativo que admite la [inserción de constructores](xref:mvc/controllers/dependency-injection#constructor-injection) de forma predeterminada. Si quiere, puede reemplazar el contenedor nativo predeterminado. Además de la ventaja de acoplamiento flexible, DI hace que los servicios estén disponibles en toda la aplicación (por ejemplo, el [registro](xref:fundamentals/logging)).
+<span data-ttu-id="cdfa6-139">Un servicio es un componente que está pensado para su uso común en una aplicación.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-139">A service is a component that's intended for common consumption in an app.</span></span> <span data-ttu-id="cdfa6-140">Los servicios se ponen a disposición a través de la [inserción de dependencias (DI)](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-140">Services are made available through [dependency injection (DI)](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="cdfa6-141">ASP.NET Core incluye un contenedor **d**e **i**nversión del **c**ontrol (IoC) nativo que admite la [inserción de constructores](xref:mvc/controllers/dependency-injection#constructor-injection) de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-141">ASP.NET Core includes a native **I**nversion **o**f **C**ontrol (IoC) container that supports [constructor injection](xref:mvc/controllers/dependency-injection#constructor-injection) by default.</span></span> <span data-ttu-id="cdfa6-142">Si quiere, puede reemplazar el contenedor nativo predeterminado.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-142">You can replace the default native container if you wish.</span></span> <span data-ttu-id="cdfa6-143">Además de la ventaja de acoplamiento flexible, DI hace que los servicios estén disponibles en toda la aplicación (por ejemplo, el [registro](xref:fundamentals/logging/index)).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-143">In addition to its loose coupling benefit, DI makes services available throughout your app (for example, [logging](xref:fundamentals/logging/index)).</span></span>
 
-Para obtener más información, consulte [Inserción de dependencias](xref:fundamentals/dependency-injection).
+<span data-ttu-id="cdfa6-144">Para obtener más información, consulte [Inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-144">For more information, see [Dependency injection](xref:fundamentals/dependency-injection).</span></span>
 
-## <a name="middleware"></a>Software intermedio
+## <a name="middleware"></a><span data-ttu-id="cdfa6-145">Software intermedio</span><span class="sxs-lookup"><span data-stu-id="cdfa6-145">Middleware</span></span>
 
-En ASP.NET Core, se crea la canalización de solicitudes mediante [software intermedio](xref:fundamentals/middleware). El software intermedio de ASP.NET Core lleva a cabo la lógica asincrónica en `HttpContext` y después invoca al siguiente software intermedio de la secuencia o finaliza la solicitud directamente. Se agrega un componente de software intermedio denominado "XYZ" al invocar un método de extensión `UseXYZ` en el método `Configure`.
+<span data-ttu-id="cdfa6-146">En ASP.NET Core, se crea la canalización de solicitudes mediante [software intermedio](xref:fundamentals/middleware).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-146">In ASP.NET Core, you compose your request pipeline using [middleware](xref:fundamentals/middleware).</span></span> <span data-ttu-id="cdfa6-147">El software intermedio de ASP.NET Core lleva a cabo la lógica asincrónica en `HttpContext` y después invoca al siguiente software intermedio de la secuencia o finaliza la solicitud directamente.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-147">ASP.NET Core middleware performs asynchronous logic on an `HttpContext` and then either invokes the next middleware in the sequence or terminates the request directly.</span></span> <span data-ttu-id="cdfa6-148">Se agrega un componente de software intermedio denominado "XYZ" al invocar un método de extensión `UseXYZ` en el método `Configure`.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-148">A middleware component called "XYZ" is added by invoking an `UseXYZ` extension method in the `Configure` method.</span></span>
 
-ASP.NET Core incluye un amplio conjunto de software intermedio integrado:
+<span data-ttu-id="cdfa6-149">ASP.NET Core incluye un amplio conjunto de software intermedio integrado:</span><span class="sxs-lookup"><span data-stu-id="cdfa6-149">ASP.NET Core comes with a rich set of built-in middleware:</span></span>
 
-* [Archivos estáticos](xref:fundamentals/static-files)
-* [Enrutamiento](xref:fundamentals/routing)
-* [Autenticación](xref:security/authentication/index)
-* [Middleware de compresión de respuestas](xref:performance/response-compression)
-* [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting)
+* [<span data-ttu-id="cdfa6-150">Archivos estáticos</span><span class="sxs-lookup"><span data-stu-id="cdfa6-150">Static files</span></span>](xref:fundamentals/static-files)
+* [<span data-ttu-id="cdfa6-151">Enrutamiento</span><span class="sxs-lookup"><span data-stu-id="cdfa6-151">Routing</span></span>](xref:fundamentals/routing)
+* [<span data-ttu-id="cdfa6-152">Autenticación</span><span class="sxs-lookup"><span data-stu-id="cdfa6-152">Authentication</span></span>](xref:security/authentication/index)
+* [<span data-ttu-id="cdfa6-153">Middleware de compresión de respuestas</span><span class="sxs-lookup"><span data-stu-id="cdfa6-153">Response Compression Middleware</span></span>](xref:performance/response-compression)
+* [<span data-ttu-id="cdfa6-154">Middleware de reescritura de dirección URL</span><span class="sxs-lookup"><span data-stu-id="cdfa6-154">URL Rewriting Middleware</span></span>](xref:fundamentals/url-rewriting)
 
-El software intermedio basado en [OWIN](http://owin.org) está disponible para aplicaciones ASP.NET Core y puede escribir su propio software intermedio personalizado.
+<span data-ttu-id="cdfa6-155">El software intermedio basado en [OWIN](http://owin.org) está disponible para aplicaciones ASP.NET Core y puede escribir su propio software intermedio personalizado.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-155">[OWIN](http://owin.org)-based middleware is available for ASP.NET Core apps, and you can write your own custom middleware.</span></span>
 
-Para obtener más información, consulte [Middleware](xref:fundamentals/middleware) (Software intermedio) y [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) [Interfaz web abierta para .NET (OWIN)].
+<span data-ttu-id="cdfa6-156">Para obtener más información, consulte [Middleware](xref:fundamentals/middleware) (Software intermedio) y [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) [Interfaz web abierta para .NET (OWIN)].</span><span class="sxs-lookup"><span data-stu-id="cdfa6-156">For more information, see [Middleware](xref:fundamentals/middleware) and [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin).</span></span>
 
-## <a name="environments"></a>Entornos
+## <a name="environments"></a><span data-ttu-id="cdfa6-157">Entornos</span><span class="sxs-lookup"><span data-stu-id="cdfa6-157">Environments</span></span>
 
-Los entornos, como "Desarrollo" y "Producción", son un concepto de primera clase en ASP.NET Core y se pueden establecer mediante variables de entorno.
+<span data-ttu-id="cdfa6-158">Los entornos, como "Desarrollo" y "Producción", son un concepto de primera clase en ASP.NET Core y se pueden establecer mediante variables de entorno.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-158">Environments, such as "Development" and "Production", are a first-class notion in ASP.NET Core and can be set using environment variables.</span></span>
 
-Para obtener más información, consulte [Trabajar con varios entornos](xref:fundamentals/environments).
+<span data-ttu-id="cdfa6-159">Para obtener más información, consulte [Trabajar con varios entornos](xref:fundamentals/environments).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-159">For more information, see [Working with Multiple Environments](xref:fundamentals/environments).</span></span>
 
-## <a name="configuration"></a>Configuración
+## <a name="configuration"></a><span data-ttu-id="cdfa6-160">Configuración</span><span class="sxs-lookup"><span data-stu-id="cdfa6-160">Configuration</span></span>
 
-ASP.NET Core usa un modelo de configuración basado en pares de nombre-valor. El modelo de configuración no se basa en `System.Configuration` o *web.config*. La configuración obtiene valores de un conjunto ordenado de proveedores de configuración. Los proveedores de configuración integrados admiten una variedad de formatos de archivo (XML, JSON, INI) y variables de entorno para habilitar la configuración basada en el entorno. También puede escribir sus propios proveedores de configuración personalizados.
+<span data-ttu-id="cdfa6-161">ASP.NET Core usa un modelo de configuración basado en pares de nombre-valor.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-161">ASP.NET Core uses a configuration model based on name-value pairs.</span></span> <span data-ttu-id="cdfa6-162">El modelo de configuración no se basa en `System.Configuration` o *web.config*. La configuración obtiene valores de un conjunto ordenado de proveedores de configuración.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-162">The configuration model isn't based on `System.Configuration` or *web.config*. Configuration obtains settings from an ordered set of configuration providers.</span></span> <span data-ttu-id="cdfa6-163">Los proveedores de configuración integrados admiten una variedad de formatos de archivo (XML, JSON, INI) y variables de entorno para habilitar la configuración basada en el entorno.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-163">The built-in configuration providers support a variety of file formats (XML, JSON, INI) and environment variables to enable environment-based configuration.</span></span> <span data-ttu-id="cdfa6-164">También puede escribir sus propios proveedores de configuración personalizados.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-164">You can also write your own custom configuration providers.</span></span>
 
-Para obtener más información, vea [Configuración](xref:fundamentals/configuration).
+<span data-ttu-id="cdfa6-165">Para obtener más información, vea [Configuración](xref:fundamentals/configuration/index).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-165">For more information, see [Configuration](xref:fundamentals/configuration/index).</span></span>
 
-## <a name="logging"></a>Registro
+## <a name="logging"></a><span data-ttu-id="cdfa6-166">Registro</span><span class="sxs-lookup"><span data-stu-id="cdfa6-166">Logging</span></span>
 
-ASP.NET Core es compatible con una API de registro que funciona con una variedad de proveedores de registro. Los proveedores integrados admiten el envío de registros a uno o varios destinos. Se pueden usar plataformas de registro de terceros.
+<span data-ttu-id="cdfa6-167">ASP.NET Core es compatible con una API de registro que funciona con una variedad de proveedores de registro.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-167">ASP.NET Core supports a logging API that works with a variety of logging providers.</span></span> <span data-ttu-id="cdfa6-168">Los proveedores integrados admiten el envío de registros a uno o varios destinos.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-168">Built-in providers support sending logs to one or more destinations.</span></span> <span data-ttu-id="cdfa6-169">Se pueden usar plataformas de registro de terceros.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-169">Third-party logging frameworks can be used.</span></span>
 
-[Registro](xref:fundamentals/logging)
+[<span data-ttu-id="cdfa6-170">Registro</span><span class="sxs-lookup"><span data-stu-id="cdfa6-170">Logging</span></span>](xref:fundamentals/logging/index)
 
-## <a name="error-handling"></a>Control de errores
+## <a name="error-handling"></a><span data-ttu-id="cdfa6-171">Control de errores</span><span class="sxs-lookup"><span data-stu-id="cdfa6-171">Error handling</span></span>
 
-ASP.NET Core tiene características integradas para controlar los errores en las aplicaciones, incluida una página de excepciones de desarrollador, páginas de errores personalizados, páginas de códigos de estado estáticos y control de excepciones de inicio.
+<span data-ttu-id="cdfa6-172">ASP.NET Core tiene características integradas para controlar los errores en las aplicaciones, incluida una página de excepciones de desarrollador, páginas de errores personalizados, páginas de códigos de estado estáticos y control de excepciones de inicio.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-172">ASP.NET Core has built-in features for handling errors in apps, including a developer exception page, custom error pages, static status code pages, and startup exception handling.</span></span>
 
-Para más información, vea [Control de excepciones](xref:fundamentals/error-handling).
+<span data-ttu-id="cdfa6-173">Para más información, vea [Control de excepciones](xref:fundamentals/error-handling).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-173">For more information, see [Error Handling](xref:fundamentals/error-handling).</span></span>
 
-## <a name="routing"></a>Enrutamiento
+## <a name="routing"></a><span data-ttu-id="cdfa6-174">Enrutamiento</span><span class="sxs-lookup"><span data-stu-id="cdfa6-174">Routing</span></span>
 
-ASP.NET Core ofrece características para el enrutamiento de solicitudes de aplicación a los controladores de ruta.
+<span data-ttu-id="cdfa6-175">ASP.NET Core ofrece características para el enrutamiento de solicitudes de aplicación a los controladores de ruta.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-175">ASP.NET Core offers features for routing of app requests to route handlers.</span></span>
 
-Para más información, vea [Enrutamiento](xref:fundamentals/routing).
+<span data-ttu-id="cdfa6-176">Para más información, vea [Enrutamiento](xref:fundamentals/routing).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-176">For more information, see [Routing](xref:fundamentals/routing).</span></span>
 
-## <a name="file-providers"></a>Proveedores de archivos
+## <a name="file-providers"></a><span data-ttu-id="cdfa6-177">Proveedores de archivos</span><span class="sxs-lookup"><span data-stu-id="cdfa6-177">File providers</span></span>
 
-ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos, lo que ofrece una interfaz común para trabajar con archivos entre plataformas.
+<span data-ttu-id="cdfa6-178">ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos, lo que ofrece una interfaz común para trabajar con archivos entre plataformas.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-178">ASP.NET Core abstracts file system access through the use of File Providers, which offers a common interface for working with files across platforms.</span></span>
 
-Para más información, vea [Proveedores de archivos](xref:fundamentals/file-providers).
+<span data-ttu-id="cdfa6-179">Para más información, vea [Proveedores de archivos](xref:fundamentals/file-providers).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-179">For more information, see [File Providers](xref:fundamentals/file-providers).</span></span>
 
-## <a name="static-files"></a>Archivos estáticos
+## <a name="static-files"></a><span data-ttu-id="cdfa6-180">Archivos estáticos</span><span class="sxs-lookup"><span data-stu-id="cdfa6-180">Static files</span></span>
 
-El software intermedio de archivos estáticos trabaja con archivos estáticos (por ejemplo, HTML, CSS, imágenes y JavaScript).
+<span data-ttu-id="cdfa6-181">El software intermedio de archivos estáticos trabaja con archivos estáticos (por ejemplo, HTML, CSS, imágenes y JavaScript).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-181">Static files middleware serves static files, such as HTML, CSS, image, and JavaScript.</span></span>
 
-Para más información, vea [Trabajar con archivos estáticos](xref:fundamentals/static-files).
+<span data-ttu-id="cdfa6-182">Para más información, vea [Trabajar con archivos estáticos](xref:fundamentals/static-files).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-182">For more information, see [Working with static files](xref:fundamentals/static-files).</span></span>
 
-## <a name="hosting"></a>Hospedaje
+## <a name="hosting"></a><span data-ttu-id="cdfa6-183">Hospedaje</span><span class="sxs-lookup"><span data-stu-id="cdfa6-183">Hosting</span></span>
 
-Las aplicaciones ASP.NET Core configuran e inician un *host*. Dicho host es responsable de la administración de inicio y duración de la aplicación.
+<span data-ttu-id="cdfa6-184">Las aplicaciones ASP.NET Core configuran e inician un *host*. Dicho host es responsable de la administración de inicio y duración de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-184">ASP.NET Core apps configure and launch a *host*, which is responsible for app startup and lifetime management.</span></span>
 
-Para más información, vea [Hospedaje](xref:fundamentals/hosting).
+<span data-ttu-id="cdfa6-185">Para más información, vea [Hospedaje](xref:fundamentals/hosting).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-185">For more information, see [Hosting](xref:fundamentals/hosting).</span></span>
 
-## <a name="session-and-application-state"></a>Estado de sesión y aplicación
+## <a name="session-and-application-state"></a><span data-ttu-id="cdfa6-186">Estado de sesión y aplicación</span><span class="sxs-lookup"><span data-stu-id="cdfa6-186">Session and application state</span></span>
 
-El estado de sesión es una característica de ASP.NET Core que se puede usar para guardar y almacenar datos de usuario mientras el usuario explora la aplicación web.
+<span data-ttu-id="cdfa6-187">El estado de sesión es una característica de ASP.NET Core que se puede usar para guardar y almacenar datos de usuario mientras el usuario explora la aplicación web.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-187">Session state is a feature in ASP.NET Core that you can use to save and store user data while the user browses your web app.</span></span>
 
-Para más información, vea [Estado de sesión y aplicación](xref:fundamentals/app-state).
+<span data-ttu-id="cdfa6-188">Para más información, vea [Estado de sesión y aplicación](xref:fundamentals/app-state).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-188">For more information, see [Session and application state](xref:fundamentals/app-state).</span></span>
 
-## <a name="servers"></a>Servidores
+## <a name="servers"></a><span data-ttu-id="cdfa6-189">Servidores</span><span class="sxs-lookup"><span data-stu-id="cdfa6-189">Servers</span></span>
 
-El modelo de hospedaje de ASP.NET Core no escucha directamente las solicitudes. El modelo de hospedaje se basa en una implementación de servidor HTTP para reenviar la solicitud a la aplicación. La solicitud reenviada se empaqueta como un conjunto de objetos de característica al que se puede tener acceso a través de interfaces. ASP.NET Core incluye un servidor web administrado multiplataforma, denominado [Kestrel](xref:fundamentals/servers/kestrel). Kestrel se suele ejecutar detrás de un servidor web de producción como [IIS](https://www.iis.net/) o [nginx](http://nginx.org). Kestrel se puede ejecutar como un servidor perimetral.
+<span data-ttu-id="cdfa6-190">El modelo de hospedaje de ASP.NET Core no escucha directamente las solicitudes.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-190">The ASP.NET Core hosting model doesn't directly listen for requests.</span></span> <span data-ttu-id="cdfa6-191">El modelo de hospedaje se basa en una implementación de servidor HTTP para reenviar la solicitud a la aplicación.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-191">The hosting model relies on an HTTP server implementation to forward the request to the app.</span></span> <span data-ttu-id="cdfa6-192">La solicitud reenviada se empaqueta como un conjunto de objetos de característica al que se puede tener acceso a través de interfaces.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-192">The forwarded request is wrapped as a set of feature objects that can be accessed through interfaces.</span></span> <span data-ttu-id="cdfa6-193">ASP.NET Core incluye un servidor web administrado multiplataforma, denominado [Kestrel](xref:fundamentals/servers/kestrel).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-193">ASP.NET Core includes a managed, cross-platform web server, called [Kestrel](xref:fundamentals/servers/kestrel).</span></span> <span data-ttu-id="cdfa6-194">Kestrel se suele ejecutar detrás de un servidor web de producción como [IIS](https://www.iis.net/) o [nginx](http://nginx.org).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-194">Kestrel is often run behind a production web server, such as [IIS](https://www.iis.net/) or [nginx](http://nginx.org).</span></span> <span data-ttu-id="cdfa6-195">Kestrel se puede ejecutar como un servidor perimetral.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-195">Kestrel can be run as an edge server.</span></span>
 
-Para más información, vea [Servidores](xref:fundamentals/servers/index) y los temas siguientes:
+<span data-ttu-id="cdfa6-196">Para más información, vea [Servidores](xref:fundamentals/servers/index) y los temas siguientes:</span><span class="sxs-lookup"><span data-stu-id="cdfa6-196">For more information, see [Servers](xref:fundamentals/servers/index) and the following topics:</span></span>
 
-* [Kestrel](xref:fundamentals/servers/kestrel)
-* [Módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
-* [HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener))
+* [<span data-ttu-id="cdfa6-197">Kestrel</span><span class="sxs-lookup"><span data-stu-id="cdfa6-197">Kestrel</span></span>](xref:fundamentals/servers/kestrel)
+* [<span data-ttu-id="cdfa6-198">Módulo ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="cdfa6-198">ASP.NET Core Module</span></span>](xref:fundamentals/servers/aspnet-core-module)
+* <span data-ttu-id="cdfa6-199">[HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener))</span><span class="sxs-lookup"><span data-stu-id="cdfa6-199">[HTTP.sys](xref:fundamentals/servers/httpsys) (formerly called [WebListener](xref:fundamentals/servers/weblistener))</span></span>
 
-## <a name="globalization-and-localization"></a>Globalización y localización
+## <a name="globalization-and-localization"></a><span data-ttu-id="cdfa6-200">Globalización y localización</span><span class="sxs-lookup"><span data-stu-id="cdfa6-200">Globalization and localization</span></span>
 
-El hecho de crear un sitio web multilingüe con ASP.NET Core permite que este llegue a un público más amplio. ASP.NET Core proporciona servicios y software intermedio para la localización en diferentes idiomas y referencias culturales.
+<span data-ttu-id="cdfa6-201">El hecho de crear un sitio web multilingüe con ASP.NET Core permite que este llegue a un público más amplio.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-201">Creating a multilingual website with ASP.NET Core allows your site to reach a wider audience.</span></span> <span data-ttu-id="cdfa6-202">ASP.NET Core proporciona servicios y software intermedio para la localización en diferentes idiomas y referencias culturales.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-202">ASP.NET Core provides services and middleware for localizing into different languages and cultures.</span></span>
 
-Para más información, vea [Globalización y localización](xref:fundamentals/localization).
+<span data-ttu-id="cdfa6-203">Para más información, vea [Globalización y localización](xref:fundamentals/localization).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-203">For more information, see [Globalization and localization](xref:fundamentals/localization).</span></span>
 
-## <a name="request-features"></a>Características de la solicitud
+## <a name="request-features"></a><span data-ttu-id="cdfa6-204">Características de la solicitud</span><span class="sxs-lookup"><span data-stu-id="cdfa6-204">Request features</span></span>
 
-Los detalles de implementación del servidor web relacionados con las solicitudes HTTP y las respuestas se definen en las interfaces. En las implementaciones del servidor web y el software intermedio se usan estas interfaces para crear y modificar la canalización de hospedaje de la aplicación.
+<span data-ttu-id="cdfa6-205">Los detalles de implementación del servidor web relacionados con las solicitudes HTTP y las respuestas se definen en las interfaces.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-205">Web server implementation details related to HTTP requests and responses are defined in interfaces.</span></span> <span data-ttu-id="cdfa6-206">En las implementaciones del servidor web y el software intermedio se usan estas interfaces para crear y modificar la canalización de hospedaje de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-206">These interfaces are used by server implementations and middleware to create and modify the app's hosting pipeline.</span></span>
 
-Para más información, vea [Características de la solicitud](xref:fundamentals/request-features).
+<span data-ttu-id="cdfa6-207">Para más información, vea [Características de la solicitud](xref:fundamentals/request-features).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-207">For more information, see [Request Features](xref:fundamentals/request-features).</span></span>
 
-## <a name="open-web-interface-for-net-owin"></a>Interfaz web abierta para .NET (OWIN)
+## <a name="open-web-interface-for-net-owin"></a><span data-ttu-id="cdfa6-208">Interfaz web abierta para .NET (OWIN)</span><span class="sxs-lookup"><span data-stu-id="cdfa6-208">Open Web Interface for .NET (OWIN)</span></span>
 
-ASP.NET Core es compatible con la interfaz web abierta para .NET (OWIN). OWIN permite que las aplicaciones web se desacoplen de los servidores web.
+<span data-ttu-id="cdfa6-209">ASP.NET Core es compatible con la interfaz web abierta para .NET (OWIN).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-209">ASP.NET Core supports the Open Web Interface for .NET (OWIN).</span></span> <span data-ttu-id="cdfa6-210">OWIN permite que las aplicaciones web se desacoplen de los servidores web.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-210">OWIN allows web apps to be decoupled from web servers.</span></span>
 
-Para más información, vea [Interfaz web abierta para .NET (OWIN)](xref:fundamentals/owin).
+<span data-ttu-id="cdfa6-211">Para más información, vea [Interfaz web abierta para .NET (OWIN)](xref:fundamentals/owin).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-211">For more information, see [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin).</span></span>
 
-## <a name="websockets"></a>WebSockets
+## <a name="websockets"></a><span data-ttu-id="cdfa6-212">WebSockets</span><span class="sxs-lookup"><span data-stu-id="cdfa6-212">WebSockets</span></span>
 
-[WebSocket](https://wikipedia.org/wiki/WebSocket) es un protocolo que habilita canales de comunicación bidireccional persistentes a través de conexiones TCP. Se usa para aplicaciones de chat, tableros de cotizaciones, juegos y donde se necesite funcionalidad en tiempo real en una aplicación web. ASP.NET Core es compatible con características de socket web.
+<span data-ttu-id="cdfa6-213">[WebSocket](https://wikipedia.org/wiki/WebSocket) es un protocolo que habilita canales de comunicación bidireccional persistentes a través de conexiones TCP.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-213">[WebSocket](https://wikipedia.org/wiki/WebSocket) is a protocol that enables two-way persistent communication channels over TCP connections.</span></span> <span data-ttu-id="cdfa6-214">Se usa para aplicaciones de chat, tableros de cotizaciones, juegos y donde se necesite funcionalidad en tiempo real en una aplicación web.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-214">It's used for apps such as chat, stock tickers, games, and anywhere you desire real-time functionality in a web app.</span></span> <span data-ttu-id="cdfa6-215">ASP.NET Core es compatible con características de socket web.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-215">ASP.NET Core supports web socket features.</span></span>
 
-Para más información, vea [WebSockets](xref:fundamentals/websockets).
+<span data-ttu-id="cdfa6-216">Para más información, vea [WebSockets](xref:fundamentals/websockets).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-216">For more information, see [WebSockets](xref:fundamentals/websockets).</span></span>
 
-## <a name="microsoftaspnetcoreall-metapackage"></a>Metapaquete Microsoft.AspNetCore.All
+## <a name="microsoftaspnetcoreall-metapackage"></a><span data-ttu-id="cdfa6-217">Metapaquete Microsoft.AspNetCore.All</span><span class="sxs-lookup"><span data-stu-id="cdfa6-217">Microsoft.AspNetCore.All metapackage</span></span>
 
-El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) para ASP.NET Core incluye lo siguiente:
+<span data-ttu-id="cdfa6-218">El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) para ASP.NET Core incluye lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="cdfa6-218">The [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapackage for ASP.NET Core includes:</span></span>
 
-* Todos los paquetes admitidos por el equipo de ASP.NET Core.
-* Todos los paquetes admitidos por Entity Framework Core. 
-* Dependencias internas y de terceros usadas por ASP.NET Core y Entity Framework Core.
+* <span data-ttu-id="cdfa6-219">Todos los paquetes admitidos por el equipo de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-219">All supported packages by the ASP.NET Core team.</span></span>
+* <span data-ttu-id="cdfa6-220">Todos los paquetes admitidos por Entity Framework Core.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-220">All supported packages by the Entity Framework Core.</span></span> 
+* <span data-ttu-id="cdfa6-221">Dependencias internas y de terceros usadas por ASP.NET Core y Entity Framework Core.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-221">Internal and 3rd-party dependencies used by ASP.NET Core and Entity Framework Core.</span></span>
 
-Para más información, vea [Metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage).
+<span data-ttu-id="cdfa6-222">Para más información, vea [Metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-222">For more information, see [Microsoft.AspNetCore.All metapackage](xref:fundamentals/metapackage).</span></span>
 
-## <a name="net-core-vs-net-framework-runtime"></a>Entorno de ejecución de .NET Core frente a .NET Framework
+## <a name="net-core-vs-net-framework-runtime"></a><span data-ttu-id="cdfa6-223">Entorno de ejecución de .NET Core frente a .NET Framework</span><span class="sxs-lookup"><span data-stu-id="cdfa6-223">.NET Core vs. .NET Framework runtime</span></span>
 
-Una aplicación de ASP.NET Core puede tener como destino el entorno de ejecución de .NET Core o .NET Framework.
+<span data-ttu-id="cdfa6-224">Una aplicación de ASP.NET Core puede tener como destino el entorno de ejecución de .NET Core o .NET Framework.</span><span class="sxs-lookup"><span data-stu-id="cdfa6-224">An ASP.NET Core app can target the .NET Core or .NET Framework runtime.</span></span>
 
-Para más información, vea [Selección entre .NET Core y .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
+<span data-ttu-id="cdfa6-225">Para más información, vea [Selección entre .NET Core y .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-225">For more information, see [Choosing between .NET Core and .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).</span></span>
 
-## <a name="choose-between-aspnet-core-and-aspnet"></a>Elección entre ASP.NET Core y ASP.NET
+## <a name="choose-between-aspnet-core-and-aspnet"></a><span data-ttu-id="cdfa6-226">Elección entre ASP.NET Core y ASP.NET</span><span class="sxs-lookup"><span data-stu-id="cdfa6-226">Choose between ASP.NET Core and ASP.NET</span></span>
 
-Para más información sobre cómo elegir entre ASP.NET Core y ASP.NET, vea [Elección entre ASP.NET Core y ASP.NET](xref:fundamentals/choose-between-aspnet-and-aspnetcore).
+<span data-ttu-id="cdfa6-227">Para más información sobre cómo elegir entre ASP.NET Core y ASP.NET, vea [Elección entre ASP.NET Core y ASP.NET](xref:fundamentals/choose-between-aspnet-and-aspnetcore).</span><span class="sxs-lookup"><span data-stu-id="cdfa6-227">For more information on choosing between ASP.NET Core and ASP.NET, see [Choose between ASP.NET Core and ASP.NET](xref:fundamentals/choose-between-aspnet-and-aspnetcore).</span></span>
