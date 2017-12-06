@@ -21,20 +21,20 @@ ms.lasthandoff: 09/28/2017
 
 Por [Steve Smith](https://ardalis.com/)
 
-Núcleo de ASP.NET MVC es un marco completo para la creación de aplicaciones web y API que usan el modelo Model-View-Controller patrón de diseño.
+ASP.NET Core MVC es un marco de trabajo completo para la creación de aplicaciones web y APIs que usan el patron de diseño Modelo-Vista-Controlador.
 
 ## <a name="what-is-the-mvc-pattern"></a>¿Qué es el modelo de MVC?
 
-El modelo de arquitectura Model-View-Controller (MVC) separa una aplicación en tres grupos principales de componentes: modelos, vistas y controladores. Este patrón ayuda a lograr [separación de intereses](http://deviq.com/separation-of-concerns/). Con este patrón, se enrutan las solicitudes de usuario a un controlador que es responsable de trabajar con el modelo para realizar las acciones del usuario o recuperar los resultados de consultas. El controlador elige la vista para mostrar al usuario y le proporciona los datos del modelo que requiere.
+El modelo de arquitectura Model-View-Controller (MVC) separa una aplicación en tres grupos principales de componentes: modelos, vistas y controladores. Este patrón ayuda a lograr [separación de intereses](http://deviq.com/separation-of-concerns/). Con este patrón, se enrutan las solicitudes de usuario a un controlador que es responsable de trabajar con el modelo para realizar las acciones del usuario y/o recuperar los resultados de consultas. El controlador elige la vista para mostrar al usuario y le proporciona los datos del modelo que requiere.
 
 El siguiente diagrama muestra los tres componentes principales y las que hacen referencia a los demás:
 
 ![Modelo de MVC](overview/_static/mvc.png)
 
-Este delineación de responsabilidades le ayuda a escalar la aplicación en cuanto a complejidad porque es más fácil de codificar, depurar y probar algo (modelo, vista o controlador) que tiene un único trabajo (y sigue el [principio de responsabilidad única ](http://deviq.com/single-responsibility-principle/)). Es más difícil de actualización, pruebas y código de depuración que tiene dependencias que se reparten entre dos o varias de estas tres áreas. Por ejemplo, lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si la presentación código y la lógica empresarial se combina en un único objeto, tendrá que modificar un objeto que contiene la lógica de negocios cada vez que cambie la interfaz de usuario. Esto es probable que presentan errores y requerir al volver a examinar de toda la lógica de negocios después de cambiar de cada interfaz de usuario mínima.
+Este delineación de responsabilidades le ayuda a escalar la aplicación en cuanto a complejidad porque es más fácil de codificar, depurar y probar algo (modelo, vista o controlador) que tiene un único trabajo (y sigue el [principio de responsabilidad única ](http://deviq.com/single-responsibility-principle/)). Es más difícil de actualización, pruebas y código de depuración que tiene dependencias que se reparten entre dos o varias de estas tres áreas. Por ejemplo, lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si la presentación código y la lógica empresarial se combina en un único objeto, tendrá que modificar un objeto que contiene la lógica de negocios cada vez que cambie la interfaz de usuario. Asi es probable que se introduzcan errores y se requiera volver a examinar de toda la lógica de negocios después de hacer un cambio minimo en cada interfaz de usuario.
 
 > [!NOTE]
-> La vista y el controlador dependen del modelo. Sin embargo, el modelo depende de la vista ni el controlador. Esta es una de las ventajas principales de la separación. Esta separación permite que el modelo que se compilaron y comprobaron independiente de la presentación visual.
+> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni el controlador. Esta es una de las ventajas principales de la separación. Esta separación permite que el modelo sea construido y probado independiente de la presentación visual.
 
 ### <a name="model-responsibilities"></a>Responsabilidades de modelo
 
