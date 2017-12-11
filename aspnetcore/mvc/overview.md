@@ -21,7 +21,7 @@ ms.lasthandoff: 09/28/2017
 
 Por [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC es un marco de trabajo completo para la creación de aplicaciones web y APIs que usan el patron de diseño Modelo-Vista-Controlador.
+ASP.NET Core MVC es un completo marco de trabajo para compilar aplicaciones web y APIs mediante el patrón de diseño Modelo-Vista-Controlador.
 
 ## <a name="what-is-the-mvc-pattern"></a>¿Qué es el modelo de MVC?
 
@@ -34,7 +34,7 @@ El siguiente diagrama muestra los tres componentes principales y las que hacen r
 Este delineación de responsabilidades le ayuda a escalar la aplicación en cuanto a complejidad porque es más fácil de codificar, depurar y probar algo (modelo, vista o controlador) que tiene un único trabajo (y sigue el [principio de responsabilidad única ](http://deviq.com/single-responsibility-principle/)). Es más difícil de actualización, pruebas y código de depuración que tiene dependencias que se reparten entre dos o varias de estas tres áreas. Por ejemplo, lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si la presentación código y la lógica empresarial se combina en un único objeto, tendrá que modificar un objeto que contiene la lógica de negocios cada vez que cambie la interfaz de usuario. Asi es probable que se introduzcan errores y se requiera volver a examinar de toda la lógica de negocios después de hacer un cambio minimo en cada interfaz de usuario.
 
 > [!NOTE]
-> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni el controlador. Esta es una de las ventajas principales de la separación. Esta separación permite que el modelo sea construido y probado independiente de la presentación visual.
+> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni del controlador. Esta es una de las ventajas principales de la separación. Esta separación permite compilar y probar el modelo con independencia de la presentación visual.
 
 ### <a name="model-responsibilities"></a>Responsabilidades de modelo
 
