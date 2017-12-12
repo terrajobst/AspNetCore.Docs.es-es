@@ -1,234 +1,314 @@
 ---
 title: Agrupar y minificar en ASP.NET Core
-author: spboyer
-description: 
-keywords: "ASP.NET básicos, agrupación y Minificación, CSS, JavaScript, Minificar, BuildBundlerMinifier"
-ms.author: riande
+author: scottaddie
+description: "Obtenga información acerca de cómo optimizar recursos estáticos en una aplicación web de ASP.NET Core aplicando técnicas de agrupación y minificación."
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.assetid: d54230f9-8e5f-4861-a29c-1d3a14e0b0d9
-ms.technology: aspnet
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 12/01/2017
+ms.devlang: csharp
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 11528cb2067ced79a09845f9ff78d897da033438
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: c271b7ef386bacedbd45fbe9f62c9c486db55b36
+ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="bundling-and-minification-in-aspnet-core"></a><span data-ttu-id="a6925-103">Agrupar y minificar en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="a6925-103">Bundling and minification in ASP.NET Core</span></span>
+# <a name="bundling-and-minification"></a><span data-ttu-id="8a28c-103">Agrupar y minificar</span><span class="sxs-lookup"><span data-stu-id="8a28c-103">Bundling and minification</span></span>
 
-<span data-ttu-id="a6925-104">Agrupar y minificar son dos técnicas puede usar en ASP.NET para mejorar el rendimiento de la carga de página para la aplicación web.</span><span class="sxs-lookup"><span data-stu-id="a6925-104">Bundling and minification are two techniques you can use in ASP.NET to improve page load performance for your web application.</span></span> <span data-ttu-id="a6925-105">Cómo agrupar combina varios archivos en un único archivo.</span><span class="sxs-lookup"><span data-stu-id="a6925-105">Bundling combines multiple files into a single file.</span></span> <span data-ttu-id="a6925-106">Minificación realiza una serie de optimizaciones de código diferente para las secuencias de comandos y CSS, que da lugar a unas cargas menores.</span><span class="sxs-lookup"><span data-stu-id="a6925-106">Minification performs a variety of different code optimizations to scripts and CSS, which results in smaller payloads.</span></span> <span data-ttu-id="a6925-107">Usan juntos, agrupar y minificar mejora el rendimiento en tiempo de carga, lo que reduce el número de solicitudes al servidor y reducir el tamaño de los activos solicitados (como archivos CSS y JavaScript).</span><span class="sxs-lookup"><span data-stu-id="a6925-107">Used together, bundling and minification improves load time performance by reducing the number of requests to the server and reducing the size of the requested assets (such as CSS and JavaScript files).</span></span>
+<span data-ttu-id="8a28c-104">Por [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="8a28c-104">By [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="a6925-108">Este artículo explica las ventajas de usar la agrupación y minificación, incluido cómo estas características pueden utilizarse con aplicaciones de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="a6925-108">This article explains the benefits of using bundling and minification, including how these features can be used with ASP.NET Core applications.</span></span>
+<span data-ttu-id="8a28c-105">Este artículo explica las ventajas de aplicar la agrupación y minificación, incluido cómo estas características pueden utilizarse con las aplicaciones web de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="8a28c-105">This article explains the benefits of applying bundling and minification, including how these features can be used with ASP.NET Core web apps.</span></span>
 
-## <a name="overview"></a><span data-ttu-id="a6925-109">Información general</span><span class="sxs-lookup"><span data-stu-id="a6925-109">Overview</span></span>
+## <a name="what-is-bundling-and-minification"></a><span data-ttu-id="8a28c-106">¿Qué es agrupar y minificar?</span><span class="sxs-lookup"><span data-stu-id="8a28c-106">What is bundling and minification?</span></span>
 
-<span data-ttu-id="a6925-110">En las aplicaciones ASP.NET Core, existen varias opciones para agrupar y minificar recursos del lado cliente.</span><span class="sxs-lookup"><span data-stu-id="a6925-110">In ASP.NET Core apps, there are multiple options for bundling and minifying client-side resources.</span></span> <span data-ttu-id="a6925-111">Las plantillas de principal para MVC proporcionan una solución de fábrica mediante un archivo de configuración y el paquete BuildBundlerMinifier NuGet.</span><span class="sxs-lookup"><span data-stu-id="a6925-111">The core templates for MVC provide an out-of-the-box solution using a configuration file and BuildBundlerMinifier NuGet package.</span></span> <span data-ttu-id="a6925-112">Herramientas de terceros, como [Gulp](using-gulp.md) y [Grunt](using-grunt.md) también están disponibles para realizar las mismas tareas deben requerir los procesos de flujo de trabajo adicional o complejidades.</span><span class="sxs-lookup"><span data-stu-id="a6925-112">Third party tools, such as [Gulp](using-gulp.md) and [Grunt](using-grunt.md) are also available to accomplish the same tasks should your processes require additional workflow or complexities.</span></span> <span data-ttu-id="a6925-113">Mediante el uso de agrupación y minificación de tiempo de diseño, se crean los archivos reducidos antes de la implementación de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a6925-113">By using design-time bundling and minification, the minified files are created prior to the application’s deployment.</span></span> <span data-ttu-id="a6925-114">Agrupar y minificar antes de la implementación proporcionan la ventaja de carga reducida del servidor.</span><span class="sxs-lookup"><span data-stu-id="a6925-114">Bundling and minifying before deployment provides the advantage of reduced server load.</span></span> <span data-ttu-id="a6925-115">Sin embargo, es importante reconocer que agrupación de tiempo de diseño y minificación aumenta la complejidad de la compilación y solo funciona con archivos estáticos.</span><span class="sxs-lookup"><span data-stu-id="a6925-115">However, it’s important to recognize that design-time bundling and minification increases build complexity and only works with static files.</span></span>
+<span data-ttu-id="8a28c-107">Unión y minificación son dos optimizaciones de rendimiento distintas que puede aplicar en una aplicación web.</span><span class="sxs-lookup"><span data-stu-id="8a28c-107">Bundling and minification are two distinct performance optimizations you can apply in a web app.</span></span> <span data-ttu-id="8a28c-108">Se usan juntos, agrupar y minificar mejoran el rendimiento reduciendo el número de solicitudes de servidor y reducir el tamaño de los activos estáticos solicitados.</span><span class="sxs-lookup"><span data-stu-id="8a28c-108">Used together, bundling and minification improve performance by reducing the number of server requests and reducing the size of the requested static assets.</span></span>
 
-<span data-ttu-id="a6925-116">Agrupar y minificar mejoran principalmente el primer tiempo de carga de solicitud de página.</span><span class="sxs-lookup"><span data-stu-id="a6925-116">Bundling and minification primarily improve the first page request load time.</span></span> <span data-ttu-id="a6925-117">Una vez que se ha solicitado una página web, el explorador se almacena en memoria caché los activos (JavaScript, CSS e imágenes) para agrupar y minificar no proporcionan ningún aumento del rendimiento cuando se solicita la misma página o páginas en el mismo sitio que solicita los activos de la mismos.</span><span class="sxs-lookup"><span data-stu-id="a6925-117">Once a web page has been requested, the browser caches the assets (JavaScript, CSS and images) so bundling and minification won’t provide any performance boost when requesting the same page, or pages on the same site requesting the same assets.</span></span> <span data-ttu-id="a6925-118">Si no establece la expira encabezado correctamente en los activos y no use agrupar y minificar, heurística de actualización del explorador, se marcarán como los recursos obsoletos después de unos días y el explorador requerirá una solicitud de validación para cada recurso.</span><span class="sxs-lookup"><span data-stu-id="a6925-118">If you don’t set the expires header correctly on your assets, and you don’t use bundling and minification, the browser's freshness heuristics will mark the assets stale after a few days and the browser will require a validation request for each asset.</span></span> <span data-ttu-id="a6925-119">En este caso, agrupar y minificar proporcionan un aumento del rendimiento incluso después de la primera solicitud de página.</span><span class="sxs-lookup"><span data-stu-id="a6925-119">In this case, bundling and minification provide a performance increase even after the first page request.</span></span>
+<span data-ttu-id="8a28c-109">Agrupar y minificar mejoran principalmente el primer tiempo de carga de solicitud de página.</span><span class="sxs-lookup"><span data-stu-id="8a28c-109">Bundling and minification primarily improve the first page request load time.</span></span> <span data-ttu-id="8a28c-110">Una vez que se ha solicitado una página web, el explorador almacena en caché los activos estáticos (JavaScript, CSS e imágenes).</span><span class="sxs-lookup"><span data-stu-id="8a28c-110">Once a web page has been requested, the browser caches the static assets (JavaScript, CSS, and images).</span></span> <span data-ttu-id="8a28c-111">Por lo tanto, agrupar y minificar no mejoran el rendimiento cuando se solicita la misma página o páginas, en el mismo sitio que solicita los activos de la mismos.</span><span class="sxs-lookup"><span data-stu-id="8a28c-111">Consequently, bundling and minification don't improve performance when requesting the same page, or pages, on the same site requesting the same assets.</span></span> <span data-ttu-id="8a28c-112">Si no establece la expira encabezado correctamente en los activos, y si no utiliza la agrupación y minificación, heurística de actualización del explorador marca los activos obsoletas después de unos días.</span><span class="sxs-lookup"><span data-stu-id="8a28c-112">If you don't set the expires header correctly on your assets, and if you don’t use bundling and minification, the browser's freshness heuristics mark the assets stale after a few days.</span></span> <span data-ttu-id="8a28c-113">Además, el explorador requiere que una solicitud de validación para cada activo.</span><span class="sxs-lookup"><span data-stu-id="8a28c-113">Additionally, the browser requires a validation request for each asset.</span></span> <span data-ttu-id="8a28c-114">En este caso, agrupar y minificar proporcionan una mejora del rendimiento incluso después de la primera solicitud de página.</span><span class="sxs-lookup"><span data-stu-id="8a28c-114">In this case, bundling and minification provide a performance improvement even after the first page request.</span></span>
 
-### <a name="bundling"></a><span data-ttu-id="a6925-120">Cómo agrupar</span><span class="sxs-lookup"><span data-stu-id="a6925-120">Bundling</span></span>
+### <a name="bundling"></a><span data-ttu-id="8a28c-115">Cómo agrupar</span><span class="sxs-lookup"><span data-stu-id="8a28c-115">Bundling</span></span>
 
-<span data-ttu-id="a6925-121">Cómo agrupar es una característica que facilita el proceso combinar o agrupar varios archivos en un único archivo.</span><span class="sxs-lookup"><span data-stu-id="a6925-121">Bundling is a feature that makes it easy to combine or bundle multiple files into a single file.</span></span> <span data-ttu-id="a6925-122">Porque agrupación combina varios archivos en un único archivo, reduce el número de solicitudes al servidor que se necesitan para recuperar y mostrar un recurso web, por ejemplo, una página web.</span><span class="sxs-lookup"><span data-stu-id="a6925-122">Because bundling combines multiple files into a single file, it reduces the number of requests to the server that are required to retrieve and display a web asset, such as a web page.</span></span> <span data-ttu-id="a6925-123">Puede crear CSS, JavaScript y otros paquetes.</span><span class="sxs-lookup"><span data-stu-id="a6925-123">You can create CSS, JavaScript and other bundles.</span></span> <span data-ttu-id="a6925-124">Menos archivos significa menos solicitudes HTTP desde el explorador hasta el servidor o desde el servicio que proporciona la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a6925-124">Fewer files means fewer HTTP requests from your browser to the server or from the service providing your application.</span></span> <span data-ttu-id="a6925-125">El resultado de la mejora del rendimiento de carga de primera página.</span><span class="sxs-lookup"><span data-stu-id="a6925-125">This results in improved first page load performance.</span></span>
+<span data-ttu-id="8a28c-116">Cómo agrupar combina varios archivos en un único archivo.</span><span class="sxs-lookup"><span data-stu-id="8a28c-116">Bundling combines multiple files into a single file.</span></span> <span data-ttu-id="8a28c-117">Cómo agrupar, reduce el número de solicitudes de servidor que son necesarios para representar un recurso web, por ejemplo, una página web.</span><span class="sxs-lookup"><span data-stu-id="8a28c-117">Bundling reduces the number of server requests which are necessary to render a web asset, such as a web page.</span></span> <span data-ttu-id="8a28c-118">Puede crear cualquier número de paquetes individuales específicamente para CSS, JavaScript, etcetera. Menos archivos significa menos solicitudes HTTP desde el explorador hasta el servidor o desde el servicio que proporciona la aplicación.</span><span class="sxs-lookup"><span data-stu-id="8a28c-118">You can create any number of individual bundles specifically for CSS, JavaScript, etc. Fewer files means fewer HTTP requests from the browser to the server or from the service providing your application.</span></span> <span data-ttu-id="8a28c-119">El resultado de la mejora del rendimiento de carga de primera página.</span><span class="sxs-lookup"><span data-stu-id="8a28c-119">This results in improved first page load performance.</span></span>
 
-### <a name="minification"></a><span data-ttu-id="a6925-126">Minificación</span><span class="sxs-lookup"><span data-stu-id="a6925-126">Minification</span></span>
+### <a name="minification"></a><span data-ttu-id="8a28c-120">Minificación</span><span class="sxs-lookup"><span data-stu-id="8a28c-120">Minification</span></span>
 
-<span data-ttu-id="a6925-127">Minificación realiza una serie de optimizaciones de código diferente para reducir el tamaño de los activos solicitados (por ejemplo, CSS, imágenes, archivos de JavaScript).</span><span class="sxs-lookup"><span data-stu-id="a6925-127">Minification performs a variety of different code optimizations to reduce the size of requested assets (such as CSS, images, JavaScript files).</span></span> <span data-ttu-id="a6925-128">Resultados comunes de reducción incluyen quitando el espacio en blanco innecesario y comentarios y reducir los nombres de variable con un único carácter.</span><span class="sxs-lookup"><span data-stu-id="a6925-128">Common results of minification include removing unnecessary white space and comments, and shortening variable names to one character.</span></span>
+<span data-ttu-id="8a28c-121">Minificación quita caracteres innecesarios de código sin modificar la funcionalidad.</span><span class="sxs-lookup"><span data-stu-id="8a28c-121">Minification removes unnecessary characters from code without altering functionality.</span></span> <span data-ttu-id="8a28c-122">El resultado es una reducción de un tamaño considerable en activos solicitados (por ejemplo, CSS, imágenes y archivos de JavaScript).</span><span class="sxs-lookup"><span data-stu-id="8a28c-122">The result is a significant size reduction in requested assets (such as CSS, images, and JavaScript files).</span></span> <span data-ttu-id="8a28c-123">Los efectos secundarios comunes de minificación incluyen acortar los nombres de variable a un carácter y quitar los comentarios y espacios en blanco innecesarios.</span><span class="sxs-lookup"><span data-stu-id="8a28c-123">Common side effects of minification include shortening variable names to one character and removing comments and unnecessary whitespace.</span></span>
 
-<span data-ttu-id="a6925-129">Tenga en cuenta la siguiente función de JavaScript:</span><span class="sxs-lookup"><span data-stu-id="a6925-129">Consider the following JavaScript function:</span></span>
+<span data-ttu-id="8a28c-124">Tenga en cuenta la siguiente función de JavaScript:</span><span class="sxs-lookup"><span data-stu-id="8a28c-124">Consider the following JavaScript function:</span></span>
 
-```javascript
-AddAltToImg = function (imageTagAndImageID, imageContext) {
-  ///<signature>
-  ///<summary> Adds an alt tab to the image
-  // </summary>
-  //<param name="imgElement" type="String">The image selector.</param>
-  //<param name="ContextForImage" type="String">The image context.</param>
-  ///</signature>
-  var imageElement = $(imageTagAndImageID, imageContext);
-  imageElement.attr('alt', imageElement.attr('id').replace(/ID/, ''));
-}
-```
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/js/site.js)]
 
-<span data-ttu-id="a6925-130">Después de la reducción, la función se reduce a lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="a6925-130">After minification, the function is reduced to the following:</span></span>
+<span data-ttu-id="8a28c-125">Minificación reduce la función a la siguiente:</span><span class="sxs-lookup"><span data-stu-id="8a28c-125">Minification reduces the function to the following:</span></span>
 
-```javascript
-AddAltToImg=function(t,a){var r=$(t,a);r.attr("alt",r.attr("id").replace(/ID/,""))};
-```
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/js/site.min.js)]
 
-<span data-ttu-id="a6925-131">Además de quitar los comentarios y espacios en blanco innecesarios, los siguientes parámetros y nombres de variables se cambió el nombre (abreviar) como se indica a continuación:</span><span class="sxs-lookup"><span data-stu-id="a6925-131">In addition to removing the comments and unnecessary whitespace, the following parameters and variable names were renamed (shortened) as follows:</span></span>
+<span data-ttu-id="8a28c-126">Además de quitar los comentarios y espacios en blanco innecesarios, los siguientes nombres de parámetro y la variable se cambió el nombre como sigue:</span><span class="sxs-lookup"><span data-stu-id="8a28c-126">In addition to removing the comments and unnecessary whitespace, the following parameter and variable names were renamed as follows:</span></span>
 
-<span data-ttu-id="a6925-132">Original</span><span class="sxs-lookup"><span data-stu-id="a6925-132">Original</span></span> | <span data-ttu-id="a6925-133">Se cambia el nombre</span><span class="sxs-lookup"><span data-stu-id="a6925-133">Renamed</span></span>
+<span data-ttu-id="8a28c-127">Original</span><span class="sxs-lookup"><span data-stu-id="8a28c-127">Original</span></span> | <span data-ttu-id="8a28c-128">Se cambia el nombre</span><span class="sxs-lookup"><span data-stu-id="8a28c-128">Renamed</span></span>
 --- | :---:
-<span data-ttu-id="a6925-134">imageTagAndImageID</span><span class="sxs-lookup"><span data-stu-id="a6925-134">imageTagAndImageID</span></span> | <span data-ttu-id="a6925-135">m</span><span class="sxs-lookup"><span data-stu-id="a6925-135">t</span></span>
-<span data-ttu-id="a6925-136">imageContext</span><span class="sxs-lookup"><span data-stu-id="a6925-136">imageContext</span></span> | <span data-ttu-id="a6925-137">a</span><span class="sxs-lookup"><span data-stu-id="a6925-137">a</span></span>
-<span data-ttu-id="a6925-138">imageElement</span><span class="sxs-lookup"><span data-stu-id="a6925-138">imageElement</span></span> | <span data-ttu-id="a6925-139">c</span><span class="sxs-lookup"><span data-stu-id="a6925-139">r</span></span>
+`imageTagAndImageID` | `t`
+`imageContext` | `a`
+`imageElement` | `r`
 
-## <a name="impact-of-bundling-and-minification"></a><span data-ttu-id="a6925-140">Impacto de agrupar y minificar</span><span class="sxs-lookup"><span data-stu-id="a6925-140">Impact of bundling and minification</span></span>
+## <a name="impact-of-bundling-and-minification"></a><span data-ttu-id="8a28c-129">Impacto de agrupar y minificar</span><span class="sxs-lookup"><span data-stu-id="8a28c-129">Impact of bundling and minification</span></span>
 
-<span data-ttu-id="a6925-141">La siguiente tabla muestra algunas diferencias importantes entre enumerar todos los activos de forma individual y el uso de agrupación y minificación en una página web sencilla:</span><span class="sxs-lookup"><span data-stu-id="a6925-141">The following table shows several important differences between listing all the assets individually and using bundling and minification on a simple web page:</span></span>
+<span data-ttu-id="8a28c-130">En la tabla siguiente se describe las diferencias entre individualmente carga activos y el uso de agrupación y minificación:</span><span class="sxs-lookup"><span data-stu-id="8a28c-130">The following table outlines differences between individually loading assets and using bundling and minification:</span></span>
 
-<span data-ttu-id="a6925-142">Acción</span><span class="sxs-lookup"><span data-stu-id="a6925-142">Action</span></span> | <span data-ttu-id="a6925-143">Con B/M</span><span class="sxs-lookup"><span data-stu-id="a6925-143">With B/M</span></span> | <span data-ttu-id="a6925-144">Sin B/M</span><span class="sxs-lookup"><span data-stu-id="a6925-144">Without B/M</span></span> | <span data-ttu-id="a6925-145">Cambio</span><span class="sxs-lookup"><span data-stu-id="a6925-145">Change</span></span>
+<span data-ttu-id="8a28c-131">Acción</span><span class="sxs-lookup"><span data-stu-id="8a28c-131">Action</span></span> | <span data-ttu-id="8a28c-132">Con B/M</span><span class="sxs-lookup"><span data-stu-id="8a28c-132">With B/M</span></span> | <span data-ttu-id="8a28c-133">Sin B/M</span><span class="sxs-lookup"><span data-stu-id="8a28c-133">Without B/M</span></span> | <span data-ttu-id="8a28c-134">Cambio</span><span class="sxs-lookup"><span data-stu-id="8a28c-134">Change</span></span>
 --- | :---: | :---: | :---:
-<span data-ttu-id="a6925-146">Solicitudes de archivos</span><span class="sxs-lookup"><span data-stu-id="a6925-146">File Requests</span></span> |<span data-ttu-id="a6925-147">7</span><span class="sxs-lookup"><span data-stu-id="a6925-147">7</span></span> | <span data-ttu-id="a6925-148">18</span><span class="sxs-lookup"><span data-stu-id="a6925-148">18</span></span> | <span data-ttu-id="a6925-149">157%</span><span class="sxs-lookup"><span data-stu-id="a6925-149">157%</span></span>
-<span data-ttu-id="a6925-150">KB transferido</span><span class="sxs-lookup"><span data-stu-id="a6925-150">KB Transferred</span></span> | <span data-ttu-id="a6925-151">156</span><span class="sxs-lookup"><span data-stu-id="a6925-151">156</span></span> | <span data-ttu-id="a6925-152">264.68</span><span class="sxs-lookup"><span data-stu-id="a6925-152">264.68</span></span> | <span data-ttu-id="a6925-153">70%</span><span class="sxs-lookup"><span data-stu-id="a6925-153">70%</span></span>
-<span data-ttu-id="a6925-154">Tiempo de carga (MS)</span><span class="sxs-lookup"><span data-stu-id="a6925-154">Load Time (MS)</span></span> | <span data-ttu-id="a6925-155">885</span><span class="sxs-lookup"><span data-stu-id="a6925-155">885</span></span> | <span data-ttu-id="a6925-156">2360</span><span class="sxs-lookup"><span data-stu-id="a6925-156">2360</span></span> | <span data-ttu-id="a6925-157">167%</span><span class="sxs-lookup"><span data-stu-id="a6925-157">167%</span></span>
+<span data-ttu-id="8a28c-135">Solicitudes de archivos</span><span class="sxs-lookup"><span data-stu-id="8a28c-135">File Requests</span></span>  | <span data-ttu-id="8a28c-136">7</span><span class="sxs-lookup"><span data-stu-id="8a28c-136">7</span></span>   | <span data-ttu-id="8a28c-137">18</span><span class="sxs-lookup"><span data-stu-id="8a28c-137">18</span></span>     | <span data-ttu-id="8a28c-138">157%</span><span class="sxs-lookup"><span data-stu-id="8a28c-138">157%</span></span>
+<span data-ttu-id="8a28c-139">KB transferido</span><span class="sxs-lookup"><span data-stu-id="8a28c-139">KB Transferred</span></span> | <span data-ttu-id="8a28c-140">156</span><span class="sxs-lookup"><span data-stu-id="8a28c-140">156</span></span> | <span data-ttu-id="8a28c-141">264.68</span><span class="sxs-lookup"><span data-stu-id="8a28c-141">264.68</span></span> | <span data-ttu-id="8a28c-142">70%</span><span class="sxs-lookup"><span data-stu-id="8a28c-142">70%</span></span>
+<span data-ttu-id="8a28c-143">Tiempo de carga (ms)</span><span class="sxs-lookup"><span data-stu-id="8a28c-143">Load Time (ms)</span></span> | <span data-ttu-id="8a28c-144">885</span><span class="sxs-lookup"><span data-stu-id="8a28c-144">885</span></span> | <span data-ttu-id="8a28c-145">2360</span><span class="sxs-lookup"><span data-stu-id="8a28c-145">2360</span></span>   | <span data-ttu-id="8a28c-146">167%</span><span class="sxs-lookup"><span data-stu-id="8a28c-146">167%</span></span>
 
-<span data-ttu-id="a6925-158">Los bytes enviados tenían una reducción significativa de la agrupación sea bastante detallados con los encabezados HTTP que se aplican en las solicitudes de los exploradores.</span><span class="sxs-lookup"><span data-stu-id="a6925-158">The bytes sent had a significant reduction with bundling as browsers are fairly verbose with the HTTP headers that they apply on requests.</span></span> <span data-ttu-id="a6925-159">El tiempo de carga muestra una gran mejora, sin embargo, en este ejemplo se ejecute localmente.</span><span class="sxs-lookup"><span data-stu-id="a6925-159">The load time shows a big improvement, however this example was run locally.</span></span> <span data-ttu-id="a6925-160">Obtendrá mayores ganancias de rendimiento al uso de agrupación y minificación con activos transfiere a través de una red.</span><span class="sxs-lookup"><span data-stu-id="a6925-160">You will get greater gains in performance when using bundling and minification with assets transferred over a network.</span></span>
+<span data-ttu-id="8a28c-147">Los exploradores son bastante detallados con respecto a los encabezados de solicitud HTTP.</span><span class="sxs-lookup"><span data-stu-id="8a28c-147">Browsers are fairly verbose with regard to HTTP request headers.</span></span> <span data-ttu-id="8a28c-148">El número total de bytes enviados métrica vio una reducción significativa cuando se agrupa.</span><span class="sxs-lookup"><span data-stu-id="8a28c-148">The total bytes sent metric saw a significant reduction when bundling.</span></span> <span data-ttu-id="8a28c-149">El tiempo de carga muestra una mejora considerable, sin embargo, en este ejemplo se ejecutaba localmente.</span><span class="sxs-lookup"><span data-stu-id="8a28c-149">The load time shows a significant improvement, however this example ran locally.</span></span> <span data-ttu-id="8a28c-150">Mayores mejoras de rendimiento se percibe cuando el uso de agrupación y minificación con activos transfiere a través de una red.</span><span class="sxs-lookup"><span data-stu-id="8a28c-150">Greater performance gains are realized when using bundling and minification with assets transferred over a network.</span></span>
 
-## <a name="using-bundling-and-minification-in-a-project"></a><span data-ttu-id="a6925-161">Utilizar agrupar y minificar en un proyecto</span><span class="sxs-lookup"><span data-stu-id="a6925-161">Using bundling and minification in a project</span></span>
+## <a name="choose-a-bundling-and-minification-strategy"></a><span data-ttu-id="8a28c-151">Elegir una estrategia de agrupación y minificación</span><span class="sxs-lookup"><span data-stu-id="8a28c-151">Choose a bundling and minification strategy</span></span>
 
-<span data-ttu-id="a6925-162">La plantilla de proyecto MVC proporciona una `bundleconfig.json` archivo de configuración que define las opciones para cada paquete.</span><span class="sxs-lookup"><span data-stu-id="a6925-162">The MVC project template provides a `bundleconfig.json` configuration file which defines the options for each bundle.</span></span> <span data-ttu-id="a6925-163">De forma predeterminada, se define una configuración de agrupación única para el código de JavaScript personalizado (`wwwroot/js/site.js`) y hojas de estilo (`wwwroot/css/site.css`) archivos.</span><span class="sxs-lookup"><span data-stu-id="a6925-163">By default, a single bundle configuration is defined for the custom JavaScript (`wwwroot/js/site.js`) and Stylesheet (`wwwroot/css/site.css`) files.</span></span>
+<span data-ttu-id="8a28c-152">Las plantillas de proyecto MVC y las páginas de Razor proporcionan una solución para agrupar y minificar que consta de un archivo de configuración de JSON.</span><span class="sxs-lookup"><span data-stu-id="8a28c-152">The MVC and Razor Pages project templates provide an out-of-the-box solution for bundling and minification consisting of a JSON configuration file.</span></span> <span data-ttu-id="8a28c-153">Herramientas de terceros, como el [Gulp](xref:client-side/using-gulp) y [Grunt](xref:client-side/using-grunt) corredores de tareas, realizar las mismas tareas con un poco más compleja.</span><span class="sxs-lookup"><span data-stu-id="8a28c-153">Third-party tools, such as the [Gulp](xref:client-side/using-gulp) and [Grunt](xref:client-side/using-grunt) task runners, accomplish the same tasks with a bit more complexity.</span></span> <span data-ttu-id="8a28c-154">Una herramienta de terceros es una buena elección cuando el flujo de trabajo de desarrollo requiere un procesamiento más allá de la agrupación y minificación&mdash;como optimización linting e imagen.</span><span class="sxs-lookup"><span data-stu-id="8a28c-154">A third-party tool is a great fit when your development workflow requires processing beyond bundling and minification&mdash;such as linting and image optimization.</span></span> <span data-ttu-id="8a28c-155">Mediante el uso de agrupación y minificación de tiempo de diseño, se crean los archivos reducidos antes de la implementación de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="8a28c-155">By using design-time bundling and minification, the minified files are created prior to the app's deployment.</span></span> <span data-ttu-id="8a28c-156">Agrupar y minificar antes de la implementación proporcionan la ventaja de carga reducida del servidor.</span><span class="sxs-lookup"><span data-stu-id="8a28c-156">Bundling and minifying before deployment provides the advantage of reduced server load.</span></span> <span data-ttu-id="8a28c-157">Sin embargo, es importante reconocer que agrupación de tiempo de diseño y minificación aumenta la complejidad de la compilación y solo funciona con archivos estáticos.</span><span class="sxs-lookup"><span data-stu-id="8a28c-157">However, it's important to recognize that design-time bundling and minification increases build complexity and only works with static files.</span></span>
 
-[!code-json[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig.json)]
+## <a name="configure-bundling-and-minification"></a><span data-ttu-id="8a28c-158">Configurar la agrupación y minificación</span><span class="sxs-lookup"><span data-stu-id="8a28c-158">Configure bundling and minification</span></span>
 
-<span data-ttu-id="a6925-164">Opciones de agrupación se incluyen:</span><span class="sxs-lookup"><span data-stu-id="a6925-164">Bundle options include:</span></span>
+<span data-ttu-id="8a28c-159">Las plantillas de proyecto MVC y las páginas de Razor proporcionan una *bundleconfig.json* archivo de configuración que define las opciones para cada paquete.</span><span class="sxs-lookup"><span data-stu-id="8a28c-159">The MVC and Razor Pages project templates provide a *bundleconfig.json* configuration file which defines the options for each bundle.</span></span> <span data-ttu-id="8a28c-160">De forma predeterminada, se define una configuración de agrupación única para el código de JavaScript personalizado (*wwwroot/js/site.js*) y hojas de estilo (*wwwroot/css/site.css*) archivos:</span><span class="sxs-lookup"><span data-stu-id="8a28c-160">By default, a single bundle configuration is defined for the custom JavaScript (*wwwroot/js/site.js*) and stylesheet (*wwwroot/css/site.css*) files:</span></span>
 
-* <span data-ttu-id="a6925-165">outputFileName - nombre del archivo de paquete para la salida.</span><span class="sxs-lookup"><span data-stu-id="a6925-165">outputFileName - name of the bundle file to output.</span></span> <span data-ttu-id="a6925-166">Puede contener una ruta de acceso relativa desde la `bundleconfig.json` archivo.</span><span class="sxs-lookup"><span data-stu-id="a6925-166">Can contain a relative path from the `bundleconfig.json` file.</span></span> <span data-ttu-id="a6925-167">**Obligatorio**</span><span class="sxs-lookup"><span data-stu-id="a6925-167">**required**</span></span>
-* <span data-ttu-id="a6925-168">inputFiles - matriz de archivos que se va a agrupar.</span><span class="sxs-lookup"><span data-stu-id="a6925-168">inputFiles - array of files to bundle together.</span></span> <span data-ttu-id="a6925-169">Estas son las rutas de acceso relativas al archivo de configuración.</span><span class="sxs-lookup"><span data-stu-id="a6925-169">These are relative paths to the configuration file.</span></span> <span data-ttu-id="a6925-170">**opcional**, * da como resultado un valor vacío en un archivo de resultados vacío.</span><span class="sxs-lookup"><span data-stu-id="a6925-170">**optional**, *an empty value results in an empty output file.</span></span> <span data-ttu-id="a6925-171">[uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) patrones son compatibles.</span><span class="sxs-lookup"><span data-stu-id="a6925-171">[globbing](http://www.tldp.org/LDP/abs/html/globbingref.html) patterns are supported.</span></span>
-* <span data-ttu-id="a6925-172">minificar - escriba opciones de reducción de la salida.</span><span class="sxs-lookup"><span data-stu-id="a6925-172">minify - minification options for the output type.</span></span> <span data-ttu-id="a6925-173">**opcional**, *predeterminado:`minify: { enabled: true }`*</span><span class="sxs-lookup"><span data-stu-id="a6925-173">**optional**, *default - `minify: { enabled: true }`*</span></span>
-  * <span data-ttu-id="a6925-174">Opciones de configuración están disponibles por tipo de archivo de salida.</span><span class="sxs-lookup"><span data-stu-id="a6925-174">Configuration options are available per output file type.</span></span>
-    * [<span data-ttu-id="a6925-175">Minificador CSS</span><span class="sxs-lookup"><span data-stu-id="a6925-175">CSS Minifier</span></span>](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [<span data-ttu-id="a6925-176">Minificador de JavaScript</span><span class="sxs-lookup"><span data-stu-id="a6925-176">JavaScript Minifier</span></span>](https://github.com/madskristensen/BundlerMinifier/wiki)
-    * [<span data-ttu-id="a6925-177">Minificador de HTML</span><span class="sxs-lookup"><span data-stu-id="a6925-177">HTML Minifier</span></span>](https://github.com/madskristensen/BundlerMinifier/wiki)
-* <span data-ttu-id="a6925-178">includeInProject - agregar archivos generados al archivo del proyecto.</span><span class="sxs-lookup"><span data-stu-id="a6925-178">includeInProject - add generated files to project file.</span></span> <span data-ttu-id="a6925-179">**opcional**, *predeterminado: false*</span><span class="sxs-lookup"><span data-stu-id="a6925-179">**optional**, *default - false*</span></span>
-* <span data-ttu-id="a6925-180">sourceMaps - generar mapas de código fuente para el archivo agrupado.</span><span class="sxs-lookup"><span data-stu-id="a6925-180">sourceMaps - generate source maps for the bundled file.</span></span> <span data-ttu-id="a6925-181">**opcional**, *predeterminado: false*</span><span class="sxs-lookup"><span data-stu-id="a6925-181">**optional**, *default - false*</span></span>
+[!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
-### <a name="visual-studio-2015--2017"></a><span data-ttu-id="a6925-182">Visual Studio 2015 / 2017</span><span class="sxs-lookup"><span data-stu-id="a6925-182">Visual Studio 2015 / 2017</span></span>
+<span data-ttu-id="8a28c-161">Opciones de agrupación se incluyen:</span><span class="sxs-lookup"><span data-stu-id="8a28c-161">Bundle options include:</span></span>
 
-<span data-ttu-id="a6925-183">Abra `bundleconfig.json` en Visual Studio, si su entorno no tiene la extensión instalada; un símbolo del sistema se presenta lo que sugiere que hay uno que puede ayudar a este tipo de archivo.</span><span class="sxs-lookup"><span data-stu-id="a6925-183">Open `bundleconfig.json` in Visual Studio, if your environment does not have the extension installed; a prompt is presented suggesting that there is one that could assist with this file type.</span></span>
+* <span data-ttu-id="8a28c-162">`outputFileName`: El nombre del archivo de paquete para la salida.</span><span class="sxs-lookup"><span data-stu-id="8a28c-162">`outputFileName`: The name of the bundle file to output.</span></span> <span data-ttu-id="8a28c-163">Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo.</span><span class="sxs-lookup"><span data-stu-id="8a28c-163">Can contain a relative path from the *bundleconfig.json* file.</span></span> <span data-ttu-id="8a28c-164">**Obligatorio**</span><span class="sxs-lookup"><span data-stu-id="8a28c-164">**required**</span></span>
+* <span data-ttu-id="8a28c-165">`inputFiles`: Una matriz de archivos que se va a agrupar.</span><span class="sxs-lookup"><span data-stu-id="8a28c-165">`inputFiles`: An array of files to bundle together.</span></span> <span data-ttu-id="8a28c-166">Estas son las rutas de acceso relativas al archivo de configuración.</span><span class="sxs-lookup"><span data-stu-id="8a28c-166">These are relative paths to the configuration file.</span></span> <span data-ttu-id="8a28c-167">**opcional**, * da como resultado un valor vacío en un archivo de resultados vacío.</span><span class="sxs-lookup"><span data-stu-id="8a28c-167">**optional**, *an empty value results in an empty output file.</span></span> <span data-ttu-id="8a28c-168">[uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) patrones son compatibles.</span><span class="sxs-lookup"><span data-stu-id="8a28c-168">[globbing](http://www.tldp.org/LDP/abs/html/globbingref.html) patterns are supported.</span></span>
+* <span data-ttu-id="8a28c-169">`minify`: Las opciones de reducción para el tipo de salida.</span><span class="sxs-lookup"><span data-stu-id="8a28c-169">`minify`: The minification options for the output type.</span></span> <span data-ttu-id="8a28c-170">**opcional**, *predeterminado:`minify: { enabled: true }`*</span><span class="sxs-lookup"><span data-stu-id="8a28c-170">**optional**, *default - `minify: { enabled: true }`*</span></span>
+  * <span data-ttu-id="8a28c-171">Opciones de configuración están disponibles por tipo de archivo de salida.</span><span class="sxs-lookup"><span data-stu-id="8a28c-171">Configuration options are available per output file type.</span></span>
+    * [<span data-ttu-id="8a28c-172">Minificador CSS</span><span class="sxs-lookup"><span data-stu-id="8a28c-172">CSS Minifier</span></span>](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
+    * [<span data-ttu-id="8a28c-173">Minificador de JavaScript</span><span class="sxs-lookup"><span data-stu-id="8a28c-173">JavaScript Minifier</span></span>](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
+    * [<span data-ttu-id="8a28c-174">Minificador de HTML</span><span class="sxs-lookup"><span data-stu-id="8a28c-174">HTML Minifier</span></span>](https://github.com/madskristensen/BundlerMinifier/wiki)
+* <span data-ttu-id="8a28c-175">`includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto.</span><span class="sxs-lookup"><span data-stu-id="8a28c-175">`includeInProject`: Flag indicating whether to add generated files to project file.</span></span> <span data-ttu-id="8a28c-176">**opcional**, *predeterminado: false*</span><span class="sxs-lookup"><span data-stu-id="8a28c-176">**optional**, *default - false*</span></span>
+* <span data-ttu-id="8a28c-177">`sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado.</span><span class="sxs-lookup"><span data-stu-id="8a28c-177">`sourceMap`: Flag indicating whether to generate a source map for the bundled file.</span></span> <span data-ttu-id="8a28c-178">**opcional**, *predeterminado: false*</span><span class="sxs-lookup"><span data-stu-id="8a28c-178">**optional**, *default - false*</span></span>
+* <span data-ttu-id="8a28c-179">`sourceMapRootPath`: La ruta de acceso raíz para almacenar el archivo de mapa de código fuente generado.</span><span class="sxs-lookup"><span data-stu-id="8a28c-179">`sourceMapRootPath`: The root path for storing the generated source map file.</span></span>
 
-![Sugerencia de extensión BuildBundlerMinifier](../client-side/bundling-and-minification/_static/bundler-extension-suggestion.png)
+## <a name="build-time-execution-of-bundling-and-minification"></a><span data-ttu-id="8a28c-180">Ejecución en tiempo de compilación de agrupar y minificar</span><span class="sxs-lookup"><span data-stu-id="8a28c-180">Build-time execution of bundling and minification</span></span>
 
-<span data-ttu-id="a6925-185">Seleccione ver extensiones e instalar la **paquete de instalación & Minificador** extensión (reiniciar requiere Visual Studio).</span><span class="sxs-lookup"><span data-stu-id="a6925-185">Select View Extensions, and install the **Bundler & Minifier** extension (Requires Visual Studio restart).</span></span>
+<span data-ttu-id="8a28c-181">El [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) paquete NuGet permite la ejecución de agrupación y minificación en tiempo de compilación.</span><span class="sxs-lookup"><span data-stu-id="8a28c-181">The [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) NuGet package enables the execution of bundling and minification at build time.</span></span> <span data-ttu-id="8a28c-182">Inserta el paquete [destinos de MSBuild](/visualstudio/msbuild/msbuild-targets) que ejecutar en la compilación y tiempo de limpieza.</span><span class="sxs-lookup"><span data-stu-id="8a28c-182">The package injects [MSBuild Targets](/visualstudio/msbuild/msbuild-targets) which run at build and clean time.</span></span> <span data-ttu-id="8a28c-183">El *bundleconfig.json* archivo se analiza el proceso de compilación para generar los archivos de salida en función de la configuración definida.</span><span class="sxs-lookup"><span data-stu-id="8a28c-183">The *bundleconfig.json* file is analyzed by the build process to produce the output files based on the defined configuration.</span></span>
 
-![Sugerencia de extensión BuildBundlerMinifier](../client-side/bundling-and-minification/_static/view-extension.png)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="8a28c-184">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="8a28c-184">Visual Studio</span></span>](#tab/visual-studio) 
 
-<span data-ttu-id="a6925-187">Una vez completado el reinicio, debe configurar la compilación para ejecutar los procesos de minificación y agrupación de los activos de cliente.</span><span class="sxs-lookup"><span data-stu-id="a6925-187">When the restart is complete, you need to configure the build to run the processes of minifying and bundling the client-side assets.</span></span> <span data-ttu-id="a6925-188">Haga clic en el `bundleconfig.json` de archivos y seleccione *habilitar agrupación en la compilación... *.</span><span class="sxs-lookup"><span data-stu-id="a6925-188">Right-click the `bundleconfig.json` file and select *Enable bundle on build...*.</span></span>
+<span data-ttu-id="8a28c-185">Agregar el *BuildBundlerMinifier* paquete al proyecto.</span><span class="sxs-lookup"><span data-stu-id="8a28c-185">Add the *BuildBundlerMinifier* package to your project.</span></span>
 
-<span data-ttu-id="a6925-189">Compile el proyecto y el `bundleconfig.json` se incluye en el proceso de compilación para generar los archivos de salida en función de la configuración.</span><span class="sxs-lookup"><span data-stu-id="a6925-189">Build the project, and the `bundleconfig.json` is included in the build process to produce the output files based on the configuration.</span></span>
+<span data-ttu-id="8a28c-186">Compile el proyecto.</span><span class="sxs-lookup"><span data-stu-id="8a28c-186">Build the project.</span></span> <span data-ttu-id="8a28c-187">Aparecerá el siguiente mensaje en la ventana de salida:</span><span class="sxs-lookup"><span data-stu-id="8a28c-187">The following appears in the Output window:</span></span>
 
 ```console
-1>------ Build started: Project: BuildBundlerMinifierExample, Configuration: Debug Any CPU ------
+1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
 1>
 1>Bundler: Begin processing bundleconfig.json
+1>  Minified wwwroot/css/site.min.css
+1>  Minified wwwroot/js/site.min.js
 1>Bundler: Done processing bundleconfig.json
-1>BuildBundlerMinifierExample -> C:\BuildBundlerMinifierExample\bin\Debug\netcoreapp1.1\BuildBundlerMinifierExample.dll
-========== Build: 1 succeeded or up-to-date, 0 failed, 0 skipped ==========
+1>BuildBundlerMinifierApp -> C:\BuildBundlerMinifierApp\bin\Debug\netcoreapp2.0\BuildBundlerMinifierApp.dll
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-### <a name="visual-studio-code-or-command-line"></a><span data-ttu-id="a6925-190">Código de Visual Studio o la línea de comandos</span><span class="sxs-lookup"><span data-stu-id="a6925-190">Visual Studio Code or Command Line</span></span>
+<span data-ttu-id="8a28c-188">Limpie el proyecto.</span><span class="sxs-lookup"><span data-stu-id="8a28c-188">Clean the project.</span></span> <span data-ttu-id="8a28c-189">Aparecerá el siguiente mensaje en la ventana de salida:</span><span class="sxs-lookup"><span data-stu-id="8a28c-189">The following appears in the Output window:</span></span>
 
-<span data-ttu-id="a6925-191">Visual Studio y la extensión de unidad el proceso de agrupación y minificación con movimientos de GUI; Sin embargo, las mismas capacidades están disponibles con el `dotnet` paquete CLI y BuildBundlerMinifier NuGet.</span><span class="sxs-lookup"><span data-stu-id="a6925-191">Visual Studio and the extension drive the bundling and minification process using GUI gestures; however, the same capabilities are available with the `dotnet` CLI and BuildBundlerMinifier NuGet package.</span></span>
+```console
+1>------ Clean started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
+1>
+1>Bundler: Cleaning output from bundleconfig.json
+1>Bundler: Done cleaning output file from bundleconfig.json
+========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
+```
 
-<span data-ttu-id="a6925-192">Agregue el paquete NuGet al proyecto:</span><span class="sxs-lookup"><span data-stu-id="a6925-192">Add the NuGet package to your project:</span></span>
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="8a28c-190">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="8a28c-190">.NET Core CLI</span></span>](#tab/netcore-cli) 
+
+<span data-ttu-id="8a28c-191">Agregar el *BuildBundlerMinifier* paquete al proyecto:</span><span class="sxs-lookup"><span data-stu-id="8a28c-191">Add the *BuildBundlerMinifier* package to your project:</span></span>
 
 ```console
 dotnet add package BuildBundlerMinifier
 ```
 
-<span data-ttu-id="a6925-193">Restaurar las dependencias:</span><span class="sxs-lookup"><span data-stu-id="a6925-193">Restore the dependencies:</span></span>
+<span data-ttu-id="8a28c-192">Si usa ASP.NET Core 1.x, restaurar el paquete recién agregado:</span><span class="sxs-lookup"><span data-stu-id="8a28c-192">If using ASP.NET Core 1.x, restore the newly added package:</span></span>
 
 ```console
 dotnet restore
 ```
 
-<span data-ttu-id="a6925-194">Compile la aplicación:</span><span class="sxs-lookup"><span data-stu-id="a6925-194">Build the app:</span></span>
+<span data-ttu-id="8a28c-193">Compile el proyecto:</span><span class="sxs-lookup"><span data-stu-id="8a28c-193">Build the project:</span></span>
 
 ```console
 dotnet build
 ```
 
-<span data-ttu-id="a6925-195">La salida del comando de compilación muestra los resultados de la minificación y cómo agrupar según la configuración establecida.</span><span class="sxs-lookup"><span data-stu-id="a6925-195">The output from the build command shows the results of the minification and/or bundling according to what is configured.</span></span>
+<span data-ttu-id="8a28c-194">Aparecerá el siguiente mensaje:</span><span class="sxs-lookup"><span data-stu-id="8a28c-194">The following appears:</span></span>
 
 ```console
-Microsoft (R) Build Engine version 15.1.545.13942
+Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
 
-  Bundler: Begin processing bundleconfig.json
-     Minified wwwroot/css/site.min.css
-  Bundler: Done processing bundleconfig.json
-  BuildBundlerMinifierExample -> /BuildBundlerMinifierExample/bin/Debug/netcoreapp1.0/BuildBundlerMinifierExample.dll
+    Bundler: Begin processing bundleconfig.json
+    Bundler: Done processing bundleconfig.json
+    BuildBundlerMinifierApp -> C:\BuildBundlerMinifierApp\bin\Debug\netcoreapp2.0\BuildBundlerMinifierApp.dll
 ```
 
-## <a name="adding-files"></a><span data-ttu-id="a6925-196">Agregar archivos</span><span class="sxs-lookup"><span data-stu-id="a6925-196">Adding files</span></span>
+<span data-ttu-id="8a28c-195">Limpie el proyecto:</span><span class="sxs-lookup"><span data-stu-id="8a28c-195">Clean the project:</span></span>
 
-<span data-ttu-id="a6925-197">En este ejemplo, se agrega un archivo CSS adicional llamado `custom.css` y configurado para agrupación y minificación con `site.css`, da lugar a una sola `site.min.css`.</span><span class="sxs-lookup"><span data-stu-id="a6925-197">In this example, an additional CSS file is added called `custom.css` and configured for bundling and minification with `site.css`, resulting in a single `site.min.css`.</span></span>
-
-<span data-ttu-id="a6925-198">Custom.CSS</span><span class="sxs-lookup"><span data-stu-id="a6925-198">custom.css</span></span>
-
-```css
-.about, [role=main], [role=complementary]
-{
-    margin-top: 60px;
-}
-
-footer
-{
-    margin-top: 10px;
-}
+```console
+dotnet clean
 ```
 
-<span data-ttu-id="a6925-199">Agregar la ruta de acceso relativa a `bundleconfig.json`.</span><span class="sxs-lookup"><span data-stu-id="a6925-199">Add the relative path to `bundleconfig.json`.</span></span>
+<span data-ttu-id="8a28c-196">Aparecerá el siguiente resultado:</span><span class="sxs-lookup"><span data-stu-id="8a28c-196">The following output appears:</span></span>
 
-[!code-json[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/bundleconfig2.json)]
+```console
+Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+
+  Bundler: Cleaning output from bundleconfig.json
+  Bundler: Done cleaning output file from bundleconfig.json
+```
+
+---
+
+## <a name="ad-hoc-execution-of-bundling-and-minification"></a><span data-ttu-id="8a28c-197">Ejecución ad hoc de agrupar y minificar</span><span class="sxs-lookup"><span data-stu-id="8a28c-197">Ad hoc execution of bundling and minification</span></span>
+
+<span data-ttu-id="8a28c-198">Es posible ejecutar las tareas de agrupación y minificación de manera ad hoc, sin compilar el proyecto.</span><span class="sxs-lookup"><span data-stu-id="8a28c-198">It's possible to run the bundling and minification tasks on an ad hoc basis, without building the project.</span></span> <span data-ttu-id="8a28c-199">Agregar el [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) paquete NuGet para el proyecto:</span><span class="sxs-lookup"><span data-stu-id="8a28c-199">Add the [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) NuGet package to your project:</span></span>
+
+[!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
+
+<span data-ttu-id="8a28c-200">Este paquete extiende la CLI de núcleo de .NET para incluir la *dotnet agrupación* herramienta.</span><span class="sxs-lookup"><span data-stu-id="8a28c-200">This package extends the .NET Core CLI to include the *dotnet-bundle* tool.</span></span> <span data-ttu-id="8a28c-201">En la ventana de consola de administrador de paquetes (PMC) o en un shell de comandos, se puede ejecutar el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="8a28c-201">The following command can be executed in the Package Manager Console (PMC) window or in a command shell:</span></span>
+
+```console
+dotnet bundle
+```
+
+> [!IMPORTANT]
+> <span data-ttu-id="8a28c-202">Administrador de paquetes de NuGet agrega las dependencias en el archivo *.csproj como `<PackageReference />` nodos.</span><span class="sxs-lookup"><span data-stu-id="8a28c-202">NuGet Package Manager adds dependencies to the *.csproj file as `<PackageReference />` nodes.</span></span> <span data-ttu-id="8a28c-203">El `dotnet bundle` comando está registrado con la CLI de .NET Core solo cuando un `<DotNetCliToolReference />` nodo se utiliza.</span><span class="sxs-lookup"><span data-stu-id="8a28c-203">The `dotnet bundle` command is registered with the .NET Core CLI only when a `<DotNetCliToolReference />` node is used.</span></span> <span data-ttu-id="8a28c-204">Modifique el archivo *.csproj según corresponda.</span><span class="sxs-lookup"><span data-stu-id="8a28c-204">Modify the *.csproj file accordingly.</span></span>
+
+## <a name="add-files-to-workflow"></a><span data-ttu-id="8a28c-205">Agregar archivos al flujo de trabajo</span><span class="sxs-lookup"><span data-stu-id="8a28c-205">Add files to workflow</span></span>
+
+<span data-ttu-id="8a28c-206">Considere un ejemplo en el que más *custom.css* archivo se agrega similar a lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="8a28c-206">Consider an example in which an additional *custom.css* file is added resembling the following:</span></span>
+
+[!code-css[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/css/custom.css)]
+
+<span data-ttu-id="8a28c-207">A minificar *custom.css* y agrupar con *site.css* en un *site.min.css* , agregue la ruta de acceso relativa a *bundleconfig.json*:</span><span class="sxs-lookup"><span data-stu-id="8a28c-207">To minify *custom.css* and bundle it with *site.css* into a *site.min.css* file, add the relative path to *bundleconfig.json*:</span></span>
+
+[!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig2.json?highlight=6)]
 
 > [!NOTE]
-> <span data-ttu-id="a6925-200">También se puede usar el patrón de uso de comodines - `"inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]` que obtiene CSS todos los archivos y se excluye el patrón de archivo reducida.</span><span class="sxs-lookup"><span data-stu-id="a6925-200">Alternatively, the globbing pattern could be used - `"inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]` which gets all CSS files and excludes the minified file pattern.</span></span>
+> <span data-ttu-id="8a28c-208">Como alternativa, podría utilizar el siguiente patrón de uso de comodines en:</span><span class="sxs-lookup"><span data-stu-id="8a28c-208">Alternatively, the following globbing pattern could be used:</span></span>
+>
+> ```json
+> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
+> ```
+>
+> <span data-ttu-id="8a28c-209">Este patrón de uso de comodines coincide con todos los archivos CSS y excluye el patrón de archivo reducida.</span><span class="sxs-lookup"><span data-stu-id="8a28c-209">This globbing pattern matches all CSS files and excludes the minified file pattern.</span></span>
 
-<span data-ttu-id="a6925-201">Compilar la aplicación y si abre `site.min.css`, ahora observará que el contenido de `custom.css` se ha anexado al final del archivo.</span><span class="sxs-lookup"><span data-stu-id="a6925-201">Build the application and if you open `site.min.css`, you'll now notice that contents of `custom.css` has been appended to the end of the file.</span></span>
+<span data-ttu-id="8a28c-210">Compile la aplicación.</span><span class="sxs-lookup"><span data-stu-id="8a28c-210">Build the application.</span></span> <span data-ttu-id="8a28c-211">Abra *site.min.css* y observe el contenido de *custom.css* se anexa al final del archivo.</span><span class="sxs-lookup"><span data-stu-id="8a28c-211">Open *site.min.css* and notice the content of *custom.css* is appended to the end of the file.</span></span>
 
-## <a name="controlling-bundling-and-minification"></a><span data-ttu-id="a6925-202">Controlar la agrupación y minificación</span><span class="sxs-lookup"><span data-stu-id="a6925-202">Controlling bundling and minification</span></span>
+## <a name="environment-based-bundling-and-minification"></a><span data-ttu-id="8a28c-212">Agrupar y minificar basado en el entorno</span><span class="sxs-lookup"><span data-stu-id="8a28c-212">Environment-based bundling and minification</span></span>
 
-<span data-ttu-id="a6925-203">En general, desea utilizar los archivos integrados y reducidos de la aplicación únicamente en un entorno de producción.</span><span class="sxs-lookup"><span data-stu-id="a6925-203">In general, you want to use the bundled and minified files of your app only in a production environment.</span></span> <span data-ttu-id="a6925-204">Durante el desarrollo, desea utilizar los archivos originales, por lo que es más fácil de depurar la aplicación.</span><span class="sxs-lookup"><span data-stu-id="a6925-204">During development, you want to use your original files so your app is easier to debug.</span></span>
+<span data-ttu-id="8a28c-213">Como práctica recomendada, los archivos integrados y reducidos de la aplicación deben usarse en un entorno de producción.</span><span class="sxs-lookup"><span data-stu-id="8a28c-213">As a best practice, the bundled and minified files of your app should be used in a production environment.</span></span> <span data-ttu-id="8a28c-214">Durante el desarrollo, los archivos originales se realizan para una depuración más sencilla de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="8a28c-214">During development, the original files make for easier debugging of the app.</span></span>
 
-<span data-ttu-id="a6925-205">Puede especificar qué secuencias de comandos y archivos CSS que se incluirán en las páginas utilizando la aplicación auxiliar de etiquetas de entorno en las páginas de diseño (vea [aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/index.md)).</span><span class="sxs-lookup"><span data-stu-id="a6925-205">You can specify which scripts and CSS files to include in your pages using the environment tag helper in your layout pages (see [Tag Helpers](../mvc/views/tag-helpers/index.md)).</span></span> <span data-ttu-id="a6925-206">La aplicación auxiliar de etiquetas de entorno solo representará su contenido cuando se ejecuta en entornos específicos.</span><span class="sxs-lookup"><span data-stu-id="a6925-206">The environment tag helper will only render its contents when running in specific environments.</span></span> <span data-ttu-id="a6925-207">Vea [trabajar con varios entornos](../fundamentals/environments.md) para obtener más información sobre cómo especificar el entorno actual.</span><span class="sxs-lookup"><span data-stu-id="a6925-207">See [Working with Multiple Environments](../fundamentals/environments.md) for details on specifying the current environment.</span></span>
+<span data-ttu-id="8a28c-215">Especificar qué archivos desea incluir en las páginas mediante el [auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) en las vistas.</span><span class="sxs-lookup"><span data-stu-id="8a28c-215">Specify which files to include in your pages by using the [Environment Tag Helper](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) in your views.</span></span> <span data-ttu-id="8a28c-216">La aplicación auxiliar de etiquetas de entorno solo representa su contenido cuando se ejecuta en específico [entornos](xref:fundamentals/environments).</span><span class="sxs-lookup"><span data-stu-id="8a28c-216">The Environment Tag Helper only renders its contents when running in specific [environments](xref:fundamentals/environments).</span></span>
 
-<span data-ttu-id="a6925-208">La siguiente etiqueta de entorno representará los archivos sin procesar de CSS cuando se ejecuta en el `Development` entorno:</span><span class="sxs-lookup"><span data-stu-id="a6925-208">The following environment tag will render the unprocessed CSS files when running in the `Development` environment:</span></span>
+<span data-ttu-id="8a28c-217">El siguiente `environment` etiqueta representa los archivos sin procesar de CSS cuando se ejecuta en el `Development` entorno:</span><span class="sxs-lookup"><span data-stu-id="8a28c-217">The following `environment` tag renders the unprocessed CSS files when running in the `Development` environment:</span></span>
 
-[!code-html[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=3&range=9-12)]
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="8a28c-218">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="8a28c-218">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="a6925-209">Esta etiqueta de entorno representará los archivos CSS agrupados y reducidos solo cuando se ejecuta en `Production` o `Staging`:</span><span class="sxs-lookup"><span data-stu-id="a6925-209">This environment tag will render the bundled and minified CSS files only when running in `Production` or `Staging`:</span></span>
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-[!code-html[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/Views/Shared/_Layout.cshtml?highlight=5&range=13-18)]
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="8a28c-219">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="8a28c-219">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-## <a name="consuming-bundleconfigjson-from-gulp"></a><span data-ttu-id="a6925-210">Consumir bundleconfig.json desde Gulp</span><span class="sxs-lookup"><span data-stu-id="a6925-210">Consuming bundleconfig.json from Gulp</span></span>
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
-<span data-ttu-id="a6925-211">Si el flujo de trabajo de agrupación y minificación de aplicación requiere procesos adicionales, como el procesamiento de imágenes, la desactivación de caché, el procesamiento de red CDN assest, etc., puede convertir el proceso de agrupación y Minify a Gulp.</span><span class="sxs-lookup"><span data-stu-id="a6925-211">If your app bundling and minification workflow requires additional processes such as image processing, cache busting, CDN assest processing, etc., then you can convert the Bundle and Minify process to Gulp.</span></span>
+---
 
-> [!NOTE]
-> <span data-ttu-id="a6925-212">Opción de conversión solo está disponible en Visual Studio 2015 y de 2017.</span><span class="sxs-lookup"><span data-stu-id="a6925-212">Conversion option only available in Visual Studio 2015 and 2017.</span></span>
+<span data-ttu-id="8a28c-220">El siguiente `environment` etiqueta representa los archivos CSS agrupados y reducidos cuando se ejecuta en un entorno distinto de `Development`.</span><span class="sxs-lookup"><span data-stu-id="8a28c-220">The following `environment` tag renders the bundled and minified CSS files when running in an environment other than `Development`.</span></span> <span data-ttu-id="8a28c-221">Por ejemplo, que se ejecutan `Production` o `Staging` desencadena el procesamiento de estas hojas de estilos:</span><span class="sxs-lookup"><span data-stu-id="8a28c-221">For example, running in `Production` or `Staging` triggers the rendering of these stylesheets:</span></span>
 
-<span data-ttu-id="a6925-213">Haga clic en el `bundleconfig.json` y seleccione **convertir en Gulp... **. Esto generará el `gulpfile.js` e instalar los paquetes de npm necesarios.</span><span class="sxs-lookup"><span data-stu-id="a6925-213">Right-click the `bundleconfig.json` and select **Convert to Gulp...**. This will generate the `gulpfile.js` and install the necessary npm packages.</span></span>
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="8a28c-222">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="8a28c-222">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-![Convertir en Gulp](../client-side/bundling-and-minification/_static/convert-togulp.png)
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-<span data-ttu-id="a6925-215">El `gulpfile.js` generado lee la `bundleconfig.json` archivo para la configuración, por lo tanto puede continuar que se usará para las entradas/salidas y la configuración.</span><span class="sxs-lookup"><span data-stu-id="a6925-215">The `gulpfile.js` produced reads the `bundleconfig.json` file for the configuration, therefore it can continue to be used for the inputs/outputs and settings.</span></span>
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="8a28c-223">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="8a28c-223">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-[!code-javascript[Main](../client-side/bundling-and-minification/samples/BuildBundlerMinifierExample/gulpfile.js)]
+[!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
-<span data-ttu-id="a6925-216">Para habilitar Gulp cuando se compila el proyecto en Visual Studio de 2017, agregue lo siguiente al archivo *.csproj:</span><span class="sxs-lookup"><span data-stu-id="a6925-216">To enable Gulp when the project builds in Visual Studio 2017, add the following to the *.csproj file:</span></span>
+---
 
-```xml
-<Target Name="MyPreCompileTarget" BeforeTargets="Build">
-    <Exec Command="gulp min" />
-</Target>
+## <a name="consume-bundleconfigjson-from-gulp"></a><span data-ttu-id="8a28c-224">Consumir bundleconfig.json desde Gulp</span><span class="sxs-lookup"><span data-stu-id="8a28c-224">Consume bundleconfig.json from Gulp</span></span>
+
+<span data-ttu-id="8a28c-225">Hay casos en los que el flujo de trabajo de una aplicación agrupar y minificar requiere un procesamiento adicional.</span><span class="sxs-lookup"><span data-stu-id="8a28c-225">There are cases in which an app's bundling and minification workflow requires additional processing.</span></span> <span data-ttu-id="8a28c-226">Algunos ejemplos son la optimización de la imagen, la desactivación de caché y el procesamiento del recurso de red CDN.</span><span class="sxs-lookup"><span data-stu-id="8a28c-226">Examples include image optimization, cache busting, and CDN asset processing.</span></span> <span data-ttu-id="8a28c-227">Para satisfacer estos requisitos, que puede convertir el flujo de trabajo de agrupación y minificación para usar Gulp.</span><span class="sxs-lookup"><span data-stu-id="8a28c-227">To satisfy these requirements, you can convert the bundling and minification workflow to use Gulp.</span></span>
+
+### <a name="use-the-bundler--minifier-extension"></a><span data-ttu-id="8a28c-228">Utilizar la extensión de paquete de instalación & Minificador</span><span class="sxs-lookup"><span data-stu-id="8a28c-228">Use the Bundler & Minifier extension</span></span>
+
+<span data-ttu-id="8a28c-229">Visual Studio [paquete de instalación & Minificador](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) extensión controla la conversión a Gulp.</span><span class="sxs-lookup"><span data-stu-id="8a28c-229">The Visual Studio [Bundler & Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) extension handles the conversion to Gulp.</span></span>
+
+<span data-ttu-id="8a28c-230">Haga clic en el *bundleconfig.json* un archivo en el Explorador de soluciones y seleccione **paquete de instalación & Minificador** > **convertir a Gulp...** :</span><span class="sxs-lookup"><span data-stu-id="8a28c-230">Right-click the *bundleconfig.json* file in Solution Explorer and select **Bundler & Minifier** > **Convert To Gulp...**:</span></span>
+
+![Convertir a Gulp elemento del menú contextual](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
+
+<span data-ttu-id="8a28c-232">El *gulpfile.js* y *package.json* archivos se agregan al proyecto.</span><span class="sxs-lookup"><span data-stu-id="8a28c-232">The *gulpfile.js* and *package.json* files are added to the project.</span></span> <span data-ttu-id="8a28c-233">La compatibilidad con [npm](https://www.npmjs.com/) paquetes incluidos en el *package.json* del archivo `devDependencies` sección están instalados.</span><span class="sxs-lookup"><span data-stu-id="8a28c-233">The supporting [npm](https://www.npmjs.com/) packages listed in the *package.json* file's `devDependencies` section are installed.</span></span>
+
+<span data-ttu-id="8a28c-234">Ejecute el siguiente comando en la ventana PMC para instalar la CLI Gulp como una dependencia global:</span><span class="sxs-lookup"><span data-stu-id="8a28c-234">Run the following command in the PMC window to install the Gulp CLI as a global dependency:</span></span>
+
+```console
+npm i -g gulp-cli
 ```
 
-<span data-ttu-id="a6925-217">Para habilitar Gulp cuando se compila el proyecto en Visual Studio 2015, agregue lo siguiente a la `project.json` archivo:</span><span class="sxs-lookup"><span data-stu-id="a6925-217">To enable Gulp when the project builds in Visual Studio 2015, add the following to the `project.json` file:</span></span>
+<span data-ttu-id="8a28c-235">El *gulpfile.js* lecturas de archivos la *bundleconfig.json* archivo de entradas, salidas y configuración.</span><span class="sxs-lookup"><span data-stu-id="8a28c-235">The *gulpfile.js* file reads the *bundleconfig.json* file for the inputs, outputs, and settings.</span></span>
 
-```json
-"scripts": {
-    "precompile": "gulp min"
-}
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-12&highlight=10)]
+
+### <a name="convert-manually"></a><span data-ttu-id="8a28c-236">Convertir manualmente</span><span class="sxs-lookup"><span data-stu-id="8a28c-236">Convert manually</span></span>
+
+<span data-ttu-id="8a28c-237">Si Visual Studio o la extensión del paquete de instalación & Minificador no está disponible, convertir manualmente.</span><span class="sxs-lookup"><span data-stu-id="8a28c-237">If Visual Studio and/or the Bundler & Minifier extension aren't available, convert manually.</span></span>
+
+<span data-ttu-id="8a28c-238">Agregar un *package.json* archivo, con el siguiente `devDependencies`, a la raíz del proyecto:</span><span class="sxs-lookup"><span data-stu-id="8a28c-238">Add a *package.json* file, with the following `devDependencies`, to the project root:</span></span>
+
+[!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/package.json?range=5-13)]
+
+<span data-ttu-id="8a28c-239">Instalar las dependencias ejecutando el siguiente comando en el mismo nivel que *package.json*:</span><span class="sxs-lookup"><span data-stu-id="8a28c-239">Install the dependencies by running the following command at the same level as *package.json*:</span></span>
+
+```console
+npm i
 ```
 
-## <a name="additional-resources"></a><span data-ttu-id="a6925-218">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="a6925-218">Additional resources</span></span>
+<span data-ttu-id="8a28c-240">Instale la CLI Gulp como una dependencia global:</span><span class="sxs-lookup"><span data-stu-id="8a28c-240">Install the Gulp CLI as a global dependency:</span></span>
 
-* [<span data-ttu-id="a6925-219">Uso de Gulp</span><span class="sxs-lookup"><span data-stu-id="a6925-219">Using Gulp</span></span>](using-gulp.md)
-* [<span data-ttu-id="a6925-220">Uso de Grunt</span><span class="sxs-lookup"><span data-stu-id="a6925-220">Using Grunt</span></span>](using-grunt.md)
-* [<span data-ttu-id="a6925-221">Trabajar con varios entornos</span><span class="sxs-lookup"><span data-stu-id="a6925-221">Working with Multiple Environments</span></span>](../fundamentals/environments.md)
-* [<span data-ttu-id="a6925-222">Aplicaciones auxiliares de etiquetas</span><span class="sxs-lookup"><span data-stu-id="a6925-222">Tag Helpers</span></span>](../mvc/views/tag-helpers/index.md)
+```console
+npm i -g gulp-cli
+```
+
+<span data-ttu-id="8a28c-241">Copia la *gulpfile.js* por debajo del archivo a la raíz del proyecto:</span><span class="sxs-lookup"><span data-stu-id="8a28c-241">Copy the *gulpfile.js* file below to the project root:</span></span>
+
+[!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-11,14-)]
+
+### <a name="run-gulp-tasks"></a><span data-ttu-id="8a28c-242">Ejecutar tareas de Gulp</span><span class="sxs-lookup"><span data-stu-id="8a28c-242">Run Gulp tasks</span></span>
+
+<span data-ttu-id="8a28c-243">Para desencadenar la tarea de preparación de minificación Gulp antes de que el proyecto se compila en Visual Studio, agregue las siguientes [destino de MSBuild](/visualstudio/msbuild/msbuild-targets) al archivo *.csproj:</span><span class="sxs-lookup"><span data-stu-id="8a28c-243">To trigger the Gulp minification task before the project builds in Visual Studio, add the following [MSBuild Target](/visualstudio/msbuild/msbuild-targets) to the *.csproj file:</span></span>
+
+[!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=14-16)]
+
+<span data-ttu-id="8a28c-244">En este ejemplo, las tareas se definen en el `MyPreCompileTarget` destino ejecutar antes predefinido `Build` destino.</span><span class="sxs-lookup"><span data-stu-id="8a28c-244">In this example, any tasks defined within the `MyPreCompileTarget` target run before the predefined `Build` target.</span></span> <span data-ttu-id="8a28c-245">Aparecerá un resultado similar al siguiente en la ventana de salida de Visual Studio:</span><span class="sxs-lookup"><span data-stu-id="8a28c-245">Output similar to the following appears in Visual Studio's Output window:</span></span>
+
+```console
+1>------ Build started: Project: BuildBundlerMinifierApp, Configuration: Debug Any CPU ------
+1>BuildBundlerMinifierApp -> C:\BuildBundlerMinifierApp\bin\Debug\netcoreapp2.0\BuildBundlerMinifierApp.dll
+1>[14:17:49] Using gulpfile C:\BuildBundlerMinifierApp\gulpfile.js
+1>[14:17:49] Starting 'min:js'...
+1>[14:17:49] Starting 'min:css'...
+1>[14:17:49] Starting 'min:html'...
+1>[14:17:49] Finished 'min:js' after 83 ms
+1>[14:17:49] Finished 'min:css' after 88 ms
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+```
+
+<span data-ttu-id="8a28c-246">También se puede usar el explorador del ejecutor de tareas de Visual Studio para enlazar Gulp tareas a eventos específicos de Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="8a28c-246">Alternatively, Visual Studio's Task Runner Explorer may be used to bind Gulp tasks to specific Visual Studio events.</span></span> <span data-ttu-id="8a28c-247">Vea [ejecutando tareas predeterminadas](xref:client-side/using-gulp#running-default-tasks) para obtener instrucciones sobre cómo hacer que.</span><span class="sxs-lookup"><span data-stu-id="8a28c-247">See [Running default tasks](xref:client-side/using-gulp#running-default-tasks) for instructions on doing that.</span></span>
+
+## <a name="additional-resources"></a><span data-ttu-id="8a28c-248">Recursos adicionales</span><span class="sxs-lookup"><span data-stu-id="8a28c-248">Additional resources</span></span>
+
+* [<span data-ttu-id="8a28c-249">Uso de Gulp</span><span class="sxs-lookup"><span data-stu-id="8a28c-249">Using Gulp</span></span>](xref:client-side/using-gulp)
+* [<span data-ttu-id="8a28c-250">Uso de Grunt</span><span class="sxs-lookup"><span data-stu-id="8a28c-250">Using Grunt</span></span>](xref:client-side/using-grunt)
+* [<span data-ttu-id="8a28c-251">Trabajar con varios entornos</span><span class="sxs-lookup"><span data-stu-id="8a28c-251">Working with Multiple Environments</span></span>](xref:fundamentals/environments)
+* [<span data-ttu-id="8a28c-252">Aplicaciones auxiliares de etiquetas</span><span class="sxs-lookup"><span data-stu-id="8a28c-252">Tag Helpers</span></span>](xref:mvc/views/tag-helpers/intro)

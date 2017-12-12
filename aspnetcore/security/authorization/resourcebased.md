@@ -1,45 +1,52 @@
 ---
-title: "Autorización basada en recursos"
-author: rick-anderson
-description: 
-keywords: ASP.NET Core,
-ms.author: riande
+title: "Autorización basada en recursos en ASP.NET Core"
+author: scottaddie
+description: "Aprenda a implementar la autorización basada en recursos en una aplicación de ASP.NET Core cuando un atributo Authorize no son suficientes."
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.assetid: 0902ba17-5304-4a12-a2d4-e0904569e988
-ms.technology: aspnet
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 11/07/2017
+ms.devlang: csharp
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/resourcebased
-ms.openlocfilehash: 7f7df52bf51a81558818836450997281a21b5839
-ms.sourcegitcommit: f303a457644ed034a49aa89edecb4e79d9028cb1
+ms.openlocfilehash: 708f306da740870b106cbeeb96879480f8745439
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="resource-based-authorization"></a><span data-ttu-id="7fb89-103">Autorización basada en recursos</span><span class="sxs-lookup"><span data-stu-id="7fb89-103">Resource Based Authorization</span></span>
+# <a name="resource-based-authorization"></a><span data-ttu-id="e3cfa-103">Autorización basada en recursos</span><span class="sxs-lookup"><span data-stu-id="e3cfa-103">Resource-based authorization</span></span>
 
-<a name=security-authorization-resource-based></a>
+<span data-ttu-id="e3cfa-104">Por [Scott Addie](https://twitter.com/Scott_Addie)</span><span class="sxs-lookup"><span data-stu-id="e3cfa-104">By [Scott Addie](https://twitter.com/Scott_Addie)</span></span>
 
-<span data-ttu-id="7fb89-104">A menudo autorización depende de los recursos que se obtiene acceso.</span><span class="sxs-lookup"><span data-stu-id="7fb89-104">Often authorization depends upon the resource being accessed.</span></span> <span data-ttu-id="7fb89-105">Por ejemplo, un documento puede tener una propiedad de autor.</span><span class="sxs-lookup"><span data-stu-id="7fb89-105">For example, a document may have an author property.</span></span> <span data-ttu-id="7fb89-106">Solo el autor del documento se podrá actualizarla, el recurso se debe cargar desde el repositorio de documentos para poder realizar una evaluación de autorización.</span><span class="sxs-lookup"><span data-stu-id="7fb89-106">Only the document author would be allowed to update it, so the resource must be loaded from the document repository before an authorization evaluation can be made.</span></span> <span data-ttu-id="7fb89-107">Esto no es posible con un atributo Authorize, como la evaluación de atributo tiene lugar antes del enlace de datos y antes de ejecutar su propio código para cargar un recurso dentro de una acción.</span><span class="sxs-lookup"><span data-stu-id="7fb89-107">This cannot be done with an Authorize attribute, as attribute evaluation takes place before data binding and before your own code to load a resource runs inside an action.</span></span> <span data-ttu-id="7fb89-108">En lugar de autorización declarativa, el método de atributo, debemos usar autorización imperativa, donde un desarrollador llama a una función de autorizar dentro de su propio código.</span><span class="sxs-lookup"><span data-stu-id="7fb89-108">Instead of declarative authorization, the attribute method, we must use imperative authorization, where a developer calls an authorize function within their own code.</span></span>
+<span data-ttu-id="e3cfa-105">Estrategia de autorización depende de los recursos que se obtiene acceso.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-105">Authorization strategy depends upon the resource being accessed.</span></span> <span data-ttu-id="e3cfa-106">Considere la posibilidad de un documento que tiene una propiedad de autor.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-106">Consider a document which has an author property.</span></span> <span data-ttu-id="e3cfa-107">Solo el autor tiene permiso para actualizar el documento.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-107">Only the author is allowed to update the document.</span></span> <span data-ttu-id="e3cfa-108">Por lo tanto, el documento se debe recuperar desde el almacén de datos antes de que puede producirse la evaluación de autorización.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-108">Consequently, the document must be retrieved from the data store before authorization evaluation can occur.</span></span>
 
-## <a name="authorizing-within-your-code"></a><span data-ttu-id="7fb89-109">Autorizar dentro del código</span><span class="sxs-lookup"><span data-stu-id="7fb89-109">Authorizing within your code</span></span>
+<span data-ttu-id="e3cfa-109">Evaluación de atributo se produce antes del enlace de datos y antes de la ejecución del controlador de la página o acción que carga el documento.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-109">Attribute evaluation occurs before data binding and before execution of the page handler or action which loads the document.</span></span> <span data-ttu-id="e3cfa-110">Por estos motivos, autorización declarativa con un `[Authorize]` atributo no son suficientes.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-110">For these reasons, declarative authorization with an `[Authorize]` attribute won't suffice.</span></span> <span data-ttu-id="e3cfa-111">En su lugar, puede invocar un método de autorización personalizado&mdash;un estilo que se conoce como autorización imperativa.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-111">Instead, you can invoke a custom authorization method&mdash;a style known as imperative authorization.</span></span>
 
-<span data-ttu-id="7fb89-110">Autorización se implementa como un servicio, `IAuthorizationService`, registrado en la colección de servicio y de disponibilidad a través de [inyección de dependencia](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection) para tener acceso a los controladores.</span><span class="sxs-lookup"><span data-stu-id="7fb89-110">Authorization is implemented as a service, `IAuthorizationService`, registered in the service collection and available via [dependency injection](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection) for Controllers to access.</span></span>
+<span data-ttu-id="e3cfa-112">Use la [aplicaciones de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample)) para explorar las características descritas en este tema.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-112">Use the [sample apps](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/resourcebased/samples) ([how to download](xref:tutorials/index#how-to-download-a-sample)) to explore the features described in this topic.</span></span>
+
+## <a name="use-imperative-authorization"></a><span data-ttu-id="e3cfa-113">Utilizar la autorización imperativa</span><span class="sxs-lookup"><span data-stu-id="e3cfa-113">Use imperative authorization</span></span>
+
+<span data-ttu-id="e3cfa-114">Autorización se implementa como un [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) de servicio y está registrado en la colección de servicio en la `Startup` clase.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-114">Authorization is implemented as an [IAuthorizationService](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationservice) service and is registered in the service collection within the `Startup` class.</span></span> <span data-ttu-id="e3cfa-115">El servicio debe ponerse a disposición a través de [inyección de dependencia](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) a controladores de página o acciones.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-115">The service is made available via [dependency injection](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) to page handlers or actions.</span></span>
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Controllers/DocumentController.cs?name=snippet_IAuthServiceDI&highlight=6)]
+
+<span data-ttu-id="e3cfa-116">`IAuthorizationService`tiene dos `AuthorizeAsync` sobrecargas del método: acepta un recurso y, a continuación, el nombre de directiva y el otro aceptando el recurso y una lista de requisitos para evaluar.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-116">`IAuthorizationService` has two `AuthorizeAsync` method overloads: one accepting the resource and the policy name and the other accepting the resource and a list of requirements to evaluate.</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e3cfa-117">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-117">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 ```csharp
-public class DocumentController : Controller
-{
-    IAuthorizationService _authorizationService;
-
-    public DocumentController(IAuthorizationService authorizationService)
-    {
-        _authorizationService = authorizationService;
-    }
-}
+Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
+                          object resource,
+                          IEnumerable<IAuthorizationRequirement> requirements);
+Task<AuthorizationResult> AuthorizeAsync(ClaimsPrincipal user,
+                          object resource,
+                          string policyName);
 ```
 
-<span data-ttu-id="7fb89-111">`IAuthorizationService`tiene dos métodos, uno en los que pasa el recurso y el nombre de directiva y el otro en los que pasa el recurso y una lista de requisitos para evaluar.</span><span class="sxs-lookup"><span data-stu-id="7fb89-111">`IAuthorizationService` has two methods, one where you pass the resource and the policy name and the other where you pass the resource and a list of requirements to evaluate.</span></span>
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e3cfa-118">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-118">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
 Task<bool> AuthorizeAsync(ClaimsPrincipal user,
@@ -50,104 +57,78 @@ Task<bool> AuthorizeAsync(ClaimsPrincipal user,
                           string policyName);
 ```
 
-<a name=security-authorization-resource-based-imperative></a>
+---
 
-<span data-ttu-id="7fb89-112">Para llamar al servicio, cargar el recurso dentro de la acción, a continuación, llame a la `AuthorizeAsync` sobrecarga necesita.</span><span class="sxs-lookup"><span data-stu-id="7fb89-112">To call the service, load your resource within your action then call the `AuthorizeAsync` overload you require.</span></span> <span data-ttu-id="7fb89-113">Por ejemplo:</span><span class="sxs-lookup"><span data-stu-id="7fb89-113">For example:</span></span>
+<a name="security-authorization-resource-based-imperative"></a>
 
-```csharp
-public async Task<IActionResult> Edit(Guid documentId)
-{
-    Document document = documentRepository.Find(documentId);
+<span data-ttu-id="e3cfa-119">En el ejemplo siguiente, se carga el recurso que se va a proteger en un personalizado `Document` objeto.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-119">In the following example, the resource to be secured is loaded into a custom `Document` object.</span></span> <span data-ttu-id="e3cfa-120">Un `AuthorizeAsync` sobrecarga se invoca para determinar si se permite al usuario actual para modificar el documento proporcionado.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-120">An `AuthorizeAsync` overload is invoked to determine whether the current user is allowed to edit the provided document.</span></span> <span data-ttu-id="e3cfa-121">Una directiva de autorización personalizada "EditPolicy" es tenerse en cuenta en la decisión.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-121">A custom "EditPolicy" authorization policy is factored into the decision.</span></span> <span data-ttu-id="e3cfa-122">Vea [autorización basada en directivas de personalizado](xref:security/authorization/policies) para obtener más información acerca de cómo crear directivas de autorización.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-122">See [Custom policy-based authorization](xref:security/authorization/policies) for more on creating authorization policies.</span></span>
 
-    if (document == null)
-    {
-        return new HttpNotFoundResult();
-    }
+> [!NOTE]
+> <span data-ttu-id="e3cfa-123">El código siguiente ejemplos se supone la autenticación se ha ejecutado y establezca el `User` propiedad.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-123">The following code samples assume authentication has run and set the `User` property.</span></span>
 
-    if (await _authorizationService.AuthorizeAsync(User, document, "EditPolicy"))
-    {
-        return View(document);
-    }
-    else
-    {
-        return new ChallengeResult();
-    }
-}
-```
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e3cfa-124">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-124">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-## <a name="writing-a-resource-based-handler"></a><span data-ttu-id="7fb89-114">Escribir un controlador basada en recursos</span><span class="sxs-lookup"><span data-stu-id="7fb89-114">Writing a resource based handler</span></span>
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/Edit.cshtml.cs?name=snippet_DocumentEditHandler)]
 
-<span data-ttu-id="7fb89-115">Escribir un controlador para la autorización basada en recursos no es tan muy diferente a [escribir un controlador de requisitos sin formato](policies.md#security-authorization-policies-based-authorization-handler).</span><span class="sxs-lookup"><span data-stu-id="7fb89-115">Writing a handler for resource based authorization is not that much different to [writing a plain requirements handler](policies.md#security-authorization-policies-based-authorization-handler).</span></span> <span data-ttu-id="7fb89-116">Crear un requisito y, a continuación, implemente un controlador para el requisito, especificar los requisitos como antes y el tipo de recurso.</span><span class="sxs-lookup"><span data-stu-id="7fb89-116">You create a requirement, and then implement a handler for the requirement, specifying the requirement as before and also the resource type.</span></span> <span data-ttu-id="7fb89-117">Por ejemplo, un controlador que podría aceptar un recurso de documento sería como sigue:</span><span class="sxs-lookup"><span data-stu-id="7fb89-117">For example, a handler which might accept a Document resource would look as follows:</span></span>
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e3cfa-125">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-125">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-```csharp
-public class DocumentAuthorizationHandler : AuthorizationHandler<MyRequirement, Document>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-                                                MyRequirement requirement,
-                                                Document resource)
-    {
-        // Validate the requirement against the resource and identity.
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentEditAction)]
 
-        return Task.CompletedTask;
-    }
-}
-```
+---
 
-<span data-ttu-id="7fb89-118">No olvide que también tenga que registrar el controlador en el `ConfigureServices` método:</span><span class="sxs-lookup"><span data-stu-id="7fb89-118">Don't forget you also need to register your handler in the `ConfigureServices` method:</span></span>
+## <a name="write-a-resource-based-handler"></a><span data-ttu-id="e3cfa-126">Escribir un controlador basada en recursos</span><span class="sxs-lookup"><span data-stu-id="e3cfa-126">Write a resource-based handler</span></span>
 
-```csharp
-services.AddSingleton<IAuthorizationHandler, DocumentAuthorizationHandler>();
-```
+<span data-ttu-id="e3cfa-127">Escribir un controlador para la autorización basada en recursos no es muy diferente de [escribir un controlador de requisitos sin formato](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler).</span><span class="sxs-lookup"><span data-stu-id="e3cfa-127">Writing a handler for resource-based authorization isn't much different than [writing a plain requirements handler](xref:security/authorization/policies#security-authorization-policies-based-authorization-handler).</span></span> <span data-ttu-id="e3cfa-128">Cree una clase de requisito personalizado e implementar una clase de controlador de requisito.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-128">Create a custom requirement class, and implement a requirement handler class.</span></span> <span data-ttu-id="e3cfa-129">La clase de controlador especifica el requisito y el tipo de recurso.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-129">The handler class specifies both the requirement and resource type.</span></span> <span data-ttu-id="e3cfa-130">Por ejemplo, un controlador utilizando un `SameAuthorRequirement` requisito y un `Document` recurso tiene el siguiente aspecto:</span><span class="sxs-lookup"><span data-stu-id="e3cfa-130">For example, a handler utilizing a `SameAuthorRequirement` requirement and a `Document` resource looks as follows:</span></span>
 
-### <a name="operational-requirements"></a><span data-ttu-id="7fb89-119">Requisitos operativos</span><span class="sxs-lookup"><span data-stu-id="7fb89-119">Operational Requirements</span></span>
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e3cfa-131">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-131">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="7fb89-120">Si va a realizar decisiones basadas en operaciones como lectura, escritura, actualización y eliminación, puede usar el `OperationAuthorizationRequirement` clase en el `Microsoft.AspNetCore.Authorization.Infrastructure` espacio de nombres.</span><span class="sxs-lookup"><span data-stu-id="7fb89-120">If you are making decisions based on operations such as read, write, update and delete, you can use the `OperationAuthorizationRequirement` class in the `Microsoft.AspNetCore.Authorization.Infrastructure` namespace.</span></span> <span data-ttu-id="7fb89-121">Esta clase de requisito creada previamente permite escribir un único controlador que tiene un nombre de la operación con parámetros, en lugar de crear clases individuales para cada operación.</span><span class="sxs-lookup"><span data-stu-id="7fb89-121">This prebuilt requirement class enables you to write a single handler which has a parameterized operation name, rather than create individual classes for each operation.</span></span> <span data-ttu-id="7fb89-122">Para usarla, proporcionar algunos nombres de operación:</span><span class="sxs-lookup"><span data-stu-id="7fb89-122">To use it, provide some operation names:</span></span>
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
-```csharp
-public static class Operations
-{
-    public static OperationAuthorizationRequirement Create =
-        new OperationAuthorizationRequirement { Name = "Create" };
-    public static OperationAuthorizationRequirement Read =
-        new OperationAuthorizationRequirement   { Name = "Read" };
-    public static OperationAuthorizationRequirement Update =
-        new OperationAuthorizationRequirement { Name = "Update" };
-    public static OperationAuthorizationRequirement Delete =
-        new OperationAuthorizationRequirement { Name = "Delete" };
-}
-```
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e3cfa-132">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-132">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="7fb89-123">El controlador puede, a continuación, implementarse como sigue, utilizando un hipotético `Document` clase como el recurso:</span><span class="sxs-lookup"><span data-stu-id="7fb89-123">Your handler could then be implemented as follows, using a hypothetical `Document` class as the resource:</span></span>
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationHandler.cs?name=snippet_HandlerAndRequirement)]
 
-```csharp
-public class DocumentAuthorizationHandler :
-    AuthorizationHandler<OperationAuthorizationRequirement, Document>
-{
-    public override Task HandleRequirementAsync(AuthorizationHandlerContext context,
-                                                OperationAuthorizationRequirement requirement,
-                                                Document resource)
-    {
-        // Validate the operation using the resource, the identity and
-        // the Name property value from the requirement.
+---
 
-        return Task.CompletedTask;
-    }
-}
-```
+<span data-ttu-id="e3cfa-133">Registrar el requisito y el controlador en el `Startup.ConfigureServices` método:</span><span class="sxs-lookup"><span data-stu-id="e3cfa-133">Register the requirement and handler in the `Startup.ConfigureServices` method:</span></span>
 
-<span data-ttu-id="7fb89-124">Puede ver el controlador funciona en `OperationAuthorizationRequirement`.</span><span class="sxs-lookup"><span data-stu-id="7fb89-124">You can see the handler works on `OperationAuthorizationRequirement`.</span></span> <span data-ttu-id="7fb89-125">El código dentro del controlador debe asumir la propiedad Name del requisito proporcionado en cuenta al realizar sus evaluaciones.</span><span class="sxs-lookup"><span data-stu-id="7fb89-125">The code inside the handler must take the Name property of the supplied requirement into account when making its evaluations.</span></span>
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Startup.cs?name=snippet_ConfigureServicesSample&highlight=3-7,9)]
 
-<span data-ttu-id="7fb89-126">Para llamar a un controlador de recursos operativos es necesario especificar la operación cuando se llama a `AuthorizeAsync` en la acción.</span><span class="sxs-lookup"><span data-stu-id="7fb89-126">To call an operational resource handler you need to specify the operation when calling `AuthorizeAsync` in your action.</span></span> <span data-ttu-id="7fb89-127">Por ejemplo:</span><span class="sxs-lookup"><span data-stu-id="7fb89-127">For example:</span></span>
+### <a name="operational-requirements"></a><span data-ttu-id="e3cfa-134">Requisitos operativos</span><span class="sxs-lookup"><span data-stu-id="e3cfa-134">Operational requirements</span></span>
 
-```csharp
-if (await _authorizationService.AuthorizeAsync(User, document, Operations.Read))
-{
-    return View(document);
-}
-else
-{
-    return new ChallengeResult();
-}
-```
+<span data-ttu-id="e3cfa-135">Si está realizando decisiones basadas en los resultados de CRUD (**C**rear, **R**EA, **U**ctualizar, **d.**liminar) de las operaciones, utilice la [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) clase auxiliar.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-135">If you're making decisions based on the outcomes of CRUD (**C**reate, **R**ead, **U**pdate, **D**elete) operations, use the [OperationAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.infrastructure.operationauthorizationrequirement) helper class.</span></span> <span data-ttu-id="e3cfa-136">Esta clase permite escribir un único controlador en lugar de una clase individual para cada tipo de operación.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-136">This class enables you to write a single handler instead of an individual class for each operation type.</span></span> <span data-ttu-id="e3cfa-137">Para usarla, proporcionar algunos nombres de operación:</span><span class="sxs-lookup"><span data-stu-id="e3cfa-137">To use it, provide some operation names:</span></span>
 
-<span data-ttu-id="7fb89-128">Este ejemplo se comprueba si el usuario es capaz de realizar la operación de lectura actual `document` instancia.</span><span class="sxs-lookup"><span data-stu-id="7fb89-128">This example checks if the User is able to perform the Read operation for the current `document` instance.</span></span> <span data-ttu-id="7fb89-129">Si la autorización se realiza correctamente, se devolverá la vista del documento.</span><span class="sxs-lookup"><span data-stu-id="7fb89-129">If authorization succeeds the view for the document will be returned.</span></span> <span data-ttu-id="7fb89-130">Si la autorización da error devolver `ChallengeResult` informará a cualquier autenticación ha fallado la autorización de middleware y el software intermedio puede tomar la respuesta adecuada, por ejemplo devuelve un código de estado 401 o 403 o redirige al usuario a una página de inicio de sesión para clientes de explorador interactivo.</span><span class="sxs-lookup"><span data-stu-id="7fb89-130">If authorization fails returning `ChallengeResult` will inform any authentication middleware authorization has failed and the middleware can take the appropriate response, for example returning a 401 or 403 status code, or redirecting the user to a login page for interactive browser clients.</span></span>
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_OperationsClass)]
+
+<span data-ttu-id="e3cfa-138">El controlador se implementa como sigue, mediante una `OperationAuthorizationRequirement` requisito y un `Document` recursos:</span><span class="sxs-lookup"><span data-stu-id="e3cfa-138">The handler is implemented as follows, using an `OperationAuthorizationRequirement` requirement and a `Document` resource:</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e3cfa-139">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-139">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e3cfa-140">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-140">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Services/DocumentAuthorizationCrudHandler.cs?name=snippet_Handler)]
+
+---
+
+<span data-ttu-id="e3cfa-141">El controlador anterior valida la operación con el recurso, la identidad del usuario y el requisito `Name` propiedad.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-141">The preceding handler validates the operation using the resource, the user's identity, and the requirement's `Name` property.</span></span>
+
+<span data-ttu-id="e3cfa-142">Para llamar a un controlador de recursos operativa, especifique la operación al invocar `AuthorizeAsync` en el controlador de la página o la acción.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-142">To call an operational resource handler, specify the operation when invoking `AuthorizeAsync` in your page handler or action.</span></span> <span data-ttu-id="e3cfa-143">En el ejemplo siguiente se determina si se permite al usuario autenticado para ver el documento proporcionado.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-143">The following example determines whether the authenticated user is permitted to view the provided document.</span></span>
+
+> [!NOTE]
+> <span data-ttu-id="e3cfa-144">El código siguiente ejemplos se supone la autenticación se ha ejecutado y establezca el `User` propiedad.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-144">The following code samples assume authentication has run and set the `User` property.</span></span>
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="e3cfa-145">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-145">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp2/Pages/Document/View.cshtml.cs?name=snippet_DocumentViewHandler&highlight=10-11)]
+
+<span data-ttu-id="e3cfa-146">Si la autorización se realiza correctamente, se devuelve la página para ver el documento.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-146">If authorization succeeds, the page for viewing the document is returned.</span></span> <span data-ttu-id="e3cfa-147">Si se produce un error de autorización, pero el usuario se autentica, devolver `ForbidResult` informa a cualquier middleware de autenticación error de autorización.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-147">If authorization fails but the user is authenticated, returning `ForbidResult` informs any authentication middleware that authorization failed.</span></span> <span data-ttu-id="e3cfa-148">Un `ChallengeResult` se devuelve cuando se debe realizar la autenticación.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-148">A `ChallengeResult` is returned when authentication must be performed.</span></span> <span data-ttu-id="e3cfa-149">Para los clientes de explorador interactivo, puede ser adecuado redirigir al usuario a una página de inicio de sesión.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-149">For interactive browser clients, it may be appropriate to redirect the user to a login page.</span></span>
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="e3cfa-150">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="e3cfa-150">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+
+[!code-csharp[](resourcebased/samples/ResourceBasedAuthApp1/Controllers/DocumentController.cs?name=snippet_DocumentViewAction&highlight=11-12)]
+
+<span data-ttu-id="e3cfa-151">Si la autorización se realiza correctamente, se devuelve la vista del documento.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-151">If authorization succeeds, the view for the document is returned.</span></span> <span data-ttu-id="e3cfa-152">Si se produce un error en la autorización, devolver `ChallengeResult` informa a cualquier middleware de autenticación que error de autorización, y el software intermedio puede tomar la respuesta adecuada.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-152">If authorization fails, returning `ChallengeResult` informs any authentication middleware that authorization failed, and the middleware can take the appropriate response.</span></span> <span data-ttu-id="e3cfa-153">Una respuesta adecuada podría devolver un código de estado 401 o 403.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-153">An appropriate response could be returning a 401 or 403 status code.</span></span> <span data-ttu-id="e3cfa-154">Para los clientes de explorador interactivo, podría significar redirige al usuario a una página de inicio de sesión.</span><span class="sxs-lookup"><span data-stu-id="e3cfa-154">For interactive browser clients, it could mean redirecting the user to a login page.</span></span>
+
+---

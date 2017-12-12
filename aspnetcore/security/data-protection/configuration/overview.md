@@ -1,31 +1,33 @@
 ---
-title: "Configurar la protección de datos"
+title: "Configuración de protección de datos en ASP.NET Core"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Obtenga información acerca de cómo configurar la protección de datos en ASP.NET Core."
+keywords: "ASP.NET Core, protección de datos, configuración"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 07/17/2017
 ms.topic: article
 ms.assetid: 0e4881a3-a94d-4e35-9c1c-f025d65dcff0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 9361dcec89a0f35067181523cc56637d629614ff
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 4713c2bed04af784e74586daa10ec847262a1345
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="configuring-data-protection"></a><span data-ttu-id="9bdb5-103">Configurar la protección de datos</span><span class="sxs-lookup"><span data-stu-id="9bdb5-103">Configuring data protection</span></span>
+# <a name="configuring-data-protection-in-aspnet-core"></a><span data-ttu-id="54cea-104">Configuración de protección de datos en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="54cea-104">Configuring Data Protection in ASP.NET Core</span></span>
 
-<a name=data-protection-configuring></a>
+<span data-ttu-id="54cea-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="54cea-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="9bdb5-104">Cuando se inicializa el sistema de protección de datos aplica algunos [configuración predeterminada](default-settings.md#data-protection-default-settings) basado en el entorno operativo.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-104">When the data protection system is initialized it applies some [default settings](default-settings.md#data-protection-default-settings) based on the operational environment.</span></span> <span data-ttu-id="9bdb5-105">Esta configuración es normalmente adecuada para aplicaciones que se ejecutan en un único equipo.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-105">These settings are generally good for applications running on a single machine.</span></span> <span data-ttu-id="9bdb5-106">Hay algunos casos donde un programador podría desear cambiar estas (quizás porque su aplicación se distribuye entre varias máquinas o por motivos de cumplimiento), y para estos escenarios, el sistema de protección de datos ofrece una API de configuración completo.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-106">There are some cases where a developer may want to change these (perhaps because their application is spread across multiple machines or for compliance reasons), and for these scenarios the data protection system offers a rich configuration API.</span></span>
+<span data-ttu-id="54cea-106">Cuando se inicializa el sistema de protección de datos, se aplica [configuración predeterminada](xref:security/data-protection/configuration/default-settings) basado en el entorno operativo.</span><span class="sxs-lookup"><span data-stu-id="54cea-106">When the Data Protection system is initialized, it applies [default settings](xref:security/data-protection/configuration/default-settings) based on the operational environment.</span></span> <span data-ttu-id="54cea-107">Esta configuración es suelen ser adecuada para aplicaciones que se ejecutan en un único equipo.</span><span class="sxs-lookup"><span data-stu-id="54cea-107">These settings are generally appropriate for apps running on a single machine.</span></span> <span data-ttu-id="54cea-108">Hay casos donde un desarrollador puede cambiar la configuración predeterminada, es posible porque la aplicación se distribuye entre varias máquinas o por motivos de cumplimiento.</span><span class="sxs-lookup"><span data-stu-id="54cea-108">There are cases where a developer may want to change the default settings, perhaps because their app is spread across multiple machines or for compliance reasons.</span></span> <span data-ttu-id="54cea-109">En estos casos, el sistema de protección de datos ofrece una API enriquecida de configuración.</span><span class="sxs-lookup"><span data-stu-id="54cea-109">For these scenarios, the Data Protection system offers a rich configuration API.</span></span>
 
-<a name=data-protection-configuration-callback></a>
+<span data-ttu-id="54cea-110">Hay un método de extensión [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) que devuelve un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder).</span><span class="sxs-lookup"><span data-stu-id="54cea-110">There's an extension method [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) that returns an [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder).</span></span> <span data-ttu-id="54cea-111">`IDataProtectionBuilder`expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de opciones.</span><span class="sxs-lookup"><span data-stu-id="54cea-111">`IDataProtectionBuilder` exposes extension methods that you can chain together to configure Data Protection options.</span></span>
 
-<span data-ttu-id="9bdb5-107">Hay un método de extensión AddDataProtection que devuelve un IDataProtectionBuilder que a su vez expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de varias opciones.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-107">There is an extension method AddDataProtection which returns an IDataProtectionBuilder which itself exposes extension methods that you can chain together to configure various data protection options.</span></span> <span data-ttu-id="9bdb5-108">Por ejemplo, para almacenar las claves en un recurso compartido UNC en lugar de % LOCALAPPDATA % (predeterminado), configure el sistema de la manera siguiente:</span><span class="sxs-lookup"><span data-stu-id="9bdb5-108">For instance, to store keys at a UNC share instead of %LOCALAPPDATA% (the default), configure the system as follows:</span></span>
+## <a name="persistkeystofilesystem"></a><span data-ttu-id="54cea-112">PersistKeysToFileSystem</span><span class="sxs-lookup"><span data-stu-id="54cea-112">PersistKeysToFileSystem</span></span>
+
+<span data-ttu-id="54cea-113">Para almacenar las claves en un recurso compartido UNC en lugar de en el *% LOCALAPPDATA %* ubicación predeterminada, configure el sistema con [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem):</span><span class="sxs-lookup"><span data-stu-id="54cea-113">To store keys on a UNC share instead of at the *%LOCALAPPDATA%* default location, configure the system with [PersistKeysToFileSystem](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.persistkeystofilesystem):</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -35,12 +37,12 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
->[!WARNING]
-> <span data-ttu-id="9bdb5-109">Si cambia la ubicación de la clave de persistencia, el sistema, ya no se cifrarán automáticamente claves en reposo ya que no sabe si DPAPI es un mecanismo de cifrado adecuado.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-109">If you change the key persistence location, the system will no longer automatically encrypt keys at rest since it doesn't know whether DPAPI is an appropriate encryption mechanism.</span></span>
+> [!WARNING]
+> <span data-ttu-id="54cea-114">Si cambia la ubicación de persistencia de clave, el sistema cifra ya no automáticamente claves en reposo, ya que no sabe si DPAPI es un mecanismo de cifrado adecuado.</span><span class="sxs-lookup"><span data-stu-id="54cea-114">If you change the key persistence location, the system no longer automatically encrypts keys at rest, since it doesn't know whether DPAPI is an appropriate encryption mechanism.</span></span>
 
-<a name=configuring-x509-certificate></a>
+## <a name="protectkeyswith"></a><span data-ttu-id="54cea-115">ProtectKeysWith\*</span><span class="sxs-lookup"><span data-stu-id="54cea-115">ProtectKeysWith\*</span></span>
 
-<span data-ttu-id="9bdb5-110">Puede configurar el sistema para proteger las claves en reposo mediante una llamada a cualquiera de lo ProtectKeysWith\* API de configuración.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-110">You can configure the system to protect keys at rest by calling any of the ProtectKeysWith\* configuration APIs.</span></span> <span data-ttu-id="9bdb5-111">Considere el ejemplo siguiente, que almacena las claves en un recurso compartido UNC y cifra estas claves en reposo con un certificado X.509 concreto.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-111">Consider the example below, which stores keys at a UNC share and encrypts those keys at rest with a specific X.509 certificate.</span></span>
+<span data-ttu-id="54cea-116">Puede configurar el sistema para proteger las claves en reposo mediante una llamada a cualquiera de los [ProtectKeysWith\* ](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions) API de configuración.</span><span class="sxs-lookup"><span data-stu-id="54cea-116">You can configure the system to protect keys at rest by calling any of the [ProtectKeysWith\*](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions) configuration APIs.</span></span> <span data-ttu-id="54cea-117">Tenga en cuenta el ejemplo siguiente, que almacena las claves en un recurso compartido UNC y cifra estas claves en reposo con un certificado X.509 concreto:</span><span class="sxs-lookup"><span data-stu-id="54cea-117">Consider the example below, which stores keys on a UNC share and encrypts those keys at rest with a specific X.509 certificate:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -51,9 +53,11 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<span data-ttu-id="9bdb5-112">Vea [clave cifrado en reposo](../implementation/key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) para obtener más ejemplos y para información sobre los mecanismos de cifrado de clave integrada.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-112">See [key encryption at rest](../implementation/key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) for more examples and for discussion on the built-in key encryption mechanisms.</span></span>
+<span data-ttu-id="54cea-118">Vea [clave de cifrado de datos almacenados](xref:security/data-protection/implementation/key-encryption-at-rest) para obtener más ejemplos e información sobre los mecanismos de cifrado de clave integrado.</span><span class="sxs-lookup"><span data-stu-id="54cea-118">See [Key Encryption At Rest](xref:security/data-protection/implementation/key-encryption-at-rest) for more examples and discussion on the built-in key encryption mechanisms.</span></span>
 
-<span data-ttu-id="9bdb5-113">Para configurar el sistema para usar una vigencia de clave del valor predeterminado de 14 días en lugar de 90 días, considere el ejemplo siguiente:</span><span class="sxs-lookup"><span data-stu-id="9bdb5-113">To configure the system to use a default key lifetime of 14 days instead of 90 days, consider the following example:</span></span>
+## <a name="setdefaultkeylifetime"></a><span data-ttu-id="54cea-119">SetDefaultKeyLifetime</span><span class="sxs-lookup"><span data-stu-id="54cea-119">SetDefaultKeyLifetime</span></span>
+
+<span data-ttu-id="54cea-120">Para configurar el sistema para usar una vigencia de clave de 14 días en lugar del predeterminado de 90 días, use [SetDefaultKeyLifetime](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setdefaultkeylifetime):</span><span class="sxs-lookup"><span data-stu-id="54cea-120">To configure the system to use a key lifetime of 14 days instead of the default 90 days, use [SetDefaultKeyLifetime](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setdefaultkeylifetime):</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -63,21 +67,21 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<span data-ttu-id="9bdb5-114">De forma predeterminada el sistema de protección de datos aísla las aplicaciones entre sí, incluso si comparte el mismo repositorio clave físico.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-114">By default the data protection system isolates applications from one another, even if they're sharing the same physical key repository.</span></span> <span data-ttu-id="9bdb5-115">Esto evita que las aplicaciones de la descripción de todas las demás cargas protegido.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-115">This prevents the applications from understanding each other's protected payloads.</span></span> <span data-ttu-id="9bdb5-116">Para compartir protegidos cargas entre dos aplicaciones diferentes, configurar el sistema pasa en el mismo nombre de aplicación para las aplicaciones como en el ejemplo siguiente:</span><span class="sxs-lookup"><span data-stu-id="9bdb5-116">To share protected payloads between two different applications, configure the system passing in the same application name for both applications as in the below example:</span></span>
+## <a name="setapplicationname"></a><span data-ttu-id="54cea-121">SetApplicationName</span><span class="sxs-lookup"><span data-stu-id="54cea-121">SetApplicationName</span></span>
 
-<a name=data-protection-code-sample-application-name></a>
+<span data-ttu-id="54cea-122">De forma predeterminada, el sistema de protección de datos aísla aplicaciones entre sí, incluso si comparte el mismo repositorio clave físico.</span><span class="sxs-lookup"><span data-stu-id="54cea-122">By default, the Data Protection system isolates apps from one another, even if they're sharing the same physical key repository.</span></span> <span data-ttu-id="54cea-123">Esto evita que las aplicaciones de descripción de todas las demás cargas protegido.</span><span class="sxs-lookup"><span data-stu-id="54cea-123">This prevents the apps from understanding each other's protected payloads.</span></span> <span data-ttu-id="54cea-124">Para compartir protegidos cargas entre las dos aplicaciones, use [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) con el mismo valor para cada aplicación:</span><span class="sxs-lookup"><span data-stu-id="54cea-124">To share protected payloads between two apps, use [SetApplicationName](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.setapplicationname) with the same value for each app:</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddDataProtection()
-        .SetApplicationName("my application");
+        .SetApplicationName("shared app name");
 }
 ```
 
-<a name=data-protection-configuring-disable-automatic-key-generation></a>
+## <a name="disableautomatickeygeneration"></a><span data-ttu-id="54cea-125">DisableAutomaticKeyGeneration</span><span class="sxs-lookup"><span data-stu-id="54cea-125">DisableAutomaticKeyGeneration</span></span>
 
-<span data-ttu-id="9bdb5-117">Por último, puede que tenga un escenario donde no desea que una aplicación revertir automáticamente las claves de medida que se acercan expiración.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-117">Finally, you may have a scenario where you do not want an application to automatically roll keys as they approach expiration.</span></span> <span data-ttu-id="9bdb5-118">Un ejemplo de esto podría ser aplicaciones configuradas en una relación primaria / secundaria, donde solo la aplicación principal es responsable de problemas de administración de claves y todas las aplicaciones secundarias solo tienen una vista de solo lectura del anillo de clave.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-118">One example of this might be applications set up in a primary / secondary relationship, where only the primary application is responsible for key management concerns, and all secondary applications simply have a read-only view of the key ring.</span></span> <span data-ttu-id="9bdb5-119">Las aplicaciones secundarias pueden configurarse para que trate el anillo de clave como de solo lectura mediante la configuración del sistema como sigue:</span><span class="sxs-lookup"><span data-stu-id="9bdb5-119">The secondary applications can be configured to treat the key ring as read-only by configuring the system as below:</span></span>
+<span data-ttu-id="54cea-126">Puede que tenga un escenario donde no desea que una aplicación para revertir automáticamente las claves (crear nuevas claves) tal y como se aproximen a expiración.</span><span class="sxs-lookup"><span data-stu-id="54cea-126">You may have a scenario where you don't want an app to automatically roll keys (create new keys) as they approach expiration.</span></span> <span data-ttu-id="54cea-127">Un ejemplo de esto podría ser aplicaciones configuradas en una relación principal/secundario, donde solo la aplicación principal es responsable de problemas de administración de claves y aplicaciones secundarias solo tienen una vista de solo lectura del anillo de clave.</span><span class="sxs-lookup"><span data-stu-id="54cea-127">One example of this might be apps set up in a primary/secondary relationship, where only the primary app is responsible for key management concerns and secondary apps simply have a read-only view of the key ring.</span></span> <span data-ttu-id="54cea-128">Las aplicaciones secundarias pueden configurarse para tratar el anillo de clave como de solo lectura configurando el sistema con [DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):</span><span class="sxs-lookup"><span data-stu-id="54cea-128">The secondary apps can be configured to treat the key ring as read-only by configuring the system with [DisableAutomaticKeyGeneration](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.disableautomatickeygeneration):</span></span>
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -87,46 +91,44 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-<a name=data-protection-configuration-per-app-isolation></a>
+## <a name="per-application-isolation"></a><span data-ttu-id="54cea-129">Aislamiento por aplicación</span><span class="sxs-lookup"><span data-stu-id="54cea-129">Per-application isolation</span></span>
 
-## <a name="per-application-isolation"></a><span data-ttu-id="9bdb5-120">Aislamiento por aplicación</span><span class="sxs-lookup"><span data-stu-id="9bdb5-120">Per-application isolation</span></span>
+<span data-ttu-id="54cea-130">Cuando el sistema de protección de datos se proporciona un host de ASP.NET Core, aísla automáticamente aplicaciones entre sí, incluso si esas aplicaciones se ejecuten en la misma cuenta de proceso de trabajo y están usando el mismo material de clave maestro.</span><span class="sxs-lookup"><span data-stu-id="54cea-130">When the Data Protection system is provided by an ASP.NET Core host, it automatically isolates apps from one another, even if those apps are running under the same worker process account and are using the same master keying material.</span></span> <span data-ttu-id="54cea-131">Esto es similar al modificador IsolateApps de System.Web  **\<machineKey >** elemento.</span><span class="sxs-lookup"><span data-stu-id="54cea-131">This is somewhat similar to the IsolateApps modifier from System.Web's **\<machineKey>** element.</span></span>
 
-<span data-ttu-id="9bdb5-121">Cuando el sistema de protección de datos se proporciona un host de ASP.NET Core, automáticamente se aislar aplicaciones entre sí, incluso si esas aplicaciones se ejecuten en la misma cuenta de proceso de trabajo y están usando el mismo material de clave maestro.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-121">When the data protection system is provided by an ASP.NET Core host, it will automatically isolate applications from one another, even if those applications are running under the same worker process account and are using the same master keying material.</span></span> <span data-ttu-id="9bdb5-122">Esto es similar al modificador IsolateApps de System.Web <machineKey> elemento.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-122">This is somewhat similar to the IsolateApps modifier from System.Web's <machineKey> element.</span></span>
+<span data-ttu-id="54cea-132">El mecanismo de aislamiento funciona teniendo en cuenta cada aplicación en el equipo local como un único inquilino, por lo tanto la [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) para cualquier aplicación determinada incluye automáticamente el identificador de aplicación como un discriminador de la raíz.</span><span class="sxs-lookup"><span data-stu-id="54cea-132">The isolation mechanism works by considering each app on the local machine as a unique tenant, thus the [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector) rooted for any given app automatically includes the app ID as a discriminator.</span></span> <span data-ttu-id="54cea-133">Identificador único de la aplicación procede de uno de estos dos lugares:</span><span class="sxs-lookup"><span data-stu-id="54cea-133">The app's unique ID comes from one of two places:</span></span>
 
-<span data-ttu-id="9bdb5-123">El mecanismo de aislamiento funciona teniendo en cuenta cada aplicación en el equipo local como un único inquilino, por lo tanto la IDataProtector automáticamente la raíz para cualquier aplicación determinada incluye el identificador de aplicación como un discriminador.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-123">The isolation mechanism works by considering each application on the local machine as a unique tenant, thus the IDataProtector rooted for any given application automatically includes the application ID as a discriminator.</span></span> <span data-ttu-id="9bdb5-124">Identificador único de la aplicación procede de uno de estos dos lugares.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-124">The application's unique ID comes from one of two places.</span></span>
+1. <span data-ttu-id="54cea-134">Si la aplicación se hospeda en IIS, el identificador único es la ruta de acceso de configuración de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="54cea-134">If the app is hosted in IIS, the unique identifier is the app's configuration path.</span></span> <span data-ttu-id="54cea-135">Si una aplicación se implementa en un entorno de granja de servidores web, este valor debería ser estable suponiendo que los entornos de IIS están configurados de forma similar en todos los equipos de la granja de servidores web.</span><span class="sxs-lookup"><span data-stu-id="54cea-135">If an app is deployed in a web farm environment, this value should be stable assuming that the IIS environments are configured similarly across all machines in the web farm.</span></span>
 
-1. <span data-ttu-id="9bdb5-125">Si la aplicación se hospeda en IIS, el identificador único es la ruta de acceso de configuración de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-125">If the application is hosted in IIS, the unique identifier is the application's configuration path.</span></span> <span data-ttu-id="9bdb5-126">Si una aplicación se implementa en un entorno de granja de servidores, este valor debería ser estable suponiendo que los entornos de IIS están configurados de forma similar en todos los equipos de la granja.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-126">If an application is deployed in a farm environment, this value should be stable assuming that the IIS environments are configured similarly across all machines in the farm.</span></span>
+2. <span data-ttu-id="54cea-136">Si la aplicación no está hospedada en IIS, el identificador único es la ruta de acceso física de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="54cea-136">If the app isn't hosted in IIS, the unique identifier is the physical path of the app.</span></span>
 
-2. <span data-ttu-id="9bdb5-127">Si la aplicación no se hospeda en IIS, el identificador único es la ruta de acceso física de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-127">If the application is not hosted in IIS, the unique identifier is the physical path of the application.</span></span>
+<span data-ttu-id="54cea-137">El identificador único está diseñado para sobrevivir restablece &mdash; tanto de la aplicación individual de la propia máquina.</span><span class="sxs-lookup"><span data-stu-id="54cea-137">The unique identifier is designed to survive resets &mdash; both of the individual app and of the machine itself.</span></span>
 
-<span data-ttu-id="9bdb5-128">El identificador único está diseñado para sobrevivir restablece - tanto de la aplicación individual de la propia máquina.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-128">The unique identifier is designed to survive resets - both of the individual application and of the machine itself.</span></span>
+<span data-ttu-id="54cea-138">Este mecanismo de aislamiento se da por supuesto que las aplicaciones no son malintencionadas.</span><span class="sxs-lookup"><span data-stu-id="54cea-138">This isolation mechanism assumes that the apps are not malicious.</span></span> <span data-ttu-id="54cea-139">Una aplicación malintencionada siempre puede afectar a cualquier otra aplicación que se ejecuta en la misma cuenta de proceso de trabajo.</span><span class="sxs-lookup"><span data-stu-id="54cea-139">A malicious app can always impact any other app running under the same worker process account.</span></span> <span data-ttu-id="54cea-140">En un entorno de hospedaje compartido donde las aplicaciones no son de confianza mutua, el proveedor de hospedaje debe tomar medidas para garantizar el aislamiento de nivel de sistema operativo entre aplicaciones, incluida la separación de las aplicaciones subyacentes repositorios de clave.</span><span class="sxs-lookup"><span data-stu-id="54cea-140">In a shared hosting environment where apps are mutually untrusted, the hosting provider should take steps to ensure OS-level isolation between apps, including separating the apps' underlying key repositories.</span></span>
 
-<span data-ttu-id="9bdb5-129">Este mecanismo de aislamiento se da por supuesto que las aplicaciones no son malintencionadas.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-129">This isolation mechanism assumes that the applications are not malicious.</span></span> <span data-ttu-id="9bdb5-130">Una aplicación malintencionada siempre puede afectar a cualquier otra aplicación que se ejecuta en la misma cuenta de proceso de trabajo.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-130">A malicious application can always impact any other application running under the same worker process account.</span></span> <span data-ttu-id="9bdb5-131">En un entorno de hospedaje compartido donde las aplicaciones no son de confianza mutua, el proveedor de hospedaje debe tomar medidas para garantizar el aislamiento de nivel de sistema operativo entre aplicaciones, incluida la separación de las aplicaciones subyacentes repositorios de clave.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-131">In a shared hosting environment where applications are mutually untrusted, the hosting provider should take steps to ensure OS-level isolation between applications, including separating the applications' underlying key repositories.</span></span>
+<span data-ttu-id="54cea-141">Si el sistema de protección de datos no se proporcionó un host de ASP.NET Core (por ejemplo, si crea instancias de él a través de la `DataProtectionProvider` tipo concreto) se deshabilita el aislamiento de la aplicación de forma predeterminada.</span><span class="sxs-lookup"><span data-stu-id="54cea-141">If the Data Protection system isn't provided by an ASP.NET Core host (for example, if you instantiate it via the `DataProtectionProvider` concrete type) app isolation is disabled by default.</span></span> <span data-ttu-id="54cea-142">Cuando se deshabilita el aislamiento de la aplicación, respaldadas por el mismo material de claves de todas las aplicaciones pueden compartir cargas mientras proporcionan adecuado [fines](xref:security/data-protection/consumer-apis/purpose-strings).</span><span class="sxs-lookup"><span data-stu-id="54cea-142">When app isolation is disabled, all apps backed by the same keying material can share payloads as long as they provide the appropriate [purposes](xref:security/data-protection/consumer-apis/purpose-strings).</span></span> <span data-ttu-id="54cea-143">Para proporcionar aislamiento de aplicaciones en este entorno, llame a la [SetApplicationName](#setapplicationname) método en la configuración de objeto y proporcione un nombre único para cada aplicación.</span><span class="sxs-lookup"><span data-stu-id="54cea-143">To provide app isolation in this environment, call the [SetApplicationName](#setapplicationname) method on the configuration object and provide a unique name for each app.</span></span>
 
-<span data-ttu-id="9bdb5-132">Si el sistema de protección de datos no se proporciona un host de ASP.NET Core (por ejemplo, si el desarrollador crea instancias de él a sí mismo a través del tipo concreto de DataProtectionProvider), aislamiento de la aplicación está deshabilitado de forma predeterminada y todas las aplicaciones respaldado por la misma clave material puede compartir cargas siempre que proporcionan los fines adecuados.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-132">If the data protection system is not provided by an ASP.NET Core host (e.g., if the developer instantiates it himself via the DataProtectionProvider concrete type), application isolation is disabled by default, and all applications backed by the same keying material can share payloads as long as they provide the appropriate purposes.</span></span> <span data-ttu-id="9bdb5-133">Para proporcionar aislamiento de aplicaciones en este entorno, llame al método SetApplicationName en el objeto de configuración, consulte la [ejemplo de código](#data-protection-code-sample-application-name) anteriormente.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-133">To provide application isolation in this environment, call the SetApplicationName method on the configuration object, see the [code sample](#data-protection-code-sample-application-name) above.</span></span>
+## <a name="changing-algorithms-with-usecryptographicalgorithms"></a><span data-ttu-id="54cea-144">Cambiar algoritmos con UseCryptographicAlgorithms</span><span class="sxs-lookup"><span data-stu-id="54cea-144">Changing algorithms with UseCryptographicAlgorithms</span></span>
 
-<a name=data-protection-changing-algorithms></a>
+<span data-ttu-id="54cea-145">La pila de protección de datos permite cambiar el algoritmo predeterminado usado por claves recién generado.</span><span class="sxs-lookup"><span data-stu-id="54cea-145">The Data Protection stack allows you to change the default algorithm used by newly-generated keys.</span></span> <span data-ttu-id="54cea-146">La manera más sencilla de hacerlo consiste en llamar a [UseCryptographicAlgorithms](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.usecryptographicalgorithms) de la devolución de llamada de configuración:</span><span class="sxs-lookup"><span data-stu-id="54cea-146">The simplest way to do this is to call [UseCryptographicAlgorithms](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.usecryptographicalgorithms) from the configuration callback:</span></span>
 
-## <a name="changing-algorithms"></a><span data-ttu-id="9bdb5-134">Cambio de algoritmos</span><span class="sxs-lookup"><span data-stu-id="9bdb5-134">Changing algorithms</span></span>
-
-<span data-ttu-id="9bdb5-135">La pila de protección de datos permite cambiar el algoritmo predeterminado usado por claves recién generado.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-135">The data protection stack allows changing the default algorithm used by newly-generated keys.</span></span> <span data-ttu-id="9bdb5-136">La manera más sencilla de hacerlo consiste en llamar a UseCryptographicAlgorithms desde la devolución de llamada de configuración, como en el ejemplo siguiente.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-136">The simplest way to do this is to call UseCryptographicAlgorithms from the configuration callback, as in the below example.</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="9bdb5-137">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-137">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="54cea-147">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="54cea-147">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
 ```csharp
 services.AddDataProtection()
-    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
+    .UseCryptographicAlgorithms(
+        new AuthenticatedEncryptorConfiguration()
     {
         EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
         ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="9bdb5-138">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-138">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="54cea-148">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="54cea-148">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
 ```csharp
 services.AddDataProtection()
-    .UseCryptographicAlgorithms(new AuthenticatedEncryptionSettings()
+    .UseCryptographicAlgorithms(
+        new AuthenticatedEncryptionSettings()
     {
         EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
         ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
@@ -135,105 +137,106 @@ services.AddDataProtection()
 
 ---
 
-<span data-ttu-id="9bdb5-139">El algoritmo de cifrado predeterminado y ValidationAlgorithm son AES-256-CBC y HMACSHA256, respectivamente.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-139">The default EncryptionAlgorithm and ValidationAlgorithm are AES-256-CBC and HMACSHA256, respectively.</span></span> <span data-ttu-id="9bdb5-140">La directiva predeterminada se puede establecer un administrador del sistema a través de [directiva para todo el equipo](machine-wide-policy.md), pero una llamada explícita a UseCryptographicAlgorithms invalidará la directiva predeterminada.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-140">The default policy can be set by a system administrator via [Machine Wide Policy](machine-wide-policy.md), but an explicit call to UseCryptographicAlgorithms will override the default policy.</span></span>
+<span data-ttu-id="54cea-149">El algoritmo de cifrado predeterminada es AES-256-CBC y el valor predeterminado ValidationAlgorithm es HMACSHA256.</span><span class="sxs-lookup"><span data-stu-id="54cea-149">The default EncryptionAlgorithm is AES-256-CBC, and the default ValidationAlgorithm is HMACSHA256.</span></span> <span data-ttu-id="54cea-150">La directiva predeterminada se puede establecer un administrador del sistema a través de un [todo el equipo directiva](xref:security/data-protection/configuration/machine-wide-policy), pero una llamada explícita a `UseCryptographicAlgorithms` invalida la directiva predeterminada.</span><span class="sxs-lookup"><span data-stu-id="54cea-150">The default policy can be set by a system administrator via a [machine-wide policy](xref:security/data-protection/configuration/machine-wide-policy), but an explicit call to `UseCryptographicAlgorithms` overrides the default policy.</span></span>
 
-<span data-ttu-id="9bdb5-141">Al llamar a UseCryptographicAlgorithms permitirá al programador especificar el algoritmo deseado (de una lista predefinida de integradas), y el programador no tiene que preocuparse sobre la implementación del algoritmo.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-141">Calling UseCryptographicAlgorithms will allow the developer to specify the desired algorithm (from a predefined built-in list), and the developer does not need to worry about the implementation of the algorithm.</span></span> <span data-ttu-id="9bdb5-142">Por ejemplo, en el escenario anterior, el sistema de protección de datos intentará usar la implementación de CNG de AES si se ejecuta en Windows, en caso contrario, se revertirá a la clase System.Security.Cryptography.Aes administrada.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-142">For instance, in the scenario above the data protection system will attempt to use the CNG implementation of AES if running on Windows, otherwise it will fall back to the managed System.Security.Cryptography.Aes class.</span></span>
+<span data-ttu-id="54cea-151">Al llamar a `UseCryptographicAlgorithms` le permite especificar el algoritmo deseado de una lista predefinida de integrados.</span><span class="sxs-lookup"><span data-stu-id="54cea-151">Calling `UseCryptographicAlgorithms` allows you to specify the desired algorithm from a predefined built-in list.</span></span> <span data-ttu-id="54cea-152">No tiene que preocuparse acerca de la implementación del algoritmo.</span><span class="sxs-lookup"><span data-stu-id="54cea-152">You don't need to worry about the implementation of the algorithm.</span></span> <span data-ttu-id="54cea-153">En el escenario anterior, el sistema de protección de datos intenta usar la implementación de CNG de AES si se ejecuta en Windows.</span><span class="sxs-lookup"><span data-stu-id="54cea-153">In the scenario above, the Data Protection system attempts to use the CNG implementation of AES if running on Windows.</span></span> <span data-ttu-id="54cea-154">En caso contrario, vuelve a los recursos administrados [System.Security.Cryptography.Aes](/dotnet/api/system.security.cryptography.aes) clase.</span><span class="sxs-lookup"><span data-stu-id="54cea-154">Otherwise, it falls back to the managed [System.Security.Cryptography.Aes](/dotnet/api/system.security.cryptography.aes) class.</span></span>
 
-<span data-ttu-id="9bdb5-143">El desarrollador puede especificar una implementación manualmente si lo desea mediante una llamada a UseCustomCryptographicAlgorithms, como se muestra en los ejemplos a continuación.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-143">The developer can manually specify an implementation if desired via a call to UseCustomCryptographicAlgorithms, as show in the below examples.</span></span>
+<span data-ttu-id="54cea-155">Puede especificar manualmente una implementación a través de una llamada a [UseCustomCryptographicAlgorithms](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.usecustomcryptographicalgorithms).</span><span class="sxs-lookup"><span data-stu-id="54cea-155">You can manually specify an implementation via a call to [UseCustomCryptographicAlgorithms](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.usecustomcryptographicalgorithms).</span></span>
 
->[!TIP]
-> <span data-ttu-id="9bdb5-144">Algoritmos de cambio no afecta a las claves existentes en el anillo de clave.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-144">Changing algorithms does not affect existing keys in the key ring.</span></span> <span data-ttu-id="9bdb5-145">Solo afecta a las claves recién generado.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-145">It only affects newly-generated keys.</span></span>
+> [!TIP]
+> <span data-ttu-id="54cea-156">Algoritmos de cambio no afecta a las claves existentes en el anillo de clave.</span><span class="sxs-lookup"><span data-stu-id="54cea-156">Changing algorithms doesn't affect existing keys in the key ring.</span></span> <span data-ttu-id="54cea-157">Solo afecta a las claves recién generado.</span><span class="sxs-lookup"><span data-stu-id="54cea-157">It only affects newly-generated keys.</span></span>
 
-<a name=data-protection-changing-algorithms-custom-managed></a>
+### <a name="specifying-custom-managed-algorithms"></a><span data-ttu-id="54cea-158">Especificar algoritmos administrados personalizados</span><span class="sxs-lookup"><span data-stu-id="54cea-158">Specifying custom managed algorithms</span></span>
 
-### <a name="specifying-custom-managed-algorithms"></a><span data-ttu-id="9bdb5-146">Especificar algoritmos administrados personalizados</span><span class="sxs-lookup"><span data-stu-id="9bdb5-146">Specifying custom managed algorithms</span></span>
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="54cea-159">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="54cea-159">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="9bdb5-147">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-147">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-<span data-ttu-id="9bdb5-148">Para especificar algoritmos administrados personalizados, cree una instancia de ManagedAuthenticatedEncryptorConfiguration que apunta a los tipos de implementación.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-148">To specify custom managed algorithms, create a ManagedAuthenticatedEncryptorConfiguration instance that points to the implementation types.</span></span>
+<span data-ttu-id="54cea-160">Para especificar algoritmos administrados personalizados, cree una [ManagedAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.managedauthenticatedencryptorconfiguration) instancia que señala a los tipos de implementación:</span><span class="sxs-lookup"><span data-stu-id="54cea-160">To specify custom managed algorithms, create a [ManagedAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.managedauthenticatedencryptorconfiguration) instance that points to the implementation types:</span></span>
 
 ```csharp
 serviceCollection.AddDataProtection()
-    .UseCustomCryptographicAlgorithms(new ManagedAuthenticatedEncryptorConfiguration()
+    .UseCustomCryptographicAlgorithms(
+        new ManagedAuthenticatedEncryptorConfiguration()
     {
-        // a type that subclasses SymmetricAlgorithm
+        // A type that subclasses SymmetricAlgorithm
         EncryptionAlgorithmType = typeof(Aes),
 
-        // specified in bits
+        // Specified in bits
         EncryptionAlgorithmKeySize = 256,
 
-        // a type that subclasses KeyedHashAlgorithm
+        // A type that subclasses KeyedHashAlgorithm
         ValidationAlgorithmType = typeof(HMACSHA256)
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="9bdb5-149">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-149">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="54cea-161">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="54cea-161">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="9bdb5-150">Para especificar algoritmos administrados personalizados, cree una instancia de ManagedAuthenticatedEncryptionSettings que apunta a los tipos de implementación.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-150">To specify custom managed algorithms, create a ManagedAuthenticatedEncryptionSettings instance that points to the implementation types.</span></span>
+<span data-ttu-id="54cea-162">Para especificar algoritmos administrados personalizados, cree una [ManagedAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.managedauthenticatedencryptionsettings) instancia que señala a los tipos de implementación:</span><span class="sxs-lookup"><span data-stu-id="54cea-162">To specify custom managed algorithms, create a [ManagedAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.managedauthenticatedencryptionsettings) instance that points to the implementation types:</span></span>
 
 ```csharp
 serviceCollection.AddDataProtection()
-    .UseCustomCryptographicAlgorithms(new ManagedAuthenticatedEncryptionSettings()
+    .UseCustomCryptographicAlgorithms(
+        new ManagedAuthenticatedEncryptionSettings()
     {
-        // a type that subclasses SymmetricAlgorithm
+        // A type that subclasses SymmetricAlgorithm
         EncryptionAlgorithmType = typeof(Aes),
 
-        // specified in bits
+        // Specified in bits
         EncryptionAlgorithmKeySize = 256,
 
-        // a type that subclasses KeyedHashAlgorithm
+        // A type that subclasses KeyedHashAlgorithm
         ValidationAlgorithmType = typeof(HMACSHA256)
     });
 ```
 
 ---
 
-<span data-ttu-id="9bdb5-151">Por lo general el \*propiedades de tipo deben apuntar a concretas, implementaciones (a través de un constructor sin parámetros público) se pueden crear instancias de SymmetricAlgorithm y KeyedHashAlgorithm, aunque algunos valores de los casos especiales de sistema como typeof(Aes) para mayor comodidad .</span><span class="sxs-lookup"><span data-stu-id="9bdb5-151">Generally the \*Type properties must point to concrete, instantiable (via a public parameterless ctor) implementations of SymmetricAlgorithm and KeyedHashAlgorithm, though the system special-cases some values like typeof(Aes) for convenience.</span></span>
+<span data-ttu-id="54cea-163">Por lo general el \*propiedades de tipo deben apuntar a concreto, las implementaciones (a través de un constructor sin parámetros público) se pueden crear instancias de [SymmetricAlgorithm](/dotnet/api/system.security.cryptography.symmetricalgorithm) y [KeyedHashAlgorithm](/dotnet/api/system.security.cryptography.keyedhashalgorithm), aunque el casos de especial del sistema, como algunos valores `typeof(Aes)` para su comodidad.</span><span class="sxs-lookup"><span data-stu-id="54cea-163">Generally the \*Type properties must point to concrete, instantiable (via a public parameterless ctor) implementations of [SymmetricAlgorithm](/dotnet/api/system.security.cryptography.symmetricalgorithm) and [KeyedHashAlgorithm](/dotnet/api/system.security.cryptography.keyedhashalgorithm), though the system special-cases some values like `typeof(Aes)` for convenience.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="9bdb5-152">El SymmetricAlgorithm debe tener una longitud de clave de 128 bits ≥ y un tamaño de bloque de 64 bits ≥ y debe admitir el cifrado del modo CBC con relleno PKCS #7.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-152">The SymmetricAlgorithm must have a key length of ≥ 128 bits and a block size of ≥ 64 bits, and it must support CBC-mode encryption with PKCS #7 padding.</span></span> <span data-ttu-id="9bdb5-153">El KeyedHashAlgorithm debe tener un tamaño de síntesis de > = 128 bits, y debe ser compatible con claves de una longitud igual a la longitud de texto implícita del algoritmo de hash.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-153">The KeyedHashAlgorithm must have a digest size of >= 128 bits, and it must support keys of length equal to the hash algorithm's digest length.</span></span> <span data-ttu-id="9bdb5-154">El KeyedHashAlgorithm no es estrictamente necesaria para ser HMAC.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-154">The KeyedHashAlgorithm is not strictly required to be HMAC.</span></span>
+> <span data-ttu-id="54cea-164">El `SymmetricAlgorithm` debe tener una longitud de clave de > = 128 bits, un tamaño de bloque de > = 64 bits, y debe admitir el cifrado del modo CBC con relleno PKCS #7.</span><span class="sxs-lookup"><span data-stu-id="54cea-164">The `SymmetricAlgorithm` must have a key length of >= 128 bits, a block size of >= 64 bits, and it must support CBC-mode encryption with PKCS #7 padding.</span></span> <span data-ttu-id="54cea-165">El `KeyedHashAlgorithm` debe tener un tamaño de síntesis de > = 128 bits, y debe ser compatible con claves de una longitud igual a la longitud de texto implícita del algoritmo de hash.</span><span class="sxs-lookup"><span data-stu-id="54cea-165">The `KeyedHashAlgorithm` must have a digest size of >= 128 bits, and it must support keys of length equal to the hash algorithm's digest length.</span></span> <span data-ttu-id="54cea-166">El `KeyedHashAlgorithm` no es estrictamente necesario que sea HMAC.</span><span class="sxs-lookup"><span data-stu-id="54cea-166">The `KeyedHashAlgorithm` isn't strictly required to be HMAC.</span></span>
+> <span data-ttu-id="54cea-167">El SymmetricAlgorithm debe tener una longitud de clave de 128 bits ≥ y un tamaño de bloque de 64 bits ≥ y debe admitir el cifrado del modo CBC con relleno PKCS #7.</span><span class="sxs-lookup"><span data-stu-id="54cea-167">The SymmetricAlgorithm must have a key length of ≥ 128 bits and a block size of ≥ 64 bits, and it must support CBC-mode encryption with PKCS #7 padding.</span></span> <span data-ttu-id="54cea-168">El KeyedHashAlgorithm debe tener un tamaño de síntesis de > = 128 bits, y debe ser compatible con claves de una longitud igual a la longitud de texto implícita del algoritmo de hash.</span><span class="sxs-lookup"><span data-stu-id="54cea-168">The KeyedHashAlgorithm must have a digest size of >= 128 bits, and it must support keys of length equal to the hash algorithm's digest length.</span></span> <span data-ttu-id="54cea-169">El KeyedHashAlgorithm no es estrictamente necesaria para ser HMAC.</span><span class="sxs-lookup"><span data-stu-id="54cea-169">The KeyedHashAlgorithm is not strictly required to be HMAC.</span></span>
 
-<a name=data-protection-changing-algorithms-cng></a>
+### <a name="specifying-custom-windows-cng-algorithms"></a><span data-ttu-id="54cea-170">Especificar algoritmos personalizados de CNG de Windows</span><span class="sxs-lookup"><span data-stu-id="54cea-170">Specifying custom Windows CNG algorithms</span></span>
 
-### <a name="specifying-custom-windows-cng-algorithms"></a><span data-ttu-id="9bdb5-155">Especificar algoritmos personalizados de CNG de Windows</span><span class="sxs-lookup"><span data-stu-id="9bdb5-155">Specifying custom Windows CNG algorithms</span></span>
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="54cea-171">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="54cea-171">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="9bdb5-156">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-156">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-<span data-ttu-id="9bdb5-157">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado del modo CBC + validación HMAC, cree una instancia de CngCbcAuthenticatedEncryptorConfiguration que contiene la información algorítmica.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-157">To specify a custom Windows CNG algorithm using CBC-mode encryption + HMAC validation, create a CngCbcAuthenticatedEncryptorConfiguration instance that contains the algorithmic information.</span></span>
+<span data-ttu-id="54cea-172">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado de modo CBC con validación de HMAC, cree un [CngCbcAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cngcbcauthenticatedencryptorconfiguration) instancia que contiene la información de algoritmo:</span><span class="sxs-lookup"><span data-stu-id="54cea-172">To specify a custom Windows CNG algorithm using CBC-mode encryption with HMAC validation, create a [CngCbcAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cngcbcauthenticatedencryptorconfiguration) instance that contains the algorithmic information:</span></span>
 
 ```csharp
 services.AddDataProtection()
-    .UseCustomCryptographicAlgorithms(new CngCbcAuthenticatedEncryptorConfiguration()
+    .UseCustomCryptographicAlgorithms(
+        new CngCbcAuthenticatedEncryptorConfiguration()
     {
-        // passed to BCryptOpenAlgorithmProvider
+        // Passed to BCryptOpenAlgorithmProvider
         EncryptionAlgorithm = "AES",
         EncryptionAlgorithmProvider = null,
 
-        // specified in bits
+        // Specified in bits
         EncryptionAlgorithmKeySize = 256,
 
-        // passed to BCryptOpenAlgorithmProvider
+        // Passed to BCryptOpenAlgorithmProvider
         HashAlgorithm = "SHA256",
         HashAlgorithmProvider = null
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="9bdb5-158">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-158">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="54cea-173">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="54cea-173">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="9bdb5-159">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado del modo CBC + validación HMAC, cree una instancia de CngCbcAuthenticatedEncryptionSettings que contiene la información algorítmica.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-159">To specify a custom Windows CNG algorithm using CBC-mode encryption + HMAC validation, create a CngCbcAuthenticatedEncryptionSettings instance that contains the algorithmic information.</span></span>
+<span data-ttu-id="54cea-174">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado de modo CBC con validación de HMAC, cree un [CngCbcAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.cngcbcauthenticatedencryptionsettings) instancia que contiene la información de algoritmo:</span><span class="sxs-lookup"><span data-stu-id="54cea-174">To specify a custom Windows CNG algorithm using CBC-mode encryption with HMAC validation, create a [CngCbcAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.cngcbcauthenticatedencryptionsettings) instance that contains the algorithmic information:</span></span>
 
 ```csharp
 services.AddDataProtection()
-    .UseCustomCryptographicAlgorithms(new CngCbcAuthenticatedEncryptionSettings()
+    .UseCustomCryptographicAlgorithms(
+        new CngCbcAuthenticatedEncryptionSettings()
     {
-        // passed to BCryptOpenAlgorithmProvider
+        // Passed to BCryptOpenAlgorithmProvider
         EncryptionAlgorithm = "AES",
         EncryptionAlgorithmProvider = null,
 
-        // specified in bits
+        // Specified in bits
         EncryptionAlgorithmKeySize = 256,
 
-        // passed to BCryptOpenAlgorithmProvider
+        // Passed to BCryptOpenAlgorithmProvider
         HashAlgorithm = "SHA256",
         HashAlgorithmProvider = null
     });
@@ -242,38 +245,40 @@ services.AddDataProtection()
 ---
 
 > [!NOTE]
-> <span data-ttu-id="9bdb5-160">El algoritmo de cifrado de bloques simétrico debe tener una longitud de clave de 128 bits ≥ y un tamaño de bloque de ≥ 64 bits y debe admitir el cifrado del modo CBC con relleno PKCS #7.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-160">The symmetric block cipher algorithm must have a key length of ≥ 128 bits and a block size of ≥ 64 bits, and it must support CBC-mode encryption with PKCS #7 padding.</span></span> <span data-ttu-id="9bdb5-161">El algoritmo hash debe tener un tamaño de síntesis de > = 128 bits y debe ser compatible con que se abre con la marca BCRYPT_ALG_HANDLE_HMAC_FLAG.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-161">The hash algorithm must have a digest size of >= 128 bits and must support being opened with the BCRYPT_ALG_HANDLE_HMAC_FLAG flag.</span></span> <span data-ttu-id="9bdb5-162">El \*propiedades del proveedor se pueden establecer en null para utilizar el proveedor predeterminado para el algoritmo especificado.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-162">The \*Provider properties can be set to null to use the default provider for the specified algorithm.</span></span> <span data-ttu-id="9bdb5-163">Consulte la [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentación para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-163">See the [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentation for more information.</span></span>
+> <span data-ttu-id="54cea-175">El algoritmo de cifrado de bloques simétrico debe tener una longitud de clave de > = 128 bits, un tamaño de bloque de > = 64 bits, y debe admitir el cifrado del modo CBC con relleno PKCS #7.</span><span class="sxs-lookup"><span data-stu-id="54cea-175">The symmetric block cipher algorithm must have a key length of >= 128 bits, a block size of >= 64 bits, and it must support CBC-mode encryption with PKCS #7 padding.</span></span> <span data-ttu-id="54cea-176">El algoritmo hash debe tener un tamaño de síntesis de > = 128 bits y debe ser compatible con que se abre con la BCRYPT\_ALG\_controlar\_HMAC\_indicador de marca.</span><span class="sxs-lookup"><span data-stu-id="54cea-176">The hash algorithm must have a digest size of >= 128 bits and must support being opened with the BCRYPT\_ALG\_HANDLE\_HMAC\_FLAG flag.</span></span> <span data-ttu-id="54cea-177">El \*propiedades del proveedor se pueden establecer en null para utilizar el proveedor predeterminado para el algoritmo especificado.</span><span class="sxs-lookup"><span data-stu-id="54cea-177">The \*Provider properties can be set to null to use the default provider for the specified algorithm.</span></span> <span data-ttu-id="54cea-178">Consulte la [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentación para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="54cea-178">See the [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentation for more information.</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="9bdb5-164">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-164">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="54cea-179">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="54cea-179">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
 
-<span data-ttu-id="9bdb5-165">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado del modo de Galois/contador + validación, cree una instancia de CngGcmAuthenticatedEncryptorConfiguration que contiene la información algorítmica.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-165">To specify a custom Windows CNG algorithm using Galois/Counter Mode encryption + validation, create a CngGcmAuthenticatedEncryptorConfiguration instance that contains the algorithmic information.</span></span>
+<span data-ttu-id="54cea-180">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado del modo de Galois/contador con la validación, cree un [CngGcmAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cnggcmauthenticatedencryptorconfiguration) instancia que contiene la información de algoritmo:</span><span class="sxs-lookup"><span data-stu-id="54cea-180">To specify a custom Windows CNG algorithm using Galois/Counter Mode encryption with validation, create a [CngGcmAuthenticatedEncryptorConfiguration](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cnggcmauthenticatedencryptorconfiguration) instance that contains the algorithmic information:</span></span>
 
 ```csharp
 services.AddDataProtection()
-    .UseCustomCryptographicAlgorithms(new CngGcmAuthenticatedEncryptorConfiguration()
+    .UseCustomCryptographicAlgorithms(
+        new CngGcmAuthenticatedEncryptorConfiguration()
     {
-        // passed to BCryptOpenAlgorithmProvider
+        // Passed to BCryptOpenAlgorithmProvider
         EncryptionAlgorithm = "AES",
         EncryptionAlgorithmProvider = null,
 
-        // specified in bits
+        // Specified in bits
         EncryptionAlgorithmKeySize = 256
     });
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="9bdb5-166">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="9bdb5-166">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="54cea-181">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="54cea-181">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
 
-<span data-ttu-id="9bdb5-167">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado del modo de Galois/contador + validación, cree una instancia de CngGcmAuthenticatedEncryptionSettings que contiene la información algorítmica.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-167">To specify a custom Windows CNG algorithm using Galois/Counter Mode encryption + validation, create a CngGcmAuthenticatedEncryptionSettings instance that contains the algorithmic information.</span></span>
+<span data-ttu-id="54cea-182">Para especificar un algoritmo CNG de Windows personalizado mediante el cifrado del modo de Galois/contador con la validación, cree un [CngGcmAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.cnggcmauthenticatedencryptionsettings) instancia que contiene la información de algoritmo:</span><span class="sxs-lookup"><span data-stu-id="54cea-182">To specify a custom Windows CNG algorithm using Galois/Counter Mode encryption with validation, create a [CngGcmAuthenticatedEncryptionSettings](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.cnggcmauthenticatedencryptionsettings) instance that contains the algorithmic information:</span></span>
 
 ```csharp
 services.AddDataProtection()
-    .UseCustomCryptographicAlgorithms(new CngGcmAuthenticatedEncryptionSettings()
+    .UseCustomCryptographicAlgorithms(
+        new CngGcmAuthenticatedEncryptionSettings()
     {
-        // passed to BCryptOpenAlgorithmProvider
+        // Passed to BCryptOpenAlgorithmProvider
         EncryptionAlgorithm = "AES",
         EncryptionAlgorithmProvider = null,
 
-        // specified in bits
+        // Specified in bits
         EncryptionAlgorithmKeySize = 256
     });
 ```
@@ -281,13 +286,20 @@ services.AddDataProtection()
 ---
 
 > [!NOTE]
-> <span data-ttu-id="9bdb5-168">El algoritmo de cifrado de bloques simétrico debe tener una longitud de clave de 128 bits ≥ y un tamaño de bloque de 128 bits exactamente, y debe ser compatible con cifrado de GCM.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-168">The symmetric block cipher algorithm must have a key length of ≥ 128 bits and a block size of exactly 128 bits, and it must support GCM encryption.</span></span> <span data-ttu-id="9bdb5-169">La propiedad EncryptionAlgorithmProvider puede establecerse en null para utilizar el proveedor predeterminado para el algoritmo especificado.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-169">The EncryptionAlgorithmProvider property can be set to null to use the default provider for the specified algorithm.</span></span> <span data-ttu-id="9bdb5-170">Consulte la [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentación para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-170">See the [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentation for more information.</span></span>
+> <span data-ttu-id="54cea-183">El algoritmo de cifrado de bloques simétrico debe tener una longitud de clave de > = 128 bits, un tamaño de bloque de 128 bits exactamente, y debe ser compatible con cifrado de GCM.</span><span class="sxs-lookup"><span data-stu-id="54cea-183">The symmetric block cipher algorithm must have a key length of >= 128 bits, a block size of exactly 128 bits, and it must support GCM encryption.</span></span> <span data-ttu-id="54cea-184">Puede establecer la [EncryptionAlgorithmProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cngcbcauthenticatedencryptorconfiguration.encryptionalgorithmprovider) propiedad en null para utilizar el proveedor predeterminado para el algoritmo especificado.</span><span class="sxs-lookup"><span data-stu-id="54cea-184">You can set the [EncryptionAlgorithmProvider](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.configurationmodel.cngcbcauthenticatedencryptorconfiguration.encryptionalgorithmprovider) property to null to use the default provider for the specified algorithm.</span></span> <span data-ttu-id="54cea-185">Consulte la [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentación para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="54cea-185">See the [BCryptOpenAlgorithmProvider](https://msdn.microsoft.com/library/windows/desktop/aa375479(v=vs.85).aspx) documentation for more information.</span></span>
 
-### <a name="specifying-other-custom-algorithms"></a><span data-ttu-id="9bdb5-171">Especificar otros algoritmos personalizados</span><span class="sxs-lookup"><span data-stu-id="9bdb5-171">Specifying other custom algorithms</span></span>
+### <a name="specifying-other-custom-algorithms"></a><span data-ttu-id="54cea-186">Especificar otros algoritmos personalizados</span><span class="sxs-lookup"><span data-stu-id="54cea-186">Specifying other custom algorithms</span></span>
 
-<span data-ttu-id="9bdb5-172">Aunque no se expone como una API de primera clase, el sistema de protección de datos es lo suficientemente extensible para permitir la especificación de casi cualquier tipo de algoritmo.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-172">Though not exposed as a first-class API, the data protection system is extensible enough to allow specifying almost any kind of algorithm.</span></span> <span data-ttu-id="9bdb5-173">Por ejemplo, es posible mantener todas las claves contenidas dentro de un HSM y para proporcionar una implementación personalizada del núcleo de rutinas de cifrado y descifrado.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-173">For example, it is possible to keep all keys contained within an HSM and to provide a custom implementation of the core encryption and decryption routines.</span></span> <span data-ttu-id="9bdb5-174">Consulte IAuthenticatedEncryptorConfiguration en la sección de extensibilidad de criptografía de núcleo para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="9bdb5-174">See IAuthenticatedEncryptorConfiguration in the core cryptography extensibility section for more information.</span></span>
+<span data-ttu-id="54cea-187">Aunque no se expone como una API de primera clase, el sistema de protección de datos es lo suficientemente extensible para permitir la especificación de casi cualquier tipo de algoritmo.</span><span class="sxs-lookup"><span data-stu-id="54cea-187">Though not exposed as a first-class API, the Data Protection system is extensible enough to allow specifying almost any kind of algorithm.</span></span> <span data-ttu-id="54cea-188">Por ejemplo, es posible mantener todas las claves contenidas dentro de un módulo de seguridad de Hardware (HSM) y para proporcionar una implementación personalizada del núcleo de rutinas de cifrado y descifrado.</span><span class="sxs-lookup"><span data-stu-id="54cea-188">For example, it's possible to keep all keys contained within a Hardware Security Module (HSM) and to provide a custom implementation of the core encryption and decryption routines.</span></span> <span data-ttu-id="54cea-189">Vea [IAuthenticatedEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.iauthenticatedencryptor) en [principales de extensibilidad de criptografía](xref:security/data-protection/extensibility/core-crypto) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="54cea-189">See [IAuthenticatedEncryptor](/dotnet/api/microsoft.aspnetcore.dataprotection.authenticatedencryption.iauthenticatedencryptor) in [Core cryptography extensibility](xref:security/data-protection/extensibility/core-crypto) for more information.</span></span>
 
-### <a name="see-also"></a><span data-ttu-id="9bdb5-175">Vea también</span><span class="sxs-lookup"><span data-stu-id="9bdb5-175">See also</span></span>
+## <a name="persisting-keys-when-hosting-in-a-docker-container"></a><span data-ttu-id="54cea-190">Claves de persistencia cuando se hospedan en un contenedor de Docker</span><span class="sxs-lookup"><span data-stu-id="54cea-190">Persisting keys when hosting in a Docker container</span></span>
 
-* [<span data-ttu-id="9bdb5-176">Escenarios no compatibles con DI</span><span class="sxs-lookup"><span data-stu-id="9bdb5-176">Non DI Aware Scenarios</span></span>](non-di-scenarios.md)
-* [<span data-ttu-id="9bdb5-177">Directiva para toda la máquina</span><span class="sxs-lookup"><span data-stu-id="9bdb5-177">Machine Wide Policy</span></span>](machine-wide-policy.md)
+<span data-ttu-id="54cea-191">Cuando se hospedan en un [Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/) contenedor, las claves deben mantenerse en la vista:</span><span class="sxs-lookup"><span data-stu-id="54cea-191">When hosting in a [Docker](/dotnet/standard/microservices-architecture/container-docker-introduction/) container, keys should be maintained in either:</span></span>
+
+* <span data-ttu-id="54cea-192">Una carpeta que es un volumen de Docker que se conserva más allá de la duración del contenedor, como un volumen compartido o un volumen montado de host.</span><span class="sxs-lookup"><span data-stu-id="54cea-192">A folder that's a Docker volume that persists beyond the container's lifetime, such as a shared volume or a host-mounted volume.</span></span>
+* <span data-ttu-id="54cea-193">Un proveedor externo, como [el almacén de claves de Azure](https://azure.microsoft.com/services/key-vault/) o [Redis](https://redis.io/).</span><span class="sxs-lookup"><span data-stu-id="54cea-193">An external provider, such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) or [Redis](https://redis.io/).</span></span>
+
+## <a name="see-also"></a><span data-ttu-id="54cea-194">Vea también</span><span class="sxs-lookup"><span data-stu-id="54cea-194">See also</span></span>
+
+* [<span data-ttu-id="54cea-195">Escenarios no compatibles con DI</span><span class="sxs-lookup"><span data-stu-id="54cea-195">Non DI Aware Scenarios</span></span>](xref:security/data-protection/configuration/non-di-scenarios)
+* [<span data-ttu-id="54cea-196">Directiva para toda la máquina</span><span class="sxs-lookup"><span data-stu-id="54cea-196">Machine Wide Policy</span></span>](xref:security/data-protection/configuration/machine-wide-policy)
