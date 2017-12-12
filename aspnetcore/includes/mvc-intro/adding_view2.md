@@ -27,7 +27,11 @@ Nota: La versión ASP.NET Core 2.0 es algo diferente. No contiene `@inject Appli
 >[!WARNING]
 > Aún no hemos implementado el controlador `Movies`, por lo que si hace clic en ese vínculo, obtendrá un error 404 (no encontrado).
 
-Guarde los cambios y pulse en el vínculo **About** (Acerca de). Observe cómo el título de la pestaña del explorador muestra ahora **About - Movie App** (Acerca de - Aplicación de película) en lugar de **About - Mvc Movie** (Acerca de - Aplicación de MVC). Pulse el vínculo **Contact** (Contacto) y observe que también muestra **Movie App** (Aplicación de película). Hemos realizado el cambio una vez en la plantilla de diseño y hemos conseguido que todas las páginas del sitio reflejen el nuevo texto de vínculo y el nuevo título.
+Guarde los cambios y pulse en el vínculo **About** (Acerca de). Observe cómo el título de la pestaña del explorador muestra ahora **About - Movie App** (Acerca de - Aplicación de película) en lugar de **About - Mvc Movie** (Acerca de - Aplicación de MVC): 
+
+![Acerca de la pestaña](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+
+Pulse el vínculo **Contact** (Contacto) y observe que también muestra **Movie App** (Aplicación de película). Hemos realizado el cambio una vez en la plantilla de diseño y hemos conseguido que todas las páginas del sitio reflejen el nuevo texto de vínculo y el nuevo título.
 
 Examine el archivo *Views/_ViewStart.cshtml*:
 
