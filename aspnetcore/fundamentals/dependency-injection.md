@@ -12,21 +12,21 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5c903a72d004afac55fbcc04ad157442e7a18ee
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 8d12960708f9d9bf2bc7c5997f82096d93087d13
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introducción a la inyección de dependencia en el núcleo de ASP.NET
 
-<a name=fundamentals-dependency-injection></a>
+<a name="fundamentals-dependency-injection"></a>
 
 Por [Steve Smith](https://ardalis.com/) y [Scott Addie](https://scottaddie.com)
 
 ASP.NET Core está diseñado desde el principio para admitir y aprovechar la inserción de dependencias. Las aplicaciones principales de ASP.NET pueden aprovechar los servicios de marco integrado por indica que existen insertado en métodos de la clase de inicio y los servicios de aplicaciones pueden configurarse para la inyección de así. El contenedor de servicios predeterminado proporcionado por ASP.NET Core proporciona una característica mínimo establecido y no está diseñada para reemplazar otros contenedores.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/dependency-injection/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-dependency-injection"></a>¿Qué es la inyección de dependencia?
 
@@ -143,7 +143,7 @@ Contextos de Entity Framework deben agregarse en el contenedor de servicios medi
 >[!WARNING]
 > Está resolviendo el peligro principal sea cuidadoso con la representación de un `Scoped` servicio de un singleton. Es probable que en este caso el servicio tendrá un estado incorrecto al procesar las solicitudes posteriores.
 
-Servicios que tengan dependencias deben registrarlos en el contenedor. Si el constructor de un servicio requiere un tipo primitivo, como un `string`, se pueden insertar utilizando el [opciones patrón y la configuración](configuration.md).
+Servicios que tengan dependencias deben registrarlos en el contenedor. Si el constructor de un servicio requiere un tipo primitivo, como un `string`, se pueden insertar utilizando [configuración](xref:fundamentals/configuration/index) y el [patrón opciones](xref:fundamentals/configuration/options).
 
 ## <a name="service-lifetimes-and-registration-options"></a>Duración del servicio y las opciones de registro
 
@@ -228,11 +228,16 @@ public class Service1 : IDisposable {}
 public class Service2 : IDisposable {}
 public class Service3 : IDisposable {}
 
+public interface ISomeService {}
+public class SomeServiceImplementation : ISomeService, IDisposable {}
+
+
 public void ConfigureServices(IServiceCollection services)
 {
     // container will create the instance(s) of these types and will dispose them
     services.AddScoped<Service1>();
     services.AddSingleton<Service2>();
+    services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
     // container did not create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
@@ -296,7 +301,7 @@ Cuando se trabaja con la inserción de dependencias, tenga las siguientes recome
 
 * DI es para los objetos que tienen dependencias complejas. Controladores, servicios, adaptadores y repositorios son ejemplos de objetos que podrían agregarse al DI.
 
-* Evitar el almacenamiento de datos y la configuración directamente en DI. Por ejemplo, normalmente no debería agregarse carro de la compra de un usuario para el contenedor de servicios. Debe usar la configuración de la [opciones modelo](configuration.md#options-config-objects). Del mismo modo, evitar objetos "marcador de datos" que solo existen para permitir el acceso a otro objeto. Es mejor solicitar el elemento real que sea necesario mediante la inserción de dependencias, si es posible.
+* Evitar el almacenamiento de datos y la configuración directamente en DI. Por ejemplo, normalmente no debería agregarse carro de la compra de un usuario para el contenedor de servicios. Debe usar la configuración de la [patrón opciones](xref:fundamentals/configuration/options). Del mismo modo, evitar objetos "marcador de datos" que solo existen para permitir el acceso a otro objeto. Es mejor solicitar el elemento real que sea necesario mediante la inserción de dependencias, si es posible.
 
 * Evitar el acceso estático a los servicios.
 

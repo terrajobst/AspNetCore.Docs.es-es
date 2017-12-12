@@ -1,8 +1,8 @@
 ---
 title: Otras API
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento describe la interfaz de ISecret de protección de datos de ASP.NET Core."
+keywords: "Núcleo de ASP.NET, protección de datos, ISecret"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,29 +11,29 @@ ms.assetid: 512c6ba7-88ec-47e4-a656-6b30350b34e6
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/misc-apis
-ms.openlocfilehash: 541dd721a00495632f0d633577b55933c9be03fa
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: f5d6920f9f229bd480a76c952dab30efb7d9eff5
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="miscellaneous-apis"></a>Otras API
 
-<a name=data-protection-extensibility-mics-apis></a>
+<a name="data-protection-extensibility-mics-apis"></a>
 
 >[!WARNING]
 > Los tipos que implementan cualquiera de las interfaces siguientes deben ser seguro para subprocesos para distintos llamadores.
 
 ## <a name="isecret"></a>ISecret
 
-La interfaz ISecret representa un valor secreto, como material de clave de cifrado. Contiene la superficie de API siguiente.
+El `ISecret` interfaz representa un valor secreto, como material de clave de cifrado. Contiene la superficie de API siguiente:
 
-* Longitud: int
+* `Length`: `int`
 
-* Dispose(): void
+* `Dispose()`: `void`
 
-* WriteSecretIntoBuffer (ArraySegment<byte> búfer): void
+* `WriteSecretIntoBuffer(ArraySegment<byte> buffer)`: `void`
 
-El método WriteSecretIntoBuffer rellena el búfer proporcionado con el valor sin formato del secreto. La razón de que esta API toma el búfer como un parámetro en lugar de devolver que un byte [] es directamente Esto da al llamador la oportunidad para anclar el objeto de búfer, limitar la exposición de secreto para el recolector de elementos no utilizados administrado.
+El `WriteSecretIntoBuffer` método rellena el búfer proporcionado con el valor sin formato del secreto. El motivo de esta API toma el búfer como un parámetro en lugar de devolver un `byte[]` directamente es esto da al llamador la oportunidad para anclar el objeto de búfer, limitar la exposición de secreto para el recolector de elementos no utilizados administrado.
 
-El tipo de secreto es una implementación concreta de ISecret donde el valor secreto se almacena en memoria en el proceso. En plataformas de Windows, el valor secreto se cifra mediante [CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx).
+El `Secret` tipo es una implementación concreta de `ISecret` donde el valor secreto se almacena en memoria en el proceso. En plataformas de Windows, el valor secreto se cifra mediante [CryptProtectMemory](https://msdn.microsoft.com/library/windows/desktop/aa380262(v=vs.85).aspx).

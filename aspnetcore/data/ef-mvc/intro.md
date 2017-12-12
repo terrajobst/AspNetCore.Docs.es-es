@@ -11,15 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 379802f644b977563b0b50354feb1fb9a4c8fabb
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
+ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+
+Hay disponible una versión de las páginas de Razor de este tutorial [aquí](xref:data/ef-rp/intro). La versión de las páginas de Razor es más fácil de seguir y explica las características EF más. Le recomendamos que siga el [versión de las páginas de Razor de este tutorial](xref:data/ef-rp/intro).
 
 La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones web de MVC de ASP.NET Core 2.0 mediante 2017 de Visual Studio y los núcleos de Entity Framework (EF) 2.0.
 
@@ -64,7 +66,7 @@ Abra Visual Studio y cree un nuevo proyecto de web en ASP.NET Core C# con el nom
 
 * En el panel izquierdo, seleccione **instalado > Visual C# > Web**.
 
-* Seleccione el **aplicación Web de ASP.NET Core** plantilla de proyecto.
+* Seleccione la plantilla de proyecto **Aplicación web ASP.NET Core**.
 
 * Escriba **ContosoUniversity** como el nombre y haga clic en **Aceptar**.
 
@@ -192,7 +194,7 @@ Para registrar `SchoolContext` como un servicio, abra *Startup.cs*y agregue las 
 
 [!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
-El nombre de la cadena de conexión se pasa al contexto mediante una llamada a un método en un `DbContextOptionsBuilder` objeto. Para el desarrollo local, el [sistema de configuración de ASP.NET Core](../../fundamentals/configuration.md) lee las cadenas de conexión desde el *appSettings.JSON que se* archivo.
+El nombre de la cadena de conexión se pasa al contexto mediante una llamada a un método en un `DbContextOptionsBuilder` objeto. Para el desarrollo local, el [sistema de configuración de ASP.NET Core](xref:fundamentals/configuration/index) lee las cadenas de conexión desde el *appSettings.JSON que se* archivo.
 
 Agregar `using` instrucciones para `ContosoUniversity.Data` y `Microsoft.EntityFrameworkCore` espacios de nombres y, a continuación, compile el proyecto.
 

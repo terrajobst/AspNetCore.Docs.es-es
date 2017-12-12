@@ -11,11 +11,11 @@ ms.assetid: 26250a4d-bf62-4d45-8549-26801cf956e9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: cc3277400aee956f47c53e5a4f3d4e84d3a3d1a3
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: d6e230351eb2f4c8549b54d75fd8e345718e6109
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="routing-to-controller-actions"></a>El enrutamiento a las acciones de controlador
 
@@ -206,7 +206,7 @@ app.UseMvc(routes =>
 });
 ```
 
-Los nombres de ruta proporcionan un nombre lógico de la ruta para que la ruta con nombre puede utilizarse para la generación de dirección URL. Esto simplifica en gran medida la creación de dirección URL cuando el orden de las rutas podría realizar la generación de direcciones URL complicada. Nombres de las rutas deben ser únicos en toda la aplicación.
+Los nombres de ruta proporcionan un nombre lógico de la ruta para que la ruta con nombre puede utilizarse para la generación de dirección URL. Esto simplifica en gran medida la creación de dirección URL cuando el orden de las rutas podría realizar la generación de direcciones URL complicada. Los nombres de ruta deben ser único en toda la aplicación.
 
 Los nombres de ruta no tienen ningún impacto en la dirección URL que coinciden o control de solicitudes; se usan únicamente para la generación de direcciones URL. [Enrutamiento](xref:fundamentals/routing) contiene información sobre la generación de dirección URL incluyendo generación de direcciones URL en aplicaciones auxiliares de MVC específicos más detallada.
 

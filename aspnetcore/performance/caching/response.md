@@ -1,26 +1,24 @@
 ---
 title: "Las respuestas en caché de ASP.NET Core"
 author: rick-anderson
-description: "Obtenga información acerca de cómo usar el almacenamiento en caché para reducir el ancho de banda y mejorar el rendimiento de respuesta."
-keywords: "Núcleo de ASP.NET, almacenamiento en caché, encabezados HTTP de respuesta"
+description: "Aprenda a usar el almacenamiento en caché a menores requisitos de ancho de banda de respuesta y aumentar el rendimiento de las aplicaciones de ASP.NET Core."
 ms.author: riande
 manager: wpickett
 ms.date: 09/20/2017
 ms.topic: article
-ms.assetid: cb42035a-60b0-472e-a614-cb79f443f654
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 79d9246632aae0fe9c3629fd7202842836828151
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
 Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), y [Luke Latham](https://github.com/guardrex)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Las respuestas en caché reducen el número de solicitudes de que un cliente o proxy se realiza en un servidor web. Las respuestas en caché también reducen la cantidad de trabajo realiza el servidor web para generar una respuesta. Las respuestas en caché se controlan mediante encabezados que especifican cómo desea que cliente, el proxy y middleware para la memoria caché las respuestas.
 
@@ -179,4 +177,9 @@ Cache-Control: public,max-age=60
 
 * [Almacenamiento en caché de HTTP de la especificación](https://tools.ietf.org/html/rfc7234#section-3)
 * [Control de caché](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
+* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
+* [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
+* [Aplicación auxiliar de etiqueta de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

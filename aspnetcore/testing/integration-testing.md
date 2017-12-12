@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/integration-testing
 ms.openlocfilehash: 155fd2f0663c6225531a4df6f323ebb30ab1ee73
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -23,7 +23,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 Pruebas de integración garantizan que los componentes de una aplicación funcionan correctamente cuando se ensamblan juntos. Integración de es compatible con ASP.NET Core pruebas con marcos de pruebas unitarias y un host de web de prueba integrados que puede usarse para controlar las solicitudes sin la sobrecarga de la red.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="introduction-to-integration-testing"></a>Introducción a las pruebas de integración
 

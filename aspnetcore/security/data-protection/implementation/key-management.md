@@ -1,8 +1,8 @@
 ---
 title: "Administración de claves"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento describen los detalles de implementación de la administración de claves de protección las API de datos principal de ASP.NET."
+keywords: "ASP.NET Core, protección de datos, administración de claves"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: fb9b807a-d143-4861-9ddb-005d8796afa3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 507c00edc5bade2427151ecadfed581817e4d088
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: d9e38fd5c8de2b10ad24fe557aa6e3063e40236e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-management"></a>Administración de claves
 
-<a name=data-protection-implementation-key-management></a>
+<a name="data-protection-implementation-key-management"></a>
 
-El sistema de protección de datos administra automáticamente la duración de claves maestras de usa para proteger y desproteger cargas. Cada clave puede estar en uno de cuatro fases.
+El sistema de protección de datos administra automáticamente la duración de claves maestras de usa para proteger y desproteger cargas. Cada clave puede estar en uno de cuatro fases:
 
 * Creado: la clave existe en el anillo de clave, pero aún no se ha activado. La clave no debe utilizarse para nuevas operaciones de protección hasta que haya transcurrido el tiempo suficiente que la clave ha tenido la oportunidad de propagarse a todas las máquinas que consumen este anillo de clave.
 
@@ -44,9 +44,9 @@ La heurística general es que el sistema de protección de datos elige la clave 
 
 El motivo por el sistema de protección de datos genera una nueva clave inmediatamente en lugar de usar una clave diferente es que la nueva generación de claves debe tratarse como una expiración implícita de todas las claves que se activaron antes de la nueva clave. La idea general es que pueden haber sido configuradas nuevas claves con algoritmos diferentes o mecanismos de cifrado en el resto de las claves antiguas, y el sistema debe preferir al usar la configuración actual.
 
-Hay una excepción. Si el desarrollador de aplicaciones tiene [deshabilita la generación automática de claves](../configuration/overview.md#data-protection-configuring-disable-automatic-key-generation), a continuación, el sistema de protección de datos debe elegir algo como la clave predeterminada. En este escenario de reserva, el sistema elegirá la clave no revocados con la fecha de activación más reciente, con preferencia otorgado a las claves que hayan tenido tiempo para propagar a otros equipos del clúster. El sistema de reserva puede acabar elegir una clave predeterminada expiradas como resultado. El sistema de reserva no elegirá nunca una clave revocada como la clave predeterminada y si el anillo de clave está vacío o todas las claves se ha revocado el sistema generará un error en la inicialización.
+Hay una excepción. Si el desarrollador de aplicaciones tiene [deshabilita la generación automática de claves](xref:security/data-protection/configuration/overview#disableautomatickeygeneration), a continuación, el sistema de protección de datos debe elegir algo como la clave predeterminada. En este escenario de reserva, el sistema elegirá la clave no revocados con la fecha de activación más reciente, con preferencia otorgado a las claves que hayan tenido tiempo para propagar a otros equipos del clúster. El sistema de reserva puede acabar elegir una clave predeterminada expiradas como resultado. El sistema de reserva no elegirá nunca una clave revocada como la clave predeterminada y si el anillo de clave está vacío o todas las claves se ha revocado el sistema generará un error en la inicialización.
 
-<a name=data-protection-implementation-key-management-expiration></a>
+<a name="data-protection-implementation-key-management-expiration"></a>
 
 ## <a name="key-expiration-and-rolling"></a>Expiración de la clave y gradual
 
@@ -62,24 +62,24 @@ La vigencia de la clave predeterminada es 90 días, aunque esto es configurable 
 services.AddDataProtection()
        // use 14-day lifetime instead of 90-day lifetime
        .SetDefaultKeyLifetime(TimeSpan.FromDays(14));
-   ```
+```
 
-Un administrador también puede cambiar el valor predeterminado para todo el sistema, aunque una llamada explícita a SetDefaultKeyLifetime invalidará cualquier directiva de todo el sistema. La vigencia de la clave predeterminada no puede ser inferior a 7 días.
+Un administrador también puede cambiar el valor predeterminado de todo el sistema, aunque una llamada explícita a `SetDefaultKeyLifetime` invalidará cualquier directiva de todo el sistema. La vigencia de la clave predeterminada no puede ser inferior a 7 días.
 
-## <a name="automatic-keyring-refresh"></a>Actualización automática del conjunto de claves
+## <a name="automatic-key-ring-refresh"></a>Actualización automática clave de anillo
 
 Cuando se inicializa el sistema de protección de datos, lee el anillo de clave desde el repositorio subyacente y lo almacena en caché en memoria. Esta memoria caché permite proteger y desproteger operaciones podrán continuar sin alcanzar el almacén de copia de seguridad. El sistema comprobará automáticamente la memoria auxiliar para cambios aproximadamente cada 24 horas o cuando caduca la clave predeterminada actual, lo que ocurra primero.
 
 >[!WARNING]
 > Los desarrolladores rara vez deberían (si alguna vez) que deba usar las API de administración clave directamente. El sistema de protección de datos llevará a cabo la administración automática de claves como se describió anteriormente.
 
-El sistema de protección de datos expone una interfaz IKeyManager que puede utilizar para inspeccionar y realizar cambios en el anillo de clave. El sistema DI que proporciona la instancia de IDataProtectionProvider también puede proporcionar una instancia de IKeyManager para su consumo. Como alternativa, puede insertar el IKeyManager recta desde IServiceProvider como en el ejemplo siguiente.
+El sistema de protección de datos expone una interfaz `IKeyManager` que se puede utilizar para inspeccionar y realizar cambios en el anillo de clave. El sistema DI que proporciona la instancia de `IDataProtectionProvider` también puede proporcionar una instancia de `IKeyManager` para su consumo. Como alternativa, puede extraer el `IKeyManager` directamente desde el `IServiceProvider` como en el ejemplo siguiente.
 
-Cualquier operación que modifica el anillo de clave (crear una nueva clave explícitamente o realizar una revocación) invalidará la memoria caché en memoria. La siguiente llamada a proteger o desproteger hará que el sistema de protección de datos leer el anillo de clave y volver a crear la memoria caché.
+Cualquier operación que modifica el anillo de clave (crear una nueva clave explícitamente o realizar una revocación) invalidará la memoria caché en memoria. La siguiente llamada a `Protect` o `Unprotect` hará que el sistema de protección de datos leer el anillo de clave y volver a crear la memoria caché.
 
-El ejemplo siguiente muestra cómo utilizar la interfaz IKeyManager para inspeccionar y manipular el anillo de clave, incluida la revocación de claves existentes y generar una nueva clave manualmente.
+El ejemplo siguiente muestra cómo utilizar el `IKeyManager` interfaz para inspeccionar y manipular el anillo de clave, incluida la revocación de claves existentes y generar una nueva clave manualmente.
 
-[!code-none[Main](key-management/samples/key-management.cs)]
+[!code-csharp[Main](key-management/samples/key-management.cs)]
 
 ## <a name="key-storage"></a>Almacenamiento de claves
 

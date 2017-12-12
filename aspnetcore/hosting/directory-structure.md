@@ -11,11 +11,11 @@ ms.assetid: e55eb131-d42e-4bf6-b130-fd626082243c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/directory-structure
-ms.openlocfilehash: f406d866bb1c8ac2d4371c8ddf669fc08af0fada
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: 60797bff85a44dd10caad4aabc109ee12dedfe61
+ms.sourcegitcommit: 7efdc4b6025ad70c15c26bf7451c3c0411123794
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="directory-structure-of-published-aspnet-core-apps"></a>Estructura de directorios de las aplicaciones ASP.NET Core publicadas
 
@@ -32,12 +32,16 @@ En el núcleo de ASP.NET, el directorio de la aplicación, *publicar*, consta de
 El contenido de la *publicar* directorio representa el *ruta de acceso raíz del contenido*, también denominado el *ruta de acceso base de aplicación*, de la implementación. El nombre se asigna a la *publicar* su ubicación de directorio en la implementación, actúa como ruta de acceso física del servidor a la aplicación hospedada. El *wwwroot* directory, si está presente, sólo contiene recursos estáticos. El *registros* directorio puede incluirse en la implementación mediante la creación del proyecto y agregar la `<Target>` elemento se muestra a continuación para su *.csproj* archivo o creando físicamente el directorio en el servidor.
 
 ```xml
-<Target Name="CreateLogsFolder" AfterTargets="AfterPublish">
-  <MakeDir Directories="$(PublishDir)logs" Condition="!Exists('$(PublishDir)logs')" />
-  <MakeDir Directories="$(PublishUrl)Logs" Condition="!Exists('$(PublishUrl)Logs')" />
+<Target Name="CreateLogsFolder" AfterTargets="Publish">
+  <MakeDir Directories="$(PublishDir)Logs" 
+           Condition="!Exists('$(PublishDir)Logs')" />
+  <WriteLinesToFile File="$(PublishDir)Logs\.log" 
+                    Lines="Generated file" 
+                    Overwrite="True" 
+                    Condition="!Exists('$(PublishDir)Logs\.log')" />
 </Target>
 ```
 
-La primera `<MakeDir>` elemento, que usa el `PublishDir` propiedad, se utiliza la CLI de núcleo de .NET para determinar la ubicación de destino para la operación de publicación. El segundo `<MakeDir>` elemento, que usa el `PublishUrl` propiedad, se utiliza Visual Studio para determinar la ubicación de destino. Visual Studio usa el `PublishUrl` propiedad para la compatibilidad con proyectos no .NET Core.
+El `<MakeDir>` elemento crea vacío *registros* carpeta en la salida publicada. El elemento utiliza el `PublishDir` propiedad para determinar la ubicación de destino para crear la carpeta. Varios métodos de implementación, por ejemplo, Web Deploy, omiten las carpetas vacías durante la implementación. El `<WriteLinesToFile>` elemento genera un archivo en el *registros* carpeta, lo que garantiza la implementación de la carpeta en el servidor. Tenga en cuenta que la creación de carpetas todavía puede fallar si el proceso de trabajo no tiene acceso de escritura a la carpeta de destino.
 
 El directorio de implementación requiere permisos de lectura y ejecución, mientras que la *registros* directory requiere permisos de lectura/escritura. Directorios adicionales donde se escribirá activos requieren permisos de lectura/escritura.

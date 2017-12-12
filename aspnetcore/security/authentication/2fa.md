@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/2fa
-ms.openlocfilehash: 802a4c92b366d656e194e2099b412e48eef7ae6d
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 15620d89c4db2e74dbcec4707bb2ebc6df916e03
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="two-factor-authentication-with-sms"></a>Autenticación en dos fases con SMS
 
@@ -57,7 +57,7 @@ Más adelante se almacenará este valor con la herramienta Administrador de secr
 
 ### <a name="provide-credentials-for-the-sms-service"></a>Proporcione las credenciales para el servicio SMS
 
-Vamos a usar la [patrón opciones](xref:fundamentals/configuration#options-config-objects) para tener acceso a la configuración de cuenta y clave de usuario. 
+Vamos a usar la [patrón opciones](xref:fundamentals/configuration/options) para tener acceso a la configuración de cuenta y clave de usuario. 
 
    * Cree una clase para capturar la clave SMS segura. En este ejemplo, el `SMSoptions` se crea una clase en el *Services/SMSoptions.cs* archivo.
 

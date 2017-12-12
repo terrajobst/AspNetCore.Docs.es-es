@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ced1e667acb7d11954aea27de7701db89091fd9
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 1d1f551dbde5f3dd6e71808154c2e5885d588d7c
+ms.sourcegitcommit: 282f69e8dd63c39bde97a6d72783af2970d92040
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Introducción al módulo principal de ASP.NET
 
@@ -28,7 +28,7 @@ Versiones admitidas de Windows:
 
 * Windows 7 y Windows Server 2008 R2 y versiones posteriores
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/aspnet-core-module/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-aspnet-core-module-does"></a>¿Qué módulo principal de ASP.NET
 
@@ -58,7 +58,8 @@ Esta sección proporciona información general sobre el proceso para configurar 
 
 ### <a name="install-ancm"></a>Instalar ANCM
 
-El módulo principal de ASP.NET debe instalarse en IIS en los servidores y en IIS Express en los equipos de desarrollo. Para los servidores, ANCM se incluye en el [agrupación de hospedaje de .NET Core Windows Server](https://aka.ms/dotnetcore.2.0.0-windowshosting). Para equipos de desarrollo, Visual Studio instala automáticamente ANCM en IIS Express y en IIS si ya está instalado en el equipo.
+
+El módulo principal de ASP.NET debe instalarse en IIS en los servidores y en IIS Express en los equipos de desarrollo. Para los servidores, ANCM se incluye en el [agrupación de hospedaje de .NET Core Windows Server](https://aka.ms/dotnetcore-2-windowshosting). Para equipos de desarrollo, Visual Studio instala automáticamente ANCM en IIS Express y en IIS si ya está instalado en el equipo.
 
 ### <a name="install-the-iisintegration-nuget-package"></a>Instale el paquete IISIntegration NuGet
 
@@ -111,6 +112,12 @@ Configuración para el módulo de núcleo de ASP.NET se almacena en la *Web.conf
 ### <a name="run-with-iis-express-in-development"></a>Ejecutar con IIS Express en el desarrollo
 
 IIS Express se puede iniciar Visual Studio utilizando el perfil predeterminado definido por las plantillas de ASP.NET Core.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>Configuración de proxy usa el protocolo HTTP y un token de emparejamiento
+
+El proxy creado entre el ANCM y Kestrel utiliza el protocolo HTTP. Uso de HTTP es una optimización del rendimiento donde el tráfico entre el ANCM y Kestrel realiza en una dirección de bucle invertido fuera de la interfaz de red. No hay ningún riesgo de interceptación el tráfico entre el ANCM y Kestrel desde una ubicación fuera del servidor.
+
+Un token de emparejamiento se utiliza para garantizar que las solicitudes recibidas por Kestrel eran procesadas por IIS y que no proceden de algún otro origen. El token de emparejamiento se crea y se ha establecido en una variable de entorno (`ASPNETCORE_TOKEN`) por el ANCM. El token de emparejamiento también se establece en un encabezado (`MSAspNetCoreToken`) en todas las solicitudes procesadas por el proxy. Middleware de IIS comprueba cada solicitud recibida para confirmar que el valor de encabezado del token emparejamiento coincide con el valor de la variable de entorno. Si no coinciden con los valores del token, la solicitud se registran y se rechaza. La variable de entorno token emparejamiento y el tráfico entre el ANCM y Kestrel no son accesibles desde una ubicación fuera del servidor. Sin conocer el valor del token de emparejamiento, un atacante no puede enviar las solicitudes que se omisión la comprobación en el Middleware de IIS.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

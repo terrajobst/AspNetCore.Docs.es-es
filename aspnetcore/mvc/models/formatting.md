@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/formatting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ba2456178fe806b90f27bbd2940773da950423
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: abc125a093ff2cd5a38a537ecdfc795ff03e23f7
+ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/19/2017
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Introducción a los datos de respuesta de formato en MVC de ASP.NET Core
 
@@ -99,7 +99,7 @@ Si prefiere el Explorador de honor aplicación encabezados de aceptación, puede
 services.AddMvc(options =>
 {
     options.RespectBrowserAcceptHeader = true; // false by default
-}
+});
 ```
 
 ## <a name="configuring-formatters"></a>Configuración de formateadores

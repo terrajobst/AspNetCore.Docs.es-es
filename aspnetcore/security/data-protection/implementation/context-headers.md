@@ -1,8 +1,8 @@
 ---
 title: Encabezados de contexto
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Este documento describen los detalles de implementación de los encabezados de contexto de protección de datos de ASP.NET Core."
+keywords: "ASP.NET Core, protección de datos, los encabezados de contexto"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: d026a58c-67f4-411e-a410-c35f29c2c517
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: a47d2f91e6764bf6760ea559f1e2753e966753e3
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: eb8e4c9ad67d3046648aea1b45f4a675b41b3ec0
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="context-headers"></a>Encabezados de contexto
 
-<a name=data-protection-implementation-context-headers></a>
+<a name="data-protection-implementation-context-headers"></a>
 
 ## <a name="background-and-theory"></a>Segundo plano y la teoría
 
@@ -33,7 +33,7 @@ Este concepto de PRPs y PRFs seguros se usa para crear un encabezado de contexto
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>Cifrado del modo CBC + autenticación HMAC
 
-<a name=data-protection-implementation-context-headers-cbc-components></a>
+<a name="data-protection-implementation-context-headers-cbc-components"></a>
 
 El encabezado de contexto está formada por los siguientes componentes:
 
@@ -51,7 +51,7 @@ El encabezado de contexto está formada por los siguientes componentes:
 
 * MAC (K_H, ""), que es el resultado del algoritmo HMAC dado una entrada de cadena vacía. La construcción de K_H se describe a continuación.
 
-Lo ideal es que podemos pasar como vectores de ceros para K_E y K_H. Sin embargo, debe evitar la situación donde el algoritmo subyacente comprueba la existencia de claves débiles antes de realizar cualquier operación (especialmente DES y 3DES), lo que impide utilizar un modelo simple o repeatable como un vector de ceros.
+Lo ideal es que, podríamos pasamos vectores de ceros para K_E y K_H. Sin embargo, debe evitar la situación donde el algoritmo subyacente comprueba la existencia de claves débiles antes de realizar cualquier operación (especialmente DES y 3DES), lo que impide utilizar un modelo simple o repeatable como un vector de ceros.
 
 En su lugar, usamos NIST SP800-108 KDF en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con una clave de longitud cero, etiqueta y contexto y HMACSHA512 como el PRF subyacente. Se derivan | K_E | + | K_H | bytes de salida, a continuación, descomponer el resultado en K_E y K_H por sí mismos. Matemáticamente, se representa como se indica a continuación.
 

@@ -1,29 +1,27 @@
 ---
-title: "Trabajar con una memoria caché distribuida"
+title: "Trabajar con una memoria caché distribuida en ASP.NET Core"
 author: ardalis
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Obtenga información acerca de cómo usar el almacenamiento en caché distribuido para mejorar el rendimiento y escalabilidad de las aplicaciones de ASP.NET Core, especialmente cuando se hospeda en un entorno de granja de servidores en la nube o de servidor."
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 870f082d-6d43-453d-b311-45f3aeb4d2c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: abf680fef9de175082c1e4f4cebc2b9648f18a28
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
-# <a name="working-with-a-distributed-cache"></a>Trabajar con una memoria caché distribuida
+# <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Trabajar con una memoria caché distribuida en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
 Las memorias caché distribuidas pueden mejorar el rendimiento y la escalabilidad de las aplicaciones de ASP.NET Core, especialmente cuando se hospeda en un entorno de granja de servidores en la nube o de servidor. Este artículo explica cómo trabajar con implementaciones y abstracciones de caché distribuida integrado del núcleo de ASP.NET.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample)
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-is-a-distributed-cache"></a>¿Qué es una memoria caché distribuida
 
@@ -68,7 +66,7 @@ Para usar el `IDistributedCache` interfaz:
 
    2. Configurar la implementación específica de `IDistributedCache` en su `Startup` la clase `ConfigureServices` método y lo agrega al contenedor no existe.
 
-   3. Desde la aplicación [`Middleware](../../fundamentals/middleware.md) or MVC controller classes, request an instance of `IDistributedCache' desde el constructor. La instancia se proporcionarán con [inyección de dependencia](../../fundamentals/dependency-injection.md) (DI).
+   3. Desde la aplicación [Middleware](../../fundamentals/middleware.md) o las clases de controlador MVC, solicite una instancia de `IDistributedCache` desde el constructor. La instancia se proporcionarán con [inyección de dependencia](../../fundamentals/dependency-injection.md) (DI).
 
 > [!NOTE]
 > No es necesario usar una duración de Singleton o en el ámbito para `IDistributedCache` instancias (al menos para las implementaciones integradas). También puede crear una instancia donde podría necesitar uno (en lugar de usar [inyección de dependencia](../../fundamentals/dependency-injection.md)), pero esto puede dificultar el código probar e infringe el [principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle/).
@@ -86,7 +84,7 @@ El siguiente código *Startup.cs* muestra el valor que se va a establecer:
 > [!NOTE]
 > Puesto que `IDistributedCache` está configurado en el `ConfigureServices` método, está disponible para el `Configure` método como parámetro. Agregar como un parámetro permitirá la instancia configurada proporcionar a través de DI.
 
-## <a name="using-a-redis-distributed-cache"></a>Con un Redis caché distribuida
+## <a name="using-a-redis-distributed-cache"></a>Uso de una caché de Redis distribuida
 
 [Redis](https://redis.io/) es un almacén de datos en memoria de código abierto, que a menudo se usa como una memoria caché distribuida. Puede usar de forma local, y puede configurar un [Azure Redis Cache](https://azure.microsoft.com/services/cache/) para las aplicaciones principales de ASP.NET hospedados en Azure. La aplicación de ASP.NET Core configura la implementación de caché mediante un `RedisDistributedCache` instancia.
 
@@ -105,7 +103,7 @@ La implementación de SqlServerCache permite que la memoria caché distribuida u
 
 Para usar la herramienta de caché de sql, agregue `SqlConfig.Tools` a la `<ItemGroup>` elemento de la *.csproj* archivo y ejecutar la restauración de dotnet.
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 Ejecute el siguiente comando para comprobar SqlConfig.Tools
 
@@ -136,8 +134,13 @@ Al igual que todas las implementaciones de caché, la aplicación debe obtener y
 
 La hora de decidir qué implementación de `IDistributedCache` es adecuado para la aplicación, elija entre Redis y SQL Server se basa en la infraestructura existente y entorno, los requisitos de rendimiento y experiencia de su equipo. Si su equipo es más fácil trabajar con Redis, es una excelente opción. Si el equipo prefiera SQL Server, puede estar seguro de que así la implementación. Tenga en cuenta que una solución de almacenamiento en caché tradicional almacena datos en memoria que permite la recuperación rápida de datos. Debe almacenar los datos de uso frecuente en una memoria caché y almacenar todos los datos en un almacén persistente de back-end como SQL Server o el almacenamiento de Azure. Caché en Redis es una solución de almacenamiento en caché que proporciona un alto rendimiento y baja latencia en comparación con la memoria caché de SQL.
 
-Recursos adicionales:
+## <a name="additional-resources"></a>Recursos adicionales
 
-* [En la memoria caché](memory.md)
 * [Caché en Azure en Redis](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Base de datos SQL en Azure](https://azure.microsoft.com/documentation/services/sql-database/)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
+* [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
+* [Almacenamiento en caché de respuestas](xref:performance/caching/response)
+* [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
+* [Aplicación auxiliar de etiqueta de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

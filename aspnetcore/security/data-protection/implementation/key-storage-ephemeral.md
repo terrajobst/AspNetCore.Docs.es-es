@@ -1,8 +1,8 @@
 ---
 title: "Proveedores de protección de datos efímeros"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento explica los detalles de implementación de los proveedores de protección de datos efímeros ASP.NET Core."
+keywords: "ASP.NET Core, protección de datos, proveedores efímeros"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,60 +11,60 @@ ms.assetid: af6ea1d0-0d9d-41df-a870-5dda24978e2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-ephemeral
-ms.openlocfilehash: 6b564f082eefad993ac938407e0f3b657d83fb52
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 51d4aaa3a669763c2e388a8186ebeaec6b57e77a
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="ephemeral-data-protection-providers"></a>Proveedores de protección de datos efímeros
 
-<a name=data-protection-implementation-key-storage-ephemeral></a>
+<a name="data-protection-implementation-key-storage-ephemeral"></a>
 
-Existen escenarios donde una aplicación necesita un throwaway IDataProtectionProvider. Por ejemplo, solo se puede experimentar el desarrollador en una aplicación de consola de uso único o la propia aplicación es transitoria (se incluye en el script o una prueba unitaria de proyecto). Para admitir estos escenarios el paquete Microsoft.AspNetCore.DataProtection incluye un tipo EphemeralDataProtectionProvider. Este tipo proporciona una implementación básica de IDataProtectionProvider cuya clave repositorio se mantiene solamente en memoria y no escribe en ningún almacén de respaldo.
+Existen escenarios donde una aplicación necesita un throwaway `IDataProtectionProvider`. Por ejemplo, solo se puede experimentar el desarrollador en una aplicación de consola de uso único o la propia aplicación es transitoria (se incluye en el script o una prueba unitaria de proyecto). Para admitir estos escenarios el [Microsoft.AspNetCore.DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) paquete incluye un tipo `EphemeralDataProtectionProvider`. Este tipo proporciona una implementación básica de `IDataProtectionProvider` cuya clave repositorio se mantiene solamente en memoria y no escribe en ningún almacén de respaldo.
 
-Cada instancia de EphemeralDataProtectionProvider usa su propia clave principal único. Por lo tanto, si un IDataProtector con raíz en un EphemeralDataProtectionProvider genera una carga protegida, ese carga puede solo no protegido por un IDataProtector equivalente (les proporciona el mismo [propósito](../consumer-apis/purpose-strings.md#data-protection-consumer-apis-purposes) cadena) con raíz en el mismo Instancia de EphemeralDataProtectionProvider.
+Cada instancia de `EphemeralDataProtectionProvider` usa su propia clave principal único. Por lo tanto, si un `IDataProtector` con raíz en un `EphemeralDataProtectionProvider` genera una carga protegida, ese carga solo puede desproteger un equivalente `IDataProtector` (les proporciona el mismo [propósito](../consumer-apis/purpose-strings.md#data-protection-consumer-apis-purposes) cadena) con raíz en el mismo `EphemeralDataProtectionProvider` instancia.
 
-El ejemplo siguiente muestra cómo crear instancias de un EphemeralDataProtectionProvider y usarla para proteger y desproteger los datos.
+El siguiente ejemplo muestra cómo crear instancias de un `EphemeralDataProtectionProvider` y usarla para proteger y desproteger los datos.
 
-```none
+```csharp
 using System;
-   using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.DataProtection;
 
-   public class Program
-   {
-       public static void Main(string[] args)
-       {
-           const string purpose = "Ephemeral.App.v1";
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        const string purpose = "Ephemeral.App.v1";
 
-           // create an ephemeral provider and demonstrate that it can round-trip a payload
-           var provider = new EphemeralDataProtectionProvider();
-           var protector = provider.CreateProtector(purpose);
-           Console.Write("Enter input: ");
-           string input = Console.ReadLine();
+        // create an ephemeral provider and demonstrate that it can round-trip a payload
+        var provider = new EphemeralDataProtectionProvider();
+        var protector = provider.CreateProtector(purpose);
+        Console.Write("Enter input: ");
+        string input = Console.ReadLine();
 
-           // protect the payload
-           string protectedPayload = protector.Protect(input);
-           Console.WriteLine($"Protect returned: {protectedPayload}");
+        // protect the payload
+        string protectedPayload = protector.Protect(input);
+        Console.WriteLine($"Protect returned: {protectedPayload}");
 
-           // unprotect the payload
-           string unprotectedPayload = protector.Unprotect(protectedPayload);
-           Console.WriteLine($"Unprotect returned: {unprotectedPayload}");
+        // unprotect the payload
+        string unprotectedPayload = protector.Unprotect(protectedPayload);
+        Console.WriteLine($"Unprotect returned: {unprotectedPayload}");
 
-           // if I create a new ephemeral provider, it won't be able to unprotect existing
-           // payloads, even if I specify the same purpose
-           provider = new EphemeralDataProtectionProvider();
-           protector = provider.CreateProtector(purpose);
-           unprotectedPayload = protector.Unprotect(protectedPayload); // THROWS
-       }
-   }
+        // if I create a new ephemeral provider, it won't be able to unprotect existing
+        // payloads, even if I specify the same purpose
+        provider = new EphemeralDataProtectionProvider();
+        protector = provider.CreateProtector(purpose);
+        unprotectedPayload = protector.Unprotect(protectedPayload); // THROWS
+    }
+}
 
-   /*
-    * SAMPLE OUTPUT
-    *
-    * Enter input: Hello!
-    * Protect returned: CfDJ8AAAAAAAAAAAAAAAAAAAAA...uGoxWLjGKtm1SkNACQ
-    * Unprotect returned: Hello!
-    * << throws CryptographicException >>
-    */
-   ```
+/*
+* SAMPLE OUTPUT
+*
+* Enter input: Hello!
+* Protect returned: CfDJ8AAAAAAAAAAAAAAAAAAAAA...uGoxWLjGKtm1SkNACQ
+* Unprotect returned: Hello!
+* << throws CryptographicException >>
+*/
+```

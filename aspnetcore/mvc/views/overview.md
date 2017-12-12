@@ -11,11 +11,11 @@ ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: f40feb0466854080cc749a83c546ce857d850902
-ms.sourcegitcommit: e4a1df2a5a85f299322548809e547a79b380bb92
+ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
+ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de núcleo de ASP.NET MVC
 
@@ -23,7 +23,7 @@ Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guard
 
 En el **M**odelo -**V**er -**C**patrón ontroller (MVC), el *vista* administra la interacción de usuario y la presentación de datos de la aplicación. Una vista es una plantilla HTML con incrustado [marcado Razor](xref:mvc/views/razor). Marcado de Razor es código que interactúa con el marcado HTML para generar una página Web que se envía al cliente.
 
-En el núcleo de ASP.NET MVC, las vistas son *.cshtml* archivos que usan el [lenguaje de programación de C#](/dotnet/csharp/) en el marcado de Razor. Por lo general, ver los archivos se agrupan en carpetas con el nombre de cada una de la aplicación [controladores](xref:mvc/controllers/actions). Las carpetas se almacenan en una en una *vistas* carpeta en la raíz de la aplicación:
+En el núcleo de ASP.NET MVC, las vistas son *.cshtml* archivos que usan el [lenguaje de programación de C#](/dotnet/csharp/) en el marcado de Razor. Por lo general, ver los archivos se agrupan en carpetas con el nombre de cada una de la aplicación [controladores](xref:mvc/controllers/actions). Las carpetas se almacenan en un *vistas* carpeta en la raíz de la aplicación:
 
 ![Carpeta de vistas en el Explorador de soluciones de Visual Studio está abierta con la carpeta de inicio abierta para mostrar los archivos About.cshtml, Contact.cshtml y Index.cshtml](overview/_static/views_solution_explorer.png)
 
@@ -40,13 +40,13 @@ Use [diseños](xref:mvc/views/layout) para proporcionar las secciones de la pág
 Vistas ayudan a establecer una [ **S**eparation **o**f **C**oncerns (SoC) diseño](http://deviq.com/separation-of-concerns/) dentro de una aplicación MVC separando el marcado de la interfaz de usuario de otras partes de la aplicación. Después de SoC diseño hace que la aplicación modular, que ofrece varias ventajas:
 
 * La aplicación es más fácil de mantener, ya que mejor se organizan. Vistas generalmente se agrupan por la característica de la aplicación. Resulta más fácil encontrar vistas relacionadas cuando se trabaja en una característica.
-* Las partes de la aplicación no están estrechamente. Puede crear y actualizar las vistas de la aplicación por separado de los componentes de acceso lógica y los datos de negocio. Puede modificar las vistas de la aplicación sin necesidad de tener que actualizar otras partes de la aplicación.
+* Las partes de la aplicación están acopladas. Puede crear y actualizar las vistas de la aplicación por separado de los componentes de acceso lógica y los datos de negocio. Puede modificar las vistas de la aplicación sin necesidad de tener que actualizar otras partes de la aplicación.
 * Es más fácil de probar los elementos de interfaz de usuario de la aplicación, ya que las vistas son unidades independientes.
 * Debido a una mejor organización, es menos probable que deberá accidentalmente secciones de repetición de la interfaz de usuario.
 
 ## <a name="creating-a-view"></a>Crear una vista
 
-Se crean vistas que son específicas para un controlador en el *vistas / [ControllerName]* carpeta. Vistas que se comparten entre los controladores se colocan en la *vistas/compartidas* carpeta. Para crear una vista, agregue un nuevo archivo y asígnele el mismo nombre que su acción de controlador asociado con la *.cshtml* la extensión de archivo. Para crear una vista para la *sobre* acción en el *inicio* controlador, cree una *About.cshtml* un archivo en el *vistas/inicio* carpeta:
+Se crean vistas que son específicas para un controlador en el *vistas / [ControllerName]* carpeta. Vistas que se comparten entre los controladores se colocan en la *vistas/compartidas* carpeta. Para crear una vista, agregue un nuevo archivo y asígnele el mismo nombre que su acción de controlador asociado con la *.cshtml* la extensión de archivo. Para crear una vista que se corresponde con el *sobre* acción en el *inicio* controlador, cree una *About.cshtml* un archivo en el *vistas/inicio*carpeta:
 
 [!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
@@ -88,7 +88,7 @@ El `View` método auxiliar tiene varias sobrecargas. También puede especificar:
 
 Cuando una acción devuelve una vista, un proceso llamado *detección de vista* tiene lugar. Este proceso determina qué archivo de vista se utiliza en función del nombre de vista. 
 
-Cuando una acción devuelve el `View` (método) (`return View();`) y una vista no se especifica, el nombre de acción se usa como el nombre de vista. Por ejemplo, el *sobre* `ActionResult` nombre de método del controlador se usa para buscar un archivo de vista denominado *About.cshtml*. En primer lugar, el tiempo de ejecución busca en el *vistas / [ControllerName]* carpeta para la vista. Si no encuentra una vista de búsqueda de coincidencias no existe, busca la *Shared* carpeta para la vista.
+El comportamiento predeterminado de la `View` (método) (`return View();`) debe devolver una vista con el mismo nombre que el método de acción desde la que se llama. Por ejemplo, el *sobre* `ActionResult` nombre de método del controlador se usa para buscar un archivo de vista denominado *About.cshtml*. En primer lugar, el tiempo de ejecución busca en el *vistas / [ControllerName]* carpeta para la vista. Si no encuentra una vista de búsqueda de coincidencias no existe, busca la *Shared* carpeta para la vista.
 
 No importa si implícitamente devuelve el `ViewResult` con `return View();` o pasar explícitamente el nombre de la vista a la `View` método con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
@@ -127,7 +127,7 @@ Puede pasar datos a vistas que utilizan varios enfoques. El enfoque más eficaz 
 
 Uso de un modelo de vista para pasar datos a una vista permite que la vista aprovechar las ventajas de *seguro* comprobación de tipos. *Establecimiento inflexible de tipos* (o *fuertemente tipado*) significa que cada variable y la constante tienen un tipo definido de forma explícita (por ejemplo, `string`, `int`, o `DateTime`). Se comprueba la validez de los tipos utilizados en una vista en tiempo de compilación.
 
-Conjunto de herramientas, como [Visual Studio](https://www.visualstudio.com/vs/) o [código de Visual Studio](https://code.visualstudio.com/), también se pueden mostrar los miembros (propiedades de un modelo) mientras se agrega a una vista, lo que ayuda a escribir código más rápido con menos errores. Esta característica se denomina [IntelliSense](/visualstudio/ide/using-intellisense) en herramientas de Microsoft.
+[Visual Studio](https://www.visualstudio.com/vs/) y [código de Visual Studio](https://code.visualstudio.com/) se enumeran los miembros de clase fuertemente tipada utilizando una característica denominada [IntelliSense](/visualstudio/ide/using-intellisense). Cuando desea ver las propiedades de un modelo de vista, escriba el nombre de variable para el modelo de vista seguido por un punto (`.`). Esto ayuda a escribir código más rápidamente con menos errores.
 
 Especifique un modelo con el `@model` directiva. Utilizar el modelo con `@Model`:
 
@@ -181,7 +181,12 @@ namespace WebApplication1.ViewModels
 > [!NOTE]
 > Nada le impide usar las mismas clases para los tipos de modelo de vista y los tipos de modelo de negocio. Sin embargo, el uso de modelos independientes permite sus vistas variar de forma independiente de la lógica de negocios y datos de partes de acceso de la aplicación. Separación de los modelos y viewmodels también ofrece ventajas de seguridad cuando los modelos utilizan [enlace de modelo](xref:mvc/models/model-binding) y [validación](xref:mvc/models/validation) para los datos enviados a la aplicación por el usuario.
 
+
+<a name="VD_VB"></a>
+
 ### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Datos débilmente tipada (ViewData y ViewBag)
+
+Nota: `ViewBag` no está disponible en las páginas de Razor.
 
 Además de vistas fuertemente tipadas, vistas tienen acceso a un *débilmente tipada* (también denominada *imprecisa*) recopilación de datos. A diferencia de los tipos seguros, *tipos débiles* (o *perder tipos*) significa que no declara explícitamente el tipo de datos que esté utilizando. Puede usar la recopilación de datos débilmente tipada para pasar pequeñas cantidades de datos dentro y fuera de los controladores y vistas.
 
@@ -194,6 +199,9 @@ Además de vistas fuertemente tipadas, vistas tienen acceso a un *débilmente ti
 Puede hacer referencia a esta colección a través del `ViewData` o `ViewBag` propiedades en los controladores y vistas. El `ViewData` propiedad es un diccionario de objetos débilmente tipada. El `ViewBag` propiedad es un contenedor alrededor de `ViewData` que proporciona las propiedades dinámicas para subyacente `ViewData` colección.
 
 `ViewData`y `ViewBag` se resuelven de forma dinámica en tiempo de ejecución. Debido a que no ofrecen la comprobación de tipos de tiempo de compilación, ambos son generalmente más propensas a errores que el uso de un modelo de vista. Por esta razón, algunos desarrolladores prefieren mínimamente o nunca `ViewData` y `ViewBag`.
+
+
+<a name="VD"></a>
 
 **ViewData**
 
@@ -237,6 +245,8 @@ Trabajar con los datos en una vista:
 
 **Elemento ViewBag**
 
+Nota: `ViewBag` no está disponible en las páginas de Razor.
+
 `ViewBag`es un [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) objeto que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag`puede ser más cómodo trabajar con, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que con `ViewData` anteriormente:
 
 ```csharp
@@ -267,6 +277,8 @@ public IActionResult SomeAction()
 ```
 
 **Usando ViewData y ViewBag simultáneamente**
+
+Nota: `ViewBag` no está disponible en las páginas de Razor.
 
 Puesto que `ViewData` y `ViewBag` hacen referencia al mismo subyacente `ViewData` colección, puede usar ambos `ViewData` y `ViewBag` y mezclar y combinar entre ellos al leer y escribir valores.
 
@@ -306,6 +318,8 @@ Utilizar `ViewData` y `ViewBag` en el mismo funciona de tiempo, como hace mezcla
 
 **Resumen de las diferencias entre ViewData y ViewBag**
 
+ `ViewBag`no está disponible en las páginas de Razor.
+
 * `ViewData`
   * Se deriva de [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), por lo que tiene propiedades de diccionario que pueden ser útiles, por ejemplo, `ContainsKey`, `Add`, `Remove`, y `Clear`.
   * Las claves del diccionario son cadenas, por lo que se permiten espacios en blanco. Ejemplo: `ViewData["Some Key With Whitespace"]`
@@ -316,7 +330,7 @@ Utilizar `ViewData` y `ViewBag` en el mismo funciona de tiempo, como hace mezcla
 
 **Cuándo utilizar ViewData o ViewBag**
 
-Ambos `ViewData` y `ViewBag` son igualmente válidos enfoques para pasar pequeñas cantidades de datos entre controladores y vistas. La elección de los cuales uno para usar (o ambos) consiste en tomar una preferencia personal o la preferencia de su organización. Por lo general, los desarrolladores son coherentes en el uso de uno u otro. O bien utilizan `ViewData` everywhere o use `ViewBag` en todas partes, pero lo invitamos a mezclar y compararlos. Puesto que ambas son resuelto dinámicamente en tiempo de ejecución y, por tanto, son propensos a lo que produce errores en tiempo de ejecución, utilizarlos con cuidado. Algunos desarrolladores eviten completamente.
+Ambos `ViewData` y `ViewBag` son igualmente válidos enfoques para pasar pequeñas cantidades de datos entre controladores y vistas. La elección de cuál utilizar se basa en la preferencia. Puede mezclar y combinar `ViewData` y `ViewBag` objetos, sin embargo, el código sea más fácil de leer y mantener con un enfoque que se utiliza de forma coherente. Ambos enfoques son resuelto dinámicamente en tiempo de ejecución y, por tanto, son propensos a lo que produce errores en tiempo de ejecución. Algunos equipos de desarrollo evitarlos.
 
 ### <a name="dynamic-views"></a>Vistas dinámicas
 

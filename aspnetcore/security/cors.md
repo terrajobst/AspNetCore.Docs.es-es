@@ -1,8 +1,8 @@
 ---
 title: "Habilitación de solicitudes entre orígenes (CORS)"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento presentan como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core CORS."
+keywords: "Núcleo de ASP.NET, CORS, origen cruzado"
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
@@ -11,11 +11,11 @@ ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e441ce1c50139a5b33865eec8e8d99764258730d
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Habilitación de solicitudes entre orígenes (CORS)
 
@@ -219,7 +219,7 @@ El encabezado de acceso-Control: Max-Age especifica cuánto tiempo puede almacen
 
 [!code-csharp[Main](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
-<a name=cors-how-cors-works></a>
+<a name="cors-how-cors-works"></a>
 
 ## <a name="how-cors-works"></a>Funcionamiento de CORS
 
@@ -240,7 +240,7 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6
 Host: myservice.azurewebsites.net
 ```
 
-Si el servidor permite la solicitud, Establece el encabezado de acceso Access-Control-Allow-Origin. El valor de este encabezado coincide con el encabezado de origen, o es el valor de carácter comodín "*", lo que significa que se permite cualquier origen.:
+Si el servidor permite la solicitud, Establece el encabezado de acceso Access-Control-Allow-Origin en la respuesta. El valor de este encabezado coincide con el encabezado de origen de la solicitud, o es el valor de carácter comodín "*", lo que significa que se permite cualquier origen:
 
 ```
 HTTP/1.1 200 OK

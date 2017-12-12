@@ -11,11 +11,11 @@ ms.assetid: b355a48e-a15c-4d58-b69c-899763613a97
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/model-binding
-ms.openlocfilehash: 92085829d2a37a2aa6080aeb34a5e14be95e02d8
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 40aa105dcf06b269025d0c44e5cd7bffef271e9d
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="model-binding"></a>Enlace de modelos
 
@@ -61,9 +61,19 @@ Hasta ahora en el ejemplo se utiliza tipos simples. En MVC tipos simples son cua
 
 En el orden de enlace que se produzca la clase debe tener un constructor público predeterminado y miembro esté enlazado debe ser propiedades públicas de escritura. Cuando se produzca el enlazado de modelo que solo se crearán instancias de la clase utilizando el constructor predeterminado público, pueden establecer las propiedades.
 
-Cuando se enlaza un parámetro, el enlace de modelos detiene buscando valores con ese nombre y lo pasa a enlazar el parámetro siguiente. Si se produce un error de enlace, MVC no produce un error. Puede consultar los errores de estado del modelo mediante la comprobación de la `ModelState.IsValid` propiedad.
+Cuando se enlaza un parámetro, el enlace de modelos detiene buscando valores con ese nombre y lo pasa a enlazar el parámetro siguiente. En caso contrario, el comportamiento de enlace de modelo predeterminado establece los parámetros con sus valores predeterminados según su tipo:
 
-Nota: Cada entrada en el controlador `ModelState` propiedad es una `ModelStateEntry` que contiene un `Errors property`. Es no suele ser necesario consultar esta colección usted mismo. Utilice `ModelState.IsValid` en su lugar.
+* `T[]`: Con la excepción de las matrices de tipo `byte[]`, enlace establece los parámetros de tipo `T[]` a `Array.Empty<T>()`. Matrices de tipo `byte[]` se establecen en `null`.
+
+* Tipos de referencia: Enlace crea una instancia de una clase con el constructor predeterminado sin tener que configurar propiedades. Sin embargo, los conjuntos de enlace del modelo `string` parámetros para `null`.
+
+* Tipos que aceptan valores NULL: Los tipos que aceptan valores NULL se establecen en `null`. En el ejemplo anterior, modelo de enlace configura `id` a `null` ya que es de tipo `int?`.
+
+* Tipos de valor: Tipos de valor no acepta valores NULL del tipo `T` se establecen en `default(T)`. Por ejemplo, el enlace de modelos para establecer un parámetro `int id` en 0. Considere la posibilidad de usa validación de modelos o tipos que aceptan valores NULL en lugar de basarse en valores predeterminados.
+
+Si se produce un error de enlace, MVC no produce un error. Todas las acciones que acepta proporcionados por el usuario deben comprobar la `ModelState.IsValid` propiedad.
+
+Nota: Cada entrada en el controlador `ModelState` propiedad es una `ModelStateEntry` que contiene un `Errors` propiedad. Es no suele ser necesario consultar esta colección usted mismo. Utilice `ModelState.IsValid` en su lugar.
 
 Además, hay algunos tipos de datos especiales que MVC debe tener en cuenta al realizar el enlace de modelos:
 

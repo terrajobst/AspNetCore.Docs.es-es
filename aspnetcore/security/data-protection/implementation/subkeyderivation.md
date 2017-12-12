@@ -1,8 +1,8 @@
 ---
 title: "Derivación de subclave y cifrado autenticado"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento describe los detalles de implementación de protección de datos de ASP.NET Core subclave derivación y autentican el cifrado."
+keywords: "ASP.NET Core, protección de datos, derivación subclave autenticado cifrado"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,38 +11,38 @@ ms.assetid: 34bb58a3-5a9a-41e5-b090-08f75b4bbefa
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 24ce71b417599bea22b7fae8b384db599f9e907c
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 3eb27b8a6d04074662bf619a09fd867252624209
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="subkey-derivation-and-authenticated-encryption"></a>Derivación de subclave y cifrado autenticado
 
-<a name=data-protection-implementation-subkey-derivation></a>
+<a name="data-protection-implementation-subkey-derivation"></a>
 
 La mayoría de las teclas en el anillo de clave contiene alguna forma de entropía y tendrá algorítmica información que indica "cifrado de modo CBC + validación HMAC" o "cifrado de GCM + validación". En estos casos, nos referimos a la entropía incrustada como el material de creación de claves maestras (o KM) para esta clave y llevamos a cabo una función de derivación de claves para derivar las claves que se usará para las operaciones criptográficas reales.
 
 > [!NOTE]
-> Las claves son abstractas, y una implementación personalizada posible que no funcionen como sigue. Si la clave proporciona su propia implementación de IAuthenticatedEncryptor en lugar de utilizar una de nuestras fábricas integradas, el mecanismo que se describe en esta sección ya no se aplica.
+> Las claves son abstractas, y una implementación personalizada posible que no funcionen como sigue. Si la clave proporciona su propia implementación de `IAuthenticatedEncryptor` en lugar de usar una de nuestras fábricas integradas, el mecanismo se describe en esta sección ya no es aplicable.
 
-<a name=data-protection-implementation-subkey-derivation-aad></a>
+<a name="data-protection-implementation-subkey-derivation-aad"></a>
 
 ## <a name="additional-authenticated-data-and-subkey-derivation"></a>Datos autenticados adicionales y subclave derivación
 
-La interfaz IAuthenticatedEncryptor actúa como la interfaz básica para todas las operaciones de cifrado autenticado. Su método Encrypt toma dos búferes: texto sin formato y additionalAuthenticatedData (AAD). El flujo de contenido de texto simple sin modificar la llamada a IDataProtector.Protect, pero el AAD generada por el sistema y consta de tres componentes:
+El `IAuthenticatedEncryptor` interfaz actúa como la interfaz básica para todas las operaciones de cifrado autenticado. Su `Encrypt` método toma dos búferes: texto sin formato y additionalAuthenticatedData (AAD). El flujo de contenido de texto simple sin modificar la llamada a `IDataProtector.Protect`, pero el AAD generada por el sistema y consta de tres componentes:
 
 1. El encabezado de mágico de 32 bits 09 F0 C9 F0 que identifica esta versión del sistema de protección de datos.
 
 2. El identificador de clave de 128 bits.
 
-3. Una cadena de longitud variable formado a partir de la cadena de fin que creó el IDataProtector que está realizando esta operación.
+3. Una cadena de longitud variable formado a partir de la cadena de fin que creó el `IDataProtector` que está realizando esta operación.
 
-Dado que el AAD es única para la tupla de los tres componentes, podemos usar se pueden para derivar nuevas claves KM en lugar de usar KM propio en todos nuestros operaciones de cifrado. Para todas las llamadas a IAuthenticatedEncryptor.Encrypt, el siguiente proceso de derivación de claves tiene lugar:
+Dado que el AAD es única para la tupla de los tres componentes, podemos usar se pueden para derivar nuevas claves KM en lugar de usar KM propio en todos nuestros operaciones de cifrado. Para todas las llamadas a `IAuthenticatedEncryptor.Encrypt`, realiza el proceso de derivación de claves siguiente:
 
 (K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, || keyModifier)
 
-En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), seg. 5.1) con los siguientes parámetros:
+En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con los siguientes parámetros:
 
 * Clave de derivación de claves (KDK) = K_M
 
@@ -52,7 +52,7 @@ En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NI
 
 * contexto = contextHeader || keyModifier
 
-El encabezado de contexto es de longitud variable y actúa esencialmente como una huella digital de los algoritmos para el que nos estamos derivación K_E y K_H. El modificador de clave es una cadena de 128 bits que se genera de forma aleatoria para cada llamada a cifrar y que sirve para asegurarse de con una sobrecarga de probabilidad que KE y KH son únicos para esta operación de cifrado de autenticación específico, aunque todas las demás entradas a KDF son constante.
+El encabezado de contexto es de longitud variable y actúa esencialmente como una huella digital de los algoritmos para el que nos estamos derivación K_E y K_H. El modificador de clave es una cadena de 128 bits que se genera de forma aleatoria para cada llamada a `Encrypt` y sirve para asegurarse de con una sobrecarga de probabilidad que KE y KH son únicos para esta operación de cifrado de autenticación específico, incluso si todos los demás entrada KDF es constante.
 
 Para el cifrado del modo CBC + las operaciones de validación de HMAC, | K_E | es la longitud de la clave de cifrado de bloques simétrico y | K_H | es el tamaño de resumen de la rutina HMAC. Para el cifrado de GCM + las operaciones de validación, | K_H | = 0.
 
@@ -65,7 +65,7 @@ Una vez K_E se genera mediante el mecanismo anterior, se genera un vector de ini
 *salida: = keyModifier || IV || E_cbc (datos K_E, iv) || HMAC (K_H, iv || E_cbc (datos K_E, iv))*
 
 > [!NOTE]
-> La implementación de IDataProtector.Protect le [anteponer el encabezado mágica y el Id. de clave](authenticated-encryption-details.md#data-protection-implementation-authenticated-encryption-details) a salida antes de devolverlo al llamador. Dado que el encabezado mágica y el Id. de clave son implícitamente forma parte de [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), y dado que el modificador de tecla se introduce como entrada a KDF, esto significa que cada byte único de la última carga devuelta es autenticado por el equipo Mac.
+> El `IDataProtector.Protect` implementación le [anteponer el encabezado mágica y el Id. de clave](authenticated-encryption-details.md) a salida antes de devolverlo al llamador. Dado que el encabezado mágica y el Id. de clave son implícitamente forma parte de [AAD](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation-aad), y dado que el modificador de tecla se introduce como entrada a KDF, esto significa que cada byte único de la última carga devuelta es autenticado por el equipo Mac.
 
 ## <a name="galoiscounter-mode-encryption--validation"></a>El cifrado del modo de Galois/contador + validación
 

@@ -11,27 +11,32 @@ ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 7aea4db44764d5d8f47520adb6599e651e0e9000
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: fdb396d8857dc9c118cc19da1f7d1d498dfaacd5
+ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware de compresión de respuesta para ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Ancho de banda de red es un recurso limitado. Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una manera de reducir el tamaño de carga es comprimir las respuestas de una aplicación.
 
 ## <a name="when-to-use-response-compression-middleware"></a>Cuándo utilizar Middleware de compresión de respuesta
-Utilizar tecnologías de compresión de respuesta basada en servidor en IIS, Apache o Nginx donde el rendimiento del middleware de probablemente no coincide con el de los módulos del servidor. Utilice Middleware de compresión de respuesta cuando no puede volver a usar:
-* [Módulo de compresión dinámica de IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-* [Módulo de mod_deflate de Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-* [NGINX compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
-* [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominados [WebListener](xref:fundamentals/servers/weblistener))
-* [Kestrel](xref:fundamentals/servers/kestrel)
+Utilizar tecnologías de compresión de respuesta basada en servidor en IIS, Apache o Nginx. El rendimiento del middleware de probablemente no coincida con el de los módulos del servidor. [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) y [Kestrel](xref:fundamentals/servers/kestrel) actualmente no ofrecen compatibilidad con la compresión integrada.
+
+Use Middleware de compresión de respuesta cuando esté:
+
+* No se puede usar las siguientes tecnologías de compresión basada en servidor:
+  * [Módulo de compresión dinámica de IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
+  * [Módulo de mod_deflate de Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [NGINX compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+* Hospeda directamente en:
+  * [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominados [WebListener](xref:fundamentals/servers/weblistener))
+  * [Kestrel](xref:fundamentals/servers/kestrel)
 
 ## <a name="response-compression"></a>Compresión de respuesta
 Por lo general, cualquier respuesta que comprimen de forma nativa puede beneficiarse de compresión de respuesta. Respuestas de forma no nativa comprimidas normalmente son: CSS, JavaScript, HTML, XML y JSON. No debe comprimir activos comprimidos de forma nativa, como archivos PNG. Si se intentan volver a comprimir aún más una respuesta cifrada de forma nativa, cualquier pequeña reducción adicional en tiempo de tamaño y la transmisión probablemente resultar mínimo comparado con el tiempo que tardó en procesarse la compresión. No comprimir los archivos de menos de aproximadamente 150-1000 bytes (según el contenido del archivo y la eficacia de compresión). La sobrecarga de la compresión de archivos pequeños puede generar un archivo comprimido mayor que el archivo sin comprimir.

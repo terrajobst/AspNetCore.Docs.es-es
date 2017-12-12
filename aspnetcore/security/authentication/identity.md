@@ -11,11 +11,11 @@ ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 820836eaf3a29c9941e84458f09ac470f8150ba7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 0679663b3b3b66f9935d0fb24360be2954fcdee1
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad de un núcleo de ASP.NET
 
@@ -32,11 +32,11 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
 1.  Cree un proyecto de aplicación Web de ASP.NET Core con cuentas de usuario individuales.
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    En Visual Studio, seleccione **archivo** -> **New** -> **proyecto**. Seleccione el **aplicación Web ASP.NET** desde el **nuevo proyecto** cuadro de diálogo. Al seleccionar un ASP.NET Core **aplicación Web** con **cuentas de usuario individuales** como método de autenticación.
+    En Visual Studio, seleccione **archivo** -> **New** -> **proyecto**. Seleccione el **aplicación Web ASP.NET** desde el **nuevo proyecto** cuadro de diálogo. Al seleccionar un ASP.NET Core **Web Application(Model-View-Controller)** para ASP.NET Core 2.x con **cuentas de usuario individuales** como método de autenticación.
 
     Nota: Debe seleccionar **cuentas de usuario individuales**.
  
-    ![Cuadro de diálogo Nuevo proyecto](identity/_static/01-mvc.png)
+    ![Cuadro de diálogo Nuevo proyecto](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
     Si usa la CLI de núcleo. NET, cree el nuevo proyecto utilizando ``dotnet new mvc --auth Individual``. Esto creará un nuevo proyecto con el mismo código de plantilla de identidad que Visual Studio crea.
@@ -134,7 +134,7 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
  
 7.  Ver la base de datos.
 
-    Si la aplicación usa una base de datos de SQL Server (el valor predeterminado en Windows y para usuarios de Visual Studio), puede ver la base de datos de la aplicación creada. Puede usar **SQL Server Management Studio**. O bien, desde Visual Studio, seleccione **vista** -> **Explorador de objetos de SQL Server**. Conectarse a **(localdb) \MSSQLLocalDB**. La base de datos con un nombre que coincida con * *aspnet - <*nombre del proyecto*>-<*cadena de fecha*> ** se muestra.
+    Si la aplicación usa una base de datos de SQL Server (el valor predeterminado en Windows y para usuarios de Visual Studio), puede ver la base de datos de la aplicación creada. Puede usar **SQL Server Management Studio**. O bien, desde Visual Studio, seleccione **vista** -> **Explorador de objetos de SQL Server**. Conectarse a **(localdb) \MSSQLLocalDB**. La base de datos con un nombre que coincida con  **aspnet - <*nombre del proyecto*>-<*cadena de fecha*> ** se muestra.
 
     ![Menú contextual en la tabla de base de datos de AspNetUsers](identity/_static/04-db.png)
     

@@ -10,23 +10,23 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/app-secrets
-ms.openlocfilehash: 280819a6a0afb72311f0d50f7d3b83a942e9fcc3
-ms.sourcegitcommit: e3b1726cc04e80dc28464c35259edbd3bc39a438
+ms.openlocfilehash: 897d9b360ceeb5fbb0863ff1c1fcec039e1a8b8f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), y [Scott Addie](https://scottaddie.com) 
 
-Este documento muestra cómo puede usar la herramienta Administrador de secreto en el desarrollo para mantener secretos fuera del código. El punto más importante es nunca debe almacenar las contraseñas u otros datos confidenciales en el código fuente y no utilice secretos de producción en modo de desarrollo y pruebas. En su lugar, puede usar el [configuración](../fundamentals/configuration.md) sistema para leer estos valores de variables de entorno o de valores almacenados mediante el Administrador de secreto de la herramienta. La herramienta Administrador de secreto ayuda a evitar que los datos confidenciales que se protegen en el control de código fuente. El [configuración](../fundamentals/configuration.md) sistema pueda leer los secretos almacenados con la herramienta Administrador de secreto se describe en este artículo.
+Este documento muestra cómo puede usar la herramienta Administrador de secreto en el desarrollo para mantener secretos fuera del código. El punto más importante es nunca debe almacenar las contraseñas u otros datos confidenciales en el código fuente y no utilice secretos de producción en modo de desarrollo y pruebas. En su lugar, puede usar el [configuración](xref:fundamentals/configuration/index) sistema para leer estos valores de variables de entorno o de valores almacenados mediante el Administrador de secreto de la herramienta. La herramienta Administrador de secreto ayuda a evitar que los datos confidenciales que se protegen en el control de código fuente. El [configuración](xref:fundamentals/configuration/index) sistema pueda leer los secretos almacenados con la herramienta Administrador de secreto se describe en este artículo.
 
 La herramienta Administrador de secreto se usa solo en el desarrollo. Puede proteger los secretos de prueba y producción Azure con el [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) proveedor de configuración. Vea [proveedor de configuración de almacén de claves de Azure](https://docs.microsoft.com/aspnet/core/security/key-vault-configuration) para obtener más información.
 
 ## <a name="environment-variables"></a>Variables de entorno
 
-Para evitar almacenar secretos de aplicación en el código o en archivos de configuración local, almacenar secretos en variables de entorno. Puede configurar la [configuración](../fundamentals/configuration.md) framework para leer los valores de variables de entorno mediante una llamada a `AddEnvironmentVariables`. A continuación, puede utilizar variables de entorno para reemplazar los valores de configuración para todos los orígenes de configuración especificada anteriormente.
+Para evitar almacenar secretos de aplicación en el código o en archivos de configuración local, almacenar secretos en variables de entorno. Puede configurar la [configuración](xref:fundamentals/configuration/index) framework para leer los valores de variables de entorno mediante una llamada a `AddEnvironmentVariables`. A continuación, puede utilizar variables de entorno para reemplazar los valores de configuración para todos los orígenes de configuración especificada anteriormente.
 
 Por ejemplo, si crea una nueva aplicación web de ASP.NET Core con cuentas de usuario individuales, agregará una cadena de conexión predeterminada para el *appSettings.JSON que se* archivo en el proyecto con la clave `DefaultConnection`. La cadena de conexión predeterminada está configurado para utilizar LocalDB, que se ejecuta en modo de usuario y no requiere una contraseña. Al implementar la aplicación en un servidor de producción o de prueba, puede invalidar la `DefaultConnection` valor de clave con una configuración de variable de entorno que contiene la cadena de conexión (posiblemente con credenciales confidenciales) para una base de datos de producción o de prueba servidor.
 
@@ -127,4 +127,4 @@ No debe escribirse código que depende de la ubicación o el formato de los dato
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Configuración](../fundamentals/configuration.md)
+* [Configuración](xref:fundamentals/configuration/index)

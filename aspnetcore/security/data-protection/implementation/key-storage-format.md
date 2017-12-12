@@ -1,8 +1,8 @@
 ---
 title: Formato de almacenamiento de claves
 author: tdykstra
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento explica los detalles de implementación del formato de almacenamiento de claves de protección de datos de ASP.NET Core."
+keywords: "ASP.NET Core, protección de datos, almacenamiento de claves"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,15 +11,15 @@ ms.assetid: e8996478-f7bf-4b58-bab4-7fdb5d8556c5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: e761eaa406a9691e3fa36881d42c1a0c1bd8a206
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 4ebad05f7d55e954463ce5e277b419a7d6f773c0
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-storage-format"></a>Formato de almacenamiento de claves
 
-<a name=data-protection-implementation-key-storage-format></a>
+<a name="data-protection-implementation-key-storage-format"></a>
 
 Objetos se almacenan en reposo en la representación XML. El directorio predeterminado para el almacenamiento de claves es % LOCALAPPDATA%\ASP.NET\DataProtection-Keys\.
 

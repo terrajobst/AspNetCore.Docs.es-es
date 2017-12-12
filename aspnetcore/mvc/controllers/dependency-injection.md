@@ -11,11 +11,11 @@ ms.assetid: bc8b4ba3-e9ba-48fd-b1eb-cd48ff6bc7a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: ff0a1a34ee6b025be6312a81f1a0bcdd07026adb
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: 46b92a1cab6fb2cd06eff44feb6a55788fca5c2a
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="dependency-injection-into-controllers"></a>Inyección de dependencia en controladores
 
@@ -89,7 +89,7 @@ A veces, no es necesario un servicio para más de una acción en el controlador.
 
 ## <a name="accessing-settings-from-a-controller"></a>Acceso a la configuración de un controlador
 
-Acceso a la configuración de aplicación o la configuración de un controlador es un patrón común. Este acceso debe utilizar el patrón de opciones se describen en [configuración](../../fundamentals/configuration.md). Por lo general debe no solicitar configuración directamente desde el controlador mediante la inserción de dependencias. Un enfoque más adecuado consiste en solicitud una `IOptions<T>` instancia, donde `T` es la clase de configuración que necesite.
+Acceso a la configuración de aplicación o la configuración de un controlador es un patrón común. Este acceso debe utilizar el patrón de opciones se describen en [configuración](xref:fundamentals/configuration/index). Por lo general debe no solicitar configuración directamente desde el controlador mediante la inserción de dependencias. Un enfoque más adecuado consiste en solicitud una `IOptions<T>` instancia, donde `T` es la clase de configuración que necesite.
 
 Para trabajar con el patrón de opciones, debe crear una clase que representa las opciones, como esta:
 
@@ -100,7 +100,7 @@ Es necesario que configure la aplicación para utilizar el modelo de opciones y 
 [!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
-> En la lista anterior, nos estamos configurar la aplicación para leer la configuración de un archivo con formato JSON. También puede configurar la configuración completamente en código, como se muestra en el código comentado anterior. Vea [configuración](../../fundamentals/configuration.md) para obtener más opciones de configuración.
+> En la lista anterior, nos estamos configurar la aplicación para leer la configuración de un archivo con formato JSON. También puede configurar la configuración completamente en código, como se muestra en el código comentado anterior. Vea [configuración](xref:fundamentals/configuration/index) para obtener más opciones de configuración.
 
 Una vez que haya especificado un objeto de configuración fuertemente tipada (en este caso, `SampleWebSettings`) y agregarlo a la colección de servicios, se puede solicitar desde cualquier método de acción o controlador que solicita una instancia de `IOptions<T>` (en este caso, `IOptions<SampleWebSettings>`) . El código siguiente muestra cómo uno podría solicitar la configuración de un controlador:
 

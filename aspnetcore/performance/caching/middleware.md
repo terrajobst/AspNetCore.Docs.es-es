@@ -1,26 +1,24 @@
 ---
 title: "Respuesta de almacenamiento en caché de Middleware en ASP.NET Core"
 author: guardrex
-description: "Configuración y el uso de Middleware de almacenamiento en caché de respuesta en aplicaciones de ASP.NET Core."
-keywords: "Núcleo de ASP.NET, las respuestas en caché, almacenamiento en caché, ResponseCache, ResponseCaching, Cache-Control, VaryByQueryKeys, middleware"
+description: "Obtenga información acerca de cómo configurar y usar el Middleware de almacenamiento en caché de respuesta en aplicaciones de ASP.NET Core."
 ms.author: riande
 manager: wpickett
 ms.date: 08/22/2017
 ms.topic: article
-ms.assetid: f9267eab-2762-42ac-1638-4a25d2c9d67c
 ms.prod: asp.net-core
 uid: performance/caching/middleware
-ms.openlocfilehash: bc3350a7ef15c5c38aa072bab15cbddc7d0ee0fa
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: f3312d0c333b47169c71891eea79f03be0abcfa3
+ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex) y [John Luo](https://github.com/JunTaoLuo)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Este documento ofrece detalles sobre cómo configurar el Middleware de almacenamiento en caché de respuesta en aplicaciones de ASP.NET Core. El middleware determina cuando las respuestas son almacenable en caché, las respuestas de los almacenes y actúa las respuestas de caché. Para obtener una introducción al almacenamiento en caché de HTTP y el `ResponseCache` de atributo, vea [las respuestas en caché](response.md).
 
@@ -112,13 +110,13 @@ El middleware respeta las reglas de la [especificación HTTP 1.1 Caching](https:
 
 [Mejoras futuras en el middleware](https://github.com/aspnet/ResponseCaching/issues/96) permitirá configurar el middleware para almacenar en caché escenarios donde la solicitud `Cache-Control` encabezado debe omitirse la hora de decidir atender una respuesta almacenada en caché. Si busca más control sobre el almacenamiento en caché de comportamiento, explore otras características de almacenamiento en caché de ASP.NET Core. Consulte los temas siguientes:
 
-* [Introducción al almacenamiento en caché en memoria de ASP.NET Core](xref:performance/caching/memory)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Si almacenamiento en caché de comportamiento no es como esperaba, confirme que las respuestas son almacenable en caché y puede enviarse desde la memoria caché mediante el examen de encabezados de la solicitud entrante y saliente encabezados de la respuesta. Habilitar [registro](xref:fundamentals/logging) puede ayudar a la depuración. Los registros de middleware almacenamiento en caché de comportamiento y cuando se recupera una respuesta de la memoria caché.
+Si almacenamiento en caché de comportamiento no es como esperaba, confirme que las respuestas son almacenable en caché y puede enviarse desde la memoria caché mediante el examen de encabezados de la solicitud entrante y saliente encabezados de la respuesta. Habilitar [registro](xref:fundamentals/logging/index) puede ayudar a la depuración. Los registros de middleware almacenamiento en caché de comportamiento y cuando se recupera una respuesta de la memoria caché.
 
 Al probar y solucionar problemas de comportamiento de almacenamiento en caché, un explorador puede establecer encabezados de solicitud que afectan al almacenamiento en caché de maneras no deseados. Por ejemplo, puede establecer un explorador la `Cache-Control` encabezado a `no-cache` cuando actualice la página. Las siguientes herramientas pueden establecer explícitamente los encabezados de solicitud y son preferibles para las pruebas de almacenamiento en caché:
 
@@ -148,3 +146,9 @@ Al probar y solucionar problemas de comportamiento de almacenamiento en caché, 
 
 * [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
+* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
+* [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
+* [Almacenamiento en caché de respuestas](xref:performance/caching/response)
+* [Aplicación auxiliar de etiqueta de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

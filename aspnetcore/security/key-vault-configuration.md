@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: c5d8506c1bc8e6364d01596a0c82e1da41eea4ca
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Proveedor de configuración de almacén de claves de Azure
 
@@ -58,7 +58,7 @@ El proveedor se agrega a la `ConfigurationBuilder` con el `AddAzureKeyVault` ext
 1. Crear un almacén de claves y configurar Azure Active Directory (Azure AD) para la aplicación siguiendo las instrucciones de [empezar a trabajar con el almacén de claves de Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
   * Agregar secretos en el almacén de claves mediante el [módulo de PowerShell de almacén de claves AzureRM](/powershell/module/azurerm.keyvault) disponibles desde el [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), el [API de REST del almacén de claves de Azure](/rest/api/keyvault/), o la [Portal de azure](https://portal.azure.com/). Los secretos se crean como *Manual* o *certificado* secretos. *Certificado* secretos están certificados para su uso por aplicaciones y servicios, pero no son compatibles con el proveedor de configuración. Debe utilizar el *Manual* opción para crear los secretos de par nombre / valor para su uso con el proveedor de configuración.
     * Secretos simples se crean como pares nombre / valor. Nombres de secreto de almacén de claves Azure están limitados a caracteres alfanuméricos y guiones.
-    * Usan valores jerárquicos (secciones de configuración) `--` (dos guiones) como separador en el ejemplo. Caracteres de dos puntos, que normalmente se utilizan para delimitar una sección de una subclave en [configuración de ASP.NET Core](xref:fundamentals/configuration), no están permitidos en los nombres de secreto. Por lo tanto, se usa dos guiones y se intercambian en dos puntos cuando se cargan los secretos en la configuración de la aplicación.
+    * Usan valores jerárquicos (secciones de configuración) `--` (dos guiones) como separador en el ejemplo. Caracteres de dos puntos, que normalmente se utilizan para delimitar una sección de una subclave en [configuración de ASP.NET Core](xref:fundamentals/configuration/index), no están permitidos en los nombres de secreto. Por lo tanto, se usa dos guiones y se intercambian en dos puntos cuando se cargan los secretos en la configuración de la aplicación.
     * Cree dos *Manual* secretos con los siguientes pares de nombre-valor. El secreto del primer es un nombre simple y el valor y el secreto del segundo crea un valor secreto con una sección y la subclave en el nombre de secreto:
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
@@ -146,7 +146,7 @@ Configuration.Reload();
 Secretos deshabilitados y expirados producen un `KeyVaultClientException`. Para evitar que la aplicación genere, reemplace la aplicación o actualizar el secreto deshabilitado o expirado.
 
 ## <a name="troubleshooting"></a>Solución de problemas
-Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura del registro de ASP.NET](xref:fundamentals/logging). Las siguientes condiciones se evita que la configuración de carga:
+Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura del registro de ASP.NET](xref:fundamentals/logging/index). Las siguientes condiciones se evita que la configuración de carga:
 * La aplicación no está configurada correctamente en Azure Active Directory.
 * El almacén de claves no existe en el almacén de claves de Azure.
 * La aplicación no está autorizada para tener acceso al almacén de claves.
@@ -157,7 +157,7 @@ Cuando no se puede cargar la configuración mediante el proveedor de la aplicaci
 * La clave de configuración (nombre) es incorrecta en la aplicación para el valor que está intentando cargar.
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* <xref:fundamentals/configuration>
+* [Configuración](xref:fundamentals/configuration/index)
 * [Microsoft Azure: Almacén de claves](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Documentación de almacén de claves](https://docs.microsoft.com/azure/key-vault/)
 * [Cómo generar y transferir protegidas con HSM de claves para el almacén de claves de Azure](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)

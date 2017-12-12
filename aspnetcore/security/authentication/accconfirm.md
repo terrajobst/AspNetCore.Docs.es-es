@@ -5,20 +5,20 @@ description: "Muestra cómo compilar una aplicación de ASP.NET Core con el rest
 keywords: "Núcleo de ASP.NET, restablecimiento de contraseña, confirmación por correo electrónico, seguridad"
 ms.author: riande
 manager: wpickett
-ms.date: 07/19/2017
+ms.date: 12/1/2017
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b05dd2fee50f6cc96058971daa42b069dbb6d21d
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 955064122d2335016c7eb3dd7451b14106a3b83f
+ms.sourcegitcommit: 6e46abd65973dea796d364a514de9ec2e3e1c1ed
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twitter.com/joeaudette) 
 
 Este tutorial muestra cómo compilar una aplicación de ASP.NET Core con el restablecimiento de confirmación y la contraseña de correo electrónico.
 
@@ -117,7 +117,7 @@ La línea anterior impide que los usuarios registrados que se registran en hasta
 
 En este tutorial, se usa SendGrid para enviar correo electrónico. Necesita una cuenta de SendGrid y la clave para enviar correo electrónico. Puede usar otros proveedores de correo electrónico. ASP.NET Core 2.x incluye `System.Net.Mail`, que le permite enviar correo electrónico desde la aplicación. Se recomienda que usar SendGrid u otro servicio de correo electrónico para enviar correo electrónico.
 
-El [patrón opciones](xref:fundamentals/configuration#options-config-objects) se usa para acceder a la configuración de cuenta y clave de usuario. Para obtener más información, consulte [configuración](xref:fundamentals/configuration).
+El [patrón opciones](xref:fundamentals/configuration/options) se usa para acceder a la configuración de cuenta y clave de usuario. Para obtener más información, consulte [configuración](xref:fundamentals/configuration/index).
 
 Cree una clase para obtener la clave de proteger el correo electrónico. En este ejemplo, el `AuthMessageSenderOptions` se crea una clase en el *Services/AuthMessageSenderOptions.cs* archivo.
 
@@ -195,6 +195,8 @@ await _signInManager.SignInAsync(user, isPersistent: false);
 El método completo se muestra con la línea cambiada resaltada:
 
 [!code-csharp[Main](accconfirm/sample/WebPW/Controllers/AccountController.cs?highlight=19&name=snippet_Register)]
+
+Nota: El código anterior generará un error si implementa `IEmailSender` y enviar un correo electrónico de texto sin formato. Vea [este problema](https://github.com/aspnet/Home/issues/2152) para obtener más información y una solución alternativa.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 

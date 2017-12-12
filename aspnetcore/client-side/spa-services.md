@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c38a1730e43586f37cd773bb8daa418736952f
-ms.sourcegitcommit: b3d46df910fb679edb8dd47234db6b4da604eedb
+ms.openlocfilehash: 8d47910beef9195295c8da6ac81b83b3ffe20124
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Usar JavaScriptServices para crear aplicaciones de una página con ASP.NET Core
 
@@ -98,11 +98,11 @@ Instale el software siguiente:
 
 Las aplicaciones auxiliares de etiquetas se hacen reconocibles a través de registro del espacio de nombres en el proyecto *_ViewImports.cshtml* archivo:
 
-[!code-csharp[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/_ViewImports.cshtml?highlight=3)]
 
 Estas aplicaciones auxiliares de etiquetas abstraer los detalles de comunicarse directamente con las API de bajo nivel mediante el aprovechamiento de una sintaxis similar a HTML dentro de la vista Razor:
 
-[!code-html[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=5)]
 
 ### <a name="the-asp-prerender-module-tag-helper"></a>El `asp-prerender-module` auxiliar de etiquetas
 
@@ -118,7 +118,7 @@ En el siguiente ejemplo Angular, el *ClientApp/arranque-server.ts* archivo utili
 
 Cuando se acopla con el `asp-prerender-module` aplicación auxiliar de etiqueta, la `asp-prerender-data` etiqueta auxiliar puede utilizarse para pasar información contextual de la vista de Razor en el código de JavaScript del lado servidor. Por ejemplo, el siguiente marcado pasa los datos de usuario en el `main-server` módulo:
 
-[!code-html[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
+[!code-cshtml[Main](../client-side/spa-services/sample/SpaServicesSampleApp/Views/Home/Index.cshtml?range=9-12)]
 
 Los datos recibidos `UserName` argumento se serializa utilizando el serializador JSON integrado y se almacena en la `params.data` objeto. En el siguiente ejemplo Angular, los datos se utilizan para construir un saludo personalizado dentro de un `h1` elemento:
 

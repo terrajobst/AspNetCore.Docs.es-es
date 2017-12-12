@@ -11,11 +11,11 @@ ms.assetid: 9c826a76-fbd2-46b5-978d-6ca6df53531a
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: eb5049d4d63c224ca74fc39072ae2c0d98ba330d
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.openlocfilehash: f217e5264742826f285444dcbaea4b28b97c4d7e
+ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrar controladores HTTP y módulos ASP.NET Core middleware 
 
@@ -169,11 +169,11 @@ Software intermedio se agrega a la canalización antes de que se invocará la bi
 
 Algunos controladores y módulos tienen opciones de configuración que se almacenan en *Web.config*. Sin embargo, en ASP.NET Core un nuevo modelo de configuración se utiliza en lugar de *Web.config*.
 
-El nuevo [sistema de configuración](../fundamentals/configuration.md) ofrece las siguientes opciones para resolver este problema:
+El nuevo [sistema de configuración](xref:fundamentals/configuration/index) ofrece las siguientes opciones para resolver este problema:
 
 * Insertar directamente las opciones en el middleware, como se muestra en el [próxima sección](#loading-middleware-options-through-direct-injection).
 
-* Use la [patrón opciones](../fundamentals/configuration.md#options-config-objects):
+* Use la [patrón opciones](xref:fundamentals/configuration/options):
 
 1.  Cree una clase para contener las opciones de middleware, por ejemplo:
 
@@ -384,7 +384,7 @@ El `SetCookies` método de devolución de llamada sería similar al siguiente:
 
 * [Información general de los módulos HTTP y controladores HTTP](https://docs.microsoft.com/iis/configuration/system.webserver/)
 
-* [Configuración](../fundamentals/configuration.md)
+* [Configuración](xref:fundamentals/configuration/index)
 
 * [Inicio de aplicaciones](../fundamentals/startup.md)
 

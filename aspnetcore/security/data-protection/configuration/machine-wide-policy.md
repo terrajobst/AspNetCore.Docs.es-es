@@ -1,8 +1,8 @@
 ---
-title: Directiva para todo el equipo
+title: "Admite la directiva de todo el equipo de protección de datos en ASP.NET Core"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Obtenga información sobre la compatibilidad para configurar una directiva de todo el equipo de forma predeterminada para todas las aplicaciones que utilizan protección de datos de ASP.NET Core."
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,70 +11,66 @@ ms.assetid: 285ae47d-e0bf-4b03-b0a8-2b1fb18bc3a1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 7ada940acfbb7fb0887fd7c0cd722bf62f211248
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.openlocfilehash: 692e120f13882be594afc5fb926b96b82d9609e2
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="machine-wide-policy"></a>Directiva para todo el equipo
+# <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Admite la directiva de todo el equipo de protección de datos en ASP.NET Core
 
-<a name=data-protection-configuration-machinewidepolicy></a>
+Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Cuando se ejecuta en Windows, el sistema de protección de datos tiene compatibilidad limitada para establecer la directiva de equipo predeterminada para todas las aplicaciones que consumen la protección de datos. La idea general es que un administrador puede que desee cambiar algún valor predeterminado (por ejemplo, los algoritmos utilizados o clave la duración) sin tener que actualizar manualmente cada aplicación en el equipo.
+Cuando se ejecuta en Windows, el sistema de protección de datos tiene compatibilidad limitada para establecer una directiva de todo el equipo de forma predeterminada para todas las aplicaciones que utilizan protección de datos de ASP.NET Core. La idea general es que un administrador puede que desee cambiar un valor predeterminado, como los algoritmos utilizan o la vigencia de la clave, sin necesidad de actualizar manualmente cada aplicación en el equipo.
 
->[!WARNING]
-> El administrador del sistema puede establecer la directiva predeterminada, pero no puede aplicarla. Desarrollador de la aplicación siempre puede reemplazar cualquier valor con uno de su propia elección. La directiva predeterminada sólo afecta a las aplicaciones que el desarrollador ha especificado un valor explícito para algunos configuración concreta.
+> [!WARNING]
+> El administrador del sistema puede establecer la directiva predeterminada, pero no puede aplicarla. El desarrollador de aplicaciones siempre puede reemplazar cualquier valor con uno de su propia elección. La directiva predeterminada sólo afecta a las aplicaciones que el desarrollador no ha especificado un valor explícito para una configuración.
 
 ## <a name="setting-default-policy"></a>Establecer la directiva predeterminada
 
-Para establecer una directiva de forma predeterminada, un administrador puede establecer los valores conocidos en el registro del sistema en la siguiente clave.
+Para establecer una directiva de forma predeterminada, un administrador puede establecer los valores conocidos en el registro del sistema en la siguiente clave del registro:
 
-La clave del registro:`HKLM\SOFTWARE\Microsoft\DotNetPackages\Microsoft.AspNetCore.DataProtection`
+**HKLM\SOFTWARE\Microsoft\DotNetPackages\Microsoft.AspNetCore.DataProtection**
 
-Si está en un sistema operativo de 64 bits y desea afectan al comportamiento de las aplicaciones de 32 bits, no olvide también configurar el equivalente de Wow6432Node de la clave anterior.
+Si está en un sistema operativo de 64 bits y desea afectan al comportamiento de las aplicaciones de 32 bits, recuerde que debe configurar el equivalente de Wow6432Node de la clave anterior.
 
-Los valores admitidos son:
+Los valores admitidos se muestran a continuación.
 
-* EncryptionType [cadena] - especifica los algoritmos que se deben usar para la protección de datos. Este valor debe ser "CNG-CBC", "CNG GCM" o "Administrado" y se describe con más detalle [a continuación](#data-protection-encryption-types).
+| Valor              | Tipo   | Descripción |
+| ------------------ | :----: | ----------- |
+| EncryptionType     | string | Especifica los algoritmos que se deben usar para la protección de datos. El valor debe ser CBC de CNG, GCM CNG o administrado y se describe con más detalle a continuación. |
+| DefaultKeyLifetime | DWORD  | Especifica la duración de claves recién generado. El valor se especifica en días y debe ser > = 7. |
+| KeyEscrowSinks     | string | Especifica los tipos que se usan para la custodia de clave. El valor es una lista delimitada por punto y coma de receptores de custodia de clave, donde cada elemento de la lista es el nombre de ensamblado de un tipo que implementa [IKeyEscrowSink](/dotnet/api/microsoft.aspnetcore.dataprotection.keymanagement.ikeyescrowsink). |
 
-* DefaultKeyLifetime [DWORD] - especifica la duración de claves recién generado. Este valor se especifica en días y debe ser ≥ 7.
+## <a name="encryption-types"></a>Tipos de cifrado
 
-* KeyEscrowSinks [cadena] - especifica los tipos que se usará para la custodia de clave. Este valor es una lista delimitada por punto y coma de receptores de custodia de clave, donde cada elemento de la lista es el nombre del ensamblado de un tipo que implementa IKeyEscrowSink.
+Si EncryptionType es CBC de CNG, el sistema está configurado para utilizar un cifrado por bloques simétrico modo CBC para confidencialidad y HMAC para autenticidad con servicios proporcionados por Windows CNG (vea [especificar algoritmos personalizados de Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) para más detalles). Se admiten los siguientes valores adicionales, cada uno de los cuales corresponde a una propiedad en el tipo de CngCbcAuthenticatedEncryptionSettings.
 
-<a name=data-protection-encryption-types></a>
+| Valor                       | Tipo   | Descripción |
+| --------------------------- | :----: | ----------- |
+| EncryptionAlgorithm         | string | El nombre de un algoritmo de cifrado de bloques simétrico entendido CNG. Este algoritmo se abre en modo CBC. |
+| EncryptionAlgorithmProvider | string | El nombre de la implementación del proveedor CNG que puede generar el algoritmo EncryptionAlgorithm. |
+| EncryptionAlgorithmKeySize  | DWORD  | La longitud (en bits) de la clave para la derivación para el algoritmo de cifrado de bloques simétrico. |
+| HashAlgorithm               | string | El nombre de un algoritmo de hash entendido CNG. Este algoritmo se abre en modo HMAC. |
+| HashAlgorithmProvider       | string | El nombre de la implementación del proveedor CNG que puede generar el algoritmo HashAlgorithm. |
 
-### <a name="encryption-types"></a>Tipos de cifrado
+Si EncryptionType es CNG GCM, el sistema está configurado para usar un cifrado por bloques simétrico modo Galois/contador para la confidencialidad y la autenticidad con servicios proporcionados por Windows CNG (vea [especificar algoritmos personalizados de Windows CNG](xref:security/data-protection/configuration/overview#specifying-custom-windows-cng-algorithms) Para obtener más información.) Se admiten los siguientes valores adicionales, cada uno de los cuales corresponde a una propiedad en el tipo de CngGcmAuthenticatedEncryptionSettings.
 
-Si EncryptionType es "CNG-CBC", el sistema se configurará para utilizar un cifrado por bloques simétrico modo CBC para confidencialidad y HMAC para autenticidad con servicios proporcionados por Windows CNG (vea [especificar algoritmos personalizados de Windows CNG](overview.md#data-protection-changing-algorithms-cng)para obtener más detalles). Se admiten los siguientes valores adicionales, cada uno de los cuales corresponde a una propiedad en el tipo de CngCbcAuthenticatedEncryptionSettings:
+| Valor                       | Tipo   | Descripción |
+| --------------------------- | :----: | ----------- |
+| EncryptionAlgorithm         | string | El nombre de un algoritmo de cifrado de bloques simétrico entendido CNG. Este algoritmo se abre en modo de Galois/contador. |
+| EncryptionAlgorithmProvider | string | El nombre de la implementación del proveedor CNG que puede generar el algoritmo EncryptionAlgorithm. |
+| EncryptionAlgorithmKeySize  | DWORD  | La longitud (en bits) de la clave para la derivación para el algoritmo de cifrado de bloques simétrico. |
 
-* EncryptionAlgorithm [cadena] - el nombre de un algoritmo de cifrado de bloques simétrico entendido CNG. Este algoritmo se abrirá en modo CBC.
+Si se administra EncryptionType, el sistema está configurado para utilizar un SymmetricAlgorithm administrado para la confidencialidad y KeyedHashAlgorithm para autenticidad (vea [especificar personalizado administrado algoritmos](xref:security/data-protection/configuration/overview#specifying-custom-managed-algorithms) para obtener más detalles). Se admiten los siguientes valores adicionales, cada uno de los cuales corresponde a una propiedad en el tipo de ManagedAuthenticatedEncryptionSettings.
 
-* EncryptionAlgorithmProvider [cadena] - el nombre de la implementación del proveedor CNG que puede generar el algoritmo EncryptionAlgorithm.
+| Valor                      | Tipo   | Descripción |
+| -------------------------- | :----: | ----------- |
+| EncryptionAlgorithmType    | string | El nombre calificado con el ensamblado de un tipo que implementa SymmetricAlgorithm. |
+| EncryptionAlgorithmKeySize | DWORD  | La longitud (en bits) de la clave para la derivación para el algoritmo de cifrado simétrico. |
+| ValidationAlgorithmType    | string | El nombre calificado con el ensamblado de un tipo que implementa KeyedHashAlgorithm. |
 
-* EncryptionAlgorithmKeySize [DWORD] - la longitud (en bits) de la clave para la derivación para el algoritmo de cifrado de bloques simétrico.
+Si EncryptionType tiene cualquier otro valor distinto de null o está vacío, el sistema de protección de datos produce una excepción durante el inicio.
 
-* HashAlgorithm [cadena] - el nombre de un algoritmo de hash entendido CNG. Este algoritmo se abrirá en modo HMAC.
-
-* HashAlgorithmProvider [cadena] - el nombre de la implementación del proveedor CNG que puede generar el algoritmo HashAlgorithm.
-
-Si EncryptionType es "CNG GCM", el sistema se configurará para usar un cifrado por bloques simétrico modo Galois/contador para la confidencialidad y la autenticidad con servicios proporcionados por Windows CNG (vea [especificar algoritmos personalizados de Windows CNG](overview.md#data-protection-changing-algorithms-cng)para obtener más detalles). Se admiten los siguientes valores adicionales, cada uno de los cuales corresponde a una propiedad en el tipo de CngGcmAuthenticatedEncryptionSettings:
-
-* EncryptionAlgorithm [cadena] - el nombre de un algoritmo de cifrado de bloques simétrico entendido CNG. Este algoritmo se abrirá en modo de Galois/contador.
-
-* EncryptionAlgorithmProvider [cadena] - el nombre de la implementación del proveedor CNG que puede generar el algoritmo EncryptionAlgorithm.
-
-* EncryptionAlgorithmKeySize [DWORD] - la longitud (en bits) de la clave para la derivación para el algoritmo de cifrado de bloques simétrico.
-
-Si EncryptionType está "administrado", el sistema se configurará para utilizar un SymmetricAlgorithm administrado para la confidencialidad y KeyedHashAlgorithm para autenticidad (vea [especificar personalizado administrado algoritmos](overview.md#data-protection-changing-algorithms-custom-managed) para obtener más detalles). Se admiten los siguientes valores adicionales, cada uno de los cuales corresponde a una propiedad en el tipo de ManagedAuthenticatedEncryptionSettings:
-
-* EncryptionAlgorithmType [cadena] - el nombre calificado con el ensamblado de un tipo que implementa SymmetricAlgorithm.
-
-* EncryptionAlgorithmKeySize [DWORD] - la longitud (en bits) de la clave para la derivación para el algoritmo de cifrado simétrico.
-
-* ValidationAlgorithmType [cadena] - el nombre calificado con el ensamblado de un tipo que implementa KeyedHashAlgorithm.
-
-Si EncryptionType tiene cualquier otro valor (que no sea null o vacío), el sistema de protección de datos producirá una excepción en el inicio.
-
->[!WARNING]
-> Al configurar una configuración de directiva predeterminada que afecta a los nombres de tipo (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), los tipos deben ser disponibles para la aplicación. En la práctica, esto significa que para aplicaciones que se ejecutan en CLR de escritorio, los ensamblados que contienen estos tipos deben ser GACed. Para aplicaciones de ASP.NET Core que se ejecutan en [.NET Core](https://www.microsoft.com/net/core), se deben instalar los paquetes que contienen estos tipos.
+> [!WARNING]
+> Al configurar una configuración de directiva predeterminada que afecta a los nombres de tipo (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), los tipos deben ser disponibles para la aplicación. Esto significa que para aplicaciones que se ejecutan en CLR de escritorio, los ensamblados que contienen estos tipos deben estar presentes en la caché de ensamblados Global (GAC). Para aplicaciones de ASP.NET Core que se ejecutan [.NET Core](https://www.microsoft.com/net/core), se deben instalar los paquetes que contienen estos tipos.

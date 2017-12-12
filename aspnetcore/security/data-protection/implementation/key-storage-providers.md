@@ -11,17 +11,17 @@ ms.assetid: 423e0a79-2f34-44c4-aaf3-146a53c39251
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 1c73608245e668c0810813e29f78f1ac3dacc414
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: d4b286dc47f8d66e6d09c3e0f48e6326139c8e1e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="key-storage-providers"></a>Proveedores de almacenamiento de claves
 
-<a name=data-protection-implementation-key-storage-providers></a>
+<a name="data-protection-implementation-key-storage-providers"></a>
 
-De forma predeterminada, el sistema de protección de datos [emplea un método heurístico](../configuration/default-settings.md#data-protection-default-settings) para determinar dónde se debe conservar el material de clave de cifrado. El desarrollador puede invalidar la heurística y especificar manualmente la ubicación.
+De forma predeterminada, el sistema de protección de datos [emplea un método heurístico](xref:security/data-protection/configuration/default-settings) para determinar dónde se debe conservar el material de clave de cifrado. El desarrollador puede invalidar la heurística y especificar manualmente la ubicación.
 
 > [!NOTE]
 > Si especifica una ubicación de persistencia de clave explícita, el sistema de protección de datos se anular el registro el cifrado de claves de forma predeterminada en el mecanismo de rest que proporciona la heurística, por lo que ya no se cifrarán las claves en reposo. Se recomienda que además [especificar un mecanismo de cifrado de clave explícita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) para las aplicaciones de producción.

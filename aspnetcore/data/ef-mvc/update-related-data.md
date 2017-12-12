@@ -11,11 +11,11 @@ ms.assetid: 67bd162b-bfb7-4750-9e7f-705228b5288c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: daf6dd8024863e02e40ad002a0a7da388f5a2ec7
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: b59782bccce00f3940da4ec8bcff768aff8fa4ef
+ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Actualizar datos relacionados - Core EF con el tutorial de MVC de ASP.NET Core (7 de 10)
 
@@ -71,7 +71,7 @@ Para optimizar el rendimiento de los detalles de curso y eliminar páginas, agre
 
 ### <a name="modify-the-course-views"></a>Modificar las vistas de curso
 
-En *Views/Courses/Create.cshtml*, agregar una opción de "Departamento de seleccionar" para el **departamento** lista desplegable lista, cambie el título de **DepartmentID** a ** Departamento**y agregar un mensaje de validación.
+En *Views/Courses/Create.cshtml*, agregar una opción de "Departamento de seleccionar" para el **departamento** lista desplegable lista, cambie el título de **DepartmentID** a  **Departamento**y agregar un mensaje de validación.
 
 [!code-html[Main](intro/samples/cu/Views/Courses/Create.cshtml?highlight=2-6&range=29-34)]
 
@@ -215,11 +215,11 @@ Si no se ha seleccionado la casilla de verificación para un curso, pero el curs
 
 ### <a name="update-the-instructor-views"></a>Actualizar las vistas de Instructor
 
-En *Views/Instructors/Edit.cshtml*, agregar un **cursos** campo con una matriz de casillas de verificación agregando el siguiente código inmediatamente después de la `div` elementos para el **Office ** campo y antes de la `div` (elemento) para la **guardar** botón.
+En *Views/Instructors/Edit.cshtml*, agregar un **cursos** campo con una matriz de casillas de verificación agregando el siguiente código inmediatamente después de la `div` elementos para el **Office**  campo y antes de la `div` (elemento) para la **guardar** botón.
 
 <a id="notepad"></a>
 > [!NOTE] 
-> Cuando pegue el código en Visual Studio, saltos de línea se cambiará de forma que el código se interrumpe.  Presione CTRL+z una vez para deshacer el formato automático.  Esto solucionará los saltos de línea para que se muestren como lo que ve aquí. La sangría no tiene que ser perfecto, pero la `@</tr><tr>`, `@:<td>`, `@:</td>`, y `@:</tr>` líneas deben estar en una sola línea tal como se muestra o se obtendrá un error en tiempo de ejecución. Con el bloque de código nuevo seleccionado, presione la tecla Tab tres veces para alinear el nuevo código con el código existente.
+> Cuando pegue el código en Visual Studio, saltos de línea se cambiará de forma que el código se interrumpe.  Presione CTRL+z una vez para deshacer el formato automático.  Esto solucionará los saltos de línea para que se muestren como lo que ve aquí. La sangría no tiene que ser perfecto, pero la `@</tr><tr>`, `@:<td>`, `@:</td>`, y `@:</tr>` líneas deben estar en una sola línea tal como se muestra o se obtendrá un error en tiempo de ejecución. Con el bloque de código nuevo seleccionado, presione la tecla Tab tres veces para alinear el nuevo código con el código existente. Puede comprobar el estado de este problema [aquí](https://developercommunity.visualstudio.com/content/problem/147795/razor-editor-malforms-pasted-markup-and-creates-in.html).
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 

@@ -2,7 +2,7 @@
 title: Uso de Bower en ASP.NET Core
 author: rick-anderson
 description: Administrar paquetes de cliente con Bower.
-keywords: "Núcleo de ASP.NET, bower"
+keywords: ASP.NET Core,bower
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5d9acc59b6f40dc8a336f59925d639fff007c4e
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.openlocfilehash: 183e748cbf87b1973941eacb3fb1008f4041bb2a
+ms.sourcegitcommit: 532a323f99a37c4d7894c95cee3f7a04b594dcec
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Administrar paquetes de cliente con Bower en ASP.NET Core
 
@@ -36,7 +36,7 @@ En este tutorial, vamos a agregar compatibilidad para [fuente Maravilla](http://
 
 * Haga clic en el proyecto en el Explorador de soluciones y seleccione **administrar paquetes de Bower** (o bien en el menú principal, **proyecto** > **administrar paquetes de Bower**).
 
-* En el **Bower: \<nombre del proyecto\> ** ventana, haga clic en la ficha "Examinar" y, a continuación, filtre la lista de paquetes especificando `font-awesome` en el cuadro de búsqueda:
+* En el **Bower: \<nombre del proyecto\>**  ventana, haga clic en la ficha "Examinar" y, a continuación, filtre la lista de paquetes especificando `font-awesome` en el cuadro de búsqueda:
 
  ![Administrar paquetes de bower](bower/_static/manage-bower-packages.png)
 
@@ -78,7 +78,7 @@ Ejecutar la aplicación y navegue hasta la vista acerca para comprobar el funcio
 
 ## <a name="exploring-the-client-side-build-process"></a>Explorar el proceso de compilación de cliente
 
-Plantillas de proyecto de ASP.NET Core mayoría ya están configuradas para usar Bower. En este tutorial siguiente comienza con un proyecto vacío de ASP.NET Core y agrega cada pieza manualmente, por lo que puede hacerse una idea de cómo se usa Bower en un proyecto. Vea puede ¿qué ocurre con la estructura del proyecto y el tiempo de ejecución de salida como cada cambio de configuración que se realiza.
+Plantillas de proyecto de ASP.NET Core mayoría ya están configuradas para usar Bower. En este tutorial siguiente comienza con un proyecto vacío de ASP.NET Core y agrega cada pieza manualmente, por lo que puede hacerse una idea de cómo se usa Bower en un proyecto. Puede ver lo que ocurre con la estructura del proyecto y el tiempo de ejecución como resultado que se realiza cada cambio de configuración.
 
 Los pasos generales para usar el proceso de compilación de cliente con Bower son:
 

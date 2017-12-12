@@ -22,7 +22,7 @@ En este momento *solo* se define la consulta, **no** se ejecuta en la base de da
 
 Si el parámetro `searchString` contiene una cadena, la consulta de películas se modifica para filtrar según el valor de la cadena de búsqueda:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull)]
+[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchNull2)]
 
 El código `s => s.Title.Contains()` anterior es una [expresión Lambda](https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/lambda-expressions). Las lambdas se usan en consultas [LINQ](https://docs.microsoft.com/dotnet/standard/using-linq) basadas en métodos como argumentos para métodos de operador de consulta estándar, tales como el método [Where](https://docs.microsoft.com//dotnet/api/system.linq.enumerable.where) o `Contains` (usado en el código anterior). Las consultas LINQ no se ejecutan cuando se definen o cuando se modifican mediante una llamada a un método como `Where`, `Contains` o `OrderBy`. En su lugar, se aplaza la ejecución de la consulta.  Esto significa que la evaluación de una expresión se aplaza hasta que su valor realizado se repita realmente o se llame al método `ToListAsync`. Para más información sobre la ejecución de consultas en diferido, vea [Ejecución de la consulta](https://docs.microsoft.com/dotnet/framework/data/adonet/ef/language-reference/query-execution).
 
