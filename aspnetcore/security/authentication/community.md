@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/community
 ms.openlocfilehash: 4900e34a2f8036bb997dd368a921c79410f77a33
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="community-oss-authentication-options"></a>Opciones de autenticación de sistemas operativos de la Comunidad
 
@@ -24,7 +24,7 @@ Esta página contiene las opciones de autenticación proporcionado por la Comuni
 
 La siguiente lista está ordenada alfabéticamente.
 
-| Nombre | Descripción |
+| Name | Descripción |
 |:--------------|:------------------|
 | [AspNet.Security.OpenIdConnect.Server (ASOS)](https://github.com/aspnet-contrib/AspNet.Security.OpenIdConnect.Server) | Marco de server OpenID Connect de máximo-mínimo-nivel/protocolo primero para ASP.NET Core y OWIN/Katana |
 | [IdentityServer4](https://identityserver.io/) | Marco de OpenID Connect y OAuth 2.0 para ASP.NET Core - oficialmente certificadas por la base de OpenID y en la regulación de la base de .NET |

@@ -11,11 +11,11 @@ ms.assetid: b2ace545-ecf6-4664-b31e-b65bd4a6b025
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: c1d974e72eab388ba7b196c4b48f21a06b59dc20
-ms.sourcegitcommit: f5cf472d49c2475e4d57654efd5fc0a4ccecba4c
+ms.openlocfilehash: 687ca96be5121502e816bdc856e17dcd5923fe05
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/30/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -68,7 +68,7 @@ Usuarios registrados de su sitio web. El [IdentityUser](https://docs.microsoft.c
 
 ### <a name="user-claims"></a>Notificaciones de usuario
 
-Un conjunto de instrucciones (o [notificaciones](https://docs.microsoft.com//dotnet/api/system.security.claims.claim) sobre el usuario que representan la identidad del usuario. Puede habilitar la expresión mayor de la identidad del usuario que se puede lograr a través de roles.
+Un conjunto de instrucciones (o [notificaciones](https://docs.microsoft.com//dotnet/api/system.security.claims.claim)) acerca del usuario que representan la identidad del usuario. Puede habilitar la expresión mayor de la identidad del usuario que se puede lograr a través de roles.
 
 ### <a name="user-logins"></a>Inicios de sesión de usuario
 

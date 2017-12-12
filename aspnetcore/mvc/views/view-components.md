@@ -11,17 +11,17 @@ ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 3bc6d3f85d8ea7fb9b72b18cfd9c5ec2d07293b0
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: 2cf82df78c250cdfdd808d49acfc06dc2ea82f5f
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="view-components"></a>Componentes de la vista
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="introducing-view-components"></a>Componentes de la vista de presentación
 
@@ -89,23 +89,23 @@ Se recomienda que un nombre al archivo de vista *Default.cshtml* y use la *vista
 
 Para utilizar el componente de vista, llame a los siguientes dentro de una vista:
 
-```html
+```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
 Los parámetros se pasará a la `InvokeAsync` método. El `PriorityList` desarrollado en el artículo del componente de vista se invoca desde la *Views/Todo/Index.cshtml* ver el archivo. En la siguiente tabla, el `InvokeAsync` se denomina método con dos parámetros:
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 ## <a name="invoking-a-view-component-as-a-tag-helper"></a>Invocar un componente de vista como una aplicación auxiliar de etiqueta
 
 Para ASP.NET Core 1.1 y versiones posteriores, puede invocar un componente de vista como una [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro):
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 Parámetros de clase y método la grafía Pascal para aplicaciones auxiliares de etiquetas se convierten en sus [reducir caso kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). La aplicación auxiliar de etiquetas para invocar un componente de vista utiliza la `<vc></vc>` elemento. El componente de vista se especifica como sigue:
 
-```html
+```cshtml
 <vc:[view-component-name]
   parameter1="parameter1 value"
   parameter2="parameter2 value">
@@ -114,7 +114,7 @@ Parámetros de clase y método la grafía Pascal para aplicaciones auxiliares de
 
 Nota: Para poder usar un componente de vista como una aplicación auxiliar de etiquetas, debe registrar el ensamblado que contiene el componente de vista mediante el `@addTagHelper` directiva. Por ejemplo, si el componente de la vista está en un ensamblado denominado "MyWebApp", agregue la siguiente directiva a la `_ViewImports.cshtml` archivo:
 
-```csharp
+```cshtml
 @addTagHelper *, MyWebApp
 ```
 
@@ -122,11 +122,11 @@ Puede registrar un componente de vista como una aplicación auxiliar de etiqueta
 
 El `InvokeAsync` método utilizado en este tutorial:
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 En el marcado de la aplicación auxiliar de etiqueta:
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 En el ejemplo anterior, el `PriorityList` del componente vista se convierte en `priority-list`. Los parámetros para el componente de vista se pasan como atributos en minúsculas kebab.
 
@@ -172,7 +172,7 @@ Notas sobre el código:
 
 * Crear el *vistas/Shared/componentes/PriorityList* carpeta. Este nombre de carpeta debe coincidir con el nombre de la clase de componente de vista o el nombre de la clase menos el sufijo (si se siguió convención y usa el *ViewComponent* sufijo en el nombre de clase). Si ha usado la `ViewComponent` atributo, necesitaría el nombre de clase para que coincida con la designación de atributo.
 
-* Crear un *Views/Shared/Components/PriorityList/Default.cshtml* vista Razor:[!code-html[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Crear un *Views/Shared/Components/PriorityList/Default.cshtml* vista Razor:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
    La vista Razor toma una lista de `TodoItem` y los muestra. Si el componente de vista `InvokeAsync` método no pasa el nombre de la vista (como en nuestro ejemplo), *predeterminado* por convención, se utiliza para el nombre de vista. Más adelante en el tutorial, mostraré cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregar una vista a la carpeta de la vista específica del controlador (por ejemplo *Views/Todo/Components/PriorityList/Default.cshtml)*.
     
@@ -180,7 +180,7 @@ Notas sobre el código:
 
 * Agregar un `div` que contiene una llamada al componente de lista de prioridad para la parte inferior de la *Views/Todo/index.cshtml* archivo:
 
-    [!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
+    [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
 El marcado `@await Component.InvokeAsync` muestra la sintaxis para llamar a los componentes de la vista. El primer argumento es el nombre del componente que desea invocar o llamar a. Los parámetros siguientes se pasan al componente. `InvokeAsync`puede tomar un número arbitrario de argumentos.
 
@@ -202,13 +202,13 @@ Un componente de vista complejas que necesite especificar una vista no predeterm
 
 Copia la *Views/Shared/Components/PriorityList/Default.cshtml* archivo a una vista denominada *Views/Shared/Components/PriorityList/PVC.cshtml*. Agregar un encabezado para indicar que se está usando la vista de circuito virtual permanente.
 
-[!code-html[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
+[!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
 Actualización *Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
 Ejecute la aplicación y comprobar la vista de circuito virtual permanente.
 
@@ -244,7 +244,7 @@ Si desea que la seguridad de tiempo de compilación, puede reemplazar el nombre 
 
 Agregar un `using` instrucción para su Razor Ver archivo y usar el `nameof` operador:
 
-[!code-html[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
+[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

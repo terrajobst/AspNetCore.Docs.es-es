@@ -1,5 +1,5 @@
 ---
-title: "Información general del núcleo de ASP.NET MVC"
+title: "Información general de ASP.NET Core MVC"
 author: ardalis
 description: "Obtenga información acerca de cómo principales de ASP.NET MVC es un marco de trabajo para la creación de aplicaciones web y API que usan el modelo Model-View-Controller patrón de diseño."
 keywords: ASP.NET Core
@@ -12,29 +12,29 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
 ms.openlocfilehash: 2492b6aa4602dbbf3b9cd3dca00d40690c640cab
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="overview-of-aspnet-core-mvc"></a>Información general del núcleo de ASP.NET MVC
+# <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
 Por [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC es un completo marco de trabajo para compilar aplicaciones web y APIs mediante el patrón de diseño Modelo-Vista-Controlador.
+Núcleo de ASP.NET MVC es un marco completo para la creación de aplicaciones web y API que usan el modelo Model-View-Controller patrón de diseño.
 
 ## <a name="what-is-the-mvc-pattern"></a>¿Qué es el modelo de MVC?
 
-El modelo de arquitectura Model-View-Controller (MVC) separa una aplicación en tres grupos principales de componentes: modelos, vistas y controladores. Este patrón ayuda a lograr [separación de intereses](http://deviq.com/separation-of-concerns/). Con este patrón, se enrutan las solicitudes de usuario a un controlador que es responsable de trabajar con el modelo para realizar las acciones del usuario y/o recuperar los resultados de consultas. El controlador elige la vista para mostrar al usuario y le proporciona los datos del modelo que requiere.
+El modelo de arquitectura Model-View-Controller (MVC) separa una aplicación en tres grupos principales de componentes: modelos, vistas y controladores. Este patrón ayuda a lograr [separación de intereses](http://deviq.com/separation-of-concerns/). Con este patrón, se enrutan las solicitudes de usuario a un controlador que es responsable de trabajar con el modelo para realizar las acciones del usuario o recuperar los resultados de consultas. El controlador elige la vista para mostrar al usuario y le proporciona los datos del modelo que requiere.
 
 El siguiente diagrama muestra los tres componentes principales y las que hacen referencia a los demás:
 
 ![Modelo de MVC](overview/_static/mvc.png)
 
-Este delineación de responsabilidades le ayuda a escalar la aplicación en cuanto a complejidad porque es más fácil de codificar, depurar y probar algo (modelo, vista o controlador) que tiene un único trabajo (y sigue el [principio de responsabilidad única ](http://deviq.com/single-responsibility-principle/)). Es más difícil de actualización, pruebas y código de depuración que tiene dependencias que se reparten entre dos o varias de estas tres áreas. Por ejemplo, lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si la presentación código y la lógica empresarial se combina en un único objeto, tendrá que modificar un objeto que contiene la lógica de negocios cada vez que cambie la interfaz de usuario. Asi es probable que se introduzcan errores y se requiera volver a examinar de toda la lógica de negocios después de hacer un cambio minimo en cada interfaz de usuario.
+Este delineación de responsabilidades le ayuda a escalar la aplicación en cuanto a complejidad porque es más fácil de codificar, depurar y probar algo (modelo, vista o controlador) que tiene un único trabajo (y sigue el [principio de responsabilidad única ](http://deviq.com/single-responsibility-principle/)). Es más difícil de actualización, pruebas y código de depuración que tiene dependencias que se reparten entre dos o varias de estas tres áreas. Por ejemplo, lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si la presentación código y la lógica empresarial se combina en un único objeto, tendrá que modificar un objeto que contiene la lógica de negocios cada vez que cambie la interfaz de usuario. Esto es probable que presentan errores y requerir al volver a examinar de toda la lógica de negocios después de cambiar de cada interfaz de usuario mínima.
 
 > [!NOTE]
-> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni del controlador. Esta es una de las ventajas principales de la separación. Esta separación permite compilar y probar el modelo con independencia de la presentación visual.
+> La vista y el controlador dependen del modelo. Sin embargo, el modelo depende de la vista ni el controlador. Esta es una de las ventajas principales de la separación. Esta separación permite que el modelo que se compilaron y comprobaron independiente de la presentación visual.
 
 ### <a name="model-responsibilities"></a>Responsabilidades de modelo
 
@@ -183,7 +183,7 @@ También puede usar su aplicación [inyección de dependencia en la vista archiv
 
 [Áreas](controllers/areas.md) proporcionan una manera de dividir una aplicación Web de MVC de ASP.NET Core grande en agrupaciones funcionales más pequeñas. Un área de forma eficaz es una estructura MVC dentro de una aplicación. En un proyecto MVC, los componentes lógicos como modelo, el controlador y la vista se guardan en carpetas diferentes y MVC usa las convenciones de nomenclatura para crear la relación entre estos componentes. Para una aplicación grande, puede ser conveniente dividir la aplicación en distintas áreas de nivel alto de funcionalidad. Por ejemplo, una aplicación de comercio electrónico con varias unidades de negocio, como la desprotección, facturación y búsqueda etcetera. Cada una de estas unidades tienen sus propias vistas de componente lógico, controladores y modelos.
 
-### <a name="web-apis"></a>API Web
+### <a name="web-apis"></a>API web
 
 Además de ser una plataforma excelente para la creación de sitios web, MVC de ASP.NET Core tiene mayor compatibilidad para la creación de las API Web. Puede crear servicios que pueden alcanzar una amplia gama de clientes, incluidos los exploradores y dispositivos móviles.
 

@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
 ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación de servidor web de HTTP.sys en ASP.NET Core
 
@@ -40,7 +40,7 @@ Versiones admitidas de Windows:
 
 - Windows 7 y Windows Server 2008 R2 y versiones posteriores
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/httpsys/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="when-to-use-httpsys"></a>Cuándo utilizar HTTP.sys
 
@@ -125,7 +125,7 @@ De forma predeterminada, ASP.NET Core enlaza a `http://localhost:5000`. Para con
 
 Una ventaja de `UrlPrefixes` es que se obtiene un mensaje de error inmediatamente si se intenta agregar un prefijo con el formato incorrecto. Una ventaja de `UseUrls` (compartida con `urls` y ASPNETCORE_URLS) es que resulta más sencillo alternar entre Kestrel y HTTP.sys.
 
-Si utiliza ambos `UseUrls` (o `urls` o ASPNETCORE_URLS) y `UrlPrefixes`, la configuración de `UrlPrefixes` invalidar las de `UseUrls`. Para obtener más información, consulte [hospedaje](xref:fundamentals/hosting).
+Si utiliza ambos `UseUrls` (o `urls` o ASPNETCORE_URLS) y `UrlPrefixes`, la configuración de `UrlPrefixes` invalidar las de `UseUrls`. Para más información, vea [Hospedaje](xref:fundamentals/hosting).
 
 HTTP.sys usa el [formatos de cadena HTTP Server API UrlPrefix](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 

@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
 ms.openlocfilehash: cacb23441e5f5ab06c6be27f3068276f21ff4ed9
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Crear un modelo de datos complejos - Core EF con el tutorial de MVC de ASP.NET Core (5 de 10)
 
@@ -93,7 +93,7 @@ dotnet ef migrations add MaxLengthOnNames
 dotnet ef database update
 ```
 
-El `migrations add` comando advierte de que se puede producir pérdida de datos, porque hace que el cambio de la longitud máxima más corta de dos columnas.  Migraciones crea un archivo denominado * \<timeStamp > _MaxLengthOnNames.cs*. Este archivo contiene código en el `Up` método que actualizará la base de datos para que coincida con el modelo de datos actual. El `database update` que el código ejecutó el comando.
+El `migrations add` comando advierte de que se puede producir pérdida de datos, porque hace que el cambio de la longitud máxima más corta de dos columnas.  Migraciones crea un archivo denominado  *\<timeStamp > _MaxLengthOnNames.cs*. Este archivo contiene código en el `Up` método que actualizará la base de datos para que coincida con el modelo de datos actual. El `database update` que el código ejecutó el comando.
 
 La marca de tiempo como precedida el nombre de archivo de las migraciones se usa por Entity Framework para ordenar las migraciones. Puede crear varias migraciones antes de ejecutar el comando de actualización de bases de datos y, a continuación, todas las migraciones se aplican en el orden en el que se crearon.
 

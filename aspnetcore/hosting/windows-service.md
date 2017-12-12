@@ -11,11 +11,11 @@ ms.assetid: d9a65066-d7cb-47df-b046-64629c4d2c6f
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/windows-service
-ms.openlocfilehash: ca3b98f0b0405fcd5751cb7d9bc7a40257739084
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.openlocfilehash: a6d1acf5ab8f40b0b4d487a6f34cd83d13907852
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="host-an-aspnet-core-app-in-a-windows-service"></a>Hospedar una aplicación ASP.NET básica en un servicio de Windows
 
@@ -27,7 +27,7 @@ Es la manera recomendada para hospedar una aplicación de ASP.NET Core en Window
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Debe ejecutar la aplicación en el tiempo de ejecución de .NET framework.  En el *.csproj* de archivos, especifique los valores adecuados para [TargetFramework](https://docs.microsoft.com/nuget/schema/target-frameworks) y [RuntimeIdentifier](https://docs.microsoft.com/dotnet/articles/core/rid-catalog). Por ejemplo:
+* Debe ejecutar la aplicación en el tiempo de ejecución de .NET Framework.  En el *.csproj* de archivos, especifique los valores adecuados para [TargetFramework](https://docs.microsoft.com/nuget/schema/target-frameworks) y [RuntimeIdentifier](https://docs.microsoft.com/dotnet/articles/core/rid-catalog). Por ejemplo:
 
   [!code-xml[](windows-service/sample/AspNetCoreService.csproj?range=3-6)]
 
@@ -115,7 +115,7 @@ El [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcor
 
   * En un explorador, vaya a http://localhost: 5000 para comprobar que se está ejecutando.
 
-Si la aplicación no se inicia como se esperaba cuando se ejecuta en un servicio, es una forma rápida de hacer accesibles los mensajes de error agregar un proveedor de registro como el [proveedor de registro de eventos de Windows](xref:fundamentals/logging#eventlog).
+Si la aplicación no se inicia como se esperaba cuando se ejecuta en un servicio, es una forma rápida de hacer accesibles los mensajes de error agregar un proveedor de registro como el [proveedor de registro de eventos de Windows](xref:fundamentals/logging/index#eventlog).
 
 ## <a name="acknowledgments"></a>Confirmaciones
 

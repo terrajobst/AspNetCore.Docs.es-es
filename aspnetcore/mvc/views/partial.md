@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
 ms.openlocfilehash: 60f5255ca31accbffffec18053b29810977a5ff1
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="partial-views"></a>Vistas parciales
 
@@ -23,7 +23,7 @@ Por [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/ma
 
 Núcleo de ASP.NET MVC admite vistas parciales, que son útiles cuando tienen partes reutilizables de páginas web que desea compartir entre las distintas vistas.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/partial/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="what-are-partial-views"></a>¿Cuáles son las vistas parciales?
 

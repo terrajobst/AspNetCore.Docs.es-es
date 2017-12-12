@@ -12,14 +12,14 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
 ms.openlocfilehash: a260675e7461105d4f6a0c61fd13971663c268f2
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="application-parts-in-aspnet-core"></a>Partes de la aplicación de ASP.NET Core
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/app-parts/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Un *parte de la aplicación* es una abstracción sobre los recursos de una aplicación, desde el que MVC características como controladores, componentes de la vista, o se pueden detectar aplicaciones auxiliares de etiquetas. Un ejemplo de una parte de la aplicación es un AssemblyPart, que encapsula una referencia de ensamblado y expone los tipos y las referencias de la compilación. *Proveedores de características* funcionan con los componentes de la aplicación para rellenar las características de una aplicación de MVC de ASP.NET Core. Es el caso de uso principal para las partes de la aplicación para que pueda configurar la aplicación para detectar (o si se evita la carga) características MVC desde un ensamblado.
 

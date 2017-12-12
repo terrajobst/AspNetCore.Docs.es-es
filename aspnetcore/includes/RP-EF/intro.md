@@ -1,0 +1,1 @@
+La aplicación web de la Universidad de Contoso muestra cómo crear aplicaciones web de las páginas de Razor con EF Core y Visual Studio. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial](xref:data/ef-rp/intro).

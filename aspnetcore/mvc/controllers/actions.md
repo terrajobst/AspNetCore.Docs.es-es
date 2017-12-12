@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/actions
 ms.openlocfilehash: 5dc6c7dc70027bb79875f389d535119a2543b873
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Solicitudes de administración con los controladores de MVC de ASP.NET Core
 
@@ -104,6 +104,6 @@ Filtrar más los atributos, como `[Authorize]`, se puede aplicar en el nivel de 
 
 Control de errores y las respuestas en caché son a menudo preocupaciones transversales:
    * [Control de errores](xref:mvc/controllers/filters#exception-filters)
-   * [Las respuestas en caché](xref:performance/caching/response)
+   * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 
 Muchos problemas de corte del cruce pueden controlarse mediante filtros o personalizado [middleware](xref:fundamentals/middleware).

@@ -1,79 +1,158 @@
 ---
-title: "Limitación de identidad por esquema"
+title: "Autorizar a un esquema específico - ASP.NET Core"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este artículo explica cómo limitar la identidad a un esquema específico cuando se trabaja con varios métodos de autenticación."
+keywords: "Núcleo de ASP.NET, identidad, el esquema de autenticación"
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 10/12/2017
 ms.topic: article
 ms.assetid: d3d6ca1b-b4b5-4bf7-898e-dcd90ec1bf8c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: 2483c441da317a5c29b611b3a4910eae3c01fd7a
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 8c9d068b88263d0c06b11a6b87416fb02885c475
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="limiting-identity-by-scheme"></a>Limitación de identidad por esquema
+# <a name="authorize-with-a-specific-scheme"></a>Autorizar con un esquema específico
 
-<a name=security-authorization-limiting-by-scheme></a>
+En algunos escenarios, como aplicaciones de una única página (SPAs), es habitual usar varios métodos de autenticación. Por ejemplo, la aplicación puede usar la autenticación basada en cookies para iniciar sesión y autenticación de portador JWT para las solicitudes de JavaScript. En algunos casos, la aplicación puede tener varias instancias de un controlador de autenticación. Por ejemplo, dos controladores de la cookie donde uno contiene una identidad básica y el otro se crea cuando se ha desencadenado una autenticación multifactor (MFA). MFA se puede desencadenar porque el usuario solicitó una operación que requiere seguridad adicional.
 
-En algunos escenarios, como aplicaciones de una página solo es posible acabar con varios métodos de autenticación. Por ejemplo, la aplicación puede usar la autenticación basada en cookies para iniciar sesión y autenticación del portador para las solicitudes de JavaScript. En algunos casos puede tener varias instancias de un middleware de autenticación. Por ejemplo, dos cookie middlewares donde uno contiene una identidad básica y se crea uno cuando se desencadene una autenticación multifactor porque el usuario solicitó una operación que requiere seguridad adicional.
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Se denominan esquemas de autenticación cuando middleware de autenticación se configura durante la autenticación, por ejemplo
+Un esquema de autenticación se denomina cuando se configura el servicio de autenticación durante la autenticación. Por ejemplo:
 
 ```csharp
-app.UseCookieAuthentication(new CookieAuthenticationOptions()
+public void ConfigureServices(IServiceCollection services)
 {
-    AuthenticationScheme = "Cookie",
-    LoginPath = new PathString("/Account/Unauthorized/"),
-    AccessDeniedPath = new PathString("/Account/Forbidden/"),
-    AutomaticAuthenticate = false
-});
+    // Code omitted for brevity
 
-app.UseBearerAuthentication(options =>
-{
-    options.AuthenticationScheme = "Bearer";
-    options.AutomaticAuthenticate = false;
-});
+    services.AddAuthentication()
+        .AddCookie(options => {
+            options.LoginPath = "/Account/Unauthorized/";
+            options.AccessDeniedPath = "/Account/Forbidden/";
+        })
+        .AddJwtBearer(options => {
+            options.Audience = "http://localhost:5001/";
+            options.Authority = "http://localhost:5000/";
+        });
 ```
 
-En esta configuración se han agregado dos middlewares de autenticación, uno para las cookies y otro para portador.
+En el código anterior, se han agregado dos controladores de autenticación: uno para las cookies y otro para portador.
 
 >[!NOTE]
->Al agregar varias middleware de autenticación, que debe asegurarse de que ningún middleware está configurado para ejecutarse automáticamente. Para ello, establezca el `AutomaticAuthenticate` opciones de propiedad en false. Si se realizan correctamente este filtrado por esquema no funcionará.
+>Especificar el esquema predeterminado de resultados en el `HttpContext.User` propiedad que se establece para esa identidad. Si no se desea este comportamiento, puede deshabilitarlo mediante la invocación de la forma sin parámetros de `AddAuthentication`.
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Se denominan esquemas de autenticación cuando middlewares de autenticación se configuran durante la autenticación. Por ejemplo:
+
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    // Code omitted for brevity
+
+    app.UseCookieAuthentication(new CookieAuthenticationOptions()
+    {
+        AuthenticationScheme = "Cookie",
+        LoginPath = "/Account/Unauthorized/",
+        AccessDeniedPath = "/Account/Forbidden/",
+        AutomaticAuthenticate = false
+    });
+    
+    app.UseJwtBearerAuthentication(new JwtBearerOptions()
+    {
+        AuthenticationScheme = "Bearer",
+        AutomaticAuthenticate = false,
+        Audience = "http://localhost:5001/",
+        Authority = "http://localhost:5000/",
+        RequireHttpsMetadata = false
+    });
+```
+
+En el código anterior, se han agregado dos middlewares de autenticación: uno para las cookies y otro para portador.
+
+>[!NOTE]
+>Especificar el esquema predeterminado de resultados en el `HttpContext.User` propiedad que se establece para esa identidad. Si no se desea este comportamiento, puede deshabilitarla estableciendo la `AuthenticationOptions.AutomaticAuthenticate` propiedad `false`.
+
+---
 
 ## <a name="selecting-the-scheme-with-the-authorize-attribute"></a>Seleccionar el esquema con el atributo Authorize
 
-Ningún middleware de autenticación está configurado para ejecutar automáticamente y crear una identidad que debe, en el momento de la autorización elegir el middleware que se usará. Seleccione el middleware que desea autorizar con la forma más sencilla es usar el `ActiveAuthenticationSchemes` propiedad. Esta propiedad acepta una lista delimitada por comas de los esquemas de autenticación a utilizar. Por ejemplo,
+En el momento de la autorización, la aplicación indica el controlador que se usará. Seleccione el controlador con el que se autorizará la aplicación pasando una lista delimitada por comas de esquemas de autenticación `[Authorize]`. El `[Authorize]` atributo especifica el esquema de autenticación o los esquemas para usar independientemente de si se configura un valor predeterminado. Por ejemplo:
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 ```csharp
-[Authorize(ActiveAuthenticationSchemes = "Cookie,Bearer")]
+[Authorize(AuthenticationSchemes = AuthSchemes)]
+public class MixedController : Controller
+    // Requires the following imports:
+    // using Microsoft.AspNetCore.Authentication.Cookies;
+    // using Microsoft.AspNetCore.Authentication.JwtBearer;
+    private const string AuthSchemes =
+        CookieAuthenticationDefaults.AuthenticationScheme + "," +
+        JwtBearerDefaults.AuthenticationScheme;
+```
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+```csharp
+[Authorize(ActiveAuthenticationSchemes = AuthSchemes)]
+public class MixedController : Controller
+    // Requires the following imports:
+    // using Microsoft.AspNetCore.Authentication.Cookies;
+    // using Microsoft.AspNetCore.Authentication.JwtBearer;
+    private const string AuthSchemes =
+        CookieAuthenticationDefaults.AuthenticationScheme + "," +
+        JwtBearerDefaults.AuthenticationScheme;
+```
+
+---
+
+En el ejemplo anterior, los controladores de la cookie y el portador ejecutan y tienen una oportunidad para crear y agregar una identidad para el usuario actual. Mediante la especificación de un único esquema, se ejecuta el controlador correspondiente.
+
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+
+```csharp
+[Authorize(AuthenticationSchemes = 
+    JwtBearerDefaults.AuthenticationScheme)]
 public class MixedController : Controller
 ```
 
-En el ejemplo anterior, la cookie y el portador middlewares ejecutará y tiene una oportunidad para crear y agregar una identidad para el usuario actual. Mediante la especificación de un único esquema solo el middleware especificado se ejecutará;
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 ```csharp
-[Authorize(ActiveAuthenticationSchemes = "Bearer")]
+[Authorize(ActiveAuthenticationSchemes = 
+    JwtBearerDefaults.AuthenticationScheme)]
+public class MixedController : Controller
 ```
 
-En este caso se ejecutaría solo del middleware con el esquema de portador, y se ignorará cualquier identidad basado en cookies.
+---
+
+En el código anterior, se ejecuta sólo el controlador con el esquema "Portador". Se omite cualquier identidad basada en cookies.
 
 ## <a name="selecting-the-scheme-with-policies"></a>Seleccionar el esquema con directivas
 
-Si desea especificar los esquemas deseados en [directiva](policies.md#security-authorization-policies-based) puede establecer el `AuthenticationSchemes` colección al agregar la directiva.
+Si desea especificar los esquemas deseados en [directiva](xref:security/authorization/policies), puede establecer el `AuthenticationSchemes` colección cuando se agrega la directiva:
 
 ```csharp
-options.AddPolicy("Over18", policy =>
+services.AddAuthorization(options =>
 {
-    policy.AuthenticationSchemes.Add("Bearer");
-    policy.RequireAuthenticatedUser();
-    policy.Requirements.Add(new Over18Requirement());
+    options.AddPolicy("Over18", policy =>
+    {
+        policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
+        policy.RequireAuthenticatedUser();
+        policy.Requirements.Add(new MinimumAgeRequirement());
+    });
 });
 ```
 
-En este ejemplo el Over18 directiva solo se ejecutará con la identidad creada por el `Bearer` middleware.
+En el ejemplo anterior, la directiva de "Over18" solo se ejecuta con la identidad creada por el controlador "Portador". Usar la directiva estableciendo la `[Authorize]` del atributo `Policy` propiedad:
+
+```csharp
+[Authorize(Policy = "Over18")]
+public class RegistrationController : Controller
+```

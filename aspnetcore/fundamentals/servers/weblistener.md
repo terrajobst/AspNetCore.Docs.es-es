@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
 ms.openlocfilehash: f1abb3558546cd907c78b44d9353d9c9f1f5aff1
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener implementaciones del servidor web de ASP.NET Core
 
@@ -42,7 +42,7 @@ Versiones admitidas de Windows:
 
 - Windows 7 y Windows Server 2008 R2 y versiones posteriores
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="when-to-use-weblistener"></a>Cuándo utilizar WebListener
 
@@ -86,7 +86,7 @@ También hay [configuración del registro de Http.Sys](https://support.microsoft
 
 * Configurar los puertos y las direcciones URL para escuchar en 
 
-  De forma predeterminada, ASP.NET Core enlaza a `http://localhost:5000`. Para configurar los puertos y los prefijos de dirección URL, puede usar el `UseURLs` método de extensión, el `urls` argumento de línea de comandos o el sistema de configuración de ASP.NET Core. Para obtener más información, consulte [hospedaje](../../fundamentals/hosting.md).
+  De forma predeterminada, ASP.NET Core enlaza a `http://localhost:5000`. Para configurar los puertos y los prefijos de dirección URL, puede usar el `UseURLs` método de extensión, el `urls` argumento de línea de comandos o el sistema de configuración de ASP.NET Core. Para más información, vea [Hospedaje](../../fundamentals/hosting.md).
 
   Usos de agente de escucha de Web la [formatos de cadena de prefijo de Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). No hay ningún requisito de formato de cadena de prefijo que es específica de WebListener.
 

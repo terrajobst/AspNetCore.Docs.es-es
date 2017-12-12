@@ -11,11 +11,11 @@ ms.assetid: 492b3a7e-04c5-461b-b96a-38ecee5c64bc
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: hosting/iis-modules
-ms.openlocfilehash: afad266874d3ac059d9f3a6d26a5330a0006320b
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.openlocfilehash: fee8e830ab43f731de9c90fad06b577662760f87
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso de módulos IIS con ASP.NET Core
 
@@ -37,10 +37,10 @@ Módulo | .NET core activo | Opción de ASP.NET Core
 **Autenticación implícita**<br>`DigestAuthenticationModule` | Sí | 
 **Examen de directorios**<br>`DirectoryListingModule` | No | [Middleware de exploración de directorios](xref:fundamentals/static-files#enabling-directory-browsing)
 **Compresión dinámica**<br>`DynamicCompressionModule` | Sí | [Middleware de compresión de respuestas](xref:performance/response-compression)
-**Seguimiento**<br>`FailedRequestsTracingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging#the-tracesource-provider)
+**Seguimiento**<br>`FailedRequestsTracingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging/index#the-tracesource-provider)
 **Almacenamiento en caché de archivo**<br>`FileCacheModule` | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
 **Almacenamiento en caché de HTTP**<br>`HttpCacheModule` | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-**Registro HTTP**<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+**Registro HTTP**<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging/index)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
 **Redirección HTTP**<br>`HttpRedirectionModule` | Sí | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting)
 **Autenticación de asignaciones de certificado de cliente IIS**<br>`IISCertificateMappingAuthenticationModule` | Sí | 
 **Restricciones de IP y dominio**<br>`IpRestrictionModule` | Sí | 

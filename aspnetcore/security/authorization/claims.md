@@ -1,8 +1,8 @@
 ---
 title: "Autorización basada en notificaciones"
 author: rick-anderson
-description: 
-keywords: "Núcleo de ASP.NET,"
+description: "Este documento explica cómo agregar notificaciones comprobaciones de autorización en una aplicación de ASP.NET Core."
+keywords: "Núcleo de ASP.NET, autorización, notificaciones"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,17 +11,17 @@ ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: fca75952429d48b02c2c4350b79e29a1957599dc
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: eebaddabdd360f34b6ff44e8f4f9f1f10fda6406
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="claims-based-authorization"></a>Autorización basada en notificaciones
 
-<a name=security-authorization-claims-based></a>
+<a name="security-authorization-claims-based"></a>
 
-Cuando se crea una identidad se pueden asignar una o más notificaciones emitidos por una entidad de confianza. Una notificación es par que representa el asunto de qué es el valor de nombre, puede hacerlo no qué el sujeto. Por ejemplo puede tener una licencia de controladores, emitido por una entidad de licencia de conducir local. De conducir su permiso tiene tu fecha de nacimiento. En este caso, el nombre de notificación sería `DateOfBirth`, el valor de notificación sería tu fecha de nacimiento, por ejemplo `8th June 1970` y el emisor sería la autoridad de licencia de conducir. Autorización basada en notificaciones, en su forma más sencilla, comprueba el valor de una notificación y permite el acceso a un recurso basado en ese valor. Por ejemplo, si desea que el proceso de autorización el acceso a un club nocturno puede ser:
+Cuando se crea una identidad se pueden asignar una o más notificaciones emitidos por una entidad de confianza. Una notificación es par que representa el asunto de qué es el valor de nombre, puede hacerlo no qué el sujeto. Por ejemplo, puede tener un permiso de conducción, emitido por una entidad de licencia de conducir local. De conducir su permiso tiene tu fecha de nacimiento. En este caso, el nombre de notificación sería `DateOfBirth`, el valor de notificación sería tu fecha de nacimiento, por ejemplo `8th June 1970` y el emisor sería la autoridad de licencia de conducir. Autorización basada en notificaciones, en su forma más sencilla, comprueba el valor de una notificación y permite el acceso a un recurso basado en ese valor. Por ejemplo, si desea que el proceso de autorización el acceso a un club nocturno puede ser:
 
 El responsable de seguridad de la puerta evalúe el valor de la fecha de nacimiento notificación y si confía en el emisor (la entidad de licencia determinante) antes de conceder que acceso.
 
@@ -105,7 +105,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="multiple-policy-evaluation"></a>Evaluación múltiple de directiva
 
-Si se aplican varias directivas a una acción o controlador de todas las directivas deben pasar antes de que se concede el acceso. Por ejemplo:
+Si varias directivas se aplican a un controlador o acción, todas las directivas deben pasar antes de que se concede el acceso. Por ejemplo:
 
 ```csharp
 [Authorize(Policy = "EmployeeOnly")]
@@ -124,4 +124,4 @@ public class SalaryController : Controller
 
 En el ejemplo anterior cualquier identidad que cumple el `EmployeeOnly` directiva puede tener acceso a la `Payslip` acción como esa directiva se aplica en el controlador. Sin embargo para llamar a la `UpdateSalary` acción debe cumplir la identidad *ambos* el `EmployeeOnly` directiva y la `HumanResources` directiva.
 
-Si desea que las directivas más complicadas, como llevar a cabo una fecha de nacimiento notificación, calcular una edad de ella, a continuación, comprobar la edad es 21 o anterior, a continuación, tiene que escribir [controladores de directiva personalizada](policies.md#security-authorization-policies-based).
+Si desea que las directivas más complicadas, como llevar a cabo una fecha de nacimiento notificación, calcular una edad de ella, a continuación, comprobar la edad es 21 o anterior, a continuación, tiene que escribir [controladores de directiva personalizada](policies.md).

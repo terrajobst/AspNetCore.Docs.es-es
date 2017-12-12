@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
 ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
-ms.sourcegitcommit: 8f4d4fad1ca27adf9e396f5c205c9875a3963664
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -180,7 +180,7 @@ Si crea un archivo de recursos en Visual Studio sin una referencia cultural en e
 
 ### <a name="adding-other-cultures"></a>Agregar otras referencias culturales
 
-Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y ** en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
+Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y  **en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementar una estrategia para seleccionar el idioma o referencia cultural para cada solicitud  
 

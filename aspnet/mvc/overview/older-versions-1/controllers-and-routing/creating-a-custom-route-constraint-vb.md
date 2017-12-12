@@ -1,0 +1,57 @@
+---
+uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
+title: "Crear una restricción de ruta personalizada (VB) | Documentos de Microsoft"
+author: StephenWalther
+description: "Stephen Walther muestra cómo puede crear una restricción de ruta personalizados. Implementamos un sencillo personalizado restricción que impide que una ruta que se va a coincide w..."
+ms.author: aspnetcontent
+manager: wpickett
+ms.date: 02/16/2009
+ms.topic: article
+ms.assetid: 892edb27-1cc2-4eaf-8314-dbc2efc6228a
+ms.technology: dotnet-mvc
+ms.prod: .net-framework
+msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-vb
+msc.type: authoredcontent
+ms.openlocfilehash: 41b04c1fea267e7ee9f8a0b1c2f0d4fe4bb96d15
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2017
+---
+<a name="creating-a-custom-route-constraint-vb"></a>Crear una restricción de ruta personalizada (VB)
+====================
+por [Stephen Walther](https://github.com/StephenWalther)
+
+> Stephen Walther muestra cómo puede crear una restricción de ruta personalizados. Implementamos una restricción personalizada simple que impide que una ruta que se va a buscar cuando se realiza una solicitud de explorador desde un equipo remoto.
+
+
+El objetivo de este tutorial es mostrar cómo puede crear una restricción de ruta personalizados. Una restricción de ruta personalizada le permite impedir que una ruta que se coteja a menos que se compara una condición personalizada.
+
+En este tutorial, se creará una restricción de ruta de host local. La restricción de ruta de host local solo coincide con las solicitudes realizadas desde el equipo local. No se cotejan solicitudes remotas de a través de Internet.
+
+Implementar una restricción de ruta personalizada implementando la interfaz IRouteConstraint. Se trata de una interfaz muy simple que describe un único método:
+
+[!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample1.vb)]
+
+El método devuelve un valor booleano. Si devuelve False, la ruta asociada a la restricción no coincide con la solicitud del explorador.
+
+La restricción de Localhost está incluida en la lista 1.
+
+**Lista 1 - LocalhostConstraint.vb**
+
+[!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample2.vb)]
+
+La restricción en la lista 1 aprovecha las ventajas de la propiedad IsLocal expuesta por la clase HttpRequest. Esta propiedad devuelve true cuando la dirección IP de la solicitud es 127.0.0.1 o cuando la dirección IP de la solicitud es el mismo que la dirección IP del servidor.
+
+Usar una restricción personalizada dentro de una ruta definida en el archivo Global.asax. El archivo Global.asax en el listado 2 utiliza la restricción de Localhost para impedir que alguien solicita una página de administración a menos que realice la solicitud desde el servidor local. Por ejemplo, una solicitud para /Admin/DeleteAll se producirá un error cuando se realiza desde un servidor remoto.
+
+**La lista 2 - Global.asax**
+
+[!code-vb[Main](creating-a-custom-route-constraint-vb/samples/sample3.vb)]
+
+La restricción de host local se utiliza en la definición de la ruta de administración. Esta ruta no se asocian con una solicitud de explorador remoto. Sin embargo, tenga en cuenta que otras rutas definidas en Global.asax podrían coincidir con la misma solicitud. Es importante comprender que una restricción impide que una determinada ruta de una solicitud de búsqueda de coincidencias y no todas las rutas definen en el archivo Global.asax.
+
+Tenga en cuenta que la ruta predeterminada se convirtió en comentario en el archivo Global.asax en el listado 2. Si incluye la ruta predeterminada, la ruta predeterminada coincidiría con las solicitudes para el controlador de administración. En ese caso, los usuarios remotos todavía pudieron invocar acciones del controlador de administración, aunque sus solicitudes no coinciden con la ruta de administración.
+
+>[!div class="step-by-step"]
+[Anterior](creating-a-route-constraint-vb.md)

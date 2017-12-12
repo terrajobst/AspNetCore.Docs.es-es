@@ -1,7 +1,7 @@
 ---
 title: "Vínculo de explorador en ASP.NET Core"
 author: ncarandini
-description: "Obtenga información acerca de cómo vínculo de explorador es una característica de Visual Studio que se vincula el entorno de desarrollo con uno o varios exploradores web."
+description: "Explica cómo vínculo de explorador es una característica de Visual Studio que se vincula el entorno de desarrollo con uno o varios exploradores web."
 keywords: "Núcleo de ASP.NET, el vínculo de explorador, la sincronización de CSS"
 ms.author: riande
 manager: wpickett
@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67ddc58e38962bd876050739a2a1447be4f589bb
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core 
 
@@ -81,7 +81,7 @@ Desde el control de barra de herramientas de vínculo de explorador, hacer lo si
 * Actualizar la aplicación web en varios exploradores a la vez.
 * Abra la **panel de vínculos de explorador**.
 * Habilitar o deshabilitar **vínculo de explorador**. Nota: El vínculo de explorador está deshabilitada de forma predeterminada en Visual Studio 2017 (15.3).
-* Habilitar o deshabilitar la sincronización automática de CSS.
+* Habilitar o deshabilitar [sincronización automática de CSS](#enable-or-disable-css-auto-sync).
 
 > [!NOTE]
 > Algunos complementos de Visual Studio, sobre todo *2015 de paquete de extensión de Web* y *2017 de paquete de extensión de Web*, ofrecen una funcionalidad extendida de vínculo de explorador, pero algunas de las características adicionales no funcionan con ASP. Proyectos de red principal.

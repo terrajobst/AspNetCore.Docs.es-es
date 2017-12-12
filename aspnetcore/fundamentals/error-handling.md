@@ -13,10 +13,10 @@ ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: de2ba0ff9ad17c198c06b510ecfb49f808721bdf
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Introducción a control de errores en ASP.NET Core
 
@@ -24,7 +24,7 @@ Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdyks
 
 Este artículo tratan appoaches común para controlar los errores en las aplicaciones de ASP.NET Core.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/error-handling/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="the-developer-exception-page"></a>La página de excepción para desarrolladores
 

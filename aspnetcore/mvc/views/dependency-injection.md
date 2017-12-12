@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/dependency-injection
 ms.openlocfilehash: 4586f50bc663b7269914dfff28b61342e3991a48
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="dependency-injection-into-views"></a>Inyección de dependencia en las vistas
 
@@ -23,7 +23,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core es compatible con [inyección de dependencia](xref:fundamentals/dependency-injection) en vistas. Esto puede ser útil para los servicios específicos de la vista, como localización o solo es necesarios para rellenar los elementos de vista de datos. Debe intentar mantener [separación de intereses](http://deviq.com/separation-of-concerns/) entre los controladores y vistas. La mayoría de los datos que se muestran las vistas se debe pasar desde el controlador.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="a-simple-example"></a>Un ejemplo sencillo
 

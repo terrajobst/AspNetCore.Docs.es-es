@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
 ms.openlocfilehash: ac52b791e02ce52da35fe8d599465076d251b4da
-ms.sourcegitcommit: 8005eb4051e568d88ee58d48424f39916052e6e2
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 
@@ -106,7 +106,7 @@ Si se produce un error en el módulo principal de ASP.NET iniciar el proceso de 
 
 El módulo principal de ASP.NET redirige `stdout` y `stderr` registros en el disco si se establece la `stdoutLogEnabled` y `stdoutLogFile` atributos de la `aspNetCore` elemento. Las carpetas en el `stdoutLogFile` ruta debe existir en orden para el módulo crear el archivo de registro. Una marca de tiempo y extensión de archivo se agregará automáticamente cuando se crea el archivo de registro. Los registros no se giran, salvo que se produzca el reinicio/reciclaje del proceso. Es responsabilidad del proveedor de hospedaje para limitar los registros de consumen el espacio en disco. Mediante el `stdout` registro sólo se recomienda para solucionar problemas de inicio de la aplicación y no para fines de registro de aplicación general.
 
-El nombre de archivo de registro se crea anexando el identificador de proceso (PID), marca de tiempo (*yyyyMdhms*) y la extensión de archivo (*.log*) para el último segmento de la `stdoutLogFile` ruta de acceso (normalmente *stdout *) delimitados por caracteres de subrayado. Por ejemplo si el `stdoutLogFile` ruta de acceso finaliza con *stdout*, un registro de una aplicación con un PID de 10652 8/10/2017 creada a las 12:05:02 tiene el nombre de archivo *stdout_10652_20178101252.log*.
+El nombre de archivo de registro se crea anexando el identificador de proceso (PID), marca de tiempo (*yyyyMdhms*) y la extensión de archivo (*.log*) para el último segmento de la `stdoutLogFile` ruta de acceso (normalmente *stdout* ) delimitados por caracteres de subrayado. Por ejemplo si el `stdoutLogFile` ruta de acceso finaliza con *stdout*, un registro de una aplicación con un PID de 10652 8/10/2017 creada a las 12:05:02 tiene el nombre de archivo *stdout_10652_20178101252.log*.
 
 Este es un ejemplo `aspNetCore` elemento que configura `stdout` registro. El `stdoutLogFile` se muestra en el ejemplo de la ruta de acceso es adecuado para el servicio de aplicaciones de Azure. Una ruta de acceso local o una ruta de acceso de recurso compartido de red es aceptable para el registro local. Confirme que la identidad del usuario AppPool tiene permiso para escribir en la ruta de acceso proporcionada.
 
@@ -120,7 +120,7 @@ Este es un ejemplo `aspNetCore` elemento que configura `stdout` registro. El `st
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Configuración compartida de módulo de núcleo de ASP.NET con un servicio de IIS
 
-El instalador del módulo de núcleo de ASP.NET se ejecuta con los privilegios de la **SYSTEM** cuenta. Dado que la cuenta de sistema local no tiene permiso para modificar la ruta de acceso de recurso compartido que es utilizado por la configuración de IIS compartido, el programa de instalación llegará a un error de acceso denegado al intentar configurar los ajustes del módulo de * applicationHost.config* en el recurso compartido.
+El instalador del módulo de núcleo de ASP.NET se ejecuta con los privilegios de la **SYSTEM** cuenta. Dado que la cuenta de sistema local no tiene permiso para modificar la ruta de acceso de recurso compartido que es utilizado por la configuración de IIS compartido, el programa de instalación llegará a un error de acceso denegado al intentar configurar los ajustes del módulo de  *applicationHost.config* en el recurso compartido.
 
 La solución no compatible consiste en deshabilitar la configuración de IIS compartido, ejecute el programa de instalación o exportar actualizado *applicationHost.config* al recurso compartido de archivos y vuelva a habilitar la configuración de IIS compartido.
 

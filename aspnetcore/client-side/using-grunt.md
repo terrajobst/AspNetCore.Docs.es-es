@@ -2,7 +2,7 @@
 title: Usar Grunt en ASP.NET Core
 author: rick-anderson
 description: 
-keywords: "Núcleo de ASP.NET,"
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
 ms.openlocfilehash: 8ae50514ce24c7f9e3bb1e347d5d860e1de43c5f
-ms.sourcegitcommit: 9cdbfd0d670d70b9c354216aabee260c52dad5ee
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Usar Grunt en ASP.NET Core 
 
@@ -211,7 +211,7 @@ Grunt se configura mediante un manifiesto llamado *Gruntfile.js* que define, car
 
 10.  Agregar el `uglify` tareas mediante el código siguiente.
 
-    La tarea minifica objeto el *combined.js* archivo se encuentra en el directorio temp y crea el archivo de resultados en wwwroot/lib sigue la convención de nomenclatura estándar * \<nombre de archivo\>. min.js*.
+    La tarea minifica objeto el *combined.js* archivo se encuentra en el directorio temp y crea el archivo de resultados en wwwroot/lib sigue la convención de nomenclatura estándar  *\<nombre de archivo\>. min.js*.
     
     ```javascript
     uglify: {
@@ -280,7 +280,7 @@ Haga clic en la tarea de inspección de explorador del ejecutor de tareas y sele
 
 ## <a name="binding-to-visual-studio-events"></a>Enlazar a eventos de Visual Studio
 
-A menos que desee iniciar manualmente las tareas de cada vez que funcionan en Visual Studio, puede enlazar tareas a **antes de compilar**, **después de compilar**, **limpiar**, y ** Proyecto abierto** eventos.
+A menos que desee iniciar manualmente las tareas de cada vez que funcionan en Visual Studio, puede enlazar tareas a **antes de compilar**, **después de compilar**, **limpiar**, y  **Proyecto abierto** eventos.
 
 Vamos a enlazar `watch` para que se ejecute cada vez que abre Visual Studio. En el explorador del ejecutor de tareas, haga clic en la tarea de inspección y seleccione **enlaces > abrir el proyecto** en el menú contextual.
 
@@ -294,4 +294,4 @@ Grunt es un ejecutor de tareas eficaz que puede utilizarse para automatizar la m
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-   * [Usar Gulp](using-gulp.md)
+   * [Uso de Gulp](using-gulp.md)

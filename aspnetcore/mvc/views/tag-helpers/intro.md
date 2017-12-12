@@ -11,11 +11,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06644b8359fb5ccc2e61a17a4c6e20e354d5ceef
-ms.sourcegitcommit: 6e83c55eb0450a3073ef2b95fa5f5bcb20dbbf89
+ms.openlocfilehash: 78d9fdbd32eae29d7714507498d5d68b86c6d12e
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introducción a las aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET 
 
@@ -35,13 +35,13 @@ Aplicaciones auxiliares de etiquetas que el código de servidor pueda participar
 
 La mayoría de las aplicaciones auxiliares de etiquetas integradas elementos HTML existentes de destino y proporciona atributos de servidor para el elemento. Por ejemplo, el `<input>` elemento utilizado en muchas de las vistas en el *Views/Account* carpeta contiene el `asp-for` atributo, que extrae el nombre de la propiedad de modelo especificado en el HTML representado. El siguiente marcado de Razor:
 
-```html
+```cshtml
 <label asp-for="Email"></label>
 ```
 
 Genera el siguiente código HTML:
 
-```html
+```cshtml
 <label for="Email">Email</label>
 ```
 
@@ -51,19 +51,19 @@ El `asp-for` atributo debe ponerse a disposición por la `For` propiedad en el `
 
 Ámbito de las aplicaciones auxiliares de etiqueta se controla mediante una combinación de `@addTagHelper`, `@removeTagHelper`y el "!" caracteres de desactivación.
 
-<a name=add-helper-label></a>
+<a name="add-helper-label"></a>
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`pone a disposición aplicaciones auxiliares de etiquetas
 
 Si creas una nueva aplicación web de ASP.NET Core denominada *AuthoringTagHelpers* (con sin autenticación), el siguiente *Views/_ViewImports.cshtml* archivo se agregará al proyecto:
 
-[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
+[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
 El `@addTagHelper` directiva pone a disposición de la vista de aplicaciones auxiliares de etiquetas. En este caso, el archivo de vista es *Views/_ViewImports.cshtml*, cuyo valor predeterminado es heredada por todos los archivos de vista en el *vistas* carpeta y los subdirectorios; ofrecer aplicaciones auxiliares de etiquetas. El código anterior utiliza la sintaxis de carácter comodín ("\*") para especificar que todas las aplicaciones auxiliares de etiquetas en el ensamblado especificado (*Microsoft.AspNetCore.Mvc.TagHelpers*) estará disponible para todos los archivos de vista la *vistas* directorio o subdirectorio. El primer parámetro después de `@addTagHelper` especifica las aplicaciones auxiliares de etiquetas para cargar (usamos "\*" para todas las aplicaciones auxiliares de etiquetas), y el segundo parámetro "Microsoft.AspNetCore.Mvc.TagHelpers" especifica el ensamblado que contiene las aplicaciones auxiliares de etiquetas. *Microsoft.AspNetCore.Mvc.TagHelpers* es el ensamblado para los asistentes de etiqueta de principales de ASP.NET integrado.
 
 Para exponer todas las aplicaciones auxiliares de etiquetas en este proyecto (que crea un ensamblado denominado *AuthoringTagHelpers*), utilizaría lo siguiente:
 
-[!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
+[!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
 Si el proyecto contiene un `EmailTagHelper` con el espacio de nombres predeterminado (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), puede proporcionar el nombre completo (FQN) de la aplicación auxiliar de etiqueta:
 
@@ -75,14 +75,14 @@ Si el proyecto contiene un `EmailTagHelper` con el espacio de nombres predetermi
 
 Para agregar una aplicación auxiliar de etiqueta a una vista con un FQN, agregue primero la FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) y, a continuación, el nombre del ensamblado (*AuthoringTagHelpers*). Mayoría de los desarrolladores prefiere usar la "\*" sintaxis de caracteres comodín. La sintaxis de comodines permite insertar el carácter comodín "\*" como el sufijo en un FQN. Por ejemplo, cualquiera de las siguientes directivas pondrá en el `EmailTagHelper`:
 
-```csharp
+```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
 Como se mencionó anteriormente, agregar el `@addTagHelper` directivas para la *Views/_ViewImports.cshtml* archivo pone a disposición de todos los archivos de vista de la aplicación auxiliar de etiqueta el *vistas* directorio y subdirectorios. Puede usar el `@addTagHelper` la directiva en los archivos de la vista específica si desea participar en exponer la aplicación auxiliar de etiqueta a solo aquellas vistas.
 
-<a name=remove-razor-directives-label></a>
+<a name="remove-razor-directives-label"></a>
 
 ### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Quita las aplicaciones auxiliares de etiquetas
 
@@ -98,19 +98,19 @@ Puede agregar un *_ViewImports.cshtml* a cualquier carpeta de la vista y la vist
 
 Puede deshabilitar una aplicación auxiliar de etiquetas en el nivel de elemento con el carácter de desactivación de aplicación auxiliar de etiqueta ("!"). Por ejemplo, `Email` validación está deshabilitada en el `<span>` con el carácter de desactivación de aplicación auxiliar de etiqueta:
 
-```csharp
+```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
 Debe aplicar el carácter de desactivación de aplicación auxiliar de etiqueta a la apertura y la etiqueta de cierre. (El editor de Visual Studio agrega automáticamente el carácter de cancelación para la etiqueta de cierre al agregar una a la etiqueta de apertura). Después de agregar el carácter de cancelación, el elemento y atributos de la aplicación auxiliar de etiqueta ya no se muestran en una fuente distintos.
 
-<a name=prefix-razor-directives-label></a>
+<a name="prefix-razor-directives-label"></a>
 
 ### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Usar `@tagHelperPrefix` para hacer uso de la aplicación auxiliar de etiqueta explícita
 
 El `@tagHelperPrefix` directiva permite especificar una cadena de prefijo de etiqueta para habilitar la compatibilidad de la aplicación auxiliar de etiqueta y hacer uso de la aplicación auxiliar de etiqueta explícita. Por ejemplo, podría agregar el código siguiente para el *Views/_ViewImports.cshtml* archivo:
 
-```html
+```cshtml
 @tagHelperPrefix th:
 ```
 En la imagen de código siguiente, se establece el prefijo de etiqueta auxiliares en `th:`, por lo que solo los elementos con el prefijo `th:` admite aplicaciones auxiliares de etiquetas (elementos de aplicación auxiliar de la etiqueta tienen una fuente distintos). El `<label>` y `<input>` elementos tienen el prefijo de etiqueta auxiliares y están habilitadas para auxiliar de etiqueta, mientras el `<span>` elemento no lo hace.
@@ -127,7 +127,7 @@ Considere la posibilidad de escribir un elemento HTML `<label>` elemento. Tan pr
 
 ![imagen](intro/_static/label.png)
 
-No solo obtendrá la Ayuda HTML, pero el icono (el "@" símbolo con "<>" debajo de él).
+No solo obtendrá la Ayuda HTML, pero el icono (el "@" symbol with "<>" debajo de él).
 
 ![imagen](intro/_static/tagSym.png)
 
@@ -163,13 +163,13 @@ IntelliSense muestra las propiedades y métodos disponibles para el modelo en la
 
 Aplicaciones auxiliares de etiquetas asociar a elementos HTML en las vistas de Razor, mientras que [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) se invocan como métodos entremezcladas con HTML en las vistas de Razor. Tenga en cuenta el siguiente marcado de Razor, que crea una etiqueta HTML con la clase CSS "título":
 
-```html
+```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
 El en (`@`) símbolo solicita Razor es el inicio del código. Los dos parámetros siguientes ("FirstName" y "nombre:") son cadenas, por lo que [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) no sirve de ayuda. El último argumento:
 
-```html
+```cshtml
 new {@class="caption"}
 ```
 
@@ -189,7 +189,7 @@ IntelliSense le ayuda a escribir toda la línea. El `LabelTagHelper` también ti
 
 genera:
 
-```html
+```cshtml
 <label class="caption" for="FirstName">First Name</label>
 ```
 
@@ -199,7 +199,7 @@ No se utiliza la grafía de camel al contenido de grafía de frase si agrega con
 
 genera:
 
-```html
+```cshtml
 <label class="caption" for="FirstName">Name First</label>
 ```
 
@@ -209,7 +209,7 @@ La imagen de código siguiente muestra la parte del formulario de la *Views/Acco
 
 El editor de Visual Studio muestra el código de C# con un fondo gris. Por ejemplo, el `AntiForgeryToken` aplicación auxiliar HTML:
 
-```html
+```cshtml
 @Html.AntiForgeryToken()
 ```
 

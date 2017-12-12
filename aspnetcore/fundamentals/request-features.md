@@ -12,16 +12,16 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
 ms.openlocfilehash: b689d82d16c6ef55485691b3474a070765c8144b
-ms.sourcegitcommit: 732cd2684246e49e796836596643a8d37e20c46d
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="request-features-in-aspnet-core"></a>Características de la solicitud de ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
-Detalles de implementación de servidor Web relacionados con las solicitudes HTTP y las respuestas se definen en las interfaces. Estas interfaces son usadas por las implementaciones del servidor y middleware para crear y modificar la canalización de hospedaje de la aplicación.
+Los detalles de implementación del servidor web relacionados con las solicitudes HTTP y las respuestas se definen en las interfaces. Estas interfaces son usadas por las implementaciones del servidor y middleware para crear y modificar la canalización de hospedaje de la aplicación.
 
 ## <a name="feature-interfaces"></a>Interfaces de característica
 

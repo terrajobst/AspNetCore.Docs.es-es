@@ -12,10 +12,10 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
 ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 78d28178345a0eea91556e4cd1adad98b1446db8
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Temas avanzados - Core EF con el tutorial de MVC de ASP.NET Core (10 de 10)
 
@@ -83,7 +83,7 @@ Cuando el **actualización** se hace clic en el botón, se llama al método Http
 
 En **el Explorador de soluciones**, haga clic en el *vistas/cursos* carpeta y, a continuación, haga clic en **Agregar > nuevo elemento**.
 
-En el **Agregar nuevo elemento** cuadro de diálogo, haga clic en **ASP.NET** en **instalado** en el panel izquierdo, haga clic en **página vista de MVC**y el nombre de la nueva vista * UpdateCourseCredits.cshtml*.
+En el **Agregar nuevo elemento** cuadro de diálogo, haga clic en **ASP.NET** en **instalado** en el panel izquierdo, haga clic en **página vista de MVC**y el nombre de la nueva vista  *UpdateCourseCredits.cshtml*.
 
 En *Views/Courses/UpdateCourseCredits.cshtml*, reemplace el código de plantilla con el código siguiente:
 
@@ -228,7 +228,7 @@ Es posible obtener otros errores al realizar cambios de esquema en una base de d
 
 El enfoque más sencillo consiste en cambiar el nombre de la base de datos *appSettings.JSON que se*. La próxima vez que ejecute `database update`, se creará una nueva base de datos.
 
-Para eliminar una base de datos en SSOX, haga clic en la base de datos, haga clic en **eliminar**y, a continuación, en la **Eliminar base de datos** cuadro de diálogo, seleccione **cerrar conexiones existentes** y haga clic en ** Aceptar**.
+Para eliminar una base de datos en SSOX, haga clic en la base de datos, haga clic en **eliminar**y, a continuación, en la **Eliminar base de datos** cuadro de diálogo, seleccione **cerrar conexiones existentes** y haga clic en  **Aceptar**.
 
 Para eliminar una base de datos mediante el uso de la CLI, ejecute el `database drop` comando de CLI:
 
