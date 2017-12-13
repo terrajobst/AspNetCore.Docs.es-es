@@ -1,0 +1,41 @@
+---
+uid: mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
+title: "Ciclo de vida de una aplicación ASP.NET MVC 5 | Documentos de Microsoft"
+author: cephalin
+description: "Descargar un documento PDF que muestra el ciclo de vida de una aplicación ASP.NET MVC 5. Este documento del ciclo de vida proporciona una vista de alto nivel del ciclo de vida MVC un..."
+ms.author: aspnetcontent
+manager: wpickett
+ms.date: 02/28/2014
+ms.topic: article
+ms.assetid: 9c1e3a75-b644-4480-8326-11300b1ec4b3
+ms.technology: dotnet-mvc
+ms.prod: .net-framework
+msc.legacyurl: /mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
+msc.type: authoredcontent
+ms.openlocfilehash: 5692c43168eb261c91f40e2046897a1e5d31a028
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 11/10/2017
+---
+<a name="lifecycle-of-an-aspnet-mvc-5-application"></a><span data-ttu-id="306b1-104">Ciclo de vida de una aplicación de MVC de ASP.NET 5</span><span class="sxs-lookup"><span data-stu-id="306b1-104">Lifecycle of an ASP.NET MVC 5 Application</span></span>
+====================
+<span data-ttu-id="306b1-105">por [Cephas Lin](https://github.com/cephalin)</span><span class="sxs-lookup"><span data-stu-id="306b1-105">by [Cephas Lin](https://github.com/cephalin)</span></span>
+
+[<span data-ttu-id="306b1-106">Descargue el documento PDF</span><span class="sxs-lookup"><span data-stu-id="306b1-106">Download PDF Document</span></span>](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf)
+
+<span data-ttu-id="306b1-107">Aquí puede descargar un documento PDF que solicitar el ciclo de vida de cada aplicación de ASP.NET MVC 5, de recepción de HTTP para enviar la respuesta HTTP de gráficos que se devuelva al cliente.</span><span class="sxs-lookup"><span data-stu-id="306b1-107">Here you can download a PDF document that charts the lifecycle of every ASP.NET MVC 5 application, from receiving the HTTP request to sending the HTTP response back to the client.</span></span> <span data-ttu-id="306b1-108">Se ha diseñado como una herramienta educativa para aquellos que está familiarizado con ASP.NET MVC y también como una referencia para aquellos que necesitan para profundizar en los aspectos específicos de la aplicación.</span><span class="sxs-lookup"><span data-stu-id="306b1-108">It is designed both as an educational tool for those who are new to ASP.NET MVC and also as a reference for those who need to drill into specific aspects of the application.</span></span> <span data-ttu-id="306b1-109">El documento PDF tiene las siguientes características:</span><span class="sxs-lookup"><span data-stu-id="306b1-109">The PDF document has the following features:</span></span>
+
+- <span data-ttu-id="306b1-110">Relevante [HttpApplication](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx) fases para ayudarle a entender dónde MVC se integra en el [ciclo de vida de aplicación de ASP.NET](https://msdn.microsoft.com/en-us/library/bb470252.aspx).</span><span class="sxs-lookup"><span data-stu-id="306b1-110">Relevant [HttpApplication](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx) stages to help you understand where MVC integrates into the [ASP.NET application lifecycle](https://msdn.microsoft.com/en-us/library/bb470252.aspx).</span></span>
+- <span data-ttu-id="306b1-111">Una vista de alto nivel del ciclo de vida de la aplicación de MVC, donde puede entender las fases principales que todas las aplicaciones MVC pasa a través de la canalización de procesamiento de la solicitud.</span><span class="sxs-lookup"><span data-stu-id="306b1-111">A high-level view of the MVC application lifecycle, where you can understand the major stages that every MVC application passes through in the request processing pipeline.</span></span>  
+    ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image1.jpg)
+- <span data-ttu-id="306b1-112">Una vista de detalle que muestra aumenta hacia abajo en los detalles de la canalización de procesamiento de la solicitud.</span><span class="sxs-lookup"><span data-stu-id="306b1-112">A detail view that shows drills down into the details of the request processing pipeline.</span></span> <span data-ttu-id="306b1-113">Puede comparar la vista de alto nivel y la vista de detalle para ver cómo se recopilan los detalles de los ciclos de vida en las distintas fases.</span><span class="sxs-lookup"><span data-stu-id="306b1-113">You can compare the high-level view and the detail view to see how the lifecycles details are collected into the various stages.</span></span> <span data-ttu-id="306b1-114">[Descarga de PDF](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) para ver una vista más grande.</span><span class="sxs-lookup"><span data-stu-id="306b1-114">[Download PDF](lifecycle-of-an-aspnet-mvc-5-application/_static/lifecycle-of-an-aspnet-mvc-5-application1.pdf) to see a larger view.</span></span>
+    ![](lifecycle-of-an-aspnet-mvc-5-application/_static/image2.jpg)
+- <span data-ttu-id="306b1-115">Selección de ubicación y finalidad de todos los métodos reemplazables en el [controlador](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.aspx) objeto en la canalización de procesamiento de solicitudes.</span><span class="sxs-lookup"><span data-stu-id="306b1-115">Placement and purpose of all overridable methods on the [Controller](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller.aspx) object in the request processing pipeline.</span></span> <span data-ttu-id="306b1-116">Puede o no puede tener la necesidad de reemplazar un método de prueba, pero es importante para comprender su rol en el ciclo de vida de la aplicación para que pueda escribir código en la fase del ciclo de vida adecuado para el efecto deseado.</span><span class="sxs-lookup"><span data-stu-id="306b1-116">You may or may not have the need to override any one method, but it is important for you to understand their role in the application lifecycle so that you can write code at the appropriate life cycle stage for the effect you intend.</span></span>
+- <span data-ttu-id="306b1-117">Diagramas de arriba inyectado que muestra cómo cada uno de los tipos de filtro (autenticación, autorización, acción y resultados) se invoca.</span><span class="sxs-lookup"><span data-stu-id="306b1-117">Blown-up diagrams showing how each of the filter types (authentication, authorization, action, and result) is invoked.</span></span>
+- <span data-ttu-id="306b1-118">Vincular a un artículo útil o el blog de cada punto de interés en la vista de detalle.</span><span class="sxs-lookup"><span data-stu-id="306b1-118">Link to a useful article or blog from each point of interest in the detail view.</span></span>
+
+
+## <a name="next-steps"></a><span data-ttu-id="306b1-119">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="306b1-119">Next Steps</span></span>
+
+<span data-ttu-id="306b1-120">¿Este documento satisface sus necesidades?</span><span class="sxs-lookup"><span data-stu-id="306b1-120">Does this document meet your need?</span></span> <span data-ttu-id="306b1-121">Agradecemos sus comentarios.</span><span class="sxs-lookup"><span data-stu-id="306b1-121">We'd appreciate your feedback.</span></span> <span data-ttu-id="306b1-122">Si tiene alguna duda sobre el ciclo de vida de ASP.NET MVC en la aplicación, [Stackoverflow](http://stackoverflow.com/help) y [foros de ASP.NET MVC](https://forums.asp.net/1146.aspx) son lugares excelentes que ponerse en contacto.</span><span class="sxs-lookup"><span data-stu-id="306b1-122">If you have any question on the ASP.NET MVC lifecycle in your application, [Stackoverflow](http://stackoverflow.com/help) and the [ASP.NET MVC forums](https://forums.asp.net/1146.aspx) are great places to ask.</span></span> <span data-ttu-id="306b1-123">Siga [me](https://twitter.com/Cephas_MSFT) en twitter, por lo que puede obtener actualizaciones en mi tutoriales más recientes.</span><span class="sxs-lookup"><span data-stu-id="306b1-123">Follow [me](https://twitter.com/Cephas_MSFT) on twitter so you can get updates on my latest tutorials.</span></span>
