@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: e580ee537190c85e74e40c288af1503f136c83d8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bd794ae2217c2a56f36cd46c2f12f1c80f6b4f2b
+ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Adición de validación a una página de Razor
 
@@ -132,6 +132,8 @@ Por lo general no se recomienda compilar fechas fijas en los modelos, así que s
 El código siguiente muestra la combinación de atributos en una línea:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+
+En [Introducción a las páginas de Razor y EF Core](xref:data/ef-rp/intro) se muestran operaciones más avanzadas de EF Core con páginas de Razor.
 
 ### <a name="publish-to-azure"></a>Publicar en Azure
 

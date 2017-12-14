@@ -1,20 +1,20 @@
 ---
 title: Tutoriales de ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: "Una lista de guías detalladas para aprender a desarrollar aplicaciones de ASP.NET Core."
 keywords: ASP.NET Core,
-ms.author: tdykstra
+ms.author: riande
 manager: wpickett
-ms.date: 07/14/2017
+ms.date: 10/14/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: b3ea7688eefa69171fd1179de42497c98cf9302e
-ms.sourcegitcommit: 4d9c6d47bded895f3d9a35e9550e31ae213c083c
+ms.openlocfilehash: 44eaac4f3f4ad55cbc9b5ca9fae6e406ceff3d3c
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -22,26 +22,35 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 
 ## <a name="building-web-applications"></a>Creación de aplicaciones web
 
-[Las páginas de Razor](xref:mvc/razor-pages/index) son el método recomendado para crear una interfaz de usuario web con ASP.NET Core 2.0.
+[Las páginas de Razor](xref:mvc/razor-pages/index) son el método recomendado para crear una aplicación de interfaz de usuario web con ASP.NET Core 2.0.
 
 * [Introducción a las páginas de Razor en ASP.NET Core](xref:mvc/razor-pages/index)
-* [Crear una aplicación web de las páginas de Razor con ASP.NET Core en Windows](xref:tutorials/razor-pages/index)
-* [Crear una aplicación web de las páginas de Razor con ASP.NET Core en Mac](xref:tutorials/razor-pages-mac/index)  
-* [Crear una aplicación web de las páginas de Razor con ASP.NET Core con VS Code](xref:tutorials/razor-pages-vsc/index) 
-* [Crear una aplicación web de ASP.NET Core MVC con Visual Studio en Windows](first-mvc-app/index.md)
-* [Crear una aplicación web de ASP.NET Core MVC con Visual Studio en Mac](first-mvc-app-mac/index.md)
-* [Crear una aplicación web de ASP.NET Core MVC con Visual Studio Code en Mac o Linux](first-mvc-app-xplat/index.md)
-* [Introducción a ASP.NET Core y a Entity Framework Core con Visual Studio](../data/ef-mvc/index.md)
+* Creación de una aplicación web de páginas de Razor con ASP.NET Core
+
+   * [Páginas de Razor en Windows](xref:tutorials/razor-pages/index)
+   * [Páginas de Razor en Mac](xref:tutorials/razor-pages-mac/index)
+   * [Páginas de Razor con VSCode](xref:tutorials/razor-pages-vsc/index)  
+
+* Creación de una aplicación web de ASP.NET Core MVC
+
+   * [Aplicación web con Visual Studio para Windows](first-mvc-app/index.md)
+   * [Aplicación web con Visual Studio para Mac](first-mvc-app-mac/index.md)
+   * [Aplicación web con Visual Studio Code en Mac o Linux](first-mvc-app-xplat/index.md)
+
+* [Introducción a ASP.NET Core y Entity Framework Core con Visual Studio](../data/ef-mvc/index.md)
 * [Compilación de proyectos con Yeoman](../client-side/yeoman.md)
 * [Creación de aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/authoring.md)
 * [Creación de un componente de vista simple](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
 * [Desarrollo de aplicaciones de ASP.NET Core con dotnet watch](dotnet-watch.md)
 
 ## <a name="building-web-apis"></a>Creación de API web
-* [Crear una API web con ASP.NET Core y Visual Studio para Mac](xref:tutorials/first-web-api-mac)
-* [Crear una API web con ASP.NET Core y Visual Studio para Windows](first-web-api.md)
-* [Crear una API web con ASP.NET Core y Visual Studio Code](web-api-vsc.md)
-* [Páginas de ayuda de ASP.NET Web API mediante Swagger](web-api-help-pages-using-swagger.md)
+* Creación de una API web con ASP.NET Core
+
+  * [API web con Visual Studio para Windows](first-web-api.md)
+  * [API web con Visual Studio para Mac](xref:tutorials/first-web-api-mac)
+  * [API web con Visual Studio Code](web-api-vsc.md)
+  
+* [Páginas de ayuda de ASP.NET Core Web API mediante Swagger](web-api-help-pages-using-swagger.md)
 * [Creación de servicios web de back-end para aplicaciones móviles nativas](../mobile/native-mobile-backend.md)
 
 ## <a name="working-with-data"></a>Trabajar con datos
@@ -65,6 +74,7 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 
 ## <a name="publishing-and-deployment"></a>Publicación e implementación
 * [Implementar una aplicación web de ASP.NET Core en Azure con Visual Studio](publish-to-azure-webapp-using-vs.md)
+* [Implementar una aplicación web de ASP.NET Core en Azure con la línea de comandos](publish-to-azure-webapp-using-cli.md)
 * [Publicación en una aplicación web de Azure con una implementación continua](../publishing/azure-continuous-deployment.md)
 * [Implementar un contenedor de ASP.NET en un host remoto de Docker](https://docs.microsoft.com/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [ASP.NET Core en Nano Server](nano-server.md)

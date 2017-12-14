@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: dfe8136dccb0e98a9fc6b1395161ccb442392c76
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e0b09860e7dc871e0a554ddeac9e8d2c31702fb0
+ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="updating-the-generated-pages"></a>Actualización de las páginas generadas
 
@@ -104,7 +104,7 @@ Examine el archivo *Pages/Movies/Edit.cshtml.cs*: [!code-csharp[Main](razor-page
 Cuando se realiza una solicitud HTTP GET a la página Movies/Edit (por ejemplo, `http://localhost:5000/Movies/Edit/2`):
 
 * El método `OnGetAsync` obtiene la película en la base de datos y devuelve el método `Page`. 
-* El método `Page` presenta la página de Razor *Pages/Movies/Edit.cshtml*. El archivo *Pages/Movies/Edit.cshtml* contiene la directiva de modelo (`@model RazorPagesMovie.Pages.Movies.EditModel`), lo que hace que el modelo de película esté disponible en la página.
+* El método `Page` presenta la página de Razor *Pages/Movies/Edit.cshtml*. El archivo *Pages/Movies/Edit.cshtml* contiene la directiva de modelo (`@model RazorPagesMovie.Pages.Movies.EditModel`), que hace que el modelo de película esté disponible en la página.
 * Se abre el formulario de edición con los valores de la película.
 
 Cuando se publica la página Movies/Edit:

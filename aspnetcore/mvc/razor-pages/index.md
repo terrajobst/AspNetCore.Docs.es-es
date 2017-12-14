@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 3112faa38bb9702f6856097e315c413f0974010d
-ms.sourcegitcommit: 3ba32b2b6425ed94604cb0f681db0d5bb5f8ad58
+ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
+ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2017
+ms.lasthandoff: 12/03/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -23,6 +23,8 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Ryan Nowak](https://gith
 Las páginas de Razor son una nueva característica de ASP.NET Core MVC que facilita la codificación de escenarios centrados en páginas y hace que sea más productiva.
 
 Si busca un tutorial que use el enfoque Model-View-Controller, consulte [Introducción a ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
+
+En este documento se proporciona una introducción a las páginas de Razor. No es un tutorial paso a paso. Si encuentra alguna sección difícil de seguir, vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start).
 
 <a name="prerequisites"></a>
 
@@ -106,6 +108,10 @@ Para los ejemplos de este documento, `DbContext` se inicializa en el archivo [St
 El modelo de datos:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Data/Customer.cs)]
+
+El contexto de la base de datos:
+
+[!code-cs[main](index/sample/RazorPagesContacts/Data/AppDbContext.cs)]
 
 El archivo de vista *Pages/Create.cshtml*:
 
@@ -313,7 +319,7 @@ Vincular el nombre relativo es útil al crear sitios con una estructura compleja
 
 ## <a name="tempdata"></a>TempData
 
-ASP.NET Core expone la propiedad [TempData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller#Microsoft_AspNetCore_Mvc_Controller_TempData) en un [controlador](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller). Esta propiedad almacena datos hasta que se leen. Los métodos `Keep` y `Peek` se pueden usar para examinar los datos sin que se eliminen. `TempData` es útil para el redireccionamiento cuando se necesitan los datos de más de una única solicitud.
+ASP.NET Core expone la propiedad [TempData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controller.tempdata?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_Controller_TempData) en un [controlador](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller). Esta propiedad almacena datos hasta que se leen. Los métodos `Keep` y `Peek` se pueden usar para examinar los datos sin que se eliminen. `TempData` es útil para el redireccionamiento cuando se necesitan los datos de más de una única solicitud.
 
 El atributo `[TempData]` es nuevo en ASP.NET Core 2.0 y es compatible con controladores y páginas.
 
@@ -373,10 +379,43 @@ Para configurar opciones avanzadas, use el método de extensión `AddRazorPagesO
 
 [!code-cs[main](index/sample/RazorPagesContacts/StartupAdvanced.cs?name=snippet_1)]
 
-Actualmente, puede usar `RazorPagesOptions` para establecer el directorio raíz de páginas, o agregar convenciones de modelo de aplicación a las páginas. Esperamos habilitar más extensibilidad de este modo en el futuro.
+Actualmente, puede usar `RazorPagesOptions` para establecer el directorio raíz de páginas, o agregar convenciones de modelo de aplicación a las páginas. En el futuro habilitaremos más extensibilidad de este modo.
 
 Para precompilar vistas, vea [Razor view compilation](xref:mvc/views/view-compilation) (Compilación de vistas de Razor).
 
 [Descargue o vea el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample).
 
 Consulte [Introducción a las páginas de Razor en ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start), en el que se desarrolla esta introducción.
+
+### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Especificar que las páginas de Razor se encuentran en la raíz de contenido
+
+De forma predeterminada, la ruta raíz de las páginas de Razor es el directorio */Pages*. Agregue [WithRazorPagesAtContentRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvcbuilderextensions.withrazorpagesatcontentroot) a [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) para especificar que las páginas de Razor están en la ruta raíz de contenido ([ContentRootPath](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.contentrootpath)) de la aplicación:
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        ...
+    })
+    .WithRazorPagesAtContentRoot();
+```
+
+### <a name="specify-that-razor-pages-are-at-a-custom-root-directory"></a>Especificar que las páginas de Razor se encuentran en un directorio raíz personalizado
+
+Agregue [WithRazorPagesRoot](/dotnet/api/microsoft.extensions.dependencyinjection.mvcrazorpagesmvccorebuilderextensions.withrazorpagesroot) a [AddMvc](/dotnet/api/microsoft.extensions.dependencyinjection.mvcservicecollectionextensions.addmvc#Microsoft_Extensions_DependencyInjection_MvcServiceCollectionExtensions_AddMvc_Microsoft_Extensions_DependencyInjection_IServiceCollection_) para especificar que las páginas de Razor están en un directorio raíz personalizado en la aplicación (proporcione una ruta de acceso relativa):
+
+```csharp
+services.AddMvc()
+    .AddRazorPagesOptions(options =>
+    {
+        ...
+    })
+    .WithRazorPagesRoot("/path/to/razor/pages");
+```
+
+## <a name="see-also"></a>Vea también
+
+* [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
+* [Convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization)
+* [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Pruebas unitarias y de integración de las páginas de Razor](xref:testing/razor-pages-testing)

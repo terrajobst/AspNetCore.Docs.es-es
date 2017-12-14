@@ -1,8 +1,8 @@
 ---
 title: "Implementación"
 author: rick-anderson
-description: 
-keywords: ASP.NET Core
+description: "Este documento sirve como tabla de contenido para los distintos temas de implementación de protección de datos de ASP.NET Core."
+keywords: "ASP.NET Core, protección de datos"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
@@ -11,11 +11,11 @@ ms.assetid: 706a11bb-bf6e-4e91-930b-e3f4e71d04a0
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/index
-ms.openlocfilehash: a26f910f30e437306a68394aee2c58fa0eca78b4
-ms.sourcegitcommit: 0b6c8e6d81d2b3c161cd375036eecbace46a9707
+ms.openlocfilehash: 36e92f7ec9c03a7d1530a27d2fdb2838ea939dba
+ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="implementation"></a>Implementación
 
