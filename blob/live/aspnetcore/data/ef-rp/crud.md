@@ -1,0 +1,249 @@
+---
+title: "Páginas de Razor con EF Core - CRUD - 2 de 8"
+author: rick-anderson
+description: "Muestra cómo crear, leer, actualizar y eliminar con EF principales"
+keywords: ASP.NET Core, Entity Framework Core, CRUD, crear, leer, actualizar, eliminar
+ms.author: riande
+manager: wpickett
+ms.date: 10/15/2017
+ms.topic: get-started-article
+ms.technology: aspnet
+ms.prod: asp.net-core
+uid: data/ef-rp/crud
+ms.openlocfilehash: b4b24c155c29a0ef8ffffda752253f56097e50ed
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.translationtype: MT
+ms.contentlocale: es-ES
+ms.lasthandoff: 12/14/2017
+---
+# <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a><span data-ttu-id="02f1b-104">Crear, leer, actualizar y eliminar - Core EF con páginas de Razor (2 de 8)</span><span class="sxs-lookup"><span data-stu-id="02f1b-104">Create, Read, Update, and Delete - EF Core with Razor Pages (2 of 8)</span></span>
+
+<span data-ttu-id="02f1b-105">Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), y [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="02f1b-105">By [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog), and [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+
+[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+
+<span data-ttu-id="02f1b-106">En este tutorial, el con scaffolding CRUD (crear, leer, actualizar y eliminar) es revisar y personalizar el código.</span><span class="sxs-lookup"><span data-stu-id="02f1b-106">In this tutorial, the scaffolded CRUD (create, read, update, delete) code is reviewed and customized.</span></span>
+
+<span data-ttu-id="02f1b-107">Nota: Para minimizar la complejidad y mantener estos tutoriales se centra en EF Core, código EF básico se usa en los archivos de código subyacente de las páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="02f1b-107">Note: To minimize complexity and keep these tutorials focused on EF Core, EF Core code is used in the Razor Pages code-behind files.</span></span> <span data-ttu-id="02f1b-108">Algunos programadores utilizan un patrón de capa o en el repositorio de servicios en para crear una capa de abstracción entre la interfaz de usuario (las páginas de Razor) y la capa de acceso a datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-108">Some developers use a service layer or repository pattern in to create an abstraction layer between the UI (Razor Pages) and the data access layer.</span></span>
+
+<span data-ttu-id="02f1b-109">En este tutorial, crear, editar, eliminar y detalles de las páginas de Razor en el *estudiante* carpeta se modifican.</span><span class="sxs-lookup"><span data-stu-id="02f1b-109">In this tutorial, the Create, Edit, Delete, and Details Razor Pages in the *Student* folder are modified.</span></span>
+
+<span data-ttu-id="02f1b-110">El código con scaffolding usa el modelo siguiente para crear, editar y eliminar páginas:</span><span class="sxs-lookup"><span data-stu-id="02f1b-110">The scaffolded code uses the following pattern for Create, Edit, and Delete pages:</span></span>
+
+* <span data-ttu-id="02f1b-111">Obtener y mostrar los datos solicitados con el método GET de HTTP `OnGetAsync`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-111">Get and display the requested data with the HTTP GET method `OnGetAsync`.</span></span>
+* <span data-ttu-id="02f1b-112">Guardar los cambios en los datos con el método HTTP POST `OnPostAsync`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-112">Save changes to the data with the HTTP POST method `OnPostAsync`.</span></span>
+
+<span data-ttu-id="02f1b-113">Las páginas de índice y detalles de obtener y mostrar los datos solicitados con el método GET de HTTP`OnGetAsync`</span><span class="sxs-lookup"><span data-stu-id="02f1b-113">The Index and Details pages get and display the requested data with the HTTP GET method `OnGetAsync`</span></span>
+
+## <a name="replace-singleordefaultasync-with-firstordefaultasync"></a><span data-ttu-id="02f1b-114">Reemplace SingleOrDefaultAsync por FirstOrDefaultAsync</span><span class="sxs-lookup"><span data-stu-id="02f1b-114">Replace SingleOrDefaultAsync with FirstOrDefaultAsync</span></span>
+
+<span data-ttu-id="02f1b-115">El código generado utiliza [SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) para capturar la entidad solicitada.</span><span class="sxs-lookup"><span data-stu-id="02f1b-115">The generated code uses [SingleOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleOrDefaultAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_)  to fetch the requested entity.</span></span> <span data-ttu-id="02f1b-116">[FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) es más eficaz en una entidad de filas:</span><span class="sxs-lookup"><span data-stu-id="02f1b-116">[FirstOrDefaultAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstordefaultasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstOrDefaultAsync__1_System_Linq_IQueryable___0__System_Threading_CancellationToken_) is more efficient at fetching one entity:</span></span>
+
+* <span data-ttu-id="02f1b-117">A menos que el código necesita para comprobar que no hay más de una entidad devuelta por la consulta.</span><span class="sxs-lookup"><span data-stu-id="02f1b-117">Unless the code needs to verify that there is not more than one entity returned from the query.</span></span> 
+* <span data-ttu-id="02f1b-118">`SingleOrDefaultAsync`captura más datos y realiza trabajo innecesario.</span><span class="sxs-lookup"><span data-stu-id="02f1b-118">`SingleOrDefaultAsync` fetches more data and does unnecessary work.</span></span>
+* <span data-ttu-id="02f1b-119">`SingleOrDefaultAsync`produce una excepción si hay más de una entidad que se ajuste a la parte del filtro.</span><span class="sxs-lookup"><span data-stu-id="02f1b-119">`SingleOrDefaultAsync` throws an exception if there is more than one entity that fits the filter part.</span></span>
+*  <span data-ttu-id="02f1b-120">`FirstOrDefaultAsync`no produce una excepción si no hay más de una entidad que se ajuste a la parte del filtro.</span><span class="sxs-lookup"><span data-stu-id="02f1b-120">`FirstOrDefaultAsync` doesn't throw if there is more than one entity that fits the filter part.</span></span>
+
+<span data-ttu-id="02f1b-121">Reemplace globalmente `SingleOrDefaultAsync` con `FirstOrDefaultAsync`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-121">Globally replace `SingleOrDefaultAsync` with `FirstOrDefaultAsync`.</span></span> <span data-ttu-id="02f1b-122">`SingleOrDefaultAsync`se utiliza en 5 lugares:</span><span class="sxs-lookup"><span data-stu-id="02f1b-122">`SingleOrDefaultAsync` is used in 5 places:</span></span>
+
+* <span data-ttu-id="02f1b-123">`OnGetAsync`en la página de detalles.</span><span class="sxs-lookup"><span data-stu-id="02f1b-123">`OnGetAsync` in the Details page.</span></span>
+* <span data-ttu-id="02f1b-124">`OnGetAsync`y `OnPostAsync` en las páginas de editar y eliminar.</span><span class="sxs-lookup"><span data-stu-id="02f1b-124">`OnGetAsync` and `OnPostAsync` in the Edit and Delete pages.</span></span>
+
+<a name="FindAsync"></a>
+### <a name="findasync"></a><span data-ttu-id="02f1b-125">Aplica findasync a</span><span class="sxs-lookup"><span data-stu-id="02f1b-125">FindAsync</span></span>
+
+<span data-ttu-id="02f1b-126">En gran parte del código con scaffolding, [aplica findasync a](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) puede usarse en lugar de `FirstOrDefaultAsync` o `SingleOrDefaultAsync`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-126">In much of the scaffolded code, [FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) can be used in place of `FirstOrDefaultAsync` or `SingleOrDefaultAsync`.</span></span> 
+
+<span data-ttu-id="02f1b-127">`FindAsync`:</span><span class="sxs-lookup"><span data-stu-id="02f1b-127">`FindAsync`:</span></span>
+
+* <span data-ttu-id="02f1b-128">Busca una entidad con la clave principal (PK).</span><span class="sxs-lookup"><span data-stu-id="02f1b-128">Finds an entity with the primary key (PK).</span></span> <span data-ttu-id="02f1b-129">Si una entidad con la clave principal es sometida a seguimiento por el contexto, se devuelve sin una solicitud a la base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-129">If an entity with the PK is being tracked by the context, it is returned without a request to the DB.</span></span>
+* <span data-ttu-id="02f1b-130">Es sencilla y concisa.</span><span class="sxs-lookup"><span data-stu-id="02f1b-130">Is simple and concise.</span></span>
+* <span data-ttu-id="02f1b-131">Está optimizado para buscar una sola entidad.</span><span class="sxs-lookup"><span data-stu-id="02f1b-131">Is optimized to look up a single entity.</span></span>
+* <span data-ttu-id="02f1b-132">Puede tener ventajas de rendimiento en algunas situaciones, pero rara vez entran en juego para escenarios web normal.</span><span class="sxs-lookup"><span data-stu-id="02f1b-132">Can have perf benefits in some situations, but they rarely come into play for normal web scenarios.</span></span>
+* <span data-ttu-id="02f1b-133">Utiliza implícitamente [FirstAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) en lugar de [SingleAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).</span><span class="sxs-lookup"><span data-stu-id="02f1b-133">Implicitly uses [FirstAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.firstasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_FirstAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_) instead of [SingleAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.entityframeworkqueryableextensions.singleasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_EntityFrameworkQueryableExtensions_SingleAsync__1_System_Linq_IQueryable___0__System_Linq_Expressions_Expression_System_Func___0_System_Boolean___System_Threading_CancellationToken_).</span></span>
+<span data-ttu-id="02f1b-134">Pero si van a incluir otras entidades, buscar ya no es apropiada.</span><span class="sxs-lookup"><span data-stu-id="02f1b-134">But if you want to Include other entities, then Find is no longer appropriate.</span></span> <span data-ttu-id="02f1b-135">Esto significa que puede que necesite abandonar Find y mover a una consulta como su progresa de aplicación.</span><span class="sxs-lookup"><span data-stu-id="02f1b-135">This means that you may need to abandon Find and move to a query as your app progresses.</span></span>
+
+## <a name="customize-the-details-page"></a><span data-ttu-id="02f1b-136">Personalizar la página de detalles</span><span class="sxs-lookup"><span data-stu-id="02f1b-136">Customize the Details page</span></span>
+
+<span data-ttu-id="02f1b-137">Vaya a `Pages/Students` página.</span><span class="sxs-lookup"><span data-stu-id="02f1b-137">Browse to `Pages/Students` page.</span></span> <span data-ttu-id="02f1b-138">El **editar**, **detalles**, y **eliminar** vínculos son generados por el [auxiliar de etiquetas de delimitador](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) en el *páginas/estudiantes / Index.cshtml* archivo.</span><span class="sxs-lookup"><span data-stu-id="02f1b-138">The **Edit**, **Details**, and **Delete** links are generated by the [Anchor Tag Helper](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) in the *Pages/Students/Index.cshtml* file.</span></span>
+
+[!code-cshtml[Main](intro/samples/cu/Pages/Students/Index1.cshtml?range=40-44)]
+
+<span data-ttu-id="02f1b-139">Seleccione un vínculo de detalles.</span><span class="sxs-lookup"><span data-stu-id="02f1b-139">Select a Details link.</span></span> <span data-ttu-id="02f1b-140">La dirección URL tiene el formato `http://localhost:5000/Students/Details?id=2`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-140">The URL is of the form `http://localhost:5000/Students/Details?id=2`.</span></span> <span data-ttu-id="02f1b-141">Se pasa el Id. de estudiante utilizando una cadena de consulta (`?id=2`).</span><span class="sxs-lookup"><span data-stu-id="02f1b-141">The Student ID is passed using a query string (`?id=2`).</span></span>
+
+<span data-ttu-id="02f1b-142">Actualizar la edición, los detalles y eliminar las páginas de Razor para usar el `"{id:int}"` plantilla de ruta.</span><span class="sxs-lookup"><span data-stu-id="02f1b-142">Update the Edit, Details, and Delete Razor Pages to use the `"{id:int}"` route template.</span></span> <span data-ttu-id="02f1b-143">Cambie la directiva de página de cada una de estas páginas de `@page` a `@page "{id:int}"`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-143">Change the page directive for each of these pages from `@page` to `@page "{id:int}"`.</span></span>
+
+<span data-ttu-id="02f1b-144">Una solicitud a la página con la plantilla de ruta "{Id.: int}" encargada de **no** incluyen una ruta valor devuelve HTTP 404 (no encontrado) errores de enteros.</span><span class="sxs-lookup"><span data-stu-id="02f1b-144">A request to the page with the "{id:int}" route template that does **not** include a integer route value returns an HTTP 404 (not found) error.</span></span> <span data-ttu-id="02f1b-145">Por ejemplo, `http://localhost:5000/Students/Details` devuelve un error 404.</span><span class="sxs-lookup"><span data-stu-id="02f1b-145">For example, `http://localhost:5000/Students/Details` returns a 404 error.</span></span> <span data-ttu-id="02f1b-146">Para que el identificador sea opcional, anexe `?` a la restricción de ruta:</span><span class="sxs-lookup"><span data-stu-id="02f1b-146">To make the ID optional, append `?` to the route constraint:</span></span>
+
+ ```cshtml
+@page "{id:int?}"
+```
+
+<span data-ttu-id="02f1b-147">Ejecute la aplicación, haga clic en un vínculo de detalles y compruebe la dirección URL está pasando el identificador como datos de ruta (`http://localhost:5000/Students/Details/2`).</span><span class="sxs-lookup"><span data-stu-id="02f1b-147">Run the app, click on a Details link, and verify the URL is passing the ID as route data (`http://localhost:5000/Students/Details/2`).</span></span>
+
+<span data-ttu-id="02f1b-148">No cambiar globalmente `@page` a `@page "{id:int}"`, esta acción saltos así los vínculos a la página principal y crear páginas.</span><span class="sxs-lookup"><span data-stu-id="02f1b-148">Don't globally change `@page` to `@page "{id:int}"`, doing so breaks the links to the Home and Create pages.</span></span>
+
+<!-- See https://github.com/aspnet/Scaffolding/issues/590 -->
+
+### <a name="add-related-data"></a><span data-ttu-id="02f1b-149">Agregar datos relacionados</span><span class="sxs-lookup"><span data-stu-id="02f1b-149">Add related data</span></span>
+
+<span data-ttu-id="02f1b-150">El código con scaffolding de la página de índice de los estudiantes que no incluye el `Enrollments` propiedad.</span><span class="sxs-lookup"><span data-stu-id="02f1b-150">The scaffolded code for the Students Index page does not include the `Enrollments` property.</span></span> <span data-ttu-id="02f1b-151">En esta sección, el contenido de la `Enrollments` recopilación se muestra en la página de detalles.</span><span class="sxs-lookup"><span data-stu-id="02f1b-151">In this section, the contents of the `Enrollments` collection is displayed in the Details page.</span></span>
+
+<span data-ttu-id="02f1b-152">El `OnGetAsync` método *Pages/Students/Details.cshtml.cs* utiliza la `FirstOrDefaultAsync` método para recuperar un único `Student` entidad.</span><span class="sxs-lookup"><span data-stu-id="02f1b-152">The `OnGetAsync` method of *Pages/Students/Details.cshtml.cs* uses the `FirstOrDefaultAsync` method to retrieve a single `Student` entity.</span></span> <span data-ttu-id="02f1b-153">Agregue el código resaltado siguiente:</span><span class="sxs-lookup"><span data-stu-id="02f1b-153">Add the following highlighted code:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Details.cshtml.cs?name=snippet_Details&highlight=8-12)]
+
+<span data-ttu-id="02f1b-154">El `Include` y `ThenInclude` métodos hacen que el contexto cargar la `Student.Enrollments` propiedad de navegación y dentro de cada inscripción el `Enrollment.Course` propiedad de navegación.</span><span class="sxs-lookup"><span data-stu-id="02f1b-154">The `Include` and `ThenInclude` methods cause the context to load the `Student.Enrollments` navigation property, and within each enrollment the `Enrollment.Course` navigation property.</span></span> <span data-ttu-id="02f1b-155">Estos métodos son examinied detalladamente en el tutorial relacionadas con la lectura de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-155">These methods are examinied in detail in the reading-related data tutorial.</span></span>
+
+<span data-ttu-id="02f1b-156">El `AsNoTracking` método mejora el rendimiento en escenarios cuando las entidades devueltas no se actualizan en el contexto actual.</span><span class="sxs-lookup"><span data-stu-id="02f1b-156">The `AsNoTracking` method improves performance in scenarios when the entities returned are not updated in the current context.</span></span> <span data-ttu-id="02f1b-157">`AsNoTracking`se explica más adelante en este tutorial.</span><span class="sxs-lookup"><span data-stu-id="02f1b-157">`AsNoTracking` is discussed later in this tutorial.</span></span>
+
+### <a name="display-related-enrollments-on-the-details-page"></a><span data-ttu-id="02f1b-158">Mostrar las inscripciones relacionadas en la página de detalles</span><span class="sxs-lookup"><span data-stu-id="02f1b-158">Display related enrollments on the Details page</span></span>
+
+<span data-ttu-id="02f1b-159">Abra *Pages/Students/Details.cshtml*.</span><span class="sxs-lookup"><span data-stu-id="02f1b-159">Open *Pages/Students/Details.cshtml*.</span></span> <span data-ttu-id="02f1b-160">Agregue el siguiente código resaltado para mostrar una lista de las inscripciones:</span><span class="sxs-lookup"><span data-stu-id="02f1b-160">Add the following highlighted code to display a list of enrollments:</span></span>
+
+ <!--2do ricka. if doesn't change, remove dup -->
+[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
+
+<span data-ttu-id="02f1b-161">Si no es correcta la sangría del código después de que se pega el código, presione CTRL-K-D para corregirlo.</span><span class="sxs-lookup"><span data-stu-id="02f1b-161">If code indentation is wrong after the code is pasted, press CTRL-K-D to correct it.</span></span>
+
+<span data-ttu-id="02f1b-162">El código anterior recorre las entidades en el `Enrollments` propiedad de navegación.</span><span class="sxs-lookup"><span data-stu-id="02f1b-162">The preceding code loops through the entities in the `Enrollments` navigation property.</span></span> <span data-ttu-id="02f1b-163">Para cada inscripción muestra el título del curso y el grado de.</span><span class="sxs-lookup"><span data-stu-id="02f1b-163">For each enrollment, it displays the course title and the grade.</span></span> <span data-ttu-id="02f1b-164">Se recupera el título del curso de la entidad de curso que se almacena en la `Course` propiedad de navegación de la entidad de inscripciones.</span><span class="sxs-lookup"><span data-stu-id="02f1b-164">The course title is retrieved from the Course entity that's stored in the `Course` navigation property of the Enrollments entity.</span></span>
+
+<span data-ttu-id="02f1b-165">Ejecutar la aplicación, seleccione la **estudiantes** ficha y haga clic en el **detalles** vínculo acerca de un estudiante.</span><span class="sxs-lookup"><span data-stu-id="02f1b-165">Run the app, select the **Students** tab, and click the **Details** link for a student.</span></span> <span data-ttu-id="02f1b-166">Se muestra la lista de cursos y sus notas para el alumno seleccionado.</span><span class="sxs-lookup"><span data-stu-id="02f1b-166">The list of courses and grades for the selected student is displayed.</span></span>
+
+## <a name="update-the-create-page"></a><span data-ttu-id="02f1b-167">Actualizar la página Crear</span><span class="sxs-lookup"><span data-stu-id="02f1b-167">Update the Create page</span></span>
+
+<span data-ttu-id="02f1b-168">Actualización de la `OnPostAsync` método *Pages/Students/Create.cshtml.cs* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="02f1b-168">Update the `OnPostAsync` method in *Pages/Students/Create.cshtml.cs* with the following code:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_OnPostAsync)]
+
+<a name="TryUpdateModelAsync"></a>
+### <a name="tryupdatemodelasync"></a><span data-ttu-id="02f1b-169">TryUpdateModelAsync</span><span class="sxs-lookup"><span data-stu-id="02f1b-169">TryUpdateModelAsync</span></span>
+
+<span data-ttu-id="02f1b-170">Examine la [TryUpdateModelAsync](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) código:</span><span class="sxs-lookup"><span data-stu-id="02f1b-170">Examine the [TryUpdateModelAsync](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.mvc.controllerbase.tryupdatemodelasync?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_ControllerBase_TryUpdateModelAsync_System_Object_System_Type_System_String_) code:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Create.cshtml.cs?name=snippet_TryUpdateModelAsync)]
+
+<span data-ttu-id="02f1b-171">En el código anterior, `TryUpdateModelAsync<Student>` intenta actualizar el `emptyStudent` objeto usando los valores de formulario expuesto desde el [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) propiedad en el [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0).</span><span class="sxs-lookup"><span data-stu-id="02f1b-171">In the preceding code, `TryUpdateModelAsync<Student>` tries to update the `emptyStudent` object using the posted form values from the [PageContext](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.pagecontext?view=aspnetcore-2.0#Microsoft_AspNetCore_Mvc_RazorPages_PageModel_PageContext) property in the [PageModel](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel?view=aspnetcore-2.0).</span></span> <span data-ttu-id="02f1b-172">`TryUpdateModelAsync`solo actualiza las propiedades enumeradas (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).</span><span class="sxs-lookup"><span data-stu-id="02f1b-172">`TryUpdateModelAsync` only updates the properties listed (`s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate`).</span></span>
+
+<span data-ttu-id="02f1b-173">En el ejemplo anterior:</span><span class="sxs-lookup"><span data-stu-id="02f1b-173">In the preceding sample:</span></span>
+
+* <span data-ttu-id="02f1b-174">El segundo argumento (` "student", // Prefix`) es el prefijo que se usa para buscar valores.</span><span class="sxs-lookup"><span data-stu-id="02f1b-174">The second argument (` "student", // Prefix`) is the prefix uses to look up values.</span></span> <span data-ttu-id="02f1b-175">No distingue mayúsculas de minúsculas.</span><span class="sxs-lookup"><span data-stu-id="02f1b-175">It's not case sensitive.</span></span>
+* <span data-ttu-id="02f1b-176">Los valores de formulario expuesto se convierten a los tipos en el `Student` modelados con [enlace de modelo](xref:mvc/models/model-binding#how-model-binding-works).</span><span class="sxs-lookup"><span data-stu-id="02f1b-176">The posted form values are converted to the types in the `Student` model using [model binding](xref:mvc/models/model-binding#how-model-binding-works).</span></span>
+
+<a id="overpost"></a>
+### <a name="overposting"></a><span data-ttu-id="02f1b-177">Publicación excesiva</span><span class="sxs-lookup"><span data-stu-id="02f1b-177">Overposting</span></span>
+
+<span data-ttu-id="02f1b-178">Usar `TryUpdateModel` actualizar los campos con valores registrados es una práctica recomendada de seguridad porque evita overposting.</span><span class="sxs-lookup"><span data-stu-id="02f1b-178">Using `TryUpdateModel` to update fields with posted values is a security best practice because it prevents overposting.</span></span> <span data-ttu-id="02f1b-179">Por ejemplo, suponga que la entidad Student incluye un `Secret` propiedad que esta página web no debe actualizar o agregar:</span><span class="sxs-lookup"><span data-stu-id="02f1b-179">For example, suppose the Student entity includes a `Secret` property that this web page should not update or add:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
+
+<span data-ttu-id="02f1b-180">Incluso si la aplicación no tiene un `Secret` campo en la creación o actualización de página de Razor, un pirata informático podría establecer el `Secret` valor por publicación excesiva.</span><span class="sxs-lookup"><span data-stu-id="02f1b-180">Even if the app doesn't have a `Secret` field on the create/update Razor Page, a hacker could set the `Secret` value by overposting.</span></span> <span data-ttu-id="02f1b-181">Un pirata informático podría usar una herramienta como Fiddler o escribir código de JavaScript, para registrar un `Secret` formar el valor.</span><span class="sxs-lookup"><span data-stu-id="02f1b-181">A hacker could use a tool such as Fiddler, or write some JavaScript, to post a `Secret` form value.</span></span> <span data-ttu-id="02f1b-182">El código original no limita los campos que el enlazador de modelos se utiliza cuando crea una instancia de estudiante.</span><span class="sxs-lookup"><span data-stu-id="02f1b-182">The original code doesn't limit the fields that the model binder uses when it creates a Student instance.</span></span>
+
+<span data-ttu-id="02f1b-183">Valor el pirata especificado para el `Secret` se actualiza el campo de formulario en la base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-183">Whatever value the hacker specified for the `Secret` form field is updated in the DB.</span></span> <span data-ttu-id="02f1b-184">La siguiente imagen muestra la adición de la herramienta de Fiddler el `Secret` campo (con el valor "OverPost") a los valores de formulario expuesto.</span><span class="sxs-lookup"><span data-stu-id="02f1b-184">The following image shows the Fiddler tool adding the `Secret` field (with the value "OverPost") to the posted form values.</span></span>
+
+![Campo de secreto adición de Fiddler](../ef-mvc/crud/_static/fiddler.png)
+
+<span data-ttu-id="02f1b-186">El valor "OverPost" se ha agregado correctamente a la `Secret` propiedades de la fila insertada.</span><span class="sxs-lookup"><span data-stu-id="02f1b-186">The value "OverPost" is successfully added to the `Secret` property of the inserted row.</span></span> <span data-ttu-id="02f1b-187">El Diseñador de aplicaciones que se habían previsto el `Secret` propiedad se establece con la página que se creó.</span><span class="sxs-lookup"><span data-stu-id="02f1b-187">The app designer never intended the `Secret` property to be set with the Create page.</span></span>
+
+<a name="vm"></a>
+### <a name="view-model"></a><span data-ttu-id="02f1b-188">Modelo de vista</span><span class="sxs-lookup"><span data-stu-id="02f1b-188">View model</span></span>
+
+<span data-ttu-id="02f1b-189">Normalmente, un modelo de vista contiene un subconjunto de las propiedades incluidas en el modelo utilizado por la aplicación.</span><span class="sxs-lookup"><span data-stu-id="02f1b-189">A view model typically contains a subset of the properties included in the model used by the application.</span></span> <span data-ttu-id="02f1b-190">El modelo de aplicación se suele denominar el modelo de dominio.</span><span class="sxs-lookup"><span data-stu-id="02f1b-190">The application model is often called the domain model.</span></span> <span data-ttu-id="02f1b-191">El modelo de dominio normalmente contiene todas las propiedades requeridas por la entidad correspondiente en la base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-191">The domain model typically contains all the properties required by the corresponding entity in the DB.</span></span> <span data-ttu-id="02f1b-192">El modelo de vista contiene solo las propiedades necesarias para la capa de interfaz de usuario (por ejemplo, en la página Crear).</span><span class="sxs-lookup"><span data-stu-id="02f1b-192">The view model contains only the properties needed for the UI layer (for example, the Create page).</span></span> <span data-ttu-id="02f1b-193">Además del modelo de vista, algunas aplicaciones usan un modelo de enlace o el modelo de entrada para pasar datos entre la clase de código subyacente de las páginas de Razor y el explorador.</span><span class="sxs-lookup"><span data-stu-id="02f1b-193">In addition to the view model, some apps use a binding model or input model to pass data between the Razor Pages code-behind class and the browser.</span></span> <span data-ttu-id="02f1b-194">Tenga en cuenta la siguiente `Student` modelo de vista:</span><span class="sxs-lookup"><span data-stu-id="02f1b-194">Consider the following `Student` view model:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
+
+<span data-ttu-id="02f1b-195">Ver modelos proporcionan una manera alternativa para evitar overposting.</span><span class="sxs-lookup"><span data-stu-id="02f1b-195">View models provide an alternative way to prevent overposting.</span></span> <span data-ttu-id="02f1b-196">El modelo de vista contiene solo las propiedades para ver (pantalla) o actualizar.</span><span class="sxs-lookup"><span data-stu-id="02f1b-196">The view model contains only the properties to view (display) or update.</span></span>
+
+<span data-ttu-id="02f1b-197">El siguiente código utiliza el `StudentVM` modelo de vista para crear un nuevo alumno:</span><span class="sxs-lookup"><span data-stu-id="02f1b-197">The following code uses the `StudentVM` view model to create a new student:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/CreateVM.cshtml.cs?name=snippet_OnPostAsync)]
+
+<span data-ttu-id="02f1b-198">El [SetValues](https://docs.microsoft.com/ dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) método establece los valores de este objeto al leer valores de otra [PropertyValues](https://docs.microsoft.com/ dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) objeto.</span><span class="sxs-lookup"><span data-stu-id="02f1b-198">The [SetValues](https://docs.microsoft.com/ dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues.setvalues?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyValues_SetValues_System_Object_) method sets the values of this object by reading values from another [PropertyValues](https://docs.microsoft.com/ dotnet/api/microsoft.entityframeworkcore.changetracking.propertyvalues) object.</span></span> <span data-ttu-id="02f1b-199">`SetValues`usa la coincidencia de nombres de propiedad.</span><span class="sxs-lookup"><span data-stu-id="02f1b-199">`SetValues` uses property name matching.</span></span> <span data-ttu-id="02f1b-200">El tipo de modelo de vista no necesita estar relacionado con el tipo de modelo, basta con que tienen propiedades que coinciden con.</span><span class="sxs-lookup"><span data-stu-id="02f1b-200">The view model type doesn't need to be related to the model type, it just needs to have properties that match.</span></span>
+
+<span data-ttu-id="02f1b-201">Usar `StudentVM` requiere [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) actualizarse para utilizar `StudentVM` en lugar de `Student`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-201">Using `StudentVM` requires [CreateVM.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Students/CreateVM.cshtml) be updated to use `StudentVM` rather than `Student`.</span></span>
+
+<span data-ttu-id="02f1b-202">En las páginas de Razor, el `PageModel` clase derivada es el modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="02f1b-202">In Razor Pages, the `PageModel` derived class is the view model.</span></span> 
+
+## <a name="update-the-edit-page"></a><span data-ttu-id="02f1b-203">Actualizar la página de edición</span><span class="sxs-lookup"><span data-stu-id="02f1b-203">Update the Edit page</span></span>
+
+<span data-ttu-id="02f1b-204">Actualice el archivo de código subyacente de la página de edición:</span><span class="sxs-lookup"><span data-stu-id="02f1b-204">Update the Edit page code-behind file:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
+
+<span data-ttu-id="02f1b-205">Los cambios de código son similares a la página que se creó con unas pocas excepciones:</span><span class="sxs-lookup"><span data-stu-id="02f1b-205">The code changes are similar to the Create page with a few exceptions:</span></span>
+
+* <span data-ttu-id="02f1b-206">`OnPostAsync`tiene una función opcional `id` parámetro.</span><span class="sxs-lookup"><span data-stu-id="02f1b-206">`OnPostAsync` has an optional `id` parameter.</span></span>
+* <span data-ttu-id="02f1b-207">Se capturan los estudiantes actual desde la base de datos, en lugar de crear un estudiante vacía.</span><span class="sxs-lookup"><span data-stu-id="02f1b-207">The current student is fetched from the DB, rather than creating an empty student.</span></span>
+* <span data-ttu-id="02f1b-208">`FirstOrDefaultAsync`se ha reemplazado por [aplica findasync a](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0).</span><span class="sxs-lookup"><span data-stu-id="02f1b-208">`FirstOrDefaultAsync` has been replaced with [FindAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbset-1.findasync?view=efcore-2.0).</span></span> <span data-ttu-id="02f1b-209">`FindAsync`es una buena elección cuando se selecciona una entidad de la clave principal.</span><span class="sxs-lookup"><span data-stu-id="02f1b-209">`FindAsync` is a good choice when selecting an entity from the primary key.</span></span> <span data-ttu-id="02f1b-210">Vea [aplica findasync a](#FindAsync) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="02f1b-210">See [FindAsync](#FindAsync) for more information.</span></span>
+
+### <a name="test-the-edit-and-create-pages"></a><span data-ttu-id="02f1b-211">La edición de prueba y crear páginas</span><span class="sxs-lookup"><span data-stu-id="02f1b-211">Test the Edit and Create pages</span></span>
+
+<span data-ttu-id="02f1b-212">Crear y editar algunas entidades de estudiante.</span><span class="sxs-lookup"><span data-stu-id="02f1b-212">Create and edit a few student entities.</span></span>
+
+## <a name="entity-states"></a><span data-ttu-id="02f1b-213">Estados de entidad</span><span class="sxs-lookup"><span data-stu-id="02f1b-213">Entity States</span></span>
+
+<span data-ttu-id="02f1b-214">El contexto de base de datos realiza un seguimiento de si las entidades en memoria están sincronizadas con sus filas correspondientes en la base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-214">The DB context keeps track of whether entities in memory are in sync with their corresponding rows in the DB.</span></span> <span data-ttu-id="02f1b-215">La información de sincronización del contexto de base de datos determina qué ocurre cuando `SaveChanges` se llama.</span><span class="sxs-lookup"><span data-stu-id="02f1b-215">The DB context sync information determines what happens when `SaveChanges` is called.</span></span> <span data-ttu-id="02f1b-216">Por ejemplo, cuando una nueva entidad se pasa a la `Add` método, que el estado de la entidad se establece en `Added`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-216">For example, when a new entity is passed to the `Add` method, that entity's state is set to `Added`.</span></span> <span data-ttu-id="02f1b-217">Cuando `SaveChanges` se llama, la base de datos contexto emite un comando INSERT de SQL.</span><span class="sxs-lookup"><span data-stu-id="02f1b-217">When `SaveChanges` is called, the DB context issues a SQL INSERT command.</span></span>
+
+<span data-ttu-id="02f1b-218">Una entidad puede estar en uno de los siguientes estados:</span><span class="sxs-lookup"><span data-stu-id="02f1b-218">An entity may be in one of the following states:</span></span>
+
+* <span data-ttu-id="02f1b-219">`Added`: La entidad no existe todavía en la base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-219">`Added`: The entity does not yet exist in the DB.</span></span> <span data-ttu-id="02f1b-220">El `SaveChanges` método emite una instrucción INSERT.</span><span class="sxs-lookup"><span data-stu-id="02f1b-220">The `SaveChanges` method issues an INSERT statement.</span></span>
+
+* <span data-ttu-id="02f1b-221">`Unchanged`: No hay cambios tienen que guardarse con esta entidad.</span><span class="sxs-lookup"><span data-stu-id="02f1b-221">`Unchanged`: No changes need to be saved with this entity.</span></span> <span data-ttu-id="02f1b-222">Una entidad tiene este estado cuando se leen desde la base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-222">An entity has this status when it is read from the DB.</span></span>
+
+* <span data-ttu-id="02f1b-223">`Modified`: Se han modificado algunos o todos los valores de propiedad de la entidad.</span><span class="sxs-lookup"><span data-stu-id="02f1b-223">`Modified`: Some or all of the entity's property values have been modified.</span></span> <span data-ttu-id="02f1b-224">El `SaveChanges` método emite una instrucción UPDATE.</span><span class="sxs-lookup"><span data-stu-id="02f1b-224">The `SaveChanges` method issues an UPDATE statement.</span></span>
+
+* <span data-ttu-id="02f1b-225">`Deleted`: La entidad se ha marcado para su eliminación.</span><span class="sxs-lookup"><span data-stu-id="02f1b-225">`Deleted`: The entity has been marked for deletion.</span></span> <span data-ttu-id="02f1b-226">El `SaveChanges` método emite una instrucción DELETE.</span><span class="sxs-lookup"><span data-stu-id="02f1b-226">The `SaveChanges` method issues a DELETE statement.</span></span>
+
+* <span data-ttu-id="02f1b-227">`Detached`: La entidad no sometida a seguimiento por el contexto de base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-227">`Detached`: The entity isn't being tracked by the DB context.</span></span>
+
+<span data-ttu-id="02f1b-228">En una aplicación de escritorio, normalmente se establecen automáticamente los cambios de estado.</span><span class="sxs-lookup"><span data-stu-id="02f1b-228">In a desktop app, state changes are typically set automatically.</span></span> <span data-ttu-id="02f1b-229">Se lee una entidad, se realizan cambios y el estado de la entidad que se cambie automáticamente al `Modified`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-229">An entity is read, changes are made, and the entity state to automatically be changed to `Modified`.</span></span> <span data-ttu-id="02f1b-230">Al llamar a `SaveChanges` genera una instrucción UPDATE de SQL que actualiza sólo las propiedades modificadas.</span><span class="sxs-lookup"><span data-stu-id="02f1b-230">Calling `SaveChanges` generates a SQL UPDATE statement that updates only the changed properties.</span></span>
+
+<span data-ttu-id="02f1b-231">En una aplicación web, el `DbContext` que lee una entidad y muestra los datos se eliminan una vez que se representa una página.</span><span class="sxs-lookup"><span data-stu-id="02f1b-231">In a web app, the `DbContext` that reads an entity and displays the data is disposed after a page is rendered.</span></span> <span data-ttu-id="02f1b-232">Cuando una página de `OnPostAsync` se llama al método, se realiza una solicitud web nueva y con una nueva instancia de la `DbContext`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-232">When a pages `OnPostAsync` method is called, a new web request is made and with a new instance of the `DbContext`.</span></span> <span data-ttu-id="02f1b-233">Volver a leer la entidad en ese contexto nuevo simula el procesamiento de escritorio.</span><span class="sxs-lookup"><span data-stu-id="02f1b-233">Re-reading the entity in that new context simulates desktop processing.</span></span>
+
+## <a name="update-the-delete-page"></a><span data-ttu-id="02f1b-234">Actualizar la página de borrado</span><span class="sxs-lookup"><span data-stu-id="02f1b-234">Update the Delete page</span></span>
+
+<span data-ttu-id="02f1b-235">En esta sección, se agrega código al implementar un error personalizado aparece un mensaje cuando la llamada a `SaveChanges` se produce un error.</span><span class="sxs-lookup"><span data-stu-id="02f1b-235">In this section, code is added to implement a custom error message when the call to `SaveChanges` fails.</span></span> <span data-ttu-id="02f1b-236">Agregar una cadena que contiene mensajes de error de possile:</span><span class="sxs-lookup"><span data-stu-id="02f1b-236">Add a string to contain possile error messages:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
+
+<span data-ttu-id="02f1b-237">Reemplace el método `OnGetAsync` con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="02f1b-237">Replace the `OnGetAsync` method with the following code:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnGetAsync&highlight=1,9,17-20)]
+
+<span data-ttu-id="02f1b-238">El código anterior contiene el parámetro opcional `saveChangesError`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-238">The preceding code contains the optional parameter `saveChangesError`.</span></span> <span data-ttu-id="02f1b-239">`saveChangesError`indica si se llamó al método después de un error al eliminar el objeto de student.</span><span class="sxs-lookup"><span data-stu-id="02f1b-239">`saveChangesError` indicates whether the method was called after a failure to delete the student object.</span></span> <span data-ttu-id="02f1b-240">La operación de eliminación puede producir un error debido a problemas de red transitorios.</span><span class="sxs-lookup"><span data-stu-id="02f1b-240">The delete operation might fail because of transient network problems.</span></span> <span data-ttu-id="02f1b-241">Errores transitorios de red están más probable que en la nube.</span><span class="sxs-lookup"><span data-stu-id="02f1b-241">Transient network errors are more likely in the cloud.</span></span> <span data-ttu-id="02f1b-242">`saveChangesError`es false cuando la página de borrado `OnGetAsync` se llama desde la interfaz de usuario.</span><span class="sxs-lookup"><span data-stu-id="02f1b-242">`saveChangesError`is false when the Delete page `OnGetAsync` is called from the UI.</span></span> <span data-ttu-id="02f1b-243">Cuando `OnGetAsync` llama a `OnPostAsync` (debido a un error la operación de eliminación), el `saveChangesError` del parámetro es true.</span><span class="sxs-lookup"><span data-stu-id="02f1b-243">When `OnGetAsync` is called by `OnPostAsync` (because the delete operation failed), the `saveChangesError` parameter is true.</span></span>
+
+### <a name="the-delete-pages-onpostasync-method"></a><span data-ttu-id="02f1b-244">El método de eliminación páginas OnPostAsync</span><span class="sxs-lookup"><span data-stu-id="02f1b-244">The Delete pages OnPostAsync method</span></span>
+
+<span data-ttu-id="02f1b-245">Reemplace el `OnPostAsync` con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="02f1b-245">Replace the `OnPostAsync` with the following code:</span></span>
+
+[!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet_OnPostAsync)]
+
+<span data-ttu-id="02f1b-246">El código anterior recupera la entidad seleccionada, a continuación, llama el `Remove` método para establecer el estado de la entidad como `Deleted`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-246">The preceding code retrieves the selected entity, then calls the `Remove` method to set the entity's status to `Deleted`.</span></span> <span data-ttu-id="02f1b-247">Cuando `SaveChanges` se denomina un DELETE de SQL se genere un comando.</span><span class="sxs-lookup"><span data-stu-id="02f1b-247">When `SaveChanges` is called, a SQL DELETE command is generated.</span></span> <span data-ttu-id="02f1b-248">Si `Remove` se produce un error:</span><span class="sxs-lookup"><span data-stu-id="02f1b-248">If `Remove` fails:</span></span>
+
+* <span data-ttu-id="02f1b-249">Se detectó la excepción de base de datos.</span><span class="sxs-lookup"><span data-stu-id="02f1b-249">The DB exception is caught.</span></span>
+* <span data-ttu-id="02f1b-250">Las páginas de Delete `OnGetAsync` método se llama con `saveChangesError=true`.</span><span class="sxs-lookup"><span data-stu-id="02f1b-250">The Delete pages `OnGetAsync` method is called with `saveChangesError=true`.</span></span>
+
+### <a name="update-the-delete-razor-page"></a><span data-ttu-id="02f1b-251">Actualizar la página de Razor de borrado</span><span class="sxs-lookup"><span data-stu-id="02f1b-251">Update the Delete Razor Page</span></span>
+
+<span data-ttu-id="02f1b-252">Agregue el siguiente mensaje de error resaltado a la página de Razor eliminar.</span><span class="sxs-lookup"><span data-stu-id="02f1b-252">Add the following highlighted error message to the Delete Razor Page.</span></span>
+
+[!code-cshtml[Main](intro/samples/cu/Pages/Students/Delete.cshtml?range=1-13&highlight=10)]
+
+<span data-ttu-id="02f1b-253">Pruebe a eliminar.</span><span class="sxs-lookup"><span data-stu-id="02f1b-253">Test Delete.</span></span>
+
+## <a name="common-errors"></a><span data-ttu-id="02f1b-254">Errores comunes</span><span class="sxs-lookup"><span data-stu-id="02f1b-254">Common errors</span></span>
+
+<span data-ttu-id="02f1b-255">/ Página principal del alumno u otros vínculos no funcionan:</span><span class="sxs-lookup"><span data-stu-id="02f1b-255">Student/Home or other links don't work:</span></span>
+
+<span data-ttu-id="02f1b-256">Compruebe la página de Razor contiene el valor correcto `@page` directiva.</span><span class="sxs-lookup"><span data-stu-id="02f1b-256">Verify the Razor Page contains the correct `@page` directive.</span></span> <span data-ttu-id="02f1b-257">Por ejemplo, la página de Razor estudiante/principal debe **no** contiene una plantilla de ruta:</span><span class="sxs-lookup"><span data-stu-id="02f1b-257">For example, The Student/Home Razor Page should **not** contain a route template:</span></span>
+
+```cshtml
+@page "{id:int}"
+```
+
+<span data-ttu-id="02f1b-258">Cada página de Razor debe incluir el `@page` directiva.</span><span class="sxs-lookup"><span data-stu-id="02f1b-258">Each Razor Page must include the `@page` directive.</span></span>
+
+>[!div class="step-by-step"]
+<span data-ttu-id="02f1b-259">[Anterior](xref:data/ef-rp/intro)
+[Siguiente](xref:data/ef-rp/sort-filter-page)</span><span class="sxs-lookup"><span data-stu-id="02f1b-259">[Previous](xref:data/ef-rp/intro)
+[Next](xref:data/ef-rp/sort-filter-page)</span></span>
