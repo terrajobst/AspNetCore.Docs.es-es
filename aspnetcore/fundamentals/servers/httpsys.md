@@ -11,11 +11,11 @@ ms.assetid: 0a7286e4-6428-424e-b5c4-5c98815cf61c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: d3f9eb4943ed62b674d6bb2ab1b275b0a3c02343
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8d46862af44379d8592efdf214a80214dce2d69d
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación de servidor web de HTTP.sys en ASP.NET Core
 
@@ -24,7 +24,7 @@ Por [Tom Dykstra](https://github.com/tdykstra) y [Chris Ross](https://github.com
 > [!NOTE]
 > En este tema se aplica solo a ASP.NET Core 2.0 y versiones posteriores. En versiones anteriores de ASP.NET Core, se denomina HTTP.sys [WebListener](xref:fundamentals/servers/weblistener).
 
-HTTP.sys es un [servidor web de ASP.NET Core](index.md) que sólo se ejecuta en Windows. Se basa en el [controlador de modo de núcleo de Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys es una alternativa a [Kestrel](kestrel.md) que ofrece algunas características que no Kestel. **HTTP.sys no puede utilizarse con IIS o IIS Express, ya que no es compatible con la [módulo principal de ASP.NET](aspnet-core-module.md).**
+HTTP.sys es un [servidor web de ASP.NET Core](index.md) que sólo se ejecuta en Windows. Se basa en el [controlador de modo de núcleo de Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). HTTP.sys es una alternativa a [Kestrel](kestrel.md) que ofrece algunas características que no Kestel. **HTTP.sys no puede utilizarse con IIS o IIS Express, ya no es compatible con la [módulo principal de ASP.NET](aspnet-core-module.md).**
 
 HTTP.sys es compatible con las siguientes características:
 
@@ -166,7 +166,7 @@ Aquí está la documentación de referencia de *netsh.exe*:
 
 Los siguientes recursos proporcionan instrucciones detalladas para varios escenarios. Artículos que hacen referencia a HttpListener se aplican por igual a HTTP.sys, tal y como se basan en Http.Sys.
 
-* [Cómo: configurar un puerto con un certificado SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
+* [Configuración de un puerto con un certificado SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
 * [Comunicación HTTPS - HttpListener en función de hospedaje y la certificación de cliente](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) esto es un blog de terceros y es bastante antiguo pero aún tiene información útil.
 * [Cómo: Tutorial utilizando HttpListener o servidor Http de código no administrado (C++) como un servidor Simple SSL](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) Esto también es un blog anterior con información útil.
 

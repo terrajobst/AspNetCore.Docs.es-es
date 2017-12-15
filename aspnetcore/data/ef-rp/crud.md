@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 410829608540697ac4563f1399c8e72d28a13cf2
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: b4b24c155c29a0ef8ffffda752253f56097e50ed
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Crear, leer, actualizar y eliminar - Core EF con páginas de Razor (2 de 8)
 
@@ -102,7 +102,7 @@ El `AsNoTracking` método mejora el rendimiento en escenarios cuando las entidad
 Abra *Pages/Students/Details.cshtml*. Agregue el siguiente código resaltado para mostrar una lista de las inscripciones:
 
  <!--2do ricka. if doesn't change, remove dup -->
-[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=35-53)]
+[!code-cshtml[Main](intro/samples/cu/Pages/Students/Details1.cshtml?highlight=32-53)]
 
 Si no es correcta la sangría del código después de que se pega el código, presione CTRL-K-D para corregirlo.
 

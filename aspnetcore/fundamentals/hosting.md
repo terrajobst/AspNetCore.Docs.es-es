@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 7deccf135ddd21729206ebed58ddc8aca52c1deb
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: dfec2a67112d40b528b97c847da3dda8ef1e63bd
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="hosting-in-aspnet-core"></a>Hospedar en ASP.NET Core
 
@@ -48,7 +48,7 @@ El *contenido raíz* determina que el host busca archivos de contenido, como los
 Vea [configuración en ASP.NET Core](xref:fundamentals/configuration/index) para obtener más información sobre la configuración de la aplicación.
 
 > [!NOTE]
-> Como alternativa al uso el método estático `CreateDefaultBuilder` (método), crear un host de [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) es un enfoque compatible con ASP.NET Core 2.x. Consulte la ficha de 1.x ASP.NET Core para obtener más información.
+> Como alternativa al uso el método estático `CreateDefaultBuilder` (método), crear un host de [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) es un enfoque compatible con ASP.NET Core 2.x. Vea la pestaña ASP.NET Core 1.x para más información.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -254,7 +254,7 @@ Esta característica no está disponible en ASP.NET Core 1.x.
 
 ### <a name="prevent-hosting-startup"></a>Evitar el inicio de hospedaje
 
-Impide que la carga automática de ensamblados de inicio, incluidos los ensamblados de la aplicación de hospedaje.
+Impide que la carga automática de hospedaje de ensamblados de inicio, incluidos los ensamblados de inicio configurados por el ensamblado de la aplicación de hospedaje. Vea [agregar características de la aplicación desde un ensamblado externo con IHostingStartup](xref:hosting/ihostingstartup) para obtener más información.
 
 **Clave**: preventHostingStartup  
 **Tipo de**: *bool* (`true` o `1`)  

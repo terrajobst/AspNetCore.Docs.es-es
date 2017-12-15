@@ -10,11 +10,11 @@ ms.topic: article
 ms.assetid: 0292bdae-b3ed-4637-bd67-19b9bb8b65cb
 ms.prod: asp.net-core
 uid: security/key-vault-configuration
-ms.openlocfilehash: 352d125b9042c603b59ed9bda0e99b6a49c7ab9f
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 19cab22176c732c5cb8e337d7635bddc54107921
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Proveedor de configuración de almacén de claves de Azure
 
@@ -63,7 +63,7 @@ El proveedor se agrega a la `ConfigurationBuilder` con el `AddAzureKeyVault` ext
       * `SecretName`: `secret_value_1`
       * `Section--SecretName`: `secret_value_2`
   * Registrar la aplicación de ejemplo con Azure Active Directory.
-  * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToKeys list,get`.
+  * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToSecrets list,get`.
 2. Actualización de la aplicación *appSettings.JSON que se* archivo con los valores de `Vault`, `ClientId`, y `ClientSecret`.
 3. Ejecute la aplicación de ejemplo, que obtiene sus valores de configuración de `IConfigurationRoot` con el mismo nombre que el nombre de secreto.
   * Valores no son jerárquicos: el valor de `SecretName` se obtiene con `config["SecretName"]`.
@@ -105,7 +105,7 @@ Al implementar este enfoque:
       * `5000-AppSecret`: `5.0.0.0_secret_value`
       * `5100-AppSecret`: `5.1.0.0_secret_value`
   * Registrar la aplicación de ejemplo con Azure Active Directory.
-  * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToKeys list,get`.
+  * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToSecrets list,get`.
 2. Actualización de la aplicación *appSettings.JSON que se* archivo con los valores de `Vault`, `ClientId`, y `ClientSecret`.
 3. Ejecute la aplicación de ejemplo, que obtiene sus valores de configuración de `IConfigurationRoot` con el mismo nombre que el nombre de secreto con prefijo. En este ejemplo, el prefijo es la versión de la aplicación, que proporciona a los `PrefixKeyVaultSecretManager` cuando agrega el proveedor de configuración de almacén de claves de Azure. El valor de `AppSecret` se obtiene con `config["AppSecret"]`. La página Web generada por la aplicación muestra el valor cargado:
 

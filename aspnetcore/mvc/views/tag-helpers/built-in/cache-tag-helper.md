@@ -11,16 +11,15 @@ ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 1710a5781fb69aaa6101270d6b4fd44f92c7f06c
-ms.sourcegitcommit: a33737ea24e1ea9642e461d1bc90d6701f889436
+ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC
 
 Por [Peter Kellner](http://peterkellner.net) 
-
 
 La aplicación auxiliar de etiqueta de caché proporciona la capacidad para mejorar drásticamente el rendimiento de la aplicación de ASP.NET Core almacenando en memoria caché su contenido para el proveedor de caché de ASP.NET Core interno.
 
@@ -29,7 +28,7 @@ El motor de vista Razor establece el valor predeterminado `expires-after` veinte
 El siguiente marcado de Razor almacena en caché la fecha y hora:
 
 ```cshtml
-<Cache>@DateTime.Now<Cache>
+<cache>@DateTime.Now</cache>
 ```
 
 La primera solicitud a la página que contiene `CacheTagHelper` mostrará la fecha y hora actuales. Las solicitudes adicionales mostrarán el valor almacenado en caché hasta que la memoria caché expira (el valor predeterminado es 20 minutos) o se expulsa a la presión de memoria.
@@ -54,9 +53,9 @@ Determina si el contenido incluido en la aplicación auxiliar de etiqueta de cac
 Ejemplo:
 
 ```cshtml
-<Cache enabled="true">
+<cache enabled="true">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -73,9 +72,9 @@ Establece una fecha de expiración absoluta. En el ejemplo siguiente, se almacen
 Ejemplo:
 
 ```cshtml
-<Cache expires-on="@new DateTime(2025,1,29,17,02,0)">
+<cache expires-on="@new DateTime(2025,1,29,17,02,0)">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -92,9 +91,9 @@ Establece el período de tiempo desde la primera vez de solicitud para almacenar
 Ejemplo:
 
 ```cshtml
-<Cache expires-after="@TimeSpan.FromSeconds(120)">
+<cache expires-after="@TimeSpan.FromSeconds(120)">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -111,9 +110,9 @@ Establece el tiempo que se debe expulsar una entrada de caché si no se ha acced
 Ejemplo:
 
 ```cshtml
-<Cache expires-sliding="@TimeSpan.FromSeconds(60)">
+<cache expires-sliding="@TimeSpan.FromSeconds(60)">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -130,9 +129,9 @@ Acepta un valor de encabezado único o una lista separada por comas de los valor
 Ejemplo:
 
 ```cshtml
-<Cache vary-by-header="User-Agent">
+<cache vary-by-header="User-Agent">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -149,9 +148,9 @@ Acepta un valor de encabezado único o una lista separada por comas de los valor
 Ejemplo:
 
 ```cshtml
-<Cache vary-by-query="Make,Model">
+<cache vary-by-query="Make,Model">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -176,9 +175,9 @@ routes.MapRoute(
 *Index.cshtml*
 
 ```cshtml
-<Cache vary-by-route="Make,Model">
+<cache vary-by-route="Make,Model">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -195,9 +194,9 @@ Acepta un valor de encabezado único o una lista separada por comas de los valor
 Ejemplo:
 
 ```cshtml
-<Cache vary-by-cookie=".AspNetCore.Identity.Application">
+<cache vary-by-cookie=".AspNetCore.Identity.Application">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -216,9 +215,9 @@ En el ejemplo siguiente se examina el usuario conectado actualmente.
 Ejemplo:
 
 ```cshtml
-<Cache vary-by-user="true">
+<cache vary-by-user="true">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 Con este atributo, mantiene el contenido en caché a través de un ciclo de inicio de sesión y registro de salida.  Al utilizar `vary-by-user="true"`, una acción de inicio de sesión y registro horizontal invalida la caché para el usuario autenticado.  Se invalida la memoria caché porque se genera un nuevo valor de cookie único inicio de sesión. Memoria caché se mantiene para el estado anónimo cuando ninguna cookie está presente o ha expirado. Esto significa que si ningún usuario ha iniciado sesión, se mantendrá la memoria caché.
@@ -254,9 +253,9 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 *Index.cshtml*
 
 ```cshtml
-<Cache vary-by="@Model"">
+<cache vary-by="@Model"">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 - - -
@@ -275,9 +274,9 @@ Proporciona instrucciones de expulsión de caché para el proveedor de caché in
 Ejemplo:
 
 ```cshtml
-<Cache priority="High">
+<cache priority="High">
     Current Time Inside Cache Tag Helper: @DateTime.Now
-</Cache>
+</cache>
 ```
 
 El `priority` atributos no garantizan un nivel específico de retención de la memoria caché. `CacheItemPriority`es sólo una sugerencia. Establecer este atributo en `NeverRemove` no garantiza que siempre se conservará la memoria caché. Vea [recursos adicionales](#additional-resources) para obtener más información.

@@ -11,11 +11,11 @@ ms.assetid: 8c65179b-688c-4af1-8f5e-1862920cda95
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/facebook-logins
-ms.openlocfilehash: 826ac826c22dae81e5dbea08a11a62cac0b1068a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 058670b4f699288e1acbe76bae08dcebf69346b8
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configuring-facebook-authentication"></a>Configurar la autenticación de Facebook
 
@@ -25,9 +25,9 @@ Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuent
 
 ## <a name="create-the-app-in-facebook"></a>Crear la aplicación de Facebook
 
-*  Navegue hasta la [Facebook para los desarrolladores](https://developers.facebook.com) página e inicie sesión. Si ya no tiene una cuenta de Facebook, use la **registrarse para Facebook** vínculo en la página de inicio de sesión para crear uno.
+*  Navegue hasta la [aplicación de desarrolladores de Facebook](https://developers.facebook.com/apps/) página e inicie sesión. Si ya no tiene una cuenta de Facebook, use la **registrarse para Facebook** vínculo en la página de inicio de sesión para crear uno.
 
-* Pulse la **crear aplicación** botón en la esquina superior derecha para crear un nuevo identificador de aplicación.
+* Pulse la **agregar una nueva aplicación** botón en la esquina superior derecha para crear un nuevo identificador de aplicación.
 
    ![Facebook para portal de desarrolladores de abrir con Microsoft Edge](index/_static/FBMyApps.png)
 
@@ -35,10 +35,10 @@ Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuent
 
    ![Crear un formulario nuevo Id. de aplicación](index/_static/FBNewAppId.png)
 
-* Cuando aparezca **seleccionar un producto** símbolo del sistema, haga clic en **Set Up** en el **inicio de sesión de Facebook** tarjeta.
+* En el **seleccionar un producto** página, haga clic en **Set Up** en el **inicio de sesión de Facebook** tarjeta.
 
    ![Página de instalación del producto](index/_static/FBProductSetup.png)
-
+  
 * El **inicio rápido** asistente se iniciará con **elegir una plataforma** como la primera página. Omitir el asistente por ahora, haga clic en el **configuración** vínculo en el menú de la izquierda:
 
    ![Inicio rápido de Skip](index/_static/FBSkipQuickStart.png)
@@ -72,13 +72,6 @@ dotnet user-secrets set Authentication:Facebook:AppSecret <app-secret>
 
 ## <a name="configure-facebook-authentication"></a>Configurar la autenticación de Facebook
 
-La plantilla de proyecto que se usan en este tutorial asegura de que [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) paquete ya está instalado.
-
-* Para instalar este paquete con 2017 de Visual Studio, haga doble clic en el proyecto y seleccione **administrar paquetes de NuGet**.
-* Para instalar con CLI de .NET Core, ejecute lo siguiente en el directorio del proyecto:
-
-   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
-
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 Agregue el servicio de Facebook en la `ConfigureServices` método en el *Startup.cs* archivo:
@@ -98,6 +91,13 @@ services.AddAuthentication().AddFacebook(facebookOptions =>
 [!INCLUDE[default settings configuration](includes/default-settings.md)]
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+
+Instalar el [Microsoft.AspNetCore.Authentication.Facebook](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Facebook) paquete.
+
+* Para instalar este paquete con 2017 de Visual Studio, haga doble clic en el proyecto y seleccione **administrar paquetes de NuGet**.
+* Para instalar con CLI de .NET Core, ejecute lo siguiente en el directorio del proyecto:
+
+   `dotnet add package Microsoft.AspNetCore.Authentication.Facebook`
 
 Agregar el middleware de Facebook en la `Configure` método *Startup.cs* archivo:
 

@@ -5,21 +5,22 @@ description: "Obtenga información acerca de cómo vistas controlan la presentac
 keywords: "Núcleo de ASP.NET, ver, MVC, razor, viewmodel, viewdata, viewbag"
 ms.author: riande
 manager: wpickett
-ms.date: 09/26/2017
+ms.date: 12/12/2017
 ms.topic: article
-ms.assetid: 668c320d-c050-45e3-8161-2f460dc93b2f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 4530d2f500dd887bf649a753283fb3e4af995322
-ms.sourcegitcommit: c2f6c593d81fbd90e6ddd672fe0a5636d06b615a
+ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de núcleo de ASP.NET MVC
 
 Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guardrex)
+
+Este documento explica vistas utilizadas en las aplicaciones de MVC de ASP.NET Core. Para obtener información sobre las páginas de Razor, consulte [Introducción a las páginas Razor](xref:mvc/razor-pages/index).
 
 En el **M**odelo -**V**er -**C**patrón ontroller (MVC), el *vista* administra la interacción de usuario y la presentación de datos de la aplicación. Una vista es una plantilla HTML con incrustado [marcado Razor](xref:mvc/views/razor). Marcado de Razor es código que interactúa con el marcado HTML para generar una página Web que se envía al cliente.
 

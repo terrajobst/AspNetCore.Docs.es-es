@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/index
-ms.openlocfilehash: 44eaac4f3f4ad55cbc9b5ca9fae6e406ceff3d3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 66f6e4542dd208a986b256acd4bd1d0381aa46c6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -38,7 +38,6 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
    * [Aplicación web con Visual Studio Code en Mac o Linux](first-mvc-app-xplat/index.md)
 
 * [Introducción a ASP.NET Core y Entity Framework Core con Visual Studio](../data/ef-mvc/index.md)
-* [Compilación de proyectos con Yeoman](../client-side/yeoman.md)
 * [Creación de aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/authoring.md)
 * [Creación de un componente de vista simple](../mvc/views/view-components.md#walkthrough-creating-a-simple-view-component)
 * [Desarrollo de aplicaciones de ASP.NET Core con dotnet watch](dotnet-watch.md)

@@ -11,17 +11,17 @@ ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 5095def776f79d0bb76d5a8e94a4228ef0abed75
-ms.sourcegitcommit: a80d35647aff66323160b2cb413b65d79d98f7a6
+ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Hay disponible una versión de las páginas de Razor de este tutorial [aquí](xref:data/ef-rp/intro). La versión de las páginas de Razor es más fácil de seguir y explica las características EF más. Le recomendamos que siga el [versión de las páginas de Razor de este tutorial](xref:data/ef-rp/intro).
+Hay disponible una versión de las páginas de Razor de este tutorial [aquí](xref:data/ef-rp/intro). La versión de las páginas de Razor es más fácil de seguir y abarca más características de EF. Le recomendamos que siga el [versión de las páginas de Razor de este tutorial](xref:data/ef-rp/intro).
 
 La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones web de MVC de ASP.NET Core 2.0 mediante 2017 de Visual Studio y los núcleos de Entity Framework (EF) 2.0.
 
@@ -244,15 +244,10 @@ La creación automática de los métodos de acción CRUD y vistas se conoce como
 
 * Haga clic en el **controladores** carpeta **el Explorador de soluciones** y seleccione **Agregar > nuevo elemento de scaffolding**.
 
-* En el cuadro de diálogo **Agregar dependencias de MVC**, seleccione **Dependencias mínimas** y **Agregar**.
+Si el **agregar dependencias de MVC** aparece el cuadro de diálogo:
 
-  ![Agregar dependencias](intro/_static/add-depend.png)
-
-  Visual Studio agrega las dependencias necesarias para aplicar la técnica scaffolding un controlador. El único cambio en el archivo de proyecto es la adición de la `Microsoft.VisualStudio.Web.CodeGeneration.Design` paquete.
-
-  A *ScaffoldingReadMe.txt* se crea el archivo que se puede eliminar.
-
-* Una vez más, haga clic en el **controladores** carpeta **el Explorador de soluciones** y seleccione **Agregar > nuevo elemento de scaffolding**.
+* [Actualizar Visual Studio a la última versión](https://www.visualstudio.com/downloads/). Versiones de Visual Studio antes de 15,5 mostrar este cuadro de diálogo.
+* Si no se puede actualizar, seleccione **agregar**y, a continuación, siga los pasos de controlador agregar de nuevo.
 
 * En el **agregar scaffolding** cuadro de diálogo:
 
