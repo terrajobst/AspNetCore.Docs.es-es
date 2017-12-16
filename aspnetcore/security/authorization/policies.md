@@ -1,153 +1,79 @@
 ---
-title: "Autorización personalizada basada en directivas"
+title: "Autorización personalizada basada en directivas en ASP.NET Core"
 author: rick-anderson
-description: "Este documento explica cómo crear y usar controladores de directiva de autorización personalizada en una aplicación de ASP.NET Core."
+description: "Obtenga información acerca de cómo crear y usar controladores de directiva de autorización personalizada para exigir requisitos de autorización en una aplicación de ASP.NET Core."
 keywords: "Núcleo de ASP.NET, la autorización, la directiva personalizada, la directiva de autorización"
 ms.author: riande
+ms.custom: mvc
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 11/21/2017
 ms.topic: article
 ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 0281d054204a11acc2cf11cf5fca23a8f70aad8e
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 280dd72b75e39546061d8455931f597f50c829fe
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="custom-policy-based-authorization"></a>Autorización personalizada basada en directivas
 
-<a name="security-authorization-policies-based"></a>
+Interiormente, [autorización basada en roles](xref:security/authorization/roles) y [autorización basada en notificaciones](xref:security/authorization/claims) utilizan un requisito, un controlador de requisito y una directiva configurada previamente. Estos bloques de creación se admite la expresión de evaluaciones de autorización en el código. El resultado es una estructura de autorización más enriquecida, reutilizables, comprobable.
 
-Interiormente, el [autorización rol](roles.md) y [autorización de notificaciones](claims.md) hacer uso de un requisito y un controlador para el requisito así como una directiva configurada previamente. Estos bloques de creación permiten expresar las evaluaciones de autorización en el código, lo que permite una experiencia mejor, reutilizables y la estructura de autorización puede probar fácilmente.
+Una directiva de autorización está formada por uno o más requisitos. Se registra como parte de la configuración de servicio de autorización, en la `ConfigureServices` método de la `Startup` clase:
 
-Una directiva de autorización está formada por uno o varios requisitos y registrada al iniciar la aplicación como parte de la configuración de servicio de autorización, en `ConfigureServices` en el *Startup.cs* archivo.
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddMvc();
+En el ejemplo anterior, se crea una directiva de "AtLeast21". Tiene un requisito único, que de una antigüedad mínima, que se proporciona como un parámetro al requisito.
 
-    services.AddAuthorization(options =>
-    {
-        options.AddPolicy("Over21",
-                          policy => policy.Requirements.Add(new MinimumAgeRequirement(21)));
-    });
-}
-```
+Las directivas se aplican mediante el `[Authorize]` atributo con el nombre de la directiva. Por ejemplo:
 
-Aquí puede ver que una directiva de "Edad superior a 21" se crea con un requisito único, que de una antigüedad mínima, que se pasa como parámetro al requisito.
-
-Las directivas se aplican mediante el `Authorize` atributo especificando el nombre de la directiva, por ejemplo,
-
-```csharp
-[Authorize(Policy="Over21")]
-public class AlcoholPurchaseRequirementsController : Controller
-{
-    public ActionResult Login()
-    {
-    }
-
-    public ActionResult Logout()
-    {
-    }
-}
-```
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
 ## <a name="requirements"></a>Requisitos
 
-Un requisito de autorización es una colección de parámetros de datos que puede usar una directiva para evaluar la entidad de seguridad del usuario actual. En nuestra directiva de antigüedad mínima, el requisito que tenemos es un único parámetro, la antigüedad mínima. Debe implementar un requisito `IAuthorizationRequirement`. Se trata de una interfaz vacía, de marcador. Un requisito de antigüedad mínima con parámetros podría implementarse de la manera siguiente:
+Un requisito de autorización es una colección de parámetros de datos que puede usar una directiva para evaluar la entidad de seguridad del usuario actual. En nuestra directiva de "AtLeast21", el requisito es un parámetro único&mdash;la antigüedad mínima. Implementa un requisito `IAuthorizationRequirement`, que es una interfaz de marcador vacío. Un requisito de antigüedad mínima con parámetros podría implementarse como sigue:
 
-```csharp
-public class MinimumAgeRequirement : IAuthorizationRequirement
-{
-    public int MinimumAge { get; private set; }
-    
-    public MinimumAgeRequirement(int minimumAge)
-    {
-        MinimumAge = minimumAge;
-    }
-}
-```
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/MinimumAgeRequirement.cs?name=snippet_MinimumAgeRequirementClass)]
 
-No tiene un requisito que tienen datos o propiedades.
+> [!NOTE]
+> No tiene un requisito que tienen datos o propiedades.
 
 <a name="security-authorization-policies-based-authorization-handler"></a>
 
 ## <a name="authorization-handlers"></a>Controladores de autorización
 
-Un controlador de autorización es responsable de la evaluación de las propiedades de un requisito. El controlador de autorización debe evaluará con respecto a proporcionado `AuthorizationHandlerContext` para decidir si se permite la autorización. Puede tener un requisito [varios controladores](policies.md#security-authorization-policies-based-multiple-handlers). Los controladores deben heredar `AuthorizationHandler<T>` donde T es el requisito es capaz de abrir.
+Un controlador de autorización es responsable de la evaluación de propiedades de un requisito. El controlador de autorización evalúa los requisitos con proporcionado `AuthorizationHandlerContext` para determinar si se permite el acceso. Puede tener un requisito [varios controladores](#security-authorization-policies-based-multiple-handlers). Heredan de controladores `AuthorizationHandler<T>`, donde `T` es el requisito para procesarse.
 
 <a name="security-authorization-handler-example"></a>
 
 El controlador de antigüedad mínima podría ser similar al siguiente:
 
-```csharp
-public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, MinimumAgeRequirement requirement)
-    {
-        if (!context.User.HasClaim(c => c.Type == ClaimTypes.DateOfBirth &&
-                                   c.Issuer == "http://contoso.com"))
-        {
-            // .NET 4.x -> return Task.FromResult(0);
-            return Task.CompletedTask;
-        }
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/MinimumAgeHandler.cs?name=snippet_MinimumAgeHandlerClass)]
 
-        var dateOfBirth = Convert.ToDateTime(context.User.FindFirst(
-            c => c.Type == ClaimTypes.DateOfBirth && c.Issuer == "http://contoso.com").Value);
-
-        int calculatedAge = DateTime.Today.Year - dateOfBirth.Year;
-        if (dateOfBirth > DateTime.Today.AddYears(-calculatedAge))
-        {
-            calculatedAge--;
-        }
-
-        if (calculatedAge >= requirement.MinimumAge)
-        {
-            context.Succeed(requirement);
-        }
-        return Task.CompletedTask;
-    }
-}
-```
-
-En el código anterior, adentrarnos en primer lugar para ver si la entidad de seguridad del usuario actual tiene una fecha de nacimiento que ha sido emitidos por un emisor que sabemos y confianza de notificaciones. Si falta la notificación se no autorizar por lo que se devuelven. Si tenemos una notificación, se pueda determinar la antigüedad del usuario es, y si cumple la antigüedad mínima que se pasa por el requisito, a continuación, autorización ha correcta. Una vez que la autorización es correcta llamamos `context.Succeed()` pasando el requisito de que ha tenido éxito como un parámetro.
+El código anterior determina si la entidad de seguridad del usuario actual tiene una fecha de nacimiento de notificación de que se ha emitido por un emisor conocido y de confianza. No se puede realizar la autorización cuando falta la notificación, en cuyo caso se devuelve una tarea completa. Cuando está presente una notificación, se calcula la edad del usuario. Si el usuario cumple con la antigüedad mínima definida por el requisito, la autorización se considere correcta. Cuando se realiza correctamente, la autorización `context.Succeed` se invoca con el requisito satisfecho como un parámetro.
 
 <a name="security-authorization-policies-based-handler-registration"></a>
 
 ### <a name="handler-registration"></a>Registro del controlador
-Los controladores deben estar registrados en la colección de servicios durante la configuración, por ejemplo,
 
-```csharp
+Los controladores se registran en la colección de servicios durante la configuración. Por ejemplo:
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddMvc();
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
 
-    services.AddAuthorization(options =>
-    {
-        options.AddPolicy("Over21",
-                          policy => policy.Requirements.Add(new MinimumAgeRequirement(21)));
-    });
-
-    services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
-}
-```
-
-Cada controlador se agrega a la colección de servicios mediante `services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();` pasar en la clase de controlador.
+Cada controlador se agrega a la colección de servicios mediante la invocación de `services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();`.
 
 ## <a name="what-should-a-handler-return"></a>¿Qué debe devolver un controlador?
 
-Puede ver en nuestro [controlador (ejemplo)](policies.md#security-authorization-handler-example) que la `Handle()` método no tiene ningún valor devuelto, entonces, ¿cómo se indicaba correcto o erróneo?
+Tenga en cuenta que la `Handle` método en el [controlador (ejemplo)](#security-authorization-handler-example) no devuelve ningún valor. ¿Cómo es un estado de correcto o erróneo indicadas?
 
 * Un controlador indica éxito mediante una llamada a `context.Succeed(IAuthorizationRequirement requirement)`, pasando el requisito de que se ha validado correctamente.
 
 * Un controlador no necesita controlar los errores por lo general, como otros controladores para el mismo requisito pueden realizarse correctamente.
 
-* Para garantizar el error incluso si otros controladores para un requisito correctamente, llame a `context.Fail`.
+* Para garantizar el error, incluso si otros controladores de requisito correctamente, llame a `context.Fail`.
 
 Independientemente de lo que se llama a dentro de su controlador, todos los controladores para un requisito se llamará cuando una directiva exige el requisito. Esto permite requisitos tienen efectos secundarios, como el registro, que siempre se llevará a cabo aunque `context.Fail()` se ha llamado en otro controlador.
 
@@ -155,74 +81,43 @@ Independientemente de lo que se llama a dentro de su controlador, todos los cont
 
 ## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a>¿Por qué desearía varios controladores para un requisito?
 
-En casos donde probablemente prefiera evaluación en un **o** base se implementan varios controladores para un requisito único. Por ejemplo, Microsoft tiene puertas que solo se abren con tarjetas de clave. Si deja la tarjeta de claves en casa la recepcionista imprime una etiqueta temporal y abre la puerta para usted. En este escenario tendría un requisito único, *EnterBuilding*, pero varios controladores, cada uno de ellos examinando un requisito único.
+En casos donde probablemente prefiera evaluación en un **o** base, implementar varios controladores para un requisito único. Por ejemplo, Microsoft tiene puertas que solo se abren con tarjetas de clave. Si deja la tarjeta de claves en casa, la recepcionista imprime una etiqueta temporal y abre la puerta para usted. En este escenario, tendría un requisito único, *BuildingEntry*, pero varios controladores, cada uno de ellos examinando un requisito único.
 
-```csharp
-public class EnterBuildingRequirement : IAuthorizationRequirement
-{
-}
+*BuildingEntryRequirement.cs*
 
-public class BadgeEntryHandler : AuthorizationHandler<EnterBuildingRequirement>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EnterBuildingRequirement requirement)
-    {
-        if (context.User.HasClaim(c => c.Type == ClaimTypes.BadgeId &&
-                                       c.Issuer == "http://microsoftsecurity"))
-        {
-            context.Succeed(requirement);
-        }
-        return Task.CompletedTask;
-    }
-}
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/BuildingEntryRequirement.cs?name=snippet_BuildingEntryRequirementClass)]
 
-public class HasTemporaryStickerHandler : AuthorizationHandler<EnterBuildingRequirement>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EnterBuildingRequirement requirement)
-    {
-        if (context.User.HasClaim(c => c.Type == ClaimTypes.TemporaryBadgeId &&
-                                       c.Issuer == "https://microsoftsecurity"))
-        {
-            // We'd also check the expiration date on the sticker.
-            context.Succeed(requirement);
-        }
-        return Task.CompletedTask;
-    }
-}
-```
+*BadgeEntryHandler.cs*
 
-Ahora, suponiendo que ambos controladores son [registrado](xref:security/authorization/policies#security-authorization-policies-based-handler-registration) cuando una directiva se evalúa como el `EnterBuildingRequirement` si se realiza correctamente en cualquier controlador de la evaluación de directivas se realizará correctamente.
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/BadgeEntryHandler.cs?name=snippet_BadgeEntryHandlerClass)]
+
+*TemporaryStickerHandler.cs*
+
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/TemporaryStickerHandler.cs?name=snippet_TemporaryStickerHandlerClass)]
+
+Asegúrese de que ambos controladores estén [registrado](xref:security/authorization/policies#security-authorization-policies-based-handler-registration). Si cualquier controlador se ejecuta correctamente cuando una directiva se evalúa como el `BuildingEntryRequirement`, la evaluación de directivas se realiza correctamente.
 
 ## <a name="using-a-func-to-fulfill-a-policy"></a>Usar un elemento func para cumplir una directiva
 
-Puede haber ocasiones donde cumplir una directiva es sencillo expresar en el código. Es posible que solo tiene que proporcionar un `Func<AuthorizationHandlerContext, bool>` al configurar la directiva con el `RequireAssertion` el generador de directiva.
+Puede haber situaciones en las que cumplir una directiva es simple expresar en el código. Es posible proporcionar un `Func<AuthorizationHandlerContext, bool>` al configurar la directiva con el `RequireAssertion` el generador de directiva.
 
-Por ejemplo anterior `BadgeEntryHandler` podría volver a escribir como se indica a continuación:
+Por ejemplo, el anterior `BadgeEntryHandler` podría volver a escribir como se indica a continuación:
 
-```csharp
-services.AddAuthorization(options =>
-    {
-        options.AddPolicy("BadgeEntry",
-                          policy => policy.RequireAssertion(context =>
-                                  context.User.HasClaim(c =>
-                                     (c.Type == ClaimTypes.BadgeId ||
-                                      c.Type == ClaimTypes.TemporaryBadgeId)
-                                      && c.Issuer == "https://microsoftsecurity"));
-                          }));
-    }
- }
-```
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=52-53,57-63)]
 
 ## <a name="accessing-mvc-request-context-in-handlers"></a>Acceso al contexto de solicitud MVC en los controladores
 
-El `Handle` método que debe implementar en un controlador de autorización tiene dos parámetros, un `AuthorizationContext` y `Requirement` está controlando. Marcos de trabajo como MVC o Jabbr pueden agregar cualquier objeto a la `Resource` propiedad en el `AuthorizationContext` para pasar información adicional.
+El `HandleRequirementAsync` método se implementa en un controlador de autorización tiene dos parámetros: una `AuthorizationHandlerContext` y `TRequirement` está controlando. Marcos de trabajo como MVC o Jabbr pueden agregar cualquier objeto a la `Resource` propiedad en el `AuthorizationHandlerContext` para pasar información adicional.
 
-Por ejemplo, MVC pasa una instancia de `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` en la propiedad de recurso que se utiliza para tener acceso a HttpContext, RouteData y todo lo demás MVC proporciona.
+Por ejemplo, MVC pasa una instancia de [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) en el `Resource` propiedad. Esta propiedad proporciona acceso a `HttpContext`, `RouteData`y todo el contenido más proporcionó MVC y las páginas de Razor.
 
-El uso de la `Resource` propiedad es específicos de la plataforma. De manera indicada en el `Resource` propiedad limitará las directivas de autorización para marcos de trabajo determinados. Primero debe convertir el `Resource` propiedad mediante la `as` palabra clave y, a continuación, compruebe la conversión tiene éxito para asegurarse de que el código de no bloqueo con `InvalidCastExceptions` cuando se ejecuta en otros marcos de trabajo;
+El uso de la `Resource` propiedad es específicos de la plataforma. De manera indicada en el `Resource` propiedad limita las directivas de autorización para marcos de trabajo determinados. Debe convertir el `Resource` propiedad mediante la `as` (palabra clave) y, a continuación, confirme la conversión se realizará correctamente para asegurarse de que el código de no bloqueo con un `InvalidCastException` cuando se ejecuta en otros marcos de trabajo:
 
 ```csharp
-if (context.Resource is Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext mvcContext)
+// Requires the following import:
+//     using Microsoft.AspNetCore.Mvc.Filters;
+if (context.Resource is AuthorizationFilterContext mvcContext)
 {
-    // Examine MVC specific things like routing data.
+    // Examine MVC-specific things like routing data.
 }
 ```
