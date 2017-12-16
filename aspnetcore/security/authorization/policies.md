@@ -1,228 +1,123 @@
 ---
-title: "Autorización personalizada basada en directivas"
+title: "Autorización personalizada basada en directivas en ASP.NET Core"
 author: rick-anderson
-description: "Este documento explica cómo crear y usar controladores de directiva de autorización personalizada en una aplicación de ASP.NET Core."
+description: "Obtenga información acerca de cómo crear y usar controladores de directiva de autorización personalizada para exigir requisitos de autorización en una aplicación de ASP.NET Core."
 keywords: "Núcleo de ASP.NET, la autorización, la directiva personalizada, la directiva de autorización"
 ms.author: riande
+ms.custom: mvc
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 11/21/2017
 ms.topic: article
 ms.assetid: e422a1b2-dc4a-4bcc-b8d9-7ee62009b6a3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/policies
-ms.openlocfilehash: 0281d054204a11acc2cf11cf5fca23a8f70aad8e
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 280dd72b75e39546061d8455931f597f50c829fe
+ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="custom-policy-based-authorization"></a><span data-ttu-id="f0650-104">Autorización personalizada basada en directivas</span><span class="sxs-lookup"><span data-stu-id="f0650-104">Custom policy-based authorization</span></span>
+# <a name="custom-policy-based-authorization"></a><span data-ttu-id="9b378-104">Autorización personalizada basada en directivas</span><span class="sxs-lookup"><span data-stu-id="9b378-104">Custom policy-based authorization</span></span>
 
-<a name="security-authorization-policies-based"></a>
+<span data-ttu-id="9b378-105">Interiormente, [autorización basada en roles](xref:security/authorization/roles) y [autorización basada en notificaciones](xref:security/authorization/claims) utilizan un requisito, un controlador de requisito y una directiva configurada previamente.</span><span class="sxs-lookup"><span data-stu-id="9b378-105">Underneath the covers, [role-based authorization](xref:security/authorization/roles) and [claims-based authorization](xref:security/authorization/claims) use a requirement, a requirement handler, and a pre-configured policy.</span></span> <span data-ttu-id="9b378-106">Estos bloques de creación se admite la expresión de evaluaciones de autorización en el código.</span><span class="sxs-lookup"><span data-stu-id="9b378-106">These building blocks support the expression of authorization evaluations in code.</span></span> <span data-ttu-id="9b378-107">El resultado es una estructura de autorización más enriquecida, reutilizables, comprobable.</span><span class="sxs-lookup"><span data-stu-id="9b378-107">The result is a richer, reusable, testable authorization structure.</span></span>
 
-<span data-ttu-id="f0650-105">Interiormente, el [autorización rol](roles.md) y [autorización de notificaciones](claims.md) hacer uso de un requisito y un controlador para el requisito así como una directiva configurada previamente.</span><span class="sxs-lookup"><span data-stu-id="f0650-105">Underneath the covers, the [role authorization](roles.md) and [claims authorization](claims.md) make use of a requirement, a handler for the requirement, and a pre-configured policy.</span></span> <span data-ttu-id="f0650-106">Estos bloques de creación permiten expresar las evaluaciones de autorización en el código, lo que permite una experiencia mejor, reutilizables y la estructura de autorización puede probar fácilmente.</span><span class="sxs-lookup"><span data-stu-id="f0650-106">These building blocks allow you to express authorization evaluations in code, allowing for a richer, reusable, and easily testable authorization structure.</span></span>
+<span data-ttu-id="9b378-108">Una directiva de autorización está formada por uno o más requisitos.</span><span class="sxs-lookup"><span data-stu-id="9b378-108">An authorization policy consists of one or more requirements.</span></span> <span data-ttu-id="9b378-109">Se registra como parte de la configuración de servicio de autorización, en la `ConfigureServices` método de la `Startup` clase:</span><span class="sxs-lookup"><span data-stu-id="9b378-109">It's registered as part of the authorization service configuration, in the `ConfigureServices` method of the `Startup` class:</span></span>
 
-<span data-ttu-id="f0650-107">Una directiva de autorización está formada por uno o varios requisitos y registrada al iniciar la aplicación como parte de la configuración de servicio de autorización, en `ConfigureServices` en el *Startup.cs* archivo.</span><span class="sxs-lookup"><span data-stu-id="f0650-107">An authorization policy is made up of one or more requirements and registered at application startup as part of the Authorization service configuration, in `ConfigureServices` in the *Startup.cs* file.</span></span>
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
 
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddMvc();
+<span data-ttu-id="9b378-110">En el ejemplo anterior, se crea una directiva de "AtLeast21".</span><span class="sxs-lookup"><span data-stu-id="9b378-110">In the preceding example, an "AtLeast21" policy is created.</span></span> <span data-ttu-id="9b378-111">Tiene un requisito único, que de una antigüedad mínima, que se proporciona como un parámetro al requisito.</span><span class="sxs-lookup"><span data-stu-id="9b378-111">It has a single requirement, that of a minimum age, which is supplied as a parameter to the requirement.</span></span>
 
-    services.AddAuthorization(options =>
-    {
-        options.AddPolicy("Over21",
-                          policy => policy.Requirements.Add(new MinimumAgeRequirement(21)));
-    });
-}
-```
+<span data-ttu-id="9b378-112">Las directivas se aplican mediante el `[Authorize]` atributo con el nombre de la directiva.</span><span class="sxs-lookup"><span data-stu-id="9b378-112">Policies are applied by using the `[Authorize]` attribute with the policy name.</span></span> <span data-ttu-id="9b378-113">Por ejemplo:</span><span class="sxs-lookup"><span data-stu-id="9b378-113">For example:</span></span>
 
-<span data-ttu-id="f0650-108">Aquí puede ver que una directiva de "Edad superior a 21" se crea con un requisito único, que de una antigüedad mínima, que se pasa como parámetro al requisito.</span><span class="sxs-lookup"><span data-stu-id="f0650-108">Here you can see an "Over21" policy is created with a single requirement, that of a minimum age, which is passed as a parameter to the requirement.</span></span>
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Controllers/AlcoholPurchaseController.cs?name=snippet_AlcoholPurchaseControllerClass&highlight=4)]
 
-<span data-ttu-id="f0650-109">Las directivas se aplican mediante el `Authorize` atributo especificando el nombre de la directiva, por ejemplo,</span><span class="sxs-lookup"><span data-stu-id="f0650-109">Policies are applied using the `Authorize` attribute by specifying the policy name, for example;</span></span>
+## <a name="requirements"></a><span data-ttu-id="9b378-114">Requisitos</span><span class="sxs-lookup"><span data-stu-id="9b378-114">Requirements</span></span>
 
-```csharp
-[Authorize(Policy="Over21")]
-public class AlcoholPurchaseRequirementsController : Controller
-{
-    public ActionResult Login()
-    {
-    }
+<span data-ttu-id="9b378-115">Un requisito de autorización es una colección de parámetros de datos que puede usar una directiva para evaluar la entidad de seguridad del usuario actual.</span><span class="sxs-lookup"><span data-stu-id="9b378-115">An authorization requirement is a collection of data parameters that a policy can use to evaluate the current user principal.</span></span> <span data-ttu-id="9b378-116">En nuestra directiva de "AtLeast21", el requisito es un parámetro único&mdash;la antigüedad mínima.</span><span class="sxs-lookup"><span data-stu-id="9b378-116">In our "AtLeast21" policy, the requirement is a single parameter&mdash;the minimum age.</span></span> <span data-ttu-id="9b378-117">Implementa un requisito `IAuthorizationRequirement`, que es una interfaz de marcador vacío.</span><span class="sxs-lookup"><span data-stu-id="9b378-117">A requirement implements `IAuthorizationRequirement`, which is an empty marker interface.</span></span> <span data-ttu-id="9b378-118">Un requisito de antigüedad mínima con parámetros podría implementarse como sigue:</span><span class="sxs-lookup"><span data-stu-id="9b378-118">A parameterized minimum age requirement could be implemented as follows:</span></span>
 
-    public ActionResult Logout()
-    {
-    }
-}
-```
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/MinimumAgeRequirement.cs?name=snippet_MinimumAgeRequirementClass)]
 
-## <a name="requirements"></a><span data-ttu-id="f0650-110">Requisitos</span><span class="sxs-lookup"><span data-stu-id="f0650-110">Requirements</span></span>
-
-<span data-ttu-id="f0650-111">Un requisito de autorización es una colección de parámetros de datos que puede usar una directiva para evaluar la entidad de seguridad del usuario actual.</span><span class="sxs-lookup"><span data-stu-id="f0650-111">An authorization requirement is a collection of data parameters that a policy can use to evaluate the current user principal.</span></span> <span data-ttu-id="f0650-112">En nuestra directiva de antigüedad mínima, el requisito que tenemos es un único parámetro, la antigüedad mínima.</span><span class="sxs-lookup"><span data-stu-id="f0650-112">In our Minimum Age policy, the requirement we have is a single parameter, the minimum age.</span></span> <span data-ttu-id="f0650-113">Debe implementar un requisito `IAuthorizationRequirement`.</span><span class="sxs-lookup"><span data-stu-id="f0650-113">A requirement must implement `IAuthorizationRequirement`.</span></span> <span data-ttu-id="f0650-114">Se trata de una interfaz vacía, de marcador.</span><span class="sxs-lookup"><span data-stu-id="f0650-114">This is an empty, marker interface.</span></span> <span data-ttu-id="f0650-115">Un requisito de antigüedad mínima con parámetros podría implementarse de la manera siguiente:</span><span class="sxs-lookup"><span data-stu-id="f0650-115">A parameterized minimum age requirement might be implemented as follows;</span></span>
-
-```csharp
-public class MinimumAgeRequirement : IAuthorizationRequirement
-{
-    public int MinimumAge { get; private set; }
-    
-    public MinimumAgeRequirement(int minimumAge)
-    {
-        MinimumAge = minimumAge;
-    }
-}
-```
-
-<span data-ttu-id="f0650-116">No tiene un requisito que tienen datos o propiedades.</span><span class="sxs-lookup"><span data-stu-id="f0650-116">A requirement doesn't need to have data or properties.</span></span>
+> [!NOTE]
+> <span data-ttu-id="9b378-119">No tiene un requisito que tienen datos o propiedades.</span><span class="sxs-lookup"><span data-stu-id="9b378-119">A requirement doesn't need to have data or properties.</span></span>
 
 <a name="security-authorization-policies-based-authorization-handler"></a>
 
-## <a name="authorization-handlers"></a><span data-ttu-id="f0650-117">Controladores de autorización</span><span class="sxs-lookup"><span data-stu-id="f0650-117">Authorization handlers</span></span>
+## <a name="authorization-handlers"></a><span data-ttu-id="9b378-120">Controladores de autorización</span><span class="sxs-lookup"><span data-stu-id="9b378-120">Authorization handlers</span></span>
 
-<span data-ttu-id="f0650-118">Un controlador de autorización es responsable de la evaluación de las propiedades de un requisito.</span><span class="sxs-lookup"><span data-stu-id="f0650-118">An authorization handler is responsible for the evaluation of any properties of a requirement.</span></span> <span data-ttu-id="f0650-119">El controlador de autorización debe evaluará con respecto a proporcionado `AuthorizationHandlerContext` para decidir si se permite la autorización.</span><span class="sxs-lookup"><span data-stu-id="f0650-119">The  authorization handler must evaluate them against a provided `AuthorizationHandlerContext` to decide if authorization is allowed.</span></span> <span data-ttu-id="f0650-120">Puede tener un requisito [varios controladores](policies.md#security-authorization-policies-based-multiple-handlers).</span><span class="sxs-lookup"><span data-stu-id="f0650-120">A requirement can have [multiple handlers](policies.md#security-authorization-policies-based-multiple-handlers).</span></span> <span data-ttu-id="f0650-121">Los controladores deben heredar `AuthorizationHandler<T>` donde T es el requisito es capaz de abrir.</span><span class="sxs-lookup"><span data-stu-id="f0650-121">Handlers must inherit `AuthorizationHandler<T>` where T is the requirement it handles.</span></span>
+<span data-ttu-id="9b378-121">Un controlador de autorización es responsable de la evaluación de propiedades de un requisito.</span><span class="sxs-lookup"><span data-stu-id="9b378-121">An authorization handler is responsible for the evaluation of a requirement's properties.</span></span> <span data-ttu-id="9b378-122">El controlador de autorización evalúa los requisitos con proporcionado `AuthorizationHandlerContext` para determinar si se permite el acceso.</span><span class="sxs-lookup"><span data-stu-id="9b378-122">The authorization handler evaluates the requirements against a provided `AuthorizationHandlerContext` to determine if access is allowed.</span></span> <span data-ttu-id="9b378-123">Puede tener un requisito [varios controladores](#security-authorization-policies-based-multiple-handlers).</span><span class="sxs-lookup"><span data-stu-id="9b378-123">A requirement can have [multiple handlers](#security-authorization-policies-based-multiple-handlers).</span></span> <span data-ttu-id="9b378-124">Heredan de controladores `AuthorizationHandler<T>`, donde `T` es el requisito para procesarse.</span><span class="sxs-lookup"><span data-stu-id="9b378-124">Handlers inherit `AuthorizationHandler<T>`, where `T` is the requirement to be handled.</span></span>
 
 <a name="security-authorization-handler-example"></a>
 
-<span data-ttu-id="f0650-122">El controlador de antigüedad mínima podría ser similar al siguiente:</span><span class="sxs-lookup"><span data-stu-id="f0650-122">The minimum age handler might look like this:</span></span>
+<span data-ttu-id="9b378-125">El controlador de antigüedad mínima podría ser similar al siguiente:</span><span class="sxs-lookup"><span data-stu-id="9b378-125">The minimum age handler might look like this:</span></span>
 
-```csharp
-public class MinimumAgeHandler : AuthorizationHandler<MinimumAgeRequirement>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, MinimumAgeRequirement requirement)
-    {
-        if (!context.User.HasClaim(c => c.Type == ClaimTypes.DateOfBirth &&
-                                   c.Issuer == "http://contoso.com"))
-        {
-            // .NET 4.x -> return Task.FromResult(0);
-            return Task.CompletedTask;
-        }
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/MinimumAgeHandler.cs?name=snippet_MinimumAgeHandlerClass)]
 
-        var dateOfBirth = Convert.ToDateTime(context.User.FindFirst(
-            c => c.Type == ClaimTypes.DateOfBirth && c.Issuer == "http://contoso.com").Value);
-
-        int calculatedAge = DateTime.Today.Year - dateOfBirth.Year;
-        if (dateOfBirth > DateTime.Today.AddYears(-calculatedAge))
-        {
-            calculatedAge--;
-        }
-
-        if (calculatedAge >= requirement.MinimumAge)
-        {
-            context.Succeed(requirement);
-        }
-        return Task.CompletedTask;
-    }
-}
-```
-
-<span data-ttu-id="f0650-123">En el código anterior, adentrarnos en primer lugar para ver si la entidad de seguridad del usuario actual tiene una fecha de nacimiento que ha sido emitidos por un emisor que sabemos y confianza de notificaciones.</span><span class="sxs-lookup"><span data-stu-id="f0650-123">In the code above, we first look to see if the current user principal has a date of birth claim which has been issued by an Issuer we know and trust.</span></span> <span data-ttu-id="f0650-124">Si falta la notificación se no autorizar por lo que se devuelven.</span><span class="sxs-lookup"><span data-stu-id="f0650-124">If the claim is missing we can't authorize so we return.</span></span> <span data-ttu-id="f0650-125">Si tenemos una notificación, se pueda determinar la antigüedad del usuario es, y si cumple la antigüedad mínima que se pasa por el requisito, a continuación, autorización ha correcta.</span><span class="sxs-lookup"><span data-stu-id="f0650-125">If we have a claim, we figure out how old the user is, and if they meet the minimum age passed in by the requirement then authorization has been successful.</span></span> <span data-ttu-id="f0650-126">Una vez que la autorización es correcta llamamos `context.Succeed()` pasando el requisito de que ha tenido éxito como un parámetro.</span><span class="sxs-lookup"><span data-stu-id="f0650-126">Once authorization is successful we call `context.Succeed()` passing in the requirement that has been successful as a parameter.</span></span>
+<span data-ttu-id="9b378-126">El código anterior determina si la entidad de seguridad del usuario actual tiene una fecha de nacimiento de notificación de que se ha emitido por un emisor conocido y de confianza.</span><span class="sxs-lookup"><span data-stu-id="9b378-126">The preceding code determines if the current user principal has a date of birth claim which has been issued by a known and trusted Issuer.</span></span> <span data-ttu-id="9b378-127">No se puede realizar la autorización cuando falta la notificación, en cuyo caso se devuelve una tarea completa.</span><span class="sxs-lookup"><span data-stu-id="9b378-127">Authorization can't occur when the claim is missing, in which case a completed task is returned.</span></span> <span data-ttu-id="9b378-128">Cuando está presente una notificación, se calcula la edad del usuario.</span><span class="sxs-lookup"><span data-stu-id="9b378-128">When a claim is present, the user's age is calculated.</span></span> <span data-ttu-id="9b378-129">Si el usuario cumple con la antigüedad mínima definida por el requisito, la autorización se considere correcta.</span><span class="sxs-lookup"><span data-stu-id="9b378-129">If the user meets the minimum age defined by the requirement, authorization is deemed successful.</span></span> <span data-ttu-id="9b378-130">Cuando se realiza correctamente, la autorización `context.Succeed` se invoca con el requisito satisfecho como un parámetro.</span><span class="sxs-lookup"><span data-stu-id="9b378-130">When authorization is successful, `context.Succeed` is invoked with the satisfied requirement as a parameter.</span></span>
 
 <a name="security-authorization-policies-based-handler-registration"></a>
 
-### <a name="handler-registration"></a><span data-ttu-id="f0650-127">Registro del controlador</span><span class="sxs-lookup"><span data-stu-id="f0650-127">Handler registration</span></span>
-<span data-ttu-id="f0650-128">Los controladores deben estar registrados en la colección de servicios durante la configuración, por ejemplo,</span><span class="sxs-lookup"><span data-stu-id="f0650-128">Handlers must be registered in the services collection during configuration, for example;</span></span>
+### <a name="handler-registration"></a><span data-ttu-id="9b378-131">Registro del controlador</span><span class="sxs-lookup"><span data-stu-id="9b378-131">Handler registration</span></span>
 
-```csharp
+<span data-ttu-id="9b378-132">Los controladores se registran en la colección de servicios durante la configuración.</span><span class="sxs-lookup"><span data-stu-id="9b378-132">Handlers are registered in the services collection during configuration.</span></span> <span data-ttu-id="9b378-133">Por ejemplo:</span><span class="sxs-lookup"><span data-stu-id="9b378-133">For example:</span></span>
 
-public void ConfigureServices(IServiceCollection services)
-{
-    services.AddMvc();
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63-65,72)]
 
-    services.AddAuthorization(options =>
-    {
-        options.AddPolicy("Over21",
-                          policy => policy.Requirements.Add(new MinimumAgeRequirement(21)));
-    });
+<span data-ttu-id="9b378-134">Cada controlador se agrega a la colección de servicios mediante la invocación de `services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();`.</span><span class="sxs-lookup"><span data-stu-id="9b378-134">Each handler is added to the services collection by invoking `services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();`.</span></span>
 
-    services.AddSingleton<IAuthorizationHandler, MinimumAgeHandler>();
-}
-```
+## <a name="what-should-a-handler-return"></a><span data-ttu-id="9b378-135">¿Qué debe devolver un controlador?</span><span class="sxs-lookup"><span data-stu-id="9b378-135">What should a handler return?</span></span>
 
-<span data-ttu-id="f0650-129">Cada controlador se agrega a la colección de servicios mediante `services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();` pasar en la clase de controlador.</span><span class="sxs-lookup"><span data-stu-id="f0650-129">Each handler is added to the services collection by using `services.AddSingleton<IAuthorizationHandler, YourHandlerClass>();` passing in your handler class.</span></span>
+<span data-ttu-id="9b378-136">Tenga en cuenta que la `Handle` método en el [controlador (ejemplo)](#security-authorization-handler-example) no devuelve ningún valor.</span><span class="sxs-lookup"><span data-stu-id="9b378-136">Note that the `Handle` method in the [handler example](#security-authorization-handler-example) returns no value.</span></span> <span data-ttu-id="9b378-137">¿Cómo es un estado de correcto o erróneo indicadas?</span><span class="sxs-lookup"><span data-stu-id="9b378-137">How is a status of either success or failure indicated?</span></span>
 
-## <a name="what-should-a-handler-return"></a><span data-ttu-id="f0650-130">¿Qué debe devolver un controlador?</span><span class="sxs-lookup"><span data-stu-id="f0650-130">What should a handler return?</span></span>
+* <span data-ttu-id="9b378-138">Un controlador indica éxito mediante una llamada a `context.Succeed(IAuthorizationRequirement requirement)`, pasando el requisito de que se ha validado correctamente.</span><span class="sxs-lookup"><span data-stu-id="9b378-138">A handler indicates success by calling `context.Succeed(IAuthorizationRequirement requirement)`, passing the requirement that has been successfully validated.</span></span>
 
-<span data-ttu-id="f0650-131">Puede ver en nuestro [controlador (ejemplo)](policies.md#security-authorization-handler-example) que la `Handle()` método no tiene ningún valor devuelto, entonces, ¿cómo se indicaba correcto o erróneo?</span><span class="sxs-lookup"><span data-stu-id="f0650-131">You can see in our [handler example](policies.md#security-authorization-handler-example) that the `Handle()` method has no return value, so how do we indicate success or failure?</span></span>
+* <span data-ttu-id="9b378-139">Un controlador no necesita controlar los errores por lo general, como otros controladores para el mismo requisito pueden realizarse correctamente.</span><span class="sxs-lookup"><span data-stu-id="9b378-139">A handler does not need to handle failures generally, as other handlers for the same requirement may succeed.</span></span>
 
-* <span data-ttu-id="f0650-132">Un controlador indica éxito mediante una llamada a `context.Succeed(IAuthorizationRequirement requirement)`, pasando el requisito de que se ha validado correctamente.</span><span class="sxs-lookup"><span data-stu-id="f0650-132">A handler indicates success by calling `context.Succeed(IAuthorizationRequirement requirement)`, passing the requirement that has been successfully validated.</span></span>
+* <span data-ttu-id="9b378-140">Para garantizar el error, incluso si otros controladores de requisito correctamente, llame a `context.Fail`.</span><span class="sxs-lookup"><span data-stu-id="9b378-140">To guarantee failure, even if other requirement handlers succeed, call `context.Fail`.</span></span>
 
-* <span data-ttu-id="f0650-133">Un controlador no necesita controlar los errores por lo general, como otros controladores para el mismo requisito pueden realizarse correctamente.</span><span class="sxs-lookup"><span data-stu-id="f0650-133">A handler does not need to handle failures generally, as other handlers for the same requirement may succeed.</span></span>
-
-* <span data-ttu-id="f0650-134">Para garantizar el error incluso si otros controladores para un requisito correctamente, llame a `context.Fail`.</span><span class="sxs-lookup"><span data-stu-id="f0650-134">To guarantee failure even if other handlers for a requirement succeed, call `context.Fail`.</span></span>
-
-<span data-ttu-id="f0650-135">Independientemente de lo que se llama a dentro de su controlador, todos los controladores para un requisito se llamará cuando una directiva exige el requisito.</span><span class="sxs-lookup"><span data-stu-id="f0650-135">Regardless of what you call inside your handler, all handlers for a requirement will be called when a policy requires the requirement.</span></span> <span data-ttu-id="f0650-136">Esto permite requisitos tienen efectos secundarios, como el registro, que siempre se llevará a cabo aunque `context.Fail()` se ha llamado en otro controlador.</span><span class="sxs-lookup"><span data-stu-id="f0650-136">This allows requirements to have side effects, such as logging, which will always take place even if `context.Fail()` has been called in another handler.</span></span>
+<span data-ttu-id="9b378-141">Independientemente de lo que se llama a dentro de su controlador, todos los controladores para un requisito se llamará cuando una directiva exige el requisito.</span><span class="sxs-lookup"><span data-stu-id="9b378-141">Regardless of what you call inside your handler, all handlers for a requirement will be called when a policy requires the requirement.</span></span> <span data-ttu-id="9b378-142">Esto permite requisitos tienen efectos secundarios, como el registro, que siempre se llevará a cabo aunque `context.Fail()` se ha llamado en otro controlador.</span><span class="sxs-lookup"><span data-stu-id="9b378-142">This allows requirements to have side effects, such as logging, which will always take place even if `context.Fail()` has been called in another handler.</span></span>
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 
-## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a><span data-ttu-id="f0650-137">¿Por qué desearía varios controladores para un requisito?</span><span class="sxs-lookup"><span data-stu-id="f0650-137">Why would I want multiple handlers for a requirement?</span></span>
+## <a name="why-would-i-want-multiple-handlers-for-a-requirement"></a><span data-ttu-id="9b378-143">¿Por qué desearía varios controladores para un requisito?</span><span class="sxs-lookup"><span data-stu-id="9b378-143">Why would I want multiple handlers for a requirement?</span></span>
 
-<span data-ttu-id="f0650-138">En casos donde probablemente prefiera evaluación en un **o** base se implementan varios controladores para un requisito único.</span><span class="sxs-lookup"><span data-stu-id="f0650-138">In cases where you want evaluation to be on an **OR** basis you implement multiple handlers for a single requirement.</span></span> <span data-ttu-id="f0650-139">Por ejemplo, Microsoft tiene puertas que solo se abren con tarjetas de clave.</span><span class="sxs-lookup"><span data-stu-id="f0650-139">For example, Microsoft has doors which only open with key cards.</span></span> <span data-ttu-id="f0650-140">Si deja la tarjeta de claves en casa la recepcionista imprime una etiqueta temporal y abre la puerta para usted.</span><span class="sxs-lookup"><span data-stu-id="f0650-140">If you leave your key card at home the receptionist prints a temporary sticker and opens the door for you.</span></span> <span data-ttu-id="f0650-141">En este escenario tendría un requisito único, *EnterBuilding*, pero varios controladores, cada uno de ellos examinando un requisito único.</span><span class="sxs-lookup"><span data-stu-id="f0650-141">In this scenario you'd have a single requirement, *EnterBuilding*, but multiple handlers, each one examining a single requirement.</span></span>
+<span data-ttu-id="9b378-144">En casos donde probablemente prefiera evaluación en un **o** base, implementar varios controladores para un requisito único.</span><span class="sxs-lookup"><span data-stu-id="9b378-144">In cases where you want evaluation to be on an **OR** basis, implement multiple handlers for a single requirement.</span></span> <span data-ttu-id="9b378-145">Por ejemplo, Microsoft tiene puertas que solo se abren con tarjetas de clave.</span><span class="sxs-lookup"><span data-stu-id="9b378-145">For example, Microsoft has doors which only open with key cards.</span></span> <span data-ttu-id="9b378-146">Si deja la tarjeta de claves en casa, la recepcionista imprime una etiqueta temporal y abre la puerta para usted.</span><span class="sxs-lookup"><span data-stu-id="9b378-146">If you leave your key card at home, the receptionist prints a temporary sticker and opens the door for you.</span></span> <span data-ttu-id="9b378-147">En este escenario, tendría un requisito único, *BuildingEntry*, pero varios controladores, cada uno de ellos examinando un requisito único.</span><span class="sxs-lookup"><span data-stu-id="9b378-147">In this scenario, you'd have a single requirement, *BuildingEntry*, but multiple handlers, each one examining a single requirement.</span></span>
 
-```csharp
-public class EnterBuildingRequirement : IAuthorizationRequirement
-{
-}
+<span data-ttu-id="9b378-148">*BuildingEntryRequirement.cs*</span><span class="sxs-lookup"><span data-stu-id="9b378-148">*BuildingEntryRequirement.cs*</span></span>
 
-public class BadgeEntryHandler : AuthorizationHandler<EnterBuildingRequirement>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EnterBuildingRequirement requirement)
-    {
-        if (context.User.HasClaim(c => c.Type == ClaimTypes.BadgeId &&
-                                       c.Issuer == "http://microsoftsecurity"))
-        {
-            context.Succeed(requirement);
-        }
-        return Task.CompletedTask;
-    }
-}
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/BuildingEntryRequirement.cs?name=snippet_BuildingEntryRequirementClass)]
 
-public class HasTemporaryStickerHandler : AuthorizationHandler<EnterBuildingRequirement>
-{
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, EnterBuildingRequirement requirement)
-    {
-        if (context.User.HasClaim(c => c.Type == ClaimTypes.TemporaryBadgeId &&
-                                       c.Issuer == "https://microsoftsecurity"))
-        {
-            // We'd also check the expiration date on the sticker.
-            context.Succeed(requirement);
-        }
-        return Task.CompletedTask;
-    }
-}
-```
+<span data-ttu-id="9b378-149">*BadgeEntryHandler.cs*</span><span class="sxs-lookup"><span data-stu-id="9b378-149">*BadgeEntryHandler.cs*</span></span>
 
-<span data-ttu-id="f0650-142">Ahora, suponiendo que ambos controladores son [registrado](xref:security/authorization/policies#security-authorization-policies-based-handler-registration) cuando una directiva se evalúa como el `EnterBuildingRequirement` si se realiza correctamente en cualquier controlador de la evaluación de directivas se realizará correctamente.</span><span class="sxs-lookup"><span data-stu-id="f0650-142">Now, assuming both handlers are [registered](xref:security/authorization/policies#security-authorization-policies-based-handler-registration) when a policy evaluates the `EnterBuildingRequirement` if either handler succeeds the policy evaluation will succeed.</span></span>
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/BadgeEntryHandler.cs?name=snippet_BadgeEntryHandlerClass)]
 
-## <a name="using-a-func-to-fulfill-a-policy"></a><span data-ttu-id="f0650-143">Usar un elemento func para cumplir una directiva</span><span class="sxs-lookup"><span data-stu-id="f0650-143">Using a func to fulfill a policy</span></span>
+<span data-ttu-id="9b378-150">*TemporaryStickerHandler.cs*</span><span class="sxs-lookup"><span data-stu-id="9b378-150">*TemporaryStickerHandler.cs*</span></span>
 
-<span data-ttu-id="f0650-144">Puede haber ocasiones donde cumplir una directiva es sencillo expresar en el código.</span><span class="sxs-lookup"><span data-stu-id="f0650-144">There may be occasions where fulfilling a policy is simple to express in code.</span></span> <span data-ttu-id="f0650-145">Es posible que solo tiene que proporcionar un `Func<AuthorizationHandlerContext, bool>` al configurar la directiva con el `RequireAssertion` el generador de directiva.</span><span class="sxs-lookup"><span data-stu-id="f0650-145">It is possible to simply supply a `Func<AuthorizationHandlerContext, bool>` when configuring your policy with the `RequireAssertion` policy builder.</span></span>
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/TemporaryStickerHandler.cs?name=snippet_TemporaryStickerHandlerClass)]
 
-<span data-ttu-id="f0650-146">Por ejemplo anterior `BadgeEntryHandler` podría volver a escribir como se indica a continuación:</span><span class="sxs-lookup"><span data-stu-id="f0650-146">For example the previous `BadgeEntryHandler` could be rewritten as follows:</span></span>
+<span data-ttu-id="9b378-151">Asegúrese de que ambos controladores estén [registrado](xref:security/authorization/policies#security-authorization-policies-based-handler-registration).</span><span class="sxs-lookup"><span data-stu-id="9b378-151">Ensure that both handlers are [registered](xref:security/authorization/policies#security-authorization-policies-based-handler-registration).</span></span> <span data-ttu-id="9b378-152">Si cualquier controlador se ejecuta correctamente cuando una directiva se evalúa como el `BuildingEntryRequirement`, la evaluación de directivas se realiza correctamente.</span><span class="sxs-lookup"><span data-stu-id="9b378-152">If either handler succeeds when a policy evaluates the `BuildingEntryRequirement`, the policy evaluation succeeds.</span></span>
+
+## <a name="using-a-func-to-fulfill-a-policy"></a><span data-ttu-id="9b378-153">Usar un elemento func para cumplir una directiva</span><span class="sxs-lookup"><span data-stu-id="9b378-153">Using a func to fulfill a policy</span></span>
+
+<span data-ttu-id="9b378-154">Puede haber situaciones en las que cumplir una directiva es simple expresar en el código.</span><span class="sxs-lookup"><span data-stu-id="9b378-154">There may be situations in which fulfilling a policy is simple to express in code.</span></span> <span data-ttu-id="9b378-155">Es posible proporcionar un `Func<AuthorizationHandlerContext, bool>` al configurar la directiva con el `RequireAssertion` el generador de directiva.</span><span class="sxs-lookup"><span data-stu-id="9b378-155">It's possible to supply a `Func<AuthorizationHandlerContext, bool>` when configuring your policy with the `RequireAssertion` policy builder.</span></span>
+
+<span data-ttu-id="9b378-156">Por ejemplo, el anterior `BadgeEntryHandler` podría volver a escribir como se indica a continuación:</span><span class="sxs-lookup"><span data-stu-id="9b378-156">For example, the previous `BadgeEntryHandler` could be rewritten as follows:</span></span>
+
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=52-53,57-63)]
+
+## <a name="accessing-mvc-request-context-in-handlers"></a><span data-ttu-id="9b378-157">Acceso al contexto de solicitud MVC en los controladores</span><span class="sxs-lookup"><span data-stu-id="9b378-157">Accessing MVC request context in handlers</span></span>
+
+<span data-ttu-id="9b378-158">El `HandleRequirementAsync` método se implementa en un controlador de autorización tiene dos parámetros: una `AuthorizationHandlerContext` y `TRequirement` está controlando.</span><span class="sxs-lookup"><span data-stu-id="9b378-158">The `HandleRequirementAsync` method you implement in an authorization handler has two parameters: an `AuthorizationHandlerContext` and the `TRequirement` you are handling.</span></span> <span data-ttu-id="9b378-159">Marcos de trabajo como MVC o Jabbr pueden agregar cualquier objeto a la `Resource` propiedad en el `AuthorizationHandlerContext` para pasar información adicional.</span><span class="sxs-lookup"><span data-stu-id="9b378-159">Frameworks such as MVC or Jabbr are free to add any object to the `Resource` property on the `AuthorizationHandlerContext` to pass extra information.</span></span>
+
+<span data-ttu-id="9b378-160">Por ejemplo, MVC pasa una instancia de [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) en el `Resource` propiedad.</span><span class="sxs-lookup"><span data-stu-id="9b378-160">For example, MVC passes an instance of [AuthorizationFilterContext](/dotnet/api/?term=AuthorizationFilterContext) in the `Resource` property.</span></span> <span data-ttu-id="9b378-161">Esta propiedad proporciona acceso a `HttpContext`, `RouteData`y todo el contenido más proporcionó MVC y las páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="9b378-161">This property provides access to `HttpContext`, `RouteData`, and everything else provided by MVC and Razor Pages.</span></span>
+
+<span data-ttu-id="9b378-162">El uso de la `Resource` propiedad es específicos de la plataforma.</span><span class="sxs-lookup"><span data-stu-id="9b378-162">The use of the `Resource` property is framework specific.</span></span> <span data-ttu-id="9b378-163">De manera indicada en el `Resource` propiedad limita las directivas de autorización para marcos de trabajo determinados.</span><span class="sxs-lookup"><span data-stu-id="9b378-163">Using information in the `Resource` property limits your authorization policies to particular frameworks.</span></span> <span data-ttu-id="9b378-164">Debe convertir el `Resource` propiedad mediante la `as` (palabra clave) y, a continuación, confirme la conversión se realizará correctamente para asegurarse de que el código de no bloqueo con un `InvalidCastException` cuando se ejecuta en otros marcos de trabajo:</span><span class="sxs-lookup"><span data-stu-id="9b378-164">You should cast the `Resource` property using the `as` keyword, and then confirm the cast has succeed to ensure your code doesn't crash with an `InvalidCastException` when run on other frameworks:</span></span>
 
 ```csharp
-services.AddAuthorization(options =>
-    {
-        options.AddPolicy("BadgeEntry",
-                          policy => policy.RequireAssertion(context =>
-                                  context.User.HasClaim(c =>
-                                     (c.Type == ClaimTypes.BadgeId ||
-                                      c.Type == ClaimTypes.TemporaryBadgeId)
-                                      && c.Issuer == "https://microsoftsecurity"));
-                          }));
-    }
- }
-```
-
-## <a name="accessing-mvc-request-context-in-handlers"></a><span data-ttu-id="f0650-147">Acceso al contexto de solicitud MVC en los controladores</span><span class="sxs-lookup"><span data-stu-id="f0650-147">Accessing MVC request context in handlers</span></span>
-
-<span data-ttu-id="f0650-148">El `Handle` método que debe implementar en un controlador de autorización tiene dos parámetros, un `AuthorizationContext` y `Requirement` está controlando.</span><span class="sxs-lookup"><span data-stu-id="f0650-148">The `Handle` method you must implement in an authorization handler has two parameters, an `AuthorizationContext` and the `Requirement` you are handling.</span></span> <span data-ttu-id="f0650-149">Marcos de trabajo como MVC o Jabbr pueden agregar cualquier objeto a la `Resource` propiedad en el `AuthorizationContext` para pasar información adicional.</span><span class="sxs-lookup"><span data-stu-id="f0650-149">Frameworks such as MVC or Jabbr are free to add any object to the `Resource` property on the `AuthorizationContext` to pass through extra information.</span></span>
-
-<span data-ttu-id="f0650-150">Por ejemplo, MVC pasa una instancia de `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` en la propiedad de recurso que se utiliza para tener acceso a HttpContext, RouteData y todo lo demás MVC proporciona.</span><span class="sxs-lookup"><span data-stu-id="f0650-150">For example, MVC passes an instance of `Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext` in the resource property which is used to access HttpContext, RouteData and everything else MVC provides.</span></span>
-
-<span data-ttu-id="f0650-151">El uso de la `Resource` propiedad es específicos de la plataforma.</span><span class="sxs-lookup"><span data-stu-id="f0650-151">The use of the `Resource` property is framework specific.</span></span> <span data-ttu-id="f0650-152">De manera indicada en el `Resource` propiedad limitará las directivas de autorización para marcos de trabajo determinados.</span><span class="sxs-lookup"><span data-stu-id="f0650-152">Using information in the `Resource` property will limit your authorization policies to particular frameworks.</span></span> <span data-ttu-id="f0650-153">Primero debe convertir el `Resource` propiedad mediante la `as` palabra clave y, a continuación, compruebe la conversión tiene éxito para asegurarse de que el código de no bloqueo con `InvalidCastExceptions` cuando se ejecuta en otros marcos de trabajo;</span><span class="sxs-lookup"><span data-stu-id="f0650-153">You should cast the `Resource` property using the `as` keyword, and then check the cast has succeed to ensure your code doesn't crash with `InvalidCastExceptions` when run on other frameworks;</span></span>
-
-```csharp
-if (context.Resource is Microsoft.AspNetCore.Mvc.Filters.AuthorizationFilterContext mvcContext)
+// Requires the following import:
+//     using Microsoft.AspNetCore.Mvc.Filters;
+if (context.Resource is AuthorizationFilterContext mvcContext)
 {
-    // Examine MVC specific things like routing data.
+    // Examine MVC-specific things like routing data.
 }
 ```
