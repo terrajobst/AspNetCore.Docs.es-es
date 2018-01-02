@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: 571d683636244565b184cfec49061ec656377f11
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: acbd987438edeea13f29547dc471f9a211e87b04
+ms.sourcegitcommit: 1de159820a572c08955ee77cc8b1caa3d7aa938c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Introducción a las páginas de Razor y Entity Framework Core con Visual Studio (1 de 8)
 
@@ -29,6 +29,8 @@ La aplicación de ejemplo es un sitio web de una universidad ficticia de Contoso
 ## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE[install 2.0](../../includes/install2.0.md)]
+
+Familiaridad con [páginas de Razor](xref:mvc/razor-pages/index). Deben completar los programadores nuevos [empezar a trabajar con páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) antes de iniciar esta serie.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -268,7 +270,7 @@ Compile el proyecto. La compilación genera errores similar al siguiente:
 [!INCLUDE[model4tbl](../../includes/RP/model4tbl.md)]
 
  <a name="test"></a>
-### <a name="test-the-app"></a>Probar la aplicación
+### <a name="test-the-app"></a>Prueba de la aplicación
 
 Ejecute la aplicación y seleccione la **estudiantes** vínculo. Según el ancho del explorador, el **estudiantes** vínculo aparece en la parte superior de la página. Si el **estudiantes** vínculo no está visible, haga clic en el icono de navegación en la esquina superior derecha.
 

@@ -12,11 +12,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6858b6b8ec89a5e5ffa9e5f8dddb905f38e16603
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET, un tutorial con ejemplos de creación
 
@@ -76,9 +76,18 @@ Es decir, una etiqueta delimitadora lo hace un vínculo de correo electrónico. 
     
     El código anterior utiliza la sintaxis de comodín para especificar que todas las aplicaciones auxiliares de etiqueta en el ensamblado estará disponibles. La primera cadena después `@addTagHelper` especifica la aplicación auxiliar de etiquetas para cargar (utilice "*" para todas las aplicaciones auxiliares de etiquetas), y la segunda cadena "AuthoringTagHelpers" especifica el ensamblado de la aplicación auxiliar de etiqueta. Además, tenga en cuenta que la segunda línea se pondrá en las aplicaciones auxiliares de la etiqueta principal de ASP.NET MVC usando la sintaxis de comodines (esas aplicaciones auxiliares se tratan en [Introducción a las aplicaciones auxiliares de etiquetas](intro.md).) Es el `@addTagHelper` directiva que hace la aplicación auxiliar de etiquetas esté disponible para la vista de Razor. Como alternativa, puede proporcionar el nombre completo (FQN) de una aplicación auxiliar de etiquetas tal y como se muestra a continuación:
     
-    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+```csharp
+@using AuthoringTagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
+```
     
-    Para agregar una aplicación auxiliar de etiqueta a una vista con un FQN, agregue primero la FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) y, a continuación, el nombre del ensamblado (*AuthoringTagHelpers*). La mayoría de los programadores preferirán utilizar la sintaxis de comodines. [Introducción a las aplicaciones auxiliares de etiquetas](intro.md) entra en detalles acerca de la sintaxis de agregar, quitar, jerarquía y caracteres comodín de la aplicación auxiliar de etiqueta.
+<!--
+the following snippet uses TagHelpers3 and should use TagHelpers (not the 3)
+    [!code-html[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImports.cshtml?highlight=3&range=1-3)]
+-->
+    
+Para agregar una aplicación auxiliar de etiqueta a una vista con un FQN, agregue primero la FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) y, a continuación, el nombre del ensamblado (*AuthoringTagHelpers*). La mayoría de los programadores preferirán utilizar la sintaxis de comodines. [Introducción a las aplicaciones auxiliares de etiquetas](intro.md) entra en detalles acerca de la sintaxis de agregar, quitar, jerarquía y caracteres comodín de la aplicación auxiliar de etiqueta.
     
 3.  Actualizar el marcado en el *Views/Home/Contact.cshtml* archivo con estos cambios:
 

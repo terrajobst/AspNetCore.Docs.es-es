@@ -11,11 +11,11 @@ ms.assetid: 5de0c8f7-50ce-4e2c-b3d4-a1bd9fdfcff5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: hosting/aspnet-core-module
-ms.openlocfilehash: f0759f16ada531774a3945f67495e5f634e6154e
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 277e63a5663aca622e8252d6c6be1671e57cbf68
+ms.sourcegitcommit: 44a62f59d4db39d685c4487a0345a486be18d7c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 
@@ -117,6 +117,7 @@ Este es un ejemplo `aspNetCore` elemento que configura `stdout` registro. El `st
     stdoutLogFile="\\?\%home%\LogFiles\stdout">
 </aspNetCore>
 ```
+Vea [configuración a través de web.config](#configuration-via-webconfig) para obtener un ejemplo de la `aspNetCore` elemento en el *web.config* archivo.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Configuración compartida de módulo de núcleo de ASP.NET con un servicio de IIS
 
@@ -126,7 +127,7 @@ La solución no compatible consiste en deshabilitar la configuración de IIS com
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Ubicaciones de archivo de módulo, esquema y configuración
 
-### <a name="module"></a>Módulo
+### <a name="module"></a>Module
 
 **IIS (x86/amd64):**
 

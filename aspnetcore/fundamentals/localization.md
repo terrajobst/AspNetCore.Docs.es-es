@@ -11,11 +11,11 @@ ms.assetid: 7f275a09-f118-41c9-88d1-8de52d6a5aa1
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1922037245a33f49c17f1c361003260462d96264
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a3fdbf8a1ab4ca397824a46da445fa34ddd35204
+ms.sourcegitcommit: 4be61844141d3cfb6f263636a36aebd26e90fb28
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -124,7 +124,7 @@ En el código anterior, `SharedResource` es la clase correspondiente a la resx d
 
 ASP.NET Core le permite especificar dos valores de referencia cultural, `SupportedCultures` y `SupportedUICultures`. El [CultureInfo](https://docs.microsoft.com/dotnet/api/system.globalization.cultureinfo) objeto `SupportedCultures` determina los resultados de funciones dependientes de la referencia cultural, como fecha, hora, número y el formato de moneda. `SupportedCultures`También determina el criterio de ordenación de texto, convenciones de mayúsculas y minúsculas y las comparaciones de cadenas. Vea [CultureInfo.CurrentCulture](https://docs.microsoft.com/dotnet/api/system.stringcomparer.currentculture#System_StringComparer_CurrentCulture) para obtener más información sobre cómo el servidor obtiene la referencia cultural. El `SupportedUICultures` determina que traduce las cadenas (de *.resx* archivos) se buscan por la [ResourceManager](https://docs.microsoft.com/dotnet/api/system.resources.resourcemanager). El `ResourceManager` simplemente busca cadenas específicas de referencias culturales que viene determinado por `CurrentUICulture`. Tiene todos los subprocesos de .NET `CurrentCulture` y `CurrentUICulture` objetos. ASP.NET Core inspecciona estos valores al representar funciones dependientes de la referencia cultural. Por ejemplo, si la referencia cultural del subproceso actual se establece en "en-US" (inglés, Estados Unidos), `DateTime.Now.ToLongDateString()` muestra "Jueves, 18 de febrero de 2016", pero si `CurrentCulture` se establece en "es-es" (español, España) el resultado será "jueves, 18 de febrero de 2016".
 
-## <a name="working-with-resource-files"></a>Trabajar con archivos de recursos
+## <a name="resource-files"></a>Archivos de recursos
 
 Un archivo de recursos es un mecanismo útil para separar cadenas localizables desde el código. Las cadenas traducidas para el idioma predeterminado no están aisladas *.resx* archivos de recursos. Por ejemplo, puede crear el archivo de recursos de español denominado *Welcome.es.resx* que contiene traduce cadenas. "es" es el código de idioma para español. Para crear este archivo de recursos en Visual Studio:
 
@@ -172,19 +172,21 @@ Archivos de recursos mediante `@inject IViewLocalizer` en las vistas de Razor si
 
 Si no utiliza la `ResourcesPath` opción, el *.resx* de archivos de una vista se pueden ubicar en la misma carpeta que la vista.
 
-Si quita el designador de referencia cultural ".fr" y tiene la referencia cultural establecida en francés (a través de cookie u otro mecanismo), se lee el archivo de recursos predeterminado y cadenas están localizadas. El Administrador de recursos designa un recurso predeterminado o de reserva, cuando nada que coincida con la referencia cultural solicitada está servir el archivo *.resx sin un designador de referencia cultural. Si desea devolver la clave cuando falta un recurso para solicitado de la referencia cultural no debe tener un archivo de recursos predeterminado.
+## <a name="culture-fallback-behavior"></a>Comportamiento de reserva de la referencia cultural
 
-### <a name="generating-resource-files-with-visual-studio"></a>Generar archivos de recursos con Visual Studio
+Por ejemplo, si quita el designador de referencia cultural ".fr" y tiene la referencia cultural establecida en francés, se lee el archivo de recursos predeterminado y las cadenas están localizadas. El Administrador de recursos designa un valor predeterminado o recurso de reserva para cuando nada que coincida con la referencia cultural solicitada. Si desea devolver la clave cuando falta un recurso para solicitado de la referencia cultural no debe tener un archivo de recursos predeterminado.
+
+### <a name="generate-resource-files-with-visual-studio"></a>Generar archivos de recursos con Visual Studio
 
 Si crea un archivo de recursos en Visual Studio sin una referencia cultural en el nombre de archivo (por ejemplo, *Welcome.resx*), Visual Studio creará una clase de C# con una propiedad para cada cadena. Normalmente no es lo desea con ASP.NET Core; Normalmente no tiene valor predeterminado es *.resx* archivo de recursos (A *.resx* archivo sin el nombre de la referencia cultural). Se recomienda crear la *.resx* archivo con un nombre de referencia cultural (por ejemplo *Welcome.fr.resx*). Cuando se crea un *.resx* archivo con un nombre de referencia cultural, Visual Studio no generará el archivo de clase. Prevemos que muchos desarrolladores será **no** crear un archivo de recursos de idioma predeterminado.
 
-### <a name="adding-other-cultures"></a>Agregar otras referencias culturales
+### <a name="add-other-cultures"></a>Agregar otras referencias culturales
 
 Cada combinación de idioma y referencia cultural (que no sea el idioma predeterminado) requiere un archivo de recurso único. Crear archivos de recursos de diferentes referencias culturales y configuraciones regionales mediante la creación de nuevos archivos de recursos en el que los códigos de idioma ISO forman parte del nombre de archivo (por ejemplo, **en-us**, **fr-ca**, y  **en-gb**). Estos códigos ISO se colocan entre el nombre de archivo y la *.resx* extensión de nombre de archivo como en *Welcome.es-MX.resx* (Español/México). Para especificar un idioma culturalmente neutro, quite el código de país (`MX` en el ejemplo anterior). El nombre de archivo de recursos de español de referencia cultural neutra es *Welcome.es.resx*.
 
 ## <a name="implement-a-strategy-to-select-the-languageculture-for-each-request"></a>Implementar una estrategia para seleccionar el idioma o referencia cultural para cada solicitud  
 
-### <a name="configuring-localization"></a>Configuración de localización
+### <a name="configure-localization"></a>Configurar la localización
 
 Localización está configurada en el `ConfigureServices` método:
 
@@ -236,7 +238,7 @@ Si solo especifica uno de información de referencia cultural y la referencia cu
 
 El [encabezado Accept-Language](https://www.w3.org/International/questions/qa-accept-lang-locales) se puede establecer en la mayoría de los exploradores y se diseñó originalmente para especificar el idioma del usuario. Este valor indica lo que se ha establecido para enviar el explorador o ha heredado del sistema operativo subyacente. El encabezado HTTP Accept-Language de una solicitud del explorador no es un método infalible para detectar el idioma preferido del usuario (consulte [establecer las preferencias de idioma en un explorador](https://www.w3.org/International/questions/qa-lang-priorities.en.php)). Una aplicación de producción debe incluir una manera para que un usuario personalizar su elección de la referencia cultural.
 
-### <a name="setting-the-accept-language-http-header-in-ie"></a>Establecer el encabezado HTTP Accept-Language en Internet Explorer
+### <a name="set-the-accept-language-http-header-in-ie"></a>Establezca el encabezado HTTP Accept-Language en Internet Explorer
 
 1. Desde el icono de engranaje, pulse **opciones de Internet**.
 
@@ -252,7 +254,7 @@ El [encabezado Accept-Language](https://www.w3.org/International/questions/qa-ac
 
 6. Puntee en el idioma y luego pulse **Subir**.
 
-### <a name="using-a-custom-provider"></a>Uso de un proveedor personalizado
+### <a name="use-a-custom-provider"></a>Usar un proveedor personalizado
 
 Imagine que desea permitir que los clientes almacenan su idioma y referencia cultural en las bases de datos. Puede escribir un proveedor para buscar estos valores para el usuario. El código siguiente muestra cómo agregar un proveedor personalizado:
 
@@ -281,7 +283,7 @@ services.Configure<RequestLocalizationOptions>(options =>
 
 Use `RequestLocalizationOptions` para agregar o quitar proveedores de localización.
 
-### <a name="setting-the-culture-programmatically"></a>Establecer la referencia cultural mediante programación
+### <a name="set-the-culture-programmatically"></a>Establecer la referencia cultural mediante programación
 
 Este ejemplo **Localization.StarterWeb** proyecto en [GitHub](https://github.com/aspnet/entropy) contiene la interfaz de usuario para establecer el `Culture`. El *Views/Shared/_SelectLanguagePartial.cshtml* archivo le permite seleccionar la referencia cultural de la lista de referencias culturales admitidas:
 
