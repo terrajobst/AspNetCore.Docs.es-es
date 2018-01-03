@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 0c49376fd1b602fe03ef2a152d19b58513ae2710
-ms.sourcegitcommit: 05e798c9bac7b9e9983599afb227ef393905d023
+ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 en-us /
 
@@ -194,7 +194,7 @@ Actualización *pages\departments\edit.cshtml.cs* con el código siguiente:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Para detectar un problema de simultaneidad, el [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) se actualiza con la `rowVersion` valor de la entidad era se capturó. Núcleo EF genera un comando SQL UPDATE con una cláusula WHERE que contiene la versión original `RowVersion` valor. Si no hay ninguna fila se ven afectada por el comando de actualización (no hay filas tienen la versión original `RowVersion` valor), un `DbUpdateConcurrencyException` se produce la excepción.
+Para detectar un problema de simultaneidad, el [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) se actualiza con la `rowVersion` valor de la entidad se capturó. Núcleo EF genera un comando SQL UPDATE con una cláusula WHERE que contiene la versión original `RowVersion` valor. Si no hay ninguna fila se ven afectada por el comando de actualización (no hay filas tienen la versión original `RowVersion` valor), un `DbUpdateConcurrencyException` se produce la excepción.
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
 

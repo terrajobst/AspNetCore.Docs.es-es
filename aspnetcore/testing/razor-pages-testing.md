@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 7a3f1bfa8bec830216af37d89aa588a921485e6b
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 1ecdf010f7c283a0a08b224d570a5bc5cdf536df
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unidad de páginas de Razor y pruebas de integración en ASP.NET Core
 
@@ -57,7 +57,7 @@ La aplicación de mensaje es un sistema de mensajes de las páginas de Razor sim
 * Describe un mensaje de la `Message` clase (*Data/Message.cs*) con dos propiedades: `Id` (clave) y `Text` (mensaje). El `Text` propiedad es necesaria y se limita a 200 caracteres.
 * Los mensajes se almacenan con [base de datos de Entity Framework en memoria](/ef/core/providers/in-memory/)&#8224;.
 * La aplicación contiene una capa de acceso a datos (DAL) en su clase de contexto de base de datos, `AppDbContext` (*Data/AppDbContext.cs*). Los métodos de la capa DAL se marcan `virtual`, lo que permite a los métodos para su uso en las pruebas de simulación.
-* En el entorno de desarrollo, el almacén de mensajes se inicializa con tres mensajes. Estos *propagado mensajes* también se utilizan en las pruebas.
+* Si la base de datos está vacía en el inicio de la aplicación, el almacén de mensajes se inicializa con tres mensajes. Estos *propagado mensajes* también se utilizan en las pruebas.
 
 &#8224; El tema EF [pruebas con InMemory](/ef/core/miscellaneous/testing/in-memory), explica cómo utilizar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Pruebas de conceptos y las implementaciones de prueba a través de diferentes marcos de pruebas son similares pero no idénticos.
 

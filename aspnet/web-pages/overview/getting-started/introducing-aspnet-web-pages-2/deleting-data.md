@@ -5,24 +5,24 @@ author: tfitzmac
 description: "Este tutorial muestra cómo eliminar una entrada de la base de datos individuales. Supone que ha completado la serie a través de actualizar los datos de base de datos de ASP.NET Web PA..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: aef31b6170cc3bba2421eb8c2c41e83aadc129c5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Introducción a las páginas Web ASP.NET: se eliminarán los datos de la base de datos
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Este tutorial muestra cómo eliminar una entrada de la base de datos individuales. Supone que ha completado la serie a través de [actualizar la base de datos en ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583).
+> Este tutorial muestra cómo eliminar una entrada de la base de datos individuales. Supone que ha completado la serie a través de [actualizar la base de datos en ASP.NET Web Pages](updating-data.md).
 > 
 > Lo que aprenderá:
 > 
@@ -76,7 +76,7 @@ La nueva columna muestra un vínculo (`<a>` elemento) cuyo texto dice "Delete". 
 
 Este vínculo va a invocar una página denominada *DeleteMovie* y pase el Id. de la película que ha seleccionado.
 
-Este tutorial no incluyen detalles sobre cómo se crea este vínculo, porque es casi idéntico a la **editar** vínculo desde el tutorial anterior ([actualizar la base de datos en ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251583)).
+Este tutorial no incluyen detalles sobre cómo se crea este vínculo, porque es casi idéntico a la **editar** vínculo desde el tutorial anterior ([actualizar la base de datos en ASP.NET Web Pages](updating-data.md)).
 
 ## <a name="creating-the-delete-page"></a>Creación de la página de borrado
 
@@ -169,7 +169,7 @@ El siguiente tutorial muestra cómo proporcionar a todas las páginas en su siti
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](../introducing-razor-syntax-c.md)
 - [Instrucción DELETE de SQL](http://www.w3schools.com/sql/sql_delete.asp) en el sitio W3Schools
 
 >[!div class="step-by-step"]

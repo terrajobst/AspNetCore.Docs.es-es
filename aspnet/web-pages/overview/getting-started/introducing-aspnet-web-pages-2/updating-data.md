@@ -5,24 +5,24 @@ author: tfitzmac
 description: "Este tutorial muestra cómo actualizar la entrada de una base de datos existente (cambiar) cuando se usa ASP.NET Web Pages (Razor). Supone que ha completado la serie th..."
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 05/28/2015
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 6fdb365c1449e6c54dfdbe492211700211f61005
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introducción a ASP.NET Web Pages: actualizar la base de datos
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Este tutorial muestra cómo actualizar la entrada de una base de datos existente (cambiar) cuando se usa ASP.NET Web Pages (Razor). Supone que ha completado la serie a través de [introducción de datos por utilizando formularios utilizando ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251582).
+> Este tutorial muestra cómo actualizar la entrada de una base de datos existente (cambiar) cuando se usa ASP.NET Web Pages (Razor). Supone que ha completado la serie a través de [introducción de datos por utilizando formularios utilizando ASP.NET Web Pages](entering-data.md).
 > 
 > Lo que aprenderá:
 > 
@@ -143,7 +143,7 @@ Crear una página denominada *EditMovie.cshtml* y sustituir lo que aparece en el
 
 Este código y marcado es similar a lo que tiene en el *AddMovie* página. Hay una pequeña diferencia en el texto para el botón Enviar. Al igual que con la *AddMovie* página, hay un `Html.ValidationSummary` llamada que se mostrará los errores de validación si existe alguna. Este tiempo se está omitiendo las llamadas a `Validation.Message`, ya que los errores se mostrarán en el resumen de validación. Como se indicó en el tutorial anterior, puede usar el resumen de validación y los mensajes de error individuales en diversas combinaciones.
 
-Nuevo, observe que la `method` atributo de la `<form>` elemento está establecido en `post`. Al igual que con la *AddMovie.cshtml* página, esta página realiza cambios en la base de datos. Por lo tanto, debe realizar este formulario un `POST` operación. (Para obtener más información acerca de las diferencias entre `GET` y `POST` operaciones, consulte el [GET, POST y HTTP verbo seguridad](https://go.microsoft.com/fwlink/?LinkId=251581#GET,_POST,_and_HTTP_Verb_Safety) sidebar en el tutorial en formularios HTML.)
+Nuevo, observe que la `method` atributo de la `<form>` elemento está establecido en `post`. Al igual que con la *AddMovie.cshtml* página, esta página realiza cambios en la base de datos. Por lo tanto, debe realizar este formulario un `POST` operación. (Para obtener más información acerca de las diferencias entre `GET` y `POST` operaciones, consulte el [GET, POST y HTTP verbo seguridad](form-basics.md#GET,_POST,_and_HTTP_Verb_Safety) sidebar en el tutorial en formularios HTML.)
 
 Como se vio en un tutorial anterior, el `value` se establecen atributos de los cuadros de texto con código Razor para cargarlas. Esta vez, sin embargo, usa variables como `title` y `genre` de esa tarea en lugar de `Request.Form["title"]`:
 
@@ -224,7 +224,7 @@ Después de que el código usa `db.Execute` para ejecutar el `Update` instrucci�
 > 
 > Por supuesto, la `Query` método puede devolver una sola fila de la base de datos. Sin embargo, ASP.NET siempre trata los resultados de la `Query` método como una colección. Aunque el método devuelve una sola fila, tendrá que extraer esa única fila de la colección. Por lo tanto, en situaciones donde se *saber* obtendrá una sola fila, es un poco más conveniente utilizar `QuerySingle`.
 > 
-> Existen algunos otros métodos que realizan determinados tipos de operaciones de base de datos. Puede encontrar una lista de métodos de la base de datos en el [referencia rápida de ASP.NET Web Pages API](https://go.microsoft.com/fwlink/?LinkID=202907#Data).
+> Existen algunos otros métodos que realizan determinados tipos de operaciones de base de datos. Puede encontrar una lista de métodos de la base de datos en el [referencia rápida de ASP.NET Web Pages API](../../api-reference/asp-net-web-pages-api-reference.md#Data).
 
 
 ## <a name="making-validation-for-the-id-more-robust"></a>Realizar la validación de Id. de más sólida
@@ -308,7 +308,7 @@ En el siguiente tutorial, verá cómo eliminar un registro de la película.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
+- [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](introducing-razor-syntax-c.md)
 - [Instrucción UPDATE de SQL](http://www.w3schools.com/sql/sql_update.asp) en el sitio W3Schools
 
 >[!div class="step-by-step"]
