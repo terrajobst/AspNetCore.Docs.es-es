@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 36dd2ad01f93ab1093bad84a58504a150c70ea16
-ms.sourcegitcommit: 4925a91ef4130ddb333f187ab13defe66f2c6cef
+ms.openlocfilehash: 31d8b1f662d3d5e7dad8f459d951c7b8181148b8
+ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/03/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -123,7 +123,7 @@ El archivo de código subyacente *Pages/Movies/Create.cshtml.cs* de la vista:
 
 Por convención, la clase `PageModel` se denomina `<PageName>Model` y se encuentra en el mismo espacio de nombres que la página.
 
-Al usar un archivo de código subyacente `PageModel`, se pueden usar las pruebas unitarias, pero se debe escribir un constructor y una clase explícitos. Las páginas sin archivos de código subyacente `PageModel` admiten la compilación en tiempo de ejecución, que puede ser una ventaja en el desarrollo.  <!-- review: advantage because you can make changes and refresh the browser without explicitly compiling the app -->
+La clase `PageModel` permite la separación de la lógica de una página de su presentación. Define los controladores de página para solicitudes que se envían a la página y los datos que usan para representar la página. Esta separación le permite administrar dependencias de páginas mediante la [inyección de dependencias](xref:fundamentals/dependency-injection) y para realizar [pruebas unitarias](xref:testing/razor-pages-testing) de las páginas.
 
 La página tiene un *método de controlador* `OnPostAsync`, que se ejecuta en solicitudes `POST` (cuando un usuario envía el formulario). Puede agregar métodos de controlador para cualquier verbo HTTP. Los controladores más comunes son:
 
@@ -165,7 +165,7 @@ El archivo *Index.cshtml* contiene el siguiente marcado para crear un vínculo d
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-La [aplicación auxiliar de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo [asp-route-{value}](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper#route) para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`.
+La [aplicación auxiliar de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`.
 
 El archivo *Pages/Edit.cshtml*:
 
