@@ -5,17 +5,17 @@ description: "Usar la identidad con una aplicación de ASP.NET Core"
 keywords: "Autorización de ASP.NET Core, identidad, seguridad"
 ms.author: riande
 manager: wpickett
-ms.date: 12/15/2017
+ms.date: 01/02/2018
 ms.topic: article
 ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 7daf0267a6dc659afbd188ce87e35ca40816a31d
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 7af53bfad2b77558a06003cbc6534236235054c4
+ms.sourcegitcommit: 677986b3a39817b712e2432cce85ad1685326b75
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad de un núcleo de ASP.NET
 
@@ -32,11 +32,20 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
 1.  Cree un proyecto de aplicación Web de ASP.NET Core con cuentas de usuario individuales.
 
     # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
-    En Visual Studio, seleccione **archivo** -> **New** -> **proyecto**. Seleccione el **aplicación Web ASP.NET** desde el **nuevo proyecto** cuadro de diálogo. Al seleccionar un ASP.NET Core **Web Application(Model-View-Controller)** para ASP.NET Core 2.x con **cuentas de usuario individuales** como método de autenticación.
+    En Visual Studio, seleccione **archivo** -> **New** -> **proyecto**. Seleccione **aplicación Web de ASP.NET Core** y haga clic en **Aceptar**. 
 
-    Nota: Debe seleccionar **cuentas de usuario individuales**.
+    ![Cuadro de diálogo Nuevo proyecto](identity/_static/01-new-project.png)
+
+    Seleccione un ASP.NET Core **aplicación Web (Model-View-Controller)** para ASP.NET Core 2.x, a continuación, seleccione **Cambiar autenticación**. 
+
+    ![Cuadro de diálogo Nuevo proyecto](identity/_static/02-new-project.png)
+
+    Un cuadro de diálogo aparece oferta las opciones de autenticación. Seleccione **cuentas de usuario individuales** y haga clic en **Aceptar** para volver al cuadro de diálogo anterior.
+
+    ![Cuadro de diálogo Nuevo proyecto](identity/_static/03-new-project-auth.png)
+    
+    Seleccionar **cuentas de usuario individuales** indica a Visual Studio para crear modelos, ViewModels, vistas, controladores y otros recursos necesarios para la autenticación como parte de la plantilla de proyecto.
  
-    ![Cuadro de diálogo Nuevo proyecto](identity/_static/01-mvc_2.png)
     
     # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
     Si usa la CLI de núcleo. NET, cree el nuevo proyecto utilizando ``dotnet new mvc --auth Individual``. Este comando crea un nuevo proyecto con el mismo código de plantilla de identidad que Visual Studio crea.
@@ -77,7 +86,7 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
 
     Inicie la aplicación y, a continuación, haga clic en el **registrar** vínculo.
 
-    Si se trata de la primera vez que se va a realizar esta acción, puede ser necesario para ejecutar las migraciones. La aplicación le pide que **migraciones aplicar**:
+    Si se trata de la primera vez que se va a realizar esta acción, puede ser necesario para ejecutar las migraciones. La aplicación le pide que **migraciones aplicar**. Si es necesario, actualice la página.
     
     ![Aplicar página Web de migraciones](identity/_static/apply-migrations.png)
     
@@ -100,9 +109,9 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
  
     Los usuarios pueden iniciar sesión, haga clic en el **sesión** vínculo en la parte superior del sitio, o puede navegar a la página de inicio de sesión si éstos intentan obtener acceso a una parte del sitio que requiera una autorización. Cuando el usuario envía el formulario en la página de inicio de sesión, el ``AccountController`` ``Login`` acción se denomina.
 
-    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
- 
     El ``Login`` acción llamadas ``PasswordSignInAsync`` en el ``_signInManager`` objeto (proporcionado a ``AccountController`` por inyección de dependencia).
+
+    [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Controllers/AccountController.cs?name=snippet_login&highlight=13-14)]
  
     La base de ``Controller`` clase expone un ``User`` propiedad que se puede acceder desde los métodos de controlador. Por ejemplo, puede enumerar `User.Claims` y tomar decisiones de autorización. Para obtener más información, consulte [autorización](xref:security/authorization/index).
  
@@ -139,6 +148,35 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
     ![Menú contextual en la tabla de base de datos de AspNetUsers](identity/_static/04-db.png)
     
     Expanda la base de datos y su **tablas**, a continuación, haga clic en el **dbo. AspNetUsers** de tabla y seleccione **ver datos**.
+
+8. Compruebe que funciona de identidad
+
+    El valor predeterminado *aplicación Web de ASP.NET Core* plantilla de proyecto permite a los usuarios tener acceso a cualquier acción en la aplicación sin necesidad de inicio de sesión. Para comprobar que funciona ASP.NET Identity, agregue un`[Authorize]` atribuir a la `About` acción de la `Home` controlador.
+ 
+    ```cs
+    [Authorize]
+    public IActionResult About()
+    {
+        ViewData["Message"] = "Your application description page.";
+        return View();
+    }
+    ```
+    
+    # <a name="visual-studiotabvisualstudio"></a>[Visual Studio](#tab/visualstudio)     
+
+    Ejecutar el proyecto mediante **Ctrl** + **F5** y navegue hasta la **sobre** página. Solo los usuarios autenticados pueden tener acceso a la **sobre** página ahora, por lo que ASP.NET le redirige a la página de inicio de sesión para iniciar sesión o regístrese.
+
+    # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+
+    Abra una ventana de comandos y desplácese hasta la raíz del proyecto que contiene el directorio el `.csproj` archivo. Ejecute el `dotnet run` comando para ejecutar la aplicación:
+
+    ```cs
+    dotnet run 
+    ```
+
+    Busque la dirección URL especificada en los resultados de la `dotnet run` comando. La dirección URL debe apuntar a `localhost` con un número de puerto generado. Navegue hasta la **sobre** página. Solo los usuarios autenticados pueden tener acceso a la **sobre** página ahora, por lo que ASP.NET le redirige a la página de inicio de sesión para iniciar sesión o regístrese.
+
+    ---
 
 ## <a name="identity-components"></a>Componentes de identidad
 
