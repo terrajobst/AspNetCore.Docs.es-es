@@ -13,7 +13,6 @@ En la tabla siguiente se enumeran los archivos y las carpetas del proyecto. En e
 | wwwroot | Contiene archivos estáticos. Consulte [Working with static files](xref:fundamentals/static-files) (Trabajar con archivos estáticos). |
 | Páginas | Carpeta para [páginas de Razor](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Configuración](xref:fundamentals/configuration/index) |
-| *bower.json* | Administración de paquetes del lado cliente Consulte [Bower](xref:client-side/bower).|
 | *Program.cs* | [Aloja](xref:fundamentals/hosting) la aplicación de ASP.NET Core.|
 | *Startup.cs* | Configura los servicios y la canalización de solicitudes. Consulte [Inicio](xref:fundamentals/startup).|
 
@@ -21,7 +20,7 @@ En la tabla siguiente se enumeran los archivos y las carpetas del proyecto. En e
 
 El archivo *_Layout.cshtml* contiene elementos HTML comunes (scripts y hojas de estilos) y establece el diseño de la aplicación. Por ejemplo, al hacer clic en **RazorPagesMovie**, **Inicio**, **Acerca de** o **Contacto**, verá los mismos elementos. Los elementos comunes incluyen el menú de navegación de la parte superior y el encabezado de la parte inferior de la ventana. Consulte [Diseño](xref:mvc/views/layout) para obtener más información.
 
-El archivo *_ViewStart.cshtml* establece la propiedad `Layout` de las páginas de Razor que para usar el archivo *_Layout.cshtml*. Consulte [Diseño](xref:mvc/views/layout) para obtener más información.
+El archivo *_ViewStart.cshtml* establece la propiedad `Layout` de las páginas de Razor que para usar el archivo *_Layout.cshtml*. Vea [Layout](xref:mvc/views/layout) (Diseño) para más información.
 
 El archivo *_ViewImports.cshtml* contiene directivas de Razor que se importan en cada página de Razor. Consulte [Importing Shared Directives](xref:mvc/views/layout#importing-shared-directives) (Importar directivas compartidas) para obtener más información.
 

@@ -11,11 +11,11 @@ ms.assetid: 1c33e576-33de-481a-8ad3-896b94fde0e3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: publishing/linuxproduction
-ms.openlocfilehash: 01768263fe82dc75a7da0e113b1850c8d788bfd3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7b949fc922c605aa4554c158200a4123c4eb1c
+ms.sourcegitcommit: fc98e93464ccf37d9904e89a71cdddbd4bbdb86a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="set-up-a-hosting-environment-for-aspnet-core-on-linux-with-nginx-and-deploy-to-it"></a>Configurar un entorno de hospedaje para ASP.NET Core en Linux con Nginx e implementar en él
 
@@ -45,8 +45,6 @@ Copie la aplicación de ASP.NET Core en el servidor mediante cualquier herramien
  - Ejecute `dotnet yourapp.dll` desde la línea de comandos.
  - En un explorador, vaya a `http://<serveraddress>:<port>` para comprobar que la aplicación funciona en Linux. 
  
-**Nota:** Use [Yeoman](xref:client-side/yeoman) para crear una aplicación de ASP.NET Core para un nuevo proyecto.
-
 ## <a name="configure-a-reverse-proxy-server"></a>Configurar un servidor proxy inverso
 
 Un proxy inverso es una configuración común para usar aplicaciones web dinámicas. Un proxy inverso finaliza la solicitud HTTP y la reenvía a la aplicación de ASP.NET Core.
@@ -123,7 +121,7 @@ server {
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection keep-alive;
-        proxy_set_header Host $host;
+        proxy_set_header Host $http_host;
         proxy_cache_bypass $http_upgrade;
     }
 }
