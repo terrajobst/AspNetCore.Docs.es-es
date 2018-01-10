@@ -70,7 +70,6 @@
 ### [Registro con LoggerMessage](xref:fundamentals/logging/loggermessage)
 ## [Control de errores](fundamentals/error-handling.md)
 ## [Proveedores de archivos](fundamentals/file-providers.md)
-## [Trabajar con archivos estáticos](fundamentals/static-files.md)
 ## [Hospedar aplicaciones de WPF](fundamentals/hosting.md)
 ## [Estado de sesión y aplicación](fundamentals/app-state.md)
 ## [Servidores](fundamentals/servers/index.md)
