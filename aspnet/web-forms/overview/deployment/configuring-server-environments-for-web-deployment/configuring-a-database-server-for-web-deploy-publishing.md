@@ -130,7 +130,7 @@ Para obtener más información acerca de cómo configurar Firewall de Windows pa
 
 ## <a name="configure-logins-and-database-permissions"></a>Configurar inicios de sesión y permisos de base de datos
 
-Al implementar una aplicación web para Internet Information Services (IIS), la aplicación ejecuta con la identidad del grupo de aplicaciones. En un entorno de dominio, identidades del grupo de aplicaciones usa la cuenta de equipo del servidor en el que ejecuta para acceder a los recursos de red. Cuentas de equipo que adoptan la forma *[nombre de dominio]***\***[nombre máquina] ***$**& #x 2014; por ejemplo, **FABRIKAM\ TESTWEB1$**. Para permitir que la aplicación web tener acceso a una base de datos a través de la red, debe:
+Al implementar una aplicación web para Internet Information Services (IIS), la aplicación ejecuta con la identidad del grupo de aplicaciones. En un entorno de dominio, identidades del grupo de aplicaciones usa la cuenta de equipo del servidor en el que ejecuta para acceder a los recursos de red. Cuentas de equipo que adoptan la forma *[nombre de dominio]***\***[nombre máquina]***$**&#x2014;por ejemplo, **FABRIKAM\ TESTWEB1$**. Para permitir que la aplicación web tener acceso a una base de datos a través de la red, debe:
 
 - Agregar un inicio de sesión para la cuenta del equipo de servidor web a la instancia de SQL Server.
 - El inicio de sesión de cuenta de equipo se asignan a los roles de base de datos requerida (normalmente **db\_datareader** y **db\_datawriter**).

@@ -79,8 +79,8 @@ Todo el código que es específico del origen de datos subyacente como la creaci
 
 - **GetCategories(),** que devolverá información sobre todas las categorías
 - **GetProducts()**, que devuelve información acerca de todos los productos
-- **GetProductsByCategoryID (*categoryID*) **, lo que devolverá todos los productos que pertenecen a una categoría específica
-- **GetProductByProductID (*productID*) **, que devolverá información sobre un producto determinado
+- **GetProductsByCategoryID (*categoryID*)**, lo que devolverá todos los productos que pertenecen a una categoría específica
+- **GetProductByProductID (*productID*)**, que devolverá información sobre un producto determinado
 
 Estos métodos, cuando se invoca, conéctese a la base de datos, emitir la consulta apropiada y devolver los resultados. ¿Cómo se devuelven estos resultados es importante. Estos métodos pudieron devolver simplemente un conjunto de datos o DataReader rellenado por la consulta de base de datos, pero lo ideal es que se deben devolver estos resultados usando *objetos fuertemente tipados*. Un objeto fuertemente tipado es uno cuyo esquema se define estrictamente en tiempo de compilación, mientras que lo contrario, un objeto débilmente tipadas, es uno cuyo esquema no se conoce hasta el tiempo de ejecución.
 
@@ -114,7 +114,7 @@ Tras hacer clic en Agregar, cuando se le solicite para agregar el conjunto de da
 
 Un conjunto de datos con tipo actúa como una colección fuertemente tipada de datos; se compone de las instancias de DataTable fuertemente tipado, cada uno de los cuales a su vez se compone de instancias de DataRow fuertemente tipada. Se creará una tabla de datos fuertemente tipados para cada una de las tablas de base de datos subyacentes que necesitamos para trabajar con en esta serie de tutoriales. Puede empezar con la creación de una tabla de datos para la **productos** tabla.
 
-Tenga en cuenta que DataTables fuertemente tipada no incluyen toda la información sobre cómo tener acceso a datos de la tabla de base de datos subyacente. Para recuperar los datos para rellenar la tabla de datos, usamos una clase TableAdapter, que funciona como la capa de acceso a datos. Para nuestro **productos** DataTable, lo TableAdapter contendrá los métodos **GetProducts()**,  **GetProductByCategoryID (*categoryID*) **, etc. que se podrá invocar desde la capa de presentación. Rol de la tabla de datos es para que actúe como el objetos fuertemente tipados que se usa para pasar datos entre las capas.
+Tenga en cuenta que DataTables fuertemente tipada no incluyen toda la información sobre cómo tener acceso a datos de la tabla de base de datos subyacente. Para recuperar los datos para rellenar la tabla de datos, usamos una clase TableAdapter, que funciona como la capa de acceso a datos. Para nuestro **productos** DataTable, lo TableAdapter contendrá los métodos **GetProducts()**,  **GetProductByCategoryID (*categoryID*)**, etc. que se podrá invocar desde la capa de presentación. Rol de la tabla de datos es para que actúe como el objetos fuertemente tipados que se usa para pasar datos entre las capas.
 
 El Asistente para configuración de TableAdapter comienza le pide que seleccione a qué base de datos para trabajar con. La lista desplegable muestra las bases de datos en el Explorador de servidores. Si no se agregó la base de datos Northwind en el Explorador de servidores, puede hacer clic en el botón nueva conexión en este momento para hacerlo.
 
@@ -217,7 +217,7 @@ Si bien en este ejemplo es necesario que escribimos tres líneas de código en n
 
 En este momento nuestro **ProductsTableAdapter** clase tiene pero un método, **GetProducts()**, que devuelve todos los productos de la base de datos. Mientras que la capacidad para trabajar con todos los productos es muy útiles, hay ocasiones cuando es conveniente para recuperar información sobre un producto específico o todos los productos que pertenecen a una categoría determinada. Para agregar esta funcionalidad a la capa de acceso a datos podemos agregar métodos con parámetros al objeto TableAdapter.
 
-Vamos a agregar la  **GetProductsByCategoryID (*categoryID*) ** método. Para agregar un nuevo método a la capa DAL, vuelva al diseñador de DataSet, pulse el botón derecho en el **ProductsTableAdapter** sección y elija Agregar consulta.
+Vamos a agregar la  **GetProductsByCategoryID (*categoryID*)** método. Para agregar un nuevo método a la capa DAL, vuelva al diseñador de DataSet, pulse el botón derecho en el **ProductsTableAdapter** sección y elija Agregar consulta.
 
 
 ![Haga doble clic en el objeto TableAdapter y elija Agregar consulta](creating-a-data-access-layer-cs/_static/image38.png)
@@ -257,7 +257,7 @@ Después de completar al asistente, el Diseñador de DataSet incluye los nuevos 
 **Figura 18**: The el productos puede ahora ser consultadas por categoría
 
 
-Tómese un momento para agregar una  **GetProductByProductID (*productID*) ** método utilizando la misma técnica.
+Tómese un momento para agregar una  **GetProductByProductID (*productID*)** método utilizando la misma técnica.
 
 Estas consultas con parámetros se pueden probar directamente desde el Diseñador de DataSet. Haga doble clic en el método de TableAdapter y elija la vista previa de datos. A continuación, escriba los valores para usar con los parámetros y haga clic en vista previa.
 
@@ -267,7 +267,7 @@ Estas consultas con parámetros se pueden probar directamente desde el Diseñado
 **Figura 19**: se muestran los productos que pertenecen a la categoría bebidas ([haga clic aquí para ver la imagen a tamaño completo](creating-a-data-access-layer-cs/_static/image51.png))
 
 
-Con el  **GetProductsByCategoryID (*categoryID*) ** método en la capa DAL, ahora podemos crear una página ASP.NET que muestra solo los productos para una categoría específica. El ejemplo siguiente muestra todos los productos que están en la categoría Bebidas, que tienen un **CategoryID** de 1.
+Con el  **GetProductsByCategoryID (*categoryID*)** método en la capa DAL, ahora podemos crear una página ASP.NET que muestra solo los productos para una categoría específica. El ejemplo siguiente muestra todos los productos que están en la categoría Bebidas, que tienen un **CategoryID** de 1.
 
 Beverages.ASP
 
@@ -391,7 +391,7 @@ Después de actualizar el **GetProducts()** método que desea utilizar esta nuev
 **Figura 30**: el **productos** DataTable tiene dos nuevas columnas
 
 
-Tómese un momento para actualizar la **seleccione** cláusula en la  **GetProductsByCategoryID (*categoryID*) ** método así.
+Tómese un momento para actualizar la **seleccione** cláusula en la  **GetProductsByCategoryID (*categoryID*)** método así.
 
 Si actualiza el **GetProducts()** **seleccione** con **UNIR** sintaxis el Diseñador de DataSet no podrán generar automáticamente los métodos para insertar, actualizar y eliminar base de datos usando el patrón directa de la base de datos. En su lugar, tendrá que crearlas manualmente mucho al igual que hicimos con la **InsertProduct** método anteriormente en este tutorial. Además, manualmente tendrá que proporcionar el **InsertCommand**, **UpdateCommand**, y **DeleteCommand** si desea usar el lote de patrón de la actualización de los valores de propiedad.
 
@@ -399,7 +399,7 @@ Si actualiza el **GetProducts()** **seleccione** con **UNIR** sintaxis el Diseñ
 
 Hasta ahora, hemos visto solo al trabajar con un TableAdapter único para una tabla de base de datos único. Sin embargo, la base de datos de Northwind contiene varias tablas relacionadas que se necesitará para trabajar con en nuestra aplicación web. Un conjunto de datos con tipo puede contener varios relacionados con tablas de datos. Por lo tanto, para completar nuestro DAL que necesitamos agregar tablas de datos para las demás tablas que se usarán en estos tutoriales. Para agregar un nuevo TableAdapter a un conjunto de datos con tipo, abra el Diseñador de DataSet, pulse el botón derecho en el diseñador y seleccione Agregar / TableAdapter. Esto creará una nueva tabla de datos y TableAdapter y le guían a través del asistente, examinamos anteriormente en este tutorial.
 
-Tardar unos minutos para crear los siguientes métodos con las consultas siguientes y los TableAdapters. Tenga en cuenta que las consultas en el **ProductsTableAdapter** incluyen las subconsultas para obtener los nombres de categoría y el proveedor de cada producto. Además, si nos han estado siguiendo, ya ha agregado el **ProductsTableAdapter** la clase **GetProducts()** y  **GetProductsByCategoryID (*categoryID*) ** métodos.
+Tardar unos minutos para crear los siguientes métodos con las consultas siguientes y los TableAdapters. Tenga en cuenta que las consultas en el **ProductsTableAdapter** incluyen las subconsultas para obtener los nombres de categoría y el proveedor de cada producto. Además, si nos han estado siguiendo, ya ha agregado el **ProductsTableAdapter** la clase **GetProducts()** y  **GetProductsByCategoryID (*categoryID*)** métodos.
 
 - **ProductsTableAdapter**
 
