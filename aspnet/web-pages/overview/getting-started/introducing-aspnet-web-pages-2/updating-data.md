@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: aabf572e254de9861719fdc502340353482919b4
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: b016231975bf8d359f4c390b0b478edc383117d4
+ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/10/2018
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introducción a ASP.NET Web Pages: actualizar la base de datos
 ====================
@@ -308,7 +308,7 @@ En el siguiente tutorial, verá cómo eliminar un registro de la película.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](introducing-razor-syntax-c.md)
+- [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](../../getting-started/introducing-razor-syntax-c.md)
 - [Instrucción UPDATE de SQL](http://www.w3schools.com/sql/sql_update.asp) en el sitio W3Schools
 
 >[!div class="step-by-step"]

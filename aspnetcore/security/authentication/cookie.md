@@ -11,11 +11,11 @@ ms.assetid: 2bdcbf95-8d9d-4537-a4a0-a5ee439dcb62
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/cookie
-ms.openlocfilehash: 6279d3b4ac3be102449089dc66eeeb0495cfc4c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ee660667251ec4a64f2b3e83f39214e9defcea03
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="using-cookie-authentication-without-aspnet-core-identity"></a>Mediante la autenticación de Cookie sin identidad principal de ASP.NET
 
@@ -39,7 +39,7 @@ En el `ConfigureServices` (método), crear el servicio de Middleware de autentic
 
 `AuthenticationScheme`pasa al `AddAuthentication` establece el esquema de autenticación predeterminado para la aplicación. `AuthenticationScheme`es útil cuando hay varias instancias de autenticación con cookies y desea [autorizarse con un esquema específico](xref:security/authorization/limitingidentitybyscheme). Establecer el `AuthenticationScheme` a `CookieAuthenticationDefaults.AuthenticationScheme` proporciona un valor de "Cookies" para el esquema. Puede proporcionar cualquier valor de cadena que distingue el esquema.
 
-En el `Configure` método, use la `UseAuthentication` método que se invoca el Middleware de autenticación que establece el `HttpContext.User` propiedad. Llame a la `UseAuthentication` método antes de llamar a `AddMvcWithDefaultRoute` en una aplicación MVC o `AddMvc` en una aplicación de páginas de Razor:
+En el `Configure` método, use la `UseAuthentication` método que se invoca el Middleware de autenticación que establece el `HttpContext.User` propiedad. Llame a la `UseAuthentication` método antes de llamar a `UseMvcWithDefaultRoute` o `UseMvc`:
 
 [!code-csharp[Main](cookie/sample/Startup.cs?name=snippet2)]
 
@@ -138,7 +138,7 @@ app.UseCookiePolicy(cookiePolicyOptions);
 
  El [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions) proporcionado para el Middleware de directiva de Cookie le permiten controlar características globales del procesamiento de la cookie y el enlace en los controladores de procesamiento de cookie cuando se agrega o se eliminan las cookies.
 
-| Propiedad | Descripción |
+| Property | Descripción |
 | -------- | ----------- |
 | [HttpOnly](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.httponly) | Afecta a si las cookies deben estar HttpOnly, que es una marca que indica si la cookie debe ser accesible sólo a los servidores. El valor predeterminado es `HttpOnlyPolicy.None`. |
 | [MinimumSameSitePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.minimumsamesitepolicy) | Afecta al atributo del mismo sitio de la cookie (ver abajo). El valor predeterminado es `SameSiteMode.Lax`. Esta opción está disponible para el núcleo de ASP.NET 2.0 +. |

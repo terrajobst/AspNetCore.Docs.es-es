@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/intro
-ms.openlocfilehash: acbd987438edeea13f29547dc471f9a211e87b04
-ms.sourcegitcommit: 1de159820a572c08955ee77cc8b1caa3d7aa938c
+ms.openlocfilehash: 86f9eceb5b8646e371811fa4611a4509ff652231
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/23/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started-with-razor-pages-and-entity-framework-core-using-visual-studio-1-of-8"></a>Introducción a las páginas de Razor y Entity Framework Core con Visual Studio (1 de 8)
 
@@ -71,7 +71,7 @@ Abra *Pages/_Layout.cshtml* y realice los cambios siguientes:
 
 * Agregar entradas de menú para **estudiantes**, **cursos**, **instructores**, y **departamentos**y eliminar el **póngase en contacto con** entrada de menú.
 
-Los cambios aparecen resaltados.
+Los cambios aparecen resaltados. (Todo el marcado es *no* muestra.)
 
 [!code-html[](intro/samples/cu/Pages/_Layout.cshtml?highlight=6,29,35-38,47&range=1-50)]
 

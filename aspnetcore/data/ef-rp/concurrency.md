@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 8862c6b9a5eb7ac3b6889071e4ce9ff6f02512c9
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 841c638b2cacaab7970f2b173fee488972957b63
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 en-us /
 
@@ -302,7 +302,7 @@ El explorador muestra la página de índice con el valor cambiado y el indicador
 
 Elimine el departamento de prueba de la segunda pestaña. Un error de simultaneidad es que se muestran con los valores actuales de la base de datos. Haga clic en **eliminar** elimina la entidad, a menos que `RowVersion` ha sido updated.department se ha eliminado.
 
-Vea [herencia](xref:data/ef-mvc/inheritance) para obtener instrucciones sobre cómo la herencia en el modelo de datos.
+Vea [herencia](xref:data/ef-mvc/inheritance) sobre cómo se hereda de un modelo de datos.
 
 ### <a name="additional-resources"></a>Recursos adicionales
 

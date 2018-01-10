@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: cf0bb7984ad3460f8784193f7bb407c9b0ad50db
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 <a name="adding-a-view"></a>Agregar una vista
 ====================
@@ -31,7 +31,7 @@ Actualmente, el método `Index` devuelve una cadena con un mensaje que está cod
 
 El `Index` método anterior usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocido como [métodos de acción](http://rachelappel.com/asp.net-mvc-actionresults-explained)), como el `Index` método anterior, generalmente devuelven un [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (o una clase derivada de [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), los tipos no primitivos como cadena.
 
-Haga clic con el *Views\HelloWorld* carpeta y haga clic en **agregar**, a continuación, haga clic en **página de vista de MVC 5 con (diseño de Razor)**.
+Haga clic con el *Views\HelloWorld* carpeta y haga clic en **agregar**, a continuación, haga clic en **página de vista de MVC 5 con diseño (Razor)**.
   
 ![](adding-a-view/_static/image1.png)   
   

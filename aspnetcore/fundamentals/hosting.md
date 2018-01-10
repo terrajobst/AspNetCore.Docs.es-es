@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 0ee8827ad3d5464e1645a40d453054b9e23641cf
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 054b60206cafc3d6dd5775436995638d7f5700cf
+ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hospedar en ASP.NET Core
 
@@ -874,7 +874,17 @@ public class Startup
 
 **Se aplica a los núcleos de ASP.NET 2.0 sólo**
 
-Si el host se genera insertando `IStartup` directamente en el contenedor de inyección de dependencia en lugar de llamar a `UseStartup` o `Configure`, puede producirse el siguiente error: `Unhandled Exception: System.ArgumentException: A valid non-empty application name must be provided`.
+Se puede crear un host insertando `IStartup` directamente en el contenedor de inyección de dependencia en lugar de llamar a `UseStartup` o `Configure`:
+
+```csharp
+services.AddSingleton<IStartup, Startup>();
+```
+
+Si el host se crea de esta forma, puede producirse el error siguiente:
+
+```
+Unhandled Exception: System.ArgumentException: A valid non-empty application name must be provided.
+```
 
 Esto ocurre porque la [applicationName(ApplicationKey)](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostdefaults#Microsoft_AspNetCore_Hosting_WebHostDefaults_ApplicationKey) (el ensamblado actual) es necesario para buscar `HostingStartupAttributes`. Si la aplicación inserta manualmente `IStartup` en el contenedor de inyección de dependencia, agregue la siguiente llamada a `WebHostBuilder` con el nombre de ensamblado especificado:
 
