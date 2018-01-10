@@ -102,7 +102,7 @@ En este caso, debe instalar estas cosas:
 7. En el panel de navegación, haga clic en **Server**.
 8. En el **configuración recomendada para IIS 7** la fila, haga clic en **agregar**.
 9. En el **2.1 de herramienta de implementación Web** la fila, haga clic en **agregar**.
-10. Haga clic en **Instalar**. El instalador de plataforma Web mostrará una lista de productos & #x 2014; junto con las dependencias asociadas & #x 2014; esté instalado y se le pedirá que acepte los términos de licencia.
+10. Haga clic en **Instalar**. El instalador de plataforma Web mostrará una lista de productos &#x2014; junto con las dependencias asociadas &#x2014; esté instalado y se le pedirá que acepte los términos de licencia.
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image2.png)
 11. Revise los términos de licencia y, si acepta los términos, haga clic en **acepto**.
@@ -176,11 +176,11 @@ Aunque no hay nada que le impida de implementación de contenido del sitio Web p
     > [!NOTE]
     > La solución de ejemplo requiere .NET Framework 4.0. Esto no es un requisito de Web Deploy en general.
 
-En orden para el sitio Web servir el contenido, la identidad del grupo de aplicaciones debe tener permisos de lectura en la carpeta local que almacena el contenido. En IIS 7.5, los grupos de aplicaciones se ejecutan con una identidad del grupo de aplicaciones único predeterminada (a diferencia de las versiones anteriores de IIS, donde grupos de aplicaciones normalmente ejecutarán con la cuenta de servicio de red). La identidad del grupo de aplicaciones no es una cuenta de usuario real y no se muestra en las listas de usuarios o grupos & #x 2014; en su lugar, se crea dinámicamente cuando se inicia el grupo de aplicaciones. Cada identidad de grupo de aplicaciones se agrega a la variable local **IIS\_IUSRS** grupo de seguridad como un elemento oculto.
+En orden para el sitio Web servir el contenido, la identidad del grupo de aplicaciones debe tener permisos de lectura en la carpeta local que almacena el contenido. En IIS 7.5, los grupos de aplicaciones se ejecutan con una identidad del grupo de aplicaciones único predeterminada (a diferencia de las versiones anteriores de IIS, donde grupos de aplicaciones normalmente ejecutarán con la cuenta de servicio de red). La identidad del grupo de aplicaciones no es una cuenta de usuario real y no se muestra en las listas de usuarios o grupos &#x2014; en su lugar, se crea dinámicamente cuando se inicia el grupo de aplicaciones. Cada identidad de grupo de aplicaciones se agrega a la variable local **IIS\_IUSRS** grupo de seguridad como un elemento oculto.
 
 Para conceder permisos a una identidad del grupo de aplicación en un archivo o carpeta, tiene dos opciones:
 
-- Asignar permisos a la identidad del grupo de aplicación directamente, con el formato **IIS AppPool\***[nombre de grupo de aplicaciones] * (por ejemplo, **IIS AppPool\DemoSite**).
+- Asignar permisos a la identidad del grupo de aplicación directamente, con el formato **IIS AppPool\***[nombre de grupo de aplicaciones]*(por ejemplo, **IIS AppPool\DemoSite**).
 - Asignar permisos para la **IIS\_IUSRS** grupo.
 
 El enfoque más común consiste en asignar permisos a la variable local **IIS\_IUSRS** agrupar debido a este enfoque le permite cambiar los grupos de aplicaciones sin volver a configurar los permisos de sistema de archivos. El siguiente procedimiento usa este enfoque basado en grupos.

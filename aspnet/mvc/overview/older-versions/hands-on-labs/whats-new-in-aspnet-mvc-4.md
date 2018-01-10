@@ -558,7 +558,7 @@ En esta tarea, actualizará el diseño del escritorio para que incluya al modifi
     ![Ver modificador que se representan en la vista de escritorio](whats-new-in-aspnet-mvc-4/_static/image32.png "cambiador de vistas que se representan en la vista de escritorio")
 
     *Modificador de vista que se representan en la vista de escritorio*
-7. Cambie a la vista móvil nuevo y vaya a **sobre** página (¡http://localhost [puerto] / principal/acerca de). Tenga en cuenta que, incluso si no ha creado una vista About.Mobile.cshtml, acerca de se muestra la página con el diseño móvil (\_Layout.Mobile.cshtml).
+7. Cambie a la vista móvil nuevo y vaya a **sobre** página (http://localhost[puerto]/principal/acercade). Tenga en cuenta que, incluso si no ha creado una vista About.Mobile.cshtml, acerca de se muestra la página con el diseño móvil (\_Layout.Mobile.cshtml).
 
     ![Acerca de la página](whats-new-in-aspnet-mvc-4/_static/image33.png "acerca de la página")
 
