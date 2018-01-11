@@ -309,7 +309,7 @@ Como alternativa, puede especificar varios métodos de transporte en el orden en
 Puede usar los siguientes valores para especificar el método de transporte:
 
 - "webSockets"
-- "foreverFrame"
+- "SiempreFrame"
 - "serverSentEvents"
 - "longPolling"
 
@@ -363,7 +363,7 @@ Si decorar la clase de concentrador con un `HubName` de atributo, use el nombre 
 
 ## <a name="how-to-define-methods-on-the-client-that-the-server-can-call"></a>Cómo definir métodos en el cliente que el servidor puede llamar a
 
-Para definir un método que el servidor pueda llamar desde un concentrador, agregar un controlador de eventos para el proxy de concentrador mediante el `client` propiedad del proxy generado, o llame a la `on` método si no está usando el proxy generado. Los parámetros pueden ser objetos complejos.
+Para definir un método que el servidor pueda llamar desde un concentrador, agregar un controlador de eventos para el proxy de concentrador mediante la propiedad `client` del proxy generado, o llame al metodo `on`,  si no está usando el proxy generado. Los parámetros pueden ser objetos complejos.
 
 Agregue el controlador de eventos antes de llamar a la `start` método para establecer la conexión. (Si desea agregar controladores de eventos después de llamar a la `start` método, vea la nota de [cómo establecer una conexión](#establishconnection) anteriormente en este documento y utilizar la sintaxis mostrada para definir un método sin utilizar el proxy generado.)
 
