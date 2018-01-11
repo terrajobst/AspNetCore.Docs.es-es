@@ -281,7 +281,7 @@ Algunos proveedores de autenticación externa no admiten probar la aplicación c
         <kbd>CD /d &quot;%ProgramFiles%\IIS Express&quot;</kbd>
     3. Escriba el siguiente comando para agregar el FQDN a la aplicación:
 
-        <kbd>establecer la configuración de appcmd.exe-section:system.applicationHost/sites / +&quot;[nombre = 'WebApplication1'] .bindings. [ protocolo = 'http', bindingInformation ='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
+        <kbd>establecer la configuración de appcmd.exe-section:system.applicationHost/sites /+&quot;[nombre='WebApplication1'].bindings.[protocolo='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
  Donde **WebApplication1** es el nombre del proyecto y **bindingInformation** contiene el número de puerto y FQDN que desea usar para las pruebas.
 
