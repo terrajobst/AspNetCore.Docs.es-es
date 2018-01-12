@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2a8b165c149ceacba49a193c25e4a66a701ea0d6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Implementación de Web ASP.NET con Visual Studio: implementación de producción
 ====================
@@ -42,7 +42,7 @@ Si ya no tiene una cuenta de Azure, puede crear una cuenta de prueba gratuita en
 ## <a name="create-a-staging-environment"></a>Crear un entorno de ensayo
 
 > [!NOTE]
-> Puesto que este tutorial se escribió, servicio de aplicaciones de Azure agrega una nueva característica para automatizar muchos de los procesos alrededor de entornos de ensayo y producción. Vea [establecer entornos de ensayo para aplicaciones web en el servicio de aplicaciones de Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-staged-publishing/).
+> Puesto que este tutorial se escribió, servicio de aplicaciones de Azure agrega una nueva característica para automatizar muchos de los procesos para crear entornos de ensayo y producción. Vea [establecer entornos de ensayo para aplicaciones web en el servicio de aplicaciones de Azure](https://azure.microsoft.com/documentation/articles/web-sites-staged-publishing/).
 
 
 Como se explica en la [implementar en el tutorial de entorno de prueba](deploying-to-iis.md), más el entorno de prueba confiable es un sitio web en el proveedor de hospedaje que simplemente como el sitio web de producción. Muchos proveedores de hospedaje de tendría que sopesar las ventajas de este y costo adicional significativo, pero en Azure puede crear una aplicación web gratuita adicionales como la aplicación de almacenamiento provisional. También necesita una base de datos y el gasto adicional para que en el gasto de la base de datos de producción será: ninguno o mínima. En Azure se paga para la cantidad de almacenamiento de base de datos que use en lugar de para cada base de datos y la cantidad de almacenamiento adicional que se usará en ensayo será mínima.

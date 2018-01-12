@@ -11,11 +11,11 @@ ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: d63502a32e38eb192b40f21f5cd57d20048154e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Temas avanzados - Core EF con el tutorial de MVC de ASP.NET Core (10 de 10)
 
@@ -192,7 +192,7 @@ Con esto finaliza la siguiente serie de tutoriales sobre cómo utilizar el núcl
 
 Para obtener más información sobre el núcleo de EF, consulte la [documentación de Entity Framework Core](https://docs.microsoft.com/ef/core). También está disponible un libro: [Entity Framework Core en acción](https://www.manning.com/books/entity-framework-core-in-action).
 
-Para obtener información sobre cómo implementar la aplicación web después de que haya creado, vea [publicación e implementación](../../publishing/index.md).
+Para obtener información sobre cómo implementar una aplicación web, consulte [Host e implementar](xref:host-and-deploy/index).
 
 Para obtener información acerca de otros temas relacionados con ASP.NET MVC de núcleo, como la autenticación y autorización, consulte la [documentación principal de ASP.NET](https://docs.microsoft.com/aspnet/core/).
 
