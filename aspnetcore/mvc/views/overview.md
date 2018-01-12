@@ -65,7 +65,7 @@ Vistas normalmente se devuelven de acciones como un [ViewResult](/aspnet/core/ap
 
 Esta acción devuelve el *About.cshtml* se muestra en la última sección de vista se representa como la página Web siguiente:
 
-![Acerca de la página representada en el explorador Edge](overview/_static/about-page.png)
+![Acerca de la página representada en el explorador Microsoft Edge](overview/_static/about-page.png)
 
 El `View` método auxiliar tiene varias sobrecargas. También puede especificar:
 

@@ -426,7 +426,7 @@ En la siguiente ilustración muestra el aspecto de estas relaciones en un diagra
 
 ![Curso de estudiante muchos a muchos relación](complex-data-model/_static/student-course.png)
 
-Cada línea de relación tiene un 1 en un extremo y un asterisco (/*) en el otro, que indica una relación uno a varios.
+Cada línea de relación tiene un 1 en un extremo y un asterisco (\*) en el otro, que indica una relación uno a varios.
 
 Si el `Enrollment` tabla no incluir información de categoría, que solo sería necesario contener las claves dos externas (`CourseID` y `StudentID`). Una tabla sin carga una combinación de varios a varios se suele denominar una tabla combinada pura (PJT).
 
