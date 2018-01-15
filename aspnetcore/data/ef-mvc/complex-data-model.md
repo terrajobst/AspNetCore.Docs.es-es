@@ -352,7 +352,7 @@ En la siguiente ilustración muestra el aspecto de estas relaciones en un diagra
 
 ![Curso de estudiante muchos a muchos relación](complex-data-model/_static/student-course.png)
 
-Cada línea de relación tiene un 1 en un extremo y un asterisco (\*) en el otro, que indica una relación uno a varios.
+Cada línea de relación tiene un 1 en un extremo y un asterisco (*) en el otro, que indica una relación uno a varios.
 
 Si la tabla Enrollment no incluye la información de categoría, que solo sería necesario contener las dos claves externas CourseID y StudentID. En ese caso, sería una tabla sin carga una combinación de varios a varios (o una tabla combinada pura) en la base de datos. Las entidades Instructor y el curso tienen ese tipo de relación de varios a varios, y el paso siguiente consiste en crear una clase de entidad para que funcione como una tabla de combinación sin carga.
 
