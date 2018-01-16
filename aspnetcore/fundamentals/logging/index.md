@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 737de614625ce560df1c3d7cfd9810f9433c153d
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 3eb167c961b8d089d508ef5622db6ae1cdd99088
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al registro en ASP.NET Core
 
@@ -56,7 +56,7 @@ Para usar un proveedor, llame al método de extensión `Add<ProviderName>` del p
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-La plantilla de proyecto predeterminada establece el registro de la manera en que se ve en el código anterior, pero la llamada a `ConfigureLogging` se realiza mediante el método `CreateDefaultBuilder`. Este es el código de *Program.cs* que se crea mediante plantillas de proyecto:
+La plantilla de proyecto predeterminada permite el registro con el método [CreateDefaultBuilder](https://docs.microsoft.com/ dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___):
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -297,7 +297,7 @@ El segundo `AddFilter` especifica el proveedor de depuración mediante su nombre
 
 Los datos de configuración y el código de `AddFilter` que se muestran en los ejemplos anteriores crean las reglas que se muestran en la tabla siguiente. Las seis primeras proceden del ejemplo de configuración y las dos últimas del ejemplo de código.
 
-| Número | Proveedor      | Categorías que comienzan por...          | Nivel de registro mínimo |
+| número | Proveedor      | Categorías que comienzan por...          | Nivel de registro mínimo |
 | :----: | ------------- | --------------------------------------- | ----------------- |
 | 1      | Depuración         | Todas las categorías                          | Información       |
 | 2      | Consola       | Microsoft.AspNetCore.Mvc.Razor.Internal | Advertencia           |

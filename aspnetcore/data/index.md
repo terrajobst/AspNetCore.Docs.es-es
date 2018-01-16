@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/index
-ms.openlocfilehash: bc19cbf0093e8a7f26af82d19f597cc805e04309
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: 325f95cf9ecc295f7a1c646e352b9cd496b6268e
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="working-with-data-in-aspnet-core"></a>Trabajar con datos en ASP.NET Core 
 
@@ -22,22 +22,22 @@ ms.lasthandoff: 12/14/2017
 
    * [Introducción a las páginas de Razor y EF](xref:data/ef-rp/intro)
    * [Operaciones de creación, lectura, actualización y eliminación](xref:data/ef-rp/crud)
-   * [Ordenado, filtrado, paginación y agrupación](xref:data/ef-rp/sort-filter-page)
+   * [Ordenación, filtrado, paginación y agrupación](xref:data/ef-rp/sort-filter-page)
    * [Migraciones](xref:data/ef-rp/migrations)
    * [Creación de un modelo de datos complejo](xref:data/ef-rp/complex-data-model)
    * [Lectura de datos relacionados](xref:data/ef-rp/read-related-data)
    * [Actualización de datos relacionados](xref:data/ef-rp/update-related-data)
-   * [Administrar los conflictos de simultaneidad](xref:data/ef-rp/concurrency)
+   * [Control de conflictos de simultaneidad](xref:data/ef-rp/concurrency)
 
 *   [Introducción a ASP.NET Core MVC y Entity Framework Core con Visual Studio](ef-mvc/index.md)
     *   [Introducción](ef-mvc/intro.md)
     *   [Operaciones de creación, lectura, actualización y eliminación](xref:data/ef-mvc/crud)
-    *   [Ordenado, filtrado, paginación y agrupación](xref:data/ef-mvc/sort-filter-page)
+    *   [Ordenación, filtrado, paginación y agrupación](xref:data/ef-mvc/sort-filter-page)
     *   [Migraciones](xref:data/ef-mvc/migrations)
     *   [Creación de un modelo de datos complejo](ef-mvc/complex-data-model.md)
     *   [Lectura de datos relacionados](ef-mvc/read-related-data.md)
     *   [Actualización de datos relacionados](ef-mvc/update-related-data.md)
-    *   [Administrar los conflictos de simultaneidad](ef-mvc/concurrency.md)
+    *   [Control de conflictos de simultaneidad](ef-mvc/concurrency.md)
     *   [Herencia](ef-mvc/inheritance.md)
     *   [Temas avanzados](ef-mvc/advanced.md)
 * [ASP.NET Core con EF Core: nueva base de datos](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) (sitio de la documentación de Entity Framework Core)

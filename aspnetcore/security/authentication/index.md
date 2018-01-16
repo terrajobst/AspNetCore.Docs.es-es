@@ -11,11 +11,11 @@ ms.assetid: 981852c9-78f9-4590-aaee-9d50a2838dfe
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/index
-ms.openlocfilehash: 9b92a3206e2d6ca921e8580fa367e4bae12725c5
-ms.sourcegitcommit: 037d3900f739dbaa2ba14158e3d7dc81478952ad
+ms.openlocfilehash: 182d3b5d567a46bb0f7d7c5864ebbc252782d8a3
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="authentication"></a>Autenticación
 
@@ -23,9 +23,9 @@ ms.lasthandoff: 12/01/2017
 
 * [Introducción a Identity](identity.md)
 
-* [Habilitación de la autenticación con Facebook, Google y otros proveedores externos](social/index.md)
+* [Habilitar la autenticación con Facebook, Google y otros proveedores externos](social/index.md)
 
-* [Habilitación de la generación de código QR en ASP.NET Identity](identity-enable-qrcodes.md)
+* [Habilitar la generación de código QR en Identity](identity-enable-qrcodes.md)
 
 * [Configuración de la autenticación de Windows](windowsauth.md)
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 12/01/2017
 
 * [Autenticación en dos fases con SMS](2fa.md)
 
-* [Uso de la autenticación de cookies sin ASP.NET Core Identity](cookie.md)
+* [Uso de la autenticación de cookies sin Identity](cookie.md)
 
 * [Azure Active Directory](azure-active-directory/index.md)
 
@@ -45,6 +45,6 @@ ms.lasthandoff: 12/01/2017
 
 * [Protección de aplicaciones de ASP.NET Core con IdentityServer4](http://docs.identityserver.io/en/release/)
 
-* [Protección de aplicaciones de ASP.NET Core con Azure App Service Authentication (autenticación sencilla)](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
+* [Protección de aplicaciones de ASP.NET Core con la autenticación de Azure App Service (autenticación sencilla)](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
 
 * [Artículos basados en los proyectos creados con cuentas de usuario individuales](xref:security/authentication/individual)
