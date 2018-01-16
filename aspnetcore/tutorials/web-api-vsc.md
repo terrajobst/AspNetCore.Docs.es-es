@@ -11,11 +11,11 @@ keywords: ASP.NET Core, WebAPI, API web, REST, Mac, Linux, HTTP, servicio, servi
 manager: wpickett
 ms.assetid: 830b4bf5-dd14-423e-9f59-764a6f13a8f6
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: caf40ee1c2d45d2fbf33b07d707fa4f1be98d31c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 40f9259101e5d006378562a27e97948641e29450
+ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Crear una Web API con ASP.NET Core MVC y Visual Studio Code en Linux, macOS y Windows
 
@@ -57,7 +57,7 @@ Abra la carpeta *TodoApi* en Visual Studio Code (VS Code) y seleccione el archiv
 
 <!-- uid: tutorials/first-mvc-app-xplat/start-mvc uses the pic below. If you change it, make sure it's consistent -->
 
-![VS Code con la advertencia "Required assets to build and debug are missing from 'TodoApi'. Add them?" Don't ask Again (No volver a preguntar), Not Now (Ahora no), Yes (Sí) y también Info (Información) - There are unresolved dependencies (Hay dependencias sin resolver) - Restore (Restaurar) - Close (Cerrar)](web-api-vsc/_static/vsc_restore.png)
+![VS Code con la advertencia "Required assets to build and debug are missing from 'TodoApi'. Add them?" No volver a preguntar, Ahora no, Sí](web-api-vsc/_static/vsc_restore.png)
 
 Presione **Depurar** (F5) para compilar y ejecutar el programa. En un explorador, vaya a http://localhost:5000/api/values. Se muestra lo siguiente:
 
@@ -67,11 +67,9 @@ Vea [Ayuda de Visual Studio Code](#visual-studio-code-help) para obtener sugeren
 
 ## <a name="add-support-for-entity-framework-core"></a>Agregar compatibilidad con Entity Framework Core
 
-Edite el archivo *TodoApi.csproj* para instalar el proveedor de base de datos [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/). Este proveedor de base de datos permite usar Entity Framework Core con una base de datos en memoria.
+Al crear un proyecto nuevo en .NET Core 2.0, se agrega el proveedor "Microsoft.AspNetCore.All" en el archivo *TodoApi.csproj*. No es necesario instalar el proveedor de base de datos [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) por separado. Este proveedor de base de datos permite usar Entity Framework Core con una base de datos en memoria.
 
 [!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
-
-Ejecute `dotnet restore` para descargar e instalar el proveedor de base de datos EF Core InMemory. Puede ejecutar `dotnet restore` desde el terminal o escribir `⌘⇧P` (macOS) o `Ctrl+Shift+P` (Linux) en VS Code y luego escribir **.NET**. Seleccione **.NET: Restaurar paquetes**.
 
 ## <a name="add-a-model-class"></a>Agregar una clase de modelo
 

@@ -18,7 +18,7 @@ Las plantillas de [diseño](xref:mvc/views/layout) permiten especificar el dise�
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Cambiar el título y el vínculo del menú en el archivo de diseño
 
-Cambie el contenido del elemento de título. Cambie el texto del delimitador en la plantilla de diseño a "Movie App" (Aplicación de película) y el controlador de `Home` a `Movies` como se resalta aquí:
+En el elemento de título, cambie `MvcMovie` por `Movie App`. Cambie el texto del delimitador en la plantilla de diseño de `MvcMovie` a `Mvc Movie` y el controlador de `Home` a `Movies` como se resalta aquí:
 
 Nota: La versión ASP.NET Core 2.0 es algo diferente. No contiene `@inject ApplicationInsights` ni `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
@@ -29,9 +29,9 @@ Nota: La versión ASP.NET Core 2.0 es algo diferente. No contiene `@inject Appli
 
 Guarde los cambios y pulse en el vínculo **About** (Acerca de). Observe cómo el título de la pestaña del explorador muestra ahora **About - Movie App** (Acerca de - Aplicación de película) en lugar de **About - Mvc Movie** (Acerca de - Aplicación de MVC): 
 
-![Acerca de la pestaña](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Acerca de la pestaña](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
 
-Pulse el vínculo **Contact** (Contacto) y observe que también muestra **Movie App** (Aplicación de película). Hemos realizado el cambio una vez en la plantilla de diseño y hemos conseguido que todas las páginas del sitio reflejen el nuevo texto de vínculo y el nuevo título.
+Pulse el vínculo **Contacto** y observe que el texto del título y el delimitador también muestran **Movie App**. Hemos realizado el cambio una vez en la plantilla de diseño y hemos conseguido que todas las páginas del sitio reflejen el nuevo texto de vínculo y el nuevo título.
 
 Examine el archivo *Views/_ViewStart.cshtml*:
 
@@ -105,7 +105,7 @@ Guarde los cambios y vaya a esta dirección URL:
 
 Los datos se toman de la dirección URL y se pasan al controlador mediante el [enlazador de modelos MVC](xref:mvc/models/model-binding). El controlador empaqueta los datos en un diccionario `ViewData` y pasa ese objeto a la vista. Después, la vista representa los datos como HTML en el explorador.
 
-![Vista About (Acerca de) que muestra una etiqueta Welcome (Bienvenida) y la frase "Hello Rick" (Hola Rick) cuatro veces](../../tutorials/first-mvc-app/adding-view/_static/rick.png)
+![Vista About (Acerca de) que muestra una etiqueta Welcome (Bienvenida) y la frase "Hello Rick" (Hola Rick) cuatro veces](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 En el ejemplo anterior, usamos el diccionario `ViewData` para pasar datos del controlador a una vista. Más adelante en el tutorial usaremos un modelo de vista para pasar datos de un controlador a una vista. El enfoque del modelo de vista que consiste en pasar datos suele ser más preferible que el enfoque de diccionario `ViewData`. Para saber más, vea [ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) (ViewModel, ViewData, ViewBag, TempData y Session en MVC).
 

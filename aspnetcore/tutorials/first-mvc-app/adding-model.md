@@ -2,26 +2,23 @@
 title: "Adición de un modelo a una aplicación MVC de ASP.NET"
 author: rick-anderson
 description: "Agregue un modelo a una aplicación sencilla de ASP.NET Core."
-keywords: ASP.NET Core,
+keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
-ms.date: 03/30/2017
+ms.date: 12/8/2017
 ms.topic: get-started-article
-ms.assetid: 8dc28498-00ee-4d66-b903-b593059e9f39
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: a29bab9cf0712936fa9c3f2b4bb3b275a46fe6f6
-ms.sourcegitcommit: e641c5794525f983485621860926d8ab4e7360c8
+ms.openlocfilehash: 03c16e523fe2f91cae5c71357835684d813e3a1f
+ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 [!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Nota: Las plantillas de ASP.NET Core 2.0 contienen la carpeta *Models*.
-
-En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **MvcMovie** > **Agregar** > **Nueva carpeta**. Asigne a la carpeta el nombre *Models*.
 
 Haga clic con el botón derecho en la carpeta *Models* > **Agregar** > **Clase**. Asigne a la clase el nombre **Movie** y agregue las siguientes propiedades:
 
@@ -37,15 +34,10 @@ En el **Explorador de soluciones**, haga clic con el botón derecho en la carpet
 
 ![vista del paso anterior](adding-model/_static/add_controller.png)
 
-En el cuadro de diálogo **Agregar dependencias de MVC**, seleccione **Dependencias mínimas** y **Agregar**.
+Si aparece el cuadro de diálogo **Agregar dependencias de MVC**:
 
-![vista del paso anterior](adding-model/_static/add_depend.png)
-
-Visual Studio agrega las dependencias necesarias para aplicar la técnica de scaffolding a un controlador, pero no se crea el controlador. La siguiente invocación de **> Agregar > Controlador** crea el controlador. 
-
-En el **Explorador de soluciones**, haga clic con el botón derecho en la carpeta *Controladores* **> Agregar > Controlador**.
-
-![vista del paso anterior](adding-model/_static/add_controller.png)
+* [Actualice Visual Studio a la última versión](https://www.visualstudio.com/downloads/). La versiones de Visual Studio anteriores a la 15.5 muestran este cuadro de diálogo.
+* Si no puede actualizar, seleccione **AGREGAR** y luego siga los pasos para agregar el controlador de nuevo.
 
 En el cuadro de diálogo **Agregar scaffold**, pulse en **Controlador de MVC con vistas que usan Entity Framework > Agregar**.
 

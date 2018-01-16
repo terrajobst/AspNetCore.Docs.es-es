@@ -11,11 +11,11 @@ helpviewer_heywords: ASP.NET Core, WebAPI, Web API, REST, mac, macOS, HTTP, Serv
 ms.technology: aspnet
 keywords: ASP.NET Core, WebAPI, API web, REST, mac, macOS, HTTP, servicio, servicio HTTP
 manager: wpickett
-ms.openlocfilehash: 6bbd5e332e395928d8f79888ecf190f7f59a4bbc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3f84fa55baf6d808185a28db290d9e6d3c46bdac
+ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Crear una API web con ASP.NET Core MVC y Visual Studio para Mac
 
@@ -79,7 +79,7 @@ Instale el proveedor de base de datos [Entity Framework Core InMemory](https://d
 
 Un modelo es un objeto que representa los datos de la aplicación. En este caso, el único modelo es una tarea pendiente.
 
-Agregue una carpeta denominada *Modelos*. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto. Seleccione **Agregar** > **Nueva carpeta**. Asigne a la carpeta el nombre *Modelos*.
+Agregue una carpeta denominada *Models*. En el Explorador de soluciones, haga clic con el botón derecho en el proyecto. Seleccione **Agregar** > **Nueva carpeta**. Asigne a la carpeta el nombre *Modelos*.
 
 ![nueva carpeta](first-web-api-mac/_static/folder.png)
 
@@ -91,7 +91,7 @@ Reemplace el código generado por el siguiente:
 
 [!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
 
-La base de datos genera el `Id` cuando se crea una `TodoItem`.
+La base de datos genera el `Id` cuando se crea `TodoItem`.
 
 ### <a name="create-the-database-context"></a>Crear el contexto de base de datos
 
@@ -197,7 +197,7 @@ La respuesta es [204 Sin contenido](http://www.w3.org/Protocols/rfc2616/rfc2616-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Routing to Controller Actions](xref:mvc/controllers/routing) (Enrutamiento a acciones del controlador)
-* Para saber más sobre la implementación de la API, vea [Publishing and Deployment](../publishing/index.md) (Publicación e implementación).
+* Para obtener más información sobre la implementación de la API, vea [Hospedaje e implementación](xref:host-and-deploy/index).
 * [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 * [Postman](https://www.getpostman.com/)
 * [Fiddler](https://www.telerik.com/download/fiddler)
