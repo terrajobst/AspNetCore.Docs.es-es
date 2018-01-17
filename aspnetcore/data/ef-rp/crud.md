@@ -10,11 +10,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 163bc35afed0bf1d9236935d5ce60e6975356594
-ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
+ms.openlocfilehash: 246e6307989f2660d84288ceac6793c422875f93
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Crear, leer, actualizar y eliminar - Core EF con páginas de Razor (2 de 8)
 
@@ -50,7 +50,7 @@ Reemplace globalmente `SingleOrDefaultAsync` con `FirstOrDefaultAsync`. `SingleO
 * `OnGetAsync`y `OnPostAsync` en las páginas de editar y eliminar.
 
 <a name="FindAsync"></a>
-### <a name="findasync"></a>Aplica findasync a
+### <a name="findasync"></a>FindAsync
 
 En gran parte del código con scaffolding, [aplica findasync a](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_FindAsync_System_Type_System_Object___) puede usarse en lugar de `FirstOrDefaultAsync` o `SingleOrDefaultAsync`. 
 
@@ -202,7 +202,7 @@ En una aplicación web, el `DbContext` que lee una entidad y muestra los datos s
 
 ## <a name="update-the-delete-page"></a>Actualizar la página de borrado
 
-En esta sección, se agrega código al implementar un error personalizado aparece un mensaje cuando la llamada a `SaveChanges` se produce un error. Agregar una cadena que contiene mensajes de error de possile:
+En esta sección, se agrega código al implementar un error personalizado aparece un mensaje cuando la llamada a `SaveChanges` se produce un error. Agregue una cadena para que contenga los posibles mensajes de error:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Delete.cshtml.cs?name=snippet1&highlight=12)]
 

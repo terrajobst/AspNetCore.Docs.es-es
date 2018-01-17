@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: ad44ee525601f308498967159e964aa41a2ce00c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c563f566b8456b63ffe0a3c4876432c60a19e89
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/17/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Ruta de atributo en ASP.NET Web API 2
 ====================
@@ -130,7 +130,7 @@ Los métodos de controlador que no tiene un atributo de ruta usan enrutamiento b
 
 API Web también selecciona acciones basadas en el método HTTP de la solicitud (GET, POST, etcetera). De forma predeterminada, la API Web busca una coincidencia entre mayúsculas y minúsculas con el inicio del nombre del método de controlador. Por ejemplo, un método de controlador denominado `PutCustomers` coincide con una solicitud PUT de HTTP.
 
-Puede invalidar esta convención decorando lo (método) con cualquiera de los siguientes atributos:
+Puede invalidar esta convención decorando el método con cualquiera de los siguientes atributos:
 
 - **[HttpDelete]**
 - **[HttpGet]**
@@ -180,22 +180,22 @@ En la tabla siguiente enumera las restricciones que se admiten.
 
 | Restricción | Descripción | Ejemplo |
 | --- | --- | --- |
-| Alfa | Coincidencias en mayúsculas o minúsculas caracteres del alfabeto latino (a – z, a Z) | {x: alfa} |
-| bool | Coincide con un valor booleano. | {x: bool} |
-| datetime | Coincide con un **DateTime** valor. | {x: fecha y hora} |
-| decimal | Coincide con un valor decimal. | {x: decimal} |
-| double | Coincide con un valor de punto flotante de 64 bits. | {x: double} |
-| flotante | Coincide con un valor de punto flotante de 32 bits. | {x: float} |
-| guid | Coincide con un valor GUID. | {x: guid} |
+| Alfa | Coincidencias en mayúsculas o minúsculas caracteres del alfabeto latino (a – z, a Z) | {x:alpha} |
+| bool | Coincide con un valor booleano. | {x:bool} |
+| datetime | Coincide con un **DateTime** valor. | {x:datetime} |
+| decimal | Coincide con un valor decimal. | {x:decimal} |
+| double | Coincide con un valor de punto flotante de 64 bits. | {x:double} |
+| float | Coincide con un valor de punto flotante de 32 bits. | {x:float} |
+| guid | Coincide con un valor GUID. | {x:guid} |
 | int | Coincide con un valor entero de 32 bits. | {x: int} |
 | longitud | Coincide con una cadena con la longitud especificada o dentro de un intervalo especificado de longitudes. | {x: length(6)} {x: length(1,20)} |
-| long | Coincide con un valor entero de 64 bits. | {x: long} |
-| max | Devuelve un entero con un valor máximo. | {x: max(10)} |
-| MaxLength | Coincide con una cadena con una longitud máxima. | {x: maxlength(10)} |
-| min | Devuelve un entero con un valor mínimo. | {x: min(10)} |
-| minLength | Coincide con una cadena con una longitud mínima. | {x: minlength(10)} |
+| long | Coincide con un valor entero de 64 bits. | {x:long} |
+| max | Devuelve un entero con un valor máximo. | {x:max(10)} |
+| MaxLength | Coincide con una cadena con una longitud máxima. | {x:maxlength(10)} |
+| min | Devuelve un entero con un valor mínimo. | {x:min(10)} |
+| minLength | Coincide con una cadena con una longitud mínima. | {x:minlength(10)} |
 | range | Devuelve un número entero dentro de un intervalo de valores. | {x: range(10,50)} |
-| regex | Coincide con una expresión regular. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
+| regex | Coincide con una expresión regular. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Observe que algunas de las restricciones, como &quot;min&quot;, toman argumentos entre paréntesis. Puede aplicar varias restricciones a un parámetro, separado por un coma.
 
@@ -269,10 +269,10 @@ A continuación se muestra un ejemplo. Supongamos que define el siguiente contro
 
 Estas rutas se ordenan como se indica a continuación.
 
-1. pedidos y detalles
+1. orders/details
 2. pedidos / {id}
-3. pedidos / {NombreCliente}
-4. pedidos / {\*fecha}
+3. orders/{customerName}
+4. orders/{\*date}
 5. pedidos / pendiente
 
 Observe que "Detalles" es un segmento literal y aparece antes que "{id}", pero "pendiente" aparece última porque la **RouteOrder** propiedad es 1. (En este ejemplo se supone que hay es ningún cliente denominada "Detalles" o "pendiente". En general, intente evitar las rutas ambiguas. En este ejemplo, una plantilla de ruta mejor para `GetByCustomer` es "clientes / {NombreCliente}")
