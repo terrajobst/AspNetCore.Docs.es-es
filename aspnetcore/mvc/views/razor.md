@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: e3c3149254d602db1fcc6d42360690be026189a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
+ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Sintaxis de Razor para ASP.NET Core
 
@@ -76,7 +76,7 @@ El código anterior genera un error del compilador similar a uno de los siguient
  * No se cerró el elemento "int".  Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
  *  No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
  
-Llamadas de método genérico deben incluirse en un [expresión explícita de Razor](#explicit-razor-expressions) o un [bloque de código Razor](#razor-code-blocks). Esta restricción no se aplica a *.vbhtml* Razor archivos porque la sintaxis de Visual Basic coloca los parámetros de tipo genérico en lugar de corchetes entre paréntesis.
+Llamadas de método genérico deben incluirse en un [expresión explícita de Razor](#explicit-razor-expressions) o un [bloque de código Razor](#razor-code-blocks).
 
 ## <a name="explicit-razor-expressions"></a>Expresiones explícitas de Razor
 
@@ -127,8 +127,6 @@ El código anterior genera un error del compilador similar a uno de los siguient
 ```cshtml
 <p>@(GenericMethod<int>())</p>
 ```
-
-Nota: esta restricción no se aplica a *.vbhtml* archivos Razor.  Con *.vbhtml* archivos Razor, sintaxis de Visual Basic coloca los parámetros de tipo genérico en lugar de corchetes entre paréntesis.
 
 ## <a name="expression-encoding"></a>Codificación de expresión
 
@@ -569,7 +567,7 @@ Palabras clave de Razor se escapan con `@(Razor Keyword)` (por ejemplo, `@(funct
 
 ### <a name="c-razor-keywords"></a>Palabras clave de C# Razor
 
-* case
+* mayúsculas y minúsculas
 * do
 * default
 * for
