@@ -5,22 +5,22 @@ description: "Use la API de configuración para configurar una aplicación ASP.N
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 11/01/2017
+ms.date: 1/11/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: b662e66ab5b4c46d1a8d10eb7c38bf4064b5b927
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 0f8618898089418f709506aee5eb013f983dc294
+ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Configurar una aplicación ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Mark Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
 
-La API de configuración proporciona una manera de configurar una aplicación web ASP.NET Core según una lista de pares de nombre y valor. La configuración se lee en tiempo de ejecución desde varios orígenes. Puede agrupar estos pares de nombre y valor en una jerarquía multinivel. 
+La API de configuración proporciona una manera de configurar una aplicación web ASP.NET Core según una lista de pares de nombre y valor. La configuración se lee en tiempo de ejecución desde varios orígenes. Puede agrupar estos pares de nombre y valor en una jerarquía multinivel.
 
 Existen proveedores de configuración para:
 
@@ -50,19 +50,21 @@ La aplicación lee y muestra los valores de configuración siguientes:
 
 La configuración consta de una lista jerárquica de pares de nombre y valor en los que los nodos se separan con dos puntos. Para recuperar un valor, obtenga acceso al indizador `Configuration` con la clave del elemento correspondiente:
 
-```csharp
-Console.WriteLine($"option1 = {Configuration["subsection:suboption1"]}");
-```
+[!code-csharp[Main](index/sample/ConfigJson/Program.cs?range=24-24)]
 
 Para trabajar con matrices en orígenes de configuración con formato JSON, use un índice de matriz como parte de la cadena separada por dos puntos. En el ejemplo siguiente se obtiene el nombre del primer elemento de la matriz `wizards` anterior:
 
 ```csharp
-Console.Write($"{Configuration["wizards:0:Name"]}, ");
+Console.Write($"{Configuration["wizards:0:Name"]}");
+// Output: Gandalf
 ```
 
-Los pares de nombre y valor que se escriben en los proveedores de `Configuration` integrados **no** se conservan, pero se puede crear un proveedor personalizado que guarde los valores. Vea [Proveedor de configuración personalizado](xref:fundamentals/configuration/index#custom-config-providers).
+Los pares de nombre y valor que se escriben en los proveedores de [Configuración](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration) integrados **no** se conservan, pero se puede crear un proveedor personalizado que guarde los valores. Vea [Proveedor de configuración personalizado](xref:fundamentals/configuration/index#custom-config-providers).
 
 En el ejemplo anterior se usa el indizador de configuración para leer los valores. Para obtener acceso a la configuración fuera de `Startup`, use el *patrón de opciones*. Para más información, vea el tema [Opciones](xref:fundamentals/configuration/options).
+
+
+## <a name="configuration-by-environment"></a>Configuración de entorno
 
 Es habitual tener distintos valores de configuración para entornos diferentes, por ejemplo para desarrollo, pruebas y producción. El método de extensión `CreateDefaultBuilder` en una aplicación de ASP.NET Core 2.x (o mediante `AddJsonFile` y `AddEnvironmentVariables` directamente en una aplicación de ASP.NET Core 1.x) agrega proveedores de configuración para leer archivos JSON y orígenes de configuración del sistema:
 
@@ -70,18 +72,28 @@ Es habitual tener distintos valores de configuración para entornos diferentes, 
 * *appsettings.\<NombreDelEntorno>.json*
 * Variables de entorno
 
-Vea [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) para obtener una explicación de los parámetros. `reloadOnChange` solo se admite en ASP.NET Core 1.1 y versiones posteriores. 
+Las aplicaciones ASP.NET Core 1.x deben llamar a `AddJsonFile` y [AddEnvironmentVariables](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.environmentvariablesextensions.addenvironmentvariables #Microsoft_Extensions_Configuration_EnvironmentVariablesExtensions_AddEnvironmentVariables_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_).
+
+Vea [AddJsonFile](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions) para obtener una explicación de los parámetros. `reloadOnChange` solo se admite en ASP.NET Core 1.1 y versiones posteriores.
 
 Los orígenes de configuración se leen en el orden en que se especifican. En el código anterior, las variables de entorno se leen en último lugar. Cualquier valor de configuración establecido mediante el entorno reemplaza a los establecidos en los dos proveedores anteriores.
 
-El entorno se establece normalmente en `Development`, `Staging` o `Production`. Para más información, vea [Trabajar con varios entornos](xref:fundamentals/environments).
+Tenga en cuenta el siguiente archivo *appsettings.Staging.json*:
+
+[!code-json[Main](index/sample/appsettings.Staging.json)]
+
+Cuando el entorno se configura en `Staging`, el siguiente método `Configure` lee el valor de `MyConfig`:
+
+[!code-csharp[Main](index/sample/StartupConfig.cs?name=snippet&highlight=3,4)]
+
+
+El entorno se establece normalmente en `Development`, `Staging` o `Production`. Para obtener más información, consulte [Working with multiple environments](xref:fundamentals/environments) (Trabajo con varios entornos).
 
 Consideraciones de configuración:
 
-* `IOptionsSnapshot` puede volver a cargar los datos de configuración cuando cambia. Vea [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot) para más información.
-* Las claves de configuración no distinguen mayúsculas de minúsculas.
-* Especifique las variables de entorno en último lugar para que el entorno local pueda invalidar la configuración en los archivos de configuración implementados.
-* **Nunca** almacene contraseñas u otros datos confidenciales en el código del proveedor de configuración o en archivos de configuración de texto sin formato. No use secretos de producción en los entornos de desarrollo o pruebas. En su lugar, especifique los secretos fuera del proyecto para que no se confirmen en el repositorio de manera accidental. Obtenga más información sobre [trabajar con varios entornos](xref:fundamentals/environments) y administrar el [almacenamiento seguro de los secretos de aplicación durante el desarrollo](xref:security/app-secrets).
+* `IOptionsSnapshot` puede volver a cargar los datos de configuración cuando cambia. Para obtener más información, consulte [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).
+* En las claves de configuraciones **no** se distingue entre mayúsculas y minúsculas.
+* **Nunca** almacene contraseñas u otros datos confidenciales en el código del proveedor de configuración o en archivos de configuración de texto sin formato. No use secretos de producción en los entornos de desarrollo o pruebas. Especifique los secretos fuera del proyecto para que no se confirmen en el repositorio de manera accidental. Obtenga más información sobre [trabajar con varios entornos](xref:fundamentals/environments) y administrar el [almacenamiento seguro de los secretos de aplicación durante el desarrollo](xref:security/app-secrets).
 * Si no se puede usar un signo de dos puntos (`:`) en las variables de entorno del sistema, reemplace los dos puntos (`:`) por un carácter de subrayado doble (`__`).
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>Proveedor en memoria y enlace a una clase POCO
@@ -96,7 +108,7 @@ Los valores de configuración se devuelven como cadenas, pero el enlace permite 
 
 En el ejemplo siguiente se muestra el método de extensión [GetValue&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationbinder#Microsoft_Extensions_Configuration_ConfigurationBinder_GetValue_Microsoft_Extensions_Configuration_IConfiguration_System_Type_System_String_System_Object_):
 
-[!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=27-29)]
+[!code-csharp[Main](index/sample/InMemoryGetValue/Program.cs?highlight=31)]
 
 El método `GetValue<T>` de ConfigurationBinder permite especificar un valor predeterminado (80 en el ejemplo). `GetValue<T>` es para escenarios sencillos y no se enlaza con secciones completas. `GetValue<T>` obtiene los valores escalares de `GetSection(key).Value` convertidos a un tipo específico.
 
@@ -153,7 +165,7 @@ public void CanBindObjectTree()
 
 ## <a name="create-an-entity-framework-custom-provider"></a>Crear un proveedor personalizado de Entity Framework
 
-En esta sección, se crea un proveedor de configuración básico que lee pares de nombre y valor de una base de datos que se crea con EF. 
+En esta sección, se crea un proveedor de configuración básico que lee pares de nombre y valor de una base de datos que se crea con EF.
 
 Defina una entidad `ConfigurationValue` para almacenar los valores de configuración en la base de datos:
 
@@ -167,7 +179,7 @@ Cree una clase que implemente [IConfigurationSource](https://docs.microsoft.com/
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationSource.cs?highlight=7)]
 
-Cree el proveedor de configuración personalizado heredando de [ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider).  El proveedor de configuración inicializa la base de datos cuando está vacía:
+Cree el proveedor de configuración personalizado heredando de [ConfigurationProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.configuration.configurationprovider). El proveedor de configuración inicializa la base de datos cuando está vacía:
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkConfigurationProvider.cs?highlight=9,18-31,38-39)]
 
@@ -187,7 +199,7 @@ Con el siguiente archivo *appsettings.json*:
 
 [!code-json[Main](index/sample/CustomConfigurationProvider/appsettings.json)]
 
-Se muestra lo siguiente:
+Se muestra el siguiente resultado:
 
 ```console
 key1=value_from_ef_1
@@ -241,10 +253,15 @@ Las aplicaciones típicas de ASP.NET Core 2.x usan el método estático útil `C
 
 `CreateDefaultBuilder` carga la configuración opcional de *appsettings.json*, *appsettings.{Entorno}.json*, [secretos del usuario](xref:security/app-secrets) (en el entorno `Development`), variables de entorno y argumentos de línea de comandos. El proveedor de configuración CommandLine se llama en último lugar. Llamar al proveedor en último lugar permite que los argumentos de línea de comandos que se pasan en tiempo de ejecución invaliden la configuración establecida por los otros proveedores de configuración que se llamaron anteriormente.
 
-Tenga en cuenta que para los archivos *appsettings* se habilita `reloadOnChange`. Los argumentos de línea de comandos se invalidan si un valor de configuración coincidente en un archivo *appsettings* se cambia después de iniciar la aplicación.
+Para archivos *appsettings* en los que:
 
-> [!NOTE]
-> Como alternativa al uso del método `CreateDefaultBuilder`, en ASP.NET Core 2.x se admite crear un host con [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) y crear manualmente la configuración con [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Vea la pestaña ASP.NET Core 1.x para más información.
+* `reloadOnChange` se ha habilitado.
+* Contiene la misma configuración en los argumentos de línea de comandos y en un archivo *appsettings*.
+* El archivo *appsettings* que contiene el argumento de línea de comandos coincidente se cambia después de iniciar la aplicación.
+
+Si se cumplen todas las condiciones anteriores, se reemplazan los argumentos de línea de comandos.
+
+La aplicación ASP.NET Core 2.x puede usar WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) en lugar de ``CreateDefaultBuilder`. When using `WebHostBuilder`, con la configuración establecida manualmente mediante [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Vea la pestaña ASP.NET Core 1.x para más información.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -256,7 +273,7 @@ Cree un [ConfigurationBuilder](/api/microsoft.extensions.configuration.configura
 
 ### <a name="arguments"></a>Argumentos
 
-Los argumentos que se pasan en la línea de comandos deben ajustarse a uno de los dos formatos que se muestran en la tabla siguiente.
+Los argumentos que se pasan en la línea de comandos deben ajustarse a uno de los dos formatos que se muestran en la tabla siguiente:
 
 | Formato de argumento                                                     | Ejemplo        |
 | ------------------------------------------------------------------- | :------------: |
@@ -353,7 +370,7 @@ MachineName: DahliaPC
 Left: 1984
 ```
 
-Después de crear el diccionario de asignaciones de modificador, contiene los datos que se muestran en la tabla siguiente.
+Después de crear el diccionario de asignaciones de modificador, contiene los datos que se muestran en la tabla siguiente:
 
 | Key            | Valor                 |
 | -------------- | --------------------- |
@@ -384,6 +401,7 @@ Un archivo *web.config* es necesario cuando la aplicación se hospeda en IIS o I
 * `IConfiguration` tiene dos especializaciones:
   * `IConfigurationRoot` Se usa para el nodo raíz. Puede desencadenar una recarga.
   * `IConfigurationSection` Representa una sección de valores de configuración. Los métodos `GetSection` y `GetChildren` devuelven un elemento `IConfigurationSection`.
+  * Use [IConfigurationRoot](https://docs.microsoft.com/ dotnet/api/microsoft.extensions.configuration.iconfigurationroot) al volver a cargar configuración o si necesita acceder a todos los proveedores. Ninguna de estas situaciones son comunes.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
