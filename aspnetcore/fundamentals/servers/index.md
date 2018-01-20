@@ -2,20 +2,18 @@
 title: Implementaciones de servidores web en ASP.NET Core
 author: tdykstra
 description: "Presenta los servidores web Kestrel y WebListener para ASP.NET Core. Proporciona instrucciones sobre cómo elegir uno y cuándo se debe usar con un servidor proxy inverso."
-keywords: ASP.NET Core, IServer, servidor web, Kestrel, WebListener, proxy inverso
 ms.author: tdykstra
 manager: wpickett
 ms.date: 08/03/2017
 ms.topic: article
-ms.assetid: dba74f39-58cd-4dee-a061-6d15f7346959
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/index
-ms.openlocfilehash: b149cb316e4266e67d846b8ef8c2c7f2a25ded5c
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 807e60e61d4ce4d5755987cffe65d130c9bbbd42
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 

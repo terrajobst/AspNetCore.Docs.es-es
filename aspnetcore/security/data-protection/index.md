@@ -2,20 +2,18 @@
 title: "Protección de datos en ASP.NET Core"
 author: rick-anderson
 description: "Este documento sirve como tabla de contenido para los distintos temas de protección de datos de ASP.NET Core."
-keywords: "ASP.NET Core, protección de datos"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 1f402da8-1052-4970-9835-9f9f16a02dbc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/index
-ms.openlocfilehash: cbf18c6ec867fefec22980f3e3493562594ef72d
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7bbd203a67b32032ba2ab82448a5fc9a495b52aa
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>Protección de datos en ASP.NET Core: API de consumidor, configuración, API de extensibilidad e implementación
 
