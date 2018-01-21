@@ -2,29 +2,27 @@
 title: "Creación de aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET"
 author: rick-anderson
 description: "Obtenga información acerca de cómo crear aplicaciones auxiliares de etiquetas en ASP.NET Core."
-keywords: "Núcleo de ASP.NET, aplicaciones auxiliares de etiquetas"
 ms.author: riande
 manager: wpickett
-ms.date: 06/14/2017
+ms.date: 01/19/2018
 ms.topic: article
-ms.assetid: 4f16d978-5695-4abf-a785-fdaabf3bbcb9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cbe46ee1d3cd9f7a30a87d364074f1302f9af7ab
-ms.sourcegitcommit: 5834afb87e4262b9b88e60e3fe6c735e61a1e08d
+ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/19/2018
 ---
-# <a name="authoring-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET, un tutorial con ejemplos de creación
+# <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Aplicaciones auxiliares de etiquetas de autor en ASP.NET Core, un tutorial con ejemplos
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/authoring/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="getting-started-with-tag-helpers"></a>Introducción a las aplicaciones auxiliares de etiquetas
+## <a name="get-started-with-tag-helpers"></a>Empezar a trabajar con aplicaciones auxiliares de etiquetas
 
 Este tutorial proporciona una introducción a la programación de aplicaciones auxiliares de etiquetas. [Introducción a las aplicaciones auxiliares de etiquetas](intro.md) describe las ventajas que proporciona aplicaciones auxiliares de etiquetas.
 
@@ -46,7 +44,7 @@ El servidor usará nuestra herramienta de etiqueta de correo electrónico para c
 
 ```html
 <a href="mailto:Support@contoso.com">Support@contoso.com</a>
-   ```
+```
 
 Es decir, una etiqueta delimitadora lo hace un vínculo de correo electrónico. Puede hacerlo si está escribiendo un motor de blogs y lo necesite para enviar correo electrónico de marketing, soporte técnico y otros contactos, todo ello en el mismo dominio.
 
@@ -188,7 +186,7 @@ También puede usar el `[HtmlTargetElement]` para cambiar el nombre del elemento
 [HtmlTargetElement("MyBold")]
    ```
 
-## <a name="passing-a-model-to-a-tag-helper"></a>Pasar un modelo a una aplicación auxiliar de etiqueta
+## <a name="pass-a-model-to-a-tag-helper"></a>Pasar un modelo a una aplicación auxiliar de etiqueta
 
 1.  Agregar un *modelos* carpeta.
 
@@ -285,7 +283,7 @@ La aplicación auxiliar de etiquetas de condición presenta la salida cuando se 
 >
 >El [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operador protegerá el código nunca se debería refactorizar (que queramos cambie el nombre a `RedCondition`).
 
-### <a name="avoiding-tag-helper-conflicts"></a>Evitar conflictos de aplicación auxiliar de etiqueta
+### <a name="avoid-tag-helper-conflicts"></a>Evitar conflictos de aplicación auxiliar de etiqueta
 
 En esta sección, se escribe un par de aplicaciones auxiliares de etiquetas de la vinculación automática. La primera reemplazará el marcado que contiene una dirección URL a partir de HTTP a un HTML delimitador etiqueta que contiene la misma dirección URL (y, por tanto, lo que produce un vínculo a la dirección URL). El segundo se haga lo mismo para una dirección URL a partir de World Wide Web.
 
@@ -329,7 +327,7 @@ Dado que estas aplicaciones auxiliares de dos están estrechamente relacionados 
     
     El código anterior se garantizará que la aplicación auxiliar de etiqueta HTTP se ejecuta antes de la aplicación auxiliar de etiqueta de World Wide Web. Cambio `Order` a `MaxValue` y compruebe que el marcado generado para la etiqueta de World Wide Web es incorrecto.
 
-## <a name="inspecting-and-retrieving-child-content"></a>Inspeccionar y recuperar el contenido secundario
+## <a name="inspect-and-retrieve-child-content"></a>Inspeccionar y recuperar el contenido secundario
 
 Las aplicaciones auxiliares de etiquetas proporcionan varias propiedades para recuperar el contenido.
 

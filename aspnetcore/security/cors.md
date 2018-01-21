@@ -2,20 +2,18 @@
 title: "Habilitación de solicitudes entre orígenes (CORS)"
 author: rick-anderson
 description: "Este documento presentan como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core CORS."
-keywords: "Núcleo de ASP.NET, CORS, origen cruzado"
 ms.author: riande
 manager: wpickett
 ms.date: 05/17/2017
 ms.topic: article
-ms.assetid: f9d95e88-4d7e-4d0c-a8e1-47de1128d505
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: 5398b6ad6531710de2b8000cb368e5fa607ae7ff
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Habilitación de solicitudes entre orígenes (CORS)
 
@@ -162,9 +160,9 @@ Los exploradores no son completamente coherentes en forma de conjunto de acceso-
 
 ### <a name="set-the-exposed-response-headers"></a>Establecer los encabezados de respuesta expuesto
 
-De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. (Consulte [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Los encabezados de respuesta que están disponibles de forma predeterminada son:
+De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Los encabezados de respuesta que están disponibles de forma predeterminada son:
 
-* Control de caché
+* Cache-Control
 
 * Content-Language
 
@@ -268,7 +266,7 @@ Para algunas solicitudes CORS, el explorador envía una solicitud adicional, den
 
   * application/x-www-form-urlencoded
 
-  * varias partes/de datos de formulario
+  * multipart/form-data
 
   * texto/sin formato
 

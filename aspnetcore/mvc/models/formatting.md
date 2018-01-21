@@ -2,21 +2,19 @@
 title: Aplicar formato a los datos de respuesta en MVC de ASP.NET Core
 author: ardalis
 description: "Obtenga información acerca de cómo dar formato a los datos de respuesta en MVC de ASP.NET Core."
-keywords: "Núcleo de ASP.NET, datos de respuesta, IOutputFormatter, IActionResult"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: c056df45-d013-4826-91a1-4a092bae1ea5
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/formatting
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: abc125a093ff2cd5a38a537ecdfc795ff03e23f7
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 85398928164e75ec27c91870f03ee1c81725e080
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Introducción a los datos de respuesta de formato en MVC de ASP.NET Core
 

@@ -2,20 +2,18 @@
 title: Impedir el Scripting entre sitios
 author: rick-anderson
 description: "Este documento presenta Scripting entre sitios (XSS) y técnicas para solucionar esta vulnerabilidad en una aplicación de ASP.NET Core."
-keywords: Vulnerabilidad de ASP.NET Core, XSS,
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 95790927-2bfe-445e-b1fd-429c2c7030ce
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: fdb26a8338b98135cfc3f6bce9d87285e9a7eb12
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Impedir el Scripting entre sitios
 

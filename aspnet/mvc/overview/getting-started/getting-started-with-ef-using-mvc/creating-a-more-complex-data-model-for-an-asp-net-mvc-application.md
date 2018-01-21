@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fc21857d5017799536f153dac3ee54ba2f8f5778
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c4710c507f605c539d3e595a6c757f4d5393292b
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Crear un modelo de datos más complejo para una aplicación ASP.NET MVC
 ====================
@@ -81,7 +81,7 @@ Imagine que desea asegurarse de que los usuarios no escriban más de 50 caracter
 
 El [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atributo no impedir que un usuario introducir un espacio en blanco para un nombre. Puede usar el [RegularExpression](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atributo para aplicar restricciones a la entrada. Por ejemplo, el siguiente código requiere el primer carácter que se va letra mayúscula y el resto de caracteres sea alfabético:
 
-`[RegularExpression(@"^[A-Z]+[a-zA-Z''-'\s]*$")]`
+`[RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]`
 
 El [MaxLength](https://msdn.microsoft.com/en-us/library/System.ComponentModel.DataAnnotations.MaxLengthAttribute.aspx) atributo proporciona una funcionalidad similar a la [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) atributo pero no proporciona el cliente validación.
 
@@ -301,17 +301,17 @@ Hay una relación de varios a varios entre la `Student` y `Course` entidades y e
 
 En la siguiente ilustración muestra el aspecto de estas relaciones en un diagrama de la entidad. (Este diagrama se ha generado mediante la [herramientas de Entity Framework Power](https://visualstudiogallery.msdn.microsoft.com/72a60b14-1581-4b9b-89f2-846072eff19d); crear el diagrama no forma parte del tutorial, se utilizan simplemente aquí como una ilustración.)
 
-![Many_relationship Course_many de estudiante](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
+![Student-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image12.png)
 
 Cada línea de relación tiene un 1 en un extremo y un asterisco (\*) en el otro, que indica una relación uno a varios.
 
 Si el `Enrollment` tabla no incluir información de categoría, que solo sería necesario contener las dos claves externas `CourseID` y `StudentID`. En ese caso, se corresponde a una tabla de la combinación de varios a varios *sin carga* (o *tabla combinada pura*) en la base de datos, y no tiene que crear una clase de modelo para él en absoluto. El `Instructor` y `Course` entidades tienen este tipo de relación de varios a varios y, como puede ver, no hay ninguna clase de entidad entre ellos:
 
-![Course_many instructor de many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
+![Instructor-Course_many-to-many_relationship](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image13.png)
 
 Se requiere una tabla de combinación en la base de datos, sin embargo, como se muestra en el siguiente diagrama de base de datos:
 
-![Course_many instructor de many_relationship_tables](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image14.png)
+![Instructor-Course_many-to-many_relationship_tables](creating-a-more-complex-data-model-for-an-asp-net-mvc-application/_static/image14.png)
 
 Entity Framework crea automáticamente el `CourseInstructor` tabla y leer y actualizar indirectamente si se lee y actualiza el `Instructor.Courses` y `Course.Instructors` propiedades de navegación.
 

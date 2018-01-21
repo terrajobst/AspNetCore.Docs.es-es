@@ -2,20 +2,18 @@
 title: "Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC"
 author: pkellner
 description: "Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché"
-keywords: "ASP.NET Core, aplicación auxiliar de etiquetas"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a012
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 74080d089dc7a72da96f9f18d613cb313cd930db
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: dfd9c3c0c4e50a99e4f8703b01bd9b384930b87a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC
 
@@ -79,7 +77,7 @@ Ejemplo:
 
 - - -
 
-### <a name="expires-after"></a>expira después
+### <a name="expires-after"></a>expires-after
 
 | Tipo de atributo    | Valor de ejemplo     |
 |----------------   |----------------   |
@@ -98,7 +96,7 @@ Ejemplo:
 
 - - -
 
-### <a name="expires-sliding"></a>deslizando expira
+### <a name="expires-sliding"></a>expires-sliding
 
 | Tipo de atributo    | Valor de ejemplo     |
 |----------------   |----------------   |
@@ -121,8 +119,8 @@ Ejemplo:
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
-| Cadena            | "User-Agent"                  |
-|                   | "User-Agent, content-encoding" |
+| String            | "User-Agent"                  |
+|                   | "User-Agent,content-encoding" |
 
 Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando cambian. En el ejemplo siguiente se supervisa el valor del encabezado `User-Agent`. En el ejemplo se almacenará en memoria caché el contenido de cada diferentes `User-Agent` muestre en el servidor web.
 
@@ -140,8 +138,8 @@ Ejemplo:
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
-| Cadena            | "Hacer"                |
-|                   | "Asegúrese, modelo" |
+| String            | "Make"                |
+|                   | "Make,Model" |
 
 Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando cambia el valor de encabezado. En el ejemplo siguiente se busca en los valores de `Make` y `Model`.
 
@@ -159,8 +157,8 @@ Ejemplo:
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
-| Cadena            | "Hacer"                |
-|                   | "Asegúrese, modelo" |
+| String            | "Make"                |
+|                   | "Make,Model" |
 
 Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando cambio de valores de parámetro de ruta de datos. Ejemplo:
 
@@ -186,8 +184,8 @@ routes.MapRoute(
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
-| Cadena            | ". AspNetCore.Identity.Application"                |
-|                   | ". AspNetCore.Identity.Application,HairColor" |
+| String            | ".AspNetCore.Identity.Application"                |
+|                   | ".AspNetCore.Identity.Application,HairColor" |
 
 Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando los valores de encabezado cambio (s). En el ejemplo siguiente se examina la cookie asociada con la identidad de ASP.NET. Cuando un usuario se autentica la cookie de solicitud para establecer lo que desencadena una actualización de la caché.
 
@@ -206,7 +204,7 @@ Ejemplo:
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | Booleano             | "true"                  |
-|                     | "false" (predeterminado) |
+|                     | "false" (default) |
 
 Especifica si debe restablecer la memoria caché cuando el usuario ha iniciado la sesión (o la entidad de contexto) cambia. El usuario actual es también conocida como la entidad de contexto de solicitud y puede verse en una vista Razor haciendo referencia a `@User.Identity.Name`.
 
@@ -228,7 +226,7 @@ Con este atributo, mantiene el contenido en caché a través de un ciclo de inic
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
-| Cadena             | "@Model"                 |
+| String             | "@Model"                 |
 
 
 Permite la personalización de los datos que se almacena en caché. Cuando se actualiza el objeto al que hace referencia cambia de valor de cadena del atributo, el contenido de la aplicación auxiliar de etiqueta de caché. A menudo una concatenación de cadenas de valores del modelo se asignan a este atributo.  De hecho, que significa que una actualización a cualquiera de los valores concatenados invalida la memoria caché.

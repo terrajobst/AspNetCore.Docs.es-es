@@ -2,7 +2,6 @@
 title: "Exigir SSL en una aplicación ASP.NET básica"
 author: rick-anderson
 description: "Aplicación web se muestra cómo requerir SSL en un núcleo de ASP.NET"
-keywords: "Núcleo de ASP.NET, SSL, HTTPS, RequireHttpsAttribute, IIS Express"
 ms.author: riande
 manager: wpickett
 ms.date: 07/19/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/enforcing-ssl
-ms.openlocfilehash: 6f2755a606000717ca8a57f045b1ef613c7f14f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42d8767fda2d3f3545876f8ca18e0f6fbe6741b8
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="enforcing-ssl-in-an-aspnet-core-app"></a>Exigir SSL en una aplicación ASP.NET básica
 

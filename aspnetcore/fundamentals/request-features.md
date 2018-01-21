@@ -2,20 +2,18 @@
 title: "Características de la solicitud de ASP.NET Core"
 author: ardalis
 description: "Obtenga información acerca de los detalles de implementación de servidor web relacionados con las solicitudes HTTP y las respuestas que se definen en interfaces de ASP.NET Core."
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: d1fbd23c-2ff9-4216-b908-0201ff3afb7c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/request-features
-ms.openlocfilehash: b689d82d16c6ef55485691b3474a070765c8144b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42e2959aefef98ce7289e50b6f72bd23eaed38bc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="request-features-in-aspnet-core"></a>Características de la solicitud de ASP.NET Core
 

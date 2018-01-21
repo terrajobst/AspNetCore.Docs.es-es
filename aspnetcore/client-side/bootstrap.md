@@ -2,20 +2,18 @@
 title: "Creación de sitios maravillosas y capacidad de respuesta con arranque"
 author: ardalis
 description: 
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bd27832c-2877-4b7b-9337-e009361d845f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: f89ad584600c3f12a936599de27f931aff0cd4b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creación de sitios maravillosas y capacidad de respuesta con arranque
 
@@ -73,7 +71,7 @@ La plantilla de arranque más básica es muy similar a la *_Layout.cshtml* archi
 
 ### <a name="basic-navigation"></a>Navegación básica
 
-La plantilla predeterminada utiliza un conjunto de `<div>` elementos que se representan una barra de navegación superior y el cuerpo principal de la página. Si usas HTML5, puede reemplazar la primera `<div>` etiquetar con un `<nav>` etiqueta que se va a obtener el mismo efecto, pero con una semántica más precisa.  En este primer `<div>` verá hay varios otros. En primer lugar, un `<div>` con una clase de "contenedor" y, a continuación, en que, más dos `<div>` elementos: "encabezado de la barra de navegación" y "barra de navegación se contraen".  El elemento div de encabezado de la barra de navegación incluye un botón que va a aparecer cuando la pantalla está por debajo de un determinado ancho mínimo, que muestra 3 líneas horizontales (un denominadas "icono de la hamburguesa"). El icono se representa con puro HTML y CSS; no se requiere ninguna imagen. Éste es el código que muestra el icono, con cada uno de los <span> etiquetas representar una de las barras blancas:
+La plantilla predeterminada utiliza un conjunto de `<div>` elementos que se representan una barra de navegación superior y el cuerpo principal de la página. Si usas HTML5, puede reemplazar la primera `<div>` etiquetar con un `<nav>` etiqueta que se va a obtener el mismo efecto, pero con una semántica más precisa. En este primer `<div>` verá hay varios otros. En primer lugar, un `<div>` con una clase de "contenedor" y, a continuación, en que, más dos `<div>` elementos: "encabezado de la barra de navegación" y "barra de navegación se contraen". El elemento div de encabezado de la barra de navegación incluye un botón que va a aparecer cuando la pantalla está por debajo de un determinado ancho mínimo, que muestra 3 líneas horizontales (un denominadas "icono de la hamburguesa"). El icono se representa con puro HTML y CSS; no se requiere ninguna imagen. Éste es el código que muestra el icono, con cada uno de los <span> etiquetas representar una de las barras blancas:
 
 ```html
 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -83,7 +81,7 @@ La plantilla predeterminada utiliza un conjunto de `<div>` elementos que se repr
 </button>
 ```
 
-También incluye el nombre de la aplicación, que aparece en la esquina superior izquierda.  El menú de navegación principal se representa por la `<ul>` elemento dentro del segundo elemento div e incluye vínculos a casa, aproximadamente y póngase en contacto con. Vínculos adicionales para registrar y el inicio de sesión se agregan mediante la línea de _LoginPartial en línea 29. A continuación el panel de navegación, el cuerpo principal de cada página se representa en otra `<div>`, marcada con las clases "contenedor" y "contenido del cuerpo". En el archivo de _Layout predeterminado simple se muestra aquí, el contenido de la página se representa mediante la vista específica asociada a la página y, a continuación, una sencilla `<footer>` se agrega al final de la `<div>` elemento.  Puede ver cómo integrado acerca de la página aparece con esta plantilla:
+También incluye el nombre de la aplicación, que aparece en la esquina superior izquierda. El menú de navegación principal se representa por la `<ul>` elemento dentro del segundo elemento div e incluye vínculos a casa, aproximadamente y póngase en contacto con. Vínculos adicionales para registrar y el inicio de sesión se agregan mediante la línea de _LoginPartial en línea 29. A continuación el panel de navegación, el cuerpo principal de cada página se representa en otra `<div>`, marcada con las clases "contenedor" y "contenido del cuerpo". En el archivo de _Layout predeterminado simple se muestra aquí, el contenido de la página se representa mediante la vista específica asociada a la página y, a continuación, una sencilla `<footer>` se agrega al final de la `<div>` elemento. Puede ver cómo integrado acerca de la página aparece con esta plantilla:
 
 ![Acerca de la página](bootstrap/_static/about-page-wide.png)
 
@@ -118,8 +116,8 @@ A continuación, agregar más `<div>` elementos para cada columna y especifique 
 Prefijo de la clase CSS | Nivel de dispositivo | Ancho
 :---: | :---: | :---:
 col-xs: | Teléfonos | < 768px
-col-sm - | Tabletas | > = 768px
-col-md - | Equipos de escritorio | > = 992px
+col-sm- | Tabletas | >= 768px
+col-md- | Equipos de escritorio | >= 992px
 col-lg: | Pantallas de escritorio más grandes | > = 1200 px
 
 Al especificar dos columnas con "col-md-6" el diseño resultante será dos columnas en las soluciones de escritorio, pero estas dos columnas se apilan verticalmente cuando se representa en dispositivos más pequeños (o una ventana del explorador más restringida en un equipo de escritorio), lo que permite a los usuarios ver fácilmente contenido sin necesidad de desplazarse horizontalmente.
@@ -136,7 +134,7 @@ En este ejemplo, una única fila `<div>` se utilizó, y sigue arranque principal
 
 ### <a name="jumbotron"></a>Jumbotron
 
-Si ha usado las plantillas ASP.NET MVC predeterminada en Visual Studio 2012 o 2013, probablemente ha visto el Jumbotron en acción. Hace referencia a una sección grande de ancho completo de una página que puede usarse para mostrar una imagen de fondo de gran tamaño, una llamada a la acción, una rotación o elementos similares. Para agregar una jumbotron a una página, basta con agregar un `<div>` y asígnele una clase de "jumbotron", a continuación, coloque un contenedor `<div>` dentro y agregar su contenido.  Podemos ajustar fácilmente el estándar acerca de la página que se usará un jumbotron para los encabezados principales muestra:
+Si ha usado las plantillas ASP.NET MVC predeterminada en Visual Studio 2012 o 2013, probablemente ha visto el Jumbotron en acción. Hace referencia a una sección grande de ancho completo de una página que puede usarse para mostrar una imagen de fondo de gran tamaño, una llamada a la acción, una rotación o elementos similares. Para agregar una jumbotron a una página, basta con agregar un `<div>` y asígnele una clase de "jumbotron", a continuación, coloque un contenedor `<div>` dentro y agregar su contenido. Podemos ajustar fácilmente el estándar acerca de la página que se usará un jumbotron para los encabezados principales muestra:
 
 ![ejemplo de Jumbotron](bootstrap/_static/jumbotron.png)
 
@@ -154,7 +152,7 @@ Distintivos hacen referencia a las llamadas pequeño, normalmente numéricos jun
 
 ### <a name="alerts"></a>Alertas
 
-Puede que necesite mostrar algún tipo de notificación, la alerta o el mensaje de error a los usuarios de la aplicación. Es donde las clases estándar de alertas son útiles.  Hay cuatro niveles de gravedad diferentes con combinaciones de colores asociados:
+Puede que necesite mostrar algún tipo de notificación, la alerta o el mensaje de error a los usuarios de la aplicación. Es donde las clases estándar de alertas son útiles. Hay cuatro niveles de gravedad diferentes con combinaciones de colores asociados:
 
 ![alertas con temas](bootstrap/_static/theme-alerts.png)
 
@@ -164,23 +162,23 @@ Nuestro diseño ya incluye una barra de navegación estándar, pero el tema de a
 
 ![orientado con temas](bootstrap/_static/theme-tabstrips.png)
 
-Barras de exploración se generan de forma similar, pero son un poco más complejas.  Se inician con un `<nav>` o `<div>` con una clase de "barra de navegación," dentro del cual un elemento div contenedor contiene el resto de los elementos. Nuestra página incluye una barra de navegación en el encabezado ya; se muestra a continuación simplemente se expande en el objeto, agrega compatibilidad para un menú desplegable:
+Barras de exploración se generan de forma similar, pero son un poco más complejas. Se inician con un `<nav>` o `<div>` con una clase de "barra de navegación," dentro del cual un elemento div contenedor contiene el resto de los elementos. Nuestra página incluye una barra de navegación en el encabezado ya; se muestra a continuación simplemente se expande en el objeto, agrega compatibilidad para un menú desplegable:
 
 ![barras de exploración con temas](bootstrap/_static/theme-navbars.png)
 
 ### <a name="additional-elements"></a>Elementos adicionales
 
-También puede utilizarse el tema predeterminado para presentar tablas HTML en un estilo bien formateado, incluida la compatibilidad con vistas con bandas. Hay etiquetas con estilos que son similares a las de los botones. Puede crear menús de lista desplegable personalizados que admiten opciones de estilo adicionales más allá de HTML estándar `<select>` elemento, junto con barras de exploración como el nuestro sitio de inicio predeterminada ya está usando. Si necesita una barra de progreso, hay varios estilos para elegir, así como enumerar los grupos y paneles que incluyen un título y el contenido.  Explorar opciones adicionales en el tema de arranque estándar aquí:
+También puede utilizarse el tema predeterminado para presentar tablas HTML en un estilo bien formateado, incluida la compatibilidad con vistas con bandas. Hay etiquetas con estilos que son similares a las de los botones. Puede crear menús de lista desplegable personalizados que admiten opciones de estilo adicionales más allá de HTML estándar `<select>` elemento, junto con barras de exploración como el nuestro sitio de inicio predeterminada ya está usando. Si necesita una barra de progreso, hay varios estilos para elegir, así como enumerar los grupos y paneles que incluyen un título y el contenido. Explorar opciones adicionales en el tema de arranque estándar aquí:
 
-[http://getbootstrap.com/Examples/Theme/](http://getbootstrap.com/examples/theme/)
+[http://getbootstrap.com/examples/theme/](http://getbootstrap.com/examples/theme/)
 
 ## <a name="more-themes"></a>Más temas
 
-Puede ampliar el tema de arranque estándar reemplazando algunos o todos sus CSS, ajustar los colores y estilos para satisfacer las necesidades de su propia aplicación. Si desea iniciar desde un tema listos para su uso, hay varias galerías del tema disponibles en línea que están especializados en temas de arranque, como WrapBootstrap.com (que tiene una gran variedad de temas comerciales) y Bootswatch.com (que ofrece temas libres).  Algunas de las plantillas de pagadas disponibles proporcionan una gran cantidad de funcionalidad sobre el tema de arranque básica, como compatibilidad enriquecida para los menús administrativos y los paneles con medidores y gráficos enriquecidos. Un ejemplo de una plantilla de pago popular es Inspinia, actualmente para la venta de $18, que incluye una plantilla de MVC5 de ASP.NET además de AngularJS y versiones HTML estáticas. A continuación se muestra una captura de pantalla de ejemplo.
+Puede ampliar el tema de arranque estándar reemplazando algunos o todos sus CSS, ajustar los colores y estilos para satisfacer las necesidades de su propia aplicación. Si desea iniciar desde un tema listos para su uso, hay varias galerías del tema disponibles en línea que están especializados en temas de arranque, como WrapBootstrap.com (que tiene una gran variedad de temas comerciales) y Bootswatch.com (que ofrece temas libres). Algunas de las plantillas de pagadas disponibles proporcionan una gran cantidad de funcionalidad sobre el tema de arranque básica, como compatibilidad enriquecida para los menús administrativos y los paneles con medidores y gráficos enriquecidos. Un ejemplo de una plantilla de pago popular es Inspinia, actualmente para la venta de $18, que incluye una plantilla de MVC5 de ASP.NET además de AngularJS y versiones HTML estáticas. A continuación se muestra una captura de pantalla de ejemplo.
 
 ![Inspinia de tema de ejemplo](bootstrap/_static/theme-inspinia.png)
 
-Si desea cambiar el tema del arranque, coloque el *bootstrap.css* archivo para el tema que desee en el **wwwroot/css** carpeta y cambie las referencias en *_Layout.cshtml* para que lo señale.  Cambie los vínculos para todos los entornos:
+Si desea cambiar el tema del arranque, coloque el *bootstrap.css* archivo para el tema que desee en el **wwwroot/css** carpeta y cambie las referencias en *_Layout.cshtml* para que lo señale. Cambie los vínculos para todos los entornos:
 
 ```html
 <environment names="Development">

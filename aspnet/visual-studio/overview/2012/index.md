@@ -1,8 +1,8 @@
 ---
 uid: visual-studio/overview/2012/index
-title: Visual Studio 2012 | Documentos de Microsoft
+title: ASP.NET y Visual Studio 2012 | Documentos de Microsoft
 author: rick-anderson
-description: Visual Studio 2012
+description: Desarrollar aplicaciones web ASP.NET con Visual Studio 2012
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/25/2013
@@ -12,28 +12,28 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012
 msc.type: chapter
-ms.openlocfilehash: 6c43524b3e33f94afb7896d16813dc047302a662
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 21f7800b2a5d396b040fe5a04b70214469e74392
+ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/20/2018
 ---
-<a name="visual-studio-2012"></a>Visual Studio 2012
+<a name="aspnet-and-visual-studio-2012"></a>ASP.NET y Visual Studio 2012
 ====================
-> Visual Studio 2012
+> Desarrollar aplicaciones web ASP.NET con Visual Studio 2012
 
 
-- [Características de edición Visual Studio 2012 HTML](visual-studio-2012-html-editing-features.md)
-- [Editor de CSS de Visual Studio 2012](visual-studio-2012-css-editor.md)
+- [Características de edición HTML de Visual Studio 2012](visual-studio-2012-html-editing-features.md)
+- [Editor CSS de Visual Studio 2012](visual-studio-2012-css-editor.md)
 - [Editor de JavaScript de Visual Studio 2012](visual-studio-2012-javascript-editor.md)
 - [Inspector de página de Visual Studio 2012](visual-studio-2012-page-inspector.md)
-- [Mejoras de publicación Web de Visual Studio 2012](visual-studio-2012-web-publishing-improvements.md)
-- [Notas de la versión de ASP.NET y herramientas Web 2013.1 para Visual Studio 2012](aspnet-and-web-tools-20131-for-visual-studio-2012.md)
-- [Editor HTML inteligente tareas y generación de controlador de eventos](visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation.md)
-- [Sangría jerárquica del Editor de CSS](visual-studio-vnext-videos-css-editor-hierarchical-indentation.md)
-- [Fragmentos de código de Editor de CSS](visual-studio-vnext-videos-css-editor-snippets.md)
-- [Selector de colores del Editor de CSS](visual-studio-vnext-videos-css-editor-color-picker.md)
+- [Mejoras de la publicación web de Visual Studio 2012](visual-studio-2012-web-publishing-improvements.md)
+- [Notas de la versión de ASP.NET and Web Tools 2013.1 para Visual Studio 2012](aspnet-and-web-tools-20131-for-visual-studio-2012.md)
+- [Tareas inteligentes del editor HTML y generación de controladores de eventos](visual-studio-vnext-videos-html-editor-smart-tasks-and-event-handler-generation.md)
+- [Aplicación de sangría jerárquica del editor de CSS](visual-studio-vnext-videos-css-editor-hierarchical-indentation.md)
+- [Fragmentos de código del Editor CSS](visual-studio-vnext-videos-css-editor-snippets.md)
+- [Selector de colores del Editor CSS](visual-studio-vnext-videos-css-editor-color-picker.md)
 - [Inspector de página: Introducción](visual-studio-vnext-videos-page-inspector-introduction.md)
-- [Inspector de página - descomponer la aplicación Web](visual-studio-vnext-videos-page-inspector-decomposing-your-web-application.md)
-- [Windows autenticación de Azure](windows-azure-authentication.md)
-- [ASP.NET y herramientas Web 2012.2 notas de la versión](aspnet-and-web-tools-20122-release-notes-rtw.md)
+- [Inspector de página: Descomponer la aplicación web](visual-studio-vnext-videos-page-inspector-decomposing-your-web-application.md)
+- [Autenticación de Windows Azure](windows-azure-authentication.md)
+- [Notas de la versión de ASP.NET and Web Tools 2012.2](aspnet-and-web-tools-20122-release-notes-rtw.md)

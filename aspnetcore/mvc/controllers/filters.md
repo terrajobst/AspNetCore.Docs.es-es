@@ -1,21 +1,19 @@
 ---
 title: Filtros
 author: ardalis
-description: "Obtenga información acerca de cómo * filtros * trabajo y cómo utilizarlas en MVC de ASP.NET Core."
-keywords: "ASP.NET Core, filtros, filtros de mvc, los filtros de acción, los filtros de autorización, filtros de recursos, filtros de resultados, los filtros de excepción"
+description: "Obtenga información acerca de cómo *filtros* trabajo y cómo utilizarlas en MVC de ASP.NET Core."
 ms.author: tdykstra
 manager: wpickett
 ms.date: 12/12/2016
 ms.topic: article
-ms.assetid: 531bda08-aa5b-4471-8f08-96add22c8683
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: 0a2a374ac77b9fd7c626aa6749cffbd3fb0f08d5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="filters"></a>Filtros
 

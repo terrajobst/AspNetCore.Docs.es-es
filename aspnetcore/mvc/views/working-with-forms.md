@@ -2,21 +2,19 @@
 title: Aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 author: rick-anderson
 description: Describe la integrada de aplicaciones auxiliares de etiquetas que se utilizan con formularios.
-keywords: "Núcleo de ASP.NET, aplicación auxiliar de etiquetas, TagHelper, formulario de HTML, formularios"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: 25595059-4fac-4785-8152-f88590e3169b
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da36985206521798d3bfe71f6372dc5cc4fca09a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introducción al uso de aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 
@@ -112,7 +110,7 @@ El `Input` etiqueta auxiliar establece el código HTML `type` atributo basado en
 |Tipo de .NET|Tipo de entrada|
 |---|---|
 |Bool|tipo = "checkbox"|
-|Cadena|tipo = "text"|
+|String|tipo = "text"|
 |DateTime|tipo = "datetime"|
 |Byte|tipo = "number"|
 |Valor int.|tipo = "number"|
@@ -126,7 +124,7 @@ La siguiente tabla muestra algunos común [las anotaciones de datos](https://doc
 |---|---|
 |[EmailAddress]|tipo = "email"|
 |[Url]|tipo = "url"|
-|[HiddenInput]|tipo = "hidden"|
+|[HiddenInput]|type=”hidden”|
 |[Phone]|tipo = "tel"|
 |[DataType(DataType.Password)]| tipo = "contraseña"|
 |[DataType(DataType.Date)]| tipo = "fecha"|

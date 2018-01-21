@@ -2,7 +2,6 @@
 title: "Páginas de Razor con EF Core - CRUD - 2 de 8"
 author: rick-anderson
 description: "Muestra cómo crear, leer, actualizar y eliminar con EF principales"
-keywords: ASP.NET Core, Entity Framework Core, CRUD, crear, leer, actualizar, eliminar
 ms.author: riande
 manager: wpickett
 ms.date: 10/15/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: 246e6307989f2660d84288ceac6793c422875f93
-ms.sourcegitcommit: 87168cdc409e7a7257f92a0f48f9c5ab320b5b28
+ms.openlocfilehash: c26ba75f6a401d50a6b46bd7ee40500c5736f20f
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Crear, leer, actualizar y eliminar - Core EF con páginas de Razor (2 de 8)
 

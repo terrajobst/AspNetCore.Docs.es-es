@@ -2,7 +2,6 @@
 title: "Vistas de núcleo de ASP.NET MVC"
 author: ardalis
 description: "Obtenga información acerca de cómo vistas controlan la presentación de datos de la aplicación y la interacción del usuario en MVC de ASP.NET Core."
-keywords: "Núcleo de ASP.NET, ver, MVC, razor, viewmodel, viewdata, viewbag"
 ms.author: riande
 manager: wpickett
 ms.date: 12/12/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/overview
-ms.openlocfilehash: 2562d4e5fb85159e6ccb47990f54448ddc188077
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: c0a1f475941f3389e9aa1f5bb7819bef491b2cae
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de núcleo de ASP.NET MVC
 
@@ -65,7 +64,7 @@ Vistas normalmente se devuelven de acciones como un [ViewResult](/aspnet/core/ap
 
 Esta acción devuelve el *About.cshtml* se muestra en la última sección de vista se representa como la página Web siguiente:
 
-![Acerca de la página representada en el explorador Microsoft Edge](overview/_static/about-page.png)
+![Acerca de la página representada en el explorador Edge](overview/_static/about-page.png)
 
 El `View` método auxiliar tiene varias sobrecargas. También puede especificar:
 
@@ -93,8 +92,8 @@ El comportamiento predeterminado de la `View` (método) (`return View();`) debe 
 
 No importa si implícitamente devuelve el `ViewResult` con `return View();` o pasar explícitamente el nombre de la vista a la `View` método con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
-   1. *Vistas /\[ControllerName]\[ViewName] .cshtml*
-   1. *Vistas/compartida/\[ViewName] .cshtml*
+   1. *Views/\[ControllerName]\[ViewName].cshtml*
+   1. *Views/Shared/\[ViewName].cshtml*
 
 Se puede proporcionar una ruta de acceso del archivo de vista en lugar de un nombre de vista. Si utiliza una ruta de acceso absoluta a partir de la raíz de la aplicación (si lo desea, a partir de "/" o "~ /"), el *.cshtml* extensión se debe especificar:
 
@@ -244,7 +243,7 @@ Trabajar con los datos en una vista:
 </address>
 ```
 
-**Elemento ViewBag**
+**ViewBag**
 
 Nota: `ViewBag` no está disponible en las páginas de Razor.
 

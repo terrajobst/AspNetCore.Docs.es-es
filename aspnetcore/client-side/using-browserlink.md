@@ -2,21 +2,19 @@
 title: "Vínculo de explorador en ASP.NET Core"
 author: ncarandini
 description: "Explica cómo vínculo de explorador es una característica de Visual Studio que se vincula el entorno de desarrollo con uno o varios exploradores web."
-keywords: "Núcleo de ASP.NET, el vínculo de explorador, la sincronización de CSS"
 ms.author: riande
 manager: wpickett
 ms.date: 09/22/2017
 ms.topic: article
-ms.assetid: 11813d4c-3f8a-445a-b23b-e4a57d001abc
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-browserlink
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b69d085e8bee4cdac2dff08b46a95a8869e263b7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d5db65c268923e96c45b034639437fc3496ccac1
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core 
 
@@ -114,7 +112,7 @@ Vínculo de explorador también funciona con exploradores que inicie desde fuera
 
 Abrir el panel de vínculo de explorador desde el menú para administrar la conexión con exploradores abiertos desplegable de vínculo de explorador:
 
-![Abrir Panel de browserslink](using-browserlink/_static/open-browserlink-dashboard.png)
+![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
 
 Si no hay ningún explorador está conectado, puede iniciar una sesión de depuración no seleccionando la *ver en el explorador* vínculo:
 
@@ -122,7 +120,7 @@ Si no hay ningún explorador está conectado, puede iniciar una sesión de depur
 
 En caso contrario, se muestran los exploradores conectados con la ruta de acceso a la página que se muestra cada explorador:
 
-![browserlink panel dos conexiones](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Si lo desea, puede hacer clic en un nombre de lista del explorador para actualizar esa única del explorador.
 

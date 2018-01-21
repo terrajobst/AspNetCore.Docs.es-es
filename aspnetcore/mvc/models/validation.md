@@ -2,20 +2,18 @@
 title: "Validación del modelo en MVC de ASP.NET Core"
 author: rachelappel
 description: "Obtenga información acerca de la validación del modelo en MVC de ASP.NET Core."
-keywords: "Validación de ASP.NET Core, MVC,"
 ms.author: riande
 manager: wpickett
 ms.date: 12/18/2016
 ms.topic: article
-ms.assetid: 3a8676dd-7ed8-4a05-bca2-44e288ab99ee
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/validation
-ms.openlocfilehash: 7f641c247cb672934e76fa13bc7b7beb3990dd82
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 91db17e103723ac411a2ad4f3f9549860f250cce
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-model-validation-in-aspnet-core-mvc"></a>Introducción a la validación del modelo en MVC de ASP.NET Core
 
@@ -173,7 +171,7 @@ El `$.validator.unobtrusive.parse()` método acepta un selector de jQuery para �
 
 ### <a name="add-validation-to-dynamic-controls"></a>Agregar validación a los controles dinámicos
 
-También puede actualizar las reglas de validación en un formulario cuando controles individuales, como `<input/>`s y `<select/>`s, se generan dinámicamente. No se puede pasar selectores de estos elementos para el `parse()` directo del método porque el formulario adyacente ya se ha analizado y no se actualizarán.  En su lugar, primero quite los datos de validación existentes y análisis todo el formulario, tal y como se muestra a continuación:
+También puede actualizar las reglas de validación en un formulario cuando controles individuales, como `<input/>`s y `<select/>`s, se generan dinámicamente. No se puede pasar selectores de estos elementos para el `parse()` directo del método porque el formulario adyacente ya se ha analizado y no se actualizarán. En su lugar, primero quite los datos de validación existentes y análisis todo el formulario, tal y como se muestra a continuación:
 
 ```js
 $.get({
@@ -233,11 +231,11 @@ La definición de la `VerifyEmail()` método sigue estas reglas, tal y como se m
 
 Ahora cuando los usuarios escriben un correo electrónico, JavaScript en la vista hace una llamada remota para ver si se ha hecho que correo electrónico y, si es así, muestra el mensaje de error. En caso contrario, el usuario puede enviar el formulario como de costumbre.
 
-El `AdditionalFields` propiedad de la `[Remote]` atributo es útil para validar combinaciones de campos con los datos en el servidor.  Por ejemplo, si la `User` modelo anterior tenía dos propiedades adicionales que se llama `FirstName` y `LastName`, debe comprobar que ningún usuario existente ya tiene ese par de nombres.  Definir las nuevas propiedades tal como se muestra en el código siguiente:
+El `AdditionalFields` propiedad de la `[Remote]` atributo es útil para validar combinaciones de campos con los datos en el servidor. Por ejemplo, si la `User` modelo anterior tenía dos propiedades adicionales que se llama `FirstName` y `LastName`, debe comprobar que ningún usuario existente ya tiene ese par de nombres. Definir las nuevas propiedades tal como se muestra en el código siguiente:
 
 [!code-csharp[Main](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields`podría se han establecido explícitamente a las cadenas de `"FirstName"` y `"LastName"`, pero con la [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) simplifica el operador similar a la refactorización más adelante.  El método de acción para realizar la validación, a continuación, debe aceptar los dos argumentos, uno para el valor de `FirstName` y otro para el valor de `LastName`.
+`AdditionalFields`podría se han establecido explícitamente a las cadenas de `"FirstName"` y `"LastName"`, pero con la [ `nameof` ](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) simplifica el operador similar a la refactorización más adelante. El método de acción para realizar la validación, a continuación, debe aceptar los dos argumentos, uno para el valor de `FirstName` y otro para el valor de `LastName`.
 
 
 [!code-csharp[Main](validation/sample/UsersController.cs?range=30-39)]
@@ -248,11 +246,11 @@ Ahora cuando los usuarios escribir un nombre y apellido, JavaScript:
 * Si ha tomado el par, se muestra un mensaje de error. 
 * Si no se realizó, el usuario puede enviar el formulario.
 
-Si necesita validar dos o más campos adicionales con el `[Remote]` atributo, que les proporcionó como una lista delimitada por comas.  Por ejemplo, para agregar una `MiddleName` propiedad en el modelo, establezca el `[Remote]` atributo tal como se muestra en el código siguiente:
+Si necesita validar dos o más campos adicionales con el `[Remote]` atributo, que les proporcionó como una lista delimitada por comas. Por ejemplo, para agregar una `MiddleName` propiedad en el modelo, establezca el `[Remote]` atributo tal como se muestra en el código siguiente:
 
 ```cs
 [Remote(action: "VerifyName", controller: "Users", AdditionalFields = nameof(FirstName) + "," + nameof(LastName))]
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, al igual que todos los argumentos de atributo, debe ser una expresión constante.  Por lo tanto, no debe utilizar un [interpolan cadena](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) o llamar a [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) para inicializar `AdditionalFields`. Para cada campo adicional que agregue a la `[Remote]` atributo, debe agregar otro argumento al método de acción de controlador correspondiente.
+`AdditionalFields`, al igual que todos los argumentos de atributo, debe ser una expresión constante. Por lo tanto, no debe utilizar un [interpolan cadena](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/interpolated-strings) o llamar a [ `string.Join()` ](https://msdn.microsoft.com/en-us/library/system.string.join(v=vs.110).aspx) para inicializar `AdditionalFields`. Para cada campo adicional que agregue a la `[Remote]` atributo, debe agregar otro argumento al método de acción de controlador correspondiente.

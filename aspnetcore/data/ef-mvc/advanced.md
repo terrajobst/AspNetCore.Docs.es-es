@@ -2,20 +2,18 @@
 title: "Núcleo de ASP.NET MVC con EF Core - avanzada - 10 de 10"
 author: tdykstra
 description: "Este tutorial presentan varios temas que son útiles para tener en cuenta cuando va más allá de los conceptos básicos sobre el desarrollo de aplicaciones web ASP.NET que usan Entity Framework Core."
-keywords: "Núcleo de ASP.NET, Entity Framework Core, sql sin procesar, examinar sql, modelo de repositorio, unidad de trabajo patrón, la detección de cambios automático, base de datos existente"
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: 92a2986a-d005-4ff6-9559-6657fd466bb7
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 4c20ed37e1e54273929593dddc9fe1180f1492d6
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: ea83e5b17df80e5615dda49335247340d1cfb016
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Temas avanzados - Core EF con el tutorial de MVC de ASP.NET Core (10 de 10)
 

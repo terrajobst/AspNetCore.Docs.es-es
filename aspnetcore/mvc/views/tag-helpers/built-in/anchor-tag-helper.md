@@ -2,20 +2,18 @@
 title: Anclar etiqueta auxiliar | Documentos de Microsoft
 author: pkellner
 description: "Muestra cómo trabajar con la aplicación auxiliar de etiquetas de delimitador"
-keywords: "ASP.NET Core, aplicación auxiliar de etiquetas"
 ms.author: riande
 manager: wpickett
 ms.date: 12/20/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a011
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 86756a1d09e6e55ca79aed6e5b718088b82b782c
-ms.sourcegitcommit: 2b263e87217658caa42eedc4f9d2d21ef0ab5d59
+ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="anchor-tag-helper"></a>Aplicación auxiliar de etiquetas de delimitador
 
@@ -99,7 +97,7 @@ https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 > [!NOTE]
 > Para usar el `asp-page` atributo en las páginas de Razor, las direcciones URL debe ser una ruta de acceso relativa, por ejemplo `"./Speaker"`. Rutas de acceso relativas en el `asp-page` atributo no están disponibles en las vistas de MVC. Utilice la sintaxis "/" para las vistas de MVC en su lugar.
 
-### <a name="asp-route-value"></a>ASP - route-{value}
+### <a name="asp-route-value"></a>asp-route-{value}
 
 `asp-route-`es un prefijo de ruta comodín. Cualquier valor que se coloca después de que el guión al final se interpretará como un parámetro de ruta posibles. Si no se encuentra una ruta predeterminada, este prefijo de ruta se anexará a la etiqueta href generada como un parámetro de solicitud y un valor. En caso contrario, se sustituirá en la plantilla de ruta.
 
@@ -168,7 +166,7 @@ Si el valor `asp-controller` o `asp-action` no se especifica, se sigue el mismo 
 
 `Name = "speakerevals"`indica la etiqueta de anclaje de aplicación auxiliar para generar una ruta directa a ese método de controlador utilizando la dirección URL `/Speaker/Evaluations`. Si `asp-controller` o `asp-action` se especifica además `asp-route`, la ruta generadas no puede ser los esperados. `asp-route`no debe usarse con cualquiera de los atributos `asp-controller` o `asp-action` para evitar un conflicto de ruta.
 
-### <a name="asp-all-route-data"></a>ASP-all-datos de ruta
+### <a name="asp-all-route-data"></a>asp-all-route-data
 
 `asp-all-route-data`permite crear un diccionario de pares clave / valor donde la clave es el nombre del parámetro y el valor es el valor asociado a esa clave.
 
@@ -237,7 +235,7 @@ El código HTML generado incluirá el segmento de áreas y será como se indica 
 > [!TIP]
 > Para que las áreas MVC trabajar en una aplicación web, la plantilla de ruta debe incluir una referencia al área si existe. Esa plantilla, que es el segundo parámetro de la `routes.MapRoute` llamada al método, se mostrarán como:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
-### <a name="asp-protocol"></a>Protocolo de ASP
+### <a name="asp-protocol"></a>asp-protocol
 
 El `asp-protocol` es para especificar un protocolo (como `https`) en la dirección URL. Un ejemplo de aplicación auxiliar de etiquetas de delimitador que incluya el protocolo será como se indica a continuación:
 

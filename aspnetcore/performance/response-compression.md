@@ -2,20 +2,18 @@
 title: "Middleware de compresión de respuesta para ASP.NET Core"
 author: guardrex
 description: "Obtenga información acerca de la compresión de respuesta y cómo usar el Middleware de compresión de respuesta en aplicaciones de ASP.NET Core."
-keywords: "Núcleo de ASP.NET, rendimiento, compresión de respuesta, gzip, codificación aceptada, middleware"
 ms.author: riande
 manager: wpickett
 ms.date: 08/20/2017
 ms.topic: article
-ms.assetid: de621887-c5c9-4ac8-9efd-f5cc0457a134
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 86244179115fe6a7d0f7298495086a96ee9570d9
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware de compresión de respuesta para ASP.NET Core
 
@@ -32,8 +30,8 @@ Use Middleware de compresión de respuesta cuando esté:
 
 * No se puede usar las siguientes tecnologías de compresión basada en servidor:
   * [Módulo de compresión dinámica de IIS](https://www.iis.net/overview/reliability/dynamiccachingandcompression)
-  * [Módulo de mod_deflate de Apache](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
-  * [NGINX compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
+  * [Apache mod_deflate module](http://httpd.apache.org/docs/current/mod/mod_deflate.html)
+  * [Nginx compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/)
 * Hospeda directamente en:
   * [Servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominados [WebListener](xref:fundamentals/servers/weblistener))
   * [Kestrel](xref:fundamentals/servers/kestrel)
@@ -184,7 +182,7 @@ Al comprimir las respuestas según el `Accept-Encoding` encabezado, hay potencia
 [!code-csharp[Main](response-compression/samples/1.x/Startup.cs?name=snippet1)]
 
 ## <a name="middleware-issue-when-behind-an-nginx-reverse-proxy"></a>Problema de middleware al estar detrás de un proxy inverso Nginx
-Una vez procesada por Nginx, una solicitud de la `Accept-Encoding` se quita el encabezado. Esto evita que el middleware de la compresión de la respuesta. Para obtener más información, consulte [NGINX: compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Este problema se realiza un seguimiento por [averiguar compresión de paso a través de nginx (BasicMiddleware n.º 123)](https://github.com/aspnet/BasicMiddleware/issues/123).
+Una vez procesada por Nginx, una solicitud de la `Accept-Encoding` se quita el encabezado. Esto evita que el middleware de la compresión de la respuesta. Para obtener más información, consulte [NGINX: compresión y descompresión](https://www.nginx.com/resources/admin-guide/compression-and-decompression/). Este problema se realiza un seguimiento por [averiguar compresión de paso a través de Nginx (BasicMiddleware n.º 123)](https://github.com/aspnet/BasicMiddleware/issues/123).
 
 ## <a name="working-with-iis-dynamic-compression"></a>Trabajar con la compresión dinámica de IIS
 Si tiene un módulo de compresión dinámica de IIS activo configurado en el nivel de servidor que desea deshabilitar para una aplicación, puede hacerlo con un complemento de la *web.config* archivo. Para obtener más información, consulte [módulos IIS deshabilitar](xref:host-and-deploy/iis/modules#disabling-iis-modules).

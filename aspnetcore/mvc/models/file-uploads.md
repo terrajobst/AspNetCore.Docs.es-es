@@ -2,20 +2,18 @@
 title: Cargas de archivos en ASP.NET Core
 author: ardalis
 description: "Cómo usar el enlace de modelos y la transmisión por secuencias para cargar archivos en MVC de ASP.NET Core."
-keywords: "ASP.NET Core, carga de archivos de modelo de enlace, IFormFile, transmisión por secuencias"
 ms.author: riande
 manager: wpickett
 ms.date: 07/05/2017
 ms.topic: article
-ms.assetid: ebc98159-a028-4a94-b06c-43981c79c6be
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: e8608a46d6688df8da6c665a25b6f4db5f480461
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3c5abe84a5c7cc399e0586e680a414fab7a26c1d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Cargas de archivos en ASP.NET Core
 

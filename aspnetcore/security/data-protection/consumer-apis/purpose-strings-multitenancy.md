@@ -2,20 +2,18 @@
 title: "Cadenas de propósito en ASP.NET Core"
 author: rick-anderson
 description: "Este documento describen la arquitectura multiempresa y jerarquía de la cadena de propósito en lo referente a las API de protección de datos de ASP.NET Core."
-keywords: "ASP.NET Core, protección de datos, cadenas de propósito"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 9d18c287-e0e6-4541-b09c-7fed45c902d9
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings-multitenancy
-ms.openlocfilehash: ce506710042bfb76015c3af991b17e018b78e970
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e720c3e245f4a20ffeb728035ee3ad3c1320ab92
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="purpose-hierarchy-and-multi-tenancy-in-aspnet-core"></a>Jerarquía de propósito y la arquitectura multiempresa en ASP.NET Core
 

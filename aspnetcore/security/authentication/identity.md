@@ -2,20 +2,18 @@
 title: "Introducción a la identidad de un núcleo de ASP.NET"
 author: rick-anderson
 description: "Usar la identidad con una aplicación de ASP.NET Core"
-keywords: "Autorización de ASP.NET Core, identidad, seguridad"
 ms.author: riande
 manager: wpickett
 ms.date: 01/02/2018
 ms.topic: article
-ms.assetid: cf119f21-1a2b-49a2-b052-547ccb66ee83
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: fc8e076af92bd8f9a95e73abb66ce32cae8ab9cf
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 436a5ecfd126c9660591cd55efc1cc52b9493136
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad de un núcleo de ASP.NET
 
@@ -146,7 +144,7 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
  
 7.  Ver la base de datos.
 
-    Si la aplicación usa una base de datos de SQL Server (el valor predeterminado en Windows y para usuarios de Visual Studio), puede ver la base de datos de la aplicación creada. Puede usar **SQL Server Management Studio**. O bien, desde Visual Studio, seleccione **vista** > **Explorador de objetos de SQL Server**. Conectarse a **(localdb) \MSSQLLocalDB**. La base de datos con un nombre que coincida con  **aspnet - <*nombre del proyecto*>-<*cadena de fecha*> ** se muestra.
+    Si la aplicación usa una base de datos de SQL Server (el valor predeterminado en Windows y para usuarios de Visual Studio), puede ver la base de datos de la aplicación creada. Puede usar **SQL Server Management Studio**. O bien, desde Visual Studio, seleccione **vista** > **Explorador de objetos de SQL Server**. Conectarse a **(localdb) \MSSQLLocalDB**. La base de datos con un nombre que coincida con **aspnet - <*nombre del proyecto*>-<*cadena de fecha* >**  se muestra.
 
     ![Menú contextual en la tabla de base de datos de AspNetUsers](identity/_static/04-db.png)
     

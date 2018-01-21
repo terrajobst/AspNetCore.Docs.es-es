@@ -2,7 +2,6 @@
 title: "Programa de instalación de inicio de sesión externo de Google en ASP.NET Core"
 author: rick-anderson
 description: "Este tutorial muestra la integración de autenticación de usuario de cuenta de Google en una aplicación existente de ASP.NET Core."
-keywords: "Núcleo de ASP.NET, Google, inicio de sesión, autenticación"
 ms.author: riande
 manager: wpickett
 ms.date: 08/02/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/google-logins
-ms.openlocfilehash: af316d832de7356d539eaaab5be6485639030c7a
-ms.sourcegitcommit: 8ab9d0065fad23400757e4e08033787e42c97d41
+ms.openlocfilehash: 30d224061bce3a727fc31d19c194e96559e28310
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="configuring-google-authentication-in-aspnet-core"></a>Configurar la autenticación de Google en ASP.NET Core
 

@@ -2,18 +2,17 @@
 title: "Páginas de Razor con EF Core - ordenar, filtrar y paginación - 3 de 8"
 author: rick-anderson
 description: "En este tutorial agregará ordenación, filtrado y paginación funcionalidad en la página utilizando ASP.NET Core y Entity Framework Core."
-keywords: "ASP.NET Core, Entity Framework Core, ordenar, filtrar, paginación, agrupación"
 ms.author: riande
 ms.date: 10/22/2017
 ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 5e17663b88a622101245228e9372db55e4e874be
-ms.sourcegitcommit: 703593d5fd14076e79be2ba75a5b8da12a60ab15
+ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Ordenación, filtrado, paginación y agrupar - Core EF con páginas de Razor (3 de 8)
 
@@ -142,7 +141,7 @@ En *Views/Student/Index.cshtml*, agregue el código resaltado siguiente para cre
 
 El código anterior usa el `<form>` [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro) para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la `<form>` auxiliar de etiquetas envía datos de formulario con una entrada de blog. Utiliza el método POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se utiliza HTTP GET, los datos del formulario se pasan en la dirección URL como las cadenas de consulta. Pasar los datos con cadenas de consulta, permite a los usuarios marcar la dirección URL. El [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomienda que GET debe utilizarse cuando la acción no da como resultado una actualización.
 
-Probar la aplicación:
+Pruebe la aplicación:
 
 * Seleccione el **estudiantes** pestaña y escriba una cadena de búsqueda.
 * Seleccione **búsqueda**.
@@ -280,7 +279,7 @@ Si experimenta problemas no puede resolver, descargue el [aplicación final de e
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Depurar el código fuente ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)
+* [Depuración del código fuente de ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)
 
 En el tutorial siguiente, la aplicación utiliza las migraciones para actualizar el modelo de datos.
 

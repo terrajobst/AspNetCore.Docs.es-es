@@ -2,20 +2,18 @@
 title: "Núcleo de ASP.NET MVC con Entity Framework Core - Tutorial 1 de 10"
 author: tdykstra
 description: 
-keywords: Tutorial de ASP.NET Core, Entity Framework Core,
 ms.author: tdykstra
 manager: wpickett
 ms.date: 03/15/2017
 ms.topic: get-started-article
-ms.assetid: b67c3d4a-f2bf-4132-a48b-4b0d599d7981
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 2b21c7fb35c65d9374723faac5b812289023a0f6
-ms.sourcegitcommit: 198fb0488e961048bfa376cf58cb853ef1d1cb91
+ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
@@ -44,7 +42,7 @@ Núcleo EF 2.0 es la versión más reciente de EF pero todavía no tiene todas l
 Si experimenta un problema no se puede resolver, por lo general puede encontrar la solución comparando el código para el [proyecto completado](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final). Para obtener una lista de errores comunes y cómo resolverlos, vea [la sección de solución de problemas del último tutorial de la serie](advanced.md#common-errors). Si no encuentra lo que necesita no existe, puede publicar una pregunta en StackOverflow.com para [ASP.NET Core](https://stackoverflow.com/questions/tagged/asp.net-core) o [Core EF](https://stackoverflow.com/questions/tagged/entity-framework-core).
 
 > [!TIP] 
-> Se trata de una serie de tutoriales de 10, cada uno de los cuales se basa en lo que se realiza en los tutoriales anteriores.  Considere la posibilidad de guardar una copia del proyecto tras cada tutorial finalizar correctamente.  A continuación, si experimenta problemas, puede iniciar desde el tutorial anterior en lugar de volver al principio de la serie completa.
+> Se trata de una serie de tutoriales de 10, cada uno de los cuales se basa en lo que se realiza en los tutoriales anteriores. Considere la posibilidad de guardar una copia del proyecto tras cada tutorial finalizar correctamente. A continuación, si experimenta problemas, puede iniciar desde el tutorial anterior en lugar de volver al principio de la serie completa.
 
 ## <a name="the-contoso-university-web-application"></a>La aplicación web de la Universidad de Contoso
 
@@ -136,7 +134,7 @@ El `ID` propiedad se convertirá en la columna de clave principal de la tabla de
 
 El `Enrollments` es una propiedad de navegación. Propiedades de navegación contienen otras entidades que están relacionados con esta entidad. En este caso, el `Enrollments` propiedad de un `Student entity` contendrá todos los `Enrollment` entidades que están relacionados con dicho `Student` entidad. En otras palabras, si una fila determinada de estudiante en la base de datos tiene dos inscripción filas relacionadas (filas que contienen el valor de clave principal de ese estudiante en la columna de clave externa de StudentID), que `Student` la entidad `Enrollments` va a contenerlas propiedades de navegación dos `Enrollment` entidades.
 
-Si una propiedad de navegación puede contener varias entidades (como en las relaciones de varios a varios o de uno a varios), su tipo debe ser una lista en la que las entradas pueden agregar, eliminar y actualizar, como `ICollection<T>`.  Puede especificar `ICollection<T>` o un tipo como `List<T>` o `HashSet<T>`. Si especifica `ICollection<T>`, EF crea un `HashSet<T>` colección de forma predeterminada.
+Si una propiedad de navegación puede contener varias entidades (como en las relaciones de varios a varios o de uno a varios), su tipo debe ser una lista en la que las entradas pueden agregar, eliminar y actualizar, como `ICollection<T>`. Puede especificar `ICollection<T>` o un tipo como `List<T>` o `HashSet<T>`. Si especifica `ICollection<T>`, EF crea un `HashSet<T>` colección de forma predeterminada.
 
 ### <a name="the-enrollment-entity"></a>La entidad de inscripción
 
@@ -210,7 +208,7 @@ La cadena de conexión especifica una base de datos de SQL Server LocalDB. Local
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Agregue código para inicializar la base de datos con datos de prueba
 
-Entity Framework creará una base de datos vacía por usted.  En esta sección, tienes que escribir un método que se llama una vez creada la base de datos para rellenarlo con datos de prueba.
+Entity Framework creará una base de datos vacía por usted. En esta sección, tienes que escribir un método que se llama una vez creada la base de datos para rellenarlo con datos de prueba.
 
 Aquí usará el `EnsureCreated` método para crear automáticamente la base de datos. En un [tutorial posterior](migrations.md) verá cómo controlar los cambios en el modelo mediante migraciones de Code First para cambiar el esquema de base de datos en lugar de quitar y volver a crear la base de datos.
 
@@ -218,7 +216,7 @@ En el *datos* carpeta, cree un nuevo archivo de clase denominado *DbInitializer.
 
 [!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
-El código comprueba si hay cualquier estudiantes en la base de datos, y si no es así, se supone la base de datos es nuevo y debe ser propagado con datos de prueba.  Carga los datos de prueba en las matrices en lugar de `List<T>` colecciones para optimizar el rendimiento.
+El código comprueba si hay cualquier estudiantes en la base de datos, y si no es así, se supone la base de datos es nuevo y debe ser propagado con datos de prueba. Carga los datos de prueba en las matrices en lugar de `List<T>` colecciones para optimizar el rendimiento.
 
 En *Program.cs*, modifique la `Main` método para hacer lo siguiente al iniciar la aplicación:
 
@@ -244,10 +242,10 @@ La creación automática de los métodos de acción CRUD y vistas se conoce como
 
 * Haga clic en el **controladores** carpeta **el Explorador de soluciones** y seleccione **Agregar > nuevo elemento de scaffolding**.
 
-Si el **agregar dependencias de MVC** aparece el cuadro de diálogo:
+Si aparece el cuadro de diálogo **Agregar dependencias de MVC**:
 
-* [Actualizar Visual Studio a la última versión](https://www.visualstudio.com/downloads/). Versiones de Visual Studio antes de 15,5 mostrar este cuadro de diálogo.
-* Si no se puede actualizar, seleccione **agregar**y, a continuación, siga los pasos de controlador agregar de nuevo.
+* [Actualice Visual Studio a la última versión](https://www.visualstudio.com/downloads/). La versiones de Visual Studio anteriores a la 15.5 muestran este cuadro de diálogo.
+* Si no puede actualizar, seleccione **AGREGAR** y luego siga los pasos para agregar el controlador de nuevo.
 
 * En el **agregar scaffolding** cuadro de diálogo:
 
@@ -353,7 +351,7 @@ En el código siguiente, la `async` palabra clave, `Task<T>` devolver valor, `aw
 
 Algunos aspectos que tener en cuenta cuando se escribe código asincrónico que utiliza Entity Framework:
 
-* Solo las instrucciones que hacen que las consultas o comandos se envíen a la base de datos se ejecutan de forma asincrónica. Que incluye, por ejemplo, `ToListAsync`, `SingleOrDefaultAsync`, y `SaveChangesAsync`.  No incluye, por ejemplo, las instrucciones que acaba de cambiar un `IQueryable`, como `var students = context.Students.Where(s => s.LastName == "Davolio")`.
+* Solo las instrucciones que hacen que las consultas o comandos se envíen a la base de datos se ejecutan de forma asincrónica. Que incluye, por ejemplo, `ToListAsync`, `SingleOrDefaultAsync`, y `SaveChangesAsync`. No incluye, por ejemplo, las instrucciones que acaba de cambiar un `IQueryable`, como `var students = context.Students.Where(s => s.LastName == "Davolio")`.
 
 * Un contexto EF no es seguro para subprocesos: no intentar llevar a cabo varias operaciones en paralelo. Cuando se llama a cualquier método EF asincrónico, use siempre el `await` palabra clave.
 
@@ -366,4 +364,4 @@ Para obtener más información sobre la programación asincrónica en. NET, vea 
 Ahora ha creado una aplicación simple que usa el núcleo de Entity Framework y SQL Server Express LocalDB para almacenar y mostrar los datos. En el siguiente tutorial, obtendrá información sobre cómo realizar básica CRUD (crear, leer, actualizar y eliminar) operaciones.
 
 >[!div class="step-by-step"]
-[Siguiente](crud.md)  
+[Siguiente](crud.md)

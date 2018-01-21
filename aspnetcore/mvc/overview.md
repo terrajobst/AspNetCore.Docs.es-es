@@ -2,20 +2,18 @@
 title: "Información general de ASP.NET Core MVC"
 author: ardalis
 description: "Obtenga información acerca de cómo principales de ASP.NET MVC es un marco de trabajo para la creación de aplicaciones web y API que usan el modelo Model-View-Controller patrón de diseño."
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 01/08/2018
 ms.topic: article
-ms.assetid: 89af38d1-52e0-4db7-b791-dbce909b0714
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/overview
-ms.openlocfilehash: 33c293e15c0a7f18bbace9dc564fe11d93a7d509
-ms.sourcegitcommit: df2157ae9aeea0075772719c29784425c783e82a
+ms.openlocfilehash: ad8a1dfae89a7ecd5573c16ba70d7d12216b4c57
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -74,7 +72,7 @@ Núcleo de ASP.NET MVC incluye lo siguiente:
 * [Filtros](#filters)
 * [Áreas](#areas)
 * [API Web](#web-apis)
-* [Capacidad de prueba](#testability)
+* [Testability](#testability)
 * [Motor de vista Razor](#razor-view-engine)
 * [Vistas fuertemente tipadas](#strongly-typed-views)
 * [Aplicaciones auxiliares de etiquetas](#tag-helpers)

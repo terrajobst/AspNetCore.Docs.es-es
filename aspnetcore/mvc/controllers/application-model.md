@@ -2,20 +2,18 @@
 title: "Trabajar con el modelo de aplicación"
 author: ardalis
 description: 
-keywords: "MVC de ASP.NET Core,ASP.NET Core, modelo de aplicación"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 4eb7e52f-5665-41a4-a3e3-e348d07337f2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: 3c35184921dbe26cde100fd3d5124e38ea0d06cf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-the-application-model"></a>Trabajar con el modelo de aplicación
 

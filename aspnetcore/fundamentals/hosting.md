@@ -2,7 +2,6 @@
 title: Hospedar en ASP.NET Core
 author: guardrex
 description: "Obtenga información acerca del host de web en ASP.NET Core, que es responsable de la administración de inicio y duración de la aplicación."
-keywords: "Núcleo de ASP.NET, web host, IWebHost, WebHostBuilder, IHostingEnvironment, IApplicationLifetime"
 ms.author: riande
 manager: wpickett
 ms.date: 09/21/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/hosting
-ms.openlocfilehash: 8adc58d67f103e8d1fc8fe197cf392752bdaf660
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 7f6712073002b73ca4ddd7586718c81e62cacbc2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="hosting-in-aspnet-core"></a>Hospedar en ASP.NET Core
 
@@ -35,8 +34,8 @@ Crear un host con una instancia de [WebHostBuilder](/dotnet/api/microsoft.aspnet
 * Configura [Kestrel](servers/kestrel.md) como el servidor web. Para las opciones predeterminadas de Kestrel, consulte [el Kestrel opciones de sección de implementación de servidor web Kestrel en ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Establece la raíz de contenido en la ruta de acceso devuelto por [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
 * Configuración opcional de cargas de:
-  * *appSettings.JSON que se*.
-  * *appSettings. {Entorno} .json*.
+  * *appsettings.json*.
+  * *appsettings.{Environment}.json*.
   * [Secretos del usuario](xref:security/app-secrets) cuando la aplicación se ejecuta en el `Development` entorno.
   * Variables de entorno.
   * Argumentos de línea de comandos.
@@ -296,7 +295,7 @@ Indica las direcciones IP o direcciones de host con los puertos y protocolos que
 
 **Clave**: las direcciones URL  
 **Tipo de**: *cadena*  
-**Predeterminado**: http://localhost: 5000  
+**Default**: http://localhost:5000  
 **Establecer mediante**:`UseUrls`  
 **Variable de entorno**:`ASPNETCORE_URLS`
 
@@ -424,7 +423,7 @@ Use [configuración](xref:fundamentals/configuration/index) para configurar el h
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-*Hosting.JSON*:
+*hosting.json*:
 
 ```json
 {
@@ -465,7 +464,7 @@ public class Program
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-*Hosting.JSON*:
+*hosting.json*:
 
 ```json
 {

@@ -2,20 +2,18 @@
 title: "Autorización basada en notificaciones"
 author: rick-anderson
 description: "Este documento explica cómo agregar notificaciones comprobaciones de autorización en una aplicación de ASP.NET Core."
-keywords: "Núcleo de ASP.NET, autorización, notificaciones"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: 737be5cd-3511-4f1c-b0ce-65403fb5eed3
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authorization/claims
-ms.openlocfilehash: eebaddabdd360f34b6ff44e8f4f9f1f10fda6406
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dd8f42684f9e58b9329602aa9b70d2c0ab950892
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="claims-based-authorization"></a>Autorización basada en notificaciones
 

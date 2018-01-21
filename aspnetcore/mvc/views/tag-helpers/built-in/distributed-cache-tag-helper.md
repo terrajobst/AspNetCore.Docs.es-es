@@ -2,20 +2,18 @@
 title: "Distribuye la aplicación auxiliar de etiqueta de caché | Documentos de Microsoft"
 author: pkellner
 description: "Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché"
-keywords: "ASP.NET Core, aplicación auxiliar de etiquetas"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: c045d485-d1dc-4cea-a675-46be83b7a022
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 462c3775677924fc7b9b715cd6de75fe53ada89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f5844dade218fdba1169a55fe3ce251a9cc03db2
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="distributed-cache-tag-helper"></a>Aplicación auxiliar de etiqueta de caché distribuida
 
@@ -43,7 +41,7 @@ Vea auxiliar de etiqueta de caché para las definiciones. Auxiliar de etiqueta d
 
 | Tipo de atributo    | Valor de ejemplo     |
 |----------------   |----------------   |
-| string    | "my-distributed-cache-unique-key-101"     |
+| cadena    | "my-distributed-cache-unique-key-101"     |
 
 Requerido `name` atributo se utiliza como clave para esa caché almacenada para cada instancia de un Ayudante de etiqueta de caché distribuida.  Al contrario que el Ayudante básica de la etiqueta de caché que asigna una clave a cada instancia de aplicación auxiliar de etiqueta de caché según el nombre de la página de Razor y la ubicación de la aplicación auxiliar de etiquetas en la página de razor, el Ayudante de etiqueta de caché distribuida solo basa su clave en el atributo`name`
 

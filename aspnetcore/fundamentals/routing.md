@@ -2,20 +2,18 @@
 title: Enrutamiento de ASP.NET Core
 author: ardalis
 description: "Descubra cómo la función de enrutamiento de ASP.NET Core es responsable de asignar una solicitud entrante a un controlador de ruta."
-keywords: ASP.NET Core
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2016
 ms.topic: article
-ms.assetid: bbbcf9e4-3c4c-4f50-b91e-175fe9cae4e2
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: 58388f674ed5d353c1c7208a67fb338e49fdb592
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento de ASP.NET Core
 
@@ -232,11 +230,11 @@ La siguiente tabla muestra las respuestas con el URI especificado.
 
 | Identificador URI | Respuesta  |
 | ------- | -------- |
-| /Package/Create/3  | Hello! Valores de ruta: [operación, crear], [Id. de 3] |
-| / paquetes/seguimiento /-3  | Hello! Valores de ruta: [operación, pista], [Id. de -3] |
-| / paquetes/seguimiento/3 / | Hello! Valores de ruta: [operación, pista], [Id. de -3]  |
+| /package/create/3  | Hello! Valores de ruta: [operación, crear], [Id. de 3] |
+| /package/track/-3  | Hello! Valores de ruta: [operación, pista], [Id. de -3] |
+| /package/track/-3/ | Hello! Valores de ruta: [operación, pista], [Id. de -3]  |
 | /Package/seguimiento / | \<Pasar ninguna coincidencia explícitamente > |
-| OBTENER /hello/Joe | Hola, Juan. |
+| GET /hello/Joe | Hola, Juan. |
 | REGISTRAR /hello/Joe | \<Pasar explícitamente, solo las coincidencias HTTP GET > |
 | OBTENER /hello/Joe/Smith | \<Pasar ninguna coincidencia explícitamente > |
 
@@ -277,12 +275,12 @@ La tabla siguiente muestran algunas plantillas de ruta y su comportamiento.
 
 | Plantilla de ruta | Dirección URL de búsqueda de coincidencias de ejemplo | Notas |
 | -------- | -------- | ------- |
-| hello  | sería  | Solo coincide con la ruta de acceso único`/hello` |
-| {Página = Home} | / | Coincide con y establece `Page` a`Home` |
-| {Página = Home}  | O póngase en contacto con  | Coincide con y establece `Page` a`Contact` |
+| hello  | /hello  | Solo coincide con la ruta de acceso único`/hello` |
+| {Page=Home} | / | Coincide con y establece `Page` a`Home` |
+| {Page=Home}  | O póngase en contacto con  | Coincide con y establece `Page` a`Contact` |
 | ¿{controller} / {action} / {id}? | / Productos/lista | Se asigna a `Products` controlador y `List` acción |
 | ¿{controller} / {action} / {id}? | / Productos/detalles/123  |  Se asigna a `Products` controlador y `Details` acción.  `id`establézcalo 123 |
-| ¿{controlador = Home} / {acción = índice} / {id}? | /  |  Se asigna a `Home` controlador y `Index` método; `id` se omite. |
+| {controller=Home}/{action=Index}/{id?} | /  |  Se asigna a `Home` controlador y `Index` método; `id` se omite. |
 
 Mediante una plantilla suele ser el método más sencillo para el enrutamiento. Las restricciones y los valores predeterminados pueden especificarse también fuera de la plantilla de ruta.
 
@@ -336,11 +334,11 @@ Expresiones regulares utilizan delimitadores y símbolos (tokens) similares a aq
 
 Expresiones regulares utilizadas en el enrutamiento a menudo se iniciará con la `^` caracteres (posición inicial de la cadena de coincidencia) y terminan con la `$` caracteres (coincidencia de una posición de la cadena final). El `^` y `$` caracteres Asegúrese de que la coincidencia de expresión regular el valor del parámetro de ruta completa. Sin el `^` y `$` caracteres de la expresión regular coincidirá con cualquier cadena subcarpetas dentro de la cadena, que a menudo no es lo desea. En la tabla siguiente se muestra algunos ejemplos y explica por qué que coinciden o no coinciden.
 
-| Expresión               | Cadena | Coincidir con | Comentario |
+| Expresión               | String | Coincidir con | Comentario |
 | ----------------- | ------------ |  ------------ |  ------------ | 
 | `[a-z]{2}` | hello | sí | coincidencia de subcadena |
 | `[a-z]{2}` | 123abc456 | sí | coincidencia de subcadena |
-| `[a-z]{2}` | MZ | sí | coincide con la expresión |
+| `[a-z]{2}` | mz | sí | coincide con la expresión |
 | `[a-z]{2}` | MZ | sí | no distinguir mayúsculas de minúsculas |
 | `^[a-z]{2}$` |  hello | No | vea `^` y `$` anteriormente |
 | `^[a-z]{2}$` |  123abc456 | No | vea `^` y `$` anteriormente |
@@ -365,10 +363,10 @@ Los valores que se proporcionan de forma explícita, pero que no coincide con na
 
 | Valores de ambiente | Valores explícitos | Resultado |
 | -------------   | -------------- | ------ |
-| controlador = "Inicio" | acción = "About" | `/Home/About` |
-| controlador = "Inicio" | controlador = "Order", acción = "About" | `/Order/About` |
-| controlador = "Home", color = "Red" | acción = "About" | `/Home/About` |
-| controlador = "Inicio" | acción = "About" de color = "Red" | `/Home/About?color=Red`
+| controller="Home" | acción = "About" | `/Home/About` |
+| controller="Home" | controller="Order",action="About" | `/Order/About` |
+| controller="Home",color="Red" | acción = "About" | `/Home/About` |
+| controller="Home" | action="About",color="Red" | `/Home/About?color=Red`
 
 Si una ruta tiene un valor predeterminado que no se corresponde con un parámetro y se proporciona explícitamente ese valor, debe coincidir con el valor predeterminado. Por ejemplo:
 

@@ -2,7 +2,6 @@
 title: Referencia de la sintaxis de Razor para ASP.NET Core
 author: rick-anderson
 description: "Obtenga información acerca de la sintaxis de marcado de Razor para incrustar código basado en servidor en las páginas Web."
-keywords: Directivas de ASP.NET Core, Razor, Razor
 ms.author: riande
 manager: wpickett
 ms.date: 10/18/2017
@@ -10,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: 6df769069fce52755a57d8404f88203a652a1ab9
-ms.sourcegitcommit: a3e88639a6bcf8fb4d634036dac93130c464a097
+ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Sintaxis de Razor para ASP.NET Core
 
@@ -24,7 +23,7 @@ Razor es una sintaxis de marcado para incrustar código basado en servidor en la
 
 ## <a name="rendering-html"></a>Representación HTML
 
-El idioma de Razor predeterminado es HTML. Representación HTML desde el marcado de Razor es similar a representar HTML desde un archivo HTML.  El marcado HTML en *.cshtml* archivos Razor se representa en el servidor sin cambios.
+El idioma de Razor predeterminado es HTML. Representación HTML desde el marcado de Razor es similar a representar HTML desde un archivo HTML. El marcado HTML en *.cshtml* archivos Razor se representa en el servidor sin cambios.
 
 ## <a name="razor-syntax"></a>Sintaxis de Razor
 
@@ -73,8 +72,8 @@ Las expresiones implícitas **no** contienen tipos genéricos de C#, como los ca
 
 El código anterior genera un error del compilador similar a uno de los siguientes:
 
- * No se cerró el elemento "int".  Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
- *  No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
+ * No se cerró el elemento "int". Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
+ * No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
  
 Llamadas de método genérico deben incluirse en un [expresión explícita de Razor](#explicit-razor-expressions) o un [bloque de código Razor](#razor-code-blocks).
 
@@ -119,10 +118,10 @@ Pueden utilizarse expresiones explícitas para representar el resultado de los m
 
 El código anterior genera un error del compilador similar a uno de los siguientes:
 
- * No se cerró el elemento "int".  Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
- *  No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
+ * No se cerró el elemento "int". Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
+ * No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
  
- El marcado siguiente muestra este código de la escritura de forma correcta.  El código se escribe como una expresión explícita:
+ El marcado siguiente muestra este código de la escritura de forma correcta. El código se escribe como una expresión explícita:
 
 ```cshtml
 <p>@(GenericMethod<int>())</p>
@@ -232,7 +231,7 @@ Para representar el resto de una línea completa como HTML dentro de un bloque d
 
 Sin el `@:` en el código, se genera un error de tiempo de ejecución de Razor.
 
-Advertencia: Adicional `@` caracteres en un archivo Razor pueden producir errores del compilador causa en instrucciones más adelante en el bloque. Estos errores del compilador pueden ser difíciles de entender porque el error real se produce antes del error notificado.  Este error es habitual después de combinar varias expresiones implícito o explícito en un único bloque de código.
+Advertencia: Adicional `@` caracteres en un archivo Razor pueden producir errores del compilador causa en instrucciones más adelante en el bloque. Estos errores del compilador pueden ser difíciles de entender porque el error real se produce antes del error notificado. Este error es habitual después de combinar varias expresiones implícito o explícito en un único bloque de código.
 
 ## <a name="control-structures"></a>Estructuras de control
 
@@ -285,7 +284,7 @@ El marcado siguiente muestra cómo utilizar una instrucción switch:
 
 ### <a name="looping-for-foreach-while-and-do-while"></a>Bucle @for, @foreach, @while, y @do mientras
 
-HTML con plantilla se puede representar con las instrucciones de control de bucle.  Para presentar una lista de personas:
+HTML con plantilla se puede representar con las instrucciones de control de bucle. Para presentar una lista de personas:
 
 ```cshtml
 @{
@@ -496,7 +495,7 @@ El código representa el código HTML siguiente:
 <div>Custom text: Gardyloo! - A Scottish warning yelled from a window before dumping a slop bucket on the street below.</div>
 ```
 
- `@model`y `@inherits` puede utilizarse en la misma vista.  `@inherits`puede estar en un *_ViewImports.cshtml* archivo que se importa de la vista:
+ `@model`y `@inherits` puede utilizarse en la misma vista. `@inherits`puede estar en un *_ViewImports.cshtml* archivo que se importa de la vista:
 
 [!code-cshtml[Main](razor/sample/Views/_ViewImportsModel.cshtml)]
 

@@ -1,21 +1,19 @@
 ---
-title: "Middleware de núcleo de ASP.NET"
+title: ASP.NET Core Middleware
 author: rick-anderson
 description: "Obtenga información sobre el software intermedio ASP.NET Core y la canalización de solicitudes."
-keywords: "Núcleo de ASP.NET, Middleware, canalización, delegado"
 ms.author: riande
 manager: wpickett
 ms.date: 10/14/2017
 ms.topic: article
-ms.assetid: db9a86ab-46c2-40e0-baed-86e38c16af1f
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ad8d207b1e6de396f16d098fb07ddc89bea2c520
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Conceptos básicos de Middleware de núcleo de ASP.NET
 
@@ -153,9 +151,9 @@ La siguiente tabla muestra las solicitudes y respuestas de `http://localhost:123
 | Solicitud | Respuesta |
 | --- | --- |
 | localhost:1234 | Hola desde el delegado de no asignación.  |
-| localhost:1234 / map1 | Prueba 1 de mapa |
-| localhost:1234 / map2 | Prueba 2 de mapa |
-| localhost:1234 / sitio3 | Hola desde el delegado de no asignación.  |
+| localhost:1234/map1 | Prueba 1 de mapa |
+| localhost:1234/map2 | Prueba 2 de mapa |
+| localhost:1234/map3 | Hola desde el delegado de no asignación.  |
 
 Cuando `Map` es utilizado, se quitan los segmentos de ruta de acceso coincidentes de `HttpRequest.Path` y agrega a `HttpRequest.PathBase` para cada solicitud.
 
@@ -168,7 +166,7 @@ La siguiente tabla muestra las solicitudes y respuestas de `http://localhost:123
 | Solicitud | Respuesta |
 | --- | --- |
 | localhost:1234 | Hola desde el delegado de no asignación.  |
-| localhost:1234 /? bifurcación = master | Bifurcación usa = master|
+| localhost:1234/?branch=master | Bifurcación usa = master|
 
 `Map`admite la anidación, por ejemplo:
 

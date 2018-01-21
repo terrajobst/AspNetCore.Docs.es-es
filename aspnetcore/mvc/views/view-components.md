@@ -2,20 +2,18 @@
 title: Componentes de la vista
 author: rick-anderson
 description: "Componentes de la vista pretenden en cualquier lugar que tiene lógica de representación reutilizable."
-keywords: "Núcleo de ASP.NET, componentes de la vista, vista parcial"
 ms.author: riande
 manager: wpickett
 ms.date: 02/14/2017
 ms.topic: article
-ms.assetid: ab4705b7-59d7-4f31-bc97-ea7f292fe926
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2cf82df78c250cdfdd808d49acfc06dc2ea82f5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="view-components"></a>Componentes de la vista
 
@@ -78,8 +76,8 @@ Un componente de vista define su lógica en una `InvokeAsync` método que devuel
 
 El tiempo de ejecución busca la vista en las rutas de acceso siguientes:
 
-   * Vistas /\<controller_name > /Components/\<view_component_name > /\<view_name >
-   * Vistas / / componentes de uso compartido/\<view_component_name > /\<view_name >
+   * Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
+   * Views/Shared/Components/\<view_component_name>/\<view_name>
 
 El nombre de vista predeterminado para un componente de vista es *predeterminado*, lo que significa que el archivo de vista se suele denominar *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o cuando se llama a la `View` método.
 
