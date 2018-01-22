@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/bson-support-in-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 08ef1564b2f8f11294c3bb1ec0ff9a3d063895b6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 53ad705fad6d2225cecca4d73355bd6ebfcf56d5
+ms.sourcegitcommit: 459cb3289741a3f46325e605a617dc926ee0563d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/22/2018
 ---
 <a name="bson-support-in-aspnet-web-api-21"></a>Compatibilidad con BSON en ASP.NET Web API 2.1
 ====================
@@ -30,7 +30,7 @@ Web API 2.1 incorpora BSON. Este tema muestra cómo usar BSON en el controlador 
 
 BSON está diseñado para ser ligera, fácil de explorar y rápida para codificar y descodificar.
 
-- BSON es comparable en cuanto a tamaño a JSON. Dependiendo de los datos, una carga BSON puede ser menor o mayor que una carga JSON. Para serializar datos binarios, como un archivo de imagen, BSON es inferior a JSON, porque los datos binarios no no está codificado en base64.
+- BSON es comparable en cuanto a tamaño a JSON. Dependiendo de los datos, una carga BSON puede ser menor o mayor que una carga JSON. Para serializar datos binarios, como un archivo de imagen, BSON es menor que JSON, porque los datos binarios no están codificado en base64.
 - Documentos BSON son fáciles de buscar porque elementos van precedidos de un campo de longitud, por lo que un analizador puede omitir los elementos sin descodificación de ellos.
 - Codificación y descodificación son eficaces, porque los tipos de datos numéricos se almacenan como números, no las cadenas.
 
