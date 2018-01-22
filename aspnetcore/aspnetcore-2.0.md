@@ -2,20 +2,18 @@
 title: Novedades de ASP.NET Core 2.0
 author: rick-anderson
 description: Novedades de ASP.NET Core 2.0
-keywords: "ASP.NET Core, notas de la versión, novedades"
 ms.author: riande
 manager: wpickett
 ms.date: 07/10/2017
 ms.topic: article
-ms.assetid: 08c9f457-9c24-40f9-a08b-47dc251e4cec
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: f01f047f809e4eaa055a4204611b152c5db87f74
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 992afc2766e817ef007e20ade44e3ddd1d404f90
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
 

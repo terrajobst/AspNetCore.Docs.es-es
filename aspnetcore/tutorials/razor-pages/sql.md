@@ -2,7 +2,6 @@
 title: Trabajar con SQL Server LocalDB y ASP.NET Core
 author: rick-anderson
 description: "Explica cómo trabajar con SQL Server LocalDB y ASP.NET Core."
-keywords: "ASP.NET Core,páginas de Razor,Razor,MVC,SQL,LocalDB"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: 1e6ea093317527eecd5909449ac1973ca13cfc32
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 90aa194eda1c52afb1f299a0b95c7040e32a02fc
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-sql-server-localdb-and-aspnet-core"></a>Trabajar con SQL Server LocalDB y ASP.NET Core
 
@@ -22,7 +21,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twi
 
 El objeto `MovieContext` controla la tarea de conexión a la base de datos y de asignación de objetos `Movie` a los registros de la base de datos. El contexto de base de datos se registra con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) en el método `ConfigureServices` del archivo *Startup.cs*:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=6-7)]
+[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
 
 El sistema [Configuración](xref:fundamentals/configuration/index) de ASP.NET Core lee el elemento `ConnectionString`. Para el desarrollo local, obtiene la cadena de conexión del archivo *appsettings.json*:
 
@@ -53,7 +52,7 @@ Observe el icono de llave junto a `ID`. De forma predeterminada, EF crea una pro
 
 ## <a name="seed-the-database"></a>Inicialización de la base de datos
 
-Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el código generado por el siguiente:
+Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el código generado con el siguiente:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
 
@@ -66,7 +65,7 @@ if (context.Movie.Any())
 }
 ```
 <a name="si"></a>
-### <a name="add-the-seed-initializer"></a>Adición del inicializador
+### <a name="add-the-seed-initializer"></a>Agregar el inicializador
 
 Agregue el inicializador al final del método `Main` del archivo *Program.cs*:
 

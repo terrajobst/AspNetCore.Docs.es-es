@@ -2,7 +2,6 @@
 title: "Introducción a las páginas de Razor en ASP.NET Core en Mac"
 author: rick-anderson
 description: "Introducción a las páginas de Razor en ASP.NET Core con Visual Studio para Mac"
-keywords: "ASP.NET Core,páginas Razor,scaffolding,Entity Framework Core,EF,EF Core,base de datos,mac,macOS,Visual Studio para Mac"
 ms.author: riande
 manager: wpickett
 ms.date: 07/27/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 9431e8160011d1485925db5cc4f9f83bf7381e97
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca9fca507096f3f09f19fe0a7f1dc023003649d7
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-for-mac"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio para Mac
 
@@ -41,7 +40,7 @@ dotnet run
 
 Los comandos anteriores usan el [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/dotnet) para crear y ejecutar un proyecto de páginas de Razor. Abra http://localhost:5000 en un explorador para ver la aplicación.
 
-![Página principal o de índice](../razor-pages/razor-pages-start/_static/home.png)
+![Página Inicio o Índice](../razor-pages/razor-pages-start/_static/home.png)
 
 [!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
 

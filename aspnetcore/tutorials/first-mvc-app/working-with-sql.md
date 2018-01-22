@@ -2,20 +2,18 @@
 title: Trabajar con SQL Server LocalDB
 author: rick-anderson
 description: "Empleo de SQL Server LocalDB con una aplicación MVC sencilla"
-keywords: ASP.NET Core,SQL Server LocalDB,SQL Server,LocalDB
 ms.author: riande
 manager: wpickett
 ms.date: 03/07/2017
 ms.topic: get-started-article
-ms.assetid: ff8fd9b8-7c98-424d-8641-7524e23bf541
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 67894d05bfd44b0406d10cbbe30ddfdaf0d66636
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: 14b0f04ce904b34a03b3c5160e189e2e6d045734
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="working-with-sql-server-localdb"></a>Trabajar con SQL Server LocalDB
 
@@ -55,7 +53,7 @@ Observe el icono de llave junto a `ID`. De forma predeterminada, EF convierte un
 
 ## <a name="seed-the-database"></a>Inicialización de la base de datos
 
-Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el código generado por el siguiente:
+Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el código generado con el siguiente:
 
 [!code-csharp[Main](start-mvc/sample/MvcMovie/Models/SeedData.cs?name=snippet_1)]
 
@@ -99,7 +97,7 @@ Prueba de la aplicación
    * Si está ejecutando VS en modo de no depuración, presione F5 para ejecutar en modo de depuración
    * Si está ejecutando VS en modo de depuración, detenga el depurador y presione F5
    
-La aplicación muestra los datos de inicialización.
+La aplicación muestra los datos inicializados.
 
 ![La aplicación Movie de MVC se abre en Microsoft Edge y muestra datos de la película](working-with-sql/_static/m55.png)
 

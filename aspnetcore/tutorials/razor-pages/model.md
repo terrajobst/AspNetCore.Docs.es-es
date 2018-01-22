@@ -2,7 +2,6 @@
 title: "Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core"
 author: rick-anderson
 description: "Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core"
-keywords: "ASP.NET Core, páginas de Razor, Razor, MVC"
 ms.author: riande
 manager: wpickett
 ms.date: 07/27/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 38f27a1d5ca80cec4b7bc43c3d5473fc829f1b05
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 84e5ec27904b564fa6ee29843ceae0bb70754ea7
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="adding-a-model-to-a-razor-pages-app"></a>Adición de un modelo a una aplicación de páginas de Razor
 
@@ -40,7 +39,7 @@ Agregue una cadena de conexión al archivo *appsettings.json*.
 
 Registre el contexto de base de datos con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) en el archivo *Startup.cs*.
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-6)]
+[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-5,7-9)]
 
 Compile el proyecto para comprobar que no contiene errores.
 
@@ -60,7 +59,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet** > *
 En PCM, escriba los siguientes comandos:
 
 ```powershell
-Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design -Version 2.0.0
+Install-Package Microsoft.VisualStudio.Web.CodeGeneration.Design
 Add-Migration Initial
 Update-Database
 ```
@@ -76,7 +75,7 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/\
 [!INCLUDE[model 4](../../includes/RP/model4tbl.md)]
 
 <a name="test"></a>
-### <a name="test-the-app"></a>Probar la aplicación
+### <a name="test-the-app"></a>Prueba de la aplicación
 
 * Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador (`http://localhost:port/movies`).
 * Pruebe el vínculo **Crear**.

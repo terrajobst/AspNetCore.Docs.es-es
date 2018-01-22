@@ -2,20 +2,18 @@
 title: Desarrollar aplicaciones de ASP.NET Core con dotnet watch
 author: rick-anderson
 description: "Este tutorial muestra cómo instalar y usar la herramienta de monitor de archivos (dotnet watch) de la CLI de .NET Core en una aplicación de ASP.NET Core."
-keywords: ASP.NET Core, usar dotnet watch
 ms.author: riande
 manager: wpickett
 ms.date: 10/05/2017
 ms.topic: article
-ms.assetid: 563ffb3f-d369-4aa5-bf0a-7300b4e7832c
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/dotnet-watch
-ms.openlocfilehash: 1b26beaa41f4b38e0cfd2c8300cb521a3dcce47d
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: cadd4a6a78c29e2213c39a02729b5c32a2b93ebd
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="developing-aspnet-core-apps-using-dotnet-watch"></a>Desarrollar aplicaciones de ASP.NET Core con dotnet watch
 

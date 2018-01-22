@@ -2,7 +2,6 @@
 title: "Actualización de las páginas generadas"
 author: rick-anderson
 description: "Actualización de las páginas generadas con una mejor visualización."
-keywords: "ASP.NET Core,páginas de Razor"
 ms.author: riande
 manager: wpickett
 ms.date: 08/07/2017
@@ -10,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: e0b09860e7dc871e0a554ddeac9e8d2c31702fb0
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: 201e8d9c77d8e022bc56ffcf46456fada6fcfe25
+ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="updating-the-generated-pages"></a>Actualización de las páginas generadas
 
@@ -50,7 +49,7 @@ Los vínculos **Edit**, **Details** y **Delete** son generados por la [aplicaci�
 
 [!code-cshtml[Main](razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Index.cshtml?highlight=16-18&range=32-)]
 
-Las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) permiten al código de servidor participar en la creación y representación de elementos HTML en archivos de Razor. En el código anterior, `AnchorTagHelper` genera de forma dinámica el valor del atributo `href` HTML desde la página de Razor (la ruta es relativa), el elemento `asp-page` y el identificador de ruta (`asp-route-id`). Vea [Generación de direcciones URL para las páginas](xref:mvc/razor-pages/index#url-generation-for-pages) para obtener más información.
+Las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) permiten que el código de servidor participe en la creación y la representación de elementos HTML en archivos de Razor. En el código anterior, `AnchorTagHelper` genera de forma dinámica el valor del atributo `href` HTML desde la página de Razor (la ruta es relativa), el elemento `asp-page` y el identificador de ruta (`asp-route-id`). Vea [Generación de direcciones URL para las páginas](xref:mvc/razor-pages/index#url-generation-for-pages) para obtener más información.
 
 Use **Ver código fuente** en su explorador preferido para examinar el marcado generado. A continuación se muestra una parte del HTML generado:
 
@@ -95,7 +94,7 @@ Para probar el bloque `catch`:
 * En otra ventana del explorador, seleccione el vínculo de **eliminación** de la misma película y luego elimínela.
 * En la ventana anterior del explorador, publique los cambios en la película.
 
-El código de producción por lo general debería detectar conflictos de simultaneidad cuando dos o más clientes actualizan un registro de forma simultánea. Vea [Administración de conflictos de simultaneidad](xref:data/ef-mvc/concurrency) para más información.
+El código de producción por lo general debería detectar conflictos de simultaneidad cuando dos o más clientes actualizan un registro de forma simultánea. Vea [Administración de conflictos de simultaneidad](xref:data/ef-rp/concurrency) para más información.
 
 ### <a name="posting-and-binding-review"></a>Revisión de publicaciones y enlaces
 
