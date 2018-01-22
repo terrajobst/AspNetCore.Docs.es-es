@@ -1,19 +1,7 @@
 ---
-title: "Introducción a las páginas de Razor en ASP.NET Core"
-author: Rick-Anderson
-description: "Este documento proporciona información general acerca del uso de las páginas de Razor en ASP.NET Core para facilitar el desarrollo de escenarios centrados en páginas."
-ms.author: riande
-manager: wpickett
-ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/razor-pages/index
-ms.openlocfilehash: 2c9f4291d458032e6aea961707e74e1e1da90b0a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+title: Introducción a las páginas de Razor en ASP.NET Core author: Rick-Anderson description: Tutorial de ASP.NET Core sobre páginas Razor. Incluye MVC Core, ASP.NET Core 2.x, introducción al desarrollo web y Visual Studio 2017.
+En este documento proporciona información general acerca del uso de las páginas Razor en ASP.NET Core para facilitar el desarrollo de escenarios centrados en páginas.
+ms.author: riande manager: wpickett ms.date: 09/12/2017 ms.topic: get-started-article ms.technology: aspnet ms.prod: asp.net-core uid: mvc/razor-pages/index
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
