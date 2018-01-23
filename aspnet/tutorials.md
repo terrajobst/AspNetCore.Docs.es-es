@@ -21,7 +21,7 @@ ms.lasthandoff: 11/10/2017
 Están disponibles las siguientes guías paso a paso para desarrollar aplicaciones de ASP.NET.
 
 > [!NOTE]
-> ¿Buscar tutoriales de ASP.NET Core?  Encontrarlos [aquí](https://docs.microsoft.com/en-us/aspnet/core/tutorials/).
+> ¿Buscar tutoriales de ASP.NET Core?  Encontrarlos [aquí](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>formularios Web Forms
 
