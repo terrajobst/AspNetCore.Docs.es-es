@@ -4,16 +4,16 @@ author: rick-anderson
 description: "Obtenga información sobre el software intermedio ASP.NET Core y la canalización de solicitudes."
 ms.author: riande
 manager: wpickett
-ms.date: 10/14/2017
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: af16046c97964e8e1c16a4f5989fcfa794741c4d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Conceptos básicos de Middleware de núcleo de ASP.NET
 
@@ -23,7 +23,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ard
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="what-is-middleware"></a>¿Qué es middleware
+## <a name="what-is-middleware"></a>¿Qué es middleware?
 
 Software intermedio es un software que se monta en una canalización de la aplicación para controlar las solicitudes y respuestas. Cada componente:
 
@@ -191,18 +191,22 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Middleware integrado
 
-ASP.NET Core incluye los siguientes componentes de software intermedio:
+ASP.NET Core incluye los siguientes componentes de software intermedio, así como una descripción del orden en el que se debe agregar:
 
-| Software intermedio | Descripción |
-| ----- | ------- |
-| [Autenticación](xref:security/authentication/identity) | Proporciona compatibilidad con la autenticación. |
-| [CORS](xref:security/cors) | Define el uso compartido de recursos entre orígenes. |
-| [Almacenamiento en caché de respuestas](xref:performance/caching/middleware) | Proporciona compatibilidad para almacenar en caché las respuestas. |
-| [Compresión de respuesta](xref:performance/response-compression) | Proporciona compatibilidad para la compresión de las respuestas. |
-| [Enrutamiento](xref:fundamentals/routing) | Define y restringe las rutas de la solicitud. |
-| [Sesión](xref:fundamentals/app-state) | Proporciona compatibilidad para administrar sesiones de usuario. |
-| [Archivos estáticos](xref:fundamentals/static-files) | Proporciona compatibilidad para servir archivos estáticos y examen de directorios. |
-| [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) | Proporciona compatibilidad para volver a escribir las direcciones URL y redirigir las solicitudes. |
+| Software intermedio | Descripción | Orden |
+| ---------- | ----------- | ----- |
+| [Autenticación](xref:security/authentication/identity) | Proporciona compatibilidad con la autenticación. | Antes de `HttpContext.User` es necesaria. Terminal para las devoluciones de llamada de OAuth. |
+| [CORS](xref:security/cors) | Define el uso compartido de recursos entre orígenes. | Antes de componentes que usan CORS. |
+| [Diagnóstico](xref:fundamentals/error-handling) | Configura los diagnósticos. | Antes de componentes que generan errores. |
+| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Reenvía encabezados procesadas por el proxy en la solicitud actual. | Antes de los componentes que utilizan los campos actualizados (ejemplos: esquema, Host, IP de cliente, método). |
+| [Almacenamiento en caché de respuestas](xref:performance/caching/middleware) | Proporciona compatibilidad para almacenar en caché las respuestas. | Antes de componentes que requieren almacenamiento en caché. |
+| [Compresión de respuesta](xref:performance/response-compression) | Proporciona compatibilidad para la compresión de las respuestas. | Antes de componentes que requieren la compresión. |
+| [RequestLocalization](xref:fundamentals/localization) | Proporciona compatibilidad de localización. | Antes de los componentes de localización confidenciales. |
+| [Enrutamiento](xref:fundamentals/routing) | Define y restringe las rutas de la solicitud. | Terminal de rutas coincidentes. |
+| [Sesión](xref:fundamentals/app-state) | Proporciona compatibilidad para administrar sesiones de usuario. | Antes de componentes que requieren la sesión. |
+| [Archivos estáticos](xref:fundamentals/static-files) | Proporciona compatibilidad para servir archivos estáticos y examen de directorios. | Terminal de si una solicitud coincide con los archivos. |
+| [Reescritura de direcciones URL](xref:fundamentals/url-rewriting) | Proporciona compatibilidad para volver a escribir las direcciones URL y redirigir las solicitudes. | Antes de los componentes que utilizan la dirección URL. |
+| [WebSockets](xref:fundamentals/websockets) | Habilita el protocolo WebSockets. | Antes de componentes que se necesitan para aceptar las solicitudes WebSocket. |
 
 <a name="middleware-writing-middleware"></a>
 

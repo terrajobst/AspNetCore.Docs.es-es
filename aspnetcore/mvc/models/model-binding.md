@@ -1,19 +1,20 @@
 ---
 title: Enlace de modelos
-author: rick-anderson
-description: 
-ms.author: riande
+author: rachelappel
+description: "Información sobre el enlace de modelo en MVC de ASP.NET Core"
+ms.author: rachelap
 manager: wpickett
-ms.date: 10/14/2016
+ms.date: 01/22/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
+ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 84b9c5dc3a87b739affaeaecaa180d1b01f49b8e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="model-binding"></a>Enlace de modelos
 
@@ -41,7 +42,7 @@ MVC intentará enlazar los datos de la solicitud a los parámetros de acción po
 
 1. `Form values`: Estos son los valores de formulario que van en la solicitud HTTP que utilizan el método POST. (incluidas las solicitudes POST de jQuery).
 
-2. `Route values`: El conjunto de valores de la ruta proporcionada por [enrutamiento](../../fundamentals/routing.md)
+2. `Route values`: El conjunto de valores de la ruta proporcionada por [enrutamiento](xref:fundamentals/routing)
 
 3. `Query strings`: La parte de la cadena de consulta del URI.
 
@@ -101,7 +102,7 @@ MVC contiene varios atributos que puede usar para dirigir su comportamiento de e
 
 Atributos son herramientas muy útiles cuando es necesario invalidar el comportamiento predeterminado del enlace del modelo.
 
-## <a name="binding-formatted-data-from-the-request-body"></a>Enlace de datos con formato del cuerpo de la solicitud
+## <a name="bind-formatted-data-from-the-request-body"></a>Enlazar datos con formato desde el cuerpo de solicitud
 
 Datos de la solicitud pueden proceder de una variedad de formatos como JSON, XML y muchos otros. Cuando se utiliza el atributo [FromBody] para indicar que desea enlazar un parámetro a los datos en el cuerpo de solicitud, MVC usa un conjunto de formateadores configurado para controlar los datos de solicitud en función de su tipo de contenido. De forma predeterminada, MVC incluye un `JsonInputFormatter` la clase para controlar datos JSON, pero puede agregar formateadores adicionales para el tratamiento de XML y otros formatos personalizados.
 

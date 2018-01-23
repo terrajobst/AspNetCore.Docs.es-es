@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: 769696931498605bd3cf3459279939afb86a4ee8
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 99f8d1cc73fdcbd99cffe595ae89f3c61a6f9a53
+ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Dirección URL de reescritura de Middleware en ASP.NET Core
 
@@ -38,7 +38,9 @@ Puede definir reglas para cambiar la dirección URL de varias maneras, incluido 
 ## <a name="url-redirect-and-url-rewrite"></a>Vuelva a escribir el redireccionamiento de dirección URL y la dirección URL
 La diferencia en texto entre *redirección de la dirección URL* y *URL rewrite* puede parecer sutiles en primer pero tiene importantes implicaciones para proporcionar recursos a los clientes. Middleware de volver a escribir de dirección URL de ASP.NET Core es capaz de satisfacer la necesidad de ambos.
 
-A *redirección de la dirección URL* es una operación de cliente, donde se indica el cliente para tener acceso a un recurso en otra dirección. Esto requiere una ida y vuelta al servidor, y la dirección URL de redireccionamiento devuelve al cliente aparece en la barra de direcciones del explorador cuando el cliente realiza una solicitud nueva para el recurso. Si `/resource` es *redirigido* a `/different-resource`, las solicitudes del cliente `/resource`, y el servidor responde que el cliente debe obtener el recurso en `/different-resource` con un código de estado que indica que la redirección es puede ser temporal o permanente. El cliente ejecuta una nueva solicitud para el recurso en la dirección URL de redireccionamiento.
+A *redirección de la dirección URL* es una operación de cliente, donde se indica el cliente para tener acceso a un recurso en otra dirección. Esto requiere una ida y vuelta al servidor. La dirección URL de redireccionamiento devuelve al cliente aparece en la barra de direcciones del explorador cuando el cliente realiza una solicitud nueva para el recurso. 
+
+Si `/resource` es *redirigido* a `/different-resource`, las solicitudes del cliente `/resource`. El servidor responde que el cliente debe obtener el recurso en `/different-resource` con un código de estado que indica que la redirección es temporal o permanente. El cliente ejecuta una nueva solicitud para el recurso en la dirección URL de redireccionamiento.
 
 ![Un punto de conexión de servicio de WebAPI se ha cambiado temporalmente de la versión 1 (v1) a la versión 2 (v2) en el servidor. Un cliente realiza una solicitud al servicio en la /v1/api de ruta de acceso de versión 1. El servidor devuelve una respuesta 302 de (encontrado) con la ruta de acceso nuevo, temporal para el servicio en /v2/api versión 2. El cliente realiza una segunda solicitud al servicio en la dirección URL de redireccionamiento. El servidor responde con un código de estado 200 (OK).](url-rewriting/_static/url_redirect.png)
 
@@ -369,7 +371,7 @@ Solicitud original:`/image.jpg`
 | Ruta de acceso de reescritura en la cadena de consulta | `^path/(.*)/(.*)`<br>`/path/abc/123` | `path?var1=$1&var2=$2`<br>`/path?var1=abc&var2=123` |
 | Quitar la barra diagonal final | `(.*)/$`<br>`/path/` | `$1`<br>`/path` |
 | Exigir la barra diagonal final | `(.*[^/])$`<br>`/path` | `$1/`<br>`/path/` |
-| Evitar tener que escribir solicitudes específicas | `(.*[^(\.axd)])$`<br>Sí:`/resource.htm`<br>No:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
+| Evitar tener que escribir solicitudes específicas | `^(.*)(?<!\.axd)$` o `^(?!.*\.axd$)(.*)$`<br>Sí:`/resource.htm`<br>No:`/resource.axd` | `rewritten/$1`<br>`/rewritten/resource.htm`<br>`/resource.axd` |
 | Reorganizar los segmentos de dirección URL | `path/(.*)/(.*)/(.*)`<br>`path/1/2/3` | `path/$3/$2/$1`<br>`path/3/2/1` |
 | Reemplazar un segmento de dirección URL | `^(.*)/segment2/(.*)`<br>`/segment1/segment2/segment3` | `$1/replaced/$2`<br>`/segment1/replaced/segment3` |
 
