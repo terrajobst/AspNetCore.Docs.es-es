@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/index
-ms.openlocfilehash: 7bbd203a67b32032ba2ab82448a5fc9a495b52aa
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 151385964d877fc9eadaa219320e5f5a195164e4
+ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/22/2018
 ---
 # <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>Protección de datos en ASP.NET Core: API de consumidor, configuración, API de extensibilidad e implementación
 
@@ -75,6 +75,6 @@ ms.lasthandoff: 01/19/2018
 
 * [Compatibilidad](compatibility/index.md)
 
-  * [Uso compartido de cookies entre aplicaciones](compatibility/cookie-sharing.md)
+  * [Uso compartido de cookies entre aplicaciones](xref:security/data-protection/compatibility/cookie-sharing)
 
-  * [Reemplazar <machineKey> en ASP.NET](compatibility/replacing-machinekey.md)
+  * [Reemplazar <machineKey> en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
