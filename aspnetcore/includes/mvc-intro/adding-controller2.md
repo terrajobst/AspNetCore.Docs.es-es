@@ -16,7 +16,7 @@ MVC invoca las clases del controlador (y los métodos de acción que contienen) 
 
 `/[Controller]/[ActionName]/[Parameters]`
 
-El formato para el enrutamiento se establece en el archivo *Startup.cs*.
+El formato para el enrutamiento se establece en el método `Configure` en *Startup.cs*.
 
 [!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
