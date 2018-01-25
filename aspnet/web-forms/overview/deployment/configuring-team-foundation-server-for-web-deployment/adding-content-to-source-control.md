@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/adding-content-to-source-control
 msc.type: authoredcontent
-ms.openlocfilehash: a6a90a03674cfe7565da0ed56148186ee9525707
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d46e2697d10ca27f8e08533350a6e7f2354b4a43
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-content-to-source-control"></a>Agregar contenido a Control de código fuente
 ====================
@@ -90,7 +90,7 @@ Para agregar proyectos y soluciones al control de código fuente, primero debe m
 1. En la estación de trabajo de desarrollador, mueva los proyectos y soluciones a una ubicación adecuada en la estructura de carpetas asignadas para el proyecto de equipo.
 
     > [!NOTE]
-    > Muchas organizaciones tienen un método preferido para cómo deben organizarse proyectos y soluciones en el control de código fuente. Para obtener instrucciones sobre cómo estructurar carpetas, consulte [How To: estructura de carpetas de Control de su origen en Team Foundation Server](https://msdn.microsoft.com/en-us/library/bb668992.aspx).
+    > Muchas organizaciones tienen un método preferido para cómo deben organizarse proyectos y soluciones en el control de código fuente. Para obtener instrucciones sobre cómo estructurar carpetas, consulte [How To: estructura de carpetas de Control de su origen en Team Foundation Server](https://msdn.microsoft.com/library/bb668992.aspx).
 2. Abra la solución en Visual Studio 2010.
 3. En el **el Explorador de soluciones** ventana, haga clic en la solución y, a continuación, haga clic en **Agregar solución al Control de código fuente**.
 
@@ -149,13 +149,13 @@ En este momento, ha agregado las dependencias externas para la solución al cont
 
 ## <a name="conclusion"></a>Conclusión
 
-En este tema se describe cómo conectarse a un proyecto de equipo, asigne una estructura de carpetas y agregar contenido al control de código fuente. Para obtener más información sobre cómo trabajar con elementos en el control de código fuente, consulte [Control de versiones utilizando](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+En este tema se describe cómo conectarse a un proyecto de equipo, asigne una estructura de carpetas y agregar contenido al control de código fuente. Para obtener más información sobre cómo trabajar con elementos en el control de código fuente, consulte [Control de versiones utilizando](https://msdn.microsoft.com/library/ms181368.aspx).
 
 El siguiente tema, [configurar un servidor de compilación de TFS para la implementación Web](configuring-a-tfs-build-server-for-web-deployment.md), se describe cómo preparar un servidor TFS Team Build para compilar e implementar la solución.
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener información más completa sobre cómo trabajar con control de código fuente en TFS, consulte [Control de versiones utilizando](https://msdn.microsoft.com/en-us/library/ms181368.aspx).
+Para obtener información más completa sobre cómo trabajar con control de código fuente en TFS, consulte [Control de versiones utilizando](https://msdn.microsoft.com/library/ms181368.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](creating-a-team-project-in-tfs.md)

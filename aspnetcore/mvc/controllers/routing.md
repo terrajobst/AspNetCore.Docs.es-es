@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/routing
-ms.openlocfilehash: 7559fa270a012082d04161c1cccd1dc8151d0c1c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 497ce47fa567f163cb7b1eb891408f0100d15b8a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-to-controller-actions"></a>El enrutamiento a las acciones de controlador
 
@@ -63,7 +63,7 @@ La plantilla de ruta:
 
 * `{id?}`define `id` como opcionales
 
-De forma predeterminada y los parámetros de ruta opcional no necesita estar presente en la ruta de acceso de dirección URL para una coincidencia. Vea [referencia de plantilla de ruta](../../fundamentals/routing.md#route-template-reference) para obtener una descripción detallada de la sintaxis de la plantilla de ruta.
+De forma predeterminada y los parámetros de ruta opcional no es necesario encontrarse en la ruta de acceso de dirección URL para una coincidencia. Vea [referencia de plantilla de ruta](../../fundamentals/routing.md#route-template-reference) para obtener una descripción detallada de la sintaxis de la plantilla de ruta.
 
 `"{controller=Home}/{action=Index}/{id?}"`puede coincidir con la ruta de acceso de dirección URL `/` y generará los valores de ruta `{ controller = Home, action = Index }`. Los valores de `controller` y `action` hacer uso de los valores predeterminados, `id` no genera un valor porque no hay ningún segmento correspondiente en la ruta de acceso de dirección URL. MVC utilizaría estos valores de ruta para seleccionar la `HomeController` y `Index` acción:
 
@@ -114,7 +114,7 @@ routes.DefaultHandler = new MvcRouteHandler(...);
 app.UseRouter(routes.Build());
 ```
 
-`UseMvc`no se define directamente ninguna ruta, agrega un marcador de posición a la colección de rutas para la `attribute` ruta. La sobrecarga `UseMvc(Action<IRouteBuilder>)` le permite agregar sus propias rutas y también admite el enrutamiento del atributo.  `UseMvc`y todas sus variaciones agrega un marcador de posición para la ruta de atributo - siempre está disponible, independientemente de cómo configurar el enrutamiento de atributo `UseMvc`. `UseMvcWithDefaultRoute`define una ruta predeterminada y admite el enrutamiento del atributo. El [atributo enrutamiento](#attribute-routing-ref-label) sección incluye más detalles acerca del enrutamiento de atributo.
+`UseMvc`directamente no se define ninguna ruta, agrega un marcador de posición a la colección de rutas para la `attribute` ruta. La sobrecarga `UseMvc(Action<IRouteBuilder>)` le permite agregar sus propias rutas y también admite el enrutamiento del atributo.  `UseMvc`y todas sus variaciones agrega un marcador de posición para la ruta de atributo - siempre está disponible, independientemente de cómo configurar el enrutamiento de atributo `UseMvc`. `UseMvcWithDefaultRoute`define una ruta predeterminada y admite el enrutamiento del atributo. El [atributo enrutamiento](#attribute-routing-ref-label) sección incluye más detalles acerca del enrutamiento de atributo.
 
 <a name="routing-conventional-ref-label"></a>
 
@@ -140,7 +140,7 @@ Mediante este `default` ruta, la ruta de acceso de dirección URL `/Products/Lis
 > Usar el enrutamiento convencional con la ruta predeterminada, podrá generar rápidamente la aplicación sin necesidad de tener acceso a un nuevo patrón de dirección URL para cada acción que se define. Para una aplicación con acciones de estilo CRUD, contenedoras de coherencia para las direcciones URL a través de los controladores pueden ayudar a simplificar el código y hacer que la interfaz de usuario más predecibles.
 
 > [!WARNING]
-> El `id` se define como opcionales mediante la plantilla de ruta, lo que significa que las acciones se pueden ejecutar sin el identificador proporcionado como parte de la dirección URL. Normalmente lo que ocurrirá si `id` se omite de la dirección URL es la que se establecerá como `0` por el enlace de modelos y, como resultado ninguna entidad se encuentra en la base de datos de la búsqueda de coincidencias `id == 0`. Ruta de atributo puede proporcionar un control específico para realizar el Id. de necesarios para algunas acciones y otros no. Por convención incluirá la documentación de los parámetros opcionales, como `id` cuando es probables que aparezcan en el uso correcto.
+> El `id` se define como opcionales mediante la plantilla de ruta, lo que significa que las acciones se pueden ejecutar sin el identificador proporcionado como parte de la dirección URL. Normalmente lo que ocurrirá si `id` se omite de la dirección URL es la que se establecerá como `0` por el enlace de modelos y, como resultado ninguna entidad se encuentra en la base de datos de la búsqueda de coincidencias `id == 0`. Ruta de atributo puede proporcionar un control específico para realizar el Id. de necesarios para algunas acciones y otros no. Por convención incluirá la documentación de los parámetros opcionales, como `id` cuando sean más probables que aparezcan en el uso correcto.
 
 ## <a name="multiple-routes"></a>Varias rutas
 
@@ -157,7 +157,7 @@ app.UseMvc(routes =>
 
 El `blog` ruta aquí es un *ruta convencional dedicado*, lo que significa que utiliza el sistema de enrutamiento convencional, pero está dedicado a una acción específica. Puesto que `controller` y `action` no aparecen en la plantilla de ruta como parámetros, solo pueden tener los valores predeterminados y, por tanto, esta ruta siempre se asignará a la acción `BlogController.Article`.
 
-Rutas de la colección de rutas se ordenan y se procesarán en el orden en que se agregaron. Por lo que en este ejemplo, el `blog` ruta se intentará antes de la `default` ruta.
+Rutas de la colección de rutas se ordenan y se procesarán en el orden en que se va a agregar. Por lo que en este ejemplo, el `blog` ruta se intentará antes de la `default` ruta.
 
 > [!NOTE]
 > *Dedicado rutas convencionales* suelen usar parámetros de ruta de catch-all como `{*article}` para capturar la parte restante de la ruta de acceso de dirección URL. Esto puede ser una ruta de 'demasiado expansivo' lo que significa que coincide con las direcciones URL que se pretende ser elegidas por las otras rutas. Coloque las rutas "expansivas" más adelante en la tabla de rutas para resolver este problema.
@@ -184,7 +184,7 @@ Este controlador define dos acciones que coincidiría con la ruta de acceso de d
 
 El `HttpPostAttribute` ( `[HttpPost]` ) es una implementación de `IActionConstraint` que solo permitirá la acción que se seleccione cuando el verbo HTTP es `POST`. La presencia de un `IActionConstraint` realiza el `Edit(int, Product)` coincide con 'mejor' que `Edit(int)`, por lo que `Edit(int, Product)` se intentará en primer lugar.
 
-Sólo necesitará escribir personalizado `IActionConstraint` implementaciones en escenarios especializados, pero la importante para comprender el rol de atributos como `HttpPostAttribute` -se definen atributos similares para otros verbos HTTP. En el enrutamiento convencional es común para las acciones que se usará el mismo nombre de acción al que forman parte de un `show form -> submit form` flujo de trabajo. La comodidad de este patrón serán más evidente después de revisar la [IActionConstraint descripción](#understanding-iactionconstraint) sección.
+Sólo necesitará escribir personalizado `IActionConstraint` implementaciones en escenarios especializados, pero la importante para comprender el rol de atributos como `HttpPostAttribute` -se definen atributos similares para otros verbos HTTP. En el enrutamiento convencional es común para las acciones que se usará el mismo nombre de acción al que son parte de una `show form -> submit form` flujo de trabajo. La comodidad de este patrón serán más evidente después de revisar la [IActionConstraint descripción](#understanding-iactionconstraint) sección.
 
 Si coincide con varias rutas y MVC no encontró ninguna ruta 'recomendada', se producirá un `AmbiguousActionException`.
 
@@ -206,7 +206,7 @@ app.UseMvc(routes =>
 
 Los nombres de ruta proporcionan un nombre lógico de la ruta para que la ruta con nombre puede utilizarse para la generación de dirección URL. Esto simplifica en gran medida la creación de dirección URL cuando el orden de las rutas podría realizar la generación de direcciones URL complicada. Los nombres de ruta deben ser único en toda la aplicación.
 
-Los nombres de ruta no tienen ningún impacto en la dirección URL que coinciden o control de solicitudes; se usan únicamente para la generación de direcciones URL. [Enrutamiento](xref:fundamentals/routing) contiene información sobre la generación de dirección URL incluyendo generación de direcciones URL en aplicaciones auxiliares de MVC específicos más detallada.
+Los nombres de ruta no tienen ningún impacto en la dirección URL que coinciden o control de solicitudes; se utilizan únicamente para la generación de direcciones URL. [Enrutamiento](xref:fundamentals/routing) contiene información sobre la generación de dirección URL incluyendo generación de direcciones URL en aplicaciones auxiliares de MVC específicos más detallada.
 
 <a name="attribute-routing-ref-label"></a>
 
@@ -340,7 +340,7 @@ public class ProductsApiController : Controller
 }
 ```
 
-En este ejemplo, la ruta de acceso de dirección URL `/products` puede coincidir con `ProductsApi.ListProducts`y la ruta de acceso de dirección URL `/products/5` puede coincidir con `ProductsApi.GetProduct(int)`. Ambas acciones coincide solo con HTTP `GET` porque se decoran con el `HttpGetAttribute`.
+En este ejemplo, la ruta de acceso de dirección URL `/products` puede coincidir con `ProductsApi.ListProducts`y la ruta de acceso de dirección URL `/products/5` puede coincidir con `ProductsApi.GetProduct(int)`. Ambas acciones coincide solo con HTTP `GET` porque está decorados con el `HttpGetAttribute`.
 
 Enrutar ninguna plantilla aplicada a una acción que comienzan por un `/` no se combinen con plantillas de ruta que se aplica al controlador. En este ejemplo coinciden con un conjunto de rutas de acceso de dirección URL similar a la *ruta predeterminada*.
 
@@ -350,7 +350,7 @@ public class HomeController : Controller
 {
     [Route("")]      // Combines to define the route template "Home"
     [Route("Index")] // Combines to define the route template "Home/Index"
-    [Route("/")]     // Does not combine, defines the route template ""
+    [Route("/")]     // Doesn't combine, defines the route template ""
     public IActionResult Index()
     {
         ViewData["Message"] = "Home index";
@@ -536,7 +536,7 @@ result: /UrlGeneration/Destination
 
 Cada parámetro de ruta en la plantilla de ruta tiene su valor sustituido por nombres coincidentes con los valores y los valores de ambiente. Un parámetro de ruta que no tiene un valor puede utilizar un valor predeterminado si tiene uno, o se pueden omitir si es opcional (al igual que en el caso de `id` en este ejemplo). Se producirá un error en la generación de direcciones URL si cualquier parámetro de ruta necesaria no tiene un valor correspondiente. Si se produce un error en la generación de direcciones URL para una ruta, se prueba con la ruta siguiente hasta que se hayan probado todas las rutas o se encuentra una coincidencia.
 
-En el ejemplo de `Url.Action` anteriormente se supone que el enrutamiento convencional, pero funciona de la generación de dirección URL del mismo modo con el enrutamiento de atributo, aunque los conceptos son diferentes. Con el enrutamiento convencional, se usan los valores de ruta para expandir una plantilla y los valores de ruta de `controller` y `action` suelen aparecer en esa plantilla - esto funciona porque las direcciones URL que coinciden con el enrutamiento adhieren a un *convención*. En el enrutamiento de atributo, los valores de la ruta de `controller` y `action` no se permite que aparezca en la plantilla - en su lugar, se usan para buscar qué plantilla utilizar.
+En el ejemplo de `Url.Action` anteriormente se supone que el enrutamiento convencional, pero funciona de la generación de dirección URL del mismo modo con el enrutamiento de atributo, aunque los conceptos son diferentes. Con el enrutamiento convencional, se usan los valores de ruta para expandir una plantilla y los valores de ruta de `controller` y `action` suelen aparecer en esa plantilla - esto funciona porque las direcciones URL que coinciden con el enrutamiento adhieren a un *convención*. En el enrutamiento de atributo, los valores de la ruta de `controller` y `action` no se permite que aparezca en la plantilla - indistintamente en su lugar para buscar qué plantilla utilizar.
 
 Este ejemplo utiliza la ruta de atributo:
 
@@ -569,7 +569,7 @@ Más sobrecargas de `Url.Action` tener más *valores de ruta* objeto para propor
 
 ### <a name="generating-urls-by-route"></a>Generación de direcciones URL de ruta
 
-El código anterior muestra generando una dirección URL al pasar el nombre de acción y controlador. `IUrlHelper`También proporciona la `Url.RouteUrl` familia de métodos. Estos métodos son similares a `Url.Action`, pero no que se copian los valores actuales de `action` y `controller` a los valores de ruta. El uso más común es especificar un nombre de ruta que utilice una ruta específica para generar la dirección URL, por lo general *sin* especificando un nombre de acción o controlador.
+El código anterior muestra generando una dirección URL al pasar el nombre de acción y controlador. `IUrlHelper`También proporciona la `Url.RouteUrl` familia de métodos. Estos métodos son similares a `Url.Action`, pero no copian los valores actuales de `action` y `controller` a los valores de ruta. El uso más común es especificar un nombre de ruta que utilice una ruta específica para generar la dirección URL, por lo general *sin* especificando un nombre de acción o controlador.
 
 [!code-csharp[Main](routing/sample/main/Controllers/UrlGenerationControllerRouting.cs?name=snippet_1)]
 
@@ -640,7 +640,7 @@ Cuando coincide con una ruta de acceso de dirección URL como `/Manage/Users/Add
 `MapAreaRoute`crea una ruta con un valor predeterminado y la restricción para `area` utilizando el nombre del área proporcionados, en este caso `Blog`. El valor predeterminado garantiza que siempre produce la ruta `{ area = Blog, ... }`, la restricción requiere que el valor `{ area = Blog, ... }` para la generación de dirección URL.
 
 > [!TIP]
-> El enrutamiento convencional depende del orden. En general, las rutas con áreas deben colocarse anteriormente en la tabla de rutas tal como están más específicos que las rutas sin un área.
+> El enrutamiento convencional depende del orden. En general, las rutas con áreas deben colocarse anteriormente en la tabla de rutas sea más específicos que las rutas sin un área.
 
 En el ejemplo anterior, los valores de ruta coincidiría con la acción siguiente:
 

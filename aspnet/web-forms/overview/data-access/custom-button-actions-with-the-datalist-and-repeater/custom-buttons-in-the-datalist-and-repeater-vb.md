@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 14e245f5fd25079b4ee1dee566ca451f955a8b25
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fc6c297f08790cdcc74867df21e32258017c5a7d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-vb"></a>Botones personalizados DataList y repetidor (VB)
 ====================
@@ -114,17 +114,17 @@ En este ejemplo, establezca la s LinkButton `CommandName` propiedad ShowProducts
 
 Cuando se presiona el botón, se produce un postback y la s DataList o repetidor `ItemCommand` desencadena el evento. El controlador de eventos se pasa el botón s `CommandName` y `CommandArgument` valores.
 
-Crear un controlador de eventos para el repetidor s `ItemCommand` eventos y observe el segundo parámetro pasan en el controlador de eventos (denominado `e`). Este segundo parámetro es de tipo [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) y tiene las cuatro propiedades siguientes:
+Crear un controlador de eventos para el repetidor s `ItemCommand` eventos y observe el segundo parámetro pasan en el controlador de eventos (denominado `e`). Este segundo parámetro es de tipo [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) y tiene las cuatro propiedades siguientes:
 
 - `CommandArgument`el valor del botón ha hecho clic s `CommandArgument` propiedad
 - `CommandName`el valor del botón s `CommandName` propiedad
 - `CommandSource`una referencia al control de botón que se hizo clic
-- `Item`una referencia a la [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem.aspx) que contiene el botón que se hizo clic; cada registro enlazado a repetidor se manifiesta como un`RepeaterItem`
+- `Item`una referencia a la [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) que contiene el botón que se hizo clic; cada registro enlazado a repetidor se manifiesta como un`RepeaterItem`
 
 Desde la categoría seleccionada s `CategoryID` se pasa a través de la `CommandArgument` propiedad, podemos obtener el conjunto de productos asociados con la categoría seleccionada en el `ItemCommand` controlador de eventos. Estos productos, a continuación, se pueden enlazar a un control BulletedList en el `ItemTemplate` (que se ve todavía para agregar). Todo lo que permanece, a continuación, consiste en Agregar BulletedList, hacer referencia a él en el `ItemCommand` controlador de eventos y enlazar el conjunto de productos para la categoría seleccionada, que abordaremos en el paso 4.
 
 > [!NOTE]
-> El control DataList s `ItemCommand` controlador de eventos se pasa un objeto de tipo [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), que ofrece las mismas cuatro propiedades que la `RepeaterCommandEventArgs` clase.
+> El control DataList s `ItemCommand` controlador de eventos se pasa un objeto de tipo [ `DataListCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistcommandeventargs.aspx), que ofrece las mismas cuatro propiedades que la `RepeaterCommandEventArgs` clase.
 
 
 ## <a name="step-4-displaying-the-selected-category-s-products-in-a-bulleted-list"></a>Paso 4: Mostrar los productos de s de la categoría seleccionada en una lista con viñetas
@@ -162,7 +162,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

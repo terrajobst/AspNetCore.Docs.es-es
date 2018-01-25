@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9eb65b99a955770c72b28713d8daa66bcd1d5344
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9dc18e259da24d71464a156a70a85cfc9a1745ce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-inserting-c"></a>Lote Insertar (C#)
 ====================
@@ -96,7 +96,7 @@ Inicio arrastrando un Panel desde el cuadro de herramientas hasta el diseñador,
 A continuación, necesitamos crear la interfaz de inserción que se muestra en la figura 1. Esta interfaz se puede crear a través de una serie de técnicas HTML, pero utilizaremos una bastante sencilla: una tabla de cuatro columnas y filas de siete.
 
 > [!NOTE]
-> Al escribir el marcado HTML `<table>` elementos, prefiera usar la vista del origen. Mientras que Visual Studio dispone de herramientas para agregar `<table>` elementos a través del diseñador, el diseñador parece demasiado aceptable inyectar treta para `style` configuración en el marcado. Una vez que ha creado el `<table>` marcado, volver al diseñador para agregar los controles Web y establecer sus propiedades. Cuando se crean tablas con columnas predeterminadas y filas prefiero mediante HTML estático en lugar de la [control Table Web](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.table.aspx) porque los controles Web situados dentro de un control Web de tabla solo se pueden acceder mediante la `FindControl("controlID")` patrón. Sin embargo,, uso controles Web de tabla para las tablas de tamaño dinámicamente (las cuyas filas o columnas se basan en alguna base de datos o los criterios especificados por el usuario), desde la tabla Web control puede crearse mediante programación.
+> Al escribir el marcado HTML `<table>` elementos, prefiera usar la vista del origen. Mientras que Visual Studio dispone de herramientas para agregar `<table>` elementos a través del diseñador, el diseñador parece demasiado aceptable inyectar treta para `style` configuración en el marcado. Una vez que ha creado el `<table>` marcado, volver al diseñador para agregar los controles Web y establecer sus propiedades. Cuando se crean tablas con columnas predeterminadas y filas prefiero mediante HTML estático en lugar de la [control Table Web](https://msdn.microsoft.com/library/system.web.ui.webcontrols.table.aspx) porque los controles Web situados dentro de un control Web de tabla solo se pueden acceder mediante la `FindControl("controlID")` patrón. Sin embargo,, uso controles Web de tabla para las tablas de tamaño dinámicamente (las cuyas filas o columnas se basan en alguna base de datos o los criterios especificados por el usuario), desde la tabla Web control puede crearse mediante programación.
 
 
 Escriba el siguiente marcado dentro de la `<asp:Panel>` etiquetas de la `InsertingInterface` Panel:
@@ -269,7 +269,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

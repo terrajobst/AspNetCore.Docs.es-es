@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 575fb382cc758efb101485bd5aece461bf995bfc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d52597e65272fa202ef4980924f669dcc4cec593
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>Autenticar a los usuarios con la autenticación de Windows (C#)
 ====================
@@ -51,7 +51,7 @@ Para una aplicación web de producción, en la mano, utiliza IIS como servidor w
 
 > [!NOTE] 
 > 
-> Para obtener una descripción más detallada de estos diferentes tipos de autenticación, vea [https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/en-us/library/aa292114(VS.71).aspx).
+> Para obtener una descripción más detallada de estos diferentes tipos de autenticación, vea [https://msdn.microsoft.com/library/aa292114(VS.71).aspx](https://msdn.microsoft.com/library/aa292114(VS.71).aspx).
 
 
 Puede usar el Administrador de Internet Information Services para habilitar a un determinado tipo de autenticación. Tenga en cuenta que todos los tipos de autenticación no están disponibles en el caso de todos los sistemas operativos. Además, si usa IIS 7.0 con Windows Vista, debe habilitar a los diferentes tipos de autenticación de Windows para que aparezcan en el Administrador de Internet Information Services. Abra **el Panel de Control, programas, programas y características, activar o desactivar las características de Windows Active**y expanda el nodo Servicios de Internet Information Server (consulte la figura 2).

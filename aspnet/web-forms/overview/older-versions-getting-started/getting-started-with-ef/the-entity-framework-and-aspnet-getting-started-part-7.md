@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 7697763b97e36304d686c77e8cedd060d630c530
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeea122636f5235364e6a40cb6e041b1fe221317
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-7"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 7
 ====================
@@ -85,7 +85,7 @@ En el Diseñador de modelos de datos, haga clic en el `Student` entidad y selecc
 
 El **detalles de la asignación** aparece la ventana, en el que puede especificar los procedimientos almacenados que Entity Framework deben usar para insertar, actualizar y eliminar entidades de este tipo.
 
-[![Image22](the-entity-framework-and-aspnet-getting-started-part-7/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image9.png)
+[![image22](the-entity-framework-and-aspnet-getting-started-part-7/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image9.png)
 
 Establecer el **insertar** función **InsertStudent**. La ventana muestra una lista de parámetros de procedimiento almacenado, cada uno de los cuales debe asignarse a una propiedad de entidad. Dos de estas se asignan automáticamente porque los nombres son los mismos. No hay ninguna propiedad de entidad denominada `FirstName`, por lo que debe seleccionar manualmente `FirstMidName` desde una lista desplegable que muestra las propiedades de entidad disponible. (Esto es porque ha cambiado el nombre de la `FirstName` propiedad `FirstMidName` en el primer tutorial.)
 
@@ -93,7 +93,7 @@ Establecer el **insertar** función **InsertStudent**. La ventana muestra una li
 
 En la misma **detalles de la asignación** ventana, asigne el `Update` función a la `UpdateStudent` procedimiento almacenado (asegúrese de especificar `FirstMidName` como el valor del parámetro `FirstName`, tal y como lo hizo el `Insert` procedimiento almacenado) y la `Delete` función a la `DeletePerson` procedimiento almacenado.
 
-[![Image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
+[![image01](the-entity-framework-and-aspnet-getting-started-part-7/_static/image14.png)](the-entity-framework-and-aspnet-getting-started-part-7/_static/image13.png)
 
 Siga el mismo procedimiento para asignar el insert, update y delete de procedimientos almacenados para instructores para el `Instructor` entidad.
 
@@ -135,7 +135,7 @@ Reemplácelo por el código siguiente:
 
 La página ahora utiliza la `GetCourses` procedimiento almacenado para recuperar la lista de todos los cursos. Ejecute la página para comprobar que funciona igual que antes.
 
-(Propiedades de navegación de entidades que se recuperan mediante un procedimiento almacenado no se pueden llenar automáticamente con los datos relacionados con las entidades, dependiendo de `ObjectContext` configuración predeterminada. Para obtener más información, consulte [cargar objetos relacionados](https://msdn.microsoft.com/en-us/library/bb896272.aspx) en MSDN Library.)
+(Propiedades de navegación de entidades que se recuperan mediante un procedimiento almacenado no se pueden llenar automáticamente con los datos relacionados con las entidades, dependiendo de `ObjectContext` configuración predeterminada. Para obtener más información, consulte [cargar objetos relacionados](https://msdn.microsoft.com/library/bb896272.aspx) en MSDN Library.)
 
 En el siguiente tutorial, aprenderá cómo utilizar la funcionalidad de datos dinámicos para que resulten más fáciles de programa y probar reglas de formato y validación de datos. En lugar de especificar en las reglas de cada página web como las cadenas de formato de datos y si no se requiere un campo, puede especificar estas reglas en los metadatos del modelo de datos y se aplican automáticamente en todas las páginas.
 

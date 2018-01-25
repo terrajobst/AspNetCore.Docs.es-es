@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 5b5645936504333573950b5bd17f5a037ffd984f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d844e2a69e4bbfdf3942f2666ead0047bdf83b7a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-aspnet-core-mvc-tutorial-5-of-10"></a>Crear un modelo de datos complejos - Core EF con el tutorial de MVC de ASP.NET Core (5 de 10)
 
@@ -39,9 +39,9 @@ En *Models/Student.cs*, agregar un `using` instrucción para el `System.Componen
 
 [!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-El atributo `DataType` se usa para especificar un tipo de datos más específico que el tipo intrínseco de base de datos. En este caso sólo desea realizar un seguimiento de la fecha, no la fecha y hora. El `DataType` enumeración proporciona para muchos tipos de datos, como fecha, hora, número de teléfono, moneda, EmailAddress y mucho más. El atributo `DataType` también puede permitir que la aplicación proporcione automáticamente características específicas del tipo. Por ejemplo, se puede crear un vínculo `mailto:` para `DataType.EmailAddress` y se puede proporcionar un selector de datos para `DataType.Date` en exploradores compatibles con HTML5. El `DataType` atributo emite HTML 5 `data-` atributos (pronunciado datos dash) que pueden entender exploradores HTML 5. El `DataType` atributos no proporcionan ninguna validación.
+El `DataType` atributo se utiliza para especificar un tipo de datos que es más específico que el tipo intrínseco de base de datos. En este caso sólo desea realizar un seguimiento de la fecha, no la fecha y hora. El `DataType` enumeración proporciona para muchos tipos de datos, como fecha, hora, número de teléfono, moneda, EmailAddress y mucho más. El atributo `DataType` también puede permitir que la aplicación proporcione automáticamente características específicas del tipo. Por ejemplo, se puede crear un vínculo `mailto:` para `DataType.EmailAddress` y se puede proporcionar un selector de datos para `DataType.Date` en exploradores compatibles con HTML5. El `DataType` atributo emite HTML 5 `data-` atributos (pronunciado datos dash) que pueden entender exploradores HTML 5. El `DataType` atributos no proporcionan ninguna validación.
 
-`DataType.Date` no especifica el formato de la fecha que se muestra. De forma predeterminada, se muestra el campo de datos según los formatos predeterminados según CultureInfo del servidor.
+`DataType.Date`no se especifica el formato de la fecha en que se muestra. De forma predeterminada, se muestra el campo de datos según los formatos predeterminados según CultureInfo del servidor.
 
 El atributo `DisplayFormat` se usa para especificar el formato de fecha de forma explícita:
 
@@ -103,7 +103,7 @@ Ejecutar la aplicación, seleccione la **estudiantes** , haga clic en **crear nu
 
 También puede usar atributos para controlar cómo se asignan las clases y propiedades para la base de datos. Imagine que hubiera usado el nombre `FirstMidName` para el nombre de campo ya que el campo puede contener también un nombre de medio. Pero desea que la columna de base de datos se denomine `FirstName`, ya que los usuarios que se va a escribir las consultas ad hoc en la base de datos están acostumbrados a dicho nombre. Para realizar esta asignación, puede usar el `Column` atributo.
 
-El `Column` atributo especifica que cuando se crea la base de datos, la columna de la `Student` tabla que se asigna a la `FirstMidName` propiedad se denominará `FirstName`. En otras palabras, cuando el código hace referencia a `Student.FirstMidName`, los datos proceden o actualizados en el `FirstName` columna de la `Student` tabla. Si no especifica nombres de columna, se facilita el mismo nombre que el nombre de propiedad.
+El `Column` atributo especifica que cuando se crea la base de datos, la columna de la `Student` tabla que se asigna a la `FirstMidName` propiedad se denominará `FirstName`. En otras palabras, cuando el código hace referencia a `Student.FirstMidName`, los datos proceden o actualizados en el `FirstName` columna de la `Student` tabla. Si no especifica nombres de columna, le asigna el mismo nombre que el nombre de propiedad.
 
 En el *Student.cs* , agregue un `using` instrucción para `System.ComponentModel.DataAnnotations.Schema` y agregue el atributo de nombre de columna para el `FirstMidName` propiedad, como se muestra en el código resaltado siguiente:
 
@@ -125,7 +125,7 @@ En **Explorador de objetos de SQL Server**, abra el Diseñador de tablas de Stud
 
 ![Tabla de estudiantes en SSOX después de las migraciones](complex-data-model/_static/ssox-after-migration.png)
 
-Antes de aplicar las dos primeras migraciones, eran las columnas del nombre de tipo nvarchar (max). Ahora son nvarchar (50) y el nombre de la columna ha cambiado de FirstMidName a FirstName.
+Antes de aplicar las dos primeras migraciones, eran las columnas del nombre de tipo nvarchar (max). Son ahora nvarchar (50) y el nombre de la columna ha cambiado de FirstMidName a FirstName.
 
 > [!Note]
 > Si intenta compilar antes de que termine de crear todas las clases de entidad en las secciones siguientes, podría obtener errores del compilador.
@@ -231,7 +231,7 @@ En *Models/Course.cs*, reemplace el código que agregó anteriormente con el có
 
 La entidad de curso tiene una propiedad de clave externa `DepartmentID` que señala a la entidad relacionada de departamento y tiene un `Department` propiedad de navegación.
 
-Entity Framework no requiere que agregue una propiedad de clave externa para el modelo de datos cuando tenga una propiedad de navegación para una entidad relacionada.  EF crea claves externas en la base de datos cuando son necesarias y crea automáticamente [sombrear propiedades](https://docs.microsoft.com/ef/core/modeling/shadow-properties) para ellos. Pero con la clave externa en el modelo de datos puede hacer que las actualizaciones más sencillo y más eficaz. Por ejemplo, al recuperar una entidad de curso para editar, la entidad Department es null si no lo carga, por lo que cuando se actualiza la entidad de curso, deberá primero capturar la entidad Department. Cuando la propiedad de clave externa `DepartmentID` se incluye en el modelo de datos, no es necesario capturar la entidad Department antes de actualizar.
+Entity Framework no requiere que agregue una propiedad de clave externa para el modelo de datos cuando tenga una propiedad de navegación para una entidad relacionada.  EF crea claves externas en la base de datos siempre que se necesiten y crea automáticamente [sombrear propiedades](https://docs.microsoft.com/ef/core/modeling/shadow-properties) para ellos. Pero con la clave externa en el modelo de datos puede hacer que las actualizaciones más sencillo y más eficaz. Por ejemplo, al recuperar una entidad de curso para editar, la entidad Department es null si no lo carga, por lo que cuando se actualiza la entidad de curso, deberá primero capturar la entidad Department. Cuando la propiedad de clave externa `DepartmentID` se incluye en el modelo de datos, no es necesario capturar la entidad Department antes de actualizar.
 
 ### <a name="the-databasegenerated-attribute"></a>El atributo DatabaseGenerated
 
@@ -308,7 +308,7 @@ public ICollection<Course> Courses { get; set; }
 ```
 
 > [!NOTE]
-> Por convención, Entity Framework permite la eliminación en cascada para las claves externas que no aceptan valores NULL y para las relaciones de varios a varios. Esto puede dar lugar a eliminar reglas de cascada circular, lo que producirán una excepción al intentar agregar una migración. Por ejemplo, si no define la propiedad Department.InstructorID como que acepta valores NULL, EF podría configurar una regla de eliminación en cascada para eliminar el instructor cuando se elimina el departamento, que no es lo que desea que ocurra. Si es necesario sus reglas de negocios el `InstructorID` propiedad no aceptan valores NULL, se tendría que usar la siguiente instrucción de la API fluida para deshabilitar la eliminación en cascada en la relación:
+> Por convención, Entity Framework permite la eliminación en cascada para las claves externas que no aceptan valores NULL y para las relaciones de varios a varios. Esto puede dar lugar a eliminar reglas de cascada circular, lo que producirán una excepción al intentar agregar una migración. Por ejemplo, si no define la propiedad Department.InstructorID como que acepta valores NULL, EF podría configurar una regla de eliminación en cascada para eliminar el instructor cuando se elimina el departamento, que no desea que ocurra. Si es necesario sus reglas de negocios el `InstructorID` propiedad no aceptan valores NULL, se tendría que usar la siguiente instrucción de la API fluida para deshabilitar la eliminación en cascada en la relación:
 > ```csharp
 > modelBuilder.Entity<Department>()
 >    .HasOne(d => d.Administrator)
@@ -354,7 +354,7 @@ Cada línea de relación tiene un 1 en un extremo y un asterisco (*) en el otro,
 
 Si la tabla Enrollment no incluye la información de categoría, que solo sería necesario contener las dos claves externas CourseID y StudentID. En ese caso, sería una tabla sin carga una combinación de varios a varios (o una tabla combinada pura) en la base de datos. Las entidades Instructor y el curso tienen ese tipo de relación de varios a varios, y el paso siguiente consiste en crear una clase de entidad para que funcione como una tabla de combinación sin carga.
 
-(EF 6.x es compatible con las tablas de unión implícita para relaciones de varios a varios, pero el núcleo de EF no lo hace. Para obtener más información, consulte el [explicación en el repositorio de GitHub de núcleo de EF](https://github.com/aspnet/EntityFramework/issues/1368).) 
+(EF 6.x es compatible con las tablas de unión implícita para relaciones de varios a varios, pero el núcleo de EF no. Para obtener más información, consulte el [explicación en el repositorio de GitHub de núcleo de EF](https://github.com/aspnet/EntityFramework/issues/1368).) 
 
 ## <a name="the-courseassignment-entity"></a>La entidad CourseAssignment
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fd365ca3ae8e832e368fa4c29c33af8a42cf41d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d5cf45e391a2b32e1d22e160fd2757b754753875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-and-sorting-report-data-c"></a>Paginación y la ordenación de datos de informe (C#)
 ====================
@@ -101,7 +101,7 @@ La figura 6 muestra nuestro progreso hasta el momento cuando se ven a través de
 
 ## <a name="step-3-adding-paging-support"></a>Paso 3: Agregar compatibilidad con la paginación
 
-Enumerar *todos los* de los productos en una sola pantalla puede dar lugar a la sobrecarga de información para el usuario examina los datos. Con el fin de que los resultados sean más fáciles de administrar, podemos dividir los datos en las páginas más pequeños de datos y permite al usuario recorrer la datos página a la vez. Para lograr esto solo tiene que activar la casilla de verificación Habilitar paginación de la etiqueta inteligente de GridView s (Esto establece la s GridView [ `AllowPaging` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) a `true`).
+Enumerar *todos los* de los productos en una sola pantalla puede dar lugar a la sobrecarga de información para el usuario examina los datos. Con el fin de que los resultados sean más fáciles de administrar, podemos dividir los datos en las páginas más pequeños de datos y permite al usuario recorrer la datos página a la vez. Para lograr esto solo tiene que activar la casilla de verificación Habilitar paginación de la etiqueta inteligente de GridView s (Esto establece la s GridView [ `AllowPaging` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowpaging.aspx) a `true`).
 
 
 [![Active la casilla de paginación Enable para agregar compatibilidad con la paginación](paging-and-sorting-report-data-cs/_static/image10.png)](paging-and-sorting-report-data-cs/_static/image9.png)
@@ -111,12 +111,12 @@ Enumerar *todos los* de los productos en una sola pantalla puede dar lugar a la 
 
 Habilitar paginación limita el número de registros mostrados por página y se agrega un *interfaz paginación* en GridView. La interfaz de paginación de forma predeterminada, que se muestra en la figura 7, es una serie de números de página, que permite al usuario navegar rápidamente de una página de datos a otra. Esta interfaz de paginación debe resultarle familiar, como se ha visto al agregar compatibilidad con la paginación para los controles DetailsView y FormView en tutoriales anteriores.
 
-Controles de la DetailsView y FormView mostrar solo un único registro por página. El control GridView, sin embargo, consulta su [ `PageSize` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.pagesize.aspx) para determinar cuántos registros para mostrar por página (esta propiedad tiene como valor predeterminado un valor de 10).
+Controles de la DetailsView y FormView mostrar solo un único registro por página. El control GridView, sin embargo, consulta su [ `PageSize` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.pagesize.aspx) para determinar cuántos registros para mostrar por página (esta propiedad tiene como valor predeterminado un valor de 10).
 
 Esta interfaz de paginación GridView, DetailsView y FormView s se puede personalizar mediante las siguientes propiedades:
 
 - `PagerStyle`indica la información de estilo para la interfaz de paginación; puede especificar la configuración, como `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`, y así sucesivamente.
-- `PagerSettings`contiene un grupo de propiedades que puede personalizar la funcionalidad de la interfaz de paginación; `PageButtonCount` indica el número máximo de números de página numéricos mostrados en la interfaz de paginación (el valor predeterminado es 10); el [ `Mode` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.pagersettings.mode.aspx) indica cómo la interfaz de paginación funciona y se puede establecer en: 
+- `PagerSettings`contiene un grupo de propiedades que puede personalizar la funcionalidad de la interfaz de paginación; `PageButtonCount` indica el número máximo de números de página numéricos mostrados en la interfaz de paginación (el valor predeterminado es 10); el [ `Mode` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) indica cómo la interfaz de paginación funciona y se puede establecer en: 
 
     - `NextPrevious`muestra un botones siguiente y anterior, que permite al usuario paso a paso avanzar o retroceder una página a la vez
     - `NextPreviousFirstLast`Además de los botones siguiente y anterior, primero y último botones también se incluyen, que permite al usuario desplazarse rápidamente a la primera o última página de datos
@@ -216,7 +216,7 @@ Como se muestra en la figura 11, cambiando solamente la s GridView `PageIndex` p
 
 ## <a name="step-5-adding-bi-directional-sorting-support"></a>Paso 5: Agregar compatibilidad con la ordenación bidireccional
 
-Agregar compatibilidad con la ordenación bidireccional es tan simple como agregar compatibilidad con la paginación solo tiene que activar la opción de habilitar la ordenación de la etiqueta inteligente de GridView s (que establece la s GridView [ `AllowSorting` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) a `true`). Esto hace que cada uno de los encabezados de los campos de s GridView como LinkButton que, al hacer clic en, producen una devolución de datos y devolver los datos ordenados por la columna seleccionada en orden ascendente. Haga clic de nuevo en el mismo encabezado LinkButton reordena los datos en orden descendente.
+Agregar compatibilidad con la ordenación bidireccional es tan simple como agregar compatibilidad con la paginación solo tiene que activar la opción de habilitar la ordenación de la etiqueta inteligente de GridView s (que establece la s GridView [ `AllowSorting` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.allowsorting.aspx) a `true`). Esto hace que cada uno de los encabezados de los campos de s GridView como LinkButton que, al hacer clic en, producen una devolución de datos y devolver los datos ordenados por la columna seleccionada en orden ascendente. Haga clic de nuevo en el mismo encabezado LinkButton reordena los datos en orden descendente.
 
 > [!NOTE]
 > Si utilizas una capa de acceso de datos personalizado en lugar de un conjunto de datos con tipo, puede que no tenga una opción de habilitar la ordenación en la etiqueta inteligente de s de GridView. Solo GridView enlazado a orígenes de datos que admiten de forma nativa la ordenación tiene esta casilla de verificación disponible. El conjunto de datos con tipo proporciona compatibilidad con la ordenación del cuadro, puesto que la DataTable de ADO.NET proporciona una `Sort` método que, cuando se invoca, ordena las filas de datos utilizando los criterios especificados de asignación de DataTable.
@@ -243,11 +243,11 @@ Después de esta adición de CSS, al visitar la página a través de un explorad
 
 GridView todos los campos del BoundField, CampoCasillaVerificación, TemplateField, y así sucesivamente tienen un `SortExpression` propiedad que indica la expresión que debe usarse para ordenar los datos cuando se hace clic en ese campo s ordenación vínculo de encabezado. GridView también tiene un `SortExpression` propiedad. Cuando un encabezado de ordenación se hace clic en LinkButton GridView asigna ese campo s `SortExpression` valor a su `SortExpression` propiedad. A continuación, los datos se vuelve a recuperar de ObjectDataSource y ordenan en función de las operaciones de asignación GridView `SortExpression` propiedad. La siguiente lista detalla la secuencia de pasos cuando un usuario final ordena los datos en un control GridView:
 
-1. Las operaciones de asignación GridView [evento Sorting](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) se activa
-2. Las operaciones de asignación GridView [ `SortExpression` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) está establecido en el `SortExpression` del campo cuyo encabezado ordenación LinkButton se hizo clic
+1. Las operaciones de asignación GridView [evento Sorting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) se activa
+2. Las operaciones de asignación GridView [ `SortExpression` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) está establecido en el `SortExpression` del campo cuyo encabezado ordenación LinkButton se hizo clic
 3. ObjectDataSource volver a recupera todos los datos de la capa BLL y, a continuación, ordena los datos mediante las operaciones de asignación GridView`SortExpression`
 4. Las operaciones de asignación GridView `PageIndex` propiedad se restablece a 0, lo que significa que al ordenar el usuario se devuelve a la primera página de datos (suponiendo que se ha implementado la compatibilidad con la paginación)
-5. Las operaciones de asignación GridView [ `Sorted` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) se activa
+5. Las operaciones de asignación GridView [ `Sorted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) se activa
 
 Al igual que con la paginación de manera predeterminada, la opción de ordenación predeterminada recupera volver a *todos los* de los registros de la capa BLL. Cuando se usa la ordenación sin paginación o cuando se usa con la ordenación no predeterminada paginación, allí s ninguna forma de evitar este rendimiento (aparte de almacenamiento en caché los datos de la base de datos). Sin embargo, como se verá en un tutorial posterior, se s posibles ordenar los datos de forma eficaz cuando se utiliza la paginación personalizada.
 
@@ -274,7 +274,7 @@ Una vez el `SortExpression` propiedad se ha quitado de la `UnitPrice` BoundField
 
 ## <a name="programmatically-sorting-the-gridview"></a>Ordenación mediante programación el control GridView
 
-También puede ordenar el contenido del control GridView mediante programación mediante el uso de las operaciones de asignación GridView [ `Sort` método](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.sort.aspx). Basta con pasar en el `SortExpression` valor para ordenar por junto con el [ `SortDirection` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` o `Descending`), y los datos de s GridView estará ordenados de nuevo.
+También puede ordenar el contenido del control GridView mediante programación mediante el uso de las operaciones de asignación GridView [ `Sort` método](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sort.aspx). Basta con pasar en el `SortExpression` valor para ordenar por junto con el [ `SortDirection` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sortdirection.aspx) (`Ascending` o `Descending`), y los datos de s GridView estará ordenados de nuevo.
 
 Imagine que el motivo se ha desactivado la ordenación por el `UnitPrice` era porque se preocupa de que nuestros clientes comprarían simplemente solamente los productos cuyo precio más bajo. Sin embargo, queremos animarlos a comprar los productos más caros, por lo que nos d gusta que puedan ordenar los productos por precio, pero solo desde el precio mayor a menor.
 
@@ -306,7 +306,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Siguiente](efficiently-paging-through-large-amounts-of-data-cs.md)

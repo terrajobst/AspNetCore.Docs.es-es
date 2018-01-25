@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/advanced-entity-framework-scenarios-for-an-mvc-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: d58a745896b29317c1d1049e3bf1a5ec2e628820
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 148a1aa33f6f713ae471ab14c7180f6c08a8679a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="advanced-entity-framework-scenarios-for-an-mvc-web-application-10-of-10"></a>Escenarios de avanzada de Entity Framework para una aplicación Web MVC (10 de 10)
 ====================
@@ -55,7 +55,7 @@ La API First de Entity Framework código incluye métodos que permiten pasar com
 
 - Use la `DbSet.SqlQuery` método para las consultas que devuelven tipos de entidad. Los objetos devueltos deben ser del tipo esperado por la `DbSet` objeto y se realiza automáticamente un seguimiento por el contexto de base de datos a menos que desactive seguimiento. (Consulte la sección siguiente la `AsNoTracking` método.)
 - Use la `Database.SqlQuery` método para las consultas que devuelven tipos que no son entidades. No realiza un seguimiento de los datos devueltos por el contexto de la base de datos, incluso si utiliza este método para recuperar tipos de entidad.
-- Use la [Database.ExecuteSqlCommand](https://msdn.microsoft.com/en-us/library/gg679456(v=vs.103).aspx) para comandos de consulta no.
+- Use la [Database.ExecuteSqlCommand](https://msdn.microsoft.com/library/gg679456(v=vs.103).aspx) para comandos de consulta no.
 
 Una de las ventajas del uso de Entity Framework es que evita enlazar el código demasiado ajustado a un método concreto de almacenamiento de datos. Hace esto mediante la generación de consultas SQL y comandos para usted, que también se evita tener que escribir usted mismo. Pero hay situaciones excepcionales cuando se necesita ejecutar consultas específicas de SQL que ha creado manualmente, y estos métodos permiten controlar dichas excepciones.
 
@@ -255,17 +255,17 @@ Entity Framework determina cómo ha cambiado una entidad (y, por tanto, las actu
 - `DbContext.Entry`
 - `DbChangeTracker.Entries`
 
-Si está realizando el seguimiento de un gran número de entidades y se llama a uno de estos métodos muchas veces en un bucle, podría obtener mejoras de rendimiento significativas desactivando temporalmente detección de cambios automático mediante el [AutoDetectChangesEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) propiedad. Para obtener más información, consulte [detectar cambios automáticamente](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
+Si está realizando el seguimiento de un gran número de entidades y se llama a uno de estos métodos muchas veces en un bucle, podría obtener mejoras de rendimiento significativas desactivando temporalmente detección de cambios automático mediante el [AutoDetectChangesEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.autodetectchangesenabled(VS.103).aspx) propiedad. Para obtener más información, consulte [detectar cambios automáticamente](https://blogs.msdn.com/b/adonet/archive/2011/02/06/using-dbcontext-in-ef-feature-ctp5-part-12-automatically-detecting-changes.aspx).
 
 ## <a name="disabling-validation-when-saving-changes"></a>Cómo deshabilitar la validación al guardar los cambios
 
-Cuando se llama a la `SaveChanges` método, de forma predeterminada, Entity Framework valida los datos de todas las propiedades de todas las entidades modificadas antes de actualizar la base de datos. Si ha actualizado un gran número de entidades y ya ha validado los datos, este trabajo no es necesario y podría hacer que el proceso de guardar los cambios tardan menos tiempo temporalmente si se desactiva la validación. Puede hacer que el uso de la [ValidateOnSaveEnabled](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) propiedad. Para obtener más información, consulte [validación](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
+Cuando se llama a la `SaveChanges` método, de forma predeterminada, Entity Framework valida los datos de todas las propiedades de todas las entidades modificadas antes de actualizar la base de datos. Si ha actualizado un gran número de entidades y ya ha validado los datos, este trabajo no es necesario y podría hacer que el proceso de guardar los cambios tardan menos tiempo temporalmente si se desactiva la validación. Puede hacer que el uso de la [ValidateOnSaveEnabled](https://msdn.microsoft.com/library/system.data.entity.infrastructure.dbcontextconfiguration.validateonsaveenabled(VS.103).aspx) propiedad. Para obtener más información, consulte [validación](https://blogs.msdn.com/b/adonet/archive/2010/12/15/ef-feature-ctp5-validation.aspx).
 
 ## <a name="summary"></a>Resumen
 
 Con esto finaliza la siguiente serie de tutoriales sobre el uso de Entity Framework en una aplicación ASP.NET MVC. Vínculos a otros recursos de Entity Framework pueden encontrarse en el [mapa de contenido de acceso de datos de ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
-Para obtener más información acerca de cómo implementar la aplicación web después de que haya creado, vea [ASP.NET Deployment Content Map](https://msdn.microsoft.com/en-us/library/bb386521.aspx) en MSDN Library.
+Para obtener más información acerca de cómo implementar la aplicación web después de que haya creado, vea [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521.aspx) en MSDN Library.
 
 Para obtener información acerca de otros temas relacionados con MVC, como la autenticación y autorización, consulte la [MVC recomienda recursos](../../getting-started/recommended-resources-for-mvc.md).
 

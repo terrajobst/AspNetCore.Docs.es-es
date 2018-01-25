@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: a0ee790da07c99cdb1279a6bca637a4ce8076e84
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Diseñar para sobreviven a errores (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -117,14 +117,14 @@ Para obtener más información, consulte los capítulos posteriores de este libr
 
 Documentación:
 
-- [Failsafe: Instrucciones para crear arquitecturas de nube resistentes](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Notas del producto Marc Mercuri, Ulrich Homann y Andrew Townhill. Versión de la página Web de la serie de vídeos de FailSafe.
-- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Notas del producto, Mark Simms y Michael Thomassy.
-- [Orientación técnica de la continuidad de negocio de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh873027.aspx). Notas del producto, Patrick Wickline y Jason Roth.
-- [Recuperación ante desastres y alta disponibilidad para las aplicaciones de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/dn251004.aspx). Notas del producto por Michael McKeown y Hanu Kommalapati, Jason Roth.
-- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Consulte las instrucciones de implementación de centro de datos de varias, el patrón de disyuntor.
+- [Failsafe: Instrucciones para crear arquitecturas de nube resistentes](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Notas del producto Marc Mercuri, Ulrich Homann y Andrew Townhill. Versión de la página Web de la serie de vídeos de FailSafe.
+- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Notas del producto, Mark Simms y Michael Thomassy.
+- [Orientación técnica de la continuidad de negocio de Azure](https://msdn.microsoft.com/library/windowsazure/hh873027.aspx). Notas del producto, Patrick Wickline y Jason Roth.
+- [Recuperación ante desastres y alta disponibilidad para las aplicaciones de Azure](https://msdn.microsoft.com/library/windowsazure/dn251004.aspx). Notas del producto por Michael McKeown y Hanu Kommalapati, Jason Roth.
+- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Consulte las instrucciones de implementación de centro de datos de varias, el patrón de disyuntor.
 - [Soporte técnico de Azure - contratos de nivel de servicio](https://azure.microsoft.com/support/legal/sla/).
-- [Continuidad del negocio en base de datos SQL Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx). Documentación acerca de la base de datos SQL alta disponibilidad y ante desastres características de recuperación.
-- [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj870962.aspx).
+- [Continuidad del negocio en base de datos SQL Azure](https://msdn.microsoft.com/library/windowsazure/hh852669.aspx). Documentación acerca de la base de datos SQL alta disponibilidad y ante desastres características de recuperación.
+- [Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure](https://msdn.microsoft.com/library/windowsazure/jj870962.aspx).
 
 Vídeos:
 

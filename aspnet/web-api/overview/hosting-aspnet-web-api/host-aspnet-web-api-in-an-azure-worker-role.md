@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 326c4a4e274dbc1aa6e09f1d07c4d135e4304484
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hospedar ASP.NET Web API 2 en un rol de trabajador de Azure
 ====================
@@ -33,7 +33,7 @@ por [Mike Wasson](https://github.com/MikeWasson)
 > 
 > - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
 > - Web API 2
-> - [Azure SDK para .NET 2.3](https://azure.microsoft.com/en-us/downloads/)
+> - [Azure SDK para .NET 2.3](https://azure.microsoft.com/downloads/)
 
 
 ## <a name="create-a-microsoft-azure-project"></a>Crear un proyecto de Microsoft Azure
@@ -137,7 +137,7 @@ Buscar la dirección IP en implementaciones de servicios de implementación [id]
 
 ## <a name="deploy-to-azure"></a>Implementar en Azure
 
-Para este paso, debe tener una cuenta de Azure. Si aún no tiene uno, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Para obtener más información, consulte [evaluación gratuita de Microsoft Azure](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
+Para este paso, debe tener una cuenta de Azure. Si aún no tiene uno, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Para obtener más información, consulte [evaluación gratuita de Microsoft Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 
 En el Explorador de soluciones, haga clic en el proyecto AzureApp. Seleccione **Publicar**.
 

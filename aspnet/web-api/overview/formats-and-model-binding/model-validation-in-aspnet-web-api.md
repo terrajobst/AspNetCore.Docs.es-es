@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: dc91ddb64294e686825076d5bcc636766f2f6f01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 45b519af4073b62c8be1ca8951e44d6cf3cbe075
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="model-validation-in-aspnet-web-api"></a>Validación del modelo en ASP.NET Web API
 ====================
@@ -26,7 +26,7 @@ Cuando un cliente envía datos a la API web, a menudo desea validar los datos an
 
 ## <a name="data-annotations"></a>Anotaciones de datos
 
-En ASP.NET Web API, puede utilizar atributos de la [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) espacio de nombres para establecer reglas de validación para las propiedades en el modelo. Tenga en cuenta el siguiente modelo:
+En ASP.NET Web API, puede utilizar atributos de la [System.ComponentModel.DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) espacio de nombres para establecer reglas de validación para las propiedades en el modelo. Tenga en cuenta el siguiente modelo:
 
 [!code-csharp[Main](model-validation-in-aspnet-web-api/samples/sample1.cs)]
 

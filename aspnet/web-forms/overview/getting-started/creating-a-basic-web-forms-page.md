@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: 20e920ff63444c0d69cecb972619b07fe6d23097
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6b699cc939292b7ab0167dba7cfa6a00b681ef3a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Crear un ASP.NET básica 4.5 Web Forms página en Visual Studio 2013
 ====================
 Por [Erik Reitan](https://github.com/Erikre)
 
-Este tutorial proporciona una introducción al entorno de desarrollo Web en [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) y en [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). En este tutorial le guía por la creación de una página de formularios Web Forms ASP.NET simple y muestra las técnicas básicas de creación de una nueva página, agregar controles y escribir código.
+Este tutorial proporciona una introducción al entorno de desarrollo Web en [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) y en [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). En este tutorial le guía por la creación de una página de formularios Web Forms ASP.NET simple y muestra las técnicas básicas de creación de una nueva página, agregar controles y escribir código.
 
 Las tareas ilustradas en este tutorial incluyen:
 
@@ -38,7 +38,7 @@ Las tareas ilustradas en este tutorial incluyen:
 
 Para poder completar este tutorial, necesitará:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) o [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework se instala automáticamente. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework se instala automáticamente. 
 
     > [!NOTE] 
     > 
@@ -94,7 +94,7 @@ Examine la ilustración anterior y coinciden con el texto a la lista siguiente, 
 - Ventana de documento. Muestra los documentos que se está trabajando en ventanas con fichas. Puede cambiar entre los documentos, haga clic en las pestañas.
 - **Propiedades** ventana. Permite cambiar la configuración de la página, los elementos HTML, controles y otros objetos.
 - Examine las fichas. Presentan vistas diferentes del mismo documento. **Diseño** vista es una superficie de edición prácticamente WYSIWYG. **Origen** vista es el editor HTML para la página. **División** vista muestra los la **diseño** vista y la **origen** vista para el documento. Trabajará con la **diseño** y **origen** vistas más adelante en este tutorial. Si prefiere abrir páginas Web en **diseño** ver, en la **herramientas** menú, haga clic en **opciones**, seleccione la **Diseñador HTML** nodo y cambie el **Iniciar páginas en** opción.
-- **Cuadro de herramientas**. Proporciona controles y los elementos HTML que pueden arrastrar a la página. **Cuadro de herramientas** elementos se agrupan por función común.
+- **ToolBox**. Proporciona controles y los elementos HTML que pueden arrastrar a la página. **Cuadro de herramientas** elementos se agrupan por función común.
 - S **erver explorador**. Muestra las conexiones de base de datos. Si el Explorador de servidores no está visible, en el menú Ver, haga clic en Explorador de servidores.
 
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 438c5afb96dce6d8978d26159a3b460614111988
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d0857e1926c341b2357bc824fa379c4fc30affbc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="imagetaghelper"></a>ImageTagHelper
 
@@ -55,7 +55,7 @@ El valor asignado al parámetro `v` es el valor hash del archivo en disco. Si el
 Para activar la aplicación auxiliar de etiqueta de imagen, se requiere el atributo src en la `<img>` elemento. 
 
 > [!NOTE]
-> La aplicación auxiliar de etiqueta de imagen utiliza el `Cache` proveedor en el servidor web local para almacenar los calculados `Sha512` de un archivo determinado. Si el archivo se vuelve a solicitar la `Sha512` no es necesario volver a calcular. La memoria caché se invalida por un monitor del archivo que se adjunta al archivo cuando el archivo `Sha512` se calcula.
+> La aplicación auxiliar de etiqueta de imagen utiliza el `Cache` proveedor en el servidor web local para almacenar los calculados `Sha512` de un archivo determinado. Si el archivo se vuelve a solicitar la `Sha512` no necesita volver a calcular. La memoria caché se invalida por un monitor del archivo que se adjunta al archivo cuando el archivo `Sha512` se calcula.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

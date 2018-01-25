@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa0a0f1f80a407f8f68d5fe081b5b144e2945700
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ce0daabf8d68614c530115cc37b4f088f75dba4d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-with-the-objectdatasource-vb"></a>Datos en caché con el ObjectDataSource (VB)
 ====================
@@ -44,7 +44,7 @@ Almacenamiento en caché puede mejorar considerablemente una s de aplicación ge
 
 Sin tener en cuenta los criterios de expulsión especificados, puede ser un elemento en la memoria caché *compactarse* antes de que se ha cumplido los criterios basados en el tiempo o dependencia. Si la memoria caché ha alcanzado su capacidad, los elementos existentes deben quitarse antes de que se pueden agregar otros nuevos. Por lo tanto, cuando mediante programación al trabajar con datos almacenados en caché, s vitales suponer siempre los datos almacenados en caché no pueden estar presentes. Echemos un vistazo el patrón que se utiliza cuando se obtiene acceso a datos desde la memoria caché mediante programación en nuestro tutorial siguiente, *almacenar datos en caché en la arquitectura*.
 
-Almacenamiento en caché, proporciona una forma económica para obtiene mayor rendimiento de una aplicación. Como [Steven Smith](http://aspadvice.com/blogs/ssmith/) articula en su artículo [almacenamiento en caché de ASP.NET: técnicas y prácticas recomendadas](https://msdn.microsoft.com/en-us/library/aa478965.aspx):
+Almacenamiento en caché, proporciona una forma económica para obtiene mayor rendimiento de una aplicación. Como [Steven Smith](http://aspadvice.com/blogs/ssmith/) articula en su artículo [almacenamiento en caché de ASP.NET: técnicas y prácticas recomendadas](https://msdn.microsoft.com/library/aa478965.aspx):
 
 Almacenamiento en caché puede ser una buena forma de obtener una buena suficiente rendimiento sin necesidad de una gran cantidad de tiempo y los análisis. Memoria es barata, por lo que si se puede obtener el rendimiento que necesitan almacenando en caché el resultado de 30 segundos en lugar de dedicar un día o una semana intenta optimizar el código o la base de datos, realice la acción de la solución de almacenamiento en caché (suponiendo que los datos 30 - antiguos de segundos es correcto) y avanzar. Finalmente, un diseño deficiente se probablemente ponerse al día, por lo que por supuesto debe intentar diseñar aplicaciones correctamente. Pero si desea obtener una buena suficiente rendimiento hoy en día, el almacenamiento en caché puede ser un excelente [método], compra de tiempo para refactorizar la aplicación en una fecha posterior cuando tenga el tiempo para hacerlo.
 
@@ -175,10 +175,10 @@ Puede parecer excesivo recuperar los datos de la base de datos cada vez que se p
 
 Basta con establecer algunas propiedades, ObjectDataSource puede configurarse para que se almacenan automáticamente en caché los datos recuperados en la caché de datos ASP.NET. En la lista siguiente se resume las propiedades relacionadas con la memoria caché de ObjectDataSource:
 
-- [EnableCaching](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) debe establecerse en `True` para habilitar el almacenamiento en caché. De manera predeterminada, es `False`.
-- [CacheDuration](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) la cantidad de tiempo, en segundos, que se almacena en caché los datos. El valor predeterminado es 0. ObjectDataSource almacenará sólo en memoria caché datos si `EnableCaching` es `True` y `CacheDuration` se establece en un valor mayor que cero.
-- [CacheExpirationPolicy](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) se puede establecer en `Absolute` o `Sliding`. Si `Absolute`, ObjectDataSource almacena en caché los datos recuperados para `CacheDuration` segundos; si `Sliding`, expiren los datos solo después de no se ha accedido durante `CacheDuration` segundos. De manera predeterminada, es `Absolute`.
-- [CacheKeyDependency](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) utilizar esta propiedad para asociar las entradas de caché de ObjectDataSource s con una dependencia de caché existente. Las entradas de datos de ObjectDataSource s se pueda expulsar prematuramente de la memoria caché mediante la expiración de su asociado `CacheKeyDependency`. Esta propiedad normalmente se usa para asociar una dependencia de caché SQL con la caché de s ObjectDataSource, un tema exploraremos en el futuro [utilizando las dependencias de caché de SQL](using-sql-cache-dependencies-vb.md) tutorial.
+- [EnableCaching](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.enablecaching.aspx) debe establecerse en `True` para habilitar el almacenamiento en caché. De manera predeterminada, es `False`.
+- [CacheDuration](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheduration.aspx) la cantidad de tiempo, en segundos, que se almacena en caché los datos. El valor predeterminado es 0. ObjectDataSource almacenará sólo en memoria caché datos si `EnableCaching` es `True` y `CacheDuration` se establece en un valor mayor que cero.
+- [CacheExpirationPolicy](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cacheexpirationpolicy.aspx) se puede establecer en `Absolute` o `Sliding`. Si `Absolute`, ObjectDataSource almacena en caché los datos recuperados para `CacheDuration` segundos; si `Sliding`, expiren los datos solo después de no se ha accedido durante `CacheDuration` segundos. De manera predeterminada, es `Absolute`.
+- [CacheKeyDependency](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.cachekeydependency.aspx) utilizar esta propiedad para asociar las entradas de caché de ObjectDataSource s con una dependencia de caché existente. Las entradas de datos de ObjectDataSource s se pueda expulsar prematuramente de la memoria caché mediante la expiración de su asociado `CacheKeyDependency`. Esta propiedad normalmente se usa para asociar una dependencia de caché SQL con la caché de s ObjectDataSource, un tema exploraremos en el futuro [utilizando las dependencias de caché de SQL](using-sql-cache-dependencies-vb.md) tutorial.
 
 Permiten s configurar el `ProductsDataSource` ObjectDataSource en caché sus datos durante 30 segundos en escala absoluta. Establecer la s ObjectDataSource `EnableCaching` propiedad `True` y su `CacheDuration` propiedad a 30. Deje el `CacheExpirationPolicy` propiedad establecida en su valor predeterminado, `Absolute`.
 
@@ -206,7 +206,7 @@ Figura 12 muestra las operaciones de asignación ObjectDataSource almacenamiento
 
 Cada aplicación de ASP.NET tiene su propia memoria caché de datos s comparten todas las páginas y los visitantes de la instancia. Esto significa que los datos almacenados en la caché de datos por el ObjectDataSource igualmente se comparten entre todos los usuarios que visitan la página. Para comprobarlo, abra el `ObjectDataSource.aspx` página en un explorador. Al primero visitar la página, se mostrará el texto de evento que se activa si selecciona (suponiendo que los datos agregados a la memoria caché por las pruebas anteriores se, hasta ahora, ha desalojado). Abra una segunda instancia del explorador y copiar y pegar la dirección URL de la primera instancia del explorador para el segundo. En la segunda instancia del explorador, no se muestra el texto de evento que se activa si selecciona porque lo s usando la misma en memoria caché datos que el primero.
 
-Al insertar los datos recuperados en la memoria caché, ObjectDataSource utiliza un valor de clave de caché que incluye: el `CacheDuration` y `CacheExpirationPolicy` valores de propiedad; el tipo del objeto de negocios subyacente usándola ObjectDataSource, que se especifica a través de la [ `TypeName` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, en este ejemplo); el valor de la `SelectMethod` propiedad y el nombre y los valores de los parámetros en el `SelectParameters` colección; y los valores de sus `StartRowIndex`y `MaximumRows` propiedades, que se usan al implementar [paginación personalizada](../paging-and-sorting/paging-and-sorting-report-data-vb.md).
+Al insertar los datos recuperados en la memoria caché, ObjectDataSource utiliza un valor de clave de caché que incluye: el `CacheDuration` y `CacheExpirationPolicy` valores de propiedad; el tipo del objeto de negocios subyacente usándola ObjectDataSource, que se especifica a través de la [ `TypeName` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.typename.aspx) (`ProductsBLL`, en este ejemplo); el valor de la `SelectMethod` propiedad y el nombre y los valores de los parámetros en el `SelectParameters` colección; y los valores de sus `StartRowIndex`y `MaximumRows` propiedades, que se usan al implementar [paginación personalizada](../paging-and-sorting/paging-and-sorting-report-data-vb.md).
 
 Elaborar el valor de clave de caché como una combinación de estas propiedades garantiza una entrada de caché única, como cambian estos valores. Por ejemplo, en los tutoriales anteriores se ha examinado utilizando la `ProductsBLL` clase s. `GetProductsByCategoryID(categoryID)`, que devuelve todos los productos de la categoría especificada. Un usuario puede llegar a la página y vista de bebidas, que tiene un `CategoryID` de 1. Si el ObjectDataSource almacenado en caché los resultados sin tener en cuenta el `SelectParameters` valores, cuando otro usuario ha llegado a la página Ver condimentos mientras los productos de bebidas estuviera en la memoria caché, d verán los productos de bebidas en caché en lugar de condimentos. Mediante la variación de la clave de caché por estas propiedades, que incluyen los valores de la `SelectParameters`, ObjectDataSource mantiene una entrada de caché independiente para bebidas y condimentos.
 
@@ -230,13 +230,13 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Almacenamiento en caché de ASP.NET: Técnicas y prácticas recomendadas](https://msdn.microsoft.com/en-us/library/aa478965.aspx)
-- [Guía de arquitectura de almacenamiento en caché para aplicaciones de .NET Framework](https://msdn.microsoft.com/en-us/library/ee817645.aspx)
+- [Almacenamiento en caché de ASP.NET: Técnicas y prácticas recomendadas](https://msdn.microsoft.com/library/aa478965.aspx)
+- [Guía de arquitectura de almacenamiento en caché para aplicaciones de .NET Framework](https://msdn.microsoft.com/library/ee817645.aspx)
 - [Caché de salida en ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/121306-1.aspx)
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

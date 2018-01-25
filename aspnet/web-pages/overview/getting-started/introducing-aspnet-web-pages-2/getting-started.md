@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 615ddc31d0d857e5bf9a7f372b7efcf67d185905
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a6789ee75b4ca6e9443681cc7ec0bd3ab94cedcd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---getting-started"></a>Introducción a páginas Web de ASP.NET: Introducción
 ====================
@@ -124,8 +124,8 @@ Compilación de conjuntos de tutorial posteriores en este conjunto y agregar má
 
 Necesita una cuenta de Azure para implementar esta solución en Azure. Si no dispone de una cuenta, tiene las siguientes opciones:
 
-- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
-- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
+- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
+- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
 
 ## <a name="installing-everything"></a>Instalar todo
 
@@ -151,11 +151,11 @@ Aparecerá el instalador de plataforma Web, está listo para instalar WebMatrix.
 
 El proceso de instalación determina lo que debe instalar en el equipo e inicia el proceso. Función exactamente lo que debe estar instalado, el proceso puede tardar entre unos instantes varios minutos. Seleccione **acepto** para aceptar los términos de licencia.
 
-## <a name="hello-webmatrix"></a>Hola, WebMatrix
+## <a name="hello-webmatrix"></a>Hello, WebMatrix
 
 Cuando termine, el proceso de instalación puede iniciar automáticamente WebMatrix. Si no es así, en Windows, desde el **iniciar** menú, inicie **Microsoft WebMatrix**.
 
-Cuando se inicia WebMatrix por primera vez, tendrá una oportunidad para iniciar sesión en Microsoft Azure con su cuenta de Microsoft. Debe iniciar sesión en, recibirán 10 aplicaciones web gratuitas a través de Azure. Estas aplicaciones web gratuitas proporcionan una manera cómoda para probar sus aplicaciones. Si ya no tiene una cuenta de Azure, pero tiene una suscripción a MSDN, puede [activar las ventajas de la suscripción de MSDN](https://www.windowsazure.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). En caso contrario, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Para obtener más información, consulte [evaluación gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+Cuando se inicia WebMatrix por primera vez, tendrá una oportunidad para iniciar sesión en Microsoft Azure con su cuenta de Microsoft. Debe iniciar sesión en, recibirán 10 aplicaciones web gratuitas a través de Azure. Estas aplicaciones web gratuitas proporcionan una manera cómoda para probar sus aplicaciones. Si ya no tiene una cuenta de Azure, pero tiene una suscripción a MSDN, puede [activar las ventajas de la suscripción de MSDN](https://www.windowsazure.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604). En caso contrario, puede crear una cuenta de prueba gratuita en tan solo unos minutos. Para obtener más información, consulte [evaluación gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
 
 No es necesario que iniciar sesión en este momento continuar con este tutorial. Si no registra ahora, todavía tendrá la opción de iniciar sesión más tarde. La última [tema](publishing.md) en este tutorial serie cubre cómo implementar su sitio Web en Azure; por lo tanto, deberá iniciar sesión completar ese tema.
 

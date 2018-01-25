@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 97e4a2a1794dbdccf80f0b44c1246c743fa23019
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTML
 ====================
@@ -220,7 +220,7 @@ Si reunir todos estos elementos, obtendrá el siguiente código:
 > 
 > **Importante:** Con los marcadores de posición (como `@0`) pasar valores a un comando SQL es *importantísimo* para la seguridad. La manera que ve aquí, con marcadores de posición para los datos de la variable, es la única manera debe construir comandos SQL.
 > 
-> Nunca construir una instrucción SQL que reúnan los valores que obtener del usuario y texto literal (concatenar). Concatenar proporcionados por el usuario en una instrucción SQL abre el sitio a un *ataque de inyección de SQL* donde un usuario malintencionado envía los valores a la página que hack la base de datos. (Puede obtener en el artículo [inyección de código SQL](https://msdn.microsoft.com/en-us/library/ms161953.aspx) el sitio Web de MSDN.)
+> Nunca construir una instrucción SQL que reúnan los valores que obtener del usuario y texto literal (concatenar). Concatenar proporcionados por el usuario en una instrucción SQL abre el sitio a un *ataque de inyección de SQL* donde un usuario malintencionado envía los valores a la página que hack la base de datos. (Puede obtener en el artículo [inyección de código SQL](https://msdn.microsoft.com/library/ms161953.aspx) el sitio Web de MSDN.)
 
 
 ## <a name="updating-the-movies-page-with-search-code"></a>Actualizar la página de películas con código de búsqueda

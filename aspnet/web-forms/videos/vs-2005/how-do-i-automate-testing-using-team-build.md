@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-automate-testing-using-team-build
 msc.type: video
-ms.openlocfilehash: af74961ea9fcb463ea4902b59847bf67776a4d69
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f64d4226089a9fa26886d75f5584afb4d87617f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-do-i-automate-testing-using-team-build"></a>[¿Cómo I:] ¿Automatizar pruebas con Team Build?
 ====================
 por [Chris Menegay](https://twitter.com/CMenegay)
 
-En este vídeo se explica cómo usar Visual Studio Team System para definir las pruebas automatizadas que se ejecutarán durante una compilación de equipo y cómo se puede explorar en profundidad a los resultados de las pruebas. Aprendemos también que la [tarea de compilación de herramientas de prueba](https://msdn.microsoft.com/en-us/vstudio/aa718351.aspx#bttt) proporciona una manera alternativa de especificar las pruebas para que se ejecute durante una compilación de equipo.
+En este vídeo se explica cómo usar Visual Studio Team System para definir las pruebas automatizadas que se ejecutarán durante una compilación de equipo y cómo se puede explorar en profundidad a los resultados de las pruebas. Aprendemos también que la [tarea de compilación de herramientas de prueba](https://msdn.microsoft.com/vstudio/aa718351.aspx#bttt) proporciona una manera alternativa de especificar las pruebas para que se ejecute durante una compilación de equipo.
 
 [&#9654; Vea el vídeo (6 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-automate-testing-using-team-build)
 

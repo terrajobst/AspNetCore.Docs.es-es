@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 86ec6454313f5a6e78c0f64433ef4e5a4f8461ee
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Páginas maestras y ASP.NET AJAX (C#)
 ====================
@@ -31,7 +31,7 @@ por [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 En los últimos años, se han ido acumulando cada vez más desarrolladores [AJAX](http://en.wikipedia.org/wiki/Ajax_(programming))-aplicaciones web habilitadas. Un sitio Web con AJAX habilitado usa una serie de tecnologías web relacionadas para ofrecer una experiencia de usuario más sensible. La creación de aplicaciones habilitadas para AJAX de ASP.NET es sorprendentemente fáciles gracias a las de Microsoft [marco de AJAX de ASP.NET](../../../../ajax/index.md). AJAX de ASP.NET está organizado en ASP.NET 3.5 y Visual Studio 2008; También está disponible como descarga independiente para las aplicaciones de ASP.NET 2.0.
 
-Al compilar con AJAX habilitado páginas web con el marco de AJAX de ASP.NET, debe agregar exactamente una [control ScriptManager](https://msdn.microsoft.com/en-us/library/bb398863.aspx) a cada página que utiliza el marco de trabajo. Como su nombre implica, el control ScriptManager administra el script de cliente utilizado en las páginas web con AJAX habilitado. Como mínimo, el objeto ScriptManager emite código HTML que indica al explorador que descargue los archivos JavaScript que utilizan la biblioteca de cliente de AJAX de ASP.NET. También se puede utilizar para registrar los archivos personalizados de JavaScript, los servicios web habilitados para escritura y funcionalidad de servicio de aplicación personalizada.
+Al compilar con AJAX habilitado páginas web con el marco de AJAX de ASP.NET, debe agregar exactamente una [control ScriptManager](https://msdn.microsoft.com/library/bb398863.aspx) a cada página que utiliza el marco de trabajo. Como su nombre implica, el control ScriptManager administra el script de cliente utilizado en las páginas web con AJAX habilitado. Como mínimo, el objeto ScriptManager emite código HTML que indica al explorador que descargue los archivos JavaScript que utilizan la biblioteca de cliente de AJAX de ASP.NET. También se puede utilizar para registrar los archivos personalizados de JavaScript, los servicios web habilitados para escritura y funcionalidad de servicio de aplicación personalizada.
 
 Si el patrón de sitio usa páginas (como debería), no necesariamente necesitará agregar un control ScriptManager a cada página de contenido única; en su lugar, puede agregar un control ScriptManager a la página maestra. Este tutorial muestra cómo agregar el control ScriptManager a la página maestra. También examina cómo usar el control ScriptManagerProxy para registrar scripts personalizados y servicios de script en una página de contenido específico.
 
@@ -117,7 +117,7 @@ Configurar el control SqlDataSource para conectarse a la base de datos de Northw
 
 [!code-sql[Main](master-pages-and-asp-net-ajax-cs/samples/sample3.sql)]
 
-El `TOP 1` palabra clave en el `SELECT` cláusula devuelve solo el primer registro devuelto por la consulta. El [ `NEWID()` función](https://msdn.microsoft.com/en-us/library/ms190348.aspx) genera un nuevo [valor de identificador único global (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) y puede usarse en un `ORDER BY` cláusula para devolver registros de la tabla en orden aleatorio.
+El `TOP 1` palabra clave en el `SELECT` cláusula devuelve solo el primer registro devuelto por la consulta. El [ `NEWID()` función](https://msdn.microsoft.com/library/ms190348.aspx) genera un nuevo [valor de identificador único global (GUID)](http://en.wikipedia.org/wiki/Globally_Unique_Identifier) y puede usarse en un `ORDER BY` cláusula para devolver registros de la tabla en orden aleatorio.
 
 
 [![Configurar el SqlDataSource para devolver un único registro seleccionado aleatoriamente](master-pages-and-asp-net-ajax-cs/_static/image11.png)](master-pages-and-asp-net-ajax-cs/_static/image10.png)
@@ -255,7 +255,7 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Marco de AJAX de ASP.NET](../../../../ajax/index.md)
+- [ASP.NET AJAX Framework](../../../../ajax/index.md)
 - [Tutoriales de AJAX de ASP.NET](../aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax.md)
 - [Vídeos de AJAX de ASP.NET](../../../videos/aspnet-ajax/index.md)
 - [Creación de interfaz de usuario interactiva con Microsoft ASP.NET AJAX](http://aspnet.4guysfromrolla.com/articles/101007-1.aspx)

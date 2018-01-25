@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: cfae339ff2af1b71f7f46b6fd567456256660f8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5ee29dbc5b4566273592041d94458104e6e0f65e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller-c"></a>Obtiene acceso a datos de su modelo desde un controlador (C#)
 ====================
@@ -92,7 +92,7 @@ Anteriormente en este tutorial, ha visto cómo un controlador puede pasar datos 
 
 ASP.NET MVC también proporciona la capacidad de pasar fuertemente tipados datos u objetos a una plantilla de vista. Esto fuertemente tipado enfoque permite un mejor tiempo de compilación la comprobación de su código y los transmite IntelliSense en el editor de Visual Web Developer. Vamos a seguir este enfoque con el `MoviesController` clase y *Index.cshtml* plantilla de vista.
 
-Observe cómo el código crea un [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) objeto cuando se llama a la `View` método auxiliar en el `Index` método de acción. A continuación, el código pasa esto `Movies` lista desde el controlador a la vista:
+Observe cómo el código crea un [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) objeto cuando se llama a la `View` método auxiliar en el `Index` método de acción. A continuación, el código pasa esto `Movies` lista desde el controlador a la vista:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample3.cs)]
 

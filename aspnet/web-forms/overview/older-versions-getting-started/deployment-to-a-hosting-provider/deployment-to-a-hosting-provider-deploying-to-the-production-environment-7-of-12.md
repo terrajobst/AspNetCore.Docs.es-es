@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ad44968975b7929f5b0f70334deabc7238797402
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementarla en el entorno de producción - 7 de 12
 ====================
@@ -190,7 +190,7 @@ En el **archivo**/**permisos de la carpeta** ventana, seleccione la **lectura** 
 
 Asegúrese de que Elmah tiene acceso de escritura a la *Elmah* carpeta, produciendo un error y, a continuación, mostrar el informe de errores de Elmah. Solicitar una dirección URL no válida como *Studentsxxx.aspx*. Como antes, verá el *GenericErrorPage.aspx* página. Haga clic en el **Log Out** vincular y, a continuación, ejecute *Elmah.axd*. Obtiene el **inicio de sesión** en primer lugar, página que valida que la *Web.config* transformación Elmah autorización agregó correctamente. Tras iniciar sesión, se mostrará el informe que muestra el error que provocó el solo.
 
-[![ELMAH.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
+[![Elmah.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
 
 ## <a name="testing-in-the-production-environment"></a>Realización de pruebas en el entorno de producción
 
@@ -246,7 +246,7 @@ El *robots.txt* archivo va en la carpeta del proyecto y debe tener el siguiente 
 
 El `User-agent` línea indica los motores de búsqueda que se aplican las reglas en el archivo para todos los rastreadores de web de motor de búsqueda (robots), y la `Disallow` línea especifica que no va a rastrear ninguna página en el sitio.
 
-Probablemente le convenga motores de búsqueda en el catálogo del sitio de producción, por lo que necesita excluir este archivo de implementación de producción. Para ello, consulte **¿se puede excluir determinados archivos o carpetas de implementación?** en [p+f sobre la implementación de ASP.NET Web Application Project](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Asegúrese de especificar la exclusión sólo para el perfil de publicación de la producción.
+Probablemente le convenga motores de búsqueda en el catálogo del sitio de producción, por lo que necesita excluir este archivo de implementación de producción. Para ello, consulte **¿se puede excluir determinados archivos o carpetas de implementación?** en [p+f sobre la implementación de ASP.NET Web Application Project](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment). Asegúrese de especificar la exclusión sólo para el perfil de publicación de la producción.
 
 Crear una segunda cuenta de hospedaje es una forma de trabajar con un entorno de prueba que no es necesario, pero puede merecer la pena el gasto adicional. En los siguientes tutoriales aún utilizar IIS como el entorno de prueba.
 

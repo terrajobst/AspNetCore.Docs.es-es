@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update
 msc.type: authoredcontent
-ms.openlocfilehash: 10da2b5013ae1348b69ea4f456d81bb4c4b73df6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6861c702c1ccb19e5a4eee484a622079e205f86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a>Implementación de Web ASP.NET con Visual Studio: implementar una actualización del código
 ====================
@@ -79,7 +79,7 @@ Implementación en el entorno de prueba es ahora un sencillo de la ejecución co
 
 Lo haría normalmente también hacer pruebas de regresión (es decir, probar el resto del sitio para asegurarse de que el nuevo cambio no interrumpe cualquier funcionalidad existente). Pero en este tutorial podrá omitir este paso y continuar para implementar la actualización a ensayo y producción.
 
-Al volver a implementar, Web Deploy determina automáticamente qué archivos han cambiado y copias de solo archivos cambiados en el servidor. De forma predeterminada, Web Deploy utiliza cambiado última fechas en los archivos para determinar cuáles han cambiado. Algunos sistemas de control de código fuente cambian el archivo fechas incluso cuando no cambie el contenido del archivo. En ese caso, puede configurar Web Deploy para usar las sumas de comprobación de archivo para determinar qué archivos han cambiado. Para obtener más información, consulte [¿por qué todos mis archivos obtener volvió a implementar aunque no cambiarlas?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#use_checksum) en las preguntas más frecuentes de implementación de ASP.NET.
+Al volver a implementar, Web Deploy determina automáticamente qué archivos han cambiado y copias de solo archivos cambiados en el servidor. De forma predeterminada, Web Deploy utiliza cambiado última fechas en los archivos para determinar cuáles han cambiado. Algunos sistemas de control de código fuente cambian el archivo fechas incluso cuando no cambie el contenido del archivo. En ese caso, puede configurar Web Deploy para usar las sumas de comprobación de archivo para determinar qué archivos han cambiado. Para obtener más información, consulte [¿por qué todos mis archivos obtener volvió a implementar aunque no cambiarlas?](https://msdn.microsoft.com/library/ee942158.aspx#use_checksum) en las preguntas más frecuentes de implementación de ASP.NET.
 
 ## <a name="take-the-application-offline-during-deployment"></a>Hacer que la aplicación sin conexión durante la implementación
 

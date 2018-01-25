@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: a34607b25f6cf502f5fbf2fe51bf1937f470159e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 46e18ba81c3db8bb04c5cb997bcc1607e4e38bae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Implementación de Web ASP.NET con Visual Studio: implementar archivos adicionales
 ====================
@@ -83,15 +83,15 @@ Con esto finaliza la siguiente serie de tutoriales sobre la implementación de u
 
 ## <a name="more-information"></a>Más información
 
-Si sabe cómo trabajar con archivos de MSBuild, puede automatizar muchas otras tareas de implementación mediante la escritura de código *.pubxml* archivos (para tareas específicas del perfil) o en el proyecto *. wpp.targets* archivo (para las tareas que se aplica a todos los perfiles). Para obtener más información acerca de *.pubxml* y *. wpp.targets* archivos, vea [Cómo: modificar la configuración de implementación en los archivos de un perfil de publicación (.pubxml) y. wpp.targets archivo en Web de Visual Studio Proyectos](https://msdn.microsoft.com/en-us/library/ff398069). Para obtener una introducción básica a código de MSBuild, vea **Anatomía de un archivo de proyecto** en [serie de implementación empresarial: comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Para obtener información sobre cómo trabajar con archivos de MSBuild para realizar tareas para sus propios escenarios, consulte este libro: [dentro de la Microsoft Build Engine: usar MSBuild y Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi y William Bartholomew.
+Si sabe cómo trabajar con archivos de MSBuild, puede automatizar muchas otras tareas de implementación mediante la escritura de código *.pubxml* archivos (para tareas específicas del perfil) o en el proyecto *. wpp.targets* archivo (para las tareas que se aplica a todos los perfiles). Para obtener más información acerca de *.pubxml* y *. wpp.targets* archivos, vea [Cómo: modificar la configuración de implementación en los archivos de un perfil de publicación (.pubxml) y. wpp.targets archivo en Web de Visual Studio Proyectos](https://msdn.microsoft.com/library/ff398069). Para obtener una introducción básica a código de MSBuild, vea **Anatomía de un archivo de proyecto** en [serie de implementación empresarial: comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Para obtener información sobre cómo trabajar con archivos de MSBuild para realizar tareas para sus propios escenarios, consulte este libro: [dentro de la Microsoft Build Engine: usar MSBuild y Team Foundation Build](http://msbuildbook.com) Sayed Ibraham Hashimi y William Bartholomew.
 
 ## <a name="acknowledgements"></a>Reconocimientos
 
 Me gustaría dar las gracias a las siguientes personas que realizado aportaciones importantes para el contenido de esta serie de tutoriales:
 
-- [Alberto Poblacion, MVP &amp; MCT, España](https://mvp.microsoft.com/en-us/mvp/Alberto%20Poblacion%20Bolano-36772)
+- [Alberto Poblacion, MVP &amp; MCT, España](https://mvp.microsoft.com/mvp/Alberto%20Poblacion%20Bolano-36772)
 - Estados Unidos de Jarod Ferguson, MVP de desarrollo de plataforma de datos,
-- Duras Mittal, Microsoft
+- Harsh Mittal, Microsoft
 - [Jon Galloway](https://weblogs.asp.net/jgalloway) (twitter: [ @jongalloway ](http://twitter.com/jongalloway))
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
 - [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)

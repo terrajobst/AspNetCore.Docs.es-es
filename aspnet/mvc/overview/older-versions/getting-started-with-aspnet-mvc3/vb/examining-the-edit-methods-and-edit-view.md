@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: db2b39fab9c0701c8792d48f2ed0a059b9e450ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a933324b48d4117d5d4c806920f1691a7ef7849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-vb"></a>Examen de los métodos de edición y la vista de edición (VB)
 ====================
@@ -65,7 +65,7 @@ El `HttpGet` `Edit` método toma el parámetro de identificador de película, bu
 
 Observe cómo la plantilla de vista tiene un `@ModelType MvcMovie.Models.Movie` instrucción en la parte superior del archivo: Especifica que la vista se espera que el modelo de la plantilla de vista para ser del tipo `Movie`.
 
-El código con scaffolding utiliza varios *métodos auxiliares* para simplificar el formato HTML. El [ `Html.LabelFor` ](https://msdn.microsoft.com/en-us/library/gg401864(VS.98).aspx) auxiliar muestra el nombre del campo (&quot;título&quot;, &quot;ReleaseDate&quot;, &quot;género&quot;, o &quot;precio &quot;). El [ `Html.EditorFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) aplicación auxiliar muestra HTML `<input>` elemento. El [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) aplicación auxiliar muestra los mensajes de validación asociados a esa propiedad.
+El código con scaffolding utiliza varios *métodos auxiliares* para simplificar el formato HTML. El [ `Html.LabelFor` ](https://msdn.microsoft.com/library/gg401864(VS.98).aspx) auxiliar muestra el nombre del campo (&quot;título&quot;, &quot;ReleaseDate&quot;, &quot;género&quot;, o &quot;precio &quot;). El [ `Html.EditorFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.editorextensions.editorfor(VS.98).aspx) aplicación auxiliar muestra HTML `<input>` elemento. El [ `Html.ValidationMessageFor` ](https://msdn.microsoft.com/library/system.web.mvc.html.validationextensions.validationmessagefor(VS.98).aspx) aplicación auxiliar muestra los mensajes de validación asociados a esa propiedad.
 
 Ejecute la aplicación y navegue hasta la */Movies* dirección URL. Haga clic en un vínculo **Edit** (Editar). En el explorador, vea el código fuente de la página. El código HTML en la página es similar al ejemplo siguiente. (El marcado de menú se excluyó para mayor claridad).
 
@@ -85,7 +85,7 @@ Si los valores registrados no son válidos, se vuelven a mostrar en el formulari
 
 [![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image7.png)](examining-the-edit-methods-and-edit-view/_static/image6.png)
 
-> **Tenga en cuenta acerca de configuraciones regionales** si trabaja habitualmente con una configuración regional distinto del inglés, vea [admiten validación de ASP.NET MVC 3 con configuraciones regionales no inglesas.](https://msdn.microsoft.com/en-us/library/gg674880(VS.98).aspx)
+> **Tenga en cuenta acerca de configuraciones regionales** si trabaja habitualmente con una configuración regional distinto del inglés, vea [admiten validación de ASP.NET MVC 3 con configuraciones regionales no inglesas.](https://msdn.microsoft.com/library/gg674880(VS.98).aspx)
 
 
 ## <a name="making-the-edit-method-more-robust"></a>Hacer que el método Edit más sólida
@@ -114,7 +114,7 @@ Empiece agregando un `SearchIndex` método de acción a la existente `MoviesCont
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample8.vb)]
 
-La primera línea de la `SearchIndex` método crea las siguientes [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx) consulta para seleccionar las películas:
+La primera línea de la `SearchIndex` método crea las siguientes [LINQ](https://msdn.microsoft.com/library/bb397926.aspx) consulta para seleccionar las películas:
 
 [!code-vb[Main](examining-the-edit-methods-and-edit-view/samples/sample9.vb)]
 
@@ -126,7 +126,7 @@ Si no es así, a continuación, String.IsNullOrEmpty(searchString)
  películas = películas. Donde (funciones s.Title.Contains(searchString))   
  End If
 
-Las consultas LINQ no se ejecutan cuando se definen o cuando se modifican mediante una llamada a un método como `Where` o `OrderBy`. En su lugar, se aplaza la ejecución de la consulta, lo que significa que la evaluación de una expresión se retrasa hasta que su valor producida realmente se recorre en iteración o el [ `ToList` ](https://msdn.microsoft.com/en-us/library/bb342261.aspx) se llama al método. En la `SearchIndex` ejemplo, se ejecuta la consulta en la vista SearchIndex. Para más información sobre la ejecución de consultas en diferido, vea [Ejecución de la consulta](https://msdn.microsoft.com/en-us/library/bb738633.aspx).
+Las consultas LINQ no se ejecutan cuando se definen o cuando se modifican mediante una llamada a un método como `Where` o `OrderBy`. En su lugar, se aplaza la ejecución de la consulta, lo que significa que la evaluación de una expresión se retrasa hasta que su valor producida realmente se recorre en iteración o el [ `ToList` ](https://msdn.microsoft.com/library/bb342261.aspx) se llama al método. En la `SearchIndex` ejemplo, se ejecuta la consulta en la vista SearchIndex. Para más información sobre la ejecución de consultas en diferido, vea [Ejecución de la consulta](https://msdn.microsoft.com/library/bb738633.aspx).
 
 Ahora puede implementar la `SearchIndex` vista que se mostrará el formulario al usuario. Pulse el botón derecho dentro de la `SearchIndex` método y, a continuación, haga clic en **agregar vista**. En el **agregar vista** diálogo cuadro, especifique que va a pasar un `Movie` objeto a la plantilla de vista como su clase de modelo. En el **plantilla Scaffold** elija **lista**, a continuación, haga clic en **agregar**.
 

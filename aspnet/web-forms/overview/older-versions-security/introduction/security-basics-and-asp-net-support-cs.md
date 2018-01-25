@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 02c352c6fa1fcd1f60ebfc7b7ebf95151fe8de8c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4080e3ccaffefd02c76b89a77e320e963f854961
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="security-basics-and-aspnet-support-c"></a>Conceptos básicos de seguridad y compatibilidad de ASP.NET (C#)
 ====================
@@ -102,7 +102,7 @@ Una vez que el usuario ha iniciado sesión correctamente, las solicitudes HTTP s
 **Figura 2**: el flujo de trabajo de autenticación de formularios
 
 
-Profundizar en la autenticación de formularios con mayor detalle en los siguientes dos tutoriales,[una visión general de autenticación mediante formularios](an-overview-of-forms-authentication-cs.md) y [configuración de autenticación de formularios y temas avanzados](forms-authentication-configuration-and-advanced-topics-cs.md). Para obtener más información sobre ASP. Opciones de autenticación de red, consulte [la autenticación de ASP.NET](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx).
+Profundizar en la autenticación de formularios con mayor detalle en los siguientes dos tutoriales,[una visión general de autenticación mediante formularios](an-overview-of-forms-authentication-cs.md) y [configuración de autenticación de formularios y temas avanzados](forms-authentication-configuration-and-advanced-topics-cs.md). Para obtener más información sobre ASP. Opciones de autenticación de red, consulte [la autenticación de ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx).
 
 ## <a name="limiting-access-to-web-pages-directories-and-page-functionality"></a>Limitar el acceso a páginas Web, directorios y funcionalidad de la página
 
@@ -113,9 +113,9 @@ ASP.NET incluye dos métodos para determinar si un usuario determinado tiene aut
 
 Autorización de archivo y la autorización de dirección URL definen reglas de autorización para tener acceso a una página ASP.NET determinada o para todas las páginas ASP.NET en un directorio determinado. Con estas técnicas se podemos indicar a ASP.NET para denegar las solicitudes a una página concreta de un usuario determinado, o permitir el acceso a un conjunto de usuarios y denegar el acceso a todos los demás. ¿Qué escenarios donde todos los usuarios pueden tener acceso a la página, pero la funcionalidad de la página depende del usuario? Por ejemplo, muchos sitios que admiten las cuentas de usuario tienen páginas que mostrar contenido diferente o datos para los usuarios autenticados frente a los usuarios anónimos. Un usuario anónimo podría ver un vínculo para iniciar sesión en el sitio, mientras que un usuario autenticado en su lugar, debería ver un mensaje, como o Bienvenido de nuevo, *nombre de usuario* junto con un vínculo para cerrar la sesión. Otro ejemplo: cuando esté viendo un elemento en un sitio de subasta verá una información diferente dependiendo de que sea un usuario o la organización de subastas el elemento.
 
-Estos ajustes de nivel de página pueden realizarse mediante declaración o mediante programación. Para mostrar contenido diferente para anónimo a los usuarios autenticados, basta con arrastrar un [control LoginView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) en la página y escriba el contenido adecuado en sus plantillas AnonymousTemplate y LoggedInTemplate. Como alternativa, se pueden determinar mediante programación si se autentica la solicitud actual, que es el usuario y los roles que pertenecen a (si existe). Puede utilizar esta información para, a continuación, mostrar u ocultar columnas en una cuadrícula o paneles en la página.
+Estos ajustes de nivel de página pueden realizarse mediante declaración o mediante programación. Para mostrar contenido diferente para anónimo a los usuarios autenticados, basta con arrastrar un [control LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) en la página y escriba el contenido adecuado en sus plantillas AnonymousTemplate y LoggedInTemplate. Como alternativa, se pueden determinar mediante programación si se autentica la solicitud actual, que es el usuario y los roles que pertenecen a (si existe). Puede utilizar esta información para, a continuación, mostrar u ocultar columnas en una cuadrícula o paneles en la página.
 
-Esta serie incluye tres tutoriales que se centran en la autorización. ***Autorización basada en usuario***examina cómo limitar el acceso a una página o páginas en un directorio para las cuentas de usuario específico; ***Basado en el rol de autorización*** examina proporcionando las reglas de autorización en el rol de nivel; por último, el ***mostrar contenido tomando como base el actualmente en el usuario que inició*** tutorial explora la modificación de un determinado la página contenido y la funcionalidad basada en el usuario visita la página. Para obtener más información sobre ASP. Opciones de autorización de red, consulte [autorización de ASP.NET](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx).
+Esta serie incluye tres tutoriales que se centran en la autorización. ***Autorización basada en usuario***examina cómo limitar el acceso a una página o páginas en un directorio para las cuentas de usuario específico; ***Basado en el rol de autorización*** examina proporcionando las reglas de autorización en el rol de nivel; por último, el ***mostrar contenido tomando como base el actualmente en el usuario que inició*** tutorial explora la modificación de un determinado la página contenido y la funcionalidad basada en el usuario visita la página. Para obtener más información sobre ASP. Opciones de autorización de red, consulte [autorización de ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx).
 
 
 ## <a name="user-accounts-and-roles"></a>Cuentas de usuario y Roles
@@ -124,7 +124,7 @@ ASP. Autenticación de formularios de NET proporciona una infraestructura para q
 
 Antes de ASP.NET 2.0, los desarrolladores eran responsables de crear sus propios almacenes de usuario y el rol. También estuviera en el enlace para diseñar interfaces de usuario y escribir el código de usuario esencial páginas relacionadas con la cuenta como la página de inicio de sesión y la página para crear una nueva cuenta, entre otros. Sin cualquier marco de la cuenta de usuario integrada en ASP.NET, cada programador cuentas de usuario de implementación se tenían que llegan a sus propias decisiones de diseño en preguntas como, ¿cómo almacenan las contraseñas u otra información confidencial? ¿y qué instrucciones debo imponer en relación con intensidad y longitud de contraseña?
 
-En la actualidad, la implementación de las cuentas de usuario en una aplicación ASP.NET es mucho más fácil gracias a la *framework pertenencia* y controles Web de inicio de sesión integrado. El marco de trabajo de pertenencia es una serie de clases en el [espacio de nombres System.Web.Security](https://msdn.microsoft.com/en-us/library/system.web.security.aspx) que proporcionan la funcionalidad para realizar tareas relacionadas con la cuenta de usuario esenciales. La clase clave en el marco de trabajo de pertenencia es el [clase de pertenencia](https://msdn.microsoft.com/en-us/library/system.web.security.membership.aspx), que tiene métodos como:
+En la actualidad, la implementación de las cuentas de usuario en una aplicación ASP.NET es mucho más fácil gracias a la *framework pertenencia* y controles Web de inicio de sesión integrado. El marco de trabajo de pertenencia es una serie de clases en el [espacio de nombres System.Web.Security](https://msdn.microsoft.com/library/system.web.security.aspx) que proporcionan la funcionalidad para realizar tareas relacionadas con la cuenta de usuario esenciales. La clase clave en el marco de trabajo de pertenencia es el [clase de pertenencia](https://msdn.microsoft.com/library/system.web.security.membership.aspx), que tiene métodos como:
 
 - CreateUser
 - DeleteUser
@@ -137,8 +137,8 @@ Utiliza el marco de trabajo de la pertenencia a la [modelo de proveedor](http://
 
 Microsoft incluye dos clases de proveedor de pertenencia en .NET Framework:
 
-- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.activedirectorymembershipprovider.aspx) -implementa la API de pertenencia en los servidores de Active Directory y Active Directory Application Mode (ADAM).
-- [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) -implementa la API de pertenencia en una base de datos de SQL Server.
+- [ActiveDirectoryMembershipProvider](https://msdn.microsoft.com/library/system.web.security.activedirectorymembershipprovider.aspx) -implementa la API de pertenencia en los servidores de Active Directory y Active Directory Application Mode (ADAM).
+- [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) -implementa la API de pertenencia en una base de datos de SQL Server.
 
 Esta serie de tutoriales se centra exclusivamente en SqlMembershipProvider.
 
@@ -148,17 +148,17 @@ Esta serie de tutoriales se centra exclusivamente en SqlMembershipProvider.
 **Figura 03**: el modelo permite diferentes implementaciones de proveedor siendo perfectamente conectado en el marco de trabajo ([haga clic aquí para ver la imagen a tamaño completo](security-basics-and-asp-net-support-cs/_static/image5.png))
 
 
-La ventaja del modelo de proveedor es que los implementaciones alternativas se pueden desarrolladas por Microsoft, los proveedores de terceros o los programadores individuales y conectadas sin problemas en el marco de trabajo de pertenencia. Por ejemplo, Microsoft ha lanzado [un proveedor de pertenencia para las bases de datos de Microsoft Access](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Para obtener más información sobre los proveedores de pertenencia, vea la [Kit de herramientas de proveedor](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx), que incluye un tutorial de los proveedores de pertenencia, los proveedores personalizados de ejemplo, más de 100 páginas de documentación en el modelo de proveedor y la completar código fuente para los proveedores de pertenencia integrados (es decir, ActiveDirectoryMembershipProvider y SqlMembershipProvider).
+La ventaja del modelo de proveedor es que los implementaciones alternativas se pueden desarrolladas por Microsoft, los proveedores de terceros o los programadores individuales y conectadas sin problemas en el marco de trabajo de pertenencia. Por ejemplo, Microsoft ha lanzado [un proveedor de pertenencia para las bases de datos de Microsoft Access](https://download.microsoft.com/download/5/5/b/55bc291f-4316-4fd7-9269-dbf9edbaada8/sampleaccessproviders.vsi). Para obtener más información sobre los proveedores de pertenencia, vea la [Kit de herramientas de proveedor](https://msdn.microsoft.com/asp.net/aa336558.aspx), que incluye un tutorial de los proveedores de pertenencia, los proveedores personalizados de ejemplo, más de 100 páginas de documentación en el modelo de proveedor y la completar código fuente para los proveedores de pertenencia integrados (es decir, ActiveDirectoryMembershipProvider y SqlMembershipProvider).
 
-ASP.NET 2.0 incorporó también el marco de trabajo de Roles. Al igual que el marco de trabajo de pertenencia, el marco de Roles se basa sobre el modelo de proveedor. La API se expone a través de la [clase Roles](https://msdn.microsoft.com/en-us/library/system.web.security.roles.aspx) y .NET Framework se distribuye con tres clases de proveedor:
+ASP.NET 2.0 incorporó también el marco de trabajo de Roles. Al igual que el marco de trabajo de pertenencia, el marco de Roles se basa sobre el modelo de proveedor. La API se expone a través de la [clase Roles](https://msdn.microsoft.com/library/system.web.security.roles.aspx) y .NET Framework se distribuye con tres clases de proveedor:
 
-- [AuthorizationStoreRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.authorizationstoreroleprovider.aspx) -administra información de funciones en un almacén de directivas del Administrador de autorización, como Active Directory o ADAM.
-- [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) -implementa funciones en una base de datos de SQL Server.
-- [WindowsTokenRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.windowstokenroleprovider.aspx) -asocia información de funciones basada en el grupo de Windows del visitante. Este método se utiliza normalmente con la autenticación de Windows.
+- [AuthorizationStoreRoleProvider](https://msdn.microsoft.com/library/system.web.security.authorizationstoreroleprovider.aspx) -administra información de funciones en un almacén de directivas del Administrador de autorización, como Active Directory o ADAM.
+- [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) -implementa funciones en una base de datos de SQL Server.
+- [WindowsTokenRoleProvider](https://msdn.microsoft.com/library/system.web.security.windowstokenroleprovider.aspx) -asocia información de funciones basada en el grupo de Windows del visitante. Este método se utiliza normalmente con la autenticación de Windows.
 
 Esta serie de tutoriales se centra exclusivamente en SqlRoleProvider.
 
-Dado que el modelo de proveedor incluye una única API orientados hacia adelante (las clases de pertenencia y Roles), es posible crear funcionalidad para esa API sin tener que preocuparse sobre los detalles de implementación: las son administradas por los proveedores seleccionados por la página Developer. Esta API unificada permite Microsoft y otros fabricantes crear controles Web que se comunican con los marcos de pertenencia y los Roles. ASP.NET incluye una serie de [controla el inicio de sesión Web](https://msdn.microsoft.com/en-us/library/ms178329.aspx) para la implementación de interfaces de usuario de cuenta de usuario comunes. Por ejemplo, el [control de inicio de sesión](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.login.aspx) pide al usuario sus credenciales, valida y, a continuación, inicia sesión en a través de la autenticación de formularios. El [control LoginView](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.loginview.aspx) ofrece plantillas para mostrar un marcado diferente a los usuarios anónimos frente a los usuarios autenticados o un marcado diferente según el rol del usuario. Y el [control CreateUserWizard](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.aspx) proporciona una interfaz de usuario de paso a paso para crear una nueva cuenta de usuario.
+Dado que el modelo de proveedor incluye una única API orientados hacia adelante (las clases de pertenencia y Roles), es posible crear funcionalidad para esa API sin tener que preocuparse sobre los detalles de implementación: las son administradas por los proveedores seleccionados por la página Developer. Esta API unificada permite Microsoft y otros fabricantes crear controles Web que se comunican con los marcos de pertenencia y los Roles. ASP.NET incluye una serie de [controla el inicio de sesión Web](https://msdn.microsoft.com/library/ms178329.aspx) para la implementación de interfaces de usuario de cuenta de usuario comunes. Por ejemplo, el [control de inicio de sesión](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.aspx) pide al usuario sus credenciales, valida y, a continuación, inicia sesión en a través de la autenticación de formularios. El [control LoginView](https://msdn.microsoft.com/library/system.web.ui.webcontrols.loginview.aspx) ofrece plantillas para mostrar un marcado diferente a los usuarios anónimos frente a los usuarios autenticados o un marcado diferente según el rol del usuario. Y el [control CreateUserWizard](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.aspx) proporciona una interfaz de usuario de paso a paso para crear una nueva cuenta de usuario.
 
 Interiormente los distintos controles de inicio de sesión interactúan con los marcos de pertenencia y los Roles. La mayoría de los controles de inicio de sesión se pueden implementar sin tener que escribir una sola línea de código. Examinaremos estos controles con mayor detalle en tutoriales futuros, incluidas las técnicas de extender y personalizar su funcionalidad.
 
@@ -175,20 +175,20 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [ASP.NET 2.0 pertenencia, Roles, la autenticación de formularios y recursos de seguridad](https://weblogs.asp.net/scottgu/ASP.NET-2.0-Membership_2C00_-Roles_2C00_-Forms-Authentication_2C00_-and-Security-Resources-)
-- [Directrices de seguridad 2.0 de ASP.NET](https://msdn.microsoft.com/en-us/library/ms998258.aspx)
-- [Autenticación de ASP.NET](https://msdn.microsoft.com/en-us/library/eeyk640h.aspx)
-- [Autorización de ASP.NET](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
-- [Información general sobre controles de inicio de sesión de ASP.NET](https://msdn.microsoft.com/en-us/library/ms178329.aspx)
+- [Directrices de seguridad 2.0 de ASP.NET](https://msdn.microsoft.com/library/ms998258.aspx)
+- [Autenticación de ASP.NET](https://msdn.microsoft.com/library/eeyk640h.aspx)
+- [Autorización de ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
+- [Información general sobre controles de inicio de sesión de ASP.NET](https://msdn.microsoft.com/library/ms178329.aspx)
 - [Examen de ASP.NET del 2.0 perfil, Roles y pertenencia](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
-- [¿Cómo proteger I: Mi sitio mediante la pertenencia y los Roles?](https://asp.net/learn/videos/video-45.aspx) (Vídeo)
-- [Introducción a la suscripción](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx)
-- [Centro para desarrolladores de seguridad de MSDN](https://msdn.microsoft.com/en-us/security/default.aspx)
+- [¿Cómo proteger I: Mi sitio mediante la pertenencia y los Roles?](https://asp.net/learn/videos/video-45.aspx) (Video)
+- [Introducción a la suscripción](https://msdn.microsoft.com/library/yh26yfzy.aspx)
+- [Centro para desarrolladores de seguridad de MSDN](https://msdn.microsoft.com/security/default.aspx)
 - [Professional ASP.NET 2.0 seguridad, la pertenencia y la administración de roles](http://www.wrox.com/WileyCDA/WroxTitle/productCd-0764596985.html) (ISBN: 978-0-7645-9698-8)
-- [Kit de herramientas de proveedor](https://msdn.microsoft.com/en-us/asp.net/aa336558.aspx)
+- [Kit de herramientas de proveedor](https://msdn.microsoft.com/asp.net/aa336558.aspx)
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

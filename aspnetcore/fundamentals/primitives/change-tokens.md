@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: a9479e3d676ed4dc880996a4a77de30d82b84cd5
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Detectar cambios con tokens de cambio en ASP.NET Core
 
@@ -135,7 +135,7 @@ Un botón se habilita y deshabilita la supervisión:
 
 [!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
-Cuando `OnPostStartMonitoring` está activa, la supervisión está habilitada y se borra el estado actual. Cuando `OnPostStopMonitoring` está activa, la supervisión está deshabilitada y el estado se establece para reflejar que la supervisión no se produce.
+Cuando `OnPostStartMonitoring` está activa, la supervisión está habilitada y se borra el estado actual. Cuando `OnPostStopMonitoring` está activa, la supervisión está deshabilitada y el estado se establece para reflejar que no está realizando la supervisión.
 
 ## <a name="monitoring-cached-file-changes"></a>Supervisión de los cambios de archivo almacenado en caché
 
@@ -199,10 +199,10 @@ var compositeChangeToken =
 
 ## <a name="see-also"></a>Vea también
 
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
+* [Almacenamiento caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Aplicación auxiliar de etiqueta de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 4cb0d72330086ecb8cd9e6fb70ce0a57698dda5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ef8cddb7733c1f8cacd24c5cf341a42741d25a95
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-team-project-in-tfs"></a>Crear un proyecto de equipo en TFS
 ====================
@@ -111,12 +111,12 @@ A continuación, debe conceder al usuario permiso para crear nuevos sitios de eq
     > Es posible que reciba un **HTTP 404 no encontrado** error debido a un error de codificación doble de HTTP. Si esto ocurre, reemplace la dirección URL a este:   
     > [*dirección URL de la colección de sitios*] /\_layouts/permsetup.aspx  
     > Por ejemplo:  
-    > http://TFS/Sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+    > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
 8. En el **configurar grupos para este sitio** página, agregue el usuario que vayan a crear proyectos de equipo para el **propietarios** de grupo y, a continuación, haga clic en **Aceptar**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
 
-Para obtener más información acerca de cómo habilitar a los usuarios crear nuevos proyectos de equipo dentro de una colección de proyectos de equipo, consulte [establecer permisos de administrador para colecciones de proyectos de equipo](https://msdn.microsoft.com/en-us/library/dd547204.aspx).
+Para obtener más información acerca de cómo habilitar a los usuarios crear nuevos proyectos de equipo dentro de una colección de proyectos de equipo, consulte [establecer permisos de administrador para colecciones de proyectos de equipo](https://msdn.microsoft.com/library/dd547204.aspx).
 
 ## <a name="create-a-new-team-project-and-add-users"></a>Crear un nuevo proyecto de equipo y agregar usuarios
 
@@ -162,9 +162,9 @@ El procedimiento siguiente describe cómo crear un nuevo proyecto de equipo en T
 11. En el **seleccione una plantilla de proceso** , seleccione la plantilla de proceso que desea usar para administrar el proceso de desarrollo y, a continuación, haga clic en **siguiente**.
 
     > [!NOTE]
-    > Para obtener más información sobre plantillas de proceso de TFS, consulte [plantillas de proceso y las herramientas](https://msdn.microsoft.com/en-us/vstudio/aa718795).
+    > Para obtener más información sobre plantillas de proceso de TFS, consulte [plantillas de proceso y las herramientas](https://msdn.microsoft.com/vstudio/aa718795).
 12. En el **configuración del sitio de equipo** página, no modifique la configuración predeterminada y, a continuación, haga clic en **siguiente**.
-13. Esta opción crea o identifica un sitio de grupo de SharePoint que está asociado con el proyecto de equipo TFS. El equipo de desarrollo puede utilizar este sitio para administrar la documentación, participar en los hilos de discusión, crear páginas wiki y realice otras tareas que no están relacionados con el código. Para obtener más información, consulte [las interacciones entre los productos de SharePoint y Team Foundation Server](https://msdn.microsoft.com/en-us/library/ms253177.aspx).
+13. Esta opción crea o identifica un sitio de grupo de SharePoint que está asociado con el proyecto de equipo TFS. El equipo de desarrollo puede utilizar este sitio para administrar la documentación, participar en los hilos de discusión, crear páginas wiki y realice otras tareas que no están relacionados con el código. Para obtener más información, consulte [las interacciones entre los productos de SharePoint y Team Foundation Server](https://msdn.microsoft.com/library/ms253177.aspx).
 14. En el **especificar configuración de Control de código fuente** página, no modifique la configuración predeterminada y, a continuación, haga clic en **siguiente**.
 15. Esta configuración identifica o crea la ubicación en la jerarquía de carpetas TFS que actuará como una carpeta raíz para el contenido.
 16. En el **Confirmar configuración del proyecto de equipo** página, haga clic en **finalizar**.
@@ -200,7 +200,7 @@ El siguiente tema, [agregar contenido al Control de código fuente](adding-conte
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener más amplia información sobre la creación de proyectos de equipo en TFS, consulte [crear un proyecto de equipo](https://msdn.microsoft.com/en-us/library/ms181477(v=VS.100).aspx). Para obtener más información acerca de cómo habilitar a los usuarios crear nuevos proyectos de equipo dentro de una colección de proyectos de equipo, consulte [establecer permisos de administrador para colecciones de proyectos de equipo](https://msdn.microsoft.com/en-us/library/dd547204.aspx). Para obtener más información sobre cómo agregar usuarios a proyectos de equipo, consulte [agregar usuarios a proyectos de equipo](https://msdn.microsoft.com/en-us/library/bb558971.aspx).
+Para obtener más amplia información sobre la creación de proyectos de equipo en TFS, consulte [crear un proyecto de equipo](https://msdn.microsoft.com/library/ms181477(v=VS.100).aspx). Para obtener más información acerca de cómo habilitar a los usuarios crear nuevos proyectos de equipo dentro de una colección de proyectos de equipo, consulte [establecer permisos de administrador para colecciones de proyectos de equipo](https://msdn.microsoft.com/library/dd547204.aspx). Para obtener más información sobre cómo agregar usuarios a proyectos de equipo, consulte [agregar usuarios a proyectos de equipo](https://msdn.microsoft.com/library/bb558971.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](configuring-team-foundation-server-for-web-deployment.md)

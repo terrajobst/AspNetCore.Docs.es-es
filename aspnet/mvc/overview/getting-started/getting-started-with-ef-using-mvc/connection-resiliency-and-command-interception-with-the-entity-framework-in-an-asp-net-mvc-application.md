@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: fecdd582918a61f3d01519c75d159f9c601c8223
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a28284e203904cc943e5e46b369e8a58ea5c820
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Resistencia de conexión y comando interceptación con Entity Framework en una aplicación ASP.NET MVC
 ====================
@@ -49,14 +49,14 @@ La característica de resistencia de conexión debe configurarse correctamente p
 
 Puede configurar estas opciones manualmente para un entorno de base de datos compatible con un proveedor de Entity Framework, pero los valores predeterminados que normalmente funcionan bien para una aplicación en línea que usa la base de datos de Windows Azure SQL ya se configuró para usted, y esos son la configuración que se implementa para la aplicación de la Universidad de Contoso.
 
-Lo único que debe hacer para habilitar la resistencia de conexión es crear una clase en el ensamblado que se deriva de la [DbConfiguration](https://msdn.microsoft.com/en-us/data/jj680699.aspx) clase y, en esa clase, establezca la base de datos de SQL *estrategia de ejecución*, que en EF es otro término de *directiva de reintentos*.
+Lo único que debe hacer para habilitar la resistencia de conexión es crear una clase en el ensamblado que se deriva de la [DbConfiguration](https://msdn.microsoft.com/data/jj680699.aspx) clase y, en esa clase, establezca la base de datos de SQL *estrategia de ejecución*, que en EF es otro término de *directiva de reintentos*.
 
 1. En la carpeta de la capa DAL, agregue un archivo de clase denominado *SchoolConfiguration.cs*.
 2. Reemplace el código de plantilla con el código siguiente:
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-    Entity Framework se ejecuta automáticamente el código que se encuentra en una clase que deriva de `DbConfiguration`. Puede usar el `DbConfiguration` clase para realizar tareas de configuración en el código que lo haría en caso contrario, en la *Web.config* archivo. Para obtener más información, consulte [EntityFramework configuración basada en código](https://msdn.microsoft.com/en-us/data/jj680699).
+    Entity Framework se ejecuta automáticamente el código que se encuentra en una clase que deriva de `DbConfiguration`. Puede usar el `DbConfiguration` clase para realizar tareas de configuración en el código que lo haría en caso contrario, en la *Web.config* archivo. Para obtener más información, consulte [EntityFramework configuración basada en código](https://msdn.microsoft.com/data/jj680699).
 3. En *StudentController.cs*, agregue un `using` instrucción para `System.Data.Entity.Infrastructure`.
 
     [!code-csharp[Main](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
@@ -66,13 +66,13 @@ Lo único que debe hacer para habilitar la resistencia de conexión es crear una
 
     Usaba `DataException` para intentar identificar los errores que pueden ser transitorios para ofrecer un mensaje descriptivo "inténtelo de nuevo". Pero ahora que ha activado una directiva de reintentos, los errores solo puedos ser transitorios ya habrá se probaron y no se pudo varias veces y se ajustará la excepción real que se devuelve en el `RetryLimitExceededException` excepción.
 
-Para obtener más información, consulte [resistencia de conexión de Entity Framework / lógica de reintento](https://msdn.microsoft.com/en-us/data/dn456835).
+Para obtener más información, consulte [resistencia de conexión de Entity Framework / lógica de reintento](https://msdn.microsoft.com/data/dn456835).
 
 ## <a name="enable-command-interception"></a>Habilitar la interceptación de comando
 
 ¿Ahora que ha activado una directiva de reintentos, cómo pruebas para comprobar que funciona según lo previsto? No es tan fácil forzar un error transitorio que se produzca, especialmente cuando está ejecutando localmente, y sería especialmente difícil integrar los errores transitorios reales en una prueba unitaria automatizadas. Para probar la característica de resistencia de conexión, necesita una manera para interceptar las consultas que Entity Framework se envía a SQL Server y reemplace la respuesta del servidor de SQL con un tipo de excepción que se suelen ser temporal.
 
-También puede utilizar la intercepción de consulta a fin de implementar un procedimiento recomendado para aplicaciones de nube: [registrar la latencia y el éxito o error de todas las llamadas a los servicios externos](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) como los servicios de base de datos. EF6 proporciona un [dedicado API de registro](https://msdn.microsoft.com/en-us/data/dn469464) que puede ser de ayuda realizar el registro, pero en esta sección del tutorial aprenderá a usar Entity Framework [característica de interceptación](https://msdn.microsoft.com/en-us/data/dn469464) directamente, tanto para inicio de sesión y para simular los errores transitorios.
+También puede utilizar la intercepción de consulta a fin de implementar un procedimiento recomendado para aplicaciones de nube: [registrar la latencia y el éxito o error de todas las llamadas a los servicios externos](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) como los servicios de base de datos. EF6 proporciona un [dedicado API de registro](https://msdn.microsoft.com/data/dn469464) que puede ser de ayuda realizar el registro, pero en esta sección del tutorial aprenderá a usar Entity Framework [característica de interceptación](https://msdn.microsoft.com/data/dn469464) directamente, tanto para inicio de sesión y para simular los errores transitorios.
 
 ### <a name="create-a-logging-interface-and-class"></a>Crear una interfaz de registro y la clase
 

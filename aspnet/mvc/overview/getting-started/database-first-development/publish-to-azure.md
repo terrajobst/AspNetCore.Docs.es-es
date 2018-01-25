@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: f75b7192b4d97c88fcbcb4ad7fef88c83157c902
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Publicar sitio MVC Database First en Azure
 ====================
@@ -31,8 +31,8 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 
 Necesita una cuenta de Azure para completar este tutorial:
 
-- También puede [abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
-- También puede [activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
+- También puede [abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
+- También puede [activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
 
 Para publicar la aplicación web, haga clic en el proyecto y seleccione **publicar**.
 
@@ -99,7 +99,7 @@ Debe configurar el servidor de base de datos para permitir las conexiones desde 
 
 Hay una posibilidad de que la dirección IP que agregó en el paso anterior no es la única dirección IP que debe configurar para las conexiones. Puede intentar iniciar sesión en la base de datos para ver si las conexiones se han configurado correctamente. Proporcione el usuario y la contraseña que creó anteriormente.
 
-![Inicio de sesión](publish-to-azure/_static/image12.png)
+![inicio de sesión](publish-to-azure/_static/image12.png)
 
 Si recibe un mensaje de error, debe agregar otra dirección IP. Haga clic en el mensaje de error para ver más detalles sobre el error. En los detalles, verá la dirección IP que necesite agregar. Tenga en cuenta esta dirección IP.
 

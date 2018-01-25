@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a88d8f35c770b362b74f787fee2c60a7577bccb2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Implementación de Web ASP.NET con Visual Studio: transformaciones del archivo Web.config
 ====================
@@ -35,7 +35,7 @@ Aviso: Si aparece un mensaje de error o algo no funciona a medida que avances en
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Transformaciones de Web.config frente a parámetros de Web Deploy
 
-Hay dos maneras de automatizar el proceso de cambio *Web.config* archivo de configuración: [transformaciones de Web.config](https://msdn.microsoft.com/en-us/library/dd465326.aspx) y [Web Deploy parámetros](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web.config* archivo de transformación contiene marcado XML que especifica cómo cambiar el *Web.config* archivo cuando se implementa. Puede especificar distintos cambios específica para configuraciones de compilación y específica para perfiles de publicación. Las configuraciones de compilación predeterminadas son Debug y Release, y puede crear configuraciones de compilación personalizada. Normalmente, un perfil de publicación corresponde a un entorno de destino. (Aprenderá más acerca de cómo publicación perfiles en el [implementación en IIS como un entorno de prueba](deploying-to-iis.md) tutorial.)
+Hay dos maneras de automatizar el proceso de cambio *Web.config* archivo de configuración: [transformaciones de Web.config](https://msdn.microsoft.com/library/dd465326.aspx) y [Web Deploy parámetros](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* archivo de transformación contiene marcado XML que especifica cómo cambiar el *Web.config* archivo cuando se implementa. Puede especificar distintos cambios específica para configuraciones de compilación y específica para perfiles de publicación. Las configuraciones de compilación predeterminadas son Debug y Release, y puede crear configuraciones de compilación personalizada. Normalmente, un perfil de publicación corresponde a un entorno de destino. (Aprenderá más acerca de cómo publicación perfiles en el [implementación en IIS como un entorno de prueba](deploying-to-iis.md) tutorial.)
 
 Parámetros de implementación Web pueden utilizarse para especificar varios tipos diferentes de configuración que se debe configurar durante la implementación, incluida la configuración que se encuentra en *Web.config* archivos. Cuando se usa para especificar *Web.config* cambios del archivo, son más complejas para configurar los parámetros de implementación Web, pero son útiles cuando no conoce el valor que se establecerá hasta que implemente. Por ejemplo, en un entorno empresarial, puede crear un *paquete de implementación* y darle a una persona del departamento de TI para instalar en producción, y esa persona debe ser capaz de escribir las cadenas de conexión o las contraseñas que no conocer.
 

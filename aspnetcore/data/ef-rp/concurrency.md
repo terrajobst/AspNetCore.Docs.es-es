@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: a980669d49d332d7ef2ff5a18c73e9b269281287
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b36fb71cba058a3409b30a1d9469159fcd027375
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 en-us /
 
@@ -63,7 +63,7 @@ Simultaneidad optimista incluye las siguientes opciones:
 
 * Puede permitir que los cambios de John sobrescribir los cambios de Julia.
 
- La próxima vez que un usuario examina el departamento de inglés, verán 9/1/2013 y el valor de $350,000.00 capturadas. Este enfoque se denomina un *cliente Wins* o *el último gana* escenario. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos.) Si no hace ninguna codificación para el control de simultaneidad, gana el cliente realiza automáticamente.
+ La próxima vez que un usuario examina el departamento de inglés, verá 9/1/2013 y el valor de $350,000.00 capturadas. Este enfoque se denomina un *cliente Wins* o *el último gana* escenario. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos.) Si no hace ninguna codificación para el control de simultaneidad, gana el cliente realiza automáticamente.
 
 * Cambio de John puede impedir que se actualiza en la base de datos. Normalmente, la aplicación podría: * mostrar un mensaje de error.
         * Mostrar el estado actual de los datos.
@@ -73,18 +73,18 @@ Simultaneidad optimista incluye las siguientes opciones:
 
 ## <a name="handling-concurrency"></a>Control de simultaneidad 
 
-Cuando una propiedad se configura como un [token de simultaneidad](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency):
+Cuando una propiedad se configura como un [token de simultaneidad](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* Núcleo EF comprueba que no se han modificado propiedad después de se capturó. La comprobación se produce cuando [SaveChanges](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) se llama.
+* Núcleo EF comprueba que no se han modificado propiedad después de se capturó. La comprobación se produce cuando [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_) se llama.
 * Si la propiedad ha cambiado desde que se capturó, un [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0) se produce. 
 
 El modelo de base de datos y los datos debe configurarse para admitir producir `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Detección de conflictos de simultaneidad en una propiedad
 
-Se pueden detectar conflictos de simultaneidad en el nivel de propiedad con el [sea ConcurrencyCheck](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) atributo. El atributo se puede aplicar a varias propiedades en el modelo. Para obtener más información, consulte [anotaciones de datos-sea ConcurrencyCheck](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency#data-annotations).
+Se pueden detectar conflictos de simultaneidad en el nivel de propiedad con el [sea ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0) atributo. El atributo se puede aplicar a varias propiedades en el modelo. Para obtener más información, consulte [anotaciones de datos-sea ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
 
-El `[ConcurrencyCheck]` atributo no se utiliza en este tutorial.
+El `[ConcurrencyCheck]` atributo no se usa en este tutorial.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Detección de conflictos de simultaneidad en una fila
 
@@ -127,7 +127,7 @@ El código resaltado siguiente muestra el código T-SQL que comprueba que se act
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT ](https://docs.microsoft.com/en-us/sql/t-sql/functions/rowcount-transact-sql) devuelve el número de filas afectadas por la última instrucción. En no se actualizan las filas, Core EF produce un `DbUpdateConcurrencyException`.
+[@@ROWCOUNT ](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) devuelve el número de filas afectadas por la última instrucción. En no se actualizan las filas, Core EF produce un `DbUpdateConcurrencyException`.
 
 Puede ver que el núcleo de EF de T-SQL se genera en la ventana de salida de Visual Studio.
 
@@ -175,7 +175,7 @@ Compile el proyecto. La compilación genera errores similar al siguiente:
 
 ### <a name="update-the-departments-index-page"></a>Actualizar la página de índice de departamentos
 
-El motor de scaffolding que crea un `RowVersion` columna para la página de índice, pero ese campo no debe mostrarse. En este tutorial, el último byte de la `RowVersion` se muestra como ayuda para entender la simultaneidad. El último byte se garantiza que no sean únicos. No mostrar una aplicación real `RowVersion` o el último byte de `RowVersion`.
+El motor de scaffolding que crea un `RowVersion` columna para la página de índice, pero ese campo no debe mostrarse. En este tutorial, el último byte de la `RowVersion` se muestra como ayuda para entender la simultaneidad. El último byte no garantiza que es único. No mostrar una aplicación real `RowVersion` o el último byte de `RowVersion`.
 
 Actualice la página de índice:
 
@@ -250,7 +250,7 @@ Haga clic en **Guardar**. Vea mensajes de error para todos los campos que no coi
 
 ![Mensaje de error de página de edición de departamento](concurrency/_static/edit-error.png)
 
-Esta ventana del explorador no pretendía cambiar el campo de nombre. Copie y pegue el valor actual (idiomas) en el campo nombre. Pestaña salida. Validación del lado cliente quita el mensaje de error.
+Esta ventana del explorador no va a cambiar el campo de nombre. Copie y pegue el valor actual (idiomas) en el campo nombre. Pestaña salida. Validación del lado cliente quita el mensaje de error.
 
 ![Mensaje de error de página de edición de departamento](concurrency/_static/cv.png)
 
@@ -305,8 +305,8 @@ Vea [herencia](xref:data/ef-mvc/inheritance) sobre cómo se hereda de un modelo 
 
 ### <a name="additional-resources"></a>Recursos adicionales
 
-* [Tokens de simultaneidad en EF Core](https://docs.microsoft.com/en-us/ef/core/modeling/concurrency)
-* [Control de simultaneidad en EF Core](https://docs.microsoft.com/en-us/ef/core/saving/concurrency)
+* [Tokens de simultaneidad en EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
+* [Control de simultaneidad en EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
 
 >[!div class="step-by-step"]
 [Anterior](xref:data/ef-rp/update-related-data)

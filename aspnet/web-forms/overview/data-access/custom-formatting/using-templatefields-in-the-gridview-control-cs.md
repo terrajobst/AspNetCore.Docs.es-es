@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4202f25b241a6ca115c1ffc0a80258ee96563f72
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 004f1450937cc6543cb728e01586e3c3529a57d0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-templatefields-in-the-gridview-control-c"></a>Uso de TemplateFields en el Control GridView (C#)
 ====================
@@ -158,7 +158,7 @@ Para completar este primer paso, quite el `LastName` BoundField y cambiar el nom
 
 ## <a name="step-3-using-the-calendar-control-to-display-thehireddatefield"></a>Paso 3: Usar el Control de calendario que se muestran los`HiredDate`campo
 
-Mostrar un valor de campo de datos como texto en un control GridView es tan simple como utilizar un BoundField. En determinados escenarios, sin embargo, los datos se mejor expresa mediante un control Web determinado en lugar de solo texto. Es posible con TemplateFields dicha personalización de la visualización de datos. Por ejemplo, en lugar de mostrar la fecha de contratación del empleado como texto, podríamos mostramos un calendario (mediante [el control de calendario](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) con su fecha de contratación resaltado.
+Mostrar un valor de campo de datos como texto en un control GridView es tan simple como utilizar un BoundField. En determinados escenarios, sin embargo, los datos se mejor expresa mediante un control Web determinado en lugar de solo texto. Es posible con TemplateFields dicha personalización de la visualización de datos. Por ejemplo, en lugar de mostrar la fecha de contratación del empleado como texto, podríamos mostramos un calendario (mediante [el control de calendario](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar(VS.80).aspx)) con su fecha de contratación resaltado.
 
 Para ello, inicie convirtiendo el `HiredDate` BoundField en TemplateField. Simplemente vaya a la etiqueta inteligente de GridView y haga clic en el vínculo Editar columnas, muestre el cuadro de diálogo de campos. Seleccione el `HiredDate` BoundField y haga clic en "convertir este campo TemplateField."
 
@@ -178,7 +178,7 @@ Para reemplazar el texto con un control de calendario, edite la plantilla quitan
 **Figura 12**: agregar un Control de calendario para el `HireDate` del TemplateField `ItemTemplate` ([haga clic aquí para ver la imagen a tamaño completo](using-templatefields-in-the-gridview-control-cs/_static/image36.png))
 
 
-En este momento, cada fila de GridView contendrá un control de calendario en su `HiredDate` TemplateField. Sin embargo, el empleado del real `HiredDate` valor no está establecido en cualquier lugar en el control de calendario, haciendo que cada control de calendario en que muestra el mes actual y la fecha de forma predeterminada. Para solucionar esto, debemos asignar cada empleado `HiredDate` para el control de calendario [SelectedDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) y [VisibleDate](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) propiedades.
+En este momento, cada fila de GridView contendrá un control de calendario en su `HiredDate` TemplateField. Sin embargo, el empleado del real `HiredDate` valor no está establecido en cualquier lugar en el control de calendario, haciendo que cada control de calendario en que muestra el mes actual y la fecha de forma predeterminada. Para solucionar esto, debemos asignar cada empleado `HiredDate` para el control de calendario [SelectedDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.selecteddate(VS.80).aspx) y [VisibleDate](https://msdn.microsoft.com/library/system.web.ui.webcontrols.calendar.visibledate(VS.80).aspx) propiedades.
 
 En las etiquetas inteligentes del control de calendario, elija Editar DataBindings. A continuación, enlazar ambos `SelectedDate` y `VisibleDate` propiedades para el `HiredDate` campo de datos.
 
@@ -276,7 +276,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: 53adb067751917a9539a310bb7d91e599696f213
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9c4d293355e26d8bf5ba1360b070a7b9809bfe56
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management"></a>Administración de claves
 
@@ -48,9 +48,9 @@ Hay una excepción. Si el desarrollador de aplicaciones tiene [deshabilita la ge
 
 ## <a name="key-expiration-and-rolling"></a>Expiración de la clave y gradual
 
-Cuando se crea una clave, que se genera automáticamente una fecha de activación de {now + 2 días} y una fecha de expiración de {now + 90 días}. El retraso de 2 días antes de la activación le ofrece la key time en propagarse a través del sistema. Es decir, permite que otras aplicaciones que apunta a la memoria auxiliar observar la clave en el siguiente período de actualización automática, lo que maximiza las posibilidades de que cuando la clave de anillo activo hace que se convierten en que se propague a todas las aplicaciones que pueden necesitar para utilizan.
+Cuando se crea una clave, que genera automáticamente una fecha de activación de {now + 2 días} y una fecha de expiración de {now + 90 días}. El retraso de 2 días antes de la activación le ofrece la key time en propagarse a través del sistema. Es decir, permite que otras aplicaciones que apunta a la memoria auxiliar observar la clave en el siguiente período de actualización automática, lo que maximiza las posibilidades de que cuando la clave de anillo activo hace que se convierten en que se propague a todas las aplicaciones que pueden necesitar para utilizan.
 
-Si la clave predeterminada expirará dentro de 2 días y el anillo de clave aún no tiene una clave que se activará tras la expiración de la clave de forma predeterminada, el sistema de protección de datos conservará automáticamente una nueva clave para el anillo de clave. Esta nueva clave tiene una fecha de activación de {fecha de expiración de la clave predeterminada} y una fecha de expiración de {now + 90 días}. Esto permite al sistema poner automáticamente las claves de forma regular con ninguna interrupción del servicio.
+Si la clave predeterminada expirará dentro de 2 días y el anillo de clave ya no tiene una clave que se activará tras la expiración de la clave de forma predeterminada, el sistema de protección de datos conservará automáticamente una nueva clave para el anillo de clave. Esta nueva clave tiene una fecha de activación de {fecha de expiración de la clave predeterminada} y una fecha de expiración de {now + 90 días}. Esto permite al sistema poner automáticamente las claves de forma regular con ninguna interrupción del servicio.
 
 Puede haber circunstancias donde se creará una clave con la activación inmediata. Un ejemplo sería cuando la aplicación no se haya ejecutado durante un tiempo y todas las claves en el anillo de clave se ha caducado. Cuando esto ocurre, la clave se genera una fecha de activación de {ahora} sin el retardo de activación normal de 2 días.
 

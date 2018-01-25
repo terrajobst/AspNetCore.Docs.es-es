@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: f8d378d3332669ae4606dad8ada06de37e7dfd20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuration-and-instrumentation"></a>Configuración e instrumentación
 ====================
@@ -78,13 +78,13 @@ Muchas clases de configuración y los métodos son similares entre sí. La tabla
 
 | **Espacio de nombres o clase de configuración** | **Descripción** |
 | --- | --- |
-| [System.Configuration](https://msdn.microsoft.com/en-us/library/system.configuration.aspx) espacio de nombres | Contiene las clases de configuración principales para todas las aplicaciones de .NET Framework. Las clases de controlador de sección sirven para obtener datos de configuración de una sección de métodos, como GetSection y GetSectionGroup. Estos dos métodos son no estáticos. |
+| [System.Configuration](https://msdn.microsoft.com/library/system.configuration.aspx) espacio de nombres | Contiene las clases de configuración principales para todas las aplicaciones de .NET Framework. Las clases de controlador de sección sirven para obtener datos de configuración de una sección de métodos, como GetSection y GetSectionGroup. Estos dos métodos son no estáticos. |
 | Clase System.Configuration.Configuration | Representa un conjunto de datos de configuración de un equipo, aplicación, directorio Web u otro recurso. Esta clase contiene métodos útiles, como GetSection y GetSectionGroup, para actualizar los valores de configuración y obtener referencias a secciones y grupos de sección. Esta clase se utiliza como un tipo de valor devuelto para los métodos que obtienen datos de configuración en tiempo de diseño, como los métodos de las clases WebConfigurationManager y ConfigurationManager. |
-| Espacio de nombres System.Web.Configuration | Contiene las clases de controlador de sección para las secciones de configuración de ASP.NET definen en [opciones de configuración de ASP.NET](https://msdn.microsoft.com/en-us/library/b5ysx397.aspx). Las clases de controlador de sección sirven para obtener datos de configuración de una sección de métodos, como GetSection y GetSectionGroup. |
+| Espacio de nombres System.Web.Configuration | Contiene las clases de controlador de sección para las secciones de configuración de ASP.NET definen en [opciones de configuración de ASP.NET](https://msdn.microsoft.com/library/b5ysx397.aspx). Las clases de controlador de sección sirven para obtener datos de configuración de una sección de métodos, como GetSection y GetSectionGroup. |
 | Clase System.Web.Configuration.WebConfigurationManager | Proporciona métodos útiles para obtener referencias a los valores de configuración de tiempo de diseño y tiempo de ejecución. Estos métodos utilizan la clase System.Configuration.Configuration como un tipo de valor devuelto. Puede usar el método GetSection estático de esta clase o el método GetSection no estático de la clase System.Configuration.ConfigurationManager indistintamente. Para las configuraciones de aplicación Web, se recomienda la clase System.Web.Configuration.WebConfigurationManager en lugar de la clase System.Configuration.ConfigurationManager. |
-| [System.Configuration.Provider](https://msdn.microsoft.com/en-us/library/system.configuration.provider.aspx) espacio de nombres | Proporciona una manera de personalizar y extender el proveedor de configuración. Esta es la clase base para todas las clases de proveedor en el sistema de configuración. |
-| [System.Web.Management](https://msdn.microsoft.com/en-us/library/system.web.management.aspx) espacio de nombres | Contiene clases e interfaces para administrar y supervisar el estado de las aplicaciones Web. En sentido estricto, este espacio de nombres no se considera parte de la API de configuración. Por ejemplo, el seguimiento y que desencadenó el evento se realiza mediante las clases de este espacio de nombres. |
-| [System.Management.Instrumentation](https://msdn.microsoft.com/en-us/library/system.management.instrumentation.aspx) espacio de nombres | Proporciona las clases necesarias para la instrumentación de aplicaciones para exponer sus datos de administración y eventos a través de Windows Management Instrumentation (WMI) para los consumidores potenciales. Supervisión de estado ASP.NET utiliza WMI para entregar eventos. En sentido estricto, este espacio de nombres no se considera parte de la API de configuración. |
+| [System.Configuration.Provider](https://msdn.microsoft.com/library/system.configuration.provider.aspx) namespace | Proporciona una manera de personalizar y extender el proveedor de configuración. Esta es la clase base para todas las clases de proveedor en el sistema de configuración. |
+| [System.Web.Management](https://msdn.microsoft.com/library/system.web.management.aspx) espacio de nombres | Contiene clases e interfaces para administrar y supervisar el estado de las aplicaciones Web. En sentido estricto, este espacio de nombres no se considera parte de la API de configuración. Por ejemplo, el seguimiento y que desencadenó el evento se realiza mediante las clases de este espacio de nombres. |
+| [System.Management.Instrumentation](https://msdn.microsoft.com/library/system.management.instrumentation.aspx) espacio de nombres | Proporciona las clases necesarias para la instrumentación de aplicaciones para exponer sus datos de administración y eventos a través de Windows Management Instrumentation (WMI) para los consumidores potenciales. Supervisión de estado ASP.NET utiliza WMI para entregar eventos. En sentido estricto, este espacio de nombres no se considera parte de la API de configuración. |
 
 ## <a name="reading-from-aspnet-configuration-files"></a>Leer archivos de configuración de ASP.NET
 
@@ -244,12 +244,12 @@ Hay varias herramientas de línea de comandos para ayudar en la configuración d
 
 Las herramientas de línea de comandos siguientes están disponibles:
 
-| **Herramienta** | **Uso** |
+| **Tool** | **Uso** |
 | --- | --- |
-| **ASPNET\_regiis.exe** | Permite registrar ASP.NET con IIS. Hay dos versiones de estas herramientas que se incluyen con ASP.NET 2.0, uno para los sistemas de 32 bits (en la carpeta Framework) y otro para sistemas de 64 bits (en la carpeta Framework64.) No se instalará la versión de 64 bits en un sistema operativo de 32 bits. |
-| **ASPNET\_regsql.exe** | La herramienta de registro de SQL Server de ASP.NET se utiliza para crear una base de datos de Microsoft SQL Server para su uso por los proveedores de SQL Server en ASP.NET, o para agregar o quitar opciones de una base de datos existente. Aspnet\_regsql.exe archivo se encuentra en la [carpeta de drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber en el servidor Web. |
-| **ASPNET\_regbrowsers.exe** | La herramienta de registro de explorador ASP.NET analiza y compila todas las definiciones del explorador de todo el sistema en un ensamblado e instala al ensamblado en la caché global de ensamblados. La herramienta utiliza los archivos de definición de explorador (. Archivos de explorador) del subdirectorio de exploradores de .NET Framework. La herramienta se puede encontrar en el directorio %SystemRoot%\Microsoft.NET\Framework\version\. |
-| **ASPNET\_compiler.exe** | La herramienta de compilación de ASP.NET permite compilar una aplicación Web ASP.NET, en su lugar o para su implementación en una ubicación de destino como un servidor de producción. Compilación en contexto mejora el rendimiento de la aplicación porque los usuarios finales no se produce un retraso en la primera solicitud a la aplicación mientras se compila la aplicación. |
+| **aspnet\_regiis.exe** | Permite registrar ASP.NET con IIS. Hay dos versiones de estas herramientas que se incluyen con ASP.NET 2.0, uno para los sistemas de 32 bits (en la carpeta Framework) y otro para sistemas de 64 bits (en la carpeta Framework64.) No se instalará la versión de 64 bits en un sistema operativo de 32 bits. |
+| **aspnet\_regsql.exe** | La herramienta de registro de SQL Server de ASP.NET se utiliza para crear una base de datos de Microsoft SQL Server para su uso por los proveedores de SQL Server en ASP.NET, o para agregar o quitar opciones de una base de datos existente. Aspnet\_regsql.exe archivo se encuentra en la [carpeta de drive:]\WINDOWS\Microsoft.NET\Framework\versionNumber en el servidor Web. |
+| **aspnet\_regbrowsers.exe** | La herramienta de registro de explorador ASP.NET analiza y compila todas las definiciones del explorador de todo el sistema en un ensamblado e instala al ensamblado en la caché global de ensamblados. La herramienta utiliza los archivos de definición de explorador (. Archivos de explorador) del subdirectorio de exploradores de .NET Framework. La herramienta se puede encontrar en el directorio %SystemRoot%\Microsoft.NET\Framework\version\. |
+| **aspnet\_compiler.exe** | La herramienta de compilación de ASP.NET permite compilar una aplicación Web ASP.NET, en su lugar o para su implementación en una ubicación de destino como un servidor de producción. Compilación en contexto mejora el rendimiento de la aplicación porque los usuarios finales no se produce un retraso en la primera solicitud a la aplicación mientras se compila la aplicación. |
 
 Dado que aspnet\_regiis.exe herramienta no está familiarizado con ASP.NET 2.0, no trataremos aquí.
 
@@ -259,11 +259,11 @@ Puede establecer varios tipos de opciones con la herramienta de registro de SQL 
 
 Varios servicios de aplicación de ASP.NET dependen de un proveedor para administrar el almacenamiento y recuperación de datos desde un origen de datos. Cada proveedor es específico para el origen de datos. ASP.NET incluye un proveedor de SQL Server para las siguientes características ASP.NET:
 
-- Pertenencia (la [SqlMembershipProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlmembershipprovider.aspx) clase).
-- Administración de roles (el [SqlRoleProvider](https://msdn.microsoft.com/en-us/library/system.web.security.sqlroleprovider.aspx) clase).
-- Perfil (el [SqlProfileProvider](https://msdn.microsoft.com/en-us/library/system.web.profile.sqlprofileprovider.aspx) clase).
-- Personalización de elementos Web (el [SqlPersonalizationProvider](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) clase).
-- Eventos de Web (el [SqlWebEventProvider](https://msdn.microsoft.com/en-us/library/system.web.management.sqlwebeventprovider.aspx) clase).
+- Pertenencia (la [SqlMembershipProvider](https://msdn.microsoft.com/library/system.web.security.sqlmembershipprovider.aspx) clase).
+- Administración de roles (el [SqlRoleProvider](https://msdn.microsoft.com/library/system.web.security.sqlroleprovider.aspx) clase).
+- Perfil (el [SqlProfileProvider](https://msdn.microsoft.com/library/system.web.profile.sqlprofileprovider.aspx) clase).
+- Personalización de elementos Web (el [SqlPersonalizationProvider](https://msdn.microsoft.com/library/system.web.ui.webcontrols.webparts.sqlpersonalizationprovider.aspx) clase).
+- Eventos de Web (el [SqlWebEventProvider](https://msdn.microsoft.com/library/system.web.management.sqlwebeventprovider.aspx) clase).
 
 Al instalar ASP.NET, el archivo Machine.config del servidor incluye elementos de configuración que especifican los proveedores de SQL Server para cada una de las características ASP.NET que se basan en un proveedor. Estos proveedores se configuran de forma predeterminada, para conectarse a una instancia de usuario local de SQL Server Express 2005. Si cambia la cadena de conexión predeterminado utilizada por los proveedores, para poder usar cualquiera de las características ASP.NET configuradas en la configuración del equipo, debe instalar la base de datos de SQL Server y los elementos de la base de datos para la característica elegida mediante Aspnet\_regsql.exe. Si la base de datos que se especifique con la herramienta de registro SQL no existe (aspnetdb será la base de datos predeterminada si no se especifica en la línea de comandos), a continuación, el usuario actual debe tener derechos para crear bases de datos en SQL Server, así como para crear el esquema e elementos dentro de una base de datos.
 
@@ -301,7 +301,7 @@ Las siguientes opciones están disponibles cuando se ejecuta aspnet\_regbrowser.
 
 La herramienta de compilación de ASP.NET se puede usar de dos formas generales: para en contexto y la compilación para la implementación, donde se especifica un directorio de salida de destino.
 
-### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Compilar una aplicación en su lugar](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-in-placehttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Compilar una aplicación en su lugar](https://msdn.microsoft.com/library/ms229863.aspx)
 
 La herramienta de compilación de ASP.NET puede compilar una aplicación en su lugar, es decir, imita el comportamiento de realización de varias solicitudes a la aplicación, lo que produce la compilación normal. Los usuarios de un sitio precompilado no experimentarán una demora causada por la compilación de la página en la primera solicitud.
 
@@ -317,7 +317,7 @@ También puede volver a compilar una aplicación en su lugar después de agregar
 > Compilación de una aplicación que contiene una aplicación anidada no compila la aplicación anidada. La aplicación anidada se debe compilar por separado.
 
 
-### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Compilar una aplicación para la implementación](https://msdn.microsoft.com/en-us/library/ms229863.aspx)
+### <a name="compiling-an-application-for-deploymenthttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Compilar una aplicación para la implementación](https://msdn.microsoft.com/library/ms229863.aspx)
 
 Compilar una aplicación para la implementación (compilación para una ubicación de destino) especificando el parámetro targetDir. TargetDir puede ser la ubicación final de la aplicación Web o la aplicación compilada se puede implementar más. Mediante el **-u** opción compila la aplicación de tal manera que puede realizar cambios en algunos archivos de la aplicación compilada sin recompilarla. ASPNET\_compiler.exe hace una distinción entre los tipos de archivos estáticos y dinámicos y reacciona ante ellas diferente al crear la aplicación resultante.
 
@@ -349,18 +349,18 @@ La tabla siguiente describe cómo la compilación de ASP.NET herramienta identif
 | . cs, .vb, .jsl, .cpp (sin incluir los archivos de código subyacente para los tipos de archivo enumerados anteriormente) | Código fuente que hace referencia a los ensamblados generados a partir de archivos .aspx, .ashx o. ascx se compilan en ensamblados y se coloca en el directorio Bin. Se copia ningún archivo de origen. |
 | Tipos de archivo personalizados | Estos archivos se compilan como archivos dinámicos. Según el tipo de archivo que se basan, el compilador puede colocar los archivos de asignación en los directorios de salida. |
 | Archivos de la aplicación\_subdirectorio de código | Archivos de código fuente de este subdirectorio se compilan en ensamblados y se colocan en el directorio Bin. |
-| Archivos de la aplicación\_GlobalResources subdirectorio | Estos archivos se compilan en ensamblados y se colocan en el directorio Bin. Ninguna aplicación\_GlobalResources subdirectorio se crea en el directorio de salida principal. Si el archivo de configuración especifica appliesTo = "All", se copian los archivos .resources y .resx en los directorios de salida. No se copian si se hace referencia a un [BuildProvider](https://msdn.microsoft.com/en-us/library/system.web.configuration.buildprovider.aspx). |
+| Archivos de la aplicación\_GlobalResources subdirectorio | Estos archivos se compilan en ensamblados y se colocan en el directorio Bin. Ninguna aplicación\_GlobalResources subdirectorio se crea en el directorio de salida principal. Si el archivo de configuración especifica appliesTo = "All", se copian los archivos .resources y .resx en los directorios de salida. No se copian si se hace referencia a un [BuildProvider](https://msdn.microsoft.com/library/system.web.configuration.buildprovider.aspx). |
 | archivos .resx y .resource en la aplicación\_LocalResources subdirectorio | Estos archivos se compilan en ensamblados con nombres únicos y se colocan en el directorio Bin. No hay archivos .resx o .resource se copian en los directorios de salida. |
 | skin archivos en la aplicación\_subdirectorio de temas | Los temas se compilan en ensamblados y se colocan en el directorio Bin. Archivos de código auxiliar se crean para los archivos de skin y se coloca en el directorio de salida correspondiente. Archivos estáticos (como .css) se copian en los directorios de salida. |
 | Browser archivo Web.config estático tipos ensamblados ya está presentes en el directorio Bin | Estos archivos se copian tal cual en el directorio de salida. |
 
-### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Nombres de ensamblado fija](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="fixed-assembly-nameshttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Nombres de ensamblado fija](https://msdn.microsoft.com/library/ms229863.aspx##)
 
 Algunos escenarios, como la implementación de una aplicación Web utilizando a MSI Windows Installer, requieren el uso de nombres de archivo coherentes y contenido, así como estructuras de directorios coherente para identificar los ensamblados o valores de configuración para las actualizaciones. En esos casos, puede usar el **- fixednames** opción para especificar que la herramienta de compilación de ASP.NET debe compilar un ensamblado para cada archivo de código fuente en lugar de usar la donde varias páginas se compilan en ensamblados. Esto puede provocar un gran número de ensamblados, por lo que si le preocupa la escalabilidad debe usar esta opción con precaución.
 
-### <a name="strong-name-compilationhttpsmsdnmicrosoftcomen-uslibraryms229863aspx"></a>[Compilación de nombre seguro](https://msdn.microsoft.com/en-us/library/ms229863.aspx##)
+### <a name="strong-name-compilationhttpsmsdnmicrosoftcomlibraryms229863aspx"></a>[Compilación de nombre seguro](https://msdn.microsoft.com/library/ms229863.aspx##)
 
-El **- aptca**, **- delaysign**, **- keycontainer** y **- keyfile** opciones se proporcionan para que pueda utilizar Aspnet\_ Compiler.exe encarecidamente crear ensamblados con nombre sin usar la [herramienta nombre seguro (Sn.exe)](https://msdn.microsoft.com/en-us/library/k5b5tt23.aspx) por separado. Estas opciones corresponden respectivamente a **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**y  **AssemblyKeyFileAttribute**.
+El **- aptca**, **- delaysign**, **- keycontainer** y **- keyfile** opciones se proporcionan para que pueda utilizar Aspnet\_ Compiler.exe encarecidamente crear ensamblados con nombre sin usar la [herramienta nombre seguro (Sn.exe)](https://msdn.microsoft.com/library/k5b5tt23.aspx) por separado. Estas opciones corresponden respectivamente a **AllowPartiallyTrustedCallersAttribute**, **AssemblyDelaySignAttribute**, **AssemblyKeyNameAttribute**y  **AssemblyKeyFileAttribute**.
 
 Explicación de estos atributos se queda fuera del ámbito de este curso.
 
@@ -447,4 +447,4 @@ En este laboratorio, creará el código que le permitirá activar o desactivar e
 
 ## <a name="more-information"></a>Más información:
 
-ASP.NET del 2.0 modelo de proveedor le permite crear sus propios proveedores de Instrumental de aplicación no solo, pero para muchos otros usos, así como la pertenencia a grupos, perfiles, etcetera. Para obtener información detallada sobre cómo escribir un proveedor personalizado para registrar eventos de aplicación en un archivo de texto, visite [este vínculo](https://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/ASPNETProvMod_Prt6.asp).
+ASP.NET del 2.0 modelo de proveedor le permite crear sus propios proveedores de Instrumental de aplicación no solo, pero para muchos otros usos, así como la pertenencia a grupos, perfiles, etcetera. Para obtener información detallada sobre cómo escribir un proveedor personalizado para registrar eventos de aplicación en un archivo de texto, visite [este vínculo](https://msdn.microsoft.com/library/default.asp?url=/library/dnaspp/html/ASPNETProvMod_Prt6.asp).

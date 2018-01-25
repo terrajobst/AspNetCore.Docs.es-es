@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d2bdf04b4da2a099f3a2af100b16682c68f946f2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c593c56ba3d0ee8ebf6dc425408d2c3b91c83f93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>Global control de errores en ASP.NET Web API 2
 ====================
@@ -46,7 +46,7 @@ Además [filtros de excepción](exception-handling.md), [controladores de mensaj
 1. Se admite registrar varios registradores de excepciones pero solo un único controlador de excepciones.
 2. Registradores de excepciones siempre se llaman, incluso si se está a punto de anular la conexión. Controladores de excepciones sólo se llama cuando estamos todavía puede elegir qué mensaje de respuesta para enviar.
 
-Ambos servicios proporcionan acceso a un contexto de excepción que contiene información relevante desde el punto donde se detectó la excepción, especialmente la [HttpRequestMessage](https://msdn.microsoft.com/en-us/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/en-us/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), produce la excepción y el origen de la excepción (detalles a continuación).
+Ambos servicios proporcionan acceso a un contexto de excepción que contiene información relevante desde el punto donde se detectó la excepción, especialmente la [HttpRequestMessage](https://msdn.microsoft.com/library/system.net.http.httprequestmessage(v=vs.110).aspx), [HttpRequestContext](https://msdn.microsoft.com/library/system.web.http.controllers.httprequestcontext(v=vs.118).aspx), produce la excepción y el origen de la excepción (detalles a continuación).
 
 ### <a name="design-principles"></a>Principios de diseño
 
@@ -97,7 +97,7 @@ En adicionales a la `ExceptionContext`, un controlador obtiene una propiedad má
 
 [!code-csharp[Main](web-api-global-error-handling/samples/sample5.cs)]
 
-Un controlador de excepción indica que ha controlado una excepción al establecer el `Result` propiedad a un resultado de acción (por ejemplo, un [ExceptionResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), o un resultado personalizado). Si el `Result` propiedad es null, se controla la excepción y se volverá a producir la excepción original.
+Un controlador de excepción indica que ha controlado una excepción al establecer el `Result` propiedad a un resultado de acción (por ejemplo, un [ExceptionResult](https://msdn.microsoft.com/library/system.web.http.results.exceptionresult(v=vs.118).aspx), [InternalServerErrorResult](https://msdn.microsoft.com/library/system.web.http.results.internalservererrorresult(v=vs.118).aspx), [ StatusCodeResult](https://msdn.microsoft.com/library/system.web.http.results.statuscoderesult(v=vs.118).aspx), o un resultado personalizado). Si el `Result` propiedad es null, se controla la excepción y se volverá a producir la excepción original.
 
 Para las excepciones en la parte superior de la pila de llamadas, se llevaron a cabo un paso adicional para asegurarse de que la respuesta es adecuada para los autores de llamadas de API. Si la excepción se propaga hasta el host, el llamador vería la pantalla amarilla de la muerte o algún otro host proporciona respuesta que normalmente es HTML y normalmente no una respuesta de error de API adecuada. En estos casos, inicia el resultado no nulo, y solo si un controlador de excepciones personalizado establece explícitamente nuevo a `null` la excepción (no controladas) se propagará al host. Establecer `Result` a `null` en tales casos, puede ser útil para dos escenarios:
 

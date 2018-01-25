@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 60bdab9dc8317c7f8753891b461da18f02993812
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b068b3020b5c454519950e436115a7efa044fb4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-the-architecture-c"></a>Almacenar en caché datos de la arquitectura (C#)
 ====================
@@ -62,7 +62,7 @@ La característica explorada en el tutorial anterior internamente el almacenamie
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample1.cs)]
 
-El [ `Cache` clase](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.aspx) s [ `Insert` método](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.insert.aspx) tiene una serie de sobrecargas. `Cache["key"] = value`y `Cache.Insert(key, value)` son sinónimos y ambos agregan un elemento a la memoria caché utilizando la clave especificada sin una expiración definido. Por lo general, debe especificar una fecha de expiración al agregar un elemento a la caché, ya sea como una dependencia, una expiración basada en la hora o ambas. Utilice uno de los otros `Insert` sobrecargas del método s para proporcionar información de dependencia o basado en tiempo de caducidad.
+El [ `Cache` clase](https://msdn.microsoft.com/library/system.web.caching.cache.aspx) s [ `Insert` método](https://msdn.microsoft.com/library/system.web.caching.cache.insert.aspx) tiene una serie de sobrecargas. `Cache["key"] = value`y `Cache.Insert(key, value)` son sinónimos y ambos agregan un elemento a la memoria caché utilizando la clave especificada sin una expiración definido. Por lo general, debe especificar una fecha de expiración al agregar un elemento a la caché, ya sea como una dependencia, una expiración basada en la hora o ambas. Utilice uno de los otros `Insert` sobrecargas del método s para proporcionar información de dependencia o basado en tiempo de caducidad.
 
 La capa de almacenamiento en caché métodos s que deba comprobar primero si los datos solicitados que se están en la memoria caché y, si es así, vuelve a partir de ahí. Si los datos solicitados no están en la memoria caché, el método adecuado de BLL debe invocarse. Su valor devuelto debe estar almacenado en memoria caché y, a continuación, devuelve, como se muestra en el siguiente diagrama de secuencia.
 
@@ -90,7 +90,7 @@ La diferencia en este segundo, el fragmento de código incorrecto es que en luga
 > La caché de datos es segura para subprocesos, por lo que no necesita t para sincronizar el acceso a un subproceso para simples lecturas o escrituras. Sin embargo, si tiene que realizar varias operaciones en los datos en la memoria caché que tienen que ser atómicos, es responsable de la implementación de un bloqueo o algún otro mecanismo para garantizar la seguridad de subprocesos. Vea [sincronizar el acceso a la caché de ASP.NET](http://www.ddj.com/184406369) para obtener más información.
 
 
-Un elemento se pueda expulsar mediante programación desde la memoria caché de datos mediante la [ `Remove` método](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.remove.aspx) así:
+Un elemento se pueda expulsar mediante programación desde la memoria caché de datos mediante la [ `Remove` método](https://msdn.microsoft.com/library/system.web.caching.cache.remove.aspx) así:
 
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample4.cs)]
@@ -115,10 +115,10 @@ El `GetCacheItem(key)` y `AddCacheItem(key, value)` métodos de interfaz con la 
 
 `GetCacheItem(key)`No usar *clave* valor tal como lo suministró, sino más bien llamadas el `GetCacheKey(key)` método, que devuelve el *clave* con ProductsCache-. El `MasterCacheKeyArray`, que contiene la cadena ProductsCache, también se usa por la `AddCacheItem(key, value)` método, como veremos en breve.
 
-De una clase de código subyacente ASP.NET página s, la caché de datos puede tener acceso mediante el `Page` clase s [ `Cache` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.page.cache.aspx)y permite una sintaxis similar a `Cache["key"] = value`, como se describe en el paso 2. De una clase dentro de la arquitectura, la caché de datos son accesibles mediante `HttpRuntime.Cache` o `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)de entrada de blog [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) notas de la ventaja de rendimiento ligeras de utilizar `HttpRuntime` en lugar de `HttpContext.Current`; por lo tanto, `ProductsCL` utiliza `HttpRuntime`.
+De una clase de código subyacente ASP.NET página s, la caché de datos puede tener acceso mediante el `Page` clase s [ `Cache` propiedad](https://msdn.microsoft.com/library/system.web.ui.page.cache.aspx)y permite una sintaxis similar a `Cache["key"] = value`, como se describe en el paso 2. De una clase dentro de la arquitectura, la caché de datos son accesibles mediante `HttpRuntime.Cache` o `HttpContext.Current.Cache`. [Peter Johnson](https://weblogs.asp.net/pjohnson/default.aspx)de entrada de blog [HttpRuntime.Cache vs. HttpContext.Current.Cache](https://weblogs.asp.net/pjohnson/httpruntime-cache-vs-httpcontext-current-cache) notas de la ventaja de rendimiento ligeras de utilizar `HttpRuntime` en lugar de `HttpContext.Current`; por lo tanto, `ProductsCL` utiliza `HttpRuntime`.
 
 > [!NOTE]
-> Si la arquitectura se implementa mediante proyectos de biblioteca de clases, a continuación, debe agregar una referencia a la `System.Web` ensamblado para poder usar el [HttpRuntime](https://msdn.microsoft.com/en-us/library/system.web.httpruntime.aspx) y [HttpContext](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) clases.
+> Si la arquitectura se implementa mediante proyectos de biblioteca de clases, a continuación, debe agregar una referencia a la `System.Web` ensamblado para poder usar el [HttpRuntime](https://msdn.microsoft.com/library/system.web.httpruntime.aspx) y [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) clases.
 
 
 Si el elemento no se encuentra en la memoria caché, el `ProductsCL` métodos de clase s. obtener los datos de la capa BLL y lo agrega a la caché mediante el `AddCacheItem(key, value)` método. Para agregar *valor* a la memoria caché podríamos usar el código siguiente, que utiliza una expiración de tiempo de 60 segundos:
@@ -126,7 +126,7 @@ Si el elemento no se encuentra en la memoria caché, el `ProductsCL` métodos de
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample7.cs)]
 
-`DateTime.Now.AddSeconds(CacheDuration)`Especifica la expiración basada en tiempo de 60 segundos en el futuro mientras [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/en-us/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) no indica que existen s ninguna fecha de expiración variable. Si bien esto `Insert` sobrecarga del método tiene parámetros para ambos absoluto de entrada y deslizante expiración, solo puede proporcionar uno de los dos. Si intenta especificar un tiempo absoluto y un intervalo de tiempo, el `Insert` método producirá una `ArgumentException` excepción.
+`DateTime.Now.AddSeconds(CacheDuration)`Especifica la expiración basada en tiempo de 60 segundos en el futuro mientras [ `System.Web.Caching.Cache.NoSlidingExpiration` ](https://msdn.microsoft.com/library/system.web.caching.cache.noslidingexpiration(vs.80).aspx) no indica que existen s ninguna fecha de expiración variable. Si bien esto `Insert` sobrecarga del método tiene parámetros para ambos absoluto de entrada y deslizante expiración, solo puede proporcionar uno de los dos. Si intenta especificar un tiempo absoluto y un intervalo de tiempo, el `Insert` método producirá una `ArgumentException` excepción.
 
 > [!NOTE]
 > Esta implementación de la `AddCacheItem(key, value)` método actualmente tiene algunas limitaciones. Comenzaremos direcciones y solucionar estos problemas en el paso 4.
@@ -150,7 +150,7 @@ Actualización de s permiten la `AddCacheItem(key, value)` está asociado con un
 
 [!code-csharp[Main](caching-data-in-the-architecture-cs/samples/sample9.cs)]
 
-`MasterCacheKeyArray`es una matriz de cadena que contiene un valor único, ProductsCache. En primer lugar, un elemento de caché se agrega a la memoria caché y asigna la fecha y hora actuales. Si ya existe el elemento en caché, se actualiza. A continuación, se crea una dependencia de caché. El [ `CacheDependency` clase](https://msdn.microsoft.com/en-US/library/system.web.caching.cachedependency(VS.80).aspx) s constructor tiene un número de sobrecargas, pero que se utiliza aquí espera dos `string` entradas de la matriz. La primera de ellas especifica el conjunto de archivos que se usará como dependencias. Puesto que no queremos t desea usar las dependencias basadas en archivos, un valor de `null` se usa para el primer parámetro de entrada. El segundo parámetro de entrada especifica el conjunto de claves de caché que se usarán como dependencias. Aquí se especifica la dependencia única, `MasterCacheKeyArray`. El `CacheDependency` , a continuación, se pasa a la `Insert` método.
+`MasterCacheKeyArray`es una matriz de cadena que contiene un valor único, ProductsCache. En primer lugar, un elemento de caché se agrega a la memoria caché y asigna la fecha y hora actuales. Si ya existe el elemento en caché, se actualiza. A continuación, se crea una dependencia de caché. El [ `CacheDependency` clase](https://msdn.microsoft.com/library/system.web.caching.cachedependency(VS.80).aspx) s constructor tiene un número de sobrecargas, pero que se utiliza aquí espera dos `string` entradas de la matriz. La primera de ellas especifica el conjunto de archivos que se usará como dependencias. Puesto que no queremos t desea usar las dependencias basadas en archivos, un valor de `null` se usa para el primer parámetro de entrada. El segundo parámetro de entrada especifica el conjunto de claves de caché que se usarán como dependencias. Aquí se especifica la dependencia única, `MasterCacheKeyArray`. El `CacheDependency` , a continuación, se pasa a la `Insert` método.
 
 Con esta modificación a `AddCacheItem(key, value)`, invaliding la memoria caché es tan sencilla como si quita la dependencia.
 
@@ -198,7 +198,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

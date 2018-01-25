@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 42851cb9b8046ca4f70894b9ec5b671b269da04c
-ms.sourcegitcommit: 97432cbf9b8673bc4ad7012d5b6f2ed273420295
+ms.openlocfilehash: 4e1270f9fb58032d22380117f4ec18b00bd725fc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Middleware de OWIN en la canalización integrada de IIS
 ====================
@@ -36,9 +36,9 @@ Esto significa que todos los marcos de aplicaciones, incluso aquellos que no son
 
 ## <a name="how-owin-middleware-executes-in-the-iis-integrated-pipeline"></a>Cómo se ejecuta el Middleware de OWIN en la canalización integrada de IIS
 
-Para aplicaciones de consola OWIN, la canalización de aplicación creados con el [configuración de inicio](owin-startup-class-detection.md) está establecido por el orden de los componentes se agregan mediante el `IAppBuilder.Use` método. Es decir, la canalización OWIN en la [Katana](an-overview-of-project-katana.md) en tiempo de ejecución procesará OMCs en el orden en que se registraron mediante `IAppBuilder.Use`. En la canalización integrada de IIS se compone de la canalización de solicitudes [HttpModules](https://msdn.microsoft.com/en-us/library/ms178468(v=vs.85).aspx) suscrito a un conjunto predefinido de los eventos de la canalización como [BeginRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx), etcetera.
+Para aplicaciones de consola OWIN, la canalización de aplicación creados con el [configuración de inicio](owin-startup-class-detection.md) está establecido por el orden de los componentes se agregan mediante el `IAppBuilder.Use` método. Es decir, la canalización OWIN en la [Katana](an-overview-of-project-katana.md) en tiempo de ejecución procesará OMCs en el orden en que se registraron mediante `IAppBuilder.Use`. En la canalización integrada de IIS se compone de la canalización de solicitudes [HttpModules](https://msdn.microsoft.com/library/ms178468(v=vs.85).aspx) suscrito a un conjunto predefinido de los eventos de la canalización como [BeginRequest](https://msdn.microsoft.com/library/system.web.httpapplication.beginrequest.aspx), [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx), [AuthorizeRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx), etcetera.
 
-Si se compara una OMC a la de un [HttpModule](https://msdn.microsoft.com/en-us/library/zec9k340(v=vs.85).aspx) en el mundo ASP.NET, debe registrarse un OMC al evento correcto canalización predefinidos. Por ejemplo, el elemento HttpModule `MyModule` se invoca cuando una solicitud entra el [AuthenticateRequest](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx) fase de la canalización:
+Si se compara una OMC a la de un [HttpModule](https://msdn.microsoft.com/library/zec9k340(v=vs.85).aspx) en el mundo ASP.NET, debe registrarse un OMC al evento correcto canalización predefinidos. Por ejemplo, el elemento HttpModule `MyModule` se invoca cuando una solicitud entra el [AuthenticateRequest](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx) fase de la canalización:
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample2.cs?highlight=10)]
 
@@ -57,7 +57,7 @@ La configuración del inicio se configura una canalización con componentes de m
 
 [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample5.cmd)]
 
-El tiempo de ejecución de Katana asigna cada uno de los componentes de middleware OWIN para [PreExecuteRequestHandler](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx) de forma predeterminada, que corresponde al evento de canalización IIS [PreRequestHandlerExecute](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
+El tiempo de ejecución de Katana asigna cada uno de los componentes de middleware OWIN para [PreExecuteRequestHandler](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx) de forma predeterminada, que corresponde al evento de canalización IIS [PreRequestHandlerExecute](https://msdn.microsoft.com/library/system.web.httpapplication.prerequesthandlerexecute.aspx).
 
 ## <a name="stage-markers"></a>Marcadores de fase
 
@@ -65,7 +65,7 @@ Puede marcar OMCs para ejecutar en fases específicas de la canalización median
 
 [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample6.cs?highlight=13,19)]
 
-El `app.UseStageMarker(PipelineStage.Authenticate)` llamada configura todos los componentes de middleware registrado anteriormente (en este caso, los dos componentes de diagnóstico) para ejecutarse en la fase de autenticación de la canalización. El último componente de middleware (que muestra los diagnósticos y responde a las solicitudes) se ejecutará en el `ResolveCache` fase (la [ResolveRequestCache](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.resolverequestcache.aspx) evento).
+El `app.UseStageMarker(PipelineStage.Authenticate)` llamada configura todos los componentes de middleware registrado anteriormente (en este caso, los dos componentes de diagnóstico) para ejecutarse en la fase de autenticación de la canalización. El último componente de middleware (que muestra los diagnósticos y responde a las solicitudes) se ejecutará en el `ResolveCache` fase (la [ResolveRequestCache](https://msdn.microsoft.com/library/system.web.httpapplication.resolverequestcache.aspx) evento).
 
 Presione F5 para ejecutar la aplicación. La ventana de salida muestra lo siguiente:
 

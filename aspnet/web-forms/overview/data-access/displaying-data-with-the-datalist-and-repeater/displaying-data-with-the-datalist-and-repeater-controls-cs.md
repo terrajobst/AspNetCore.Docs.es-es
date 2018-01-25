@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f626731e79d83785057498c53cdf49aecb90261
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42203bdd7c22f3885eecab36dbd710d371107285
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-data-with-the-datalist-and-repeater-controls-c"></a>Mostrar datos con el DataList y los controles de repetidor (C#)
 ====================
@@ -163,7 +163,7 @@ Además el `ItemTemplate`, el control DataList admite seis otras plantillas opci
 
 - `HeaderTemplate`Si se proporciona, agrega una fila de encabezado a la salida y se usa para representar esta fila
 - `AlternatingItemTemplate`usa para representar elementos alternos
-- `SelectedItemTemplate`usa para representar el elemento seleccionado; el elemento seleccionado es el elemento cuyo índice se corresponde con el control DataList s [ `SelectedIndex` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
+- `SelectedItemTemplate`usa para representar el elemento seleccionado; el elemento seleccionado es el elemento cuyo índice se corresponde con el control DataList s [ `SelectedIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.selectedindex.aspx)
 - `EditItemTemplate`utilizado para representar el elemento que se está editando
 - `SeparatorTemplate`Si se proporciona, se agrega un separador entre cada elemento y se usa para representar este separador
 - `FooterTemplate`-Si se proporciona, se agrega una fila de pie de página a la salida y se usa para representar esta fila
@@ -222,7 +222,7 @@ En ASP.NET 1.x, repetidor control se usa normalmente para mostrar una lista con 
 - En `SectionLevelTutorialListing.ascx`, un repetidor utilizado para mostrar una lista con viñetas de las secciones de los elementos secundarios de la sección de asignación de sitio actual
 
 > [!NOTE]
-> ASP.NET 2.0 presenta la nueva [control BulletedList](https://msdn.microsoft.com/en-us/library/ms228101.aspx), que se puede enlazar a un control de origen de datos para mostrar una lista con viñetas simple. Con el control BulletedList no necesitamos especificar cualquiera de HTML asociada con la lista; en su lugar, simplemente se indica el campo de datos para mostrar como el texto para cada elemento de lista.
+> ASP.NET 2.0 presenta la nueva [control BulletedList](https://msdn.microsoft.com/library/ms228101.aspx), que se puede enlazar a un control de origen de datos para mostrar una lista con viñetas simple. Con el control BulletedList no necesitamos especificar cualquiera de HTML asociada con la lista; en su lugar, simplemente se indica el campo de datos para mostrar como el texto para cada elemento de lista.
 
 
 Repetidor actúa como una instrucción catch todos los datos de control Web. Si no hay un control existente que genera el marcado que sea necesario, puede utilizarse el control de repetidor. Para ilustrar el uso del repetidor, permiten s tenga la lista de categorías mostrado sobre el control DataList de información de producto creado en el paso 2. En concreto, permiten s tiene las categorías que se muestran en una sola fila HTML `<table>` con cada categoría que se muestra como una columna en la tabla.
@@ -312,7 +312,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

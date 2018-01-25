@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 41efda63026c9d17cb9dceb92b5efc87490a722d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 92d9e583b6c26fa8c928d33e14593d280702a269
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="intro-to-aspnet-mvc-4"></a>Introducción a ASP.NET MVC 4
 ====================
@@ -24,7 +24,7 @@ Por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Una versión actualizada, si está disponible en este tutorial [aquí](../../getting-started/introduction/getting-started.md) con [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). El nuevo tutorial usa ASP.NET MVC 5, que proporciona muchas mejoras con respecto a este tutorial.
 > 
-> Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC 4 mediante Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/en-us/products/express) o Visual Web Developer 2010 Express Service Pack 1. Se recomienda Visual Studio 2012, no tendrá que instalar nada para completar el tutorial. Si usa Visual Studio 2010 debe instalar los componentes siguientes. Puede instalar todas ellas haciendo clic en los vínculos siguientes:
+> Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC 4 mediante Microsoft [Visual Studio Express 2012](https://www.microsoft.com/visualstudio/11/products/express) o Visual Web Developer 2010 Express Service Pack 1. Se recomienda Visual Studio 2012, no tendrá que instalar nada para completar el tutorial. Si usa Visual Studio 2010 debe instalar los componentes siguientes. Puede instalar todas ellas haciendo clic en los vínculos siguientes:
 > 
 > - [Requisitos previos visuales Studio Web Developer Express SP1](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack)
 > - [Instalador WPI para ASP.NET MVC 4](https://go.microsoft.com/fwlink/?LinkId=243392)
@@ -35,7 +35,7 @@ Por [Rick Anderson](https://github.com/Rick-Anderson)
 > 
 > Un proyecto de Visual Web Developer con el código fuente de C# está disponible como acompañamiento de este tema. [Descargue la versión de C#](https://code.msdn.microsoft.com/Intro-to-ASPNET-MVC-4-61d0219d/file/114480/1/MvcMovie.zip).
 > 
-> En el tutorial se ejecute la aplicación en Visual Studio. También puede hacer la aplicación disponible a través de Internet mediante la implementación en un proveedor de hospedaje. Microsoft ofrece el hospedaje web gratuito para hasta 10 sitios web en un [libre de la cuenta de prueba de Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Para obtener información sobre cómo implementar un proyecto web de Visual Studio en un sitio Web de Windows Azure, consulte [crear e implementar un sitio web ASP.NET y la base de datos de SQL con Visual Studio](https://docs.microsoft.com/dotnet/azure/). Este tutorial también muestra cómo usar migraciones de Entity Framework Code First para implementar la base de datos de SQL Server en Windows Azure SQL Database (anteriormente SQL Azure).
+> En el tutorial se ejecute la aplicación en Visual Studio. También puede hacer la aplicación disponible a través de Internet mediante la implementación en un proveedor de hospedaje. Microsoft ofrece el hospedaje web gratuito para hasta 10 sitios web en un [libre de la cuenta de prueba de Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Para obtener información sobre cómo implementar un proyecto web de Visual Studio en un sitio Web de Windows Azure, consulte [crear e implementar un sitio web ASP.NET y la base de datos de SQL con Visual Studio](https://docs.microsoft.com/dotnet/azure/). Este tutorial también muestra cómo usar migraciones de Entity Framework Code First para implementar la base de datos de SQL Server en Windows Azure SQL Database (anteriormente SQL Azure).
 > 
 > Este tutorial se escribió Rick Anderson ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) ).
 

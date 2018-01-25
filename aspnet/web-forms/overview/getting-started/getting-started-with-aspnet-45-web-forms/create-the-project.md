@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 2678342891a87d591476a07e418c118b2ae94d4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-project"></a>Crear el proyecto
 ====================
@@ -93,7 +93,7 @@ En Visual Studio, el **el Explorador de soluciones** ventana le permite administ
 
 Visual Studio crea algunos iniciales carpetas y archivos para el proyecto. Los primeros archivos que va a trabajar con más adelante en este tutorial son los siguientes:
 
-| **Archivo** | **Propósito** |
+| **Archivo** | **Purpose** |
 | --- | --- |
 | *Default.aspx* | Normalmente la primera página que aparece cuando se ejecuta la aplicación en un explorador. |
 | *Site.Master* | Una página que le permite crear un diseño y el uso estándar un comportamiento coherente para las páginas en la aplicación. |
@@ -114,7 +114,7 @@ Hay tres páginas principales en esta aplicación Web de manera predeterminada: 
 
 ## <a name="aspnet-web-forms-background"></a>Fondo de ASP.NET Web Forms
 
-Formularios Web Forms ASP.NET son páginas que se basan en tecnología de Microsoft ASP.NET, en que el código que se ejecuta en el servidor de forma dinámica genera resultados de la página Web en el explorador o dispositivo cliente. Una página de formularios Web Forms de ASP.NET representa automáticamente el código HTML adecuado al explorador para funciones tales como estilos, diseño y así sucesivamente. Formularios Web Forms son compatibles con cualquier lenguaje compatible con .NET common language runtime, como Microsoft Visual Basic y Microsoft Visual C#. Además, los formularios Web Forms se compilan en el [Microsoft .NET Framework](https://msdn.microsoft.com/en-US/vstudio/aa496123), que ofrece ventajas como un entorno administrado, seguridad de tipos y herencia.
+Formularios Web Forms ASP.NET son páginas que se basan en tecnología de Microsoft ASP.NET, en que el código que se ejecuta en el servidor de forma dinámica genera resultados de la página Web en el explorador o dispositivo cliente. Una página de formularios Web Forms de ASP.NET representa automáticamente el código HTML adecuado al explorador para funciones tales como estilos, diseño y así sucesivamente. Formularios Web Forms son compatibles con cualquier lenguaje compatible con .NET common language runtime, como Microsoft Visual Basic y Microsoft Visual C#. Además, los formularios Web Forms se compilan en el [Microsoft .NET Framework](https://msdn.microsoft.com/vstudio/aa496123), que ofrece ventajas como un entorno administrado, seguridad de tipos y herencia.
 
 Cuando se ejecuta una página de formularios Web Forms de ASP.NET, la página pasa por un ciclo de vida en el que realiza una serie de pasos de procesamiento. Estos pasos incluyen la inicialización, crear instancias de controles, restaurar y mantener el estado, ejecuta el código del controlador de eventos y la representación. A medida que se familiarice con la potencia de formularios Web Forms de ASP.NET, es importante que comprenda la [ciclo de vida de página ASP.NET](https://msdn.microsoft.com/library/ms178472(v=vs.100).aspx) para que pueda escribir código en la fase de ciclo de vida adecuado para el efecto deseado.
 
@@ -128,7 +128,7 @@ Cuando un servidor Web recibe una solicitud para una página, encuentra la pági
 > 
 > **Pertenencia**
 > 
-> [ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy.aspx) identidad almacena las credenciales de los usuarios en una base de datos creado por la aplicación. Cuando los usuarios inicien sesión, la aplicación valida las credenciales mediante la lectura de la base de datos. El proyecto *cuenta* carpeta contiene los archivos que implementan las distintas partes de pertenencia: registrar, inicio de sesión, cambiar una contraseña y autorizar el acceso. Además, los formularios Web Forms de ASP.NET admite OAuth y OpenID. Estas mejoras de autenticación permiten a los usuarios inicien sesión en el sitio mediante las credenciales existentes, de estas cuentas, como Facebook, Twitter, Windows Live, Google y.
+> [ASP.NET](https://msdn.microsoft.com/library/yh26yfzy.aspx) identidad almacena las credenciales de los usuarios en una base de datos creado por la aplicación. Cuando los usuarios inicien sesión, la aplicación valida las credenciales mediante la lectura de la base de datos. El proyecto *cuenta* carpeta contiene los archivos que implementan las distintas partes de pertenencia: registrar, inicio de sesión, cambiar una contraseña y autorizar el acceso. Además, los formularios Web Forms de ASP.NET admite OAuth y OpenID. Estas mejoras de autenticación permiten a los usuarios inicien sesión en el sitio mediante las credenciales existentes, de estas cuentas, como Facebook, Twitter, Windows Live, Google y.
 > 
 > ![Crear el proyecto: el Explorador de soluciones (identidad de ASP.NET)](create-the-project/_static/image7.png)
 > 
@@ -140,7 +140,7 @@ Cuando un servidor Web recibe una solicitud para una página, encuentra la pági
 > 
 > **Páginas maestras**
 > 
-> Un [página principal de ASP.NET](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx) define una apariencia coherente y el comportamiento de todas las páginas de la aplicación. El diseño de la página maestra se combina con el contenido de una página de contenido individual para generar la última página que ve el usuario. En la aplicación Wingtip Toys, modifique la *Site.master* página principal para que todas las páginas en el sitio Web de Wingtip Toys comparten la misma barra de navegación y el logotipo de distintivo.
+> Un [página principal de ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx) define una apariencia coherente y el comportamiento de todas las páginas de la aplicación. El diseño de la página maestra se combina con el contenido de una página de contenido individual para generar la última página que ve el usuario. En la aplicación Wingtip Toys, modifique la *Site.master* página principal para que todas las páginas en el sitio Web de Wingtip Toys comparten la misma barra de navegación y el logotipo de distintivo.
 > 
 > **HTML5**
 > 
@@ -192,8 +192,8 @@ En este tutorial ha creado, revisar y ejecutar la aplicación de formularios Web
 ## <a name="additional-resources"></a>Recursos adicionales
 
 [Elegir la solución de modelo de programación](../../../videos/how-do-i/choosing-the-right-programming-model.md)   
-[Web Application Projects versus Web Site Projects](https://msdn.microsoft.com/en-us/library/dd547590.aspx)   
-[Información general de las páginas de ASP.NET Web Forms](https://msdn.microsoft.com/en-us/library/428509ah.aspx)
+[Web Application Projects versus Web Site Projects](https://msdn.microsoft.com/library/dd547590.aspx)   
+[Información general de las páginas de ASP.NET Web Forms](https://msdn.microsoft.com/library/428509ah.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](introduction-and-overview.md)

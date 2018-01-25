@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 6aa9f16f166ecf5529ae33a17951eb5ea425e7af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b443963a089f96a9dab11b7db4a25451075d6be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Usar el Inspector de página en ASP.NET MVC
 ====================
@@ -46,7 +46,7 @@ por Tim Ammann
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) o [Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) o [Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Para obtener la versión más reciente de Inspector de página, use [instalador de plataforma Web](https://go.microsoft.com/fwlink/?LinkId=255386) para instalar el SDK de Windows Azure para .NET 2.0.
@@ -84,9 +84,9 @@ En **el Explorador de soluciones**, expanda la **vistas** carpeta y, a continuac
 
 ![Ver Index.cshtml en Inspector de página](using-page-inspector-in-aspnet-mvc/_static/image8.png)
 
-De forma predeterminada, el Inspector de página está acoplado como una ventana en el lado izquierdo del entorno de Visual Studio. Si lo prefiere, puede acoplarlo en otra ubicación o desacoplar la ventana. Vea [Cómo: organizar y acoplar ventanas](https://msdn.microsoft.com/en-us/library/z4y0hsax.aspx).
+De forma predeterminada, el Inspector de página está acoplado como una ventana en el lado izquierdo del entorno de Visual Studio. Si lo prefiere, puede acoplarlo en otra ubicación o desacoplar la ventana. Vea [Cómo: organizar y acoplar ventanas](https://msdn.microsoft.com/library/z4y0hsax.aspx).
 
-El panel superior de la ventana de Inspector de página muestra la página actual en una ventana del explorador. El panel inferior muestra la página en el marcado HTML, junto con algunas fichas que le permiten inspeccionar los distintos aspectos de la página. El panel inferior es similar a la [herramientas de desarrollo F12](https://msdn.microsoft.com/en-us/ie/aa740478) en Internet Explorer.
+El panel superior de la ventana de Inspector de página muestra la página actual en una ventana del explorador. El panel inferior muestra la página en el marcado HTML, junto con algunas fichas que le permiten inspeccionar los distintos aspectos de la página. El panel inferior es similar a la [herramientas de desarrollo F12](https://msdn.microsoft.com/ie/aa740478) en Internet Explorer.
 
 ![Aplicación de ASP.NET MVC en Inspector de página](using-page-inspector-in-aspnet-mvc/_static/image10.png)
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 326201f9fe9ba5f482308dc8bfd7d2decb9fbd8f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468f7e0c142fa432e58d4c686dd79d3b38612ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a>Agregar una columna de GridView de casillas de verificación (VB)
 ====================
@@ -100,7 +100,7 @@ Con el control Web de casilla de verificación y TemplateField agregado, cada fi
 
 En este momento tenemos una columna de casillas de verificación pero ninguna manera de determinar qué casillas de verificación se seleccionaron en el postback. Sin embargo, cuando se hace clic en el botón Eliminar productos seleccionado, es necesario saber qué casillas de verificación se comprobaron con el fin de eliminar los productos.
 
-Las operaciones de asignación GridView [ `Rows` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows.aspx) proporciona acceso a las filas de datos en GridView. Se puede recorrer en iteración estas filas, obtener acceso mediante programación el control de casilla de verificación y, a continuación, consulte su `Checked` propiedad para determinar si se ha seleccionado la casilla de verificación.
+Las operaciones de asignación GridView [ `Rows` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows.aspx) proporciona acceso a las filas de datos en GridView. Se puede recorrer en iteración estas filas, obtener acceso mediante programación el control de casilla de verificación y, a continuación, consulte su `Checked` propiedad para determinar si se ha seleccionado la casilla de verificación.
 
 Crear un controlador de eventos para el `DeleteSelectedProducts` control Button Web s `Click` eventos y agregue el código siguiente:
 
@@ -158,7 +158,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Anterior](adding-a-gridview-column-of-radio-buttons-vb.md)

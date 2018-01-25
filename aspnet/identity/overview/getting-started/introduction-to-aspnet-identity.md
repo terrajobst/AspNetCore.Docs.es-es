@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: a66e2a80668dbf291b9cc34f205b546b72d92bcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>Introducción a la identidad de ASP.NET
 ====================
@@ -31,7 +31,7 @@ por [Jon Galloway](https://github.com/jongalloway), [Pranav Rastogi](https://git
 
 ### <a name="aspnet-membership"></a>Pertenencia a ASP.NET
 
-[Pertenencia a ASP.NET](https://msdn.microsoft.com/en-us/library/yh26yfzy(v=VS.100).aspx) se ha diseñado para resolver los requisitos de pertenencia de sitio que son comunes en 2005, que se invirtió en la autenticación de formularios y una base de datos de SQL Server para nombres de usuario, contraseñas y datos de perfil. Actualmente hay una variedad mucho más amplia de opciones de almacenamiento de datos para aplicaciones web, y la mayoría de los desarrolladores desean habilitar sus sitios usar proveedores de identidades sociales para la funcionalidad de autenticación y autorización. Las limitaciones de diseño de la pertenencia de ASP.NET dificultan esta transición:
+[Pertenencia a ASP.NET](https://msdn.microsoft.com/library/yh26yfzy(v=VS.100).aspx) se ha diseñado para resolver los requisitos de pertenencia de sitio que son comunes en 2005, que se invirtió en la autenticación de formularios y una base de datos de SQL Server para nombres de usuario, contraseñas y datos de perfil. Actualmente hay una variedad mucho más amplia de opciones de almacenamiento de datos para aplicaciones web, y la mayoría de los desarrolladores desean habilitar sus sitios usar proveedores de identidades sociales para la funcionalidad de autenticación y autorización. Las limitaciones de diseño de la pertenencia de ASP.NET dificultan esta transición:
 
 - El esquema de base de datos se diseñó para SQL Server y no podrá cambiarlo. Puede agregar información de perfil, pero los datos adicionales se empaquetan en una tabla diferente, lo que dificulta a access por ningún medio, excepto a través de la API de proveedor de perfil.
 - El sistema del proveedor le permite cambiar el almacén de datos de copia de seguridad, pero el sistema se ha diseñado basándose suposiciones adecuados para una base de datos relacional. Puede escribir un proveedor para almacenar información de pertenencia en un mecanismo de almacenamiento no relacionales, como las tablas de almacenamiento de Azure, pero se deben evitar el diseño relacional escribiendo una gran cantidad de código y una gran cantidad de `System.NotImplementedException` excepciones para los métodos que no se aplica a las bases de datos NoSQL.
@@ -132,7 +132,7 @@ Identidad de ASP.NET se implementa mediante el procedimiento siguiente. El prop�
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- El código que aparece resaltado por encima de la `SignInAsync` método genera una [ClaimsIdentity](https://msdn.microsoft.com/en-us/library/system.security.claims.claimsidentity.aspx). Puesto que ASP.NET Identity y autenticación con cookies OWIN son sistema basado en notificaciones, el marco de trabajo requiere la aplicación para generar un valor de ClaimsIdentity para el usuario. Valor de ClaimsIdentity incluye información sobre todas las notificaciones para el usuario, como los roles que pertenece el usuario. También puede agregar más notificaciones para el usuario en esta fase.  
+ El código que aparece resaltado por encima de la `SignInAsync` método genera una [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Puesto que ASP.NET Identity y autenticación con cookies OWIN son sistema basado en notificaciones, el marco de trabajo requiere la aplicación para generar un valor de ClaimsIdentity para el usuario. Valor de ClaimsIdentity incluye información sobre todas las notificaciones para el usuario, como los roles que pertenece el usuario. También puede agregar más notificaciones para el usuario en esta fase.  
   
  El código que aparece resaltado a continuación en el `SignInAsync` método inicia sesión el usuario mediante el uso de la clase AuthenticationManager de OWIN y llamar al método `SignIn` y pasar el valor de ClaimsIdentity.  
 
@@ -142,7 +142,7 @@ Identidad de ASP.NET se implementa mediante el procedimiento siguiente. El prop�
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- El resaltado de código anterior muestra OWIN `AuthenticationManager.SignOut` método. Esto es análogo a [FormsAuthentication.SignOut](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthentication.signout.aspx) método utilizado por el [FormsAuthentication](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx) módulo en formularios Web Forms.
+ El resaltado de código anterior muestra OWIN `AuthenticationManager.SignOut` método. Esto es análogo a [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) método utilizado por el [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) módulo en formularios Web Forms.
 
 ## <a name="components-of-aspnet-identity"></a>Componentes de identidad de ASP.NET
 
@@ -154,7 +154,7 @@ La siguiente es una breve descripción de los paquetes de NuGet que no se ha men
 
 - [Microsoft.Owin.Security.Cookies](http://www.nuget.org/packages/Microsoft.Owin.Security.Cookies/)  
  Autenticación, similar a ASP basada en el middleware que permite a una aplicación usar la cookie. Autenticación de formularios de NET.
-- [Entity Framework](http://www.nuget.org/packages/EntityFramework/)  
+- [EntityFramework](http://www.nuget.org/packages/EntityFramework/)  
  Entity Framework es la tecnología de acceso a datos recomendado de Microsoft para bases de datos relacionales.
 
 ## <a name="migrating-from-membership-to-aspnet-identity"></a>Migración de pertenencia a ASP.NET Identity

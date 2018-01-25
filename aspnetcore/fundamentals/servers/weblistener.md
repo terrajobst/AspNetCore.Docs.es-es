@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: f1bdbc723e4602c2e53723aff91ec5d254f4bd93
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5073a1663ec99a1b161092d74ab035ee9782becd
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>WebListener implementaciones del servidor web de ASP.NET Core
 
@@ -131,7 +131,7 @@ using (WebListener listener = new WebListener(settings))
 
 ## <a name="preregister-url-prefixes-and-configure-ssl"></a>Registrar previamente prefijos de dirección URL y la configuración de SSL
 
-Tanto IIS como WebListener se basan en el controlador de modo kernel de subyacente Http.Sys para escuchar las solicitudes e inicial del procesamiento. En IIS, la interfaz de usuario de administración ofrece una forma es relativamente fácil de configurar todos los elementos. Sin embargo, si usa WebListener necesite configurar Http.Sys usted mismo. La herramienta integrada para hacer es netsh.exe. 
+Tanto IIS como WebListener se basan en el controlador de modo kernel de subyacente Http.Sys para escuchar las solicitudes e inicial del procesamiento. En IIS, la interfaz de usuario de administración ofrece una forma es relativamente fácil de configurar todos los elementos. Sin embargo, si usa WebListener necesite configurar Http.Sys usted mismo. La herramienta integrada para hacer que sea netsh.exe. 
 
 Las tareas más comunes que se debe usar netsh.exe para son reservar prefijos de dirección URL y asignación de certificados SSL.
 

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/anti-request-forgery
-ms.openlocfilehash: d7df8f91e88290509c8751a4b69804b60138846e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Prevención de ataques de falsificación (XSRF/CSRF) de solicitud entre sitios en ASP.NET Core
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 11/10/2017
 
 ## <a name="what-attack-does-anti-forgery-prevent"></a>¿Qué ataque evita antifalsificación?
 
-Falsificación de solicitudes entre sitios (también conocido como XSRF o CSRF, pronunciado *vea navegación*) es un ataque contra las aplicaciones hospedadas en web mediante el cual un sitio web malintencionado puede influir en la interacción entre un explorador del cliente y un sitio web que se confía ese explorador. Estos ataques se realizan porque algunos tipos de tokens de autenticación automáticamente con cada solicitud de envío de los exploradores web a un sitio web. Esta forma de vulnerabilidad de seguridad es también conocido como un *ataque de un solo clic* o como *sesión riding*, ya que el ataque se aprovecha del usuario del autenticado previamente la sesión.
+Falsificación de solicitudes entre sitios (también conocido como XSRF o CSRF, pronunciado *vea navegación*) es un ataque contra las aplicaciones hospedadas en web mediante el cual un sitio web malintencionado puede influir en la interacción entre un explorador del cliente y un sitio web que se confía ese explorador. Estos ataques se realizan porque algunos tipos de tokens de autenticación automáticamente con cada solicitud de envío de los exploradores web a un sitio web. Esta forma de vulnerabilidad de seguridad del también se denomina un *ataque de un solo clic* o como *sesión riding*, ya que el ataque se aprovecha del usuario del autenticado previamente la sesión.
 
 Un ejemplo de un ataque CSRF:
 
@@ -51,13 +51,13 @@ Este ejemplo requiere que el usuario haga clic en el botón del formulario. La p
 * Envía un envío de formulario como una solicitud AJAX. 
 * Usar un formulario oculto con CSS. 
 
-Uso de SSL no evita que un ataque CSRF, el sitio malintencionado puede enviar un `https://` solicitud. 
+Uso de SSL no impide que un ataque CSRF, el sitio malintencionado puede enviar un `https://` solicitud. 
 
 Algunos ataques de destino los puntos de conexión de sitio que respondan a `GET` solicitudes, en cuyo caso una etiqueta de imagen puede se utiliza para realizar la acción (esta forma de ataque es común en los sitios de foro que permiten imágenes pero bloquean JavaScript). Las aplicaciones que cambian el estado con `GET` solicitudes son vulnerables frente a ataques malintencionados.
 
 Los ataques CSRF son posibles con sitios web que usan cookies para la autenticación, porque los exploradores envían todas las cookies relevantes para el sitio web de destino. Sin embargo, los ataques CSRF no están limitados a aprovecharse de las cookies. Por ejemplo, la autenticación básica e implícita también son vulnerables. Una vez que un usuario inicia sesión con autenticación básica o implícita, el explorador envía automáticamente las credenciales hasta que finaliza la sesión.
 
-Nota: en este contexto, *sesión* hace referencia a la sesión de cliente durante el cual el usuario está autenticado. No está relacionado con las sesiones de servidor o [sesión middleware](xref:fundamentals/app-state).
+Nota: en este contexto, *sesión* hace referencia a la sesión de cliente durante el cual el usuario está autenticado. Es no relacionados con las sesiones de servidor o [sesión middleware](xref:fundamentals/app-state).
 
 Los usuarios pueden protegerse contra vulnerabilidades CSRF por:
 * Registro fuera de sitios web cuando termine de utilizarlos.
@@ -85,7 +85,7 @@ La generación automática de tokens antifalsificación para los elementos de fo
 * El `form` etiqueta contiene el `method="post"` atributo AND
 
   * El atributo de acción está vacío. ( `action=""`) O
-  * No se proporcionó el atributo de acción. (`<form method="post">`)
+  * No se especifica el atributo de acción. (`<form method="post">`)
 
 Puede deshabilitar la generación automática de tokens antifalsificación para los elementos de formulario HTML mediante:
 
@@ -171,7 +171,7 @@ El ``ValidateAntiForgeryToken`` atributo requiere un token para las solicitudes 
 
 ### <a name="autovalidateantiforgerytoken"></a>AutoValidateAntiforgeryToken
 
-Por lo general, las aplicaciones de ASP.NET Core no generan antiforgery tokens para los métodos de prueba de errores de HTTP (GET, HEAD, opciones y seguimiento). En lugar de aplicar ampliamente el ``ValidateAntiForgeryToken`` atributo y, a continuación, reemplazar con ``IgnoreAntiforgeryToken`` atributos, puede utilizar el ``AutoValidateAntiforgeryToken`` atributo. Este atributo funciona de forma idéntica a la ``ValidateAntiForgeryToken`` de atributo, salvo que no requiere tokens para las solicitudes realizadas con los siguientes métodos HTTP:
+Las aplicaciones de ASP.NET Core generalmente no generan antiforgery tokens para los métodos de prueba de errores de HTTP (GET, HEAD, opciones y seguimiento). En lugar de aplicar ampliamente el ``ValidateAntiForgeryToken`` atributo y, a continuación, reemplazar con ``IgnoreAntiforgeryToken`` atributos, puede utilizar el ``AutoValidateAntiforgeryToken`` atributo. Este atributo funciona de forma idéntica a la ``ValidateAntiForgeryToken`` de atributo, salvo que no requiere tokens para las solicitudes realizadas con los siguientes métodos HTTP:
 
 * GET
 * HEAD
@@ -337,7 +337,7 @@ Consulte https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder
 
 ### <a name="extending-antiforgery"></a>Extender Antiforgery
 
-El [IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) tipo permite a los desarrolladores extender el comportamiento del sistema anti-XSRF por los datos adicionales de ida y vuelta de cada token. El [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) método se llama cada vez que se genera un token de campo y el valor devuelto está incrustado en el token generado. Un implementador podría devolver una marca de tiempo, un nonce o cualquier otro valor y, a continuación, llame a [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) para validar estos datos cuando se valida el token. Nombre de usuario del cliente ya está incrustada en los tokens generados, por lo que no es necesario incluir esta información. Si un token incluye datos suplementarios pero no `IAntiForgeryAdditionalDataProvider` ha sido configurado, los datos suplementarios no se validan.
+El [IAntiForgeryAdditionalDataProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider) tipo permite a los desarrolladores extender el comportamiento del sistema anti-XSRF por los datos adicionales de ida y vuelta de cada token. El [GetAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_GetAdditionalData_Microsoft_AspNetCore_Http_HttpContext_) método se llama cada vez que se genera un token de campo y el valor devuelto está incrustado en el token generado. Un implementador podría devolver una marca de tiempo, un nonce o cualquier otro valor y, a continuación, llame a [ValidateAdditionalData](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.antiforgery.iantiforgeryadditionaldataprovider#Microsoft_AspNetCore_Antiforgery_IAntiforgeryAdditionalDataProvider_ValidateAdditionalData_Microsoft_AspNetCore_Http_HttpContext_System_String_) para validar estos datos cuando se valida el token. Nombre de usuario del cliente ya está incrustada en los tokens generados, por lo que no es necesario incluir esta información. Si un token incluye datos suplementarios pero no `IAntiForgeryAdditionalDataProvider` ha sido configurado, no validados los datos suplementarios.
 
 ## <a name="fundamentals"></a>Aspectos básicos
 
@@ -345,7 +345,7 @@ Ataques CSRF se basan en el comportamiento del explorador predeterminado de envi
 
 ### <a name="cookie-based-authentication"></a>Autenticación basada en cookies
 
-Una vez que un usuario se autentica con su nombre de usuario y contraseña, se emiten un símbolo (token) que puede usarse para identificarlos y validar que se han autenticado. El token se almacena como hace que una cookie que acompaña a cada solicitud del cliente. Generar y validar esta cookie se realiza mediante el middleware de autenticación de la cookie. ASP.NET Core proporciona una cookie [middleware](../fundamentals/middleware.md) que serializa una entidad de seguridad de usuario en una cookie cifrada y, a continuación, en solicitudes posteriores, valida la cookie, vuelve a crear la entidad de seguridad y lo asigna a la `User` propiedad `HttpContext`.
+Una vez que un usuario se autentica con su nombre de usuario y contraseña, le emite un token que puede usarse para identificarlos y validar que se han autenticado. El token se almacena como hace que una cookie que acompaña a cada solicitud del cliente. Generar y validar esta cookie se realiza mediante el middleware de autenticación de la cookie. ASP.NET Core proporciona una cookie [middleware](../fundamentals/middleware.md) que serializa una entidad de seguridad de usuario en una cookie cifrada y, a continuación, en solicitudes posteriores, valida la cookie, vuelve a crear la entidad de seguridad y lo asigna a la `User` propiedad `HttpContext`.
 
 Cuando se utiliza una cookie, la cookie de autenticación es simplemente un contenedor para el vale de autenticación de formularios. El vale se pasa como el valor de la cookie de autenticación de formularios con cada solicitud y autenticación de formularios, en el servidor, se usa para identificar un usuario autenticado.
 
@@ -353,11 +353,11 @@ Cuando un usuario inicia sesión un sistema, una sesión de usuario se crea en e
 
 ### <a name="user-tokens"></a>Tokens de usuario
 
-Autenticación basada en token no almacena la sesión en el servidor. En su lugar, cuando un usuario ha iniciado sesión se emiten un token (no un token antiforgery). Este token contiene todos los datos que es necesario para validar el token. También contiene información de usuario, en forma de [notificaciones](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Cuando un usuario desea tener acceso a un recurso de servidor que requiera autenticación, el token se envía al servidor con un encabezado de autorización adicionales en forma de portador {token}. Esto hace que la aplicación sin estado ya que en cada solicitud posterior se pasa el token de la solicitud de validación del lado servidor. Este token no es *cifrados*; en su lugar es *codificado*. En el lado del servidor puede descodificar el token para tener acceso a la información sin procesar en el token. Para enviar el token en solicitudes posteriores, o bien puede almacenarlo en el almacenamiento local del explorador o en una cookie. No tiene que preocuparse de vulnerabilidad XSRF si el token se almacena en el almacenamiento local, pero es un problema si el token está almacenado en una cookie.
+Autenticación basada en token no almacena la sesión en el servidor. En su lugar, cuando un usuario ha iniciado sesión le emite un token (no un token antiforgery). Este token contiene todos los datos que se necesita para validar el token. También contiene información de usuario, en forma de [notificaciones](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Cuando un usuario desea tener acceso a un recurso de servidor que requiera autenticación, el token se envía al servidor con un encabezado de autorización adicionales en forma de portador {token}. Esto hace que la aplicación sin estado ya que en cada solicitud posterior se pasa el token de la solicitud de validación del lado servidor. Este token no es *cifrados*; en su lugar es *codificado*. En el lado del servidor puede descodificar el token para tener acceso a la información sin procesar en el token. Para enviar el token en solicitudes posteriores, o bien puede almacenarlo en el almacenamiento local del explorador o en una cookie. No tiene que preocuparse de vulnerabilidad XSRF si el token se almacena en el almacenamiento local, pero es un problema si el token está almacenado en una cookie.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Varias aplicaciones se hospedan en un dominio
 
-Aunque `example1.cloudapp.net` y `example2.cloudapp.net` son diferentes de los hosts, hay una relación de confianza implícita entre todos los hosts bajo la `*.cloudapp.net` dominio. Esta relación de confianza implícita permite a los hosts no sea de confianza influir en sus respectivas cookies (las directivas de mismo origen que rigen las solicitudes AJAX no necesariamente se aplican a las cookies HTTP). El tiempo de ejecución de ASP.NET Core proporciona algunos mitigación en que el nombre de usuario se incrusta en el símbolo (token) de campo, por lo que incluso si un subdominio malintencionado puede sobrescribir un token de sesión no podrá generar un token de campo válido para el usuario. Sin embargo, cuando se hospeda en un entorno de este tipo las rutinas de anti-XSRF integrado aún no defienden contra secuestro de sesión o inicio de sesión CSRF ataques. Entornos de hospedaje compartidos son vulnerable a secuestro de sesión, inicio de sesión CSRF y otros ataques.
+Aunque `example1.cloudapp.net` y `example2.cloudapp.net` son diferentes de los hosts, hay una relación de confianza implícita entre todos los hosts bajo la `*.cloudapp.net` dominio. Esta relación de confianza implícita permite a los hosts no sea de confianza influir en sus respectivas cookies (las directivas de mismo origen que rigen las solicitudes AJAX necesariamente no se aplican a las cookies HTTP). El tiempo de ejecución de ASP.NET Core proporciona algunos mitigación en que el nombre de usuario se incrusta en el símbolo (token) de campo, por lo que incluso si un subdominio malintencionado puede sobrescribir un token de sesión no podrá generar un token de campo válido para el usuario. Sin embargo, cuando se hospeda en un entorno de este tipo las rutinas de anti-XSRF integrado aún no defienden contra secuestro de sesión o inicio de sesión CSRF ataques. Entornos de hospedaje compartidos son vulnerable a secuestro de sesión, inicio de sesión CSRF y otros ataques.
 
 
 ### <a name="additional-resources"></a>Recursos adicionales

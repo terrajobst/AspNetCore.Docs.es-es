@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: aaa061e61b9bab5b33083851624f0487b2cf6473
-ms.sourcegitcommit: ccf08615ad59bc6f654560de33b93396113a2eb0
+ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Crear una aplicación de ASP.NET MVC 5 con Facebook, Twitter, LinkedIn y Google OAuth2 Sign-on (C#)
 ====================
@@ -95,7 +95,7 @@ Para conectarse a proveedores de autenticación como Google y Facebook, debe con
 6. Seleccione el **Web** ficha y, a continuación, pegue la dirección URL de SSL en el **dirección Url del proyecto** cuadro. Guarde el archivo (Ctl + S). Necesitará esta dirección URL para configurar aplicaciones de la autenticación de Google y Facebook.  
   
     ![](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image10.png)
-7. Agregar el [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) atribuir a la `Home` controlador para requerir todas las solicitudes debe usar HTTPS. Un enfoque más seguro consiste en agregar el [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx) filtro a la aplicación. Vea la sección &quot;proteger la aplicación con SSL y el atributo autorizar&quot; en mi tutoral [crear una aplicación de MVC de ASP.NET con la autenticación y la base de datos SQL e implementar al servicio de aplicaciones de Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). A continuación se muestra una parte del controlador Home.
+7. Agregar el [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) atribuir a la `Home` controlador para requerir todas las solicitudes debe usar HTTPS. Un enfoque más seguro consiste en agregar el [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) filtro a la aplicación. Vea la sección &quot;proteger la aplicación con SSL y el atributo autorizar&quot; en mi tutoral [crear una aplicación de MVC de ASP.NET con la autenticación y la base de datos SQL e implementar al servicio de aplicaciones de Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). A continuación se muestra una parte del controlador Home.
 
     [!code-csharp[Main](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/samples/sample1.cs?highlight=1)]
 8. Presione CTRL+F5 para ejecutar la aplicación. Si ha instalado el certificado en el pasado, puede omitir el resto de esta sección y saltar a [crear una aplicación de Google para OAuth 2 y conectar la aplicación al proyecto](#goog), en caso contrario, siga las instrucciones para confiar en autofirmado certificado que IIS Express ha generado.  
@@ -286,7 +286,7 @@ Siga el tutorial [crear una aplicación de MVC de ASP.NET con la autenticación 
 
 1. Cómo implementar la aplicación en Azure.
 2. Cómo proteger las aplicaciones con los roles.
-3. Cómo proteger la aplicación con el [RequireHttps](https://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) y [Authorize](https://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filtros.
+3. Cómo proteger la aplicación con el [RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute(v=vs.108).aspx) y [Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.100).aspx) filtros.
 4. Describe cómo usar la API de pertenencia para agregar usuarios y roles.
 
 Vota sobre cómo le gustó este tutorial y lo que podemos mejorar. También puede solicitar nuevos temas en [mostrar Me cómo con código](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code). Incluso puede solicitar y votar sobre las nuevas características que se agregarán a ASP.NET. Por ejemplo, puede votar por una herramienta para [crear y administrar usuarios y roles.](http://aspnet.uservoice.com/forums/41199-general-asp-net/suggestions/5646857-asp-net-identity-membership-db-tool-to-mangage-use)

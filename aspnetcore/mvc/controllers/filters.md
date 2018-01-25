@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/filters
-ms.openlocfilehash: db5d6a98d5e6702842e8b036c378ed96aef61b70
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 32bfddde48f5e5de9c06cb159493eb9ba6ede8be
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="filters"></a>Filtros
 
@@ -70,7 +70,7 @@ Pueden implementar interfaces para varias fases de filtro en una sola clase. Por
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` implementa `IFilter`. Por lo tanto, un `IFilterFactory` instancia se puede usar como un `IFilter` instancia en cualquier parte de la canalización de filtro. Cuando el marco de trabajo se prepara para invocar el filtro, intenta convertirlo a un `IFilterFactory`. Si esa conversión se realiza correctamente, el `CreateInstance` método se llama para crear el `IFilter` instancia que se invocará. Esto proporciona un diseño muy flexible, ya que no es necesario que la canalización de filtro preciso establecerse de forma explícita cuando se inicia la aplicación.
+`IFilterFactory` implementa `IFilter`. Por lo tanto, un `IFilterFactory` instancia se puede usar como un `IFilter` instancia en cualquier parte de la canalización de filtro. Cuando el marco de trabajo se prepara para invocar el filtro, intenta convertirlo a un `IFilterFactory`. Si esa conversión se realiza correctamente, el `CreateInstance` método se llama para crear el `IFilter` instancia que se invocará. Esto proporciona un diseño muy flexible, ya que la canalización de filtro preciso no tiene que establecerse de forma explícita cuando se inicia la aplicación.
 
 Puede implementar `IFilterFactory` en sus propias implementaciones de atributo como otro enfoque para la creación de filtros:
 
@@ -223,7 +223,7 @@ Este filtro se puede aplicar a clases o métodos que utilizan el `[SampleActionF
 
 *Los filtros de autorización* controlar el acceso a los métodos de acción y el primer filtros para su ejecución en la canalización de filtro. Solo tienen un antes de método, a diferencia de la mayoría de los filtros que admiten antes y después de métodos. Sólo debe escribir un filtro de autorización personalizada si está escribiendo su propio marco de autorización. Prefiere configurar las directivas de autorización o escribir una directiva de autorización personalizada frente a escribir un filtro personalizado. La implementación de filtro integrado es solo responsable de la llamada del sistema de autorización.
 
-Tenga en cuenta que no deben producir excepciones en los filtros de autorización, ya que no hay nada controlará la excepción (filtros de excepciones no controlen). En su lugar, emita una respuesta de desafío o encontrar otra manera.
+Tenga en cuenta que no debería producir excepciones dentro de los filtros de autorización, ya que no hay nada controlará la excepción (filtros de excepciones no controlen). En su lugar, emita una respuesta de desafío o encontrar otra manera.
 
 Obtenga más información sobre [autorización](../../security/authorization/index.md).
 
@@ -252,7 +252,7 @@ El [ActionExecutedContext](https://docs.microsoft.com/aspnet/core/api/microsoft.
 * `Canceled`-será true si la ejecución de la acción se cortocircuitado por otro filtro.
 * `Exception`-será distinto de null si la acción o un filtro de acción posteriores produjo una excepción. Al establecer esta propiedad en null de forma eficaz 'handles' una excepción, y `Result` se ejecutará como si se han devuelto desde el método de acción normalmente.
 
-Para una `IAsyncActionFilter`, una llamada a la `ActionExecutionDelegate` ejecuta cualquier filtro de acción posterior y el método de acción, devolver un `ActionExecutedContext`. De cortocircuito, asignar `ActionExecutingContext.Result` a algunos de los resultados de la instancia y no llame a la `ActionExecutionDelegate`.
+Para una `IAsyncActionFilter`, una llamada a la `ActionExecutionDelegate` ejecuta cualquier filtro de acción posterior y el método de acción, devolver un `ActionExecutedContext`. De cortocircuito, asignar `ActionExecutingContext.Result` para algunos de los resultados de la instancia y no llame a la `ActionExecutionDelegate`.
 
 El marco de trabajo proporciona un resumen `ActionFilterAttribute` que puede crear subclases. 
 
@@ -270,14 +270,14 @@ El filtro de excepción de ejemplo siguiente utiliza una vista de error de progr
 
 [!code-csharp[Main](./filters/sample/src/FiltersSample/Filters/CustomExceptionFilterAttribute.cs?name=snippet_ExceptionFilter&highlight=1,14)]
 
-Filtros de excepciones no tiene dos eventos (para antes y después de): solo implementan `OnException` (o `OnExceptionAsync`). 
+Filtros de excepciones no tienen dos eventos (para antes y después de), solo implementan `OnException` (o `OnExceptionAsync`). 
 
 Los filtros de excepción controlan las excepciones no controladas que se producen en la creación del controlador, [enlace de modelo](../models/model-binding.md), filtros de acción o métodos de acción. No detectar las excepciones que se producen en los filtros de recursos, filtros de resultados o ejecución de resultado de MVC.
 
 Para controlar una excepción, establezca la `ExceptionContext.ExceptionHandled` propiedad en true o escribir una respuesta. Esto detiene la propagación de la excepción. Tenga en cuenta que un filtro de excepción no se puede activar una excepción en un estado "correcto". Sólo un filtro de acción puede hacer eso.
 
 > [!NOTE]
-> En ASP.NET 1.1, no se envía la respuesta si establece `ExceptionHandled` en true **y** escribir una respuesta. En ese caso, ASP.NET Core 1.0 enviar la respuesta y ASP.NET Core 1.1.2 devolverá al 1.0 comportamiento. Para obtener más información, consulte [emitir #5594](https://github.com/aspnet/Mvc/issues/5594) en el repositorio de GitHub. 
+> En ASP.NET 1.1, la respuesta no se envía si establece `ExceptionHandled` en true **y** escribir una respuesta. En ese caso, ASP.NET Core 1.0 enviar la respuesta y ASP.NET Core 1.1.2 devolverá al 1.0 comportamiento. Para obtener más información, consulte [emitir #5594](https://github.com/aspnet/Mvc/issues/5594) en el repositorio de GitHub. 
 
 Los filtros de excepción son buenos para la captura de excepciones que se producen dentro de las acciones de MVC, pero no son lo más flexibles middleware de control de errores. Prefiere middleware para el caso general y usar filtros sólo donde es necesario para realizar el control de errores *diferente* en función de qué acción de MVC se ha elegido. Por ejemplo, la aplicación podría tener métodos de acción para ambos extremos de la API y vistas/HTML. Los puntos de conexión de API pudieron devolver información de error como JSON, mientras que las acciones basadas en vistas pudieron devolver una página de error como HTML.
 
@@ -307,7 +307,7 @@ El marco de trabajo proporciona un resumen `ResultFilterAttribute` que puede cre
 
 ## <a name="using-middleware-in-the-filter-pipeline"></a>Uso de middleware en la canalización de filtro
 
-Filtros de recursos funcionan como [middleware](../../fundamentals/middleware.md) en que les rodea la ejecución de todo lo que se incluye más adelante en la canalización. Pero los filtros se diferencian de middleware en que forman parte de MVC, lo que significa que tienen acceso al contexto MVC y construcciones.
+Filtros de recursos funcionan como [middleware](../../fundamentals/middleware.md) en que les rodea la ejecución de todo lo que se incluye más adelante en la canalización. Pero los filtros se diferencian de middleware en que formen parte de MVC, lo que significa que tienen acceso al contexto MVC y construcciones.
 
 En ASP.NET Core 1.1, puede usar middleware en la canalización de filtro. Puede hacerlo si tiene un componente de middleware que necesita acceso a los datos de ruta MVC, o uno que se debe ejecutar solo para ciertos controladores o acciones.
 

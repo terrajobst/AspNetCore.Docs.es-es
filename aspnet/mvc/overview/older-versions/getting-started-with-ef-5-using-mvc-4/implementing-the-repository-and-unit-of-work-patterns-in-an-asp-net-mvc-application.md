@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c920dc8defe18b6f27d122c2cd1a6c6ffdaad608
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementar el repositorio y una unidad de patrones de trabajo en una aplicación de MVC de ASP.NET (9 de 10)
 ====================
@@ -45,15 +45,15 @@ En la siguiente ilustración muestra una manera conceptualizar las relaciones en
 
 ![Repository_pattern_diagram](https://asp.net/media/2578149/Windows-Live-Writer_8c4963ba1fa3_CE3B_Repository_pattern_diagram_1df790d3-bdf2-4c11-9098-946ddd9cd884.png)
 
-No crear pruebas unitarias en esta serie de tutoriales. Para obtener una introducción sobre TDD con una aplicación de MVC que usa el modelo de repositorio, consulte [Tutorial: utilizar TDD con ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ff847525.aspx). Para obtener más información sobre el modelo de repositorio, consulte los siguientes recursos:
+No crear pruebas unitarias en esta serie de tutoriales. Para obtener una introducción sobre TDD con una aplicación de MVC que usa el modelo de repositorio, consulte [Tutorial: utilizar TDD con ASP.NET MVC](https://msdn.microsoft.com/library/ff847525.aspx). Para obtener más información sobre el modelo de repositorio, consulte los siguientes recursos:
 
-- [El modelo de repositorio](https://msdn.microsoft.com/en-us/library/ff649690.aspx) en MSDN.
+- [El modelo de repositorio](https://msdn.microsoft.com/library/ff649690.aspx) en MSDN.
 - [Uso de patrones de repositorio y unidad de trabajo con Entity Framework 4.0](https://blogs.msdn.com/b/adonet/archive/2009/06/16/using-repository-and-unit-of-work-patterns-with-entity-framework-4-0.aspx) en el blog del equipo de Entity Framework.
 - [Repositorio de Agile Entity Framework 4](http://thedatafarm.com/blog/data-access/agile-entity-framework-4-repository-part-1-model-and-poco-classes/) serie de entradas de blog de Julie Lerman.
 - [Creación de la cuenta en una aplicación de HTML5/jQuery vista](https://weblogs.asp.net/dwahlin/archive/2011/08/15/building-the-account-at-a-glance-html5-jquery-application.aspx) en el blog de Wahlin.
 
 > [!NOTE]
-> Hay muchas maneras de implementar el repositorio y una unidad de patrones de trabajo. Puede usar las clases de repositorio con o sin una unidad de la clase de trabajo. Puede implementar un único repositorio para todos los tipos de entidad, o uno para cada tipo. Si implementa una para cada tipo, puede usar clases independientes, una clase base genérica y las clases derivadas, o una clase base abstracta y las clases derivadas. Puede incluir lógica de negocios en el repositorio o restringirlo a la lógica de acceso a datos. También puede crear una capa de abstracción en la clase de contexto de base de datos mediante el uso de [IDbSet](https://msdn.microsoft.com/en-us/library/gg679233(v=vs.103).aspx) hay interfaces en lugar de [DbSet](https://msdn.microsoft.com/en-us/library/system.data.entity.dbset(v=vs.103).aspx) tipos para los conjuntos de entidades. El enfoque para implementar una capa de abstracción que se muestra en este tutorial es una opción para tener en cuenta, no una recomendación para todos los escenarios y entornos.
+> Hay muchas maneras de implementar el repositorio y una unidad de patrones de trabajo. Puede usar las clases de repositorio con o sin una unidad de la clase de trabajo. Puede implementar un único repositorio para todos los tipos de entidad, o uno para cada tipo. Si implementa una para cada tipo, puede usar clases independientes, una clase base genérica y las clases derivadas, o una clase base abstracta y las clases derivadas. Puede incluir lógica de negocios en el repositorio o restringirlo a la lógica de acceso a datos. También puede crear una capa de abstracción en la clase de contexto de base de datos mediante el uso de [IDbSet](https://msdn.microsoft.com/library/gg679233(v=vs.103).aspx) hay interfaces en lugar de [DbSet](https://msdn.microsoft.com/library/system.data.entity.dbset(v=vs.103).aspx) tipos para los conjuntos de entidades. El enfoque para implementar una capa de abstracción que se muestra en este tutorial es una opción para tener en cuenta, no una recomendación para todos los escenarios y entornos.
 
 
 ## <a name="creating-the-student-repository-class"></a>Crear la clase de repositorio de estudiante
@@ -74,7 +74,7 @@ El contexto de base de datos se define en una variable de clase y el constructor
 
 Puede crear una instancia de un nuevo contexto en el repositorio, pero, a continuación, si utiliza varias bases de datos en un controlador, cada uno de ellos podría terminar con un contexto independiente. Más adelante podrá utilizar varias bases de datos en el `Course` controlador y verá cómo puede asegurarse de que todos los repositorios utilizan el mismo contexto de una unidad de la clase de trabajo.
 
-Implementa el repositorio [IDisposable](https://msdn.microsoft.com/en-us/library/system.idisposable.aspx) y desecha el contexto de base de datos tal y como se vio anteriormente en el controlador y sus métodos CRUD realizan llamadas en el contexto de base de datos de la misma manera que vio anteriormente.
+Implementa el repositorio [IDisposable](https://msdn.microsoft.com/library/system.idisposable.aspx) y desecha el contexto de base de datos tal y como se vio anteriormente en el controlador y sus métodos CRUD realizan llamadas en el contexto de base de datos de la misma manera que vio anteriormente.
 
 ## <a name="change-the-student-controller-to-use-the-repository"></a>Cambiar el controlador de estudiante para utilizar el repositorio
 
@@ -245,7 +245,7 @@ La página de consulta y funciona igual a como lo hacía antes de los cambios y 
 
 ## <a name="summary"></a>Resumen
 
-Ahora ha implementado el repositorio y la unidad de patrones de trabajo. Ha usado las expresiones lambda como parámetros de método en el repositorio genérico. Para obtener más información sobre cómo usar estas expresiones con un `IQueryable` de objetos, consulte [IQueryable(T) interfaz (System.Linq)](https://msdn.microsoft.com/en-us/library/bb351562.aspx) en MSDN Library. En el siguiente tutorial, obtendrá información sobre cómo controlar algunos escenarios avanzados.
+Ahora ha implementado el repositorio y la unidad de patrones de trabajo. Ha usado las expresiones lambda como parámetros de método en el repositorio genérico. Para obtener más información sobre cómo usar estas expresiones con un `IQueryable` de objetos, consulte [IQueryable(T) interfaz (System.Linq)](https://msdn.microsoft.com/library/bb351562.aspx) en MSDN Library. En el siguiente tutorial, obtendrá información sobre cómo controlar algunos escenarios avanzados.
 
 Vínculos a otros recursos de Entity Framework pueden encontrarse en el [mapa de contenido de acceso de datos de ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1b9dadbfb82790a08a25a5c0f759b733cb59eb60
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df79748bf5734ffcb9eb81ca089aeded0e63bdc5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-vb"></a>Mostrar datos binarios en los controles Web de datos (VB)
 ====================
@@ -129,7 +129,7 @@ A continuación, cree un `Protected` clase de código subyacente de s con el nom
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample3.vb)]
 
-Este método determina si en el pasado `Object` valor es una base de datos `NULL` y, si es así, devuelve un mensaje que indica que la categoría no tiene un folleto. En caso contrario, si hay un `BrochurePath` valor, s que se muestra en un hipervínculo. Tenga en cuenta que si el `BrochurePath` valor es presentar s pasado en el [ `ResolveUrl(url)` método](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveurl.aspx). Este método resuelve en el pasado *url*, reemplazando el `~` caracteres con la ruta de acceso virtual adecuada. Por ejemplo, si la aplicación se basa en `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` devolverá `/Tutorial55/Brochures/Meat.pdf`.
+Este método determina si en el pasado `Object` valor es una base de datos `NULL` y, si es así, devuelve un mensaje que indica que la categoría no tiene un folleto. En caso contrario, si hay un `BrochurePath` valor, s que se muestra en un hipervínculo. Tenga en cuenta que si el `BrochurePath` valor es presentar s pasado en el [ `ResolveUrl(url)` método](https://msdn.microsoft.com/library/system.web.ui.control.resolveurl.aspx). Este método resuelve en el pasado *url*, reemplazando el `~` caracteres con la ruta de acceso virtual adecuada. Por ejemplo, si la aplicación se basa en `/Tutorial55`, `ResolveUrl("~/Brochures/Meats.pdf")` devolverá `/Tutorial55/Brochures/Meat.pdf`.
 
 Figura 10 muestra la página después de aplicar estos cambios. Tenga en cuenta que la categoría de Seafood s `BrochurePath` campo ahora muestra el texto que no hay folleto disponible.
 
@@ -164,7 +164,7 @@ En la clase de código subyacente de la página s, agregue el código siguiente 
 
 [!code-vb[Main](displaying-binary-data-in-the-data-web-controls-vb/samples/sample6.vb)]
 
-Este código se inicia mediante la lectura de la `CategoryID` valor de cadena de consulta en una variable denominada `categoryID`. A continuación, los datos de imagen se recuperan mediante una llamada a la `CategoriesBLL` clase s. `GetCategoryWithBinaryDataByCategoryID(categoryID)` método. Estos datos se devuelven al cliente mediante la `Response.BinaryWrite(data)` (método), pero antes de que se llama a esto, el `Picture` se debe quitar el encabezado de columna valor s OLE. Esto se logra mediante la creación de un `Byte` matriz denominada `strippedImageData` que contendrá exactamente 78 caracteres menor que lo que aparece en la `Picture` columna. El [ `Array.Copy` método](https://msdn.microsoft.com/en-us/library/z50k9bft.aspx) se utiliza para copiar los datos de `category.Picture` empezando en la posición 78 a `strippedImageData`.
+Este código se inicia mediante la lectura de la `CategoryID` valor de cadena de consulta en una variable denominada `categoryID`. A continuación, los datos de imagen se recuperan mediante una llamada a la `CategoriesBLL` clase s. `GetCategoryWithBinaryDataByCategoryID(categoryID)` método. Estos datos se devuelven al cliente mediante la `Response.BinaryWrite(data)` (método), pero antes de que se llama a esto, el `Picture` se debe quitar el encabezado de columna valor s OLE. Esto se logra mediante la creación de un `Byte` matriz denominada `strippedImageData` que contendrá exactamente 78 caracteres menor que lo que aparece en la `Picture` columna. El [ `Array.Copy` método](https://msdn.microsoft.com/library/z50k9bft.aspx) se utiliza para copiar los datos de `category.Picture` empezando en la posición 78 a `strippedImageData`.
 
 El `Response.ContentType` propiedad especifica la [tipo MIME](http://en.wikipedia.org/wiki/MIME) del contenido que se devuelve para que el explorador sabe cómo hacerla. Puesto que la `Categories` tabla s `Picture` la columna es una imagen de mapa de bits, el tipo MIME del mapa de bits se usa aquí (image/bmp). Si se omite el tipo MIME, mayoría de los exploradores se seguirá mostrando la imagen correctamente porque puede deducir el tipo según el contenido de los datos en la s de archivo de imagen binarios. Sin embargo, se s prudente incluir el MIME escribir cuando sea posible. Consulte la [sitio Web de Internet Assigned Numbers Authority s](http://www.iana.org/) para obtener una lista completa de [tipos de medio MIME](http://www.iana.org/assignments/media-types/).
 
@@ -226,7 +226,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

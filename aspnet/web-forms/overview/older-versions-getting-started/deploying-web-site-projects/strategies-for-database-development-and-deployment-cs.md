@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21d63b175eb52838ac9a12e33efc59fded4ed87d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 551a04296ff92e174a14bd9d2636714e823397e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="strategies-for-database-development-and-deployment-c"></a>Estrategias de desarrollo de base de datos y la implementación (C#)
 ====================
@@ -79,7 +79,7 @@ Mantener el registro de cambios de texto, es verdad, no es muy sofisticados y lo
 
 El principal inconveniente de mantener el registro de cambios de texto es la falta de automatización. Idealmente, implementar los cambios de base de datos a la base de datos de producción en tiempo de implementación sería tan fácil como hacer clic en un botón para ejecutar un script en lugar de tener que realizar manualmente una lista de instrucciones. Automatización de este tipo es posible por mantener un registro de cambios que contiene los comandos SQL que se utiliza para modificar el modelo de datos.
 
-La sintaxis SQL incluye una serie de instrucciones para crear y modificar varios objetos de base de datos. Por ejemplo, el [ *instrucción CREATE TABLE*](https://msdn.microsoft.com/en-us/library/ms174979.aspx), cuando se ejecuta, crea una nueva tabla con las restricciones y las columnas especificadas. El [ *instrucción ALTER TABLE* ](https://msdn.microsoft.com/en-us/library/ms190273.aspx) modifica una tabla existente, agregar, quitar o modificar sus columnas o restricciones. También existen instrucciones para crear, modificar y quitar índices, vistas, funciones definidas por el usuario, procedimientos almacenados, desencadenadores y otros objetos de base de datos.
+La sintaxis SQL incluye una serie de instrucciones para crear y modificar varios objetos de base de datos. Por ejemplo, el [ *instrucción CREATE TABLE*](https://msdn.microsoft.com/library/ms174979.aspx), cuando se ejecuta, crea una nueva tabla con las restricciones y las columnas especificadas. El [ *instrucción ALTER TABLE* ](https://msdn.microsoft.com/library/ms190273.aspx) modifica una tabla existente, agregar, quitar o modificar sus columnas o restricciones. También existen instrucciones para crear, modificar y quitar índices, vistas, funciones definidas por el usuario, procedimientos almacenados, desencadenadores y otros objetos de base de datos.
 
 Volver a nuestro ejemplo anterior, que la imagen durante el desarrollo de una aplicación ya implementadas se agrega una nueva columna a la `Employees` tabla, quitar una columna de la `Orders` de tabla y agregar una nueva tabla (`ProductCategories`). Estas acciones se crearán en un archivo de registro de cambios con los comandos SQL siguientes:
 

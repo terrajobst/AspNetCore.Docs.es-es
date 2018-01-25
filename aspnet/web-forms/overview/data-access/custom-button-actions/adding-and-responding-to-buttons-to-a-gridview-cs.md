@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dadc1641e427b025d71ef567a626fa7c37c9fc08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4f2a31f406bb1ed98e3620e216b4ad14fe59b32f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Agregar y responder a los botones a un control GridView (C#)
 ====================
@@ -194,7 +194,7 @@ Con el `DiscontinueAllProductsForSupplier(supplierID)` método BLL y DAL complet
 **Figura 15**: agregar un interrumpir todos los productos Web Control de botón a la FormView `ItemTemplate` ([haga clic aquí para ver la imagen a tamaño completo](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image41.png))
 
 
-Cuando se hace clic en el botón una visita de usuario que tiene lugar la página, una devolución de datos y la FormView [ `ItemCommand` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.formview.itemcommand.aspx) se activa. Para ejecutar código personalizado en respuesta a este botón se hizo clic, podemos crear un controlador de eventos para este evento. Comprender, sin embargo, que la `ItemCommand` cada vez que se activa el evento *cualquier* control Button, LinkButton o ImageButton Web se hace clic en FormView. Esto significa que cuando el usuario se mueve de una página a otra en FormView, la `ItemCommand` desencadena el evento; de lo mismo cuando el usuario hace clic en nuevo, editar o eliminar en un FormView que admite la inserción, actualización o eliminación.
+Cuando se hace clic en el botón una visita de usuario que tiene lugar la página, una devolución de datos y la FormView [ `ItemCommand` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.itemcommand.aspx) se activa. Para ejecutar código personalizado en respuesta a este botón se hizo clic, podemos crear un controlador de eventos para este evento. Comprender, sin embargo, que la `ItemCommand` cada vez que se activa el evento *cualquier* control Button, LinkButton o ImageButton Web se hace clic en FormView. Esto significa que cuando el usuario se mueve de una página a otra en FormView, la `ItemCommand` desencadena el evento; de lo mismo cuando el usuario hace clic en nuevo, editar o eliminar en un FormView que admite la inserción, actualización o eliminación.
 
 Puesto que el `ItemCommand` se activa sin tener en cuenta se hace clic en el botón, en caso de controlador necesitamos una manera de determinar si se ha hecho clic en el botón de productos todo suspender o si es algún otro botón. Para ello, podemos establecer el control de botón Web `CommandName` propiedad con un valor de identificación. Cuando se presiona el botón, esto `CommandName` valor se pasa a la `ItemCommand` controlador de eventos, lo que nos permite determinar si el botón de productos todo suspender fue el botón ha hecho clic. Establecer interrumpir todos los productos del botón `CommandName` propiedad DiscontinueProducts.
 
@@ -208,7 +208,7 @@ A continuación, cree un controlador de eventos para el FormView `ItemCommand` e
 
 [!code-csharp[Main](adding-and-responding-to-buttons-to-a-gridview-cs/samples/sample7.cs)]
 
-Tenga en cuenta que la `SupplierID` del proveedor seleccionado actual en FormView puede tener acceso mediante el FormView [ `SelectedValue` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). El `SelectedValue` propiedad devuelve el valor del registro que se muestra en el FormView de clave de los primeros datos. El FormView [ `DataKeyNames` propiedad](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.formview.datakeynames.aspx), lo que indica que los datos se extraen los campos desde el que los datos de los valores de clave, se establece automáticamente en `SupplierID` por Visual Studio cuando se enlaza el ObjectDataSource a FormView en el paso 2.
+Tenga en cuenta que la `SupplierID` del proveedor seleccionado actual en FormView puede tener acceso mediante el FormView [ `SelectedValue` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.formview.selectedvalue.aspx). El `SelectedValue` propiedad devuelve el valor del registro que se muestra en el FormView de clave de los primeros datos. El FormView [ `DataKeyNames` propiedad](https://msdn.microsoft.com/system.web.ui.webcontrols.formview.datakeynames.aspx), lo que indica que los datos se extraen los campos desde el que los datos de los valores de clave, se establece automáticamente en `SupplierID` por Visual Studio cuando se enlaza el ObjectDataSource a FormView en el paso 2.
 
 Con el `ItemCommand` controlador de eventos creado, tómese un momento para probar la página. Vaya a la Quesos de Cooperativa proveedor 'Venta Cabras' (es el quinto proveedor en FormView para mí). Este proveedor proporciona dos productos, Queso Cabrales y Queso Manchego La Pastora, ambos de los cuales son *no* suspendido.
 
@@ -244,7 +244,7 @@ Esta sobrecarga recupera información sobre el producto especificado a través d
 
 ## <a name="step-7-adding-the-increase-and-decrease-buttons-to-the-gridview"></a>Paso 7: Agregar los botones de disminución y aumento a GridView
 
-El control GridView (y DetailsView) son ambos formada por una colección de campos. Además de BoundFields, CheckBoxFields y TemplateFields, ASP.NET incluye el ButtonField, que, como su nombre implica, se representa como una columna con un botón, LinkButton o ImageButton para cada fila. Similar a la FormView, haga clic en *cualquier* botón dentro de la GridView botones de paginación, editar o eliminar botones, botones de ordenación y así sucesivamente provoca una devolución de datos y genera el GridView [ `RowCommand` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
+El control GridView (y DetailsView) son ambos formada por una colección de campos. Además de BoundFields, CheckBoxFields y TemplateFields, ASP.NET incluye el ButtonField, que, como su nombre implica, se representa como una columna con un botón, LinkButton o ImageButton para cada fila. Similar a la FormView, haga clic en *cualquier* botón dentro de la GridView botones de paginación, editar o eliminar botones, botones de ordenación y así sucesivamente provoca una devolución de datos y genera el GridView [ `RowCommand` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowcommand.aspx).
 
 El ButtonField tiene un `CommandName` propiedad que asigna el valor especificado a cada uno de sus botones `CommandName` propiedades. Al igual que con la FormView el `CommandName` valor es utilizado por el `RowCommand` controlador de eventos para determinar qué botón se hizo clic.
 
@@ -256,7 +256,7 @@ Vamos a agregar dos ButtonFields nuevo a la GridView, uno con un texto del botó
 **Figura 18**: agregar dos ButtonFields a GridView
 
 
-Mover el dos ButtonFields para que aparezcan como los dos primeros campos de GridView. A continuación, establezca el `Text` propiedades de estos dos ButtonFields para fijar los precios + 10% y el precio -10% y el `CommandName` propiedades IncreasePrice y DecreasePrice, respectivamente. De forma predeterminada, un ButtonField representa su columna de botones como LinkButton. Esto se puede cambiar, sin embargo, mediante la ButtonField [ `ButtonType` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Vamos a tener estos dos ButtonFields representados como botones de comando regulares; Por consiguiente, establecer el `ButtonType` propiedad `Button`. Figura 19 muestra los campos de cuadro de diálogo una vez realizados estos cambios; Después de que es el marcado declarativo de GridView.
+Mover el dos ButtonFields para que aparezcan como los dos primeros campos de GridView. A continuación, establezca el `Text` propiedades de estos dos ButtonFields para fijar los precios + 10% y el precio -10% y el `CommandName` propiedades IncreasePrice y DecreasePrice, respectivamente. De forma predeterminada, un ButtonField representa su columna de botones como LinkButton. Esto se puede cambiar, sin embargo, mediante la ButtonField [ `ButtonType` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.buttonfieldbase.buttontype.aspx). Vamos a tener estos dos ButtonFields representados como botones de comando regulares; Por consiguiente, establecer el `ButtonType` propiedad `Button`. Figura 19 muestra los campos de cuadro de diálogo una vez realizados estos cambios; Después de que es el marcado declarativo de GridView.
 
 
 ![Configurar el texto de ButtonFields, CommandName y ButtonType propiedades](adding-and-responding-to-buttons-to-a-gridview-cs/_static/image49.png)
@@ -304,7 +304,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Siguiente](adding-and-responding-to-buttons-to-a-gridview-vb.md)

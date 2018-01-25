@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 997756ff8d48e41da981491d6154f3107ec7a051
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d38e6fbc3407e4beca6942bbdefcaa8258ebc5ad
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tutorial-signalr-self-host"></a>Tutorial: SignalR autohospedaje
 ====================
@@ -94,7 +94,7 @@ En este tutorial, creará un servidor que se hospeda en una aplicación de conso
 
     El código anterior incluye tres clases:
 
-    - **Programa**, incluido el **Main** definir la ruta de acceso principal de la ejecución del método. En este método, una aplicación web de tipo **inicio** se inicia en la dirección URL especificada (`http://localhost:8080`). Si es necesaria la seguridad en el punto de conexión, se puede implementar SSL. Vea [Cómo: configurar un puerto con un certificado SSL](https://msdn.microsoft.com/en-us/library/ms733791.aspx) para obtener más información.
+    - **Programa**, incluido el **Main** definir la ruta de acceso principal de la ejecución del método. En este método, una aplicación web de tipo **inicio** se inicia en la dirección URL especificada (`http://localhost:8080`). Si es necesaria la seguridad en el punto de conexión, se puede implementar SSL. Vea [Cómo: configurar un puerto con un certificado SSL](https://msdn.microsoft.com/library/ms733791.aspx) para obtener más información.
     - **Inicio**, la clase que contiene la configuración para el servidor de SignalR (la única configuración que utiliza este tutorial es la llamada a `UseCors`) y la llamada a `MapSignalR`, que crea rutas para los objetos de base de datos central en el proyecto.
     - **MyHub**, la clase de concentrador de SignalR que la aplicación proporcionará a los clientes. Esta clase tiene un método único, **enviar**, que los clientes llamarán para difundir un mensaje a todos los demás clientes conectados.
 6. Compile y ejecute la aplicación. La dirección que se ejecuta el servidor debe mostrar en una ventana de consola.

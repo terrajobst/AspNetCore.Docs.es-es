@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dd1ae266740ea4728c0624b1833a98ac262e0e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Configurar parámetros para la implementación de paquete de Web
 ====================
@@ -88,7 +88,7 @@ Además de parametrizar la dirección URL del extremo en el paquete de implement
 
 Si instala el paquete de implementación manualmente, el Administrador de IIS le solicitará la dirección del extremo de servicio junto con las propiedades que se parametriza automáticamente. Si instala el paquete de implementación mediante la ejecución de la *. deploy.cmd* archivo, puede editar la *SetParameters.xml* archivo para proporcionar un valor para la dirección del extremo de servicio junto con valores para el propiedades que se parametriza automáticamente.
 
-Para obtener detalles completos sobre cómo crear un *parameters.xml* de archivos, consulte [Cómo: usar parámetros para configurar la configuración cuando un paquete de implementación está instalado](https://msdn.microsoft.com/en-us/library/ff398068.aspx). El procedimiento denominado **para usar los parámetros de implementación para la configuración del archivo Web.config** proporciona instrucciones paso a paso.
+Para obtener detalles completos sobre cómo crear un *parameters.xml* de archivos, consulte [Cómo: usar parámetros para configurar la configuración cuando un paquete de implementación está instalado](https://msdn.microsoft.com/library/ff398068.aspx). El procedimiento denominado **para usar los parámetros de implementación para la configuración del archivo Web.config** proporciona instrucciones paso a paso.
 
 ## <a name="modifying-the-setparametersxml-file"></a>Modificar el archivo SetParameters.xml
 
@@ -144,7 +144,7 @@ El siguiente tema, [implementar paquetes de Web](deploying-web-packages.md), se 
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener información sobre cómo crear paquetes de web, consulte [edificio y proyectos de aplicación Web de empaquetado](building-and-packaging-web-application-projects.md). Para obtener instrucciones sobre cómo implementar realmente un paquete web, consulte [implementar paquetes de Web](deploying-web-packages.md). Para ver un tutorial paso a paso sobre cómo crear un *parameters.xml* de archivos, consulte [Cómo: usar parámetros para configurar la configuración cuando un paquete de implementación está instalado](https://msdn.microsoft.com/en-us/library/ff398068.aspx).
+Para obtener información sobre cómo crear paquetes de web, consulte [edificio y proyectos de aplicación Web de empaquetado](building-and-packaging-web-application-projects.md). Para obtener instrucciones sobre cómo implementar realmente un paquete web, consulte [implementar paquetes de Web](deploying-web-packages.md). Para ver un tutorial paso a paso sobre cómo crear un *parameters.xml* de archivos, consulte [Cómo: usar parámetros para configurar la configuración cuando un paquete de implementación está instalado](https://msdn.microsoft.com/library/ff398068.aspx).
 
 Para obtener información general sobre la parametrización de Web Deploy, vea [Web implementar parametrización en acción](https://go.microsoft.com/?linkid=9805119) (entrada de blog).
 

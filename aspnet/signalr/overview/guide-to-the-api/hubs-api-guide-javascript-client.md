@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-javascript-client
 msc.type: authoredcontent
-ms.openlocfilehash: 65e369a393a8c5d2d1bba11b5c71347df8f9c69d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 794ab576d3c6600911f331bab7c335476e45a0c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a>Guía de API de bases de datos centrales de ASP.NET SignalR - cliente de JavaScript
 ====================
@@ -142,7 +142,7 @@ En una aplicación de formularios Web Forms de ASP.NET, utilice `ResolveClientUr
 
 [!code-aspx[Main](hubs-api-guide-javascript-client/samples/sample7.aspx)]
 
-Como norma general, utilice el mismo método para especificar la dirección URL "/ signalr/concentradores" que usa para archivos CSS o JavaScript. Si especifica una dirección URL sin utilizar una tilde, en algunos escenarios de la aplicación funcionará correctamente al probar en Visual Studio mediante IIS Express, pero se producirá un error con un error 404 cuando se implementa en la versión completa de IIS. Para obtener más información, consulte **resolver referencias a recursos de nivel de raíz** en [servidores Web en Visual Studio para proyectos Web ASP.NET](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx) en el sitio MSDN.
+Como norma general, utilice el mismo método para especificar la dirección URL "/ signalr/concentradores" que usa para archivos CSS o JavaScript. Si especifica una dirección URL sin utilizar una tilde, en algunos escenarios de la aplicación funcionará correctamente al probar en Visual Studio mediante IIS Express, pero se producirá un error con un error 404 cuando se implementa en la versión completa de IIS. Para obtener más información, consulte **resolver referencias a recursos de nivel de raíz** en [servidores Web en Visual Studio para proyectos Web ASP.NET](https://msdn.microsoft.com/library/58wxa9w5.aspx) en el sitio MSDN.
 
 Cuando se ejecuta un proyecto web en Visual Studio 2013 en modo de depuración y, si utiliza Internet Explorer como explorador, puede ver el archivo de proxy en **el Explorador de soluciones** en **documentos de Script**, tal y como se muestra en el ilustración siguiente.
 

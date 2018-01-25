@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 2c49e7f6925b1ca172642747c5052ba97d70d036
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Implementación de Web ASP.NET con Visual Studio: implementación de producción
 ====================
@@ -150,7 +150,7 @@ Ahora que ha creado una aplicación web y la base de datos para el entorno de en
     5. Cerrar la **configurar actualizaciones de base de datos** cuadro de diálogo.
 10. En **SchoolContext** en el **bases de datos** sección, seleccione **ejecutar migraciones de Code First (se ejecuta al iniciarse la aplicación)**.
 
-    Visual Studio muestra **ejecutar Code First Migrations** en lugar de **Actualizar base de datos** de `DbContext` clases. Si desea utilizar el proveedor dbDacFx en lugar de las migraciones para implementar una base de datos que tiene acceso mediante un `DbContext` de clases, consulte [cómo se puede implementar una base de datos Code First sin migraciones?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#deploy_code_first_without_migrations) en las P+F de implementación Web para Visual Studio y ASP.NET en MSDN.
+    Visual Studio muestra **ejecutar Code First Migrations** en lugar de **Actualizar base de datos** de `DbContext` clases. Si desea utilizar el proveedor dbDacFx en lugar de las migraciones para implementar una base de datos que tiene acceso mediante un `DbContext` de clases, consulte [cómo se puede implementar una base de datos Code First sin migraciones?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) en las P+F de implementación Web para Visual Studio y ASP.NET en MSDN.
 
     El **configuración** ficha ahora es similar al ejemplo siguiente:
 
@@ -193,7 +193,7 @@ Una consideración importante para la aplicación de almacenamiento provisional 
 - Use una dirección URL confuso que sería imposible saber.
 - Crear un *robots.txt* archivo para asegurarse de que los motores de búsqueda no rastreará los vínculos de informe y la aplicación de prueba a él en resultados de búsqueda.
 
-El primero de estos métodos es muy eficaz, pero no se trata en este tutorial porque requeriría que implementa en un servicio de nube de Azure en lugar de servicio de aplicaciones de Azure. Para obtener más información acerca de los servicios de nube y las restricciones de IP en Azure, vea [opciones de proceso de hospedaje proporcionado por Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) y [bloque de direcciones IP específicas tengan acceso a un rol Web](https://msdn.microsoft.com/en-us/library/windowsazure/jj154098.aspx). Si va a implementar en un proveedor de hospedaje de terceros, póngase en contacto con el proveedor para obtener información sobre cómo implementar restricciones de IP.
+El primero de estos métodos es muy eficaz, pero no se trata en este tutorial porque requeriría que implementa en un servicio de nube de Azure en lugar de servicio de aplicaciones de Azure. Para obtener más información acerca de los servicios de nube y las restricciones de IP en Azure, vea [opciones de proceso de hospedaje proporcionado por Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me) y [bloque de direcciones IP específicas tengan acceso a un rol Web](https://msdn.microsoft.com/library/windowsazure/jj154098.aspx). Si va a implementar en un proveedor de hospedaje de terceros, póngase en contacto con el proveedor para obtener información sobre cómo implementar restricciones de IP.
 
 Para este tutorial, creará un *robots.txt* archivo.
 
@@ -256,7 +256,7 @@ De forma predeterminada, *.pubxml* archivos se incluyen en el proyecto cuando se
 
 Para cada *.pubxml* archivo hay una *. pubxml.user* archivo. El *. pubxml.user* archivo contiene la contraseña cifrada si ha seleccionado la **Guardar contraseña** opción y se excluye del proyecto de forma predeterminada.
 
-A *.pubxml* archivo contiene los valores que forman parte de un perfil de publicación específicos. Si desea configurar las opciones que se aplican a todos los perfiles, puede crear un *. wpp.targets* archivo. El proceso de compilación importan estos archivos en el *.csproj* o *.vbproj* archivo de proyecto, por lo que la mayoría de las opciones que puede configurar en el archivo de proyecto puede configurarse en estos archivos. Para obtener más información acerca de *.pubxml* archivos y *. wpp.targets* archivos, vea [Cómo: modificar la configuración de implementación en los archivos de un perfil de publicación (.pubxml) y. wpp.targets archivo en Visual Studio Proyectos Web](https://msdn.microsoft.com/en-us/library/ff398069.aspx).
+A *.pubxml* archivo contiene los valores que forman parte de un perfil de publicación específicos. Si desea configurar las opciones que se aplican a todos los perfiles, puede crear un *. wpp.targets* archivo. El proceso de compilación importan estos archivos en el *.csproj* o *.vbproj* archivo de proyecto, por lo que la mayoría de las opciones que puede configurar en el archivo de proyecto puede configurarse en estos archivos. Para obtener más información acerca de *.pubxml* archivos y *. wpp.targets* archivos, vea [Cómo: modificar la configuración de implementación en los archivos de un perfil de publicación (.pubxml) y. wpp.targets archivo en Visual Studio Proyectos Web](https://msdn.microsoft.com/library/ff398069.aspx).
 
 1. En **el Explorador de soluciones**, expanda **propiedades** y expanda **PublishProfiles**.
 2. Haga clic en *Production.pubxml* y haga clic en **abiertos**.
@@ -271,7 +271,7 @@ A *.pubxml* archivo contiene los valores que forman parte de un perfil de public
 
     [!code-xml[Main](deploying-to-production/samples/sample4.xml?highlight=18-20)]
 
-    Para obtener más información acerca de cómo excluir archivos y carpetas, consulte [¿se puede excluir determinados archivos o carpetas de implementación?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) en el **preguntas más frecuentes de implementación de Web para Visual Studio y ASP.NET** en MSDN.
+    Para obtener más información acerca de cómo excluir archivos y carpetas, consulte [¿se puede excluir determinados archivos o carpetas de implementación?](https://msdn.microsoft.com/library/ee942158.aspx#can_i_exclude_specific_files_or_folders_from_deployment) en el **preguntas más frecuentes de implementación de Web para Visual Studio y ASP.NET** en MSDN.
 
 ### <a name="deploy-to-production"></a>Implementar en producción
 
@@ -295,7 +295,7 @@ Ahora ha implementado y probado la aplicación web y está disponible públicame
 En el siguiente tutorial, podrá actualizar el código de la aplicación e implementar el cambio a los entornos de prueba, ensayo y producción.
 
 > [!NOTE]
-> Mientras la aplicación está en uso en el entorno de producción debe implementar un plan de recuperación. Es decir, debe ser periódicamente copias de seguridad las bases de datos desde la aplicación de producción en una ubicación de almacenamiento seguro y debe mantener varias generaciones de estas copias de seguridad. Cuando se actualiza la base de datos, debe realizar una copia de seguridad de inmediatamente antes del cambio. A continuación, si comete un error y no detectar hasta después de haber implementado en producción, aún podrá recuperar la base de datos al estado que tenía antes de resultó dañado. Para obtener más información, consulte [copia de seguridad de base de datos de SQL de Azure y restauración](https://msdn.microsoft.com/en-us/library/windowsazure/jj650016.aspx).
+> Mientras la aplicación está en uso en el entorno de producción debe implementar un plan de recuperación. Es decir, debe ser periódicamente copias de seguridad las bases de datos desde la aplicación de producción en una ubicación de almacenamiento seguro y debe mantener varias generaciones de estas copias de seguridad. Cuando se actualiza la base de datos, debe realizar una copia de seguridad de inmediatamente antes del cambio. A continuación, si comete un error y no detectar hasta después de haber implementado en producción, aún podrá recuperar la base de datos al estado que tenía antes de resultó dañado. Para obtener más información, consulte [copia de seguridad de base de datos de SQL de Azure y restauración](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
 
 
 > [!NOTE]

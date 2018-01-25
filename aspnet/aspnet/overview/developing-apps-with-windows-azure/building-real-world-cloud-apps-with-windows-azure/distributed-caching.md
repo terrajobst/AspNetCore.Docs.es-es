@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/distributed-caching
 msc.type: authoredcontent
-ms.openlocfilehash: 923a8257376e98e6cae10d905f1cb18f7fdb28e7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 24ede9cb9289c84140f6e2573f9d526f19cac64b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a>Almacenamiento en caché (compilación reales en la nube aplicaciones distribuidas con Azure)
 ====================
@@ -79,12 +79,12 @@ Se trata de ejemplos que muestran el código de almacenamiento en caché simple;
 
 ## <a name="azure-caching-services"></a>Almacenamiento en caché de servicios de Azure
 
-Azure ofrece los siguientes servicios de almacenamiento en caché: [Azure Redis Cache](https://msdn.microsoft.com/en-us/library/dn690523.aspx) y [caché administrada de Azure](https://msdn.microsoft.com/en-us/library/dn386094.aspx). Caché en Redis de Azure se basa en la conocida [Abrir origen de caché en Redis](http://redis.io/) y es la primera opción para la mayoría, almacenamiento en caché escenarios.
+Azure ofrece los siguientes servicios de almacenamiento en caché: [Azure Redis Cache](https://msdn.microsoft.com/library/dn690523.aspx) y [caché administrada de Azure](https://msdn.microsoft.com/library/dn386094.aspx). Caché en Redis de Azure se basa en la conocida [Abrir origen de caché en Redis](http://redis.io/) y es la primera opción para la mayoría, almacenamiento en caché escenarios.
 
 <a id="sessionstate"></a>
 ## <a name="aspnet-session-state-using-a-cache-provider"></a>Estado de sesión ASP.NET usando un proveedor de caché
 
-Como se mencionó en la [capítulo de prácticas recomendada de web development](web-development-best-practices.md), una práctica recomendada consiste en evitar utilizar el estado de sesión. Si la aplicación requiere que el estado de sesión, el siguiente procedimiento recomendado es evitar el proveedor en memoria de forma predeterminada, ya que no permiten escalar horizontalmente (varias instancias del servidor web). El proveedor de estado de sesión de SQL Server de ASP.NET permite a un sitio que se ejecuta en varios servidores web para utilizar el estado de sesión, pero implica un costo de latencia alta en comparación con un proveedor en memoria. La mejor solución si tiene que usar el estado de sesión es usar un proveedor de caché, como el [proveedor de estado de sesión para caché de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Como se mencionó en la [capítulo de prácticas recomendada de web development](web-development-best-practices.md), una práctica recomendada consiste en evitar utilizar el estado de sesión. Si la aplicación requiere que el estado de sesión, el siguiente procedimiento recomendado es evitar el proveedor en memoria de forma predeterminada, ya que no permiten escalar horizontalmente (varias instancias del servidor web). El proveedor de estado de sesión de SQL Server de ASP.NET permite a un sitio que se ejecuta en varios servidores web para utilizar el estado de sesión, pero implica un costo de latencia alta en comparación con un proveedor en memoria. La mejor solución si tiene que usar el estado de sesión es usar un proveedor de caché, como el [proveedor de estado de sesión para caché de Azure](https://msdn.microsoft.com/library/windowsazure/gg185668.aspx).
 
 ## <a name="summary"></a>Resumen
 
@@ -96,11 +96,11 @@ Para obtener más información sobre el almacenamiento en caché, vea los siguie
 
 Documentación
 
-- [Caché de Azure](https://msdn.microsoft.com/en-us/library/gg278356.aspx). Documentación de MSDN oficial en almacenamiento en caché de Azure.
-- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Consulte las instrucciones de almacenamiento en caché y modelo Cache-Aside.
-- [Failsafe: Instrucciones para crear arquitecturas de nube resistentes](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Notas del producto Marc Mercuri, Ulrich Homann y Andrew Townhill. Vea la sección sobre el almacenamiento en caché.
-- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). W. Notas del producto, Mark Simms y Michael Thomassy. Vea la sección sobre el almacenamiento en caché distribuido.
-- [Distribuido en caché en la ruta de acceso de escalabilidad](https://msdn.microsoft.com/en-us/magazine/dd942840.aspx). Un artículo de MSDN Magazine (2009) anterior, pero una escritas con claridad Introducción al almacenamiento en caché distribuido en general; entra en más detalle en las secciones de almacenamiento en caché de las notas del producto FailSafe y procedimientos recomendados.
+- [Caché de Azure](https://msdn.microsoft.com/library/gg278356.aspx). Documentación de MSDN oficial en almacenamiento en caché de Azure.
+- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Consulte las instrucciones de almacenamiento en caché y modelo Cache-Aside.
+- [Failsafe: Instrucciones para crear arquitecturas de nube resistentes](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Notas del producto Marc Mercuri, Ulrich Homann y Andrew Townhill. Vea la sección sobre el almacenamiento en caché.
+- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). W. Notas del producto, Mark Simms y Michael Thomassy. Vea la sección sobre el almacenamiento en caché distribuido.
+- [Distribuido en caché en la ruta de acceso de escalabilidad](https://msdn.microsoft.com/magazine/dd942840.aspx). Un artículo de MSDN Magazine (2009) anterior, pero una escritas con claridad Introducción al almacenamiento en caché distribuido en general; entra en más detalle en las secciones de almacenamiento en caché de las notas del producto FailSafe y procedimientos recomendados.
 
 Vídeos
 

@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.topic: article
 ms.prod: asp.net-core
 uid: performance/caching/response
-ms.openlocfilehash: 104cfb2eab706a2ec6278b4d1c461f70b0af5df1
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
@@ -35,15 +35,15 @@ Common `Cache-Control` directivas se muestran en la tabla siguiente.
 | [public](https://tools.ietf.org/html/rfc7234#section-5.2.2.5)   | Una memoria caché puede almacenar la respuesta. |
 | [private](https://tools.ietf.org/html/rfc7234#section-5.2.2.6)  | No se debe almacenar la respuesta de una memoria caché compartida. Una caché privada puede almacenar y reutilizar la respuesta. |
 | [max-age](https://tools.ietf.org/html/rfc7234#section-5.2.1.1)  | El cliente no aceptará una respuesta cuya antigüedad es superior al número especificado de segundos. Ejemplos: `max-age=60` (60 segundos), `max-age=2592000` (1 mes) |
-| [sin caché](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **En las solicitudes**: una memoria caché no debe usar una respuesta almacenada para satisfacer la solicitud. Nota: El servidor de origen vuelve a genera la respuesta para el cliente y el software intermedio actualiza la respuesta almacenada en la memoria caché.<br><br>**En las respuestas**: la respuesta no debe usarse para una solicitud posterior sin la validación en el servidor de origen. |
-| [ningún almacén](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **En las solicitudes**: una memoria caché no debe almacenar la solicitud.<br><br>**En las respuestas**: una memoria caché no debe almacenar cualquier parte de la respuesta. |
+| [no-cache](https://tools.ietf.org/html/rfc7234#section-5.2.1.4) | **En las solicitudes**: una memoria caché no debe usar una respuesta almacenada para satisfacer la solicitud. Nota: El servidor de origen vuelve a genera la respuesta para el cliente y el software intermedio actualiza la respuesta almacenada en la memoria caché.<br><br>**En las respuestas**: la respuesta no debe usarse para una solicitud posterior sin la validación en el servidor de origen. |
+| [no-store](https://tools.ietf.org/html/rfc7234#section-5.2.1.5) | **En las solicitudes**: una memoria caché no debe almacenar la solicitud.<br><br>**En las respuestas**: una memoria caché no debe almacenar cualquier parte de la respuesta. |
 
 Otros encabezados de caché que desempeñan un papel en el almacenamiento en caché se muestran en la tabla siguiente.
 
 | Header                                                     | Función |
 | ---------------------------------------------------------- | -------- |
 | [Edad](https://tools.ietf.org/html/rfc7234#section-5.1)     | Una estimación de la cantidad de tiempo en segundos desde que se generó la respuesta o se ha validado correctamente en el servidor de origen. |
-| [Expira](https://tools.ietf.org/html/rfc7234#section-5.3) | La fecha y hora después de que la respuesta se considera obsoleta. |
+| [Expires](https://tools.ietf.org/html/rfc7234#section-5.3) | La fecha y hora después de que la respuesta se considera obsoleta. |
 | [Pragma](https://tools.ietf.org/html/rfc7234#section-5.4)  | Existe para hacia atrás compatibilidad con HTTP/1.0 almacena en memoria caché de configuración `no-cache` comportamiento. Si el `Cache-Control` encabezado está presente, el `Pragma` se omite el encabezado. |
 | [Variar](https://tools.ietf.org/html/rfc7231#section-7.1.4)  | Especifica que una respuesta almacenada en caché no se debe enviar a menos que todos los de la `Vary` coinciden con campos de encabezado de solicitud original de la respuesta almacenada en caché y la solicitud nuevo. |
 
@@ -65,7 +65,7 @@ Para obtener más información, consulte [Introducción al almacenamiento en cac
 
 ### <a name="distributed-cache"></a>Caché distribuida
 
-Usar una memoria caché distribuida para almacenar datos en la memoria cuando la aplicación se hospeda en una granja de servidores en la nube o el servidor. La memoria caché se comparte entre los servidores que procesan las solicitudes. Un cliente puede enviar una solicitud que controla cualquier servidor en el grupo y los datos almacenados en caché para el cliente están disponibles. ASP.NET Core ofrece SQL Server y las cachés de Redis distribuida.
+Usar una memoria caché distribuida para almacenar datos en la memoria cuando la aplicación se hospeda en una granja de servidores en la nube o el servidor. La memoria caché se comparte entre los servidores que procesan las solicitudes. Un cliente puede enviar una solicitud que se administra cualquier servidor en el grupo y datos almacenados en caché para el cliente está disponible. ASP.NET Core ofrece SQL Server y las cachés de Redis distribuida.
 
 Para obtener más información, consulte [trabajar con una memoria caché distribuida](xref:performance/caching/distributed).
 
@@ -96,7 +96,7 @@ El `ResponseCacheAttribute` especifica los parámetros necesarios para establece
 | `http://example.com?key1=value1` | procedentes de middleware |
 | `http://example.com?key1=value2` | devuelta por el servidor     |
 
-La primera solicitud es devuelto por el servidor y en memoria caché de middleware. Dado que la cadena de consulta coincide con la solicitud anterior, se devuelve la segunda solicitud middleware. La tercera solicitud no está en la caché de middleware porque el valor de cadena de consulta no coincide con una solicitud anterior. 
+La primera solicitud es devuelto por el servidor y en memoria caché de middleware. Dado que la cadena de consulta coincide con la solicitud anterior, se devuelve la segunda solicitud middleware. La tercera solicitud no se encuentra en la caché de middleware porque el valor de cadena de consulta no coincide con una solicitud anterior. 
 
 El `ResponseCacheAttribute` se utiliza para crear y configurar (a través de `IFilterFactory`) un `ResponseCacheFilter`. El `ResponseCacheFilter` realiza el trabajo de actualización de los encabezados HTTP adecuados y características de la respuesta. El filtro:
 
@@ -176,10 +176,10 @@ Cache-Control: public,max-age=60
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Almacenamiento en caché de HTTP de la especificación](https://tools.ietf.org/html/rfc7234#section-3)
-* [Control de caché](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
+* [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
+* [Almacenamiento caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Aplicación auxiliar de etiqueta de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 58b76f0ac07051496c6f34be41dcf20154e34674
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f95a6868ccce8ce0dfa16a92486e705c42e1db4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Usar existente los procedimientos almacenados para los TableAdapters del conjunto de datos con tipo (C#)
 ====================
@@ -200,7 +200,7 @@ Este modelo puede implementarse en la sintaxis de T-SQL con la siguiente plantil
 
 La plantilla se inicia mediante la definición de un `TRY...CATCH` bloquear, una construcción de nueva a SQL Server 2005. Al igual que con `try...catch` bloques en C#, la instrucción SQL `TRY...CATCH` bloque ejecuta las instrucciones en el `TRY` bloque. Si cualquier instrucción produce un error, el control se transfiere inmediatamente a la `CATCH` bloque.
 
-Si no hay ningún error de ejecución de las instrucciones SQL que utilizan la transacción, la `COMMIT TRANSACTION` instrucción confirma los cambios y finaliza la transacción. Si, sin embargo, una de las instrucciones provoca un error, el `ROLLBACK TRANSACTION` en el `CATCH` bloque devuelve la base de datos a su estado antes del inicio de la transacción. El procedimiento almacenado también genera un error mediante el [comando RAISERROR](https://msdn.microsoft.com/en-us/library/ms178592.aspx), lo que hace que un `SqlException` que se genera en la aplicación.
+Si no hay ningún error de ejecución de las instrucciones SQL que utilizan la transacción, la `COMMIT TRANSACTION` instrucción confirma los cambios y finaliza la transacción. Si, sin embargo, una de las instrucciones provoca un error, el `ROLLBACK TRANSACTION` en el `CATCH` bloque devuelve la base de datos a su estado antes del inicio de la transacción. El procedimiento almacenado también genera un error mediante el [comando RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx), lo que hace que un `SqlException` que se genera en la aplicación.
 
 > [!NOTE]
 > Puesto que la `TRY...CATCH` bloque es una novedad de SQL Server 2005, la plantilla anterior no funcionará si usa versiones anteriores de Microsoft SQL Server. Si no se usa SQL Server 2005, consulte [administrar transacciones en procedimientos almacenados de SQL Server](http://www.4guysfromrolla.com/webtech/080305-1.shtml) para una plantilla que funciona con otras versiones de SQL Server.
@@ -273,7 +273,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 152b9a4b12f55bd999960568b11d08c96d342c03
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5579292930da97b142ff6db5d34d33be77aeea4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="user-based-authorization-vb"></a>Autorización basada en usuario (VB)
 ====================
@@ -39,9 +39,9 @@ En este tutorial, veremos para limitar el acceso a las páginas y restringir la 
 
 Como se describe en el [ *una visión general de autenticación mediante formularios* ](../introduction/an-overview-of-forms-authentication-vb.md) tutorial, cuando el tiempo de ejecución ASP.NET procesa una solicitud para un recurso ASP.NET la solicitud, genera un número de eventos durante su ciclo de vida. *Módulos HTTP* son clases administradas cuyo código se ejecuta en respuesta a un evento determinado en el ciclo de vida de la solicitud. ASP.NET se suministra con un número de módulos HTTP que realizan tareas esenciales en segundo plano.
 
-Es uno de esos módulos HTTP [ `FormsAuthenticationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.formsauthenticationmodule.aspx). Como se describe en los tutoriales anteriores, la función principal de la `FormsAuthenticationModule` consiste en determinar la identidad de la solicitud actual. Esto se consigue mediante la inspección el vale de autenticación de formularios, que se encuentra en una cookie o incrustado en la dirección URL. Esta identificación tiene lugar durante la [ `AuthenticateRequest` eventos](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authenticaterequest.aspx).
+Es uno de esos módulos HTTP [ `FormsAuthenticationModule` ](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx). Como se describe en los tutoriales anteriores, la función principal de la `FormsAuthenticationModule` consiste en determinar la identidad de la solicitud actual. Esto se consigue mediante la inspección el vale de autenticación de formularios, que se encuentra en una cookie o incrustado en la dirección URL. Esta identificación tiene lugar durante la [ `AuthenticateRequest` eventos](https://msdn.microsoft.com/library/system.web.httpapplication.authenticaterequest.aspx).
 
-Otro módulo HTTP importante es la [ `UrlAuthorizationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx), que se produce en respuesta a la [ `AuthorizeRequest` eventos](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.authorizerequest.aspx) (algo que tiene lugar después de la `AuthenticateRequest` evento). El `UrlAuthorizationModule` examina el marcado de configuración en `Web.config` para determinar si la identidad actual tiene autoridad para visitar la página especificada. Este proceso se conoce como *autorizaciones de direcciones URL*.
+Otro módulo HTTP importante es la [ `UrlAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx), que se produce en respuesta a la [ `AuthorizeRequest` eventos](https://msdn.microsoft.com/library/system.web.httpapplication.authorizerequest.aspx) (algo que tiene lugar después de la `AuthenticateRequest` evento). El `UrlAuthorizationModule` examina el marcado de configuración en `Web.config` para determinar si la identidad actual tiene autoridad para visitar la página especificada. Este proceso se conoce como *autorizaciones de direcciones URL*.
 
 Examinaremos la sintaxis de las reglas de autorización de dirección URL en el paso 1, pero primero vamos a ver lo que el `UrlAuthorizationModule` no hace según si la solicitud está autorizada o no. Si el `UrlAuthorizationModule` determina que la solicitud está autorizada, a continuación, no realiza ninguna acción y la solicitud continúa a través de su ciclo de vida. Sin embargo, si la solicitud es *no* autorizado, la `UrlAuthorizationModule` anula el ciclo de vida e indica la `Response` objeto que se va a devolver un [HTTP 401 no autorizado](http://www.checkupdown.com/status/E401.html) estado. Al utilizar la autenticación de formularios este estado HTTP 401 nunca se devuelve al cliente porque si el `FormsAuthenticationModule` detecta el estado es HTTP 401 que modifica un [HTTP 302 redirigir](http://www.checkupdown.com/status/E302.html) a la página de inicio de sesión.
 
@@ -70,7 +70,7 @@ Figura 2 muestra este flujo de trabajo confuso.
 El flujo de trabajo que se muestra en la figura 2 puede befuddle rápidamente incluso la mayoría equipo expertos visitante. Veremos formas de evitar que esto confuso ciclo en el paso 2.
 
 > [!NOTE]
-> ASP.NET usa dos mecanismos para determinar si el usuario actual puede tener acceso a una página web determinada: autorización de dirección URL y de archivo. Autorización de archivo se implementa mediante el [ `FileAuthorizationModule` ](https://msdn.microsoft.com/en-us/library/system.web.security.fileauthorizationmodule.aspx), que determina la entidad consultando los archivos solicitados ACL. Autorización de archivo normalmente se utiliza con la autenticación de Windows porque las ACL son los permisos que se aplican a las cuentas de Windows. Cuando se utiliza la autenticación de formularios, todas las solicitudes de nivel de sistema operativo system - y archivos se ejecutan con la misma cuenta de Windows, independientemente del usuario visita el sitio. Puesto que esta serie de tutoriales se centra en la autenticación de formularios, no analizaremos la autorización de archivos.
+> ASP.NET usa dos mecanismos para determinar si el usuario actual puede tener acceso a una página web determinada: autorización de dirección URL y de archivo. Autorización de archivo se implementa mediante el [ `FileAuthorizationModule` ](https://msdn.microsoft.com/library/system.web.security.fileauthorizationmodule.aspx), que determina la entidad consultando los archivos solicitados ACL. Autorización de archivo normalmente se utiliza con la autenticación de Windows porque las ACL son los permisos que se aplican a las cuentas de Windows. Cuando se utiliza la autenticación de formularios, todas las solicitudes de nivel de sistema operativo system - y archivos se ejecutan con la misma cuenta de Windows, independientemente del usuario visita el sitio. Puesto que esta serie de tutoriales se centra en la autenticación de formularios, no analizaremos la autorización de archivos.
 
 
 ### <a name="the-scope-of-url-authorization"></a>El ámbito de autorización de URL
@@ -87,7 +87,7 @@ En pocas palabras, en versiones anteriores de IIS 7, las reglas de autorización
 
 ## <a name="step-1-defining-url-authorization-rules-inwebconfig"></a>Paso 1: Definir reglas de autorización de dirección URL en`Web.config`
 
-El `UrlAuthorizationModule` determina si se debe conceder o denegar el acceso a un recurso solicitado para una identidad concreta según las reglas de autorización de dirección URL definidas en la configuración de la aplicación. Las reglas de autorización se establece en el [ `<authorization>` elemento](https://msdn.microsoft.com/en-us/library/8d82143t.aspx) en forma de `<allow>` y `<deny>` los elementos secundarios. Cada `<allow>` y `<deny>` puede especificar el elemento secundario:
+El `UrlAuthorizationModule` determina si se debe conceder o denegar el acceso a un recurso solicitado para una identidad concreta según las reglas de autorización de dirección URL definidas en la configuración de la aplicación. Las reglas de autorización se establece en el [ `<authorization>` elemento](https://msdn.microsoft.com/library/8d82143t.aspx) en forma de `<allow>` y `<deny>` los elementos secundarios. Cada `<allow>` y `<deny>` puede especificar el elemento secundario:
 
 - Un usuario determinado
 - Una lista delimitada por comas de los usuarios
@@ -168,7 +168,7 @@ Para probar este cambio de autorización, empiece por visitar el sitio Web como 
 
 ### <a name="a-look-at-how-theurlauthorizationmoduleuses-the-authorization-rules-to-grant-or-deny-access"></a>Un vistazo a cómo el`UrlAuthorizationModule`usa las reglas de autorización para conceder o denegar acceso
 
-El `UrlAuthorizationModule` determina si autorizar una identidad concreta para una dirección URL determinada mediante el análisis de la autorización de dirección URL de reglas de uno en uno, a partir de la primera de ellas y avanzando hacia abajo. En cuanto se encuentra una coincidencia, se concede o deniega el acceso al usuario, dependiendo de if se encontró la coincidencia en un `<allow>` o `<deny>` elemento. **Si se encuentra ninguna coincidencia, se concede al usuario acceso.** Por consiguiente, si desea restringir el acceso, es esencial que utilice un `<deny>` elemento como el último elemento de la configuración de autorización de dirección URL. **Si se omite un ***`<deny>`*** elemento, todos los usuarios se le concederá acceso.**
+El `UrlAuthorizationModule` determina si autorizar una identidad concreta para una dirección URL determinada mediante el análisis de la autorización de dirección URL de reglas de uno en uno, a partir de la primera de ellas y avanzando hacia abajo. En cuanto se encuentra una coincidencia, se concede o deniega el acceso al usuario, dependiendo de if se encontró la coincidencia en un `<allow>` o `<deny>` elemento. **Si se encuentra ninguna coincidencia, se concede al usuario acceso.** Por consiguiente, si desea restringir el acceso, es esencial que utilice un `<deny>` elemento como el último elemento de la configuración de autorización de dirección URL. **Si se omite un****`<deny>`****elemento, todos los usuarios se le concederá acceso.**
 
 Para comprender mejor el proceso utilizado por el `UrlAuthorizationModule` para determinar la entidad, considere el ejemplo de las reglas de autorización de dirección URL que explicamos anteriormente en este paso. La primera regla es un `<allow>` elemento que permite el acceso a Tito y Scott. Las reglas de segundo es un `<deny>` elemento que se deniega el acceso a todos los usuarios. ¿Si visita un usuario anónimo, el `UrlAuthorizationModule` es anónimo comienza pidiendo, Scott o Tito? La respuesta, obviamente, es n, por lo que pasa a la segunda regla. ¿Es anónimo en el conjunto de todos los usuarios? Desde la respuesta aquí es "Sí", la `<deny>` regla se coloca en vigor y el visitante se redirige a la página de inicio de sesión. ¿De forma similar, si está visitando a Jisun, la `UrlAuthorizationModule` inicia consultando es Jisun Scott o Tito? ¿Puesto que no es así, es el `UrlAuthorizationModule` avanza a la segunda pregunta, Jisun está en el conjunto de todos los usuarios? Es, por lo que, también, se deniega el acceso. Por último, si visita Tito, la primera pregunta que plantea la `UrlAuthorizationModule` es una respuesta afirmativa, por lo que Tito se le concede acceso.
 
@@ -230,10 +230,10 @@ Con el marcado de GridView creado, estamos listos para escribir el código que s
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample10.vb)]
 
-El código anterior usa el [ `DirectoryInfo` clase](https://msdn.microsoft.com/en-us/library/system.io.directoryinfo.aspx) para obtener una lista de los archivos en la carpeta raíz de la aplicación. El [ `GetFiles()` método](https://msdn.microsoft.com/en-us/library/system.io.directoryinfo.getfiles.aspx) devuelve todos los archivos en el directorio como una matriz de [ `FileInfo` objetos](https://msdn.microsoft.com/en-us/library/system.io.fileinfo.aspx), que se enlaza a la GridView. El `FileInfo` objeto tiene una gran variedad de propiedades, como `Name`, `Length`, y `IsReadOnly`, entre otros. Como puede ver en el marcado declarativo, GridView muestra solo la `Name` y `Length` propiedades.
+El código anterior usa el [ `DirectoryInfo` clase](https://msdn.microsoft.com/library/system.io.directoryinfo.aspx) para obtener una lista de los archivos en la carpeta raíz de la aplicación. El [ `GetFiles()` método](https://msdn.microsoft.com/library/system.io.directoryinfo.getfiles.aspx) devuelve todos los archivos en el directorio como una matriz de [ `FileInfo` objetos](https://msdn.microsoft.com/library/system.io.fileinfo.aspx), que se enlaza a la GridView. El `FileInfo` objeto tiene una gran variedad de propiedades, como `Name`, `Length`, y `IsReadOnly`, entre otros. Como puede ver en el marcado declarativo, GridView muestra solo la `Name` y `Length` propiedades.
 
 > [!NOTE]
-> El `DirectoryInfo` y `FileInfo` clases se encuentran en el [ `System.IO` espacio de nombres](https://msdn.microsoft.com/en-us/library/system.io.aspx). Por lo tanto, necesitará preceder estos nombres de clase con sus nombres de espacio de nombres o hacer que el espacio de nombres importado en el archivo de clase (a través de `Imports System.IO`).
+> El `DirectoryInfo` y `FileInfo` clases se encuentran en el [ `System.IO` espacio de nombres](https://msdn.microsoft.com/library/system.io.aspx). Por lo tanto, necesitará preceder estos nombres de clase con sus nombres de espacio de nombres o hacer que el espacio de nombres importado en el archivo de clase (a través de `Imports System.IO`).
 
 
 Tómese un momento a visitar la página a través de un explorador. Mostrará la lista de archivos que residen en el directorio raíz de la aplicación. Al hacer clic en cualquiera de la vista o eliminar LinkButton provocará una devolución de datos, pero no se producirá ninguna acción porque hemos todavía para crear los controladores de eventos necesarios.
@@ -248,11 +248,11 @@ Necesitamos un medio para mostrar el contenido del archivo seleccionado. Vuelva 
 
 [!code-aspx[Main](user-based-authorization-vb/samples/sample11.aspx)]
 
-A continuación, cree un controlador de eventos del control de GridView [ `SelectedIndexChanged` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx) y agregue el código siguiente:
+A continuación, cree un controlador de eventos del control de GridView [ `SelectedIndexChanged` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindexchanged.aspx) y agregue el código siguiente:
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample12.vb)]
 
-Este código usa la GridView `SelectedValue` propiedad para determinar el nombre completo del archivo del archivo seleccionado. Internamente, la `DataKeys` hace referencia a la colección con el fin de obtener la `SelectedValue`, por lo que es necesario establecer la GridView `DataKeyNames` propiedad con nombre, tal y como se describió anteriormente en este paso. El [ `File` clase](https://msdn.microsoft.com/en-us/library/system.io.file.aspx) se utiliza para leer contenido del archivo seleccionado en una cadena, que, a continuación, se asigna a la `FileContents` del cuadro de texto `Text` propiedad, con lo que se muestra el contenido del archivo seleccionado en la página.
+Este código usa la GridView `SelectedValue` propiedad para determinar el nombre completo del archivo del archivo seleccionado. Internamente, la `DataKeys` hace referencia a la colección con el fin de obtener la `SelectedValue`, por lo que es necesario establecer la GridView `DataKeyNames` propiedad con nombre, tal y como se describió anteriormente en este paso. El [ `File` clase](https://msdn.microsoft.com/library/system.io.file.aspx) se utiliza para leer contenido del archivo seleccionado en una cadena, que, a continuación, se asigna a la `FileContents` del cuadro de texto `Text` propiedad, con lo que se muestra el contenido del archivo seleccionado en la página.
 
 
 [![Contenido del archivo seleccionado se muestra en el cuadro de texto](user-based-authorization-vb/_static/image23.png)](user-based-authorization-vb/_static/image22.png)
@@ -264,7 +264,7 @@ Este código usa la GridView `SelectedValue` propiedad para determinar el nombre
 > Si ver el contenido de un archivo que contiene el marcado HTML y, a continuación, intente ver o eliminar un archivo, se le notificará una `HttpRequestValidationException` error. Esto ocurre porque en el postback contenido del cuadro de texto se envía al servidor web. De forma predeterminada, ASP.NET genera un `HttpRequestValidationException` error cuando se detecta contenido potencialmente peligroso de devolución de datos, como marcado HTML,. Para deshabilitar este error se produzca, desactivar la validación de solicitudes de la página mediante la adición de `ValidateRequest="false"` a la `@Page` directiva. Para obtener más información sobre las ventajas de la validación de solicitud como así como qué precauciones se debe efectuar cuando deshabilitarlo, lea [validación de solicitud: evitar los ataques de secuencia de comandos](https://asp.net/learn/whitepapers/request-validation/).
 
 
-Finalmente, agregue un controlador de eventos con el código siguiente para la GridView [ `RowDeleting` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
+Finalmente, agregue un controlador de eventos con el código siguiente para la GridView [ `RowDeleting` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx):
 
 [!code-vb[Main](user-based-authorization-vb/samples/sample13.vb)]
 
@@ -358,7 +358,7 @@ Como se explicó en la [ *una visión general de autenticación mediante formula
 
 En el paso 3 se no permiten a los usuarios anónimos pueda ver el contenido de un archivo y se prohíbe que eliminar los archivos de todos los usuarios pero Tito. Esto se lograba haciendo ocultar los elementos de la interfaz de usuario asociado para los visitantes no autorizados a través de técnicas de declaración y mediante programación. Para nuestro ejemplo simple, ocultar correctamente los elementos de la interfaz de usuario era sencillos, pero ¿qué hay de sitios más complejos donde puede haber muchas maneras diferentes para realizar la misma funcionalidad? Limitar esa funcionalidad a los usuarios no autorizados, ¿qué ocurre si se olvida ocultar o deshabilitar todos los elementos de interfaz de usuario aplicables?
 
-Es una manera sencilla de asegurarse de que un usuario no autorizado no puede tener acceso a un elemento determinado de la funcionalidad decorar esa clase o método con el [ `PrincipalPermission` atributo](https://msdn.microsoft.com/en-us/library/system.security.permissions.principalpermissionattribute.aspx). Cuando el tiempo de ejecución de .NET utiliza una clase o ejecuta uno de sus métodos, comprueba para asegurarse de que el contexto de seguridad actual tiene permiso para utilizar la clase o el método execute. El `PrincipalPermission` atributo proporciona un mecanismo a través del cual podemos definir estas reglas.
+Es una manera sencilla de asegurarse de que un usuario no autorizado no puede tener acceso a un elemento determinado de la funcionalidad decorar esa clase o método con el [ `PrincipalPermission` atributo](https://msdn.microsoft.com/library/system.security.permissions.principalpermissionattribute.aspx). Cuando el tiempo de ejecución de .NET utiliza una clase o ejecuta uno de sus métodos, comprueba para asegurarse de que el contexto de seguridad actual tiene permiso para utilizar la clase o el método execute. El `PrincipalPermission` atributo proporciona un mecanismo a través del cual podemos definir estas reglas.
 
 Vamos a muestran cómo utilizar el `PrincipalPermission` atributo en la GridView `SelectedIndexChanged` y `RowDeleting` controladores de eventos para prohibir la ejecución, los usuarios anónimos y usuarios que no sean Tito, respectivamente. Lo que debemos hacer es agregar el atributo apropiado de encima de cada definición de función:
 
@@ -401,18 +401,18 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [Agregar reglas de autorización a Business y capas de datos con`PrincipalPermissionAttributes`](https://weblogs.asp.net/scottgu/archive/2006/10/04/Tip_2F00_Trick_3A00_-Adding-Authorization-Rules-to-Business-and-Data-Layers-using-PrincipalPermissionAttributes.aspx)
-- [Autorización de ASP.NET](https://msdn.microsoft.com/en-us/library/wce3kxhd.aspx)
+- [Autorización de ASP.NET](https://msdn.microsoft.com/library/wce3kxhd.aspx)
 - [Cambios entre la seguridad de IIS 7 e IIS 6](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/Changes-between-IIS6-and-IIS7-Security)
-- [Configuración de archivos y subdirectorios específicos](https://msdn.microsoft.com/en-us/library/6hbkh9s7.aspx)
+- [Configuración de archivos y subdirectorios específicos](https://msdn.microsoft.com/library/6hbkh9s7.aspx)
 - [Limitar la funcionalidad de modificación de datos según el usuario](../../data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-vb.md)
 - [Tutoriales del Control LoginView](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/ctrlref/login/loginview.aspx)
 - [Descripción de autorizaciones de direcciones URL de IIS 7](https://www.iis.net/articles/view.aspx/IIS7/Managing-IIS7/Configuring-Security/URL-Authorization/Understanding-IIS7-URL-Authorization)
-- [`UrlAuthorizationModule`Documentación técnica](https://msdn.microsoft.com/en-us/library/system.web.security.urlauthorizationmodule.aspx)
+- [`UrlAuthorizationModule`Documentación técnica](https://msdn.microsoft.com/library/system.web.security.urlauthorizationmodule.aspx)
 - [Trabajar con datos en ASP.NET 2.0](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es  *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 

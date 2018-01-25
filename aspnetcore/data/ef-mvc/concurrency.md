@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 69ffafc7f92cda75c001fe1098275766063113fb
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: eee84fe0fbec6ed772342d09931986994903906a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Controlar los conflictos de simultaneidad - Core EF con el tutorial de MVC de ASP.NET Core (8 de 10)
 
@@ -63,7 +63,7 @@ Algunas de las opciones son las siguientes:
 
 * Puede permitir que los cambios de John sobrescribir los cambios de Julia.
 
-     La próxima vez que un usuario examina el departamento de inglés, verán 9/1/2013 y el valor de $350,000.00 restaurada. Esto se denomina una *cliente Wins* o *el último gana* escenario. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos.) Como se mencionó en la introducción a esta sección, si no hace ninguna codificación para el control de simultaneidad, se realizará automáticamente.
+     La próxima vez que un usuario examina el departamento de inglés, verá 9/1/2013 y el valor de $350,000.00 restaurada. Esto se denomina una *cliente Wins* o *el último gana* escenario. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos.) Como se mencionó en la introducción a esta sección, si no hace ninguna codificación para el control de simultaneidad, se realizará automáticamente.
 
 * Cambio de John puede impedir que se actualiza en la base de datos.
 

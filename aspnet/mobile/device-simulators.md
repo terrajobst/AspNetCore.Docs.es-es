@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
-ms.openlocfilehash: 48145b15b4983d6a143a8c53c9e6e8b4639da91e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a8293a5bff9ed73f177be2d9928d8d686c4f311d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="simulate-popular-mobile-devices-for-testing"></a>Simular dispositivos móviles más conocidos para la prueba
 ====================
@@ -26,7 +26,7 @@ ms.lasthandoff: 11/10/2017
 | Dispositivo o explorador | Emulador o simulador |
 | --- | --- |
 | BrowserStack hospedado virtualización de explorador ![BrowserStack hospedado virtualización de explorador](device-simulators/_static/image1.png) | [Virtualización de explorador hospedado BrowserStack](http://browserstack.com) probar el entorno local o de producción en cualquier explorador en cualquier plataforma. Puede crear un túnel entre su equipo y la red BrowserStack en su propia máquina virtual hospedada. Asegúrese de obtener la [extensión de Visual Studio BrowserStack](https://visualstudiogallery.msdn.microsoft.com/2dfa32b1-3c47-439d-b1c5-9e28be18b81c) para obtener una experiencia incluso más sencilla. |
-| Windows Phone | [Descarga de Windows Phone SDK](https://dev.windowsphone.com/en-us/downloadsdk) Software Development Kit (SDK) de Windows Phone el incluye todas las herramientas que necesita para desarrollar aplicaciones y juegos para Windows Phone |
+| Windows Phone | [Descarga de Windows Phone SDK](https://dev.windowsphone.com/downloadsdk) Software Development Kit (SDK) de Windows Phone el incluye todas las herramientas que necesita para desarrollar aplicaciones y juegos para Windows Phone |
 | iPhone / iPod o iPad | [Electric Plum](http://www.electricplum.com/studio.aspx) iPhone y iPad simuladores para Windows, así como un Responsive herramienta de diseño. Puede integrar con la opción "Examinar con..." de VS 2012. |
 | Android | [Página principal SDK Android](https://developer.android.com/sdk) |
 | Opera Mobile / Opera Mini | Las versiones más recientes: [Opera Developer Tools doméstica](http://www.opera.com/developer/tools/) Opera Mini 4.2: [simulador basados en Java en línea](http://www.opera.com/mobile/demo/?ver=4) |

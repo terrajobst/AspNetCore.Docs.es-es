@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d6a9c6aef42d1f165567d1a1802bffa853a320e1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Mostrar varios registros por cada fila con el Control DataList (VB)
 ====================
@@ -50,7 +50,7 @@ Antes de que se examine el `RepeatColumns` y `RepeatDirection` propiedades, perm
 
 Se ha visto cómo enlazar datos a un control DataList en ejemplos anteriores, por lo que podrá mover rápidamente a través de estos pasos. Comience abriendo la `RepeatColumnAndDirection.aspx` página en el `DataListRepeaterBasics` carpeta y arrastre un control DataList desde el cuadro de herramientas hasta el diseñador. Desde la etiqueta inteligente de DataList s, optar por crear un nuevo origen ObjectDataSource y configúrelo para que extraiga los datos de la `ProductsBLL` clase s. `GetProducts` método, elegir el (ninguno) opción desde el Asistente para la s INSERT, UPDATE y eliminar las fichas.
 
-Después de crear y enlazar la nueva ObjectDataSource a DataList, Visual Studio creará automáticamente un `ItemTemplate` que muestra el nombre y valor para cada uno de los campos de datos de producto. Ajustar la `ItemTemplate` directamente a través de marcado declarativo o desde las plantillas Editar opción en la etiqueta inteligente de DataList s para que utilice el marcado que se muestra arriba, reemplazando el *Product Name*, *nombre de categoría* , y *precio* texto con controles de etiqueta que use la sintaxis de enlace de datos adecuada para asignar valores a sus `Text` propiedades. Después de actualizar el `ItemTemplate`, el marcado declarativo de la página s debería ser similar al siguiente:
+Después de crear y enlazar la nueva ObjectDataSource a DataList, Visual Studio creará automáticamente un `ItemTemplate` que muestra el nombre y valor para cada uno de los campos de datos de producto. Ajustar la `ItemTemplate` directamente a través de marcado declarativo o desde las plantillas Editar opción en la etiqueta inteligente de DataList s para que utilice el marcado que se muestra arriba, reemplazando el *Product Name*, *nombre de categoría*, y *precio* texto con controles de etiqueta que use la sintaxis de enlace de datos adecuada para asignar valores a sus `Text` propiedades. Después de actualizar el `ItemTemplate`, el marcado declarativo de la página s debería ser similar al siguiente:
 
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
@@ -67,7 +67,7 @@ Tómese un momento para visitar la página en un explorador. Como se muestra en 
 
 ## <a name="step-2-changing-the-datalist-s-layout-direction"></a>Paso 2: Cambiar la dirección de diseño de DataList s
 
-Mientras el comportamiento predeterminado para el control DataList es mostrar sus elementos verticalmente en una tabla de una sola columna y varias filas, este comportamiento puede modificarse fácilmente a través de DataList s [ `RepeatDirection` propiedad](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatdirection.aspx). El `RepeatDirection` propiedad pueda aceptar uno de dos valores posibles: `Horizontal` o `Vertical` (valor predeterminado).
+Mientras el comportamiento predeterminado para el control DataList es mostrar sus elementos verticalmente en una tabla de una sola columna y varias filas, este comportamiento puede modificarse fácilmente a través de DataList s [ `RepeatDirection` propiedad](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatdirection.aspx). El `RepeatDirection` propiedad pueda aceptar uno de dos valores posibles: `Horizontal` o `Vertical` (valor predeterminado).
 
 Cambiando el `RepeatDirection` propiedad de `Vertical` a `Horizontal`, el control DataList representa sus registros en una sola fila, crear una columna de cada elemento de origen de datos. Para ilustrar este efecto, haga clic en el control DataList en el diseñador y, a continuación, en la ventana Propiedades, cambie la `RepeatDirection` propiedad de `Vertical` a `Horiztonal`. Inmediatamente de ese modo, el diseñador ajusta el diseño DataList s, crear una interfaz de varias columna de varias filas (consulte la figura 3).
 
@@ -87,7 +87,7 @@ Para mostrar pequeñas cantidades de datos, una sola fila y tabla de varias colu
 
 ## <a name="step-3-displaying-data-in-a-multi-column-multi-row-table"></a>Paso 3: Mostrar datos en una tabla de varias columna y varias filas
 
-Para crear un control DataList de varias columna, varias filas, es necesario establecer la [ `RepeatColumns` propiedad](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) al número de columnas que desea mostrar. De forma predeterminada, el `RepeatColumns` propiedad se establece en 0, lo que hará que el control DataList mostrar todos sus elementos en una sola fila o una columna (dependiendo del valor de la `RepeatDirection` propiedad).
+Para crear un control DataList de varias columna, varias filas, es necesario establecer la [ `RepeatColumns` propiedad](https://msdn.microsoft.com/system.web.ui.webcontrols.datalist.repeatcolumns.aspx) al número de columnas que desea mostrar. De forma predeterminada, el `RepeatColumns` propiedad se establece en 0, lo que hará que el control DataList mostrar todos sus elementos en una sola fila o una columna (dependiendo del valor de la `RepeatDirection` propiedad).
 
 En nuestro ejemplo, permiten s mostrar tres productos por cada fila de la tabla. Por consiguiente, establecer el `RepeatColumns` propiedad a 3. Después de realizar este cambio, tómese un momento para ver los resultados en un explorador. Como se muestra en la figura 5, los productos se muestran ahora en una tabla de tres columnas y varias filas.
 
@@ -113,7 +113,7 @@ DataList, de forma predeterminada, enumera sus elementos en una tabla de una sol
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

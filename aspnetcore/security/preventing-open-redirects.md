@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/preventing-open-redirects
-ms.openlocfilehash: e57ae429e9af54ade74485361ba591cb75c16752
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 6ecf2440ac7073bdad098f6fe48f6c788ba7795a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-open-redirect-attacks-in-an-aspnet-core-app"></a>Prevención de ataques de redirección abierta en una aplicación ASP.NET básica
 
@@ -36,7 +36,7 @@ Un usuario malintencionado podría desarrollar un ataque diseñado para permitir
 3. Se redirige al usuario (en el sitio) a ``http://nerddiner.com/Account/LogOn`` (sitio malintencionado que parece sitio real).
 4. El usuario inicia sesión de nuevo (dando malintencionado sus credenciales de sitio) y se le redirige al sitio real.
 
-El usuario es probable que cree su primer intento de iniciar sesión no se pudo y la otra se realizó correctamente. Probablemente le permanecen sin tener en cuenta sus credenciales se han visto comprometidas.
+El usuario es probable que cree su primer intento de iniciar sesión no se pudo y la otra se realizó correctamente. Probablemente permanecerá sin tener en cuenta sus credenciales se han visto comprometidas.
 
 ![Proceso de ataques de redirección abierta](preventing-open-redirects/_static/open-redirection-attack-process.png)
 

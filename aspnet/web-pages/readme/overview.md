@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 90f24550d2bb50147bab6be545be63c1838f312a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="webmatrix-readme"></a>Archivo Léame de WebMatrix
 ====================
@@ -218,7 +218,7 @@ Esta sección del documento describe nuevas características, los cambios y los 
 > 
 > [!code-xml[Main](overview/samples/sample2.xml)]
 > 
-> Para obtener más información acerca de cómo configurar un servidor proxy, consulte [ &lt;proxy&gt; Element (Network Settings)](https://msdn.microsoft.com/en-us/library/sa91de1e.aspx) en el sitio Web de MSDN.
+> Para obtener más información acerca de cómo configurar un servidor proxy, consulte [ &lt;proxy&gt; Element (Network Settings)](https://msdn.microsoft.com/library/sa91de1e.aspx) en el sitio Web de MSDN.
 
 
 #### <a name="issue-uninstalling-the-net-framework-version-4-disables-aspnet-web-pages-with-razor-syntax"></a>Problema: Desinstalar .NET Framework versión 4 deshabilita ASP.NET Web Pages con sintaxis Razor
@@ -258,9 +258,9 @@ Esta sección del documento describe nuevas características, los cambios y los 
 > 1. Copie los ensamblados de motor de base de datos a la *Bin* carpeta (y sus subcarpetas) de la aplicación en el equipo de destino:  
 > 
 >     - Copia *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **para** *\Bin*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** a***\Bin\x86*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\** **a***\Bin\amd64*
+>         **to** *\Bin*
+>     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** a *** \Bin\x86*
+>     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\****a *** \Bin\amd64*
 > 2. En la carpeta raíz del sitio Web, cree o abra un *web.config* archivo. (En WebMatrix 1.0, está disponible si hace clic en este tipo de archivo **todos los** en el **elegir un tipo de archivo** cuadro de diálogo.)
 > 3. Agregue el siguiente elemento como elemento secundario de la `<configuration>` elemento (no en el `<system.web>` elemento):
 > 
@@ -400,7 +400,7 @@ Esta sección del documento describen los problemas conocidos para el entorno de
 
 IIS Express tiene su propio archivo Léame, que está disponible en la siguiente URL:
 
-[https://go.Microsoft.com/fwlink/?LinkId=207675&amp;clcid = 0 x 409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=207675&amp;clcid=0x409)
 
 <a id="Known_Issues_SQLServerCompact"></a>
 
@@ -408,7 +408,7 @@ IIS Express tiene su propio archivo Léame, que está disponible en la siguiente
 
 SQL Server Compact tiene su propio archivo Léame, que está disponible en la siguiente URL:
 
-[https://go.Microsoft.com/fwlink/?LinkId=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
+[https://go.microsoft.com/fwlink/?LinkID=208545](https://go.microsoft.com/fwlink/?LinkID=208545&amp;clcid=0x409)
 
 Para obtener información acerca de los problemas que implican la instalación de SQL Server Compact como parte de WebMatrix, consulte [problemas de instalación de WebMatrix](#Known_Issues_Installation) anteriormente en este documento.
 
@@ -561,6 +561,6 @@ Para obtener más información acerca de WebMatrix 1.0, vea los siguientes sitio
 
 - [IIS.net](http://iis.net/)
 - [ASP.NET](https://asp.net/webmatrix)
-- [Web de Microsoft.com](https://www.microsoft.com/web)
+- [Microsoft.com/web](https://www.microsoft.com/web)
 
-© 2011 Microsoft Corporation. Reservados todos los derechos. [Términos de uso](https://msdn.microsoft.com/en-us/cc300389.aspx).
+© 2011 Microsoft Corporation. Reservados todos los derechos. [Términos de uso](https://msdn.microsoft.cos/cc300389.aspx).

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet4/breaking-changes
 msc.type: content
-ms.openlocfilehash: a0f25ed3c996b73e362177b196539c6f2b143739
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98647830125670ee2ed43538d65fb3ce6ac40d0d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-4-breaking-changes"></a>Cambios de 4 de ASP.NET
 ====================
@@ -49,7 +49,7 @@ ms.lasthandoff: 11/10/2017
 [Tipos de System.Web.Security Passport son obsoleto](#0.1__Toc256770158 "_Toc256770158")  
 [Se produce un error en la propiedad MenuItem.PopOutImageUrl representar una imagen en ASP.NET 4](#0.1__Toc256770159 "_Toc256770159")  
 [Menu.StaticPopOutImageUrl y producirá un error de Menu.DynamicPopOutImageUrl para representar imágenes cuando las rutas de acceso contienen barras diagonales inversas](#0.1__Toc256770160 "_Toc256770160")  
-[Declinación de responsabilidades](#0.1__Toc256770161 "_Toc256770161")
+[Disclaimer](#0.1__Toc256770161 "_Toc256770161")
 
 <a id="0.1__ControlRenderingCompatibilityVersio"></a><a id="0.1__Toc245724853"></a><a id="0.1__Toc255587630"></a><a id="0.1__Toc256770141"></a>
 
@@ -272,13 +272,13 @@ Las versiones anteriores de ASP.NET incluidas una **PathInfo** valor en el valor
 
 En versiones anteriores de ASP.NET, **HttpRequest** propiedades tienen los siguientes valores:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc/SomeAction`
+**HttpRequest.FilePath**: `/testapp/Action.mvc/SomeAction`
 
 **HttpRequest.PathInfo**: (vacío)
 
 En ASP.NET 4, **HttpRequest** propiedades en su lugar tienen los siguientes valores:
 
-**HttpRequest.FilePath**:`/testapp/Action.mvc`
+**HttpRequest.FilePath**: `/testapp/Action.mvc`
 
 **HttpRequest.PathInfo**:`SomeAction`
 
@@ -385,7 +385,7 @@ El siguiente es un resumen general de los cambios en la implementación de entid
 - Ensamblados compilados de forma dinámica que se crean mediante proveedores de compilación ASP.NET se han actualizado para marcar explícitamente los ensamblados como transparente.
 - Ahora, todos los ensamblados ASP.NET se marcan de forma que se respeta el atributo APTCA solo en entornos de hospedaje Web. Entornos de hospedaje Web no es de confianza parcial como ClickOnce no podrá llamar a los ensamblados ASP.NET.
 
-Para obtener más información sobre el nuevo modelo de seguridad de acceso de código de ASP.NET 4, consulte [Using Code Access Security en aplicaciones ASP.NET](https://msdn.microsoft.com/en-us/library/dd984947%28VS.100%29.aspx) en el sitio Web de MSDN.
+Para obtener más información sobre el nuevo modelo de seguridad de acceso de código de ASP.NET 4, consulte [Using Code Access Security en aplicaciones ASP.NET](https://msdn.microsoft.com/library/dd984947%28VS.100%29.aspx) en el sitio Web de MSDN.
 
 <a id="0.1__Toc256770156"></a><a id="0.1__Toc245724863"></a><a id="0.1__Toc252995496"></a><a id="0.1__Toc255587645"></a><a id="0.1__Toc245724864"></a>
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e99b74030104bf17d4d79cd7670cf903270fa51f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Configuración de la aplicación Web de producción para usar la base de datos de producción (C#)
 ====================
@@ -37,7 +37,7 @@ No es raro para obtener información de configuración que difieren entre los en
 
 ## <a name="examining-the-connection-string-information"></a>Examinar la información de la cadena de conexión
 
-La cadena de conexión utilizada por la aplicación web de reseñas de libros se almacena en el archivo de configuración de aplicación s `Web.config`. `Web.config`incluye una sección especial para almacenar cadenas de conexión, un nombre muy apropiado [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx). El `Web.config` archivo para el sitio Web de reseñas de libros tiene una cadena de conexión definida en esta sección denominada `ReviewsConnectionString`:
+La cadena de conexión utilizada por la aplicación web de reseñas de libros se almacena en el archivo de configuración de aplicación s `Web.config`. `Web.config`incluye una sección especial para almacenar cadenas de conexión, un nombre muy apropiado [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). El `Web.config` archivo para el sitio Web de reseñas de libros tiene una cadena de conexión definida en esta sección denominada `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-cs/samples/sample1.xml)]
 
@@ -46,7 +46,7 @@ La cadena de conexión: origen de datos =. \SQLEXPRESS; AttachDbFilename = | Seg
 - `Data Source`-Especifica la ubicación del servidor de base de datos y el nombre de instancia del servidor de base de datos (si existe). El valor `.\SQLEXPRESS`, es un ejemplo donde hay un servidor de base de datos y un nombre de instancia. El período especifica que el servidor de base de datos está en el mismo equipo que la aplicación; es el nombre de instancia `SQLEXPRESS`.
 - `AttachDbFilename`-Especifica la ubicación del archivo de base de datos. El valor contiene el marcador de posición `|DataDirectory|`, que se resuelve en la ruta de acceso completa de la aplicación s `App_Data` carpeta en tiempo de ejecución.
 - `Integrated Security`-un valor booleano que indica si se usa una nombre de usuario/contraseña especificada al conectarse a la base de datos (false) o las ventanas actuales credenciales de cuenta (true).
-- `User Instance`-una opción de configuración específica de SQL Server Express Edition que indica si se debe permitir que los usuarios no administrativos en el equipo local, adjuntar y conectan a una base de datos de SQL Server Express Edition. Vea [instancias de SQL Server Express usuario](https://msdn.microsoft.com/en-us/library/ms254504.aspx) para obtener más información acerca de esta opción.
+- `User Instance`-una opción de configuración específica de SQL Server Express Edition que indica si se debe permitir que los usuarios no administrativos en el equipo local, adjuntar y conectan a una base de datos de SQL Server Express Edition. Vea [instancias de SQL Server Express usuario](https://msdn.microsoft.com/library/ms254504.aspx) para obtener más información acerca de esta opción.
   
 
 Las opciones de cadena de conexión permitidos dependen de la base de datos a que se conecta y el proveedor de base de datos ADO.NET que se va a usar. Por ejemplo, la cadena de conexión para conectarse a Microsoft SQL Server difiere de base de datos que utiliza para conectarse a una base de datos de Oracle. Asimismo, si se conecta a una base de datos de Microsoft SQL Server que utiliza el proveedor SqlClient, utiliza una cadena de conexión diferente que cuando se utiliza el proveedor OLE DB.
@@ -71,7 +71,7 @@ A continuación, especifique los distintos información de conexión de base de 
 
 La base de datos del entorno de producción debe aparecer ahora en el Explorador de servidores. Seleccione la base de datos desde el Explorador de servidores y vaya a la ventana Propiedades. Allí encontrará una propiedad de cadena de conexión con la cadena de conexión de base de datos s con nombre. Suponiendo que usa una base de datos de Microsoft SQL Server en producción y el proveedor SqlClient la cadena de conexión debe ser similar al siguiente:
 
-**Origen de datos =*serverName*; Catálogo inicial =*databaseName*; Persist Security Info = True; Id. de usuario =*nombre de usuario*; Contraseña =*contraseña***
+**Origen de datos =*serverName*; Catálogo inicial =*databaseName*; Persist Security Info = True; Id. de usuario =*nombre de usuario*; Contraseña = * contraseña***
 
 Donde *serverName*, *databaseName*, *nombre de usuario*, y *contraseña* con los valores para el nombre del servidor de base de datos, la base de datos nombre y el nombre de usuario y la contraseña proporcionado por su compañía de host web.
 
@@ -147,10 +147,10 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Las cadenas de conexión y archivos de configuración](https://msdn.microsoft.com/en-us/library/ms254494.aspx)
+- [Cadenas de conexión y archivos de configuración](https://msdn.microsoft.com/library/ms254494.aspx)
 - [Información de las cadenas de configuración @ ConnectionStrings.com la base de datos](http://www.connectionstrings.com/)
 - [Mover la configuración fuera del archivo Web.config](http://www.asp101.com/tips/index.asp?id=154)
-- [Documentación técnica de la &lt;connectionStrings&gt; elemento](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx)
+- [Documentación técnica de la &lt;connectionStrings&gt; elemento](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](deploying-a-database-cs.md)

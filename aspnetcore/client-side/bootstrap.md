@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bootstrap
-ms.openlocfilehash: aee3304515686fc8e45e8e2aafb79d957219f94a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 4332dce4c341cb8e5c241a67547048301ae9a8b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creación de sitios maravillosas y capacidad de respuesta con arranque
 
@@ -214,7 +214,7 @@ Rutas son un componente de interfaz de usuario común usado para mostrar su hist
 
 ## <a name="javascript-support"></a>Compatibilidad con JavaScript
 
-Biblioteca de JavaScript del arranque incluye compatibilidad con la API para los componentes incluyen, lo que le permite controlar su comportamiento mediante programación dentro de la aplicación. Además, *bootstrap.js* incluye más de una docena complementos de jQuery personalizados, proporcionar características adicionales, como las transiciones, cuadros de diálogo modales, desplácese detección (actualicen los estilos en función de dónde se desplaza el usuario en el documento), comportamiento de contraer, cintas y colocación los menús de la ventana, por lo que se desplaza fuera de la pantalla. No hay espacio suficiente para cubrir todos los complementos de JavaScript que se integran Bootstrap: para aprender más, visite [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Biblioteca de JavaScript del arranque incluye compatibilidad con la API para los componentes incluyen, lo que le permite controlar su comportamiento mediante programación dentro de la aplicación. Además, *bootstrap.js* incluye más de una docena complementos de jQuery personalizados, proporcionar características adicionales, como las transiciones, cuadros de diálogo modales, desplácese detección (actualicen los estilos en función de dónde se desplaza el usuario en el documento), comportamiento de contraer, cintas y colocación los menús de la ventana, por lo que no se desplazan fuera de la pantalla. No hay espacio suficiente para cubrir todos los complementos de JavaScript que se integran Bootstrap: para aprender más, visite [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Resumen
 

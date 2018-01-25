@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/areas
-ms.openlocfilehash: 666be2da6b38ffb538ae3888ea879a4104c8fd12
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 87bf2eaad1c13d21412051be769992411f685e2e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="areas"></a>Áreas
 
@@ -99,7 +99,7 @@ services.Configure<RazorViewEngineOptions>(options =>
    });
    ```
 
-Hay que destacar es que la estructura de la *vistas* carpeta es la única que se considera importante aquí y el contenido del resto de las carpetas, como *controladores* y *modelos* does **no** importa. Por ejemplo, no necesita tener un *controladores* y *modelos* carpeta en absoluto. Esto funciona porque el contenido de *controladores* y *modelos* es código que se compila en una .dll, mientras que el contenido de la *vistas* no es hasta que una solicitud para que se ha realizado la vista.
+Hay que destacar es que la estructura de la *vistas* carpeta es la única que se considera importante aquí y el contenido del resto de las carpetas, como *controladores* y *modelos* does **no** importa. Por ejemplo, no necesita tener un *controladores* y *modelos* carpeta en absoluto. Esto funciona porque el contenido de *controladores* y *modelos* es código que se compila en una .dll, mientras que el contenido de la *vistas* no tendrá lugar hasta una solicitud para que se ha realizado la vista.
 
 Una vez que haya definido la jerarquía de carpetas, se debe indicar MVC que cada controlador está asociado a un área. Para hacerlo, decorando el nombre del controlador con la `[Area]` atributo.
 

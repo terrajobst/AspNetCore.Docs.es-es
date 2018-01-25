@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: 3caeeb83e4c074ae0ffc30f035d793a821eb6be2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -39,11 +39,11 @@ En lugar de producir una excepción y mostrar una página de error o no está di
 
 Hay varias maneras de implementar lógica de reintento inteligentes.
 
-- Microsoft Patterns &amp; prácticas grupo tiene un [Transient Fault Handling Application Block](https://msdn.microsoft.com/en-us/library/dn440719(v=pandp.60).aspx) que hace todo lo si usa ADO.NET para el acceso a la base de datos SQL (no a través de Entity Framework). Solo tiene que establecer una directiva de reintentos: el número de veces para volver a intentar una consulta o comando y cuánto tiempo debe esperar entre intentos: y ajuste su SQL código en un *con* bloque.
+- Microsoft Patterns &amp; prácticas grupo tiene un [Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719(v=pandp.60).aspx) que hace todo lo si usa ADO.NET para el acceso a la base de datos SQL (no a través de Entity Framework). Solo tiene que establecer una directiva de reintentos: el número de veces para volver a intentar una consulta o comando y cuánto tiempo debe esperar entre intentos: y ajuste su SQL código en un *con* bloque.
 
     [!code-csharp[Main](transient-fault-handling/samples/sample1.cs)]
 
-    También admite TFH [caché en rol de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/dn386103.aspx) y [Bus de servicio](https://azure.microsoft.com/services/service-bus/).
+    También admite TFH [caché en rol de Azure](https://msdn.microsoft.com/library/windowsazure/dn386103.aspx) y [Bus de servicio](https://azure.microsoft.com/services/service-bus/).
 - Cuando use Entity Framework que normalmente no está trabajando directamente con las conexiones de SQL, por lo que no se puede usar este paquete de modelos y prácticas, pero Entity Framework 6 crea este tipo de lógica de reintento directamente en el marco de trabajo. De forma similar especifica la estrategia de reintento y, a continuación, usa dicha estrategia en EF cuando obtiene acceso a la base de datos.
 
     Para usar esta característica en la aplicación repararlo, todo lo que queda por hacer es agregar una clase que deriva de *DbConfiguration* y activar la lógica de reintento.
@@ -88,11 +88,11 @@ Para obtener más información, vea los siguientes recursos:
 
 Documentación
 
-- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Notas del producto, Mark Simms y Michael Thomassy. Similar a la serie Failsafe pero queda procedimientos con mayor detalle. Vea la sección telemetría y diagnósticos.
-- [Failsafe: Instrucciones para crear arquitecturas de nube resistentes](https://msdn.microsoft.com/en-us/library/windowsazure/jj853352.aspx). Notas del producto Marc Mercuri, Ulrich Homann y Andrew Townhill. Versión de la página Web de la serie de vídeos de FailSafe.
-- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Vea reintento patrón, el patrón de Supervisor de agente de programador.
+- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Notas del producto, Mark Simms y Michael Thomassy. Similar a la serie Failsafe pero queda procedimientos con mayor detalle. Vea la sección telemetría y diagnósticos.
+- [Failsafe: Instrucciones para crear arquitecturas de nube resistentes](https://msdn.microsoft.com/library/windowsazure/jj853352.aspx). Notas del producto Marc Mercuri, Ulrich Homann y Andrew Townhill. Versión de la página Web de la serie de vídeos de FailSafe.
+- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vea reintento patrón, el patrón de Supervisor de agente de programador.
 - [La tolerancia a errores en la base de datos SQL Azure](https://blogs.msdn.com/b/windowsazure/archive/2012/07/30/fault-tolerance-in-windows-azure-sql-database.aspx). Blog de Tony Petrossian.
-- [Entity Framework - resistencia de conexión / lógica de reintento](https://msdn.microsoft.com/en-us/data/dn456835). Cómo usar y personalizar la característica de Entity Framework 6 de control de errores transitorios.
+- [Entity Framework - resistencia de conexión / lógica de reintento](https://msdn.microsoft.com/data/dn456835). Cómo usar y personalizar la característica de Entity Framework 6 de control de errores transitorios.
 - [Resistencia de conexión y comando interceptación con Entity Framework en una aplicación ASP.NET MVC](../../../../mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md). Cuarto en una serie de tutoriales de nueve partes, se muestra cómo configurar la característica de resistencia de conexión de EF 6 para la base de datos SQL.
 
 Vídeos

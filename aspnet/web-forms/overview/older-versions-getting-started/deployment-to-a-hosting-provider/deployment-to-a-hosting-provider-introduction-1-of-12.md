@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 7c03453e64cfc065d9f424702cc5af373e9bf536
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio: Introducción - 1 de 12
 ====================
@@ -63,7 +63,7 @@ El proveedor de hospedaje que se utiliza para este tutorial, Cytanium.com, es un
 
 ## <a name="deploying-web-site-projects"></a>Implementación de proyectos de sitios Web
 
-Universidad de Contoso es un proyecto de aplicación web de Visual Studio. La mayoría de los métodos de implementación y las herramientas que se muestran en este tutorial no se aplica a [proyectos de sitios Web](https://msdn.microsoft.com/en-us/library/dd547590.aspx). Para obtener información sobre cómo implementar proyectos de sitios web, consulte [mapa de contenido de implementación de ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521.aspx#deployment_for_web_site_projects).
+Universidad de Contoso es un proyecto de aplicación web de Visual Studio. La mayoría de los métodos de implementación y las herramientas que se muestran en este tutorial no se aplica a [proyectos de sitios Web](https://msdn.microsoft.com/library/dd547590.aspx). Para obtener información sobre cómo implementar proyectos de sitios web, consulte [mapa de contenido de implementación de ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx#deployment_for_web_site_projects).
 
 ## <a name="deploying-aspnet-mvc-projects"></a>Implementación de proyectos de ASP.NET MVC
 
@@ -110,7 +110,7 @@ Para prepararse para trabajar con los pasos de tutorial, guarde a Begin ContosoU
 
 Inicie Visual Studio, abra el proyecto y presione CTRL-F5 para ejecutarlo.
 
-[![Home_Page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
+[![Home_page](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image2.png)](deployment-to-a-hosting-provider-introduction-1-of-12/_static/image1.png)
 
 Páginas Web sean accesibles desde la barra de menús y le permiten realizar las siguientes funciones:
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: b225d9911246b3e2be1679b73a9f31d9f8577ba5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Configurar un servidor de base de datos para publicación de implementación Web
 ====================
@@ -48,7 +48,7 @@ En este tema le mostrará cómo realizar cada uno de estos procedimientos. Las t
 La instancia de SQL Server sólo tiene que incluir el **servicios de motor de base de datos** rol, que se incluye automáticamente en cualquier instalación de SQL Server. Sin embargo, para facilitar la configuración y mantenimiento, se recomienda que incluya la **herramientas de administración – básica** y **herramientas de administración – completa** roles de servidor.
 
 > [!NOTE]
-> Para obtener más información sobre unir equipos a un dominio, consulte [unir equipos al dominio e iniciar sesión](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Para obtener más información acerca de cómo configurar direcciones IP estáticas, consulte [configurar una dirección IP estática](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx). Para obtener más información acerca de cómo instalar SQL Server, vea [instalar SQL Server 2008 R2](https://technet.microsoft.com/en-us/library/bb500395.aspx).
+> Para obtener más información sobre unir equipos a un dominio, consulte [unir equipos al dominio e iniciar sesión](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Para obtener más información acerca de cómo configurar direcciones IP estáticas, consulte [configurar una dirección IP estática](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). Para obtener más información acerca de cómo instalar SQL Server, vea [instalar SQL Server 2008 R2](https://technet.microsoft.com/library/bb500395.aspx).
 
 
 ## <a name="enable-remote-access-to-sql-server"></a>Habilitar el acceso remoto a SQL Server
@@ -66,7 +66,7 @@ Para habilitar SQL Server para comunicarse a través de TCP/IP, use el Administr
 2. En el panel de vista de árbol, expanda **configuración de red de SQL Server**y, a continuación, haga clic en **protocolos para MSSQLSERVER**.
 
     > [!NOTE]
-    > Si tiene instaladas varias instancias de SQL Server, verá un **protocolos de***[nombre de instancia]* elemento para cada instancia. Debe configurar una red en una instancia por instancia.
+    > Si tiene instaladas varias instancias de SQL Server, verá un **protocolos de *** [nombre de instancia]* elemento para cada instancia. Debe configurar una red en una instancia por instancia.
 3. En el panel de detalles, haga clic en el **TCP/IP** fila y, a continuación, haga clic en **habilitar**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -102,7 +102,7 @@ Suponiendo que usa una instancia predeterminada de SQL Server, debe configurar e
   
 
 > [!NOTE]
-> Técnicamente, un equipo cliente utilizará un puerto TCP asignado de forma aleatoria entre 1024 y 5000 para comunicarse con SQL Server y las reglas de firewall puede restringir en consecuencia. Para obtener más información sobre los puertos de SQL Server y los servidores de seguridad, consulte [números de puerto TCP/IP necesarios para comunicarse con SQL a través de un firewall](https://go.microsoft.com/?linkid=9805125) y [Cómo: configurar un servidor para que escuche en un puerto de TCP específico (configuración de SQL Server Administrador)](https://msdn.microsoft.com/en-us/library/ms177440.aspx).
+> Técnicamente, un equipo cliente utilizará un puerto TCP asignado de forma aleatoria entre 1024 y 5000 para comunicarse con SQL Server y las reglas de firewall puede restringir en consecuencia. Para obtener más información sobre los puertos de SQL Server y los servidores de seguridad, consulte [números de puerto TCP/IP necesarios para comunicarse con SQL a través de un firewall](https://go.microsoft.com/?linkid=9805125) y [Cómo: configurar un servidor para que escuche en un puerto de TCP específico (configuración de SQL Server Administrador)](https://msdn.microsoft.com/library/ms177440.aspx).
 
 
 En la mayoría de los entornos de Windows Server, probablemente tendrá que configurar Firewall de Windows en el servidor de base de datos. De forma predeterminada, Firewall de Windows permite todo el tráfico saliente a menos que una regla prohíba específicamente. Para habilitar el servidor web para llegar a la base de datos, debe configurar una regla de entrada que permita el tráfico TCP en el número de puerto que utiliza la instancia de SQL Server. Si usa una instancia predeterminada de SQL Server, puede usar el procedimiento siguiente para configurar esta regla.
@@ -126,11 +126,11 @@ En la mayoría de los entornos de Windows Server, probablemente tendrá que conf
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image9.png)
 8. En el **nombre** página, asigne un nombre descriptivo adecuado a la regla (por ejemplo, **instancia predeterminada de SQL Server: acceso a la red**) y, a continuación, haga clic en **finalizar**.
 
-Para obtener más información acerca de cómo configurar Firewall de Windows para SQL Server, especialmente si necesita comunicarse con SQL Server a través de puertos no estándares o dinámicos, vea [Cómo: configurar un Firewall de Windows para obtener acceso al motor de base de datos](https://technet.microsoft.com/en-us/library/ms175043.aspx).
+Para obtener más información acerca de cómo configurar Firewall de Windows para SQL Server, especialmente si necesita comunicarse con SQL Server a través de puertos no estándares o dinámicos, vea [Cómo: configurar un Firewall de Windows para obtener acceso al motor de base de datos](https://technet.microsoft.com/library/ms175043.aspx).
 
 ## <a name="configure-logins-and-database-permissions"></a>Configurar inicios de sesión y permisos de base de datos
 
-Al implementar una aplicación web para Internet Information Services (IIS), la aplicación ejecuta con la identidad del grupo de aplicaciones. En un entorno de dominio, identidades del grupo de aplicaciones usa la cuenta de equipo del servidor en el que ejecuta para acceder a los recursos de red. Cuentas de equipo que adoptan la forma *[nombre de dominio]***\***[nombre máquina]***$**&#x2014;por ejemplo, **FABRIKAM\ TESTWEB1$**. Para permitir que la aplicación web tener acceso a una base de datos a través de la red, debe:
+Al implementar una aplicación web para Internet Information Services (IIS), la aplicación ejecuta con la identidad del grupo de aplicaciones. En un entorno de dominio, identidades del grupo de aplicaciones usa la cuenta de equipo del servidor en el que ejecuta para acceder a los recursos de red. Cuentas de equipo que adoptan la forma * [nombre de dominio]***\*** [nombre máquina]***$** & #x 2014; por ejemplo, **FABRIKAM\TESTWEB1$**. Para permitir que la aplicación web tener acceso a una base de datos a través de la red, debe:
 
 - Agregar un inicio de sesión para la cuenta del equipo de servidor web a la instancia de SQL Server.
 - El inicio de sesión de cuenta de equipo se asignan a los roles de base de datos requerida (normalmente **db\_datareader** y **db\_datawriter**).
@@ -183,7 +183,7 @@ Para obtener más información acerca de cómo automatizar la creación de inici
 Mientras manualmente asignación de roles de base de datos a menudo resulta más adecuado para entornos de prueba, es menos conveniente para implementaciones automatizadas o con un solo clic a los entornos de ensayo o de producción. Puede encontrar más información sobre cómo automatizar este tipo de tarea que usa scripts posteriores a la implementación en [implementar pertenencias a roles de base de datos a los entornos de prueba](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md).
 
 > [!NOTE]
-> Para obtener más información sobre los proyectos de servidor y proyectos de base de datos, vea [Visual Studio 2010 SQL Server Database Projects](https://msdn.microsoft.com/en-us/library/ff678491.aspx).
+> Para obtener más información sobre los proyectos de servidor y proyectos de base de datos, vea [Visual Studio 2010 SQL Server Database Projects](https://msdn.microsoft.com/library/ff678491.aspx).
 
 
 ## <a name="configure-permissions-for-the-deployment-account"></a>Configurar permisos para la cuenta de implementación

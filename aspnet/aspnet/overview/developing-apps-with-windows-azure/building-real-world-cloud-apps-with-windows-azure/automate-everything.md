@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: cf1cb7b07ffe8750724e58e4fb66854c9a033a54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatizar todas las acciones (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -45,7 +45,7 @@ En otras palabras, el período de tiempo entre cuando tenga una idea para una ca
 
 En el [Introducción a este libro electrónico](introduction.md), ha visto la consola basada en web, el Portal de administración de Azure. El portal de administración permite supervisar y administrar todos los recursos que haya implementado en Azure. Es una manera fácil de crear y eliminar servicios como las aplicaciones web y las máquinas virtuales, configure estos servicios, supervisar la operación de servicio y así sucesivamente. Es una herramienta excelente, pero el uso es un proceso manual. Si va a desarrollar una aplicación de producción de cualquier tamaño, y especialmente en un entorno de equipo, es recomendable que vaya a través del portal de interfaz de usuario con el fin de obtener información y explorar Azure y, a continuación, automatizar los procesos que se va a realizar repetidamente.
 
-Casi todo lo que puede hacer manualmente en el portal de administración o desde Visual Studio también puede realizarse mediante una llamada a la API de administración de REST. Puede escribir scripts mediante [Windows PowerShell](https://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx), o puede usar un marco de trabajo de código abierto como [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet). También puede usar la herramienta de línea de comandos de Bash en un entorno de Mac o Linux. Azure cuenta con las API de scripting para los diferentes entornos y tiene un [API de administración de .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) en caso de que desea escribir código en lugar de la secuencia de comandos.
+Casi todo lo que puede hacer manualmente en el portal de administración o desde Visual Studio también puede realizarse mediante una llamada a la API de administración de REST. Puede escribir scripts mediante [Windows PowerShell](https://msdn.microsoft.com/library/windowsazure/jj156055.aspx), o puede usar un marco de trabajo de código abierto como [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet). También puede usar la herramienta de línea de comandos de Bash en un entorno de Mac o Linux. Azure cuenta con las API de scripting para los diferentes entornos y tiene un [API de administración de .NET](http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx) en caso de que desea escribir código en lugar de la secuencia de comandos.
 
 Para la aplicación repararlo hemos creado algunos scripts de Windows PowerShell que automatizan los procesos de creación de un entorno de prueba e implementar el proyecto para ese entorno y analizaremos algunos de los contenidos de esos scripts.
 

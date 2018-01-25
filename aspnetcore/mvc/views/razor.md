@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/razor
-ms.openlocfilehash: d932e28246998c60e2b3f9c77a2521fe55991e85
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: abdbb8112533d42f81180abad52f5ee86e3b280f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="razor-syntax-for-aspnet-core"></a>Sintaxis de Razor para ASP.NET Core
 
@@ -73,7 +73,7 @@ Las expresiones implícitas **no** contienen tipos genéricos de C#, como los ca
 El código anterior genera un error del compilador similar a uno de los siguientes:
 
  * No se cerró el elemento "int". Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
- * No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
+ *  No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
  
 Llamadas de método genérico deben incluirse en un [expresión explícita de Razor](#explicit-razor-expressions) o un [bloque de código Razor](#razor-code-blocks).
 
@@ -119,7 +119,7 @@ Pueden utilizarse expresiones explícitas para representar el resultado de los m
 El código anterior genera un error del compilador similar a uno de los siguientes:
 
  * No se cerró el elemento "int". Todos los elementos deben ser de autocierre o tiene la correspondiente etiqueta de cierre.
- * No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
+ *  No se puede convertir el grupo de métodos 'GenericMethod' a 'object' de tipo no delegado. Pretendía invocar el método?' 
  
  El marcado siguiente muestra este código de la escritura de forma correcta. El código se escribe como una expresión explícita:
 

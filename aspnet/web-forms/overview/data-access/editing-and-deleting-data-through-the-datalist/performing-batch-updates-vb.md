@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc7b90c06b2d99b6c540e9650bb4d8515f5c3702
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-batch-updates-vb"></a>Realizar actualizaciones por lotes (VB)
 ====================
@@ -116,7 +116,7 @@ Figura 6 muestra la página después de han agregado los botones Actualizar todo
 
 Con todos los elementos de s DataList mostrar la interfaz de edición y la adición de los botones Actualizar todo, todo lo que sigue siendo está escribiendo el código para realizar la actualización por lotes. En concreto, es necesario recorrer los elementos de DataList s y la llamada la `SuppliersBLL` clase s. `UpdateSupplierAddress` método para cada uno de ellos.
 
-La colección de `DataListItem` instancias que utilizan el control DataList son accesibles a través de DataList s [ `Items` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.items.aspx). Con una referencia a un `DataListItem`, podemos obtenemos correspondiente `SupplierID` desde el `DataKeys` referencia controla la Web de cuadro de texto dentro de colección y mediante programación el `ItemTemplate` como se muestra en el código siguiente:
+La colección de `DataListItem` instancias que utilizan el control DataList son accesibles a través de DataList s [ `Items` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.items.aspx). Con una referencia a un `DataListItem`, podemos obtenemos correspondiente `SupplierID` desde el `DataKeys` referencia controla la Web de cuadro de texto dentro de colección y mediante programación el `ItemTemplate` como se muestra en el código siguiente:
 
 
 [!code-vb[Main](performing-batch-updates-vb/samples/sample4.vb)]
@@ -131,7 +131,7 @@ Cuando el usuario hace clic en uno de los botones Actualizar todo, el `UpdateAll
 
 El algoritmo de actualización de lote utilizado para este tutorial se llama el `UpdateSupplierAddress` método para *cada* proveedor en el control DataList, independientemente de si ha cambiado su información de dirección. Mientras estos blind actualiza t normalmente un problema de rendimiento, puede generar registros superfluos si se van a auditar cambios en la tabla de base de datos. Por ejemplo, si utiliza desencadenadores para registrar todos los `UPDATE` s para el `Suppliers` tabla a una tabla de auditoría cada vez que un usuario hace clic en el botón Actualizar todo se creará un nuevo registro de auditoría para cada proveedor en el sistema, independientemente de si el usuario efectúa cualquiera cambios.
 
-Las clases DataTable de ADO.NET y DataAdapter están diseñadas para admitir las actualizaciones por lotes que da como resultado solo modificados, eliminados y nuevos registros en cualquier comunicación de base de datos. Cada fila de la tabla de datos tiene un [ `RowState` propiedad](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) que indica si la fila se ha agregado a la tabla de datos, eliminado contenido, modificar, o se mantiene sin cambios. Cuando inicialmente se rellena una tabla de datos, todas las filas se marcan sin cambios. Cambiar el valor de cualquiera de las columnas de fila s marca la fila modificada.
+Las clases DataTable de ADO.NET y DataAdapter están diseñadas para admitir las actualizaciones por lotes que da como resultado solo modificados, eliminados y nuevos registros en cualquier comunicación de base de datos. Cada fila de la tabla de datos tiene un [ `RowState` propiedad](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) que indica si la fila se ha agregado a la tabla de datos, eliminado contenido, modificar, o se mantiene sin cambios. Cuando inicialmente se rellena una tabla de datos, todas las filas se marcan sin cambios. Cambiar el valor de cualquiera de las columnas de fila s marca la fila modificada.
 
 En el `SuppliersBLL` clase actualizamos la información de dirección de proveedor especificado s por primera lectura en el registro de proveedor único en una `SuppliersDataTable` y, a continuación, establezca el `Address`, `City`, y `Country` valores de columna mediante el código siguiente:
 
@@ -163,7 +163,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

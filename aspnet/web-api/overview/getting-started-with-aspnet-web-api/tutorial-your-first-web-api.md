@@ -11,11 +11,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: fa1cd068a7466e0b6b6fe7716090c8a7afd2a4d5
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 6ff9fd279a03197f761454bba3f180d7428b1b1f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-web-api-2-c"></a>Introducción a ASP.NET Web API 2 (C#)
 ====================
@@ -112,7 +112,7 @@ Ya está. Tiene una API web de trabajo. Cada método en el controlador correspon
 | Método de controlador | Identificador URI |
 | --- | --- |
 | GetAllProducts | productos/api / |
-| GetProduct | /API/products/*Id.* |
+| GetProduct | /api/products/*id* |
 
 Para el `GetProduct` método, el *identificador* en el URI es un marcador de posición. Por ejemplo, para obtener el producto con el identificador de 5, el URI es `api/products/5`.
 
@@ -186,11 +186,11 @@ Si hace clic en la ficha cuerpo de respuesta, puede ver cómo la lista de produc
 
 Necesita una cuenta de Azure para implementar esta solución en Azure. Si no dispone de una cuenta, tiene las siguientes opciones:
 
-- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
-- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
+- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
+- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener un ejemplo más completo de un servicio HTTP que admite acciones de POST, PUT y DELETE y escribe en una base de datos, vea [usar Web API 2 con Entity Framework 6](../data/using-web-api-with-entity-framework/part-1.md).
 - Para obtener más información sobre cómo crear aplicaciones sensibles y fluido web encima de un servicio HTTP, consulte [aplicación de una única página ASP.NET](../../../single-page-application/index.md).
-- Para obtener información sobre cómo implementar un proyecto web de Visual Studio al servicio de aplicaciones de Azure, consulte [crear una aplicación web ASP.NET en el servicio de aplicación de Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+- Para obtener información sobre cómo implementar un proyecto web de Visual Studio al servicio de aplicaciones de Azure, consulte [crear una aplicación web ASP.NET en el servicio de aplicación de Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).

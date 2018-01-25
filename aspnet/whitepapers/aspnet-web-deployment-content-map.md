@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: 8bded273de1ca7b050d41ddd872d9a1aa68bb314
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 78ff183394b5ff92f789b50551d01d28f9bff93b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>Recursos recomendados de implementación Web de ASP.NET:
 ====================
@@ -57,7 +57,7 @@ Este tema contiene las siguientes secciones:
 
 ## <a name="understanding-deployment-options-for-web-projects"></a>Descripción de las opciones de implementación para proyectos web
 
-- [Información general de la implementación de Web para Visual Studio y ASP.NET](https://msdn.microsoft.com/en-us/library/dd394698.aspx) (MSDN).
+- [Información general de la implementación de Web para Visual Studio y ASP.NET](https://msdn.microsoft.com/library/dd394698.aspx) (MSDN).
 - [Cómo implementar un sitio Web de Azure de Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Explica las opciones y los vínculos a los recursos para la implementación de proyectos web de sitios Web para Windows Azure, incluidos [la entrega continua](../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) (automatizadas de [control de código fuente](../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md)), así como con Visual Studio.
 - [Mejoras de publicación Web de Visual Studio 2012](../visual-studio/overview/2012/visual-studio-2012-web-publishing-improvements.md) (vídeo de Scott Hanselman).
 - [Información general sobre Post para la implementación de Web de VS 2010](http://vishaljoshi.blogspot.com/2009/09/overview-post-for-web-deployment-in-vs.html) (blog de Vishal Joshi). Una entrada de blog anterior, pero algunos de los recursos de Visual Studio 2010 vincula para tener información que sigue siendo pertinente para Visual Studio 2012.
@@ -78,7 +78,7 @@ Este tema contiene las siguientes secciones:
 
 - [Cómo implementar un sitio Web de Azure de Windows](https://docs.microsoft.com/azure/app-service-web/web-sites-deploy). Se explican las opciones y proporciona vínculos a recursos para la implementación de proyectos web para sitios Web de Windows Azure. Incluye una sección acerca de la implementación de Visual Studio.
 - [Implementación de Web ASP.NET con Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). serie de tutoriales de parte de 12, se muestra cómo implementar aplicaciones web con las bases de datos de SQL Server. Para la base de datos de implementación utiliza el proveedor dbDacFx y Entity Framework Code First Migrations. También incluye información sobre [transformaciones del archivo Web.config](../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md), [implementar archivos individuales](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-code-update.md#specificfiles), [implementación de línea de comandos](../web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment.md), y [cómo personalizar la web de Visual Studio canalización de publicación mediante la edición de archivos de .pubxml](../web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files.md). Se aplica a todos los proyectos web ASP.NET, incluidos los formularios Web Forms, MVC y API Web).
-- [Cómo: implementar un uso de un solo clic publicación de proyecto Web en Visual Studio](https://msdn.microsoft.com/en-us/library/dd465337.aspx) (información de referencia para el Asistente para publicación de Web de Visual Studio.)
+- [Cómo: implementar un uso de un solo clic publicación de proyecto Web en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (información de referencia para el Asistente para publicación de Web de Visual Studio.)
 - [Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). Se trata de una versión anterior de **implementación de Web de ASP.NET con Visual Studio** aparece en la parte superior de esta sección. Ahora principalmente útil para obtener información sobre cómo implementar las bases de datos de SQL Server Compact y cómo migrar de SQL Server Compact a una edición completa de SQL Server.
 - [Aplicación de varios niveles .NET usando almacenamiento tablas, colas y Blobs](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (sitio de Microsoft Azure). serie de tutoriales de parte 5, se muestra cómo crear un proyecto de MVC e implementarlo en un servicio de nube de Windows Azure.
 
@@ -86,8 +86,8 @@ Este tema contiene las siguientes secciones:
 <a id="package"></a>
 ## <a name="deploying-a-web-application-by-creating-and-installing-a-web-deployment-package"></a>Implementar una aplicación web, cree e instale un paquete de implementación web
 
-- [Cómo: crear un paquete de implementación Web en Visual Studio](https://msdn.microsoft.com/en-us/library/dd465323.aspx) (MSDN).
-- [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd creado por Visual Studio](https://msdn.microsoft.com/en-us/library/ff356104.aspx) (MSDN).
+- [Cómo: crear un paquete de implementación Web en Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx) (MSDN).
+- [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd creado por Visual Studio](https://msdn.microsoft.com/library/ff356104.aspx) (MSDN).
 - [Usar un paquete de Web Deploy para implementar en IIS en el cuadro de desarrollo y a un host de terceros](http://sedodream.com/2011/11/08/UsingAWebDeployPackageToDeployToIISOnTheDevBoxAndToAThirdPartyHost.aspx) (blog de Sayed Hashimi). Cómo usar el Administrador de IIS para instalar un paquete de implementación en IIS en el equipo local y en un host de la compañía es compatible con el Administrador de IIS para la administración remota.
 - [Creación de una Web implementar paquetes de Visual Studio 2010](https://www.iis.net/learn/publish/using-web-deploy/building-a-web-deploy-package-from-visual-studio-2010) (sitio web IIS.NET). Se incluyen instrucciones para la instalación y la creación del paquete de línea de comandos.
 - [Una vez publicar desde cualquier lugar del paquete](http://sedodream.com/2012/03/14/PackageWebUpdatedAndVideoBelow.aspx) (blog de Sayed Hashimi). Presenta un paquete de NuGet que automatiza el proceso de transformar el archivo Web.config para varios entornos de destino, por lo que puede implementar un paquete en varios servidores. Vea también el [PackageWeb vídeo](https://www.youtube.com/watch?v=-LvUJFI8CzM) por Sayed Hashimi.
@@ -117,10 +117,10 @@ Vea también [asegurándose de que una aplicación está sin conexión durante l
 ## <a name="using-webconfig-transformations-to-change-settings-in-the-destination-webconfig-file-or-appconfig-file-during-deployment"></a>Uso de transformaciones de Web.config para cambiar la configuración en el archivo Web.config de destino o el archivo app.config durante la implementación
 
 - [Las transformaciones del archivo Web.config](../web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations.md).
-- [Sintaxis de transformación de Web.config para la implementación de proyectos Web con Visual Studio](https://msdn.microsoft.com/en-us/library/dd465326.aspx) (MSDN).
+- [Sintaxis de transformación de Web.config para la implementación de proyectos Web con Visual Studio](https://msdn.microsoft.com/library/dd465326.aspx) (MSDN).
 - [Web Tools 2012.2 - web.config transformaciones](https://www.youtube.com/watch?v=HdPK8mxpKEI) (vídeo de YouTube de Sayed Hashimi). Muestra cómo configurar y obtener una vista previa de las transformaciones de Web.config.
-- [¿Cómo deshabilitar la transformación de Web.config?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#disable_web_config_transformation) (MSDN).
-- [¿Cuándo debo utilizar Web Deploy parámetros en lugar de las transformaciones de Web.config?](https://msdn.microsoft.com/en-us/library/ee942158.aspx#web_deploy_parameters) (MSDN).
+- [¿Cómo deshabilitar la transformación de Web.config?](https://msdn.microsoft.com/library/ee942158.aspx#disable_web_config_transformation) (MSDN).
+- [¿Cuándo debo utilizar Web Deploy parámetros en lugar de las transformaciones de Web.config?](https://msdn.microsoft.com/library/ee942158.aspx#web_deploy_parameters) (MSDN).
 - [XDT (transformación de documentos XML) que se publicó en codeplex.com](https://blogs.msdn.com/b/webdev/archive/2013/04/23/xdt-xml-document-transform-released-on-codeplex-com.aspx) (blog de desarrollo Web de .NET y herramientas). Anuncia la disponibilidad del código fuente para el motor de transformación del archivo Web.config y se enumeran algunas herramientas que lo utilizan.
 - [Sitios Web de Azure de Windows: La aplicación cadenas y trabajo de cadenas de conexión](https://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx) (blog de Microsoft Azure). Una alternativa a Web.config transforma si su entorno de destino es Microsoft Azure sitios Web y desea transformar `appSettings` o `connectionStrings`.
 
@@ -130,7 +130,7 @@ Vea también [asegurándose de que una aplicación está sin conexión durante l
 
 ## <a name="using-web-deploy-parameters-to-change-settings-in-the-destination-web-application-during-deployment"></a>Usar parámetros de Web Deploy para cambiar la configuración de la aplicación web de destino durante la implementación
 
-- [Cómo: usar WebDeploy parámetros en un paquete de implementación Web](https://msdn.microsoft.com/en-us/library/ff398068.aspx) (MSDN).
+- [Cómo: usar WebDeploy parámetros en un paquete de implementación Web](https://msdn.microsoft.com/library/ff398068.aspx) (MSDN).
 - [MSDeploy: Cómo actualizar la configuración de la aplicación en la publicación basada en el perfil de publicación](http://sedodream.com/2013/03/02/MSDeployHowToUpdateAppSettingsOnPublishBasedOnThePublishProfile.aspx) (blog de Sayed Hashimi). Muestra cómo integrar WebDeploy parámetros en Visual Studio perfiles de publicación.
 - [Implementar la parametrización de Web](https://www.iis.net/learn/publish/using-web-deploy/web-deploy-parameterization) (sitio web IIS.NET).
 - [Web implementar parametrización en acción](http://vishaljoshi.blogspot.com/2010/07/web-deploy-parameterization-in-action.html) (blog de Vishal Joshi).
@@ -155,9 +155,9 @@ Vea también [asegurándose de que una aplicación está sin conexión durante l
 
 ## <a name="deploying-a-database-or-changes-to-a-database-as-part-of-web-application-deployment"></a>Implementar una base de datos o cambios a una base de datos como parte de la implementación de aplicaciones web
 
-- [Configuración de implementación de base de datos en Visual Studio](https://msdn.microsoft.com/en-us/library/dd394698.aspx#dbdeployment) (MSDN). Información general de opciones para implementar una base de datos con un proyecto web.
+- [Configuración de implementación de base de datos en Visual Studio](https://msdn.microsoft.com/library/dd394698.aspx#dbdeployment) (MSDN). Información general de opciones para implementar una base de datos con un proyecto web.
 - [Implementación de Web ASP.NET con Visual Studio](../web-forms/overview/deployment/visual-studio-web-deployment/introduction.md). serie de tutoriales de parte de 12, muestra la implementación de base de datos mediante el uso de proveedor dbDacFx y Entity Framework Code First Migrations.
-- [Cómo: implementar un servidor Web Publicar proyecto con un solo clic en Visual Studio](https://msdn.microsoft.com/en-us/library/dd465337.aspx) (MSDN).
+- [Cómo: implementar un servidor Web Publicar proyecto con un solo clic en Visual Studio](https://msdn.microsoft.com/library/dd465337.aspx) (MSDN).
 - [Implementar una aplicación de MVC de ASP.NET 5 segura con pertenencia, OAuth y base de datos SQL a un sitio Web de Azure de Windows](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Un tutorial largo que crea e implementa una aplicación que utiliza un único servidor de SQL Server de base de datos tanto para los datos de pertenencia y la aplicación.
 - [Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio](../web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12.md). serie de tutoriales de parte de 12, se muestra cómo implementar bases de datos de SQL Server Compact y cómo migrar de SQL Server Compact a una edición completa de SQL Server.
 
@@ -169,13 +169,13 @@ Vea también implementar una aplicación web mediante la creación y la instalac
 
 ## <a name="deploying-a-database-separately-from-web-application-deployment"></a>Implementar una base de datos por separado de la implementación de aplicaciones web
 
-- [Herramientas de datos SQL Server](https://msdn.microsoft.com/en-us/library/hh272686(v=vs.103).aspx) (MSDN).
+- [Herramientas de datos SQL Server](https://msdn.microsoft.com/library/hh272686(v=vs.103).aspx) (MSDN).
 - [Inclusión de datos en un proyecto de base de datos de SQL Server](https://blogs.msdn.com/b/ssdt/archive/2012/02/02/including-data-in-an-sql-server-database-project.aspx) (blog del equipo de SQL Server Data Tools). Cómo implementar el esquema y los datos al implementar una base de datos.
 - [Cómo implementar una base de datos en Windows Azure](https://docs.microsoft.com/azure/sql-database/sql-database-cloud-migrate) (sitio de Microsoft Azure)
-- [Migrar bases de datos en Windows Azure SQL Database (anteriormente SQL Azure)](https://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx) (MSDN).
+- [Migrar bases de datos en Windows Azure SQL Database (anteriormente SQL Azure)](https://msdn.microsoft.com/library/windowsazure/ee730904.aspx) (MSDN).
 - [Migrar una base de datos a SQL Azure mediante SSDT](https://blogs.msdn.com/b/ssdt/archive/2012/04/19/migrating-a-database-to-sql-azure-using-ssdt.aspx) (blog del equipo de SQL Server Data Tools).
-- [Migrar aplicaciones centradas en datos a Windows Azure](https://msdn.microsoft.com/en-us/library/jj156154.aspx) (MSDN).
-- [Migrar bases de datos SQL Server en Windows Azure SQL Database](https://msdn.microsoft.com/en-us/library/windowsazure/jj156160.aspx) (MSDN).
+- [Migrar aplicaciones centradas en datos a Windows Azure](https://msdn.microsoft.com/library/jj156154.aspx) (MSDN).
+- [Migrar bases de datos SQL Server en Windows Azure SQL Database](https://msdn.microsoft.com/library/windowsazure/jj156160.aspx) (MSDN).
 
 
 <a id="aspnetmembership"></a>
@@ -195,9 +195,9 @@ Vea también implementar una aplicación web mediante la creación y la instalac
 
 ## <a name="precompiling-for-deployment"></a>Precompilar para la implementación
 
-- [Introducción precompilación del proyecto de aplicación Web de ASP.NET](https://msdn.microsoft.com/en-us/library/aa983464.aspx) (MSDN).
-- [Empaquetar/Publicar Web (pestaña), propiedades del proyecto](https://msdn.microsoft.com/en-us/library/dd410108.aspx) (MSDN).
-- [Advanced precompilar el cuadro de diálogo Configuración](https://msdn.microsoft.com/en-us/library/hh475319.aspx) (MSDN).
+- [Introducción precompilación del proyecto de aplicación Web de ASP.NET](https://msdn.microsoft.com/library/aa983464.aspx) (MSDN).
+- [Empaquetar/Publicar Web (pestaña), propiedades del proyecto](https://msdn.microsoft.com/library/dd410108.aspx) (MSDN).
+- [Advanced precompilar el cuadro de diálogo Configuración](https://msdn.microsoft.com/library/hh475319.aspx) (MSDN).
 
 
 <a id="intranet"></a>
@@ -206,7 +206,7 @@ Vea también implementar una aplicación web mediante la creación y la instalac
 ## <a name="deploying-an-intranet-web-application"></a>Implementar una aplicación web de intranet
 
 - [Utilice la opción de autenticación de organización de local (ADFS) con ASP.NET en Visual Studio 2013](http://www.cloudidentity.com/blog/2014/02/12/use-the-on-premises-organizational-authentication-option-adfs-with-asp-net-in-visual-studio-2013/) (Blog de Vittorio Bertocci.).
-- [Cómo crear un sitio de Intranet mediante ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg703322(VS.98).aspx) (MSDN). Anteriores escritos tutorial para Visual Studio 2010, no refleja los cambios principales en las plantillas de proyecto de intranet introducidas en Visual Studio 2013.
+- [Cómo crear un sitio de Intranet mediante ASP.NET MVC](https://msdn.microsoft.com/library/gg703322(VS.98).aspx) (MSDN). Anteriores escritos tutorial para Visual Studio 2010, no refleja los cambios principales en las plantillas de proyecto de intranet introducidas en Visual Studio 2013.
 
 
 <a id="automating"></a>
@@ -250,7 +250,7 @@ Vea también implementar una aplicación web mediante la creación y la instalac
 - [Implementación de Web ASP.NET con Visual Studio: solución de problemas de](../web-forms/overview/deployment/visual-studio-web-deployment/troubleshooting.md).
 - [Implementación la solución de problemas problemas comunes relacionados con Web](https://www.iis.net/learn/publish/troubleshooting-web-deploy/troubleshooting-common-problems-with-web-deploy).
 - [Web implementar códigos de Error](https://www.iis.net/learn/publish/troubleshooting-web-deploy/web-deploy-error-codes) (IIS.net sitio).
-- [Preguntas más frecuentes de implementación para Visual Studio y ASP.NET Web](https://msdn.microsoft.com/en-us/library/ee942158.aspx) (MSDN).
+- [Preguntas más frecuentes de implementación para Visual Studio y ASP.NET Web](https://msdn.microsoft.com/library/ee942158.aspx) (MSDN).
 - [Principales diferencias entre IIS y el servidor de desarrollo de ASP.NET](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs.md).
 - [Diferencias de configuración comunes entre el desarrollo y producción](../web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs.md).
 - [Hospedar aplicaciones ASP.NET de nivel de confianza medio](http://www.4guysfromrolla.com/articles/100307-1.aspx) (4 Guys desde Rolla sitio).

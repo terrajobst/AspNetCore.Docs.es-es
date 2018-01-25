@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-updating-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 506ecc9fad47cc39a0323e9ed18814c26e28ee47
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1210f9048401ca1b4e29d6dde9bf5dbef987091f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="batch-updating-c"></a>Lote de actualización (C#)
 ====================
@@ -47,7 +47,7 @@ Permiten s empiece a trabajar.
 
 ## <a name="examining-the-steps-for-making-all-gridview-rows-editable"></a>Examinar los pasos para realizar todas las filas de GridView Editable
 
-Como se describe en el [una visión general de insertar, actualizar y eliminar datos](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) tutorial, GridView ofrece compatibilidad integrada para editar sus datos subyacentes por fila. Internamente, el control GridView notas qué fila es editable a través de su [ `EditIndex` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Se está enlazando el control GridView a su origen de datos, comprueba cada fila para ver si el índice de la fila es igual al valor de `EditIndex`. Si es así, esa fila s campos se representan mediante la edición de sus interfaces. Para BoundFields, la interfaz de edición es un cuadro de texto cuyo `Text` propiedad se asigna el valor del campo de datos especificado por la s BoundField `DataField` propiedad. Para TemplateFields, el `EditItemTemplate` se utiliza en lugar de la `ItemTemplate`.
+Como se describe en el [una visión general de insertar, actualizar y eliminar datos](../editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs.md) tutorial, GridView ofrece compatibilidad integrada para editar sus datos subyacentes por fila. Internamente, el control GridView notas qué fila es editable a través de su [ `EditIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.editindex(VS.80).aspx). Se está enlazando el control GridView a su origen de datos, comprueba cada fila para ver si el índice de la fila es igual al valor de `EditIndex`. Si es así, esa fila s campos se representan mediante la edición de sus interfaces. Para BoundFields, la interfaz de edición es un cuadro de texto cuyo `Text` propiedad se asigna el valor del campo de datos especificado por la s BoundField `DataField` propiedad. Para TemplateFields, el `EditItemTemplate` se utiliza en lugar de la `ItemTemplate`.
 
 Recuerde que el flujo de trabajo de edición se inicia cuando un usuario hace clic en un botón de edición de fila s. Esto provoca una devolución de datos, Establece la s GridView `EditIndex` propiedad en el índice de fila donde ha hecho clic s y Reenlaces los datos a la cuadrícula. Cuando un botón de cancelación de la fila s se hace clic en, en el postback el `EditIndex` se establece en un valor de `-1` antes de volver a enlazar los datos a la cuadrícula. Puesto que las filas de GridView s inicia la indización en la posición cero, establecer `EditIndex` a `-1` tiene el efecto de presentación de GridView en modo de solo lectura.
 
@@ -240,7 +240,7 @@ Crear un método denominado `BatchUpdate` en `BatchUpdate.aspx.cs` y agregue el 
 
 [!code-csharp[Main](batch-updating-cs/samples/sample5.cs)]
 
-Este método comienza a obteniendo todos los productos en un `ProductsDataTable` mediante una llamada a las operaciones de asignación BLL `GetProducts` método. A continuación, enumera el `ProductGrid` GridView s [ `Rows` colección](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). El `Rows` colección contiene un [ `GridViewRow` instancia](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewrow.aspx) para cada fila que se muestra en el control GridView. Puesto que vamos a presentar como máximo diez filas por página, las operaciones de asignación GridView `Rows` colección contará con no más de diez elementos.
+Este método comienza a obteniendo todos los productos en un `ProductsDataTable` mediante una llamada a las operaciones de asignación BLL `GetProducts` método. A continuación, enumera el `ProductGrid` GridView s [ `Rows` colección](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rows(VS.80).aspx). El `Rows` colección contiene un [ `GridViewRow` instancia](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewrow.aspx) para cada fila que se muestra en el control GridView. Puesto que vamos a presentar como máximo diez filas por página, las operaciones de asignación GridView `Rows` colección contará con no más de diez elementos.
 
 Para cada fila el `ProductID` es obtener un elemento de la `DataKeys` recopilación y la correspondiente `ProductsRow` está seleccionado en el `ProductsDataTable`. Los cuatro controles de entrada de TemplateField mediante programación se hace referencia y sus valores se asignan a las `ProductsRow` s propiedades de la instancia. Después de cada GridView se usaron los valores de fila s para actualizar la `ProductsDataTable`, s pasado a las operaciones de asignación BLL `UpdateWithTransaction` método que, como hemos visto en el tutorial anterior, simplemente llama a hacia abajo en la capa DAL s `UpdateWithTransaction` método.
 
@@ -270,7 +270,7 @@ Para los tipos de situaciones, considere el uso de los siguientes `BatchUpdateAl
 
 [!code-csharp[Main](batch-updating-cs/samples/sample7.cs)]
 
-`BatchMethodAlternate`se inicia mediante la creación de una nueva y vacía `ProductsDataTable` denominado `products`. A continuación, se recorre la s GridView `Rows` colección y para cada fila Obtiene la información de producto en particular con las operaciones de asignación BLL `GetProductByProductID(productID)` método. El objeto recuperado `ProductsRow` instancia tiene sus propiedades actualizados en la misma forma que `BatchUpdate`, pero después de actualizar la fila se importa en el `products``ProductsDataTable` a través de las operaciones de asignación DataTable [ `ImportRow(DataRow)` método](https://msdn.microsoft.com/en-us/library/system.data.datatable.importrow(VS.80).aspx).
+`BatchMethodAlternate`se inicia mediante la creación de una nueva y vacía `ProductsDataTable` denominado `products`. A continuación, se recorre la s GridView `Rows` colección y para cada fila Obtiene la información de producto en particular con las operaciones de asignación BLL `GetProductByProductID(productID)` método. El objeto recuperado `ProductsRow` instancia tiene sus propiedades actualizados en la misma forma que `BatchUpdate`, pero después de actualizar la fila se importa en el `products``ProductsDataTable` a través de las operaciones de asignación DataTable [ `ImportRow(DataRow)` método](https://msdn.microsoft.com/library/system.data.datatable.importrow(VS.80).aspx).
 
 Después de la `foreach` bucle se completa, `products` contiene un `ProductsRow` instancia para cada fila de GridView. Desde cada uno de la `ProductsRow` instancias se han agregado a la `products` (en lugar de actualizar), si pasamos a ciegas que el `UpdateWithTransaction` método el `ProductsTableAdatper` intentará insertar cada uno de los registros en la base de datos. En su lugar, es preciso especificar que cada una de estas filas se han modificado (no agregado).
 
@@ -289,7 +289,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

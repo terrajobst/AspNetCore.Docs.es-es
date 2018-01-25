@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ecc233e595716a167ad800a0a21a6162b051648
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c1d0b3e1644ef7f9ebb4be74c3fdf3df90cf3537
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Crear una API de REST con atributo enrutar en ASP.NET Web API 2
 ====================
@@ -27,18 +27,18 @@ Web API 2 es compatible con un nuevo tipo de enrutamiento, denominado *atributo 
 | Acción | URI de ejemplo |
 | --- | --- |
 | Obtener una lista de todos los libros. | / api/libros |
-| Obtener un libro por identificador. | /API/Books/1 |
-| Obtener los detalles de un libro. | /API/Books/1/Details |
-| Obtener una lista de libros por género. | /API/Books/fantasy |
+| Obtener un libro por identificador. | /api/books/1 |
+| Obtener los detalles de un libro. | /api/books/1/details |
+| Obtener una lista de libros por género. | /api/books/fantasy |
 | Obtener una lista de libros por fecha de publicación. | /API/Books/Date/2013-02-16 /api/books/date/2013/02/16 (forma alternativa) |
-| Obtener una lista de libros por un autor concreto. | /API/authors/1/Books |
+| Obtener una lista de libros por un autor concreto. | /api/authors/1/books |
 
 Todos los métodos son de solo lectura (las solicitudes HTTP GET).
 
 Para la capa de datos, vamos a usar Entity Framework. Registros de libros tendrá los siguientes campos:
 
 - Id.
-- Título
+- Title
 - Género
 - Fecha de publicación
 - Precio
@@ -141,7 +141,7 @@ Agregue otra clase denominada `BookDetailDto`.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample8.cs)]
 
-A continuación, actualice el `BooksController` clase para devolver `BookDto` instancias. Vamos a usar la [Queryable.Select](https://msdn.microsoft.com/en-us/library/system.linq.queryable.select.aspx) método al proyecto `Book` instancias de `BookDto` instancias. Este es el código actualizado para la clase de controlador.
+A continuación, actualice el `BooksController` clase para devolver `BookDto` instancias. Vamos a usar la [Queryable.Select](https://msdn.microsoft.com/library/system.linq.queryable.select.aspx) método al proyecto `Book` instancias de `BookDto` instancias. Este es el código actualizado para la clase de controlador.
 
 [!code-csharp[Main](create-a-rest-api-with-attribute-routing/samples/sample9.cs)]
 
@@ -167,8 +167,8 @@ La plantilla de ruta para cada método de controlador es el prefijo además de l
 
 | Método | Plantilla de ruta | URI de ejemplo |
 | --- | --- | --- |
-| `GetBooks` | "api/libros" | `http://localhost/api/books` |
-| `GetBook` | "api/libros / {Id.: int}" | `http://localhost/api/books/5` |
+| `GetBooks` | "api/books" | `http://localhost/api/books` |
+| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Obtener detalles del libro
 

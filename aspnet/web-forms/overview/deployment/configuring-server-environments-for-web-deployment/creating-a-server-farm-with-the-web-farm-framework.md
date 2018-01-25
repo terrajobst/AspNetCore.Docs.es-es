@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: 2458abc863a83364f90fc9d6edaace897c23b4c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Crear una granja de servidores con el marco de trabajo de la granja de servidores Web
 ====================
@@ -65,7 +65,7 @@ Las tareas y los tutoriales en este tema se suponen que está empezando con comp
 - El servidor tiene una dirección IP estática.
 
 > [!NOTE]
-> Para obtener más información sobre unir equipos a un dominio, consulte [unir equipos al dominio e iniciar sesión](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Para obtener más información acerca de cómo configurar direcciones IP estáticas, consulte [configurar una dirección IP estática](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx).
+> Para obtener más información sobre unir equipos a un dominio, consulte [unir equipos al dominio e iniciar sesión](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Para obtener más información acerca de cómo configurar direcciones IP estáticas, consulte [configurar una dirección IP estática](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx).
 
 
 ## <a name="create-the-wff-controller-server"></a>Crear el servidor de controlador WFF
@@ -78,7 +78,7 @@ Para crear un servidor de controlador WFF, debe instalar IIS 7 o posterior y WFF
 2. En la parte superior de la **instalador de plataforma Web 3.0** ventana, haga clic en **productos**.
 3. En el lado izquierdo de la ventana, en el panel de navegación, haga clic en **Server**.
 4. En el **configuración recomendada para IIS 7** la fila, haga clic en **agregar**.
-5. En el **Web Farm Framework 2.** *x* la fila, haga clic en **agregar**.
+5. En el **2 de marco de granja de servidores Web. *** x* la fila, haga clic en **agregar**.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. Haga clic en **Instalar**. Observe que el instalador de plataforma Web ha agregado la herramienta de implementación Web, junto con diversas otras dependencias a la lista de instalación.

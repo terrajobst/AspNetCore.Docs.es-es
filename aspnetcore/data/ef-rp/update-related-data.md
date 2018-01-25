@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 817bfd48dce94e7dbad96cb6f822494e3adfae1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 236589d0202a7f30f1e1a9d69902000fd9a2dd71
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-razor-pages-7-of-8"></a>Actualizar datos relacionados - páginas de Razor EF Core (7 de 8)
 
@@ -69,7 +69,7 @@ El marcado anterior realiza los cambios siguientes:
 * Cambia el título de **DepartmentID** a **departamento**.
 * Reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
 * Agrega la opción "Seleccionar departamento". Este cambio representa "Seleccione Departamento" en lugar de la primera departamento.
-* Agrega un mensaje de validación si no se selecciona el departamento.
+* Agrega un mensaje de validación si no está seleccionado el departamento.
 
 La página de Razor utiliza el [seleccione etiqueta auxiliar](xref:mvc/views/working-with-forms#the-select-tag-helper):
 
@@ -95,7 +95,7 @@ El marcado anterior realiza los cambios siguientes:
 * Cambia el título de **DepartmentID** a **departamento**.
 * Reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
 * Agrega la opción "Seleccionar departamento". Este cambio representa "Seleccione Departamento" en lugar de la primera departamento.
-* Agrega un mensaje de validación si no se selecciona el departamento.
+* Agrega un mensaje de validación si no está seleccionado el departamento.
 
 La página contiene un campo oculto (`<input type="hidden">`) para el número de curso. Agregar un `<label>` etiqueta auxiliar con `asp-for="Course.CourseID"` no elimina la necesidad de que el campo oculto. `<input type="hidden">`se requiere para el número de curso que se incluirá en los datos enviados cuando el usuario hace clic en **guardar**.
 
@@ -164,7 +164,7 @@ Instructores pueden enseñar a cualquier número de cursos. En esta sección, ag
 Casillas de verificación Permitir cambios en un instructor se asigna a los cursos. Se muestra una casilla de verificación para cada curso en la base de datos. Se comprueban los cursos en los que se asigna el instructor a. El usuario puede activar o desactivar casillas de verificación para cambiar las asignaciones de curso. Si el número de cursos era mucho más grandes:
 
 * Probablemente utilizará una interfaz de usuario diferente para mostrar los cursos.
-* El método de manipulación de una entidad de combinación para crear o eliminar relaciones no cambiaría.
+* No cambie el método de manipulación de una entidad de combinación para crear o eliminar relaciones.
 
 ### <a name="add-classes-to-support-create-and-edit-instructor-pages"></a>Agregar clases para admitir la creación y edición de páginas de instructor
 

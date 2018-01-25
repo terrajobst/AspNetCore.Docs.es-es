@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5cb469252dc36ced98357dd984d36668af1c430b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 66f1065c41352f355dd5f1be43443165df909b93
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Datos de informe de paginación en un Control de repetidor (VB) o DataList
 ====================
@@ -80,7 +80,7 @@ Puesto que la paginación predeterminada solicita volver a todos los registros p
 
 *Paginación personalizada* permite solucionar los problemas de rendimiento de paginación de manera predeterminada, arrastrar sólo el subconjunto preciso de registros que deben mostrarse en la página solicitada. Al implementar la paginación personalizada, debemos escribimos la consulta SQL que eficazmente devolverá solo el conjunto de registros correcto. Hemos visto cómo crear una consulta con SQL Server 2005 s nuevo [ `ROW_NUMBER()` palabra clave](http://www.4guysfromrolla.com/webtech/010406-1.shtml) en el [eficazmente paginar a través de grandes cantidades de datos](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb.md) tutorial.
 
-Para implementar la paginación de manera predeterminada en los controles DataList o repetidor, podemos usar la [ `PagedDataSource` clase](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.aspx) como un contenedor alrededor de la `ProductsDataTable` cuyo contenido se que se va a paginar. El `PagedDataSource` clase tiene un `DataSource` propiedad que se pueden asignar a cualquier objeto enumerable y [ `PageSize` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) y [ `CurrentPageIndex` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) propiedades que indican el número de registros a Mostrar por página y el índice de la página actual. Una vez que se hayan establecido estas propiedades, el `PagedDataSource` puede utilizarse como origen de datos de cualquier control Web de datos. El `PagedDataSource`, al tipo enumerado le devuelve solo el subconjunto de registros de su interior adecuado `DataSource` tomando como base la `PageSize` y `CurrentPageIndex` propiedades. La figura 4 representa la funcionalidad de la `PagedDataSource` clase.
+Para implementar la paginación de manera predeterminada en los controles DataList o repetidor, podemos usar la [ `PagedDataSource` clase](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.aspx) como un contenedor alrededor de la `ProductsDataTable` cuyo contenido se que se va a paginar. El `PagedDataSource` clase tiene un `DataSource` propiedad que se pueden asignar a cualquier objeto enumerable y [ `PageSize` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.pagesize.aspx) y [ `CurrentPageIndex` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.currentpageindex.aspx) propiedades que indican el número de registros a Mostrar por página y el índice de la página actual. Una vez que se hayan establecido estas propiedades, el `PagedDataSource` puede utilizarse como origen de datos de cualquier control Web de datos. El `PagedDataSource`, al tipo enumerado le devuelve solo el subconjunto de registros de su interior adecuado `DataSource` tomando como base la `PageSize` y `CurrentPageIndex` propiedades. La figura 4 representa la funcionalidad de la `PagedDataSource` clase.
 
 
 ![El PagedDataSource contiene un objeto Enumerable con una interfaz paginable](paging-report-data-in-a-datalist-or-repeater-control-vb/_static/image6.png)
@@ -204,7 +204,7 @@ Además `TotalRowCount`, tómese un minuto para crear propiedades de nivel de p�
 
 ## <a name="determining-the-total-number-of-records-being-paged-through"></a>Determinar el número Total de registros que se va a paginar a través de
 
-El `PagedDataSource` devolvió un objeto de las operaciones de asignación ObjectDataSource `Select()` método tiene dentro de él *todos los* de los registros de productos, aunque solo un subconjunto de ellos se muestran en el control DataList. El `PagedDataSource` s [ `Count` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.count.aspx) devuelve solo el número de elementos que se mostrará en el control DataList; la [ `DataSourceCount` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) devuelve el número total de elementos dentro de la `PagedDataSource`. Por lo tanto, es necesario asignar la página s ASP.NET `TotalRowCount` el valor de la propiedad de la `PagedDataSource` s `DataSourceCount` propiedad.
+El `PagedDataSource` devolvió un objeto de las operaciones de asignación ObjectDataSource `Select()` método tiene dentro de él *todos los* de los registros de productos, aunque solo un subconjunto de ellos se muestran en el control DataList. El `PagedDataSource` s [ `Count` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.count.aspx) devuelve solo el número de elementos que se mostrará en el control DataList; la [ `DataSourceCount` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.datasourcecount.aspx) devuelve el número total de elementos dentro de la `PagedDataSource`. Por lo tanto, es necesario asignar la página s ASP.NET `TotalRowCount` el valor de la propiedad de la `PagedDataSource` s `DataSourceCount` propiedad.
 
 Para ello, cree un controlador de eventos para el s ObjectDataSource `Selected` eventos. En el `Selected` controlador de eventos que se tiene acceso al valor devuelto de las operaciones de asignación ObjectDataSource `Select()` método en este caso, el `PagedDataSource`.
 
@@ -224,7 +224,7 @@ Con la `Click` completar controladores de eventos, los registros de DataList s s
 
 ## <a name="disabling-paging-interface-controls"></a>Desactivación de la búsqueda de controles de interfaz
 
-Actualmente, los cuatro botones están habilitados, independientemente de la página que se está visualiza. Sin embargo, debe deshabilitar los botones primero y anterior al mostrar la primera página de datos y los botones siguiente y último al mostrar la última página. El `PagedDataSource` objeto devuelto por la s ObjectDataSource `Select()` método tiene propiedades [ `IsFirstPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) y [ `IsLastPage` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) que podemos examinar para determinar si se está viendo la primera o última página de datos.
+Actualmente, los cuatro botones están habilitados, independientemente de la página que se está visualiza. Sin embargo, debe deshabilitar los botones primero y anterior al mostrar la primera página de datos y los botones siguiente y último al mostrar la última página. El `PagedDataSource` objeto devuelto por la s ObjectDataSource `Select()` método tiene propiedades [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) y [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) que podemos examinar para determinar si se está viendo la primera o última página de datos.
 
 Agregue lo siguiente a las operaciones de asignación ObjectDataSource `Selected` controlador de eventos:
 
@@ -275,7 +275,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

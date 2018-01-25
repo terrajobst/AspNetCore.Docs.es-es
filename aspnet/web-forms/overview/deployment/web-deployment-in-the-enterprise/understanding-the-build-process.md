@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 551e31a7a2d0a4e6259f74977c2f8e21cb694e42
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-the-build-process"></a>Descripción del proceso de compilación
 ====================
@@ -77,7 +77,7 @@ Para implementar la solución póngase en contacto con el administrador en un en
 
 
 > [!NOTE]
-> El **/fl** cambiar (abreviatura de **/fileLogger**) registra el resultado de la compilación en un archivo denominado *msbuild.log* en el directorio actual. Para obtener más información, consulte el [referencia de línea de comandos de MSBuild](https://msdn.microsoft.com/en-us/library/ms164311.aspx).
+> El **/fl** cambiar (abreviatura de **/fileLogger**) registra el resultado de la compilación en un archivo denominado *msbuild.log* en el directorio actual. Para obtener más información, consulte el [referencia de línea de comandos de MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
 
 En este momento, MSBuild empieza a ejecutarse, carga el *Publish.proj* archivo y comenzará a procesar las instrucciones dentro de él. La primera instrucción indica a MSBuild que importa el proyecto de archivos que la **TargetEnvPropsFile** parámetro especifica.
@@ -178,7 +178,7 @@ No se usan los elementos dentro de este destino & #x 2014; este destino simpleme
 El **DbPublishPackages** elemento contendrá un valor único, la ruta de acceso a la *ContactManager.Database.deploymanifest* archivo.
 
 > [!NOTE]
-> Un archivo .deploymanifest se genera cuando se compila un proyecto de base de datos y utiliza el mismo esquema como un archivo de proyecto de MSBuild. Contiene toda la información necesaria para implementar una base de datos, incluidos los detalles de los scripts anteriores y posteriores a la implementación y la ubicación del esquema de base de datos (.dbschema). Para obtener más información, consulte [An Overview of Database Build e implementación](https://msdn.microsoft.com/en-us/library/aa833165.aspx).
+> Un archivo .deploymanifest se genera cuando se compila un proyecto de base de datos y utiliza el mismo esquema como un archivo de proyecto de MSBuild. Contiene toda la información necesaria para implementar una base de datos, incluidos los detalles de los scripts anteriores y posteriores a la implementación y la ubicación del esquema de base de datos (.dbschema). Para obtener más información, consulte [An Overview of Database Build e implementación](https://msdn.microsoft.com/library/aa833165.aspx).
 
 
 Aprenderá más acerca de cómo se crean y usan en paquetes de implementación y manifiestos de implementación de base de datos [edificio y proyectos de aplicación Web de empaquetado](building-and-packaging-web-application-projects.md) y [implementar proyectos de base de datos](deploying-database-projects.md).
@@ -193,13 +193,13 @@ En primer lugar, tenga en cuenta que la etiqueta de apertura incluye un **salida
 [!code-xml[Main](understanding-the-build-process/samples/sample10.xml)]
 
 
-Este es un ejemplo de *el procesamiento por lotes de destino*. En los archivos de proyecto de MSBuild, el procesamiento por lotes es una técnica para recorrer en iteración colecciones. El valor de la **salidas** atributo, **"% (DbPublishPackages.Identity)"**, hace referencia a la **identidad** propiedad de metadatos de la **DbPublishPackages**  lista de elementos. Esta notación, **salidas = %***(ItemList.ItemMetadataName)*, se traduce como:
+Este es un ejemplo de *el procesamiento por lotes de destino*. En los archivos de proyecto de MSBuild, el procesamiento por lotes es una técnica para recorrer en iteración colecciones. El valor de la **salidas** atributo, **"% (DbPublishPackages.Identity)"**, hace referencia a la **identidad** propiedad de metadatos de la **DbPublishPackages**  lista de elementos. Esta notación **Outputs=%***(ItemList.ItemMetadataName)*, se traduce como:
 
 - Dividir los elementos de **DbPublishPackages** en lotes de elementos que contienen el mismo **identidad** valor de metadatos.
 - Ejecute el destino una vez por lote.
 
 > [!NOTE]
-> **Identidad** es uno de los [valores de metadatos integradas](https://msdn.microsoft.com/en-us/library/ms164313.aspx) que se asigna a cada elemento durante la creación. Hace referencia al valor de la **Include** de atributo en el **elemento** elemento & #x 2014; es decir, la ruta de acceso y el nombre del elemento.
+> **Identidad** es uno de los [valores de metadatos integradas](https://msdn.microsoft.com/library/ms164313.aspx) que se asigna a cada elemento durante la creación. Hace referencia al valor de la **Include** de atributo en el **elemento** elemento & #x 2014; es decir, la ruta de acceso y el nombre del elemento.
 
 
 En este caso, dado que nunca debería haber más de un elemento con la misma ruta de acceso y nombre de archivo, básicamente estamos trabajando con tamaños de lote de uno. El destino se ejecuta una vez por cada paquete de la base de datos.
@@ -219,7 +219,7 @@ En este caso, **%(DbPublishPackages.DatabaseConnectionString)**, **%(DbPublishPa
 Como resultado de esta notación, el **Exec** tarea creará lotes basándose en combinaciones únicas de la **DatabaseConnectionString**, **TargetDatabase**y **FullPath** valores de metadatos y la tarea se ejecutarán una vez para cada lote. Este es un ejemplo de *tarea de procesamiento por lotes*. Sin embargo, dado que el nivel de destino de procesamiento por lotes, la colección de elementos en lotes con un único elemento, ya ha dividido el **Exec** tarea ejecutará una vez y solo una vez para cada iteración del destino. En otras palabras, esta tarea invoca la utilidad VSDBCMD una vez para cada paquete de la base de datos en la solución.
 
 > [!NOTE]
-> Para obtener más información sobre el procesamiento por lotes de tareas y de destino, vea MSBuild [procesamiento por lotes](https://msdn.microsoft.com/en-us/library/ms171473.aspx), [metadatos de elementos en procesamiento por lotes de destino](https://msdn.microsoft.com/en-US/library/ms228229.aspx), y [metadatos de elementos en procesamiento por lotes de tareas](https://msdn.microsoft.com/en-us/library/ms171474.aspx).
+> Para obtener más información sobre el procesamiento por lotes de tareas y de destino, vea MSBuild [procesamiento por lotes](https://msdn.microsoft.com/library/ms171473.aspx), [metadatos de elementos en procesamiento por lotes de destino](https://msdn.microsoft.com/library/ms228229.aspx), y [metadatos de elementos en procesamiento por lotes de tareas](https://msdn.microsoft.com/library/ms171474.aspx).
 
 
 ### <a name="the-publishwebpackages-target"></a>El destino de PublishWebPackages

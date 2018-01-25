@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/using-grunt
-ms.openlocfilehash: 959a3e61af9834b9364e9fe4bf65a04962e28969
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 527373829754757e52ab84b64e04702d649e9062
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-grunt-in-aspnet-core"></a>Usar Grunt en ASP.NET Core 
 
@@ -94,7 +94,7 @@ A continuación, configure NPM para descargar grunt y tareas grunt.
 
 1. En el Explorador de soluciones, haga clic en el proyecto y seleccione **Agregar > nuevo elemento** en el menú contextual. Seleccione el **archivo de configuración de NPM** item, deje el nombre predeterminado, *package.json*y haga clic en el **agregar** botón.
 
-2. En el *package.json* de archivos, en la `devDependencies` objeto llaves, escriba "grunt". Seleccione `grunt` de Intellisense, la lista y presione la tecla ENTRAR. Visual Studio entrecomillar el nombre del paquete grunt y agregar un signo de dos puntos. A la derecha de los dos puntos, seleccione la versión estable más reciente del paquete de la parte superior de la lista de Intellisense (presione `Ctrl-Space` si Intellisense no aparece).
+2. En el *package.json* de archivos, en la `devDependencies` objeto llaves, escriba "grunt". Seleccione `grunt` de Intellisense, la lista y presione la tecla ENTRAR. Visual Studio entrecomillar el nombre del paquete grunt y agregar un signo de dos puntos. A la derecha de los dos puntos, seleccione la versión estable más reciente del paquete de la parte superior de la lista de Intellisense (presione `Ctrl-Space` si no aparece Intellisense).
 
     ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     

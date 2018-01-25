@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 8f68a85e44389ed17576436a9210c0ca3f414403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: transformaciones del archivo Web.Config - 3 de 12
 ====================
@@ -37,7 +37,7 @@ Aviso: Si aparece un mensaje de error o algo no funciona a medida que avances en
 
 ## <a name="webconfig-transformations-versus-web-deploy-parameters"></a>Transformaciones de Web.config frente a Web implementación parámetros
 
-Hay dos maneras de automatizar el proceso de cambio *Web.config* archivo de configuración: [transformaciones de Web.config](https://msdn.microsoft.com/en-us/library/dd465326.aspx) y [Web Deploy parámetros](https://msdn.microsoft.com/en-us/library/ff398068.aspx). A *Web.config* archivo de transformación contiene marcado XML que especifica cómo cambiar el *Web.config* archivo cuando se implementa. Puede especificar distintos cambios específica para configuraciones de compilación y específica para perfiles de publicación. Las configuraciones de compilación predeterminadas son Debug y Release, y puede crear configuraciones de compilación personalizada. Normalmente, un perfil de publicación corresponde a un entorno de destino. (Aprenderá más acerca de cómo publicación perfiles en el [implementación en IIS como un entorno de prueba](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) tutorial.)
+Hay dos maneras de automatizar el proceso de cambio *Web.config* archivo de configuración: [transformaciones de Web.config](https://msdn.microsoft.com/library/dd465326.aspx) y [Web Deploy parámetros](https://msdn.microsoft.com/library/ff398068.aspx). A *Web.config* archivo de transformación contiene marcado XML que especifica cómo cambiar el *Web.config* archivo cuando se implementa. Puede especificar distintos cambios específica para configuraciones de compilación y específica para perfiles de publicación. Las configuraciones de compilación predeterminadas son Debug y Release, y puede crear configuraciones de compilación personalizada. Normalmente, un perfil de publicación corresponde a un entorno de destino. (Aprenderá más acerca de cómo publicación perfiles en el [implementación en IIS como un entorno de prueba](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) tutorial.)
 
 Parámetros de implementación Web pueden utilizarse para especificar varios tipos diferentes de configuración que se debe configurar durante la implementación, incluida la configuración que se encuentra en *Web.config* archivos. Cuando se usa para especificar *Web.config* cambios del archivo, son más complejas para configurar los parámetros de implementación Web, pero son útiles cuando no conoce el valor que se establecerá hasta que implemente. Por ejemplo, en un entorno empresarial, puede crear un *paquete de implementación* y darle a una persona del departamento de TI para instalar en producción, y esa persona debe ser capaz de escribir las cadenas de conexión o las contraseñas que no conocer.
 
@@ -146,7 +146,7 @@ Ahora ha especificado todas las *Web.config* transformaciones que necesita para 
 
 ## <a name="more-information"></a>Más información
 
-Para obtener más información acerca de los temas tratados en este tutorial, consulte el escenario de transformación de Web.config en [mapa de contenido de implementación de ASP.NET](https://msdn.microsoft.com/en-us/library/bb386521.aspx).
+Para obtener más información acerca de los temas tratados en este tutorial, consulte el escenario de transformación de Web.config en [mapa de contenido de implementación de ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

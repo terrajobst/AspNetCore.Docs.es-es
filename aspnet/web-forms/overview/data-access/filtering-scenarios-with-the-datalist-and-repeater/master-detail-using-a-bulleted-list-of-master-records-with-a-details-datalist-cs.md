@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 91b8139f082704c5b5964087cc1887454c081f09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cb943941ea4dbfbdc9230df4598ad406d4dee0b6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a>Principal-detalle utilizando una lista con viñetas de registros maestros con un control DataList de detalles (C#)
 ====================
@@ -243,9 +243,9 @@ Después de completar el Asistente para configurar orígenes de datos, Visual St
 
 Actualmente, el `CategoryProductsDataSource` ObjectDataSource s  *`categoryID`*  parámetro nunca se establece, por lo que no hay productos se muestran al ver la página. Lo que debemos hacer es establecer este valor de parámetro en función de la `CategoryID` de la categoría donde ha hecho clic del control de repetidor. Esto presenta dos desafíos: en primer lugar, cómo se determina cuando un LinkButton del repetidor s `ItemTemplate` se ha presionado; y el segundo, ¿cómo podemos determinar el `CategoryID` de la categoría correspondiente se ha hecho clic cuyo LinkButton?
 
-LinkButton similar a los controles de botón y ImageButton tiene un `Click` eventos y un [ `Command` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.command.aspx). El `Click` evento está diseñado para simplemente tenga en cuenta que se ha hecho clic el LinkButton. En ocasiones, sin embargo, además de tener en cuenta que se ha hecho clic el LinkButton también es necesario pasar cierta información adicional para el controlador de eventos. Si este es el caso, las operaciones de asignación LinkButton [ `CommandName` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) y [ `CommandArgument` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) propiedades se pueden asignar esta información adicional. A continuación, cuando se hace clic en el control LinkButton, su `Command` desencadena el evento (en lugar de su `Click` evento) y el controlador de eventos se pasa los valores de la `CommandName` y `CommandArgument` propiedades.
+LinkButton similar a los controles de botón y ImageButton tiene un `Click` eventos y un [ `Command` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.command.aspx). El `Click` evento está diseñado para simplemente tenga en cuenta que se ha hecho clic el LinkButton. En ocasiones, sin embargo, además de tener en cuenta que se ha hecho clic el LinkButton también es necesario pasar cierta información adicional para el controlador de eventos. Si este es el caso, las operaciones de asignación LinkButton [ `CommandName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandname.aspx) y [ `CommandArgument` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.linkbutton.commandargument.aspx) propiedades se pueden asignar esta información adicional. A continuación, cuando se hace clic en el control LinkButton, su `Command` desencadena el evento (en lugar de su `Click` evento) y el controlador de eventos se pasa los valores de la `CommandName` y `CommandArgument` propiedades.
 
-Cuando un `Command` evento se provoca desde dentro de una plantilla de repetidor, las operaciones de asignación repetidor [ `ItemCommand` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) se activa y se pasa el `CommandName` y `CommandArgument` valores de lo clic LinkButton (o botón o ImageButton). Por lo tanto, para determinar cuándo se ha hecho clic una categoría LinkButton del repetidor, necesitamos hacer lo siguiente:
+Cuando un `Command` evento se provoca desde dentro de una plantilla de repetidor, las operaciones de asignación repetidor [ `ItemCommand` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeater.itemcommand.aspx) se activa y se pasa el `CommandName` y `CommandArgument` valores de lo clic LinkButton (o botón o ImageButton). Por lo tanto, para determinar cuándo se ha hecho clic una categoría LinkButton del repetidor, necesitamos hacer lo siguiente:
 
 1. Establecer el `CommandName` propiedad de LinkButton del repetidor s `ItemTemplate` a algún valor (se ha utilizado ListProducts). Estableciendo este `CommandName` valor, las operaciones de asignación LinkButton `Command` evento se desencadena cuando se hace clic en el control LinkButton.
 2. Establecer la s LinkButton `CommandArgument` en el valor del elemento actual s `CategoryID`.
@@ -296,7 +296,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 137ac45166be03ae3c4864f41666d2acd1a37dc2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2a4b5ed8a712b061b4afdf5a3adc9378dd72b37f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Autenticación y autorización en ASP.NET Web API
 ====================
@@ -37,7 +37,7 @@ El primer artículo de la serie ofrece una visión general de autenticación y a
 
 API Web se da por supuesto que la autenticación se produce en el host. Para el hospedaje en web, el host es IIS, que usa los módulos HTTP para la autenticación. Puede configurar el proyecto para usar cualquiera de los módulos de autenticación integrados en IIS o ASP.NET, o escribir su propio módulo HTTP para llevar a cabo una autenticación personalizada.
 
-Cuando el host autentica al usuario, se crea un *principal*, que es un [IPrincipal](https://msdn.microsoft.com/en-us/library/System.Security.Principal.IPrincipal.aspx) objeto que representa el contexto de seguridad en el que se ejecuta código. El host adjunta la entidad de seguridad para el subproceso actual estableciendo **Thread.CurrentPrincipal**. La entidad de seguridad contiene un asociado **identidad** objeto que contiene información sobre el usuario. Si el usuario está autenticado, el **Identity.IsAuthenticated** propiedad devuelve **true**. Para las solicitudes anónimas, **IsAuthenticated** devuelve **false**. Para obtener más información acerca de las entidades, consulte [Role-Based Security](https://msdn.microsoft.com/en-us/library/shz8h065.aspx).
+Cuando el host autentica al usuario, se crea un *principal*, que es un [IPrincipal](https://msdn.microsoft.com/library/System.Security.Principal.IPrincipal.aspx) objeto que representa el contexto de seguridad en el que se ejecuta código. El host adjunta la entidad de seguridad para el subproceso actual estableciendo **Thread.CurrentPrincipal**. La entidad de seguridad contiene un asociado **identidad** objeto que contiene información sobre el usuario. Si el usuario está autenticado, el **Identity.IsAuthenticated** propiedad devuelve **true**. Para las solicitudes anónimas, **IsAuthenticated** devuelve **false**. Para obtener más información acerca de las entidades, consulte [Role-Based Security](https://msdn.microsoft.com/library/shz8h065.aspx).
 
 ### <a name="http-message-handlers-for-authentication"></a>Controladores de mensajes de HTTP para la autenticación
 
@@ -78,7 +78,7 @@ Tiene lugar la autorización más adelante en la canalización, cuanto más se a
 <a id="auth3"></a>
 ### <a name="using-the-authorize-attribute"></a>Mediante la [autorizar] atributo
 
-API Web proporciona un filtro de autorización integrado, [AuthorizeAttribute](https://msdn.microsoft.com/en-us/library/system.web.http.authorizeattribute.aspx). Este filtro comprueba si el usuario está autenticado. De lo contrario, devuelve el código de estado HTTP 401 (no autorizado), sin invocar la acción.
+API Web proporciona un filtro de autorización integrado, [AuthorizeAttribute](https://msdn.microsoft.com/library/system.web.http.authorizeattribute.aspx). Este filtro comprueba si el usuario está autenticado. De lo contrario, devuelve el código de estado HTTP 401 (no autorizado), sin invocar la acción.
 
 Puede aplicar el filtro globalmente, en el nivel de controlador, o en el nivel de inidivual acciones.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e8b4e6a12c010b227ee9a236130cbfd26d75657
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 715f7e3fae89e773b686faa7c49522c587693eec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Crear nuevos procedimientos almacenados para los TableAdapters del conjunto de datos con tipo (C#)
 ====================
@@ -47,7 +47,7 @@ Las funciones son una construcción común a todos los lenguajes de programació
 > Los procedimientos almacenados se conocen a menudo como procedimientos almacenados o SPs.
 
 
-Los procedimientos almacenados se crean mediante el [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/en-us/library/aa258259(SQL.80).aspx) instrucción T-SQL. Por ejemplo, el siguiente script de T-SQL crea un procedimiento almacenado denominado `GetProductsByCategoryID` que toma un parámetro único denominado `@CategoryID` y devuelve el `ProductID`, `ProductName`, `UnitPrice`, y `Discontinued` campos de las columnas de la `Products` tabla que tiene la correspondiente `CategoryID` valor:
+Los procedimientos almacenados se crean mediante el [ `CREATE PROCEDURE` ](https://msdn.microsoft.com/library/aa258259(SQL.80).aspx) instrucción T-SQL. Por ejemplo, el siguiente script de T-SQL crea un procedimiento almacenado denominado `GetProductsByCategoryID` que toma un parámetro único denominado `@CategoryID` y devuelve el `ProductID`, `ProductName`, `UnitPrice`, y `Discontinued` campos de las columnas de la `Products` tabla que tiene la correspondiente `CategoryID` valor:
 
 
 [!code-sql[Main](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs/samples/sample1.sql)]
@@ -384,7 +384,7 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Crear y mantener los procedimientos almacenados](https://msdn.microsoft.com/en-us/library/aa214299(SQL.80).aspx)
+- [Crear y mantener los procedimientos almacenados](https://msdn.microsoft.com/library/aa214299(SQL.80).aspx)
 - [Recuperación de datos escalar de un procedimiento almacenado](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 - [Conceptos básicos de procedimiento almacenados de SQL Server](http://www.awprofessional.com/articles/article.asp?p=25288&amp;rl=1)
 - [Procedimientos almacenados: Información general](http://www.sqlteam.com/item.asp?ItemID=563)
@@ -392,7 +392,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

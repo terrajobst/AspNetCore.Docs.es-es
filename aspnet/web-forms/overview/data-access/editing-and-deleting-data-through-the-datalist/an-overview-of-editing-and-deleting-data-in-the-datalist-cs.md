@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1c7a1c7a9839f2f56658618958c234e0064cb427
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b3067c5a6bcf81a35f66d43886c9b116a0ef7d8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-c"></a>Información general de editar y eliminar datos en el control DataList (C#)
 ====================
@@ -86,11 +86,11 @@ Editar y eliminar datos con GridView es tan fácil porque interiormente, el cont
 
 Desafortunadamente, DataList no se proporciona ninguna de estas funcionalidades integradas. Es nuestra responsabilidad para asegurarse de que los valores de usuario s se asignan a los parámetros de s ObjectDataSource y que su `Update()` se llama al método. Para ayudar a nosotros en este esfuerzo, el control DataList proporciona las propiedades y los eventos siguientes:
 
-- **El [ `DataKeyField` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)**  al actualizar o eliminar, necesitamos poder identificar de forma exclusiva cada elemento en el control DataList. Establezca esta propiedad en el campo de clave principal de los datos mostrados. Si lo hace, se rellenará el control DataList s [ `DataKeys` colección](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx) con los valores especificados `DataKeyField` valor para cada elemento DataList.
-- **El [ `EditCommand` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.editcommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en Editar.
-- **El [ `CancelCommand` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en Cancelar.
-- **El [ `UpdateCommand` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en actualizar.
-- **El [ `DeleteCommand` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en eliminar.
+- **El [ `DataKeyField` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeyfield.aspx)**  al actualizar o eliminar, necesitamos poder identificar de forma exclusiva cada elemento en el control DataList. Establezca esta propiedad en el campo de clave principal de los datos mostrados. Si lo hace, se rellenará el control DataList s [ `DataKeys` colección](https://msdn.microsoft.com/library/system.web.ui.webcontrols.basedatalist.datakeys.aspx) con los valores especificados `DataKeyField` valor para cada elemento DataList.
+- **El [ `EditCommand` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.editcommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en Editar.
+- **El [ `CancelCommand` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.cancelcommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en Cancelar.
+- **El [ `UpdateCommand` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.updatecommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en actualizar.
+- **El [ `DeleteCommand` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.deletecommand.aspx)**  se desencadena cuando un botón, LinkButton o ImageButton cuyo `CommandName` propiedad está establecida en se hace clic en eliminar.
 
 Utilizando estas propiedades y eventos, existen cuatro enfoques que podemos usar para actualizar y eliminar datos desde el control DataList:
 
@@ -153,7 +153,7 @@ Tómese un momento para ver el progreso a través de un explorador. Como se mues
 >  Es posible que el lector astuto Recuerde que pudimos deshabilitar el estado de vista al crear editable GridView, DetailsViews y FormViews. Esto es porque los controles Web de ASP.NET 2.0 pueden incluir *el estado de control*, que se conserva de estado entre las devoluciones de datos como el estado de vista, pero lo considere esenciales.
 
 
-Deshabilitar la vista de estado en el control GridView simplemente omite la información de estado trivial, pero mantiene el estado del control (que incluye el estado necesario para modificar y eliminar). El control DataList, si hubiese sido creado en el período de tiempo ASP.NET 1.x, no utiliza el estado del control y, por tanto, debe tener habilitado el estado de vista. Vea [estado del Control. Estado de vista](https://msdn.microsoft.com/en-us/library/1whwt1k7.aspx) para obtener más información sobre el propósito del estado de control y cómo se diferencia del estado de vista.
+Deshabilitar la vista de estado en el control GridView simplemente omite la información de estado trivial, pero mantiene el estado del control (que incluye el estado necesario para modificar y eliminar). El control DataList, si hubiese sido creado en el período de tiempo ASP.NET 1.x, no utiliza el estado del control y, por tanto, debe tener habilitado el estado de vista. Vea [estado del Control. Estado de vista](https://msdn.microsoft.com/library/1whwt1k7.aspx) para obtener más información sobre el propósito del estado de control y cómo se diferencia del estado de vista.
 
 ## <a name="step-4-adding-an-editing-user-interface"></a>Paso 4: Agregar una interfaz de usuario de edición
 
@@ -225,7 +225,7 @@ Después de haber agregado este botón de edición, tómese un momento para ver 
 
 Haga clic en el botón provoca una devolución de datos, pero *no* poner el listado en modo de edición del producto. Para que pueda modificar el producto, es necesario:
 
-1. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de la `DataListItem` cuyo botón Editar simplemente se ha hecho clic.
+1. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de la `DataListItem` cuyo botón Editar simplemente se ha hecho clic.
 2. Volver a enlazar los datos al control DataList. Cuando se vuelven a representar el control DataList la `DataListItem` cuyo `ItemIndex` se corresponde con el control DataList s `EditItemIndex` se representarán mediante su `EditItemTemplate`.
 
 Desde el control DataList s `EditCommand` evento se desencadena cuando se hace clic en el botón de edición, cree un `EditCommand` controlador de eventos con el código siguiente:
@@ -249,7 +249,7 @@ Al hacer clic en los botones de cancelación o actualización del producto edita
 
 Para que el control DataList representar todos sus elementos en el modo de solo lectura, es necesario:
 
-1. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1`es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
+1. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1`es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
 2. Volver a enlazar los datos al control DataList. Desde no `DataListItem` `ItemIndex` es corresponden al control DataList s `EditItemIndex`, DataList completo se representará en un modo de solo lectura.
 
 Estos pasos pueden realizarse con el siguiente código de controlador de eventos:
@@ -263,7 +263,7 @@ Es el último controlador de eventos es necesario para completar la `UpdateComma
 
 1. Obtener acceso mediante programación el nombre del producto introducidos por el usuario y el precio, así como el producto editado s `ProductID`.
 2. Iniciar el proceso de actualización mediante una llamada a la correspondiente `UpdateProduct` sobrecarga en el `ProductsBLL` clase.
-3. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1`es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
+3. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1`es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
 4. Volver a enlazar los datos al control DataList. Desde no `DataListItem` `ItemIndex` es corresponden al control DataList s `EditItemIndex`, DataList completo se representará en un modo de solo lectura.
 
 Los pasos 1 y 2 son responsables de guardar al usuario los cambios de s; los pasos 3 y 4 devuelven DataList a su estado anterior edición después de que los cambios se guardaron y son idénticos a los pasos realizados en el `CancelCommand` controlador de eventos.
@@ -339,7 +339,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

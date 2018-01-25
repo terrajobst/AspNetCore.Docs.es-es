@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 878d957344a08450b82b0249d8ca2a205810da4a
-ms.sourcegitcommit: 9ecd4e9fb0c40c3693dab079eab1ff94b461c922
+ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-controller"></a>Agregar un controlador
 ====================
@@ -82,7 +82,7 @@ Vamos a modificar el ejemplo ligeramente para que pueda pasar cierta informació
 [!code-csharp[Main](adding-a-controller/samples/sample3.cs)]
 
 > [!NOTE]
-> Nota de seguridad: El código anterior se usa [HttpUtility.HtmlEncode](https://msdn.microsoft.com/en-us/library/ee360286(v=vs.110).aspx) para proteger la aplicación de entrada malintencionada (es decir, JavaScript). Para obtener más información, consulte [Cómo: proteger frente a ataques mediante secuencias de una aplicación Web mediante la aplicación de la codificación de HTML a cadenas](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=vs.100).aspx).
+> Nota de seguridad: El código anterior se usa [HttpUtility.HtmlEncode](https://msdn.microsoft.com/library/ee360286(v=vs.110).aspx) para proteger la aplicación de entrada malintencionada (es decir, JavaScript). Para obtener más información, consulte [Cómo: proteger frente a ataques mediante secuencias de una aplicación Web mediante la aplicación de la codificación de HTML a cadenas](https://msdn.microsoft.com/library/a2a4yykt(v=vs.100).aspx).
 
 
  Ejecute la aplicación y busque la dirección URL de ejemplo (`http://localhost:xxxx/HelloWorld/Welcome?name=Scott&numtimes=4`). Puede probar valores diferentes para `name` y `numtimes` en la dirección URL. El [sistema de enlace de modelo de ASP.NET MVC](http://odetocode.com/Blogs/scott/archive/2009/04/27/6-tips-for-asp-net-mvc-model-binding.aspx) asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de direcciones a los parámetros del método.

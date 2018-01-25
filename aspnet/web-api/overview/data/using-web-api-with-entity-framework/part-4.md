@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 9294da7cd5b7a362d4ade9d1bf7e7747e20ee1a8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58a9dfb621630f23b37247b96ed3a19a661857f1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-entity-relations"></a>Relaciones de entidad de control
 ====================
@@ -86,7 +86,7 @@ Es una manera de evitar problemas de serialización serializar objetos de transf
 
 ### <a name="explicit-loading"></a>Carga explícita
 
-Carga explícita es similar a la carga diferida, salvo que obtener explícitamente los datos relacionados en el código. no sucede automáticamente cuando tiene acceso a una propiedad de navegación. Carga explícita ofrece un mayor control sobre cuándo se debe cargar los datos relacionados, pero requiere código adicional. Para obtener más información acerca de la carga explícita, vea [cargar entidades relacionadas](https://msdn.microsoft.com/en-us/data/jj574232#explicit).
+Carga explícita es similar a la carga diferida, salvo que obtener explícitamente los datos relacionados en el código. no sucede automáticamente cuando tiene acceso a una propiedad de navegación. Carga explícita ofrece un mayor control sobre cuándo se debe cargar los datos relacionados, pero requiere código adicional. Para obtener más información acerca de la carga explícita, vea [cargar entidades relacionadas](https://msdn.microsoft.com/data/jj574232#explicit).
 
 ## <a name="navigation-properties-and-circular-references"></a>Propiedades de navegación y las referencias circulares
 

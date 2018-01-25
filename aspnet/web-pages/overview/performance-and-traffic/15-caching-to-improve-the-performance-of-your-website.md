@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: c747fef33a6d1db19f09fd0303c47d689b956687
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 742409219bd3b05f8ddf2c0d5034919fc9bf1d26
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Almacenar en caché datos en un sitio de ASP.NET Web Pages (Razor) para mejorar el rendimiento
 ====================
@@ -83,4 +83,4 @@ ASP.NET incluye una `WebCache` auxiliar que resulta muy sencillo agregar almacen
 
 
 - [Mostrar datos en un gráfico](https://go.microsoft.com/fwlink/?LinkId=202895)
-- [Referencia de la API de WebCache](https://msdn.microsoft.com/en-us/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)
+- [Referencia de la API de WebCache](https://msdn.microsoft.com/library/system.web.helpers.webcache(v=vs.99).aspx) (MSDN)

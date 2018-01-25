@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f4d898b6e09b5b9df44b62f9cb4b9d367f288efb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27fade9fc5cae917579d4963da7bca12f6a5cda1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-membership-databases-to-enterprise-environments"></a>Implementación de las bases de datos de pertenencia en entornos empresariales
 ====================
@@ -44,8 +44,8 @@ Desafortunadamente, las bases de datos de pertenencia ASP.NET presentan algunos 
 
 Siga estas directrices para elegir cómo aprovisionar una base de datos de pertenencia en un entorno de servidor empresarial:
 
-- Siempre que sea posible, implemente las bases de datos de pertenencia. En su lugar, cree la base de datos de pertenencia manualmente en el servidor de base de datos de destino. Si no ha personalizado el esquema de base de datos de pertenencia, puede simplemente crear uno nuevo in situ en el de destino mediante el [herramienta de registro de servidor de SQL de ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx).
-- Si no tendrá ninguna opción pero al implementar una base de datos de pertenencia a & #x 2014; por ejemplo, si ha tomado una amplia modificaciones en el esquema de base de datos & #x 2014; debe realizar una implementación solo de esquema de la base de datos de pertenencia, para excluir los datos de la cuenta de usuario, y a continuación, ejecute un script posterior a la implementación para agregar los datos de configuración necesarias. Puede encontrar una amplia orientación sobre estos enfoques en [Cómo: implementar las ASP.NET pertenencia base de datos sin incluidas cuentas de usuario](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+- Siempre que sea posible, implemente las bases de datos de pertenencia. En su lugar, cree la base de datos de pertenencia manualmente en el servidor de base de datos de destino. Si no ha personalizado el esquema de base de datos de pertenencia, puede simplemente crear uno nuevo in situ en el de destino mediante el [herramienta de registro de servidor de SQL de ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx).
+- Si no tendrá ninguna opción pero al implementar una base de datos de pertenencia a & #x 2014; por ejemplo, si ha tomado una amplia modificaciones en el esquema de base de datos & #x 2014; debe realizar una implementación solo de esquema de la base de datos de pertenencia, para excluir los datos de la cuenta de usuario, y a continuación, ejecute un script posterior a la implementación para agregar los datos de configuración necesarias. Puede encontrar una amplia orientación sobre estos enfoques en [Cómo: implementar las ASP.NET pertenencia base de datos sin incluidas cuentas de usuario](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 Es importante recordar que *el esquema de la base de datos de pertenencia es probable que sea relativamente estáticos*. Incluso si ha personalizado la base de datos de pertenencia, no es probable que necesite actualizar el esquema de una forma periódica & #x 2014; no se va a cambiar con la misma frecuencia que el código en una aplicación web o un proyecto de base de datos. Por lo tanto, no es necesario incluir la base de datos de pertenencia en los procesos de implementación automatizada o paso a paso.
 
@@ -57,8 +57,8 @@ La alternativa es usar la utilidad VSDBCMD para actualizar el esquema de la base
 
 Puede usar estos pasos de alto nivel para actualizar un esquema de base de datos de pertenencia:
 
-1. Use la herramienta VSDBCMD **importación** acción que se va a generar un archivo .dbschema para la base de datos de pertenencia de origen. Este procedimiento se describe en [Cómo: importar un esquema desde un símbolo del sistema](https://msdn.microsoft.com/en-us/library/dd172135.aspx).
-2. Use la herramienta VSDBCMD **implementar** acción que se va a implementar el archivo .dbschema en la base de datos de suscripción de destino. Este procedimiento se describe en [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+1. Use la herramienta VSDBCMD **importación** acción que se va a generar un archivo .dbschema para la base de datos de pertenencia de origen. Este procedimiento se describe en [Cómo: importar un esquema desde un símbolo del sistema](https://msdn.microsoft.com/library/dd172135.aspx).
+2. Use la herramienta VSDBCMD **implementar** acción que se va a implementar el archivo .dbschema en la base de datos de suscripción de destino. Este procedimiento se describe en [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 ## <a name="conclusion"></a>Conclusión
 
@@ -66,7 +66,7 @@ En este tema se describe algunos de los desafíos que pueden darse cuando necesi
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener más instrucciones y ejemplos de cómo usar VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) y [Cómo: importar un esquema desde un símbolo del sistema](https://msdn.microsoft.com/en-us/library/dd172135.aspx). Para obtener más información sobre el uso de aspnet\_regsql.exe crear bases de datos de pertenencia, vea [herramienta de registro de servidor de SQL de ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/en-us/library/ms229862(v=vs.100).aspx). Para obtener instrucciones más generales sobre la implementación de bases de datos de pertenencia, vea [Cómo: implementar las ASP.NET pertenencia base de datos sin incluidas cuentas de usuario](https://msdn.microsoft.com/en-us/library/ff361972(v=vs.100).aspx).
+Para obtener más instrucciones y ejemplos de cómo usar VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/library/dd193283.aspx) y [Cómo: importar un esquema desde un símbolo del sistema](https://msdn.microsoft.com/library/dd172135.aspx). Para obtener más información sobre el uso de aspnet\_regsql.exe crear bases de datos de pertenencia, vea [herramienta de registro de servidor de SQL de ASP.NET (aspnet\_regsql.exe)](https://msdn.microsoft.com/library/ms229862(v=vs.100).aspx). Para obtener instrucciones más generales sobre la implementación de bases de datos de pertenencia, vea [Cómo: implementar las ASP.NET pertenencia base de datos sin incluidas cuentas de usuario](https://msdn.microsoft.com/library/ff361972(v=vs.100).aspx).
 
 >[!div class="step-by-step"]
 [Anterior](deploying-database-role-memberships-to-test-environments.md)

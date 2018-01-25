@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cors
-ms.openlocfilehash: e6b49b9dde94cc7d035ea91b992a13df8cb8caf2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Habilitación de solicitudes entre orígenes (CORS)
 
@@ -44,7 +44,7 @@ Estas direcciones URL tengan diferentes orígenes que el anterior dos:
 * `http://example.com:9000/foo.html`-Otro puerto
 
 > [!NOTE]
-> Internet Explorer no tiene en cuenta el puerto al comparar elementos Origin.
+> Internet Explorer no considerará el puerto al comparar elementos Origin.
 
 ## <a name="setting-up-cors"></a>Configuración de CORS
 
@@ -78,7 +78,7 @@ Este ejemplo agrega una directiva CORS denominada "AllowSpecificOrigin". Para se
 
 ## <a name="enabling-cors-in-mvc"></a>Habilitación de CORS en MVC
 
-Como alternativa, puede usar MVC para aplicar CORS específico por cada acción, por cada controlador o globalmente para todos los controladores. Al utilizar MVC para habilitar CORS se utilizan los mismos servicios CORS, pero el middleware CORS no lo es.
+Como alternativa, puede usar MVC para aplicar CORS específico por cada acción, por cada controlador o globalmente para todos los controladores. Al utilizar MVC para habilitar CORS se utilizan los mismos servicios CORS, pero no el middleware CORS.
 
 ### <a name="per-action"></a>Por cada acción
 
@@ -180,7 +180,7 @@ La especificación CORS llama a estos *encabezados de respuesta simple*. Para qu
 
 ### <a name="credentials-in-cross-origin-requests"></a>Credenciales en solicitudes cross-origin
 
-Las credenciales requieren un tratamiento especial en una solicitud de CORS. De forma predeterminada, el explorador no envía ninguna credencial con una solicitud entre orígenes. Las credenciales son las cookies, así como esquemas de autenticación HTTP. Para enviar las credenciales con una solicitud entre orígenes, el cliente debe establecer XMLHttpRequest.withCredentials en true.
+Las credenciales requieren un tratamiento especial en una solicitud de CORS. De forma predeterminada, el explorador no envía las credenciales con una solicitud entre orígenes. Las credenciales son las cookies, así como esquemas de autenticación HTTP. Para enviar las credenciales con una solicitud entre orígenes, el cliente debe establecer XMLHttpRequest.withCredentials en true.
 
 Utilizar directamente el objeto XMLHttpRequest:
 
@@ -207,7 +207,7 @@ Además, el servidor debe permitir las credenciales. Para permitir que las crede
 
 Ahora, la respuesta HTTP incluirá un encabezado de acceso-Control-Allow-Credentials, que indica al explorador que el servidor permite que las credenciales para una solicitud entre orígenes.
 
-Si el explorador envía las credenciales, pero la respuesta no incluye un encabezado de acceso-Control-Allow-Credentials válido, el explorador no expondrá la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
+Si el explorador envía las credenciales, pero la respuesta no incluye un encabezado de acceso-Control-Allow-Credentials válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
 
 Tenga mucho cuidado acerca de cómo permitir credenciales entre orígenes, ya que significa que un sitio Web en otro dominio puede enviar credenciales ha iniciado la sesión de un usuario a la aplicación en nombre del usuario, sin el conocimiento del usuario. El CORS spec también los Estados que orígenes de configuración que "*" (todos los orígenes) no es válido si el encabezado de acceso-Control-Allow-Credentials está presente.
 

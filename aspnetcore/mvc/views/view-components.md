@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/view-components
-ms.openlocfilehash: 2d93dcee102009661af708b9a9066e8af0bdbb17
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="view-components"></a>Componentes de la vista
 
@@ -69,7 +69,7 @@ Un componente de vista define su lógica en una `InvokeAsync` método que devuel
 * Definir una `InvokeAsync` método que devuelva una`IViewComponentResult`
 * Inicializa un modelo normalmente y la pasa a una vista mediante una llamada a la `ViewComponent` `View` (método)
 * Parámetros provienen del método que realiza la llamada, y no HTTP, no hay ningún enlace de modelo
-* Son accesibles directamente como un extremo HTTP, que se invoquen desde el código (normalmente en una vista). Un componente de vista nunca controla una solicitud
+* Son no es accesible directamente como un extremo HTTP, le invoca desde el código (normalmente en una vista). Un componente de vista nunca controla una solicitud
 * Están sobrecargados en la firma en lugar de los detalles de la solicitud HTTP actual
 
 ### <a name="view-search-path"></a>Ruta de acceso de búsqueda de vista
@@ -130,7 +130,7 @@ En el ejemplo anterior, el `PriorityList` del componente vista se convierte en `
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Invocar un componente de vista directamente desde un controlador
 
-Ver componentes normalmente se invocan desde una vista, pero se puede invocar directamente desde un método de controlador. Mientras los componentes de la vista no definen como controladores, puede implementar fácilmente una acción de controlador que devuelve el contenido de un `ViewComponentResult`.
+Ver componentes normalmente se invocan desde una vista, pero se puede invocar directamente desde un método de controlador. Mientras que los componentes de la vista no definen extremos como controladores, puede implementar fácilmente una acción de controlador que devuelve el contenido de un `ViewComponentResult`.
 
 En este ejemplo, el componente de vista se denomina directamente desde el controlador:
 
@@ -152,7 +152,7 @@ Notas sobre el código:
 
 * Clases de componentes de vista pueden estar contenidas en **cualquier** carpeta del proyecto.
 * Dado que el nombre de clase PriorityList**ViewComponent** termina con el sufijo **ViewComponent**, el tiempo de ejecución utilizará la cadena "PriorityList" cuando se hace referencia el componente de la clase de una vista. Explicaremos con más detalle más adelante.
-* El `[ViewComponent]` atributos pueden cambiar el nombre utilizado para hacer referencia a un componente de vista. Por ejemplo, podríamos podríamos cambiar el nombre la clase `XYZ` y aplica la `ViewComponent` atributo:
+* El `[ViewComponent]` atributos pueden cambiar el nombre utilizado para hacer referencia a un componente de vista. Por ejemplo, se podríamos haber con el nombre la clase `XYZ` y aplica la `ViewComponent` atributo:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
@@ -212,7 +212,7 @@ Ejecute la aplicación y comprobar la vista de circuito virtual permanente.
 
 ![Componente de vista de prioridad](view-components/_static/pvc.png)
 
-Si no se representa la vista de circuito virtual permanente, compruebe que está llamando el componente de vista con una prioridad de 4 o posterior.
+Si esta conexión virtual permanente no represente, compruebe que está llamando el componente de vista con una prioridad de 4 o posterior.
 
 ### <a name="examine-the-view-path"></a>Examine la ruta de acceso de vista
 
@@ -222,7 +222,7 @@ Si no se representa la vista de circuito virtual permanente, compruebe que está
 
    ```
    An unhandled exception occurred while processing the request.
-   InvalidOperationException: The view 'Components/PriorityList/Default' was not found. The following locations were searched:
+   InvalidOperationException: The view 'Components/PriorityList/Default' wasn't found. The following locations were searched:
    /Views/ToDo/Components/PriorityList/Default.cshtml
    /Views/Shared/Components/PriorityList/Default.cshtml
    EnsureSuccessful

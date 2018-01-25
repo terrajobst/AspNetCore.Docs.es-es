@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: 449c448d1be237f3f95a437bb2c0415bd8ed0d99
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Personalización de las implementaciones de la base de datos para varios entornos
 ====================
@@ -82,7 +82,7 @@ Esta tabla muestra los valores de una implementación típica para distintos ent
   
 
 > [!NOTE]
-> Para obtener más información sobre propiedades de implementación de base de datos y consideraciones sobre el entorno, consulte [una información general de configuración de proyecto de base de datos](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx), [Cómo: configurar propiedades para obtener detalles de implementación](https://msdn.microsoft.com/en-us/library/dd172125.aspx), [ Compilar e implementar la base de datos en un entorno de desarrollo aislado](https://msdn.microsoft.com/en-us/library/dd193409.aspx), y [compilar e implementar bases de datos en un entorno de producción o ensayo](https://msdn.microsoft.com/en-us/library/dd193413.aspx).
+> Para obtener más información sobre propiedades de implementación de base de datos y consideraciones sobre el entorno, consulte [una información general de configuración de proyecto de base de datos](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx), [Cómo: configurar propiedades para obtener detalles de implementación](https://msdn.microsoft.com/library/dd172125.aspx), [ Compilar e implementar la base de datos en un entorno de desarrollo aislado](https://msdn.microsoft.com/library/dd193409.aspx), y [compilar e implementar bases de datos en un entorno de producción o ensayo](https://msdn.microsoft.com/library/dd193413.aspx).
 
 
 Para admitir la implementación de un proyecto de base de datos a varios destinos, debe crear un archivo de configuración de implementación para cada entorno de destino.
@@ -94,7 +94,7 @@ Para admitir la implementación de un proyecto de base de datos a varios destino
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. En el **nuevo archivo de configuración de implementación** diálogo cuadro, asigne al archivo un nombre descriptivo (por ejemplo, **TestEnvironment.sqldeployment**) y, a continuación, haga clic en **guardar**.
-4. En el *[nombreDeArchivo]***.sqldeployment** página, establezca las propiedades de implementación para que coincida con los requisitos de su entorno de destino y, a continuación, guarde el archivo.
+4. En el *[nombreDeArchivo] *** .sqldeployment** página, establezca las propiedades de implementación para que coincida con los requisitos de su entorno de destino y, a continuación, guarde el archivo.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Observe que el nuevo archivo se agrega a la carpeta de propiedades del proyecto de base de datos.
@@ -141,10 +141,10 @@ Para obtener más información sobre la implementación de proyectos de base de 
 
 Estos artículos en MSDN proporcionan más información general sobre la implementación de la base de datos:
 
-- [Información general sobre la configuración del proyecto de base de datos](https://msdn.microsoft.com/en-us/library/aa833291(v=VS.100).aspx)
-- [Cómo: configurar las propiedades para obtener detalles de implementación](https://msdn.microsoft.com/en-us/library/dd172125.aspx)
-- [Compilar e implementar bases de datos en un entorno de desarrollo aislado](https://msdn.microsoft.com/en-us/library/dd193409.aspx)
-- [Compilar e implementar bases de datos en un entorno de producción o ensayo](https://msdn.microsoft.com/en-us/library/dd193413.aspx)
+- [Información general sobre la configuración del proyecto de base de datos](https://msdn.microsoft.com/library/aa833291(v=VS.100).aspx)
+- [Cómo: configurar las propiedades para obtener detalles de implementación](https://msdn.microsoft.com/library/dd172125.aspx)
+- [Compilar e implementar bases de datos en un entorno de desarrollo aislado](https://msdn.microsoft.com/library/dd193409.aspx)
+- [Compilar e implementar bases de datos en un entorno de producción o ensayo](https://msdn.microsoft.com/library/dd193413.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](performing-a-what-if-deployment.md)

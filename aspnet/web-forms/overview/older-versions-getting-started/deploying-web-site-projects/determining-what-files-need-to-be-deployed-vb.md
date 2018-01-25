@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 44349b09fdc0de8ad6bd241a4c158d6a198e5d01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Determinar qué archivos deben tener implementado (VB)
 ====================
@@ -43,7 +43,7 @@ Considere la posibilidad de una página ASP.NET denominada `Clock.aspx` que cont
 
 En orden para el motor ASP.NET para atender una solicitud de esta página, la parte correspondiente al código de la página (el  *`WebPage`*  `.aspx.vb` archivo) en primer lugar debe compilarse. Esta compilación puede suceder de forma explícita o automáticamente.
 
-Si la compilación se produce de forma explícita, a continuación, se compila código fuente de la aplicación todo en uno o más ensamblados (`.dll` archivos) ubicado en la aplicación `Bin` directory. Si la compilación se realiza automáticamente, a continuación, resultante generada automáticamente es el ensamblado, de forma predeterminada, se coloca en el `Temporary ASP.NET Files` carpeta, que se encuentra en `%WINDOWS%\Microsoft.NET\Framework\<version>`, aunque esta ubicación es configurable a través de la [ &lt; compilación&gt; elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) en `Web.config`. Con la compilación explícita debe realizar alguna acción para compilar el código de la aplicación ASP.NET en un ensamblado, y este paso se realiza antes de la implementación. Compilación automática con el proceso de compilación se produce en el servidor web cuando se acceda al recurso por primera vez.
+Si la compilación se produce de forma explícita, a continuación, se compila código fuente de la aplicación todo en uno o más ensamblados (`.dll` archivos) ubicado en la aplicación `Bin` directory. Si la compilación se realiza automáticamente, a continuación, resultante generada automáticamente es el ensamblado, de forma predeterminada, se coloca en el `Temporary ASP.NET Files` carpeta, que se encuentra en `%WINDOWS%\Microsoft.NET\Framework\<version>`, aunque esta ubicación es configurable a través de la [ &lt; compilación&gt; elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en `Web.config`. Con la compilación explícita debe realizar alguna acción para compilar el código de la aplicación ASP.NET en un ensamblado, y este paso se realiza antes de la implementación. Compilación automática con el proceso de compilación se produce en el servidor web cuando se acceda al recurso por primera vez.
 
 Independientemente de qué modelo de compilación que utilice, la parte de marcado de todas las páginas ASP.NET (la `WebPage.aspx` archivos) deben copiarse en el entorno de producción. Con la compilación explícita debe copiar los ensamblados en el `Bin` carpeta, pero no es necesario copiar una de las partes del código de las páginas ASP.NET (la `WebPage.aspx.vb` archivos). Con la compilación automática debe copiar los archivos de la parte de código para que el código está presente y se puede compilar automáticamente cuando se visita la página. La parte de marcado de cada página web ASP.NET incluye una `@Page` directiva con los atributos que indican si el código asociado de la página haya compilado ya explícitamente o si es necesario que se compila de forma automática. Como resultado, el entorno de producción puede funcionar perfectamente con cualquier modelo de compilación y no es necesario aplicar ninguna configuración especial para indicar que se utilizó la compilación explícita o automática.
 
@@ -69,7 +69,7 @@ Cuando Microsoft publicó Visual Studio 2005 se quita el soporte para el modelo 
 - Generar un proyecto en Visual Studio no crea un ensamblado en el `Bin` directory. En su lugar, al compilar un proyecto de sitio Web notifica los errores de tiempo de compilación.
 - Compatibilidad con la compilación automática. Proyectos de sitios Web se implementan normalmente copiando el marcado y código fuente en el entorno de producción, aunque el código puede ser precompilada (compilación explícito).
 
-Microsoft a revivir el modelo de proyecto de aplicación Web cuando lance Visual Studio 2005 Service Pack 1. Sin embargo, Visual Web Developer continuado solo admite el modelo de proyecto de sitio Web. Las buenas noticias son que esta limitación se quitó con Visual Web Developer 2008 Service Pack 1. Hoy en día puede crear aplicaciones de ASP.NET en Visual Studio (y Visual Web Developer) mediante el modelo de proyecto de aplicación Web o el modelo de proyecto de sitio Web. Ambos modelos tienen sus ventajas e inconvenientes. Hacer referencia a [Introducción a los proyectos de aplicación Web: comparación de proyectos de sitios Web y proyectos de aplicación Web](https://msdn.microsoft.com/en-us/library/aa730880.aspx#wapp_topic5) para ver una comparación de los dos modelos y para ayudarle a decidir qué modelo de proyecto adapte mejor a su situación.
+Microsoft a revivir el modelo de proyecto de aplicación Web cuando lance Visual Studio 2005 Service Pack 1. Sin embargo, Visual Web Developer continuado solo admite el modelo de proyecto de sitio Web. Las buenas noticias son que esta limitación se quitó con Visual Web Developer 2008 Service Pack 1. Hoy en día puede crear aplicaciones de ASP.NET en Visual Studio (y Visual Web Developer) mediante el modelo de proyecto de aplicación Web o el modelo de proyecto de sitio Web. Ambos modelos tienen sus ventajas e inconvenientes. Hacer referencia a [Introducción a los proyectos de aplicación Web: comparación de proyectos de sitios Web y proyectos de aplicación Web](https://msdn.microsoft.com/library/aa730880.aspx#wapp_topic5) para ver una comparación de los dos modelos y para ayudarle a decidir qué modelo de proyecto adapte mejor a su situación.
 
 ## <a name="exploring-the-sample-web-application"></a>Explorar la aplicación Web
 
@@ -179,15 +179,15 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Información general sobre la compilación de ASP.NET](https://msdn.microsoft.com/en-us/library/ms178466.aspx)
-- [Controles de usuario ASP.NET](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx)
+- [Información general sobre la compilación de ASP.NET](https://msdn.microsoft.com/library/ms178466.aspx)
+- [Controles de usuario ASP.NET](https://msdn.microsoft.com/library/y6wb1a0e.aspx)
 - [Examen de ASP. Navegación por el sitio de red](http://aspnet.4guysfromrolla.com/articles/111605-1.aspx)
-- [Introducción a los proyectos de aplicación Web](https://msdn.microsoft.com/en-us/library/aa730880.aspx)
+- [Introducción a los proyectos de aplicación Web](https://msdn.microsoft.com/library/aa730880.aspx)
 - [Tutoriales de página maestra](../master-pages/creating-a-site-wide-layout-using-master-pages-cs.md)
 - [Compartir código entre páginas](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/pages/code.aspx)
 - [Usar una clase Base personalizada para las clases de código subyacente de las páginas ASP.NET](http://aspnet.4guysfromrolla.com/articles/041305-1.aspx)
 - [Sistema de proyectos del Visual Studio 2005 sitio Web: ¿qué son y por qué hacemos?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
-- [Tutorial: Convertir un proyecto de sitio Web a un proyecto de aplicación Web en Visual Studio](https://msdn.microsoft.com/en-us/library/aa983476.aspx)
+- [Tutorial: Convertir un proyecto de sitio Web a un proyecto de aplicación Web en Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](asp-net-hosting-options-vb.md)

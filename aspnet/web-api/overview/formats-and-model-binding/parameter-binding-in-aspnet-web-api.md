@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: ad052570fb2f168da657cd1263d8342a59d4cab0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5aa532137436922519c86246ebfa834910ac0d86
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>Parámetro de enlace en ASP.NET Web API
 ====================
@@ -26,7 +26,7 @@ Al API Web llama a un método en un controlador, se deben establecer valores par
 
 De forma predeterminada, API Web utiliza las siguientes reglas para enlazar parámetros:
 
-- Si el parámetro es un tipo "simple", API Web intenta obtener el valor del identificador URI. Los tipos simples incluyen .NET [tipos primitivos](https://msdn.microsoft.com/en-us/library/system.type.isprimitive.aspx) (**int**, **bool**, **doble**, etc.), además de **TimeSpan**, **DateTime**, **Guid**, **decimal**, y **cadena**, *más* cualquier tipo con un convertidor de tipos que puede convertir una cadena. (Más información acerca de los convertidores de tipos más adelante).
+- Si el parámetro es un tipo "simple", API Web intenta obtener el valor del identificador URI. Los tipos simples incluyen .NET [tipos primitivos](https://msdn.microsoft.com/library/system.type.isprimitive.aspx) (**int**, **bool**, **doble**, etc.), además de **TimeSpan**, **DateTime**, **Guid**, **decimal**, y **cadena**, *más* cualquier tipo con un convertidor de tipos que puede convertir una cadena. (Más información acerca de los convertidores de tipos más adelante).
 - Para los tipos complejos, API Web intenta leer el valor del cuerpo del mensaje, pero utiliza un [formateador de tipo de medio](media-formatters.md).
 
 Por ejemplo, este es un método de controlador de API Web típico:
@@ -102,7 +102,7 @@ Un enlazador de modelos obtiene los valores de entrada sin formato de un *provee
 
 El proveedor de valor predeterminado en la API de Web obtiene valores de los datos de ruta y la cadena de consulta. Por ejemplo, si el identificador URI es `http://localhost/api/values/1?location=48,-122`, el proveedor de valores crea los siguientes pares de clave y valor:
 
-- Id. = &quot;1&quot;
+- id = &quot;1&quot;
 - ubicación = &quot;48,122&quot;
 
 (Da por supuesto que la plantilla de ruta predeterminada, que es &quot;api / {controller} / {id}&quot;.)
@@ -121,7 +121,7 @@ También puede agregar un **[ModelBinder]** para el tipo de atributo. API Web us
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample11.cs)]
 
-Por último, puede agregar un proveedor de enlazador de modelos para la **HttpConfiguration**. Un proveedor de enlazadores de modelos es simplemente una clase de generador que crea un enlazador de modelos. Puede crear un proveedor derivando de la [ModelBinderProvider](https://msdn.microsoft.com/en-us/library/system.web.http.modelbinding.modelbinderprovider.aspx) clase. Sin embargo, si el enlazador de modelos encarga de un tipo único, es más fácil de usar la integrada **SimpleModelBinderProvider**, que está diseñado para este propósito. El código siguiente muestra cómo hacerlo.
+Por último, puede agregar un proveedor de enlazador de modelos para la **HttpConfiguration**. Un proveedor de enlazadores de modelos es simplemente una clase de generador que crea un enlazador de modelos. Puede crear un proveedor derivando de la [ModelBinderProvider](https://msdn.microsoft.com/library/system.web.http.modelbinding.modelbinderprovider.aspx) clase. Sin embargo, si el enlazador de modelos encarga de un tipo único, es más fácil de usar la integrada **SimpleModelBinderProvider**, que está diseñado para este propósito. El código siguiente muestra cómo hacerlo.
 
 [!code-csharp[Main](parameter-binding-in-aspnet-web-api/samples/sample12.cs)]
 

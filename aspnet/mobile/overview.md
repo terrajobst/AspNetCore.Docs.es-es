@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /mobile
 msc.type: content
-ms.openlocfilehash: 57d865ee7c6d1afa21f4e9cd6da64f0bb430a5d2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de05ede5b7b41f0c44c867b51faf2310ac9fc514
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mobile-apps--sites-with-aspnet"></a>Aplicaciones móviles & sitios con ASP.NET
 ====================
@@ -38,17 +38,17 @@ En el segundo artículo de su serie, los autores explican cómo usan Xamarin com
 Este tutorial de extremo a extremo muestra cómo crear una aplicación de ASP.NET Web API que proporciona datos a una aplicación de Windows Phone 8.
 
 
-### <a name="get-started-with-azure-mobile-serviceshttpsazuremicrosoftcomen-usdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-startedwtmcidzumoaspnet"></a>[Introducción a servicios móviles de Azure](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started?WT.mc_id=zumo_aspnet)
+### <a name="get-started-with-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-startedwtmcidzumoaspnet"></a>[Introducción a servicios móviles de Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started?WT.mc_id=zumo_aspnet)
 
 Introducción al uso de servicios móviles de Azure con ASP.NET Web API. Este tutorial muestra cómo crear una aplicación de servicios móviles desde el Portal de administración de Azure.
 
 
-### <a name="authentication-in-azure-mobile-serviceshttpsazuremicrosoftcomen-usdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-userswtmcidzumoaspnet"></a>[Autenticación en servicios móviles de Azure](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/?WT.mc_id=zumo_aspnet)
+### <a name="authentication-in-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-userswtmcidzumoaspnet"></a>[Autenticación en servicios móviles de Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/?WT.mc_id=zumo_aspnet)
 
 Este tutorial muestra cómo autenticar a los usuarios en servicios móviles de Azure desde la aplicación.
 
 
-### <a name="using-push-notifications-in-azure-mobile-serviceshttpsazuremicrosoftcomen-usdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-pushwtmcidzumoaspnet"></a>[Uso de notificaciones de inserción en servicios móviles de Azure](https://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/?WT.mc_id=zumo_aspnet)
+### <a name="using-push-notifications-in-azure-mobile-serviceshttpsazuremicrosoftcomdocumentationarticlesmobile-services-dotnet-backend-windows-store-dotnet-get-started-pushwtmcidzumoaspnet"></a>[Uso de notificaciones de inserción en servicios móviles de Azure](https://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/?WT.mc_id=zumo_aspnet)
 
 Usar servicios móviles de Azure para enviar notificaciones de inserción a un dispositivo móvil.
 

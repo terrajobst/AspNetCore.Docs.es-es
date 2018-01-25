@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 50d02e8da7b7ab489e662b42d8f08ad3a99e66eb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a19e6c320838849e10d2aa397a23a0ee906bac22
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-c"></a>Implementación de simultaneidad optimista (C#)
 ====================
@@ -257,7 +257,7 @@ Para los tutoriales anteriores que participan la modificación de datos, se reco
 > El valor de la `OldValuesParameterFormatString` propiedad debe asignar a los nombres de parámetro de entrada de la capa BLL que espera que los valores originales. Puesto que se denomina estos parámetros `original_productName`, `original_supplierID`, y así sucesivamente, puede dejar el `OldValuesParameterFormatString` como valor de propiedad `original_{0}`. Si, sin embargo, los parámetros de entrada de los métodos BLL tenían nombres como `old_productName`, `old_supplierID`, y así sucesivamente, deberá actualizar el `OldValuesParameterFormatString` propiedad `old_{0}`.
 
 
-Hay una configuración de propiedad final que debe realizarse en orden para ObjectDataSource pasar correctamente los valores originales a los métodos BLL. ObjectDataSource tiene un [propiedad ConflictDetection](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) que puede asignarse a [uno de dos valores](https://msdn.microsoft.com/en-US/library/system.web.ui.conflictoptions.aspx):
+Hay una configuración de propiedad final que debe realizarse en orden para ObjectDataSource pasar correctamente los valores originales a los métodos BLL. ObjectDataSource tiene un [propiedad ConflictDetection](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.conflictdetection.aspx) que puede asignarse a [uno de dos valores](https://msdn.microsoft.com/library/system.web.ui.conflictoptions.aspx):
 
 - `OverwriteChanges`-el valor predeterminado; no envía los valores originales para parámetros de entrada original de los métodos BLL
 - `CompareAllValues`-enviar los valores originales a los métodos BLL; Elija esta opción cuando se utiliza simultaneidad optimista
@@ -342,7 +342,7 @@ Con estos cambios, se son capaces de eliminar y editar la información de produc
 
 Para comprobar que se va infracciones de la simultaneidad detectado (en lugar de da lugar a que se sobrescriban seguirá a ciegas los datos), es necesario abrir dos ventanas de explorador a esta página. En ambas instancias del explorador, haga clic en el botón Editar para Chai. A continuación, en solo uno de los exploradores, cambie el nombre a "Té Chai" y haga clic en actualizar. La actualización debe tener éxito y devolver GridView a su estado de edición previamente, con "Té Chai" como el nuevo nombre de producto.
 
-Sin embargo, en la otra instancia de ventana Explorador, el cuadro de texto Nombre del producto sigue mostrando "Chai". En esta segunda ventana del explorador, actualice el `UnitPrice` a `25.00`. Sin compatibilidad con la simultaneidad optimista, haga clic en actualizar en la segunda instancia del explorador cambiaría el nombre del producto a "Chai", sobrescribiendo los cambios realizados por la primera instancia del explorador. Con la simultaneidad optimista empleado, sin embargo, al hacer clic en el botón de actualización en la segunda instancia del explorador provoca un [DBConcurrencyException](https://msdn.microsoft.com/en-us/library/system.data.dbconcurrencyexception.aspx).
+Sin embargo, en la otra instancia de ventana Explorador, el cuadro de texto Nombre del producto sigue mostrando "Chai". En esta segunda ventana del explorador, actualice el `UnitPrice` a `25.00`. Sin compatibilidad con la simultaneidad optimista, haga clic en actualizar en la segunda instancia del explorador cambiaría el nombre del producto a "Chai", sobrescribiendo los cambios realizados por la primera instancia del explorador. Con la simultaneidad optimista empleado, sin embargo, al hacer clic en el botón de actualización en la segunda instancia del explorador provoca un [DBConcurrencyException](https://msdn.microsoft.com/library/system.data.dbconcurrencyexception.aspx).
 
 
 [![Cuando se detecta una infracción de simultaneidad, se produce una excepción DBConcurrencyException](implementing-optimistic-concurrency-cs/_static/image48.png)](implementing-optimistic-concurrency-cs/_static/image47.png)
@@ -429,7 +429,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Anterior](customizing-the-data-modification-interface-cs.md)

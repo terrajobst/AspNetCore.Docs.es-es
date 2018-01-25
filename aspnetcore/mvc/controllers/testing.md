@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/testing
-ms.openlocfilehash: 7f34bc7766b41beafb2a1ee09577109bc1402867
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f27e7ec43cd17e249dd646a7dfbce5df69d59664
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="testing-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -40,7 +40,7 @@ Responsabilidades del controlador típico:
 
 ## <a name="unit-testing"></a>Pruebas unitarias
 
-[Pruebas unitarias](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) implica probar una parte de una aplicación de forma aislada de su infraestructura y las dependencias. Cuando se prueban lógica, solo el contenido de una sola acción del controlador de pruebas unitarias, no el comportamiento de sus dependencias o el marco de trabajo. Como unidad probar las acciones de controlador, asegúrese de que solo se centran en su comportamiento. Una prueba unitaria de controlador evita cosas como [filtros](filters.md), [enrutamiento](../../fundamentals/routing.md), o [enlace de modelo](../models/model-binding.md). Centrándose en probar simplemente algo, pruebas unitarias suelen ser fáciles de escribir y rápida ejecutar. Con frecuencia se puede ejecutar un conjunto de pruebas unitarias bien escrito sin mucho sobrecarga. Sin embargo, las pruebas unitarias no detectan problemas en la interacción entre componentes, que es el propósito de [las pruebas de integración](xref:mvc/controllers/testing#integration-testing).
+[Pruebas unitarias](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) implica probar una parte de una aplicación de forma aislada de su infraestructura y las dependencias. Cuando se prueban lógica, solo el contenido de una sola acción del controlador de pruebas unitarias, no el comportamiento de sus dependencias o el marco de trabajo. Como unidad probar las acciones de controlador, asegúrese de que solo se centran en su comportamiento. Una prueba unitaria de controlador evita cosas como [filtros](filters.md), [enrutamiento](../../fundamentals/routing.md), o [enlace de modelo](../models/model-binding.md). Centrándose en probar simplemente algo, pruebas unitarias suelen ser fáciles de escribir y rápida ejecutar. Con frecuencia se puede ejecutar un conjunto de pruebas unitarias bien escrito sin mucho sobrecarga. Sin embargo, las pruebas unitarias no detectan problemas de la interacción entre componentes, que es el propósito de [las pruebas de integración](xref:mvc/controllers/testing#integration-testing).
 
 Si va a escribir filtros personalizados, rutas, etcetera, debería prueba unitaria de ellas, pero no como parte de las pruebas en una acción de controlador determinado. Deben probar de forma aislada.
 
@@ -65,9 +65,9 @@ Se puede probar el estado del modelo no válido mediante la adición de errores 
 
 [!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
-La primera prueba confirma cuando `ModelState` no es válido, el mismo `ViewResult` se devuelve como para una `GET` solicitud. Tenga en cuenta que la prueba no intenta pasar en un modelo no válido. Que funcionaría de todos modos ya que el enlace de modelos no se está ejecutando (aunque un [prueba de integración](xref:mvc/controllers/testing#integration-testing) utilizaría el enlace de modelos ejercicio). En este caso, el enlace de modelos no se está probando. Estas pruebas unitarias están probando solo lo que hace el código en el método de acción.
+La primera prueba confirma cuando `ModelState` no es válido, el mismo `ViewResult` se devuelve como para una `GET` solicitud. Tenga en cuenta que la prueba no intenta pasar en un modelo no válido. Que funcionaría de todos modos ya que el enlace de modelos no se está ejecutando (aunque un [prueba de integración](xref:mvc/controllers/testing#integration-testing) utilizaría el enlace de modelos ejercicio). En este caso, el enlace de modelos no se ha probado. Estas pruebas unitarias están probando solo lo que hace el código en el método de acción.
 
-La segunda prueba comprueba que, cuando `ModelState` es válido, un nuevo `BrainstormSession` se agrega (a través del repositorio), y el método devuelve un `RedirectToActionResult` con las propiedades esperadas. Simuladas llamadas que no se llaman son normalmente omitidos, sino que realiza la llamada `Verifiable` al final de la configuración de llamada permite que se puede comprobar en la prueba. Esto se hace con la llamada a `mockRepo.Verify`, que se producirá un error la prueba si no se llamó al método esperado.
+La segunda prueba comprueba que, cuando `ModelState` es válido, un nuevo `BrainstormSession` se agrega (a través del repositorio), y el método devuelve un `RedirectToActionResult` con las propiedades esperadas. Simuladas llamadas que no se llaman son normalmente omitidos, sino que realiza la llamada `Verifiable` al final de la configuración de llamada permite que se puede comprobar en la prueba. Esto se hace con la llamada a `mockRepo.Verify`, que se producirá un error la prueba si no se llama al método esperado.
 
 > [!NOTE]
 > La biblioteca Moq utilizada en este ejemplo resulta muy sencillo mezclar simulacros comprobables o "strict", con las simulaciones no comprobable (también denominadas "débil" mocks o código auxiliar). Obtenga más información sobre [personalizar el comportamiento de simulacro con Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
@@ -121,7 +121,7 @@ Verá el `GetTestSession` método que se usan con frecuencia en las pruebas de i
 Cada clase de prueba de integración se configura el `TestServer` que ejecutará la aplicación de ASP.NET Core. De forma predeterminada, `TestServer` hospeda la aplicación web en la carpeta donde se está ejecutando - en este caso, la carpeta de proyecto de prueba. Por lo tanto, cuando intenta probar acciones del controlador que devuelven `ViewResult`, puede ver este error:
 
 ```
-The view 'Index' was not found. The following locations were searched:
+The view 'Index' wasn't found. The following locations were searched:
 (list of locations)
 ```
 

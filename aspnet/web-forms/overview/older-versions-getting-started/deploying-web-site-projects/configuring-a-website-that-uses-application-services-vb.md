@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7fb212638765589b998c4eca8265dfeb2910082f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f908eb6c6b2d18c6c41870a38bb618737949b0a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-vb"></a>Configurar un sitio Web que usa los servicios de aplicación (VB)
 ====================
@@ -35,7 +35,7 @@ ASP.NET versión 2.0 incorporó una serie de *servicios de aplicación*, que for
 - **Roles** : una API para clasificar a los usuarios en grupos.
 - **Perfil** : una API para almacenar el contenido personalizado y específica del usuario.
 - **Mapa del sitio** : una API para definir una estructura lógica del sitio s en forma de una jerarquía, que, a continuación, se puede mostrar a través de los controles de navegación, como menús y rutas.
-- **Personalización** : una API para mantener las preferencias de personalización más frecuente con [ *WebParts*](https://msdn.microsoft.com/en-us/library/e0s9t4ck.aspx).
+- **Personalización** : una API para mantener las preferencias de personalización más frecuente con [ *WebParts*](https://msdn.microsoft.com/library/e0s9t4ck.aspx).
 - **Seguimiento de estado** : una API para la supervisión de rendimiento, seguridad, errores y otras métricas de mantenimiento del sistema para una aplicación web en ejecución.
   
 
@@ -71,7 +71,7 @@ Para usar los servicios de aplicación con una base de datos de SQL Server debe 
 
 Es posible, y servicios de la aplicación normalmente ideal, para crear objetos de base de datos en la misma base de datos donde se almacenan los datos del sitio Web s específica de la aplicación. .NET Framework incluye una herramienta denominada `aspnet_regsql.exe` que instala los objetos de base de datos en una base de datos especificada. He salido con antelación y utilizar esta herramienta para agregar estos objetos a la `Reviews.mdf` en la base de datos la `App_Data` carpeta (la base de datos de desarrollo). Veremos cómo usar esta herramienta más adelante en este tutorial, cuando se agregan estos objetos a la base de datos de producción.
 
-Si agrega la aplicación de servicios de objetos de base de datos a una base de datos distinto de `ASPNETDB` necesite personalizar la `SqlMembershipProvider` y `SqlRoleProvider` proveedor clases configuraciones para que usen la base de datos adecuado. Para personalizar agregar el proveedor de pertenencia un [  *&lt;pertenencia&gt; elemento* ](https://msdn.microsoft.com/en-us/library/1b9hw62f.aspx) dentro de la `<system.web>` sección `Web.config`; utilice la [  *&lt;roleManager&gt; elemento* ](https://msdn.microsoft.com/en-us/library/ms164660.aspx) para configurar el proveedor de Roles. El fragmento de código siguiente se toma de la s de la aplicación de reseñas de libros `Web.config` y muestra los valores de configuración para la pertenencia y Roles de API. Tenga en cuenta que ambos registren un nuevo proveedor - `ReviewMembership` y `ReviewRole` -que utilizan el `SqlMembershipProvider` y `SqlRoleProvider` proveedores, respectivamente.
+Si agrega la aplicación de servicios de objetos de base de datos a una base de datos distinto de `ASPNETDB` necesite personalizar la `SqlMembershipProvider` y `SqlRoleProvider` proveedor clases configuraciones para que usen la base de datos adecuado. Para personalizar agregar el proveedor de pertenencia un [  *&lt;pertenencia&gt; elemento* ](https://msdn.microsoft.com/library/1b9hw62f.aspx) dentro de la `<system.web>` sección `Web.config`; utilice la [  *&lt;roleManager&gt; elemento* ](https://msdn.microsoft.com/library/ms164660.aspx) para configurar el proveedor de Roles. El fragmento de código siguiente se toma de la s de la aplicación de reseñas de libros `Web.config` y muestra los valores de configuración para la pertenencia y Roles de API. Tenga en cuenta que ambos registren un nuevo proveedor - `ReviewMembership` y `ReviewRole` -que utilizan el `SqlMembershipProvider` y `SqlRoleProvider` proveedores, respectivamente.
 
 [!code-xml[Main](configuring-a-website-that-uses-application-services-vb/samples/sample1.xml)]
 
@@ -94,7 +94,7 @@ Al implementar un sitio Web que usa los servicios de aplicaciones y un proveedor
 
 Otro desafío puede surgir al implementar un sitio Web que usa los servicios de aplicaciones si va a replicar las cuentas de usuario creadas en el entorno de desarrollo al entorno de producción. Según la configuración de pertenencia y los Roles, es posible que incluso si copia correctamente las cuentas de usuario que se crearon en el entorno de desarrollo para la base de datos de producción, estos usuarios no pueden iniciar sesión en la aplicación web en producción. Se examinará la causa de este problema y se describe cómo impedir que esto suceda.
 
-ASP.NET se distribuye con un "nice" [ *herramienta de administración de sitio Web (WSAT)* ](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx) que se puede iniciar desde Visual Studio y permite al usuario de cuenta, roles, reglas de autorización y administrarse a través de basada en web interfaz. Desafortunadamente, la WSAT solo funciona para los sitios Web local, lo que significa que no puede utilizarse para administrar de forma remota las cuentas de usuario, funciones y reglas de autorización para la aplicación web en el entorno de producción. Echemos un vistazo diferentes maneras de implementar un comportamiento similar al WSAT desde el sitio Web de producción.
+ASP.NET se distribuye con un "nice" [ *herramienta de administración de sitio Web (WSAT)* ](https://msdn.microsoft.com/library/yy40ytx0.aspx) que se puede iniciar desde Visual Studio y permite al usuario de cuenta, roles, reglas de autorización y administrarse a través de basada en web interfaz. Desafortunadamente, la WSAT solo funciona para los sitios Web local, lo que significa que no puede utilizarse para administrar de forma remota las cuentas de usuario, funciones y reglas de autorización para la aplicación web en el entorno de producción. Echemos un vistazo diferentes maneras de implementar un comportamiento similar al WSAT desde el sitio Web de producción.
 
 ### <a name="adding-the-database-objects-using-aspnetregsqlexe"></a>Agregar objetos de base de datos mediante aspnet\_regsql.exe
 
@@ -192,13 +192,13 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [*Herramienta de registro de servidor de SQL de ASP.NET (aspnet_regsql.exe)*](https://msdn.microsoft.com/en-us/library/ms229862.aspx)
-- [*Crear la base de datos de servicios de aplicación para SQL Server*](https://msdn.microsoft.com/en-us/library/x28wfk74.aspx)
+- [*Herramienta de registro de servidor de SQL de ASP.NET (aspnet_regsql.exe)*](https://msdn.microsoft.com/library/ms229862.aspx)
+- [*Crear la base de datos de servicios de aplicación para SQL Server*](https://msdn.microsoft.com/library/x28wfk74.aspx)
 - [*Crear el esquema de pertenencia en SQL Server*](../../older-versions-security/membership/creating-the-membership-schema-in-sql-server-vb.md)
 - [*Examen de pertenencia ASP.NET s, funciones y perfil*](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [*Poner su propia herramienta de administración de sitios Web*](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 - [*Tutoriales de seguridad de sitio Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
-- [*Información general de herramienta de administración de sitios Web*](https://msdn.microsoft.com/en-us/library/yy40ytx0.aspx)
+- [*Información general de herramienta de administración de sitios Web*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](configuring-the-production-web-application-to-use-the-production-database-vb.md)

@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 98b21a54ba00a8c82c3be7ba4e39d44041ed42c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Cree un perfil y depurar la aplicación de ASP.NET MVC con perspectiva
 ====================
 Por [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Perspectiva es un éxito y aumenta la familia de paquetes de NuGet de código abierto que proporciona rendimiento detallados, depuración e información de diagnóstico para las aplicaciones ASP.NET. Es muy fácil de instalar, ultrarrápido ligero y muestra las métricas de rendimiento clave en la parte inferior de cada página. Permite profundizar en la aplicación cuando necesite averiguar qué está sucediendo en el servidor. Perspectiva proporciona sea tan valiosa información que le recomendamos que use a lo largo del ciclo de desarrollo, incluidos el entorno de prueba de Azure. Mientras [Fiddler](http://www.telerik.com/fiddler) y [herramientas de desarrollo de F-12](https://msdn.microsoft.com/en-us/library/ie/gg589512(v=vs.85).aspx) proporcionan un cliente, vista de perspectiva proporciona una vista detallada del servidor. Este tutorial se centrará en utilizar los paquetes EF y vistazo ASP.NET MVC, pero hay muchos otros paquetes disponibles. Siempre que sea posible vinculará a la correspondiente [echarle documentos](http://getglimpse.com/Docs/) que ayudar a mantener. Perspectiva es un proyecto de código abierto, demasiado pueden contribuir a los documentos, el código fuente.
+> Perspectiva es un éxito y aumenta la familia de paquetes de NuGet de código abierto que proporciona rendimiento detallados, depuración e información de diagnóstico para las aplicaciones ASP.NET. Es muy fácil de instalar, ultrarrápido ligero y muestra las métricas de rendimiento clave en la parte inferior de cada página. Permite profundizar en la aplicación cuando necesite averiguar qué está sucediendo en el servidor. Perspectiva proporciona sea tan valiosa información que le recomendamos que use a lo largo del ciclo de desarrollo, incluidos el entorno de prueba de Azure. Mientras [Fiddler](http://www.telerik.com/fiddler) y [herramientas de desarrollo de F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) proporcionan un cliente, vista de perspectiva proporciona una vista detallada del servidor. Este tutorial se centrará en utilizar los paquetes EF y vistazo ASP.NET MVC, pero hay muchos otros paquetes disponibles. Siempre que sea posible vinculará a la correspondiente [echarle documentos](http://getglimpse.com/Docs/) que ayudar a mantener. Perspectiva es un proyecto de código abierto, demasiado pueden contribuir a los documentos, el código fuente.
 
 
 - [Instalación de perspectiva](#ig)
@@ -113,7 +113,7 @@ La directiva de seguridad predeterminada de perspectiva permite solo vistazo dat
 
 Con este cambio por sí sola, cualquier usuario puede ver los datos de la perspectiva en un sitio remoto. Considere la posibilidad de agregar el marcado anteriormente a un perfil de publicación para que solo ha implementado un aplicado cuando se usa ese perfil de publicación (por ejemplo, su proifle de prueba de Azure.) Para restringir los datos de la perspectiva, agregaremos el `canViewGlimpseData` rol y solo se permiten a los usuarios de este rol para ver los datos de la perspectiva.
 
-Quite los comentarios de la *GlimpseSecurityPolicy.cs* y cambie el [IsInRole](https://msdn.microsoft.com/en-us/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) llamar desde `Administrator` a la `canViewGlimpseData` rol:
+Quite los comentarios de la *GlimpseSecurityPolicy.cs* y cambie el [IsInRole](https://msdn.microsoft.com/library/system.security.principal.iprincipal.isinrole(v=vs.110).aspx) llamar desde `Administrator` a la `canViewGlimpseData` rol:
 
 [!code-csharp[Main](profile-and-debug-your-aspnet-mvc-app-with-glimpse/samples/sample4.cs?highlight=6)]
 
@@ -121,10 +121,10 @@ Quite los comentarios de la *GlimpseSecurityPolicy.cs* y cambie el [IsInRole](ht
 > Seguridad: los datos enriquecidos proporcionados por perspectiva pudieron exponer la seguridad de la aplicación. Microsoft no ha realizado una auditoría de seguridad de Glimpse para su uso en aplicaciones de producción.
 
 
-Para obtener información sobre cómo agregar roles, consulte mi [implementar una aplicación web de Secure ASP.NET MVC 5 con pertenencia, OAuth y base de datos SQL en Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) tutorial.
+Para obtener información sobre cómo agregar roles, consulte mi [implementar una aplicación web de Secure ASP.NET MVC 5 con pertenencia, OAuth y base de datos SQL en Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) tutorial.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Implementar una aplicación de MVC de ASP.NET 5 segura con pertenencia, OAuth y base de datos SQL en Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Implementar una aplicación de MVC de ASP.NET 5 segura con pertenencia, OAuth y base de datos SQL en Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 - [Configuración de echarle](http://getglimpse.com/Docs/Configuration) -página de documentación sobre la configuración de las fichas, directiva de tiempo de ejecución, el registro y mucho más.

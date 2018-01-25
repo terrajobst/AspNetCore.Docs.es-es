@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 7e0ddc15fac9af40a0a20a99979a80517eb1b6a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 182276f9f91b99beb1ce0fc40dcda1f19376669a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Descripción de la autenticación de AJAX de ASP.NET y los servicios de aplicación de perfiles
 ====================
@@ -43,7 +43,7 @@ El servicio de autenticación permite a los usuarios que proporcionen credencial
 
 El servicio de perfiles permite la integración automática y el almacenamiento de datos de usuario según la pertenencia a proporcionados por el servicio de autenticación. Los datos almacenados se especifican mediante el archivo web.config y los proveedores de servicios de generación de perfiles distintos controlan la administración de datos. Al igual que con el servicio de autenticación, el servicio de perfil de AJAX es compatible con el servicio de perfiles ASP.NET estándar, por lo que no se deben dividir páginas actualmente incorpora características del servicio de perfil de ASP.NET mediante la inclusión de compatibilidad con AJAX.
 
-Incorporar una aplicación en los servicios de generación de perfiles propios y la autenticación de ASP.NET está fuera del ámbito de este artículo. Para obtener más información sobre el tema, vea MSDN Library hacen referencia a artículo administrar usuarios mediante pertenencia en [https://msdn.microsoft.com/en-us/library/tw292whz.aspx](https://msdn.microsoft.com/en-us/library/tw292whz.aspx). ASP.NET también incluye una utilidad para configurar automáticamente la pertenencia a un SQL Server, que es el proveedor de servicio de autenticación predeterminado para la pertenencia a ASP.NET. Para obtener más información, vea el artículo de la herramienta de registro de servidor de SQL de ASP.NET (Aspnet\_regsql.exe) en [https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx).
+Incorporar una aplicación en los servicios de generación de perfiles propios y la autenticación de ASP.NET está fuera del ámbito de este artículo. Para obtener más información sobre el tema, vea MSDN Library hacen referencia a artículo administrar usuarios mediante pertenencia en [https://msdn.microsoft.com/library/tw292whz.aspx](https://msdn.microsoft.com/library/tw292whz.aspx). ASP.NET también incluye una utilidad para configurar automáticamente la pertenencia a un SQL Server, que es el proveedor de servicio de autenticación predeterminado para la pertenencia a ASP.NET. Para obtener más información, vea el artículo de la herramienta de registro de servidor de SQL de ASP.NET (Aspnet\_regsql.exe) en [https://msdn.microsoft.com/library/ms229862(vs.80).aspx](https://msdn.microsoft.com/library/ms229862(vs.80).aspx).
 
 ## <a name="using-the-aspnet-ajax-authentication-service"></a>*Mediante el servicio de autenticación de AJAX de ASP.NET*
 
@@ -65,7 +65,7 @@ El método login() inicia una solicitud para autenticar las credenciales del usu
 
 | **Nombre de parámetro** | **Significado** |
 | --- | --- |
-| userName | Obligatorio. El nombre de usuario para autenticar. |
+| userName | Requerido. El nombre de usuario para autenticar. |
 | contraseña | Opcional (valor predeterminado es null). Contraseña del usuario. |
 | isPersistent | Opcional (valor predeterminado es false). Si la cookie de autenticación del usuario debe conservarse en las sesiones. Si es false, el usuario se cerrará la sesión cuando se cierra el explorador o la sesión expira. |
 | URL de redireccionamiento | Opcional (valor predeterminado es null). La dirección URL para redirigir el explorador tras una autenticación correcta. Si este parámetro es null o una cadena vacía, se produce ninguna redirección. |
@@ -341,7 +341,7 @@ Servicios ASP.NET - específicamente los servicios de generación de perfiles, l
 
 Además, mediante la creación de las implementaciones del servicio web simplificada con firmas de método equivalente, los desarrolladores pueden crear proveedores de secuencia de comandos personalizada para estos servicios intrínsecos de ASP.NET. Compatibilidad con estas técnicas simplifica el desarrollo de aplicaciones cliente enriquecidas, al proporcionar a los desarrolladores con una amplia gama de flexibilidad para satisfacer las necesidades específicas.
 
-## <a name="bio"></a>*Biografía del*
+## <a name="bio"></a>*Bio*
 
 Scott categoría ha estado trabajando con las tecnologías Web de Microsoft desde 1997 y es el director general de myKB.com ([www.myKB.com](http://www.myKB.com)) donde está especializado en la escritura de ASP.NET en función de las aplicaciones que se centra en las soluciones de Software de Base de conocimiento. Scott se puede contactar a través de correo electrónico en [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o su blog en [ScottCate.com](http://ScottCate.com)
 

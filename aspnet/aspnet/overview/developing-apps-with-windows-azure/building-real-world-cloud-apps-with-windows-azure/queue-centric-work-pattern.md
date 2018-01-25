@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
 msc.type: authoredcontent
-ms.openlocfilehash: 125d555a9e170ef35dd99e0409a2442d5f9ae34a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ccfbaa26cbf610f847811e6f3c612458277046ed
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="queue-centric-work-pattern-building-real-world-cloud-apps-with-azure"></a>Patrón de trabajo centrado en cola (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -91,7 +91,7 @@ Para implementar el patrón de cola, debemos hacer dos cambios en la aplicación
 - Cuando un usuario envía una nueva repararlo tarea, coloque la tarea en la cola, en lugar de escribir en la base de datos.
 - Crear un servicio back-end que procesa los mensajes en la cola.
 
-En la cola, se utilizará el [servicio de almacenamiento de cola de Azure](https://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service/). Otra opción consiste en usar [Service Bus de Azure](https://docs.microsoft.com/azure/service-bus/).
+En la cola, se utilizará el [servicio de almacenamiento de cola de Azure](https://www.windowsazure.com/develop/net/how-to-guides/queue-service/). Otra opción consiste en usar [Service Bus de Azure](https://docs.microsoft.com/azure/service-bus/).
 
 Para decidir qué servicio de cola que se usará, considere la forma en que la aplicación necesita para enviar y recibir los mensajes en la cola:
 
@@ -106,10 +106,10 @@ Otra consideración es la disponibilidad de las aplicaciones. El servicio de alm
 
 Para colocar una tarea repararlo en la cola, el front-end web realiza los pasos siguientes:
 
-1. Crear un [CloudQueueClient](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) instancia. El `CloudQueueClient` instancia se utiliza para ejecutar solicitudes en el servicio de cola.
+1. Crear un [CloudQueueClient](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueueclient.aspx) instancia. El `CloudQueueClient` instancia se utiliza para ejecutar solicitudes en el servicio de cola.
 2. Crear la cola, si no existe todavía.
 3. Serializar la tarea repararlo.
-4. Llame a [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) para colocar el mensaje en la cola.
+4. Llame a [CloudQueue.AddMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync.aspx) para colocar el mensaje en la cola.
 
 Se deberá llevar a cabo este trabajo en el constructor y `SendMessageAsync` método de un nuevo `FixItQueueManager` clase.
 
@@ -117,7 +117,7 @@ Se deberá llevar a cabo este trabajo en el constructor y `SendMessageAsync` mé
 
 Aquí usamos la [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) library para serializar el fixit en formato JSON. Puede usar cualquier método de serialización que prefiera. JSON tiene la ventaja de ser legible, pero menos detallados que XML.
 
-Código de calidad de producción debería agregar lógica de control de errores, pausar si la base de datos deja de estar disponible, controlar más limpiamente recuperación, crear la cola en el inicio de la aplicación y administrar "[dudosos" mensajes](https://msdn.microsoft.com/en-us/library/ms789028(v=vs.110).aspx). (Un mensaje dudoso es un mensaje que no se puede procesar por algún motivo. No desea que los mensajes dudosos que se colocan en la cola, donde el rol de trabajo continuamente intentará procesarlos, producirá un error, vuelva a intentarlo, producirá un error y así sucesivamente.)
+Código de calidad de producción debería agregar lógica de control de errores, pausar si la base de datos deja de estar disponible, controlar más limpiamente recuperación, crear la cola en el inicio de la aplicación y administrar "[dudosos" mensajes](https://msdn.microsoft.com/library/ms789028(v=vs.110).aspx). (Un mensaje dudoso es un mensaje que no se puede procesar por algún motivo. No desea que los mensajes dudosos que se colocan en la cola, donde el rol de trabajo continuamente intentará procesarlos, producirá un error, vuelva a intentarlo, producirá un error y así sucesivamente.)
 
 En la aplicación de MVC front-end, deberá actualizar el código que crea una nueva tarea. En lugar de colocar la tarea en el repositorio, llame a la `SendMessageAsync` método mostrado anteriormente.
 
@@ -156,7 +156,7 @@ Haga clic en **Aceptar** para completar el cuadro de diálogo. Esto agrega dos p
 
 ![](queue-centric-work-pattern/_static/image8.png)
 
-Para obtener más información, vea [crear un proyecto de Azure con Visual Studio.](https://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx)
+Para obtener más información, vea [crear un proyecto de Azure con Visual Studio.](https://msdn.microsoft.com/library/windowsazure/ee405487.aspx)
 
 Dentro de la función de trabajo, se sondear en busca de mensajes mediante una llamada a la `ProcessMessageAsync` método de la `FixItQueueManager` clase que hemos visto antes.
 
@@ -168,7 +168,7 @@ El `ProcessMessagesAsync` método comprueba si hay un mensaje en espera. Si lo h
 
 Sondear la cola de mensajes incurre en una transacción pequeña cobran, por lo que cuando no hay ningún mensaje que esperan ser procesados, el rol de trabajo `RunAsync` método espera un segundo antes de sondeo de nuevo mediante una llamada a `Task.Delay(1000)`.
 
-En un proyecto web, agregar código asincrónico puede automáticamente mejorar el rendimiento porque IIS administra un grupo de subprocesos limitado. No es el caso de un proyecto de rol de trabajo. Para mejorar la escalabilidad de la función de trabajo, puede escribir código multiproceso o usar código asincrónico para implementar [la programación paralela](https://msdn.microsoft.com/en-us/library/ff963553.aspx). El ejemplo no implementa la programación en paralelo, pero muestra cómo convertir el código asincrónico, por lo que puede implementar la programación paralela.
+En un proyecto web, agregar código asincrónico puede automáticamente mejorar el rendimiento porque IIS administra un grupo de subprocesos limitado. No es el caso de un proyecto de rol de trabajo. Para mejorar la escalabilidad de la función de trabajo, puede escribir código multiproceso o usar código asincrónico para implementar [la programación paralela](https://msdn.microsoft.com/library/ff963553.aspx). El ejemplo no implementa la programación en paralelo, pero muestra cómo convertir el código asincrónico, por lo que puede implementar la programación paralela.
 
 ## <a name="summary"></a>Resumen
 
@@ -184,13 +184,13 @@ Para obtener más información acerca de las colas, vea los siguientes recursos.
 Documentación:
 
 - [Parte de las colas de almacenamiento de Microsoft Azure 1: Introducción a](http://justazure.com/microsoft-azure-storage-queues-part-1-getting-started/). Artículo por Schacherl latino.
-- [Ejecutar tareas en segundo plano](https://msdn.microsoft.com/en-us/library/ff803365.aspx), capítulo 5 de [mover aplicaciones a la nube, 3ª edición](https://msdn.microsoft.com/en-us/library/ff728592.aspx) desde Microsoft Patterns and Practices. (En concreto, la sección ["Uso de las colas de almacenamiento de Azure"](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).)
-- [Procedimientos recomendados para maximizar la escalabilidad y la rentabilidad de las soluciones de mensajes basadas en cola en Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh697709.aspx). Notas del producto por Valery Mizonov.
-- [Comparación de las colas de Azure y colas de Service Bus](https://msdn.microsoft.com/en-us/magazine/jj159884.aspx). Artículo de MSDN Magazine, proporciona información adicional que puede ayudarle a elegir qué servicio de cola que se usará. El artículo menciona que Service Bus es dependiente de ACS para la autenticación, lo que significa que las colas de SB podrían no estar disponibles cuando ACS no está disponible. Sin embargo, puesto que el artículo se escribió, SB se cambió para permitirle utilizar [tokens SAS](https://msdn.microsoft.com/en-us/library/windowsazure/dn170477.aspx) como una alternativa a ACS.
-- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Consulte el manual de mensajería asincrónica, canalizaciones y filtros de modelo, patrón de transacciones de compensación, patrón de consumidores en competencia, patrón CQRS.
-- [Viaje a CQRS](https://msdn.microsoft.com/en-us/library/jj554200). Libro electrónico sobre CQRS por Microsoft patrones y procedimientos recomendados.
+- [Ejecutar tareas en segundo plano](https://msdn.microsoft.com/library/ff803365.aspx), capítulo 5 de [mover aplicaciones a la nube, 3ª edición](https://msdn.microsoft.com/library/ff728592.aspx) desde Microsoft Patterns and Practices. (En concreto, la sección ["Uso de las colas de almacenamiento de Azure"](https://msdn.microsoft.com/library/ff803365.aspx#sec7).)
+- [Procedimientos recomendados para maximizar la escalabilidad y la rentabilidad de las soluciones de mensajes basadas en cola en Azure](https://msdn.microsoft.com/library/windowsazure/hh697709.aspx). Notas del producto por Valery Mizonov.
+- [Comparación de las colas de Azure y colas de Service Bus](https://msdn.microsoft.com/magazine/jj159884.aspx). Artículo de MSDN Magazine, proporciona información adicional que puede ayudarle a elegir qué servicio de cola que se usará. El artículo menciona que Service Bus es dependiente de ACS para la autenticación, lo que significa que las colas de SB podrían no estar disponibles cuando ACS no está disponible. Sin embargo, puesto que el artículo se escribió, SB se cambió para permitirle utilizar [tokens SAS](https://msdn.microsoft.com/library/windowsazure/dn170477.aspx) como una alternativa a ACS.
+- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Consulte el manual de mensajería asincrónica, canalizaciones y filtros de modelo, patrón de transacciones de compensación, patrón de consumidores en competencia, patrón CQRS.
+- [Viaje a CQRS](https://msdn.microsoft.com/library/jj554200). Libro electrónico sobre CQRS por Microsoft patrones y procedimientos recomendados.
 
-Vídeo:
+Video:
 
 - [FailSafe: Creación de servicios en la nube escalables y resistentes](https://channel9.msdn.com/Series/FailSafe). Serie de vídeos de nueve partes por Ulrich Homann y Marc Mercuri, Mark Simms. Presenta los conceptos y principios de la arquitectura de una manera muy interesante y accesible, con casos extraídos de la experiencia del equipo de asesoramiento al cliente (CAT) de Microsoft con clientes reales. Para obtener una introducción a las colas y el servicio de almacenamiento de Azure, vea episodio 5 a partir de 35:13.
 

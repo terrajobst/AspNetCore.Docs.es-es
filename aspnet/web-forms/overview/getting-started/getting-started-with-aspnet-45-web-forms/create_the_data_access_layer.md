@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: ebace10dc8a861ab38bd5c834c2225e3373f13fe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 809609155b06c4632bd4f450082d84c432c7a46f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="create-the-data-access-layer"></a>Crear la capa de acceso a datos
 ====================
@@ -43,7 +43,7 @@ Este tutorial describe cómo crear, acceder y revisar los datos de una base de d
 
 ## <a name="creating-the-data-models"></a>Crear los modelos de datos
 
-[Entity Framework](https://msdn.microsoft.com/en-us/data/aa937723) es un marco de trabajo de asignación relacional de objetos (ORM). Le permite trabajar con datos relacionales como objetos, lo que elimina la mayoría del código de acceso a datos que normalmente tendría que escribir. Si usa Entity Framework, puede emitir consultas mediante [LINQ](https://msdn.microsoft.com/en-us/library/bb397926.aspx), a continuación, recuperar y manipular los datos como objetos fuertemente tipados. LINQ proporciona patrones para consultar y actualizar datos. Entity Framework permite centrarse en crear el resto de la aplicación, en lugar de centrarse en los datos de los fundamentos de acceso. Más adelante en esta serie de tutoriales, le mostraremos cómo usar los datos para rellenar las consultas de navegación y el producto.
+[Entity Framework](https://msdn.microsoft.com/data/aa937723) es un marco de trabajo de asignación relacional de objetos (ORM). Le permite trabajar con datos relacionales como objetos, lo que elimina la mayoría del código de acceso a datos que normalmente tendría que escribir. Si usa Entity Framework, puede emitir consultas mediante [LINQ](https://msdn.microsoft.com/library/bb397926.aspx), a continuación, recuperar y manipular los datos como objetos fuertemente tipados. LINQ proporciona patrones para consultar y actualizar datos. Entity Framework permite centrarse en crear el resto de la aplicación, en lugar de centrarse en los datos de los fundamentos de acceso. Más adelante en esta serie de tutoriales, le mostraremos cómo usar los datos para rellenar las consultas de navegación y el producto.
 
 Entity Framework admite un paradigma de desarrollo llama *Code First*. Code First le permite definir los modelos de datos utilizando las clases. Una clase es una construcción que le permite crear sus propios tipos personalizados agrupándolas junto a las variables de otros tipos, métodos y eventos. Puede asignar clases a una base de datos existente o usarlos para generar una base de datos. En este tutorial, creará los modelos de datos mediante la escritura de clases del modelo de datos. A continuación, se podrá permitir que Entity Framework crear la base de datos sobre la marcha de estas clases nuevas.
 
@@ -181,11 +181,11 @@ En el siguiente tutorial, deberá actualizar la interfaz de usuario, agregar fun
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-[Introducción a Entity Framework](https://msdn.microsoft.com/en-us/library/bb399567.aspx)   
-[Guía para principiantes ADO.NET Entity Framework](https://msdn.microsoft.com/en-us/data/ee712907)   
+[Introducción a Entity Framework](https://msdn.microsoft.com/library/bb399567.aspx)   
+[Guía para principiantes ADO.NET Entity Framework](https://msdn.microsoft.com/data/ee712907)   
 [Primer desarrollo con Entity Framework de código](http://www.msteched.com/2010/Europe/DEV212) (vídeo)   
-[API fluida de código First de relaciones](https://msdn.microsoft.com/en-us/data/hh134698)   
-[Anotaciones de datos primer código](https://msdn.microsoft.com/en-us/data/gg193958)  
+[API fluida de código First de relaciones](https://msdn.microsoft.com/data/hh134698)   
+[Anotaciones de datos primer código](https://msdn.microsoft.com/data/gg193958)  
 [Mejoras de productividad para Entity Framework](https://blogs.msdn.com/b/efdesign/archive/2010/06/21/productivity-improvements-for-the-entity-framework.aspx?wa=wsignin1.0)
 
 >[!div class="step-by-step"]

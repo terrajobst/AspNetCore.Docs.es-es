@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/overview
-ms.openlocfilehash: 5ec11dce3ba485a84b6ce5f7ddaf16430162659c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2545226314ebf57d7a0d644d8edfb5354dcc6e5e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="consumer-apis-overview"></a>Información general de las API de consumidor
 
@@ -25,13 +25,13 @@ La interfaz del proveedor representa la raíz del sistema de protección de dato
 
 ## <a name="idataprotector"></a>IDataProtector
 
-La interfaz de protector devuelto por una llamada a `CreateProtector`, y es esta interfaz que los consumidores pueden usar para realizar proteger y desproteger las operaciones.
+La interfaz de protector devuelto por una llamada a `CreateProtector`y de esta interfaz que los consumidores pueden usar para realizar proteger y desproteger las operaciones.
 
-Para proteger un elemento de datos, pasar los datos a la `Protect` método. La interfaz básica define un método que byte convierte [] -> byte [], pero también hay una sobrecarga (proporcionada como un método de extensión) que convierte la cadena -> cadena. La seguridad proporcionada por los dos métodos es idéntica; el desarrollador debe elegir cualquier sobrecarga es más conveniente para sus casos de uso. Con independencia de la sobrecarga elegida, el valor devuelto por el proteja método ahora está protegido (descifra y compatible con tecnologías de manipulaciones) y la aplicación puede enviar a un cliente no es de confianza.
+Para proteger un elemento de datos, pasar los datos a la `Protect` método. La interfaz básica define un método que byte convierte [] -> byte [], pero no hay también una sobrecarga (proporcionada como un método de extensión) que convierte la cadena -> cadena. La seguridad proporcionada por los dos métodos es idéntica; el desarrollador debe elegir cualquier sobrecarga es más conveniente para sus casos de uso. Con independencia de la sobrecarga elegida, el valor devuelto por el proteja método ahora está protegido (descifra y compatible con tecnologías de manipulaciones) y la aplicación puede enviar a un cliente no es de confianza.
 
 Para desproteger un elemento de datos protegidos anteriormente, pasar los datos protegidos en el `Unprotect` método. (Hay byte []-basada en cadena y basados en sobrecargas para mayor comodidad de desarrollador.) Si la carga protegida fue generada por una llamada anterior a `Protect` en esta misma `IDataProtector`, el `Unprotect` método devolverá la carga sin protección original. Si la carga protegida se ha alterado o ha sido creada por otro `IDataProtector`, el `Unprotect` método producirá CryptographicException.
 
-El concepto de misma frente a diferentes `IDataProtector` ties hacia el concepto de propósito. Si dos `IDataProtector` instancias se generaron desde la misma raíz `IDataProtectionProvider` , pero a través de las cadenas de propósito diferente en la llamada a `IDataProtectionProvider.CreateProtector`, a continuación, se consideran [diferentes protectores](purpose-strings.md), y uno no podrá desproteger cargas generados por el otro.
+El concepto de misma frente a diferentes `IDataProtector` ties hacia el concepto de propósito. Si dos `IDataProtector` instancias se generaron desde la misma raíz `IDataProtectionProvider` , pero a través de las cadenas de propósito diferente en la llamada a `IDataProtectionProvider.CreateProtector`, considera que está [diferentes protectores](purpose-strings.md), y uno no podrá desproteger cargas generados por el otro.
 
 ## <a name="consuming-these-interfaces"></a>Consumir estas interfaces
 
@@ -55,4 +55,4 @@ El paquete Microsoft.AspNetCore.DataProtection.Abstractions contiene un método 
 [!code-csharp[Main](./overview/samples/getdataprotector.cs?highlight=15)]
 
 >[!TIP]
-> Instancias de `IDataProtectionProvider` y `IDataProtector` son seguras para subprocesos para varios de los llamadores. Está pensado que una vez que un componente obtiene una referencia a un `IDataProtector` mediante una llamada a `CreateProtector`, utilizará dicha referencia para varias llamadas a `Protect` y `Unprotect`. Una llamada a `Unprotect` iniciará CryptographicException si no se puede comprobar o descifrar la carga protegida. Algunos componentes que desee omitir los errores durante la desproteger operaciones; un componente que lee las cookies de autenticación puede controlar este error y tratar la solicitud como si no tuviera en absoluto ninguna cookie en lugar de producirá un error en la solicitud directamente. Los componentes que desea este comportamiento deben detectar específicamente CryptographicException en lugar de admitir todas las excepciones.
+> Instancias de `IDataProtectionProvider` y `IDataProtector` son seguras para subprocesos para varios de los llamadores. Se ha diseñado que una vez que un componente obtiene una referencia a un `IDataProtector` mediante una llamada a `CreateProtector`, utilizará dicha referencia para varias llamadas a `Protect` y `Unprotect`. Una llamada a `Unprotect` iniciará CryptographicException si no se puede comprobar o descifrar la carga protegida. Algunos componentes que desee omitir los errores durante la desproteger operaciones; un componente que lee las cookies de autenticación puede controlar este error y tratar la solicitud como si no tuviera en absoluto ninguna cookie en lugar de producirá un error en la solicitud directamente. Los componentes que desea este comportamiento deben detectar específicamente CryptographicException en lugar de admitir todas las excepciones.

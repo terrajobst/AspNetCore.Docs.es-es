@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5f4977c4ad88d6f32fb682c841d0e5bdd8aeb7e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f4444e566a760ef3beda4af5fba62dd349a8bba9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="unlocking-and-approving-user-accounts-vb"></a>Desbloquear y a cuentas de usuario (VB)
 ====================
@@ -57,7 +57,7 @@ Después de agregar el campo Hyperlink a GridView, tómese un momento para ver l
 **Figura 1**: el campo HYPERLINK agrega un vínculo "Administrar" para cada cuenta de usuario ([haga clic aquí para ver la imagen a tamaño completo](unlocking-and-approving-user-accounts-vb/_static/image3.png))
 
 
-Se creará la interfaz de usuario y el código para el `UserInformation.aspx` página en un momento, pero primero vamos a hablar acerca de cómo cambiar mediante programación un usuario del bloqueada y aprueba Estados. El [ `MembershipUser` clase](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx) tiene [ `IsLockedOut` ](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.islockedout.aspx) y [ `IsApproved` propiedades](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.isapproved.aspx). El `IsLockedOut` propiedad es de solo lectura. No hay ningún mecanismo para bloquear mediante programación un usuario; Para desbloquear un usuario, utilice la `MembershipUser` la clase [ `UnlockUser` método](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.unlockuser.aspx). El `IsApproved` propiedad es de lectura y escritura. Para guardar los cambios a esta propiedad, es necesario llamar a la `Membership` la clase [ `UpdateUser` método](https://msdn.microsoft.com/en-us/library/system.web.security.membership.updateuser.aspx), pasando modificados `MembershipUser` objeto.
+Se creará la interfaz de usuario y el código para el `UserInformation.aspx` página en un momento, pero primero vamos a hablar acerca de cómo cambiar mediante programación un usuario del bloqueada y aprueba Estados. El [ `MembershipUser` clase](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx) tiene [ `IsLockedOut` ](https://msdn.microsoft.com/library/system.web.security.membershipuser.islockedout.aspx) y [ `IsApproved` propiedades](https://msdn.microsoft.com/library/system.web.security.membershipuser.isapproved.aspx). El `IsLockedOut` propiedad es de solo lectura. No hay ningún mecanismo para bloquear mediante programación un usuario; Para desbloquear un usuario, utilice la `MembershipUser` la clase [ `UnlockUser` método](https://msdn.microsoft.com/library/system.web.security.membershipuser.unlockuser.aspx). El `IsApproved` propiedad es de lectura y escritura. Para guardar los cambios a esta propiedad, es necesario llamar a la `Membership` la clase [ `UpdateUser` método](https://msdn.microsoft.com/library/system.web.security.membership.updateuser.aspx), pasando modificados `MembershipUser` objeto.
 
 Dado que el `IsApproved` propiedad es de lectura y escritura, un control CheckBox es probablemente la mejor elemento de la interfaz de usuario para configurar esta propiedad. Sin embargo, una casilla de verificación no funcionará para los `IsLockedOut` propiedad porque un administrador no se puede bloquear un usuario, solo puede desbloquear un usuario. Una interfaz de usuario adecuado para el `IsLockedOut` propiedad es un botón que, al hacer clic, desbloquea la cuenta de usuario. Este botón solo debería habilitarse si el usuario está bloqueado.
 
@@ -88,7 +88,7 @@ El código anterior inicia asegurándose de que se trata de la primera vez que v
 
 El `MembershipUser` del objeto `UserName` valor, a continuación, se muestra en el `UserNameLabel` y `IsApproved` casilla de verificación está activada en función de la `IsApproved` valor de propiedad.
 
-El `MembershipUser` del objeto [ `LastLockoutDate` propiedad](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.lastlockoutdate.aspx) devuelve un `DateTime` valor que indica si el usuario por último bloqueada. Si el usuario nunca se ha bloqueado, el valor devuelto depende del proveedor de pertenencia. Cuando se crea una nueva cuenta, el `SqlMembershipProvider` establece la `aspnet_Membership` la tabla `LastLockoutDate` campo `1754-01-01 12:00:00 AM`. El código anterior muestra una cadena vacía en el `LastLockoutDateLabel` si la `LastLockoutDate` propiedad se produce antes del año 2000; en caso contrario, la parte de la fecha de la `LastLockoutDate` propiedad se muestra en la etiqueta. El `UnlockUserButton`del `Enabled` propiedad está establecida en el usuario bloqueó estado, lo que significa que este botón solo estará habilitado si el usuario está bloqueado.
+El `MembershipUser` del objeto [ `LastLockoutDate` propiedad](https://msdn.microsoft.com/library/system.web.security.membershipuser.lastlockoutdate.aspx) devuelve un `DateTime` valor que indica si el usuario por último bloqueada. Si el usuario nunca se ha bloqueado, el valor devuelto depende del proveedor de pertenencia. Cuando se crea una nueva cuenta, el `SqlMembershipProvider` establece la `aspnet_Membership` la tabla `LastLockoutDate` campo `1754-01-01 12:00:00 AM`. El código anterior muestra una cadena vacía en el `LastLockoutDateLabel` si la `LastLockoutDate` propiedad se produce antes del año 2000; en caso contrario, la parte de la fecha de la `LastLockoutDate` propiedad se muestra en la etiqueta. El `UnlockUserButton`del `Enabled` propiedad está establecida en el usuario bloqueó estado, lo que significa que este botón solo estará habilitado si el usuario está bloqueado.
 
 Tómese un momento para probar la `UserInformation.aspx` página a través de un explorador. Por supuesto, necesitará iniciar en `ManageUsers.aspx` y seleccione una cuenta de usuario para administrar. Cuando llegan al `UserInformation.aspx`, tenga en cuenta que el `IsApproved` solo se activa la casilla si se aprueba el usuario. Si alguna vez ha ha bloqueado el usuario, se muestra su última fecha bloqueado. El botón Desbloquear usuario solo se habilita si el usuario está bloqueado actualmente. Activación o desactivación del `IsApproved` casilla o haga clic en el botón Desbloquear usuario provoca una devolución de datos, pero no se realizan modificaciones en la cuenta de usuario porque hemos todavía para crear controladores de eventos para estos eventos.
 
@@ -146,7 +146,7 @@ A continuación, necesitamos configurar el control CreateUserWizard para enviar 
 
 ### <a name="sending-a-verification-email-to-new-users"></a>Enviar un correo electrónico de comprobación a los nuevos usuarios
 
-Para enviar un correo electrónico desde el control CreateUserWizard, configure su `MailDefinition` propiedad adecuadamente. Como se describe en el <a id="Tutorial13"> </a> [tutorial anterior](recovering-and-changing-passwords-vb.md), los controles ChangePassword y PasswordRecovery incluyen un [ `MailDefinition` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) que funciona de la misma manera que CreateUserWizard del control.
+Para enviar un correo electrónico desde el control CreateUserWizard, configure su `MailDefinition` propiedad adecuadamente. Como se describe en el <a id="Tutorial13"> </a> [tutorial anterior](recovering-and-changing-passwords-vb.md), los controles ChangePassword y PasswordRecovery incluyen un [ `MailDefinition` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.maildefinition.aspx) que funciona de la misma manera que CreateUserWizard del control.
 
 > [!NOTE]
 > Para usar el `MailDefinition` opciones de propiedad que debe especificar la entrega de correo electrónico de `Web.config`. Para obtener más información, consulte [enviar correo electrónico en ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx).
@@ -160,7 +160,7 @@ Establecer el `MailDefinition`del `BodyFileName` propiedad en "~ / EmailTemplate
 
 Tenga en cuenta que la `CreateUserWizard.txt` plantilla de correo electrónico incluye un `<%VerificationUrl%>` marcador de posición. Aquí es donde la dirección URL para el `Verification.aspx` se colocará la página. CreateUserWizard reemplaza automáticamente la `<%UserName%>` y `<%Password%>` marcadores de posición con nombre de usuario y una contraseña, la nueva cuenta pero no hay ningún integrada `<%VerificationUrl%>` marcador de posición. Es necesario reemplazarlo manualmente con la dirección URL de comprobación adecuados.
 
-Para ello, cree un controlador de eventos para el CreateUserWizard [ `SendingMail` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) y agregue el código siguiente:
+Para ello, cree un controlador de eventos para el CreateUserWizard [ `SendingMail` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.createuserwizard.sendingmail.aspx) y agregue el código siguiente:
 
 [!code-vb[Main](unlocking-and-approving-user-accounts-vb/samples/sample4.vb)]
 
@@ -208,7 +208,7 @@ Feliz programación.
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es  *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a...
 

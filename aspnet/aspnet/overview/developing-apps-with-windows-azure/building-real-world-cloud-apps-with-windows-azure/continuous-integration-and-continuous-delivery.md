@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 0af5f7e841bb43fa41fa0daa4ad8d59ee0596404
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a5433a7dd70e27b59163822ba427b026c3f4ce0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>Integración continua y la entrega continua (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -37,7 +37,7 @@ Por lo general se recomienda que realice la entrega continua para su desarrollo 
 
 El siguiente diagrama de [un Microsoft Patterns and Practices libros electrónicos sobre la entrega continua](http://aka.ms/ReleasePipeline) muestra un flujo de trabajo típico. Haga clic en la imagen para verla tamaño completo en su contexto original.
 
-[![Flujo de trabajo de la entrega continua](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/en-us/library/dn449955.aspx)
+[![Flujo de trabajo de la entrega continua](continuous-integration-and-continuous-delivery/_static/image1.png)](https://msdn.microsoft.com/library/dn449955.aspx)
 
 ## <a name="how-the-cloud-enables-cost-effective-ci-and-cd"></a>Forma en que la nube permite rentable CI y CD
 
@@ -65,13 +65,13 @@ Los modelos de desarrollo de tres nube primera han sido sobre cómo implementar 
 
 ## <a name="resources"></a>Recursos
 
-Para obtener más información, consulte [implementar una aplicación web en el servicio de aplicación de Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/).
+Para obtener más información, consulte [implementar una aplicación web en el servicio de aplicación de Azure](https://azure.microsoft.com/documentation/articles/web-sites-deploy/).
 
 Vea también los siguientes recursos:
 
 - [Creación de una canalización de versiones con Team Foundation Server 2012](http://aka.ms/ReleasePipeline). Laboratorios prácticos de libros electrónicos y código de ejemplo por Microsoft Patterns and Practices, proporciona una introducción detallada a la entrega continua. Cubre el uso de Visual Studio Lab Management y administración de versión de Visual Studio.
 - [Instrucciones y herramientas de ALM Rangers DevOps](https://aka.ms/vsarsolutions/). ALM Rangers introdujo la solución complementaria de ejemplo de DevOps Workbench y directrices prácticas en colaboración con los patrones &amp; libreta de prácticas *crear una canalización de versiones con TFS 2012*, como una excelente manera de iniciar aprender los conceptos de DevOps &amp; Release Management para TFS 2012 y para iniciar el neumático. La guía muestra cómo compilar una vez e implementarla en varios entornos.
-- [Pruebas para la entrega continua con Visual Studio 2012](https://msdn.microsoft.com/en-us/library/jj159345.aspx). Libro electrónico por Microsoft Patterns and Practices, explica cómo integrar las pruebas automatizadas con la entrega continua.
+- [Pruebas para la entrega continua con Visual Studio 2012](https://msdn.microsoft.com/library/jj159345.aspx). Libro electrónico por Microsoft Patterns and Practices, explica cómo integrar las pruebas automatizadas con la entrega continua.
 - [WindowsAzureDeploymentTracker](https://github.com/RyanTBerry/WindowsAzureDeploymentTracker). Código fuente de una herramienta diseñada para capturar una compilación de TFS (según una etiqueta), genérelo, empaquetarlo, permitir que otra persona en el rol de DevOps para configurar aspectos específicos del mismo e insertar en Azure. La herramienta realiza un seguimiento del proceso de implementación con el fin de permitir que las operaciones "restaurar" a una versión implementada anteriormente. La herramienta no tiene dependencias externas y puede funcionar independiente con las API de TFS y el SDK de Azure.
 - [La entrega continua: Software confiable libera a través de la compilación, prueba y automatización de la implementación](https://www.amazon.com/Continuous-Delivery-Deployment-Automation-Addison-Wesley/dp/0321601912/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1377126361). Libro de Jez modesto.
 - [Liberarlo. Diseñar e implementar Software para entornos de producción](https://www.amazon.com/Release-It-Production-Ready-Pragmatic-Programmers/dp/0978739213). Libro de Michael T. Nygard.

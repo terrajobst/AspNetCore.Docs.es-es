@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: dec2602e47fbcb838643a506a7e3feebda9d9c81
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4468ee8031afccca847db67bd4b5b263f0a2c5ac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-performance"></a>Rendimiento de SignalR
 ====================
@@ -87,7 +87,7 @@ Puesto que los mensajes se almacenan en el bus de mensajes en memoria del servid
 
 ### <a name="tuning-your-signalr-server-for-performance"></a>Optimización del servidor de SignalR para el rendimiento
 
-Las siguientes opciones de configuración se pueden utilizar para optimizar el servidor para mejorar el rendimiento en una aplicación de SignalR. Para obtener información general sobre cómo mejorar el rendimiento de una aplicación ASP.NET, vea [mejorar el rendimiento de ASP.NET](https://msdn.microsoft.com/en-us/library/ff647787.aspx).
+Las siguientes opciones de configuración se pueden utilizar para optimizar el servidor para mejorar el rendimiento en una aplicación de SignalR. Para obtener información general sobre cómo mejorar el rendimiento de una aplicación ASP.NET, vea [mejorar el rendimiento de ASP.NET](https://msdn.microsoft.com/library/ff647787.aspx).
 
 **Opciones de configuración de SignalR**
 
@@ -104,7 +104,7 @@ Las siguientes opciones de configuración se pueden utilizar para optimizar el s
     [!code-console[Main](signalr-performance/samples/sample4.cmd)]
 - **ApplicationPool QueueLength**: este es el número máximo de solicitudes que Http.sys pone en cola para el grupo de aplicaciones. Cuando la cola está llena, las nuevas solicitudes reciben una respuesta 503 "Servicio no disponible". El valor predeterminado es 1000.
 
-    Acortar la longitud de cola para el proceso de trabajo en el grupo de aplicaciones que hospeda la aplicación conservar los recursos de memoria. Para obtener más información, consulte [administrar, ajuste y configuración de grupos de aplicaciones](https://technet.microsoft.com/en-us/library/cc745955.aspx).
+    Acortar la longitud de cola para el proceso de trabajo en el grupo de aplicaciones que hospeda la aplicación conservar los recursos de memoria. Para obtener más información, consulte [administrar, ajuste y configuración de grupos de aplicaciones](https://technet.microsoft.com/library/cc745955.aspx).
 
 **Opciones de configuración de ASP.NET**
 
@@ -215,7 +215,7 @@ Las siguientes métricas de medir los errores generados por el tráfico de mensa
 
 Las siguientes métricas de medir el tráfico y los errores generados por el proveedor de ampliación. A **flujo** en este contexto es una unidad de escala utilizada por el proveedor de ampliación; se trata de una tabla si se utiliza SQL Server, un tema si se usa el Bus de servicio y una suscripción si se usa Redis. Cada flujo garantiza ordenada operaciones de lectura y escritura; una única secuencia es un cuello de botella potencial de escala, por lo que puede aumentar el número de secuencias para ayudar a reducir un cuello de botella. Si se utilizan varios flujos, SignalR distribuirá automáticamente mensajes (particiones) a través de estas secuencias de forma que garantiza que los mensajes enviados desde cada conexión están en orden.
 
-El [MaxQueueLength](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) opción controla la longitud de la cola de envío de ampliación mantenida por SignalR. Si se establece en un valor mayor que 0 colocará todos los mensajes en una cola de envío para enviar uno a uno al backplane de mensajería configurado. Si el tamaño de la cola supera la longitud configurada, las llamadas posteriores al envío tendrán un error inmediatamente con un [InvalidOperationException](https://msdn.microsoft.com/en-us/library/system.invalidoperationexception(v=vs.118).aspx) hasta que el número de mensajes en la cola es menor que el valor nuevo. Puesta en cola está deshabilitada de forma predeterminada porque los planos posteriores implementados suelen tengan su propio control de flujo o de puesta en cola en su lugar. En el caso de SQL Server, la agrupación de conexiones eficazmente limita el número de envíos en cualquier momento.
+El [MaxQueueLength](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.messaging.scaleoutconfiguration.maxqueuelength(v=vs.118).aspx) opción controla la longitud de la cola de envío de ampliación mantenida por SignalR. Si se establece en un valor mayor que 0 colocará todos los mensajes en una cola de envío para enviar uno a uno al backplane de mensajería configurado. Si el tamaño de la cola supera la longitud configurada, las llamadas posteriores al envío tendrán un error inmediatamente con un [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception(v=vs.118).aspx) hasta que el número de mensajes en la cola es menor que el valor nuevo. Puesta en cola está deshabilitada de forma predeterminada porque los planos posteriores implementados suelen tengan su propio control de flujo o de puesta en cola en su lugar. En el caso de SQL Server, la agrupación de conexiones eficazmente limita el número de envíos en cualquier momento.
 
 De forma predeterminada, solo un flujo se utiliza para SQL Server y Redis, cinco flujos se usan para el Bus de servicio y se deshabilita la puesta en cola, pero esta configuración puede cambiarse a través de la configuración de SQL Server y Service Bus:
 
@@ -280,6 +280,6 @@ Los siguientes contadores de rendimiento también pueden resultarle útiles para
 
 Para obtener más información sobre la supervisión y optimización del rendimiento de ASP.NET, vea los temas siguientes:
 
-- [Información general acerca del rendimiento de ASP.NET](https://msdn.microsoft.com/en-us/library/cc668225(v=vs.100).aspx)
+- [Información general acerca del rendimiento de ASP.NET](https://msdn.microsoft.com/library/cc668225(v=vs.100).aspx)
 - [Uso de los subprocesos de ASP.NET en IIS 7.5, IIS 7.0 e IIS 6.0](https://blogs.msdn.com/b/tmarq/archive/2007/07/21/asp-net-thread-usage-on-iis-7-0-and-6-0.aspx)
-- [&lt;applicationPool&gt; elemento (configuración Web)](https://msdn.microsoft.com/en-us/library/dd560842.aspx)
+- [&lt;applicationPool&gt; elemento (configuración Web)](https://msdn.microsoft.com/library/dd560842.aspx)

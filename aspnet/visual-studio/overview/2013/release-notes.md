@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 10835c39d3bca752ed3068a23fecaaab56449e41
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET y herramientas Web para Visual Studio 2013 notas
 ====================
@@ -36,13 +36,13 @@ por [Microsoft](https://github.com/microsoft)
 - [Uno de ASP.NET](#TOC6)
 - [Nueva experiencia de proyecto Web](#newproj)
 - [Scaffolding de ASP.NET](#scaffold)
-- [Vínculo de explorador](#browser-link)
+- [Vínculo con exploradores](#browser-link)
 - [Mejoras del Editor de Visual Studio Web](#web-editor)
 - [Compatibilidad con aplicaciones de Azure de aplicación de servicio Web en Visual Studio](#waws)
 - [Mejoras de publicación de Web](#publish)
-- [2.7 de NuGet](#nuget)
+- [NuGet 2.7](#nuget)
 - [Formularios Web Forms ASP.NET](#TOC9)
-- [MVC DE ASP.NET 5](#TOC10)
+- [ASP.NET MVC 5](#TOC10)
 - [ASP.NET Web API 2](#TOC11)
 - [ASP.NET SignalR](#TOC13)
 - [Identidad de ASP.NET](#TOC8)
@@ -137,8 +137,8 @@ En Visual Studio 2013 con Azure SDK para .NET 2.2, puede usar **Explorador de se
 
 Para obtener más información, vea los siguientes recursos:
 
-- [Crear una aplicación web ASP.NET en el servicio de aplicación de Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/)
-- [Solucionar problemas de una aplicación web en el servicio de aplicaciones de Azure con Visual Studio](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
+- [Crear una aplicación web ASP.NET en el servicio de aplicación de Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/)
+- [Solucionar problemas de una aplicación web en el servicio de aplicaciones de Azure con Visual Studio](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/)
 
 <a id="publish"></a>
 ## <a name="web-publish-enhancements"></a>Mejoras de publicación de Web
@@ -185,7 +185,7 @@ Para obtener información sobre cómo actualizar proyectos MVC 4 a 5 de MVC, vea
 
 ### <a name="aspnet-identity"></a>ASP.NET Identity
 
-Las plantillas de proyecto MVC se han actualizado para usar la identidad de ASP.NET para la autenticación y administración de identidades. Encontrará un tutorial que incluye autenticación de Facebook y Google y la nueva API de pertenencia en [crear una aplicación de ASP.NET MVC 5 con Facebook y Google OAuth2 y OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) y [crear una aplicación de MVC de ASP.NET con la autenticación y Base de datos SQL e implementar al servicio de aplicaciones de Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
+Las plantillas de proyecto MVC se han actualizado para usar la identidad de ASP.NET para la autenticación y administración de identidades. Encontrará un tutorial que incluye autenticación de Facebook y Google y la nueva API de pertenencia en [crear una aplicación de ASP.NET MVC 5 con Facebook y Google OAuth2 y OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) y [crear una aplicación de MVC de ASP.NET con la autenticación y Base de datos SQL e implementar al servicio de aplicaciones de Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
 
 ### <a name="bootstrap"></a>bootstrap
 
@@ -666,7 +666,7 @@ Esta sección describen problemas conocidos y cambios importantes en las herrami
     A:
 
     `@Html.TextBoxFor(person => person.Age)`
-4. ASP.NET MVC 5 ya no es compatible con confianza parcial. Deben quitar proyectos vinculando los archivos binarios de MVC o WebAPI el [SecurityTransparent](https://msdn.microsoft.com/en-us/library/system.security.securitytransparentattribute.aspx) atributo y el [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/en-us/library/system.security.allowpartiallytrustedcallersattribute.aspx) atributo. Cómo quitar estos atributos eliminará errores del compilador como el siguiente.
+4. ASP.NET MVC 5 ya no es compatible con confianza parcial. Deben quitar proyectos vinculando los archivos binarios de MVC o WebAPI el [SecurityTransparent](https://msdn.microsoft.com/library/system.security.securitytransparentattribute.aspx) atributo y el [AllowPartiallyTrustedCallers](https://msdn.microsoft.com/library/system.security.allowpartiallytrustedcallersattribute.aspx) atributo. Cómo quitar estos atributos eliminará errores del compilador como el siguiente.
 
     `Attempt by security transparent method ‘MyComponent' to access security critical type 'System.Web.Mvc.MvcHtmlString' failed. Assembly 'PagedList.Mvc, Version=4.3.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1' is marked with the AllowPartiallyTrustedCallersAttribute, and uses the level 2 security transparency model. Level 2 transparency causes all methods in AllowPartiallyTrustedCallers assemblies to become security transparent by default, which may be the cause of this exception.`
 

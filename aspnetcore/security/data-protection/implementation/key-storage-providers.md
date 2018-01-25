@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: f95322c208d323c052295959e39f945700b7ec57
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d7cbb4786be0acf9679f43466460c3833f1db6fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-storage-providers"></a>Proveedores de almacenamiento de claves
 
@@ -22,7 +22,7 @@ ms.lasthandoff: 01/19/2018
 De forma predeterminada, el sistema de protección de datos [emplea un método heurístico](xref:security/data-protection/configuration/default-settings) para determinar dónde se debe conservar el material de clave de cifrado. El desarrollador puede invalidar la heurística y especificar manualmente la ubicación.
 
 > [!NOTE]
-> Si especifica una ubicación de persistencia de clave explícita, el sistema de protección de datos se anular el registro el cifrado de claves de forma predeterminada en el mecanismo de rest que proporciona la heurística, por lo que ya no se cifrarán las claves en reposo. Se recomienda que además [especificar un mecanismo de cifrado de clave explícita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) para las aplicaciones de producción.
+> Si especifica una ubicación de persistencia de clave explícita, el sistema de protección de datos se anular el registro el cifrado de claves de forma predeterminada en el mecanismo de rest que proporciona la heurística, por lo que ya no se cifrarán las claves en reposo. Se recomienda que, además [especificar un mecanismo de cifrado de clave explícita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) para las aplicaciones de producción.
 
 El sistema de protección de datos que se suministra con varios proveedores de almacenamiento de claves de forma predeterminada.
 

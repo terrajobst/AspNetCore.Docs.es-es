@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 3c5abe84a5c7cc399e0586e680a414fab7a26c1d
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc1cfe0d6ee88a0af49cdff9ce77ad42f57b95f7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Cargas de archivos en ASP.NET Core
 
@@ -134,7 +134,7 @@ public async Task<IActionResult> Register(RegisterViewModel model)
 Si el tamaño o la frecuencia de cargas de archivos está causando problemas de recursos de la aplicación, tenga en cuenta la carga de archivos de transmisión por secuencias en lugar de almacenarla en búfer en su totalidad, igual que el enfoque de enlace de modelo mostrado anteriormente. Al usar `IFormFile` y enlace de modelos es una solución más sencilla mucho, transmisión por secuencias requiere un número de pasos necesarios para implementar correctamente.
 
 > [!NOTE]
-> Cualquier archivo almacenado en búfer único superior a 64KB se moverán de la RAM a un archivo temporal en disco en el servidor. Los recursos (disco RAM) utilizados por cargas de archivos dependen del número y tamaño de carga de archivos simultáneas. Transmisión por secuencias no es gran parte sobre rendimiento, sobre la escala. Si se intenta almacenar en búfer demasiadas cargas, el sitio se bloqueará cuando se quede sin memoria o espacio en disco.
+> Cualquier archivo almacenado en búfer único superior a 64KB se moverán de la RAM a un archivo temporal en disco en el servidor. Los recursos (disco RAM) utilizados por cargas de archivos dependen del número y tamaño de carga de archivos simultáneas. Transmisión por secuencias no gran parte sobre rendimiento, sobre la escala. Si se intenta almacenar en búfer demasiadas cargas, el sitio se bloqueará cuando se quede sin memoria o espacio en disco.
 
 En el ejemplo siguiente se muestra cómo utilizar JavaScript/Angular desea para transmitir a una acción de controlador. Token antiforgery del archivo se genera utilizando un atributo de filtro personalizado y pasa en encabezados HTTP en lugar de en el cuerpo de solicitud. Puesto que el método de acción procesa los datos cargados directamente, el enlace de modelos está deshabilitado por otro filtro. Dentro de la acción, el contenido del formulario se lee utilizando una `MultipartReader`, que lee cada persona `MultipartSection`, procesar el archivo o almacenar el contenido según corresponda. Una vez que se han leído todas las secciones, la acción realiza su propio enlace de modelos.
 
@@ -199,4 +199,4 @@ Esta configuración solo se aplica a IIS. El comportamiento no se produce de for
 
 ### <a name="null-reference-exception-with-iformfile"></a>Excepción de referencia nula con IFormFile
 
-Si el controlador es aceptación cargar archivos con `IFormFile` pero se encuentra que el valor siempre es null, confirme que el formulario HTML está especificando una `enctype` valo `multipart/form-data`. Si este atributo no está establecido en el `<form>` elemento, no se realizará la carga de archivos y cualquier límite `IFormFile` argumentos será nulos.
+Si el controlador es aceptación cargar archivos con `IFormFile` pero se encuentra que el valor siempre es null, confirme que el formulario HTML está especificando una `enctype` valo `multipart/form-data`. Si este atributo no está configurado en el `<form>` elemento, no se produzca la carga de archivos y cualquier límite `IFormFile` argumentos será nulos.

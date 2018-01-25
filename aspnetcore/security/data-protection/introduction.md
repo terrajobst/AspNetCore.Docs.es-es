@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/introduction
-ms.openlocfilehash: b98027ee0e7c63bac23054d7623f28294388dede
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b02ef9121e50ab9d9f24032d32f1e65fe73049c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-data-protection"></a>Introducción a la protección de datos
 
@@ -23,7 +23,7 @@ La pila de protección de datos de ASP.NET Core está diseñada para que actúe 
 
 ## <a name="problem-statement"></a>Declaración del problema
 
-En pocas palabras la declaración del problema general en una sola frase: se necesita para conservar información de confianza para su recuperación posterior, pero no confiar en el mecanismo de persistencia. En términos de web, esto puede escribirse como "Necesito al estado de confianza de ida y vuelta a través de un cliente no es de confianza".
+En pocas palabras la declaración del problema general en una sola frase: se necesita para conservar información de confianza para su recuperación posterior, pero no confía en el mecanismo de persistencia. En términos de web, esto puede escribirse como "Necesito al estado de confianza de ida y vuelta a través de un cliente no es de confianza".
 
 El ejemplo canónico de esto es una cookie de autenticación o portador símbolo (token). El servidor genera un "Estoy Groot y tiene permisos de xyz" símbolo (token) y los entrega al cliente. En una fecha futura, el cliente presentará ese token en el servidor, pero el servidor necesita algún tipo de garantía de que el cliente no ha falsificado el token. Por lo tanto, el primer requisito: autenticidad (conocido como) integridad, alteración de corrección).
 
@@ -31,7 +31,7 @@ Puesto que el estado persistente es de confianza para el servidor, prevemos que 
 
 Por último, puesto que están dividida en componentes de aplicaciones modernas, lo que hemos visto es que los componentes individuales desea aprovechar las ventajas de este sistema sin tener en cuenta otros componentes en el sistema. Por ejemplo, si un componente de token de portador está usando esta pila, debe funcionar sin la interferencia de un mecanismo de anti-CSRF que también puedan estar usando la misma pila. Por lo tanto, el requisito final: aislamiento.
 
-Podemos proporcionar más restricciones con el fin de restringir el ámbito de los requisitos. Se supone que todos los servicios que funcionan en el sistema de cifrado se confía por igual y que los datos no es necesario que se genera o consume fuera de los servicios en nuestro control directo. Además, es necesario que las operaciones son lo más rápidas posible, ya que cada solicitud al servicio web puede pasar por el sistema de cifrado una o varias veces. Esto hace que la criptografía simétrica ideal para nuestro escenario y se podemos descuentos criptografía asimétrica hasta como uno que sea necesario.
+Podemos proporcionar más restricciones con el fin de restringir el ámbito de los requisitos. Se supone que todos los servicios que funcionan en el sistema de cifrado se confía por igual y que no necesitan los datos que se genera o consume fuera de los servicios en nuestro control directo. Además, es necesario que las operaciones son lo más rápidas posible, ya que cada solicitud al servicio web puede pasar por el sistema de cifrado una o varias veces. Esto hace que la criptografía simétrica ideal para nuestro escenario y se podemos descuentos criptografía asimétrica hasta como uno que sea necesaria.
 
 ## <a name="design-philosophy"></a>Filosofía de diseño
 
@@ -41,7 +41,7 @@ Hemos iniciado mediante la identificación de problemas con la pila del existent
 
 * Ofrecen una API sencilla de consumo. Las API deben ser fáciles de usar correctamente y difíciles de usar de forma incorrecta.
 
-* Los desarrolladores deben aprender los principios de administración de claves. El sistema debe controlar la selección de algoritmo y la vigencia de la clave en nombre del desarrollador. Lo ideal es que el programador ni siquiera debe tener acceso a material de la clave sin formato.
+* Los desarrolladores no deben aprender los principios de administración de claves. El sistema debe controlar la selección de algoritmo y la vigencia de la clave en nombre del desarrollador. Lo ideal es que el programador ni siquiera debe tener acceso a material de la clave sin formato.
 
 * Las claves deben estar protegidas en reposo cuando sea posible. El sistema debe determinar un mecanismo de protección predeterminado adecuado y lo aplicará automáticamente.
 

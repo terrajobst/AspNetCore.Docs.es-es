@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/caching/distributed
-ms.openlocfilehash: a00937e8c47e73fa8e29af883f44f6e1f4d4b1b4
-ms.sourcegitcommit: 216dfac27542f10a79274a9ce60dc449e888ed20
+ms.openlocfilehash: a0af4887143f6ed37a1af982ec21a2ad5eae9515
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Trabajar con una memoria caché distribuida en ASP.NET Core
 
@@ -25,7 +25,7 @@ Las memorias caché distribuidas pueden mejorar el rendimiento y la escalabilida
 
 ## <a name="what-is-a-distributed-cache"></a>¿Qué es una memoria caché distribuida
 
-Una memoria caché distribuida es compartida por varios servidores de aplicación (consulte [conceptos básicos de almacenamiento en caché](memory.md#caching-basics)). La información en la memoria caché no se almacena en la memoria de servidores web individuales y los datos almacenados en caché están disponibles para todos los servidores de la aplicación. Esto proporciona varias ventajas:
+Una memoria caché distribuida es compartida por varios servidores de aplicación (consulte [conceptos básicos de almacenamiento en caché](memory.md#caching-basics)). La información de la memoria caché no se guardan en la memoria de servidores web individuales y los datos almacenados en caché están disponibles para todos los servidores de la aplicación. Esto proporciona varias ventajas:
 
 1. Datos almacenados en caché están coherentes en todos los servidores web. Los usuarios no verán los resultados diferentes dependiendo de qué web server controla su solicitud
 
@@ -40,7 +40,7 @@ Al igual que cualquier memoria caché, una memoria caché distribuida puede mejo
 
 Configuración de la caché es específico de la implementación. En este artículo se describe cómo configurar ambos Redis y distribuidas de SQL Server almacena en caché. Independientemente de qué implementación está seleccionada, la aplicación interactúa con la memoria caché utilizando una común `IDistributedCache` interfaz.
 
-## <a name="the-idistributedcache-interface"></a>La interfaz de IDistributedCache
+## <a name="the-idistributedcache-interface"></a>The IDistributedCache Interface
 
 El `IDistributedCache` interfaz incluye métodos sincrónicos y asincrónicos. La interfaz permite elementos agregar, recuperar y quitar de la implementación de caché distribuida. El `IDistributedCache` interfaz incluye los métodos siguientes:
 
@@ -48,15 +48,15 @@ El `IDistributedCache` interfaz incluye métodos sincrónicos y asincrónicos. L
 
 Toma una clave de cadena y recupera un elemento almacenado en caché como un `byte[]` si se encuentra en la memoria caché.
 
-**Conjunto, SetAsync**
+**Set, SetAsync**
 
 Agrega un elemento (como `byte[]`) a la memoria caché utilizando una clave de cadena.
 
-**Actualización de RefreshAsync**
+**Refresh, RefreshAsync**
 
 Actualiza un elemento en la memoria caché basado en su clave, restablecer su tiempo de espera de expiración deslizante (si existe).
 
-**Quitar, aplica removeasync a**
+**Remove, RemoveAsync**
 
 Quita una entrada de caché basada en su clave.
 
@@ -138,9 +138,9 @@ La hora de decidir qué implementación de `IDistributedCache` es adecuado para 
 
 * [Caché en Azure en Redis](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Base de datos SQL en Azure](https://azure.microsoft.com/documentation/services/sql-database/)
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
+* [Almacenamiento caché en memoria](xref:performance/caching/memory)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Aplicación auxiliar de etiqueta de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Aplicación auxiliar de etiqueta de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

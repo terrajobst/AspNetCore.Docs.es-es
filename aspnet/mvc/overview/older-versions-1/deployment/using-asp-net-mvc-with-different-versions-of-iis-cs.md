@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fdd024aba399f26e9ef7d01a00078cd3d5750d94
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f2b98d5e5ae677fdac32336d542202a40290e21
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-c"></a>Usar ASP.NET MVC con distintas versiones de IIS (C#)
 ====================
@@ -33,7 +33,7 @@ Este es un resumen de las distintas versiones de IIS:
 - IIS 7.0 (modo clásico): debe realizar una configuración especial para usar el enrutamiento de ASP.NET.
 - IIS 6.0 o a continuación - debe realizar una configuración especial para usar el enrutamiento de ASP.NET.
 
-La versión más reciente de IIS es la versión 7.5 (en Win7). IIS 7 de IIS se incluye con Windows Server 2008 y VISTA SP1 y superior. También puede instalar IIS 7.0 en cualquier versión del sistema operativo Vista excepto Home Basic (consulte [https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/en-us/library/cc731179%28WS.10%29.aspx)).
+La versión más reciente de IIS es la versión 7.5 (en Win7). IIS 7 de IIS se incluye con Windows Server 2008 y VISTA SP1 y superior. También puede instalar IIS 7.0 en cualquier versión del sistema operativo Vista excepto Home Basic (consulte [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 IIS 7.0 admite dos modos de procesamiento de solicitudes. Puede usar el modo integrado o en modo clásico. No es necesario realizar los pasos de configuración especiales al utilizar IIS 7.0 en modo integrado. Sin embargo, es necesario realizar una configuración adicional cuando se usa IIS 7.0 en modo clásico.
 
@@ -89,7 +89,7 @@ La ruta predeterminada configurada en el listado 1 permite a las direcciones URL
 
 / Principal/índice
 
-/ Productos/detalles/3
+/Product/Details/3
 
 / Producto
 
@@ -121,9 +121,9 @@ Hay dos cambios importantes en el archivo Global.asax en el listado 2. Ahora hay
 
 La adición de la extensión de .mvc cambia el tipo de archivos que intercepta el módulo de enrutamiento de ASP.NET. Con este cambio, la aplicación de ASP.NET MVC ahora enruta las solicitudes similar al siguiente:
 
-/Home.Mvc/index/
+/Home.mvc/Index/
 
-/Product.Mvc/Details/3
+/Product.mvc/Details/3
 
 /Product.Mvc/
 
@@ -200,7 +200,7 @@ Después de habilitar una asignación de script comodín IIS 7.0 o IIS 6.0, pued
 
 / Principal/índice
 
-/ Productos/detalles/3
+/Product/Details/3
 
 / Producto
 

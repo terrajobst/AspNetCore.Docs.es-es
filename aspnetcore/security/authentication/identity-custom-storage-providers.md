@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 6a5feb9039c5b0e9823e5f22f4d55a70830dd3e6
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: f0953ad5d9f1bfa92ecc5169d9a211ce6b8cda8f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -80,7 +80,7 @@ Grupos de autorización para el sitio. Incluye el nombre de identificador y el r
 
 En este tema se da por supuesto que está familiarizado con el mecanismo de persistencia que se va a usar y cómo crear entidades para dicho mecanismo. En este tema no proporciona detalles acerca de cómo crear los repositorios o clases de acceso a datos; proporciona algunas sugerencias acerca de las decisiones de diseño cuando se trabaja con la identidad de núcleo de ASP.NET.
 
-Tiene mucha libertad al diseñar la capa de acceso a datos para un proveedor de almacén personalizado. Basta con crear mecanismos de persistencia para las características que desee usar en la aplicación. Por ejemplo, si no se usan funciones en la aplicación, es necesario crear un almacenamiento para roles o las asociaciones de rol de usuario. La tecnología y la infraestructura existente pueden requerir una estructura que es muy diferente de la implementación predeterminada de ASP.NET Core Identity. En la capa de acceso a datos, proporcionar la lógica para trabajar con la estructura de su implementación de almacenamiento.
+Tiene mucha libertad al diseñar la capa de acceso a datos para un proveedor de almacén personalizado. Basta con crear mecanismos de persistencia para las características que desee usar en la aplicación. Por ejemplo, si no se usan funciones en la aplicación, no es necesario crear un almacenamiento para roles o las asociaciones de rol de usuario. La tecnología y la infraestructura existente pueden requerir una estructura que es muy diferente de la implementación predeterminada de ASP.NET Core Identity. En la capa de acceso a datos, proporcionar la lógica para trabajar con la estructura de su implementación de almacenamiento.
 
 La capa de acceso a datos proporciona la lógica para guardar los datos de identidad de núcleo de ASP.NET en un origen de datos. La capa de acceso a datos para su proveedor de almacenamiento personalizado podría incluir las siguientes clases para almacenar la información de usuario y el rol.
 

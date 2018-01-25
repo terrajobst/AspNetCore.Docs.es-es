@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 2bc1f096540d17095ef760eed67b458fcd4e1372
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introducción a la depuración ASP.NET Web Pages (Razor) sitios
 ====================
@@ -71,7 +71,7 @@ El `ServerInfo` auxiliar es una herramienta de diagnóstico que le ofrece una vi
     - Información de tiempo de ejecución HTTP. Esta sección se proporcionan detalles sobre el que la versión de Microsoft .NET Framework que se está ejecutando la página web, la ruta de acceso, los detalles acerca de la memoria caché y así sucesivamente. (Según se desprende de [Introducción a ASP.NET Web programación mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages usando el código Razor sintaxis se basan en la tecnología del servidor web de Microsoft ASP.NET que a su vez se basa en una amplia de software biblioteca de desarrollo denomina .NET Framework).
     - Variables de entorno. En esta sección se proporciona una lista de todas las variables de entorno local y sus valores en el servidor web.
 
-    Una descripción completa de toda la información de servidor y la solicitud está fuera del ámbito de este artículo, pero puede ver que el `ServerInfo` auxiliar devuelve una gran cantidad de información de diagnóstico. Para obtener más información acerca de los valores que `ServerInfo` devuelve, vea [reconoce las Variables de entorno](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) en el sitio Web de Microsoft TechNet y [Variables de servidor IIS](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) en el sitio Web MSDN.
+    Una descripción completa de toda la información de servidor y la solicitud está fuera del ámbito de este artículo, pero puede ver que el `ServerInfo` auxiliar devuelve una gran cantidad de información de diagnóstico. Para obtener más información acerca de los valores que `ServerInfo` devuelve, vea [reconoce las Variables de entorno](https://technet.microsoft.com/library/dd560744(WS.10).aspx) en el sitio Web de Microsoft TechNet y [Variables de servidor IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) en el sitio Web MSDN.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Incrustar expresiones de salida para mostrar los valores de la página
 
@@ -139,5 +139,5 @@ Para obtener información sobre cómo usar el depurador integrado en Visual Stud
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Programar páginas Web ASP.NET (Razor) con Visual Studio](https://go.microsoft.com/fwlink/?LinkId=205854)
-- [Variables de servidor IIS](https://msdn.microsoft.com/en-us/library/ms524602(VS.90).aspx) (MSDN)
-- [Reconoce las Variables de entorno](https://technet.microsoft.com/en-us/library/dd560744(WS.10).aspx) (TechNet)
+- [Variables de servidor IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) (MSDN)
+- [Reconoce las Variables de entorno](https://technet.microsoft.com/library/dd560744(WS.10).aspx) (TechNet)

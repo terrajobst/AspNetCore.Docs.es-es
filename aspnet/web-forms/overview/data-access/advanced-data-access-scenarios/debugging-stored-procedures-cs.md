@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eda544d72fe3449c8d701fc579f2f26d37090f24
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3c5f797691a6920c65db7e3906aa5fd3b348b54b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="debugging-stored-procedures-c"></a>Depurar procedimientos almacenados (C#)
 ====================
@@ -39,7 +39,7 @@ En este tutorial, veremos ejecuta paso a paso los procedimientos almacenados des
 
 ## <a name="sql-server-debugging-concepts"></a>Conceptos de depuración de SQL Server
 
-Microsoft SQL Server 2005 se diseñó para proporcionar una integración con la [Common Language Runtime (CLR)](https://msdn.microsoft.com/en-us/netframework/aa497266.aspx), que es el tiempo de ejecución utilizado por todos los ensamblados. NET. Por lo tanto, SQL Server 2005 admite objetos de base de datos administrados. Es decir, puede crear objetos de base de datos como procedimientos almacenados y funciones definidas por el usuario (UDF) como métodos en una clase de C#. Esto permite que estos procedimientos almacenados y UDF para utilizar la funcionalidad de .NET Framework y de sus propias clases personalizadas. Por supuesto, SQL Server 2005 también proporciona compatibilidad con objetos de base de datos de T-SQL.
+Microsoft SQL Server 2005 se diseñó para proporcionar una integración con la [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), que es el tiempo de ejecución utilizado por todos los ensamblados. NET. Por lo tanto, SQL Server 2005 admite objetos de base de datos administrados. Es decir, puede crear objetos de base de datos como procedimientos almacenados y funciones definidas por el usuario (UDF) como métodos en una clase de C#. Esto permite que estos procedimientos almacenados y UDF para utilizar la funcionalidad de .NET Framework y de sus propias clases personalizadas. Por supuesto, SQL Server 2005 también proporciona compatibilidad con objetos de base de datos de T-SQL.
 
 SQL Server 2005 ofrece compatibilidad con la depuración de T-SQL y objetos de base de datos administrados. Sin embargo, solo se pueden depurar estos objetos a través de las ediciones de Visual Studio 2005 Professional y sistemas de equipo. En este tutorial se examinará la depuración de los objetos de base de datos de T-SQL. El tutorial posterior se examina depurar objetos de base de datos administrados.
 
@@ -53,7 +53,7 @@ Visual Studio puede depurar procedimientos almacenados en instancias de SQL Serv
 
 Si está utilizando una instancia de SQL Server local, puede iniciar con el paso 1 y trabajar a través de este tutorial hasta el final. Si utilizas una instancia remota de SQL Server, sin embargo, tendrá que primero debe asegurarse de que al depurar se registran en el equipo de desarrollo con una cuenta de usuario de Windows que tiene un inicio de sesión de SQL Server en la instancia remota. Moveover, este inicio de sesión de base de datos y el inicio de sesión de base de datos que se usa para conectarse a la base de datos de la aplicación ASP.NET en ejecución debe ser miembros de los `sysadmin` rol. Ver los objetos de base de datos de T-SQL depuración en la sección de instancias remotas al final de este tutorial para obtener más información acerca de cómo configurar Visual Studio y SQL Server para depurar una instancia remota.
 
-Por último, comprender que la compatibilidad de depuración para objetos de base de datos de T-SQL no es tan variado como compatibilidad de depuración para aplicaciones .NET. Por ejemplo, condiciones de punto de interrupción y los filtros no son compatibles, únicamente un subconjunto de las ventanas de depuración están disponibles, no se puede usar Editar y continuar, se representa la ventana Inmediato inservible y así sucesivamente. Vea [las limitaciones de características y comandos del depurador](https://msdn.microsoft.com/en-us/library/ms165035(VS.80).aspx) para obtener más información.
+Por último, comprender que la compatibilidad de depuración para objetos de base de datos de T-SQL no es tan variado como compatibilidad de depuración para aplicaciones .NET. Por ejemplo, condiciones de punto de interrupción y los filtros no son compatibles, únicamente un subconjunto de las ventanas de depuración están disponibles, no se puede usar Editar y continuar, se representa la ventana Inmediato inservible y así sucesivamente. Vea [las limitaciones de características y comandos del depurador](https://msdn.microsoft.com/library/ms165035(VS.80).aspx) para obtener más información.
 
 ## <a name="step-1-directly-stepping-into-a-stored-procedure"></a>Paso 1: Entrar directamente en un procedimiento almacenado
 
@@ -172,10 +172,10 @@ Un ejemplo debe ayudar a aclarar cosas. Imagine que hay una cuenta de Windows de
 
 [!code-console[Main](debugging-stored-procedures-cs/samples/sample2.cmd)]
 
-Para obtener una explicación más detallada acerca de este proceso, consulte [William R. Vaughn](http://betav.com/BLOG/billva/) s *Autoestopista s Guide en Visual Studio y SQL Server, edición séptimo* como [How To: establecer permisos de SQL Server para la depuración](https://msdn.microsoft.com/en-us/library/w1bhybwz(VS.80).aspx).
+Para obtener una explicación más detallada acerca de este proceso, consulte [William R. Vaughn](http://betav.com/BLOG/billva/) s *Autoestopista s Guide en Visual Studio y SQL Server, edición séptimo* como [How To: establecer permisos de SQL Server para la depuración](https://msdn.microsoft.com/library/w1bhybwz(VS.80).aspx).
 
 > [!NOTE]
-> Si el equipo de desarrollo está ejecutando Windows XP Service Pack 2, debe configurar el Firewall de conexión a Internet para permitir la depuración remota. [Cómo para: habilitar la depuración de SQL Server 2005](https://msdn.microsoft.com/en-us/library/s0fk6z6e(VS.80).aspx) artículo notas que esto conlleva dos pasos: (a) en el equipo host de Visual Studio, debe agregar `Devenv.exe` a la lista de excepciones y abrir el puerto TCP 135; y (b) en el equipo remoto de (SQL), debe abrir TCP 135 de puerto y agregue `sqlservr.exe` a la lista de excepciones. Si la directiva de dominio exige que la comunicación de red se realicen a través de IPSec, debe abrir los puertos UDP 4500 y UDP 500.
+> Si el equipo de desarrollo está ejecutando Windows XP Service Pack 2, debe configurar el Firewall de conexión a Internet para permitir la depuración remota. [Cómo para: habilitar la depuración de SQL Server 2005](https://msdn.microsoft.com/library/s0fk6z6e(VS.80).aspx) artículo notas que esto conlleva dos pasos: (a) en el equipo host de Visual Studio, debe agregar `Devenv.exe` a la lista de excepciones y abrir el puerto TCP 135; y (b) en el equipo remoto de (SQL), debe abrir TCP 135 de puerto y agregue `sqlservr.exe` a la lista de excepciones. Si la directiva de dominio exige que la comunicación de red se realicen a través de IPSec, debe abrir los puertos UDP 4500 y UDP 500.
 
 
 ## <a name="summary"></a>Resumen
@@ -190,7 +190,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Anterior](protecting-connection-strings-and-other-configuration-information-cs.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4632d3939204a954ed4fac88a04b0fea9bb15c83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cf3058ac095bc2ed728a716e70f962e260eef5a2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Principal-detalle filtrado con DropDownList (C#)
 ====================
@@ -31,7 +31,7 @@ por [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Un tipo común de informe es la *principal-detalle informe*, en la que comienza el informe mostrando un conjunto de registros "principales". El usuario puede, a continuación, profundizar en uno de los registros maestros, ver, por tanto, "Detalles" de ese registro maestro. Principal-detalle informa es una opción ideal para visualizar las relaciones de uno a varios, como un informe que muestra todas las categorías y, a continuación, lo que permite al usuario seleccionar una categoría determinada y mostrar sus productos asociados. Además, los informes de maestro y detalles son útiles para mostrar información detallada de las tablas especialmente "anchos" (aquellos que tiene una gran cantidad de columnas). Por ejemplo, el nivel de un informe de maestro y detalles "principal" es posible que muestre solo el nombre y la unidad precio del producto de los productos en la base de datos y obtención de detalles de un producto determinado se muestran los campos de producto adicionales (categoría, el proveedor, la cantidad por unidad, y así sucesivamente).
 
-Hay muchas maneras con el que se puede implementar un informe de maestro y detalles. Sobre esto y los tres tutoriales siguientes se examinará una variedad de informes de maestro y detalles. En este tutorial veremos cómo mostrar los registros maestros en un [DropDownList control](https://msdn.microsoft.com/en-us/library/dtx91y0z.aspx) y los detalles del elemento de lista seleccionado en un control GridView. En concreto, informe de maestro y detalles de este tutorial mostrará información de categoría y producto.
+Hay muchas maneras con el que se puede implementar un informe de maestro y detalles. Sobre esto y los tres tutoriales siguientes se examinará una variedad de informes de maestro y detalles. En este tutorial veremos cómo mostrar los registros maestros en un [DropDownList control](https://msdn.microsoft.com/library/dtx91y0z.aspx) y los detalles del elemento de lista seleccionado en un control GridView. En concreto, informe de maestro y detalles de este tutorial mostrará información de categoría y producto.
 
 ## <a name="step-1-displaying-the-categories-in-a-dropdownlist"></a>Paso 1: Mostrar las categorías en DropDownList
 
@@ -97,7 +97,7 @@ Después de elegir este método, el Asistente ObjectDataSource nos solicita para
 
 Tómese un momento para desproteger nuestro progreso en un explorador. Al visitar primero la página, los productos pertenecen a la categoría seleccionada se muestran (bebidas) (como se muestra en la figura 9), pero cambiar DropDownList no actualiza los datos. Esto es porque se debe producir una devolución de datos del control GridView actualizar. Para ello se tiene dos opciones (ninguno de los cuales requiere escribir código alguno):
 
-- **Establece las categorías de DropDownList**[propiedad AutoPostBack](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**en True.** (Puede hacerlo mediante la comprobación de la opción de Habilitar AutoPostBack en la etiqueta inteligente de DropDownList.) Esto desencadenará una devolución de datos cada vez que seleccione la DropDownList elemento se cambia por el usuario. Por lo tanto, cuando el usuario selecciona una nueva categoría de la lista desplegable un postback surgirán y GridView se actualizará con los productos de la categoría recién seleccionada. (Este es el enfoque que he usado en este tutorial.)
+- **Establece las categorías de DropDownList**[propiedad AutoPostBack](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listcontrol.autopostback%28VS.80%29.aspx)**en True.** (Puede hacerlo mediante la comprobación de la opción de Habilitar AutoPostBack en la etiqueta inteligente de DropDownList.) Esto desencadenará una devolución de datos cada vez que seleccione la DropDownList elemento se cambia por el usuario. Por lo tanto, cuando el usuario selecciona una nueva categoría de la lista desplegable un postback surgirán y GridView se actualizará con los productos de la categoría recién seleccionada. (Este es el enfoque que he usado en este tutorial.)
 - **Agregar un control de botón Web junto a DropDownList.** Establecer su `Text` propiedad en la actualización o algo similar. Con este enfoque, el usuario deberá seleccionar una nueva categoría y, a continuación, haga clic en el botón. Haga clic en el botón provocará una devolución de datos y actualizar GridView para obtener una lista de los productos de la categoría seleccionada.
 
 Las figuras 9 y 10 se muestra el informe maestro y detalles en acción.
@@ -169,7 +169,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Siguiente](master-detail-filtering-with-two-dropdownlists-cs.md)

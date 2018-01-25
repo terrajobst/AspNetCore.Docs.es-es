@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-test-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 008b9cd081152e6a378d0fa2e08497a6771fd9b5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23e317c6e0b6daf2d7937b73738e5cb6fa32cde2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-test-environment-for-web-deployment"></a>Escenario: Configurar un entorno de prueba para la implementación Web
 ====================
@@ -49,7 +49,7 @@ El entorno de prueba debe admitir paso a paso o automatizar la implementación d
 - Configurar el servidor web de prueba para permitir la implementación con el controlador de Web Deploy.
 
 > [!NOTE]
-> También puede usar [implementar Web a petición](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx) (el "agente temp"). Esto es similar al enfoque de agente remoto en cuanto a requisitos y restricciones.
+> También puede usar [implementar Web a petición](https://technet.microsoft.com/library/ee517345(WS.10).aspx) (el "agente temp"). Esto es similar al enfoque de agente remoto en cuanto a requisitos y restricciones.
 
 
 En este caso, los desarrolladores tienen privilegios de administrador en los servidores de destino y el entorno de prueba no está sujeta a restricciones de seguridad estricta, por lo que es la opción lógica configurar el servidor web de prueba para permitir la implementación con el agente remoto. Esto es menos compleja y requiere la configuración inicial menor que el método de controlador de implementación Web. También debe configurar el servidor de base de datos para admitir la implementación y acceso remoto.

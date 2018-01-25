@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 4e2a3176aaedccd40ef6b619efa3c4052dd8470b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 2
 ====================
@@ -35,7 +35,7 @@ En el tutorial anterior creó un sitio web, una base de datos y un modelo de dat
 
 [![Image18](the-entity-framework-and-aspnet-getting-started-part-2/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image5.png)
 
-Tenga en cuenta que en esta aplicación no puede agregar validación de entrada a páginas que actualizan la base de datos y algunos de control de errores no serán tan sólida como sean necesarias en una aplicación de producción. Que mantiene el tutorial se centra en Entity Framework y mantiene obtengan demasiado largo. Para obtener más información acerca de cómo agregar estas características a la aplicación, consulte [validar entrada de usuario en ASP.NET Web Pages](https://msdn.microsoft.com/en-us/library/7kh55542.aspx) y [control de errores en las páginas ASP.NET y aplicaciones](https://msdn.microsoft.com/en-us/library/w16865z6.aspx).
+Tenga en cuenta que en esta aplicación no puede agregar validación de entrada a páginas que actualizan la base de datos y algunos de control de errores no serán tan sólida como sean necesarias en una aplicación de producción. Que mantiene el tutorial se centra en Entity Framework y mantiene obtengan demasiado largo. Para obtener más información acerca de cómo agregar estas características a la aplicación, consulte [validar entrada de usuario en ASP.NET Web Pages](https://msdn.microsoft.com/library/7kh55542.aspx) y [control de errores en las páginas ASP.NET y aplicaciones](https://msdn.microsoft.com/library/w16865z6.aspx).
 
 ## <a name="adding-and-configuring-the-entitydatasource-control"></a>Agregar y configurar el Control EntityDataSource
 
@@ -157,13 +157,13 @@ En el marcado para la `EntityDataSource` controlar, quite el `ConnectionString` 
 
 - Mejor rendimiento. Cuando el `EntityDataSource` control inicializa el modelo de datos con la `ConnectionString` y `DefaultContainerName` atributos, realiza un trabajo adicional para cargar los metadatos en cada solicitud. Esto no es necesario si se especifica la `ContextTypeName` atributo.
 - Carga diferida está activada de forma predeterminada en las clases de contexto del objeto generado (como `SchoolEntities` en este tutorial) en Entity Framework 4.0. Esto significa que las propiedades de navegación se cargan con los datos relacionados automáticamente derecha cuando lo necesite. Carga diferida se explica con más detalle más adelante en este tutorial.
-- Las personalizaciones que se hayan aplicado a la clase de contexto de objeto (en este caso, el `SchoolEntities` clase) estará disponible para los controles que utilizan el `EntityDataSource` control. La personalización de la clase de contexto de objeto es un tema avanzado que no se trata en esta serie de tutoriales. Para obtener más información, consulte [extender Entity Framework genera tipos](https://msdn.microsoft.com/en-us/library/dd456844.aspx).
+- Las personalizaciones que se hayan aplicado a la clase de contexto de objeto (en este caso, el `SchoolEntities` clase) estará disponible para los controles que utilizan el `EntityDataSource` control. La personalización de la clase de contexto de objeto es un tema avanzado que no se trata en esta serie de tutoriales. Para obtener más información, consulte [extender Entity Framework genera tipos](https://msdn.microsoft.com/library/dd456844.aspx).
 
 El marcado ahora parecerán al ejemplo siguiente (el orden de las propiedades puede variar):
 
 [!code-aspx[Main](the-entity-framework-and-aspnet-getting-started-part-2/samples/sample6.aspx)]
 
-El `EnableFlattening` atributo hace referencia a una característica que se necesitaba en versiones anteriores de Entity Framework porque las columnas de clave externa no se exponen como propiedades de la entidad. La versión actual permite usar *asociaciones de clave externas*, lo que significa que las propiedades de clave externa se exponen para todos menos-to-many asociaciones. Si las entidades tienen propiedades de clave externa y no [tipos complejos](https://msdn.microsoft.com/en-us/library/bb738472.aspx), puede dejar este atributo establecido en `False`. No quite el atributo de marcado, ya que el valor predeterminado es `True`. Para obtener más información, consulte [Aplanar objetos (EntityDataSource)](https://msdn.microsoft.com/en-us/library/ee404746.aspx).
+El `EnableFlattening` atributo hace referencia a una característica que se necesitaba en versiones anteriores de Entity Framework porque las columnas de clave externa no se exponen como propiedades de la entidad. La versión actual permite usar *asociaciones de clave externas*, lo que significa que las propiedades de clave externa se exponen para todos menos-to-many asociaciones. Si las entidades tienen propiedades de clave externa y no [tipos complejos](https://msdn.microsoft.com/library/bb738472.aspx), puede dejar este atributo establecido en `False`. No quite el atributo de marcado, ya que el valor predeterminado es `True`. Para obtener más información, consulte [Aplanar objetos (EntityDataSource)](https://msdn.microsoft.com/library/ee404746.aspx).
 
 Ejecute la página y ver una lista de los alumnos y los empleados (se filtran para estudiantes solo en el tutorial siguiente). El nombre y apellidos se muestran a la vez.
 

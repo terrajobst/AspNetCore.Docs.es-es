@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 62be7c9636fb74c40bec812e9ac76b360995da50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Realizar una implementación de "¿Qué ocurre si"
 ====================
@@ -52,7 +52,7 @@ Si usa MSDeploy.exe directamente, puede ejecutar una implementación de "¿Qué 
 Cuando esté satisfecho con los resultados de la implementación de "¿Qué ocurre si", puede quitar el **– whatif** marca para ejecutar una implementación en vivo.
 
 > [!NOTE]
-> Para obtener más información sobre las opciones de línea de comandos para MSDeploy.exe, consulte [Web Deploy operación Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+> Para obtener más información sobre las opciones de línea de comandos para MSDeploy.exe, consulte [Web Deploy operación Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 
 Si usas el *. deploy.cmd* archivo, puede ejecutar una implementación de "¿Qué ocurre si" mediante la inclusión de la **/t** flag bandera (modo de prueba) en lugar de la **/y** marca ("Sí", o el modo de actualización) en el comando. Por ejemplo, para evaluar lo que sucedería si implementó el paquete de ContactManager.Mvc.zip mediante la ejecución de la *. deploy.cmd* archivo, el comando debe ser similar a este:
@@ -68,7 +68,7 @@ Cuando esté satisfecho con los resultados de la implementación de "modo de pru
 
 
 > [!NOTE]
-> Para obtener más información sobre las opciones de línea de comandos para *. deploy.cmd* archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Si ejecuta el *. deploy.cmd* archivo sin especificar todas las marcas, la línea de comandos se mostrará una lista de las marcas disponibles.
+> Para obtener más información sobre las opciones de línea de comandos para *. deploy.cmd* archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Si ejecuta el *. deploy.cmd* archivo sin especificar todas las marcas, la línea de comandos se mostrará una lista de las marcas disponibles.
 
 
 ## <a name="performing-a-what-if-deployment-for-databases"></a>Llevar a cabo una implementación de "¿Qué ocurre si" para las bases de datos
@@ -142,7 +142,7 @@ En este tema se describe cómo ejecutar "¿Qué ocurre si" implementaciones medi
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener más información acerca de la sintaxis de línea de comandos de Web Deploy, vea [Web Deploy operación Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Para obtener información sobre las opciones de línea de comandos cuando se usa el *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx). Para obtener instrucciones acerca de la sintaxis de línea de comandos de VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx).
+Para obtener más información acerca de la sintaxis de línea de comandos de Web Deploy, vea [Web Deploy operación Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Para obtener información sobre las opciones de línea de comandos cuando se usa el *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Para obtener instrucciones acerca de la sintaxis de línea de comandos de VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/library/dd193283.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](advanced-enterprise-web-deployment.md)

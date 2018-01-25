@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 898259885da8a089db296bd0f400ee8863877d08
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aeec69c7373a111d30e8f32a374a9f02fb4c080a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-a-sql-server-database-update---11-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementar una actualización de base de datos de SQL Server - 11 de 12
 ====================
@@ -153,7 +153,7 @@ Ahora correctamente implementó una actualización de la aplicación que incluye
 
 ## <a name="more-information"></a>Más información
 
-Con esto finaliza la siguiente serie de tutoriales sobre la implementación de una aplicación web ASP.NET en un proveedor de hospedaje de terceros. Para obtener más información acerca de cualquiera de los temas tratados en estos tutoriales, vea el [ASP.NET Deployment Content Map](https://msdn.microsoft.com/en-us/library/bb386521(v=vs.110).aspx) en el sitio web MSDN.
+Con esto finaliza la siguiente serie de tutoriales sobre la implementación de una aplicación web ASP.NET en un proveedor de hospedaje de terceros. Para obtener más información acerca de cualquiera de los temas tratados en estos tutoriales, vea el [ASP.NET Deployment Content Map](https://msdn.microsoft.com/library/bb386521(v=vs.110).aspx) en el sitio web MSDN.
 
 ## <a name="acknowledgements"></a>Reconocimientos
 
@@ -161,7 +161,7 @@ Me gustaría dar las gracias a las siguientes personas que realizado aportacione
 
 - [Alberto Poblacion, MVP &amp; MCT, España](https://mvp.support.microsoft.com/profile/Alberto)
 - Estados Unidos de Jarod Ferguson, MVP de desarrollo de plataforma de datos,
-- Duras Mittal, Microsoft
+- Harsh Mittal, Microsoft
 - [Kristina Olson, Microsoft](https://blogs.iis.net/krolson/default.aspx)
 - [Mike Pope, Microsoft](http://www.mikepope.com/blog/DisplayBlog.aspx)
 - Mohit Srivastava, Microsoft

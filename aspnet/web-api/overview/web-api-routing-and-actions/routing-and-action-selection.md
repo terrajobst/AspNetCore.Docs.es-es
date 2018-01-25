@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/routing-and-action-selection
 msc.type: authoredcontent
-ms.openlocfilehash: 02c2a01ef8ec2b5a49f2c303ee61f02702a3ba54
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 997582263bd48590b74434ee0ffc6be928fa1e08
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a>Enrutamiento y selección de acción en ASP.NET Web API
 ====================
@@ -121,7 +121,7 @@ Proporciona la implementación predeterminada del **ApiControllerActionSelector*
 
 Antes de buscar en el algoritmo de selección, es necesario comprender algunas cosas acerca de las acciones de controlador.
 
-**¿Los métodos en el controlador se consideran "acciones"?** Al seleccionar una acción, el marco de trabajo solo se examina en métodos de instancia pública en el controlador. Además, excluye ["nombre especial"](https://msdn.microsoft.com/en-us/library/system.reflection.methodbase.isspecialname) métodos (constructores, eventos, sobrecargas de operador etc.) y métodos heredados de la **ApiController** clase.
+**¿Los métodos en el controlador se consideran "acciones"?** Al seleccionar una acción, el marco de trabajo solo se examina en métodos de instancia pública en el controlador. Además, excluye ["nombre especial"](https://msdn.microsoft.com/library/system.reflection.methodbase.isspecialname) métodos (constructores, eventos, sobrecargas de operador etc.) y métodos heredados de la **ApiController** clase.
 
 **Métodos HTTP.** El marco de trabajo solo elige acciones que coinciden con el método HTTP de la solicitud, que se determina como sigue:
 
@@ -134,7 +134,7 @@ Antes de buscar en el algoritmo de selección, es necesario comprender algunas c
 - Tipos simples se toman del URI.
 - Tipos complejos se realizan desde el cuerpo de solicitud.
 
-Los tipos simples incluyen todos los [tipos primitivos de .NET Framework](https://msdn.microsoft.com/en-us/library/system.type.isprimitive), además de **DateTime**, **Decimal**, **Guid**, **cadena** , y **TimeSpan**. Por cada acción, a lo sumo un parámetro puede leer el cuerpo de solicitud.
+Los tipos simples incluyen todos los [tipos primitivos de .NET Framework](https://msdn.microsoft.com/library/system.type.isprimitive), además de **DateTime**, **Decimal**, **Guid**, **cadena** , y **TimeSpan**. Por cada acción, a lo sumo un parámetro puede leer el cuerpo de solicitud.
 
 > [!NOTE]
 > Es posible reemplazar las reglas de enlace predeterminadas. Vea [enlace de parámetros de WebAPI bajo el paraguas](https://blogs.msdn.com/b/jmstall/archive/2012/05/11/webapi-parameter-binding-under-the-hood.aspx).
@@ -210,7 +210,7 @@ A continuación, se intenta hacer coincidir los nombres de parámetro para las a
 | --- | --- |
 | `GetAll` | ninguna |
 | `GetById` | "ID". |
-| `FindProductsByName` | "nombre" |
+| `FindProductsByName` | "name" |
 
 Tenga en cuenta que la *versión* parámetro de `GetById` no se considera, porque es un parámetro opcional.
 
@@ -218,7 +218,7 @@ El `GetAll` método coincide con trivial. El `GetById` método también coincide
 
 El `GetById` método wins, dado que coincide con un parámetro, frente a ningún parámetro para `GetAll`. El método se invoca con los siguientes valores de parámetro:
 
-- *Id. de* = 1
+- *id* = 1
 - *versión* = 1.5
 
 Tenga en cuenta que aunque *versión* no se utiliza en el algoritmo de selección, el valor del parámetro procede de la cadena de consulta URI.

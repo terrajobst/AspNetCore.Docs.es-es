@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/consumer-apis/purpose-strings
-ms.openlocfilehash: b1e95c9d0aa8195aa73fddfb97a4079e67a351bf
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 181d2ae85f38051ea12c7b7ac79198ec05f36bec
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="purpose-strings"></a>Cadenas de propósito
 
@@ -34,7 +34,7 @@ La cadena de fin no tiene que ser secreto. Simplemente debe ser único en el sen
 >
 >Un componente creado por Contoso que es responsable de minting tokens de portador puede usar Contoso.Security.BearerToken como cadena de su propósito. O - incluso mejor -, podría usar Contoso.Security.BearerToken.v1 como cadena de su propósito. Anexar el número de versión permite que una versión futura usar Contoso.Security.BearerToken.v2 como su propósito, y las distintas versiones sería completamente aisladas entre sí como ir de cargas.
 
-Desde el parámetro de fines `CreateProtector` es una matriz de cadenas, los pasos anteriores podrían se hayan en su lugar especificados como `[ "Contoso.Security.BearerToken", "v1" ]`. Esto permite establecer una jerarquía de propósitos y se abre la posibilidad de escenarios de varios inquilinos con el sistema de protección de datos.
+Desde el parámetro de fines `CreateProtector` es una matriz de cadenas, los pasos anteriores se haya en su lugar especificados como `[ "Contoso.Security.BearerToken", "v1" ]`. Esto permite establecer una jerarquía de propósitos y se abre la posibilidad de escenarios de varios inquilinos con el sistema de protección de datos.
 
 <a name="data-protection-contoso-purpose"></a>
 
@@ -53,7 +53,7 @@ El aislamiento que ofrecen y los comportamientos de `IDataProtectionProvider`, `
 
 * Argumentos de dos objetivos son equivalentes si y solo si contienen las mismas cadenas (usando a un comparador ordinal) en el mismo orden. Un argumento único propósito es equivalente a la matriz con fines de solo elemento correspondiente.
 
-* Dos `IDataProtector` objetos son equivalentes si y solo si se crean a partir de la equivalencia `IDataProtectionProvider` objetos con los parámetros de fines equivalente.
+* Dos `IDataProtector` objetos son equivalentes si y solo si se crean desde equivalente `IDataProtectionProvider` objetos con los parámetros de fines equivalente.
 
 * Para un determinado `IDataProtector` (objeto), una llamada a `Unprotect(protectedData)` devolverá el original `unprotectedData` si y solo si `protectedData := Protect(unprotectedData)` para un equivalente `IDataProtector` objeto.
 

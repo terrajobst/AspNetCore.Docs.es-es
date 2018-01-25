@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware
-ms.openlocfilehash: ef130e736e2f32fa134156d979ce5bfbedcae828
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 84f386db4ab96a82011ee2fc0b6c20a1a05b5e4b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="aspnet-core-middleware-fundamentals"></a>Conceptos básicos de Middleware de núcleo de ASP.NET
 
@@ -63,7 +63,7 @@ Puede encadenar varios delegados de la solicitud junto con [aplicación. Use](ht
 
 ## <a name="ordering"></a>Ordenación
 
-El orden en que se agregan los componentes de middleware en la `Configure` método define el orden en el que se invocan en las solicitudes y el orden inverso para la respuesta. Esta ordenación es fundamental para la seguridad, rendimiento y funcionalidad.
+El orden en que se agregan los componentes de middleware en la `Configure` método define el orden en el que invoca en las solicitudes y el orden inverso para la respuesta. Esta ordenación es fundamental para la seguridad, rendimiento y funcionalidad.
 
 El método Configure (se muestra a continuación) agrega los siguientes componentes de software intermedio:
 
@@ -116,11 +116,11 @@ El middleware de archivos estáticos se llama al principio de la canalización p
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
 
-Si la solicitud no está controlada por el middleware de archivos estáticos, se pasa el middleware de identidad (`app.UseAuthentication`), que realiza la autenticación. Identidad no cortocircuita las solicitudes no autenticadas. Aunque identidad autentica las solicitudes, autorización (y rechazo) se produce después de MVC selecciona un específico Razor página o acción y controlador.
+Si la solicitud no se controla el middleware de archivos estáticos, se pasa el middleware de identidad (`app.UseAuthentication`), que realiza la autenticación. Identidad no cortocircuito las solicitudes no autenticadas. Aunque identidad autentica las solicitudes, autorización (y rechazo) se produce después de MVC selecciona un específico Razor página o acción y controlador.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Si la solicitud no está controlada por el middleware de archivos estáticos, se pasa el middleware de identidad (`app.UseIdentity`), que realiza la autenticación. Identidad no cortocircuita las solicitudes no autenticadas. Aunque identidad autentica las solicitudes, autorización (y rechazo) se produce después de MVC selecciona una acción y controlador específico.
+Si la solicitud no se controla el middleware de archivos estáticos, se pasa el middleware de identidad (`app.UseIdentity`), que realiza la autenticación. Identidad no cortocircuito las solicitudes no autenticadas. Aunque identidad autentica las solicitudes, autorización (y rechazo) se produce después de MVC selecciona una acción y controlador específico.
 
 -----------
 
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 ### <a name="use-run-and-map"></a>Usar, ejecutar y asignar
 
-Configurar la canalización HTTP con `Use`, `Run`, y `Map`. El `Use` método puede cortocircuito la canalización (es decir, si no llama al método un `next` delegado de la solicitud). `Run`es una convención y pueden exponer algunos componentes de middleware `Run[Middleware]` métodos que se ejecutan al final de la canalización.
+Configurar la canalización HTTP con `Use`, `Run`, y `Map`. El `Use` método puede cortocircuito la canalización (es decir, si lo no llama a un `next` delegado de la solicitud). `Run`es una convención y pueden exponer algunos componentes de middleware `Run[Middleware]` métodos que se ejecutan al final de la canalización.
 
 `Map*`las extensiones se utilizan como una convención para la bifurcación de la canalización. [Mapa](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) bifurcaciones de la canalización de solicitudes basándose en coincidencias de la ruta de acceso de solicitud dada. Si la ruta de acceso de solicitud empieza con la ruta de acceso especificada, se ejecuta la rama.
 

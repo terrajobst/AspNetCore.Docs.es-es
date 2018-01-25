@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 3de952224e23eed29f90ed0e8c662e4ee3f531ce
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8b1bdae048afc78399ccc7b0eac7125d9b983c13
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-4"></a>' S New en ASP.NET MVC 4
 ====================
 por [Web colonias equipo](https://twitter.com/webcamps)
 
-[Descargar el Kit de aprendizaje de colonias de Web](http://www.microsoft.com/en-us/download/29843)
+[Descargar el Kit de aprendizaje de colonias de Web](http://www.microsoft.com/download/29843)
 
 > ASP.NET MVC 4 es un marco para crear aplicaciones web escalable, basada en estándares con hacia patrones de diseño y la eficacia de ASP.NET y .NET framework. Esta nueva, cuarta versión de framework se centra en facilitar el desarrollo de aplicaciones web móvil.
 > 
@@ -30,7 +30,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > 
 > En este laboratorio práctico, se iniciará con ASP.NET MVC 4 &quot;aplicación de Internet&quot; plantilla de proyecto para crear una aplicación de la Galería fotográfica. Progresivamente mejorará la aplicación con jQuery Mobile y nuevas características de ASP.NET MVC 4 para que sea compatible con dispositivos móviles diferentes y exploradores web de escritorio. También obtendrá información sobre las recetas de código nuevo para la generación de código y lo ASP.NET MVC 4 que resulta más fácil de escribir métodos de acción asincrónicos admitiendo la tarea&lt;ActionResult&gt; tipos de valor devuelto.
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="Objectives"></a>
@@ -56,7 +56,7 @@ Debe tener los elementos siguientes para completar esta práctica:
 
 - [Microsoft Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) o superior (leer [Apéndice B](#AppendixB) para obtener instrucciones sobre cómo instalarlo).
 - [ASP.NET MVC 4](../../../mvc4.md) (incluido en la instalación de Microsoft Visual Studio 2012)
-- Emulador de Windows Phone (incluido en el [7.1.1 de Windows Phone SDK](https://www.microsoft.com/en-us/download/details.aspx?id=29233))
+- Emulador de Windows Phone (incluido en el [7.1.1 de Windows Phone SDK](https://www.microsoft.com/download/details.aspx?id=29233))
 - Opcional: [WebMatrix 2](https://www.microsoft.com/web/webmatrix/) con **Electric Plum iPhone simulador** extensión (solo para el ejercicio 3 usan para navegar por la aplicación web con un emulador de iPhone)
 
 <a id="Setup"></a>
@@ -345,7 +345,7 @@ En esta tarea, actualizará la página de inicio para mostrar la Galería fotogr
 
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-4. Abra la **HomeController.cs** de archivos desde el **controladores** carpeta.
+4. Abra el archivo **HomeController.cs** desde la carpeta **Controladores**.
 5. Agregue las siguientes instrucciones de uso.
 
     (Código de fragmento de código: *HomeController usos de ASP.NET MVC 4 laboratorio - Ex02 -*)
@@ -611,7 +611,7 @@ En esta tarea, creará un diseño personalizado para los dispositivos iPhone y t
 7. Presione **F5** para ejecutar la aplicación y explora el sitio en el **emulador de Windows Phone**.
 8. Abrir un **iPhone simulador** (consulte [Apéndice C](#AppendixC) para obtener instrucciones sobre cómo instalar y configurar un emulador de iPhone) y busque el sitio demasiado. Tenga en cuenta que cada teléfono está usando la plantilla específica.
 
-    ![Using-Different-Views-for-Each-Mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
+    ![Using-different-views-for-each-mobile-device2](whats-new-in-aspnet-mvc-4/_static/image35.png)
 
     *Usar vistas diferentes para cada dispositivo móvil*
 
@@ -622,7 +622,7 @@ En esta tarea, creará un diseño personalizado para los dispositivos iPhone y t
 
 Microsoft .NET Framework 4.5 presenta nuevas características del lenguaje en C# y Visual Basic para proporcionar una nueva base de asincronía en programación de. NET. Esta nueva base hace que la programación asincrónica similar a - y unos tan sencillo como - programación sincrónica. Ahora es posible escribir métodos de acción asincrónicos en ASP.NET MVC 4 mediante la **AsyncController** clase. Puede utilizar métodos de acción asincrónicos de ejecución prolongada, no con la CPU solicitudes. Esto evita que el servidor Web realizar trabajo mientras se procesa la solicitud de bloqueo. La clase AsyncController normalmente se usa para llamadas de servicio Web de ejecución prolongada.
 
-Este ejercicio explica los conceptos básicos de la operación asincrónica en ASP.NET MVC 4. Si desea un análisis más profundo, puede consultar el siguiente artículo: [ [https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/en-us/library/ee728598%28v=vs.100%29.aspx)
+Este ejercicio explica los conceptos básicos de la operación asincrónica en ASP.NET MVC 4. Si desea un análisis más profundo, puede consultar el siguiente artículo: [ [https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)](https://msdn.microsoft.com/library/ee728598%28v=vs.100%29.aspx)
 
 <a id="Task_1_-_Implementing_an_Asynchronous_Controller"></a>
 #### <a name="task-1---implementing-an-asynchronous-controller"></a>Tarea 1: implementar un controlador asincrónico
@@ -653,7 +653,7 @@ Este ejercicio explica los conceptos básicos de la operación asincrónica en A
     > El **async** palabra clave es una de las nuevas palabras clave proporciona .NET Framework 4.5; indica al compilador que este método contiene código asincrónico. A **tarea** objeto representa una operación asincrónica que puede completar en algún momento en el futuro.
 6. Reemplace el **cliente. GetAsync()** llamada con la versión de async completa mediante palabra clave await, tal y como se muestra a continuación.
 
-    (Código de fragmento de código: *GetAsync de ASP.NET MVC 4 laboratorio - Ex04 -*)
+    (Code Snippet - *ASP.NET MVC 4 Lab - Ex04 - GetAsync*)
 
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
@@ -664,7 +664,7 @@ Este ejercicio explica los conceptos básicos de la operación asincrónica en A
     > Agregar el **await** palabra clave indica al compilador que esperar para la tarea devuelta desde la llamada al método de forma asincrónica. Esto significa que el resto del código se ejecutará como una devolución de llamada únicamente cuando haya finalizado el método esperado. Otra cosa que debe tener en cuenta es que no es necesario cambiar el bloque try-catch para solucionar este problema: todavía se detectarán las excepciones que se producen en segundo plano o en primer plano sin ningún trabajo adicional con un controlador proporcionado por el marco de trabajo.
 7. Cambiar el código para continuar con la implementación asincrónica reemplazando las líneas con el nuevo código, tal y como se muestra a continuación
 
-    (Código de fragmento de código: *ReadAsStringAsync de ASP.NET MVC 4 laboratorio - Ex04 -*)
+    (Code Snippet - *ASP.NET MVC 4 Lab - Ex04 - ReadAsStringAsync*)
 
 
     [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
@@ -833,7 +833,7 @@ Para ejecutar el sitio en un dispositivo simulado iPhone puede utilizar la exten
 <a id="Task_1_-_Installing_WebMatrix_2"></a>
 #### <a name="task-1---installing-webmatrix-2"></a>Tarea 1: instalar WebMatrix 2
 
-1. Vaya a [ [https://go.microsoft.com/?linkid=9809776](https://go.microsoft.com/?linkid=9809776)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *WebMatrix 2*&quot;.
+1. Go to [[https://go.microsoft.com/?linkid=9809776](https://go.microsoft.com/?linkid=9809776)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *WebMatrix 2*&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 

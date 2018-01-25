@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
-ms.openlocfilehash: b9abad56a5a5b9219f92cc5b96efee7250a97c55
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ab1642f1a3de298919aa9c6c1ddbd6bbb0cb99b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET y herramientas Web 2012.2 notas de la versión
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 
 - [Notas sobre la instalación](#_Installation)
 - [Documentación](#_Documentation)
-- [Soporte técnico](#_Support)
+- [Support](#_Support)
 - [Requisitos de software](#_Software_Requirements)
 - [Nuevas características de ASP.NET y herramientas Web 2012.2](#_New_Features_in)
 
@@ -152,7 +152,7 @@ Para obtener más información sobre ASP.NET Web API OData vea [https://go.micro
 
 #### <a name="aspnet-web-api-tracing"></a>Seguimiento de ASP.NET Web API
 
-ASP.NET Web API Tracing integra datos de seguimiento de la API de web con el seguimiento. NET. Ahora se habilita de forma predeterminada en la plantilla de proyecto de API Web. Seguimiento de datos para el sitio web API se envían a la ventana de salida y se pone a disposición a través de IntelliTrace. ASP.NET Web API Tracing le permite obtener información de seguimiento sobre la API Web cuando se hospeda en Windows Azure mediante la integración con [diagnósticos de Windows Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh411529.aspx). También puede instalar y habilitar el seguimiento de ASP.NET Web API en las aplicaciones que utilizan el paquete NuGet de traza de ASP.NET Web API ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
+ASP.NET Web API Tracing integra datos de seguimiento de la API de web con el seguimiento. NET. Ahora se habilita de forma predeterminada en la plantilla de proyecto de API Web. Seguimiento de datos para el sitio web API se envían a la ventana de salida y se pone a disposición a través de IntelliTrace. ASP.NET Web API Tracing le permite obtener información de seguimiento sobre la API Web cuando se hospeda en Windows Azure mediante la integración con [diagnósticos de Windows Azure](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). También puede instalar y habilitar el seguimiento de ASP.NET Web API en las aplicaciones que utilizan el paquete NuGet de traza de ASP.NET Web API ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
 Para obtener más información sobre cómo configurar y usar ASP.NET Web API Tracing vea [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
 
@@ -226,7 +226,7 @@ ASP.NET y Web Tools 2012.2 NuGet 2.1 se distribuye y se actualizará la extensi�
 3. Cierre Visual Studio.
 4. Navegue hasta la carpeta de instalación de ASP.NET y 2012.2 de herramientas Web:
 
-    1. Para Visual Studio 2012: **archivos de programa\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
+    1. For Visual Studio 2012: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
     2. Para Visual Studio 2012 Express for Web: **archivos de programa\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio Express 2012 para Web**
 5. Haga doble clic en el NuGet.Tools.vsix para volver a instalar NuGet
 
@@ -240,8 +240,8 @@ Se produce un error en el analizador de URI de OData analizar correctamente los 
 
 OData no es compatible con nombres de propiedad entre mayúsculas y minúsculas en las consultas de OData y ruta de acceso de odata. Ver elementos de trabajo:
 
-- [http://aspnetwebstack.codeplex.com/WorkItem/366](http://aspnetwebstack.codeplex.com/workitem/366)
-- [http://aspnetwebstack.codeplex.com/WorkItem/704](http://aspnetwebstack.codeplex.com/workitem/704)
+- [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366)
+- [http://aspnetwebstack.codeplex.com/workitem/704](http://aspnetwebstack.codeplex.com/workitem/704)
 
 Si los usuarios tienen distinguen mayúsculas de minúsculas en javascript del lado cliente y el lado servidor, probablemente producirán este problema. Este problema es así por diseño en el protocolo odata. Sin embargo, muchos usuarios informa de este problema. Para solucionar esto, los usuarios deben corregir los casos en la dirección URL.
 
@@ -283,9 +283,9 @@ Archivo todo.model.js
 
 función todoList.prototype.addTodo, agregue el siguiente texto blacked:  
  **self.isSelected(true);**  
- self.newTodoTitle (&quot;&quot;);
+ self.newTodoTitle(&quot;&quot;);
 
 Archivo index.cshtml, agregue el siguiente texto blacked:  
  &lt;enlace de datos de formulario =&quot;enviar: addTodo&quot;&gt;  
  &lt;clase de entrada =&quot;addTodo&quot; tipo =&quot;texto&quot; enlace de datos =&quot;valor: newTodoTitle, marcador de posición: 'Tipo aquí para agregar', blurOnEnter: true, **hasfocus: isSelected**, evento: {Desenfoque: addTodo}&quot; /&gt;  
- &lt;/ Form&gt;
+ &lt;/form&gt;

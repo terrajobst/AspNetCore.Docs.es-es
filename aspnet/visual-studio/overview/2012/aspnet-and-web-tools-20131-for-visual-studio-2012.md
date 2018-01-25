@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: 1e4ee8eb4901305bf6a8c9c5b949dc4ee10290e5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c11e2ef9c33b0cae1f196690533094ce1c342da5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="release-notes-for-aspnet-and-web-tools-20131-for-visual-studio-2012"></a>Notas de la versión de ASP.NET y herramientas Web 2013.1 para Visual Studio 2012
 ====================
@@ -40,7 +40,7 @@ por [Microsoft](https://github.com/microsoft)
     - [Entity Framework 6](#ef6)
     - [Scaffolding de ASP.NET](#scaffold)
     - [Editor de Razor](#razor)
-    - [2.7 de NuGet](#nuget)
+    - [NuGet 2.7](#nuget)
 - Problemas conocidos y los cambios recientes
 
     - [Scaffolding de ASP.NET](#issuescaffolding)
@@ -190,7 +190,7 @@ Cuando creas ASP.NET MVC proyectos con Visual Studio 2012 en Windows 8.1 o Windo
 
 ![error de configuración](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image2.png)
 
-Verá este error porque Visual Studio 2012 no habilita la característica ASP.NET 4.5 cuando se instala en esas versiones de Windows. Para habilitar ASP.NET 4.5, siga los pasos descritos en [o desactivar las características de Windows Active](https://windows.microsoft.com/en-us/windows-8/turn-windows-features-on-off).
+Verá este error porque Visual Studio 2012 no habilita la característica ASP.NET 4.5 cuando se instala en esas versiones de Windows. Para habilitar ASP.NET 4.5, siga los pasos descritos en [o desactivar las características de Windows Active](https://windows.microsoft.com/windows-8/turn-windows-features-on-off).
 
 ![Activar o desactivar las características de Windows](aspnet-and-web-tools-20131-for-visual-studio-2012/_static/image3.png)
 

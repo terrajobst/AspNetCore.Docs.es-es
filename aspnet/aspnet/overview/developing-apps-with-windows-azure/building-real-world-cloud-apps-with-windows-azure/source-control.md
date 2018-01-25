@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: f244e6bd1cd8abd23b64d07ccafcef5c4db1029b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Control de código fuente (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -137,9 +137,9 @@ Puede utilizar cualquier entorno de control de código fuente para implementar l
 
 [GIT](http://git-scm.com/) es un DVCS que es se ha vuelto muy popular. Cuando usa Git para el control de código fuente, tendrá una copia completa del repositorio con todo su historial en el equipo local. Muchas personas prefieren que porque es más fácil seguir trabajando cuando no está conectado a la red, aún puede hacer confirma y reversiones, crear y cambiar las ramas y así sucesivamente. Incluso cuando esté conectado a la red, resulta más fácil y rápido crear bifurcaciones y cambiar las ramas cuando todo lo que es local. También puede hacer local confirmar o revertir sin tener un impacto en otros desarrolladores. Y puede procesar por lotes de confirmaciones antes de enviarlos al servidor.
 
-[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), anteriormente conocido como servicio de Team Foundation, ofrece tanto Git y [Team Foundation Version Control](https://msdn.microsoft.com/en-us/library/ms181237(v=vs.120).aspx) (TFVC; centralizada de control de código fuente). Aquí de Microsoft en el grupo de Azure algunos equipos de utilizan el control de fuente centralizada, algunos uso distribuida, y algunos utilizan una combinación (centralizado para algunos proyectos y distribuidas para otros proyectos). El servicio VSO es gratuito para 5 usuarios. Puede registrarse para un plan gratuito [aquí](https://go.microsoft.com/fwlink/?LinkId=307137).
+[Microsoft Visual Studio Online](https://www.visualstudio.com/)(VSO), anteriormente conocido como servicio de Team Foundation, ofrece tanto Git y [Team Foundation Version Control](https://msdn.microsoft.com/library/ms181237(v=vs.120).aspx) (TFVC; centralizada de control de código fuente). Aquí de Microsoft en el grupo de Azure algunos equipos de utilizan el control de fuente centralizada, algunos uso distribuida, y algunos utilizan una combinación (centralizado para algunos proyectos y distribuidas para otros proyectos). El servicio VSO es gratuito para 5 usuarios. Puede registrarse para un plan gratuito [aquí](https://go.microsoft.com/fwlink/?LinkId=307137).
 
-Visual Studio 2013 incorpora de primera clase [Git compatibilidad](https://msdn.microsoft.com/en-us/library/hh850437.aspx); esta es una rápida demostración de cómo funciona.
+Visual Studio 2013 incorpora de primera clase [Git compatibilidad](https://msdn.microsoft.com/library/hh850437.aspx); esta es una rápida demostración de cómo funciona.
 
 Con un proyecto abierto en Visual Studio 2013, haga clic en la solución en **el Explorador de soluciones**y elija **Agregar solución al Control de código fuente**.
 
@@ -187,7 +187,7 @@ Si se cambia al maestro de crear una bifurcación, el contenido de la  *\_Layout
 
 Este un ejemplo simple de cómo puede crear una bifurcación y voltear y hacia atrás entre bifurcaciones rápidamente. Esta característica permite a un flujo de trabajo muy ágil mediante la estructura de bifurcación y scripts de automatización que se presentan en el [automatizar todo](automate-everything.md) capítulo. Por ejemplo, puede trabajar en la bifurcación Development, crear una bifurcación de revisión fuera de master, cambiar a la nueva bifurcación, realice los cambios en él y confirmarlos y después cambia a la bifurcación Development y continuar lo que estabas haciendo.
 
-¿Qué ha visto aquí es la forma de trabajar con un repositorio de Git local en Visual Studio. En un entorno de equipo normalmente también empuje cambios hacia arriba en un repositorio común. Las herramientas de Visual Studio también permiten para que señale a un repositorio de Git remoto. Puede usar GitHub.com para ese fin, o puede usar [Git en Visual Studio Online](https://msdn.microsoft.com/en-us/library/hh850437.aspx) integrado con todas las otras funcionalidades Visual Studio Online como elemento de trabajo y seguimiento de los errores.
+¿Qué ha visto aquí es la forma de trabajar con un repositorio de Git local en Visual Studio. En un entorno de equipo normalmente también empuje cambios hacia arriba en un repositorio común. Las herramientas de Visual Studio también permiten para que señale a un repositorio de Git remoto. Puede usar GitHub.com para ese fin, o puede usar [Git en Visual Studio Online](https://msdn.microsoft.com/library/hh850437.aspx) integrado con todas las otras funcionalidades Visual Studio Online como elemento de trabajo y seguimiento de los errores.
 
 Esto no es la única manera de pueden implementar una estrategia de bifurcación agile, por supuesto. Puede habilitar el mismo flujo de trabajo agile con un repositorio de control de código fuente centralizada.
 
@@ -202,14 +202,14 @@ El [Visual Studio Online](https://www.visualstudio.com/) portal proporciona serv
 
 Para obtener más información acerca de TFVC (control de versiones centralizado) y Git (control de versiones distribuidas), vea los siguientes recursos:
 
-- [¿Qué sistema de control de versiones se debe usar: TFVC o Git?](https://msdn.microsoft.com/en-us/library/vstudio/ms181368.aspx#tfvc_or_git_summary) La documentación de MSDN, incluye una tabla que resume las diferencias entre TFVC y Git.
+- [¿Qué sistema de control de versiones se debe usar: TFVC o Git?](https://msdn.microsoft.com/library/vstudio/ms181368.aspx#tfvc_or_git_summary) La documentación de MSDN, incluye una tabla que resume las diferencias entre TFVC y Git.
 - [Bueno, me gustaría Team Foundation Server y me gustaría Git, pero que es mejor?](https://blogs.msdn.com/b/visualstudiouk/archive/2013/08/05/well-i-like-team-foundation-server-and-i-like-git-but-which-is-better.aspx) Comparación de TFVC y Git.
 
 Para obtener más información acerca de las estrategias de bifurcación, vea los siguientes recursos:
 
-- [Creación de una canalización de versiones con Team Foundation Server 2012](https://msdn.microsoft.com/en-us/library/dn449957.aspx). Documentación de Microsoft Patterns and Practices. Consulte el capítulo 6 para obtener una explicación de las estrategias de bifurcación. Característica de abogados alterna en bifurcaciones de características y si se utilizan bifurcaciones para características, abogados consigue que sigan siendo corta duración (horas o días como máximo).
+- [Creación de una canalización de versiones con Team Foundation Server 2012](https://msdn.microsoft.com/library/dn449957.aspx). Documentación de Microsoft Patterns and Practices. Consulte el capítulo 6 para obtener una explicación de las estrategias de bifurcación. Característica de abogados alterna en bifurcaciones de características y si se utilizan bifurcaciones para características, abogados consigue que sigan siendo corta duración (horas o días como máximo).
 - [Guía de Control de versión](https://aka.ms/vsarsolutions). Guía de las estrategias de bifurcación por ALM Rangers. Consulte Strategies.pdf de bifurcación en la ficha de descargas.
-- [Desarrollo de software con características alterna](https://msdn.microsoft.com/en-us/magazine/dn683796.aspx). Artículo de MSDN Magazine.
+- [Desarrollo de software con características alterna](https://msdn.microsoft.com/magazine/dn683796.aspx). Artículo de MSDN Magazine.
 - [Característica alternar](http://martinfowler.com/bliki/FeatureToggle.html). Introducción a la característica alterna / función coloca una marca en el blog de Martin Fowler.
 - [Activa o desactiva vs bifurcaciones de la característica de características](http://geekswithblogs.net/Optikal/archive/2013/02/10/152069.aspx). Otra entrada de blog sobre alterna de característica, Dylan Smith.
 

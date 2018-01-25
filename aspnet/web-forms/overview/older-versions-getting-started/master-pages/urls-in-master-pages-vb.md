@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603457655e2490e1685f53d2cec643cb9382a59d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8aa0ed2fbf385e4b8dbb7e7a3bdb152f1e016e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="urls-in-master-pages-vb"></a>Direcciones URL de páginas maestras (VB)
 ====================
@@ -108,7 +108,7 @@ Las buenas noticias son que ofrece un método para generar una dirección URL re
 
 En su lugar de codificar de forma rígida una dirección URL absoluta, ASP.NET permite a los desarrolladores de páginas usar la tilde (`~`) para indicar la raíz de la aplicación web. Por ejemplo, anteriormente en este tutorial utiliza la notación `~/Admin/Default.aspx` en el texto que se va a hacer referencia a la `Default.aspx` página en el `Admin` carpeta. El `~` indica que el `Admin` carpeta es una subcarpeta de la raíz de la aplicación web.
 
-El `Control` la clase [ `ResolveClientUrl` método](https://msdn.microsoft.com/en-us/library/system.web.ui.control.resolveclienturl.aspx) toma una dirección URL y modifica a una dirección URL relativa adecuada para la página web en el que reside el control. Por ejemplo, al llamar a `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` de `About.aspx` devuelve `Images/PoweredByASPNET.gif`. Llamarlo desde `~/Admin/Default.aspx`, sin embargo, se devuelve `../Images/PoweredByASPNET.gif`.
+El `Control` la clase [ `ResolveClientUrl` método](https://msdn.microsoft.com/library/system.web.ui.control.resolveclienturl.aspx) toma una dirección URL y modifica a una dirección URL relativa adecuada para la página web en el que reside el control. Por ejemplo, al llamar a `ResolveClientUrl("~/Images/PoweredByASPNET.gif")` de `About.aspx` devuelve `Images/PoweredByASPNET.gif`. Llamarlo desde `~/Admin/Default.aspx`, sin embargo, se devuelve `../Images/PoweredByASPNET.gif`.
 
 > [!NOTE]
 > Dado que todos los controles de servidor ASP.NET que se derivan de la `Control` (clase), todos los controles de servidor tienen acceso a la `ResolveClientUrl` método. Incluso la `Page` clase se deriva de la `Control` (clase), lo que significa que puede usar este método directamente desde las clases de código subyacente de las páginas ASP.NET.

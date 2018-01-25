@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/cross-site-scripting
-ms.openlocfilehash: af73a86aa6bcde084ecbe1a3fb5711c7da55871c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3aaab9d4fecd3f0d0da6a0df4d83bee090b329ea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="preventing-cross-site-scripting"></a>Impedir el Scripting entre sitios
 
@@ -56,7 +56,7 @@ Esta vista muestra el contenido de la *untrustedInput* variable. Esta variable i
    ```
 
 >[!WARNING]
-> Núcleo ASP.NET MVC proporciona una `HtmlString` clase que no es necesario codificar automáticamente tras la salida. Esto nunca debe utilizarse en combinación con la entrada no es de confianza como esto expondrá una vulnerabilidad XSS.
+> Núcleo ASP.NET MVC proporciona una `HtmlString` clase que no está codificado automáticamente tras la salida. Esto nunca debe utilizarse en combinación con la entrada no es de confianza como esto expondrá una vulnerabilidad XSS.
 
 ## <a name="javascript-encoding-using-razor"></a>Codificación de JavaScript con Razor
 
@@ -141,11 +141,11 @@ Esto se representará en el Explorador de manera;
    ```
 
 >[!WARNING]
-> No concatene ninguna entrada que no se confía en JavaScript para crear elementos DOM. Debe usar `createElement()` y asignar valores de propiedad correctamente como `node.TextContent=`, o use `element.SetAttribute()` / `element[attribute]=` en caso contrario, se expone a DOM-based XSS.
+> No concatene que no se confía en JavaScript para crear elementos DOM. Debe usar `createElement()` y asignar valores de propiedad correctamente como `node.TextContent=`, o use `element.SetAttribute()` / `element[attribute]=` en caso contrario, se expone a DOM-based XSS.
 
 ## <a name="accessing-encoders-in-code"></a>Obtener acceso a los codificadores en código
 
-Los codificadores HTML, JavaScript y URL están disponibles en el código de dos maneras, también puede insertar ellos a través de [inyección de dependencia](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) o puede usar los codificadores predeterminados incluidos en el `System.Text.Encodings.Web` espacio de nombres. Si usas los codificadores de manera predeterminada, a continuación, aplicado a los intervalos de caracteres ser tratados como seguros no surtirán efecto; los codificadores predeterminado usar las reglas de codificación más seguras posible.
+Los codificadores HTML, JavaScript y URL están disponibles en el código de dos maneras, también puede insertar ellos a través de [inyección de dependencia](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) o puede usar los codificadores predeterminados incluidos en el `System.Text.Encodings.Web` espacio de nombres. Si usas los codificadores de manera predeterminada, a continuación, aplicado a los intervalos de caracteres se traten como seguros no surtirán efecto: los codificadores predeterminado usen las reglas de codificación más seguras posible.
 
 Para usar los codificadores configurables a través de DI deben tomar los constructores de una *HtmlEncoder*, *JavaScriptEncoder* y *UrlEncoder* parámetro según corresponda. Por ejemplo,
 
@@ -179,7 +179,7 @@ var example = "\"Quoted Value with spaces and &\"";
 Después de la codificación del encodedValue variable contendrá `%22Quoted%20Value%20with%20spaces%20and%20%26%22`. Espacios, comillas, signos de puntuación y otros caracteres no seguros se porcentaje codificados en su valor hexadecimal, por ejemplo un carácter de espacio se convertirá en % 20.
 
 >[!WARNING]
-> No se utilice la entrada no es de confianza como parte de una ruta de acceso de dirección URL. Siempre pase datos proporcionados no es de confianza como un valor de cadena de consulta.
+> No use la entrada no es de confianza como parte de una ruta de acceso de dirección URL. Siempre pase datos proporcionados no es de confianza como un valor de cadena de consulta.
 
 <a name="security-cross-site-scripting-customization"></a>
 

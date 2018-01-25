@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: af4967f642ba4615f3392c0c404d2ec62edaaae8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 48a7d7fdb670aebb72450fc4eb12a364ef595c53
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-dependency-injection"></a>Inserción de dependencias de MVC de ASP.NET 4
 ====================
@@ -25,7 +25,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > [!NOTE]
 > Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC** y **filtros de ASP.NET MVC 4**. Si no ha usado **filtros de ASP.NET MVC 4** antes, le recomendamos que repase **filtros de acción de ASP.NET MVC personalizado** laboratorio práctico.
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 En **la programación orientada a objetos de objeto** paradigma, objetos trabajan juntos en un modelo de colaboración donde hay colaboradores y los consumidores. Naturalmente, este modelo de comunicación genera las dependencias entre los objetos y componentes, pase a ser difíciles de administrar cuando aumenta la complejidad.

@@ -8,11 +8,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: security/authorization/secure-data
-ms.openlocfilehash: 861ac619c7f5fb19a56c59536e20724d96bbddca
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7404b8ec20ed6a00554c8a7ade9a282362b9a186
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -221,11 +221,11 @@ Actualización de la *Views/Contacts/Index.cshtml* vista Razor para mostrar la e
 
 Agregar`@using ContactManager.Authorization;`
 
-Actualización de la `Edit` y `Delete` vincula por lo que solo se representan para que los usuarios con permiso Modificar y eliminar el contacto.
+Actualización de la `Edit` y `Delete` vínculos para que solo se procesan para que los usuarios con permiso Modificar y eliminar el contacto.
 
 [!code-html[Main](secure-data/samples/final/Views/Contacts/Index.cshtml?range=63-84)]
 
-Advertencia: Ocultar los vínculos de los usuarios que no tienen permiso para editar o eliminar los datos no protege la aplicación. Ocultar los vínculos hace que la aplicación de usuario más descriptivo mostrando vínculos solo es válido. Los usuarios pueden hack las direcciones URL generadas para invocar Editar y eliminar operaciones en los datos que no poseen.  El controlador debe repetir que comprueba el acceso para que sea seguro.
+Advertencia: Ocultar los vínculos de los usuarios que no tienen permiso para editar o eliminar los datos no proteger la aplicación. Ocultar los vínculos hace que la aplicación de usuario más descriptivo mostrando vínculos solo es válido. Los usuarios pueden hack las direcciones URL generadas para invocar Editar y eliminar operaciones en los datos que no poseen.  El controlador debe repetir que comprueba el acceso para que sea seguro.
 
 ### <a name="update-the-details-view"></a>Actualizar la vista de detalles
 
@@ -304,7 +304,7 @@ Agregue el código resaltado hasta el final de la `Configure` método en el *Sta
 
 [!code-csharp[Main](secure-data/samples/starter/Startup.cs?name=Configure&highlight=28-)]
 
-Compruebe que la aplicación había propagado la base de datos. El método de inicialización no se ejecuta si hay filas en la base de datos de contacto.
+Compruebe que la aplicación había propagado la base de datos. El método de inicialización no se ejecuta si no hay ninguna fila en la base de datos de contacto.
 
 ### <a name="create-a-class-used-in-the-tutorial"></a>Crear una clase usada en el tutorial
 

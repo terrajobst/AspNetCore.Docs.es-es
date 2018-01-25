@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 5054f932d05fb612a6e18a81274719d7e249b77b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4de0b52e0b4ae7ce00e7b07bce2decfc5068964a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Creación de aplicaciones de nube reales con Azure
 ====================
@@ -103,7 +103,7 @@ Este libro electrónico explica que trece recomiendan patrones para el desarroll
     - Habilitar la alta disponibilidad y mejorar la escalabilidad mediante niveles de web y de trabajo de acoplamiento flexible.
     - Demostración: Colas de almacenamiento de Azure en la aplicación repararlo.
 - [La nube más patrones de aplicación y las directrices](more-patterns-and-guidance.md).
-- [Apéndice: La solución aplicación de ejemplo](the-fix-it-sample-application.md)
+- [Apéndice: Aplicación de ejemplo Reparar](the-fix-it-sample-application.md)
 
     - Problemas conocidos
     - Procedimientos recomendados
@@ -155,7 +155,7 @@ Si un equipo deja de funcionar, Azure automáticamente extrae de la rotación, g
 
 Todo esto se realiza automáticamente. Todo lo que necesita hacer es crear un sitio web e implementar la aplicación, con Windows PowerShell, Visual Studio o el portal de administración de Azure.
 
-Para un rápida y sencillo tutorial paso a paso que muestra cómo crear una aplicación web en Visual Studio e implementarlo en un sitio Web de Azure, consulte [Introducción a Azure y ASP.NET](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Para un rápida y sencillo tutorial paso a paso que muestra cómo crear una aplicación web en Visual Studio e implementarlo en un sitio Web de Azure, consulte [Introducción a Azure y ASP.NET](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
 <a id="summary"></a>
 ## <a name="summary"></a>Resumen
@@ -168,13 +168,13 @@ Para obtener más información sobre los temas tratados en este capítulo, consu
 
 Documentación:
 
-- [Aplicaciones de servicio de aplicaciones de Azure Web](https://azure.microsoft.com/en-us/services/app-service/web/). Página del portal de Azure documentación acerca de las aplicaciones Web.
-- [¿Las aplicaciones Web, servicios en la nube y las máquinas virtuales: cuándo usar cada?](https://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/) WAWS tal y como se muestra en este capítulo es solo una de estas tres maneras puede ejecutar aplicaciones web en Azure. En este artículo se explica las diferencias entre las tres formas y proporciona una orientación sobre cómo elegir cuál es el adecuado para su escenario. Al igual que los sitios Web, servicios en la nube es una característica de PaaS de Azure. Las máquinas virtuales son una característica de IaaS. Para obtener una explicación de PaaS frente a IaaS, vea el [opciones de datos](data-storage-options.md#paasiaas) capítulo.
+- [Aplicaciones de servicio de aplicaciones de Azure Web](https://azure.microsoft.com/services/app-service/web/). Página del portal de Azure documentación acerca de las aplicaciones Web.
+- [¿Las aplicaciones Web, servicios en la nube y las máquinas virtuales: cuándo usar cada?](https://azure.microsoft.com/documentation/articles/choose-web-site-cloud-service-vm/) WAWS tal y como se muestra en este capítulo es solo una de estas tres maneras puede ejecutar aplicaciones web en Azure. En este artículo se explica las diferencias entre las tres formas y proporciona una orientación sobre cómo elegir cuál es el adecuado para su escenario. Al igual que los sitios Web, servicios en la nube es una característica de PaaS de Azure. Las máquinas virtuales son una característica de IaaS. Para obtener una explicación de PaaS frente a IaaS, vea el [opciones de datos](data-storage-options.md#paasiaas) capítulo.
 
 Vídeos:
 
-- [Scott Guthrie comienza en el paso 0: ¿qué es el sistema operativo en la nube de Azure?](https://azure.microsoft.com/en-us/documentation/videos/what-is-the-cloud-os-scottgu/)
-- [Arquitectura de sitios Web - con Stefan Schackow](https://azure.microsoft.com/en-us/documentation/videos/why-azure-web-sites-plus-architecture/).
+- [Scott Guthrie comienza en el paso 0: ¿qué es el sistema operativo en la nube de Azure?](https://azure.microsoft.com/documentation/videos/what-is-the-cloud-os-scottgu/)
+- [Arquitectura de sitios Web - con Stefan Schackow](https://azure.microsoft.com/documentation/videos/why-azure-web-sites-plus-architecture/).
 - [Funcionamiento interno de sitios Web de Azure con Nir Mashkowski](https://channel9.msdn.com/Shows/Web+Camps+TV/Windows-Azure-Web-Sites-Internals-with-Nir-Mashkowski).
 
 >[!div class="step-by-step"]

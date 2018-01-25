@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-a-tfs-build-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 505cca303b5569b2f676adab767d742cb5cd21a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de31a9dffb95b863a4ec38b74fd2c6e03f287a7f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Configurar un servidor de compilación TFS para la implementación Web
 ====================
@@ -36,7 +36,7 @@ El método de implementación en el centro de estos tutoriales se basa en el enf
 Para preparar un servidor de compilación para compilar e implementar sus soluciones, necesitará:
 
 - Instalar y configurar el servicio de compilación TFS.
-- Instalar Visual Studio 2010.
+- Install Visual Studio 2010.
 - Instale los productos o componentes que son necesarias para compilar la solución, como en las versiones de .NET Framework o ASP.NET MVC.
 - Instalar Web Deploy 2.0 o posterior.
 
@@ -58,13 +58,13 @@ Cuando se configura un servidor de compilación, la primera tarea consiste en in
 - Crear un *controlador de compilación* y uno o varios *agentes de compilación*. Cada controlador de compilación administra un conjunto de agentes de compilación. Cuando pone en cola una compilación, el controlador de compilación asigna la tarea de compilación a un agente de compilación disponible. Cada colección de proyectos de equipo en TFS se asigna a un controlador de compilación único.
 - Configurar una carpeta de entrega para los resultados de la compilación. Se trata de un recurso compartido de red. Cualquier compilación salidas, como paquetes de implementación web, se envían a la carpeta de entrega.
 
-El [Administrar Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx) capítulo en MSDN contiene todos los recursos que necesita para realizar estas tareas:
+El [Administrar Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx) capítulo en MSDN contiene todos los recursos que necesita para realizar estas tareas:
 
-- Para obtener información conceptual de Team Foundation Build, incluido el servicio de compilación, controladores de compilación y agentes de compilación, consulte [descripción de un sistema de compilación de Team Foundation](https://msdn.microsoft.com/en-us/library/dd793166.aspx).
-- Para obtener información sobre cómo instalar y configurar el servicio de compilación, consulte [configurar una máquina de compilación](https://msdn.microsoft.com/en-us/library/ms181712.aspx).
-- Para obtener información acerca de cómo crear controladores de compilación, consulte [crear y trabajar con un controlador de compilación](https://msdn.microsoft.com/en-us/library/ee330987.aspx).
-- Para obtener información sobre cómo crear agentes de compilación, consulte [crear y trabajar con agentes de compilación](https://msdn.microsoft.com/en-us/library/bb399135.aspx).
-- Para obtener información sobre cómo crear y configurar carpetas de entrega, vea [configurar carpetas de entrega](https://msdn.microsoft.com/en-us/library/bb778394.aspx).
+- Para obtener información conceptual de Team Foundation Build, incluido el servicio de compilación, controladores de compilación y agentes de compilación, consulte [descripción de un sistema de compilación de Team Foundation](https://msdn.microsoft.com/library/dd793166.aspx).
+- Para obtener información sobre cómo instalar y configurar el servicio de compilación, consulte [configurar una máquina de compilación](https://msdn.microsoft.com/library/ms181712.aspx).
+- Para obtener información acerca de cómo crear controladores de compilación, consulte [crear y trabajar con un controlador de compilación](https://msdn.microsoft.com/library/ee330987.aspx).
+- Para obtener información sobre cómo crear agentes de compilación, consulte [crear y trabajar con agentes de compilación](https://msdn.microsoft.com/library/bb399135.aspx).
+- Para obtener información sobre cómo crear y configurar carpetas de entrega, vea [configurar carpetas de entrega](https://msdn.microsoft.com/library/bb778394.aspx).
 
 ## <a name="install-required-products-and-components"></a>Instalar componentes y productos necesarios
 
@@ -78,7 +78,7 @@ La mejor manera de instalar los componentes de plataforma web común es usar el 
 
 **Para instalar los componentes y productos necesarios**
 
-1. Instalar Visual Studio 2010. Cuando se le pida seleccionar características para instalar, debe incluir:
+1. Install Visual Studio 2010. Cuando se le pida seleccionar características para instalar, debe incluir:
 
     1. Los lenguajes de programación que se debe compilar.
     2. Visual Web Developer. Esto garantiza que los destinos WPP se agregan a su servidor de compilación.
@@ -100,7 +100,7 @@ La mejor manera de instalar los componentes de plataforma web común es usar el 
 7. En el **ASP.NET MVC 3 (Visual Studio 2010)** la fila, haga clic en **agregar**.
 8. En el panel de navegación, haga clic en **Server**.
 9. En el **2.1 de herramienta de implementación Web** la fila, haga clic en **agregar**.
-10. Haga clic en **Instalar**. El instalador de plataforma Web mostrará una lista de productos & #x 2014; junto con las dependencias asociadas & #x 2014; esté instalado y se le pedirá que acepte los términos de licencia.
+10. Haga clic en **Instalar**. El instalador de plataforma Web mostrará una lista de productos &#x2014; junto con las dependencias asociadas &#x2014; esté instalado y se le pedirá que acepte los términos de licencia.
 11. Revise los términos de licencia y, si acepta los términos, haga clic en **acepto**.
 12. Una vez completada la instalación, haga clic en **finalizar**y, a continuación, cierre el **instalador de plataforma Web 3.0** ventana.
 
@@ -114,7 +114,7 @@ En este momento, el servidor de compilación está listo para empezar a compilar
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener instrucciones más generales sobre cómo trabajar con Team Build, consulte [Administrar Team Foundation Build](https://msdn.microsoft.com/en-us/library/ms252495.aspx).
+Para obtener instrucciones más generales sobre cómo trabajar con Team Build, consulte [Administrar Team Foundation Build](https://msdn.microsoft.com/library/ms252495.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](adding-content-to-source-control.md)

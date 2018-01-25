@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-staging-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b5f223f59a8b222f4f01322d228cf7434e3dfc14
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 683a0cf88225fee762e82925afe3785a2defd5bf
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a>Escenario: Configuración de un entorno de ensayo para la implementación Web
 ====================
@@ -35,7 +35,7 @@ Muchas organizaciones utilizan entornos de ensayo para obtener una vista previa 
 - Cambios en las aplicaciones se implementan con frecuencia, por lo que el entorno debe admitir paso a paso o la implementación automatizada.
 
 > [!NOTE]
-> Escalar horizontalmente una implementación de base de datos entre varios servidores queda fuera del ámbito de este tutorial. Para obtener más información sobre esta área, consulte [libros en pantalla de SQL Server](https://technet.microsoft.com/en-us/library/ms130214.aspx).
+> Escalar horizontalmente una implementación de base de datos entre varios servidores queda fuera del ámbito de este tutorial. Para obtener más información sobre esta área, consulte [libros en pantalla de SQL Server](https://technet.microsoft.com/library/ms130214.aspx).
 
 
 Por ejemplo, en nuestro [escenario del tutorial](../deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview.md), Team Foundation Server (TFS) administra la solución póngase en contacto con el administrador. El administrador TFS, Rob Walters, ha creado una definición de compilación que permite a los programadores activar una implementación en el entorno de ensayo según sea necesario.

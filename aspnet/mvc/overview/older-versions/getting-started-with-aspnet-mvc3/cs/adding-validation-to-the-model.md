@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: a1d6a6468a39f31c3af8779abbbced093288773c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6bce4a5d889f548cb1faec15842310703d7077b8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Agregar validación para el modelo (C#)
 ====================
@@ -51,13 +51,13 @@ Echemos un vistazo a cómo puede aprovechar las ventajas de esta compatibilidad 
 
 Comenzará agregando alguna lógica de validación para el `Movie` clase.
 
-Abra el archivo *Movie.cs*. Agregar un `using` instrucción en la parte superior del archivo que se hace referencia a la [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) espacio de nombres:
+Abra el archivo *Movie.cs*. Agregar un `using` instrucción en la parte superior del archivo que se hace referencia a la [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) espacio de nombres:
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample1.cs)]
 
 El espacio de nombres forma parte de .NET Framework. Proporciona un conjunto integrado de atributos de validación que se pueden aplicar mediante declaración a cualquier clase o propiedad.
 
-Ahora, actualice la `Movie` clase para aprovechar las ventajas de los integrados [ `Required` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), y [ `Range` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.rangeattribute.aspx) atributos de validación . Utilice el código siguiente como ejemplo de dónde se debe aplicar los atributos.
+Ahora, actualice la `Movie` clase para aprovechar las ventajas de los integrados [ `Required` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx), [ `StringLength` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx), y [ `Range` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.rangeattribute.aspx) atributos de validación . Utilice el código siguiente como ejemplo de dónde se debe aplicar los atributos.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample2.cs)]
 
@@ -105,11 +105,11 @@ Si desea cambiar la lógica de validación más adelante, puede hacerlo en exact
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Si agrega un formato para el modelo de película
 
-Abra el archivo *Movie.cs*. El [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) espacio de nombres proporciona los atributos de formato además del conjunto de atributos de validación integrado. Que va a aplicar la [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atributo y un [ `DataType` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) valor de enumeración para la fecha de lanzamiento y los campos de precio. El código siguiente muestra el `ReleaseDate` y `Price` propiedades con el adecuado [ `DisplayFormat` ](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atributo.
+Abra el archivo *Movie.cs*. El [ `System.ComponentModel.DataAnnotations` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) espacio de nombres proporciona los atributos de formato además del conjunto de atributos de validación integrado. Que va a aplicar la [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atributo y un [ `DataType` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) valor de enumeración para la fecha de lanzamiento y los campos de precio. El código siguiente muestra el `ReleaseDate` y `Price` propiedades con el adecuado [ `DisplayFormat` ](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.displayformatattribute.aspx) atributo.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample7.cs)]
 
-Como alternativa, podría establecer explícitamente un [ `DataFormatString` ](https://msdn.microsoft.com/en-us/library/system.string.format.aspx) valor. El código siguiente muestra la propiedad de fecha de lanzamiento con una cadena de formato de fecha (es decir, "d"). Se utilizaría para especificar que no desea tiempo como parte de la fecha de lanzamiento.
+Como alternativa, podría establecer explícitamente un [ `DataFormatString` ](https://msdn.microsoft.com/library/system.string.format.aspx) valor. El código siguiente muestra la propiedad de fecha de lanzamiento con una cadena de formato de fecha (es decir, "d"). Se utilizaría para especificar que no desea tiempo como parte de la fecha de lanzamiento.
 
 [!code-csharp[Main](adding-validation-to-the-model/samples/sample8.cs)]
 

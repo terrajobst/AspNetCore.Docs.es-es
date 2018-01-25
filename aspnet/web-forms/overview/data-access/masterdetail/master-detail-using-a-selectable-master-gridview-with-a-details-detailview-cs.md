@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: badf9da0e9a26d185e7532b02f53a8acea60ea91
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f0d380ee411116844f42a542c12050513721eb1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Maestro y detalles mediante un GridView maestro seleccionable con un DetailView de detalles (C#)
 ====================
@@ -39,7 +39,7 @@ En el [tutorial anterior](master-detail-filtering-across-two-pages-cs.md) hemos 
 
 ## <a name="step-1-creating-a-selectable-gridview"></a>Paso 1: Crear un control GridView seleccionable
 
-Recuerde que en la dos páginas principal-detalle informar de que cada registro maestro incluye un hipervínculo que, al hacer clic, envía al usuario a la página de detalles que se pasa a la fila donde ha hecho clic `SupplierID` valor en la cadena de consulta. Se agregó un hipervínculo de este tipo para cada fila de GridView utilizando un campo Hyperlink. Para el informe de página maestra/detalles, necesitamos un botón para cada GridView de filas que, al hacer clic, muestra los detalles. El control GridView puede configurarse para incluir un botón Seleccionar para cada fila que provoca una devolución de datos y marca esa fila como la GridView [SelectedRow](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
+Recuerde que en la dos páginas principal-detalle informar de que cada registro maestro incluye un hipervínculo que, al hacer clic, envía al usuario a la página de detalles que se pasa a la fila donde ha hecho clic `SupplierID` valor en la cadena de consulta. Se agregó un hipervínculo de este tipo para cada fila de GridView utilizando un campo Hyperlink. Para el informe de página maestra/detalles, necesitamos un botón para cada GridView de filas que, al hacer clic, muestra los detalles. El control GridView puede configurarse para incluir un botón Seleccionar para cada fila que provoca una devolución de datos y marca esa fila como la GridView [SelectedRow](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedrow.aspx).
 
 Empiece agregando un control GridView a la `DetailsBySelecting.aspx` página en el `Filtering` carpeta, establecer su `ID` propiedad `ProductsGrid`. A continuación, agregue un nuevo ObjectDataSource denominado `AllProductsDataSource` que invoca la `ProductsBLL` la clase `GetProducts()` método.
 
@@ -85,7 +85,7 @@ Activar la opción Habilitar selección agrega un CommandField a la `ProductsGri
 
 [!code-aspx[Main](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs/samples/sample2.aspx)]
 
-Cuando se hace clic en el botón de selección de una fila de GridView que habrá trastornos una devolución de datos y la GridView `SelectedRow` se actualiza la propiedad. Además el `SelectedRow` propiedad, GridView proporciona el [SelectedIndex](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), y [SelectedDataKey](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) propiedades. El `SelectedIndex` propiedad devuelve el índice de la fila seleccionada, mientras que la `SelectedValue` y `SelectedDataKey` propiedades devuelven valores según el GridView [propiedad DataKeyNames](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
+Cuando se hace clic en el botón de selección de una fila de GridView que habrá trastornos una devolución de datos y la GridView `SelectedRow` se actualiza la propiedad. Además el `SelectedRow` propiedad, GridView proporciona el [SelectedIndex](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedindex%28VS.80%29.aspx), [SelectedValue](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selectedvalue%28VS.80%29.aspx), y [SelectedDataKey](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.selecteddatakey%28VS.80%29.aspx) propiedades. El `SelectedIndex` propiedad devuelve el índice de la fila seleccionada, mientras que la `SelectedValue` y `SelectedDataKey` propiedades devuelven valores según el GridView [propiedad DataKeyNames](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.datakeynames%28VS.80%29.aspx).
 
 El `DataKeyNames` propiedad se utiliza para asociar uno o más campos de datos valores con cada fila y se usan normalmente para la información de identificación exclusiva de los datos subyacentes con cada fila de GridView de atributos. El `SelectedValue` propiedad devuelve el valor del primer `DataKeyNames` campo de datos para la fila seleccionada where como la `SelectedDataKey` propiedad devuelve la fila seleccionada `DataKey` objeto, que contiene todos los valores para los campos de clave de datos especificado para esa fila.
 
@@ -162,7 +162,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

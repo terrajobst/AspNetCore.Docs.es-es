@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/programmatically-setting-the-objectdatasource-s-parameter-values-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f84558bcc59068f2c6cab390c303ebd97953aaa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aa4afbf2200e1167c9f66aeaddb4273e710394b4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a>Establecer mediante programación los valores de parámetro de ObjectDataSource (VB)
 ====================
@@ -33,7 +33,7 @@ Como vimos en el [tutorial anterior](declarative-parameters-vb.md), una serie de
 
 Puede haber ocasiones, sin embargo, cuando el valor del parámetro procede de algún origen ya no tienen en cuenta uno del origen de datos integrados `Parameter` objetos. Si nuestro sitio admite cuentas de usuario que queramos establezca el parámetro tomando como base el actualmente ha iniciado sesión Id. de usuario del visitante O bien, podemos necesitar personalizar el valor del parámetro antes de enviarlo a lo largo de al método del objeto subyacente de ObjectDataSource.
 
-Cada vez que el ObjectDataSource `Select` se invoca el método genera el ObjectDataSource en primer lugar su [evento Selecting](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). A continuación, se invoca el método del objeto subyacente de ObjectDataSource. Una vez que se haya completado la ObjectDataSource [eventos seleccionados](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) se activa (figura 1 muestra esta secuencia de eventos). Pueden establecer los valores de parámetro pasados al método del objeto subyacente de ObjectDataSource o personalizados en un controlador de eventos para el `Selecting` eventos.
+Cada vez que el ObjectDataSource `Select` se invoca el método genera el ObjectDataSource en primer lugar su [evento Selecting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting%28VS.80%29.aspx). A continuación, se invoca el método del objeto subyacente de ObjectDataSource. Una vez que se haya completado la ObjectDataSource [eventos seleccionados](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selected%28VS.80%29.aspx) se activa (figura 1 muestra esta secuencia de eventos). Pueden establecer los valores de parámetro pasados al método del objeto subyacente de ObjectDataSource o personalizados en un controlador de eventos para el `Selecting` eventos.
 
 
 [![Se invoca el ObjectDataSource seleccionados y método de selección de incendio de eventos antes y después de su subyacente del objeto](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image2.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image1.png)
@@ -55,7 +55,7 @@ En nuestro ejemplo primero tenemos que agregar a fin de recuperar los empleados 
 **Figura 2**: agregar una nueva consulta para la `EmployeesTableAdapter` ([haga clic aquí para ver la imagen a tamaño completo](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image6.png))
 
 
-Elija esta opción para agregar una instrucción SQL que devuelve filas. Cuando llegue a especificar una `SELECT` el valor predeterminado de la pantalla de instrucción `SELECT` instrucción para el `EmployeesTableAdapter` ya se va a cargar. Basta con agregar en el `WHERE` cláusula: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/en-us/library/ms174420.aspx) es una función de T-SQL que devuelve una parte de fecha en particular de un `datetime` tipo; en este caso usamos `DATEPART` para devolver el mes de la `HireDate` columna.
+Elija esta opción para agregar una instrucción SQL que devuelve filas. Cuando llegue a especificar una `SELECT` el valor predeterminado de la pantalla de instrucción `SELECT` instrucción para el `EmployeesTableAdapter` ya se va a cargar. Basta con agregar en el `WHERE` cláusula: `WHERE DATEPART(m, HireDate) = @Month`. [DATEPART](https://msdn.microsoft.com/library/ms174420.aspx) es una función de T-SQL que devuelve una parte de fecha en particular de un `datetime` tipo; en este caso usamos `DATEPART` para devolver el mes de la `HireDate` columna.
 
 
 [![Solo las filas donde el HireDate columna de retorno es menor o igual que el @HiredBeforeDate parámetro](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image8.png)](programmatically-setting-the-objectdatasource-s-parameter-values-vb/_static/image7.png)
@@ -147,7 +147,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

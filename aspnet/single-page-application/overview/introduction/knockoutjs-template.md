@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 6e84dcc16345e33fcd3a3f83c4b35bc993c03ca6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6c0c45bed098a8a1160ff11e4f77244bf55ffd3
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-page-application-knockoutjs-template"></a>Aplicación de una sola página: Plantilla KnockoutJS
 ====================
@@ -117,7 +117,7 @@ Este archivo contiene modelos de pertenencia a un sitio. La `UserProfile` clase 
 
 ## <a name="entity-framework"></a>Entity Framework
 
-La plantilla SPA utiliza EF Code First. En el desarrollo Code First, definir los modelos en primer lugar en el código y, a continuación, EF utiliza el modelo para crear la base de datos. También puede utilizar EF con una base de datos existente ([Database First](https://msdn.microsoft.com/en-us/data/jj206878.aspx)).
+La plantilla SPA utiliza EF Code First. En el desarrollo Code First, definir los modelos en primer lugar en el código y, a continuación, EF utiliza el modelo para crear la base de datos. También puede utilizar EF con una base de datos existente ([Database First](https://msdn.microsoft.com/data/jj206878.aspx)).
 
 El `TodoItemContext` deriva la clase en la carpeta Models **DbContext**. Esta clase proporciona el "adherencia" entre los modelos y EF. El `TodoItemContext` contiene un `ToDoItem` colección y un `TodoList` colección. Para consultar la base de datos, basta con escribir una consulta LINQ en estas colecciones. Por ejemplo, mostramos cómo puede seleccionar todas las listas de tareas pendientes para el usuario "Alice":
 
@@ -145,8 +145,8 @@ El `TodoItemContext` se usa para comunicarse con EF, como se describió anterior
 | Solicitud HTTP | Método de controlador | Descripción |
 | --- | --- | --- |
 | GET /api/todo | `GetTodoLists` | Obtiene una colección de listas de tareas pendientes. |
-| GET/API/tareas/*Id.* | `GetTodoList` | Obtiene una lista de tareas por Id. |
-| PUT/API/tareas/*Id.* | `PutTodoList` | Actualiza una lista de tareas pendientes. |
+| GET /api/todo/*id* | `GetTodoList` | Obtiene una lista de tareas por Id. |
+| PUT /api/todo/*id* | `PutTodoList` | Actualiza una lista de tareas pendientes. |
 | POST /api/todo | `PostTodoList` | Crea una nueva lista de tareas pendientes. |
 | DELETE/API/tareas/*Id.* | `DeleteTodoList` | Elimina una lista de tareas. |
 
@@ -229,7 +229,7 @@ Falsificación de solicitud entre sitios (CSRF) es un ataque en un sitio malinte
 
 Tokens antifalsificación funcionan porque no puede leer la página malintencionada tokens del usuario, debido a las directivas del mismo origen. (Las directivas del mismo origen impiden documentos hospedados en dos sitios distintos del acceso al contenido de todas las demás).
 
-ASP.NET MVC proporciona compatibilidad integrada para tokens antifalsificación, a través de la [AntiForgery](https://msdn.microsoft.com/en-us/library/system.web.helpers.antiforgery.aspx) clase y la [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/en-us/library/system.web.mvc.validateantiforgerytokenattribute.aspx) atributo. Actualmente, esta funcionalidad no está integrada en API Web. Sin embargo, la plantilla SPA incluye una implementación personalizada de API Web. Este código se define en el `ValidateHttpAntiForgeryTokenAttribute` (clase), que se encuentra en la carpeta de filtros de la solución. Para obtener más información sobre anti-CSRF en Web API, consulte [ataques de falsificación de solicitud entre sitios impide (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
+ASP.NET MVC proporciona compatibilidad integrada para tokens antifalsificación, a través de la [AntiForgery](https://msdn.microsoft.com/library/system.web.helpers.antiforgery.aspx) clase y la [[ValidateAntiForgeryToken]](https://msdn.microsoft.com/library/system.web.mvc.validateantiforgerytokenattribute.aspx) atributo. Actualmente, esta funcionalidad no está integrada en API Web. Sin embargo, la plantilla SPA incluye una implementación personalizada de API Web. Este código se define en el `ValidateHttpAntiForgeryTokenAttribute` (clase), que se encuentra en la carpeta de filtros de la solución. Para obtener más información sobre anti-CSRF en Web API, consulte [ataques de falsificación de solicitud entre sitios impide (CSRF)](../../../web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks.md).
 
 ## <a name="conclusion"></a>Conclusión
 

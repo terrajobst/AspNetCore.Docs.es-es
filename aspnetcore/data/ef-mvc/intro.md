@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/intro
-ms.openlocfilehash: df13726689c430ab19786e104ea7404051107aa9
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: c30556368ba24fb38cf3347dd49f171b5246514c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET MVC de núcleo y Entity Framework Core con Visual Studio (1 de 10)
 
@@ -27,7 +27,7 @@ La aplicación de ejemplo es un sitio web de una universidad ficticia de Contoso
 
 [Descargar o ver la aplicación completa.](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-mvc/intro/samples/cu-final)
 
-Núcleo EF 2.0 es la versión más reciente de EF pero todavía no tiene todas las características de EF 6.x. Para obtener información sobre cómo elegir entre EF 6.x y EF Core, vea [frente a EF Core. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Si elige EF 6.x, consulte [la versión anterior de esta serie de tutoriales](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
+Núcleo EF 2.0 es la versión más reciente de EF pero aún no dispone de todas las características de EF 6.x. Para obtener información sobre cómo elegir entre EF 6.x y EF Core, vea [frente a EF Core. EF6.x](https://docs.microsoft.com/ef/efcore-and-ef6/). Si elige EF 6.x, consulte [la versión anterior de esta serie de tutoriales](https://docs.microsoft.com/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
 > [!NOTE]
 > * Para la versión 1.1 de ASP.NET Core de este tutorial, vea el [versión de VS de 2017 actualización 2 de este tutorial en formato PDF](https://github.com/aspnet/Docs/blob/master/aspnetcore/data/ef-mvc/intro/_static/efmvc1.1.pdf).
@@ -178,7 +178,7 @@ En el *datos* carpeta crear un nuevo archivo de clase denominado *SchoolContext.
 
 Este código crea un `DbSet` propiedad para cada conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponderse con una tabla de base de datos, mientras que una entidad lo hace con una fila de la tabla.
 
-Se podría omitir la `DbSet<Enrollment>` y `DbSet<Course>` instrucciones y funcionará la misma. Entity Framework incluiría ellos implícitamente porque el `Student` las referencias de entidad del `Enrollment` entidad y la `Enrollment` las referencias de entidad la `Course` entidad.
+Se podría ha omitido el `DbSet<Enrollment>` y `DbSet<Course>` instrucciones y funcionará la misma. Entity Framework incluiría ellos implícitamente porque el `Student` las referencias de entidad del `Enrollment` entidad y la `Enrollment` las referencias de entidad la `Course` entidad.
 
 Cuando se crea la base de datos, EF crea las tablas que tienen nombres de la misma que la `DbSet` nombres de propiedad. Nombres de propiedad para las colecciones son normalmente plural (estudiantes en lugar de estudiante), pero los desarrolladores están en desacuerdo sobre si los nombres de tabla deben ser pluralizan o no. Para estos tutoriales obtendrá invalidar el comportamiento predeterminado especificando los nombres de tabla singular en DbContext. Para ello, agregue el código resaltado siguiente después de la última propiedad DbSet.
 
@@ -204,7 +204,7 @@ Abra la *appSettings.JSON que se* de archivos y agregar una cadena de conexión 
 
 ### <a name="sql-server-express-localdb"></a>SQL Server Express LocalDB
 
-La cadena de conexión especifica una base de datos de SQL Server LocalDB. LocalDB es una versión ligera del motor de base de datos de SQL Server Express y está diseñada para el desarrollo de aplicaciones, no su uso en producción. LocalDB se inicia a petición y se ejecuta en modo de usuario, sin necesidad de una configuración compleja. De forma predeterminada, crea LocalDB *.mdf* archivos en la base de datos la `C:/Users/<user>` directory.
+La cadena de conexión especifica una base de datos de SQL Server LocalDB. LocalDB es una versión ligera del motor de base de datos de SQL Server Express y está diseñada para el desarrollo de aplicaciones, no su uso en producción. LocalDB a petición se inicia y se ejecuta en modo de usuario, así que no hay ninguna configuración compleja. De forma predeterminada, crea LocalDB *.mdf* archivos en la base de datos la `C:/Users/<user>` directory.
 
 ## <a name="add-code-to-initialize-the-database-with-test-data"></a>Agregue código para inicializar la base de datos con datos de prueba
 

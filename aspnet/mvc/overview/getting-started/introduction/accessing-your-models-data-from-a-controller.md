@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: b60913cef4b62745cf167e6074834bf7d0c228d1
-ms.sourcegitcommit: d1d8071d4093bf2444b5ae19d6e45c3d187e338b
+ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Obtiene acceso a datos de su modelo desde un controlador
 ====================
@@ -87,7 +87,7 @@ Una solicitud para la `Movies` controlador devuelve todas las entradas de la `Mo
 
 Anteriormente en este tutorial, ha visto cómo un controlador puede pasar datos u objetos a una plantilla de vista mediante la `ViewBag` objeto. El `ViewBag` es un objeto dinámico que proporciona una manera cómoda de tiempo de ejecución para pasar información a una vista.
 
-MVC también proporciona la capacidad de pasar *fuertemente* con tipo de objetos a una plantilla de vista. Este enfoque fuertemente tipado permite un mejor tiempo de compilación más enriquecida y comprobación del código [IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b(v=vs.120).aspx) en el editor de Visual Studio. El mecanismo de scaffolding en Visual Studio usa este enfoque (es decir, pasando una *fuertemente* modelo con tipo) con el `MoviesController` plantillas de clase y la vista cuando crea los métodos y las vistas.
+MVC también proporciona la capacidad de pasar *fuertemente* con tipo de objetos a una plantilla de vista. Este enfoque fuertemente tipado permite un mejor tiempo de compilación más enriquecida y comprobación del código [IntelliSense](https://msdn.microsoft.com/library/hcw1s69b(v=vs.120).aspx) en el editor de Visual Studio. El mecanismo de scaffolding en Visual Studio usa este enfoque (es decir, pasando una *fuertemente* modelo con tipo) con el `MoviesController` plantillas de clase y la vista cuando crea los métodos y las vistas.
 
 En el *Controllers\MoviesController.cs* archivo examinar generado `Details` método. El `Details` método se muestra a continuación.
 
@@ -109,9 +109,9 @@ Mediante la inclusión de un `@model` instrucción en la parte superior del arch
 
 [!code-cshtml[Main](accessing-your-models-data-from-a-controller/samples/sample6.cshtml)]
 
-Esta directiva `@model` permite acceder a la película que el controlador pasó a la vista usando un objeto `Model` fuertemente tipado. Por ejemplo, en la *Details.cshtml* plantilla, el código pasa cada campo de la película a la `DisplayNameFor` y [DisplayFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) aplicaciones auxiliares de HTML con fuertemente tipado `Model` objeto. El `Create` y `Edit` métodos y las plantillas de vista pasan un objeto de modelo de la película.
+Esta directiva `@model` permite acceder a la película que el controlador pasó a la vista usando un objeto `Model` fuertemente tipado. Por ejemplo, en la *Details.cshtml* plantilla, el código pasa cada campo de la película a la `DisplayNameFor` y [DisplayFor](https://msdn.microsoft.com/library/system.web.mvc.html.displayextensions.displayfor(VS.98).aspx) aplicaciones auxiliares de HTML con fuertemente tipado `Model` objeto. El `Create` y `Edit` métodos y las plantillas de vista pasan un objeto de modelo de la película.
 
-Examine la *Index.cshtml* plantilla de vista y el `Index` método en el *MoviesController.cs* archivo. Observe cómo el código crea un [ `List` ](https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx) objeto cuando se llama a la `View` método auxiliar en el `Index` método de acción. A continuación, el código pasa esto `Movies` lista desde el `Index` método de acción a la vista:
+Examine la *Index.cshtml* plantilla de vista y el `Index` método en el *MoviesController.cs* archivo. Observe cómo el código crea un [ `List` ](https://msdn.microsoft.com/library/6sh2ey19.aspx) objeto cuando se llama a la `View` método auxiliar en el `Index` método de acción. A continuación, el código pasa esto `Movies` lista desde el `Index` método de acción a la vista:
 
 [!code-csharp[Main](accessing-your-models-data-from-a-controller/samples/sample7.cs?highlight=3)]
 

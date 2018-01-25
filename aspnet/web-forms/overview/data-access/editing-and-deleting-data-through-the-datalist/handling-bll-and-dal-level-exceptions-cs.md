@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 659976d40f6109422f222d794b54d837faeb0764
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 284f3bebcd07c9cc70b3a7d645f353f5797889a7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>Control de excepciones de nivel de DAL y BLL (C#)
 ====================
@@ -101,7 +101,7 @@ Cuando se produce un error, solamente queremos la etiqueta que se mostrará una 
 
 Cuando se produce una excepción, asignaremos los detalles de la excepción para la `ExceptionDetails` control s etiqueta `Text` propiedad. Puesto que su estado de vista está deshabilitado, en postbacks posteriores el `Text` propiedad s mediante programación cambios se perderán, vuelve a establecerse en el texto predeterminado (una cadena vacía), ocultando de esta manera el mensaje de advertencia.
 
-Para determinar cuándo se ha producido un error con el fin de mostrar un mensaje útil en la página, tenemos que agregar una `Try ... Catch` bloquear para el `UpdateCommand` controlador de eventos. El `Try` parte contiene código que puede provocar una excepción, mientras que la `Catch` bloque contiene código que se ejecuta en el caso de una excepción. Extraer del repositorio el [Fundamentos del control de excepciones](https://msdn.microsoft.com/en-us/library/2w8f0bss.aspx) sección en la documentación de .NET Framework para obtener más información sobre la `Try ... Catch` bloque.
+Para determinar cuándo se ha producido un error con el fin de mostrar un mensaje útil en la página, tenemos que agregar una `Try ... Catch` bloquear para el `UpdateCommand` controlador de eventos. El `Try` parte contiene código que puede provocar una excepción, mientras que la `Catch` bloque contiene código que se ejecuta en el caso de una excepción. Extraer del repositorio el [Fundamentos del control de excepciones](https://msdn.microsoft.com/library/2w8f0bss.aspx) sección en la documentación de .NET Framework para obtener más información sobre la `Try ... Catch` bloque.
 
 
 [!code-csharp[Main](handling-bll-and-dal-level-exceptions-cs/samples/sample5.cs)]
@@ -142,13 +142,13 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Instrucciones de diseño para excepciones](https://msdn.microsoft.com/en-us/library/ms298399.aspx)
+- [Instrucciones de diseño de excepciones](https://msdn.microsoft.com/library/ms298399.aspx)
 - [Módulos de registro de error y controladores (ELMAH)](http://workspaces.gotdotnet.com/elmah) (una biblioteca de código abierto para el registro de errores)
 - [Enterprise Library para .NET Framework 2.0](https://www.microsoft.com/downloads/details.aspx?familyid=5A14E870-406B-4F2A-B723-97BA84AE80B5&amp;displaylang=en) (incluye el bloque de aplicaciones de administración de excepciones)
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

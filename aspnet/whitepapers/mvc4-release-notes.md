@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/mvc4-release-notes
-title: ASP.NET MVC 4 | Documentos de Microsoft
+title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: "Este documento describe la versión de ASP.NET MVC 4."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: fb9d2eaa83fe7486279815c21aec204bdfdf122d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 399fbe3fa1e71a9ffa7c5e6dfeca7ccab7294d1b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 11/10/2017
 
 - [Notas sobre la instalación](#_Toc303253802)
 - [Documentación](#_Toc303253803)
-- [Soporte técnico](#_Toc303253804)
+- [Support](#_Toc303253804)
 - [Requisitos de software](#_Toc303253805)
 - [Nuevas características de ASP.NET MVC 4](#_Toc303253807)
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 11/10/2017
     - [Migraciones de base de datos](#_Toc303253818)
     - [Plantilla de proyecto vacía](#_Toc303253819)
     - [Agregar controlador a cualquier carpeta del proyecto](#_Toc303253820)
-    - [Agrupar y Minificar](#_Toc303253821)
+    - [Unión y minificación](#_Toc303253821)
     - [Habilitar los inicios de sesión de Facebook y otros sitios con OAuth y OpenID](#_Toc303253822)
 - [Actualizar un proyecto de ASP.NET MVC 3 a ASP.NET MVC 4](#_Toc303253806)
 - [Cambios de candidato de versión comercial de ASP.NET MVC 4](#_Toc303253817)
@@ -61,7 +61,7 @@ ASP.NET MVC 4 pueden instalarse y ejecutarse en paralelo con ASP.NET MVC 3.
 
 Documentación para ASP.NET MVC está disponible en el sitio Web MSDN en la dirección URL siguiente:
 
-[https://go.Microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Tutoriales y otra información sobre ASP.NET MVC están disponibles en la página de MVC 4 del sitio Web ASP.NET ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -271,7 +271,7 @@ A continuación se resumen los cambios más importantes de ASP.NET MVC 4 Release
     [!code-xml[Main](mvc4-release-notes/samples/sample6.xml)]
 - **Se produce un error en el Administrador de paquetes de NuGet instalar al intentar instalar ASP.NET MVC 4 para instalaciones en paralelo de Visual Studio 2010 y Visual Web Developer 2010.** Para ejecutar Visual Studio 2010 y Visual Web Developer 2010 paralelo con ASP.NET MVC 4 debe instalar ASP.NET MVC 4 después de haberse instalados ambas versiones de Visual Studio.
 - **Se produce un error al desinstalar ASP.NET MVC 4 si ya se han desinstalado los requisitos previos.** Para desinstalar correctamente ASP.NET MVC 4you debe desinstalar ASP.NET MVC 4 antes de desinstalar Visual Studio.
-- **Instalar ASP.NET MVC 4 interrumpe las aplicaciones de ASP.NET MVC 3 RTM.** Las aplicaciones de ASP.NET MVC 3 que se crearon con la versión RTM de la versión (no con el [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/en-us/download/details.aspx?id=1491) liberar) requieren los siguientes cambios para funcionar en paralelo con ASP.NET MVC 4. Compilar el proyecto sin realizar estos resultados de las actualizaciones en errores de compilación. 
+- **Instalar ASP.NET MVC 4 interrumpe las aplicaciones de ASP.NET MVC 3 RTM.** Las aplicaciones de ASP.NET MVC 3 que se crearon con la versión RTM de la versión (no con el [ASP.NET MVC 3 Tools Update](https://www.microsoft.com/download/details.aspx?id=1491) liberar) requieren los siguientes cambios para funcionar en paralelo con ASP.NET MVC 4. Compilar el proyecto sin realizar estos resultados de las actualizaciones en errores de compilación. 
 
     **Actualizaciones necesarias**
 

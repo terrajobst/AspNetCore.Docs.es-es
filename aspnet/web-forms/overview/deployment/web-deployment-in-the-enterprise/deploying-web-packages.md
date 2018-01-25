@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: db24fbf4a3486a1349ac47e55cfa495fdf1a166c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-web-packages"></a>Implementar paquetes de Web
 ====================
@@ -69,14 +69,14 @@ Debe especificar un **/T** marca o un **/Y** marca para indicar si desea realiza
 | **/A** | Especifica el tipo de autenticación que debe usar MSDeploy.exe para realizar la implementación. Los valores posibles son **NTLM** y **básica**. Si se omite la **/A** marca, el tipo de autenticación predeterminado es **NTLM** para la implementación para el servicio del agente remoto de implementación Web y a **básica** para su implementación en la Web Deploy Controlador. |
 | **/U** | Especifica el nombre de usuario. Esto se aplica solo si usa la autenticación básica. |
 | **/P** | Especifica la contraseña. Esto se aplica solo si usa la autenticación básica. |
-| **/ L** | Indica que se debe implementar el paquete a la instancia local de IIS Express. |
-| **/ G** | Especifica que el paquete se implementa mediante el [configuración del proveedor de tempAgent](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx). Si se omite la **/G** marca, el valor predeterminado es **false**. |
+| **/L** | Indica que se debe implementar el paquete a la instancia local de IIS Express. |
+| **/G** | Especifica que el paquete se implementa mediante el [configuración del proveedor de tempAgent](https://technet.microsoft.com/library/ee517345(WS.10).aspx). Si se omite la **/G** marca, el valor predeterminado es **false**. |
 
 > [!NOTE]
 > Cada vez que el proceso de compilación crea un paquete web, también crea un archivo denominado *[nombre del proyecto] ".deploy"-readme.txt* que describen estas opciones de implementación.
 
 
-Además de estas marcas, puede especificar la configuración de operación Web Deploy como adicionales *. deploy.cmd* parámetros. Cualquier configuración adicional que especifique simplemente se pasa al comando MSDeploy.exe subyacente. Para obtener más información sobre estas opciones, consulte [Web Deploy operación Settings](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx).
+Además de estas marcas, puede especificar la configuración de operación Web Deploy como adicionales *. deploy.cmd* parámetros. Cualquier configuración adicional que especifique simplemente se pasa al comando MSDeploy.exe subyacente. Para obtener más información sobre estas opciones, consulte [Web Deploy operación Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx).
 
 Imagine que desea implementar el proyecto de aplicación web de ContactManager.Mvc en un entorno de prueba mediante la ejecución de la *. deploy.cmd* archivo. El entorno de prueba está configurado para utilizar el servicio del agente remoto de Web implementar, como se describe en [configurar un servidor Web de publicación de implementar en Web (agente remoto)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent.md). Para implementar la aplicación web, debe completar los pasos siguientes.
 
@@ -101,7 +101,7 @@ Para ilustrar cómo usar el *. deploy.cmd* archivo simplifica el proceso de impl
 [!code-console[Main](deploying-web-packages/samples/sample3.cmd)]
 
 
-Para obtener más información sobre el uso de la *. deploy.cmd* archivo para implementar un paquete web, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Para obtener más información sobre el uso de la *. deploy.cmd* archivo para implementar un paquete web, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
 ## <a name="using-msdeployexe"></a>Utiliza MSDeploy.exe
 
@@ -115,21 +115,21 @@ Cuando se usa MSDeploy.exe, debe proporcionar tres fragmentos de información cl
 
 - A **: origen** parámetro que indica de dónde provienen los datos.
 - A **– dest** parámetro que indica que los datos se van a.
-- A **: verbo** parámetro que indica la [operación](https://technet.microsoft.com/en-us/library/dd568989(WS.10).aspx) que desea realizar.
+- A **: verbo** parámetro que indica la [operación](https://technet.microsoft.com/library/dd568989(WS.10).aspx) que desea realizar.
 
-MSDeploy.exe se basa en [proveedores de Web Deploy](https://technet.microsoft.com/en-us/library/dd569040(WS.10).aspx) para procesar los datos de origen y de destino. Web Deploy incluye una gran cantidad de proveedores que representan el intervalo de las aplicaciones y orígenes de datos puede funcionar con & #x 2014; por ejemplo, no hay proveedores de bases de datos de SQL Server, servidores web de IIS, certificados, ensamblados de ensamblado global (GAC) de la caché, varios archivos de configuración diferente y muchos otros tipos de datos. Tanto el **: origen** parámetro y el **– dest** parámetro debe especificar un proveedor, en el formulario **: origen**: [*providerName*] = [*ubicación*]. Si va a implementar un paquete de web a un sitio Web IIS, debe usar estos valores:
+MSDeploy.exe se basa en [proveedores de Web Deploy](https://technet.microsoft.com/library/dd569040(WS.10).aspx) para procesar los datos de origen y de destino. Web Deploy incluye una gran cantidad de proveedores que representan el intervalo de las aplicaciones y orígenes de datos puede funcionar con & #x 2014; por ejemplo, no hay proveedores de bases de datos de SQL Server, servidores web de IIS, certificados, ensamblados de ensamblado global (GAC) de la caché, varios archivos de configuración diferente y muchos otros tipos de datos. Tanto el **: origen** parámetro y el **– dest** parámetro debe especificar un proveedor, en el formulario **: origen**: [*providerName*] = [*ubicación*]. Si va a implementar un paquete de web a un sitio Web IIS, debe usar estos valores:
 
-- El **: origen** proveedor es siempre [paquete](https://technet.microsoft.com/en-us/library/dd569019(WS.10).aspx). Por ejemplo:
+- El **: origen** proveedor es siempre [paquete](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Por ejemplo:
 
     [!code-console[Main](deploying-web-packages/samples/sample4.cmd)]
-- El **– dest** proveedor es siempre [automática](https://technet.microsoft.com/en-us/library/dd569016(WS.10).aspx). Por ejemplo:
+- El **– dest** proveedor es siempre [automática](https://technet.microsoft.com/library/dd569016(WS.10).aspx). Por ejemplo:
 
     [!code-console[Main](deploying-web-packages/samples/sample5.cmd)]
 - El **: verbo** siempre es **sincronización**.
 
     [!code-console[Main](deploying-web-packages/samples/sample6.cmd)]
 
-Además, debe especificar varias otras [configuraciones específicas del proveedor](https://technet.microsoft.com/en-us/library/dd569001(WS.10).aspx) y general [configuración de operación](https://technet.microsoft.com/en-us/library/dd569089(WS.10).aspx). Por ejemplo, imagine que desea implementar la aplicación web ContactManager.Mvc en un entorno de ensayo. La implementación se aplicará el controlador de implementación Web y debe utilizar la autenticación básica. Para implementar la aplicación web, debe completar los pasos siguientes.
+Además, debe especificar varias otras [configuraciones específicas del proveedor](https://technet.microsoft.com/library/dd569001(WS.10).aspx) y general [configuración de operación](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Por ejemplo, imagine que desea implementar la aplicación web ContactManager.Mvc en un entorno de ensayo. La implementación se aplicará el controlador de implementación Web y debe utilizar la autenticación básica. Para implementar la aplicación web, debe completar los pasos siguientes.
 
 **Para implementar una aplicación web mediante MSDeploy.exe**
 
@@ -145,7 +145,7 @@ En este ejemplo:
 - El **: origen** parámetro especifica la **paquete** proveedor e indica la ubicación del paquete de web.
 - El **– dest** parámetro especifica la **automática** proveedor. El **computerName** configuración proporciona la dirección URL del servicio del controlador de implementación Web en el servidor de destino. El **authtype** configuración indica que desea utilizar la autenticación básica y, por lo tanto deberá proporcionar un **nombre de usuario** y un **contraseña**. Por último, el **includeAcls = "False"** valor indica que no desea copiar las listas de control de acceso (ACL) de los archivos en la aplicación web de origen al servidor de destino.
 - El **: verbo: sincronización** argumento indica que desea replicar el contenido de origen en el servidor de destino.
-- El **: disableLink** argumentos indican que no desea replicar los grupos de aplicaciones, la configuración de directorio virtual o certificados de capa de Sockets seguros (SSL) en el servidor de destino. Para obtener más información, consulte [Web Deploy vínculo Extensions](https://technet.microsoft.com/en-us/library/dd569028(WS.10).aspx).
+- El **: disableLink** argumentos indican que no desea replicar los grupos de aplicaciones, la configuración de directorio virtual o certificados de capa de Sockets seguros (SSL) en el servidor de destino. Para obtener más información, consulte [Web Deploy vínculo Extensions](https://technet.microsoft.com/library/dd569028(WS.10).aspx).
 - El **: setParamFile** parámetro proporciona la ubicación de la *SetParameters.xml* archivo.
 - El **– allowUntrusted** conmutador indica que Web Deploy debe aceptar certificados SSL que no hayan sido emitidos por una entidad de certificación de confianza. Si va a implementar en el controlador de implementación Web y ha usado un certificado autofirmado para proteger la dirección URL del servicio, debe incluir este modificador.
 

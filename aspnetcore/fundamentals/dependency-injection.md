@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/dependency-injection
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1da3d557c48921747634b08cedb518184fb5f963
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7a5a0991694b2c7caa79dbc09f6471d614f67dac
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-dependency-injection-in-aspnet-core"></a>Introducción a la inyección de dependencia en el núcleo de ASP.NET
 
@@ -30,7 +30,7 @@ ASP.NET Core está diseñado desde el principio para admitir y aprovechar la ins
 
 Inserción de dependencias (DI) es una técnica para lograr el acoplamiento flexible entre los objetos y sus colaboradores o dependencias. En lugar de crear directamente instancias de colaboradores, o mediante las referencias estáticas, se proporcionan los objetos de una clase que se necesita para llevar a cabo sus acciones a la clase de algún modo. A menudo, las clases declarará sus dependencias a través de su constructor, lo que les permite seguir el [principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle/). Este enfoque se conoce como "inyección de constructor".
 
-Cuando las clases se diseñan con DI en mente, se acopla más flexible porque no tienen dependencias directas, codificado de forma rígida en sus colaboradores. Esto se sigue la [principio de inversión de dependencia](http://deviq.com/dependency-inversion-principle/), que indica que *"módulos de nivel alto no deben depender de los módulos de nivel inferiores; ambos deben depender de abstracciones."* En lugar de hacer referencia a las implementaciones específicas, las clases de solicitud abstracciones (normalmente `interfaces`) que se proporcionan para ellos cuando se construye la clase. Extracción de dependencias en interfaces y proporciona las implementaciones de estas interfaces como parámetros también son un ejemplo de la [modelo de diseño de la estrategia](http://deviq.com/strategy-design-pattern/).
+Cuando las clases se diseñan con DI en mente, está acoplamiento más flexible porque no tienen dependencias directas, codificado de forma rígida en sus colaboradores. Esto se sigue la [principio de inversión de dependencia](http://deviq.com/dependency-inversion-principle/), que indica que *"módulos de nivel alto no dependen de los módulos de nivel inferiores; ambos deben depender de abstracciones."* En lugar de hacer referencia a las implementaciones específicas, las clases de solicitud abstracciones (normalmente `interfaces`) que se proporcionan para ellos cuando se construye la clase. Extracción de dependencias en interfaces y proporciona las implementaciones de estas interfaces como parámetros también son un ejemplo de la [modelo de diseño de la estrategia](http://deviq.com/strategy-design-pattern/).
 
 Cuando un sistema está diseñado para utilizar DI, con muchas clases solicitar sus dependencias a través de su constructor (o propiedades), resulta útil tener una clase dedicada a la creación de estas clases con sus dependencias asociadas. Estas clases se conocen como *contenedores*, o más específicamente, [inversión de Control (IoC)](http://deviq.com/inversion-of-control/) contenedores o contenedores de inyección de dependencia (DI). Un contenedor es básicamente un generador que se encarga de proporcionar instancias de tipos que se solicitan desde él. Si ha declarado un tipo determinado que tiene dependencias, y el contenedor se ha configurado para proporcionar los tipos de dependencia, creará las dependencias como parte de la creación de la instancia solicitada. De esta manera, gráficos de dependencias complejos pueden proporcionarse a clases sin necesidad de ninguna construcción de objetos codificados de forma rígida. Además de crear objetos con sus dependencias, contenedores suelen administran la duración de los objetos dentro de la aplicación.
 
@@ -112,7 +112,7 @@ Puede registrar sus propios servicios de aplicación de la siguiente manera. El 
 
 El `AddTransient` método se utiliza para asignar tipos abstractos a servicios concretos que se crean instancias por separado para cada objeto que lo requiera. Esto se conoce como el servicio *duración*, y a continuación se describen las opciones de duración adicional. Es importante elegir un período adecuado para cada uno de los servicios que registra. ¿Una nueva instancia del servicio se debe proporcionar para cada clase que lo solicita? ¿Debe usarse una instancia a lo largo de una solicitud web determinado? ¿O bien, debe usarse una sola instancia para la duración de la aplicación?
 
-En el ejemplo de este artículo, hay un controlador simple que muestra los nombres de carácter, denominados `CharactersController`. Su `Index` método muestra la lista actual de caracteres que se han almacenado en la aplicación e inicializa la colección con una serie de caracteres si no existe ninguna. Tenga en cuenta que, aunque esta aplicación usa Entity Framework Core y `ApplicationDbContext` clase para su persistencia, ninguno de los que es evidente en el controlador. En su lugar, se ha abstrae el mecanismo de acceso de datos específico detrás de una interfaz, `ICharacterRepository`, que sigue la [modelo de repositorio](http://deviq.com/repository-pattern/). Una instancia de `ICharacterRepository` se solicita mediante el constructor y se asigna a un campo privado, que se usa para tener acceso a caracteres según sea necesario.
+En el ejemplo de este artículo, hay un controlador simple que muestra los nombres de carácter, denominados `CharactersController`. Su `Index` método muestra la lista actual de caracteres que se han almacenado en la aplicación e inicializa la colección con una serie de caracteres si no existe ninguna. Tenga en cuenta que, aunque esta aplicación usa Entity Framework Core y `ApplicationDbContext` clase para su persistencia, ninguno de que es evidente en el controlador. En su lugar, se ha abstrae el mecanismo de acceso de datos específico detrás de una interfaz, `ICharacterRepository`, que sigue la [modelo de repositorio](http://deviq.com/repository-pattern/). Una instancia de `ICharacterRepository` se solicita mediante el constructor y se asigna a un campo privado, que se usa para tener acceso a caracteres según sea necesario.
 
 [!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
@@ -149,7 +149,7 @@ Los servicios de ASP.NET pueden configurarse con la duración de la siguiente:
 
 **Transient**
 
-Servicios de duración transitorios se crean cada vez que se solicitan. Este período de vigencia funciona mejor para servicios sin estado ligeros.
+Servicios de duración transitorios se crean cada vez que le solicita. Este período de vigencia funciona mejor para servicios sin estado ligeros.
 
 **Scoped**
 
@@ -157,7 +157,7 @@ Servicios de duración de ámbito se crean una vez por solicitud.
 
 **Singleton**
 
-Servicios de duración de singleton se crean la primera vez que se solicitan (o cuando `ConfigureServices` se ejecuta si se especifica una instancia no existe) y, a continuación, todas las solicitudes subsiguientes usará la misma instancia. Si la aplicación requiere un comportamiento singleton, lo que permite el contenedor de servicios administrar la duración del servicio se recomienda en lugar de implementar el patrón de diseño singleton y administrar la duración del objeto en la clase por sí mismo.
+Servicios de duración de singleton se crean la primera vez que se soliciten (o cuando `ConfigureServices` se ejecuta si se especifica una instancia no existe) y, a continuación, todas las solicitudes subsiguientes usará la misma instancia. Si la aplicación requiere un comportamiento singleton, lo que permite el contenedor de servicios administrar la duración del servicio se recomienda en lugar de implementar el patrón de diseño singleton y administrar la duración del objeto en la clase por sí mismo.
 
 Los servicios se pueden registrar con el contenedor de varias maneras. Ya hemos visto cómo registrar una implementación de servicio con un tipo determinado mediante la especificación de tipo concreto para usar. Además, un generador puede especificarse, que se utilizará para crear la instancia a petición. El tercer enfoque consiste en especificar directamente la instancia del tipo que se utiliza en el que caso el contenedor nunca intentará crear una instancia (ni eliminará de la instancia).
 
@@ -237,14 +237,14 @@ public void ConfigureServices(IServiceCollection services)
     services.AddSingleton<Service2>();
     services.AddSingleton<ISomeService>(sp => new SomeServiceImplementation());
 
-    // container did not create instance so it will NOT dispose it
+    // container didn't create instance so it will NOT dispose it
     services.AddSingleton<Service3>(new Service3());
     services.AddSingleton(new Service3());
 }
 ```
 
 > [!NOTE]
-> En la versión 1.0, el contenedor llama a dispose en *todos los* `IDisposable` objetos, incluso aquellos que no ha creado.
+> En la versión 1.0, el contenedor llama a dispose en *todos los* `IDisposable` objetos, incluso aquellos que no creó.
 
 ## <a name="replacing-the-default-services-container"></a>Reemplazar el contenedor de servicios predeterminado
 

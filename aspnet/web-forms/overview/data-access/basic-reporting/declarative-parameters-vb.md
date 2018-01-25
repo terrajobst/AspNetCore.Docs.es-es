@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7759b3d078ddabd335034f2ff76f10fb0de7dd28
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ea1aed2b76eb4196196f8a800c0bdb891bceda91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="declarative-parameters-vb"></a>Parámetros declarativos (VB)
 ====================
@@ -111,7 +111,7 @@ Puesto que la `GetSuppliersByCountry(country)` método tiene un parámetro de en
 **Figura 8**: establece el valor del parámetro en el `CountryName` valor de Control ([haga clic aquí para ver la imagen a tamaño completo](declarative-parameters-vb/_static/image24.png))
 
 
-Marcado declarativo del ObjectDataSource difiere ligeramente de nuestro primer ejemplo, con un [ControlParameter](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.controlparameter.aspx) en lugar de la norma `Parameter` objeto. A `ControlParameter` tiene propiedades adicionales para especificar el `ID` de control de Web y el valor de propiedad que se utilizará para el parámetro (`PropertyName`). El Asistente para configurar orígenes de datos fue lo suficientemente inteligente como para determinar que, para un cuadro de texto, probablemente querrá usar la `Text` propiedad para el valor del parámetro. Si, sin embargo, desea utilizar un valor de otra propiedad de control Web puede cambiar la `PropertyName` valor aquí o haciendo clic en el vínculo "Mostrar propiedades avanzadas" en el asistente.
+Marcado declarativo del ObjectDataSource difiere ligeramente de nuestro primer ejemplo, con un [ControlParameter](https://msdn.microsoft.com/library/system.web.ui.webcontrols.controlparameter.aspx) en lugar de la norma `Parameter` objeto. A `ControlParameter` tiene propiedades adicionales para especificar el `ID` de control de Web y el valor de propiedad que se utilizará para el parámetro (`PropertyName`). El Asistente para configurar orígenes de datos fue lo suficientemente inteligente como para determinar que, para un cuadro de texto, probablemente querrá usar la `Text` propiedad para el valor del parámetro. Si, sin embargo, desea utilizar un valor de otra propiedad de control Web puede cambiar la `PropertyName` valor aquí o haciendo clic en el vínculo "Mostrar propiedades avanzadas" en el asistente.
 
 [!code-aspx[Main](declarative-parameters-vb/samples/sample2.aspx)]
 
@@ -157,7 +157,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

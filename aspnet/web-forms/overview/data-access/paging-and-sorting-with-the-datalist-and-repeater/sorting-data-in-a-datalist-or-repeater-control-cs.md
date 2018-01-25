@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f7ab0df2ebfa24b0928117e683325b158e3aad1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: cfd0cdb0afe3bf71686715c0b1891adfbbd5019a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>Ordenar datos en un DataList o un Control de repetidor (C#)
 ====================
@@ -81,7 +81,7 @@ La figura 3 muestra esta página cuando se ve mediante un explorador.
 
 ## <a name="step-3-instructing-the-objectdatasource-to-sort-the-data"></a>Paso 3: Indicar el ObjectDataSource para ordenar los datos
 
-Para ordenar los datos mostrados en el repetidor, es necesario informar a ObjectDataSource de la expresión de ordenación por el que se deben ordenar los datos. Antes de que el ObjectDataSource recupera sus datos, en primer lugar desencadena su [ `Selecting` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), que proporciona una oportunidad para que podamos especificar una expresión de ordenación. El `Selecting` controlador de eventos se pasa un objeto de tipo [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), que tiene una propiedad denominada [ `Arguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) de tipo [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.aspx). El `DataSourceSelectArguments` clase está diseñada para pasar las solicitudes relacionadas con datos de un consumidor de datos para el control de origen de datos e incluye una [ `SortExpression` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
+Para ordenar los datos mostrados en el repetidor, es necesario informar a ObjectDataSource de la expresión de ordenación por el que se deben ordenar los datos. Antes de que el ObjectDataSource recupera sus datos, en primer lugar desencadena su [ `Selecting` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selecting.aspx), que proporciona una oportunidad para que podamos especificar una expresión de ordenación. El `Selecting` controlador de eventos se pasa un objeto de tipo [ `ObjectDataSourceSelectingEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.aspx), que tiene una propiedad denominada [ `Arguments` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourceselectingeventargs.arguments.aspx) de tipo [ `DataSourceSelectArguments` ](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.aspx). El `DataSourceSelectArguments` clase está diseñada para pasar las solicitudes relacionadas con datos de un consumidor de datos para el control de origen de datos e incluye una [ `SortExpression` propiedad](https://msdn.microsoft.com/library/system.web.ui.datasourceselectarguments.sortexpression.aspx).
 
 Para pasar información de ordenación de la página ASP.NET a ObjectDataSource, crear un controlador de eventos para el `Selecting` evento y utilice el código siguiente:
 
@@ -390,7 +390,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/bower
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57a6941155c60e2769636fd4abc98531266c206c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 7e3e936c81126b7ed01332565f997910a2886993
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Administrar paquetes de cliente con Bower en ASP.NET Core
 
@@ -45,7 +45,7 @@ En este tutorial, vamos a agregar compatibilidad para [fuente Maravilla](http://
 
 ### <a name="manual-installation-in-bowerjson"></a>Instalación manual en bower.json
 
-Abra la *bower.json* de archivos y agregar "fuente maravillosa" a las dependencias. IntelliSense muestra los paquetes disponibles. Cuando se selecciona un paquete, se muestran las versiones disponibles. Las siguientes imágenes anteriores y no coincidirá con lo que se ve.
+Abra la *bower.json* de archivos y agregar "fuente maravillosa" a las dependencias. IntelliSense muestra los paquetes disponibles. Cuando se selecciona un paquete, se muestran las versiones disponibles. Las siguientes imágenes anteriores y no coincide con lo que se ve.
 
 ![IntelliSense de explorador de paquetes de bower](bower/_static/add-package.png)
 

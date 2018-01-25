@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 1d6d9265d93fbd32e2d9c22e2ac3db9b5ffd9776
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3d24c633368abc14efcd9fcf200a4d05c5b182c9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratorio de prácticas: fácil de mantener sitios Web de Azure: administración de cambios y la escala
 ====================
@@ -251,7 +251,7 @@ En esta tarea, va a usar **Entity Framework Code First Migrations** para detecta
 En este ejercicio, implementará la **experto en cuestionario** aplicación en el entorno de ensayo de la aplicación web mediante el control de código fuente de Git. Para ello, se crea la aplicación web y aprovisionar los componentes necesarios en el portal de administración, configure un **Git** repositorio e inserte la aplicación el código fuente desde el equipo local para la zona de ensayo. También se actualizará la base de datos de producción con el **migraciones de Code First** que creó en el ejercicio anterior. A continuación, se ejecutará la aplicación en este entorno de prueba para comprobar su funcionamiento. Cuando esté satisfecho que TI funciona según sus expectativas, promocionará la aplicación en producción.
 
 > [!NOTE]
-> Para habilitar la publicación de ensayo, la aplicación web debe estar en **modo estándar**. Tenga en cuenta que se aplicarán cargos adicionales si su aplicación web se cambia al modo estándar. Para obtener más información sobre los precios, consulte [precios del servicio de aplicación](https://azure.microsoft.com/en-us/pricing/details/app-service/).
+> Para habilitar la publicación de ensayo, la aplicación web debe estar en **modo estándar**. Tenga en cuenta que se aplicarán cargos adicionales si su aplicación web se cambia al modo estándar. Para obtener más información sobre los precios, consulte [precios del servicio de aplicación](https://azure.microsoft.com/pricing/details/app-service/).
 
 
 <a id="Ex2Task1"></a>
@@ -288,7 +288,7 @@ En esta tarea, creará una aplicación web en **servicio de aplicaciones de Azur
     ![Especificar la configuración de la base de datos](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
     *Especificar la configuración de la base de datos*
-6. Haga clic en **siguiente** para continuar.
+6. Haga clic en **Siguiente** para continuar.
 7. Seleccione **repositorio de Git Local** para el control de código fuente utilizar y haga clic en **siguiente**.
 
     > [!NOTE]
@@ -695,7 +695,7 @@ En esta tarea, configurará la **GeekQuiz** solución para consumir la imagen ca
     [!code-xml[Main](maintainable-azure-websites-managing-change-and-scale/samples/sample17.xml)]
 
     > [!NOTE]
-    > Reescritura de direcciones URL es el proceso de interceptar una solicitud Web de entrada y redirigir la solicitud a otro recurso. La dirección URL de volver a escribir reglas indica al motor de reescritura cuando se necesita una solicitud de redirección y que se deben redirigir. Una regla de reescritura se compone de dos cadenas: el modelo se debe buscar en la dirección URL solicitada (normalmente, mediante expresiones regulares), y la cadena para reemplazar el patrón, si se encuentra. Para obtener más información, consulte [reescritura de direcciones URL en ASP.NET](https://msdn.microsoft.com/en-us/library/ms972974.aspx).
+    > Reescritura de direcciones URL es el proceso de interceptar una solicitud Web de entrada y redirigir la solicitud a otro recurso. La dirección URL de volver a escribir reglas indica al motor de reescritura cuando se necesita una solicitud de redirección y que se deben redirigir. Una regla de reescritura se compone de dos cadenas: el modelo se debe buscar en la dirección URL solicitada (normalmente, mediante expresiones regulares), y la cadena para reemplazar el patrón, si se encuentra. Para obtener más información, consulte [reescritura de direcciones URL en ASP.NET](https://msdn.microsoft.com/library/ms972974.aspx).
 3. Presione **CTRL + S** para guardar los cambios.
 4. Abra una nueva **Git Bash** consola para implementar la aplicación actualizada al servicio de aplicaciones de Azure.
 5. Ejecute los siguientes comandos para insertar los cambios en Azure. Actualización de la *[ruta de la aplicación YOUR]* marcador de posición con la ruta de acceso a la **GeekQuiz** solución. Se le pedirá la contraseña de la implementación.
@@ -910,7 +910,7 @@ Ahora podrá ejecutar la prueba de carga que creó en la tarea anterior y ver c�
     > 
     > - Aumente la duración de la prueba de carga (por ejemplo, para **10 minutos**)
     > - Reducir los valores máximos y mínimo de la **CPU de destino** intervalo en la configuración de escalado automático de la aplicación web
-    > - Ejecutar la prueba de carga en la nube con **Visual Studio Online**. Obtener más información [aquí](https://www.visualstudio.com/en-us/get-started/load-test-your-app-vs.aspx)
+    > - Ejecutar la prueba de carga en la nube con **Visual Studio Online**. Obtener más información [aquí](https://www.visualstudio.com/get-started/load-test-your-app-vs.aspx)
 
 * * *
 

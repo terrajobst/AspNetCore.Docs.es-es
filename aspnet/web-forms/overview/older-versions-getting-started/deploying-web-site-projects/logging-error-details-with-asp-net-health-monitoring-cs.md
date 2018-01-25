@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06f8b57c8973fff5c07e82100cd43f6757d454f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>El registro de detalles del Error (C#) de supervisión de estado de ASP.NET
 ====================
@@ -43,13 +43,13 @@ Los eventos que registra el sistema de supervisión de estado, junto con los or�
 
 ## <a name="exploring-the-health-monitoring-systems-configuration"></a>Explorar la configuración del sistema de supervisión de estado
 
-El comportamiento del sistema de supervisión de estado se define por su información de configuración, que se encuentra en la [ `<healthMonitoring>` elemento](https://msdn.microsoft.com/en-us/library/2fwh2ss9.aspx) en `Web.config`. Esta sección de configuración define, entre otras cosas, las siguientes tres partes importantes de información:
+El comportamiento del sistema de supervisión de estado se define por su información de configuración, que se encuentra en la [ `<healthMonitoring>` elemento](https://msdn.microsoft.com/library/2fwh2ss9.aspx) en `Web.config`. Esta sección de configuración define, entre otras cosas, las siguientes tres partes importantes de información:
 
 1. Los eventos de supervisión de estado que, cuando se produce, se deben registrar,
 2. Los orígenes de registro, y
 3. ¿Cómo se asigna cada estado de supervisión de eventos definidos en (1) a los orígenes de registro definidos en (2).
 
-Esta información se especifica a través de los elementos de configuración de tres nodos secundarios: [ `<eventMappings>` ](https://msdn.microsoft.com/en-us/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/en-us/library/zaa41kz1.aspx), y [ `<rules>` ](https://msdn.microsoft.com/en-us/library/fe5wyxa0.aspx), respectivamente.
+Esta información se especifica a través de los elementos de configuración de tres nodos secundarios: [ `<eventMappings>` ](https://msdn.microsoft.com/library/yc5yk01w.aspx), [ `<providers>` ](https://msdn.microsoft.com/library/zaa41kz1.aspx), y [ `<rules>` ](https://msdn.microsoft.com/library/fe5wyxa0.aspx), respectivamente.
 
 Información de configuración del sistema de supervisión de estado de forma predeterminada se encuentra en la `Web.config` en el archivo `%WINDIR%\Microsoft.NET\Framework\version\CONFIG` carpeta. Con algún marcado quitado para mayor brevedad, esta información de configuración de forma predeterminada, se muestra a continuación:
 
@@ -114,7 +114,7 @@ Vamos a actualizar la configuración del sitio Web para que se recibe un correo 
 2. Registrar el proveedor de origen del registro de correo electrónico en el `<providers>` elemento, y
 3. Agregar una entrada a la `<rules>` elemento que se asigna al evento de "Todos los errores" al proveedor del registro de origen que agregó en el paso (2).
 
-El sistema de supervisión de estado incluye dos clases de proveedor de origen de registro de correo electrónico: `SimpleMailWebEventProvider` y `TemplatedMailWebEventProvider`. El [ `SimpleMailWebEventProvider` clase](https://msdn.microsoft.com/en-us/library/system.web.management.simplemailwebeventprovider.aspx) envía un mensaje de correo electrónico de texto sin formato que incluya el evento detalla y ofrece personalización poco del cuerpo del correo electrónico. Con el [ `TemplatedMailWebEventProvider` clase](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) especificar una página ASP.NET cuyo marcado representado se utiliza como el cuerpo del mensaje de correo electrónico. El [ `TemplatedMailWebEventProvider` clase](https://msdn.microsoft.com/en-us/library/system.web.management.templatedmailwebeventprovider.aspx) ofrece mucho mayor control sobre el contenido y el formato de mensaje de correo electrónico, pero requiere un poco más trabajo por adelantado ya que tiene que crear la página ASP.NET que genera el cuerpo del mensaje de correo electrónico. Este tutorial se centra en usar la `SimpleMailWebEventProvider` clase.
+El sistema de supervisión de estado incluye dos clases de proveedor de origen de registro de correo electrónico: `SimpleMailWebEventProvider` y `TemplatedMailWebEventProvider`. El [ `SimpleMailWebEventProvider` clase](https://msdn.microsoft.com/library/system.web.management.simplemailwebeventprovider.aspx) envía un mensaje de correo electrónico de texto sin formato que incluya el evento detalla y ofrece personalización poco del cuerpo del correo electrónico. Con el [ `TemplatedMailWebEventProvider` clase](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) especificar una página ASP.NET cuyo marcado representado se utiliza como el cuerpo del mensaje de correo electrónico. El [ `TemplatedMailWebEventProvider` clase](https://msdn.microsoft.com/library/system.web.management.templatedmailwebeventprovider.aspx) ofrece mucho mayor control sobre el contenido y el formato de mensaje de correo electrónico, pero requiere un poco más trabajo por adelantado ya que tiene que crear la página ASP.NET que genera el cuerpo del mensaje de correo electrónico. Este tutorial se centra en usar la `SimpleMailWebEventProvider` clase.
 
 Actualizar el estado sistema de supervisión `<providers>` elemento en el `Web.config` archivo para incluir un origen de registro para el `SimpleMailWebEventProvider` clase:
 
@@ -139,7 +139,7 @@ El `<rules>` sección ahora incluye dos reglas. La primera de ellas, con el nomb
 
 El sistema de supervisión de estado ASP.NET está diseñado para permitir a los administradores a supervisar el estado de una aplicación web implementadas. Eventos de supervisión de estado se generan cuando expandir determinadas acciones, como cuando se detiene la aplicación, cuando un usuario inicia sesión correctamente en el sitio, o cuando se produce una excepción no controlada. Estos eventos se pueden registrar a cualquier número de orígenes de registro. Este tutorial se ha explicado cómo registrar los detalles de las excepciones no controladas en una base de datos y a través de un mensaje de correo electrónico.
 
-Este tutorial se centra en el uso para registrar excepciones no controladas, pero tenga en cuenta que la supervisión de estado está diseñada para medir el estado general de una aplicación ASP.NET implementada e incluye un gran número de eventos de supervisión de estado y no los orígenes de registro de seguimiento de estado explorar aquí. ¿Qué es más, puede crear su propios eventos y orígenes de registro de seguimiento de estado fuese necesario surgen. Si está interesado en aprender más acerca de la supervisión de estado, es un buen primer paso leer [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)del [preguntas más frecuentes de supervisión de estado](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). A continuación, consulte [How To: Use supervisión de estado en ASP.NET 2.0](https://msdn.microsoft.com/en-us/library/ms998306.aspx).
+Este tutorial se centra en el uso para registrar excepciones no controladas, pero tenga en cuenta que la supervisión de estado está diseñada para medir el estado general de una aplicación ASP.NET implementada e incluye un gran número de eventos de supervisión de estado y no los orígenes de registro de seguimiento de estado explorar aquí. ¿Qué es más, puede crear su propios eventos y orígenes de registro de seguimiento de estado fuese necesario surgen. Si está interesado en aprender más acerca de la supervisión de estado, es un buen primer paso leer [Erik Reitan](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)del [preguntas más frecuentes de supervisión de estado](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx). A continuación, consulte [How To: Use supervisión de estado en ASP.NET 2.0](https://msdn.microsoft.com/library/ms998306.aspx).
 
 Feliz programación.
 
@@ -147,11 +147,11 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Información general de supervisión de estado de ASP.NET](https://msdn.microsoft.com/en-us/library/bb398933.aspx)
+- [Información general de supervisión de estado de ASP.NET](https://msdn.microsoft.com/library/bb398933.aspx)
 - [Configurar y personalizar el sistema de ASP.NET de supervisión de estado](http://dotnetslackers.com/articles/aspnet/ConfiguringAndCustomizingTheHealthMonitoringSystemOfASPNET.aspx)
 - [Preguntas más frecuentes: estado de supervisión en ASP.NET 2.0](https://blogs.msdn.com/erikreitan/archive/2006/05/22/603586.aspx)
-- [Cómo: Enviar correo electrónico para las notificaciones de supervisión de estado](https://msdn.microsoft.com/en-us/library/ms227553.aspx)
-- [Cómo: Usar la supervisión de estado en ASP.NET](https://msdn.microsoft.com/en-us/library/ms998306.aspx)
+- [Cómo: Enviar correo electrónico para las notificaciones de supervisión de estado](https://msdn.microsoft.com/library/ms227553.aspx)
+- [Cómo: Usar la supervisión de estado en ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Estado de supervisión en ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
 >[!div class="step-by-step"]

@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/configuration
-ms.openlocfilehash: 90d9f730d31c2c70aec3d47610b9031a7d8e621b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 51665059d1d803cbe57bc9a884a0e91eac9e7cb4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-configuration"></a>Migrar la configuración
 
@@ -27,13 +27,13 @@ En el artículo anterior, se comenzó a [migrar un proyecto de MVC de ASP.NET a 
 
 ASP.NET Core ya no utiliza la *Global.asax* y *web.config* archivos que utilizan versiones anteriores de ASP.NET. En versiones anteriores de ASP.NET, la lógica de inicio de la aplicación se ha puesto en un `Application_StartUp` método dentro de *Global.asax*. Más adelante, en ASP.NET MVC, un *Startup.cs* archivo se incluyó en la raíz del proyecto; y, se llamó cuando se inició la aplicación. ASP.NET Core ha adoptado este enfoque por completo mediante la colocación de toda la lógica de inicio en el *Startup.cs* archivo.
 
-El *web.config* archivo también se ha sustituido en ASP.NET Core. Configuración en Sí ahora se puede configurar, como parte del procedimiento de inicio de aplicación se describen en *Startup.cs*. Configuración todavía puede usar los archivos XML, pero normalmente los proyectos de ASP.NET Core colocará los valores de configuración en un archivo con formato JSON, como *appSettings.JSON que se*. Sistema de configuración de ASP.NET Core también es posible tener acceso a las variables de entorno, lo que pueden proporcionar una ubicación más segura y sólida para valores específicos del entorno. Esto es especialmente cierto para los secretos como cadenas de conexión y las claves de API que no se deben comprobar en el control de código fuente. Vea [configuración](xref:fundamentals/configuration/index) para obtener más información sobre la configuración de ASP.NET Core.
+El *web.config* archivo también se ha sustituido en ASP.NET Core. Configuración en Sí ahora se puede configurar, como parte del procedimiento de inicio de aplicación se describen en *Startup.cs*. Configuración todavía puede usar los archivos XML, pero normalmente los proyectos de ASP.NET Core colocará los valores de configuración en un archivo con formato JSON, como *appSettings.JSON que se*. Sistema de configuración de ASP.NET Core también es posible tener acceso a las variables de entorno, lo que pueden proporcionar una ubicación más segura y sólida para valores específicos del entorno. Esto es especialmente cierto para los secretos como cadenas de conexión y las claves de API que no deben protegerse en el control de código fuente. Vea [configuración](xref:fundamentals/configuration/index) para obtener más información sobre la configuración de ASP.NET Core.
 
 En este artículo, estamos comenzando con el proyecto de ASP.NET Core parcialmente migrado desde [el artículo anterior](mvc.md). Para la configuración de la instalación, agregue el siguiente constructor y la propiedad a la *Startup.cs* archivo se encuentra en la raíz del proyecto:
 
 [!code-csharp[Main](configuration/samples/WebApp1/src/WebApp1/Startup.cs?range=11-21)]
 
-Tenga en cuenta que en este momento, el *Startup.cs* archivo no se compilará como necesitamos agregar lo siguiente `using` instrucción:
+Tenga en cuenta que en este momento, el *Startup.cs* archivo no se compilará, tal y como necesitamos agregar lo siguiente `using` instrucción:
 
 ```csharp
 using Microsoft.Extensions.Configuration;

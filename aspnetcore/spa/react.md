@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: aa70a35ad938fff6911367ee9d12aac9d575be7e
-ms.sourcegitcommit: efc9e5b5fffa0e13957131a0da52cc1532a87651
-ms.translationtype: HT
+ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>Utilice la plantilla de proyecto de reaccionar (candidato de versión comercial)
 
 > [!NOTE]
-> Esta documentación no está sobre la plantilla de proyecto de reaccionar publicada. **Esta documentación está sobre el candidato de versión de la plantilla de reaccionar.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
+> Esta documentación no consiste en la plantilla de proyecto de reaccionar publicada. **Esta documentación está sobre el candidato de versión de la plantilla de reaccionar.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
 
 La plantilla de proyecto de reaccionar actualizada proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con reaccionar y [aplicación reaccionar crear](https://github.com/facebookincubator/create-react-app) convenciones (CRA) para implementar una interfaz de usuario de cliente enriquecido (UI).
 

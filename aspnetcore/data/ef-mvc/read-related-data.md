@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 1321cb00a432669b4a97ad20063b6cf9ea75f24c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2333ac70c77847ece1f90c9ff22eec30bc35fea1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lectura relacionadas con datos - Core EF con el tutorial de MVC de ASP.NET Core (6 de 10)
 
@@ -45,7 +45,7 @@ Existen varias formas de que el software de asignación relacional de objetos (O
 
   ![En el ejemplo se carga explícita](read-related-data/_static/explicit-loading.png)
 
-* Carga diferida. Cuando la entidad es de lectura en primer lugar, no recuperan datos relacionados. Sin embargo, la primera vez que intente acceder a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Se envía una consulta a la base de datos cada vez que intente obtener datos de una propiedad de navegación por primera vez. Entity Framework Core 1.0 no admite la carga diferida.
+* Carga diferida. Cuando la entidad es de lectura en primer lugar, no recuperan datos relacionados. Sin embargo, la primera vez que intente acceder a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Se envía una consulta a la base de datos cada vez que intente obtener datos de una propiedad de navegación por primera vez. Entity Framework Core 1.0 no es compatible con la carga diferida.
 
 ### <a name="performance-considerations"></a>Consideraciones sobre el rendimiento
 
@@ -75,7 +75,7 @@ Ha realizado los siguientes cambios en el código con scaffolding:
 
 * Cambia el encabezado de índice a Courses.
 
-* Agrega un **número** columna que muestra la `CourseID` valor de propiedad. De forma predeterminada, las claves principales no son scaffolding porque normalmente son importantes para los usuarios finales. Sin embargo, en este caso, la clave principal es significativa y desea mostrarla.
+* Agrega un **número** columna que muestra la `CourseID` valor de propiedad. De forma predeterminada, las claves principales no son scaffolding porque normalmente se encuentran sin significado para los usuarios finales. Sin embargo, en este caso, la clave principal es significativa y desea mostrarla.
 
 * Cambiar el **departamento** columna para mostrar el nombre del departamento. El código muestra la `Name` propiedad de la entidad de departamento que se carga en el `Department` propiedad de navegación:
 

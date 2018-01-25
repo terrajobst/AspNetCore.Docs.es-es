@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/controllers/application-model
-ms.openlocfilehash: c69dd1cfae713036ce0ee95f70acc162b1e82cb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="working-with-the-application-model"></a>Trabajar con el modelo de aplicación
 
@@ -35,7 +35,7 @@ El modelo de aplicación de MVC de ASP.NET Core tiene la estructura siguiente:
 Cada nivel del modelo tiene acceso a un común `Properties` colección niveles inferiores pueden tener acceso y sobrescribir los valores de propiedad establecidos por los niveles superiores de la jerarquía. Las propiedades se conservan en el `ActionDescriptor.Properties` cuando se crean las acciones. A continuación, cuando se está controlando una solicitud, las propiedades de una convención de agregado o modificado puede obtenerse a través `ActionContext.ActionDescriptor.Properties`. Usar propiedades es una excelente manera de configurar los filtros, enlazadores de modelos, etc. según una por cada acción.
 
 > [!NOTE]
-> El `ActionDescriptor.Properties` colección no es subprocesos (para las escrituras) cuando haya finalizado el inicio de la aplicación. Las convenciones son la mejor manera de agregar datos de forma segura a esta colección.
+> El `ActionDescriptor.Properties` recolección no está subprocesos (para las escrituras) cuando haya finalizado el inicio de la aplicación. Las convenciones son la mejor manera de agregar datos de forma segura a esta colección.
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
@@ -53,7 +53,7 @@ A continuación, (`Order=-990`):
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> El orden en que dos proveedores con el mismo valor para `Order` se denominan no está definido y, por tanto, no debe confiar en.
+> El orden en que dos proveedores con el mismo valor para `Order` se denominan no está definido y, por tanto, no debe confiar en ellos.
 
 > [!NOTE]
 > `IApplicationModelProvider`es un concepto avanzado para que los autores de framework extender. En general, las aplicaciones deben usar las convenciones y marcos de trabajo deben utilizar proveedores. La diferencia clave es que proveedores se ejecutan siempre antes de convenciones.
@@ -185,7 +185,7 @@ Las convenciones proporcionadas por la corrección de compatibilidad solo se apl
 
 ### <a name="action-conventions"></a>Convenciones de acción
 
-El `UseWebApiActionConventionsAttribute` se utiliza para asignar el método HTTP a las acciones según su nombre (por ejemplo, `Get` asignaría a `HttpGet`). Solo se aplica a las acciones que no utilizan la ruta de atributo.
+El `UseWebApiActionConventionsAttribute` se utiliza para asignar el método HTTP a las acciones según su nombre (por ejemplo, `Get` asignaría a `HttpGet`). Solo se aplica a las acciones que no usan el enrutamiento de atributo.
 
 ### <a name="overloading"></a>Sobrecarga
 

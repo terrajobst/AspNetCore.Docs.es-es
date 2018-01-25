@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: fcdded3a7e80ee797eae445f347735f0f7b3d7ad
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Trabajar con formularios HTML en sitios de ASP.NET Web Pages (Razor)
 ====================
@@ -139,7 +139,7 @@ Puede corregir esto fácilmente, sin embargo. Tener acceso a los valores que se 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [1.001 maneras para obtener la entrada de usuarios Web](https://msdn.microsoft.com/en-us/library/ms971057.aspx)
-- [Uso de formularios y el procesamiento proporcionados por el usuario](https://msdn.microsoft.com/en-us/library/ms525182(VS.90).aspx)
-- [Validar la entrada del usuario en los sitios de páginas Web de ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
-- [Usar Autocompletar en formularios HTML](https://msdn.microsoft.com/en-us/library/ms533032(VS.85).aspx)
+- [1.001 maneras para obtener la entrada de usuarios Web](https://msdn.microsoft.com/library/ms971057.aspx)
+- [Uso de formularios y el procesamiento proporcionados por el usuario](https://msdn.microsoft.com/library/ms525182(VS.90).aspx)
+- [Validar la entrada del usuario en los sitios de ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Usar Autocompletar en formularios HTML](https://msdn.microsoft.com/library/ms533032(VS.85).aspx)

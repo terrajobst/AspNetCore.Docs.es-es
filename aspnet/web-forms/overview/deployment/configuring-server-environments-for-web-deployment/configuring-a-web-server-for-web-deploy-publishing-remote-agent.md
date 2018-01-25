@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 61e357198ffa4e93d35b7fa4619270da630547c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Configurar un servidor Web de publicación (agente remoto) de implementación Web
 ====================
@@ -65,7 +65,7 @@ En este tema le mostrará cómo realizar cada uno de estos procedimientos. Las t
 - El servidor tiene una dirección IP estática.
 
 > [!NOTE]
-> Para obtener más información sobre unir equipos a un dominio, consulte [unir equipos al dominio e iniciar sesión](https://technet.microsoft.com/en-us/library/cc725618(v=WS.10).aspx). Para obtener más información acerca de cómo configurar direcciones IP estáticas, consulte [configurar una dirección IP estática](https://technet.microsoft.com/en-us/library/cc754203(v=ws.10).aspx). El servicio del agente remoto es compatible con IIS 6 y versiones posteriores y no requiere que esté unido a un dominio. Sin embargo, los pasos descritos en este tutorial han desarrollado y probado en IIS 7.5 y procedimientos para otras versiones pueden variar.
+> Para obtener más información sobre unir equipos a un dominio, consulte [unir equipos al dominio e iniciar sesión](https://technet.microsoft.com/library/cc725618(v=WS.10).aspx). Para obtener más información acerca de cómo configurar direcciones IP estáticas, consulte [configurar una dirección IP estática](https://technet.microsoft.com/library/cc754203(v=ws.10).aspx). El servicio del agente remoto es compatible con IIS 6 y versiones posteriores y no requiere que esté unido a un dominio. Sin embargo, los pasos descritos en este tutorial han desarrollado y probado en IIS 7.5 y procedimientos para otras versiones pueden variar.
 
 
 ## <a name="install-products-and-components"></a>Instalar productos y componentes
@@ -108,7 +108,7 @@ En este caso, debe instalar estas cosas:
 11. Revise los términos de licencia y, si acepta los términos, haga clic en **acepto**.
 12. Una vez completada la instalación, haga clic en **finalizar**y, a continuación, cierre el **instalador de plataforma Web 3.0** ventana.
 
-Si instaló .NET Framework 4.0 antes de instalar IIS, será necesario ejecutar el [herramienta de registro de IIS de ASP.NET](https://msdn.microsoft.com/en-us/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) para registrar la versión más reciente de ASP.NET con IIS. Si no lo hace, encontrará que IIS pueda servir contenido estático (como archivos HTML) sin problemas, pero devolverá **404.0 de Error de HTTP: no se encontró** al intentar examinar al contenido de ASP.NET. Puede usar este procedimiento para asegurarse de que se ha registrado ASP.NET 4.0.
+Si instaló .NET Framework 4.0 antes de instalar IIS, será necesario ejecutar el [herramienta de registro de IIS de ASP.NET](https://msdn.microsoft.com/library/k6h9cz8h(v=VS.100).aspx) (aspnet\_regiis.exe) para registrar la versión más reciente de ASP.NET con IIS. Si no lo hace, encontrará que IIS pueda servir contenido estático (como archivos HTML) sin problemas, pero devolverá **404.0 de Error de HTTP: no se encontró** al intentar examinar al contenido de ASP.NET. Puede usar este procedimiento para asegurarse de que se ha registrado ASP.NET 4.0.
 
 **Para registrar ASP.NET 4.0 con IIS**
 
@@ -154,7 +154,7 @@ Aunque no hay nada que le impida de implementación de contenido del sitio Web p
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image4.png)
 
     > [!NOTE]
-    > En un entorno de producción, probablemente deseará hospedar el sitio Web en el puerto 80 y configurar un encabezado de host, junto con los registros DNS coincidentes. Para obtener más información acerca de cómo configurar los encabezados de host en IIS 7, consulte [configurar un encabezado de Host para un sitio Web (IIS 7)](https://technet.microsoft.com/en-us/library/cc753195(WS.10).aspx). Para obtener más información sobre el rol de servidor DNS en Windows Server 2008 R2, consulte [Introducción al servidor DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) y [servidor DNS](https://technet.microsoft.com/en-us/windowsserver/dd448607).
+    > En un entorno de producción, probablemente deseará hospedar el sitio Web en el puerto 80 y configurar un encabezado de host, junto con los registros DNS coincidentes. Para obtener más información acerca de cómo configurar los encabezados de host en IIS 7, consulte [configurar un encabezado de Host para un sitio Web (IIS 7)](https://technet.microsoft.com/library/cc753195(WS.10).aspx). Para obtener más información sobre el rol de servidor DNS en Windows Server 2008 R2, consulte [Introducción al servidor DNS](https://technet.microsoft.com/en-gb/library/cc770392.aspx) y [servidor DNS](https://technet.microsoft.com/windowsserver/dd448607).
 9. En el **acciones** panel, en **editar sitio**, haga clic en **enlaces**.
 10. En el **enlaces de sitios** cuadro de diálogo, haga clic en **agregar**.
 
@@ -198,8 +198,8 @@ El enfoque más común consiste en asignar permisos a la variable local **IIS\_I
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. En el **Seleccionar usuarios o grupos** cuadro de diálogo, escriba **IIS\_IUSRS**, haga clic en **comprobar nombres**y, a continuación, haga clic en **Aceptar**.
-6. En el **permisos para***[nombre de la carpeta]*cuadro de diálogo, tenga en cuenta que el nuevo grupo se ha asignado la **lectura &amp; ejecutar**, **Listar carpeta contenido**, y **lectura** permisos de forma predeterminada. Deja sin modificar y haga clic en **Aceptar**.
-7. Haga clic en **Aceptar** para cerrar el *[nombre de la carpeta]***propiedades** cuadro de diálogo.
+6. En el **permisos para *** [nombre de la carpeta]*cuadro de diálogo, tenga en cuenta que el nuevo grupo se ha asignado la **lectura &amp; ejecutar**, **mostrar el contenido de la carpeta**, y **Lectura** permisos de forma predeterminada. Deja sin modificar y haga clic en **Aceptar**.
+7. Haga clic en **Aceptar** para cerrar el *[nombre de la carpeta] *** propiedades** cuadro de diálogo.
 
 Como una tarea final antes de intentar implementar los paquetes de web en el servidor, debe asegurarse de que se está ejecutando el servicio del agente de implementación Web. Al implementar un paquete desde un equipo remoto, el servicio del agente de implementación Web es responsable de extraer e instalar el contenido del paquete. El servicio se inicia de forma predeterminada cuando se instala la herramienta de implementación Web y se ejecuta bajo la identidad Network Service.
 

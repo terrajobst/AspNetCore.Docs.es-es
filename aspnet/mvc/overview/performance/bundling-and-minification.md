@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: e83be2446ef1e3ff1275d06d5b743fb5b9444a6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="bundling-and-minification"></a>Agrupar y Minificar
 ====================
@@ -55,7 +55,7 @@ Después de la reducción, la función se reduce a lo siguiente:
 
 Además de quitar los comentarios y espacios en blanco innecesarios, los siguientes parámetros y nombres de variables se cambió el nombre (abreviar) como se indica a continuación:
 
-| **Texto original en** | **Cambiar el nombre** |
+| **Original** | **Renamed** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | m |
@@ -70,13 +70,13 @@ En la tabla siguiente muestra algunas diferencias importantes entre enumerar tod
 | **Solicitudes de archivos** | 9 | 34 | 256% |
 | **KB enviado** | 3.26 | 11.92 | 266% |
 | **KB recibido** | 388.51 | 530 | 36% |
-| **Tiempo de carga** | MS 510 | 780 MS | 53% |
+| **Tiempo de carga** | 510 MS | 780 MS | 53% |
 
 Los bytes enviados tenían una reducción significativa de la agrupación sea bastante detallados con los encabezados HTTP de que se aplican en las solicitudes los exploradores. La reducción de bytes recibidos no es tan grande porque los archivos de mayor tamaño (*Scripts\jquery-ui-1.8.11.min.js* y *Scripts\jquery-1.7.1.min.js*) ya se ha reducido. Nota: Los intervalos en el programa de ejemplo que usa el [Fiddler](http://www.fiddler2.com/fiddler2/) herramienta para simular una red lenta. (Desde el Fiddler **reglas** menú, seleccione **rendimiento** , a continuación, **simular un módem**.)
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Depuración de empaquetado y reducido JavaScript
 
-Es fácil depurar el código JavaScript en un entorno de desarrollo (donde el [compilación elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) en el *Web.config* archivo se establece en `debug="true"` ) porque no se incluyen los archivos JavaScript o reducido. También puede depurar una versión de lanzamiento donde están incluidos y reduce los archivos JavaScript. Con las herramientas de desarrollo F12 de Internet Explorer, depurar una función de JavaScript que se incluyen en un paquete reducido mediante el siguiente método:
+Es fácil depurar el código JavaScript en un entorno de desarrollo (donde el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo se establece en `debug="true"` ) porque no se incluyen los archivos JavaScript o reducido. También puede depurar una versión de lanzamiento donde están incluidos y reduce los archivos JavaScript. Con las herramientas de desarrollo F12 de Internet Explorer, depurar una función de JavaScript que se incluyen en un paquete reducido mediante el siguiente método:
 
 1. Seleccione el **Script** ficha y, a continuación, seleccione la **iniciar la depuración** botón.
 2. Seleccione el paquete que contiene la función de JavaScript que va a depurar mediante el botón de activos.  
@@ -85,11 +85,11 @@ Es fácil depurar el código JavaScript en un entorno de desarrollo (donde el [c
 4. En el **búsqueda script** cuadro de entrada de t, seleccione el nombre de la función que va a depurar. En la siguiente imagen, **AddAltToImg** se escribió en el **búsqueda script** cuadro de entrada de t.  
     ![](bundling-and-minification/_static/image6.png)
 
-Para obtener más información sobre cómo depurar con las herramientas de desarrollo F12, vea el artículo MSDN [mediante las herramientas de desarrollo F12 para depurar errores de JavaScript](https://msdn.microsoft.com/en-us/library/ie/gg699336(v=vs.85).aspx).
+Para obtener más información sobre cómo depurar con las herramientas de desarrollo F12, vea el artículo MSDN [mediante las herramientas de desarrollo F12 para depurar errores de JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
 
 ## <a name="controlling-bundling-and-minification"></a>Controlar agrupar y Minificar
 
-Agrupar y minificar está habilitada o deshabilitada estableciendo el valor del atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) en el *Web.config* archivo. En el siguiente código XML, `debug` se establece en true, agrupación y minificación está deshabilitado.
+Agrupar y minificar está habilitada o deshabilitada estableciendo el valor del atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo. En el siguiente código XML, `debug` se establece en true, agrupación y minificación está deshabilitado.
 
 [!code-xml[Main](bundling-and-minification/samples/sample3.xml?highlight=2)]
 
@@ -98,7 +98,7 @@ Para habilitar la agrupación y minificación, establezca el `debug` valor en "f
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> A menos que `EnableOptimizations` es `true` o el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) en el *Web.config* archivo se establece en `false`, los archivos no se incluye o se reduce. Además, no se usará la versión .min de archivos, se seleccionará las versiones de depuración completa. `EnableOptimizations`invalida el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx) en el *Web.config* archivo
+> A menos que `EnableOptimizations` es `true` o el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo se establece en `false`, los archivos no se incluye o se reduce. Además, no se usará la versión .min de archivos, se seleccionará las versiones de depuración completa. `EnableOptimizations`invalida el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Mediante la agrupación y Minificación con ASP.NET Web Forms y páginas Web
@@ -137,11 +137,11 @@ En el código anterior, será necesario jQuery desde la red CDN mientras en vers
 
 ## <a name="creating-a-bundle"></a>Crear un paquete
 
-El [agrupación](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) clase `Include` método toma una matriz de cadenas, donde cada cadena es una ruta de acceso virtual al recurso. El código siguiente en el método RegisterBundles en el *aplicación\_Start\BundleConfig.cs* archivo muestra cómo varios archivos se agregan a una agrupación:
+El [agrupación](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) clase `Include` método toma una matriz de cadenas, donde cada cadena es una ruta de acceso virtual al recurso. El código siguiente en el método RegisterBundles en el *aplicación\_Start\BundleConfig.cs* archivo muestra cómo varios archivos se agregan a una agrupación:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
-El [agrupación](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) clase `IncludeDirectory` método se proporciona para agregar todos los archivos en un directorio (y, opcionalmente, todos los subdirectorios) que coinciden con un patrón de búsqueda. El [agrupación](https://msdn.microsoft.com/en-us/library/system.web.optimization.bundle(v=VS.110).aspx) clase `IncludeDirectory` API se muestra a continuación:
+El [agrupación](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) clase `IncludeDirectory` método se proporciona para agregar todos los archivos en un directorio (y, opcionalmente, todos los subdirectorios) que coinciden con un patrón de búsqueda. El [agrupación](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) clase `IncludeDirectory` API se muestra a continuación:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
@@ -170,17 +170,17 @@ La siguiente tabla muestra los archivos agregados a una agrupación mediante el 
 
 | **Call** | **Archivos agregados o produjo una excepción** |
 | --- | --- |
-| Incluir ("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
-| Incluir ("~/Scripts/Common/T\*.js") | Excepción de patrón no válida. El carácter comodín solo se permite en el prefijo o sufijo. |
-| Incluir ("~/Scripts/Common/\*og.\*") | Excepción de patrón no válida. Se permite sólo un carácter comodín. |
-| "Incluir (" ~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "Incluir (" ~/Scripts/Common/\*") | Excepción de patrón no válida. Un segmento de carácter comodín pura no es válido. |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include("~/Scripts/Common/T\*.js") | Excepción de patrón no válida. El carácter comodín solo se permite en el prefijo o sufijo. |
+| Include("~/Scripts/Common/\*og.\*") | Excepción de patrón no válida. Se permite sólo un carácter comodín. |
+| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
+| "Include("~/Scripts/Common/\*") | Excepción de patrón no válida. Un segmento de carácter comodín pura no es válido. |
 | IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
 | IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
 
 Agregar explícitamente cada archivo a una agrupación es generalmente el preferido sobre comodín carga de archivos por los motivos siguientes:
 
-- Agregar secuencias de comandos por los valores predeterminados de comodín para cargarlos en orden alfabético, que normalmente no es lo desea. Con frecuencia, los archivos CSS y JavaScript deben agregarse en un orden específico (no alfabéticos). Puede mitigar este riesgo mediante la adición de un personalizado [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementación pero agregar explícitamente cada archivo es menos propenso a errores. Por ejemplo, puede agregar nuevos activos en una carpeta en el futuro que podrían requerir que se modifique su [IBundleOrderer](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementación.
+- Agregar secuencias de comandos por los valores predeterminados de comodín para cargarlos en orden alfabético, que normalmente no es lo desea. Con frecuencia, los archivos CSS y JavaScript deben agregarse en un orden específico (no alfabéticos). Puede mitigar este riesgo mediante la adición de un personalizado [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementación pero agregar explícitamente cada archivo es menos propenso a errores. Por ejemplo, puede agregar nuevos activos en una carpeta en el futuro que podrían requerir que se modifique su [IBundleOrderer](https://msdn.microsoft.com/library/system.web.optimization.ibundleorderer(VS.110).aspx) implementación.
 - Agregado a un directorio mediante la carga de carácter comodín de determinados archivos de vista pueden incluirse en todas las vistas que hacen referencia a ese paquete. Si la secuencia de comandos específicos de la vista se agrega a una agrupación, puede obtener un error de JavaScript en otras vistas que hacen referencia a la agrupación.
 - Como resultado archivos CSS que importan otros archivos en los archivos importados cargados dos veces. Por ejemplo, el código siguiente crea un paquete con la mayoría de los archivos CSS de jQuery UI tema cargados dos veces. 
 
@@ -209,10 +209,10 @@ El marco de agrupación y minificación proporciona un mecanismo para procesar i
 1. Cree una carpeta para la menor cantidad de contenido. En el ejemplo siguiente se usa el *Content\MyLess* carpeta.
 2. Agregar el [. less](http://www.dotlesscss.org/) paquete NuGet **punto** al proyecto.  
     ![Instalación de punto de NuGet](bundling-and-minification/_static/image9.png)
-3. Agregue una clase que implementa el [IBundleTransform](https://msdn.microsoft.com/en-us/library/system.web.optimization.ibundletransform(VS.110).aspx) interfaz. Para la transformación. less, agregue el código siguiente a su proyecto.
+3. Agregue una clase que implementa el [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfaz. Para la transformación. less, agregue el código siguiente a su proyecto.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Crear un paquete de menos archivos con la `LessTransform` y [CssMinify](https://msdn.microsoft.com/en-us/library/system.web.optimization.cssminify(VS.110).aspx) transformar. Agregue el código siguiente a la `RegisterBundles` método en el *aplicación\_Start\BundleConfig.cs* archivo.
+4. Crear un paquete de menos archivos con la `LessTransform` y [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformar. Agregue el código siguiente a la `RegisterBundles` método en el *aplicación\_Start\BundleConfig.cs* archivo.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Agregue el código siguiente a cualquier vista que hace referencia a la agrupación de menos.
@@ -244,7 +244,7 @@ El `System.Web.Optimization` espacio de nombres se implementa en System.Web.Opti
 - [Usar CDN y caduca para mejorar el rendimiento del sitio Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [Minimizar RTT (tiempos de ida y vuelta)](https://developers.google.com/speed/docs/best-practices/rtt)
 
-## <a name="contributors"></a>Contributors
+## <a name="contributors"></a>Colaboradores
 
 - Hao Kung
 - [Howard Dierking](https://twitter.com/#!/howard_dierking)

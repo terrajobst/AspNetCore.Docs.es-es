@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/intro
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003a22d4b0d9400f3e9effe0892d2d7e03704cde
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introducción a las aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET 
 
@@ -22,7 +22,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 ## <a name="what-are-tag-helpers"></a>¿Qué aplicaciones auxiliares de etiquetas?
 
-Aplicaciones auxiliares de etiquetas que el código de servidor pueda participar en la creación y representar elementos HTML en archivos de Razor. Por ejemplo, la integrada `ImageTagHelper` puede anexar un número de versión para el nombre de imagen. Cada vez que cambie la imagen, el servidor genera una nueva versión única para la imagen, por lo que se garantiza que los clientes para obtener la imagen actual (en lugar de una imagen almacenada en caché obsoleta). Hay muchas aplicaciones auxiliares de etiquetas integradas para las tareas comunes: como la creación de formularios, vínculos, activos de carga y los paquetes más - y aún más disponibles en repositorios públicos de GitHub y como NuGet. Aplicaciones auxiliares de etiquetas se crean en C# y se dirigen a los elementos HTML en función de nombre de elemento o atributo o etiqueta primaria. Por ejemplo, la integrada `LabelTagHelper` puede tener como destino el HTML `<label>` elemento cuando el `LabelTagHelper` se aplican atributos. Si está familiarizado con [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), aplicaciones auxiliares de etiquetas reducir las transiciones explícitas entre HTML y C# en las vistas de Razor. En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazan métodos auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. [Aplicaciones auxiliares en comparación con las aplicaciones auxiliares HTML de etiquetas](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle.
+Aplicaciones auxiliares de etiquetas que el código de servidor pueda participar en la creación y representar elementos HTML en archivos de Razor. Por ejemplo, la integrada `ImageTagHelper` puede anexar un número de versión para el nombre de imagen. Cada vez que cambie la imagen, el servidor genera una nueva versión única para la imagen, por lo que se garantiza que los clientes para obtener la imagen actual (en lugar de una imagen almacenada en caché obsoleta). Hay muchas aplicaciones auxiliares de etiquetas integradas para las tareas comunes: como la creación de formularios, vínculos, activos de carga y los paquetes más - y aún más disponibles en repositorios públicos de GitHub y como NuGet. Aplicaciones auxiliares de etiquetas se crean en C# y se dirigen a los elementos HTML en función de nombre de elemento o atributo o etiqueta primaria. Por ejemplo, la integrada `LabelTagHelper` puede tener como destino el HTML `<label>` elemento cuando el `LabelTagHelper` se aplican atributos. Si está familiarizado con [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), aplicaciones auxiliares de etiquetas reducir las transiciones explícitas entre HTML y C# en las vistas de Razor. En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazar las aplicaciones auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. [Aplicaciones auxiliares en comparación con las aplicaciones auxiliares HTML de etiquetas](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle.
 
 ## <a name="what-tag-helpers-provide"></a>¿Qué proporciona aplicaciones auxiliares de etiquetas
 
@@ -112,7 +112,7 @@ El `@tagHelperPrefix` directiva permite especificar una cadena de prefijo de eti
 ```cshtml
 @tagHelperPrefix th:
 ```
-En la imagen de código siguiente, se establece el prefijo de etiqueta auxiliares en `th:`, por lo que solo los elementos con el prefijo `th:` admite aplicaciones auxiliares de etiquetas (elementos de aplicación auxiliar de la etiqueta tienen una fuente distintos). El `<label>` y `<input>` elementos tienen el prefijo de etiqueta auxiliares y están habilitadas para auxiliar de etiqueta, mientras el `<span>` elemento no lo hace.
+En la imagen de código siguiente, se establece el prefijo de etiqueta auxiliares en `th:`, por lo que solo los elementos con el prefijo `th:` admite aplicaciones auxiliares de etiquetas (elementos de aplicación auxiliar de la etiqueta tienen una fuente distintos). El `<label>` y `<input>` elementos tienen el prefijo de etiqueta auxiliares y están habilitadas para auxiliar de etiqueta, mientras el `<span>` no de elemento.
 
 ![imagen](intro/_static/thp.png)
 
@@ -192,7 +192,7 @@ genera:
 <label class="caption" for="FirstName">First Name</label>
 ```
 
-No se utiliza la grafía de camel al contenido de grafía de frase si agrega contenido a la `<label>`. Por ejemplo:
+La grafía de camel al usar la grafía de frase contenido no se usa si agrega contenido a la `<label>`. Por ejemplo:
 
 ![imagen](intro/_static/1stName.png)
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 465c9cf6f452c268e7e23509e7a29547df5d3e83
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Prácticas recomendadas para implementar las contraseñas y otros datos confidenciales a ASP.NET y el servicio de aplicación de Azure
 ====================
@@ -54,7 +54,7 @@ El marcado en el archivo externo (*AppSettingsSecrets.config* en este ejemplo), 
 El tiempo de ejecución ASP.NET combina el contenido del archivo externo con el marcado en &lt;appSettings&gt; elemento. El tiempo de ejecución omite el atributo de archivo si no se encuentra el archivo especificado.
 
 > [!WARNING]
-> Seguridad: no agregue su *secretos .config* de archivo al proyecto o protegerlo en el control de código fuente. De forma predeterminada, Visual Studio establece la `Build Action` a `Content`, lo que significa que el archivo se implementa. Para obtener más información consulte [¿por qué no todos los archivos en la carpeta de proyecto se implementa?](https://msdn.microsoft.com/en-us/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Aunque puede utilizar cualquier extensión de la *secretos .config* archivo, es mejor mantenerlo *.config*, como archivos de configuración no se sirven mediante IIS. Observe también que la *AppSettingsSecrets.config* archivo está dos niveles por directorio encima de la *web.config* de archivos, por lo que es completamente fuera del directorio de la solución. Moviendo el archivo fuera del directorio de la solución, &quot;agregar git \* &quot; no agregarlo en el repositorio.
+> Seguridad: no agregue su *secretos .config* de archivo al proyecto o protegerlo en el control de código fuente. De forma predeterminada, Visual Studio establece la `Build Action` a `Content`, lo que significa que el archivo se implementa. Para obtener más información consulte [¿por qué no todos los archivos en la carpeta de proyecto se implementa?](https://msdn.microsoft.com/library/ee942158(v=vs.110).aspx#can_i_exclude_specific_files_or_folders_from_deployment) Aunque puede utilizar cualquier extensión de la *secretos .config* archivo, es mejor mantenerlo *.config*, como archivos de configuración no se sirven mediante IIS. Observe también que la *AppSettingsSecrets.config* archivo está dos niveles por directorio encima de la *web.config* de archivos, por lo que es completamente fuera del directorio de la solución. Moviendo el archivo fuera del directorio de la solución, &quot;agregar git \* &quot; no agregarlo en el repositorio.
 
 
 <a id="con"></a>
@@ -96,7 +96,7 @@ Al implementar la aplicación web en Azure, el *AppSettingsSecrets.config* no se
 
 El **configuración de la aplicación** y **cadena de conexión** valores invalidan los mismos valores en la *web.config* archivo. En nuestro ejemplo, no se implementó esta configuración a Azure, pero si estas claves se encontraban en el *web.config* archivo, la configuración se muestra en el portal tendría prioridad.
 
-Una práctica recomendada es seguir un [flujo de trabajo de DevOps](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) y usar [Azure PowerShell](https://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/) (o en otro marco de trabajo como [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) a automatizar la configuración de estos valores en Azure. El siguiente script de PowerShell usa [Export-CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) para exportar los secretos cifrados en el disco:
+Una práctica recomendada es seguir un [flujo de trabajo de DevOps](../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything.md) y usar [Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/) (o en otro marco de trabajo como [Chef](http://www.opscode.com/chef/) o [Puppet](http://puppetlabs.com/puppet/what-is-puppet)) a automatizar la configuración de estos valores en Azure. El siguiente script de PowerShell usa [Export-CliXml](http://www.powershellcookbook.com/recipe/PukO/securely-store-credentials-on-disk) para exportar los secretos cifrados en el disco:
 
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample6.ps1)]
 
@@ -105,7 +105,7 @@ En el script anterior, 'Name' es el nombre de la clave secreta, como '&quot;FB\_
 [!code-powershell[Main](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure/samples/sample7.ps1)]
 
 > [!WARNING]
-> Seguridad: no incluya contraseñas u otros secretos en el script de PowerShell, haciendo así fracasará el propósito de utilizar un script de PowerShell para implementar los datos confidenciales. El [Get-Credential](https://technet.microsoft.com/en-us/library/hh849815.aspx) proporciona un mecanismo de seguridad para obtener una contraseña. Uso de una solicitud de interfaz de usuario puede evitar la pérdida de una contraseña.
+> Seguridad: no incluya contraseñas u otros secretos en el script de PowerShell, haciendo así fracasará el propósito de utilizar un script de PowerShell para implementar los datos confidenciales. El [Get-Credential](https://technet.microsoft.com/library/hh849815.aspx) proporciona un mecanismo de seguridad para obtener una contraseña. Uso de una solicitud de interfaz de usuario puede evitar la pérdida de una contraseña.
 
 
 ### <a name="deploying-db-connection-strings"></a>Implementación de las cadenas de conexión de base de datos
@@ -119,7 +119,7 @@ Desde los pares de clave y valor para ambos **configuración de la aplicación**
 
 ## <a name="notes-for-on-premises-servers"></a>Notas para los servidores locales
 
-Si va a implementar en los servidores web locales, puede ayudar a secretos seguros por [cifrar las secciones de configuración de archivos de configuración](https://msdn.microsoft.com/en-us/library/ff647398.aspx). Como alternativa, puede utilizar el mismo enfoque recomendado para los sitios Web de Azure: mantener la configuración de desarrollo en archivos de configuración y usar los valores de variables de entorno para la configuración de producción. En este caso, sin embargo, tendrá que escribir código de aplicación para la funcionalidad que es automática en sitios Web de Azure: recuperar la configuración de las variables de entorno y utilizar esos valores en lugar del archivo de configuración o usar el archivo de configuración cuando no se encuentran las variables de entorno.
+Si va a implementar en los servidores web locales, puede ayudar a secretos seguros por [cifrar las secciones de configuración de archivos de configuración](https://msdn.microsoft.com/library/ff647398.aspx). Como alternativa, puede utilizar el mismo enfoque recomendado para los sitios Web de Azure: mantener la configuración de desarrollo en archivos de configuración y usar los valores de variables de entorno para la configuración de producción. En este caso, sin embargo, tendrá que escribir código de aplicación para la funcionalidad que es automática en sitios Web de Azure: recuperar la configuración de las variables de entorno y utilizar esos valores en lugar del archivo de configuración o usar el archivo de configuración cuando no se encuentran las variables de entorno.
 
 <a id="addRes"></a>
 ## <a name="additional-resources"></a>Recursos adicionales

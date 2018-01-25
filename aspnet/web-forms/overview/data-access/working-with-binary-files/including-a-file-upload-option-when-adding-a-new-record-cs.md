@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fcb791868e6af9eef1614d039d11ef5232b40af5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 384251e5d0d72c6d1cc014c929a5d504be11d1d6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-c"></a>Incluida una opción de carga de archivo al agregar un nuevo registro (C#)
 ====================
@@ -176,7 +176,7 @@ Si un usuario carga un tipo de archivo incorrecto, es necesario cancelar la inse
 
 ## <a name="step-6-saving-the-uploaded-brochure-to-the-web-server-s-file-system"></a>Paso 6: Guardar el folleto cargado en el sistema de archivos de s de servidor Web
 
-Cuando el usuario especifica los valores para una nueva categoría y hace clic en el botón Insertar, se produce un postback y se abre el flujo de trabajo de inserción. Primero, las operaciones de asignación DetailsView [ `ItemInserting` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) se activa. Siguiente, la s ObjectDataSource `Insert()` se invoca el método, que da como resultado un nuevo registro que se va a agregar a la `Categories` tabla. Después de eso, las operaciones de asignación DetailsView [ `ItemInserted` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) se activa.
+Cuando el usuario especifica los valores para una nueva categoría y hace clic en el botón Insertar, se produce un postback y se abre el flujo de trabajo de inserción. Primero, las operaciones de asignación DetailsView [ `ItemInserting` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserting.aspx) se activa. Siguiente, la s ObjectDataSource `Insert()` se invoca el método, que da como resultado un nuevo registro que se va a agregar a la `Categories` tabla. Después de eso, las operaciones de asignación DetailsView [ `ItemInserted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.detailsview.iteminserted.aspx) se activa.
 
 Antes de las operaciones de asignación ObjectDataSource `Insert()` se invoca el método, debemos primero asegúrese de que los tipos de archivo adecuado cargados por el usuario y, a continuación, guardar el folleto PDF en el sistema de archivos de s de servidor web. Crear un controlador de eventos para el s DetailsView `ItemInserting` eventos y agregue el código siguiente:
 
@@ -191,7 +191,7 @@ El controlador de eventos inicia haciendo referencia a la `BrochureUpload` contr
 
 Como se describe en el [cargar archivos](uploading-files-cs.md) tutorial, debe tener cuidado al guardar los archivos en el sistema de archivos para esa carga de un usuario s no sobrescribe s otro. Para este tutorial, se intentará usar el mismo nombre que el archivo cargado. Si ya existe un archivo en el `~/Brochures` directorio con ese mismo nombre de archivo, sin embargo, se le anexa un número al final hasta que se encuentre un nombre único. Por ejemplo, si el usuario carga un archivo de catálogo denominado `Meats.pdf`, pero ya hay un archivo denominado `Meats.pdf` en el `~/Brochures` carpeta, se cambiará el nombre de archivo guardado para `Meats-1.pdf`. Si existe, intentaremos `Meats-2.pdf`, y así sucesivamente, hasta que se encuentra un nombre de archivo único.
 
-El siguiente código utiliza el [ `File.Exists(path)` método](https://msdn.microsoft.com/en-us/library/system.io.file.exists.aspx) para determinar si ya existe un archivo con el nombre de archivo especificado. Si es así, continúa probar los nuevos nombres de archivo para el folleto hasta que no se encuentra ningún conflicto.
+El siguiente código utiliza el [ `File.Exists(path)` método](https://msdn.microsoft.com/library/system.io.file.exists.aspx) para determinar si ya existe un archivo con el nombre de archivo especificado. Si es así, continúa probar los nuevos nombres de archivo para el folleto hasta que no se encuentra ningún conflicto.
 
 
 [!code-csharp[Main](including-a-file-upload-option-when-adding-a-new-record-cs/samples/sample7.cs)]
@@ -280,7 +280,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-fundamentals
 msc.type: authoredcontent
-ms.openlocfilehash: 086084b63cceca1c2d4e0bd4e5b654aaad6637a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 468f6d5dabb645b1c005680dc5a1ffc4debd63b6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4-fundamentals"></a>Conceptos básicos de ASP.NET MVC 4
 ====================
@@ -32,7 +32,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > > Este laboratorio práctico se da por supuesto que el desarrollador tiene experiencia en tecnologías de desarrollo Web, como HTML y JavaScript.
 > 
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/en-us/download/29843](https://www.microsoft.com/en-us/download/29843).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
 
 
 <a id="The_Music_Store_application"></a>
@@ -319,7 +319,7 @@ En esta tarea, va a usar el **querystring** enviar parámetros a la **examinar**
     > [!NOTE]
     > ¿Usa el **HttpUtility.HtmlEncode** método de utilidad que impide que los usuarios insertar Javascript en la vista con un vínculo como   **/almacén/examinar? Género =&lt;script&gt;window.location='[http://hackersite.com](http://hackersite.com)'&lt;/script&gt;**.
     > 
-    > Para obtener más información, visite [este artículo de msdn](https://msdn.microsoft.com/en-us/library/a2a4yykt(v=VS.80).aspx).
+    > Para obtener más información, visite [este artículo de msdn](https://msdn.microsoft.com/library/a2a4yykt(v=VS.80).aspx).
 
 <a id="Ex3Task2"></a>
 
@@ -964,7 +964,7 @@ En este ejercicio, explorará las mejoras en las plantillas de proyecto de ASP.N
         *SimpleMembership incluidos en la solución*
 
         > [!NOTE]
-        > Obtener más información acerca de [OAuthWebSecurity](https://msdn.microsoft.com/en-us/library/jj158393(v=vs.111).aspx) en MSDN.
+        > Obtener más información acerca de [OAuthWebSecurity](https://msdn.microsoft.com/library/jj158393(v=vs.111).aspx) en MSDN.
 
 > [!NOTE]
 > Además, puede implementar esta aplicación a los siguientes sitios Web Windows Azure [Apéndice B: publicar una aplicación de ASP.NET MVC 4 mediante Web Deploy](#AppendixB).

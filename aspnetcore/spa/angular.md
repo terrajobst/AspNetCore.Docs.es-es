@@ -11,16 +11,16 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b54798a43f6a448c2e2aad0613ee60805a61f303
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="use-the-angular-project-template-release-candidate"></a>Utilice la plantilla de proyecto Angular (candidato de versión comercial)
 
 > [!NOTE]
-> Esta documentación no está sobre la plantilla de proyecto Angular publicadas. **Esta documentación está sobre el candidato de versión de la plantilla Angular.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
+> Esta documentación no consiste en la plantilla de proyecto Angular publicadas. **Esta documentación está sobre el candidato de versión de la plantilla Angular.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
 
 La plantilla de proyecto Angular actualizado proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con 5 Angular y la CLI Angular para implementar una interfaz de usuario de cliente enriquecido (UI).
 
@@ -137,7 +137,7 @@ En el *inicio* (clase), *después* la línea que configura `spa.Options.SourcePa
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-En el modo de desarrollo, este código intentará crear el paquete SSR mediante la ejecución de la secuencia de comandos `build:ssr`, que se define en *ClientApp\package.json*. Esto genera una aplicación Angular denominada `ssr`, que no se ha definido. 
+En el modo de desarrollo, este código intentará crear el paquete SSR mediante la ejecución de la secuencia de comandos `build:ssr`, que se define en *ClientApp\package.json*. Esto genera una aplicación Angular denominada `ssr`, que aún no se ha definido. 
 
 Al final de la `apps` la matriz en *ClientApp/.angular-cli.json*, definir una aplicación adicional con el nombre `ssr`. Utilice las siguientes opciones:
 
@@ -176,7 +176,7 @@ Durante la SSR, puede pasar datos de cada solicitud de la aplicación de ASP.NET
 ```csharp
 options.SupplyData = (context, data) =>
 {
-    // Creates a new value called isHttpsRequest that is passed to TypeScript code
+    // Creates a new value called isHttpsRequest that's passed to TypeScript code
     data["isHttpsRequest"] = context.Request.IsHttps;
 };
 ```

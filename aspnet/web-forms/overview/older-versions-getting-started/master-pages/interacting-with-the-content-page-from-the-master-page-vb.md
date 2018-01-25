@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0a2720c8dbd1b0fb12d4000ac5e309e203128604
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a25f739e5d5717d275554909e1584bb7e7fed302
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-vb"></a>Interactuar con la página de contenido de la página maestra (VB)
 ====================
@@ -158,7 +158,7 @@ Una clase se suscribe a un evento mediante la creación de un *controlador de ev
 El segundo parámetro pasado a un controlador de eventos puede incluir información adicional sobre el evento. Mientras que la base de `EventArgs` no pasa la clase a lo largo de toda la información, .NET Framework incluye una serie de clases que extienden `EventArgs` e incluir propiedades adicionales. Por ejemplo, un `CommandEventArgs` instancia se pasa a los controladores de eventos que responden a la `Command` eventos e incluye dos propiedades informativas: `CommandArgument` y `CommandName`.
 
 > [!NOTE]
-> Para obtener más información acerca de cómo crear, generar y controlar eventos, vea [eventos y delegados](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx) y [los delegados de eventos simples de inglés](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
+> Para obtener más información acerca de cómo crear, generar y controlar eventos, vea [eventos y delegados](https://msdn.microsoft.com/library/17sde2xt.aspx) y [los delegados de eventos simples de inglés](http://www.codeproject.com/KB/cs/eventdelegates.aspx).
 
 
 Para definir un evento usa la sintaxis siguiente:
@@ -251,7 +251,7 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [Obtener acceso y actualizar los datos en ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
-- [Eventos y delegados](https://msdn.microsoft.com/en-us/library/17sde2xt.aspx)
+- [Eventos y delegados](https://msdn.microsoft.com/library/17sde2xt.aspx)
 - [Pasar información entre el contenido y páginas maestras](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [Trabajar con datos en los tutoriales ASP.NET](../../data-access/index.md)
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e1edeaa392abea96a0f5085539cd8ab7810d59e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 42a8fb48b8c8cfb653ac4d64f6efe011f92b966b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Creación de una interfaz para seleccionar una cuenta de usuario de muchos (C#)
 ====================
@@ -134,13 +134,13 @@ Figura 5 se muestra la `ManageUsers.aspx` página cuando se ve mediante un explo
 > Nombres de usuario pueden empezar con cualquier carácter, incluidos números y signos de puntuación. Para ver estas cuentas, el administrador tendrá que utilizar la opción LinkButton todos los. Como alternativa, puede agregar un control LinkButton para devolver todas las cuentas de usuario que se inician con un número. Dejar este como un ejercicio para el lector.
 
 
-Al hacer clic en cualquiera de lo LinkButton filtrado provoca una devolución de datos y genera el repetidor `ItemCommand` eventos, pero no hay ningún cambio en la cuadrícula porque hemos todavía para escribir ningún código para filtrar los resultados. El `Membership` clase incluye una [ `FindUsersByName` método](https://technet.microsoft.com/en-us/library/system.web.security.membership.findusersbyname.aspx) que devuelve las cuentas de usuario cuyo nombre de usuario coincide con un patrón de búsqueda especificado. Podemos usar este método para recuperar solo las cuentas de usuario cuyos nombres comienzan por la letra especificada por el `CommandName` de LinkButton filtrado que se hizo clic.
+Al hacer clic en cualquiera de lo LinkButton filtrado provoca una devolución de datos y genera el repetidor `ItemCommand` eventos, pero no hay ningún cambio en la cuadrícula porque hemos todavía para escribir ningún código para filtrar los resultados. El `Membership` clase incluye una [ `FindUsersByName` método](https://technet.microsoft.com/library/system.web.security.membership.findusersbyname.aspx) que devuelve las cuentas de usuario cuyo nombre de usuario coincide con un patrón de búsqueda especificado. Podemos usar este método para recuperar solo las cuentas de usuario cuyos nombres comienzan por la letra especificada por el `CommandName` de LinkButton filtrado que se hizo clic.
 
 Inicie actualizando el `ManageUser.aspx` clase de código subyacente de la página para que incluya una propiedad denominada `UsernameToMatch`. Esta propiedad conserva la cadena de filtro de nombre de usuario a través de las devoluciones de datos:
 
 [!code-csharp[Main](building-an-interface-to-select-one-user-account-from-many-cs/samples/sample8.cs)]
 
-El `UsernameToMatch` propiedad almacena su valor se asigna en el `ViewState` colección utilizando la clave UsernameToMatch. Cuando se lee el valor de esta propiedad, comprueba para ver si existe un valor en el `ViewState` colección; en caso contrario, se devuelve el valor predeterminado, una cadena vacía. El `UsernameToMatch` propiedad exhibe un patrón común, es decir, conservar un valor para ver el estado para que se conserven los cambios a la propiedad a través de las devoluciones de datos. Para obtener más información sobre este patrón, lea [Understanding ASP.NET View State](https://msdn.microsoft.com/en-us/library/ms972976.aspx).
+El `UsernameToMatch` propiedad almacena su valor se asigna en el `ViewState` colección utilizando la clave UsernameToMatch. Cuando se lee el valor de esta propiedad, comprueba para ver si existe un valor en el `ViewState` colección; en caso contrario, se devuelve el valor predeterminado, una cadena vacía. El `UsernameToMatch` propiedad exhibe un patrón común, es decir, conservar un valor para ver el estado para que se conserven los cambios a la propiedad a través de las devoluciones de datos. Para obtener más información sobre este patrón, lea [Understanding ASP.NET View State](https://msdn.microsoft.com/library/ms972976.aspx).
 
 A continuación, actualice el `BindUserAccounts` método para que en lugar de llamar al método `Membership.GetAllUsers`, llama a `Membership.FindUsersByName`, pasando el valor de la `UsernameToMatch` propiedad que se anexa con el carácter comodín SQL, %.
 
@@ -177,7 +177,7 @@ La diferencia de rendimiento entre predeterminados y paginación personalizada p
 
 Para implementar la paginación personalizada en primer lugar se necesita algún mecanismo por el que se va a recuperar el subconjunto de registros mostrado por el control GridView preciso. Las buenas noticias son que el `Membership` la clase `FindUsersByName` método tiene una sobrecarga que nos permite especificar el índice de la página y el tamaño de página y devuelve solo las cuentas de usuario que se encuentran dentro de ese intervalo de registros.
 
-En concreto, esta sobrecarga tiene la siguiente firma: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/en-us/library/fa5st8b2.aspx).
+En concreto, esta sobrecarga tiene la siguiente firma: [ `FindUsersByName(usernameToMatch, pageIndex, pageSize, totalRecords)` ](https://msdn.microsoft.com/library/fa5st8b2.aspx).
 
 El *pageIndex* parámetro especifica la página de cuentas de usuario para devolver; *pageSize* indica cuántos registros se muestran por página. El *totalRecords* parámetro es un `out` parámetro que devuelve el número de cuentas de usuario total en el almacén del usuario.
 
@@ -258,7 +258,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es  *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 

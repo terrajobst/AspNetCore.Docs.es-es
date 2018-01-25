@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 uid: mvc/models/model-binding
-ms.openlocfilehash: 8fc6ff66d05164c1040f8cc77886357a633a0472
-ms.sourcegitcommit: 3f491f887074310fc0f145cd01a670aa63b969e3
+ms.openlocfilehash: 26c4c016548cc3e465991c5ebf16893d4022145d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="model-binding"></a>Enlace de modelos
 
@@ -56,7 +56,7 @@ Nota: Formulario valores, enrutar los datos y cadenas se almacenan como pares de
 
 Puesto que el enlace de modelos pedirá una clave denominada `id` y no hay nada denominado `id` en los valores del formulario, mueven en para los valores de ruta busca esa clave. En nuestro ejemplo, es una coincidencia. Se produce el enlace y el valor se convierte en un entero de 2. La misma solicitud mediante la edición (Id. de la cadena) se convertiría en la cadena "2".
 
-Hasta ahora en el ejemplo se utiliza tipos simples. En MVC tipos simples son cualquier tipo primitivo de .NET o con un convertidor de tipos de cadena. Si el parámetro del método de acción fuera una clase como el `Movie` tipo, que contiene tipos simples y complejos, como propiedades, modelo enlace seguirán del MVC controlen correctamente. Usa reflexión y recursividad para recorrer las propiedades de tipos complejos buscando coincidencias. Enlace de modelos busca el patrón *parameter_name.property_name* para enlazar los valores a las propiedades. Si no encuentra los valores correspondientes de esta forma, intentará enlazar con el nombre de propiedad. Para esos tipos como `Collection` tipos, el enlace de modelos busca las coincidencias a *parameter_name [índice]* o simplemente *[índice]*. Trata de enlace de modelo `Dictionary` del mismo modo, los tipos piden *parameter_name [key]* o simplemente *[key]*, siempre que las claves son tipos simples. Las claves que se admiten coincide con los nombres de campo HTML y aplicaciones auxiliares de etiquetas generadas para el mismo tipo de modelo. Esto permite que los valores de ida y vuelta para que los campos de formulario se mantienen repleto de la entrada del usuario para su comodidad, por ejemplo, cuando los datos enlazados de una creación o edición no superan la validación.
+Hasta ahora en el ejemplo se utiliza tipos simples. En MVC tipos simples son cualquier tipo primitivo de .NET o con un convertidor de tipos de cadena. Si el parámetro del método de acción fuera una clase como el `Movie` tipo, que contiene tipos simples y complejos, como propiedades, modelo enlace seguirán del MVC controlen correctamente. Usa reflexión y recursividad para recorrer las propiedades de tipos complejos buscando coincidencias. Enlace de modelos busca el patrón *parameter_name.property_name* para enlazar los valores a las propiedades. Si no encuentra los valores correspondientes de esta forma, intentará enlazar con el nombre de propiedad. Para esos tipos como `Collection` tipos, el enlace de modelos busca las coincidencias a *parameter_name [índice]* o simplemente *[índice]*. Trata de enlace de modelo `Dictionary` del mismo modo, los tipos piden *parameter_name [key]* o simplemente *[key]*, siempre que las claves son tipos simples. Las claves que se admiten coincide con los nombres de campo HTML y aplicaciones auxiliares de etiquetas generadas para el mismo tipo de modelo. Esto permite que los valores de ida y vuelta para que los campos del formulario permanecen repleto de la entrada del usuario para su comodidad, por ejemplo, cuando los datos enlazados de una creación o edición no superan la validación.
 
 En el orden de enlace que se produzca la clase debe tener un constructor público predeterminado y miembro esté enlazado debe ser propiedades públicas de escritura. Cuando se produzca el enlazado de modelo que solo se crearán instancias de la clase utilizando el constructor predeterminado público, pueden establecer las propiedades.
 

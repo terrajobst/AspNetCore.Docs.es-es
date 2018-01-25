@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-profile-services
 msc.type: video
-ms.openlocfilehash: 33c3e8db8ed481d3d65eca1792edb965c16e3876
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 508ce4d3f3419737a54484e7dcd18dd5ac88353d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[¿Cómo I:] ¿Usar los servicios de perfil ASP.NET AJAX?
 ====================
 por [Chris Pels](https://twitter.com/chrispels)
 
-ASP.NET 2.0 introducidas [propiedades de perfil](https://msdn.microsoft.com/en-us/library/at64shx3.aspx) con la que puede almacenar los detalles de cada usuario de la aplicación Web de ASP.NET. Perfil de servicios de AJAX de ASP.NET permiten la interfaz de Web de cliente recuperar propiedades de perfil de un usuario de la aplicación de servidor Web. Este vídeo muestra cómo un sitio de viaje habilitadas para AJAX de ejemplo puede almacenar la información de solicitud de desplazamiento de un usuario para que se pueden recuperar los detalles de la próxima vez que visite el sitio.
+ASP.NET 2.0 introducidas [propiedades de perfil](https://msdn.microsoft.com/library/at64shx3.aspx) con la que puede almacenar los detalles de cada usuario de la aplicación Web de ASP.NET. Perfil de servicios de AJAX de ASP.NET permiten la interfaz de Web de cliente recuperar propiedades de perfil de un usuario de la aplicación de servidor Web. Este vídeo muestra cómo un sitio de viaje habilitadas para AJAX de ejemplo puede almacenar la información de solicitud de desplazamiento de un usuario para que se pueden recuperar los detalles de la próxima vez que visite el sitio.
 
 [&#9654; Vea el vídeo (11 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-profile-services)
 

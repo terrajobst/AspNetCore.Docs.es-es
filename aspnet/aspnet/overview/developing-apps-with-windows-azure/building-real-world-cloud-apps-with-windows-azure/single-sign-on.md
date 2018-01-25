@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: f0d465b363652c691c203d608f2cb9d139e72fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Inicio de sesión único (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -31,12 +31,12 @@ Existen diversos problemas de seguridad que preocuparse de si está desarrolland
 
 ## <a name="introduction-to-azure-ad"></a>Introducción a Azure AD
 
-[Azure AD](https://docs.microsoft.com/azure/active-directory/) proporciona [Active Directory](https://msdn.microsoft.com/en-us/library/windows/desktop/aa746492.aspx) en la nube. Características clave son los siguientes:
+[Azure AD](https://docs.microsoft.com/azure/active-directory/) proporciona [Active Directory](https://msdn.microsoft.com/library/windows/desktop/aa746492.aspx) en la nube. Características clave son los siguientes:
 
 - Se integra con la instancia local de Active Directory.
 - Permite un inicio de sesión único con sus aplicaciones.
 - Admite estándares abiertos como [SAML](http://en.wikipedia.org/wiki/SAML_2.0), [WS-Fed](http://en.wikipedia.org/wiki/WS-Federation), y [OAuth 2.0](http://oauth.net/2/).
-- Es compatible con Enterprise [API de REST Graph](https://msdn.microsoft.com/en-us/library/hh974476.aspx).
+- Es compatible con Enterprise [API de REST Graph](https://msdn.microsoft.com/library/hh974476.aspx).
 
 Suponga que tiene un entorno de Windows Server Active Directory local que usas para permitir que los empleados iniciar sesión aplicaciones de Intranet:
 
@@ -64,7 +64,7 @@ Si está utilizando o mover a Office 365, la ventaja es que su empresa, tendrá 
 
 ## <a name="set-up-an-azure-ad-tenant"></a>Configurar un inquilino de Azure AD
 
-un directorio de Azure AD se conoce como un Azure AD [inquilino](https://technet.microsoft.com/en-us/library/jj573650.aspx), y la configuración de un inquilino es bastante fácil. Le mostraremos cómo se realiza en el Portal de administración de Azure para ilustrar los conceptos, pero por supuesto como las demás funciones portales también puede hacerlo mediante el uso de una secuencia de comandos o la API de administración.
+un directorio de Azure AD se conoce como un Azure AD [inquilino](https://technet.microsoft.com/library/jj573650.aspx), y la configuración de un inquilino es bastante fácil. Le mostraremos cómo se realiza en el Portal de administración de Azure para ilustrar los conceptos, pero por supuesto como las demás funciones portales también puede hacerlo mediante el uso de una secuencia de comandos o la API de administración.
 
 En el portal de administración haga clic en la pestaña de Active Directory.
 
@@ -118,7 +118,7 @@ Haga clic en **siguiente**y, a continuación, indique si desea almacenar un hash
 
 ![Asistente para configuración de herramienta de sincronización de WAAD](single-sign-on/_static/image17.png)
 
-El hash de contraseña que se puede almacenar en la nube es un hash unidireccional; las contraseñas reales nunca se almacenan en Azure AD. Si decide almacenar valores hash en la nube, tendrá que usar [los servicios de federación de Active Directory](https://technet.microsoft.com/en-us/library/hh831502.aspx) (ADFS). También hay [otros factores a tener en cuenta al elegir si se debe o no usar ADFS](https://technet.microsoft.com/en-us/library/jj573653.aspx). La opción de AD FS requiere algunos pasos de configuración adicionales.
+El hash de contraseña que se puede almacenar en la nube es un hash unidireccional; las contraseñas reales nunca se almacenan en Azure AD. Si decide almacenar valores hash en la nube, tendrá que usar [los servicios de federación de Active Directory](https://technet.microsoft.com/library/hh831502.aspx) (ADFS). También hay [otros factores a tener en cuenta al elegir si se debe o no usar ADFS](https://technet.microsoft.com/library/jj573653.aspx). La opción de AD FS requiere algunos pasos de configuración adicionales.
 
 Si decide almacenar valores hash en la nube, haya terminado y la herramienta inicia la sincronización de directorios al hacer clic en **siguiente**.
 
@@ -156,7 +156,7 @@ Seleccione las cuentas organizativas, escriba el nombre de dominio y, a continua
 
 ![Configurar el cuadro de diálogo autenticación](single-sign-on/_static/image24.png)
 
-También puede proporcionar a la lectura de la aplicación o permiso para datos de directorio de lectura/escritura. Si lo hace, puede usar el [API de REST Graph de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx) para buscar el número de teléfono de los usuarios, averiguar si se encuentran en la oficina, cuando última ha iniciado, etcetera.
+También puede proporcionar a la lectura de la aplicación o permiso para datos de directorio de lectura/escritura. Si lo hace, puede usar el [API de REST Graph de Azure](https://msdn.microsoft.com/library/windowsazure/hh974476.aspx) para buscar el número de teléfono de los usuarios, averiguar si se encuentran en la oficina, cuando última ha iniciado, etcetera.
 
 Eso es todo lo que tiene que hacer - Visual Studio pide las credenciales para un administrador de inquilino de Azure AD y, a continuación, Establece el proyecto y el inquilino de Azure AD para la nueva aplicación.
 
@@ -186,7 +186,7 @@ Para obtener más información, vea los siguientes recursos:
 - [Documentación de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Página del portal de documentación de Azure AD en el sitio windowsazure.com. Para ver los tutoriales paso a paso, consulte el **desarrollar** sección.
 - [La autenticación multifactor Azure](https://docs.microsoft.com/azure/multi-factor-authentication/). Página del portal para obtener documentación sobre la autenticación multifactor en Azure.
 - [Opciones de autenticación de cuenta profesional](../../../../visual-studio/overview/2013/creating-web-projects-in-visual-studio.md#orgauthoptions). Explicación de las opciones de autenticación de Azure AD en el cuadro de diálogo del nuevo proyecto de Visual Studio 2013.
-- [Microsoft patrones y prácticas - federado modelo de identidad](https://msdn.microsoft.com/en-us/library/dn589790.aspx).
+- [Microsoft patrones y prácticas - federado modelo de identidad](https://msdn.microsoft.com/library/dn589790.aspx).
 - [Cómo: Instalar la herramienta de sincronización de Azure Active Directory](https://social.technet.microsoft.com/wiki/contents/articles/19098.howto-install-the-windows-azure-active-directory-sync-tool-now-with-pictures.aspx).
 - [Servicios de federación de Active Directory 2.0 mapa de contenido](https://social.technet.microsoft.com/wiki/contents/articles/2735.ad-fs-2-0-content-map.aspx). Vínculos a documentación sobre AD FS 2.0.
 - [Autorización basada en roles y basada en ACL en una aplicación de Windows Azure AD](https://code.msdn.microsoft.com/Role-Based-and-ACL-Based-86ad71a1). Aplicación de ejemplo.

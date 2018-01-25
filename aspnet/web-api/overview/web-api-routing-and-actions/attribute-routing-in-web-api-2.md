@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 67ab1536b4a72abf8c0d3ed5aa0c48bc79a8fb5f
-ms.sourcegitcommit: 3d512ea991ac36dfd4c800b7d1f8a27bfc50635e
+ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Ruta de atributo en ASP.NET Web API 2
 ====================
@@ -261,7 +261,7 @@ Aquí es cómo se determina el orden total:
     3. Parámetros de ruta sin restricciones.
     4. Segmentos de parámetro de carácter comodín con restricciones.
     5. Segmentos de parámetro de carácter comodín sin restricciones.
-3. En el caso de empate, las rutas se ordenan por una comparación de cadenas ordinales entre mayúsculas y minúsculas ([OrdinalIgnoreCase](https://msdn.microsoft.com/en-us/library/system.stringcomparer.ordinalignorecase.aspx)) de la plantilla de ruta.
+3. En el caso de empate, las rutas se ordenan por una comparación de cadenas ordinales entre mayúsculas y minúsculas ([OrdinalIgnoreCase](https://msdn.microsoft.com/library/system.stringcomparer.ordinalignorecase.aspx)) de la plantilla de ruta.
 
 A continuación se muestra un ejemplo. Supongamos que define el siguiente controlador:
 

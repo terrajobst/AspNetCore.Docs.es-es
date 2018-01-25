@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/specifying-the-master-page-programmatically-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 57ac8052223c1fd00bff8df1c3180db8bea8d38a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 15efb8e2f38b7a405da0c0e12e447e5c3146f025
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="specifying-the-master-page-programmatically-c"></a>Especificar la página maestra mediante programación (C#)
 ====================
@@ -34,7 +34,7 @@ Desde el ejemplo inaugural de [ *crear una páginas de todo el sitio diseño uti
 
 [!code-aspx[Main](specifying-the-master-page-programmatically-cs/samples/sample1.aspx)]
 
-El [ `Page` clase](https://msdn.microsoft.com/en-us/library/system.web.ui.page.aspx) en el `System.Web.UI` espacio de nombres incluye una [ `MasterPageFile` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.page.masterpagefile.aspx) que devuelve la ruta de acceso a la página principal de la página de contenido; es esta propiedad establecido por el `@Page` directiva. Esta propiedad también puede utilizarse para especificar mediante programación el contenido de página principal. Este enfoque es útil si desea asignar dinámicamente la página maestra en función de factores externos, como el usuario visita la página.
+El [ `Page` clase](https://msdn.microsoft.com/library/system.web.ui.page.aspx) en el `System.Web.UI` espacio de nombres incluye una [ `MasterPageFile` propiedad](https://msdn.microsoft.com/library/system.web.ui.page.masterpagefile.aspx) que devuelve la ruta de acceso a la página principal de la página de contenido; es esta propiedad establecido por el `@Page` directiva. Esta propiedad también puede utilizarse para especificar mediante programación el contenido de página principal. Este enfoque es útil si desea asignar dinámicamente la página maestra en función de factores externos, como el usuario visita la página.
 
 En este tutorial se agregará una segunda página maestra a nuestro sitio Web y decide qué página maestra que se usa en tiempo de ejecución de forma dinámica.
 
@@ -54,7 +54,7 @@ La figura 1 muestra esta fusión. Paso 1 en la figura 1 muestra el contenido ini
 
 ¿Qué página maestra partakes en esta fusión depende del valor de la `Page` del objeto `MasterPageFile` propiedad. Establecer el `MasterPageFile` de atributo en el `@Page` directiva tiene el efecto neto de asignar el `Page`del `MasterPageFile` propiedad durante la fase de inicialización, que es la primera etapa del ciclo de vida de la página. También podemos establecer esta propiedad mediante programación. Sin embargo, es imperativo que esta propiedad se establece antes de la fusión en la figura 1 realiza.
 
-Al principio de la fase de PreInit el `Page` objeto genera su [ `PreInit` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.page.preinit.aspx) y llama a su [ `OnPreInit` método](https://msdn.microsoft.com/en-us/library/system.web.ui.page.onpreinit.aspx). Para establecer la página maestra mediante programación, a continuación, podemos o crear un controlador de eventos para el `PreInit` eventos o invalidar la `OnPreInit` método. Echemos un vistazo a ambos enfoques.
+Al principio de la fase de PreInit el `Page` objeto genera su [ `PreInit` eventos](https://msdn.microsoft.com/library/system.web.ui.page.preinit.aspx) y llama a su [ `OnPreInit` método](https://msdn.microsoft.com/library/system.web.ui.page.onpreinit.aspx). Para establecer la página maestra mediante programación, a continuación, podemos o crear un controlador de eventos para el `PreInit` eventos o invalidar la `OnPreInit` método. Echemos un vistazo a ambos enfoques.
 
 Comience abriendo `Default.aspx.cs`, el archivo de clase de código subyacente para la página principal de nuestro sitio. Agregar un controlador de eventos de la página `PreInit` eventos escribiendo en el código siguiente:
 
@@ -275,8 +275,8 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [Diagrama de ciclo de vida de la página ASP.NET](http://emanish.googlepages.com/Asp.Net2.0Lifecycle.PNG)
-- [Información general sobre el ciclo de vida de página ASP.NET](https://msdn.microsoft.com/en-us/library/ms178472.aspx)
-- [Información general de máscaras y temas de ASP.NET](https://msdn.microsoft.com/en-us/library/ykzx33wh.aspx)
+- [Información general sobre el ciclo de vida de página ASP.NET](https://msdn.microsoft.com/library/ms178472.aspx)
+- [Información general de máscaras y temas de ASP.NET](https://msdn.microsoft.com/library/ykzx33wh.aspx)
 - [Páginas principales: Sugerencias, trucos y capturas](http://www.odetocode.com/articles/450.aspx)
 - [Temas en ASP.NET](http://www.odetocode.com/articles/423.aspx)
 

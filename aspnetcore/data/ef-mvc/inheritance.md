@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/inheritance
-ms.openlocfilehash: 756f1bbba73bd760f780d18c01597642dd1f7216
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a4ae696bdd114ab9c36d1218f753fa3d515f2300
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="inheritance---ef-core-with-aspnet-core-mvc-tutorial-9-of-10"></a>Herencia - Core EF con el tutorial de MVC de ASP.NET Core (9 de 10)
 
@@ -106,7 +106,7 @@ Este código se encarga de las tareas de actualización de base de datos siguien
 
 * Hace HireDate que aceptan valores NULL ya que las filas de estudiantes no tengan las fechas de contratación.
 
-* Agrega un campo temporal que se usará para actualizar las claves externas que apuntan a los alumnos. Cuando copie estudiantes en la tabla Person obtendrá nuevos valores de clave principales.
+* Agrega un campo temporal que se usará para actualizar las claves externas que apuntan a los alumnos. Cuando copie estudiantes en la tabla Person obtendrán nuevos valores de clave principales.
 
 * Copia datos de la tabla de estudiante en la tabla Person. Esto hace que los alumnos se asignen nuevos valores de clave principales.
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: d3a8183fecaf830b2ee1211acd56da86454b4437
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET y herramientas Web 2013.2 para notas de versión de Visual Studio 2013
 ====================
@@ -41,7 +41,7 @@ En las siguientes secciones se describen las características que se han introdu
 - [Plantillas de un proyecto de ASP.NET](#oneaspnet)
 - [Admite SSL al iniciar aplicaciones Web en IIS Express](#ssl)
 - [Mejoras del Editor de Visual Studio Web](#vswebeditor)
-- [Vínculo de explorador](#browserlink)
+- [Vínculo con exploradores](#browserlink)
 - [Compatibilidad con aplicaciones de Azure de aplicación de servicio Web en Visual Studio](#waws)
 - [Crear recursos de Azure remotos al crear un nuevo proyecto Web](#AzureResources)
 - [Mejoras de publicación de Web](#webpublish)
@@ -99,7 +99,7 @@ Firefox usa su propio almacén de certificados, por lo que mostrará una adverte
 
     IntelliSense ahora admite [esquema JSON](http://json-schema.org/) v3 y v4. Hay un cuadro combinado de esquema para elegir esquemas existentes, edite la ruta de acceso local del esquema, o simplemente arrastrar un archivo de proyecto JSON en él para obtener la ruta de acceso relativa.
 
-    ![Intellisense JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![Editor de esquemas de JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
+    ![Intellisense JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON Schema editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
 - **Nuevo editor de Sass (SCSS)**: hemos agregado menor en VS2013 RTM y ahora tenemos un elemento de proyecto Sass y el editor. Editor de SASS características son comparables en el editor de LESS e incluyen coloración, variable y Mixins IntelliSense, comentario o quite, información rápida, formato, validación de la sintaxis, la esquematización, ir a definición, selector de color, las herramientas de configuración de la opción etcetera.
 
     ![Agregar nuevo elemento: Hoja de estilos SCSS](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image9.png)    ![Editor de la hoja de estilos](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image10.png)
@@ -232,10 +232,10 @@ NuGet 2.8.1 que RTM se publicarán en abril de 2014. Estos son los puntos import
 <a id="ef"></a>
 ### <a name="entity-framework-61"></a>Entity Framework 6.1
 
-Entity Framework se actualizó a la versión 6.1 en tiempo de ejecución y herramientas. Entity Framework (EF) 6.1 es una actualización secundaria a Entity Framework 6 y se incluye una serie de correcciones y nuevas características. Para obtener información detallada sobre EF6.1, incluidos los vínculos a documentación para las nuevas características, consulte [historial de versiones de Entity Framework](https://msdn.microsoft.com/en-US/data/jj574253). Las nuevas características en esta versión incluyen:
+Entity Framework se actualizó a la versión 6.1 en tiempo de ejecución y herramientas. Entity Framework (EF) 6.1 es una actualización secundaria a Entity Framework 6 y se incluye una serie de correcciones y nuevas características. Para obtener información detallada sobre EF6.1, incluidos los vínculos a documentación para las nuevas características, consulte [historial de versiones de Entity Framework](https://msdn.microsoft.com/data/jj574253). Las nuevas características en esta versión incluyen:
 
 - **Herramientas de consolidación** proporciona una manera coherente para crear un nuevo modelo EF. Esta característica amplía el Asistente de Entity Data Model de ADO.NET para admitir la creación de modelos de Code First, incluidas las técnicas de ingeniería inversa de una base de datos existente. Estas características no estaban disponibles anteriormente en la calidad de la versión Beta en EF Power Tools.
-- **Control de errores de confirmación de transacción** proporciona las nuevas [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/en-us/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) que hace uso de la capacidad recién introducida para interceptar las operaciones de transacción. El **CommitFailureHandler** permite la recuperación automática de errores de conexión al confirmar una transacción.
+- **Control de errores de confirmación de transacción** proporciona las nuevas [System.Data.Entity.Infrastructure.CommitFailureHandler](https://msdn.microsoft.com/library/system.data.entity.infrastructure.commitfailurehandler(v=vs.113).aspx) que hace uso de la capacidad recién introducida para interceptar las operaciones de transacción. El **CommitFailureHandler** permite la recuperación automática de errores de conexión al confirmar una transacción.
 - **IndexAttribute** permite índices especificarse mediante la colocación de un atributo en una propiedad (o propiedades) en el modelo de Code First. Código en primer lugar, a continuación, creará un índice correspondiente en la base de datos.
 - **La API pública de la asignación** proporciona acceso a la información de EF tiene sobre cómo las propiedades y los tipos se asignan a columnas y tablas en la base de datos. En las versiones anteriores, esta API era interna.
 - **Capacidad de configurar interceptores mediante el archivo App/Web.config**(lo que permite interceptores agregarse sin volver a compilar la aplicación).

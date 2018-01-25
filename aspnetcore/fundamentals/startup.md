@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/startup
-ms.openlocfilehash: dd2eb3d3996bc0bf277c8d5e772c8568ef9f147e
-ms.sourcegitcommit: f5a7f0198628f0d152257d90dba6c3a0747a355a
+ms.openlocfilehash: 81d76c39b7890e2d4ab86252cb0a343e3bb7359a
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Inicio de la aplicación de ASP.NET Core
 
@@ -37,11 +37,14 @@ Especifique el `Startup` clase con la [WebHostBuilderExtensions](/dotnet/api/Mic
 
 [!code-csharp[Main](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=10)]
 
-El `Startup` constructor de clase acepta dependencias definidas por el host. Un uso común de [inyección de dependencia](xref:fundamentals/dependency-injection) en el `Startup` clase consiste en Insertar [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) para configurar servicios de entorno:
+El `Startup` constructor de clase acepta dependencias definidas por el host. Un uso común de [inyección de dependencia](xref:fundamentals/dependency-injection) en la `Startup` clase consiste en Insertar:
+
+* [IHostingEnvironment](/dotnet/api/Microsoft.AspNetCore.Hosting.IHostingEnvironment) para configurar servicios de entorno.
+* [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) para configurar la aplicación durante el inicio.
 
 [!code-csharp[Main](startup/snapshot_sample/Startup2.cs)]
 
-Alternativa al insertar `IHostingStartup` consiste en utilizar un enfoque basado en convenciones. La aplicación puede definir independiente `Startup` clases para los entornos diferentes (por ejemplo, `StartupDevelopment`), y la clase de inicio correspondiente se selecciona en tiempo de ejecución. Se establece una prioridad de la clase cuyo sufijo de nombre coincide con el entorno actual. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto una `Startup` clase y un `StartupDevelopment` (clase), el `StartupDevelopment` se utiliza la clase. Para obtener más información, consulte [trabajar con varios entornos](xref:fundamentals/environments#startup-conventions).
+Alternativa al insertar `IHostingEnvironment` consiste en utilizar un enfoque basado en convenciones. La aplicación puede definir independiente `Startup` clases para los entornos diferentes (por ejemplo, `StartupDevelopment`), y la clase de inicio correspondiente se selecciona en tiempo de ejecución. Se establece una prioridad de la clase cuyo sufijo de nombre coincide con el entorno actual. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto una `Startup` clase y un `StartupDevelopment` (clase), el `StartupDevelopment` se utiliza la clase. Para obtener más información, consulte [Working with multiple environments](xref:fundamentals/environments#startup-conventions) (Trabajo con varios entornos).
 
 Para obtener más información acerca de `WebHostBuilder`, consulte el [hospedaje](xref:fundamentals/hosting) tema. Para obtener información sobre cómo controlar errores durante el inicio, consulte [control de excepciones de inicio](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -83,7 +86,7 @@ Para obtener más información sobre cómo usar `IApplicationBuilder`, consulte 
 
 [ConfigureServices](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder.configureservices) y [configurar](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configure) métodos útiles que pueden usarse en lugar de especificar un `Startup` clase. Varias llamadas a `ConfigureServices` anexar entre sí. Varias llamadas a `Configure` usar la última llamada de método.
 
-[!code-csharp[Main](startup/snapshot_sample/Program.cs?highlight=16,20)]
+[!code-csharp[Main](startup/snapshot_sample/Program.cs?highlight=18,22)]
 
 ## <a name="startup-filters"></a>Filtros de inicio
 

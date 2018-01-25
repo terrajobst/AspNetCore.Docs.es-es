@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: dc81961094928025e25cf62ce4d51d12bc67b80c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7d4ed67254c2b0fc2aef748cfab1c8f628b25641
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>Usar el calendario HTML5 y jQuery UI Datepicker emergente con ASP.NET MVC - parte 3
 ====================
@@ -86,14 +86,14 @@ Ha visto que puede especificar el formato o la plantilla para una propiedad de m
 - Aplicar el `DisplayFormat` atributo a una propiedad en el modelo. Por ejemplo, el código siguiente hace que la fecha que debe mostrarse sin la hora:
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample8.cs)]
-- Aplicar un [DataType](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.datatype.aspx) atributo a una propiedad en el modelo y se especifica el tipo de datos. Por ejemplo, el código siguiente hace que la fecha que debe mostrarse sin la hora.
+- Aplicar un [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) atributo a una propiedad en el modelo y se especifica el tipo de datos. Por ejemplo, el código siguiente hace que la fecha que debe mostrarse sin la hora.
 
     [!code-csharp[Main](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3/samples/sample9.cs)]
 
     Si la aplicación contiene un *date.cshtml* plantilla en el *Views\Shared\DisplayTemplates* carpeta o el *Views\Movies\DisplayTemplates* carpeta, esa plantilla se usará para representar la `DateTime` propiedad. En caso contrario, el sistema de creación de plantillas ASP.NET integrado muestra la propiedad como una fecha.
 - Crear una plantilla de pantalla en el *Views\Shared\DisplayTemplates* carpeta o el *Views\Movies\DisplayTemplates* carpeta cuyo nombre coincida con el tipo de datos que desea dar formato. Por ejemplo, hemos visto que la *Views\Shared\DisplayTemplates\DateTime.cshtml* se usa para representar `DateTime` propiedades en un modelo, sin tener que agregar un atributo para el modelo y sin tener que agregar todas las marcas a vistas.
-- Mediante el [UIHint](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atributo en el modelo para especificar la plantilla para mostrar la propiedad de modelo.
-- Agregar explícitamente el nombre de plantilla para mostrar la [Html.DisplayFor](https://msdn.microsoft.com/en-us/library/ee407420.aspx) llama en una vista.
+- Mediante el [UIHint](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.uihintattribute.uihint.aspx) atributo en el modelo para especificar la plantilla para mostrar la propiedad de modelo.
+- Agregar explícitamente el nombre de plantilla para mostrar la [Html.DisplayFor](https://msdn.microsoft.com/library/ee407420.aspx) llama en una vista.
 
 El método utilizado depende de lo que necesita hacer en la aplicación. No es raro combinar estos enfoques para obtener exactamente el tipo de formato que necesita.
 

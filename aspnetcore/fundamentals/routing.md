@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/routing
-ms.openlocfilehash: ffa3178dc4e3aac3ba51c29b7efa3f71eb56bcfe
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 8f6f4fac89afe14d83d629128fc3e4632ae95510
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento de ASP.NET Core
 
@@ -98,9 +98,9 @@ routes.MapRoute(
     template: "{controller=Home}/{action=Index}/{id?}");
 ```
 
-Esta plantilla coincidirá con una ruta de acceso de dirección URL como `/Products/Details/17` y extraer los valores de ruta `{ controller = Products, action = Details, id = 17 }`. Los valores de ruta se determinan por dividir la ruta de acceso de dirección URL en segmentos y coincidencia de cada segmento de la *enrutar parámetro* nombre en la plantilla de ruta. Se denominan parámetros de ruta. Se definen por escriba el nombre del parámetro entre llaves `{ }`.
+Esta plantilla coincidirá con una ruta de acceso de dirección URL como `/Products/Details/17` y extraer los valores de ruta `{ controller = Products, action = Details, id = 17 }`. Los valores de ruta se determinan por dividir la ruta de acceso de dirección URL en segmentos y coincidencia de cada segmento de la *enrutar parámetro* nombre en la plantilla de ruta. Se denominan parámetros de ruta. Están definidos, incluya el nombre del parámetro entre llaves `{ }`.
 
-La plantilla anterior también podría coincidir con la ruta de acceso de dirección URL `/` y generaría los valores `{ controller = Home, action = Index }`. Esto sucede porque el `{controller}` y `{action}` ruta parámetros tienen valores predeterminados y el `id` parámetro de ruta es opcional. Es igual a `=` inicio de sesión seguido por un valor después de que el nombre de parámetro de ruta define un valor predeterminado para el parámetro. Un signo de interrogación `?` después de que el nombre de parámetro de ruta define el parámetro como opcional. Parámetros con un valor predeterminado de ruta *siempre* producen un valor de ruta cuando coincide con la ruta: parámetros opcionales no producirá un valor de ruta si no hay ningún segmento de ruta de acceso de dirección URL correspondiente.
+La plantilla anterior también podría coincidir con la ruta de acceso de dirección URL `/` y generaría los valores `{ controller = Home, action = Index }`. Esto sucede porque el `{controller}` y `{action}` ruta parámetros tienen valores predeterminados y el `id` parámetro de ruta es opcional. Es igual a `=` inicio de sesión seguido por un valor después de que el nombre de parámetro de ruta define un valor predeterminado para el parámetro. Un signo de interrogación `?` después de que el nombre de parámetro de ruta define el parámetro como opcional. Parámetros con un valor predeterminado de ruta *siempre* producen un valor de ruta cuando coincide con la ruta: parámetros opcionales no generan un valor de ruta si no hay ningún segmento de ruta de acceso de dirección URL correspondiente.
 
 Vea [referencia de plantillas de ruta](#route-template-reference) para obtener una descripción detallada de la sintaxis y características de la plantilla de ruta.
 

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-startup-class-detection
 msc.type: authoredcontent
-ms.openlocfilehash: a6ac34307b7558ad13684448f339ca74ade9e997
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 618f8fa23630dcf9821a54415766dc015694e535
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="owin-startup-class-detection"></a>Detección de clase de inicio OWIN
 ====================
@@ -79,7 +79,7 @@ por [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https:/
 
     [!code-csharp[Main](owin-startup-class-detection/samples/sample8.cs?highlight=5,7,15-28,31-34)]
   
- El `app.Use` expresión lambda se usa para registrar el componente de middleware especificado a la canalización OWIN. En este caso estamos configurando el registro de las solicitudes entrantes antes de responder a la solicitud entrante. El `next` parámetro es el delegado ( [Func](https://msdn.microsoft.com/en-us/library/bb534960(v=vs.100).aspx) &lt; [tarea](https://msdn.microsoft.com/en-us/library/dd321424(v=vs.100).aspx) &gt; ) para el siguiente componente de la canalización. El `app.Run` expresión lambda enlaza la canalización a las solicitudes entrantes y proporciona el mecanismo de respuesta.
+ El `app.Use` expresión lambda se usa para registrar el componente de middleware especificado a la canalización OWIN. En este caso estamos configurando el registro de las solicitudes entrantes antes de responder a la solicitud entrante. El `next` parámetro es el delegado ( [Func](https://msdn.microsoft.com/library/bb534960(v=vs.100).aspx) &lt; [tarea](https://msdn.microsoft.com/library/dd321424(v=vs.100).aspx) &gt; ) para el siguiente componente de la canalización. El `app.Run` expresión lambda enlaza la canalización a las solicitudes entrantes y proporciona el mecanismo de respuesta.
      > [!NOTE]
      > En el código anterior se ha marcado como comentario el `OwinStartup` atributo y nos estamos depender de la convención de la ejecución de la clase denominada `Startup` .-presione ***F5*** para ejecutar la aplicación. Actualice la vista varias veces.  
   

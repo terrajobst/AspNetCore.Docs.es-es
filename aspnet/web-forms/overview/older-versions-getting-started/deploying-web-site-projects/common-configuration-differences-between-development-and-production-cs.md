@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/common-configuration-differences-between-development-and-production-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 25299d1f047542ac4f2d61f9d5fe55813517f76b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 725812c64667488b9a06c065c7100d0536c2e3e2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="common-configuration-differences-between-development-and-production-c"></a>Diferencias de configuración comunes entre el desarrollo y producción (C#)
 ====================
@@ -38,7 +38,7 @@ Al implementar una aplicación web es importante que la información de configur
 
 El `Web.config` archivo incluye una gran variedad de información de configuración para una aplicación ASP.NET. Parte de esta información de configuración es el mismo independientemente del entorno. Por ejemplo, la configuración de autenticación y las reglas de autorización de dirección URL especificada en el `Web.config` del archivo `<authentication>` y `<authorization>` elementos son normalmente los mismos independientemente del entorno. Pero otra información de configuración - como información sobre recursos externos - normalmente varía según el entorno.
 
-Cadenas de conexiones de base de datos son un buen ejemplo de información de configuración que difiere según el entorno. Cuando una aplicación web se comunica con un servidor de base de datos primero debe establecer una conexión y que se logra a través de un [cadena de conexión](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Aunque es posible codificar la cadena de conexión de base de datos directamente en las páginas web o el código que se conecta a la base de datos, es mejor colocarlo `Web.config`del [ `<connectionStrings>` elemento](https://msdn.microsoft.com/en-us/library/bf7sd233.aspx) para que la cadena de conexión información que se encuentra en una ubicación única y centralizada. A menudo se usa otra base de datos durante el desarrollo que se usa en producción; por lo tanto, la información de la cadena de conexión debe ser única para cada entorno.
+Cadenas de conexiones de base de datos son un buen ejemplo de información de configuración que difiere según el entorno. Cuando una aplicación web se comunica con un servidor de base de datos primero debe establecer una conexión y que se logra a través de un [cadena de conexión](http://www.connectionstrings.com/Articles/Show/what-is-a-connection-string). Aunque es posible codificar la cadena de conexión de base de datos directamente en las páginas web o el código que se conecta a la base de datos, es mejor colocarlo `Web.config`del [ `<connectionStrings>` elemento](https://msdn.microsoft.com/library/bf7sd233.aspx) para que la cadena de conexión información que se encuentra en una ubicación única y centralizada. A menudo se usa otra base de datos durante el desarrollo que se usa en producción; por lo tanto, la información de la cadena de conexión debe ser única para cada entorno.
 
 > [!NOTE]
 > Tutoriales futuros exploran implementar aplicaciones controladas por datos, momento en el que podrá ver en profundidad los detalles sobre cómo se almacenan las cadenas de conexión de base de datos en el archivo de configuración.
@@ -48,7 +48,7 @@ El comportamiento previsto de los entornos de desarrollo y producción difiere c
 
 ### <a name="configuration-settings-that-impact-performance"></a>Opciones de configuración que afectan al rendimiento
 
-Cuando se visita una página ASP.NET para la primera vez (o la primera vez después de haya cambiado), su marcado declarativo debe convertirse en una clase y esta clase debe compilarse. Si la aplicación web usa una compilación automática, a continuación, la clase de código subyacente de la página debe compilarse, demasiado. Puede configurar una amplia variedad de opciones de compilación a través de la `Web.config` del archivo [ `<compilation>` elemento](https://msdn.microsoft.com/en-us/library/s10awwz0.aspx).
+Cuando se visita una página ASP.NET para la primera vez (o la primera vez después de haya cambiado), su marcado declarativo debe convertirse en una clase y esta clase debe compilarse. Si la aplicación web usa una compilación automática, a continuación, la clase de código subyacente de la página debe compilarse, demasiado. Puede configurar una amplia variedad de opciones de compilación a través de la `Web.config` del archivo [ `<compilation>` elemento](https://msdn.microsoft.com/library/s10awwz0.aspx).
 
 El atributo de depuración es uno de los atributos más importantes en el `<compilation>` elemento. Si el `debug` atributo está establecido en "true", a continuación, los ensamblados compilados incluyen símbolos de depuración, que son necesarias cuando se depura una aplicación en Visual Studio. Pero símbolos de depuración, aumentan el tamaño del ensamblado e imponen requisitos adicionales de memoria cuando se ejecuta el código. Además, cuando la `debug` atributo está establecido en "true" cualquier contenido devuelto por `WebResource.axd` no están en caché, lo que significa que cada vez que un usuario visita una página que se deben volver a descargar el contenido estático devuelto por `WebResource.axd`.
 
@@ -68,7 +68,7 @@ Cuando se produce una excepción no controlada en una aplicación ASP.NET propag
 - Se muestra un mensaje de detalles de excepción, que incluye información sobre la excepción que se produce solo.
 - Se muestra una página de error personalizada, que es una página ASP.NET que cree que muestra los mensajes que desee.
 
-¿Qué ocurre en el caso de una excepción no controlada depende de la `Web.config` del archivo [ `<customErrors>` sección](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx).
+¿Qué ocurre en el caso de una excepción no controlada depende de la `Web.config` del archivo [ `<customErrors>` sección](https://msdn.microsoft.com/library/h0hfz6fc.aspx).
 
 Al desarrollar y probar una aplicación que es útil para ver los detalles de todas las excepciones en el explorador. Sin embargo, que muestra los detalles de la excepción en una aplicación en producción es un riesgo de seguridad. Además, es unflattering y hace que su sitio Web parezca poco profesional. Lo ideal es que, si se produce una excepción no controlada una aplicación web en el entorno de desarrollo mostrará detalles de la excepción mientras la misma aplicación en producción mostrará una página de error personalizada.
 
@@ -76,7 +76,7 @@ Al desarrollar y probar una aplicación que es útil para ver los detalles de to
 > El valor predeterminado `<customErrors>` valor de la sección muestra los detalles de la excepción del mensaje solo cuando se visita a través de localhost la página; en caso contrario, muestra la página de error genérico en tiempo de ejecución. Esto no es ideal, pero lo que asegura que para saber que el comportamiento predeterminado no mostrar los detalles de excepción para los visitantes no locales. Un tutorial futuras examina la `<customErrors>` sección con más detalle y se muestra cómo hacer que una página de error personalizada que se muestra cuando se produce un error en producción.
 
 
-Está realizando el seguimiento de otra característica ASP.NET que es útil durante el desarrollo. Seguimiento, si está habilitada, registra información acerca de cada solicitud entrante y proporciona una página web especial, `Trace.axd`, para ver los detalles de solicitud reciente. Puede activar y configurar el seguimiento a través de la [ `<trace>` elemento](https://msdn.microsoft.com/en-us/library/6915t83k.aspx) en `Web.config`.
+Está realizando el seguimiento de otra característica ASP.NET que es útil durante el desarrollo. Seguimiento, si está habilitada, registra información acerca de cada solicitud entrante y proporciona una página web especial, `Trace.axd`, para ver los detalles de solicitud reciente. Puede activar y configurar el seguimiento a través de la [ `<trace>` elemento](https://msdn.microsoft.com/library/6915t83k.aspx) en `Web.config`.
 
 Si habilita la marca de seguimiento asegurarse que se haya deshabilitado en producción. Dado que la información de seguimiento incluye las cookies, datos de la sesión y otra información potencialmente confidencial, es importante deshabilitar el seguimiento en producción. Lo bueno es que, de forma predeterminada, el seguimiento está deshabilitado y el `Trace.axd` archivo solo es accesible a través de localhost. Si cambia estos valores predeterminados en el desarrollo Asegúrese de que están desactivados nuevo en producción.
 
@@ -110,7 +110,7 @@ información de configuración que se copie en este directorio de las maneras si
 
 Para implementar la compilación de la aplicación web el proyecto de implementación Web y, a continuación, copie los archivos de la carpeta de salida del proyecto en el entorno de producción.
 
-Para obtener información adicional acerca del uso del proyecto de implementación Web desproteger [este artículo de proyectos de implementación Web](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx) del número de abril de 2007 de [MSDN Magazine](https://msdn.microsoft.com/en-us/magazine/default.aspx), o consulte los vínculos en la sección más información en el final de este tutorial.
+Para obtener información adicional acerca del uso del proyecto de implementación Web desproteger [este artículo de proyectos de implementación Web](https://msdn.microsoft.com/magazine/cc163448.aspx) del número de abril de 2007 de [MSDN Magazine](https://msdn.microsoft.com/magazine/default.aspx), o consulte los vínculos en la sección más información en el final de este tutorial.
 
 > [!NOTE]
 > No puede usar el proyecto de implementación Web con Visual Web Developer porque el proyecto de implementación Web se implementa como un Visual Studio Add-In y las ediciones Visual Studio Express (incluido en Visual Web Developer) no admiten complementos.
@@ -134,7 +134,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Clave de configuración al implementar una base de datos](http://aspnet.4guysfromrolla.com/articles/121008-1.aspx)
 - [Descargar de proyectos de Visual Studio 2008 Web implementación](https://www.microsoft.com/downloads/details.aspx?FamilyId=0AA30AE8-C73B-4BDD-BB1B-FE697256C459&amp;displaylang=en) | [descarga de proyectos de Visual Studio 2005 Web Deployment](https://download.microsoft.com/download/9/4/9/9496adc4-574e-4043-bb70-bc841e27f13c/WebDeploymentSetup.msi)
 - [Proyectos de implementación Web de VS 2008](https://weblogs.asp.net/scottgu/archive/2005/11/06/429723.aspx) | [VS 2008 implementación compatibilidad con proyectos Web publicado](https://weblogs.asp.net/scottgu/archive/2008/01/28/vs-2008-web-deployment-project-support-released.aspx)
-- [Proyectos de implementación Web](https://msdn.microsoft.com/en-us/magazine/cc163448.aspx)
+- [Proyectos de implementación web](https://msdn.microsoft.com/magazine/cc163448.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](deploying-your-site-using-visual-studio-cs.md)

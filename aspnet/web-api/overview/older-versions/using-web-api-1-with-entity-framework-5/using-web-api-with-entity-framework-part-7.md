@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: a17b9f26ec48b5410211d6dad6e4deec971642d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4d06e72bc664f707bbbe4603be41347158c58903
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-7-creating-the-main-page"></a>Parte 7: Creación de los principales página
 ====================
@@ -86,7 +86,7 @@ Se recorre en iteración la matriz de productos y muestra el nombre y el precio.
 
 Las llamadas de botón "Agregar a pedido" `addItemToCart` en el `ProductViewModel` instancia para el producto. Esto muestra una interesante característica de Knockout.js: cuando un modelo de vista contiene otros modelos de vista, puede aplicar los enlaces para el modelo interno. En este ejemplo, los enlaces dentro de la `foreach` se aplican a cada uno de los `ProductViewModel` instancias. Este enfoque es mucho más limpio que colocar toda la funcionalidad en un único modelo de vista.
 
-**Carro**
+**Cart**
 
 Estos son los enlaces para el carro:
 
@@ -116,8 +116,8 @@ En este tutorial, ha creado una aplicación que utiliza Entity Framework para co
 
 Recursos adicionales:
 
-- [Mapa de contenido de acceso de datos de ASP.NET](https://msdn.microsoft.com/en-us/library/6759sth4.aspx)
-- [Centro para desarrolladores de Entity Framework](https://msdn.microsoft.com/en-US/data/ef)
+- [Mapa de contenido de acceso de datos de ASP.NET](https://msdn.microsoft.com/library/6759sth4.aspx)
+- [Centro para desarrolladores de Entity Framework](https://msdn.microsoft.com/data/ef)
 
 >[!div class="step-by-step"]
 [Anterior](using-web-api-with-entity-framework-part-6.md)

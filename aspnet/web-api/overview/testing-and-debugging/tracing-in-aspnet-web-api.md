@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f35c8a10018ce796e2d905d6ee839ff09bb380a1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7392ae5d9bc4c3aab45a9373099a0ee18e873a4f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Seguimiento en ASP.NET Web API 2
 ====================
@@ -58,7 +58,7 @@ Abra el archivo WebApiConfig.cs en la aplicación\_carpeta de inicio. Agregue el
 
 [!code-csharp[Main](tracing-in-aspnet-web-api/samples/sample2.cs?highlight=6)]
 
-Este código agrega el [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) clase a la canalización de Web API. El **SystemDiagnosticsTraceWriter** clase escribe seguimientos a [System.Diagnostics.Trace](https://msdn.microsoft.com/en-us/library/system.diagnostics.trace).
+Este código agrega el [SystemDiagnosticsTraceWriter](https://msdn.microsoft.com/library/system.web.http.tracing.systemdiagnosticstracewriter.aspx) clase a la canalización de Web API. El **SystemDiagnosticsTraceWriter** clase escribe seguimientos a [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace).
 
 Para ver los seguimientos, ejecute la aplicación en el depurador. En el explorador, vaya a `/api/values`.
 
@@ -68,7 +68,7 @@ Las instrucciones de seguimiento se escriben en la ventana Resultados de Visual 
 
 [![](tracing-in-aspnet-web-api/_static/image7.png)](tracing-in-aspnet-web-api/_static/image6.png)
 
-Dado que **SystemDiagnosticsTraceWriter** escribe seguimientos a **System.Diagnostics.Trace**, puede registrar los agentes de escucha de seguimiento adicionales; por ejemplo escribir seguimientos en un archivo de registro. Para obtener más información acerca de los escritores de seguimiento, consulte el [los agentes de escucha de seguimiento](https://msdn.microsoft.com/en-us/library/4y5y10s7.aspx) tema en MSDN.
+Dado que **SystemDiagnosticsTraceWriter** escribe seguimientos a **System.Diagnostics.Trace**, puede registrar los agentes de escucha de seguimiento adicionales; por ejemplo escribir seguimientos en un archivo de registro. Para obtener más información acerca de los escritores de seguimiento, consulte el [los agentes de escucha de seguimiento](https://msdn.microsoft.com/library/4y5y10s7.aspx) tema en MSDN.
 
 ### <a name="configuring-systemdiagnosticstracewriter"></a>Configuración de SystemDiagnosticsTraceWriter
 
@@ -89,7 +89,7 @@ Agregar un autor de seguimiento proporciona acceso inmediato a los seguimientos 
 
 Para obtener el escritor de seguimiento, llame a **HttpConfiguration.Services.GetTraceWriter**. Desde un controlador, este método es accesible a través de la **ApiController.Configuration** propiedad.
 
-Para escribir un seguimiento, puede llamar a la **ITraceWriter.Trace** método directamente, pero la [ITraceWriterExtensions](https://msdn.microsoft.com/en-us/library/system.web.http.tracing.itracewriterextensions.aspx) clase define algunos métodos de extensión que están más descriptivos. Por ejemplo, el **información** método mostrado anteriormente, crea un seguimiento con nivel de seguimiento **información**.
+Para escribir un seguimiento, puede llamar a la **ITraceWriter.Trace** método directamente, pero la [ITraceWriterExtensions](https://msdn.microsoft.com/library/system.web.http.tracing.itracewriterextensions.aspx) clase define algunos métodos de extensión que están más descriptivos. Por ejemplo, el **información** método mostrado anteriormente, crea un seguimiento con nivel de seguimiento **información**.
 
 ## <a name="web-api-tracing-infrastructure"></a>Infraestructura de seguimiento de API Web
 

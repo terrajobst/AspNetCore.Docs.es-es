@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 7e495ba56958012713836c1dd75ac0c5a8bff942
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 873e4592ba668bbcb22f761c2a547a2a27d7e443
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-aspnet-core-mvc-tutorial-2-of-10"></a>Crear, leer, actualizar y eliminar - Core EF con el tutorial de MVC de ASP.NET Core (2 de 10)
 
@@ -46,7 +46,7 @@ En *Controllers/StudentsController.cs*, el método de acción para los detalles 
 
 El `Include` y `ThenInclude` métodos hacen que el contexto cargar la `Student.Enrollments` propiedad de navegación y dentro de cada inscripción el `Enrollment.Course` propiedad de navegación.  Aprenderá más acerca de estos métodos en el [leer datos relacionados](read-related-data.md) tutorial.
 
-El `AsNoTracking` método mejora el rendimiento en escenarios donde no se actualizará las entidades devueltas en la duración del contexto actual. Aprenderá más acerca de `AsNoTracking` al final de este tutorial.
+El `AsNoTracking` método mejora el rendimiento en escenarios donde no se actualizarán las entidades devueltas en la duración del contexto actual. Aprenderá más acerca de `AsNoTracking` al final de este tutorial.
 
 ### <a name="route-data"></a>Datos de ruta
 

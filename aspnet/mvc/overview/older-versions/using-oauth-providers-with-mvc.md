@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-oauth-providers-with-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 965d2e740cc76838b1b4e1c618a2a6d784672fcc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0d053cecbf9a59f258470ee370852e3f112908c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-oauth-providers-with-mvc-4"></a>Usar proveedores de OAuth con MVC 4
 ====================
@@ -148,7 +148,7 @@ Si solo desea habilitar autenticación externa, ya ha terminado. Sin embargo, pu
 
 Como ha observado en las secciones anteriores, no es necesario recuperar cualquier información adicional para que funcione el registro de la cuenta integrada. Sin embargo, proveedores externos más pasan volver más información sobre el usuario. Las secciones siguientes muestran cómo conservar esa información y guardarlo en una base de datos. En concreto, se conservarán los valores para el nombre completo del usuario, el URI de la página web de personal del usuario y un valor que indica si Facebook ha comprobado la cuenta.
 
-Va a usar [migraciones de Code First](https://msdn.microsoft.com/en-us/data/jj591621) para agregar una tabla para almacenar información de usuario adicional. Va a agregar la tabla a una base de datos existente, por lo que primero deberá crear una instantánea de la base de datos actual. Al crear una instantánea de la base de datos actual, puede crear más adelante una migración que contiene solo la nueva tabla. Para crear una instantánea de la base de datos actual:
+Va a usar [migraciones de Code First](https://msdn.microsoft.com/data/jj591621) para agregar una tabla para almacenar información de usuario adicional. Va a agregar la tabla a una base de datos existente, por lo que primero deberá crear una instantánea de la base de datos actual. Al crear una instantánea de la base de datos actual, puede crear más adelante una migración que contiene solo la nueva tabla. Para crear una instantánea de la base de datos actual:
 
 1. Abra el **consola de administrador de paquetes**
 2. Ejecute el comando **enable-migrations**

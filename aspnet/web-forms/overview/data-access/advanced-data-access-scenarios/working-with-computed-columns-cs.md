@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 133c55371cccabbbefe1b0eb3f4c7a67f2834f1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 41206f76f9d9ca68971a53d79e84d82349e92333
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="working-with-computed-columns-c"></a>Trabajar con columnas calculadas (C#)
 ====================
@@ -29,7 +29,7 @@ por [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 ## <a name="introduction"></a>Introducción
 
-Microsoft SQL Server permite  *[las columnas calculadas](https://msdn.microsoft.com/en-us/library/ms191250.aspx)*, que son columnas cuyos valores se calculan a partir de una expresión que normalmente hace referencia a los valores de otras columnas de la misma tabla. Por ejemplo, una vez el modelo de datos de seguimiento podría tener una tabla denominada `ServiceLog` con columnas incluidas `ServicePerformed`, `EmployeeID`, `Rate`, y `Duration`, entre otros. Mientras el importe a pagar por cada servicio (que se va a la velocidad multiplicada por la duración) se ha podido calcular a través de una página web u otra interfaz de programación, puede resultar útil para incluir una columna en el `ServiceLog` tabla denominada `AmountDue` que notifica este información. Esta columna se pudo crear una columna normal, pero solo debería actualizarse en cualquier momento la `Rate` o `Duration` cambiados los valores de columna. Un enfoque más adecuado sería asegurarse el `AmountDue` una columna calculada usando la expresión de columna `Rate * Duration`. Si lo hace, haría que SQL Server para que calcule automáticamente el `AmountDue` valor de la columna cada vez que se hizo referencia a una consulta.
+Microsoft SQL Server permite  *[las columnas calculadas](https://msdn.microsoft.com/library/ms191250.aspx)*, que son columnas cuyos valores se calculan a partir de una expresión que normalmente hace referencia a los valores de otras columnas de la misma tabla. Por ejemplo, una vez el modelo de datos de seguimiento podría tener una tabla denominada `ServiceLog` con columnas incluidas `ServicePerformed`, `EmployeeID`, `Rate`, y `Duration`, entre otros. Mientras el importe a pagar por cada servicio (que se va a la velocidad multiplicada por la duración) se ha podido calcular a través de una página web u otra interfaz de programación, puede resultar útil para incluir una columna en el `ServiceLog` tabla denominada `AmountDue` que notifica este información. Esta columna se pudo crear una columna normal, pero solo debería actualizarse en cualquier momento la `Rate` o `Duration` cambiados los valores de columna. Un enfoque más adecuado sería asegurarse el `AmountDue` una columna calculada usando la expresión de columna `Rate * Duration`. Si lo hace, haría que SQL Server para que calcule automáticamente el `AmountDue` valor de la columna cada vez que se hizo referencia a una consulta.
 
 Puesto que un valor de columna calculada s está determinado por una expresión, estas columnas son de solo lectura y, por tanto, no pueden tener valores asignados a ellos en `INSERT` o `UPDATE` las instrucciones. Sin embargo, cuando las columnas calculadas forman parte de la consulta principal de un TableAdapter que utiliza instrucciones SQL ad hoc, se incluyen automáticamente en el generado automáticamente `INSERT` y `UPDATE` las instrucciones. Por lo tanto, los TableAdapter s `INSERT` y `UPDATE` consultas y `InsertCommand` y `UpdateCommand` propiedades deben actualizarse para quitar las referencias a las columnas calculadas.
 
@@ -51,7 +51,7 @@ Comience abriendo la `Suppliers` definición de tabla con el botón secundario e
 Tenga en cuenta que se pueden concatenar cadenas en SQL mediante el `+` operador. El `CASE` instrucción puede utilizarse como una instrucción condicional en un lenguaje de programación tradicional. En la expresión anterior la `CASE` instrucción puede leerse como: si `ContactTitle` no `NULL` de salida, a continuación, el `ContactTitle` valor concatenado con una coma, en caso contrario emitir nada. Para obtener más información sobre la utilidad de la `CASE` instrucción, consulte [Power de SQL `CASE` instrucciones](http://www.4guysfromrolla.com/webtech/102704-1.shtml).
 
 > [!NOTE]
-> En lugar de usar un `CASE` instrucción aquí, podríamos haber también utilizado `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/en-us/library/ms184325.aspx)Devuelve *checkExpression* si es distinto de NULL, de lo contrario devuelve *Valordereemplazo*. Mientras una `ISNULL` o `CASE` funcionará en este caso, hay más intrincados escenarios donde la flexibilidad de la `CASE` instrucción no puede coincidir con `ISNULL`.
+> En lugar de usar un `CASE` instrucción aquí, podríamos haber también utilizado `ISNULL(ContactTitle, '')`. [`ISNULL(checkExpression, replacementValue)`](https://msdn.microsoft.com/library/ms184325.aspx)Devuelve *checkExpression* si es distinto de NULL, de lo contrario devuelve *Valordereemplazo*. Mientras una `ISNULL` o `CASE` funcionará en este caso, hay más intrincados escenarios donde la flexibilidad de la `CASE` instrucción no puede coincidir con `ISNULL`.
 
 
 Después de agregar esta columna calculada, la pantalla debe ser similar a la pantalla que se captura en la figura 1.
@@ -69,10 +69,10 @@ Al guardar la tabla debe actualizar el Explorador de servidores, incluida la col
 
 [!code-sql[Main](working-with-computed-columns-cs/samples/sample2.sql)]
 
-Para obtener más información sobre las columnas calculadas de Microsoft SQL Server, consulte el [documentación técnica](https://msdn.microsoft.com/en-us/library/ms191250.aspx). Consulte también la [Cómo: Specify Computed Columns](https://msdn.microsoft.com/en-us/library/ms188300.aspx) para ver un tutorial paso a paso de creación de columnas calculadas.
+Para obtener más información sobre las columnas calculadas de Microsoft SQL Server, consulte el [documentación técnica](https://msdn.microsoft.com/library/ms191250.aspx). Consulte también la [Cómo: Specify Computed Columns](https://msdn.microsoft.com/library/ms188300.aspx) para ver un tutorial paso a paso de creación de columnas calculadas.
 
 > [!NOTE]
-> De forma predeterminada, las columnas calculadas no se almacenan físicamente en la tabla, pero en su lugar, se vuelven a calcular cada vez que se hace referencia en una consulta. Activando la casilla de verificación se conserva, sin embargo, puede indicar a SQL Server para almacenar físicamente la columna calculada en la tabla. Esto permite que un índice que se crearán en la columna calculada, lo que puede mejorar el rendimiento de las consultas que utilizan el valor de columna calculada en sus `WHERE` cláusulas. Vea [crear índices en columnas calculadas](https://msdn.microsoft.com/en-us/library/ms189292.aspx) para obtener más información.
+> De forma predeterminada, las columnas calculadas no se almacenan físicamente en la tabla, pero en su lugar, se vuelven a calcular cada vez que se hace referencia en una consulta. Activando la casilla de verificación se conserva, sin embargo, puede indicar a SQL Server para almacenar físicamente la columna calculada en la tabla. Esto permite que un índice que se crearán en la columna calculada, lo que puede mejorar el rendimiento de las consultas que utilizan el valor de columna calculada en sus `WHERE` cláusulas. Vea [crear índices en columnas calculadas](https://msdn.microsoft.com/library/ms189292.aspx) para obtener más información.
 
 
 ## <a name="step-2-viewing-the-computed-column-s-values"></a>Paso 2: Ver los s valores de columna calculada
@@ -261,7 +261,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

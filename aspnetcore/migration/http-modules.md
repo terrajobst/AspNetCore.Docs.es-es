@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: migration/http-modules
-ms.openlocfilehash: 44b2b38c284e678344432d4473162404b4bb75a5
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a38ddc64583de05b4088cd31d48fbd7ee949d4e5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="migrating-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrar controladores HTTP y módulos ASP.NET Core middleware 
 
@@ -51,7 +51,7 @@ Antes de proceder con middleware de ASP.NET Core, primero Resumamos cómo funcio
 
    1. El [ciclo de vida de aplicación](https://msdn.microsoft.com/library/ms227673.aspx), que es un eventos serie desencadenados por ASP.NET: [BeginRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.beginrequest), [AuthenticateRequest](https://docs.microsoft.com/dotnet/api/system.web.httpapplication.authenticaterequest), etcetera. Cada módulo puede crear un controlador para uno o varios eventos.
 
-   2. Para el mismo evento, el orden en el que se configuran en *Web.config*.
+   2. Para el mismo evento, el orden en el que está configurados en *Web.config*.
 
 Además de los módulos, puede agregar controladores para los eventos de ciclo de vida a sus *Global.asax.cs* archivo. Estos controladores se ejecutan después de los controladores en los módulos configurados.
 
@@ -105,11 +105,11 @@ El *MyMiddlewareExtensions* clase auxiliar resulta más fácil de configurar el 
 
 <a name="http-modules-shortcircuiting-middleware"></a>
 
-El módulo podría terminar una solicitud, por ejemplo, si el usuario no está autorizado:
+El módulo podría terminar una solicitud, por ejemplo, si el usuario no autorizado:
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net4/Asp.Net4/Modules/MyTerminatingModule.cs?highlight=9,10,11,12,13&name=snippet_Terminate)]
 
-Un middleware encarga de ello llamando no `Invoke` en el siguiente middleware en la canalización. Tenga en cuenta que esto no totalmente finaliza la solicitud, porque middlewares anterior aún se invocará cuando la respuesta realiza su forma de volver a través de la canalización.
+Un middleware encarga de ello llamando no `Invoke` en el siguiente middleware en la canalización. Tenga en cuenta que esto no finaliza completamente la solicitud, porque middlewares anterior aún se invocará cuando la respuesta realiza su forma de volver a través de la canalización.
 
 [!code-csharp[Main](../migration/http-modules/sample/Asp.Net.Core/Middleware/MyTerminatingMiddleware.cs?highlight=7,8&name=snippet_Terminate)]
 

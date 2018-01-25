@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 title: "Con Entity Framework 4.0 y el Control ObjectDataSource, parte 2: agregar una capa de lógica de negocios y pruebas unitarias | Documentos de Microsoft"
 author: tdykstra
-description: "Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. ¿..."
+description: "Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I..."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: 0440f807c7baa7b92e5f05590eca9cc237b5aef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Con Entity Framework 4.0 y el Control ObjectDataSource, parte 2: agregar una capa de lógica de negocios y pruebas unitarias
 ====================
@@ -74,7 +74,7 @@ La variable de clase que contiene una referencia a la clase de repositorio se de
 Los métodos CRUD que llaman a la clase de repositorio y los dos constructores permiten usar la clase de la lógica de negocios con cualquier almacén de datos back-end que elija. La clase de la lógica de negocios no debe ser consciente de cómo la clase que realiza la llamada conserva los datos. (Esto se suele denominar *omisión de persistencia*.) Esto facilita la pruebas unitarias, porque la clase de la lógica de negocios se pueden conectar a una implementación de repositorio que usa algo como simple como en memoria `List` colecciones para almacenar datos.
 
 > [!NOTE]
-> Técnicamente, los objetos de entidad son todavía no que ignoran la persistencia, porque se crea una instancia de las clases que heredan de Entity Framework `EntityObject` clase. Omisión de persistencia completa, puede usar *objetos CLR antiguos sin formato*, o *POCOs*, en lugar de objetos que se heredan de la `EntityObject` clase. Uso de POCOs queda fuera del ámbito de este tutorial. Para obtener más información, consulte [capacidad de prueba y Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx) en el sitio Web MSDN.)
+> Técnicamente, los objetos de entidad son todavía no que ignoran la persistencia, porque se crea una instancia de las clases que heredan de Entity Framework `EntityObject` clase. Omisión de persistencia completa, puede usar *objetos CLR antiguos sin formato*, o *POCOs*, en lugar de objetos que se heredan de la `EntityObject` clase. Uso de POCOs queda fuera del ámbito de este tutorial. Para obtener más información, consulte [capacidad de prueba y Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx) en el sitio Web MSDN.)
 
 
 Ahora puede conectar el `ObjectDataSource` controles a la lógica de negocios en lugar de la clase en el repositorio y comprobar que todo funciona igual que antes.
@@ -221,7 +221,7 @@ Agregue el siguiente controlador de eventos:
 
 Ahora puede probar el *DepartmentsAdd.aspx.cs* página para comprobar que también correctamente controla intentos que realizará el Administrador de más de un departamento de una persona.
 
-Con esto finaliza la introducción a implementar el patrón de repositorio para utilizar el `ObjectDataSource` control con Entity Framework. Para obtener más información sobre el modelo de repositorio y la capacidad de prueba, vea las notas del producto MSDN [capacidad de prueba y Entity Framework 4.0](https://msdn.microsoft.com/en-us/library/ff714955.aspx).
+Con esto finaliza la introducción a implementar el patrón de repositorio para utilizar el `ObjectDataSource` control con Entity Framework. Para obtener más información sobre el modelo de repositorio y la capacidad de prueba, vea las notas del producto MSDN [capacidad de prueba y Entity Framework 4.0](https://msdn.microsoft.com/library/ff714955.aspx).
 
 En el tutorial siguiente verá cómo agregar ordenación y filtrado funcionalidad a la aplicación.
 

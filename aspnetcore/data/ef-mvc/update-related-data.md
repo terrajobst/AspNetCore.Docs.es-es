@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: 0e4df407a1ca15aa5baa2b7226be1cf91902a583
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3cdd36ae03824645e09f97cae85cc55956679390
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-related-data---ef-core-with-aspnet-core-mvc-tutorial-7-of-10"></a>Actualizar datos relacionados - Core EF con el tutorial de MVC de ASP.NET Core (7 de 10)
 
@@ -49,7 +49,7 @@ Después de la `Edit` método HttpPost, cree un nuevo método que carga la infor
 
 El `PopulateDepartmentsDropDownList` /método siguiente obtiene una lista de todos los departamentos que se ordenan por nombre, se crea un `SelectList` colección para obtener una lista desplegable y pasa la colección a la vista en `ViewBag`. El método acepta opcional `selectedDepartment` parámetro que permita al código que realiza la llamada especificar el elemento que se seleccionará cuando se procesa la lista desplegable. La vista pasará el nombre "DepartmentID" a la `<select>` auxiliar de etiquetas y la aplicación auxiliar, a continuación, sepa que puede para buscar en el `ViewBag` de objeto para un `SelectList` denominado "DepartmentID".
 
-El HttpGet `Create` llamadas al método el `PopulateDepartmentsDropDownList` método sin tener que configurar el elemento seleccionado, ya que para un nuevo curso el departamento aún no está establecido:
+El HttpGet `Create` llamadas al método el `PopulateDepartmentsDropDownList` método sin tener que configurar el elemento seleccionado, ya que para un nuevo curso el departamento no establecido todavía:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?highlight=3&name=snippet_CreateGet)]
 
@@ -129,7 +129,7 @@ El código hace lo siguiente:
 
 -  Actualiza la entidad Instructor recuperada con valores desde el enlazador de modelos. El `TryUpdateModel` sobrecarga permite a la lista blanca las propiedades que van a incluir. Esto evita que el registro excesivo, como se explica en la [segundo tutorial](crud.md).
 
-    <!-- Snippets do not play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
+    <!-- Snippets don't play well with <ul> [!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=241-244)] -->
 
     ```csharp
     if (await TryUpdateModelAsync<Instructor>(
@@ -140,7 +140,7 @@ El código hace lo siguiente:
     
 -   Si la ubicación de la oficina está en blanco, Establece la propiedad Instructor.OfficeAssignment en null para que se eliminará la fila en la tabla OfficeAssignment relacionada.
 
-    <!-- Snippets do not play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
+    <!-- Snippets don't play well with <ul>  "intro/samples/cu/Controllers/InstructorsController.cs"} -->
 
     ```csharp
     if (String.IsNullOrWhiteSpace(instructorToUpdate.OfficeAssignment?.Location))
@@ -221,7 +221,7 @@ En *Views/Instructors/Edit.cshtml*, agregar un **cursos** campo con una matriz d
 
 [!code-html[Main](intro/samples/cu/Views/Instructors/Edit.cshtml?range=35-61)]
 
-Este código crea una tabla HTML que tiene tres columnas. En cada columna es una casilla de verificación seguida de un título que está formada por el número y el título. Las casillas de verificación todos tienen el mismo nombre ("selectedCourses"), que informa al enlazador de modelos que se van a tratar como un grupo. El atributo de valor de cada casilla de verificación se establece en el valor de `CourseID`. Cuando se envía la página, el enlazador de modelos pasa una matriz al controlador que está formada por el `CourseID` valores de las casillas de verificación que están seleccionadas.
+Este código crea una tabla HTML que tiene tres columnas. En cada columna es una casilla de verificación seguida de un título que está formada por el número y el título. Las casillas de verificación que todos tienen el mismo nombre ("selectedCourses"), que informa al enlazador de modelos que sean se trate como un grupo. El atributo de valor de cada casilla de verificación se establece en el valor de `CourseID`. Cuando se envía la página, el enlazador de modelos pasa una matriz al controlador que está formada por el `CourseID` valores de las casillas de verificación que están seleccionadas.
 
 Cuando inicialmente se representan las casillas de verificación, aquellos que por cursos asignados al instructor comprobaron atributos, que selecciona (muestra ellos activadas).
 

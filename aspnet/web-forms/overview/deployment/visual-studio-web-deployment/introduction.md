@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: e14f3bed001592c85bdbba868f51141bc52a9470
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 51344535e7ff42f1bd6641aeaaf043be6423f1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Implementación de Web ASP.NET con Visual Studio: Introducción
 ====================
@@ -53,7 +53,7 @@ Los tutoriales están dirigidos a los desarrolladores ASP.NET que trabajan en en
 Implementación de [control de código fuente](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control.md) con un [la entrega continua](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md) proceso no se aborda en estos tutoriales excepto un tutorial que muestra cómo implementar la línea de comandos. Para obtener información sobre la entrega continua, vea los siguientes recursos:
 
 - [Integración continua y la entrega continua (creación de aplicaciones de nube reales con Windows Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery.md)
-- [Implementar una aplicación web en el servicio de aplicación de Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-deploy/)
+- [Implementar una aplicación web en el servicio de aplicación de Azure](https://azure.microsoft.com/documentation/articles/web-sites-deploy/)
 - [Implementar aplicaciones Web en escenarios empresariales](../deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md) (un conjunto anterior de tutoriales escritos para Visual Studio 2010, que todavía tiene información útil para entornos empresariales).
 
 ## <a name="using-a-third-party-hosting-provider"></a>Uso de un proveedor de hospedaje de terceros
@@ -130,7 +130,7 @@ Si usa Visual Studio 2010 SP1, instale el software siguiente:
 
 - [SDK de Azure para Visual Studio 2010](https://go.microsoft.com/fwlink/?LinkID=254269)
 - [SQL Server Express LocalDB](https://www.microsoft.com/web/gallery/install.aspx?appsxml=&amp;appid=SQLLocalDBOnly_11_0)
-- [Herramientas de datos SQL Server](https://msdn.microsoft.com/en-us/library/hh500335.aspx).
+- [Herramientas de datos SQL Server](https://msdn.microsoft.com/library/hh500335.aspx).
 
 Dependiendo de cuántas de las dependencias del SDK ya tiene en su equipo, instalar el SDK de Azure puede tardar mucho tiempo, desde unos minutos a una media hora o más. Se necesita el SDK de Azure incluso si tiene previsto publicar en un proveedor de hospedaje de terceros en lugar de en Azure, dado que el SDK incluye las actualizaciones más recientes en web de Visual Studio publicar características.
 

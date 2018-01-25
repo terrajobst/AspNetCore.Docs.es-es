@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/crud
-ms.openlocfilehash: c26ba75f6a401d50a6b46bd7ee40500c5736f20f
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Crear, leer, actualizar y eliminar - Core EF con páginas de Razor (2 de 8)
 
@@ -132,7 +132,7 @@ En el ejemplo anterior:
 <a id="overpost"></a>
 ### <a name="overposting"></a>Publicación excesiva
 
-Usar `TryUpdateModel` actualizar los campos con valores registrados es una práctica recomendada de seguridad porque evita overposting. Por ejemplo, suponga que la entidad Student incluye un `Secret` propiedad que esta página web no debe actualizar o agregar:
+Usar `TryUpdateModel` actualizar los campos con valores registrados es una práctica recomendada de seguridad porque evita overposting. Por ejemplo, suponga que la entidad Student incluye un `Secret` propiedad que no debe actualizar o agregar esta página web:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentZsecret.cs?name=snippet_Intro&highlight=7)]
 

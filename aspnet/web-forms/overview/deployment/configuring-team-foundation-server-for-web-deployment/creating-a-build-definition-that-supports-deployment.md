@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: c2e7a768c2cf9900731b822ec187093a4b250ead
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Crear una definición de compilación que admite la implementación
 ====================
@@ -42,7 +42,7 @@ Una definición de compilación es el mecanismo que controla cómo y cuándo se 
 - Varios otros parámetros del proceso de compilación.
 
 > [!NOTE]
-> Para obtener más información sobre las definiciones de compilación, consulte [definir el proceso de compilación](https://msdn.microsoft.com/en-us/library/ms181715.aspx).
+> Para obtener más información sobre las definiciones de compilación, consulte [definir el proceso de compilación](https://msdn.microsoft.com/library/ms181715.aspx).
 
 
 En este tema le mostrará cómo crear una definición de compilación que utiliza el elemento de configuración, por lo que una compilación se desencadena cuando un desarrollador protege en contenido nuevo. Si la compilación se realiza correctamente, el servicio de compilación ejecuta un archivo de proyecto personalizadas para implementar la solución en un entorno de prueba.
@@ -149,7 +149,7 @@ Puede utilizar esta información para solucionar problemas de errores en las gen
 
 ## <a name="monitor-the-build-process"></a>Supervisar el proceso de compilación
 
-Proporciona una amplia gama de funcionalidad para ayudarle a supervisar el proceso de compilación en TFS. Por ejemplo, TFS puede enviar un correo electrónico o mostrar las alertas en el área de notificación de la barra de tareas cuando se complete una compilación. Para obtener más información, consulte [ejecutar y supervisar las compilaciones](https://msdn.microsoft.com/en-us/library/ms181721.aspx).
+Proporciona una amplia gama de funcionalidad para ayudarle a supervisar el proceso de compilación en TFS. Por ejemplo, TFS puede enviar un correo electrónico o mostrar las alertas en el área de notificación de la barra de tareas cuando se complete una compilación. Para obtener más información, consulte [ejecutar y supervisar las compilaciones](https://msdn.microsoft.com/library/ms181721.aspx).
 
 ## <a name="conclusion"></a>Conclusión
 
@@ -159,7 +159,7 @@ En orden para una implementación automatizada se realice correctamente como par
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener más información acerca de cómo crear definiciones de compilación, consulte [crear una definición de compilación básica](https://msdn.microsoft.com/en-us/library/ms181716.aspx) y [definir el proceso de compilación](https://msdn.microsoft.com/en-us/library/ms181715.aspx). Para obtener más instrucciones en las compilaciones de puesta en cola, vea [poner en cola una compilación](https://msdn.microsoft.com/en-us/library/ms181722.aspx).
+Para obtener más información acerca de cómo crear definiciones de compilación, consulte [crear una definición de compilación básica](https://msdn.microsoft.com/library/ms181716.aspx) y [definir el proceso de compilación](https://msdn.microsoft.com/library/ms181715.aspx). Para obtener más instrucciones en las compilaciones de puesta en cola, vea [poner en cola una compilación](https://msdn.microsoft.com/library/ms181722.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](configuring-a-tfs-build-server-for-web-deployment.md)

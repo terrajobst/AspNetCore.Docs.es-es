@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: 0ab0b4c24c1771a21c45bac011b5f156cb15d28a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="manually-installing-web-packages"></a>Instalación manual de paquetes de Web
 ====================
@@ -131,7 +131,7 @@ En este tema se describe cómo importar un paquete de implementación web a un s
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener instrucciones sobre cómo configurar un servidor web IIS para admitir manualmente importar un paquete web, consulte [configurar un servidor Web de publicación de implementar en Web (sin conexión implementación)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Para obtener instrucciones más general sobre la implementación de paquetes de web, consulte [Tutorial: implementar un proyecto de aplicación Web mediante un paquete de implementación Web (parte 1 de 4)](https://msdn.microsoft.com/en-us/library/dd483479.aspx).
+Para obtener instrucciones sobre cómo configurar un servidor web IIS para admitir manualmente importar un paquete web, consulte [configurar un servidor Web de publicación de implementar en Web (sin conexión implementación)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Para obtener instrucciones más general sobre la implementación de paquetes de web, consulte [Tutorial: implementar un proyecto de aplicación Web mediante un paquete de implementación Web (parte 1 de 4)](https://msdn.microsoft.com/library/dd483479.aspx).
 
 >[!div class="step-by-step"]
 [Anterior](creating-and-running-a-deployment-command-file.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 528d6f844c68cc7077a86961f9c432e405f22ee7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c790f5f9b486b6598955459827c07ec9ad33ae38
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="assigning-roles-to-users-vb"></a>Asignar Roles a los usuarios (VB)
 ====================
@@ -81,13 +81,13 @@ Ahora estamos listos para escribir el código para enlazar el conjunto de cuenta
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample5.vb)]
 
-El `BindUsersToUserList` método recupera todas las cuentas de usuario en el sistema a través de la [ `Membership.GetAllUsers` método](https://msdn.microsoft.com/en-us/library/dy8swhya.aspx). Esto devuelve un [ `MembershipUserCollection` objeto](https://msdn.microsoft.com/en-us/library/system.web.security.membershipusercollection.aspx), que es una colección de [ `MembershipUser` instancias](https://msdn.microsoft.com/en-us/library/system.web.security.membershipuser.aspx). Esta colección se enlaza a la `UserList` DropDownList. El `MembershipUser` instancias que utilizan la colección contienen una gran variedad de propiedades, como `UserName`, `Email`, `CreationDate`, y `IsOnline`. Con el fin de indicar a DropDownList para mostrar el valor de la `UserName` propiedad, asegúrese de que el `UserList` del DropDownList `DataTextField` y `DataValueField` propiedades se han establecido en "UserName".
+El `BindUsersToUserList` método recupera todas las cuentas de usuario en el sistema a través de la [ `Membership.GetAllUsers` método](https://msdn.microsoft.com/library/dy8swhya.aspx). Esto devuelve un [ `MembershipUserCollection` objeto](https://msdn.microsoft.com/library/system.web.security.membershipusercollection.aspx), que es una colección de [ `MembershipUser` instancias](https://msdn.microsoft.com/library/system.web.security.membershipuser.aspx). Esta colección se enlaza a la `UserList` DropDownList. El `MembershipUser` instancias que utilizan la colección contienen una gran variedad de propiedades, como `UserName`, `Email`, `CreationDate`, y `IsOnline`. Con el fin de indicar a DropDownList para mostrar el valor de la `UserName` propiedad, asegúrese de que el `UserList` del DropDownList `DataTextField` y `DataValueField` propiedades se han establecido en "UserName".
 
 > [!NOTE]
 > El `Membership.GetAllUsers` método tiene dos sobrecargas: una que no acepta ningún parámetro de entrada y devuelve todos los usuarios y otra que acepta valores enteros para el índice de la página y el tamaño de página y devuelve solo el subconjunto especificado de los usuarios. Cuando hay grandes cantidades de cuentas de usuario que se muestran en un elemento de la interfaz de usuario paginable, la segunda sobrecarga puede utilizarse para hojear más eficazmente los usuarios debido a que devuelve sólo el subconjunto preciso de las cuentas de usuario en lugar de todos ellos.
 
 
-El `BindRolesToList` método se inicia mediante una llamada a la `Roles` la clase [ `GetAllRoles` método](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getallroles.aspx), que devuelve una matriz de cadenas que contiene los roles en el sistema. Esta matriz de cadenas, a continuación, se enlaza a repetidor.
+El `BindRolesToList` método se inicia mediante una llamada a la `Roles` la clase [ `GetAllRoles` método](https://msdn.microsoft.com/library/system.web.security.roles.getallroles.aspx), que devuelve una matriz de cadenas que contiene los roles en el sistema. Esta matriz de cadenas, a continuación, se enlaza a repetidor.
 
 Por último, es necesario llamar a estos dos métodos cuando se carga la página por primera vez. Agregue el código siguiente al controlador de eventos `Page_Load`:
 
@@ -107,10 +107,10 @@ Cuando se carga la página por primera vez o cada vez que el visitante seleccion
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample7.vb)]
 
-El código anterior empieza por determinar quién es el usuario seleccionado. A continuación, utiliza la clase de Roles [ `GetRolesForUser(userName)` método](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getrolesforuser.aspx) para devolver el conjunto del usuario especificado de funciones como una matriz de cadenas. A continuación, se enumeran los elementos del repetidor y cada elemento `RoleCheckBox` casilla mediante programación se hace referencia. Se activa la casilla solo si está dentro de la función que se corresponde con el `selectedUsersRoles` matriz de cadenas.
+El código anterior empieza por determinar quién es el usuario seleccionado. A continuación, utiliza la clase de Roles [ `GetRolesForUser(userName)` método](https://msdn.microsoft.com/library/system.web.security.roles.getrolesforuser.aspx) para devolver el conjunto del usuario especificado de funciones como una matriz de cadenas. A continuación, se enumeran los elementos del repetidor y cada elemento `RoleCheckBox` casilla mediante programación se hace referencia. Se activa la casilla solo si está dentro de la función que se corresponde con el `selectedUsersRoles` matriz de cadenas.
 
 > [!NOTE]
-> El `Linq.Enumerable.Contains(Of String)(...)` sintaxis no se compilará si usa ASP.NET versión 2.0. El `Contains(Of String)` método forma parte de la [biblioteca LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query), que es nueva en ASP.NET 3.5. Si aún utiliza la versión 2.0 de ASP.NET, use la [ `Array.IndexOf(Of String)` método](https://msdn.microsoft.com/en-us/library/eha9t187.aspx) en su lugar.
+> El `Linq.Enumerable.Contains(Of String)(...)` sintaxis no se compilará si usa ASP.NET versión 2.0. El `Contains(Of String)` método forma parte de la [biblioteca LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query), que es nueva en ASP.NET 3.5. Si aún utiliza la versión 2.0 de ASP.NET, use la [ `Array.IndexOf(Of String)` método](https://msdn.microsoft.com/library/eha9t187.aspx) en su lugar.
 
 
 El `CheckRolesForSelectedUser` método debe llamarse en dos casos: cuando se carga la página por primera vez y siempre que el `UserList` se cambia el índice seleccionado del DropDownList. Por consiguiente, llamar a este método desde el `Page_Load` controlador de eventos (después de las llamadas a `BindUsersToUserList` y `BindRolesToList`). Además, crear un controlador de eventos para el DropDownList `SelectedIndexChanged` evento y llamar a este método desde allí.
@@ -129,7 +129,7 @@ Se devolverá para escribir el código para este controlador de eventos en un mo
 
 [!code-aspx[Main](assigning-roles-to-users-vb/samples/sample10.aspx)]
 
-La última tarea consiste en completar la `RoleCheckBox_CheckChanged` controlador de eventos. Se debe iniciar por hacer referencia al control de casilla de verificación que generó el evento porque esta instancia de la casilla de verificación nos indica qué rol se ha comprobado o a través de su `Text` y `Checked` propiedades. Con esta información junto con el nombre de usuario del usuario seleccionado, se agregar o quitar el usuario de la función a través de la `Roles` la clase [ `AddUserToRole` ](https://msdn.microsoft.com/en-us/library/system.web.security.roles.addusertorole.aspx) o [ `RemoveUserFromRole` método](https://msdn.microsoft.com/en-us/library/system.web.security.roles.removeuserfromrole.aspx).
+La última tarea consiste en completar la `RoleCheckBox_CheckChanged` controlador de eventos. Se debe iniciar por hacer referencia al control de casilla de verificación que generó el evento porque esta instancia de la casilla de verificación nos indica qué rol se ha comprobado o a través de su `Text` y `Checked` propiedades. Con esta información junto con el nombre de usuario del usuario seleccionado, se agregar o quitar el usuario de la función a través de la `Roles` la clase [ `AddUserToRole` ](https://msdn.microsoft.com/library/system.web.security.roles.addusertorole.aspx) o [ `RemoveUserFromRole` método](https://msdn.microsoft.com/library/system.web.security.roles.removeuserfromrole.aspx).
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample11.vb)]
 
@@ -181,7 +181,7 @@ Cuando se carga la página por primera vez o cuando se selecciona un nuevo rol d
 
 [!code-vb[Main](assigning-roles-to-users-vb/samples/sample14.vb)]
 
-Este método inicia obteniendo el rol seleccionado desde el `RoleList` DropDownList. A continuación, utiliza el [ `Roles.GetUsersInRole(roleName)` método](https://msdn.microsoft.com/en-us/library/system.web.security.roles.getusersinrole.aspx) para recuperar una matriz de cadenas de los nombres de usuario de los usuarios que pertenecen a ese rol. Esta matriz se enlaza a la `RolesUserList` GridView.
+Este método inicia obteniendo el rol seleccionado desde el `RoleList` DropDownList. A continuación, utiliza el [ `Roles.GetUsersInRole(roleName)` método](https://msdn.microsoft.com/library/system.web.security.roles.getusersinrole.aspx) para recuperar una matriz de cadenas de los nombres de usuario de los usuarios que pertenecen a ese rol. Esta matriz se enlaza a la `RolesUserList` GridView.
 
 Este método debe llamarse en dos casos: cuando se carga la página por primera vez y cuando el rol seleccionado en el `RoleList` DropDownList cambios. Por lo tanto, actualizar la `Page_Load` controlador de eventos para que este método se invoca después de llamar a `CheckRolesForSelectedUser`. A continuación, cree un controlador de eventos para el `RoleList`de `SelectedIndexChanged` eventos y llamar a este método a partir de ahí, demasiado.
 
@@ -242,7 +242,7 @@ A continuación, cree un `Click` controlador de eventos para el `AddUserToRoleBu
 La mayoría del código de la `Click` controlador de eventos realiza varias comprobaciones de validación. Se asegura de que el visitante proporcionado un nombre de usuario en el `UserNameToAddToRole` cuadro de texto, que el usuario existe en el sistema y que ya no pertenecen al rol seleccionado. Si cualquiera de estas comprobaciones se produce un error, se muestra un mensaje adecuado en `ActionStatus` y se sale del controlador de eventos. Si se superan todas las comprobaciones, el usuario se agrega a la función a través de la `Roles.AddUserToRole` método. A continuación, el cuadro de texto del `Text` propiedad se ha retirado, se actualiza el control GridView y la `ActionStatus` etiqueta muestra un mensaje que indica que el usuario especificado se agregó correctamente a la función seleccionada.
 
 > [!NOTE]
-> Para asegurarse de que el usuario especificado no pertenece ya a la función seleccionada, usamos el [ `Roles.IsUserInRole(userName, roleName)` método](https://msdn.microsoft.com/en-us/library/system.web.security.roles.isuserinrole.aspx), que devuelve un valor booleano que indica si *nombre de usuario* es un miembro de *roleName*. Usaremos este método nuevo en el <a id="_msoanchor_2"> </a> [siguiente tutorial](role-based-authorization-vb.md) cuando adentrarnos en la autorización basada en roles.
+> Para asegurarse de que el usuario especificado no pertenece ya a la función seleccionada, usamos el [ `Roles.IsUserInRole(userName, roleName)` método](https://msdn.microsoft.com/library/system.web.security.roles.isuserinrole.aspx), que devuelve un valor booleano que indica si *nombre de usuario* es un miembro de *roleName*. Usaremos este método nuevo en el <a id="_msoanchor_2"> </a> [siguiente tutorial](role-based-authorization-vb.md) cuando adentrarnos en la autorización basada en roles.
 
 
 Visite la página a través de un explorador y seleccione el rol de los supervisores de la `RoleList` DropDownList. Pruebe a escribir un nombre de usuario no válido: debe ver un mensaje que explica que el usuario no existe en el sistema.
@@ -356,13 +356,13 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Resumen de herramienta de administración de sitios Web ASP.NET](https://msdn.microsoft.com/en-us/library/ms228053.aspx)
+- [Resumen de herramienta de administración de sitios Web ASP.NET](https://msdn.microsoft.com/library/ms228053.aspx)
 - [Examen de ASP. Pertenencia, funciones y perfil de red](http://aspnet.4guysfromrolla.com/articles/120705-1.aspx)
 - [Poner su propia herramienta de administración de sitios Web](http://aspnet.4guysfromrolla.com/articles/052307-1.aspx)
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es  *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a...
 

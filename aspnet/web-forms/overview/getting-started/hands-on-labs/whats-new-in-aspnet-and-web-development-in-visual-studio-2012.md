@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: e57f1200aaa207c9109f2832cbf88629ed385bb5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f0818cce2a82ede80556b3471cec9d965c3e987f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Novedades de ASP.NET y desarrollo Web en Visual Studio 2012
 ====================
@@ -54,7 +54,7 @@ En este laboratorio de prácticas, obtendrá información sobre cómo:
 
 - [Microsoft Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-web) o superior (leer [Apéndice A](#AppendixA) para obtener instrucciones sobre cómo instalarlo).
 - [Windows PowerShell](https://support.microsoft.com/kb/968930/) (para los scripts de instalación - ya instalados en Windows 8 y Windows Server 2008 R2)
-- [Internet Explorer 10](https://windows.microsoft.com/en-US/internet-explorer/products/ie/home) - o un explorador compatible con HTML5
+- [Internet Explorer 10](https://windows.microsoft.com/internet-explorer/products/ie/home) - o un explorador compatible con HTML5
 
 <a id="Exercises"></a>
 

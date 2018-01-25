@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: d7a1dcc04baaa5ab27aecf95936d943f5a9b3f0c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2394ee81f4592417a034e47db6eefd3e4b91a9af
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-troubleshooting"></a>Solución de problemas de SignalR
 ====================
@@ -192,7 +192,7 @@ Hay varias causas para este problema. Compruebe que todos los elementos siguient
 
 - **Referencia de dirección de proxy de concentrador no tiene el formato correcto:** este error se suele producir si la referencia a la dirección de proxy de concentrador generado no tiene el formato correcto. Compruebe que la referencia a la dirección de la base de datos central se ha creado correctamente. Vea [cómo hacen referencia al proxy generado dinámicamente](../guide-to-the-api/hubs-api-guide-javascript-client.md#dynamicproxy) para obtener más información.
 - **Agregar rutas a la aplicación antes de agregar la ruta de concentrador:** si la aplicación utiliza otras rutas, compruebe que la primera ruta agrega es la llamada a `MapSignalR`.
-- **Con IIS 7 o 7.5 sin la actualización de direcciones URL sin extensión:** utilizando IIS 7 o 7.5 requiere una actualización para direcciones URL sin extensión para que el servidor puede proporcionar acceso a las definiciones de base de datos central en `/signalr/hubs`. La actualización se puede encontrar [aquí](https://support.microsoft.com/kb/980368/en-us).
+- **Con IIS 7 o 7.5 sin la actualización de direcciones URL sin extensión:** utilizando IIS 7 o 7.5 requiere una actualización para direcciones URL sin extensión para que el servidor puede proporcionar acceso a las definiciones de base de datos central en `/signalr/hubs`. La actualización se puede encontrar [aquí](https://support.microsoft.com/kb/980368).
 - **Almacenar en memoria caché no actualizada IIS o está dañado:** para comprobar que no es el contenido de la caché no actualizada, escriba el siguiente comando en una ventana de PowerShell para borrar la memoria caché:
 
     [!code-powershell[Main](troubleshooting/samples/sample11.ps1)]

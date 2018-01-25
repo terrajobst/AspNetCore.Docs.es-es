@@ -1,6 +1,6 @@
 ---
 uid: whitepapers/mvc4-beta-release-notes
-title: ASP.NET MVC 4 | Documentos de Microsoft
+title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: "Este documento describe la versión de ASP.NET MVC 4 Beta para Visual Studio 2010."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 4af2df61ab4507b1f100d6bb75777da1168c5a75
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/10/2017
 
 - [Notas sobre la instalación](#_Toc303253802)
 - [Documentación](#_Toc303253803)
-- [Soporte técnico](#_Toc303253804)
+- [Support](#_Toc303253804)
 - [Requisitos de software](#_Toc303253805)
 - [Actualizar un proyecto de ASP.NET MVC 3 a ASP.NET MVC 4](#_Toc303253806)
 - [Nuevas características de ASP.NET MVC 4 Beta](#_Toc303253807)
@@ -60,7 +60,7 @@ ASP.NET MVC 4 puede instalarse y se puede ejecutar en paralelo con ASP.NET MVC 3
 
 Documentación para ASP.NET MVC está disponible en el sitio Web MSDN en la dirección URL siguiente:
 
-[https://go.Microsoft.com/fwlink/?LinkId=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
+[https://go.microsoft.com/fwlink/?LinkID=243043](https://go.microsoft.com/fwlink/?LinkID=243043)
 
 Tutoriales y otra información sobre ASP.NET MVC están disponibles en la página de MVC 4 del sitio Web ASP.NET ([https://www.asp.net/mvc/mvc4](../mvc/mvc4.md)).
 
@@ -245,7 +245,7 @@ La nueva característica de recetas permite que Visual Studio generar código de
 
 Ahora puede escribir métodos de acción asincrónicos como una sola métodos que devuelven un objeto del tipo *tarea* o *tarea&lt;ActionResult&gt;*.
 
-Por ejemplo, si utiliza Visual C# 5 (o mediante la [Async CTP](https://msdn.microsoft.com/en-us/vstudio/async.aspx)), puede crear un método de acción asincrónico que sea similar al siguiente:
+Por ejemplo, si utiliza Visual C# 5 (o mediante la [Async CTP](https://msdn.microsoft.com/vstudio/async.aspx)), puede crear un método de acción asincrónico que sea similar al siguiente:
 
 [!code-csharp[Main](mvc4-beta-release-notes/samples/sample8.cs)]
 

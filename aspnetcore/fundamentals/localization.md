@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/localization
-ms.openlocfilehash: 1c93a53ea23ec13ca3d6fc138024ba38ec4883ee
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5f1579b5682b2f0b3f8227f0cf6b4c0361eb1e67
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -41,7 +41,7 @@ Introdujo en ASP.NET Core, `IStringLocalizer` y `IStringLocalizer<T>` se han dis
 
 En el código anterior, el `IStringLocalizer<T>` implementación procede de [inyección de dependencia](dependency-injection.md). Si no se encuentra el valor localizado de "Sobre el título", se devuelve la clave de indizador, es decir, la cadena "Sobre el título". Puede dejar el valor predeterminado de cadenas literales de idioma en la aplicación y ajustarlas en el localizador, para que pueda centrarse en desarrollar la aplicación. Desarrollar la aplicación con el idioma predeterminado y prepararlo para el paso de localización sin crear primero un archivo de recursos predeterminado. Como alternativa, puede usar el enfoque tradicional y proporcionar una clave para recuperar la cadena de idioma predeterminado. Para muchos desarrolladores el nuevo flujo de trabajo por no disponer de un idioma predeterminado *.resx* archivo y sencillamente se ajustó los literales de cadena pueden reducir la sobrecarga de localizar una aplicación. Otros desarrolladores preferirán el flujo de trabajo tradicional, tal y como se puede hacer más fácil trabajar con literales de cadena más largos y que resulten más fáciles de actualizar las cadenas localizadas.
 
-Use la `IHtmlLocalizer<T>` implementación para los recursos que contienen HTML. `IHtmlLocalizer`Argumentos que se da formato a la cadena de recurso codifican en HTML, pero no HTML no codifica la cadena de recurso propio. En el ejemplo de resaltado a continuación, solo el valor de `name` parámetro está codificado en HTML.
+Use la `IHtmlLocalizer<T>` implementación para los recursos que contienen HTML. `IHtmlLocalizer`Argumentos que se da formato a la cadena de recurso codifican en HTML, pero no HTML codifica la cadena de recurso propio. En el ejemplo de resaltado a continuación, solo el valor de `name` parámetro está codificado en HTML.
 
 [!code-csharp[Main](../fundamentals/localization/sample/Localization/Controllers/BookController.cs?highlight=3,5,20&start=1&end=24)]
 

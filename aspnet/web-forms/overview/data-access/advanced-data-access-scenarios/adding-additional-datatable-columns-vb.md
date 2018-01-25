@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2668a685389938979fc4b0a1e1701a90cef5dc1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d357ca7bfe364090ff2c8504b2116e0d99d004bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Agregar columnas adicionales de DataTable (VB)
 ====================
@@ -90,12 +90,12 @@ A continuación se nos pide la `SELECT` consulta. Escriba la siguiente consulta 
 
 [!code-sql[Main](adding-additional-datatable-columns-vb/samples/sample1.sql)]
 
-La consulta anterior usa SQL Server 2005 s nuevo [ `NTILE` función](https://msdn.microsoft.com/en-us/library/ms175126.aspx) para dividir los resultados en cuatro grupos donde los grupos se determinan por el `UnitPrice` valores en orden descendente.
+La consulta anterior usa SQL Server 2005 s nuevo [ `NTILE` función](https://msdn.microsoft.com/library/ms175126.aspx) para dividir los resultados en cuatro grupos donde los grupos se determinan por el `UnitPrice` valores en orden descendente.
 
 Desafortunadamente, el generador de consultas no sabe cómo analizar la `OVER` palabra clave y mostrará un error al analizar la consulta anterior. Por lo tanto, escriba la consulta anterior directamente en el cuadro de texto en el asistente sin utilizar el generador de consultas.
 
 > [!NOTE]
-> Para obtener más información sobre s NTILE y SQL Server 2005 otras funciones de categoría, vea [devolver resultados clasificados con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) y [sección funciones de categoría](https://msdn.microsoft.com/en-us/library/ms189798.aspx) desde el [SQL Libros en pantalla de Server 2005](https://msdn.microsoft.com/en-us/library/ms189798.aspx).
+> Para obtener más información sobre s NTILE y SQL Server 2005 otras funciones de categoría, vea [devolver resultados clasificados con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml) y [sección funciones de categoría](https://msdn.microsoft.com/library/ms189798.aspx) desde el [SQL Libros en pantalla de Server 2005](https://msdn.microsoft.com/library/ms189798.aspx).
 
 
 Después de escribir el `SELECT` consulta y haga clic en siguiente, el asistente le pide que proporcione un nombre para el procedimiento almacenado que se va a crear. Nombre del nuevo procedimiento almacenado `Products_SelectWithPriceQuartile` y haga clic en siguiente.
@@ -209,7 +209,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

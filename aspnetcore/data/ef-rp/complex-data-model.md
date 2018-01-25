@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: c375fe6ea98c621012eb55589c8b174c2a95b697
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2446f4734e9bb1ab6829001f6e7888c4c14ee1b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Crear un modelo de datos complejos - Core EF con el tutorial de las páginas de Razor (5 de 8)
 
@@ -49,9 +49,9 @@ El [DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataan
 * El `mailto:` vínculo se crea automáticamente para `DataType.EmailAddress`.
 * El selector de fecha se proporciona para `DataType.Date` en la mayoría de los exploradores.
 
-El `DataType` atributo emite HTML 5 `data-` atributos (pronunciado datos dash) que usan los exploradores HTML 5. El `DataType` atributos no proporcione la validación.
+El `DataType` atributo emite HTML 5 `data-` atributos (pronunciado datos dash) que usan los exploradores HTML 5. El `DataType` atributos no proporcionan la validación.
 
-`DataType.Date` no especifica el formato de la fecha que se muestra. De forma predeterminada, el campo de fecha se muestra según los formatos predeterminados en función del servidor [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
+`DataType.Date`no se especifica el formato de la fecha en que se muestra. De forma predeterminada, el campo de fecha se muestra según los formatos predeterminados en función del servidor [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support).
 
 El atributo `DisplayFormat` se usa para especificar el formato de fecha de forma explícita:
 
@@ -284,7 +284,7 @@ El `Course` entidad tiene una propiedad de clave externa (FK) `DepartmentID`. `D
 
 Núcleo EF no requiere una propiedad de clave externa para un modelo de datos cuando el modelo tiene una propiedad de navegación para una entidad relacionada.
 
-Núcleo EF crea automáticamente claves externas en la base de datos cuando son necesarias. Núcleo EF crea [sombrear propiedades](https://docs.microsoft.com/ef/core/modeling/shadow-properties) para claves externas creadas automáticamente. Con la clave externa en el modelo de datos puede realizar actualizaciones más sencillo y más eficaz. Por ejemplo, considere la posibilidad de un modelo donde la propiedad FK `DepartmentID` es *no* incluido. Cuando se captura una entidad de curso para editar:
+Núcleo EF crea automáticamente claves externas en la base de datos siempre que se necesiten. Núcleo EF crea [sombrear propiedades](https://docs.microsoft.com/ef/core/modeling/shadow-properties) para claves externas creadas automáticamente. Con la clave externa en el modelo de datos puede realizar actualizaciones más sencillo y más eficaz. Por ejemplo, considere la posibilidad de un modelo donde la propiedad FK `DepartmentID` es *no* incluido. Cuando se captura una entidad de curso para editar:
 
 * El `Department` entity es null si no explícitamente está cargado.
 * Para actualizar la entidad de curso, la `Department` en primer lugar debe buscarse en entidad.
@@ -373,10 +373,10 @@ public ICollection<Course> Courses { get; set; }
 
 Nota: Por convención, núcleo de EF permite la eliminación en cascada para claves externas que no aceptan valores NULL y para las relaciones de varios a varios. Eliminación en cascada puede dar lugar a las reglas de eliminación en cascada circular. Circular eliminación en cascada causas reglas una excepción cuando se agrega una migración.
 
-Por ejemplo, si la `Department.InstructorID` propiedad no se definió como que acepta valores NULL:
+Por ejemplo, si la `Department.InstructorID` propiedad no se ha definido como que acepta valores NULL:
 
 * Núcleo EF configura una regla de eliminación en cascada para eliminar el instructor cuando se elimina el departamento.
-* Eliminar el instructor cuando se elimina el departamento no es el comportamiento deseado.
+* Eliminar el instructor cuando se elimina el departamento no es el comportamiento previsto.
 
 Si es necesario de las reglas de negocios el `InstructorID` propiedad ser acepta valores NULL, utilice la siguiente instrucción de la API fluida:
 
@@ -431,7 +431,7 @@ Si el `Enrollment` tabla no incluir información de categoría, que solo sería 
 
 El `Instructor` y `Course` entidades tienen una relación de varios a varios con una tabla combinada pura.
 
-Nota: EF 6.x es compatible con las tablas de unión implícita para relaciones de varios a varios, pero el núcleo de EF no lo hace. Para obtener más información, consulte [-to-many relaciones en EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
+Nota: EF 6.x es compatible con las tablas de unión implícita para relaciones de varios a varios, pero el núcleo de EF no. Para obtener más información, consulte [-to-many relaciones en EF Core 2.0](https://blog.oneunicorn.com/2017/09/25/many-to-many-relationships-in-ef-core-2-0-part-1-the-basics/).
 
 ## <a name="the-courseassignment-entity"></a>La entidad CourseAssignment
 
@@ -462,7 +462,7 @@ Se asegura de la clave compuesta:
 
 * Se permiten varias filas para un curso.
 * Se permiten varias filas para un instructor.
-* No se permiten varias filas para el mismo instructor y curso.
+* No se permite varias filas para el mismo instructor y curso.
 
 El `Enrollment` combinación entidad define su propio PK, por lo que son posibles duplicados de este tipo. Para evitar los duplicados:
 
@@ -638,7 +638,7 @@ Con los cambios anteriores, existente `Course` filas estarán relacionadas con e
 Una aplicación de producción necesario lo siguiente:
 
 * Incluir código o secuencias de comandos para agregar `Department` filas y relacionados con `Course` filas a la nueva `Department` filas.
-* No se utilizaría el departamento "Temp" o el valor predeterminado de `Course.DepartmentID `.
+* No utilice el departamento "Temp" o el valor predeterminado de `Course.DepartmentID`.
 
 El siguiente tutorial trata los datos relacionados.
 

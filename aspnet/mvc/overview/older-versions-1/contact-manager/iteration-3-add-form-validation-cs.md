@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06c7fc31e138e9009640d20202e4745a61b68eeb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 120c35755784ba5a08a9592fdc58f17879848631
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iteración #3: agregar validación del formulario (C#)
 ====================
@@ -63,7 +63,7 @@ En esta iteración, agregamos la lógica de validación directamente a las accio
 
 En esta iteración, para que sea más sencillo, escribimos todo el código de validación a mano. En lugar de escribir el código de validación nosotros mismos, se puede sacar partido de un marco de validación. Por ejemplo, puede utilizar Microsoft Enterprise Library validación aplicación bloque (VAB) para implementar la lógica de validación para la aplicación de ASP.NET MVC. Para obtener más información sobre el bloqueo de aplicación de validación, vea:
 
-[*http://msdn.Microsoft.com/en-us/library/dd203099.aspx*](https://msdn.microsoft.com/en-us/library/dd203099.aspx)
+[*http://msdn.microsoft.com/library/dd203099.aspx*](https://msdn.microsoft.com/library/dd203099.aspx)
 
 ## <a name="adding-validation-to-the-create-view"></a>Agregar validación a la vista de creación
 

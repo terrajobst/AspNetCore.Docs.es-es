@@ -1,19 +1,19 @@
 ---
 title: "Introducción a la identidad de un núcleo de ASP.NET"
 author: rick-anderson
-description: "Usar la identidad con una aplicación de ASP.NET Core"
+description: "Usar identidad con una aplicación de ASP.NET Core. Incluye requisitos de configuración de contraseña (RequireDigit, RequiredLength, RequiredUniqueChars etc.)."
 ms.author: riande
 manager: wpickett
-ms.date: 01/02/2018
+ms.date: 01/24/2018
 ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/identity
-ms.openlocfilehash: 436a5ecfd126c9660591cd55efc1cc52b9493136
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: b1dc6d31f44a26a2b91a92dc43032b0315e73cce
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad de un núcleo de ASP.NET
 
@@ -23,7 +23,7 @@ Identidad de ASP.NET Core es un sistema de pertenencia que le permite agregar fu
 
 Puede configurar ASP.NET Core Identity para utilizar una base de datos de SQL Server para almacenar nombres de usuario, contraseñas y datos de perfil. Como alternativa, puede usar su propio almacén persistente, por ejemplo, un almacenamiento de tablas de Azure. Este documento contiene instrucciones para Visual Studio y para el uso de la CLI.
 
-[Ver o descargar el código de ejemplo.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Cómo descargar)](https://docs.microsoft.com/en-us/aspnet/core/tutorials/index#how-to-download-a-sample)
+[Ver o descargar el código de ejemplo.](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/identity/sample/src/ASPNETCore-IdentityDemoComplete/) [(Cómo descargar)](https://docs.microsoft.com/aspnet/core/tutorials/index#how-to-download-a-sample)
 
 ## <a name="overview-of-identity"></a>Información general de identidad
 
@@ -124,9 +124,10 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
  
     El código anterior por encima de las llamadas del `_signInManager.SignOutAsync` método. El `SignOutAsync` método borra las solicitudes del usuario almacenadas en una cookie.
  
+<a name="pw"></a>
 6.  Configuración.
 
-    Identidad tiene algunos comportamientos predeterminados que se pueden reemplazar en la clase de inicio de la aplicación. No es necesario configurar ``IdentityOptions`` si utilizas los comportamientos predeterminados.
+    Identidad tiene algunos comportamientos predeterminados que se pueden invalidar en la clase de inicio de la aplicación. `IdentityOptions`no es necesario configurar al utilizar los comportamientos predeterminados. El código siguiente establece varias opciones de seguridad de contraseña:
 
     # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
     
@@ -194,6 +195,10 @@ Estas dependencias necesarios para usar el sistema de identidades en aplicacione
 ## <a name="migrating-to-aspnet-core-identity"></a>Migrar a la identidad de ASP.NET Core
 
 Para obtener información adicional e instrucciones sobre cómo migrar su identidad existente store vea [migrar autenticación e identidad](xref:migration/identity).
+
+## <a name="setting-password-strength"></a>Configuración de seguridad de la contraseña
+
+Vea [configuración](#pw) para obtener un ejemplo que establece los requisitos de contraseña mínima.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

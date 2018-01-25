@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d0b76c06495c51df3ed0f61cd318507a05240392
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementación de SQL Server Compact bases de datos - 2 de 12
 ====================
@@ -37,7 +37,7 @@ Acceso a la base de datos, la aplicación de la Universidad de Contoso requiere 
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/en/us/editions/compact.aspx) (el motor de base de datos).
 - [ASP.NET Universal Providers](http://www.hanselman.com/blog/IntroducingSystemWebProvidersASPNETUniversalProvidersForSessionMembershipRolesAndUserProfileOnSQLCompactAndSQLAzure.aspx) (que permiten al sistema de pertenencia ASP.NET que utilice SQL Server Compact)
-- [Entity Framework 5.0](https://msdn.microsoft.com/en-us/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First con migraciones).
+- [Entity Framework 5.0](https://msdn.microsoft.com/library/gg696172(d=lightweight,v=vs.103).aspx)(Code First con migraciones).
 
 La estructura de base de datos y algunos (no todos) de los datos de dos de la aplicación también se deben implementar las bases de datos. Por lo general, al desarrollar una aplicación, escriba datos de prueba en una base de datos que no desea implementar en un sitio en vivo. Sin embargo, también puede escribir algunos datos de producción que se va a implementar. En este tutorial configurará el proyecto de la Universidad de Contoso para que el software necesario y los datos correctos se incluyen cuando se implementa.
 
@@ -47,7 +47,7 @@ Aviso: Si aparece un mensaje de error o algo no funciona a medida que avances en
 
 La aplicación de ejemplo usa SQL Server Compact 4.0. Este motor de base de datos es una opción relativamente nueva para los sitios Web; las versiones anteriores de SQL Server Compact no funcionan en un entorno de hospedaje web. SQL Server Compact proporciona algunas ventajas en comparación con el escenario más común de desarrollo con SQL Server Express y la implementación completa de SQL Server. Dependiendo del proveedor de hospedaje que elija, SQL Server Compact pueden ser más económico implementar, porque algunos proveedores cobran adicional para admitir una base de datos completa de SQL Server. No hay ningún cargo adicional para SQL Server Compact dado que puede implementar el motor de base de datos como parte de la aplicación web.
 
-Sin embargo, también debe conocer sus limitaciones. SQL Server Compact no admite procedimientos almacenados, desencadenadores, vistas o replicación. (Para obtener una lista completa de características de SQL Server que no son compatibles con SQL Server Compact, vea [diferencias entre SQL Server Compact y SQL Server](https://msdn.microsoft.com/en-us/library/bb896140.aspx).) Además, algunas de las herramientas que puede usar para manipular esquemas y datos de SQL Server Express y las bases de datos de SQL Server no funcionan con SQL Server Compact. Por ejemplo, no puede usar SQL Server Management Studio o SQL Server Data Tools en Visual Studio con bases de datos de SQL Server Compact. Tiene otras opciones para trabajar con bases de datos de SQL Server Compact:
+Sin embargo, también debe conocer sus limitaciones. SQL Server Compact no admite procedimientos almacenados, desencadenadores, vistas o replicación. (Para obtener una lista completa de características de SQL Server que no son compatibles con SQL Server Compact, vea [diferencias entre SQL Server Compact y SQL Server](https://msdn.microsoft.com/library/bb896140.aspx).) Además, algunas de las herramientas que puede usar para manipular esquemas y datos de SQL Server Express y las bases de datos de SQL Server no funcionan con SQL Server Compact. Por ejemplo, no puede usar SQL Server Management Studio o SQL Server Data Tools en Visual Studio con bases de datos de SQL Server Compact. Tiene otras opciones para trabajar con bases de datos de SQL Server Compact:
 
 - Puede usar el Explorador de servidores en Visual Studio, que ofrece una funcionalidad de manipulación de base de datos limitado para SQL Server Compact.
 - Puede utilizar la función de manipulación de base de datos de [WebMatrix](https://www.microsoft.com/web/webmatrix/), que tiene más características que el Explorador de servidores.
@@ -62,7 +62,7 @@ El software necesario para el acceso a datos en la aplicación de la Universidad
 
 - [SqlServerCompact](http://nuget.org/List/Packages/SqlServerCompact)
 - [System.Web.Providers](http://nuget.org/List/Packages/System.Web.Providers) (proveedores universales de ASP.NET)
-- [Entity Framework](http://nuget.org/List/Packages/EntityFramework)
+- [EntityFramework](http://nuget.org/List/Packages/EntityFramework)
 - [EntityFramework.SqlServerCompact](http://nuget.org/List/Packages/EntityFramework.sqlservercompact)
 
 Los vínculos apuntan a las versiones actuales de estos paquetes, que podrían ser más recientes que lo que está instalado en el proyecto de inicio que has descargado para este tutorial. Para la implementación de un proveedor de hospedaje, asegúrese de que usa Entity Framework 5.0 o posterior. Las versiones anteriores de migraciones de Code First requieren plena confianza y muchos proveedores de hospedaje de su aplicación se ejecutará en el nivel de confianza medio. Para obtener más información sobre el nivel de confianza medio, vea el [implementación en IIS como un entorno de prueba](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md) tutorial.
@@ -119,7 +119,7 @@ Desde el **herramientas** menú, haga clic en **Administrador de paquetes de bib
 
 En la parte superior de la **Package Manager Console** ventana Seleccionar ContosoUniversity.DAL como el proyecto predeterminado y, a continuación, como el `PM>` símbolo del sistema escriba "enable-migrations".
 
-![Habilitar migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
+![enable-migrations_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image7.png)
 
 Este comando crea un *archivo Configuration.cs que* archivo en una nueva *migraciones* carpeta en el proyecto ContosoUniversity.DAL.
 
@@ -159,13 +159,13 @@ Haga clic en el *School.sdf* de archivo y haga clic en **eliminar**.
 
 En el **Package Manager Console** ventana, escriba el comando "Agregar-migración inicial" para crear la migración inicial y asígnele el nombre "Inicial".
 
-![migration_command agregar](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
+![add-migration_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image11.png)
 
 Migraciones de Code First crea otro archivo de clase en el *migraciones* carpeta y esta clase contiene código que crea el esquema de base de datos.
 
 En el **Package Manager Console**, escriba el comando "update-database" para crear la base de datos y ejecutar el **inicialización** método.
 
-![actualización database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
+![update-database_command](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12/_static/image12.png)
 
 (Si se produce un error que indica una tabla ya existe y no se puede crear, probablemente es porque ejecutó la aplicación después de eliminar la base de datos y antes de ejecutar `update-database`. In that Case, eliminar el *School.sdf* archivo nuevo y vuelva a intentar la `update-database` comando.)
 
@@ -190,7 +190,7 @@ Inicie sesión como "admin" con la contraseña "Pa$ w0rd" (tenga en cuenta el n�
 Cuando se implementa un sitio por primera vez, es común para excluir la mayoría o todas las cuentas de usuario creadas para las pruebas. En este caso, va a implementar una cuenta de administrador y no hay ninguna cuenta de usuario. En lugar de eliminar manualmente las cuentas de prueba, creará una nueva base de datos de pertenencia que tiene solo la cuenta de usuario de un administrador que necesite en producción.
 
 > [!NOTE]
-> La base de datos de pertenencia almacena un valor hash de las contraseñas de cuentas. Para implementar las cuentas de un equipo a otro, debe asegurarse de que las rutinas de hash no generan hash diferentes en el servidor de destino que lo hacen en el equipo de origen. Generará el mismo hash cuando se usan ASP.NET Universal Providers, siempre y cuando no cambie el algoritmo predeterminado. El algoritmo predeterminado es HMACSHA256 y se especifica en el **validación** atributo de la  **[machineKey](https://msdn.microsoft.com/en-us/library/w8h3skw9.aspx)**  elemento en el archivo Web.config.
+> La base de datos de pertenencia almacena un valor hash de las contraseñas de cuentas. Para implementar las cuentas de un equipo a otro, debe asegurarse de que las rutinas de hash no generan hash diferentes en el servidor de destino que lo hacen en el equipo de origen. Generará el mismo hash cuando se usan ASP.NET Universal Providers, siempre y cuando no cambie el algoritmo predeterminado. El algoritmo predeterminado es HMACSHA256 y se especifica en el **validación** atributo de la  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  elemento en el archivo Web.config.
 
 
 Migraciones de Code First no mantiene la base de datos de pertenencia y no hay ningún inicializador automática que propaga la base de datos con las cuentas de prueba (como sucede con la base de datos School). Por lo tanto, para mantener los datos de prueba disponibles realizará una copia de la base de datos de prueba antes de crear uno nuevo.
@@ -243,7 +243,7 @@ El motor de base de datos de SQL Server Compact y ambas bases de datos están li
 
 ## <a name="more-information"></a>Más información
 
-Para obtener más información sobre NuGet, consulte [administrar bibliotecas de proyecto con NuGet](https://msdn.microsoft.com/en-us/magazine/hh547106.aspx) y [documentación de NuGet](http://docs.nuget.org/docs/start-here/overview). Si no desea usar NuGet, debe aprender cómo analizar un paquete de NuGet para determinar lo que hace cuando se instala. (Por ejemplo, puede configurar *Web.config* transformaciones, configurar secuencias de comandos de PowerShell para ejecutar en tiempo de compilación, etcetera.) Para más información acerca del funcionamiento de NuGet, consulte especialmente [crear y publicar un paquete](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) y [archivo de configuración y las transformaciones de código de origen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
+Para obtener más información sobre NuGet, consulte [administrar bibliotecas de proyecto con NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) y [documentación de NuGet](http://docs.nuget.org/docs/start-here/overview). Si no desea usar NuGet, debe aprender cómo analizar un paquete de NuGet para determinar lo que hace cuando se instala. (Por ejemplo, puede configurar *Web.config* transformaciones, configurar secuencias de comandos de PowerShell para ejecutar en tiempo de compilación, etcetera.) Para más información acerca del funcionamiento de NuGet, consulte especialmente [crear y publicar un paquete](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) y [archivo de configuración y las transformaciones de código de origen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
 >[!div class="step-by-step"]
 [Anterior](deployment-to-a-hosting-provider-introduction-1-of-12.md)

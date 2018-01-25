@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 2bd0f945306a7acd6252c2a00aafb648cf722616
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: d748ee9d3edf9eed4285fab447d5b379dfcd937c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="key-management-extensibility"></a>Extensibilidad de administración de claves
 
@@ -59,7 +59,7 @@ El `IKeyManager` interfaz representa un objeto responsable de almacenamiento de 
 * Revocar una o varias claves y conservar la información de revocación en el almacenamiento.
 
 >[!WARNING]
-> Escribir una `IKeyManager` es una tarea muy avanzada y la mayoría de los desarrolladores no debería intentar. En su lugar, la mayoría de los desarrolladores deben aprovechar las ventajas de las funciones que ofrece el [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) clase.
+> Escribir una `IKeyManager` una tarea muy avanzada y la mayoría de los desarrolladores no debe intentarlo. En su lugar, la mayoría de los desarrolladores deben aprovechar las ventajas de las funciones que ofrece el [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) clase.
 
 <a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
 

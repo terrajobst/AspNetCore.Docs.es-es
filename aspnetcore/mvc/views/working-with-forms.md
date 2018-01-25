@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/working-with-forms
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fbe2c5cb495aabee0e1f0bdb3871641efa03599
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introducción al uso de aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 
@@ -22,7 +22,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://tw
 
 Este documento muestra cómo trabajar con formularios y los elementos HTML que se utilizan habitualmente en un formulario. El código HTML [formulario](https://www.w3.org/TR/html401/interact/forms.html) elemento proporciona el uso de aplicaciones web mecanismo principal para enviar datos al servidor. La mayor parte de este documento describe [aplicaciones auxiliares de etiquetas](tag-helpers/intro.md) y cómo puede ayudarle a crear productiva sólidos formularios HTML. Le recomendamos que lea [Introducción a las aplicaciones auxiliares de etiquetas](tag-helpers/intro.md) antes de leer este documento.
 
-En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazan métodos auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. Cuando existe una alternativa de la aplicación auxiliar HTML, se menciona.
+En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazar las aplicaciones auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. Cuando existe una alternativa de la aplicación auxiliar HTML, se menciona.
 
 <a name="my-asp-route-param-ref-label"></a>
 
@@ -86,7 +86,7 @@ La aplicación auxiliar de etiqueta de entrada:
 
 * Establece el código HTML `type` según el tipo de modelo de valor de atributo y [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos aplicados a la propiedad de modelo
 
-* No se sobrescribirá el código HTML `type` valor de atributo cuando se especifica uno
+* No sobrescribir el código HTML `type` valor de atributo cuando se especifica uno
 
 * Genera [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) atributos de validación de [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos aplicados a las propiedades del modelo
 
@@ -159,7 +159,7 @@ Las anotaciones de datos que se aplica a la `Email` y `Password` propiedades gen
 
 ### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternativas de la aplicación auxiliar HTML para la aplicación auxiliar de etiqueta de entrada
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características a la aplicación auxiliar de etiqueta de entrada que se superponen. La aplicación auxiliar de etiqueta de entrada se establecerá automáticamente el `type` atributo; `Html.TextBox` y `Html.TextBoxFor` no. `Html.Editor`y `Html.EditorFor` controlar colecciones, objetos complejos y plantillas; no lo hace la aplicación auxiliar de etiqueta de entrada. La aplicación auxiliar etiqueta de entrada, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usar expresiones lambda;) `Html.TextBox` y `Html.Editor` no son (usan nombres de la expresión).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características a la aplicación auxiliar de etiqueta de entrada que se superponen. La aplicación auxiliar de etiqueta de entrada se establecerá automáticamente el `type` atributo; `Html.TextBox` y `Html.TextBoxFor` no. `Html.Editor`y `Html.EditorFor` controlar colecciones, objetos complejos y plantillas; no la aplicación auxiliar de etiqueta de entrada. La aplicación auxiliar etiqueta de entrada, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usar expresiones lambda;) `Html.TextBox` y `Html.Editor` no son (usan nombres de la expresión).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
@@ -436,7 +436,7 @@ Que genera el siguiente código HTML (con "CA" seleccionada):
 ```
 
 > [!NOTE]
-> Se recomienda no usar `ViewBag` o `ViewData` a la aplicación auxiliar seleccione etiqueta. Un modelo de vista es más eficaz al proporcionar metadatos MVC y generalmente menos problemática.
+> No se recomienda usar `ViewBag` o `ViewData` a la aplicación auxiliar seleccione etiqueta. Un modelo de vista es más eficaz al proporcionar metadatos MVC y generalmente menos problemática.
 
 El `asp-for` valor de atributo es un caso especial y no requiere un `Model` de prefijo, los otro no de atributos de etiqueta auxiliar (como `asp-items`)
 

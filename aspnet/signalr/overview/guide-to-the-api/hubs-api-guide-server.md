@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 1cd5569554c3fbd966ee5d55ad08a79b81af36de
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2567d4d39a494daf77a23db5dff83c8fae4925d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Guía de API de bases de datos centrales de ASP.NET SignalR - Server (C#)
 ====================
@@ -102,7 +102,7 @@ Los componentes de servidor de SignalR 2 solo están disponibles en .NET 4.5. Se
 
 ## <a name="how-to-register-signalr-middleware"></a>Cómo registrar el middleware de SignalR
 
-Para definir la ruta que los clientes usarán para conectar con el centro, llame a la `MapSignalR` método cuando se inicia la aplicación. `MapSignalR`es un [método de extensión](https://msdn.microsoft.com/en-us/library/vstudio/bb383977.aspx) para el `OwinExtensions` clase. En el ejemplo siguiente se muestra cómo definir la ruta de los concentradores SignalR utilizando una clase de inicio OWIN.
+Para definir la ruta que los clientes usarán para conectar con el centro, llame a la `MapSignalR` método cuando se inicia la aplicación. `MapSignalR`es un [método de extensión](https://msdn.microsoft.com/library/vstudio/bb383977.aspx) para el `OwinExtensions` clase. En el ejemplo siguiente se muestra cómo definir la ruta de los concentradores SignalR utilizando una clase de inicio OWIN.
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample1.cs)]
 
@@ -156,7 +156,7 @@ En el ejemplo siguiente se muestra cómo especificar la dirección URL de conexi
 
 ## <a name="how-to-create-and-use-hub-classes"></a>Cómo crear y utilizar clases de base de datos central
 
-Para crear un concentrador, cree una clase que deriva de [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). En el ejemplo siguiente se muestra una clase simple de concentrador para una aplicación de chat.
+Para crear un concentrador, cree una clase que deriva de [Microsoft.Aspnet.Signalr.Hub](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hub(v=vs.111).aspx). En el ejemplo siguiente se muestra una clase simple de concentrador para una aplicación de chat.
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample7.cs)]
 
@@ -262,7 +262,7 @@ Si desea especificar un nombre diferente para que los clientes, agregue el `HubM
 
 ### <a name="when-to-execute-asynchronously"></a>Cuándo se debe ejecutar de forma asincrónica
 
-Si el método se puede o de larga ejecución tiene que trabajar que implican espera, por ejemplo, una búsqueda de la base de datos o una llamada de servicio web, hacer que el método de concentrador asincrónica devolviendo un [tarea](https://msdn.microsoft.com/en-us/library/system.threading.tasks.task.aspx) (en lugar de `void` devolver) o [ Tarea&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/dd321424.aspx) objeto (en lugar de `T` tipo de valor devuelto). Cuando vuelva un `Task` objeto desde el método de SignalR espera el `Task` en completarse, y, a continuación, envía el resultado sin ajustar al cliente, así que no hay ninguna diferencia en cómo código la llamada al método en el cliente.
+Si el método se puede o de larga ejecución tiene que trabajar que implican espera, por ejemplo, una búsqueda de la base de datos o una llamada de servicio web, hacer que el método de concentrador asincrónica devolviendo un [tarea](https://msdn.microsoft.com/library/system.threading.tasks.task.aspx) (en lugar de `void` devolver) o [ Tarea&lt;T&gt; ](https://msdn.microsoft.com/library/dd321424.aspx) objeto (en lugar de `T` tipo de valor devuelto). Cuando vuelva un `Task` objeto desde el método de SignalR espera el `Task` en completarse, y, a continuación, envía el resultado sin ajustar al cliente, así que no hay ninguna diferencia en cómo código la llamada al método en el cliente.
 
 Hacer que un método de concentrador asincrónica evita bloqueando la conexión cuando se utiliza el transporte de WebSocket. Cuando un método de concentrador se ejecuta de forma sincrónica y el transporte es WebSocket, las siguientes llamadas a métodos en el concentrador del mismo cliente se bloquean hasta que se complete el método de concentrador.
 
@@ -331,7 +331,7 @@ Puede especificar los tipos complejos y matrices para los parámetros. En el eje
 
 ### <a name="selecting-which-clients-will-receive-the-rpc"></a>Al seleccionar a los clientes que recibirán la RPC
 
-La propiedad no devuelve los clientes un [HubConnectionContext](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) objeto que proporciona varias opciones para especificar que los clientes recibirán la RPC:
+La propiedad no devuelve los clientes un [HubConnectionContext](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubconnectioncontext(v=vs.111).aspx) objeto que proporciona varias opciones para especificar que los clientes recibirán la RPC:
 
 - Todos los clientes conectados.
 
@@ -403,7 +403,7 @@ Si usa `await` para esperar hasta que un método de cliente finalice antes de qu
 
 ### <a name="how-to-use-a-string-variable-as-the-method-name"></a>Cómo utilizar una variable de cadena como el nombre del método
 
-Si desea invocar un método de cliente mediante el uso de una variable de cadena como el nombre del método, convierte `Clients.All` (o `Clients.Others`, `Clients.Caller`, etc.) a `IClientProxy` y, a continuación, llame a [Invoke (methodName, args...) ](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
+Si desea invocar un método de cliente mediante el uso de una variable de cadena como el nombre del método, convierte `Clients.All` (o `Clients.Others`, `Clients.Caller`, etc.) a `IClientProxy` y, a continuación, llame a [Invoke (methodName, args...) ](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.iclientproxy.invoke(v=vs.111).aspx).
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample42.cs)]
 
@@ -413,7 +413,7 @@ Si desea invocar un método de cliente mediante el uso de una variable de cadena
 
 Grupos de SignalR proporcionan un método para difundir mensajes a subconjuntos especificados de los clientes conectados. Un grupo puede tener cualquier número de clientes y un cliente puede ser un miembro de cualquier número de grupos.
 
-Para administrar la pertenencia a grupos, use la [agregar](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) y [quitar](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) métodos proporcionados por el `Groups` propiedad de la clase de base de datos central. El siguiente ejemplo se muestra la `Groups.Add` y `Groups.Remove` métodos utilizados en los métodos de concentrador que se llaman al código de cliente, seguido por el código de cliente de JavaScript que llama.
+Para administrar la pertenencia a grupos, use la [agregar](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.add(v=vs.111).aspx) y [quitar](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.igroupmanager.remove(v=vs.111).aspx) métodos proporcionados por el `Groups` propiedad de la clase de base de datos central. El siguiente ejemplo se muestra la `Groups.Add` y `Groups.Remove` métodos utilizados en los métodos de concentrador que se llaman al código de cliente, seguido por el código de cliente de JavaScript que llama.
 
 **Servidor**
 
@@ -494,7 +494,7 @@ Se llaman a los métodos de controlador de eventos de duración de conexión des
 
 ## <a name="how-to-get-information-about-the-client-from-the-context-property"></a>Cómo obtener información sobre el cliente de la propiedad de contexto
 
-Para obtener información acerca del cliente, use el `Context` propiedad de la clase de base de datos central. El `Context` propiedad devuelve un [HubCallerContext](https://msdn.microsoft.com/en-us/library/jj890883(v=vs.111).aspx) objeto que proporciona acceso a la siguiente información:
+Para obtener información acerca del cliente, use el `Context` propiedad de la clase de base de datos central. El `Context` propiedad devuelve un [HubCallerContext](https://msdn.microsoft.com/library/jj890883(v=vs.111).aspx) objeto que proporciona acceso a la siguiente información:
 
 - El identificador de conexión del cliente que realiza la llamada.
 
@@ -578,7 +578,7 @@ En VB.NET o en un concentrador fuertemente tipada, el objeto de estado del autor
 Para controlar los errores que se producen en los métodos de clase de base de datos central, utilice uno o varios de los métodos siguientes:
 
 - Ajustar el código del método en bloques try-catch y registrar el objeto de excepción. Para fines de depuración puede enviar la excepción al cliente, pero para la seguridad no se recomienda motivos enviar información detallada para los clientes de producción.
-- Crear un módulo de la canalización de concentradores que administra el [OnIncomingError](https://msdn.microsoft.com/en-us/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) método. En el ejemplo siguiente se muestra un módulo de canalización que registra los errores, seguidos por el código de Startup.cs que inserta el módulo en la canalización de concentradores.
+- Crear un módulo de la canalización de concentradores que administra el [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) método. En el ejemplo siguiente se muestra un módulo de canalización que registra los errores, seguidos por el código de Startup.cs que inserta el módulo en la canalización de concentradores.
 
     [!code-csharp[Main](hubs-api-guide-server/samples/sample61.cs)]
 
@@ -674,4 +674,4 @@ El siguiente código en el *Startup.cs* archivo registra el módulo se ejecuten 
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample77.cs?highlight=3)]
 
-Hay muchos métodos diferentes que se pueden reemplazar. Para obtener una lista completa, consulte [HubPipelineModule métodos](https://msdn.microsoft.com/en-us/library/jj918633(v=vs.111).aspx).
+Hay muchos métodos diferentes que se pueden reemplazar. Para obtener una lista completa, consulte [HubPipelineModule métodos](https://msdn.microsoft.com/library/jj918633(v=vs.111).aspx).

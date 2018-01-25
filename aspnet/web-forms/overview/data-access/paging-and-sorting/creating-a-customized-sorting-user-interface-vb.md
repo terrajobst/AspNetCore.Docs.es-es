@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c9d6229c88e4fd67f384a5ec459ed661f32f0a50
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 527bfe62a7293d0aa2d6b5b83119bb922906120b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Crear una interfaz de usuario de ordenación personalizada (VB)
 ====================
@@ -187,7 +187,7 @@ Con la adición de código anterior, ahora están presentes cuando se ordena por
 
 
 > [!NOTE]
-> Si tiene productos con `NULL` valores para la base de datos la `CategoryID`, `SupplierID`, o `UnitPrice` campos, esos valores se mostrarán como cadenas vacías en el control GridView de forma predeterminada, lo que significa que el texto de fila s separador para esos productos con `NULL`valores aparecerán como categoría: (es decir, hay s ningún nombre después de la categoría: al igual que con la categoría: bebidas). Si desea que un valor que se muestra aquí se puede establecer la BoundFields [ `NullDisplayText` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) al texto que desea mostrar o puede agregar una instrucción condicional en el método Render al asignar la `currentValue` para el separador fila s `Text` propiedad.
+> Si tiene productos con `NULL` valores para la base de datos la `CategoryID`, `SupplierID`, o `UnitPrice` campos, esos valores se mostrarán como cadenas vacías en el control GridView de forma predeterminada, lo que significa que el texto de fila s separador para esos productos con `NULL`valores aparecerán como categoría: (es decir, hay s ningún nombre después de la categoría: al igual que con la categoría: bebidas). Si desea que un valor que se muestra aquí se puede establecer la BoundFields [ `NullDisplayText` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.boundfield.nulldisplaytext.aspx) al texto que desea mostrar o puede agregar una instrucción condicional en el método Render al asignar la `currentValue` para el separador fila s `Text` propiedad.
 
 
 ## <a name="summary"></a>Resumen
@@ -198,7 +198,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Anterior](sorting-custom-paged-data-vb.md)

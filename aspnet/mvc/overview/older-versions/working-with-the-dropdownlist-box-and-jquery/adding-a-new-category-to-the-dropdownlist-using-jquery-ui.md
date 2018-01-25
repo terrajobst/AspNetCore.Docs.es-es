@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/adding-a-new-category-to-the-dropdownlist-using-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 0cc51fbe84124a62f0c1254faab796cbcdc7efd6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: de661616ff3ca83052ae74d3ae6810d014aff764
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-new-category-to-the-dropdownlist-using-jquery-ui"></a>Agregar una nueva categoría a los controles de DropDownList mediante jQuery UI
 ====================
@@ -90,7 +90,7 @@ El `var createGenreForm` está seleccionado en el `createGenreForm` identificado
 
 [!code-cshtml[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample7.cshtml)]
 
-El [Html.BeginForm](https://msdn.microsoft.com/en-us/library/dd492714.aspx) sobrecarga auxiliar utilizada en el *Views\Genre\\_CreateGenre.cshtml* HTML genera el archivo con un atributo de acción que contiene la dirección URL para enviar el formulario. Puede ver esto mostrando la página de álbum de crear en un explorador y seleccionar origen de mostrar en el explorador. El marcado siguiente muestra el código HTML generado que contiene la etiqueta de formulario.
+El [Html.BeginForm](https://msdn.microsoft.com/library/dd492714.aspx) sobrecarga auxiliar utilizada en el *Views\Genre\\_CreateGenre.cshtml* HTML genera el archivo con un atributo de acción que contiene la dirección URL para enviar el formulario. Puede ver esto mostrando la página de álbum de crear en un explorador y seleccionar origen de mostrar en el explorador. El marcado siguiente muestra el código HTML generado que contiene la etiqueta de formulario.
 
 [!code-html[Main](adding-a-new-category-to-the-dropdownlist-using-jquery-ui/samples/sample8.html)]
 
@@ -128,7 +128,7 @@ Rick.Anderson[at]Microsoft.com
 - [Lista desplegable – en cascada MVC de ASP.NET muestra los Tutorial](https://weblogs.asp.net/raduenuca/archive/2011/03/06/asp-net-mvc-cascading-dropdown-lists-tutorial-part-1-defining-the-problem-and-the-context.aspx) por [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
 - [Elegido](http://harvesthq.github.com/chosen/) JavaScript de un complemento que admiten la selección múltiple y filtrado.
 
-### <a name="contributors"></a>Contributors
+### <a name="contributors"></a>Colaboradores
 
 - [Radu Enuca](https://weblogs.asp.net/raduenuca/default.aspx)
 - Jean-Sébastien Goupil

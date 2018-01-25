@@ -1,6 +1,6 @@
 ---
 uid: mvc/mvc3
-title: ASP.NET MVC 3 | Documentos de Microsoft
+title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
 description: "(abril de 2011 de incluye herramientas de actualización) ASP.NET MVC 3 es un marco para crear aplicaciones web escalable, basada en estándares con el modelo de diseño establecidos..."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
-ms.openlocfilehash: 1aa059e92b5637b9ba7ce488da4b44322dab6d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -165,7 +165,7 @@ El **agregar vista** cuadro de diálogo en ASP.NET MVC 3 le permite elegir el mo
 A veces, desea realizar lógica antes de ejecutar un método de acción o después de ejecuta un método de acción. Para ello, ASP.NET MVC 2 proporciona filtros de acción. Filtros de acción son atributos personalizados que proporcionan un medio declarativo para agregar comportamiento previo y posterior a la acción a los métodos de acción de un controlador específico. Sin embargo, en algunos casos puede especificar el comportamiento de la acción anterior o posterior a la acción que se aplica a todos los métodos de acción. MVC 3 le permite especificar filtros globales agregándolos a la `GlobalFilters` colección. Para obtener más información acerca de los filtros de acción global, vea los siguientes recursos:
 
 - [Blog de Guthrie en la vista previa de 3 de MVC](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx)
-- [Filtrar en ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg416513(VS.98).aspx)
+- [Filtrar en ASP.NET MVC](https://msdn.microsoft.com/library/gg416513(VS.98).aspx)
 
 ### <a name="new-viewbag-property"></a>Nueva propiedad "ViewBag"
 
@@ -175,9 +175,9 @@ Compatibilidad con los controladores MVC 2 un `ViewData` propiedad que le permit
 
 El siguiente `ActionResult` tipos y métodos auxiliares correspondientes son nuevas o mejoradas en MVC 3:
 
-- [HttpNotFoundResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Devuelve un código de estado 404 de HTTP al cliente.
-- [RedirectResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.redirectresult(v=VS.98).aspx). Devuelve una redirección temporal (código de estado HTTP 302) o a una redirección permanente (código de estado HTTP 301), según un parámetro booleano. Junto con este cambio, el [controlador](https://msdn.microsoft.com/en-us/library/system.web.mvc.controller(v=VS.98).aspx) clase ahora tiene tres métodos para realizar las redirecciones permanentes: `RedirectPermanent`, `RedirectToRoutePermanent`, y `RedirectToActionPermanent`. Estos métodos devuelven una instancia de `RedirectResult` con el `Permanent` propiedad establecida en `true`.
-- [HttpStatusCodeResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Devuelve un código de estado HTTP especificado por el usuario.
+- [HttpNotFoundResult](https://msdn.microsoft.com/library/system.web.mvc.httpnotfoundresult(v=vs.98).aspx). Devuelve un código de estado 404 de HTTP al cliente.
+- [RedirectResult](https://msdn.microsoft.com/library/system.web.mvc.redirectresult(v=VS.98).aspx). Devuelve una redirección temporal (código de estado HTTP 302) o a una redirección permanente (código de estado HTTP 301), según un parámetro booleano. Junto con este cambio, el [controlador](https://msdn.microsoft.com/library/system.web.mvc.controller(v=VS.98).aspx) clase ahora tiene tres métodos para realizar las redirecciones permanentes: `RedirectPermanent`, `RedirectToRoutePermanent`, y `RedirectToActionPermanent`. Estos métodos devuelven una instancia de `RedirectResult` con el `Permanent` propiedad establecida en `true`.
+- [HttpStatusCodeResult](https://msdn.microsoft.com/library/system.web.mvc.httpstatuscoderesult(v=VS.98).aspx). Devuelve un código de estado HTTP especificado por el usuario.
 
 <a id="BM_JavaScript_and_Ajax_Improvements"></a>
 
@@ -199,7 +199,7 @@ En orden para la validación del lado cliente para que funcione, deberá hacer r
 
 ### <a name="remote-validator"></a>Validador remoto
 
-ASP.NET MVC 3 es compatible con el nuevo [RemoteAttribute](https://msdn.microsoft.com/en-us/library/system.web.mvc.remoteattribute(v=VS.98).aspx) clase que permite aprovechar las ventajas de la validación de jQuery plug-in del soporte técnico de validador remoto. Esto permite a la biblioteca de validación del lado cliente que llame automáticamente a un método personalizado que define en el servidor con el fin de realizar la lógica de validación que solo puede realizarse del servidor.
+ASP.NET MVC 3 es compatible con el nuevo [RemoteAttribute](https://msdn.microsoft.com/library/system.web.mvc.remoteattribute(v=VS.98).aspx) clase que permite aprovechar las ventajas de la validación de jQuery plug-in del soporte técnico de validador remoto. Esto permite a la biblioteca de validación del lado cliente que llame automáticamente a un método personalizado que define en el servidor con el fin de realizar la lógica de validación que solo puede realizarse del servidor.
 
 En el ejemplo siguiente, la `Remote` atributo especifica que la validación del cliente llamará una acción denominada `UserNameAvailable` en el `UsersController` clase con el fin de validar la `UserName` campo.
 
@@ -209,7 +209,7 @@ En el ejemplo siguiente se muestra el controlador correspondiente.
 
 [!code-csharp[Main](mvc3/samples/sample2.cs)]
 
-Para obtener más información sobre cómo usar el `Remote` de atributo, vea [Cómo: implementar la validación remota en ASP.NET MVC](https://msdn.microsoft.com/en-us/library/gg508808(VS.98).aspx) en MSDN library.
+Para obtener más información sobre cómo usar el `Remote` de atributo, vea [Cómo: implementar la validación remota en ASP.NET MVC](https://msdn.microsoft.com/library/gg508808(VS.98).aspx) en MSDN library.
 
 ### <a name="json-binding-support"></a>Compatibilidad de enlace de JSON
 
@@ -219,7 +219,7 @@ ASP.NET MVC 3 incluye compatibilidad de enlace de JSON integrada que permite a l
 
 ## <a name="model-validation-improvements"></a>Mejoras de validación de modelo
 
-### <a name="dataannotations-metadata-attributes"></a>Atributos de metadatos de "DataAnnotations"
+### <a name="dataannotations-metadata-attributes"></a>"DataAnnotations" Metadata Attributes
 
 ASP.NET MVC 3 admite `DataAnnotations` atributos de metadatos como `DisplayAttribute`.
 
@@ -231,9 +231,9 @@ El `ValidationAttribute` clase se ha mejorado en .NET Framework 4 para admitir u
 
 ### <a name="validation-interfaces"></a>Interfaces de validación
 
-El [IValidatableObject](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) le permite realizar la validación de nivel de modelo, y le permite proporcionar mensajes de error que son específicos para el estado de todo el modelo, o entre dos propiedades dentro del modelo de validación . MVC 3 ahora recupera los errores de la `IValidatableObject` interfaz cuando el enlace de modelos y automáticamente marcas o resaltados afectado campos dentro de una vista con las aplicaciones auxiliares integradas formulario HTML.
+El [IValidatableObject](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.ivalidatableobject.aspx) le permite realizar la validación de nivel de modelo, y le permite proporcionar mensajes de error que son específicos para el estado de todo el modelo, o entre dos propiedades dentro del modelo de validación . MVC 3 ahora recupera los errores de la `IValidatableObject` interfaz cuando el enlace de modelos y automáticamente marcas o resaltados afectado campos dentro de una vista con las aplicaciones auxiliares integradas formulario HTML.
 
-El [IClientValidatable](https://msdn.microsoft.com/en-us/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfaz permite que ASP.NET MVC detectar en tiempo de ejecución si un validador tiene compatibilidad para la validación del cliente. Esta interfaz se ha diseñado para que se puede integrar con una variedad de marcos de trabajo de validación.
+El [IClientValidatable](https://msdn.microsoft.com/library/system.web.mvc.iclientvalidatable(v=VS.98).aspx) interfaz permite que ASP.NET MVC detectar en tiempo de ejecución si un validador tiene compatibilidad para la validación del cliente. Esta interfaz se ha diseñado para que se puede integrar con una variedad de marcos de trabajo de validación.
 
 Para obtener más información sobre las interfaces de validación, vea la **mejoras de validación del modelo** sección de [entrada de blog de Guthrie MVC 3 Preview](https://weblogs.asp.net/scottgu/archive/2010/07/27/introducing-asp-net-mvc-3-preview-1.aspx). (Sin embargo, tenga en cuenta que la referencia a "IValidateObject" en el blog de debe ser "IValidatableObject".)
 
@@ -278,7 +278,7 @@ Admite la caché de resultados de las respuestas de página completa desde la ve
 
 ### <a name="granular-control-over-request-validation"></a>Control granular sobre validación de solicitudes
 
-ASP.NET MVC tiene la validación de solicitudes integrado que automáticamente le ayuda a protegerse de ataques de inyección de código XSS y HTML. Sin embargo, en ocasiones, deseará explícitamente la validación de solicitudes disable, por ejemplo, si desea que los usuarios puedan publicar contenido (por ejemplo, en las entradas de blog o contenido CMS) HTML. Ahora puede agregar un [AllowHtml](https://msdn.microsoft.com/en-us/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) de atributo a los modelos o ver los modelos para deshabilitar la validación de solicitud en una base por propiedad durante el enlace del modelo. Para obtener más información acerca de la validación de solicitud, vea los siguientes recursos:
+ASP.NET MVC tiene la validación de solicitudes integrado que automáticamente le ayuda a protegerse de ataques de inyección de código XSS y HTML. Sin embargo, en ocasiones, deseará explícitamente la validación de solicitudes disable, por ejemplo, si desea que los usuarios puedan publicar contenido (por ejemplo, en las entradas de blog o contenido CMS) HTML. Ahora puede agregar un [AllowHtml](https://msdn.microsoft.com/library/system.web.mvc.allowhtmlattribute(v=VS.98).aspx) de atributo a los modelos o ver los modelos para deshabilitar la validación de solicitud en una base por propiedad durante el enlace del modelo. Para obtener más información acerca de la validación de solicitud, vea los siguientes recursos:
 
 - El **JavaScript discreto y validación** sección [entrada de blog de Guthrie en MVC 3 release candidate](https://weblogs.asp.net/scottgu/archive/2010/11/09/announcing-the-asp-net-mvc-3-release-candidate.aspx).
 - [Notas de la versión MVC 3](../whitepapers/mvc3-release-notes.md)
@@ -303,7 +303,7 @@ En ASP.NET MVC 3, puede indicar si desea que una clase de controlador para usar 
 
 ### <a name="new-additionalmetadataattribute-class"></a>Nueva clase de "AdditionalMetadataAttribute"
 
-Puede usar el [AdditionalMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) atributos para rellenar el `ModelMetadata.AdditionalValues` diccionario para una propiedad de modelo. Por ejemplo, si un modelo de vista tiene una propiedad que se debe mostrar sólo a un administrador, puede anotar esa propiedad tal y como se muestra en el ejemplo siguiente:
+Puede usar el [AdditionalMetadata](https://msdn.microsoft.com/library/system.web.mvc.additionalmetadataattribute(v=VS.98).aspx) atributos para rellenar el `ModelMetadata.AdditionalValues` diccionario para una propiedad de modelo. Por ejemplo, si un modelo de vista tiene una propiedad que se debe mostrar sólo a un administrador, puede anotar esa propiedad tal y como se muestra en el ejemplo siguiente:
 
 [!code-csharp[Main](mvc3/samples/sample4.cs)]
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 213626147424e08d10d6442034ec450174200b09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>Examen de los detalles y los métodos de eliminación
 ====================
@@ -66,7 +66,7 @@ Ahora tiene una aplicación de ASP.NET MVC completa que almacena los datos en un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de haber creado y probado una aplicación web, el paso siguiente es ponerlo a disposición de otras personas a través de Internet. Para ello, tendrá que implementarlo en un proveedor de hospedaje web. Microsoft ofrece el hospedaje web gratuito para hasta 10 sitios web en un [libre de la cuenta de prueba de Windows Azure](https://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A443DD604). Le sugiero a continuación siga el tutorial [implementar una aplicación de MVC de ASP.NET seguros con pertenencia, OAuth y base de datos SQL a un sitio Web de Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Un excelente tutorial es el nivel intermedio de Tom Dykstra [crear un modelo de datos de Entity Framework para una aplicación de MVC de ASP.NET](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [Stackoverflow](http://stackoverflow.com/help) y [foros de ASP.NET MVC](https://forums.asp.net/1146.aspx) son una gran coloca para formular preguntas. Siga [me](https://twitter.com/RickAndMSFT) en twitter, por lo que puede obtener actualizaciones en mi tutoriales más recientes.
+Después de haber creado y probado una aplicación web, el paso siguiente es ponerlo a disposición de otras personas a través de Internet. Para ello, tendrá que implementarlo en un proveedor de hospedaje web. Microsoft ofrece el hospedaje web gratuito para hasta 10 sitios web en un [libre de la cuenta de prueba de Windows Azure](https://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A443DD604). Le sugiero a continuación siga el tutorial [implementar una aplicación de MVC de ASP.NET seguros con pertenencia, OAuth y base de datos SQL a un sitio Web de Windows Azure](https://docs.microsoft.com/aspnet/core/security/authorization/secure-data). Un excelente tutorial es el nivel intermedio de Tom Dykstra [crear un modelo de datos de Entity Framework para una aplicación de MVC de ASP.NET](../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). [Stackoverflow](http://stackoverflow.com/help) y [foros de ASP.NET MVC](https://forums.asp.net/1146.aspx) son una gran coloca para formular preguntas. Siga [me](https://twitter.com/RickAndMSFT) en twitter, por lo que puede obtener actualizaciones en mi tutoriales más recientes.
 
 Comentarios son bienvenidos.
 

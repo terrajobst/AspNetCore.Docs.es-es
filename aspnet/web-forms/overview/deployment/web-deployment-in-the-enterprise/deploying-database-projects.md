@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: aef8229f2920bd026e3dbf063afb57cffb9b21d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-database-projects"></a>Implementar proyectos de base de datos
 ====================
@@ -65,7 +65,7 @@ Hay varios enfoques diferentes para implementar proyectos de base de datos. Sin 
 Hay tres maneras principales para implementar un proyecto de base de datos:
 
 - Puede usar la funcionalidad de implementación con el tipo de proyecto de base de datos en Visual Studio 2010. Al compilar e implementar un proyecto de base de datos en Visual Studio 2010, el proceso de implementación utiliza el manifiesto de implementación para generar un archivo de implementación basado en SQL específico de la configuración de compilación. Si ya no existe o realizar los cambios necesarios en la base de datos si ya existe, se creará la base de datos. Puede utilizar SQLCMD.exe para ejecutar este archivo en el servidor de destino, o puede configurar Visual Studio para crear y ejecutar el archivo. La desventaja de este enfoque es que solo tiene limitados control sobre la configuración de implementación. A menudo también tendrá que modificar el archivo de implementación de SQL para proporcionar los valores de las variables específicas del entorno. Solo se puede utilizar este enfoque desde un equipo con Visual Studio 2010 instalado, y el desarrollador tendría que conocer y proporcionar las cadenas de conexión y credenciales para todos los entornos de destino.
-- Puede usar la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy) a [implementar una base de datos como parte de un proyecto de aplicación web](https://msdn.microsoft.com/en-us/library/dd465343.aspx). Sin embargo, este enfoque es mucho más complejo si desea implementar un proyecto de base de datos en lugar de simplemente replicar una base de datos local existente en un servidor de destino. También puede configurar Web Deploy para ejecutar el script de implementación de SQL que genera el proyecto de base de datos, pero para ello, debe crear un archivo de destinos WPP personalizado para el proyecto de aplicación web. Esto agrega una cantidad considerable de complejidad al proceso de implementación. Además, Web Deploy no admite directamente las actualizaciones incrementales para bases de datos existentes. Para obtener más información sobre este enfoque, consulte [extender la canalización de publicación de Web al proyecto de base de datos del paquete implementado archivo SQL](https://go.microsoft.com/?linkid=9805121).
+- Puede usar la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy) a [implementar una base de datos como parte de un proyecto de aplicación web](https://msdn.microsoft.com/library/dd465343.aspx). Sin embargo, este enfoque es mucho más complejo si desea implementar un proyecto de base de datos en lugar de simplemente replicar una base de datos local existente en un servidor de destino. También puede configurar Web Deploy para ejecutar el script de implementación de SQL que genera el proyecto de base de datos, pero para ello, debe crear un archivo de destinos WPP personalizado para el proyecto de aplicación web. Esto agrega una cantidad considerable de complejidad al proceso de implementación. Además, Web Deploy no admite directamente las actualizaciones incrementales para bases de datos existentes. Para obtener más información sobre este enfoque, consulte [extender la canalización de publicación de Web al proyecto de base de datos del paquete implementado archivo SQL](https://go.microsoft.com/?linkid=9805121).
 - Puede usar la utilidad VSDBCMD para implementar la base de datos mediante el esquema de base de datos o el manifiesto de implementación. Puede llamar a VSDBCMD.exe desde un destino de MSBuild, que permite la publicación de bases de datos como parte de un proceso de implementación más grandes, con scripts. Puede invalidar las variables en el archivo .sqlcmdvars y una gran cantidad de otras propiedades de la base de datos de un comando VSDBCMD, que le permite personalizar la implementación para diferentes entornos sin necesidad de crear varias configuraciones de compilación. VSDBCMD proporciona funcionalidad de diferenciación, lo que significa que pueda realizar únicamente los cambios necesarios para alinear una base de datos de destino con el esquema de base de datos. VSDBCMD también ofrece una amplia gama de opciones de línea de comandos, que le ofrecen un control más preciso sobre el proceso de implementación.
 
 En esta información general, puede ver que el uso VSDBCMD con MSBuild es el enfoque que mejor se adapte a un escenario de implementación típicos de empresas:
@@ -97,7 +97,7 @@ En este caso:
 - El **/dd+** (o **/DeployToDatabase+**) conmutador indica que desea crear una implementación e implementarlo en el entorno de destino. Si especifica **/dd-**, u omite el modificador, VSDBCMD generará un script de implementación, pero no implementará en el entorno de destino. Este modificador es a menudo el origen de confusión y se explica con más detalle en la sección siguiente.
 - El **/script** (o **/DeploymentScriptFile**) modificador especifica dónde desea generar el script de implementación. Este valor no afecta el proceso de implementación.
 
-Para obtener más información sobre VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/en-us/library/dd193283.aspx) y [Cómo: preparar una base de datos para la implementación desde un símbolo del sistema mediante VSDBCMD. EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx).
+Para obtener más información sobre VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/library/dd193283.aspx) y [Cómo: preparar una base de datos para la implementación desde un símbolo del sistema mediante VSDBCMD. EXE](https://msdn.microsoft.com/library/dd193258.aspx).
 
 Para obtener un ejemplo de cómo puede utilizar VSDBCMD desde un archivo de proyecto de MSBuild, vea [descripción del proceso de compilación](understanding-the-build-process.md). Para obtener ejemplos de cómo configurar opciones de implementación de base de datos para varios entornos, vea [personalizar implementaciones de base de datos para varios entornos](../advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments.md).
 
@@ -145,10 +145,10 @@ Para obtener información sobre cómo personalizar las implementaciones de la ba
 
 Estos temas en MSDN proporcionan instrucciones más amplio y obtener información general sobre los proyectos de base de datos de Visual Studio y el proceso de implementación de base de datos:
 
-- [Proyectos de base de datos de Visual Studio 2010 SQL Server](https://msdn.microsoft.com/en-us/library/ff678491.aspx)
-- [Administración de cambios de base de datos](https://msdn.microsoft.com/en-us/library/aa833404.aspx)
-- [Cómo: preparar una base de datos para la implementación desde un símbolo del sistema mediante VSDBCMD. EXE](https://msdn.microsoft.com/en-us/library/dd193258.aspx)
-- [Información general de implementación y compilación de la base de datos](https://msdn.microsoft.com/en-us/library/aa833165.aspx)
+- [Proyectos de base de datos de Visual Studio 2010 SQL Server](https://msdn.microsoft.com/library/ff678491.aspx)
+- [Administración de cambios de base de datos](https://msdn.microsoft.com/library/aa833404.aspx)
+- [Cómo: preparar una base de datos para la implementación desde un símbolo del sistema mediante VSDBCMD. EXE](https://msdn.microsoft.com/library/dd193258.aspx)
+- [Información general de implementación y compilación de la base de datos](https://msdn.microsoft.com/library/aa833165.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](deploying-web-packages.md)

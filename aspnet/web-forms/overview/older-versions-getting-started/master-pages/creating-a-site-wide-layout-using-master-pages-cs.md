@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5e3507acda4958fa7caa4a22fec7603deaec73c2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8061a2aff318d397116cbc0bc0a8ce24ef35c7fb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Crear un diseño de todo el sitio mediante páginas maestras (C#)
 ====================
@@ -60,7 +60,7 @@ Creación de un sitio Web con un diseño de página de todo el sitio coherente r
 
 Hay una variedad de técnicas para crear páginas web con una apariencia coherente. Un enfoque naïve es simplemente copie y pegue el marcado de diseño comunes en todas las páginas web, pero este enfoque tiene varias desventajas. Para empezar, cada vez que se crea una nueva página, debe olvidar copie y pegue el contenido compartido en la página. Como copiar y pegar las operaciones son errores de madurez accidentalmente, puede copiar solo un subconjunto de las marcas compartidas en una nueva página. Y para completarlo, este enfoque permite reemplazar la apariencia de todo el sitio existente por uno nuevo, un número real dolor porque se debe editar cada página única en el sitio para poder usar la nueva apariencia y funcionamiento.
 
-Antes de la versión 2.0 de ASP.NET, página a los desarrolladores a menudo se colocan marcado comunes en [controles de usuario](https://msdn.microsoft.com/en-us/library/y6wb1a0e.aspx) y, a continuación, agregar estos controles de usuario para cada página. Este enfoque requiere que el desarrollador de páginas no olvide agregar manualmente los controles de usuario a cada nueva página, pero permite las modificaciones de todo el sitio sea más fácil porque al actualizar el marcado comunes solo los controles de usuario deba modificarse. Por desgracia, Visual Studio .NET 2002 y 2003: las versiones de Visual Studio usa para crear aplicaciones de ASP.NET 1.x - representadas controles de usuario en la vista Diseño como cuadros grises. Por lo tanto, los desarrolladores de páginas con este enfoque no disfrute de un entorno de tiempo de diseño WYSIWYG.
+Antes de la versión 2.0 de ASP.NET, página a los desarrolladores a menudo se colocan marcado comunes en [controles de usuario](https://msdn.microsoft.com/library/y6wb1a0e.aspx) y, a continuación, agregar estos controles de usuario para cada página. Este enfoque requiere que el desarrollador de páginas no olvide agregar manualmente los controles de usuario a cada nueva página, pero permite las modificaciones de todo el sitio sea más fácil porque al actualizar el marcado comunes solo los controles de usuario deba modificarse. Por desgracia, Visual Studio .NET 2002 y 2003: las versiones de Visual Studio usa para crear aplicaciones de ASP.NET 1.x - representadas controles de usuario en la vista Diseño como cuadros grises. Por lo tanto, los desarrolladores de páginas con este enfoque no disfrute de un entorno de tiempo de diseño WYSIWYG.
 
 Los inconvenientes del uso de controles de usuario se han trabajado en la versión 2.0 de ASP.NET y Visual Studio 2005 con la introducción de *páginas maestras*. Una página maestra es un tipo especial de página ASP.NET que define tanto el marcado de todo el sitio y la *regiones* donde asociados *páginas de contenido* definir su marcado personalizada. Como se verá en el paso 1, estas regiones se definen mediante controles ContentPlaceHolder. El control ContentPlaceHolder simplemente indica una posición en la jerarquía de control de la página maestra donde se puede insertar el contenido personalizado mediante una página de contenido.
 
@@ -95,7 +95,7 @@ Ahora que ya hemos analizado cómo funcionan las páginas maestras, echemos un v
 Antes de que podemos explorar crear y usar páginas maestras y de contenido, primero es necesario un sitio Web ASP.NET. Comience creando un nuevo archivo basado en sistema sitio Web de ASP.NET. Para ello, inicie Visual Web Developer y, a continuación, vaya al menú archivo y elija Nuevo sitio Web, mostrar el cuadro de diálogo nuevo sitio Web cuadro (consulte la figura 4). Elija la plantilla de sitio Web ASP.NET, o establecer la lista de la lista desplegable de ubicación al sistema de archivos, elija una carpeta para colocar el sitio web y establecer el idioma en C#. Esto creará un nuevo sitio web con un `Default.aspx` página ASP.NET, un `App_Data` carpeta y un `Web.config` archivo.
 
 > [!NOTE]
-> Visual Studio admite dos modos de administración de proyectos: proyectos de sitios Web y proyectos de aplicación Web. Proyectos de sitios Web no tienen un archivo de proyecto, mientras que los proyectos de aplicación Web imitar la arquitectura de proyecto en Visual Studio .NET 2002/2003, que incluyen un archivo de proyecto y compilan código fuente del proyecto en un único ensamblado, que se coloca en el `/bin` carpeta. Proyectos de Visual Studio 2005 que inicialmente solo el sitio admitido de Web, aunque el [modelo de proyecto de aplicación Web](https://msdn.microsoft.com/en-us/library/aa730880(vs.80).aspx) se vuelve a producirse con Service Pack 1; Visual Studio 2008 ofrece dos modelos de proyecto. Visual Web Developer 2005 y 2008 ediciones, sin embargo, solo admiten proyectos de sitios Web. Usar el modelo de proyecto de sitio Web para mi demostraciones en esta serie de tutoriales. Si está usando una edición no sean Express y desea utilizar el modelo de proyecto de aplicación Web en su lugar, no dude en hacerlo, pero tenga en cuenta que puede haber algunas discrepancias entre lo que ve en la pantalla y los pasos que debe seguir frente a las capturas de pantalla se muestra y instructio NS proporcionados en estos tutoriales.
+> Visual Studio admite dos modos de administración de proyectos: proyectos de sitios Web y proyectos de aplicación Web. Proyectos de sitios Web no tienen un archivo de proyecto, mientras que los proyectos de aplicación Web imitar la arquitectura de proyecto en Visual Studio .NET 2002/2003, que incluyen un archivo de proyecto y compilan código fuente del proyecto en un único ensamblado, que se coloca en el `/bin` carpeta. Proyectos de Visual Studio 2005 que inicialmente solo el sitio admitido de Web, aunque el [modelo de proyecto de aplicación Web](https://msdn.microsoft.com/library/aa730880(vs.80).aspx) se vuelve a producirse con Service Pack 1; Visual Studio 2008 ofrece dos modelos de proyecto. Visual Web Developer 2005 y 2008 ediciones, sin embargo, solo admiten proyectos de sitios Web. Usar el modelo de proyecto de sitio Web para mi demostraciones en esta serie de tutoriales. Si está usando una edición no sean Express y desea utilizar el modelo de proyecto de aplicación Web en su lugar, no dude en hacerlo, pero tenga en cuenta que puede haber algunas discrepancias entre lo que ve en la pantalla y los pasos que debe seguir frente a las capturas de pantalla se muestra y instructio NS proporcionados en estos tutoriales.
 
 
 [![Crear un nuevo archivo basado en sistema sitio Web](creating-a-site-wide-layout-using-master-pages-cs/_static/image9.png)](creating-a-site-wide-layout-using-master-pages-cs/_static/image8.png)
@@ -115,7 +115,7 @@ Agregar un nuevo archivo de página maestra mediante Visual Web Developer crea u
 
 [!code-aspx[Main](creating-a-site-wide-layout-using-master-pages-cs/samples/sample1.aspx)]
 
-La primera línea en el marcado declarativo es el [ `@Master` directiva](https://msdn.microsoft.com/en-us/library/ms228176.aspx). El `@Master` directiva es similar a la [ `@Page` directiva](https://msdn.microsoft.com/en-us/library/ydy4x04a.aspx) que aparece en las páginas ASP.NET. Define el idioma de servidor (C#) y la información sobre la ubicación y la herencia de clase de código subyacente de la página maestra.
+La primera línea en el marcado declarativo es el [ `@Master` directiva](https://msdn.microsoft.com/library/ms228176.aspx). El `@Master` directiva es similar a la [ `@Page` directiva](https://msdn.microsoft.com/library/ydy4x04a.aspx) que aparece en las páginas ASP.NET. Define el idioma de servidor (C#) y la información sobre la ubicación y la herencia de clase de código subyacente de la página maestra.
 
 El `DOCTYPE` y marcado declarativo de la página aparece debajo de la `@Master` directiva. La página incluye HTML estático junto con cuatro controles de servidor:
 
@@ -163,7 +163,7 @@ En los años he creado un número de aplicaciones web ASP.NET para pequeñas y m
 Afortunadamente, hay innumerous sitios Web que ofrecen las plantillas de diseño HTML libres: Google devuelve resultados de más de seis millones para el término de búsqueda "plantillas de sitio Web gratuita." Uno de Mis favoritos es [OpenDesigns.org](http://opendesigns.org/). Una vez que encuentre una plantilla de sitio Web que desee, agregar los archivos CSS y las imágenes al proyecto del sitio Web e integrar HTML de la plantilla en la página maestra.
 
 > [!NOTE]
-> Microsoft también ofrece una serie de [plantillas de Kit de inicio de diseño de ASP.NET gratuitas](https://msdn.microsoft.com/en-us/asp.net/aa336613.aspx) que se integran en el cuadro de diálogo nuevo sitio Web en Visual Studio.
+> Microsoft también ofrece una serie de [plantillas de Kit de inicio de diseño de ASP.NET gratuitas](https://msdn.microsoft.com/asp.net/aa336613.aspx) que se integran en el cuadro de diálogo nuevo sitio Web en Visual Studio.
 
 
 ## <a name="step-2-creating-associated-content-pages"></a>Paso 2: Crear páginas de contenido asociadas
@@ -272,8 +272,8 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [ASP.NET para diseñadores: libre para las plantillas de diseño y orientación sobre la creación de sitios Web ASP.NET utilizando estándares Web](https://msdn.microsoft.com/en-us/asp.net/aa336602.aspx)
-- [Información general de páginas maestras de ASP.NET](https://msdn.microsoft.com/en-us/library/wtxbf3hh.aspx)
+- [ASP.NET para diseñadores: libre para las plantillas de diseño y orientación sobre la creación de sitios Web ASP.NET utilizando estándares Web](https://msdn.microsoft.com/asp.net/aa336602.aspx)
+- [Información general de páginas maestras de ASP.NET](https://msdn.microsoft.com/library/wtxbf3hh.aspx)
 - [Tutoriales de (CSS) de hojas de estilos en cascada](http://www.w3schools.com/css/default.asp)
 - [Establecer el título de la página de forma dinámica](http://aspnet.4guysfromrolla.com/articles/051006-1.aspx)
 - [Páginas maestras en ASP.NET](http://www.odetocode.com/articles/419.aspx)

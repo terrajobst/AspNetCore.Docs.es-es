@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: ecb1fc693063995a3a05a7af5db64554c9f595e2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0f9ff7cf74048a008b150da1e843ff15333269ab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a>Autenticación en dos fases mediante SMS y correo electrónico con la identidad de ASP.NET
 ====================
@@ -168,7 +168,7 @@ El `ChangePhoneNumberAsync` método comprueba el código de seguridad expuesto. 
 
 El `isPersistent` parámetro establece si la sesión de autenticación se conserva entre varias solicitudes.
 
-Cuando se cambia el perfil de seguridad, un nuevo sello de seguridad se generan y almacenan en la `SecurityStamp` campo de la *AspNetUsers* tabla. Tenga en cuenta que el `SecurityStamp` campo es diferente de la cookie de seguridad. La cookie de seguridad no se almacena en la `AspNetUsers` tabla (o cualquier otra estructura en la base de datos de identidad en). El token de cookie de seguridad es autofirmado mediante [DPAPI](https://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx) y se crea con el `UserId, SecurityStamp` e información de tiempo de expiración.
+Cuando se cambia el perfil de seguridad, un nuevo sello de seguridad se generan y almacenan en la `SecurityStamp` campo de la *AspNetUsers* tabla. Tenga en cuenta que el `SecurityStamp` campo es diferente de la cookie de seguridad. La cookie de seguridad no se almacena en la `AspNetUsers` tabla (o cualquier otra estructura en la base de datos de identidad en). El token de cookie de seguridad es autofirmado mediante [DPAPI](https://msdn.microsoft.com/library/system.security.cryptography.protecteddata.aspx) y se crea con el `UserId, SecurityStamp` e información de tiempo de expiración.
 
 El middleware de cookies, comprueba la cookie en cada solicitud. El `SecurityStampValidator` método en el `Startup` clase llega a la base de datos y comprueba el sello de seguridad de forma periódica, según se haya especificado con el `validateInterval`. Esto sólo ocurre cada 30 minutos (en nuestro ejemplo) a menos que cambie el perfil de seguridad. El intervalo de 30 minutos se ha elegido para reducir los viajes a la base de datos.
 
@@ -264,7 +264,7 @@ El inicio de sesión local tanto el registro sociales de comprobación para ver 
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample17.cs?highlight=10-11,17-18)]
 
-El código siguiente muestra el `SendCode` método de acción. A [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx) se crea con todos los métodos de 2FA habilitados para el usuario. El [SelectListItem](https://msdn.microsoft.com/en-us/library/system.web.mvc.selectlistitem.aspx) se pasa a la [DropDownListFor](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.dropdownlist.aspx) aplicación auxiliar, lo que permite al usuario seleccionar el enfoque de 2FA (normalmente el correo electrónico y SMS).
+El código siguiente muestra el `SendCode` método de acción. A [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) se crea con todos los métodos de 2FA habilitados para el usuario. El [SelectListItem](https://msdn.microsoft.com/library/system.web.mvc.selectlistitem.aspx) se pasa a la [DropDownListFor](https://msdn.microsoft.com/library/system.web.ui.webcontrols.dropdownlist.aspx) aplicación auxiliar, lo que permite al usuario seleccionar el enfoque de 2FA (normalmente el correo electrónico y SMS).
 
 [!code-csharp[Main](two-factor-authentication-using-sms-and-email-with-aspnet-identity/samples/sample18.cs)]
 
@@ -284,6 +284,6 @@ Aunque puede establecer el bloqueo de cuenta en los errores de intento de contra
 - [Aplicación de MVC 5 con Facebook, Twitter, LinkedIn y Google OAuth2 Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) también muestra cómo agregar información de perfil a la tabla de usuarios.
 - [ASP.NET MVC e identidad 2.0: comprende los fundamentos](http://typecastexception.com/post/2014/04/20/ASPNET-MVC-and-Identity-20-Understanding-the-Basics.aspx) por John Atten.
 - [Confirmación de cuenta y contraseña de recuperación con la identidad de ASP.NET](account-confirmation-and-password-recovery-with-aspnet-identity.md)
-- [Introducción a la identidad de ASP.NET](../getting-started/introduction-to-aspnet-identity.md)
+- [Introducción a ASP.NET Identity](../getting-started/introduction-to-aspnet-identity.md)
 - [Anuncio de RTM de ASP.NET Identity 2.0.0](https://blogs.msdn.com/b/webdev/archive/2014/03/20/test-announcing-rtm-of-asp-net-identity-2-0-0.aspx) por Pranav Rastogi.
 - [Identidad de ASP.NET 2.0: Configurar la validación de la cuenta y la autorización de dos fases](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) por John Atten.

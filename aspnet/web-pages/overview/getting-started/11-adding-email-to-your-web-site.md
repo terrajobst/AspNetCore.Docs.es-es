@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: 2db94088a04e87c6ab89df26a7a7b0e2a2653a1a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Enviar correo electrónico de un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -138,6 +138,6 @@ También puede enviar archivos que están conectados a los mensajes de correo el
 ## <a name="additional-resources"></a>Recursos adicionales
 
 
-- [Guía de solución de problemas (Razor) de ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253001)
-- [Protocolo de transferencia de correo simple](https://msdn.microsoft.com/en-us/library/aa480435.aspx)
+- [Guía de solución de problemas de ASP.NET Web Pages (Razor)](https://go.microsoft.com/fwlink/?LinkId=253001)
+- [Protocolo de transferencia de correo simple](https://msdn.microsoft.com/library/aa480435.aspx)
 - [Personalizar el comportamiento de todo el sitio de ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=202906)

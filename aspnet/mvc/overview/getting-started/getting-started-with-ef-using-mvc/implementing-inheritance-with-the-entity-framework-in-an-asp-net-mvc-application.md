@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e6ee3f9c055a15b13c27f94675006b9a7e804f1b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 118233338112a71216b909b1dabed2333bfa235e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-inheritance-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-11-of-12"></a>Implementar la herencia con Entity Framework 6 en una aplicación de MVC de ASP.NET 5 (11 de 12)
 ====================
@@ -43,13 +43,13 @@ Imagine que desea eliminar el código redundante para las propiedades que compar
 
 Hay varias maneras de que esta estructura de herencia se podría representar en la base de datos. Podría tener un `Person` tabla que incluye información acerca de los alumnos e instructores en una sola tabla. Algunas de las columnas pudieron aplicar solo a instructores (`HireDate`), algunas solo a los alumnos (`EnrollmentDate`), algunos a los métodos (`LastName`, `FirstName`). Por lo general, tendría un *discriminador* representa la columna para indicar qué tipo de cada fila. Por ejemplo, la columna discriminadora podría tener "Instructor" para instructores y "Student" para estudiantes.
 
-![Tabla por hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
+![Table-per-hierarchy_example](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
 Este patrón consiste en generar una estructura de herencia de la entidad de una tabla de base de datos único se denomina *tabla por jerarquía* herencia (TPH).
 
 Una alternativa consiste en hacer que la base de datos se parecen más a la estructura de herencia. Por ejemplo, podría tener sólo los campos de nombre el `Person` de tabla y tenga distintos `Instructor` y `Student` tablas con los campos de fecha.
 
-![Tabla por type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
+![Table-per-type_inheritance](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
 Este modelo de proceso de realizar una tabla de base de datos para cada clase de entidad se denomina *tabla por tipo* herencia (TPT).
 
@@ -57,7 +57,7 @@ Todavía otra opción es asignar todos los tipos de no abstractas para tablas in
 
 TPC y patrones de herencia TPH suele proporcionan un mejor rendimiento en Entity Framework de patrones de herencia de TPT, porque pueden dar lugar a patrones TPT en consultas de combinaciones complejas.
 
-Este tutorial muestra cómo implementar la herencia TPH. TPH es el patrón de herencia predeterminado en Entity Framework, por lo que todo lo que tiene que hacer es crear un `Person` clase, cambie el `Instructor` y `Student` clases que derivan de `Person`, agregue la nueva clase a la `DbContext`y crear un migración. (Para obtener información sobre cómo implementar los otros patrones de herencia, vea [asignación de la herencia de tabla por tipo (TPT)](https://msdn.microsoft.com/en-us/data/jj591617#2.5) y [asignación de la herencia de clase concreta por tabla (TPC)](https://msdn.microsoft.com/en-us/data/jj591617#2.6) en MSDN Documentación de Framework de entidad).
+Este tutorial muestra cómo implementar la herencia TPH. TPH es el patrón de herencia predeterminado en Entity Framework, por lo que todo lo que tiene que hacer es crear un `Person` clase, cambie el `Instructor` y `Student` clases que derivan de `Person`, agregue la nueva clase a la `DbContext`y crear un migración. (Para obtener información sobre cómo implementar los otros patrones de herencia, vea [asignación de la herencia de tabla por tipo (TPT)](https://msdn.microsoft.com/data/jj591617#2.5) y [asignación de la herencia de clase concreta por tabla (TPC)](https://msdn.microsoft.com/data/jj591617#2.6) en MSDN Documentación de Framework de entidad).
 
 ## <a name="create-the-person-class"></a>Crear la clase de persona
 
@@ -159,7 +159,7 @@ Esta sección requiere que se complete la parte opcional **a implementar la apli
 
 ## <a name="summary"></a>Resumen
 
-Ha implementado la herencia de tabla por jerarquía para el `Person`, `Student`, y `Instructor` clases. Para obtener más información acerca de ésta y otras estructuras de herencia, vea [patrón de herencia de TPT](https://msdn.microsoft.com/en-us/data/jj618293) y [patrón de herencia TPH](https://msdn.microsoft.com/en-us/data/jj618292) en MSDN. En el siguiente tutorial verá cómo controlar una variedad de escenarios de Entity Framework relativamente avanzados.
+Ha implementado la herencia de tabla por jerarquía para el `Person`, `Student`, y `Instructor` clases. Para obtener más información acerca de ésta y otras estructuras de herencia, vea [patrón de herencia de TPT](https://msdn.microsoft.com/data/jj618293) y [patrón de herencia TPH](https://msdn.microsoft.com/data/jj618292) en MSDN. En el siguiente tutorial verá cómo controlar una variedad de escenarios de Entity Framework relativamente avanzados.
 
 Vínculos a otros recursos de Entity Framework pueden encontrarse en el [ASP.NET Data Access: recursos recomendados](../../../../whitepapers/aspnet-data-access-content-map.md).
 

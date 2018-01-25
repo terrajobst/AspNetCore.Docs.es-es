@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 06370e31d27aeab50e56e0b0b860aca7c3ad683b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5b84b797bf0c9670ac65a5384b6d95d5df3827eb
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="caching-data-at-application-startup-vb"></a>Datos en caché al iniciar la aplicación (VB)
 ====================
@@ -36,7 +36,7 @@ Los dos tutoriales anteriores examinando el almacenamiento en caché datos de la
 Otro tipo de carga automático y el tipo que se podrá explorar en este tutorial, está cargando datos en la memoria caché al iniciar la aplicación. Este enfoque es especialmente útil para almacenar en caché datos estáticos, como los registros en tablas de búsqueda de la base de datos.
 
 > [!NOTE]
-> Para obtener una visión más detallada de las diferencias entre cargar reactiva y proactiva, así como las listas de los profesionales de TI, inconvenientes y recomendaciones de implementación, consulte el [administrar el contenido de una memoria caché](https://msdn.microsoft.com/en-us/library/ms978503.aspx) sección de la [ Almacenamiento en caché de la Guía de arquitectura para aplicaciones de .NET Framework](https://msdn.microsoft.com/en-us/library/ms978498.aspx).
+> Para obtener una visión más detallada de las diferencias entre cargar reactiva y proactiva, así como las listas de los profesionales de TI, inconvenientes y recomendaciones de implementación, consulte el [administrar el contenido de una memoria caché](https://msdn.microsoft.com/library/ms978503.aspx) sección de la [ Almacenamiento en caché de la Guía de arquitectura para aplicaciones de .NET Framework](https://msdn.microsoft.com/library/ms978498.aspx).
 
 
 ## <a name="step-1-determining-what-data-to-cache-at-application-startup"></a>Paso 1: Determinar qué datos en memoria caché al iniciar la aplicación
@@ -68,7 +68,7 @@ Cuando se trabaja con una clase, normalmente la clase debe en primer lugar se cr
 
 Antes de que podemos llamar *SomeMethod* o trabajar con *SomeProperty*, primero que debemos crear una instancia de la clase utilizando el `New` palabra clave. *SomeMethod* y *SomeProperty* están asociados a una instancia determinada. La duración de estos miembros se vincula a la duración de su objeto asociado. *Los miembros estáticos*, por otro lado, son las variables, propiedades y métodos que se comparten entre *todos los* instancias de la clase y, por lo tanto, tienen una duración siempre que la clase. Los miembros estáticos se indican mediante la palabra clave `Shared`.
 
-Además de los miembros estáticos, datos pueden almacenarse en caché mediante el estado de la aplicación. Cada aplicación de ASP.NET mantiene una colección de nombre/valor s compartida todos los usuarios y las páginas de la aplicación. Puede tener acceso a esta colección mediante el [ `HttpContext` clase](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.aspx) s [ `Application` propiedad](https://msdn.microsoft.com/en-us/library/system.web.httpcontext.application.aspx)y usar desde una clase de código subyacente ASP.NET page s así:
+Además de los miembros estáticos, datos pueden almacenarse en caché mediante el estado de la aplicación. Cada aplicación de ASP.NET mantiene una colección de nombre/valor s compartida todos los usuarios y las páginas de la aplicación. Puede tener acceso a esta colección mediante el [ `HttpContext` clase](https://msdn.microsoft.com/library/system.web.httpcontext.aspx) s [ `Application` propiedad](https://msdn.microsoft.com/library/system.web.httpcontext.application.aspx)y usar desde una clase de código subyacente ASP.NET page s así:
 
 
 [!code-vb[Main](caching-data-at-application-startup-vb/samples/sample2.vb)]
@@ -135,7 +135,7 @@ El valor predeterminado `Global.asax` plantilla de archivo incluye cinco método
 - **`Session_Start`**se ejecuta cuando se crea una nueva sesión
 - **`Session_End`**se ejecuta cuando una sesión está expirada o se abandonó el proceso
 
-El `Application_Start` controlador de eventos se llama solo una vez durante un ciclo de vida de aplicación s. La aplicación inicia la primera vez un recurso ASP.NET se solicita la aplicación y continúa ejecutándose hasta que se reinicie la aplicación, lo cual puede suceder si modifica el contenido de la `/Bin` carpeta, modificar `Global.asax`, modificar el contenido en el `App_Code` carpeta, o modificar el `Web.config` archivo, entre otras causas. Hacer referencia a [información general sobre el ciclo de vida de aplicaciones ASP.NET](https://msdn.microsoft.com/en-us/library/ms178473.aspx) para obtener una explicación más detallada en el ciclo de vida de la aplicación.
+El `Application_Start` controlador de eventos se llama solo una vez durante un ciclo de vida de aplicación s. La aplicación inicia la primera vez un recurso ASP.NET se solicita la aplicación y continúa ejecutándose hasta que se reinicie la aplicación, lo cual puede suceder si modifica el contenido de la `/Bin` carpeta, modificar `Global.asax`, modificar el contenido en el `App_Code` carpeta, o modificar el `Web.config` archivo, entre otras causas. Hacer referencia a [información general sobre el ciclo de vida de aplicaciones ASP.NET](https://msdn.microsoft.com/library/ms178473.aspx) para obtener una explicación más detallada en el ciclo de vida de la aplicación.
 
 Para estos tutoriales únicamente se necesita agregar código a la  `Application_Start` /método siguiente, por lo que no dude en quitar las demás. En `Application_Start`, basta con llamar a la `StaticCache` clase s. `LoadStaticCache()` método, que se cargarán y almacenar en caché la información del proveedor:
 
@@ -194,7 +194,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

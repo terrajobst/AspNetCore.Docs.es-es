@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry
 msc.type: authoredcontent
-ms.openlocfilehash: dfb0158ec05c890ecf80571d95b22d8c791ba7fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9baddd1836323385239206a3cf49e5938bbaff58
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="monitoring-and-telemetry-building-real-world-cloud-apps-with-azure"></a>Supervisión y telemetría (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -41,7 +41,7 @@ Una de las cosas que excelente sobre el entorno de nube es que resulta más fác
 - [AppDynamics](http://www.appdynamics.com/)
 - [Dynatrace](https://datamarket.azure.com/application/b4011de2-1212-4375-9211-e882766121ff)
 
-A partir de marzo de 2015, [Microsoft Application Insights para Visual Studio Online](https://azure.microsoft.com/en-us/documentation/articles/app-insights-get-started/) no se ha liberado aún pero está disponible en vista previa para probarlo. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) también incluye características de supervisión.
+A partir de marzo de 2015, [Microsoft Application Insights para Visual Studio Online](https://azure.microsoft.com/documentation/articles/app-insights-get-started/) no se ha liberado aún pero está disponible en vista previa para probarlo. [Microsoft System Center](http://www.petri.co.il/microsoft-system-center-introduction.htm#) también incluye características de supervisión.
 
 Usaremos rápidamente configurando New Relic para mostrar lo fácil que puede ser utilizar un sistema de telemetría.
 
@@ -156,13 +156,13 @@ Se recomienda escribir un registro cada vez que la aplicación llama a un servic
 
 ¿Qué se recomienda realizar cuando se crea una aplicación de producción es crear un sencillo *ILogger* interfaz y pegar algunos métodos en ella. Esto facilita la cambia la implementación del registro posterior y no tiene que pasar por todo el código para que lo haga. Se puede usar el `System.Diagnostics.Trace` clase a lo largo de la aplicación repararlo, pero en su lugar que estamos usando tras los bastidores en una clase de registro que implementa *ILogger*, y lo convertimos *ILogger* método llama a lo largo de la aplicación.
 
-De este modo, si desea realizar el registro más completo, puede reemplazar [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) con cualquier mecanismo de registro que desee. Por ejemplo, a medida que crece la aplicación podría decidir que desea usar un paquete de registro más completo como [NLog](http://nlog-project.org/) o [bloque de aplicación de registro de biblioteca de empresas](https://msdn.microsoft.com/en-us/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) es otro marco de trabajo de registro popular pero no registro asincrónico.)
+De este modo, si desea realizar el registro más completo, puede reemplazar [ `System.Diagnostics.Trace` ](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-troubleshoot-visual-studio#apptracelogs) con cualquier mecanismo de registro que desee. Por ejemplo, a medida que crece la aplicación podría decidir que desea usar un paquete de registro más completo como [NLog](http://nlog-project.org/) o [bloque de aplicación de registro de biblioteca de empresas](https://msdn.microsoft.com/library/dn440731(v=pandp.60).aspx). ([Log4Net](http://logging.apache.org/log4net/) es otro marco de trabajo de registro popular pero no registro asincrónico.)
 
 Una posible razón para utilizar un marco como NLog es facilitar dividir el registro de salida en almacenes de datos de gran volumen y de gran valor independiente. Que le ayuda a almacenar de forma eficaz grandes volúmenes de datos INFORM que no es necesario ejecutar las consultas rápidas con, al tiempo que mantiene un acceso rápido a los datos de ACT.
 
 ### <a name="semantic-logging"></a>Registro semántica
 
-Para que un modo relativamente nuevo realizar el registro que puede generar información de diagnóstico más útil, vea [Enterprise Library semántica registro aplicación bloque (bloques)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Usa bloques [seguimiento de eventos para Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803.aspx) (ETW) y [EventSource](https://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource.aspx) admite en .NET 4.5 para permitirle crear más registros consultables y no estructurados. Definir un método diferente para cada tipo de evento que ha iniciado sesión, que le permite personalizar la información que se escribe. Por ejemplo, para registrar un error de base de datos SQL puede llamar a un `LogSQLDatabaseError` método. Para ese tipo de excepción, sabrá que una pieza clave de información es el número de error, por lo que puede incluir un parámetro de número de error en la firma del método y registre el número de error como un campo independiente en la entrada del registro que se escribe. Dado que el número está en un campo independiente puede más fácil y confiable obtener informes basados en números de error SQL que se puede realizar si se concatenan simplemente el número de error en una cadena de mensaje.
+Para que un modo relativamente nuevo realizar el registro que puede generar información de diagnóstico más útil, vea [Enterprise Library semántica registro aplicación bloque (bloques)](http://convective.wordpress.com/2013/08/12/semantic-logging-application-block-slab/). Usa bloques [seguimiento de eventos para Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) y [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) admite en .NET 4.5 para permitirle crear más registros consultables y no estructurados. Definir un método diferente para cada tipo de evento que ha iniciado sesión, que le permite personalizar la información que se escribe. Por ejemplo, para registrar un error de base de datos SQL puede llamar a un `LogSQLDatabaseError` método. Para ese tipo de excepción, sabrá que una pieza clave de información es el número de error, por lo que puede incluir un parámetro de número de error en la firma del método y registre el número de error como un campo independiente en la entrada del registro que se escribe. Dado que el número está en un campo independiente puede más fácil y confiable obtener informes basados en números de error SQL que se puede realizar si se concatenan simplemente el número de error en una cadena de mensaje.
 
 ## <a name="logging-in-the-fix-it-app"></a>Registro en la corrección de aplicación
 
@@ -244,13 +244,13 @@ La aplicación repararlo usa seguimiento de System.Diagnostics. Todo lo que nece
 
 Después de habilitar el registro en Azure, puede ver los registros en la ventana Resultados de Visual Studio que se crean.
 
-![Menú de registros de streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
+![Menú de registros de streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-viewlogsmenu.png)
 
-![Menú de registros de streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
+![Menú de registros de streaming](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-nologsyet.png)
 
 También puede tener registros se escriban en la cuenta de almacenamiento y la vista con cualquier herramienta que puede acceder al servicio de la tabla de almacenamiento de Azure, como **Explorador de servidores** en Visual Studio o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-![Registros en el Explorador de servidores](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
+![Registros en el Explorador de servidores](http://wacomdpsstorage.blob.core.windows.net/articlesmedia/content-ppe.windowsazure.com/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/20140115062810/tws-storagelogs.png)
 
 ## <a name="summary"></a>Resumen
 
@@ -264,10 +264,10 @@ Para obtener más información, vea los siguientes recursos.
 
 Documentación principalmente acerca de telemetría:
 
-- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/en-us/library/dn568099.aspx). Ver instrucciones de instrumentación y telemetría, Guía de servicio de medición, patrón de supervisión de estado de punto de conexión y patrón de volver a configurar en tiempo de ejecución.
+- [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Ver instrucciones de instrumentación y telemetría, Guía de servicio de medición, patrón de supervisión de estado de punto de conexión y patrón de volver a configurar en tiempo de ejecución.
 - [Decimales aprietan en la nube: habilitar la supervisión de sitios Web de Azure de rendimiento de New Relic](http://www.hanselman.com/blog/PennyPinchingInTheCloudEnablingNewRelicPerformanceMonitoringOnWindowsAzureWebsites.aspx).
-- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/jj717232.aspx). Notas del producto, Mark Simms y Michael Thomassy. Vea la sección telemetría y diagnósticos.
-- [Desarrollo de próxima generación con Application Insights](https://msdn.microsoft.com/en-us/magazine/dn683794.aspx). Artículo de MSDN Magazine.
+- [Procedimientos recomendados para el diseño de servicios a gran escala en los servicios de nube de Azure](https://msdn.microsoft.com/library/windowsazure/jj717232.aspx). Notas del producto, Mark Simms y Michael Thomassy. Vea la sección telemetría y diagnósticos.
+- [Desarrollo de próxima generación con Application Insights](https://msdn.microsoft.com/magazine/dn683794.aspx). Artículo de MSDN Magazine.
 
 Documentación principalmente acerca del registro:
 

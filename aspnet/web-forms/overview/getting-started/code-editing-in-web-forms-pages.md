@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: dfcddb4373fbf17ca29c5ab94c6ab3387ed6b526
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Código editar formularios Web Forms ASP.NET en Visual Studio 2013
 ====================
@@ -38,7 +38,7 @@ Durante este tutorial aprenderá a:
 
 Para poder completar este tutorial, necesitará:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) o [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework se instala automáticamente. 
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework se instala automáticamente. 
 
     > [!NOTE] 
     > 
@@ -132,8 +132,8 @@ En esta parte del tutorial, escribirá un código sencillo y, a continuación, e
 ### <a name="to-extract-a-method-in-a-c-page"></a>Para extraer un método en una página de C#
 
 1. Cambie a **diseño** vista.
-2. En el **cuadro de herramientas**, desde el **estándar** ficha, arrastre un [botón](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.aspx) control a la página.
-3. Haga doble clic en el **botón** control para crear un controlador para su [haga clic en](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.button.click.aspx) eventos y, a continuación, agregue el código resaltado siguiente:
+2. En el **cuadro de herramientas**, desde el **estándar** ficha, arrastre un [botón](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.aspx) control a la página.
+3. Haga doble clic en el **botón** control para crear un controlador para su [haga clic en](https://msdn.microsoft.com/library/system.web.ui.webcontrols.button.click.aspx) eventos y, a continuación, agregue el código resaltado siguiente:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
@@ -185,13 +185,13 @@ Al trabajar con variables, así como objetos, puede cambiar su nombre una vez qu
 
 Dado que hay muchas tareas de codificación que los desarrolladores de formularios Web Forms que realizar con frecuencia, el editor de código proporciona una biblioteca de fragmentos de código o bloques de código predefinido. Puede insertar estos fragmentos de código en la página.
 
-Cada idioma que se utiliza en Visual Studio tiene ligeras diferencias en la manera de que insertar fragmentos de código. Para obtener información acerca de cómo insertar fragmentos de código, vea [fragmentos de código de IntelliSense de Visual Basic](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx). Para obtener información acerca de cómo insertar fragmentos de código en Visual C#, vea [fragmentos de código de Visual C#](https://msdn.microsoft.com/en-us/library/z41h7fat.aspx).
+Cada idioma que se utiliza en Visual Studio tiene ligeras diferencias en la manera de que insertar fragmentos de código. Para obtener información acerca de cómo insertar fragmentos de código, vea [fragmentos de código de IntelliSense de Visual Basic](https://msdn.microsoft.com/library/18yz4be4.aspx). Para obtener información acerca de cómo insertar fragmentos de código en Visual C#, vea [fragmentos de código de Visual C#](https://msdn.microsoft.com/library/z41h7fat.aspx).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Este tutorial ha mostrado las características básicas del editor de código de Visual Studio 2010 para la corrección de errores en el código, refactorizar código, cambiar el nombre de las variables e insertar fragmentos de código en el código. Características adicionales en el editor pueden realizar el desarrollo de aplicaciones rápida y sencilla. Por ejemplo, puedes:
 
-- Obtener más información acerca de las características de IntelliSense, como modificar opciones de IntelliSense, administrar fragmentos de código y buscar fragmentos de código en línea. Para obtener más información, vea [Usar IntelliSense](https://msdn.microsoft.com/en-us/library/hcw1s69b.aspx).
-- Aprenda a crear sus propios fragmentos de código. Para obtener más información, consulte [creación y uso de fragmentos de código de IntelliSense](https://msdn.microsoft.com/en-us/library/ms165392.aspx)
-- Más información sobre las características específicas de Visual Basic de fragmentos de código de IntelliSense, como personalizar los fragmentos de código y solución de problemas. Para obtener más información, vea [fragmentos de código de IntelliSense de Visual Basic](https://msdn.microsoft.com/en-us/library/18yz4be4.aspx)
-- Obtener más información sobre C#-determinadas características de IntelliSense, como la refactorización y fragmentos de código. Para obtener más información, consulte [IntelliSense para Visual C#](https://msdn.microsoft.com/en-us/library/43f44291.aspx).
+- Obtener más información acerca de las características de IntelliSense, como modificar opciones de IntelliSense, administrar fragmentos de código y buscar fragmentos de código en línea. Para obtener más información, vea [Usar IntelliSense](https://msdn.microsoft.com/library/hcw1s69b.aspx).
+- Aprenda a crear sus propios fragmentos de código. Para obtener más información, consulte [creación y uso de fragmentos de código de IntelliSense](https://msdn.microsoft.com/library/ms165392.aspx)
+- Más información sobre las características específicas de Visual Basic de fragmentos de código de IntelliSense, como personalizar los fragmentos de código y solución de problemas. Para obtener más información, vea [fragmentos de código de IntelliSense de Visual Basic](https://msdn.microsoft.com/library/18yz4be4.aspx)
+- Obtener más información sobre C#-determinadas características de IntelliSense, como la refactorización y fragmentos de código. Para obtener más información, consulte [IntelliSense para Visual C#](https://msdn.microsoft.com/library/43f44291.aspx).

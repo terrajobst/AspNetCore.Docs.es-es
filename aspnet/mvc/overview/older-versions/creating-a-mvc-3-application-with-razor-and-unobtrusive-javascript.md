@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 68870caf1608e596962650cf653e5b455b82382a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Crear un MVC 3 aplicaciones con JavaScript Razor y discreto
 ====================
@@ -68,7 +68,7 @@ Asigne a la clase el nombre `UserModel`. Reemplace el contenido de la *UserModel
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample2.cs)]
 
-La `UserModel` clase representa a los usuarios. Cada miembro de la clase está anotada con la [requiere](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) de atributo de la [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) espacio de nombres. Los atributos de la [DataAnnotations](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.aspx) espacio de nombres proporcionan validación automática de lado cliente y servidor para aplicaciones web.
+La `UserModel` clase representa a los usuarios. Cada miembro de la clase está anotada con la [requiere](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) de atributo de la [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) espacio de nombres. Los atributos de la [DataAnnotations](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.aspx) espacio de nombres proporcionan validación automática de lado cliente y servidor para aplicaciones web.
 
 Abra la `HomeController` clase y agregue un `using` la directiva para que pueda acceder el `UserModel` y `Users` clases:
 
@@ -172,7 +172,7 @@ También deberá incluir varios archivos de JavaScript en la vista representada.
 
 Los dos primeros scripts de jQuery se hospedan mediante la Microsoft Ajax entrega red contenido (CDN). Aprovechando las ventajas de la CDN de Microsoft Ajax, notablemente puede mejorar el rendimiento de aciertos de la primera de las aplicaciones.
 
-Ejecute la aplicación y haga clic en un vínculo de edición. Ver código fuente de la página en el explorador. El código fuente del explorador muestra todos los atributos del formulario `data-val` (para la validación de datos). Cuando se habilita la validación del cliente y JavaScript discreto, contienen campos de entrada con una regla de validación del cliente la `data-val="true"` atributo para desencadenar la validación de cliente discretos. Por ejemplo, el `City` campo en el modelo se decora con el [necesario](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.requiredattribute.aspx) atributo, lo que resulta en el código HTML que se muestra en el ejemplo siguiente:
+Ejecute la aplicación y haga clic en un vínculo de edición. Ver código fuente de la página en el explorador. El código fuente del explorador muestra todos los atributos del formulario `data-val` (para la validación de datos). Cuando se habilita la validación del cliente y JavaScript discreto, contienen campos de entrada con una regla de validación del cliente la `data-val="true"` atributo para desencadenar la validación de cliente discretos. Por ejemplo, el `City` campo en el modelo se decora con el [necesario](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.requiredattribute.aspx) atributo, lo que resulta en el código HTML que se muestra en el ejemplo siguiente:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample15.cshtml)]
 
@@ -180,7 +180,7 @@ Para cada regla de validación del cliente, se agrega un atributo que tiene el f
 
 ![Ciudad necesario](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image14.png)
 
-De forma similar, para cada parámetro de la regla de validación del cliente, se agrega un atributo que tiene el formato `data-val-rulename-paramname=paramvalue`. Por ejemplo, el `FirstName` propiedad se anota con el [StringLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) de atributo y especifica una longitud mínima de 3 y una longitud máxima de 8. La regla de validación de datos denominada `length` tiene el nombre del parámetro `max` y el valor del parámetro 8. La siguiente muestra el código HTML que se genera para el `FirstName` campo cuando se modifica uno de los usuarios:
+De forma similar, para cada parámetro de la regla de validación del cliente, se agrega un atributo que tiene el formato `data-val-rulename-paramname=paramvalue`. Por ejemplo, el `FirstName` propiedad se anota con el [StringLength](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.stringlengthattribute.aspx) de atributo y especifica una longitud mínima de 3 y una longitud máxima de 8. La regla de validación de datos denominada `length` tiene el nombre del parámetro `max` y el valor del parámetro 8. La siguiente muestra el código HTML que se genera para el `FirstName` campo cuando se modifica uno de los usuarios:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample16.cshtml)]
 

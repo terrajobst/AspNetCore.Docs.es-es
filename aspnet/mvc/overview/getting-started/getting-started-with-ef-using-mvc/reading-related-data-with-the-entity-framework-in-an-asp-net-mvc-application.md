@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 title: "Leer datos relacionados con Entity Framework en una aplicación ASP.NET MVC | Documentos de Microsoft"
 author: tdykstra
-description: /AJAX/tutorials/Using-AJAX-Control-Toolkit-Controls-and-control-Extenders-vb
+description: /ajax/tutorials/using-ajax-control-toolkit-controls-and-control-extenders-vb
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 1f4912bb3113a8f9cdae4211e055a7e317ab2aff
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a74d01f306abeeac5ac28c942f03001e0fe00f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lectura relacionadas con datos con Entity Framework en una aplicación ASP.NET MVC
 ====================
@@ -45,7 +45,7 @@ Hay varias maneras que Entity Framework pueda cargar los datos relacionados en l
 - *Carga diligente*. Cuando se lee la entidad, se recuperan los datos relacionados con él. Esto normalmente como resultado de una consulta de combinación única que recupera todos los datos que se necesitan. Carga diligente se especifica mediante el `Include` método.
 
     ![Eager_loading_example](https://asp.net/media/2577856/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Eager_loading_example_33f907ff-f0b0-4057-8e75-05a8cacac807.png)
-- *Carga explícita*. Esto es similar a la carga diferida, salvo que explícitamente recuperar los datos relacionados en el código. no sucede automáticamente cuando tiene acceso a una propiedad de navegación. Cargar datos relacionados manualmente obteniendo la entrada del Administrador de estado de objeto para una entidad y llamar a la [Collection.Load](https://msdn.microsoft.com/en-us/library/gg696220(v=vs.103).aspx) método para las colecciones o [Reference.Load](https://msdn.microsoft.com/en-us/library/gg679166(v=vs.103).aspx) método para propiedades que contienen un entidad única. (En el siguiente ejemplo, si desea cargar la propiedad de navegación del administrador, podría reemplazar `Collection(x => x.Courses)` con `Reference(x => x.Administrator)`.) Normalmente se usaría carga explícita cuando has activado la carga desactivar diferida.
+- *Carga explícita*. Esto es similar a la carga diferida, salvo que explícitamente recuperar los datos relacionados en el código. no sucede automáticamente cuando tiene acceso a una propiedad de navegación. Cargar datos relacionados manualmente obteniendo la entrada del Administrador de estado de objeto para una entidad y llamar a la [Collection.Load](https://msdn.microsoft.com/library/gg696220(v=vs.103).aspx) método para las colecciones o [Reference.Load](https://msdn.microsoft.com/library/gg679166(v=vs.103).aspx) método para propiedades que contienen un entidad única. (En el siguiente ejemplo, si desea cargar la propiedad de navegación del administrador, podría reemplazar `Collection(x => x.Courses)` con `Reference(x => x.Administrator)`.) Normalmente se usaría carga explícita cuando has activado la carga desactivar diferida.
 
     ![Explicit_loading_example](https://asp.net/media/2577862/Windows-Live-Writer_Reading-Re.NET-MVC-Application-5-of-10h1_ADC3_Explicit_loading_example_79d8c368-6d82-426f-be9a-2b443644ab15.png)
 
@@ -57,7 +57,7 @@ Si sabe que necesita datos relacionados para cada entidad recuperar, a menudo ca
 
 Por otro lado, en algunos casos la carga diferida es más eficaz. Carga diligente puede provocar una combinación muy compleja para generarse, que SQL Server no puede procesar eficazmente. O bien, si necesita tener acceso a propiedades de navegación de una entidad solo para un subconjunto de un conjunto de las entidades que está procesando, la carga diferida dará mejores resultados porque carga diligente recuperaría más datos de los que necesita. Si el rendimiento es crítico, es mejor probar el rendimiento de ambas formas para elegir la mejor opción.
 
-Carga diferida puede enmascarar el código que causa problemas de rendimiento. Por ejemplo, es posible que el código que no se especifica la carga diligente o explícita pero procesa un gran volumen de entidades y usa varias propiedades de navegación en cada iteración podría ser muy ineficaz (debido a muchos viajes de ida y la base de datos). Una aplicación que funciona perfectamente en desarrollo mediante una de servidor SQL server local podría tener problemas de rendimiento cuando se mueve a la base de datos de SQL Azure debido a la mayor latencia y la carga diferida. Generación de perfiles de las consultas de base de datos con una carga de prueba realistas le ayudará a determinar si la carga diferida es adecuada. Para obtener más información, consulte [Desmitificación de estrategias de Entity Framework: cargar datos relacionados](https://msdn.microsoft.com/en-us/magazine/hh205756.aspx) y [mediante Entity Framework para reducir la latencia de red a SQL Azure](https://msdn.microsoft.com/en-us/magazine/gg309181.aspx).
+Carga diferida puede enmascarar el código que causa problemas de rendimiento. Por ejemplo, es posible que el código que no se especifica la carga diligente o explícita pero procesa un gran volumen de entidades y usa varias propiedades de navegación en cada iteración podría ser muy ineficaz (debido a muchos viajes de ida y la base de datos). Una aplicación que funciona perfectamente en desarrollo mediante una de servidor SQL server local podría tener problemas de rendimiento cuando se mueve a la base de datos de SQL Azure debido a la mayor latencia y la carga diferida. Generación de perfiles de las consultas de base de datos con una carga de prueba realistas le ayudará a determinar si la carga diferida es adecuada. Para obtener más información, consulte [Desmitificación de estrategias de Entity Framework: cargar datos relacionados](https://msdn.microsoft.com/magazine/hh205756.aspx) y [mediante Entity Framework para reducir la latencia de red a SQL Azure](https://msdn.microsoft.com/magazine/gg309181.aspx).
 
 ### <a name="disable-lazy-loading-before-serialization"></a>Deshabilitar la carga diferida antes de la serialización
 
@@ -67,9 +67,9 @@ Serialización también puede verse complicada por las clases de proxy que usa E
 
 Es una manera de evitar problemas de serialización serializar objetos de transferencia de datos (dto) en lugar de objetos de entidad, como se muestra en el [usar Web API con Entity Framework](../../../../web-api/overview/data/using-web-api-with-entity-framework/part-5.md) tutorial.
 
-Si no utiliza dto, puede deshabilitar la carga diferida y evitar problemas de proxy por [deshabilitar la creación del proxy](https://msdn.microsoft.com/en-US/data/jj592886.aspx).
+Si no utiliza dto, puede deshabilitar la carga diferida y evitar problemas de proxy por [deshabilitar la creación del proxy](https://msdn.microsoft.com/data/jj592886.aspx).
 
-Estos son algunos otros [maneras para deshabilitar la carga diferida](https://msdn.microsoft.com/en-US/data/jj574232):
+Estos son algunos otros [maneras para deshabilitar la carga diferida](https://msdn.microsoft.com/data/jj574232):
 
 - Para las propiedades de navegación específica, omita el `virtual` palabra clave cuando se declara la propiedad.
 - Para todas las propiedades de navegación, establezca `LazyLoadingEnabled` a `false`, coloque el siguiente código en el constructor de la clase de contexto: 
@@ -164,7 +164,7 @@ Si se ha seleccionado un Id. de instructor, se recupera el instructor selecciona
 
 El `Where` método devuelve una colección, pero en este caso los criterios se pasan a ese método generan solo una `Instructor` entidad que se devuelven. El `Single` método convierte la colección en una sola `Instructor` entidad, que proporciona acceso a esa entidad `Courses` propiedad.
 
-Usa el [único](https://msdn.microsoft.com/en-us/library/system.linq.enumerable.single.aspx) método en una colección cuando se sabe que la colección tiene un único elemento. El `Single` método produce una excepción si la colección pasada a la está vacía o si hay más de un elemento. Una alternativa es [SingleOrDefault](https://msdn.microsoft.com/en-us/library/bb342451.aspx), que devuelve un valor predeterminado (`null` en este caso) si la colección está vacía. Sin embargo, en este caso que todavía produciría una excepción (de tratar de buscar un `Courses` propiedad en un `null` referencia), y el mensaje de excepción menos claramente indicaría la causa del problema. Cuando se llama a la `Single` método, también puede pasar en el `Where` condición en lugar de llamar el `Where` método por separado:
+Usa el [único](https://msdn.microsoft.com/library/system.linq.enumerable.single.aspx) método en una colección cuando se sabe que la colección tiene un único elemento. El `Single` método produce una excepción si la colección pasada a la está vacía o si hay más de un elemento. Una alternativa es [SingleOrDefault](https://msdn.microsoft.com/library/bb342451.aspx), que devuelve un valor predeterminado (`null` en este caso) si la colección está vacía. Sin embargo, en este caso que todavía produciría una excepción (de tratar de buscar un `Courses` propiedad en un `null` referencia), y el mensaje de excepción menos claramente indicaría la causa del problema. Cuando se llama a la `Single` método, también puede pasar en el `Where` condición en lugar de llamar el `Where` método por separado:
 
 [!code-csharp[Main](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 

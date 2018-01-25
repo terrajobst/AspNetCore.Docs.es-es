@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/less-sass-fa
-ms.openlocfilehash: c3a53d6118a72c00d61d9139b05325fd1cbd53da
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 764b11bbd301c0116488265d32f7d46dfc5bce27
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introducción a las aplicaciones de estilo con menos, Sass y fuente Maravilla en ASP.NET Core
 
@@ -97,7 +97,7 @@ body {
 .bgDark2    {color:@darker2}
 ```
 
-`@base`y el otro @-prefixed elementos son variables. Cada uno de ellos representa un color. Excepto `@base`, se establecen mediante las funciones de color: aclarar, oscurecer y de número. Aclarar y oscurecer es prácticamente lo que cabría esperar; número ajusta el matiz de un color en un número de grados (alrededor de la rueda de color). El procesador de menos es lo suficientemente inteligente como para pasar por alto las variables que no se utilizan, por lo que para demostrar cómo funcionan estas variables, es necesario utilizarlas en algún lugar. Las clases `.baseColor`, etc. se muestran los valores calculados de cada una de las variables en el archivo CSS que se genera.
+`@base`y el otro @-prefixed elementos son variables. Cada uno de ellos representa un color. Excepto `@base`, está configurados con las funciones de color: aclarar, oscurecer y de número. Aclarar y oscurecer es prácticamente lo que cabría esperar; número ajusta el matiz de un color en un número de grados (alrededor de la rueda de color). El procesador de menos es lo suficientemente inteligente como para pasar por alto las variables que no se utilizan, por lo que para demostrar cómo funcionan estas variables, es necesario utilizarlas en algún lugar. Las clases `.baseColor`, etc. se muestran los valores calculados de cada una de las variables en el archivo CSS que se genera.
 
 ### <a name="getting-started"></a>Introducción
 
@@ -246,7 +246,7 @@ nav {
 }
 ```
 
-Tenga en cuenta que en este caso, todos los elementos subordinados de `nav` están dentro de su ámbito. Ya no hay ninguna repetición de elementos primarios (`nav`, `li`, `a`), y el recuento de líneas total ha disminuido también (aunque algunos de los que es el resultado de que los valores en las mismas líneas en el segundo ejemplo). Puede ser muy útil, organización ver todas las reglas de un elemento de interfaz de usuario concreto dentro de un ámbito explícitamente limitado, en este caso desactivar el resto del archivo de llaves.
+Tenga en cuenta que en este caso, todos los elementos subordinados de `nav` están dentro de su ámbito. Ya no hay ninguna repetición de elementos primarios (`nav`, `li`, `a`), y el recuento de líneas total ha disminuido también (aunque algunos de que es el resultado de que los valores en las mismas líneas en el segundo ejemplo). Puede ser muy útil, organización ver todas las reglas de un elemento de interfaz de usuario concreto dentro de un ámbito explícitamente limitado, en este caso desactivar el resto del archivo de llaves.
 
 El `&` sintaxis es una característica menos selector, con & que representa el elemento primario de selector actual. Por lo tanto, dentro de la una {...} bloque, `&` representa un `a` (etiqueta) y, por tanto, `&:link` es equivalente a `a:link`.
 
@@ -321,7 +321,7 @@ Menor proporciona una serie de características adicionales, pero esto debe tene
 
 ## <a name="sass"></a>SASS
 
-SASS es similar a la menor, lo que proporciona compatibilidad para muchas de las mismas características, pero con una sintaxis ligeramente diferente. Se compila con Ruby, en lugar de JavaScript y, por lo que tiene requisitos de instalación diferentes. El idioma de Sass original no usa llaves o puntos y comas, sino que define ámbito mediante espacios en blanco y sangría. En la versión 3 de Sass, se introdujo una nueva sintaxis, **SCSS** ("CSS Sassy"). SCSS es similar a CSS en que se pasa por alto los espacios en blanco y niveles de sangría y en su lugar utiliza el punto y coma y llaves.
+SASS es similar a la menor, lo que proporciona compatibilidad para muchas de las mismas características, pero con una sintaxis ligeramente diferente. Se compila con Ruby, en lugar de JavaScript y, por lo que tiene requisitos de instalación diferentes. El idioma de Sass original no usa llaves o punto y coma, sino que define ámbito mediante espacios en blanco y sangría. En la versión 3 de Sass, se introdujo una nueva sintaxis, **SCSS** ("CSS Sassy"). SCSS es similar a CSS en que se pasa por alto los espacios en blanco y niveles de sangría y en su lugar utiliza el punto y coma y llaves.
 
 Para instalar Sass, normalmente se instala por primera vez Ruby (preinstalado en Mac) y, a continuación, ejecute:
 

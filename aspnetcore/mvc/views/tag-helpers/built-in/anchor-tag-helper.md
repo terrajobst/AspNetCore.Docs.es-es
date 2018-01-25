@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 7923876c792544ac4d559eb8de29475d8a4b37e0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="anchor-tag-helper"></a>Aplicación auxiliar de etiquetas de delimitador
 
@@ -44,7 +44,7 @@ El marcado generado será:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Si el `asp-controller` se especifica y `asp-action` no lo es, el valor predeterminado `asp-action` será el método de controlador predeterminado de la vista está ejecutando actualmente. Que es, en el ejemplo anterior, si `asp-action` se omite, y se genera esta aplicación auxiliar de etiquetas de delimitador de *HomeController*del `Index` vista (**/Home**), el marcado generado será:
+Si el `asp-controller` se especifica y `asp-action` no es así, el valor predeterminado `asp-action` será el método de controlador predeterminado de la vista está ejecutando actualmente. Que es, en el ejemplo anterior, si `asp-action` se omite, y se genera esta aplicación auxiliar de etiquetas de delimitador de *HomeController*del `Index` vista (**/Home**), el marcado generado será:
 
 ```html
 <a href="/Home">All Speakers</a>
@@ -164,7 +164,7 @@ Si el valor `asp-controller` o `asp-action` no se especifica, se sigue el mismo 
 
 `asp-route`Proporciona una manera de crear una dirección URL que se vincula directamente a una ruta con nombre. Uso de atributos de enrutamientos, una ruta puede tener el nombre tal y como se muestra en el `SpeakerController` y se utiliza en su `Evaluations` método.
 
-`Name = "speakerevals"`indica la etiqueta de anclaje de aplicación auxiliar para generar una ruta directa a ese método de controlador utilizando la dirección URL `/Speaker/Evaluations`. Si `asp-controller` o `asp-action` se especifica además `asp-route`, la ruta generadas no puede ser los esperados. `asp-route`no debe usarse con cualquiera de los atributos `asp-controller` o `asp-action` para evitar un conflicto de ruta.
+`Name = "speakerevals"`indica la etiqueta de anclaje de aplicación auxiliar para generar una ruta directa a ese método de controlador utilizando la dirección URL `/Speaker/Evaluations`. Si `asp-controller` o `asp-action` se especifica además `asp-route`, la ruta generadas no puede ser los esperados. `asp-route`no deben usarse con cualquiera de los atributos `asp-controller` o `asp-action` para evitar un conflicto de ruta.
 
 ### <a name="asp-all-route-data"></a>asp-all-route-data
 

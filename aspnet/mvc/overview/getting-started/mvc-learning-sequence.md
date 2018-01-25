@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: b6cc785a5ddaf156f49b15897577e733fb67736a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 538eff2b2b2fdab5b0be879f0a5dfa5c9403b089
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a>MVC recomienda tutoriales y artículos
 ====================
@@ -38,21 +38,21 @@ Por [Rick Anderson](https://github.com/Rick-Anderson)
 <a id="wj"></a>
 ## <a name="security"></a>Seguridad
 
-- [Crear una aplicación de MVC de ASP.NET con la autenticación y la base de datos SQL e implementar en Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) este popular tutorial le guía a través de la creación de una aplicación sencilla y agregar roles y pertenencia.
+- [Crear una aplicación de MVC de ASP.NET con la autenticación y la base de datos SQL e implementar en Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/) este popular tutorial le guía a través de la creación de una aplicación sencilla y agregar roles y pertenencia.
 - [Crear una aplicación de ASP.NET MVC 5 con Facebook, Twitter, LinkedIn y Google OAuth2 Sign-on](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md) este tutorial muestra cómo crear una aplicación web de ASP.NET MVC 5 que permite a los usuarios iniciar sesión mediante OAuth 2.0 con las credenciales de autenticación externa proveedor, como Facebook, Twitter, LinkedIn, Microsoft o Google.
 - [Crear una aplicación web de ASP.NET MVC 5 segura con registro de restablecimiento de contraseña y de confirmación de correo electrónico](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) en primer lugar en una serie de la identidad, incluye código para [enviar un vínculo de confirmación](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md#rsend).
 - [Aplicación de ASP.NET MVC 5 con SMS y correo electrónico de autenticación en dos fases](../security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication.md) segundo en serie de identidad.
-- [Prácticas recomendadas para implementar las contraseñas y otros datos confidenciales a ASP.NET y el servicio de aplicación de Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
+- [Prácticas recomendadas para implementar contraseñas y otros datos confidenciales en ASP.NET y Azure App Service](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md)
 - [Autenticación en dos fases mediante SMS y correo electrónico con ASP.NET Identity](../../../identity/overview/features-api/two-factor-authentication-using-sms-and-email-with-aspnet-identity.md) `isPersistent` y la cookie de seguridad, el código para requerir un usuario que tiene una cuenta de correo electrónico validado antes de que puedan iniciar sesión, cómo SignInManager busca 2FA requisito y mucho más.
 - [La cuenta de confirmación y recuperación de contraseña con la identidad de ASP.NET](../../../identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity.md) proporciona información detallada sobre la identidad no se encuentra en [crear una aplicación web de ASP.NET MVC 5 segura con registro de restablecimiento de contraseña y de confirmación de correo electrónico](../security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md) como cómo permiten los usuarios restablecer su contraseña olvidada.
 
 <a id="da"></a>
 ## <a name="azure"></a>Azure
 
-- [Crear una aplicación web ASP.NET en Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/) tutorial corto y sencillo para su implementación en Azure.
-- [Crear una aplicación de MVC de ASP.NET con la autenticación y la base de datos SQL e implementar en Azure](https://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
+- [Crear una aplicación web ASP.NET en Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/) tutorial corto y sencillo para su implementación en Azure.
+- [Crear una aplicación de MVC de ASP.NET con la autenticación y la base de datos SQL e implementar en Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/)
 
 <a id="perf"></a>
 ## <a name="performance-and-debugging"></a>Rendimiento y depuración
 
-- [Cree un perfil y depurar la aplicación de ASP.NET MVC con perspectiva](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)
+- [Crear un perfil y depurar la aplicación de ASP.NET MVC con Glimpse](../performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse.md)

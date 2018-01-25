@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/custom-formatting-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4122f55c09f94d41f7caa3f86d1fbd5870417a20
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 43aed94fe5b1095af37abdae2cb4c9e67b7d7f6f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="custom-formatting-based-upon-data-vb"></a>Formato personalizado basado en datos (VB)
 ====================
@@ -97,7 +97,7 @@ El código siguiente muestra cómo determinar si el `UnitPrice` valor enlazado a
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample3.vb)]
 
 > [!NOTE]
-> Puesto que `UnitPrice` puede tener un `NULL` valor en la base de datos, primero comprobamos para asegurarse de que no estamos trabajando con un `NULL` valor antes de acceder a la `ProductsRow`del `UnitPrice` propiedad. Esta comprobación es importante porque si se intenta tener acceso a la `UnitPrice` propiedad cuando tiene un `NULL` valor la `ProductsRow` objeto producirá un [StrongTypingException excepción](https://msdn.microsoft.com/en-us/library/system.data.strongtypingexception.aspx).
+> Puesto que `UnitPrice` puede tener un `NULL` valor en la base de datos, primero comprobamos para asegurarse de que no estamos trabajando con un `NULL` valor antes de acceder a la `ProductsRow`del `UnitPrice` propiedad. Esta comprobación es importante porque si se intenta tener acceso a la `UnitPrice` propiedad cuando tiene un `NULL` valor la `ProductsRow` objeto producirá un [StrongTypingException excepción](https://msdn.microsoft.com/library/system.data.strongtypingexception.aspx).
 
 
 ## <a name="step-3-formatting-the-unitprice-value-in-the-detailsview"></a>Paso 3: Dar formato al valor de UnitPrice en DetailsView
@@ -193,7 +193,7 @@ Una vez que tenemos una referencia mediante programación al control Web, se pod
 [!code-vb[Main](custom-formatting-based-upon-data-vb/samples/sample12.vb)]
 
 > [!NOTE]
-> La sintaxis para dar formato a una plantilla de acceso mediante programación el control de Web mediante `FindControl("controlID")` y, a continuación, establecer sus propiedades relacionadas con el estilo también puede utilizarse cuando se usa [TemplateFields](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) en el DetailsView o GridView controles. Examinaremos TemplateFields en nuestro tutorial siguiente.
+> La sintaxis para dar formato a una plantilla de acceso mediante programación el control de Web mediante `FindControl("controlID")` y, a continuación, establecer sus propiedades relacionadas con el estilo también puede utilizarse cuando se usa [TemplateFields](https://msdn.microsoft.com/library/system.web.ui.webcontrols.templatefield(VS.80).aspx) en el DetailsView o GridView controles. Examinaremos TemplateFields en nuestro tutorial siguiente.
 
 
 Las figuras 7 muestra FormView al ver un producto cuyo `UnitsInStock` valor es mayor que 10, mientras que el producto en la figura 8 tiene su valor menor que 10.
@@ -323,7 +323,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

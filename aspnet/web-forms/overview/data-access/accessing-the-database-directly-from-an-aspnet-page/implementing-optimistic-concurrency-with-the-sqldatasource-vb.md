@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/implementing-optimistic-concurrency-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 603aaa35a533fc8853ea72fc9be05ca82b213049
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 974ea50a0d12aae09107470815214b20068ea553
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="implementing-optimistic-concurrency-with-the-sqldatasource-vb"></a>Implementación de simultaneidad optimista con SqlDataSource (VB)
 ====================
@@ -116,8 +116,8 @@ De forma similar, el `DeleteCommand` propiedad y `DeleteParameters` colección d
 
 Además de aumentar la `WHERE` cláusulas de la `UpdateCommand` y `DeleteCommand` propiedades (y agregar los parámetros adicionales a las colecciones de parámetros respectivos), al seleccionar el uso optimista de opción de simultaneidad ajusta otras dos propiedades:
 
-- Cambios de la [ `ConflictDetection` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) de `OverwriteChanges` (el valor predeterminado) a`CompareAllValues`
-- Cambios de la [ `OldValuesParameterFormatString` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) de {0} (el valor predeterminado) para original\_{0}.
+- Cambios de la [ `ConflictDetection` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.conflictdetection.aspx) de `OverwriteChanges` (el valor predeterminado) a`CompareAllValues`
+- Cambios de la [ `OldValuesParameterFormatString` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.sqldatasource.oldvaluesparameterformatstring.aspx) de {0} (el valor predeterminado) para original\_{0}.
 
 Cuando los datos de control Web invoca las operaciones de asignación SqlDataSource `Update()` o `Delete()` método, pasa en los valores originales. Si las operaciones de asignación SqlDataSource `ConflictDetection` propiedad está establecida en `CompareAllValues`, estos valores originales se agregan al comando. El `OldValuesParameterFormatString` propiedad proporciona el patrón de nomenclatura que se usa para estos parámetros de valor original. El Asistente para configurar orígenes de datos usa original\_{0} y el nombre de cada parámetro original en el `UpdateCommand` y `DeleteCommand` propiedades y `UpdateParameters` y `DeleteParameters` colecciones en consecuencia.
 
@@ -231,7 +231,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 >[!div class="step-by-step"]
 [Anterior](inserting-updating-and-deleting-data-with-the-sqldatasource-vb.md)

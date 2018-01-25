@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: client-side/spa-services
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d84659c8c65bebb46551eb38bd52e405ff56016
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 514efcdd78957f999e46c521d0266f092f742538
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="using-javascriptservices-for-creating-single-page-applications-with-aspnet-core"></a>Usar JavaScriptServices para crear aplicaciones de una página con ASP.NET Core
 
@@ -46,7 +46,7 @@ Gran parte de la atención en este artículo se coloca sobre cómo usar el paque
 
 ## <a name="what-is-spaservices"></a>¿Qué es SpaServices?
 
-Se creó para colocar ASP.NET Core como plataforma de servidor preferido de los desarrolladores para compilar SPAs SpaServices. No es necesario desarrollar SPAs con ASP.NET Core SpaServices y no bloquea en un marco de trabajo de cliente en particular.
+Se creó para colocar ASP.NET Core como plataforma de servidor preferido de los desarrolladores para compilar SPAs SpaServices. SpaServices no es necesario desarrollar SPAs con ASP.NET Core, y no bloquea en un marco de trabajo de cliente en particular.
 
 SpaServices ofrece una infraestructura útil como:
 * [Procesamiento previo de servidor](#server-prerendering)
@@ -200,7 +200,7 @@ Después de cargar la aplicación en el explorador, pestaña de la consola de la
 
 ## <a name="routing-helpers"></a>Aplicaciones auxiliares de enrutamientos
 
-En la mayoría SPAs basada en núcleo de ASP.NET, es conveniente enrutamiento de cliente además del enrutamiento del servidor. Los sistemas de enrutamiento SPA y MVC pueden trabajar independientemente sin interferencias. Sin embargo, hay un caso extremo supone desafíos: identificación de respuestas HTTP 404.
+En la mayoría SPAs basada en núcleo de ASP.NET, es conveniente enrutamiento de cliente además del enrutamiento del servidor. Los sistemas de enrutamiento SPA y MVC pueden trabajar independientemente sin interferencias. Hay, sin embargo, un borde mayúsculas supone desafíos: identificación de respuestas HTTP 404.
 
 Considere el escenario en el que una ruta sin extensión de `/some/page` se utiliza. Se supone la solicitud no hacer coincidir el patrón una ruta de servidor, pero su patrón coincide con una ruta de cliente. Ahora considere una solicitud entrante para `/images/user-512.png`, por lo general que espera encontrar un archivo de imagen en el servidor. Si esa ruta de acceso del recurso solicitado no coincide con ninguna ruta de servidor o un archivo estático, no es probable que la aplicación de cliente podría controlarla, por lo general desea devolver un código de estado HTTP 404.
 

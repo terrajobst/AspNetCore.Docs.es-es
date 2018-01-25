@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: a0c59245eedbf53f367949e12dd83e2611f44fc4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Implementarán aplicaciones sin conexión de toma de Web con Web
 ====================
@@ -74,7 +74,7 @@ El paso siguiente es modificar la lógica de implementación para copiar el arch
 > El siguiente procedimiento se asume que está usando un archivo de proyecto de MSBuild personalizado para controlar el proceso de implementación, como se describe en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md). Si va a implementar directamente desde Visual Studio, debe usar un enfoque diferente. Sayed Ibrahim Hashimi describe uno de estos métodos en [cómo tomar la aplicación sin conexión durante la publicación en Web](http://sedodream.com/2012/01/08/HowToTakeYourWebAppOfflineDuringPublishing.aspx).
 
 
-Para implementar un *aplicación\_sin conexión* archivo a un sitio Web IIS de destino, debe invocar MSDeploy.exe utilizando la [Web Deploy **contentPath** proveedor](https://technet.microsoft.com/en-us/library/dd569034(WS.10).aspx). El **contentPath** proveedor admite las rutas de acceso del directorio físico y rutas de sitio Web o aplicación de IIS, lo que facilita la elección ideal para la sincronización de un archivo entre una carpeta de proyecto de Visual Studio y la aplicación web de IIS. Para implementar el archivo, el comando MSDeploy debe ser similar a este:
+Para implementar un *aplicación\_sin conexión* archivo a un sitio Web IIS de destino, debe invocar MSDeploy.exe utilizando la [Web Deploy **contentPath** proveedor](https://technet.microsoft.com/library/dd569034(WS.10).aspx). El **contentPath** proveedor admite las rutas de acceso del directorio físico y rutas de sitio Web o aplicación de IIS, lo que facilita la elección ideal para la sincronización de un archivo entre una carpeta de proyecto de Visual Studio y la aplicación web de IIS. Para implementar el archivo, el comando MSDeploy debe ser similar a este:
 
 
 [!code-console[Main](taking-web-applications-offline-with-web-deploy/samples/sample1.cmd)]
@@ -95,7 +95,7 @@ Para automatizar estos comandos como parte de un proceso de compilación e imple
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
 3. El **SourceRoot** propiedad se define en otra parte en el *Publish.proj* archivo. Indica la ubicación de la carpeta raíz para el contenido de origen en relación con la ruta de acceso actual & #x 2014; es decir, relativa a la ubicación de la *Publish.proj* archivo.
-4. El **contentPath** proveedor no aceptará las rutas de acceso de archivo relativa, por lo que necesita obtener una ruta de acceso absoluta al archivo de origen para que puede implementar. Puede usar el [ConvertToAbsolutePath](https://msdn.microsoft.com/en-us/library/bb882668.aspx) tarea para hacer esto.
+4. El **contentPath** proveedor no aceptará las rutas de acceso de archivo relativa, por lo que necesita obtener una ruta de acceso absoluta al archivo de origen para que puede implementar. Puede usar el [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) tarea para hacer esto.
 5. Agregue un nuevo **destino** elemento denominado **GetAppOfflineAbsolutePath**. En este destino, use la **ConvertToAbsolutePath** tarea para obtener una ruta de acceso absoluta a la *aplicación\_plantillas sin conexión* archivo en la carpeta del proyecto.
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample4.xml)]
@@ -148,7 +148,7 @@ El procedimiento siguiente muestra cómo agregar esto *. wpp.targets* archivo a 
 1. Abra la solución en Visual Studio 2010.
 2. En el **el Explorador de soluciones** ventana, haga clic en el nodo del proyecto de aplicación web (por ejemplo, **ContactManager.Mvc**), seleccione **agregar**y, a continuación, haga clic en **Nuevo elemento**.
 3. En el **Agregar nuevo elemento** cuadro de diálogo, seleccione la **archivo XML** plantilla.
-4. En el **nombre** , escriba *[nombre del proyecto]***. wpp.targets** (por ejemplo, **ContactManager.Mvc.wpp.targets**) y, a continuación, haga clic en  **Agregar**.
+4. En el **nombre** , escriba *[nombre del proyecto] ***.wpp.targets** (por ejemplo, **ContactManager.Mvc.wpp.targets**) y, a continuación, haga clic en **agregar**.
 
     ![](taking-web-applications-offline-with-web-deploy/_static/image4.png)
 

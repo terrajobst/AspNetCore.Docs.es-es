@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b004a8e7680b203416552e5a7a2809799e657759
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 
@@ -89,7 +89,7 @@ Vea [exigir SSL](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Requerir confirmación por correo electrónico
 
-Es una práctica recomendada para confirmar el correo electrónico de un nuevo registro de usuario para comprobar que no utiliza la suplantación otra persona (es decir, no ha registrado con el correo electrónico de otra persona). Imagine que tuviera un foro de discusión, y desea evitar "yli@example.com"al registrar como"nolivetto@contoso.com." Sin confirmación por correo electrónico, "nolivetto@contoso.com" pudo obtener el correo electrónico no deseado de la aplicación. Suponga que el usuario registrado accidentalmente como "ylo@example.com" y no se vio el error ortográfico de "yli", no podrán usar la recuperación de contraseñas porque la aplicación no tiene su correo electrónico correcto. Confirmación por correo electrónico proporciona sólo una protección limitada de robots y no proporciona protección de correo basura determinado que tienen muchos alias de correo electrónico de trabajo que puede usar para registrar.
+Es una práctica recomendada para confirmar el correo electrónico de un nuevo registro de usuario para comprobar que no están suplantando otra persona (es decir, no ha registrado con el correo electrónico de otra persona). Imagine que tuviera un foro de discusión, y desea evitar "yli@example.com"al registrar como"nolivetto@contoso.com." Sin confirmación por correo electrónico, "nolivetto@contoso.com" pudo obtener el correo electrónico no deseado de la aplicación. Suponga que el usuario registrado accidentalmente como "ylo@example.com" y no se vio el error ortográfico de "yli", no podrán usar la recuperación de contraseñas porque la aplicación no tiene su correo electrónico correcto. Confirmación por correo electrónico proporciona sólo una protección limitada de robots y no proporciona protección de correo basura determinado que tienen muchos alias de correo electrónico de trabajo que puede usar para registrar.
 
 En general conveniente evitar que los nuevos usuarios se registren todos los datos del sitio web antes de que tengan un correo electrónico confirmado. 
 
@@ -110,7 +110,7 @@ Actualización `ConfigureServices` para requerir un correo electrónico confirma
 ```csharp
 config.SignIn.RequireConfirmedEmail = true;
 ```
-La línea anterior impide que los usuarios registrados que se registran en hasta que se ha confirmado el correo electrónico. Sin embargo, esa línea impedir que los usuarios nuevos que se registran en después de que se registren. El código predeterminado se registra en un usuario después de que se registren. Una vez que cierra la sesión, no podrá volver a iniciar sesión hasta que se registran. Más adelante en el tutorial, cambiaremos el usuario de código por lo que recién registrado son **no** iniciado sesión.
+La línea anterior impide que los usuarios registrados que se registran en hasta que se ha confirmado el correo electrónico. Sin embargo, esa línea no impide que los usuarios nuevos que se registran en después de que se registren. El código predeterminado se registra en un usuario después de que se registren. Una vez que cierra la sesión, no podrá volver a iniciar sesión hasta que se registran. Más adelante en el tutorial, cambiaremos el usuario de código por lo que recién registrado son **no** iniciado sesión.
 
 ### <a name="configure-email-provider"></a>Configurar el proveedor de correo electrónico
 
@@ -277,7 +277,7 @@ Si no se puede obtener el trabajo de correo electrónico:
 
 ## <a name="prevent-login-at-registration"></a>Evitar el inicio de sesión en el registro
 
-Con las plantillas de la actuales, cuando un usuario se haya completado el formulario de registro, se registran en (autenticado). Por lo general desea confirmar su correo electrónico antes de registrarlos. En la sección siguiente, se modificará el código para requerir los nuevos usuarios tienen un correo electrónico confirmado antes de registrarse. Actualización de la `[HttpPost] Login` acción en el *AccountController.cs* archivo con los siguientes cambios resaltados.
+Con las plantillas de la actuales, cuando un usuario se haya completado el formulario de registro, que han iniciado sesión (autenticado). Por lo general desea confirmar su correo electrónico antes de registrarlos. En la sección siguiente, se modificará el código para requerir los nuevos usuarios tienen un correo electrónico confirmado antes de que han iniciado sesión. Actualización de la `[HttpPost] Login` acción en el *AccountController.cs* archivo con los siguientes cambios resaltados.
 
 [!code-csharp[Main](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=11-21&name=snippet_Login)]
 
@@ -302,4 +302,4 @@ Haga clic en el vínculo a otro servicio de inicio de sesión y Aceptar las soli
 
 ![Administrar la vista de inicios de sesión externos enumerar Facebook](accconfirm/_static/fb.png)
 
-Se han combinado las dos cuentas. Podrá iniciar sesión con cualquiera de estas cuentas. Puede que los usuarios agreguen cuentas locales en caso de que su registro sociales en servicio de autenticación está inactivo o, más probable es que ha perdido el acceso a su cuenta sociales.
+Se han combinado las dos cuentas. Podrá iniciar sesión con cualquiera de estas cuentas. Puede que los usuarios agreguen cuentas locales en caso de que su registro sociales en servicio de autenticación está inactivo o, más probablemente ha perdido acceso a su cuenta sociales.

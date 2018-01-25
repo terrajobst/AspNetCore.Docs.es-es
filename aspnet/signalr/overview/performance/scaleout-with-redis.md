@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/performance/scaleout-with-redis
 msc.type: authoredcontent
-ms.openlocfilehash: 965c32a4e2f2c9c4bd457d0c13ae99c1378c22c9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2ef161f35e69ef4a754d2740199166ee48c3fbab
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="signalr-scaleout-with-redis"></a>Ampliación de SignalR con Redis
 ====================
@@ -150,7 +150,7 @@ También incluye el servicio de administración (aparecen en "Herramientas de ad
 
 Compruebe que se está ejecutando el servicio de administración de Web. Si no es así, inicie el servicio. (Si no ve el servicio de administración Web en la lista de servicios de Windows, asegúrese de que instala el servicio de administración cuando se agrega el rol IIS.)
 
-De forma predeterminada, el servicio de administración Web escucha en el puerto TCP 8172. En Firewall de Windows, cree una nueva regla de entrada para permitir el tráfico TCP en el puerto 8172. Para obtener más información, consulte [configuración de reglas de Firewall](https://technet.microsoft.com/en-us/library/dd448559(WS.10).aspx). (Si hospeda las máquinas virtuales en Azure, puede hacerlo directamente en el portal de Azure. Vea [cómo configurar extremos en una máquina Virtual](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/).)
+De forma predeterminada, el servicio de administración Web escucha en el puerto TCP 8172. En Firewall de Windows, cree una nueva regla de entrada para permitir el tráfico TCP en el puerto 8172. Para obtener más información, consulte [configuración de reglas de Firewall](https://technet.microsoft.com/library/dd448559(WS.10).aspx). (Si hospeda las máquinas virtuales en Azure, puede hacerlo directamente en el portal de Azure. Vea [cómo configurar extremos en una máquina Virtual](https://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).)
 
 Ahora está listo para implementar el proyecto de Visual Studio desde el equipo de desarrollo en el servidor. En el Explorador de soluciones, haga clic en la solución y haga clic en **publicar**.
 

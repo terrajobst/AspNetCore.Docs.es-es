@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ee3e244c4ed29384d11c7acc1440692d3f9b23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013
 ====================
@@ -150,7 +150,7 @@ Después de volver de PayPal, puede revisar y completar el pedido.
 
 Antes de empezar, asegúrese de que tiene el siguiente software instalado en el equipo:
 
-- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/en-us/downloads#vs) o [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web). .NET Framework se instala automáticamente.
+- [Microsoft Visual Studio 2013](https://www.microsoft.com/visualstudio/11/downloads#vs) o [Microsoft Visual Studio Express 2013 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web). .NET Framework se instala automáticamente.
 
 Esta serie de tutoriales usa Microsoft Visual Studio Express 2013 para Web. Puede usar el modo de Microsoft Visual Studio Express 2013 para Web o Microsoft Visual Studio 2013 para completar esta serie de tutoriales.
 
@@ -163,7 +163,7 @@ Si ya tiene instalada una versión de Visual Studio, el proceso de instalación 
 
 > [!NOTE] 
 > 
-> En este tutorial se da por supuesto que ha seleccionado la *desarrollo Web* colección de valores de la primera vez que inicia Visual Studio. Para obtener más información, consulte [Cómo: seleccionar configuración de entorno de desarrollo Web](https://msdn.microsoft.com/en-us/library/ff521558.aspx).
+> En este tutorial se da por supuesto que ha seleccionado la *desarrollo Web* colección de valores de la primera vez que inicia Visual Studio. Para obtener más información, consulte [Cómo: seleccionar configuración de entorno de desarrollo Web](https://msdn.microsoft.com/library/ff521558.aspx).
 
 
 ## <a name="download-the-sample-application"></a>Descargar la aplicación de ejemplo
@@ -179,7 +179,7 @@ Después de instalar los requisitos previos, está listo para empezar a crear el
 
 La descarga es un *.zip* archivo. Para ver el proyecto completado que crea esta serie de tutoriales, busque y seleccione el *C#*carpeta en el *.zip* archivo. Guardar el *C#* carpeta a la carpeta usada para trabajar con proyectos de Visual Studio 2013. De forma predeterminada, la carpeta de proyectos de Visual Studio 2013 es la siguiente:
 
-**C:\Users\*****&lt;nombre de usuario&gt;*** \Documents\Visual Studio 2013\Projects**
+**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
 
 Cambiar el nombre de la ***C#*** carpeta ***WingtipToys***.
 

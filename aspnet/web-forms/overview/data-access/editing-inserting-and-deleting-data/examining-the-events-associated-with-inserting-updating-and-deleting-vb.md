@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5daa9d1fe63e4ad8ec8c667f84de00fadd77fefa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 88f6beb3f3514c6a9784d4cb936a5b779ce75ae1
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>Examinar los eventos asociados a insertar, actualizar y eliminar (VB)
 ====================
@@ -162,12 +162,12 @@ Con este cambio, el valor de la `UnitPrice` aparece en el texto editado fila tam
 
 Sin embargo, actualizar un producto con el símbolo de moneda en el cuadro de texto, como $ las 19: 00 produce un `FormatException`. Cuando intente asignar los valores proporcionados por el usuario a la ObjectDataSource GridView `UpdateParameters` colección no es capaz de convertir la `UnitPrice` cadena "$ las 19: 00" en el `Decimal` requerido por el parámetro (consulte la figura 11). Para remediar este problema podemos crear un controlador de eventos del control de GridView `RowUpdating` eventos y para que analizar proporcionada por el usuario `UnitPrice` como un formato de moneda `Decimal`.
 
-La GridView `RowUpdating` eventos acepta como su segundo parámetro de un objeto de tipo [GridViewUpdateEventArgs](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), que incluye un `NewValues` diccionario como uno de sus propiedades que contiene los valores proporcionados por el usuario están preparados para asignado a la ObjectDataSource `UpdateParameters` colección. Se puede sobrescribir la existente `UnitPrice` valor en el `NewValues` colección con un valor decimal se analiza mediante el formato de moneda con las siguientes líneas de código en el `RowUpdating` controlador de eventos:
+La GridView `RowUpdating` eventos acepta como su segundo parámetro de un objeto de tipo [GridViewUpdateEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdateeventargs(VS.80).aspx), que incluye un `NewValues` diccionario como uno de sus propiedades que contiene los valores proporcionados por el usuario están preparados para asignado a la ObjectDataSource `UpdateParameters` colección. Se puede sobrescribir la existente `UnitPrice` valor en el `NewValues` colección con un valor decimal se analiza mediante el formato de moneda con las siguientes líneas de código en el `RowUpdating` controlador de eventos:
 
 
 [!code-vb[Main](examining-the-events-associated-with-inserting-updating-and-deleting-vb/samples/sample4.vb)]
 
-Si el usuario ha especificado un `UnitPrice` valor (por ejemplo, "$ las 19: 00"), este valor se sobrescribe con el valor decimal calculado por [Decimal.Parse](https://msdn.microsoft.com/en-us/library/system.decimal.parse(VS.80).aspx), analizar el valor como una moneda. Esto correctamente analizará la coma decimal en el caso de los símbolos de moneda, comas, decimales y así sucesivamente y utiliza el [enumeración NumberStyles](https://msdn.microsoft.com/en-US/library/system.globalization.numberstyles(VS.80).aspx) en el [System.Globalization](https://msdn.microsoft.com/en-US/library/abeh092z(VS.80).aspx) espacio de nombres.
+Si el usuario ha especificado un `UnitPrice` valor (por ejemplo, "$ las 19: 00"), este valor se sobrescribe con el valor decimal calculado por [Decimal.Parse](https://msdn.microsoft.com/library/system.decimal.parse(VS.80).aspx), analizar el valor como una moneda. Esto correctamente analizará la coma decimal en el caso de los símbolos de moneda, comas, decimales y así sucesivamente y utiliza el [enumeración NumberStyles](https://msdn.microsoft.com/library/system.globalization.numberstyles(VS.80).aspx) en el [System.Globalization](https://msdn.microsoft.com/library/abeh092z(VS.80).aspx) espacio de nombres.
 
 La figura 11 muestra tanto el problema causado por los símbolos de divisa en proporcionada por el usuario `UnitPrice`, así como la manera de GridView `RowUpdating` controlador de eventos se puede utilizar para analizar correctamente dicha entrada.
 
@@ -216,10 +216,10 @@ Si un usuario intenta guardar un producto sin especificar un precio, se cancela 
 
 Hasta ahora hemos visto cómo utilizar la GridView `RowUpdating` evento para modificar mediante programación los valores de parámetro asignados a la ObjectDataSource `UpdateParameters` colección así como el modo para cancelar la actualización procesar por completo. Estos conceptos se mantienen en los controles DetailsView y FormView y también se aplican a la inserción y eliminación.
 
-También pueden realizar estas tareas en el nivel de ObjectDataSource mediante controladores de eventos para su `Inserting`, `Updating`, y `Deleting` eventos. Estos eventos se desencadenan antes de que se invoca el método asociado del objeto subyacente y proporcionan una oportunidad de última oportunidad para modificar la colección de parámetros de entrada o cancelar la operación directamente. Los controladores de eventos para estos tres eventos se pasan un objeto de tipo [ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx) que tiene dos propiedades interesantes:
+También pueden realizar estas tareas en el nivel de ObjectDataSource mediante controladores de eventos para su `Inserting`, `Updating`, y `Deleting` eventos. Estos eventos se desencadenan antes de que se invoca el método asociado del objeto subyacente y proporcionan una oportunidad de última oportunidad para modificar la colección de parámetros de entrada o cancelar la operación directamente. Los controladores de eventos para estos tres eventos se pasan un objeto de tipo [ObjectDataSourceMethodEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs(VS.80).aspx) que tiene dos propiedades interesantes:
 
-- [Cancelar](https://msdn.microsoft.com/en-US/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx), que, si establece en `True`, cancela la operación que se está realiza
-- [InputParameters](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx), que es la colección de `InsertParameters`, `UpdateParameters`, o `DeleteParameters`, dependiendo de si es el controlador de eventos para el `Inserting`, `Updating`, o `Deleting` eventos
+- [Cancelar](https://msdn.microsoft.com/library/system.componentmodel.canceleventargs.cancel(VS.80).aspx), que, si establece en `True`, cancela la operación que se está realiza
+- [InputParameters](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasourcemethodeventargs.inputparameters(VS.80).aspx), que es la colección de `InsertParameters`, `UpdateParameters`, o `DeleteParameters`, dependiendo de si es el controlador de eventos para el `Inserting`, `Updating`, o `Deleting` eventos
 
 Para ilustrar trabajar con los valores de parámetro en el nivel de ObjectDataSource, vamos a incluir DetailsView en nuestra página que permite a los usuarios agregar un nuevo producto. Se usará este DetailsView para proporcionar una interfaz para agregar rápidamente un nuevo producto en la base de datos. Debe tener una interfaz de usuario coherente al agregar un nuevo producto vamos a permitir que el usuario especifique solo los valores de la `ProductName` y `UnitPrice` campos. De forma predeterminada, los valores que no se proporcionan en la interfaz de inserción de DetailsView se establecerá en un `NULL` valor de la base de datos. Sin embargo, podemos usar la ObjectDataSource `Inserting` eventos para insertar valores predeterminados diferentes, como veremos en breve.
 
@@ -329,7 +329,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

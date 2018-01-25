@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e4af20fa1fecd1f363e979023b41203096d64ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1edd53b1005449c060ff92fc7ebd02dbe7fa6ac2
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Implementación del sitio mediante un cliente FTP (C#)
 ====================
@@ -144,7 +144,7 @@ Como cabría esperar, al volver a implementar una aplicación web que solo debe 
 > Hay que tener en cuenta al utilizar la compilación explícita es que cada vez que agregue una nueva página ASP.NET para el proyecto o realizar cambios relacionados con el código, debe volver a generar el proyecto, que actualiza el ensamblado en el `Bin` carpeta. Por lo tanto, debe copiar este ensamblado actualizado en producción al actualizar una aplicación web en producción (junto con otro contenido nuevo y actualizado).
 
 
-También comprender que los cambios a la `Web.config` o los archivos en el `Bin` directory se detiene y reinicia el grupo de aplicaciones del sitio Web. Si el estado de sesión se almacena utilizando el `InProc` modo (valor predeterminado), a continuación, los visitantes de su sitio perderá su estado de sesión cada vez que se modifican estos archivos de clave. Para evitar este problema, considere la posibilidad de almacenar la sesión mediante la `StateServer` o `SQLServer` modos. Para obtener más información acerca de este tema leer [Session-State Modes](https://msdn.microsoft.com/en-us/library/ms178586.aspx).
+También comprender que los cambios a la `Web.config` o los archivos en el `Bin` directory se detiene y reinicia el grupo de aplicaciones del sitio Web. Si el estado de sesión se almacena utilizando el `InProc` modo (valor predeterminado), a continuación, los visitantes de su sitio perderá su estado de sesión cada vez que se modifican estos archivos de clave. Para evitar este problema, considere la posibilidad de almacenar la sesión mediante la `StateServer` o `SQLServer` modos. Para obtener más información acerca de este tema leer [Session-State Modes](https://msdn.microsoft.com/library/ms178586.aspx).
 
 Por último, tenga en cuenta que volver a implementar una aplicación puede tardar desde unos segundos a varios minutos, dependiendo del número y tamaño de los archivos que deben copiarse en el entorno de producción. Durante este período, los usuarios que visitan su sitio pueden experimentar errores o un comportamiento extraño. Puede "desactivar" toda la aplicación mediante la adición de una página denominada `App_Offline.htm` al directorio raíz de la aplicación que se explica a los usuarios que el sitio está fuera de servicio de mantenimiento (o cualquier otra) y puede realizar copias de seguridad en breve. Cuando el `App_Offline.htm` archivo está presente, el tiempo de ejecución ASP.NET redirige todas las solicitudes entrantes a esa página.
 
@@ -159,7 +159,7 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [Aplicación\_Offline.htm y trabajar con la característica de "Errores compatible de Internet Explorer"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
-- [Modos de estado de sesión](https://msdn.microsoft.com/en-us/library/ms178586.aspx)
+- [Modos de estado de sesión](https://msdn.microsoft.com/library/ms178586.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](determining-what-files-need-to-be-deployed-cs.md)

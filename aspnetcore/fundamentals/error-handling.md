@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/error-handling
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49507e90cd659be5da08df17e175297adad0fea1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 019e31fa749a950db48575e1f4e8d4d26d1cde75
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-error-handling-in-aspnet-core"></a>Introducción a control de errores en ASP.NET Core
 
@@ -65,7 +65,7 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Configuración de páginas de códigos de estado
 
-De forma predeterminada, la aplicación no proporcionará una página de códigos de estado enriquecido para los códigos de estado HTTP como 500 (Error interno del servidor) o 404 (no encontrado). Puede configurar la `StatusCodePagesMiddleware` agregando una línea a la `Configure` método:
+De manera predeterminada, la aplicación no proporciona una página de códigos de estado enriquecido para los códigos de estado HTTP como 500 (Error interno del servidor) o 404 (no encontrado). Puede configurar la `StatusCodePagesMiddleware` agregando una línea a la `Configure` método:
 
 ```csharp
 app.UseStatusCodePages();

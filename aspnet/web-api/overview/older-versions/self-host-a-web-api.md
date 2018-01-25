@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b308ee9ec209ba8bbb021827655c83443dd149e6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 564f859e73a88ac9c5f27e9b8f7409ec126642f8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Autohospedaje ASP.NET Web API 1 (C#)
 ====================
@@ -43,7 +43,7 @@ En el **plantillas** panel, seleccione **plantillas instaladas** y expanda el **
 
 ## <a name="set-the-target-framework-visual-studio-2010"></a>Establezca la plataforma de destino (Visual Studio 2010)
 
-Si usa Visual Studio 2010, cambiar la plataforma de destino a .NET Framework 4.0. (De forma predeterminada, los destinos de la plantilla de proyecto la [perfil de .net Framework Client](https://msdn.microsoft.com/en-us/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
+Si usa Visual Studio 2010, cambiar la plataforma de destino a .NET Framework 4.0. (De forma predeterminada, los destinos de la plantilla de proyecto la [perfil de .net Framework Client](https://msdn.microsoft.com/library/cc656912.aspx#features_not_included_in_the_net_framework_client_profile).)
 
 En el Explorador de soluciones, haga clic en el proyecto y seleccione **propiedades**. En el **.NET framework de destino** lista desplegable lista, cambie la plataforma de destino a .NET Framework 4.0. Cuando se le pida para aplicar el cambio, haga clic en **Sí**.
 
@@ -101,8 +101,8 @@ Para obtener más información sobre el código de este controlador, consulte el
 | Identificador URI | Descripción |
 | --- | --- |
 | productos/api / | Obtener una lista de todos los productos. |
-| /API/products/*Id.* | Obtener un producto por identificador. |
-| / API/products /? categoría =*categoría* | Obtener una lista de productos por categoría. |
+| /api/products/*id* | Obtener un producto por identificador. |
+| /api/products/?category=*category* | Obtener una lista de productos por categoría. |
 
 ## <a name="host-the-web-api"></a>Hospedar la API Web
 

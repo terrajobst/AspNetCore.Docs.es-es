@@ -10,11 +10,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 7d89416626433bf737b63eda4b17e65b089ae142
-ms.sourcegitcommit: 8f42ab93402c1b8044815e1e48d0bb84c81f8b59
+ms.openlocfilehash: aab96b5313a8632950e51f5586612c1d0d3d176e
+ms.sourcegitcommit: 83b5a4715fd25e4eb6f7c8427c0ef03850a7fa07
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -258,6 +258,12 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 [IOptionsFactory&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1) (núcleo ASP.NET 2.0 o posterior) es responsable de crear nuevas opciones de instancias. Tiene una sola [Create](/dotnet/api/microsoft.extensions.options.ioptionsfactory-1.create) método. La implementación predeterminada tiene todos los `IConfigureOptions` y `IPostConfigureOptions` y ejecuta todos los configura primero, a continuación, la configura posteriores a la. Distingue entre `IConfigureNamedOptions` y `IConfigureOptions` y solo se llama a la interfaz adecuada.
 
 [IOptionsMonitorCache&lt;TOptions&gt; ](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1) (núcleo ASP.NET 2.0 o posterior) se usa por `IOptionsMonitor` en caché `TOptions` instancias. El `IOptionsMonitorCache` invalida instancias de opciones en el monitor de modo que se vuelve a calcular el valor ([TryRemove](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryremove)). Los valores pueden ser manualmente presentar también con [TryAdd](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.tryadd). El [desactive](/dotnet/api/microsoft.extensions.options.ioptionsmonitorcache-1.clear) método se utiliza cuando todas las instancias con nombre se deben volver a crearse a petición.
+
+## <a name="accessing-options-during-startup"></a>Obtener acceso a opciones durante el inicio
+
+`IOptions`puede utilizarse en `Configure`, ya que los servicios están integrados antes de la `Configure` el método se ejecuta. Si se crea un proveedor de servicio `ConfigureServices` para tener acceso a opciones, que no contiene ninguna opciones de las configuraciones que se proporciona después de que se compila el proveedor de servicios. Por lo tanto, puede que exista un estado incoherente opciones debido al orden de los registros de servicio.
+
+Puesto que normalmente se cargan opciones de configuración, se puede usar la configuración de inicio en ambas `Configure` y `ConfigureServices`. Para obtener ejemplos del uso de configuración durante el inicio, consulte el [inicio de la aplicación](xref:fundamentals/startup) tema.
 
 ## <a name="see-also"></a>Vea también
 

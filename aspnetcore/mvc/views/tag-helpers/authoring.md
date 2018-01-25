@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/tag-helpers/authoring
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9aaf40377e07e53fd0b7ebb177bcbb2df52b7553
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: a1f1b2c2e60a1337c15f019185c764d0a9ada1b5
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="author-tag-helpers-in-aspnet-core-a-walkthrough-with-samples"></a>Aplicaciones auxiliares de etiquetas de autor en ASP.NET Core, un tutorial con ejemplos
 
@@ -164,7 +164,7 @@ En esta sección, se escribirá una aplicación auxiliar de correo electrónico 
 
 3.  Ejecute la aplicación. Puede utilizar el explorador que prefiera para inspeccionar el origen y compruebe el marcado.
 
-    El `[HtmlTargetElement]` atributo anterior solo tiene como destino la marca HTML que proporciona un nombre de atributo de "bold". El `<bold>` elemento no fue modificado por la aplicación auxiliar de etiqueta.
+    El `[HtmlTargetElement]` atributo anterior solo tiene como destino la marca HTML que proporciona un nombre de atributo de "bold". El `<bold>` no se ha modificado el elemento por la aplicación auxiliar de etiqueta.
 
 4. Convierta en comentario la `[HtmlTargetElement]` la línea de atributo y serán destinos `<bold>` etiquetas, es decir, el formato HTML del formulario `<bold>`. Recuerde que la convención de nomenclatura predeterminado coincidirá con el nombre de clase **negrita**TagHelper a `<bold>` etiquetas.
 
@@ -208,13 +208,13 @@ También puede usar el `[HtmlTargetElement]` para cambiar el nombre del elemento
     [HtmlTargetElement("WebsiteInformation")]
     ```
     
-    La etiqueta de caso kebab inferior `<website-information />` no coincidirían. Si desea usar el `[HtmlTargetElement]` atributo, usaría el caso de kebab tal y como se muestra a continuación:
+    La etiqueta de caso kebab inferior `<website-information />` coincidirían. Si desea usar el `[HtmlTargetElement]` atributo, usaría el caso de kebab tal y como se muestra a continuación:
     
     ```csharp
     [HtmlTargetElement("Website-Information")]
     ```
     
-    * Elementos que se cierre automático no tienen ningún contenido. En este ejemplo, el marcado de Razor usará una etiqueta de cierre automático, pero se creará la aplicación auxiliar de etiqueta un [sección](http://www.w3.org/TR/html5/sections.html#the-section-element) elemento (que no se cierre automático y se escribe el contenido dentro de la `section` elemento). Por lo tanto, debe establecer `TagMode` a `StartTagAndEndTag` para escribir la salida. Como alternativa, puede convertir en comentario la línea donde se establece `TagMode` y escribir marcado con una etiqueta de cierre. (Marcado de ejemplo se proporciona más adelante en este tutorial.)
+    * Elementos que se cierre automático no tienen ningún contenido. En este ejemplo, el marcado de Razor usará una etiqueta de cierre automático, pero se creará la aplicación auxiliar de etiqueta un [sección](http://www.w3.org/TR/html5/sections.html#the-section-element) elemento (que no cierre automático y se escribe el contenido dentro de la `section` elemento). Por lo tanto, debe establecer `TagMode` a `StartTagAndEndTag` para escribir la salida. Como alternativa, puede convertir en comentario la línea donde se establece `TagMode` y escribir marcado con una etiqueta de cierre. (Marcado de ejemplo se proporciona más adelante en este tutorial.)
     
     * El `$` (signo de dólar) en la siguiente línea usa un [interpolan cadena](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings):
     
@@ -274,7 +274,7 @@ La aplicación auxiliar de etiquetas de condición presenta la salida cuando se 
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]
 
-4.  Ejecutar la aplicación y vaya a la página principal. El marcado en el atributo conditional `div` no se representará. Anexar la cadena de consulta `?approved=true` a la dirección URL (por ejemplo, `http://localhost:1235/Home/Index?approved=true`). `approved`se establece en true y el atributo conditional aparecerá marcado.
+4.  Ejecutar la aplicación y vaya a la página principal. El marcado en el atributo conditional `div` no puede representar. Anexar la cadena de consulta `?approved=true` a la dirección URL (por ejemplo, `http://localhost:1235/Home/Index?approved=true`). `approved`se establece en true y el atributo conditional aparecerá marcado.
 
 >[!NOTE]
 >Use la [nameof](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/nameof) operador para especificar el atributo de destino en lugar de especificar una cadena como lo hizo con la aplicación auxiliar de etiqueta negrita:
@@ -306,7 +306,7 @@ Dado que estas aplicaciones auxiliares de dos están estrechamente relacionados 
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinker.cs?highlight=15-34&range=7-34)]
 
-5.  Ejecute la aplicación. Observe el texto de World Wide Web se representa como un vínculo, pero el texto HTTP no está. Si coloca un punto de interrupción en ambas clases, puede ver que la clase de aplicación auxiliar de etiqueta HTTP se ejecuta primera. El problema es que se almacena en caché el resultado de la aplicación auxiliar de etiqueta y, cuando se ejecuta la aplicación auxiliar de etiqueta de World Wide Web, sobrescribe la salida almacenada en caché de la aplicación auxiliar de etiqueta HTTP. Más adelante en el tutorial veremos cómo controlar el orden en que se ejecutan aplicaciones auxiliares de etiquetas en. Se corregirá el código con lo siguiente:
+5.  Ejecute la aplicación. Observe el texto de World Wide Web se representa como un vínculo, pero no es el texto HTTP. Si coloca un punto de interrupción en ambas clases, puede ver que la clase de aplicación auxiliar de etiqueta HTTP se ejecuta primera. El problema es que se almacena en caché el resultado de la aplicación auxiliar de etiqueta y, cuando se ejecuta la aplicación auxiliar de etiqueta de World Wide Web, sobrescribe la salida almacenada en caché de la aplicación auxiliar de etiqueta HTTP. Más adelante en el tutorial veremos cómo controlar el orden en que se ejecutan aplicaciones auxiliares de etiquetas en. Se corregirá el código con lo siguiente:
 
     [!code-csharp[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10,21,22,26&range=8-37)]
 
@@ -321,7 +321,7 @@ Dado que estas aplicaciones auxiliares de dos están estrechamente relacionados 
     >
     >El código anterior comprueba si se ha modificado el contenido y, si existe, obtiene el contenido del búfer de salida.
 
-6.  Ejecute la aplicación y compruebe que los dos vínculos funcionan según lo esperado. Aunque podría parecer que nuestra herramienta de etiqueta del vinculador automática es correcta y completa, tiene un pequeño problema. Si la aplicación auxiliar de etiqueta de World Wide Web se ejecuta primera, los vínculos de World Wide Web no será correctos. Actualice el código y agregue el `Order` sobrecarga para controlar el orden en que la etiqueta se ejecuta en. El `Order` propiedad determina el orden de ejecución en relación con otras aplicaciones auxiliares de etiquetas como destino el mismo elemento. El valor de orden predeterminado es cero y se ejecutan en primer lugar instancias con valores más bajos.
+6.  Ejecute la aplicación y compruebe que los dos vínculos funcionan según lo esperado. Aunque podría parecer que nuestra herramienta de etiqueta del vinculador automática es correcta y completa, tiene un pequeño problema. Si la aplicación auxiliar de etiqueta de World Wide Web se ejecuta primera, los vínculos de World Wide Web no será correcta. Actualice el código y agregue el `Order` sobrecarga para controlar el orden en que la etiqueta se ejecuta en. El `Order` propiedad determina el orden de ejecución en relación con otras aplicaciones auxiliares de etiquetas como destino el mismo elemento. El valor de orden predeterminado es cero y se ejecutan en primer lugar instancias con valores más bajos.
 
     [!code-csharp[Main](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z2AutoLinkerCopy.cs?highlight=5,6,7,8&range=8-15)]
     
@@ -333,8 +333,8 @@ Las aplicaciones auxiliares de etiquetas proporcionan varias propiedades para re
 
 -  El resultado de `GetChildContentAsync` se pueden anexar a `output.Content`.
 -  Puede inspeccionar el resultado de `GetChildContentAsync` con `GetContent`.
--  Si modifica `output.Content`, el cuerpo de TagHelper no se puede ejecutar o se representa a menos que llame a `GetChildContentAsync` igual que en nuestro ejemplo de vinculador automática:
+-  Si modifica `output.Content`, el cuerpo de TagHelper no se puede ejecutar o representa a menos que llame a `GetChildContentAsync` igual que en nuestro ejemplo de vinculador automática:
 
 [!code-csharp[Main](../../views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/TagHelpers/z1AutoLinkerCopy.cs?highlight=5,6,10&range=8-21)]
 
--  Varias llamadas a `GetChildContentAsync` devolverá el mismo valor y no se ejecute de nuevo el `TagHelper` cuerpo a menos que se sitúe en un parámetro false que indica no usar el resultado almacenado en caché.
+-  Varias llamadas a `GetChildContentAsync` devuelve el mismo valor y no volver a ejecutar la `TagHelper` cuerpo a menos que se pasa un parámetro false que indica para que no utilice el resultado almacenado en caché.

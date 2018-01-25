@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: dotnet-mvc
 ms.prod: .net-framework
 uid: mvc/overview/getting-started/introduction/adding-a-view
-ms.openlocfilehash: d273eb5e99da6c6b7678e03b1a8973041113744c
-ms.sourcegitcommit: 2d23ea501e0213bbacf65298acf1c8bd17209540
+ms.openlocfilehash: 86887f0dafa31ff3eb6597284c469c4b3053b6b7
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-a-view"></a>Agregar una vista
 ====================
@@ -29,7 +29,7 @@ Actualmente, el método `Index` devuelve una cadena con un mensaje que está cod
 
 [!code-csharp[Main](adding-a-view/samples/sample1.cs?highlight=1,3)]
 
-El `Index` método anterior usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocido como [métodos de acción](http://rachelappel.com/asp.net-mvc-actionresults-explained)), como el `Index` método anterior, generalmente devuelven un [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx) (o una clase derivada de [ActionResult](https://msdn.microsoft.com/en-us/library/system.web.mvc.actionresult.aspx)), los tipos no primitivos como cadena.
+El `Index` método anterior usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocido como [métodos de acción](http://rachelappel.com/asp.net-mvc-actionresults-explained)), como el `Index` método anterior, generalmente devuelven un [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx) (o una clase derivada de [ActionResult](https://msdn.microsoft.com/library/system.web.mvc.actionresult.aspx)), los tipos no primitivos como cadena.
 
 Haga clic con el *Views\HelloWorld* carpeta y haga clic en **agregar**, a continuación, haga clic en **página de vista de MVC 5 con diseño (Razor)**.
   
@@ -73,7 +73,7 @@ En primer lugar, desea cambiar la &quot;nombre de la aplicación&quot; vínculo 
 
 Las plantillas de diseño permiten especificar el diseño de contenedor HTML del sitio en un solo lugar y, a continuación, se aplican a través de varias páginas en el sitio. Busque la línea `@RenderBody()`. `RenderBody` es un marcador de posición donde se mostrarán todas las páginas específicas de vista que cree, &quot;encapsuladas&quot; en la página de diseño. Por ejemplo, si selecciona el **sobre** vínculo, el *Views\Home\About.cshtml* vista se representa dentro de la `RenderBody` método.
 
-Cambie el contenido del elemento de título. Cambiar el [ActionLink](https://msdn.microsoft.com/en-us/library/dd504972(v=vs.108).aspx) en la plantilla de diseño de &quot;nombre de la aplicación&quot; a &quot;MVC película&quot; y el controlador de `Home` a `Movies`. El archivo de diseño completo se muestra a continuación:
+Cambie el contenido del elemento de título. Cambiar el [ActionLink](https://msdn.microsoft.com/library/dd504972(v=vs.108).aspx) en la plantilla de diseño de &quot;nombre de la aplicación&quot; a &quot;MVC película&quot; y el controlador de `Home` a `Movies`. El archivo de diseño completo se muestra a continuación:
 
 [!code-cshtml[Main](adding-a-view/samples/sample3.cshtml?highlight=6,20)]
 

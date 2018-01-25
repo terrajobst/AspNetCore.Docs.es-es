@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/kestrel
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3695a6a127f77bd90538d72af6112ccf507f3482
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 3e2b28f15e47789ac89213e57396060ee356ee33
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-kestrel-web-server-implementation-in-aspnet-core"></a>Introducción a la implementación de servidor web Kestrel en ASP.NET Core
 
@@ -223,7 +223,7 @@ Si se llama a `UseUrls` o usar el `urls` argumento de línea de comandos o una v
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Prefijos de dirección URL de HTTP solo son válidos; Kestrel no admite SSL al configurar los enlaces de dirección URL mediante `UseUrls`.
+Prefijos de dirección URL de HTTP solo son válidos; Kestrel no es compatible con SSL al configurar los enlaces de dirección URL mediante el uso de `UseUrls`.
 
 * Dirección IPv4 con número de puerto
 

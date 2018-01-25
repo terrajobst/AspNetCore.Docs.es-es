@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 5265f9962ca6244b1fe13ca6e37a5217c15b8cdf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Elegir el enfoque adecuado para la implementación Web
 ====================
@@ -38,7 +38,7 @@ Esta tabla muestra las principales ventajas y desventajas de cada método de imp
 
 | Enfoque | Ventajas | Desventajas | Escenarios típicos |
 | --- | --- | --- | --- |
-| Agente remoto | Es fácil de configurar. Es adecuado para actualizaciones periódicas para las aplicaciones web y el contenido. | El usuario debe ser un administrador en el servidor de destino. el usuario no puede proporcionar credenciales alternativas. | Entornos de desarrollo. Entornos de prueba. |
+| Agente remoto | Es fácil de configurar. Es adecuado para actualizaciones periódicas para las aplicaciones web y el contenido. | El usuario debe ser un administrador en el servidor de destino. El usuario no puede proporcionar credenciales alternativas. | Entornos de desarrollo. Entornos de prueba. |
 | Agente temporal | No es necesario para instalar Web Deploy en el equipo de destino. La versión más reciente de Web Deploy se utiliza automáticamente. | El usuario debe ser un administrador en el servidor de destino. El usuario no puede proporcionar credenciales alternativas. | Entornos de desarrollo. Entornos de prueba. |
 | Controlador de implementación Web | Los usuarios no administradores pueden implementar contenido. Es adecuado para actualizaciones periódicas para las aplicaciones web y el contenido. | Es mucho más difícil de configurar. | Entornos de almacenamiento provisional. Entornos de producción de la intranet. Entornos hospedados. |
 | Implementación sin conexión | Es muy fácil de configurar. Es adecuado para entornos aislados. | El administrador del servidor manualmente debe copiar e importar el paquete web cada vez. | Entornos de producción a través de Internet. Entornos de red aislada. |
@@ -69,7 +69,7 @@ En realidad, el ejecutable de Web Deploy puede deducir la dirección de punto de
 
 
 > [!NOTE]
-> Para obtener más información acerca de la sintaxis de línea de comandos de Web Deploy y *. deploy.cmd* archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Para obtener más información acerca de la sintaxis de línea de comandos de Web Deploy y *. deploy.cmd* archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 El agente remoto ofrece una manera sencilla de implementar el contenido desde una ubicación remota, y este enfoque puede funcionar bien con la implementación de un solo clic o automatizada. Sin embargo, el usuario que ejecuta el comando de implementación también debe ser un administrador de dominio o un miembro del grupo Administradores local en el servidor de destino. Además, el agente remoto no es compatible con la autenticación básica, por lo que no se puede pasar credenciales alternativas en la línea de comandos.
@@ -94,7 +94,7 @@ Si desea utilizar la configuración del proveedor de agente temporal, agregue el
 
 La ventaja de este enfoque es que no es necesario mantener las instalaciones de Web Deploy en los servidores de destino. Además, no es necesario para asegurarse de que los equipos de origen y de destino ejecutan la misma versión de Web Deploy. Sin embargo, este enfoque sufre las mismas limitaciones de entidad de seguridad que el enfoque de agente remoto, es decir, que debe ser un administrador local en el servidor de destino con el fin de distribuir contenido, y se admite únicamente la autenticación NTLM. El enfoque de agente temp también requiere configuración mucho más inicial del entorno de destino.
 
-Para obtener más información sobre cómo usar el agente temporal, vea [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx) y [implementar Web a petición](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Para obtener más información sobre cómo usar el agente temporal, vea [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx) y [implementar Web a petición](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 ## <a name="using-the-web-deploy-handler"></a>Uso de Web implementar el controlador
 
@@ -125,7 +125,7 @@ Por ejemplo, suponga que un proceso de compilación está configurado para imple
 
 
 > [!NOTE]
-> Para obtener más información sobre Web Deploy operaciones de línea de comandos y la sintaxis, vea [referencia de línea de comandos de implementación Web](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Para obtener más información sobre el uso de la *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+> Para obtener más información sobre Web Deploy operaciones de línea de comandos y la sintaxis, vea [referencia de línea de comandos de implementación Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Para obtener más información sobre el uso de la *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
 
 El controlador de implementación Web proporciona un enfoque útil para la implementación en entornos, entornos hospedados y entornos de producción basados en intranet, donde el acceso remoto al servidor está disponible, pero las credenciales de administrador no son de almacenamiento provisional.
@@ -146,9 +146,9 @@ Para obtener un ejemplo de extremo a extremo de un escenario que utiliza el enfo
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener más información sobre Web Deploy operaciones de línea de comandos y la sintaxis, vea [referencia de línea de comandos de implementación Web](https://technet.microsoft.com/en-us/library/dd568991(v=ws.10).aspx). Para obtener más información sobre el uso de la *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/en-us/library/ff356104.aspx).
+Para obtener más información sobre Web Deploy operaciones de línea de comandos y la sintaxis, vea [referencia de línea de comandos de implementación Web](https://technet.microsoft.com/library/dd568991(v=ws.10).aspx). Para obtener más información sobre el uso de la *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx).
 
-Para obtener instrucciones más general sobre las distintas maneras en que puede implementar paquetes de web desde un equipo remoto, consulte [utilizando Web implementar remotamente](https://technet.microsoft.com/en-us/library/ee461175(WS.10).aspx). Para obtener más información sobre el uso de implementación Web a petición, consulte [implementar Web a petición](https://technet.microsoft.com/en-us/library/ee517345(WS.10).aspx).
+Para obtener instrucciones más general sobre las distintas maneras en que puede implementar paquetes de web desde un equipo remoto, consulte [utilizando Web implementar remotamente](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Para obtener más información sobre el uso de implementación Web a petición, consulte [implementar Web a petición](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
 >[!div class="step-by-step"]
 [Anterior](configuring-server-environments-for-web-deployment.md)

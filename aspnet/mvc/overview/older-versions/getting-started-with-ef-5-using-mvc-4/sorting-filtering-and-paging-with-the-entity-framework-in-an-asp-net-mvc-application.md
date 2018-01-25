@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 18c3825c58e7cfe0a73817a8431593c661c5fa4f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f9b68abeba19561a327bad5ee4be80d79af1a550
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Ordenación, filtrado y paginación con Entity Framework en una aplicación de MVC de ASP.NET (3 de 10)
 ====================
@@ -64,7 +64,7 @@ Estas son las instrucciones ternarias. La primera de ellas especifica que si el 
 | Fecha ascendente | ascending | descending |
 | Fecha descendente | ascending | ascending |
 
-El método usa [LINQ to Entities](https://msdn.microsoft.com/en-us/library/bb386964.aspx) para especificar la columna para ordenar por. El código crea un [IQueryable](https://msdn.microsoft.com/en-us/library/bb351562.aspx) variable antes de la `switch` modifica la instrucción, en la `switch` instrucción y llamadas a la `ToList` método después el `switch` instrucción. Al crear y modificar `IQueryable` variables, no hay ninguna consulta se envía a la base de datos. La consulta no se ejecuta hasta que convierta el `IQueryable` objeto en una colección mediante una llamada a un método como `ToList`. Por lo tanto, este código produce una única consulta que no se ejecuta hasta que el `return View` instrucción.
+El método usa [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) para especificar la columna para ordenar por. El código crea un [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) variable antes de la `switch` modifica la instrucción, en la `switch` instrucción y llamadas a la `ToList` método después el `switch` instrucción. Al crear y modificar `IQueryable` variables, no hay ninguna consulta se envía a la base de datos. La consulta no se ejecuta hasta que convierta el `IQueryable` objeto en una colección mediante una llamada a un método como `ToList`. Por lo tanto, este código produce una única consulta que no se ejecuta hasta que el `return View` instrucción.
 
 ### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Agregar hipervínculos a la vista de índice de estudiante de encabezado de columna
 
@@ -92,7 +92,7 @@ En *Controllers\StudentController.cs*, reemplace el `Index` método por el códi
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Ha agregado un `searchString` parámetro para el `Index` método. También ha agregado a la instrucción LINQ un `where` clausethat selecciona sólo los estudiantes cuyo apellido o apellidos contienen la cadena de búsqueda. El valor de cadena de búsqueda se recibe de un cuadro de texto que agregará a la vista de índice. La instrucción que agrega el [donde](https://msdn.microsoft.com/en-us/library/bb535040.aspx) cláusula se ejecuta sólo si hay un valor que se buscará.
+Ha agregado un `searchString` parámetro para el `Index` método. También ha agregado a la instrucción LINQ un `where` clausethat selecciona sólo los estudiantes cuyo apellido o apellidos contienen la cadena de búsqueda. El valor de cadena de búsqueda se recibe de un cuadro de texto que agregará a la vista de índice. La instrucción que agrega el [donde](https://msdn.microsoft.com/library/bb535040.aspx) cláusula se ejecuta sólo si hay un valor que se buscará.
 
 > [!NOTE]
 > En muchos casos puede llamar al mismo método en un conjunto de entidades de Entity Framework o como un método de extensión en una colección en memoria. Los resultados son normalmente los mismos pero en algunos casos pueden ser diferentes. Por ejemplo, la implementación de .NET Framework de la `Contains` método devuelve todas las filas cuando se pasa una cadena vacía a él, pero el proveedor de Entity Framework para SQL Server Compact 4.0 devuelve cero filas para las cadenas vacías. Por lo tanto, el código del ejemplo (colocar el `Where` instrucción dentro de un `if` instrucción) se asegura de que obtendrá los mismos resultados para todas las versiones de SQL Server. Además, la implementación de .NET Framework de la `Contains` método realiza una comparación entre mayúsculas y minúsculas de forma predeterminada, pero los proveedores de Entity Framework SQL Server realizan comparaciones entre mayúsculas y minúsculas de forma predeterminada. Por lo tanto, al llamar a la `ToUpper` método para realizar la prueba explícitamente entre mayúsculas y minúsculas se asegura de que los resultados no cambian cuando cambia el código de una versión posterior para usar un repositorio, lo que devolverá una `IEnumerable` colección en lugar de un `IQueryable` objeto. (Cuando se llama a la `Contains` método en un `IEnumerable` colección, obtendrá la implementación en .NET Framework; cuando se llama en un `IQueryable` de objeto, obtendrá la implementación del proveedor de base de datos.)
@@ -158,7 +158,7 @@ Al final del método, el `ToPagedList` método de extensión en los alumnos `IQu
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-El `ToPagedList` método toma un número de página. Los dos signos de interrogación representan el [operador de uso combinado de null](https://msdn.microsoft.com/en-us/library/ms173224.aspx). El operador de uso combinado de null define un valor predeterminado para un tipo que acepta valores null; la expresión `(page ?? 1)` significa que devuelva el valor de `page` si tiene un valor, o devuelve 1 si `page` es null.
+El `ToPagedList` método toma un número de página. Los dos signos de interrogación representan el [operador de uso combinado de null](https://msdn.microsoft.com/library/ms173224.aspx). El operador de uso combinado de null define un valor predeterminado para un tipo que acepta valores null; la expresión `(page ?? 1)` significa que devuelva el valor de `page` si tiene un valor, o devuelve 1 si `page` es null.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Agregar vínculos de paginación a la vista de índice de estudiante
 
@@ -170,11 +170,11 @@ El `@model` instrucción en la parte superior de la página especifica que la vi
 
 El `using` instrucción para `PagedList.Mvc` proporciona acceso a la aplicación auxiliar MVC para los botones de paginación.
 
-El código usa una sobrecarga de [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) que le permite especificar [FormMethod.Get](https://msdn.microsoft.com/en-us/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
+El código usa una sobrecarga de [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) que le permite especificar [FormMethod.Get](https://msdn.microsoft.com/library/system.web.mvc.formmethod(v=vs.100).aspx/css).
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-El valor predeterminado [BeginForm](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) envía datos del formulario con una entrada, lo que significa que se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como las cadenas de consulta de parámetros. Cuando se especifica HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta, lo que permite a los usuarios marcar la dirección URL. El [directrices de W3C para el uso de HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) especificar que debe utilizar GET cuando la acción no da como resultado una actualización.
+El valor predeterminado [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) envía datos del formulario con una entrada, lo que significa que se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como las cadenas de consulta de parámetros. Cuando se especifica HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta, lo que permite a los usuarios marcar la dirección URL. El [directrices de W3C para el uso de HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) especificar que debe utilizar GET cuando la acción no da como resultado una actualización.
 
 El cuadro de texto se inicializa con la cadena de búsqueda actual para que al hacer clic en una nueva página que pueda ver la cadena de búsqueda actual.
 
@@ -291,7 +291,7 @@ Base de datos de SQL de Windows Azure es un servicio de base de datos relacional
 7. Haga clic en la flecha que señala a la derecha en la parte inferior del cuadro. El asistente avanza a la **configuración de base de datos** paso.
 8. En el **nombre** cuadro, escriba *ContosoUniversityDB*.
 9. En el **Server** cuadro, seleccione **servidor de base de datos SQL**. O bien, si ha creado un servidor, puede seleccionar que el servidor de la lista desplegable.
-10. Especifique un administrador **nombre de inicio de sesión** y **contraseña**. Si seleccionó **servidor de base de datos SQL** no se escribe un nombre existente y la contraseña aquí, que se están escribiendo un nuevo nombre y una contraseña que se está definiendo ahora para usarla más adelante cuando tiene acceso a la base de datos. Si ha seleccionado un servidor que creó anteriormente, que especifique las credenciales para ese servidor. Para este tutorial, no seleccione la ***avanzadas*** casilla de verificación. El ***avanzadas*** opciones permiten establecer la base de datos [intercalación](https://msdn.microsoft.com/en-us/library/aa174903(v=SQL.80).aspx).
+10. Especifique un administrador **nombre de inicio de sesión** y **contraseña**. Si seleccionó **servidor de base de datos SQL** no se escribe un nombre existente y la contraseña aquí, que se están escribiendo un nuevo nombre y una contraseña que se está definiendo ahora para usarla más adelante cuando tiene acceso a la base de datos. Si ha seleccionado un servidor que creó anteriormente, que especifique las credenciales para ese servidor. Para este tutorial, no seleccione la ***avanzadas*** casilla de verificación. El ***avanzadas*** opciones permiten establecer la base de datos [intercalación](https://msdn.microsoft.com/library/aa174903(v=SQL.80).aspx).
 11. Elija el mismo **región** que eligió para el sitio web.
 12. Haga clic en la marca de verificación en la parte inferior derecha de la casilla para indicar que haya terminado.   
   
@@ -367,7 +367,7 @@ Base de datos de SQL de Windows Azure es un servicio de base de datos relacional
   
     ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image32.png)
 
-En este momento su *SchoolContext* base de datos se ha creado en la base de datos de SQL de Windows Azure porque seleccionó **ejecutar migraciones de Code First (se ejecuta en el inicio de aplicación)**. El *Web.config* archivo en el sitio web implementado se ha modificado para que la [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) inicializador ejecutaría la primera vez que el código lee o escribe datos en la base de datos (que se produjo cuando selecciona el **estudiantes** pestaña):
+En este momento su *SchoolContext* base de datos se ha creado en la base de datos de SQL de Windows Azure porque seleccionó **ejecutar migraciones de Code First (se ejecuta en el inicio de aplicación)**. El *Web.config* archivo en el sitio web implementado se ha modificado para que la [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) inicializador ejecutaría la primera vez que el código lee o escribe datos en la base de datos (que se produjo cuando selecciona el **estudiantes** pestaña):
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image33.png)
 
@@ -387,7 +387,7 @@ Puede encontrar la versión implementada del archivo Web.config en su propio equ
 
 ## <a name="code-first-initializers"></a>Inicializadores de primer código
 
-En la sección de implementación se ha visto la [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/en-us/library/hh829476(v=vs.103).aspx) inicializador usándola. Código primero también proporciona otros inicializadores que pueden utilizarse, incluidas [CreateDatabaseIfNotExists](https://msdn.microsoft.com/en-us/library/gg679221(v=vs.103).aspx) (valor predeterminado), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/en-us/library/gg679604(v=VS.103).aspx) y [ DropCreateDatabaseAlways](https://msdn.microsoft.com/en-us/library/gg679506(v=VS.103).aspx). El `DropCreateAlways` inicializador puede ser útil para configurar las condiciones para las pruebas unitarias. También puede escribir a sus propio inicializadores, y se puede llamar a un inicializador explícitamente si no desea esperar hasta que la aplicación lee o escribe en la base de datos. Para obtener una explicación completa de inicializadores, consulte el capítulo 6 de la libreta de [Programming Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman y Rowan Miller.
+En la sección de implementación se ha visto la [MigrateDatabaseToLatestVersion](https://msdn.microsoft.com/library/hh829476(v=vs.103).aspx) inicializador usándola. Código primero también proporciona otros inicializadores que pueden utilizarse, incluidas [CreateDatabaseIfNotExists](https://msdn.microsoft.com/library/gg679221(v=vs.103).aspx) (valor predeterminado), [DropCreateDatabaseIfModelChanges](https://msdn.microsoft.com/library/gg679604(v=VS.103).aspx) y [ DropCreateDatabaseAlways](https://msdn.microsoft.com/library/gg679506(v=VS.103).aspx). El `DropCreateAlways` inicializador puede ser útil para configurar las condiciones para las pruebas unitarias. También puede escribir a sus propio inicializadores, y se puede llamar a un inicializador explícitamente si no desea esperar hasta que la aplicación lee o escribe en la base de datos. Para obtener una explicación completa de inicializadores, consulte el capítulo 6 de la libreta de [Programming Entity Framework: Code First](http://shop.oreilly.com/product/0636920022220.do) Julie Lerman y Rowan Miller.
 
 ## <a name="summary"></a>Resumen
 

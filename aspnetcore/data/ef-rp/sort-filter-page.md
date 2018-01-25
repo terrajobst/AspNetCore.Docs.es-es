@@ -8,11 +8,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 08f00e183dd8a8daa883d0b9ff15698b3a39f625
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24649374b71da39d638d943617a219d45f064846
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Ordenación, filtrado, paginación y agrupar - Core EF con páginas de Razor (3 de 8)
 
@@ -139,7 +139,7 @@ En *Views/Student/Index.cshtml*, agregue el código resaltado siguiente para cre
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-El código anterior usa el `<form>` [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro) para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la `<form>` auxiliar de etiquetas envía datos de formulario con una entrada de blog. Utiliza el método POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se utiliza HTTP GET, los datos del formulario se pasan en la dirección URL como las cadenas de consulta. Pasar los datos con cadenas de consulta, permite a los usuarios marcar la dirección URL. El [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomienda que GET debe utilizarse cuando la acción no da como resultado una actualización.
+El código anterior usa el `<form>` [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro) para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la `<form>` auxiliar de etiquetas envía datos de formulario con una entrada de blog. Utiliza el método POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se utiliza HTTP GET, los datos del formulario se pasan en la dirección URL como las cadenas de consulta. Pasar los datos con cadenas de consulta, permite a los usuarios marcar la dirección URL. El [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomienda que GET debe utilizarse cuando la acción no se produce una actualización.
 
 Pruebe la aplicación:
 

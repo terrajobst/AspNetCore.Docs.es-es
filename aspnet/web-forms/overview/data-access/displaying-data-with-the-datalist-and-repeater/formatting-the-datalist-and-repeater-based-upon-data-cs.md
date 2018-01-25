@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e5bc0d9ac26801f48560cf07d4a0ab3854d5f74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 604aa63919a881e828b6a3620360c3d1133c5830
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>Dar formato al DataList y repetidor basándose en datos (C#)
 ====================
@@ -40,25 +40,25 @@ Ambas de estas técnicas de formato están disponibles con los controles DataLis
 
 ## <a name="using-theitemdataboundevent-handler"></a>Mediante el`ItemDataBound`controlador de eventos
 
-Cuando los datos se enlazan a un control DataList, desde un control de origen de datos o mediante la asignación mediante programación los datos al control s `DataSource` propiedad y llamar a su `DataBind()` método, el control DataList s `DataBinding` evento activa, el origen de datos de tipo enumerado y cada registro de datos está enlazada al control DataList. Para cada registro del origen de datos, el control DataList crea un [ `DataListItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.aspx) objeto que es, a continuación, enlazar el registro actual. Durante este proceso, el control DataList genera dos eventos:
+Cuando los datos se enlazan a un control DataList, desde un control de origen de datos o mediante la asignación mediante programación los datos al control s `DataSource` propiedad y llamar a su `DataBind()` método, el control DataList s `DataBinding` evento activa, el origen de datos de tipo enumerado y cada registro de datos está enlazada al control DataList. Para cada registro del origen de datos, el control DataList crea un [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) objeto que es, a continuación, enlazar el registro actual. Durante este proceso, el control DataList genera dos eventos:
 
 - **`ItemCreated`**se activa tras la `DataListItem` se ha creado
 - **`ItemDataBound`**se desencadena después de que el registro actual se ha enlazado a la`DataListItem`
 
 Los siguientes pasos describen el proceso de enlace de datos para el control DataList.
 
-1. El control DataList s [ `DataBinding` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.control.databinding.aspx) se activa
+1. El control DataList s [ `DataBinding` evento](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) se activa
 2. Los datos se enlazan al control DataList  
   
  Para cada registro del origen de datos 
 
     1. Crear un `DataListItem` objeto
-    2. Activar la [ `ItemCreated` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
+    2. Activar la [ `ItemCreated` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
     3. Enlazar el registro de la`DataListItem`
-    4. Activar la [ `ItemDataBound` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
+    4. Activar la [ `ItemDataBound` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Agregar el `DataListItem` a la `Items` colección
 
-Al enlazar datos al control de repetidor, se avanza a través de la misma secuencia exacta de pasos. La única diferencia es que en lugar de `DataListItem` repetidor de instancias que se está creados, usa [ `RepeaterItem` ](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
+Al enlazar datos al control de repetidor, se avanza a través de la misma secuencia exacta de pasos. La única diferencia es que en lugar de `DataListItem` repetidor de instancias que se está creados, usa [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem(VS.80).aspx)s.
 
 > [!NOTE]
 > El lector astuto quizás haya observado una ligera anomalías entre la secuencia de pasos que ocurren cuando el DataList y repetidor se enlazan a datos frente a cuando el control GridView está enlazado a datos. En la parte final del proceso de enlace de datos, genera GridView el `DataBound` eventos; sin embargo, el DataList ni repetidor control tiene uno de esos eventos. Esto es porque los controles DataList y repetidor se crearon en el período de tiempo ASP.NET 1.x, antes de que el patrón de controlador de eventos previas y posteriores al nivel se había convertido en común.
@@ -93,7 +93,7 @@ Crear un `ItemDataBound` eventos para el control DataList y agregue el código s
 
 [!code-csharp[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample1.cs)]
 
-Aunque el concepto y la semántica de DataList s `ItemDataBound` controlador de eventos son las mismas que las utilizadas por las operaciones de asignación GridView `RowDataBound` controlador de eventos en el *formato basado en datos personalizados* difiere de la sintaxis de tutorial, ligeramente. Cuando el `ItemDataBound` desencadena el evento, el `DataListItem` simplemente enlazado a datos se haya pasado al controlador de eventos correspondiente a través de `e.Item` (en lugar de `e.Row`, al igual que con las operaciones de asignación GridView `RowDataBound` controlador de eventos). El control DataList s `ItemDataBound` controlador de eventos se desencadena para *cada* fila agregada al control DataList, como filas de encabezado, las filas de pie de página y filas de separador. Sin embargo, la información de producto solo se enlaza a las filas de datos. Por lo tanto, cuando se usa el `ItemDataBound` evento para inspeccionar los datos enlazados al control DataList, necesitamos primero asegúrese de que se está trabajando con un elemento de datos. Esto puede realizarse mediante la comprobación de la `DataListItem` s [ `ItemType` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), que puede tener uno de [los siguientes valores de ocho](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.listitemtype.aspx):
+Aunque el concepto y la semántica de DataList s `ItemDataBound` controlador de eventos son las mismas que las utilizadas por las operaciones de asignación GridView `RowDataBound` controlador de eventos en el *formato basado en datos personalizados* difiere de la sintaxis de tutorial, ligeramente. Cuando el `ItemDataBound` desencadena el evento, el `DataListItem` simplemente enlazado a datos se haya pasado al controlador de eventos correspondiente a través de `e.Item` (en lugar de `e.Row`, al igual que con las operaciones de asignación GridView `RowDataBound` controlador de eventos). El control DataList s `ItemDataBound` controlador de eventos se desencadena para *cada* fila agregada al control DataList, como filas de encabezado, las filas de pie de página y filas de separador. Sin embargo, la información de producto solo se enlaza a las filas de datos. Por lo tanto, cuando se usa el `ItemDataBound` evento para inspeccionar los datos enlazados al control DataList, necesitamos primero asegúrese de que se está trabajando con un elemento de datos. Esto puede realizarse mediante la comprobación de la `DataListItem` s [ `ItemType` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.itemtype.aspx), que puede tener uno de [los siguientes valores de ocho](https://msdn.microsoft.com/library/system.web.ui.webcontrols.listitemtype.aspx):
 
 - `AlternatingItem`
 - `EditItem`
@@ -104,7 +104,7 @@ Aunque el concepto y la semántica de DataList s `ItemDataBound` controlador de 
 - `SelectedItem`
 - `Separator`
 
-Ambos `Item` y `AlternatingItem``DataListItem` elementos de datos de composición de las operaciones de asignación DataList s. Suponiendo que se está trabajando con un `Item` o `AlternatingItem`, tenemos acceso a los datos reales `ProductsRow` instancia que estaba enlazado actual `DataListItem`. El `DataListItem` s [ `DataItem` propiedad](https://msdn.microsoft.com/en-us/system.web.ui.webcontrols.datalistitem.dataitem.aspx) contiene una referencia a la `DataRowView` objeto cuya `Row` propiedad proporciona una referencia a los datos reales `ProductsRow` objeto.
+Ambos `Item` y `AlternatingItem``DataListItem` elementos de datos de composición de las operaciones de asignación DataList s. Suponiendo que se está trabajando con un `Item` o `AlternatingItem`, tenemos acceso a los datos reales `ProductsRow` instancia que estaba enlazado actual `DataListItem`. El `DataListItem` s [ `DataItem` propiedad](https://msdn.microsoft.com/system.web.ui.webcontrols.datalistitem.dataitem.aspx) contiene una referencia a la `DataRowView` objeto cuya `Row` propiedad proporciona una referencia a los datos reales `ProductsRow` objeto.
 
 A continuación, comprobamos la `ProductsRow` instancia s `UnitPrice` propiedad. Desde la tabla Products s `UnitPrice` campo permite `NULL` valores antes de intentar tener acceso a la `UnitPrice` propiedad deberíamos primero comprobamos para ver si tiene un `NULL` valor mediante la `IsUnitPriceNull()` (método). Si el `UnitPrice` valor no es `NULL`, a continuación, compruebe para ver si se es menor que $20.00. Si se trata realmente en $20.00, necesitamos, a continuación, aplique el formato personalizado.
 
@@ -200,7 +200,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

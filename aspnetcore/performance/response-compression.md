@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: performance/response-compression
-ms.openlocfilehash: 9270287b62f91ddb81d6a347dd583e1cbb32f3c3
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2b39a5105339beb416490db282d4cd8b83d08660
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="response-compression-middleware-for-aspnet-core"></a>Middleware de compresión de respuesta para ASP.NET Core
 
@@ -96,7 +96,7 @@ El código siguiente muestra cómo habilitar el Middleware de compresión de res
 
 Enviar una solicitud a la aplicación de ejemplo sin la `Accept-Encoding` encabezado y observe que la respuesta es sin comprimir. El `Content-Encoding` y `Vary` encabezados no están presentes en la respuesta.
 
-![Ventana de Fiddler que muestra el resultado de una solicitud sin el encabezado Accept-Encoding. No se comprime la respuesta.](response-compression/_static/request-uncompressed.png)
+![Ventana de Fiddler que muestra el resultado de una solicitud sin el encabezado Accept-Encoding. La respuesta no está comprimida.](response-compression/_static/request-uncompressed.png)
 
 Enviar una solicitud a la aplicación de ejemplo con el `Accept-Encoding: gzip` encabezado y observe que la respuesta está comprimida. El `Content-Encoding` y `Vary` encabezados están presentes en la respuesta.
 
@@ -110,7 +110,7 @@ El proveedor de compresión gzip usa de forma predeterminada el nivel de compres
 
 | Nivel de compresión                | Descripción                                                                                                   |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `CompressionLevel.Fastest`       | Compresión debe completarse tan pronto como sea posible, incluso si el resultado no se comprime un rendimiento óptimo. |
+| `CompressionLevel.Fastest`       | Compresión debe completar lo más rápido posible, incluso si el resultado no está comprimido un rendimiento óptimo. |
 | `CompressionLevel.NoCompression` | Es necesario realizar ninguna compresión.                                                                           |
 | `CompressionLevel.Optimal`       | Las respuestas se deben comprimir un rendimiento óptimo, incluso si la compresión tarda más tiempo en completarse.                |
 

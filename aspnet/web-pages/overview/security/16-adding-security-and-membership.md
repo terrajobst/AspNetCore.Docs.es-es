@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: f0cee96005416bd9ef8befaf34890f415cf5ff3c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Adición de seguridad y pertenencia a un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -111,7 +111,7 @@ El siguiente procedimiento describe cómo crear el sitio y configurarlo.
 9. En la esquina superior derecha de la página, haga clic en el **registrar** vínculo. El *Register.cshtml* se muestra la página.
 10. Escriba un nombre de usuario y una contraseña y, a continuación, haga clic en **registrar**.
 
-    ![seguridad-pertenencia-3](16-adding-security-and-membership/_static/image2.png)
+    ![security-membership-3](16-adding-security-and-membership/_static/image2.png)
 
     Al crear el sitio Web desde el **Starter Site** plantilla, una base de datos denominada *StarterSite.sdf* creada en el sitio *aplicación\_datos* carpeta. Durante el registro, la información de usuario se agrega a la base de datos. Si establece los valores de SMTP, se envía un mensaje a la dirección de correo electrónico que usó para terminar de registrar.
 
@@ -212,7 +212,7 @@ El sistema de pertenencia ASP.NET está configurado para admitir roles. Sin emba
 
 La página de inicio de sesión no detendrá programas automatizados (a veces se denomina *web robots* o *bots*) desde el registro con su sitio Web. Este procedimiento describe cómo habilitar una prueba de ReCaptcha para la página de registro.
 
-![/Media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
+![/media/38777/ch16securitymembership-18.jpg](16-adding-security-and-membership/_static/image1.jpg)
 
 1. Registrar su sitio Web en ReCaptcha.Net ([http://recaptcha.net](http://recaptcha.net)). Cuando haya completado el registro, obtendrá una clave pública y una clave privada.
 2. Agregar ASP.NET Web Helpers Library a su sitio Web, como se describe en [aplicaciones auxiliares de instalación en un sitio de ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=252372), si no lo ha hecho ya.
@@ -230,7 +230,7 @@ La página de inicio de sesión no detendrá programas automatizados (a veces se
 1. Ejecutar *Default.cshtml* en un explorador. Si ha iniciado sesión en el sitio, haga clic en el **Logout** vínculo.
 2. Haga clic en el **registrar** vincular y probar el registro mediante la prueba CAPTCHA.
 
-    ![seguridad-pertenencia-10](16-adding-security-and-membership/_static/image9.png)
+    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 Para obtener más información sobre la `ReCaptcha` auxiliar, vea [mediante un CATPCHA para evitar que los programas automatizada (Bots) de uso de su sitio Web de ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251967).
 
@@ -254,20 +254,20 @@ El procedimiento descrito anteriormente en este artículo se basa en el uso del 
 
 El proceso básico que se describe en la entrada de blog [la manera más sencilla de implementar la seguridad de ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240). Realiza la mayor parte del trabajo mediante los siguientes métodos y propiedades de la `WebSecurity` auxiliar:
 
-- [WebSecurty.UserExists](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Estos métodos le permiten determinar si alguien ya está registrado y registrarlos.
-- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Esta propiedad le permite determinar si el usuario actual ha iniciado sesión. Esto es útil para redirigir a los usuarios a una página de inicio de sesión si aún no han iniciado sesión.
-- [WebSecurity.Login](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Estos métodos, inicie sesión un usuario o alejar.
-- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Esta propiedad es útil para mostrar ha iniciado la sesión nombre del usuario actual (si el usuario ha iniciado sesión).
-- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/en-us/library/gg569286(v=vs.99).aspx). Este método es útil si configuras confirmación por correo electrónico para el registro. (En la entrada de blog se proporcionan detalles [mediante la característica de confirmación para la seguridad de ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
+- [WebSecurty.UserExists](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.userexists(v=vs.99).aspx), [WebSecurity.CreateUserAndAccount](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.createuserandaccount(v=vs.99).aspx). Estos métodos le permiten determinar si alguien ya está registrado y registrarlos.
+- [WebSecurty.IsAuthenticated](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.isauthenticated(v=vs.99).aspx). Esta propiedad le permite determinar si el usuario actual ha iniciado sesión. Esto es útil para redirigir a los usuarios a una página de inicio de sesión si aún no han iniciado sesión.
+- [WebSecurity.Login](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.login(v=vs.99).aspx), [WebSecurity.Logout](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.logout(v=vs.99).aspx). Estos métodos, inicie sesión un usuario o alejar.
+- [WebSecurity.CurrentUserName](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity.currentusername(v=vs.99).aspx). Esta propiedad es útil para mostrar ha iniciado la sesión nombre del usuario actual (si el usuario ha iniciado sesión).
+- [WebSecurity.ConfirmAccount](https://msdn.microsoft.com/library/gg569286(v=vs.99).aspx). Este método es útil si configuras confirmación por correo electrónico para el registro. (En la entrada de blog se proporcionan detalles [mediante la característica de confirmación para la seguridad de ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267).)
 
-Para administrar roles, puede usar el [Roles](https://msdn.microsoft.com/en-us/library/gg538398(v=vs.99).aspx) y [pertenencia](https://msdn.microsoft.com/en-us/library/gg569035(v=vs.99).aspx) clases, como se describe en la entrada de blog.
+Para administrar roles, puede usar el [Roles](https://msdn.microsoft.com/library/gg538398(v=vs.99).aspx) y [pertenencia](https://msdn.microsoft.com/library/gg569035(v=vs.99).aspx) clases, como se describe en la entrada de blog.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - [Personalizar el comportamiento de todo el sitio](https://go.microsoft.com/fwlink/?LinkId=202906)
 - [Proteger las comunicaciones Web: Https://, SSL y certificados](https://go.microsoft.com/fwlink/?LinkId=208660)
 - [LA manera más sencilla de implementar la seguridad de ASP.NET Razor](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2240) y [mediante la característica de confirmación para la seguridad de ASP.NET Web Pages](http://mikepope.com/blog/DisplayBlog.aspx?permalink=2267). Se trata de entradas de blog que describen cómo implementar las características de pertenencia ASP.NET sin usar la **Starter Site** plantilla.
-- [Habilitar inicio de sesión de sitios externos en un sitio de páginas Web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251969)
-- [Referencia de la API de clase WebSecurity](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
-- [Referencia de la API de la clase de SimpleRoleProvider](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
-- [Referencia de la API de la clase de SimpleMembershipProvider](https://msdn.microsoft.com/en-us/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)
+- [Habilitar el inicio de sesión desde sitios externos en un sitio de ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251969)
+- [Referencia de la API de clase WebSecurity](https://msdn.microsoft.com/library/webmatrix.webdata.websecurity(v=vs.99)) (MSDN)
+- [Referencia de la API de la clase de SimpleRoleProvider](https://msdn.microsoft.com/library/webmatrix.webdata.simpleroleprovider(v=vs.99)) (MSDN)
+- [Referencia de la API de la clase de SimpleMembershipProvider](https://msdn.microsoft.com/library/webmatrix.webdata.simplemembershipprovider(v=vs.99)) (MSDN)

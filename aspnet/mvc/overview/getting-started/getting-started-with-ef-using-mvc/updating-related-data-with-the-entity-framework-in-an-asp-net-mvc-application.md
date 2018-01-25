@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 348940748e3c33ace03d1b8f41615e9814cf6b40
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 205d5ddcd0c3240c87ec5705a6676215eb67942d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Actualizar datos relacionados con Entity Framework en una aplicación ASP.NET MVC
 ====================
@@ -127,7 +127,7 @@ El código hace lo siguiente:
 
 - Cambia el nombre del método para `EditPost` porque la firma ahora es el mismo que el `HttpGet` método (el `ActionName` atributo especifica que todavía se usa la dirección URL/Edit /).
 - Obtiene el actual `Instructor` entidad desde la base de datos con carga diligente de la `OfficeAssignment` propiedad de navegación. Esto equivale a lo que hizo el `HttpGet` `Edit` método.
-- Actualiza el objeto recuperado `Instructor` entidad con valores desde el enlazador de modelos. El [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.108).aspx) sobrecarga utiliza permite *lista blanca de direcciones* las propiedades que van a incluir. Esto evita que el registro excesivo, como se explica en [el segundo tutorial](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- Actualiza el objeto recuperado `Instructor` entidad con valores desde el enlazador de modelos. El [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) sobrecarga utiliza permite *lista blanca de direcciones* las propiedades que van a incluir. Esto evita que el registro excesivo, como se explica en [el segundo tutorial](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cs)]
 - Si la ubicación de la oficina está en blanco, Establece el `Instructor.OfficeAssignment` propiedad en null para que la fila relacionada en el `OfficeAssignment` se eliminará la tabla.
@@ -163,7 +163,7 @@ En *InstructorController.cs*, reemplace la `HttpGet` `Edit` método por el códi
 
 El código agrega carga diligente de la `Courses` propiedad de navegación y llama a la nueva `PopulateAssignedCourseData` método para proporcionar información de la matriz de casilla utilizando la `AssignedCourseData` Ver clase de modelo.
 
-El código en el `PopulateAssignedCourseData` método lee a través de todos los `Course` clase de modelo de entidades para cargar una lista de cursos mediante la vista. Para cada curso, el código comprueba si existe el curso en el instructor `Courses` propiedad de navegación. Para crear una búsqueda eficaz al comprobar si se asigna un curso para el instructor, los cursos asignados al instructor se colocan en un [HashSet](https://msdn.microsoft.com/en-us/library/bb359438.aspx) colección. El `Assigned` propiedad está establecida en `true` cursos está asignado el instructor. La vista utilizará esta propiedad para determinar qué Compruebe cuadros deben mostrarse como seleccionado. Por último, la lista se pasa a la vista en un `ViewBag` propiedad.
+El código en el `PopulateAssignedCourseData` método lee a través de todos los `Course` clase de modelo de entidades para cargar una lista de cursos mediante la vista. Para cada curso, el código comprueba si existe el curso en el instructor `Courses` propiedad de navegación. Para crear una búsqueda eficaz al comprobar si se asigna un curso para el instructor, los cursos asignados al instructor se colocan en un [HashSet](https://msdn.microsoft.com/library/bb359438.aspx) colección. El `Assigned` propiedad está establecida en `true` cursos está asignado el instructor. La vista utilizará esta propiedad para determinar qué Compruebe cuadros deben mostrarse como seleccionado. Por último, la lista se pasa a la vista en un `ViewBag` propiedad.
 
 A continuación, agregue el código que se ejecuta cuando el usuario hace clic en **guardar**. Reemplace el `EditPost` método con el código siguiente, que llama a un método nuevo que actualiza el `Courses` propiedad de navegación de la `Instructor` entidad. Los cambios aparecen resaltados.
 
@@ -171,7 +171,7 @@ A continuación, agregue el código que se ejecuta cuando el usuario hace clic e
 
 La firma de método ahora es diferente de la `HttpGet` `Edit` método, por lo que cambia el nombre del método de `EditPost` a `Edit`.
 
-Puesto que la vista no tiene una colección de `Course` entidades, el enlazador de modelos no se puede actualizar automáticamente el `Courses` propiedad de navegación. En lugar de usar el enlazador de modelos para actualizar la `Courses` propiedad de navegación, llevará a cabo en el nuevo `UpdateInstructorCourses` método. Por lo tanto, tendrá que excluir el `Courses` propiedad de enlace de modelos. Esto no requiere ningún cambio en el código que llama [TryUpdateModel](https://msdn.microsoft.com/en-us/library/dd470908(v=vs.98).aspx) porque lo está utilizando la *crear listas blancas* sobrecarga y `Courses` no se encuentra en la lista de inclusión.
+Puesto que la vista no tiene una colección de `Course` entidades, el enlazador de modelos no se puede actualizar automáticamente el `Courses` propiedad de navegación. En lugar de usar el enlazador de modelos para actualizar la `Courses` propiedad de navegación, llevará a cabo en el nuevo `UpdateInstructorCourses` método. Por lo tanto, tendrá que excluir el `Courses` propiedad de enlace de modelos. Esto no requiere ningún cambio en el código que llama [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) porque lo está utilizando la *crear listas blancas* sobrecarga y `Courses` no se encuentra en la lista de inclusión.
 
 Si ninguna comprobación cuadros estaban seleccionados, el código en `UpdateInstructorCourses` inicializa el `Courses` propiedad de navegación con una colección vacía:
 
@@ -266,7 +266,7 @@ Ejecute la página Crear y agregar un instructor.
 <a id="transactions"></a>
 ## <a name="handling-transactions"></a>Controlar transacciones
 
-Como se explica en la [tutorial de la funcionalidad básica de CRUD](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), de forma predeterminada el Entity Framework implementa de manera implícita las transacciones. Para escenarios donde necesita más control, por ejemplo, si van a incluir operaciones realizadas fuera de Entity Framework en una transacción, consulte [trabajar con transacciones](https://msdn.microsoft.com/en-US/data/dn456843) en MSDN.
+Como se explica en la [tutorial de la funcionalidad básica de CRUD](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md), de forma predeterminada el Entity Framework implementa de manera implícita las transacciones. Para escenarios donde necesita más control, por ejemplo, si van a incluir operaciones realizadas fuera de Entity Framework en una transacción, consulte [trabajar con transacciones](https://msdn.microsoft.com/data/dn456843) en MSDN.
 
 ## <a name="summary"></a>Resumen
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 5d4c7d7d02ced5a99db5b59f9e2e1adf6588208a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a573b47d27767dc78d557cd2b6c73714eb9e94f4
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="part-2-creating-the-domain-models"></a>Parte 2: Crear los modelos de dominio
 ====================
@@ -32,9 +32,9 @@ Hay tres maneras de enfoque de Entity Framework:
 - Modelo en primer lugar: empieza con un modelo visual y Entity Framework genera la base de datos y el código.
 - Código de prioridad: empieza con código y Entity Framework genera la base de datos.
 
-Estamos utilizando el enfoque basado en código, por lo que se inicie mediante la definición de los objetos de dominio como POCOs (los objetos CLR antiguos sin formato). Con el enfoque basado en código, los objetos de dominio no es necesario ningún código adicional para admitir la capa de base de datos, como las transacciones o persistencia. (En concreto, no es necesario heredar de la [EntityObject](https://msdn.microsoft.com/en-us/library/system.data.objects.dataclasses.entityobject.aspx) clase.) Todavía puede usar anotaciones de datos para controlar cómo se crea el esquema de base de datos en Entity Framework.
+Estamos utilizando el enfoque basado en código, por lo que se inicie mediante la definición de los objetos de dominio como POCOs (los objetos CLR antiguos sin formato). Con el enfoque basado en código, los objetos de dominio no es necesario ningún código adicional para admitir la capa de base de datos, como las transacciones o persistencia. (En concreto, no es necesario heredar de la [EntityObject](https://msdn.microsoft.com/library/system.data.objects.dataclasses.entityobject.aspx) clase.) Todavía puede usar anotaciones de datos para controlar cómo se crea el esquema de base de datos en Entity Framework.
 
-Dado que POCOs no se mantienen las propiedades adicionales que describen [estado de la base de datos](https://msdn.microsoft.com/en-us/library/system.data.entitystate.aspx), fácilmente se pueden serializar a JSON o XML. Sin embargo, esto no significa siempre debe exponer los modelos de Entity Framework directamente a los clientes, como veremos más adelante en el tutorial.
+Dado que POCOs no se mantienen las propiedades adicionales que describen [estado de la base de datos](https://msdn.microsoft.com/library/system.data.entitystate.aspx), fácilmente se pueden serializar a JSON o XML. Sin embargo, esto no significa siempre debe exponer los modelos de Entity Framework directamente a los clientes, como veremos más adelante en el tutorial.
 
 Se creará el POCOs siguientes:
 

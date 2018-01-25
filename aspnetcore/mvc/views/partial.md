@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/views/partial
-ms.openlocfilehash: e5c8aac855a1f4ec4c6f08087dbe77f6820cc506
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 5919c273de2a298c3e407f118ac478e6a6031332
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="partial-views"></a>Vistas parciales
 
@@ -37,7 +37,7 @@ Sugerencia: Siga el [no repita usted mismo principio](http://deviq.com/don-t-rep
 
 ## <a name="declaring-partial-views"></a>Declarar las vistas parciales
 
-Las vistas parciales se crean como cualquier otra vista: se crea un *.cshtml* archivo dentro de la *vistas* carpeta. No hay ninguna diferencia semántica entre una vista parcial y una vista normal: solo se representará de forma diferente. Puede tener una vista que se devuelve directamente desde un controlador `ViewResult`, y puede usarse la misma vista como una vista parcial. La diferencia principal entre cómo se representan una vista y una vista parcial es que las vistas parciales no se ejecutan *_ViewStart.cshtml* (mientras vistas - más información sobre *_ViewStart.cshtml* en [diseño ](layout.md)).
+Las vistas parciales se crean como cualquier otra vista: se crea un *.cshtml* archivo dentro de la *vistas* carpeta. No hay ninguna diferencia semántica entre una vista parcial y una vista normal: solo se representará de forma diferente. Puede tener una vista que se devuelve directamente desde un controlador `ViewResult`, y puede usarse la misma vista como una vista parcial. La diferencia principal entre cómo se representan una vista y una vista parcial es que no se ejecutan las vistas parciales *_ViewStart.cshtml* (mientras vistas - más información sobre *_ViewStart.cshtml* en [diseño ](layout.md)).
 
 ## <a name="referencing-a-partial-view"></a>Hacer referencia a una vista parcial
 

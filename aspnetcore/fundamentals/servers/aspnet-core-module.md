@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/servers/aspnet-core-module
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 153c40f0e825ff5826e916c7ea877a25d81954f1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 9dc2183ebbdf8b74106fe57a1dd191a57ba5d1bc
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-aspnet-core-module"></a>Introducción al módulo principal de ASP.NET
 
@@ -40,7 +40,7 @@ Dado que las aplicaciones ASP.NET Core se ejecutan en un proceso independientes 
 
 Las solicitudes proceden la Web y alcanza al controlador Http.Sys en modo kernel que se enruta en IIS en el puerto principal (80) o SSL (443). ANCM reenvía las solicitudes a la aplicación de ASP.NET Core en el puerto HTTP configurado para la aplicación, que no es el puerto 80/443.
 
-Kestrel escucha el tráfico procedente de ANCM.  ANCM especifica el puerto a través de la variable de entorno en el inicio y la [UseIISIntegration](#call-useiisintegration) método configura el servidor para que escuche en `http://localhost:{port}`. Existen comprobaciones adicionales para rechazar las solicitudes no del ANCM. (ANCM no admite HTTPS de reenvío, por lo que las solicitudes se reenvían a través de HTTP, aunque IIS recibe a través de HTTPS.)
+Kestrel escucha el tráfico procedente de ANCM.  ANCM especifica el puerto a través de la variable de entorno en el inicio y la [UseIISIntegration](#call-useiisintegration) método configura el servidor para que escuche en `http://localhost:{port}`. Existen comprobaciones adicionales para rechazar las solicitudes no del ANCM. (ANCM no admite el reenvío de HTTPS, por lo que las solicitudes se reenvían a través de HTTP, aunque IIS recibe a través de HTTPS).
 
 Kestrel toma las solicitudes de ANCM y los envía a la canalización de middleware de ASP.NET Core, que, a continuación, reacciona ante ellas y se las pasa como `HttpContext` instancias de lógica de la aplicación. Las respuestas de la aplicación, a continuación, se pasan a IIS, las inserciones ellos revertir al cliente HTTP que inició las solicitudes.
 

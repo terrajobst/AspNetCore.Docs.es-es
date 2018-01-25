@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/using-page-inspector-in-a-visual-studio-11-beta-web-forms-project
 msc.type: authoredcontent
-ms.openlocfilehash: a2ac8334e62e6ab7af7042572cfd5950c687001b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ca8a3c194577766e56d0604323fef567d539316c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a>Con el Inspector de página para Visual Studio 2012 en formularios Web Forms ASP.NET
 ====================
@@ -51,7 +51,7 @@ por Tim Ammann
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11/en-us) o [Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/11/en-us/downloads#express-web).
+- [Visual Studio 2012](https://www.microsoft.com/visualstudio/11) o [Visual Studio Express 2012 para Web](https://www.microsoft.com/visualstudio/11/downloads#express-web).
 
 > [!NOTE]
 > Para obtener la versión más reciente de Inspector de página, use [instalador de plataforma Web](https://go.microsoft.com/fwlink/?LinkId=255386) para instalar el SDK de Azure para .NET 2.0.
@@ -91,7 +91,7 @@ Si desacoplar la ventana del Inspector de página, se puede colocar fuera de Vis
 
 ![Desactive la casilla de windows de herramienta flotante a ALT + TAB entre Visual Studio y la ventana de Inspector de página desacoplada](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image5.png)
 
-El panel superior de la ventana de Inspector de página muestra la página actual en una ventana del explorador. El panel inferior muestra la página en el marcado HTML de la izquierda, y algunas fichas a la derecha que le permiten inspeccionar los distintos aspectos de la página. El panel inferior es similar a la [herramientas de desarrollo F12](https://msdn.microsoft.com/en-us/ie/aa740478) en Internet Explorer. (Sin embargo, a diferencia de las herramientas de desarrollo, puede utilizar el Inspector de página en Visual Studio.)
+El panel superior de la ventana de Inspector de página muestra la página actual en una ventana del explorador. El panel inferior muestra la página en el marcado HTML de la izquierda, y algunas fichas a la derecha que le permiten inspeccionar los distintos aspectos de la página. El panel inferior es similar a la [herramientas de desarrollo F12](https://msdn.microsoft.com/ie/aa740478) en Internet Explorer. (Sin embargo, a diferencia de las herramientas de desarrollo, puede utilizar el Inspector de página en Visual Studio.)
 
 ![Inspector de página](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image6.png)
 
@@ -158,7 +158,7 @@ Haga clic en la parte superior de la página que dice "su logotipo aquí". Se ex
 
 Ahora, mueva el puntero del mouse hasta el **HTML** ventana. Cuando mueve el puntero del mouse, Inspector de página se describen el elemento en el **HTML** ventana y resalta el elemento correspondiente en la ventana del explorador.
 
-![Ventana de HTML](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
+![HTML Window](using-page-inspector-in-a-visual-studio-11-beta-web-forms-project/_static/image13.png)
 
 Como antes, Inspector de página abre los *Site.Master* archivo automáticamente en una pestaña temporal. Haga clic en la pestaña Site.Master y el marcado correspondiente se resalta en el &lt;encabezado&gt; sección:
 

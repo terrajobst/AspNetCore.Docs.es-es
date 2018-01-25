@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/10-working-with-video
 msc.type: authoredcontent
-ms.openlocfilehash: 0e1849fb780908b55520d8108e2227d046759987
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a14659997d86d1b5cf5381e21e997c1a03a3f57c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-video-in-an-aspnet-web-pages-razor-site"></a>Mostrando el vídeo en un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -118,7 +118,7 @@ Este procedimiento muestra cómo reproducir un vídeo Flash denominado *sample.s
     [!code-cshtml[Main](10-working-with-video/samples/sample2.cshtml)]
 4. Ejecute la página en un explorador. (Asegúrese de que la página está seleccionada en el **archivos** área de trabajo antes de ejecutarlo.) Se abrirá la página y el vídeo se reproduce automáticamente. 
 
-    ![[image] ] (10-working-with-video/_static/image1.jpg "ch08_video 1.jpg")
+    ![[image]](10-working-with-video/_static/image1.jpg "ch08_video-1.jpg")
 
 Puede establecer la `quality` parámetro para ver un vídeo Flash para `low`, `autolow`, `autohigh`, `medium`, `high`, y `best`:
 
@@ -148,7 +148,7 @@ El siguiente procedimiento muestra cómo reproducir un vídeo de medios de venta
     [!code-cshtml[Main](10-working-with-video/samples/sample5.cshtml)]
 4. Ejecute la página en un explorador. El vídeo se carga y se reproduce automáticamente. 
 
-    ![[image] ] (10-working-with-video/_static/image2.jpg "ch08_video 2.jpg")
+    ![[image]](10-working-with-video/_static/image2.jpg "ch08_video-2.jpg")
 
 Puede establecer `playCount` en un entero que indica el número de veces que se reproduzca el vídeo automáticamente:
 
@@ -178,14 +178,14 @@ Este procedimiento muestra cómo reproducir vídeo contenido en un Silverlight *
     [!code-cshtml[Main](10-working-with-video/samples/sample10.cshtml)]
 4. Ejecute la página en un explorador. 
 
-    ![[image] ] (10-working-with-video/_static/image3.jpg "ch08_video 3.jpg")
+    ![[image]](10-working-with-video/_static/image3.jpg "ch08_video-3.jpg")
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Recursos adicionales
 
 
-[Información general de Silverlight](https://msdn.microsoft.com/en-us/library/bb404700(VS.95).aspx)
+[Información general de Silverlight](https://msdn.microsoft.com/library/bb404700(VS.95).aspx)
 
 [Atributos de etiqueta de objeto y EMBED de Flash](http://kb2.adobe.com/cps/127/tn_12701.html)
 
-[Etiquetas PARAM de SDK de Windows Media Player 11](https://msdn.microsoft.com/en-us/library/aa392321(VS.85).aspx)
+[Etiquetas PARAM de SDK de Windows Media Player 11](https://msdn.microsoft.com/library/aa392321(VS.85).aspx)

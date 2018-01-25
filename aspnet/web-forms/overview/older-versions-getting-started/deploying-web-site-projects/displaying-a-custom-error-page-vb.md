@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e6931f9d14461456cc8461b0a6b194079b7654c6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 28f4c95e1578c5c91cfa1a21af2b4720ba7b286c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Mostrar una página de Error personalizada (VB)
 ====================
@@ -31,7 +31,7 @@ por [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 En un mundo perfecto no habría ningún error de tiempo de ejecución. Los programadores que habría que escribir código demasiado un error y con la validación de entrada de usuario sólida y externos recursos como servidores de base de datos y los servidores de correo electrónico nunca pasó sin conexión. Por supuesto, en realidad los errores son inevitables. Las clases de .NET Framework indican un error iniciando una excepción. Por ejemplo, una llamada a un objeto SqlConnection método Open del objeto establece una conexión a la base de datos especificada por una cadena de conexión. Sin embargo, si la base de datos está inactivo o si las credenciales en la cadena de conexión no son válidas, a continuación, el método Open produce un `SqlException`. Las excepciones pueden controlarse mediante el uso de `Try/Catch/Finally` bloques. Si el código dentro de un `Try` bloque produce una excepción, el control se transfiere al bloque catch adecuado donde el desarrollador puede intentar recuperarse del error. Si no hay ningún bloque catch coincidente, o si el código que produjo la excepción no está en un bloque try, la excepción percolates la pila de llamadas en search de `Try/Catch/Finally` bloques.
 
-Si la excepción se propaga hasta el tiempo de ejecución ASP.NET sin que se controla, el [ `HttpApplication` clase](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.aspx)del [ `Error` eventos](https://msdn.microsoft.com/en-us/library/system.web.httpapplication.error.aspx) se genera y se ignora el número *página de error*  se muestra. De forma predeterminada, ASP.NET muestra una página de error que lo denomina afectuosamente se conoce como el [amarillo pantalla de muerte](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Hay dos versiones de la YSOD: muestra los detalles de la excepción, un seguimiento de pila y otra información útil a los desarrolladores depurar la aplicación (consulte **figura 1**); la otra indica simplemente que se produjo un error de tiempo de ejecución (vea  **Figura 2**).
+Si la excepción se propaga hasta el tiempo de ejecución ASP.NET sin que se controla, el [ `HttpApplication` clase](https://msdn.microsoft.com/library/system.web.httpapplication.aspx)del [ `Error` eventos](https://msdn.microsoft.com/library/system.web.httpapplication.error.aspx) se genera y se ignora el número *página de error*  se muestra. De forma predeterminada, ASP.NET muestra una página de error que lo denomina afectuosamente se conoce como el [amarillo pantalla de muerte](http://en.wikipedia.org/wiki/Yellow_Screen_of_Death#Yellow) (YSOD). Hay dos versiones de la YSOD: muestra los detalles de la excepción, un seguimiento de pila y otra información útil a los desarrolladores depurar la aplicación (consulte **figura 1**); la otra indica simplemente que se produjo un error de tiempo de ejecución (vea  **Figura 2**).
 
 Los detalles de excepción YSOD es muy útil para los desarrolladores depurar la aplicación, pero que muestra un YSOD a los usuarios finales es tacky y profesional. En su lugar, los usuarios finales deben tener cuidados para una página de error que mantiene la apariencia del sitio con texto más fácil de usar que describe la situación. Lo bueno es que es bastante fácil crear dicha página de error personalizado. Este tutorial comienza con un vistazo a ASP. Páginas de error distinto de NET. A continuación, se muestra cómo configurar la aplicación web para mostrar a los usuarios una página de error personalizado en el caso de un error.
 
@@ -87,7 +87,7 @@ Cuál de las tres páginas de error posibles se muestra se basa en dos variables
 - La información de configuración en la `<customErrors>` sección, y
 - Si el usuario está visitando el sitio local o remotamente.
 
-El [ `<customErrors>` sección](https://msdn.microsoft.com/en-us/library/h0hfz6fc.aspx) en `Web.config` tiene dos atributos que afectan a la página de error se muestra: `defaultRedirect` y `mode`. El atributo `defaultRedirect` es opcional. Si se proporciona, especifica la dirección URL de la página de error personalizada e indica que se debe mostrar la página de error personalizado en lugar de la YSOD de Error en tiempo de ejecución. El `mode` atributo es obligatorio y acepta uno de estos tres valores: `On`, `Off`, o `RemoteOnly`. Estos valores tienen el siguiente comportamiento:
+El [ `<customErrors>` sección](https://msdn.microsoft.com/library/h0hfz6fc.aspx) en `Web.config` tiene dos atributos que afectan a la página de error se muestra: `defaultRedirect` y `mode`. El atributo `defaultRedirect` es opcional. Si se proporciona, especifica la dirección URL de la página de error personalizada e indica que se debe mostrar la página de error personalizado en lugar de la YSOD de Error en tiempo de ejecución. El `mode` atributo es obligatorio y acepta uno de estos tres valores: `On`, `Off`, o `RemoteOnly`. Estos valores tienen el siguiente comportamiento:
 
 - `On`-indica que se muestra la página de error personalizada o el YSOD de Error en tiempo de ejecución a todos los visitantes, independientemente de si son locales o remotos.
 - `Off`: Especifica que la YSOD de detalles de excepción se muestra a todos los visitantes, independientemente de si son locales o remotos.
@@ -167,9 +167,9 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [Páginas de error, una vez más](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/)
-- [Instrucciones de diseño para excepciones](https://msdn.microsoft.com/en-us/library/ms229014.aspx)
+- [Instrucciones de diseño de excepciones](https://msdn.microsoft.com/library/ms229014.aspx)
 - [Páginas de Error descriptivos](http://aspnet.4guysfromrolla.com/articles/090606-1.aspx)
-- [Controlar y generar excepciones](https://msdn.microsoft.com/en-us/library/5b2yeyab.aspx)
+- [Controlar y generar excepciones](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Correctamente con páginas de errores personalizadas en ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
 >[!div class="step-by-step"]

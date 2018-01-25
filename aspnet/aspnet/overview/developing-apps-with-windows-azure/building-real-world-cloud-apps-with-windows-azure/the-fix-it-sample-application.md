@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 470b8a5f4a004c85f603c9c5d0766e5826c96e38
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Apéndice: La solución aplicación de ejemplo (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -30,7 +30,7 @@ por [Mike Wasson](https://github.com/MikeWasson), [Rick Anderson](https://github
 Este apéndice a las aplicaciones de nube de creación Real World con libros electrónicos Azure contiene las siguientes secciones que proporcionan información adicional sobre la repararlo aplicación de ejemplo que puede descargar:
 
 - [Problemas conocidos](#knownissues)
-- [Prácticas recomendadas](#bestpractices)
+- [Procedimientos recomendados](#bestpractices)
 - [Cómo ejecutar la aplicación desde Visual Studio en el equipo local](#run-in-vs)
 - [Cómo implementar la aplicación de base para las aplicaciones de Web de servicio de aplicación de Azure mediante el uso de las secuencias de comandos de Windows PowerShell](#deploybase)
 - [Solución de problemas de las secuencias de comandos de Windows PowerShell](#troubleshooting)
@@ -62,10 +62,10 @@ Un administrador debe poder cambiar la propiedad en las tareas existentes. Por e
 
 Mensaje de la cola de procesamiento en la aplicación repararlo está diseñado para ser simple para ilustrar el patrón centrada en la cola de trabajo con una cantidad mínima de código. Este código simple no sería apropiado para una aplicación de producción real.
 
-- El código no garantiza que cada mensaje de la cola se procesará como máximo una vez. Cuando se recibe un mensaje de la cola, hay un período de tiempo de espera, durante el cual el mensaje es invisible para otros agentes de escucha de cola. Si el tiempo de espera expira antes de que el mensaje se elimina, el mensaje vuelve visible. Por lo tanto, si una instancia de rol de trabajo invierte mucho tiempo en procesar un mensaje, teóricamente, es posible para el mismo mensaje se procesaron dos veces, lo que da lugar a una tarea duplicada en la base de datos. Para obtener más información acerca de este problema, consulte [usar colas de almacenamiento de Azure](https://msdn.microsoft.com/en-us/library/ff803365.aspx#sec7).
-- La lógica de sondeo de la cola podría ser más rentable, por lotes de recuperación de mensajes. Cada vez que se llama a [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), hay un costo de transacción. En su lugar, puede llamar a [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (tenga en cuenta el plural'), que obtiene varios mensajes en una sola transacción. Los costos de transacción para las colas de almacenamiento de Azure son muy bajos, por lo que el impacto en los costos no es importante en la mayoría de los escenarios.
+- El código no garantiza que cada mensaje de la cola se procesará como máximo una vez. Cuando se recibe un mensaje de la cola, hay un período de tiempo de espera, durante el cual el mensaje es invisible para otros agentes de escucha de cola. Si el tiempo de espera expira antes de que el mensaje se elimina, el mensaje vuelve visible. Por lo tanto, si una instancia de rol de trabajo invierte mucho tiempo en procesar un mensaje, teóricamente, es posible para el mismo mensaje se procesaron dos veces, lo que da lugar a una tarea duplicada en la base de datos. Para obtener más información acerca de este problema, consulte [usar colas de almacenamiento de Azure](https://msdn.microsoft.com/library/ff803365.aspx#sec7).
+- La lógica de sondeo de la cola podría ser más rentable, por lotes de recuperación de mensajes. Cada vez que se llama a [CloudQueue.GetMessageAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync.aspx), hay un costo de transacción. En su lugar, puede llamar a [CloudQueue.GetMessagesAsync](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.queue.cloudqueue.getmessagesasync.aspx) (tenga en cuenta el plural'), que obtiene varios mensajes en una sola transacción. Los costos de transacción para las colas de almacenamiento de Azure son muy bajos, por lo que el impacto en los costos no es importante en la mayoría de los escenarios.
 - El bucle ajustado en el código de procesamiento de mensajes de cola hace que la afinidad de CPU, que no utilizan eficazmente las máquinas virtuales de varios núcleos. Un mejor diseño utilizaría el paralelismo de tareas para ejecutar varias tareas asincrónicas en paralelo.
-- Procesamiento de mensajes de la cola tiene el control de excepciones sólo rudimentario. Por ejemplo, el código no manipula [mensajes dudosos](https://msdn.microsoft.com/en-us/library/ms789028.aspx). (Cuando el procesamiento de mensajes produce una excepción, tendrá que registrar el error y eliminar el mensaje, o el rol de trabajo intentará procesarlo de nuevo y el bucle continuará indefinidamente.)
+- Procesamiento de mensajes de la cola tiene el control de excepciones sólo rudimentario. Por ejemplo, el código no manipula [mensajes dudosos](https://msdn.microsoft.com/library/ms789028.aspx). (Cuando el procesamiento de mensajes produce una excepción, tendrá que registrar el error y eliminar el mensaje, o el rol de trabajo intentará procesarlo de nuevo y el bucle continuará indefinidamente.)
 
 ### <a name="sql-queries-are-unbounded"></a>Las consultas SQL no están limitadas
 
@@ -85,7 +85,7 @@ Scripts de automatización de PowerShell de ejemplo escritos sólo para la versi
 
 ### <a name="special-handling-for-html-codes-in-user-input"></a>Tratamiento especial para los códigos HTML de proporcionados por el usuario
 
-ASP.NET evita automáticamente que muchas formas en el que los usuarios malintencionados pueden tratar ataques XSS mediante la especificación de secuencia de comandos en los cuadros de texto de entrada de usuario. Y MVC `DisplayFor` auxiliar que se usa para mostrar tarea títulos y notas automáticamente valores codifica en HTML que envía al explorador. Pero en una aplicación de producción puede tomar medidas adicionales. Para obtener más información, consulte [solicitud de validación en ASP.NET](https://msdn.microsoft.com/en-us/library/hh882339.aspx).
+ASP.NET evita automáticamente que muchas formas en el que los usuarios malintencionados pueden tratar ataques XSS mediante la especificación de secuencia de comandos en los cuadros de texto de entrada de usuario. Y MVC `DisplayFor` auxiliar que se usa para mostrar tarea títulos y notas automáticamente valores codifica en HTML que envía al explorador. Pero en una aplicación de producción puede tomar medidas adicionales. Para obtener más información, consulte [solicitud de validación en ASP.NET](https://msdn.microsoft.com/library/hh882339.aspx).
 
 <a id="bestpractices"></a>
 ## <a name="best-practices"></a>Procedimientos recomendados
@@ -146,13 +146,13 @@ Para mostrar un código sencillo, la versión original de la aplicación reparar
 
 ### <a name="mark-private-members-as-readonly-when-they-arent-expected-to-change"></a>Marcar los miembros privados como de solo lectura que no se esperan para cambiar
 
-Por ejemplo, en la `DashboardController` una instancia de la clase `FixItTaskRepository` se crea y no se espera para cambiar, por lo que se definieron como [readonly](https://msdn.microsoft.com/en-us/library/acdd6hb7.aspx).
+Por ejemplo, en la `DashboardController` una instancia de la clase `FixItTaskRepository` se crea y no se espera para cambiar, por lo que se definieron como [readonly](https://msdn.microsoft.com/library/acdd6hb7.aspx).
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample9.cs?highlight=3)]
 
 ### <a name="use-listany-instead-of-listcount-gt-0"></a>Use la lista. Any() en lugar de la lista. Count() &gt; 0
 
-Si se le preocupa si uno o varios elementos en una lista de ajustan a los criterios especificados, utilice la [cualquier](https://msdn.microsoft.com/en-us/library/bb534972.aspx) método, porque devuelve tan pronto como se encuentra un elemento que se cumplen los criterios, mientras que la `Count` método siempre tiene que recorrer en iteración a través de todos los elementos. El panel *Index.cshtml* archivo originalmente tenía este código:
+Si se le preocupa si uno o varios elementos en una lista de ajustan a los criterios especificados, utilice la [cualquier](https://msdn.microsoft.com/library/bb534972.aspx) método, porque devuelve tan pronto como se encuentra un elemento que se cumplen los criterios, mientras que la `Count` método siempre tiene que recorrer en iteración a través de todos los elementos. El panel *Index.cshtml* archivo originalmente tenía este código:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample10.cshtml)]
 
@@ -166,13 +166,13 @@ Para el **crear un repararlo** botón en la página de inicio, la repararlo apli
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample12.cshtml)]
 
-Para obtener vínculos de acción/Vista parecido a esto es mejor utilizar el [Url.Action](https://msdn.microsoft.com/en-us/library/system.web.mvc.urlhelper.action.aspx) aplicación auxiliar HTML, por ejemplo:
+Para obtener vínculos de acción/Vista parecido a esto es mejor utilizar el [Url.Action](https://msdn.microsoft.com/library/system.web.mvc.urlhelper.action.aspx) aplicación auxiliar HTML, por ejemplo:
 
 [!code-cshtml[Main](the-fix-it-sample-application/samples/sample13.cshtml)]
 
 ### <a name="use-taskdelay-instead-of-threadsleep-in-worker-role"></a>Utilice Task.Delay en lugar de Thread.Sleep en rol de trabajo
 
-Coloca la plantilla nuevo proyecto `Thread.Sleep` en el ejemplo de código para un rol de trabajo, sino que produce el subproceso en modo de suspensión puede hacer que el grupo de subprocesos generar los subprocesos innecesarios adicionales. Se puede evitar mediante [Task.Delay](https://msdn.microsoft.com/en-us/library/hh139096.aspx) en su lugar.
+Coloca la plantilla nuevo proyecto `Thread.Sleep` en el ejemplo de código para un rol de trabajo, sino que produce el subproceso en modo de suspensión puede hacer que el grupo de subprocesos generar los subprocesos innecesarios adicionales. Se puede evitar mediante [Task.Delay](https://msdn.microsoft.com/library/hh139096.aspx) en su lugar.
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample14.cs?highlight=11)]
 
@@ -184,11 +184,11 @@ Este ejemplo es de la `FixItQueueManager` clase:
 
 [!code-csharp[Main](the-fix-it-sample-application/samples/sample15.cs)]
 
-Debe usar `async void` solo para los controladores de eventos de nivel superior. Si define un método como `async void`, el llamador no puede **await** el método o detectar las excepciones que produce el método. Para obtener más información, consulte [los procedimientos recomendados de programación asincrónica](https://msdn.microsoft.com/en-us/magazine/jj991977.aspx). 
+Debe usar `async void` solo para los controladores de eventos de nivel superior. Si define un método como `async void`, el llamador no puede **await** el método o detectar las excepciones que produce el método. Para obtener más información, consulte [los procedimientos recomendados de programación asincrónica](https://msdn.microsoft.com/magazine/jj991977.aspx). 
 
 ### <a name="use-a-cancellation-token-to-break-from-worker-role-loop"></a>Usar un token de cancelación para interrumpir bucle de rol de trabajo
 
-Normalmente, el **ejecutar** método en un rol de trabajo contiene un bucle infinito. Cuando se está deteniendo el rol de trabajo, el [RoleEntryPoint.OnStop](https://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) se llama al método. Debe utilizar este método para cancelar el trabajo que se realiza dentro de la **ejecutar** método y salir correctamente. En caso contrario, es posible que finaliza el proceso en el medio de una operación.
+Normalmente, el **ejecutar** método en un rol de trabajo contiene un bucle infinito. Cuando se está deteniendo el rol de trabajo, el [RoleEntryPoint.OnStop](https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) se llama al método. Debe utilizar este método para cancelar el trabajo que se realiza dentro de la **ejecutar** método y salir correctamente. En caso contrario, es posible que finaliza el proceso en el medio de una operación.
 
 ### <a name="opt-out-of-automatic-mime-sniffing-procedure"></a>No participar en el procedimiento de examen de MIME automática
 
@@ -219,7 +219,7 @@ Hay dos maneras de ejecutar la aplicación repararlo:
 <a id="runbase"></a>
 ### <a name="run-the-base-application"></a>Ejecutar la aplicación básica
 
-1. Instalar [Visual Studio 2013 o Visual Studio 2013 Express for Web](https://www.visualstudio.com/en-us/downloads).
+1. Instalar [Visual Studio 2013 o Visual Studio 2013 Express for Web](https://www.visualstudio.com/downloads).
 2. Instalar el [Azure SDK para .NET para Visual Studio 2013.](https://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409)
 3. Descargue el archivo .zip desde el [MSDN Code Gallery](https://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4).
 4. En el Explorador de archivos, haga clic en el archivo .zip, haga clic en propiedades y, a continuación, en la ventana Propiedades, haga clic en Desbloquear.
@@ -228,7 +228,7 @@ Hay dos maneras de ejecutar la aplicación repararlo:
 7. En el menú Herramientas, haga clic en Administrador de paquetes de biblioteca y, a continuación, la consola de administrador de paquetes.
 8. En la consola de administrador de paquete (PMC), haga clic en restaurar.
 9. Salga de Visual Studio.
-10. Iniciar el [emulador de almacenamiento de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx).
+10. Iniciar el [emulador de almacenamiento de Azure](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx).
 11. Reinicie Visual Studio, abra el archivo de solución que se cerró en el paso anterior.
 12. Asegúrese de que el proyecto FixIt está establecido como proyecto de inicio y, a continuación, presione CTRL + F5 para ejecutar el proyecto.
 
@@ -240,7 +240,7 @@ Hay dos maneras de ejecutar la aplicación repararlo:
 3. En la aplicación *Web.config* un archivo en el *MyFixIt* proyecto (el proyecto web), cambie el valor de `appSettings/UseQueues` en "true": 
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample19.cmd?highlight=3)]
-4. Si el [emulador de almacenamiento de Azure](https://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx) no está todavía está ejecutando, inícielo de nuevo.
+4. Si el [emulador de almacenamiento de Azure](https://msdn.microsoft.com/library/windowsazure/hh403989.aspx) no está todavía está ejecutando, inícielo de nuevo.
 5. Ejecutar el proyecto de web FixIt y el proyecto de MyFixItCloudService simultáneamente.
 
     Con Visual Studio 2013:
@@ -397,7 +397,7 @@ En MyFixItCloudService\ServiceConfiguration.Cloud.cscfg, reemplace los mismos va
 
 [!code-xml[Main](the-fix-it-sample-application/samples/sample34.xml?highlight=3)]
 
-Ahora está listo para implementar el servicio de nube. En el Explorador de soluciones, haga clic en el proyecto MyFixItCloudService y seleccione **publicar**. Para obtener más información, vea "[implementar la aplicación en Azure](https://www.windowsazure.com/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", que se encuentra en la parte 2 de [este tutorial](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
+Ahora está listo para implementar el servicio de nube. En el Explorador de soluciones, haga clic en el proyecto MyFixItCloudService y seleccione **publicar**. Para obtener más información, vea "[implementar la aplicación en Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", que se encuentra en la parte 2 de [este tutorial](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
 >[!div class="step-by-step"]
 [Anterior](more-patterns-and-guidance.md)

@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: e7f92dd7a09d1986ad775203effcbce76fb0e6f4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Novedades de ASP.NET MVC 2
 ====================
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/10/2017
 [Método auxiliar Html.ValidationSummary puede mostrar errores de nivel de modelo](#_TOC3_14)   
 [Plantillas T4 en generar código de Visual Studio que son específicos a la versión de destino de .NET Framework](#_TOC3_15)[mejoras de la API](#_TOC4)  
 [Cambios importantes](#_TOC5)  
-[Declinación de responsabilidades](#_TOC6)  
+[Disclaimer](#_TOC6)  
 
 ## <a id="_TOC1"></a>Introducción
 
@@ -88,7 +88,7 @@ Si no especifica el espacio de nombres en el método RegisterArea llamando el co
 
 ### <a id="_TOC3_3"></a>Compatibilidad con controladores asincrónicos
 
-ASP.NET MVC 2 ahora permite a los controladores procesar las solicitudes de forma asincrónica. Esto puede producir mejoras de rendimiento al permitir que los servidores que llaman frecuentemente a operaciones de bloqueo (por ejemplo, las solicitudes de red) para llamar a homólogos antibloqueo en su lugar. Para obtener más información, consulte el [mediante un controlador asincrónico en ASP.NET MVC](https://msdn.microsoft.com/en-us/library/ee728598(v=VS.100).aspx) tema en MSDN.
+ASP.NET MVC 2 ahora permite a los controladores procesar las solicitudes de forma asincrónica. Esto puede producir mejoras de rendimiento al permitir que los servidores que llaman frecuentemente a operaciones de bloqueo (por ejemplo, las solicitudes de red) para llamar a homólogos antibloqueo en su lugar. Para obtener más información, consulte el [mediante un controlador asincrónico en ASP.NET MVC](https://msdn.microsoft.com/library/ee728598(v=VS.100).aspx) tema en MSDN.
 
 ### <a id="_TOC3_4"></a>Compatibilidad con DefaultValueAttribute en parámetros de método de acción
 
@@ -104,7 +104,7 @@ Cualquiera de la siguiente solicitud de direcciones URL va a invocar el método 
 
 - / Artículo/vista/123
 - / Artículo/vista/123? página = 1 (eficazmente es la misma que la solicitud anterior)
-- / Artículo/vista/123? página = 2
+- /Article/View/123?page=2
 
 Sin el atributo DefaultValueAttribute, la primera dirección URL de la lista anterior no funcionará, porque el argumento de página es un tipo de valor que no aceptan valores NULL cuyo valor no se ha proporcionado.
 
@@ -142,7 +142,7 @@ La clase ModelMetadataProvider proporciona una abstracción para obtener metadat
 
 La clase ViewDataDictionary expone un objeto ModelMetadata que contiene los metadatos que se extraen del modelo de la clase ModelMetadataProvider. Esto permite que las aplicaciones auxiliares con plantilla utilizar estos metadatos y ajustar su resultado según sea necesario.
 
-Para obtener más información, consulte la documentación para el [ModelMetadata](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) y [ModelMetadataProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) clases.
+Para obtener más información, consulte la documentación para el [ModelMetadata](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) y [ModelMetadataProvider](https://msdn.microsoft.com/library/system.web.mvc.modelmetadataprovider(VS.100).aspx) clases.
 
 ### <a id="_TOC3_7"></a>Compatibilidad con los atributos de DataAnnotations
 
@@ -152,7 +152,7 @@ Para obtener más información, consulte [Cómo: validar datos de modelo mediant
 
 ### <a id="_TOC3_8"></a>Proveedores de validadores de modelo
 
-La clase de proveedor de validación del modelo representa una abstracción que proporciona lógica de validación para el modelo. ASP.NET MVC incluye un proveedor de valor predeterminado basado en atributos de validación que se incluyen en el espacio de nombres System.ComponentModel.DataAnnotations. También puede crear sus propios proveedores de validación que definen las reglas de validación personalizada y asignaciones personalizadas de reglas de validación para el modelo. Para obtener más información, consulte la documentación para el [ModelValidatorProvider](https://msdn.microsoft.com/en-us/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) clase.
+La clase de proveedor de validación del modelo representa una abstracción que proporciona lógica de validación para el modelo. ASP.NET MVC incluye un proveedor de valor predeterminado basado en atributos de validación que se incluyen en el espacio de nombres System.ComponentModel.DataAnnotations. También puede crear sus propios proveedores de validación que definen las reglas de validación personalizada y asignaciones personalizadas de reglas de validación para el modelo. Para obtener más información, consulte la documentación para el [ModelValidatorProvider](https://msdn.microsoft.com/library/system.web.mvc.ModelValidatorProvider(VS.100).aspx) clase.
 
 ### <a id="_TOC3_9"></a>Validación del lado cliente
 

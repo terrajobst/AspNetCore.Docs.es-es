@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 42beb4ffcff9974230ba0c4a2f243020bcd4f99d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8f5d223a5944d8adb9fe65c89e87829d18d1c7ee
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (Visual Basic)
 ====================
@@ -58,7 +58,7 @@ El `@` carácter asociado empiece a expresiones en línea, bloques de instrucci�
 
 El resultado que se muestra en un explorador:
 
-![Img1 Razor](introducing-razor-syntax-vb/_static/image1.jpg)
+![Razor-Img1](introducing-razor-syntax-vb/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ Un bloque de código incluye una o varias instrucciones de código y se incluye 
 
 El resultado que se muestra en un explorador:
 
-![Img2 de Razor](introducing-razor-syntax-vb/_static/image2.jpg)
+![Razor-Img2](introducing-razor-syntax-vb/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3. Dentro de un bloque, finalizar cada instrucción de código con un salto de línea
 
@@ -95,7 +95,7 @@ Puede almacenar valores en una *variable*, incluidas las cadenas, números y fec
 
 El resultado que se muestra en un explorador:
 
-![Img3 de Razor](introducing-razor-syntax-vb/_static/image3.jpg)
+![Razor-Img3](introducing-razor-syntax-vb/_static/image3.jpg)
 
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Incluir valores de cadena literal de comillas dobles
 
@@ -109,7 +109,7 @@ Para incrustar comillas dobles dentro de un valor de cadena, inserte dos caracte
 
 El resultado que se muestra en un explorador:
 
-![Img4 de Razor](introducing-razor-syntax-vb/_static/image4.jpg)
+![Razor-Img4](introducing-razor-syntax-vb/_static/image4.jpg)
 
 ### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6. Código de Visual Basic no distingue mayúsculas de minúsculas
 
@@ -121,7 +121,7 @@ Las siguientes líneas de código asigna un valor a la variable `lastname` con u
 
 El resultado que se muestra en un explorador:
 
-![5 de sintaxis de VB](introducing-razor-syntax-vb/_static/image5.jpg)
+![vb-syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Gran parte de la codificación implica trabajar con objetos
 
@@ -133,7 +133,7 @@ A menudo trabajará con la `Request` campos de objeto, que proporciona informaci
 
 El resultado que se muestra en un explorador:
 
-![Img5 de Razor](introducing-razor-syntax-vb/_static/image6.jpg)
+![Razor-Img5](introducing-razor-syntax-vb/_static/image6.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Puede escribir código que toma decisiones
 
@@ -145,7 +145,7 @@ La instrucción `If IsPost` es una forma abreviada de escritura `If IsPost = Tru
 
 El resultado mostrado en un explorador (después de hacer clic **enviar**):
 
-![Img6 de Razor](introducing-razor-syntax-vb/_static/image7.jpg)
+![Razor-Img6](introducing-razor-syntax-vb/_static/image7.jpg)
 
 > [!TIP] 
 > 
@@ -176,7 +176,7 @@ Este procedimiento muestra cómo crear una página que muestra las técnicas de 
     - El `<form>` etiqueta incluye un `method="post"` atributo. Esto especifica que cuando el usuario hace clic en **agregar**, la página se enviará al servidor mediante el método HTTP POST. Cuando se envía la página, el código `If IsPost` se evalúa como true y la directiva de ejecución, mostrar el resultado de sumar los números del código.
 3. Guarde la página y ejecútelo en un explorador. (Asegúrese de que la página está seleccionada en el **archivos** área de trabajo antes de ejecutarlo.) Escriba dos números enteros y, a continuación, haga clic en el **agregar** botón.
 
-    ![Img7 de Razor](introducing-razor-syntax-vb/_static/image8.jpg)
+    ![Razor-Img7](introducing-razor-syntax-vb/_static/image8.jpg)
 
 ## <a name="visual-basic-language-and-syntax"></a>Sintaxis y el lenguaje Visual Basic
 
@@ -257,7 +257,7 @@ El ejemplo siguiente muestra algunas expresiones en línea que utilizan las vari
 
 El resultado que se muestra en un explorador:
 
-![Img9 de Razor](introducing-razor-syntax-vb/_static/image9.jpg)
+![Razor-Img9](introducing-razor-syntax-vb/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>Convertir y tipos de datos de pruebas
 
@@ -318,7 +318,7 @@ Este es un ejemplo para ayudarle a entender las diferencias:
 | Dirección URL completa | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nombre del servidor | *mycompanyserver* |
-| Ruta de acceso virtual | */HumanResources/CompanyPolicy.htm* |
+| Ruta de acceso virtual | */humanresources/CompanyPolicy.htm* |
 | Ruta de acceso física | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Es la raíz virtual /, al igual que la raíz de la unidad C: unidad es \. (Las rutas de acceso de la carpeta virtual siempre usan barras diagonales). La ruta de acceso virtual de una carpeta no tiene que tener el mismo nombre que la carpeta física; puede ser un alias. (En los servidores de producción, la ruta de acceso virtual rara vez coincide con una ruta de acceso física exacta.)
@@ -384,7 +384,7 @@ Es el valor que desea probar entre paréntesis (en el ejemplo, la variable de d�
 
 El resultado de los dos últimos bloques condicionales mostrado en un explorador:
 
-![Img10 Razor](introducing-razor-syntax-vb/_static/image10.jpg)
+![Razor-Img10](introducing-razor-syntax-vb/_static/image10.jpg)
 
 ### <a name="looping-code"></a>Bucle de código
 
@@ -400,7 +400,7 @@ El bucle comienza con la `For` (palabra clave), seguido de tres elementos:
 
 La línea de código entre la `For` y `Next` líneas contiene el código que se ejecuta para cada iteración del bucle. El marcado crea un nuevo párrafo (`<p>` elemento) cada vez y se agrega una línea a la salida, mostrar el valor de i (el contador). Cuando se ejecuta esta página, en el ejemplo se crea 11 líneas mostrar el resultado, con el texto de cada línea que indica el número del elemento.
 
-![Img11 de Razor](introducing-razor-syntax-vb/_static/image11.jpg)
+![Razor-Img11](introducing-razor-syntax-vb/_static/image11.jpg)
 
 Si está trabajando con una colección o matriz, utiliza a menudo un `For Each` bucle. Una colección es un grupo de objetos similares y el `For Each` bucle permite efectuar una tarea en cada elemento de la colección. Este tipo de bucle es conveniente para las colecciones, ya que a diferencia de un `For` bucles, no tendrá que incrementar el contador o establecer un límite. En su lugar, la `For Each` código del bucle simplemente pasa a través de la colección hasta que haya terminado.
 
@@ -410,7 +410,7 @@ Este ejemplo devuelve los elementos de la `Request.ServerVariables` colección (
 
 El `For Each` palabra clave va seguida de una variable que representa un elemento único en la colección (en el ejemplo, `myItem`), seguido por el `In` (palabra clave), seguido de la colección que desee para recorrer en bucle. En el cuerpo de la `For Each` bucle, puede obtener acceso al elemento actual usando la variable que declaró anteriormente.
 
-![Img12 de Razor](introducing-razor-syntax-vb/_static/image12.jpg)
+![Razor-Img12](introducing-razor-syntax-vb/_static/image12.jpg)
 
 Para crear un bucle más general, utilice el `Do While` instrucción:
 
@@ -451,7 +451,7 @@ Puede determinar el número de elementos de una matriz obteniendo sus `Length` p
 
 La salida del código de matriz de cadena mostrado en un explorador:
 
-![Img13 de Razor](introducing-razor-syntax-vb/_static/image13.jpg)
+![Razor-Img13](introducing-razor-syntax-vb/_static/image13.jpg)
 
 Un diccionario es una colección de pares clave/valor, donde proporcionar la clave (o el nombre) para establecer o recuperar el valor correspondiente:
 
@@ -500,7 +500,7 @@ A menudo, tendrá las instrucciones en el código que puede producir un error po
 
 En términos de programación, se llaman a estas situaciones *excepciones*. Si el código encuentra una excepción, genera (produce) un mensaje de error es decir, en el mejor, molestar a los usuarios.
 
-![Img14 de Razor](introducing-razor-syntax-vb/_static/image14.jpg)
+![Razor-Img14](introducing-razor-syntax-vb/_static/image14.jpg)
 
 En situaciones donde el código puede encontrar las excepciones y para evitar mensajes de error de este tipo, puede usar `Try/Catch` instrucciones. En el `Try` instrucción, se ejecuta el código que está protegiendo. En uno o varios `Catch` instrucciones, puede buscar de determinados errores (tipos específicos de excepciones) que pudieran haberse producido. Puede incluir tantos `Catch` instrucciones que necesitan buscar errores que está anticipación.
 
@@ -518,5 +518,5 @@ Si el código no controla la excepción, verá una página de error como la capt
 
 ### <a name="reference-documentation"></a>Documentación de referencia
 
-- [ASP.NET](https://msdn.microsoft.com/en-us/library/ee532866.aspx)
-- [Visual Basic (lenguaje)](https://msdn.microsoft.com/en-us/library/2x7h1hfk.aspx)
+- [ASP.NET](https://msdn.microsoft.com/library/ee532866.aspx)
+- [Visual Basic (lenguaje)](https://msdn.microsoft.com/library/2x7h1hfk.aspx)

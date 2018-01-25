@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: mvc/extensibility/app-parts
-ms.openlocfilehash: 12c34b7a9521835533998c5609870bc712a6d48c
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 702d7773374f331b25489060b18f752186d7acea
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="application-parts-in-aspnet-core"></a>Partes de la aplicación de ASP.NET Core
 
@@ -40,9 +40,9 @@ services.AddMvc()
 
 De forma predeterminada MVC buscará el árbol de dependencias y buscar controladores (incluso en otros ensamblados). Para cargar un ensamblado arbitrario (por ejemplo, desde un complemento que no se hace referencia en tiempo de compilación), puede utilizar una parte de la aplicación.
 
-Puede utilizar elementos de aplicación para *evitar* buscando controladores en una ubicación o un ensamblado concreto. Puede controlar qué elementos (o ensamblados) están disponibles para la aplicación mediante la modificación de la `ApplicationParts` colección de la `ApplicationPartManager`. El orden de las entradas de la `ApplicationParts` colección no es importante. Es importante configurar totalmente el `ApplicationPartManager` antes de usarlo para configurar los servicios en el contenedor. Por ejemplo, debe configurar totalmente el `ApplicationPartManager` antes de invocar `AddControllersAsServices`. Si no lo hace así, significará que agregar controladores en partes de la aplicación después de que no se verán afectadas las llamadas de método (no obtener registrado como servicios) que podría dar lugar a bevavior incorrecta de la aplicación.
+Puede utilizar elementos de aplicación para *evitar* buscando controladores en una ubicación o un ensamblado concreto. Puede controlar qué elementos (o ensamblados) están disponibles para la aplicación mediante la modificación de la `ApplicationParts` colección de la `ApplicationPartManager`. El orden de las entradas de la `ApplicationParts` colección no es importante. Es importante configurar totalmente el `ApplicationPartManager` antes de usarlo para configurar los servicios en el contenedor. Por ejemplo, debe configurar totalmente el `ApplicationPartManager` antes de invocar `AddControllersAsServices`. Si no lo hace así, significará que agregar controladores en partes de la aplicación después de que no se verá afectada llamada al método (no obtener registrado como servicios) que podría dar lugar a bevavior incorrecta de la aplicación.
 
-Si tiene un ensamblado que contiene los controladores que no desea que se utilicen, quítelo de la `ApplicationPartManager`:
+Si tiene un ensamblado que contiene los controladores que no desea usar, quítelo de la `ApplicationPartManager`:
 
 ```csharp
 services.AddMvc()

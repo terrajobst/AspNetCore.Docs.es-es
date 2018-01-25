@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ba0655f5dc1d043b905428a3797ed141b0fed
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: afee7b0621df42a8bc70fc6f7c4a8fd0383fa83a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Ejecutar Scripts de Windows PowerShell desde archivos de proyecto de MSBuild
 ====================
@@ -137,10 +137,10 @@ Cuando se ejecuta este destino como parte del proceso de compilación, Windows P
 
 ## <a name="executing-a-windows-powershell-script-on-a-remote-computer"></a>Ejecutar un Script de Windows PowerShell en un equipo remoto
 
-Windows PowerShell es capaz de ejecutar las secuencias de comandos en equipos remotos a través de [administración remota de Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384426.aspx) (WinRM). Para ello, debe usar el [Invoke-Command](https://technet.microsoft.com/en-us/library/dd347578.aspx) cmdlet. Esto le permite ejecutar el script en uno o más equipos remotos sin necesidad de copiar la secuencia de comandos a los equipos remotos. Los resultados se devuelven en el equipo local desde el que se ejecutó el script.
+Windows PowerShell es capaz de ejecutar las secuencias de comandos en equipos remotos a través de [administración remota de Windows](https://msdn.microsoft.com/library/windows/desktop/aa384426.aspx) (WinRM). Para ello, debe usar el [Invoke-Command](https://technet.microsoft.com/library/dd347578.aspx) cmdlet. Esto le permite ejecutar el script en uno o más equipos remotos sin necesidad de copiar la secuencia de comandos a los equipos remotos. Los resultados se devuelven en el equipo local desde el que se ejecutó el script.
 
 > [!NOTE]
-> Antes de usar el **Invoke-Command** secuencias de comandos de cmdlet para ejecutar Windows PowerShell en un equipo remoto, debe configurar un agente de escucha de WinRM para aceptar mensajes remotos. Para ello, ejecute el comando **winrm quickconfig** en el equipo remoto. Para obtener más información, consulte [instalación y configuración para la administración remota de Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384372(v=vs.85).aspx).
+> Antes de usar el **Invoke-Command** secuencias de comandos de cmdlet para ejecutar Windows PowerShell en un equipo remoto, debe configurar un agente de escucha de WinRM para aceptar mensajes remotos. Para ello, ejecute el comando **winrm quickconfig** en el equipo remoto. Para obtener más información, consulte [instalación y configuración para la administración remota de Windows](https://msdn.microsoft.com/library/windows/desktop/aa384372(v=vs.85).aspx).
 
 
 Desde una ventana de Windows PowerShell, podría utilizar esta sintaxis para ejecutar la **LogDeploy.ps1** secuencia de comandos en un equipo remoto:
@@ -179,7 +179,7 @@ En este tema se describe cómo ejecutar un script de Windows PowerShell desde un
 
 ## <a name="further-reading"></a>Información adicional
 
-Para obtener instrucciones sobre la firma de scripts de Windows PowerShell y administrar las directivas de ejecución, consulte [ejecutar Scripts de Windows PowerShell](https://technet.microsoft.com/en-us/library/ee176949.aspx). Para obtener instrucciones acerca de cómo ejecutar comandos de Windows PowerShell desde un equipo remoto, consulte [ejecutar comandos remotos](https://technet.microsoft.com/en-us/library/dd819505.aspx).
+Para obtener instrucciones sobre la firma de scripts de Windows PowerShell y administrar las directivas de ejecución, consulte [ejecutar Scripts de Windows PowerShell](https://technet.microsoft.com/library/ee176949.aspx). Para obtener instrucciones acerca de cómo ejecutar comandos de Windows PowerShell desde un equipo remoto, consulte [ejecutar comandos remotos](https://technet.microsoft.com/library/dd819505.aspx).
 
 Para obtener más información sobre el uso de archivos de proyecto de MSBuild personalizados para controlar el proceso de implementación, consulte [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) y [descripción del proceso de compilación](../web-deployment-in-the-enterprise/understanding-the-build-process.md).
 

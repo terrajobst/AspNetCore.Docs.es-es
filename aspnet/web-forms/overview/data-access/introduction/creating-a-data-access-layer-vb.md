@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 556b90f5e29f30756a4bd3b16be9608011558c4d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad578d5d5fb1ef0ac63d3cbde3f307535ea3d98c
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="creating-a-data-access-layer-vb"></a>Creación de una capa de acceso de datos (VB)
 ====================
@@ -89,7 +89,7 @@ Por ejemplo, el DataReader y el conjunto de datos (de forma predeterminada) son 
 Para devolver objetos fuertemente tipados, los desarrolladores pueden crear sus propios objetos de negocios personalizada o usar conjuntos de datos con tipo. Un objeto de negocios se implementa con el desarrollador como representa una clase cuyas propiedades normalmente reflejan las columnas de la tabla de base de datos subyacente del objeto de negocios. Un conjunto de datos con tipo es una clase generada automáticamente por Visual Studio basado en un esquema de base de datos y cuyos miembros son fuertemente tipada de acuerdo con este esquema. El conjunto de datos con tipo propio consta de las clases que extienden las clases de conjunto de datos de ADO.NET y DataTable, DataRow. Además de tablas de datos fuertemente tipados, conjuntos de datos con tipo ahora también incluyen TableAdapters, que son clases con métodos para rellenar tablas de datos del conjunto de datos y la propagación de modificaciones en las tablas de datos a la base de datos.
 
 > [!NOTE]
-> Para obtener más información sobre las ventajas y desventajas del uso de conjuntos de datos con tipo frente a objetos comerciales personalizados, consulte [diseñar componentes de nivel de datos y pasar datos a través de los niveles de](https://msdn.microsoft.com/en-us/library/ms978496.aspx).
+> Para obtener más información sobre las ventajas y desventajas del uso de conjuntos de datos con tipo frente a objetos comerciales personalizados, consulte [diseñar componentes de nivel de datos y pasar datos a través de los niveles de](https://msdn.microsoft.com/library/ms978496.aspx).
 
 
 Vamos a usar conjuntos de datos fuertemente tipados para la arquitectura de estos tutoriales. La figura 3 ilustra el flujo de trabajo entre los diferentes niveles de una aplicación que usa conjuntos de datos con tipo.
@@ -293,7 +293,7 @@ Hay dos patrones que se usa habitualmente para insertar, actualizar y eliminar d
 **Figura 21**: cada inserción, actualización y eliminar solicitud se envía a la base de datos inmediatamente ([haga clic aquí para ver la imagen a tamaño completo](creating-a-data-access-layer-vb/_static/image57.png))
 
 
-El otro modelo, que hará referencia como el lote de actualizaciones de patrón, consiste en actualizar un DataSet, DataTable o colección de filas de datos en una llamada al método completo. Con este patrón de un desarrollador elimina, inserta, modifica las filas de datos en una tabla de datos y, a continuación, pasa esos objetos DataRow o DataTable a un método de actualización. Este método, a continuación, enumera las filas de datos pasado, determina si o no ha se ha modificado, agregados o eliminar (a través de la DataRow [propiedad RowState](https://msdn.microsoft.com/en-us/library/system.data.datarow.rowstate.aspx) valor) y emite la solicitud de base de datos adecuada para cada registro.
+El otro modelo, que hará referencia como el lote de actualizaciones de patrón, consiste en actualizar un DataSet, DataTable o colección de filas de datos en una llamada al método completo. Con este patrón de un desarrollador elimina, inserta, modifica las filas de datos en una tabla de datos y, a continuación, pasa esos objetos DataRow o DataTable a un método de actualización. Este método, a continuación, enumera las filas de datos pasado, determina si o no ha se ha modificado, agregados o eliminar (a través de la DataRow [propiedad RowState](https://msdn.microsoft.com/library/system.data.datarow.rowstate.aspx) valor) y emite la solicitud de base de datos adecuada para cada registro.
 
 
 [![Todos los cambios se sincronizan con la base de datos cuando se invoca el método de actualización](creating-a-data-access-layer-vb/_static/image59.png)](creating-a-data-access-layer-vb/_static/image58.png)
@@ -339,7 +339,7 @@ Para crear un método personalizado de este tipo, vuelva al diseñador de DataSe
 **Figura 25**: crear un método para agregar una fila nueva a la `Products` tabla ([haga clic aquí para ver la imagen a tamaño completo](creating-a-data-access-layer-vb/_static/image69.png))
 
 
-En la siguiente pantalla del `InsertCommand`del `CommandText` aparece. Aumentar esta consulta agregando `SELECT SCOPE_IDENTITY()` al final de la consulta, que devolverá el último valor de identidad insertado en un `IDENTITY` columna en el mismo ámbito. (Consulte la [documentación técnica](https://msdn.microsoft.com/en-us/library/ms190315.aspx) para obtener más información acerca de `SCOPE_IDENTITY()` y por qué probable que desee [utilizar ámbito\_IDENTITY() en lugar de @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Asegúrese de que finalice la `INSERT` instrucción con un punto y coma antes de agregar el `SELECT` instrucción.
+En la siguiente pantalla del `InsertCommand`del `CommandText` aparece. Aumentar esta consulta agregando `SELECT SCOPE_IDENTITY()` al final de la consulta, que devolverá el último valor de identidad insertado en un `IDENTITY` columna en el mismo ámbito. (Consulte la [documentación técnica](https://msdn.microsoft.com/library/ms190315.aspx) para obtener más información acerca de `SCOPE_IDENTITY()` y por qué probable que desee [utilizar ámbito\_IDENTITY() en lugar de @@IDENTITY](http://weblogs.sqlteam.com/travisl/archive/2003/10/29/405.aspx).) Asegúrese de que finalice la `INSERT` instrucción con un punto y coma antes de agregar el `SELECT` instrucción.
 
 
 [![Aumentar la consulta para devolver el valor de SCOPE_IDENTITY)](creating-a-data-access-layer-vb/_static/image71.png)](creating-a-data-access-layer-vb/_static/image70.png)
@@ -520,24 +520,24 @@ Feliz programación.
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
 - [Creación de un DAL mediante fuertemente tipados los TableAdapters y las DataTables en VS 2005 y ASP.NET 2.0](https://weblogs.asp.net/scottgu/435498)
-- [Diseño de componentes de nivel de datos y pasar datos a través de niveles](https://msdn.microsoft.com/en-us/library/ms978496.aspx)
+- [Diseño de componentes de nivel de datos y pasar datos a través de niveles](https://msdn.microsoft.com/library/ms978496.aspx)
 - [Crear una capa de acceso a datos con el Diseñador de DataSet de Visual Studio 2005](http://www.theserverside.net/articles/showarticle.tss?id=DataSetDesigner)
 - [Cifrar la información de configuración en ASP.NET 2.0 las aplicaciones](http://aspnet.4guysfromrolla.com/articles/021506-1.aspx)
-- [Introducción a TableAdapter](https://msdn.microsoft.com/en-us/library/bz9tthwx.aspx)
-- [Trabajar con un conjunto de datos con tipo](https://msdn.microsoft.com/en-us/library/esbykkzb.aspx)
+- [Introducción a TableAdapter](https://msdn.microsoft.com/library/bz9tthwx.aspx)
+- [Trabajar con un conjunto de datos con tipo](https://msdn.microsoft.com/library/esbykkzb.aspx)
 - [Uso de acceso a datos fuertemente tipados en Visual Studio 2005 y ASP.NET 2.0](http://aspnet.4guysfromrolla.com/articles/020806-1.aspx)
 - [Cómo extender métodos de TableAdapter](https://blogs.msdn.com/vbteam/archive/2005/05/04/ExtendingTableAdapters.aspx)
 - [Recuperación de datos escalar de un procedimiento almacenado](http://aspnet.4guysfromrolla.com/articles/062905-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Aprendizaje mediante vídeo sobre los temas incluidos en este Tutorial
 
-- [Niveles de acceso a datos en aplicaciones ASP.NET](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
+- [Niveles de acceso a datos en aplicaciones de ASP.NET](../../../videos/data-access/adonet-data-services/data-access-layers-in-aspnet-applications.md)
 - [Cómo enlazar manualmente un conjunto de datos a un control Datagrid](../../../videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid.md)
 - [Cómo trabajar con conjuntos de datos y los filtros de una aplicación ASP](../../../videos/data-access/adonet-data-services/how-to-work-with-datasets-and-filters-from-an-asp-application.md)
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

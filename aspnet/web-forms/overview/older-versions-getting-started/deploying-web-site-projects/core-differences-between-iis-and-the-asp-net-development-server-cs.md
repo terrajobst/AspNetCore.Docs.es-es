@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d4d1a5795f5edabc51b578ecc45676490711c1a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 79f06707cadf027baa03652dc722cab31f494b09
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>Diferencias principales entre IIS y el servidor de desarrollo de ASP.NET (C#)
 ====================
@@ -47,7 +47,7 @@ Para mostrar este tipo de error en la acción he creado una página en el sitio 
 [!code-csharp[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample1.cs)]
 
 > [!NOTE]
-> El [ `File.WriteAllText` método](https://msdn.microsoft.com/en-us/library/system.io.file.writealltext.aspx) crea un nuevo archivo si no existe y, a continuación, escribe el contenido especificado. Si el archivo ya existe, se sobrescribe su contenido existente.
+> El [ `File.WriteAllText` método](https://msdn.microsoft.com/library/system.io.file.writealltext.aspx) crea un nuevo archivo si no existe y, a continuación, escribe el contenido especificado. Si el archivo ya existe, se sobrescribe su contenido existente.
 
 
 A continuación, visite la *enseñar a usted mismo ASP.NET 3.5 en 24 horas* página de revisión de libro en el entorno de desarrollo con el servidor de desarrollo de ASP.NET. Si damos por hecho que ha iniciado sesión en el equipo con una cuenta que tenga los permisos adecuados para crear y modificar un archivo de texto en la web directorio raíz de la aplicación la revisión del libro parece igual que antes, pero cada vez que la página visita la fecha y hora del usuario  Dirección IP se almacena en el `LastTYASP35Access.txt` archivo. Diríjase a este archivo; debería ver un mensaje similar al que se muestra en la figura 1.
@@ -58,7 +58,7 @@ A continuación, visite la *enseñar a usted mismo ASP.NET 3.5 en 24 horas* pág
 **Figura 1**: el archivo de texto contiene la última fecha y hora se ha visitado la revisión del libro ([haga clic aquí para ver la imagen a tamaño completo](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image3.png))
 
 
-Implementar la aplicación web en producción y, a continuación, visite hospedado *enseñar a usted mismo ASP.NET 3.5 en 24 horas* página de revisión del libro. En este momento ya sea debería ver la página de revisión del libro como normal o el mensaje de error que se muestra en la figura 2. Algunos proveedores de host web conceda permisos de escritura a la cuenta anónima de máquina ASP.NET, en el que caso la página funcionará sin errores. Si, sin embargo, el proveedor de hospedaje web prohíbe el acceso de escritura para la cuenta anónima un [ `UnauthorizedAccessException` excepción](https://msdn.microsoft.com/en-us/library/system.unauthorizedaccessexception.aspx) se inicia cuando el `TYASP35.aspx` página intenta escribir la fecha y hora actuales a la `LastTYASP35Access.txt` archivo.
+Implementar la aplicación web en producción y, a continuación, visite hospedado *enseñar a usted mismo ASP.NET 3.5 en 24 horas* página de revisión del libro. En este momento ya sea debería ver la página de revisión del libro como normal o el mensaje de error que se muestra en la figura 2. Algunos proveedores de host web conceda permisos de escritura a la cuenta anónima de máquina ASP.NET, en el que caso la página funcionará sin errores. Si, sin embargo, el proveedor de hospedaje web prohíbe el acceso de escritura para la cuenta anónima un [ `UnauthorizedAccessException` excepción](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) se inicia cuando el `TYASP35.aspx` página intenta escribir la fecha y hora actuales a la `LastTYASP35Access.txt` archivo.
 
 
 [![La cuenta de equipo predeterminado utilizada por IIS no tiene permisos para escribir en el sistema de archivos](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image5.png)](core-differences-between-iis-and-the-asp-net-development-server-cs/_static/image4.png)
@@ -90,7 +90,7 @@ Por último, configura la aplicación web para utilizar la autenticación basada
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample3.xml)]
 
-Con:
+Por:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample4.xml)]
 
@@ -123,7 +123,7 @@ Una vez que IIS se ha configurado para usar la canalización integrada agregue e
 Esta marca indica a 7 de IIS para utilizar los módulos de autenticación y autorización basada en ASP.NET. Volver a implementar la aplicación y, a continuación, volver a visitar el archivo PDF. Este tiempo cuando IIS administra la solicitud ofrece lógica de autenticación y autorización del runtime ASP.NET una oportunidad para inspeccionar la solicitud. Dado que solo los usuarios autenticados están autorizados para ver el contenido de la `PrivateDocs` carpeta, el visitante anónimo se redirige automáticamente a la página de inicio de sesión (hacen referencia a la figura 3).
 
 > [!NOTE]
-> Si su proveedor de hospedaje web sigue utilizando IIS 6 no puede usar la característica de canalización integrada. Una solución es colocar los documentos privados en una carpeta que prohíbe el acceso HTTP (como `App_Data`) y, a continuación, cree una página para dar servicio a estos documentos. Esta página podría denominarse `GetPDF.aspx`y se pasa el nombre del documento PDF a través de un parámetro de cadena de consulta. El `GetPDF.aspx` página pueda comprobar primero que el usuario tiene permiso para ver el archivo y, en ese caso, utilizaría el [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/en-us/library/system.web.httpresponse.writefile.aspx) método para devolver el contenido del archivo PDF solicitado al cliente solicitante. Esta técnica también funcionaría para IIS 7 si no desea habilitar la canalización integrada.
+> Si su proveedor de hospedaje web sigue utilizando IIS 6 no puede usar la característica de canalización integrada. Una solución es colocar los documentos privados en una carpeta que prohíbe el acceso HTTP (como `App_Data`) y, a continuación, cree una página para dar servicio a estos documentos. Esta página podría denominarse `GetPDF.aspx`y se pasa el nombre del documento PDF a través de un parámetro de cadena de consulta. El `GetPDF.aspx` página pueda comprobar primero que el usuario tiene permiso para ver el archivo y, en ese caso, utilizaría el [ `Response.WriteFile(filePath)` ](https://msdn.microsoft.com/library/system.web.httpresponse.writefile.aspx) método para devolver el contenido del archivo PDF solicitado al cliente solicitante. Esta técnica también funcionaría para IIS 7 si no desea habilitar la canalización integrada.
 
 
 ## <a name="summary"></a>Resumen
@@ -138,7 +138,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 - [Integración de ASP.NET con IIS 7.0](https://www.iis.net/learn/application-frameworks/building-and-running-aspnet-applications/aspnet-integration-with-iis)
 - [Mediante la autenticación de foros ASP.NET con todos los tipos de contenido en IIS 7](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (vídeo)
-- [Servidores Web en Visual Web Developer](https://msdn.microsoft.com/en-us/library/58wxa9w5.aspx)
+- [Servidores Web en Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
 >[!div class="step-by-step"]
 [Anterior](common-configuration-differences-between-development-and-production-cs.md)

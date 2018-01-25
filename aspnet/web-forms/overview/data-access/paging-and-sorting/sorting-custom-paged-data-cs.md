@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/sorting-custom-paged-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f171929da3610f70f3641030d9a5fdb88f610f7f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a71405bc84304bf7c47f400dfa9886208316d223
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="sorting-custom-paged-data-c"></a>Ordenación personalizada paginado datos (C#)
 ====================
@@ -51,7 +51,7 @@ Por desgracia, con parámetros `ORDER BY` cláusulas no están permitidas. En su
 
 - Escribir consultas codificado de forma rígida para cada una de las expresiones de ordenación que se pueden usar; a continuación, utilice `IF/ELSE` instrucciones T-SQL para determinar qué consulta se debe ejecutar.
 - Use un `CASE` instrucción para proporcionar dinámica `ORDER BY` las expresiones se basan en el `@sortExpressio` n parámetro de entrada, consulte la utilizada en la sección de resultados de la consulta de ordenación dinámicamente en [Power de SQL `CASE` instrucciones](http://www.4guysfromrolla.com/webtech/102704-1.shtml) Para obtener más información.
-- Diseñar la consulta adecuada como una cadena en el procedimiento almacenado y, a continuación, usar [el `sp_executesql` procedimiento almacenado del sistema](https://msdn.microsoft.com/en-us/library/ms188001.aspx) para ejecutar la consulta dinámica.
+- Diseñar la consulta adecuada como una cadena en el procedimiento almacenado y, a continuación, usar [el `sp_executesql` procedimiento almacenado del sistema](https://msdn.microsoft.com/library/ms188001.aspx) para ejecutar la consulta dinámica.
 
 Cada una de estas soluciones tiene algunas desventajas. La primera opción no es tan fácil de mantener que las otras dos tal y como lo requiere la creación de una consulta para cada expresión de ordenación posible. Por lo tanto, si más adelante decide agregar campos nuevos, que se puede ordenar a GridView también necesitará volver atrás y actualizar el procedimiento almacenado. El segundo enfoque tiene algunos matices que presentan problemas de rendimiento al ordenar por columnas de la base de datos no es una cadena y también se resiente de los mismos problemas de mantenimiento como la primera. Y la tercera opción, que utiliza SQL dinámico, corre el riesgo de un ataque de inyección de SQL si un atacante es capaz de ejecutar el procedimiento almacenado pasando los valores de parámetro de entrada de su elección.
 
@@ -126,7 +126,7 @@ Ahora que se ha ampliado la capa DAL, nos re listo para volver a la capa BLL. Ab
 
 Tener ampliada DAL y BLL para incluir métodos que utilizan el `GetProductsPagedAndSorted` procedimiento almacenado, todo lo que queda es configurar el ObjectDataSource en el `SortParameter.aspx` página que se va a utilizar el nuevo método BLL como pasar el `SortExpression` parámetro basado en el columna para ordenar los resultados por solicitada por el usuario.
 
-Empiece por cambiar las operaciones de asignación ObjectDataSource `SelectMethod` de `GetProductsPaged` a `GetProductsPagedAndSorted`. Esto puede hacerse mediante el asistente Configurar origen de datos, en la ventana Propiedades, o directamente a través de la sintaxis declarativa. A continuación, es necesario proporcionar un valor para las operaciones de asignación ObjectDataSource [ `SortParameterName` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Si se establece esta propiedad, el ObjectDataSource intenta pasar en las operaciones de asignación GridView `SortExpression` propiedad a la `SelectMethod`. En concreto, el ObjectDataSource busca un parámetro de entrada cuyo nombre es igual al valor de la `SortParameterName` propiedad. Desde el s BLL `GetProductsPagedAndSorted` método tiene el con el nombre del parámetro de entrada de la expresión de ordenación `sortExpression`, establezca la s ObjectDataSource `SortExpression` propiedad sortExpression.
+Empiece por cambiar las operaciones de asignación ObjectDataSource `SelectMethod` de `GetProductsPaged` a `GetProductsPagedAndSorted`. Esto puede hacerse mediante el asistente Configurar origen de datos, en la ventana Propiedades, o directamente a través de la sintaxis declarativa. A continuación, es necesario proporcionar un valor para las operaciones de asignación ObjectDataSource [ `SortParameterName` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sortparametername.aspx). Si se establece esta propiedad, el ObjectDataSource intenta pasar en las operaciones de asignación GridView `SortExpression` propiedad a la `SelectMethod`. En concreto, el ObjectDataSource busca un parámetro de entrada cuyo nombre es igual al valor de la `SortParameterName` propiedad. Desde el s BLL `GetProductsPagedAndSorted` método tiene el con el nombre del parámetro de entrada de la expresión de ordenación `sortExpression`, establezca la s ObjectDataSource `SortExpression` propiedad sortExpression.
 
 Después de realizar estos dos cambios, la sintaxis declarativa de ObjectDataSource s debe ser similar al siguiente:
 
@@ -139,7 +139,7 @@ Después de realizar estos dos cambios, la sintaxis declarativa de ObjectDataSou
 
 Para habilitar la ordenación en el control GridView, solo tiene que activar la casilla de verificación Habilitar ordenación en la etiqueta inteligente de s GridView, que establece las operaciones de asignación GridView `AllowSorting` propiedad `true` de archivo y provoquen el texto del encabezado de cada columna se representan como un control LinkButton. Cuando el usuario final hace clic en uno de los encabezados LinkButton de, seguidamente, tiene lugar una devolución de datos y transcurrir los pasos siguientes:
 
-1. Las actualizaciones de GridView su [ `SortExpression` propiedad](https://msdn.microsoft.com/en-US/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) en el valor de la `SortExpression` del campo cuyo vínculo de encabezado se hizo clic
+1. Las actualizaciones de GridView su [ `SortExpression` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) en el valor de la `SortExpression` del campo cuyo vínculo de encabezado se hizo clic
 2. ObjectDataSource invoca las operaciones de asignación BLL `GetProductsPagedAndSorted` método, pasando el s GridView `SortExpression` propiedad como el valor para el método s `sortExpression` parámetro de entrada (junto con la correspondiente `startRowIndex` y `maximumRows` valores de parámetro de entrada)
 3. La capa BLL invoca las operaciones de asignación DAL `GetProductsPagedAndSorted` (método)
 4. La capa DAL se ejecuta el `GetProductsPagedAndSorted` procedimiento almacenado, pasar en el `@sortExpression` parámetro (junto con la `@startRowIndex` y `@maximumRows` valores de parámetro de entrada)
@@ -184,7 +184,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e14b19f99e9f41c5a296d73ba689095a686794db
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8baf187d484424aeaee57f8c57ac391a0ae9e946
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-vb"></a>Actualizar y eliminar datos binarios existentes (VB)
 ====================
@@ -150,7 +150,7 @@ Mientras el flujo de trabajo de eliminación ha quitado correctamente el registr
 
 Una de las desventajas de almacenar datos binarios externos a la base de datos es que se deben realizar pasos adicionales para limpiar estos archivos cuando se elimina el registro de base de datos asociada. La GridView y ObjectDataSource proporcionan eventos que se desencadenan antes y después de que se ha realizado el comando de eliminación. Se necesita realmente crear controladores de eventos para los eventos anteriores y posteriores a la acción. Antes de la `Categories` se elimina el registro es necesario determinar su ruta de acceso del archivo s PDF, pero no queremos t desea eliminar el archivo PDF antes de elimina la categoría en caso de que hay alguna excepción y no se elimina la categoría.
 
-Las operaciones de asignación GridView [ `RowDeleting` eventos](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) se desencadena antes de que se invocó el comando de eliminación de ObjectDataSource s, mientras su [ `RowDeleted` evento](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) se activa después de. Crear controladores de eventos para estos dos eventos usando el siguiente código:
+Las operaciones de asignación GridView [ `RowDeleting` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleting.aspx) se desencadena antes de que se invocó el comando de eliminación de ObjectDataSource s, mientras su [ `RowDeleted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.rowdeleted.aspx) se activa después de. Crear controladores de eventos para estos dos eventos usando el siguiente código:
 
 
 [!code-vb[Main](updating-and-deleting-existing-binary-data-vb/samples/sample5.vb)]
@@ -362,7 +362,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

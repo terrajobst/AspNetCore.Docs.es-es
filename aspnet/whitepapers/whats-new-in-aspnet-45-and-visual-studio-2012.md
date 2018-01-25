@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 93fdc7ca241198dc1d7c4c1f6be0a61b15790039
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>Novedades de ASP.NET 4.5 y Visual Studio 2012
 ====================
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/10/2017
     - [Soporte técnico para las solicitudes no validadas](#_Toc318097381)
     - [Biblioteca de AntiXSS](#_Toc318097382)
     - [Compatibilidad con el protocolo WebSockets](#_Toc318097383)
-    - [Agrupar y Minificar](#_Toc318097384)
+    - [Unión y minificación](#_Toc318097384)
     - [Mejoras de rendimiento para el hospedaje Web](#_Toc_perf)
 
         - [Factores clave de rendimiento](#_Toc_perf_1)
@@ -74,7 +74,7 @@ ms.lasthandoff: 11/10/2017
         - [Generación de controlador de eventos](#_Toc318097404)
         - [Sangría automática](#_Toc318097405)
         - [Reducir automáticamente la finalización de instrucciones](#_Toc318097406)
-    - [Editor de JavaScript](#_Toc318097407)
+    - [JavaScript Editor](#_Toc318097407)
 
         - [Esquematización de código](#_Toc318097408)
         - [Coincidencia de llaves](#_Toc318097409)
@@ -99,7 +99,7 @@ ms.lasthandoff: 11/10/2017
         - [Perfiles de publicación](#_Toc318097426)
         - [Mezclar y precompilación de ASP.NET](#_Toc318097427)
 - [IIS Express](#_Toc318097428)
-- [Declinación de responsabilidades](#_Toc318097429)
+- [Disclaimer](#_Toc318097429)
 
 <a id="_Toc318097372"></a>
 ## <a name="aspnet-core-runtime-and-framework"></a>Marco de trabajo y en tiempo de ejecución de ASP.NET Core
@@ -266,7 +266,7 @@ Además, habilitar o deshabilitar la optimización se puede establecer directame
 
 Cuando los archivos están agrupados, primero se ordenan alfabéticamente (la forma en que se muestran en **el Explorador de soluciones**). Que estén organizadas, a continuación, para que reconozcan las bibliotecas y sus extensiones personalizadas (por ejemplo, jQuery, MooTools y Dojo) se cargan en primer lugar. Por ejemplo, el orden final para la agrupación de la carpeta de secuencias de comandos como se indicó anteriormente será:
 
-1. jQuery 1.6.2.js
+1. jquery-1.6.2.js
 2. jQuery ui.js
 3. jQuery.Tools.js
 4. a.js
@@ -276,7 +276,7 @@ Archivos CSS son también se ordenan alfabéticamente y, a continuación, se reo
 1. Reset.CSS
 2. Content.CSS
 3. Forms.CSS
-4. Globals.CSS
+4. globals.css
 5. Menu.CSS
 6. Styles.CSS
 
@@ -330,7 +330,7 @@ Para ver todas las opciones, ejecute la herramienta sin argumentos.
 
 **Requisito**: .NET Framework 4.5
 
-Para el inicio de un sitio frío, no solo es necesario ensamblados que se leen del disco, pero el sitio debe ser compilado JIT. Para un sitio complejo, esto puede agregar retrasos significativos. Una nueva técnica de uso general en .NET Framework 4.5 reduce estos retrasos al repartir la compilación JIT entre núcleos de procesador disponibles. Esto consigue tanta y tan pronto como sea posible mediante el uso de la información recopilada durante la anterior inicia del sitio. Esta funcionalidad implementada por el [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/en-us/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) método.
+Para el inicio de un sitio frío, no solo es necesario ensamblados que se leen del disco, pero el sitio debe ser compilado JIT. Para un sitio complejo, esto puede agregar retrasos significativos. Una nueva técnica de uso general en .NET Framework 4.5 reduce estos retrasos al repartir la compilación JIT entre núcleos de procesador disponibles. Esto consigue tanta y tan pronto como sea posible mediante el uso de la información recopilada durante la anterior inicia del sitio. Esta funcionalidad implementada por el [System.Runtime.ProfileOptimization.StartProfile](https://msdn.microsoft.com/library/system.runtime.profileoptimization.startprofile(VS.110).aspx) método.
 
 Con varios núcleos de compilación JIT está habilitada de forma predeterminada en ASP.NET, por lo que no es necesario hacer nada para aprovechar las ventajas de esta característica. Si desea deshabilitar esta característica, realice la siguiente configuración en el archivo Web.config:
 
