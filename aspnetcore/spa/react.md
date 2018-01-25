@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: a63d81633a0f37d24ad5e05de293e3c41004eba1
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
-ms.translationtype: MT
+ms.openlocfilehash: aa70a35ad938fff6911367ee9d12aac9d575be7e
+ms.sourcegitcommit: efc9e5b5fffa0e13957131a0da52cc1532a87651
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="use-the-react-project-template-release-candidate"></a>Utilice la plantilla de proyecto de reaccionar (candidato de versión comercial)
 
@@ -33,7 +33,7 @@ Para empezar, asegúrese de que haya [instalar la plantilla de proyecto de reacc
 Crear un nuevo proyecto desde un símbolo del sistema mediante el comando `dotnet new react` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un *mi aplicación nuevo* directorio y cambie a ese directorio:
 
 ```console
-dotnet new -o my-new-app
+dotnet new react -o my-new-app
 cd my-new-app
 ```
 
