@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 7d85b995cd577d0ff90fe96bce508c7fbdc6ebbb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Formateadores de contenido multimedia en ASP.NET Web API 2
 ====================
@@ -48,8 +48,8 @@ El tipo de medio determina cómo API Web serializa y deserializa el cuerpo del m
 
 Para crear a un formateador de medios, que se derivan de una de estas clases:
 
-- [Elemento MediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.mediatypeformatter.aspx). Esta clase usa la lectura asincrónica y los métodos de escritura.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/en-us/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Esta clase se deriva de **elemento MediaTypeFormatter** pero utiliza métodos de lectura/escritura de sychronous.
+- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Esta clase usa la lectura asincrónica y los métodos de escritura.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Esta clase se deriva de **elemento MediaTypeFormatter** pero utiliza métodos de lectura/escritura de sychronous.
 
 Derivar de **BufferedMediaTypeFormatter** es más sencillo, porque no hay ningún código asincrónico, pero también significa que puede bloquear el subproceso que realiza la llamada durante la E/S.
 
@@ -91,10 +91,10 @@ Para agregar un tipo de medio formateador para la canalización Web API, use la 
 
 Opcionalmente, un formateador de medios puede admitir varias codificaciones de caracteres, como UTF-8 o ISO 8859-1.
 
-En el constructor, agregue uno o varios [System.Text.Encoding](https://msdn.microsoft.com/en-us/library/system.text.encoding.aspx) tipos a la **SupportedEncodings** colección. Coloque el primero de codificación predeterminado.
+En el constructor, agregue uno o varios [System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) tipos a la **SupportedEncodings** colección. Coloque el primero de codificación predeterminado.
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-En el **WriteToStream** y **ReadFromStream** llamar métodos, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/en-us/library/hh969054.aspx) para seleccionar la codificación de caracteres preferida. Este método devuelve los encabezados de solicitud con la lista de codificaciones admitidas. Utilice el valor devuelto **codificación** al leer o escribir en la secuencia:
+En el **WriteToStream** y **ReadFromStream** llamar métodos, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) para seleccionar la codificación de caracteres preferida. Este método devuelve los encabezados de solicitud con la lista de codificaciones admitidas. Utilice el valor devuelto **codificación** al leer o escribir en la secuencia:
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]
