@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: c7d893fb9633aaa8628f2f46a8db7f2c09f81830
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación de MVC
 ====================
@@ -118,7 +118,7 @@ Los desarrolladores de formularios Web Forms ASP.NET y MVC inmediatamente pueden
 - Request.Browser.SupportsXmlHttp
 - .. .y muchos otros
 
-En segundo plano, la plataforma ASP.NET coincide con la entrada *User-Agent* encabezado HTTP (UAC) con expresiones regulares en un conjunto de archivos XML de definición de explorador. De forma predeterminada, la plataforma incluye definiciones para varios dispositivos móviles comunes, y puede agregar archivos de definición de explorador personalizados para que otros usuarios que se va a reconocer. Para obtener más información, vea la página MSDN [controles de servidor Web de ASP.NET y las funciones del explorador](https://msdn.microsoft.com/en-us/library/x3k2ssx2.aspx).
+En segundo plano, la plataforma ASP.NET coincide con la entrada *User-Agent* encabezado HTTP (UAC) con expresiones regulares en un conjunto de archivos XML de definición de explorador. De forma predeterminada, la plataforma incluye definiciones para varios dispositivos móviles comunes, y puede agregar archivos de definición de explorador personalizados para que otros usuarios que se va a reconocer. Para obtener más información, vea la página MSDN [controles de servidor Web de ASP.NET y las funciones del explorador](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
 ### <a name="using-the-wurfl-device-database-via-51degreesmobi-foundation"></a>Uso de la base de datos del dispositivo WURFL a través de 51Degrees.mobi Foundation
 
@@ -213,9 +213,9 @@ Para obtener más sugerencias sobre cómo optimizar el marcado y CSS para los ex
 
 Puesto que el modelo Model-View-Controller separa la lógica de la aplicación (en los controladores) desde la lógica de presentación (en las vistas), puede elegir desde cualquiera de los métodos siguientes para controlar la compatibilidad con dispositivos móvil en el código de servidor:
 
-1. ***Usar los mismos controladores y vistas para los exploradores de escritorio y móviles, pero representar las vistas con distintos diseños de Razor según el tipo de dispositivo*.** Esta opción funciona mejor si muestra datos idénticos en todos los dispositivos, pero simplemente desee proporcionar diferentes hojas de estilos CSS o cambiar algunos elementos HTML de nivel superior para dispositivos móviles.
+1. ***Usar los mismos controladores y vistas para los exploradores de escritorio y móviles, pero representar las vistas con distintos diseños de Razor según el tipo de dispositivo *.** Esta opción funciona mejor si muestra datos idénticos en todos los dispositivos, pero simplemente desee proporcionar diferentes hojas de estilos CSS o cambiar algunos elementos HTML de nivel superior para dispositivos móviles.
 2. ***Usar los mismos controladores para los exploradores de escritorio y móviles, pero presentar vistas distintas según el tipo de dispositivo***. Esta opción funciona mejor si se está mostrando aproximadamente los mismos datos y proporcionar los mismos flujos de trabajo para los usuarios finales, pero desea presentar HTML muy diferente para satisfacer el dispositivo que se va a usar.
-3. ***Crear áreas bien diferenciadas para los exploradores de escritorio y móviles, implementar controladores independientes y vistas para cada*.** Esta opción funciona mejor si está mostrar pantallas muy diferentes, que contiene información diferente y a la izquierda al usuario a través de diferentes flujos de trabajo optimizada para su tipo de dispositivo. Puede significar algunos repetición del código, pero puede minimizarlo factorización lógica común en una capa o un servicio subyacente.
+3. ***Crear áreas bien diferenciadas para los exploradores de escritorio y móviles, implementar controladores independientes y vistas para cada *.** Esta opción funciona mejor si está mostrar pantallas muy diferentes, que contiene información diferente y a la izquierda al usuario a través de diferentes flujos de trabajo optimizada para su tipo de dispositivo. Puede significar algunos repetición del código, pero puede minimizarlo factorización lógica común en una capa o un servicio subyacente.
 
 Si desea trasladar el **primer** opción y variar el diseño de Razor sólo por tipo de dispositivo, es muy fácil. Sólo tiene que modificar su \_ViewStart.cshtml de archivos como se indica a continuación:
 
