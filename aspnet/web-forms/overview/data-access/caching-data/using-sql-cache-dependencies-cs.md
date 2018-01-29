@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a6089b847dfd662e9b32128036170322823aac97
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a29c77688b0179730ccb1b48e62ae28a0148f94d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="using-sql-cache-dependencies-c"></a>Uso de las dependencias de caché SQL (C#)
 ====================
@@ -33,7 +33,7 @@ Examinan las técnicas de almacenamiento en caché en el [almacenar datos en cac
 
 Al almacenar en caché datos de la base de datos, una expiración basada en el tiempo se elige a menudo por su facilidad de uso, pero suele ser una solución adecuada. Idealmente, los datos de la base de datos permanecerá en caché hasta que se ha modificado los datos subyacentes en la base de datos; solo entonces se desalojan la memoria caché. Este enfoque maximiza los beneficios de rendimiento de almacenamiento en caché y minimiza la duración de los datos obsoletos. Sin embargo, para poder disfrutar de estas ventajas se deben algún sistema en su lugar que conoce cuando los datos subyacentes de la base de datos se ha modificado y extrae los elementos correspondientes de la memoria caché. Antes de ASP.NET 2.0, los desarrolladores de páginas eran responsables de implementar este sistema.
 
-ASP.NET 2.0 proporciona una [ `SqlCacheDependency` clase](https://msdn.microsoft.com/en-us/library/system.web.caching.sqlcachedependency.aspx) y la infraestructura necesaria para determinar cuándo se ha producido un cambio en la base de datos para que los correspondientes elementos almacenados en caché se pueda expulsar. Hay dos técnicas para determinar cuándo ha cambiado los datos subyacentes: sondeo y notificación. Después de tratar las diferencias entre la notificación y sondeo, vamos a crear la infraestructura necesaria para admitir el sondeo y, a continuación, explorar cómo usar el `SqlCacheDependency` escenarios clase declarativo y mediante programación.
+ASP.NET 2.0 proporciona una [ `SqlCacheDependency` clase](https://msdn.microsoft.com/library/system.web.caching.sqlcachedependency.aspx) y la infraestructura necesaria para determinar cuándo se ha producido un cambio en la base de datos para que los correspondientes elementos almacenados en caché se pueda expulsar. Hay dos técnicas para determinar cuándo ha cambiado los datos subyacentes: sondeo y notificación. Después de tratar las diferencias entre la notificación y sondeo, vamos a crear la infraestructura necesaria para admitir el sondeo y, a continuación, explorar cómo usar el `SqlCacheDependency` escenarios clase declarativo y mediante programación.
 
 ## <a name="understanding-notification-and-polling"></a>Sondeo y la notificación de descripción
 
@@ -55,7 +55,7 @@ Con el enfoque de sondeo de la base de datos debe configurarse para que contenga
 [!code-console[Main](using-sql-cache-dependencies-cs/samples/sample1.cmd)]
 
 > [!NOTE]
-> Para ejecutar estos comandos debe ser el inicio de sesión de base de datos especificada en el [ `db_securityadmin` ](https://msdn.microsoft.com/en-us/library/ms188685.aspx) y [ `db_ddladmin` ](https://msdn.microsoft.com/en-us/library/ms190667.aspx) roles. Para examinar el código T-SQL enviado a la base de datos por el `aspnet_regsql.exe` programa de línea de comandos, consulte [esta entrada de blog](http://scottonwriting.net/sowblog/posts/10709.aspx).
+> Para ejecutar estos comandos debe ser el inicio de sesión de base de datos especificada en el [ `db_securityadmin` ](https://msdn.microsoft.com/library/ms188685.aspx) y [ `db_ddladmin` ](https://msdn.microsoft.com/library/ms190667.aspx) roles. Para examinar el código T-SQL enviado a la base de datos por el `aspnet_regsql.exe` programa de línea de comandos, consulte [esta entrada de blog](http://scottonwriting.net/sowblog/posts/10709.aspx).
 
 
 Por ejemplo, para agregar la infraestructura para el sondeo a una base de datos de Microsoft SQL Server denominada `pubs` en un servidor de base de datos denominado `ScottsServer` mediante la autenticación de Windows, navegue hasta el directorio adecuado y, desde la línea de comandos, escriba:
@@ -77,7 +77,7 @@ Para este tutorial, agregue los desencadenadores para el `Products`, `Categories
 
 ## <a name="step-2-referencing-a-microsoft-sql-server-2005-express-edition-database-inappdata"></a>Paso 2: Hacer referencia a una base de datos de Microsoft SQL Server 2005 Express Edition en`App_Data`
 
-El `aspnet_regsql.exe` programa de línea de comandos requiere que el nombre de base de datos y el servidor con el fin de agregar la infraestructura de sondeo es necesario. Pero ¿cuál es el nombre de base de datos y del servidor para una base de datos Microsoft SQL Server 2005 Express que reside en el `App_Data` carpeta? En lugar de tener que detectar cuáles son los nombres de base de datos y el servidor, se ha encontrado que es el enfoque más sencillo adjuntar la base de datos a la `localhost\SQLExpress` instancia de base de datos y cambiar el nombre de los datos mediante [SQL Server Management Studio](https://msdn.microsoft.com/en-us/library/ms174173.aspx). Si tiene una de las versiones completas de SQL Server 2005 instalados en su equipo, a continuación, es probable que ya tenga instalado en el equipo de SQL Server Management Studio. Si solo tiene la edición Express, puede descargar gratuitamente [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
+El `aspnet_regsql.exe` programa de línea de comandos requiere que el nombre de base de datos y el servidor con el fin de agregar la infraestructura de sondeo es necesario. Pero ¿cuál es el nombre de base de datos y del servidor para una base de datos Microsoft SQL Server 2005 Express que reside en el `App_Data` carpeta? En lugar de tener que detectar cuáles son los nombres de base de datos y el servidor, se ha encontrado que es el enfoque más sencillo adjuntar la base de datos a la `localhost\SQLExpress` instancia de base de datos y cambiar el nombre de los datos mediante [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Si tiene una de las versiones completas de SQL Server 2005 instalados en su equipo, a continuación, es probable que ya tenga instalado en el equipo de SQL Server Management Studio. Si solo tiene la edición Express, puede descargar gratuitamente [Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?displaylang=en&amp;FamilyID=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796).
 
 Empiece por cerrar Visual Studio. A continuación, abra SQL Server Management Studio y elija para conectarse a la `localhost\SQLExpress` server mediante la autenticación de Windows.
 
@@ -186,7 +186,7 @@ Ahora, visite esta página a través de un explorador. Desde que se ve todavía 
 **Figura 8**: The ObjectDataSource s `Selecting` evento se desencadena cada vez se pagina el control GridView, editada o Sorted ([haga clic aquí para ver la imagen a tamaño completo](using-sql-cache-dependencies-cs/_static/image10.png))
 
 
-Como vimos en el [almacenar datos en caché con el ObjectDataSource](caching-data-with-the-objectdatasource-cs.md) tutorial, establecer el `EnableCaching` propiedad `true` hace que el ObjectDataSource para almacenar en caché los datos durante el tiempo especificado por su `CacheDuration` propiedad. ObjectDataSource también tiene un [ `SqlCacheDependency` propiedad](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), que agrega una o más dependencias de caché SQL a los datos almacenados en memoria caché usando el patrón:
+Como vimos en el [almacenar datos en caché con el ObjectDataSource](caching-data-with-the-objectdatasource-cs.md) tutorial, establecer el `EnableCaching` propiedad `true` hace que el ObjectDataSource para almacenar en caché los datos durante el tiempo especificado por su `CacheDuration` propiedad. ObjectDataSource también tiene un [ `SqlCacheDependency` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.sqlcachedependency.aspx), que agrega una o más dependencias de caché SQL a los datos almacenados en memoria caché usando el patrón:
 
 
 [!code-css[Main](using-sql-cache-dependencies-cs/samples/sample9.css)]
@@ -282,7 +282,7 @@ Recuerde que el `MasterCacheKeyArray` dependencia de memoria caché se utiliza p
 
 Además, cuando se trabaja con las dependencias de caché SQL, podemos necesitamos asociar varias tablas de base de datos como dependencias. Por ejemplo, el `ProductsDataTable` en la caché en el `ProductsCL` clase contiene los nombres de categoría y el proveedor para cada producto, pero la `AddCacheItem` método sólo utiliza una dependencia en `Products`. En esta situación, si el usuario actualiza el nombre de una categoría o el proveedor, los datos almacenados en caché producto podrá permanecen en la caché y no está actualizado. Por lo tanto, queremos hacer que los datos de productos almacenada en caché dependa no solo la `Products` tabla, pero en el `Categories` y `Suppliers` tablas.
 
-El [ `AggregateCacheDependency` clase](https://msdn.microsoft.com/en-us/library/system.web.caching.aggregatecachedependency.aspx) proporciona un medio para asociar varias dependencias con un elemento de caché. Comience creando un `AggregateCacheDependency` instancia. A continuación, agregue el conjunto de dependencias mediante la `AggregateCacheDependency` s `Add` método. Al insertar el elemento en la caché de datos a partir de ahí, pase el `AggregateCacheDependency` instancia. Cuando *cualquier* de la `AggregateCacheDependency` que cambian las dependencias de instancia s, el elemento almacenado en caché se expulsen.
+El [ `AggregateCacheDependency` clase](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) proporciona un medio para asociar varias dependencias con un elemento de caché. Comience creando un `AggregateCacheDependency` instancia. A continuación, agregue el conjunto de dependencias mediante la `AggregateCacheDependency` s `Add` método. Al insertar el elemento en la caché de datos a partir de ahí, pase el `AggregateCacheDependency` instancia. Cuando *cualquier* de la `AggregateCacheDependency` que cambian las dependencias de instancia s, el elemento almacenado en caché se expulsen.
 
 La siguiente muestra el código actualizado para el `ProductsCL` clase s. `AddCacheItem` método. El método crea el `MasterCacheKeyArray` almacenar en caché dependencia junto con `SqlCacheDependency` de objetos para el `Products`, `Categories`, y `Suppliers` tablas. Éstos se combinan en una sola `AggregateCacheDependency` objeto denominado `aggregateDependencies`, que, a continuación, se pasa a la `Insert` método.
 
@@ -292,7 +292,7 @@ La siguiente muestra el código actualizado para el `ProductsCL` clase s. `AddCa
 Pruebe este código nuevo. Ahora se cambia a la `Products`, `Categories`, o `Suppliers` tablas hacen que los datos almacenados en caché que se expulsen. Además, el `ProductsCL` clase s `UpdateProduct` expulsa del método, que se llama cuando se edita un producto a través de GridView, el `MasterCacheKeyArray` la dependencia, que hace que las almacenadas en caché de caché `ProductsDataTable` debe expulsarse y los datos que se van a volver a recuperar en el siguiente solicitud.
 
 > [!NOTE]
-> Las dependencias de caché SQL también pueden utilizarse con [caché de resultados](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Para ver una demostración de esta funcionalidad, consulte: [Using ASP.NET Output Caching con SQL Server](https://msdn.microsoft.com/en-us/library/e3w8402y(VS.80).aspx).
+> Las dependencias de caché SQL también pueden utilizarse con [caché de resultados](https://quickstarts.asp.net/QuickStartv20/aspnet/doc/caching/output.aspx). Para ver una demostración de esta funcionalidad, consulte: [Using ASP.NET Output Caching con SQL Server](https://msdn.microsoft.com/library/e3w8402y(VS.80).aspx).
 
 
 ## <a name="summary"></a>Resumen
@@ -305,15 +305,15 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Usar notificaciones de consulta en Microsoft SQL Server 2005](https://msdn.microsoft.com/en-us/library/ms175110.aspx)
-- [Crear una notificación de consulta](https://msdn.microsoft.com/en-us/library/ms188669.aspx)
-- [Almacenamiento en caché de ASP.NET con la `SqlCacheDependency` (clase)](https://msdn.microsoft.com/en-us/library/ms178604(VS.80).aspx)
-- [Herramienta de registro de servidor de SQL de ASP.NET (`aspnet_regsql.exe`)](https://msdn.microsoft.com/en-us/library/ms229862(vs.80).aspx)
+- [Usar notificaciones de consulta en Microsoft SQL Server 2005](https://msdn.microsoft.com/library/ms175110.aspx)
+- [Crear una notificación de consulta](https://msdn.microsoft.com/library/ms188669.aspx)
+- [Almacenamiento en caché de ASP.NET con la `SqlCacheDependency` (clase)](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
+- [Herramienta de registro de servidor de SQL de ASP.NET (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
 - [Información general de`SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-across-two-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6ddce74be81cb3ea33df9f7a6b91eae604b83025
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3411272896dee0da4d5f89aa2bdda0999d660423
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/24/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Principal-detalle filtrado a través de dos páginas (C#)
 ====================
@@ -71,7 +71,7 @@ Con el `SupplierListMaster.aspx` y `ProductsForSupplierDetails.aspx` páginas cr
 
 Es necesario incluir un vínculo denominado Ver productos en cada fila de GridView que, al hacer clic, lleva al usuario a `ProductsForSupplierDetails.aspx` pasar en la fila seleccionada `SupplierID` valor a través de la cadena de consulta. Por ejemplo, si el usuario hace clic en el vínculo Ver productos para el proveedor Comercial Tasmania (que tiene un `SupplierID` valor 4), deben enviarse a `ProductsForSupplierDetails.aspx?SupplierID=4`.
 
-Para ello, agregue un [campo HYPERLINK](https://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols.hyperlinkfield.aspx) a GridView, que agrega un hipervínculo para cada fila de GridView. Iniciar haciendo clic en el vínculo Editar columnas de etiqueta inteligente de GridView. A continuación, seleccione el campo Hyperlink de la lista en la parte superior izquierda y haga clic en Agregar para incluir el campo HYPERLINK en lista de campos de GridView.
+Para ello, agregue un [campo HYPERLINK](https://msdn.microsoft.com/library/system.web.ui.webcontrols.hyperlinkfield.aspx) a GridView, que agrega un hipervínculo para cada fila de GridView. Iniciar haciendo clic en el vínculo Editar columnas de etiqueta inteligente de GridView. A continuación, seleccione el campo Hyperlink de la lista en la parte superior izquierda y haga clic en Agregar para incluir el campo HYPERLINK en lista de campos de GridView.
 
 
 [![Agregar un campo Hyperlink a GridView](master-detail-filtering-across-two-pages-cs/_static/image9.png)](master-detail-filtering-across-two-pages-cs/_static/image8.png)
@@ -220,7 +220,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

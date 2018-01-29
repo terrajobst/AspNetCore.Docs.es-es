@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/logging/index
-ms.openlocfilehash: 387d19af9165d4b54ce3cb1a9b04412271da6fb0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: af8364c584b686fd5c0fe30a89e241d9d08a30c0
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="introduction-to-logging-in-aspnet-core"></a>Introducción al registro en ASP.NET Core
 
@@ -147,11 +147,11 @@ ASP.NET Core define los [niveles de registro](https://docs.microsoft.com/aspnet/
 
 * Seguimiento = 0
 
-  Para la información que solo es útil para un desarrollador que depura un problema. Estos mensajes pueden contener datos confidenciales de la aplicación por lo que no deben habilitarse en un entorno de producción. *Deshabilitado de forma predeterminada.* Ejemplo: `Credentials: {"User":"someuser", "Password":"P@ssword"}`
+  Para la información que solo es útil para un desarrollador que depura un problema. Estos mensajes pueden contener datos confidenciales de la aplicación, por lo que no deben habilitarse en un entorno de producción. *Deshabilitado de forma predeterminada.* Ejemplo: `Credentials: {"User":"someuser", "Password":"P@ssword"}`
 
 * Depurar = 1
 
-  Para la información que tiene utilidad a corto plazo durante el desarrollo y la depuración. Ejemplo: `Entering method Configure with flag set to true.` Normalmente los registros de nivel `Debug` no se habilitarían en producción, a menos que se esté solucionando un problema, debido al elevado volumen de registros.
+  Para la información que tiene utilidad a corto plazo durante el desarrollo y la depuración. Ejemplo: `Entering method Configure with flag set to true.` normalmente los registros de nivel `Debug` no se habilitarían en producción, a menos que se esté solucionando un problema, debido al elevado volumen de registros.
 
 * Información = 2
 
@@ -610,7 +610,7 @@ Cuando se implementa en una aplicación de App Service, la aplicación respeta l
 
 La ubicación predeterminada de los archivos de registro es la carpeta *D:\\home\\LogFiles\\Application* y el nombre de archivo predeterminado es *diagnostics-aaaammdd.txt*. El límite de tamaño de archivo predeterminado es 10 MB, y el número máximo predeterminado de archivos que se conservan es 2. El nombre de blob predeterminado es *{nombre-de-la-aplicación}{marca de tiempo}/aaaa/mm/dd/hh/{guid}-applicationLog.txt*. Para más información sobre el comportamiento predeterminado, vea [AzureAppServicesDiagnosticsSettings](https://github.com/aspnet/Logging/blob/c7d0b1b88668ff4ef8a86ea7d2ebb5ca7f88d3e0/src/Microsoft.Extensions.Logging.AzureAppServices/AzureAppServicesDiagnosticsSettings.cs).
 
-El proveedor solo funciona cuando el proyecto se ejecuta en el entorno de Azure. No tiene ningún efecto cuando se ejecuta de manera local; no escribe en archivos locales ni en almacenamiento de desarrollo local para los blobs.
+El proveedor solo funciona cuando el proyecto se ejecuta en el entorno de Azure. No tiene ningún efecto cuando se ejecuta de manera local &mdash; no escribe en archivos locales ni en almacenamiento de desarrollo local para los blobs.
 
 ## <a name="third-party-logging-providers"></a>Proveedores de registro de terceros
 
