@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/membership
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6bff33e9ec1de03c591de6eee2e632c7b7509d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a5a495845b60f9aac51c9776311af67f5dc8767
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="membership"></a>Pertenencia
 ====================
@@ -120,7 +120,7 @@ El control LoginView es un control con plantilla que proporciona dos plantillas 
 
 ## <a name="passwordrecovery-control"></a>Control PasswordRecovery
 
-El control PasswordRecovery permite a los usuarios recibir un correo electrónico con su contraseña actual o restablecer su contraseña. Texto sin cifrar contraseñas cifradas pueden recuperar y enviar por correo electrónico a los usuarios. Si se aplica un algoritmo hash de la contraseña, no se puede recuperar. En su lugar, el usuario será necesario para realizar un restablecimiento de contraseña.
+El control PasswordRecovery permite a los usuarios recibirán un correo electrónico con su contraseña actual o restablecer su contraseña. Texto no cifrado y contraseñas cifradas se pueden recuperar y por correo electrónico a los usuarios. Si se aplica un algoritmo hash de la contraseña, no se puede recuperar. En su lugar, el usuario será necesario para realizar un restablecimiento de contraseña.
 
 ## <a name="loginstatus-control"></a>Control LoginStatus
 

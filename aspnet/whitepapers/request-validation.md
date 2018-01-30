@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
-ms.openlocfilehash: 61a96b75fdc29bdd1510ed689ee0356ef30e03fc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0b24fe2193d2c7a858667505bad9ed0b1d70a328
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="request-validation---preventing-script-attacks"></a>La validación - prevención de ataques de secuencia de comandos de solicitudes
 ====================
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/10/2017
 
 Validación de solicitudes, una característica de ASP.NET desde la versión 1.1, impide que el servidor acepte contenido HTML sin codificar que lo contiene. Esta característica está diseñada para ayudar a evitar algunos ataques de inyección de script mediante el cual código de script de cliente o HTML puede ser sin saberlo enviada a un servidor, almacena y, a continuación, se presentan a otros usuarios. Se recomienda encarecidamente seguir que validar todos los datos recibidos y codificación HTML que cuando corresponda.
 
-Por ejemplo, cree una página Web que solicita la dirección de correo electrónico de un usuario y, a continuación, almacena esa dirección de correo electrónico en una base de datos. Si el usuario escribe &lt;SCRIPT&gt;alerta ("Hola desde un script")&lt;/SCRIPT&gt; en lugar de una dirección de correo electrónico válida, cuando esos datos se presentación, esta secuencia de comandos se puede ejecutar si el contenido no se codificó correctamente. La característica de validación de solicitud de ASP.NET evita que esto suceda.
+Por ejemplo, cree una página Web que solicita la dirección de correo electrónico de un usuario y, a continuación, almacena ese correo electrónico en una base de datos. Si el usuario escribe &lt;SCRIPT&gt;alerta ("Hola desde un script")&lt;/SCRIPT&gt; en lugar de una dirección de correo electrónico válida, cuando esos datos se presentación, esta secuencia de comandos se puede ejecutar si el contenido no se codificó correctamente. La característica de validación de solicitud de ASP.NET evita que esto suceda.
 
 ## <a name="why-this-feature-is-useful"></a>¿Por qué esta característica es útil
 

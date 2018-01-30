@@ -1,21 +1,21 @@
 ---
-title: Migrar de ASP.NET a ASP.NET Core 2.0
+title: "Migración de ASP.NET a ASP.NET Core 2.0"
 author: isaac2004
-description: "Este documento de referencia proporciona orientación para migrar aplicaciones existentes de ASP.NET MVC o ASP.NET Web API a ASP.NET Core 2.0."
-ms.author: scaddie
+description: Reciben instrucciones para migrar aplicaciones existentes de ASP.NET MVC o Web API principales de ASP.NET 2.0.
 manager: wpickett
+ms.author: scaddie
 ms.date: 08/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 95bedf9299b4ff65c2f520358136174c4d2c4623
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 65717c1605c7f55bfd836110072772fe3dcdeb76
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migrar de ASP.NET a ASP.NET Core 2.0
+# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migración de ASP.NET a ASP.NET Core 2.0
 
 Por [Isaac Levin](https://isaaclevin.com)
 
@@ -38,11 +38,11 @@ Cuando se usa .NET Core, se pueden eliminar numerosas referencias del paquete ex
 </ItemGroup>
 ```
 
-Cuando se usa el metapaquete, con la aplicación no se implementa ningún paquete al que se hace referencia en el metapaquete. El almacén de tiempo de ejecución de .NET Core incluye estos activos, y están compiladas para mejorar el rendimiento. Vea [Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage) (Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.x) para obtener más detalles.
+Cuando se usa el metapaquete, con la aplicación no se implementa ningún paquete al que se hace referencia en el metapaquete. El almacén de tiempo de ejecución de .NET Core incluye estos activos que están compilados previamente para mejorar el rendimiento. Vea [Microsoft.AspNetCore.All metapackage for ASP.NET Core 2.x](xref:fundamentals/metapackage) (Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.x) para obtener más detalles.
 
 ## <a name="project-structure-differences"></a>Diferencias en la estructura de proyecto
 El formato de archivo *.csproj* se ha simplificado en ASP.NET Core. Estos son algunos cambios importantes:
-- Inclusión explícita de archivos no es necesario para que se consideran parte del proyecto. Esto reduce el riesgo de conflictos al fusionar XML cuando se trabaja en equipos grandes.
+- La inclusión explícita de archivos no es necesaria para que se consideren parte del proyecto. Esto reduce el riesgo de conflictos al fusionar XML cuando se trabaja en equipos grandes.
 - No hay referencias de GUID a otros proyectos, lo cual mejora la legibilidad del archivo.
 - El archivo se puede editar sin descargarlo en Visual Studio:
 
@@ -53,13 +53,13 @@ ASP.NET Core introdujo un nuevo mecanismo para arrancar una aplicación. El punt
 
 [!code-csharp[Main](samples/globalasax-sample.cs)]
 
-Este enfoque acopla la aplicación y el servidor en el que está implementada de forma que interfiere con la implementación. En un esfuerzo por desacoplar, se introdujo [OWIN](http://owin.org/) para ofrecer una forma más limpia de usar varios marcos de trabajo de manera conjunta. OWIN proporciona una canalización para agregar solo los módulos necesarios. El entorno de hospedaje toma una función de [inicio](xref:fundamentals/startup) para configurar servicios y la canalización de solicitud de la aplicación. `Startup` registra un conjunto de middleware en la aplicación. Para cada solicitud, la aplicación llama a cada uno de los componentes de middleware con el puntero principal de una lista vinculada a un conjunto de controladores existente. Cada componente de middleware puede agregar uno o varios controladores a la canalización de control de la solicitud. Esto se consigue mediante la devolución de una referencia al controlador que es el nuevo encabezado de la lista. Cada controlador se encarga de recordar e invocar el controlador siguiente en la lista. Con ASP.NET Core, el punto de entrada a una aplicación es `Startup` y ya no se tiene dependencia de *Global.asax*. Cuando utilice OWIN con .NET Framework, use algo parecido a lo siguiente como canalización:
+Este enfoque acopla la aplicación y el servidor en el que está implementada de forma que interfiere con la implementación. En un esfuerzo por desacoplar, se introdujo [OWIN](http://owin.org/) para ofrecer una forma más limpia de usar varios marcos de trabajo de manera conjunta. OWIN proporciona una canalización para agregar solo los módulos necesarios. El entorno de hospedaje toma una función de [inicio](xref:fundamentals/startup) para configurar servicios y la canalización de solicitud de la aplicación. `Startup` registra un conjunto de middleware en la aplicación. Para cada solicitud, la aplicación llama a cada uno de los componentes de middleware con el puntero principal de una lista vinculada a un conjunto de controladores existente. Cada componente de middleware puede agregar uno o varios controladores a la canalización de control de la solicitud. Esto se consigue mediante la devolución de una referencia al controlador que ahora es el primero de la lista. Cada controlador se encarga de recordar e invocar el controlador siguiente en la lista. Con ASP.NET Core, el punto de entrada a una aplicación es `Startup` y ya no se tiene dependencia de *Global.asax*. Cuando utilice OWIN con .NET Framework, use algo parecido a lo siguiente como canalización:
 
 [!code-csharp[Main](samples/webapi-owin.cs)]
 
 Esto configura las rutas predeterminadas y tiene como valor predeterminado XmlSerialization a través de Json. Agregue otro middleware a esta canalización según sea necesario (carga de servicios, opciones de configuración, archivos estáticos, etcétera).
 
-ASP.NET Core usa un enfoque similar, pero no depende de OWIN para controlar la entrada. En su lugar, que se realiza a través de la *Program.cs* `Main` (método) (similar a las aplicaciones de consola) y `Startup` se carga a través de allí.
+ASP.NET Core usa un enfoque similar, pero no depende de OWIN para controlar la entrada. En lugar de eso, usa el método *Program.cs* `Main` (similar a las aplicaciones de consola) y `Startup` se carga a través de ahí.
 
 [!code-csharp[Main](samples/program.cs)]
 
@@ -77,7 +77,7 @@ El host y la aplicación se han desacoplado, lo que proporciona la flexibilidad 
 
 **Nota:** Para una referencia más detallada sobre el inicio de ASP.NET Core y middleware en [Startup in ASP.NET Core](xref:fundamentals/startup) (Inicio de aplicaciones en ASP.NET Core).
 
-## <a name="storing-configurations"></a>Almacenamiento de configuraciones
+## <a name="storing-configurations"></a>Almacenar configuraciones de
 ASP.NET admite el almacenamiento de valores de configuración. Estos valores de configuración se usan, por ejemplo, para admitir el entorno donde se implementan las aplicaciones. Antes se solían almacenar todos los pares de clave y valor personalizados en la sección `<appSettings>` del archivo *Web.config*:
 
 [!code-xml[Main](samples/webconfig-sample.xml)]
@@ -107,8 +107,8 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 
 **Nota:** Para una referencia más detallada sobre la configuración de ASP.NET Core, vea [Configuration in ASP.NET Core](xref:fundamentals/configuration/index) (Configuración en ASP.NET Core).
 
-## <a name="native-dependency-injection"></a>Inserción de dependencias nativa
-Un objetivo importante al compilar aplicaciones grandes y escalables es lograr el acoplamiento flexible de los componentes y los servicios. [Inyección de dependencia](xref:fundamentals/dependency-injection) es una técnica popular para lograr esto, y es un componente nativo de ASP.NET Core.
+## <a name="native-dependency-injection"></a>Inyección de dependencia nativo
+Un objetivo importante al compilar aplicaciones grandes y escalables es lograr el acoplamiento flexible de los componentes y los servicios. La [inserción de dependencias](xref:fundamentals/dependency-injection) es una técnica popular para lograrlo y se trata de un componente nativo de ASP.NET Core.
 
 En las aplicaciones ASP.NET, los desarrolladores se basan en una biblioteca de terceros para implementar la inserción de dependencias. Una de estas bibliotecas es [Unity](https://github.com/unitycontainer/unity), suministrada por Microsoft Patterns & Practices. 
 
@@ -132,7 +132,7 @@ El repositorio se puede insertar en cualquier lugar, como ocurría con Unity.
 
 **Nota:** Para una referencia detallada sobre la inserción de dependencias en ASP.NET Core, vea [Dependency Injection in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container) (Inserción de dependencias en ASP.NET Core).
 
-## <a name="serving-static-files"></a>Trabajar con archivos estáticos
+## <a name="serving-static-files"></a>Enviar archivos estáticos
 Una parte importante del desarrollo web es la capacidad de trabajar con activos estáticos de cliente. Los ejemplos más comunes de archivos estáticos son HTML, CSS, JavaScript e imágenes. Estos archivos deben guardarse en la ubicación de publicación de la aplicación (o la red de entrega de contenido) y es necesario hacer referencia a ellos para que una solicitud los pueda cargar. Este proceso ha cambiado en ASP.NET Core.
 
 En ASP.NET, los archivos estáticos se almacenan en directorios distintos y se hace referencia a ellos en las vistas.
@@ -148,4 +148,5 @@ Por ejemplo, el explorador puede acceder a un recurso de imagen en la carpeta *w
 **Nota:** Para una referencia más detallada sobre cómo trabajar con archivos estáticos en ASP.NET Core, vea [Introduction to working with static files in ASP.NET Core](xref:fundamentals/static-files) (Introducción sobre cómo trabajar con archivos estáticos en ASP.NET Core).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-* [Traslado a .NET Core: bibliotecas](https://docs.microsoft.com/dotnet/core/porting/libraries)
+
+* [Traslado a .NET Core: bibliotecas](/dotnet/core/porting/libraries)

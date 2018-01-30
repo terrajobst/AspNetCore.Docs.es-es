@@ -2,18 +2,18 @@
 title: "Hash de contraseña"
 author: rick-anderson
 description: "Este documento explica cómo realizar un hash de contraseñas mediante el uso de la API de protección de datos de ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: e97d17b5f6de2e0ddcde6d51618675388b43911a
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 536499687865b4e4d5b1d9c4076623b5ac1ffdbe
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="password-hashing"></a>Hash de contraseña
 

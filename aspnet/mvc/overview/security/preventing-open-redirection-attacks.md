@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 97e0aacbf21914bf95f01019cf4dcc9e7ca1c4be
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Prevención de ataques de redirección abierta (C#)
 ====================
@@ -47,7 +47,7 @@ Los ataques de redirección abierta son especialmente peligrosos, porque un atac
 
 En primer lugar, un atacante envía es un vínculo a la página de inicio de sesión en NerdDinner que incluye un redireccionamiento para sus páginas falsificadas:
 
-[http://NerdDinner.com/Account/Logon?returnUrl=http://nerddiner.com/Account/Logon](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
+[http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn](http://nerddinner.com/Account/LogOn?returnUrl=http://nerddiner.com/Account/LogOn)
 
 Tenga en cuenta que la dirección URL de retorno señala a nerddiner.com, que le falta una "n" de la cena de word. En este ejemplo, se trata de un dominio que controla el atacante. Cuando se tiene acceso al vínculo anterior, nos estamos pasará a la página de inicio de sesión de NerdDinner.com legítima.
 

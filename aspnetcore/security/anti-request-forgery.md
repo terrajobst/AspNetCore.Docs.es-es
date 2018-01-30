@@ -1,19 +1,19 @@
 ---
 title: "Prevención de ataques de falsificación (XSRF/CSRF) de solicitud entre sitios en ASP.NET Core"
 author: steve-smith
-ms.author: riande
 description: "Prevención de ataques de falsificación (XSRF/CSRF) de solicitud entre sitios en ASP.NET Core"
 manager: wpickett
+ms.author: riande
 ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: 3831bf737186d10eb1b298f5ec2da1fd33ebedd9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Prevención de ataques de falsificación (XSRF/CSRF) de solicitud entre sitios en ASP.NET Core
 
@@ -43,7 +43,7 @@ Un ejemplo de un ataque CSRF:
 Tenga en cuenta que la acción de formulario se envía al sitio vulnerable, no en el sitio malintencionado. Esta es la parte "cross-site" de CSRF.
 
 4. El usuario hace clic en el botón Enviar. El explorador incluye automáticamente la cookie de autenticación para el dominio solicitado (es decir, el sitio sea vulnerable en este caso) con la solicitud.
-5. La solicitud se ejecuta en el servidor con el contexto de autenticación del usuario y puede hacer todo lo que puede hacer un usuario autenticado.
+5. La solicitud se ejecuta en el servidor con el contexto de autenticación del usuario y puede realizar cualquier acción que un usuario autenticado puede hacer.
 
 Este ejemplo requiere que el usuario haga clic en el botón del formulario. La página malintencionada podría:
 
@@ -353,12 +353,11 @@ Cuando un usuario inicia sesión un sistema, una sesión de usuario se crea en e
 
 ### <a name="user-tokens"></a>Tokens de usuario
 
-Autenticación basada en token no almacena la sesión en el servidor. En su lugar, cuando un usuario ha iniciado sesión le emite un token (no un token antiforgery). Este token contiene todos los datos que se necesita para validar el token. También contiene información de usuario, en forma de [notificaciones](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Cuando un usuario desea tener acceso a un recurso de servidor que requiera autenticación, el token se envía al servidor con un encabezado de autorización adicionales en forma de portador {token}. Esto hace que la aplicación sin estado ya que en cada solicitud posterior se pasa el token de la solicitud de validación del lado servidor. Este token no es *cifrados*; en su lugar es *codificado*. En el lado del servidor puede descodificar el token para tener acceso a la información sin procesar en el token. Para enviar el token en solicitudes posteriores, o bien puede almacenarlo en el almacenamiento local del explorador o en una cookie. No tiene que preocuparse de vulnerabilidad XSRF si el token se almacena en el almacenamiento local, pero es un problema si el token está almacenado en una cookie.
+Autenticación basada en token no almacena la sesión en el servidor. Cuando un usuario ha iniciado sesión, le emite un token (no un token antiforgery). Este token contiene los datos que se necesita para validar el token. También contiene información de usuario en forma de [notificaciones](https://docs.microsoft.com/dotnet/framework/security/claims-based-identity-model). Cuando un usuario desea tener acceso a un recurso de servidor que requiera autenticación, el token se envía al servidor con un encabezado de autorización adicionales en forma de portador {token}. Esto hace que la aplicación sin estado ya que en cada solicitud posterior se pasa el token de la solicitud de validación del lado servidor. Este token no es *cifrados*; en su lugar es *codificado*. En el servidor, se puede descodificar el token para tener acceso a la información sin procesar en el token. Para enviar el token en solicitudes posteriores, o bien almacenarla en el almacenamiento local del explorador o en una cookie. No se preocupe acerca de una vulnerabilidad XSRF si el token se almacena en el almacenamiento local, pero es un problema si el token está almacenado en una cookie.
 
 ### <a name="multiple-applications-are-hosted-in-one-domain"></a>Varias aplicaciones se hospedan en un dominio
 
-Aunque `example1.cloudapp.net` y `example2.cloudapp.net` son diferentes de los hosts, hay una relación de confianza implícita entre todos los hosts bajo la `*.cloudapp.net` dominio. Esta relación de confianza implícita permite a los hosts no sea de confianza influir en sus respectivas cookies (las directivas de mismo origen que rigen las solicitudes AJAX necesariamente no se aplican a las cookies HTTP). El tiempo de ejecución de ASP.NET Core proporciona algunos mitigación en que el nombre de usuario se incrusta en el símbolo (token) de campo, por lo que incluso si un subdominio malintencionado puede sobrescribir un token de sesión no podrá generar un token de campo válido para el usuario. Sin embargo, cuando se hospeda en un entorno de este tipo las rutinas de anti-XSRF integrado aún no defienden contra secuestro de sesión o inicio de sesión CSRF ataques. Entornos de hospedaje compartidos son vulnerable a secuestro de sesión, inicio de sesión CSRF y otros ataques.
-
+Aunque `example1.cloudapp.net` y `example2.cloudapp.net` son diferentes de los hosts, hay una relación de confianza implícita entre los hosts bajo la `*.cloudapp.net` dominio. Esta relación de confianza implícita permite a los hosts no sea de confianza influir en sus respectivas cookies (las directivas de mismo origen que rigen las solicitudes AJAX necesariamente no se aplican a las cookies HTTP). El tiempo de ejecución de ASP.NET Core proporciona algunos mitigación en que el nombre de usuario se incrusta en el token de campo. Incluso si hay un subdominio malintencionado puede sobrescribir un token de sesión, que no puede generar un token de campo válido para el usuario. Cuando se hospeda en un entorno de este tipo, las rutinas de anti-XSRF integrado aún no defienden contra secuestro de sesión o inicio de sesión CSRF ataques. Entornos de hospedaje compartidos son vulnerable a secuestro de sesión, inicio de sesión CSRF y otros ataques.
 
 ### <a name="additional-resources"></a>Recursos adicionales
 

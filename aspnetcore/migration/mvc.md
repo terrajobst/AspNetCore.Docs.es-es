@@ -1,19 +1,19 @@
 ---
 title: "Migración de MVC de ASP.NET a núcleo de ASP.NET MVC"
 author: ardalis
-description: 
-ms.author: riande
+description: "Obtenga información acerca de cómo empezar a migrar un proyecto de MVC de ASP.NET a ASP.NET MVC de núcleo."
 manager: wpickett
+ms.author: riande
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e3220fb32900aac42cf96497964936ad5b375a86
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 447b13eccf523cab81590405740bb194112b0dad
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migración de MVC de ASP.NET a núcleo de ASP.NET MVC
 
@@ -94,7 +94,7 @@ Ejecute la aplicación.
 
 ![Aplicación Web abierta en Microsoft Edge](mvc/_static/hello-world.png)
 
-Vea [controladores](../mvc/controllers/index.md) y [vistas](../mvc/views/index.md) para obtener más información.
+Vea [controladores](xref:mvc/controllers/actions) y [vistas](xref:mvc/views/overview) para obtener más información.
 
 Ahora que tenemos un proyecto ASP.NET Core trabajo mínimo, se podemos empezar a migrar la funcionalidad desde el proyecto de MVC de ASP.NET. Tendrá que mover lo siguiente:
 
@@ -156,7 +156,7 @@ Vea [administrar paquetes de cliente con Bower](../client-side/bower.md) para ob
 
 * Crear un *vistas/compartidas* carpeta.
 
-* *Opcional:* copia *_ViewImports.cshtml* desde el *FullAspNetCore* del proyecto MVC *vistas* carpeta en el proyecto de ASP.NET Core *Vistas* carpeta. Quite las declaraciones de espacio de nombres en el *_ViewImports.cshtml* archivo. El *_ViewImports.cshtml* archivo proporciona los espacios de nombres para todos los archivos de vista y la pone [aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/index.md). Aplicaciones auxiliares de etiquetas se usan en el nuevo archivo de diseño. El *_ViewImports.cshtml* archivo es una novedad de ASP.NET Core.
+* *Opcional:* copia *_ViewImports.cshtml* desde el *FullAspNetCore* del proyecto MVC *vistas* carpeta en el proyecto de ASP.NET Core *Vistas* carpeta. Quite las declaraciones de espacio de nombres en el *_ViewImports.cshtml* archivo. El *_ViewImports.cshtml* archivo proporciona los espacios de nombres para todos los archivos de vista y la pone [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro). Aplicaciones auxiliares de etiquetas se usan en el nuevo archivo de diseño. El *_ViewImports.cshtml* archivo es una novedad de ASP.NET Core.
 
 * Copia la *_Layout.cshtml* archivo desde el proyecto de MVC de ASP.NET anterior *vistas/compartidas* carpeta en el proyecto de ASP.NET Core *vistas/compartidas* carpeta.
 
@@ -191,9 +191,9 @@ La actualización *_Layout.cshtml* archivo se muestra a continuación:
 
 Ver el sitio en el explorador. Ahora deberían cargarse correctamente, con los estilos esperados en su lugar.
 
-* *Opcional:* desea intentar usar el nuevo archivo de diseño. Para este proyecto se puede copiar el archivo de diseño de la *FullAspNetCore* proyecto. El nuevo archivo de diseño usa [aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/index.md) y tiene otras mejoras.
+* *Opcional:* desea intentar usar el nuevo archivo de diseño. Para este proyecto se puede copiar el archivo de diseño de la *FullAspNetCore* proyecto. El nuevo archivo de diseño usa [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y tiene otras mejoras.
 
-## <a name="configure-bundling--minification"></a>Configurar cómo agrupar & Minificación
+## <a name="configure-bundling-and-minification"></a>Configurar la agrupación y minificación
 
 Para obtener información sobre cómo configurar la agrupación y minificación, consulte [unión y Minificación](../client-side/bundling-and-minification.md).
 
@@ -224,6 +224,5 @@ Vea **mediante la página de excepción para desarrolladores** en [control de er
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Desarrollo en el cliente](../client-side/index.md)
-
-* [Aplicaciones auxiliares de etiquetas](../mvc/views/tag-helpers/index.md)
+* [Desarrollo en el cliente](xref:client-side/index)
+* [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)

@@ -2,18 +2,18 @@
 title: "Respuesta de almacenamiento en caché de Middleware en ASP.NET Core"
 author: guardrex
 description: "Obtenga información acerca de cómo configurar y usar el Middleware de almacenamiento en caché de respuesta en ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
-ms.topic: article
 ms.prod: asp.net-core
+ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: a355dda0fdffe1e936c119ffb477c2817f28bd9c
-ms.sourcegitcommit: 18ff1fdaa3e1ae204ed6a2ba9351ce8cf1371c85
+ms.openlocfilehash: 9f8b5b2df43b03fa9200bd52a01d5d388153212b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 

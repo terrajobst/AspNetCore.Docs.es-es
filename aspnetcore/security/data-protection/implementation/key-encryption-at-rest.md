@@ -2,18 +2,18 @@
 title: Cifrado de claves en reposo
 author: rick-anderson
 description: "Este documento describen los detalles de implementación del cifrado de clave de protección de datos y ASP.NET Core en reposo."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: 0a62a1a10e578e59e1d80579d80779d4dcf1658a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c66430bfe547cf061e9e79a703ac665a968bbe0b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="key-encryption-at-rest"></a>Cifrado de claves en reposo
 

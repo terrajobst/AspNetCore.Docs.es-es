@@ -2,18 +2,18 @@
 title: "Convenciones de autorización de páginas de Razor en ASP.NET Core"
 author: guardrex
 description: "Obtener información sobre cómo controlar el acceso a las páginas con convenciones durante el inicio de autorizan a los usuarios y permitir que los usuarios anónimos pueden tener acceso a las páginas individuales o carpetas de páginas."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/27/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: 72b558816e687c30d0c60f2fd85227d0d803219b
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 2bad6e1cc654b972206af03f99160628f81e026f
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Convenciones de autorización de páginas de Razor en ASP.NET Core
 

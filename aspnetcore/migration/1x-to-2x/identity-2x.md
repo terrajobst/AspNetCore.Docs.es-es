@@ -2,18 +2,18 @@
 title: "Migrar de autenticación e identidad al núcleo de ASP.NET 2.0"
 author: scottaddie
 description: "En este artículo se describe los pasos más comunes para migrar ASP.NET Core 1.x autenticación e identidad principal de ASP.NET 2.0."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/identity-2x
-ms.openlocfilehash: 72ad31438a344fb5fa2b357c709b923b8077e742
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: dd48b2b027d22b570aa182e748ca91738e935f49
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-authentication-and-identity-to-aspnet-core-20"></a>Migrar de autenticación e identidad al núcleo de ASP.NET 2.0
 
@@ -136,7 +136,7 @@ Realice los cambios siguientes en *Startup.cs*:
 
     Este fragmento de código no utiliza la identidad, por lo que el esquema predeterminado debe establecerse pasando `JwtBearerDefaults.AuthenticationScheme` a la `AddAuthentication` método.
 
-### <a name="openid-connect-oidc-authentication"></a>OpenID Connect autenticación (OIDC)
+### <a name="openid-connect-oidc-authentication"></a>Autenticación de OpenID conectarse (OIDC)
 Realice los cambios siguientes en *Startup.cs*:
 
 - Reemplace el `UseOpenIdConnectAuthentication` llamada al método el `Configure` método con `UseAuthentication`:
@@ -161,7 +161,7 @@ Realice los cambios siguientes en *Startup.cs*:
     });
     ```
 
-### <a name="facebook-authentication"></a>Autenticación de Facebook
+### <a name="facebook-authentication"></a>autenticación de Facebook
 Realice los cambios siguientes en *Startup.cs*:
 - Reemplace el `UseFacebookAuthentication` llamada al método el `Configure` método con `UseAuthentication`:
  
@@ -199,7 +199,7 @@ Realice los cambios siguientes en *Startup.cs*:
             });    
     ```
 
-### <a name="microsoft-account-authentication"></a>Autenticación de cuentas de Microsoft
+### <a name="microsoft-account-authentication"></a>Autenticación de Microsoft Account
 Realice los cambios siguientes en *Startup.cs*:
 - Reemplace el `UseMicrosoftAccountAuthentication` llamada al método el `Configure` método con `UseAuthentication`:
 
@@ -313,7 +313,7 @@ El `IdentityConstants.ExternalScheme` constante se puede usar directamente:
 
 <a name="navigation-properties"></a>
 
-## <a name="add-identityuser-poco-navigation-properties"></a>Agregar propiedades de navegación de POCO IdentityUser
+## <a name="add-identityuser-poco-navigation-properties"></a>Agregar propiedades de navegación IdentityUser POCO
 Las propiedades de navegación de núcleo de Entity Framework (EF) de la base de `IdentityUser` POCO (objeto CLR antiguos sin formato) se han quitado. Si el proyecto 1.x utiliza estas propiedades, agregarlos manualmente al proyecto 2.0:
 
 ```csharp

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 title: Agregar una columna al modelo | Documentos de Microsoft
 author: shanselman
-description: "Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Se creará una aplicación web simple que lee y escribe desde una base de datos."
+description: "Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 4a4fc144dcbed8ad14411332df7acccc032ddf46
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Agregar una columna al modelo
 ====================
@@ -79,7 +79,7 @@ Este tutorial básico de tenemos que pueda empezar a hacer que los controladores
 
 Ahora le animo a pasar a nuestro tutorial de nivel intermedio "[tienda de música de MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)", así como los vídeos y recursos en muchas [https://asp.net/mvc](https://asp.net/mvc) para más información sobre ASP.NET MVC.
 
-¡Disfrute de!
+Disfrútelo.
 
 - Scott Hanselman - [http://hanselman.com](http://hanselman.com) y [ @shanselman ](http://twitter.com/shanselman) en Twitter.
 

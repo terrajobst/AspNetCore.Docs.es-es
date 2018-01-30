@@ -2,18 +2,18 @@
 title: "Pruebas de integración en ASP.NET Core"
 author: ardalis
 description: "Cómo utilizar la integración de ASP.NET Core pruebas para asegurarse de que los componentes de una aplicación funcionen correctamente."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/25/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 201d16498415498ec1e6a40278f1fb2460546711
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 

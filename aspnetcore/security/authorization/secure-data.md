@@ -1,19 +1,19 @@
 ---
 title: "Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización"
-description: "Obtenga información acerca de cómo crear una aplicación de páginas de Razor con datos de usuario protegidos mediante autorización. Incluye SSL, la autenticación, la seguridad, ASP.NET Core Identity."
 author: rick-anderson
-ms.author: riande
+description: "Obtenga información acerca de cómo crear una aplicación de páginas de Razor con datos de usuario protegidos mediante autorización. Incluye SSL, la autenticación, la seguridad, ASP.NET Core Identity."
 manager: wpickett
+ms.author: riande
 ms.date: 01/24/2018
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: ff5c97feca58318d5f4e5b6a6a930c92469602ba
-ms.sourcegitcommit: 18ff1fdaa3e1ae204ed6a2ba9351ce8cf1371c85
+ms.openlocfilehash: 944886a7d55af8966dc51424d16bec5ff58dbc05
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización
 

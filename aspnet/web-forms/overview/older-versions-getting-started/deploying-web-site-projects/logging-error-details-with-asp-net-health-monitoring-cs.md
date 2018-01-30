@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 85a8615bf71f58c58b9565da14bc3b3fbef9d264
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5bbba0e4e8660dbc60b9f9ad220c923274144b89
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>El registro de detalles del Error (C#) de supervisión de estado de ASP.NET
 ====================
@@ -104,7 +104,7 @@ Si crea una página de este tipo, asegúrese de que siga los pasos para permitir
 > El tutorial posterior explora un sistema de registro y la notificación de error alternativas denominado ELMAH. ELMAH incluye un mecanismo integrado para ver el registro de errores de página web y como una fuente RSS.
 
 
-## <a name="logging-events-to-e-mail"></a>Registro de eventos en el correo electrónico
+## <a name="logging-events-to-email"></a>Registro de eventos al correo electrónico
 
 El estado del sistema de supervisión incluye un proveedor de origen de registro "registra" un evento en un mensaje de correo electrónico. El origen del registro incluye la misma información que se registra en la base de datos en el cuerpo del mensaje de correo electrónico. Puede usar este origen de registro para notificar a un programador cuando se produce un determinado evento de supervisión de estado.
 
@@ -122,7 +122,7 @@ Actualizar el estado sistema de supervisión `<providers>` elemento en el `Web.c
 
 El marcado anterior utiliza la `SimpleMailWebEventProvider` clase como el proveedor de origen del registro y le asigna el nombre descriptivo "EmailWebEventProvider". Además, la `<add>` atributo incluye opciones de configuración adicionales, como el campo para y desde direcciones de mensaje de correo electrónico.
 
-Con el origen de registro de correo electrónico definido, todo lo que queda es indicar el sistema para que utilice este origen para "registrar" excepciones no controladas de supervisión de estado. Esto se logra mediante la adición de una regla nueva en la `<rules>` sección:
+Con el origen del registro de correo electrónico definido, todo lo que queda es indicar el sistema para que utilice este origen para "registrar" excepciones no controladas de supervisión de estado. Esto se logra mediante la adición de una regla nueva en la `<rules>` sección:
 
 [!code-xml[Main](logging-error-details-with-asp-net-health-monitoring-cs/samples/sample4.xml)]
 

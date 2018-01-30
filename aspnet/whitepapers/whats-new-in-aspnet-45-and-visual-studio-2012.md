@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
-ms.openlocfilehash: 4487eb7436c0b6241505f41621a7f31b89c38b28
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16a2fa4b1b6617430703853543cbf29e18ba1103
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="whats-new-in-aspnet-45-and-visual-studio-2012"></a>Novedades de ASP.NET 4.5 y Visual Studio 2012
 ====================
@@ -912,7 +912,7 @@ Es responsabilidad del usuario el cumplimiento de toda la legislación aplicable
 
 Microsoft puede ser titular de patentes, solicitudes de patentes, marcas, derechos de autor u otros derechos de propiedad intelectual sobre los contenidos de este documento. Este documento no otorga ninguna licencia sobre estas patentes, marcas, derechos de autor u otros derechos de propiedad intelectual, a menos que se indique expresamente en un contrato escrito de licencia de Microsoft.
 
-A menos que se indique lo contrario, los nombres de las compañías, organizaciones, productos, dominios, direcciones de correo electrónico, logotipos, personas, lugares y hechos mencionados son ficticios. No se pretende indicar, ni debe deducirse ninguna asociación con ninguna compañía, organización, producto, dominio, dirección de correo electrónico, logotipo, persona, lugar o hecho reales.
+A menos que se indique lo contrario, los nombres de las compañías, organizaciones, productos, nombres de dominio, direcciones de correo electrónico, logotipos, personas, lugares y acontecimientos aquí mencionados son ficticio y ninguna asociación con ninguna compañía real, organización, producto, nombre de dominio, correo electrónico dirección, logotipo, persona, lugar o evento pretende ni debe deducirse.
 
 © 2012 Microsoft Corporation. Todos los derechos reservados.
 

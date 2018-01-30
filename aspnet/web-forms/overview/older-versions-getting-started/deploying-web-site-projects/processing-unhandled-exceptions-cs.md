@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 95102e5e6b3e8b78e2757a2bdee39976003011e3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7be257faa350476bef9f6d372ea4f140fff8d136
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="processing-unhandled-exceptions-c"></a>Procesar las excepciones no controladas (C#)
 ====================
@@ -107,7 +107,7 @@ Después, un `MailMessage` objeto denominado `mm` se crea. El cuerpo del correo 
 El paso final consiste en enviar el `MailMessage`. Esto se hace mediante la creación de un nuevo `SmtpClient` método y llamar a su `Send` método.
 
 > [!NOTE]
-> Antes de usar este código en la aplicación web desea cambiar los valores de la `ToAddress` y `FromAddress` constantes de support@example.com a cualquier dirección de correo electrónico se debe enviar el correo electrónico de notificación de error y se originan en. También necesitará especificar la configuración del servidor SMTP en el `<system.net>` sección `Web.config`. Consulte a su proveedor de host de web para determinar la configuración del servidor SMTP para usar.
+> Antes de usar este código en la aplicación web desea cambiar los valores de la `ToAddress` y `FromAddress` constantes de support@example.com al correo electrónico de cualquier dirección de correo electrónico de notificación de error, se debe enviar y proceden de. También necesitará especificar la configuración del servidor SMTP en el `<system.net>` sección `Web.config`. Consulte a su proveedor de host de web para determinar la configuración del servidor SMTP para usar.
 
 
 Con este código en su lugar siempre que hay un error el programador se envía un mensaje de correo electrónico que resume el error e incluye el YSOD. En el tutorial anterior se muestra un error en tiempo de ejecución, visite Genre.aspx y se pasa una no es válido `ID` valor a través de la cadena de consulta, como `Genre.aspx?ID=foo`. Visite la página con el `Global.asax` archivo en su lugar genera la misma experiencia de usuario, como en el tutorial anterior - en el entorno de desarrollo seguirá ver la excepción detalles amarillo pantalla de muerte, mientras que en el entorno de producción Consulte la página de error personalizado. Además de este comportamiento existente, el programador se envía un correo electrónico.

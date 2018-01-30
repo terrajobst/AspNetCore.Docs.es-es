@@ -2,18 +2,18 @@
 title: "Confirmación de la cuenta y la recuperación de contraseña en el núcleo de ASP.NET"
 author: rick-anderson
 description: "Muestra cómo compilar una aplicación de ASP.NET Core con el restablecimiento de confirmación y la contraseña de correo electrónico."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 12/1/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: bc9febc41d0637be9f83a02799d360489f257849
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 459f1793b1f1f73792bb6537856cb739774c6261
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 

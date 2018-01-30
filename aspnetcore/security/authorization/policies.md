@@ -2,19 +2,19 @@
 title: "Autorización personalizada basada en directivas en ASP.NET Core"
 author: rick-anderson
 description: "Obtenga información acerca de cómo crear y usar controladores de directiva de autorización personalizada para exigir requisitos de autorización en una aplicación de ASP.NET Core."
+manager: wpickett
 ms.author: riande
 ms.custom: mvc
-manager: wpickett
 ms.date: 11/21/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: c249985a6266483d47f447ac4a232546ed2b2708
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0eb5451828a51771d9388c2db610ede6231ced51
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="custom-policy-based-authorization"></a>Autorización personalizada basada en directivas
 

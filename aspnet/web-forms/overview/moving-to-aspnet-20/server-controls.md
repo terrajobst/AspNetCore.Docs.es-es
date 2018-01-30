@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/server-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 09f1a2e4de024e5778e69fdd691d9cb0040459f3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 72e9cac7cf9a01791c30783fa56ad7ea205a5a11
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="server-controls"></a>Controles de servidor
 ====================
@@ -196,13 +196,13 @@ En ASP.NET 2.0, el atributo requestLengthDiskThreshold del elemento httpRuntime 
 
 Es bastante habitual encontrar los programadores de ASP.NET dificultades con intentando recopilar información de una serie de "páginas" mediante paneles o mediante la transferencia de una página a otra. Más a menudo que no es así, el esfuerzo es frustrante y lleva mucho tiempo. El nuevo control de asistente resuelve los problemas por lo que no es lineal y etapas de una interfaz de Asistente para que los usuarios están familiarizados con. El control de asistente presenta los formularios de entrada en una serie de pasos. Cada paso es de un tipo determinado, especificado por la propiedad StepType del control. Los tipos de paso disponibles son los siguientes:
 
-| **Tipo de paso** | **Explicación** |
+| **Tipo de paso** | **Explanation** |
 | --- | --- |
 | Automático | El asistente determina automáticamente el tipo de paso en función de su posición dentro de la jerarquía de paso. |
 | Iniciar | El primer paso, a menudo se usa para presentar una instrucción de introducción. |
 | Paso | Un paso normal. |
 | Finalizar | El último paso, que normalmente se utiliza para presentar un botón para finalizar al asistente. |
-| Completado | Presenta un mensaje comunica finalizó correctamente o no. |
+| Completar | Presenta un mensaje comunica finalizó correctamente o no. |
 
 > [!NOTE]
 > El control de asistente realiza un seguimiento de su estado usando el estado de control ASP.NET. Por lo tanto, la propiedad puede establecerse en false sin perjuicio alguno.
@@ -221,7 +221,7 @@ Este vídeo es un tutorial del control Wizard.
 
 El control Localize es similar a un control del Literal. Sin embargo, el control Localize tiene un **modo** propiedad que controla cómo se representa el marcado que se agrega a ella. La propiedad Mode admite los siguientes valores:
 
-| **Modo** | **Explicación** |
+| **Modo** | **Explanation** |
 | --- | --- |
 | Transformación | Marcado se transforma según el protocolo del explorador que realiza la solicitud. |
 | Acceso directo | Marcado que se representa como-es. |

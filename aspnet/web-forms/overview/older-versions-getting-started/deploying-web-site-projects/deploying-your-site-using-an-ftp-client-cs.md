@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1edd53b1005449c060ff92fc7ebd02dbe7fa6ac2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Implementación del sitio mediante un cliente FTP (C#)
 ====================
@@ -48,7 +48,7 @@ Recuerde que hay dos versiones de la aplicación web de revisión de libro: uno 
 
 Iniciar el proyecto BookReviewsWAP si se desplaza a la `BookReviewsWAP` carpeta y haga doble clic en el `BookReviewsWAP.sln` archivo. Antes de implementar el proyecto es importante compilar para asegurarse de que los cambios en el código fuente se incluyen en el ensamblado compilado. Para compilar el proyecto vaya al menú de compilación y elija la opción de menú Generar BookReviewsWAP. Esto compila el código fuente en el proyecto en un único ensamblado, `BookReviewsWAP.dll`, que se coloca en el `Bin` carpeta.
 
-Ahora estamos listos implementar los archivos necesarios. Inicie al cliente FTP y conéctese al servidor web a su proveedor de hospedaje web. (Cuando se registra con una empresa de hospedaje web enviará un correo electrónico información sobre cómo conectar con el servidor FTP; Esto incluye la dirección para el servidor FTP, así como un nombre de usuario y una contraseña).
+Ahora estamos listos implementar los archivos necesarios. Inicie al cliente FTP y conéctese al servidor web a su proveedor de hospedaje web. (Cuando se registra con una empresa de hospedaje web enviará por correo electrónico, obtener información sobre cómo conectarse al servidor FTP; Esto incluye la dirección para el servidor FTP, así como un nombre de usuario y una contraseña).
 
 Copie los siguientes archivos desde el escritorio a la carpeta del sitio Web raíz en el proveedor de hospedaje web. Cuando usted FTP en el servidor web en la web hospeda proveedor es probable que en el directorio raíz del sitio Web. Sin embargo, algunos proveedores de host web tienen una subcarpeta denominada `www` o `wwwroot` que actúa como la carpeta raíz para los archivos del sitio Web. Por último, cuando FTPing los archivos que necesite crear la estructura de carpeta correspondiente en el entorno de producción - la `Bin` carpeta, el `Fiction` carpeta, el `Images` carpeta y así sucesivamente.
 

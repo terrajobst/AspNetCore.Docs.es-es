@@ -2,19 +2,19 @@
 title: Referencia de errores comunes de IIS con ASP.NET Core y de servicio de aplicaciones de Azure
 author: guardrex
 description: Distinguir los errores comunes al hospedar aplicaciones ASP.NET Core en IIS y el servicio de aplicaciones de Azure.
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: 58c5ec6bb2603499332698fd4225e2fe636256e4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 214f8c616aa65077690757e7805983a77ec4249e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Referencia de errores comunes de IIS con ASP.NET Core y de servicio de aplicaciones de Azure
 

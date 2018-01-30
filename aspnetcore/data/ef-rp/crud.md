@@ -2,18 +2,18 @@
 title: "Páginas de Razor con EF Core - CRUD - 2 de 8"
 author: rick-anderson
 description: "Muestra cómo crear, leer, actualizar y eliminar con EF principales"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/15/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: data/ef-rp/crud
-ms.openlocfilehash: d9b34c141401fbeaafe439fae1a7a75f2fe7b4ae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 757aeb713b645cea0fe633b150784184d2d3571e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-read-update-and-delete---ef-core-with-razor-pages-2-of-8"></a>Crear, leer, actualizar y eliminar - Core EF con páginas de Razor (2 de 8)
 
@@ -23,7 +23,7 @@ Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.co
 
 En este tutorial, el con scaffolding CRUD (crear, leer, actualizar y eliminar) es revisar y personalizar el código.
 
-Nota: Para minimizar la complejidad y mantener estos tutoriales se centra en EF Core, código EF básico se usa en los archivos de código subyacente de las páginas de Razor. Algunos programadores utilizan un patrón de capa o en el repositorio de servicios en para crear una capa de abstracción entre la interfaz de usuario (las páginas de Razor) y la capa de acceso a datos.
+Nota: Para minimizar la complejidad y mantener estos tutoriales se centra en EF Core, código EF básico se usa en los modelos de página de las páginas de Razor. Algunos programadores utilizan un patrón de capa o en el repositorio de servicios en para crear una capa de abstracción entre la interfaz de usuario (las páginas de Razor) y la capa de acceso a datos.
 
 En este tutorial, crear, editar, eliminar y detalles de las páginas de Razor en el *estudiante* carpeta se modifican.
 
@@ -147,7 +147,7 @@ El valor "OverPost" se ha agregado correctamente a la `Secret` propiedades de la
 <a name="vm"></a>
 ### <a name="view-model"></a>Modelo de vista
 
-Normalmente, un modelo de vista contiene un subconjunto de las propiedades incluidas en el modelo utilizado por la aplicación. El modelo de aplicación se suele denominar el modelo de dominio. El modelo de dominio normalmente contiene todas las propiedades requeridas por la entidad correspondiente en la base de datos. El modelo de vista contiene solo las propiedades necesarias para la capa de interfaz de usuario (por ejemplo, en la página Crear). Además del modelo de vista, algunas aplicaciones usan un modelo de enlace o el modelo de entrada para pasar datos entre la clase de código subyacente de las páginas de Razor y el explorador. Tenga en cuenta la siguiente `Student` modelo de vista:
+Normalmente, un modelo de vista contiene un subconjunto de las propiedades incluidas en el modelo utilizado por la aplicación. El modelo de aplicación se suele denominar el modelo de dominio. El modelo de dominio normalmente contiene todas las propiedades requeridas por la entidad correspondiente en la base de datos. El modelo de vista contiene solo las propiedades necesarias para la capa de interfaz de usuario (por ejemplo, en la página Crear). Además del modelo de vista, algunas aplicaciones usan un modelo de enlace o el modelo de entrada para pasar datos entre la clase del modelo de página de las páginas de Razor y el explorador. Tenga en cuenta la siguiente `Student` modelo de vista:
 
 [!code-csharp[Main](intro/samples/cu/Models/StudentVM.cs)]
 
@@ -165,7 +165,7 @@ En las páginas de Razor, el `PageModel` clase derivada es el modelo de vista.
 
 ## <a name="update-the-edit-page"></a>Actualizar la página de edición
 
-Actualice el archivo de código subyacente de la página de edición:
+Actualizar el modelo de página de la página de edición:
 
 [!code-csharp[Main](intro/samples/cu/Pages/Students/Edit.cshtml.cs?name=snippet_OnPostAsync&highlight=20,36)]
 

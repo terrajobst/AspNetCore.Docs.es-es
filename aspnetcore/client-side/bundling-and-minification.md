@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ac8e7fee7600dabb8f4970b5bf87ad7a57ebf17f
-ms.sourcegitcommit: 12e5194936b7e820efc5505a2d5d4f84e88eb5ef
+ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="bundling-and-minification"></a>Agrupar y minificar
 
@@ -27,7 +27,7 @@ Este artículo explica las ventajas de aplicar la agrupación y minificación, i
 
 Unión y minificación son dos optimizaciones de rendimiento distintas que puede aplicar en una aplicación web. Se usan juntos, agrupar y minificar mejoran el rendimiento reduciendo el número de solicitudes de servidor y reducir el tamaño de los activos estáticos solicitados.
 
-Agrupar y minificar mejoran principalmente el primer tiempo de carga de solicitud de página. Una vez que se ha solicitado una página web, el explorador almacena en caché los activos estáticos (JavaScript, CSS e imágenes). Por lo tanto, agrupar y minificar no mejoran el rendimiento cuando se solicita la misma página o páginas, en el mismo sitio que solicita los activos de la mismos. Si no establece la expira encabezado correctamente en los activos, y si no utiliza la agrupación y minificación, heurística de actualización del explorador marca los activos obsoletas después de unos días. Además, el explorador requiere que una solicitud de validación para cada activo. En este caso, agrupar y minificar proporcionan una mejora del rendimiento incluso después de la primera solicitud de página.
+Agrupar y minificar mejoran principalmente el primer tiempo de carga de solicitud de página. Una vez que se ha solicitado una página web, el explorador almacena en caché los activos estáticos (JavaScript, CSS e imágenes). Por lo tanto, agrupar y minificar no mejoran el rendimiento cuando se solicita la misma página o páginas, en el mismo sitio que solicita los activos de la mismos. Si el expira encabezado no está configurado correctamente en los activos y si no usa la agrupación y minificación, heurística de actualización del explorador Active los recursos obsoletos después de unos días. Además, el explorador requiere que una solicitud de validación para cada activo. En este caso, agrupar y minificar proporcionan una mejora del rendimiento incluso después de la primera solicitud de página.
 
 ### <a name="bundling"></a>Cómo agrupar
 
@@ -77,12 +77,12 @@ Las plantillas de proyecto MVC y las páginas de Razor proporcionan una *bundlec
 
 Opciones de configuración incluyen:
 
-* `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **Obligatorio**
+* `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **required**
 * `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) patrones son compatibles.
 * `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado:`minify: { enabled: true }`*
   * Opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [Minificador de JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
+    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Minificador de HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
 * `includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto. **opcional**, *predeterminado: false*
 * `sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado. **opcional**, *predeterminado: false*

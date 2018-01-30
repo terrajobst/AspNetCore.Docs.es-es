@@ -2,19 +2,19 @@
 title: Usar Gulp en ASP.NET Core
 author: rick-anderson
 description: "Obtenga información acerca de cómo usar Gulp en ASP.NET Core."
-ms.author: riande
 manager: wpickett
-ms.date: 02/28/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: client-side/using-gulp
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ccfed42d66ea49c5f2745bc8653d8fb12bf707a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.date: 02/28/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: client-side/using-gulp
+ms.openlocfilehash: f091370bc85a37eeaac1291a2fdc6ea85164f148
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introducción al uso de Gulp en ASP.NET Core 
 
@@ -59,13 +59,13 @@ paths.concatCssDest = paths.webroot + "css/site.min.css";
 
 El código anterior especifica qué módulos de nodo se necesitan. El `require` función importa cada módulo para que las tareas dependientes pueden utilizar sus características. Cada uno de los módulos importados se asigna a una variable. Los módulos pueden encontrarse por nombre o ruta de acceso. En este ejemplo, los módulos denominan `gulp`, `rimraf`, `gulp-concat`, `gulp-cssmin`, y `gulp-uglify` se recuperan por su nombre. Además, se crean una serie de rutas de acceso de modo que las ubicaciones de los archivos CSS y JavaScript se pueden volver a usar y hace referencia en las tareas. En la tabla siguiente se proporciona descripciones de los módulos incluidos en *gulpfile.js*.
 
-|Nombre del módulo|Descripción|
-|---|---|
-|gulp|El sistema de compilación streaming Gulp. Para obtener más información, consulte [gulp](https://www.npmjs.com/package/gulp).|
-|rimraf|Un módulo de eliminación de nodo. Para obtener más información, consulte [rimraf](https://www.npmjs.com/package/rimraf).|
-|gulp concat|Un módulo que concatena los archivos según su carácter de nueva línea del sistema operativo. Para obtener más información, consulte [gulp concat](https://www.npmjs.com/package/gulp-concat).|
-|gulp cssmin|Un módulo que minifica objeto archivos CSS. Para obtener más información, consulte [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin).|
-|uglify gulp|Un módulo que minifica objeto *.js* archivos. Para obtener más información, consulte [uglify gulp](https://www.npmjs.com/package/gulp-uglify).|
+| Nombre del módulo | Descripción |
+| ----------- | ----------- |
+| gulp        | El sistema de compilación streaming Gulp. Para obtener más información, consulte [gulp](https://www.npmjs.com/package/gulp). |
+| rimraf      | Un módulo de eliminación de nodo. Para obtener más información, consulte [rimraf](https://www.npmjs.com/package/rimraf). |
+| gulp concat | Un módulo que concatena los archivos según su carácter de nueva línea del sistema operativo. Para obtener más información, consulte [gulp concat](https://www.npmjs.com/package/gulp-concat). |
+| gulp cssmin | Un módulo que minifica objeto archivos CSS. Para obtener más información, consulte [gulp cssmin](https://www.npmjs.com/package/gulp-cssmin). |
+| uglify gulp | Un módulo que minifica objeto *.js* archivos. Para obtener más información, consulte [uglify gulp](https://www.npmjs.com/package/gulp-uglify). |
 
 Una vez que se importan los módulos necesarios, se pueden especificar las tareas. Hay seis tareas registrado, representado por el código siguiente:
 

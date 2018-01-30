@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: 29692b380f0ad1673459681042610876d152a76f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 808f51b48b31e21848d76e7ded436ca1b17901d2
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Novedades de ASP.NET MVC 2
 ====================
@@ -301,7 +301,7 @@ Es responsabilidad del usuario el cumplimiento de toda la legislación aplicable
 
 Microsoft puede ser titular de patentes, solicitudes de patentes, marcas, derechos de autor u otros derechos de propiedad intelectual sobre los contenidos de este documento. Este documento no otorga ninguna licencia sobre estas patentes, marcas, derechos de autor u otros derechos de propiedad intelectual, a menos que se indique expresamente en un contrato escrito de licencia de Microsoft.
 
-A menos que se indique lo contrario, los nombres de las compañías, organizaciones, productos, dominios, direcciones de correo electrónico, logotipos, personas, lugares y hechos mencionados son ficticios. No se pretende indicar, ni debe deducirse ninguna asociación con ninguna compañía, organización, producto, dominio, dirección de correo electrónico, logotipo, persona, lugar o hecho reales.
+A menos que se indique lo contrario, los nombres de las compañías, organizaciones, productos, nombres de dominio, direcciones de correo electrónico, logotipos, personas, lugares y acontecimientos aquí mencionados son ficticio y ninguna asociación con ninguna compañía real, organización, producto, nombre de dominio, correo electrónico dirección, logotipo, persona, lugar o evento pretende ni debe deducirse.
 
 © 2010 Microsoft Corporation. Todos los derechos reservados.
 

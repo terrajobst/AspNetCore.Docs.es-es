@@ -2,22 +2,25 @@
 title: "Las respuestas en caché de ASP.NET Core"
 author: rick-anderson
 description: "Aprenda a usar el almacenamiento en caché a menores requisitos de ancho de banda de respuesta y aumentar el rendimiento de las aplicaciones de ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/20/2017
-ms.topic: article
 ms.prod: asp.net-core
+ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: d7726443dbcc34c21fd6cf0f56c4412863617b9f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
 Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/), y [Luke Latham](https://github.com/guardrex)
 
+> [!NOTE]
+> Las respuestas en caché [no se admite en las páginas de Razor con ASP.NET Core 2.0](https://github.com/aspnet/Mvc/issues/6437). Esta característica será compatible con la [versión 2.1 de ASP.NET Core](https://github.com/aspnet/Home/wiki/Roadmap).
+  
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Las respuestas en caché reducen el número de solicitudes de que un cliente o proxy se realiza en un servidor web. Las respuestas en caché también reducen la cantidad de trabajo realiza el servidor web para generar una respuesta. Las respuestas en caché se controlan mediante encabezados que especifican cómo desea que cliente, el proxy y middleware para la memoria caché las respuestas.

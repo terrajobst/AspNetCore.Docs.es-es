@@ -2,18 +2,18 @@
 title: "Habilitación de solicitudes entre orígenes (CORS)"
 author: rick-anderson
 description: "Este documento presentan como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core CORS."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 05/17/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 9f53ce11f1659aa3416fe4fbb94183c64ab0dab5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0d87b61882f69dbf2aeb0a896d9294bd029374
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="enabling-cross-origin-requests-cors"></a>Habilitación de solicitudes entre orígenes (CORS)
 
@@ -209,7 +209,7 @@ Ahora, la respuesta HTTP incluirá un encabezado de acceso-Control-Allow-Credent
 
 Si el explorador envía las credenciales, pero la respuesta no incluye un encabezado de acceso-Control-Allow-Credentials válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
 
-Tenga mucho cuidado acerca de cómo permitir credenciales entre orígenes, ya que significa que un sitio Web en otro dominio puede enviar credenciales ha iniciado la sesión de un usuario a la aplicación en nombre del usuario, sin el conocimiento del usuario. El CORS spec también los Estados que orígenes de configuración que "*" (todos los orígenes) no es válido si el encabezado de acceso-Control-Allow-Credentials está presente.
+Tenga cuidado al permitir que las credenciales entre orígenes. Un sitio Web en otro dominio puede enviar credenciales ha iniciado la sesión de un usuario a la aplicación en nombre del usuario sin el conocimiento del usuario. La especificación de CORS también indica esa configuración de orígenes que "*" (todos los orígenes) no es válido si el `Access-Control-Allow-Credentials` encabezado está presente.
 
 ### <a name="set-the-preflight-expiration-time"></a>Establecer el tiempo de expiración preparatoria
 
@@ -221,11 +221,11 @@ El encabezado de acceso-Control: Max-Age especifica cuánto tiempo puede almacen
 
 ## <a name="how-cors-works"></a>Funcionamiento de CORS
 
-En esta sección se describe lo que sucede en una solicitud CORS, en el nivel de los mensajes HTTP. Es importante comprender el funcionamiento de CORS, por lo que puede configurar la directiva CORS correctamente y solucionar los problemas si lo no funciona como esperaba.
+Esta sección describe lo que ocurre en una solicitud de CORS en el nivel de los mensajes HTTP. Es importante comprender el funcionamiento de CORS para que se pueda configurar correctamente la directiva CORS y solucionar cuando se produzcan comportamientos inesperados.
 
-La especificación de CORS presenta varios encabezados HTTP nuevo que permiten las solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes; no es necesario hacer nada especial en el código de JavaScript.
+La especificación de CORS presenta varios encabezados HTTP nuevo que permiten las solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. Código de JavaScript personalizado no es necesario para habilitar CORS.
 
-Este es un ejemplo de una solicitud entre orígenes. El encabezado de "Origen" proporciona el dominio del sitio que está realizando la solicitud:
+Este es un ejemplo de una solicitud entre orígenes. El `Origin` encabezado proporciona el dominio del sitio que está realizando la solicitud:
 
 ```
 GET http://myservice.azurewebsites.net/api/test HTTP/1.1

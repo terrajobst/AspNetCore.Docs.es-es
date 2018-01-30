@@ -2,18 +2,18 @@
 title: Menor, Sass y la fuente Maravilla en ASP.NET Core
 author: ardalis
 description: Aprenda a usar menor, Sass y fuente Maravilla en aplicaciones de ASP.NET Core.
-ms.author: tdykstra
 manager: wpickett
+ms.author: tdykstra
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 764b11bbd301c0116488265d32f7d46dfc5bce27
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ef82d15de64ef62b952b6c757cb9c35fd40e788
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introducción a las aplicaciones de estilo con menos, Sass y fuente Maravilla en ASP.NET Core
 

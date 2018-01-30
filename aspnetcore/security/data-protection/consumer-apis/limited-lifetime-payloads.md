@@ -2,18 +2,18 @@
 title: "Limita la duración de cargas protegidos"
 author: rick-anderson
 description: "Este documento explica cómo limitar la duración de una carga protegida mediante la API de protección de datos de ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 7909f21057f22e78c03b41464a19a18ce0908216
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 812d0373d24c8578bae83db4876549246f189be3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="limiting-the-lifetime-of-protected-payloads"></a>Limita la duración de cargas protegidos
 

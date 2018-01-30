@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 title: Crear una base de datos | Documentos de Microsoft
 author: shanselman
-description: "Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Se creará una aplicación web simple que lee y escribe desde una base de datos."
+description: "Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part4
 msc.type: authoredcontent
-ms.openlocfilehash: 6a9617b8056f883d6be2547588b13063a58abd0e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 22f1042555d7cdd0ca8d75f1cbde65fbb65d81cc
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/30/2018
 ---
 <a name="creating-a-database"></a>Crear una base de datos
 ====================
@@ -61,7 +61,7 @@ Vuelva al explorador de servidores y haga clic en la tabla de la película, y se
 
 [![Edición de la tabla en la base de datos](getting-started-with-mvc-part4/_static/image15.png)](getting-started-with-mvc-part4/_static/image14.png)
 
-## <a name="creating-a-model"></a>Crear un modelo
+## <a name="creating-a-model"></a>Creación de un modelo
 
 Ahora, vuelva al explorador de soluciones en el lado derecho del IDE y haga doble clic en la carpeta Models y seleccione Agregar | Nuevo elemento.
 
