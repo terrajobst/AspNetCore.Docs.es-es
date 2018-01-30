@@ -10,17 +10,17 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/configuration/index
-ms.openlocfilehash: ee9bdc66d0bfa6433736fbc55126bdd37ba9d080
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 20c75d202d67a491890d87cebf549585e0313da0
+ms.sourcegitcommit: 18ff1fdaa3e1ae204ed6a2ba9351ce8cf1371c85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/29/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Configurar una aplicación ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Mark Michaelis](http://intellitect.com/author/mark-michaelis/), [Steve Smith](https://ardalis.com/), [Daniel Roth](https://github.com/danroth27) y [Luke Latham](https://github.com/guardrex)
 
-La API de configuración proporciona una manera de configurar una aplicación web ASP.NET Core según una lista de pares de nombre y valor. La configuración se lee en tiempo de ejecución desde varios orígenes. Puede agrupar estos pares de nombre y valor en una jerarquía multinivel.
+La API de configuración proporciona una manera de configurar una aplicación web ASP.NET Core según una lista de pares de nombre y valor. La configuración se lee en tiempo de ejecución desde varios orígenes. Puede agrupar estos pares nombre-valor en una jerarquía multinivel.
 
 Existen proveedores de configuración para:
 
@@ -93,7 +93,7 @@ Consideraciones de configuración:
 
 * `IOptionsSnapshot` puede volver a cargar los datos de configuración cuando cambia. Para obtener más información, consulte [IOptionsSnapshot](xref:fundamentals/configuration/options#reload-configuration-data-with-ioptionssnapshot).
 * En las claves de configuraciones **no** se distingue entre mayúsculas y minúsculas.
-* **Nunca** almacene contraseñas u otros datos confidenciales en el código del proveedor de configuración o en archivos de configuración de texto sin formato. No use secretos de producción en los entornos de desarrollo o pruebas. Especifique los secretos fuera del proyecto para que no se confirmen en el repositorio de manera accidental. Obtenga más información sobre [trabajar con varios entornos](xref:fundamentals/environments) y administrar el [almacenamiento seguro de los secretos de aplicación durante el desarrollo](xref:security/app-secrets).
+* **Nunca** almacene contraseñas u otros datos confidenciales en el código del proveedor de configuración o en archivos de configuración de texto sin formato. No use secretos de producción en los entornos de desarrollo o pruebas. Especifique los secretos fuera del proyecto para que no se confirmen en un repositorio de código fuente de manera accidental. Obtenga más información sobre [trabajar con varios entornos](xref:fundamentals/environments) y administrar el [almacenamiento seguro de los secretos de aplicación durante el desarrollo](xref:security/app-secrets).
 * Si no se puede usar un signo de dos puntos (`:`) en las variables de entorno del sistema, reemplace los dos puntos (`:`) por un carácter de subrayado doble (`__`).
 
 ## <a name="in-memory-provider-and-binding-to-a-poco-class"></a>Proveedor en memoria y enlace a una clase POCO
@@ -114,7 +114,7 @@ El método `GetValue<T>` de ConfigurationBinder permite especificar un valor pre
 
 ## <a name="bind-to-an-object-graph"></a>Enlazar a un gráfico de objetos
 
-Puede enlazar de forma recursiva a cada objeto de una clase. Observe la clase `AppSettings` siguiente:
+Cada objeto de una clase se puede enlazar de forma recursiva. Observe la clase `AppSettings` siguiente:
 
 [!code-csharp[Main](index/sample/ObjectGraph/AppSettings.cs)]
 
@@ -185,7 +185,7 @@ Cree el proveedor de configuración personalizado heredando de [ConfigurationPro
 
 Cuando se ejecuta el ejemplo, se muestran los valores resaltados de la base de datos ("value_from_ef_1" y "value_from_ef_2").
 
-Puede agregar un método de extensión `EFConfigSource` para agregar el origen de configuración:
+Se puede usar un método de extensión `EFConfigSource` para agregar el origen de configuración:
 
 [!code-csharp[Main](index/sample/CustomConfigurationProvider/EntityFrameworkExtensions.cs?highlight=12)]
 
@@ -217,7 +217,7 @@ El [proveedor de configuración CommandLine](/aspnet/core/api/microsoft.extensio
 
 # <a name="basic-configurationtabbasicconfiguration"></a>[Configuración básica](#tab/basicconfiguration)
 
-Para activar la configuración de línea de comandos, llame al método de extensión `AddCommandLine` en una instancia de [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder):
+Para activar la configuración de línea de comandos, llame al método de extensión `AddCommandLine` en una instancia de [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder):
 
 [!code-csharp[Main](index/sample_snapshot//CommandLine/Program.cs?highlight=18,21)]
 
@@ -261,7 +261,7 @@ Para archivos *appsettings* en los que:
 
 Si se cumplen todas las condiciones anteriores, se reemplazan los argumentos de línea de comandos.
 
-La aplicación ASP.NET Core 2.x puede usar WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) en lugar de ``CreateDefaultBuilder`. When using `WebHostBuilder`, con la configuración establecida manualmente mediante [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Vea la pestaña ASP.NET Core 1.x para más información.
+La aplicación de ASP.NET Core 2.x puede usar [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) en lugar de `CreateDefaultBuilder`. Si usa `WebHostBuilder`, realice la configuración manualmente con [ConfigurationBuilder](/api/microsoft.extensions.configuration.configurationbuilder). Vea la pestaña ASP.NET Core 1.x para más información.
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
@@ -331,7 +331,7 @@ Si se proporcionan claves duplicadas, se usa el último par de clave y valor.
 
 ### <a name="switch-mappings"></a>Asignaciones de modificador
 
-Cuando la configuración se compila de forma manual con `ConfigurationBuilder`, opcionalmente se puede proporcionar un diccionario de asignaciones de modificador para el método `AddCommandLine`. Las asignaciones de modificador permiten proporcionar lógica de sustitución de nombres de clave.
+Si realiza la configuración de compilación manualmente con `ConfigurationBuilder`, se puede agregar un diccionario de asignaciones de modificador al método `AddCommandLine`. Las asignaciones de modificador admiten la lógica de sustitución de nombres de clave.
 
 Cuando se usa el diccionario de asignaciones de modificador, se comprueba en el diccionario si una clave coincide con la clave proporcionada por un argumento de línea de comandos. Si la clave de la línea de comandos se encuentra en el diccionario, se devuelve el valor del diccionario (el reemplazo de la clave) para establecer la configuración. Se requiere una asignación de conmutador para cualquier clave de línea de comandos precedida por un solo guion (`-`).
 
@@ -340,7 +340,7 @@ Reglas de clave del diccionario de asignaciones de modificador:
 * Los modificadores deben empezar por un guion (`-`) o guion doble (`--`).
 * El diccionario de asignaciones de modificador no debe contener claves duplicadas.
 
-En el ejemplo siguiente, el método `GetSwitchMappings` permite que los argumentos de línea de comandos usen un prefijo de clave de un solo guion (`-`) y evita prefijos de subclave iniciales.
+En el ejemplo siguiente, el método `GetSwitchMappings` permite que los argumentos de línea de comandos usen un prefijo de clave de un solo guión (`-`) y evita prefijos de subclave iniciales.
 
 [!code-csharp[Main](index/sample/CommandLine/Program.cs?highlight=10-19,32)]
 
@@ -394,6 +394,10 @@ Left: 1988
 
 Un archivo *web.config* es necesario cuando la aplicación se hospeda en IIS o IIS Express. La configuración de *web.config* habilita el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) para que inicie la aplicación y configure otros módulos y valores de configuración de IIS. Si el archivo *web.config* no está presente y el archivo de proyecto incluye `<Project Sdk="Microsoft.NET.Sdk.Web">`, al publicar el proyecto se crea un archivo *web.config* en la salida publicada (la carpeta de *publicación*). Para más información, vea [Host ASP.NET Core on Windows with IIS](xref:host-and-deploy/iis/index#webconfig) (Hospedar ASP.NET Core en Windows con IIS).
 
+## <a name="accessing-configuration-during-startup"></a>Acceso a la configuración durante el inicio
+
+Para acceder a la configuración en `ConfigureServices` o `Configure` durante el inicio, vea los ejemplos del tema [Inicio de la aplicación](xref:fundamentals/startup).
+
 ## <a name="additional-notes"></a>Notas adicionales
 
 * La inserción de dependencias (DI) no se establece hasta que se invoca `ConfigureServices`.
@@ -401,7 +405,7 @@ Un archivo *web.config* es necesario cuando la aplicación se hospeda en IIS o I
 * `IConfiguration` tiene dos especializaciones:
   * `IConfigurationRoot` Se usa para el nodo raíz. Puede desencadenar una recarga.
   * `IConfigurationSection` Representa una sección de valores de configuración. Los métodos `GetSection` y `GetChildren` devuelven un elemento `IConfigurationSection`.
-  * Use [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) al volver a cargar configuración o si necesita acceder a todos los proveedores. Ninguna de estas situaciones son comunes.
+  * Use [IConfigurationRoot](/dotnet/api/microsoft.extensions.configuration.iconfigurationroot) al recargar la configuración o para acceder a todos los proveedores. Ninguna de estas situaciones son comunes.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
