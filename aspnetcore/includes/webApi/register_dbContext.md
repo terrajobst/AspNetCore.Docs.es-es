@@ -8,5 +8,5 @@ Registre el contexto de la base de datos con el contenedor de servicio mediante 
 
 El código anterior:
 
-* Quita el código que no se utiliza.
+* Quita el código que no se usa.
 * Especifica que se inserte una base de datos en memoria en el contenedor de servicios.

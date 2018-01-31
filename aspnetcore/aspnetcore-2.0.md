@@ -9,11 +9,11 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: aspnetcore-2.0
-ms.openlocfilehash: 992afc2766e817ef007e20ade44e3ddd1d404f90
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: ca02de7954002dcbc125898c9f570438f88db818
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
 
@@ -108,7 +108,7 @@ return File(data, "text/plain", "downloadName.txt", lastModified: DateTime.UtcNo
 
 Al archivo devuelto a los visitantes se incorporarán los encabezados HTTP adecuados para los valores `ETag` y `LastModified`.
 
-Si un visitante de la aplicación solicita el contenido con un encabezado de solicitud de intervalo, ASP.NET lo reconocerá y controlará ese encabezado. Si el contenido solicitado se puede entregar parcialmente, ASP.NET lo omitirá debidamente y devolverá solo el conjunto de bytes solicitado.  No es necesario que escriba ningún controlador especial en los métodos para adaptar o gestionar esta característica, ya que se gestiona automáticamente.
+Si un visitante de la aplicación solicita el contenido con un encabezado de solicitud de intervalo, ASP.NET lo reconocerá y controlará ese encabezado. Si el contenido solicitado se puede entregar parcialmente, ASP.NET lo omitirá debidamente y devolverá solo el conjunto de bytes solicitado.  No es necesario que escriba ningún controlador especial en los métodos para adaptar o controlar esta característica, ya que se controla automáticamente.
 
 ## <a name="hosting-startup-and-application-insights"></a>Inicio del hospedaje y Application Insights
 

@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: cd804f127a32f0c6f9488b6bf7bf88be062335d0
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 54ba77cfc3ce87566db14509805a2809d3e460e6
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="adding-a-new-field-to-a-razor-page"></a>Adición de un nuevo campo a una página de Razor
 

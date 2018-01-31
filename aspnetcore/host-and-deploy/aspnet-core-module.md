@@ -2,19 +2,19 @@
 title: "Referencia de configuración del módulo principal ASP.NET"
 author: guardrex
 description: "Cómo configurar el módulo principal de ASP.NET para hospedar aplicaciones ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 03/07/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 7bb7e5b9c821f87e73763f5f5c4f9fbcd751235f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c1a05c3e40e6aab0f2e4a97c0b3bb9eca8a08a41
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 

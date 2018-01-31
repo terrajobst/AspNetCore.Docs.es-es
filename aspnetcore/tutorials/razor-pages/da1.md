@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: tutorials/razor-pages/da1
-ms.openlocfilehash: 201e8d9c77d8e022bc56ffcf46456fada6fcfe25
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: abf6839536150f29eaa2d07dafbe0d0c1a08e280
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="updating-the-generated-pages"></a>Actualización de las páginas generadas
 

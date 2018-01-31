@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: 5780bfde928011f46c3f504aec927f2127f10d0d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16dfe3c899dfa028d8a52b4b5f9c2868887e8fa9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <a name="configuration-and-instrumentation"></a>Configuración e instrumentación
 ====================
@@ -138,7 +138,7 @@ Los tipos de proveedores disponibles permiten enviar la salida de eventos para e
 
 ASP.NET 2.0 utiliza el registro de eventos proveedor out-of-the-box para registrar eventos basados en dominios de aplicación, iniciar y detener, así como registrar las excepciones no controladas. Esto ayuda a se abordan algunos de los escenarios básicos. Por ejemplo, supongamos que su aplicación inicia una excepción, pero el usuario no guarda el error y no puede reproducirlo. Con la regla de registro de eventos de forma predeterminada, se podrá recopilar la información de excepción y la pila para obtener una mejor idea de qué tipo de error se produjo. Otro ejemplo es aplicable si la aplicación está perdiendo el estado de sesión. En ese caso, puede buscar en el registro de eventos para determinar si se recicla el dominio de aplicación, y por qué se detuvo el dominio de aplicación en primer lugar.
 
-Además, el sistema de supervisión de estado es extensible. Por ejemplo, puede definir los eventos Web personalizados, se activan ellos dentro de la aplicación y, a continuación, definir una regla para enviar la información de evento a un proveedor como el correo electrónico. Esto le permite asociar fácilmente la instrumentación a lo proveedores de seguimiento de estado. Como otro ejemplo, podría desencadenar un evento cada vez que un pedido se procesa y configurar una regla que envía cada evento a la base de datos de SQL Server. También podría desencadenar un evento cuando un usuario no puede iniciar sesión varias veces en una fila y el evento configurado para usar los proveedores basada en correo electrónico.
+Además, el sistema de supervisión de estado es extensible. Por ejemplo, puede definir los eventos Web personalizados, se activan ellos dentro de la aplicación y, a continuación, definir una regla para enviar la información de evento a un proveedor como el correo electrónico. Esto le permite asociar fácilmente la instrumentación a lo proveedores de seguimiento de estado. Como otro ejemplo, podría desencadenar un evento cada vez que un pedido se procesa y configurar una regla que envía cada evento a la base de datos de SQL Server. También podría desencadenar un evento cuando un usuario no puede iniciar sesión varias veces en una fila y el evento configurado para usar los proveedores de correo electrónico.
 
 La configuración de los proveedores predeterminados y los eventos se almacena en el archivo Web.config global. El archivo Web.config global almacena toda la configuración basada en Web que se almacenaron en el archivo Machine.config en ASP.NET 1 x. El archivo Web.config global se encuentra en el siguiente directorio:
 
@@ -150,7 +150,7 @@ El &lt;healthMonitoring&gt; sección del archivo Web.config global contiene los 
 
 | **proveedores** | Contiene los proveedores de configurado para el Visor de eventos, WMI y SQL Server. |
 | --- | --- |
-| **eventMappings** | Contiene asignaciones para las diferentes clases de WebBase. Puede ampliar esta lista si generar su propia clase de evento. Generar su propia clase de evento proporciona una granularidad más fina sobre los proveedores de que información que se envía. Por ejemplo, podría configurar las excepciones no controladas se envíen a SQL Server, al enviar sus propios eventos personalizados para enviar por correo electrónico. |
+| **eventMappings** | Contiene asignaciones para las diferentes clases de WebBase. Puede ampliar esta lista si generar su propia clase de evento. Generar su propia clase de evento proporciona una granularidad más fina sobre los proveedores de que información que se envía. Por ejemplo, puede configurar las excepciones no controladas se envíen a SQL Server, al enviar sus propios eventos personalizados al correo electrónico. |
 | **reglas** | Vínculos eventMappings al proveedor. |
 | **almacenamiento en búfer** | Se usa con los proveedores de SQL Server y el correo electrónico para determinar con qué frecuencia se vuelca los eventos en el proveedor. |
 
@@ -196,9 +196,9 @@ Debe agregar una regla para asociar un eventMapping al proveedor y también una 
 
 [!code-xml[Main](configuration-and-instrumentation/samples/sample10.xml)]
 
-## <a name="how-to-forward-events-to-e-mail"></a>Cómo reenviar los eventos se van a enviar por correo electrónico
+## <a name="how-to-forward-events-to-email"></a>Cómo reenviar eventos al correo electrónico
 
-También puede reenviar eventos a enviar por correo electrónico. Tenga cuidado con las reglas de eventos que asigne a su proveedor de correo electrónico, como se puede enviar involuntariamente por sí mismo una gran cantidad de información que pueden ser más adecuado para SQL Server o el registro de eventos. Existen dos proveedores de correo electrónico; SimpleMailWebEventProvider y TemplatedMailWebEventProvider. Cada uno tiene los mismos atributos de configuración, con la excepción de los atributos "plantilla" y "detailedTemplateErrors", que solo están disponibles en el TemplatedMailWebEventProvider.
+También puede reenviar eventos al correo electrónico. Tenga cuidado con las reglas de eventos que asigne a su proveedor de correo electrónico, como se puede enviar involuntariamente por sí mismo una gran cantidad de información que pueden ser más adecuado para SQL Server o el registro de eventos. Existen dos proveedores de correo electrónico; SimpleMailWebEventProvider y TemplatedMailWebEventProvider. Cada uno tiene los mismos atributos de configuración, con la excepción de los atributos "plantilla" y "detailedTemplateErrors", que solo están disponibles en el TemplatedMailWebEventProvider.
 
 > [!NOTE]
 > Ninguno de estos proveedores de correo electrónico se configura automáticamente. Debe agregarlos al archivo Web.config.

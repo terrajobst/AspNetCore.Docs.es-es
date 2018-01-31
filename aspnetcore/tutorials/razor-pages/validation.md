@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 2c7473647f23daf20ce7b204f621fb34f1a528c2
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 43d9ecacc479dac3eff35cc745b30d859c5cfd1d
+ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/24/2018
 ---
 # <a name="adding-validation-to-a-razor-page"></a>Adición de validación a una página de Razor
 
@@ -59,7 +59,7 @@ Observe cómo el formulario presenta automáticamente un mensaje de error de val
 
 Una ventaja importante es que **no** se han necesitado cambios de código en las páginas de creación o edición. Una vez que DataAnnotations se ha aplicado al modelo, la interfaz de usuario de validación se ha habilitado. Las páginas de Razor creadas en este tutorial han obtenido automáticamente las reglas de validación (mediante atributos de validación en las propiedades de la clase del modelo `Movie`). Al probar la validación en la página de edición, se aplica la misma validación.
 
-Los datos del formulario no se publican en el servidor hasta que no hay ningún error de validación de cliente. Compruebe que los datos del formulario no se publican mediante uno o varios de los métodos siguientes:
+Los datos del formulario no se publicarán en el servidor hasta que dejen de producirse errores de validación de cliente. Compruebe que los datos del formulario no se publican mediante uno o varios de los métodos siguientes:
 
 * Coloque un punto de interrupción en el método `OnPostAsync`. Envíe el formulario (seleccione **Crear** o **Guardar**). El punto de interrupción nunca se alcanza.
 * Use la [herramienta Fiddler](http://www.telerik.com/fiddler).

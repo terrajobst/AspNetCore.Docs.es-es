@@ -9,13 +9,13 @@ ms.topic: get-started-article
 ms.technology: aspnet
 ms.prod: aspnet-core
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 2a0c21ddc9ff44143ab828f8962946138a7ca0fa
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 704c13e60db2d80e24626b2dea25b64086dafda4
+ms.sourcegitcommit: 18ff1fdaa3e1ae204ed6a2ba9351ce8cf1371c85
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/29/2018
 ---
-# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-for-mac"></a>Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core con Visual Studio para Mac
+# <a name="adding-a-model-to-a-razor-pages-app-in-aspnet-core-with-visual-studio-code"></a>Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core con Visual Studio Code
 
 [!INCLUDE[model1](../../includes/RP/model1.md)]
 
@@ -41,7 +41,7 @@ Edite el archivo *RazorPagesMovie.csproj*:
 * Seleccione **Archivo** > **Abrir archivo** y, después, el archivo *RazorPagesMovie.csproj*.
 * Agregue la referencia de herramientas de `Microsoft.EntityFrameworkCore.Tools.DotNet` al segundo **\<ItemGroup>**:
 
-[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj?range=12-16&highlight=4)]
+[!code-xml[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_cli_sample/RazorPagesMovie/RazorPagesMovie.cli.csproj)]
 
 [!INCLUDE[model 3](../../includes/RP/model3.md)]
 
