@@ -2,18 +2,18 @@
 title: Tutoriales de ASP.NET Core
 author: rick-anderson
 description: "Una lista de guías detalladas para aprender a desarrollar aplicaciones de ASP.NET Core."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: dc81edce2b54683b20520babeed8ddb78073e709
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 01a804151ad813dbf47ab4b2415076a4e01bf1d9
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
