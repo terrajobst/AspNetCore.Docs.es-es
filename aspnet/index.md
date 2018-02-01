@@ -3,11 +3,11 @@ uid: index
 layout: HubPage
 title: "Documentación de ASP.NET | Microsoft Docs"
 description: 
-ms.openlocfilehash: 9f86b67f7b904d8243e9a88f50ffb985ffc969f1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cab0c34cce7a2db0f9f652e7a20578bfe69842ca
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 <div id="main" class="v2">
     <div class="container">
