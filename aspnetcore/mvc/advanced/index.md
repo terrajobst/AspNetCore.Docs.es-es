@@ -1,18 +1,19 @@
 ---
 title: Temas avanzados de ASP.NET Core MVC
 author: rick-anderson
-description: 
-ms.author: riande
+description: Descubra temas avanzados para el desarrollo de ASP.NET Core MVC.
 manager: wpickett
+ms.author: riande
 ms.date: 01/05/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
-ms.openlocfilehash: 7e207693d91329977d80e9eebb20c2140ccbe93e
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/advanced/index
+ms.openlocfilehash: 2cc93fc95afce2501d4f204c39c7f484373763f3
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="advanced-topics-for-aspnet-core-mvc"></a>Temas avanzados de ASP.NET Core MVC
 

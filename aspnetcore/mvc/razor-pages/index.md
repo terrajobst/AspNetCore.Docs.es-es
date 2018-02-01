@@ -2,18 +2,18 @@
 title: "Introducción a las páginas de Razor en ASP.NET Core"
 author: Rick-Anderson
 description: "Tutorial de ASP.NET Core en Razor Pages. Incluye MVC Core, ASP.NET Core 2.x, introducción al desarrollo web y Visual Studio 2017. Este documento proporciona información general acerca del uso de las páginas de Razor en ASP.NET Core para facilitar el desarrollo de escenarios centrados en páginas."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: a08c1b59c7be3a27fc11e6737a1cb4b4208f2901
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c16959189448337b12dc4902300516b25c200eee
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -76,7 +76,7 @@ Una página similar, con una clase `PageModel`, se muestra en los dos archivos s
 
 [!code-cshtml[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml)]
 
-El archivo de código subyacente *Pages/Index2.cshtml.cs*:
+Modelo de página *Pages/Index2.cshtml.cs*:
 
 [!code-cs[main](index/sample/RazorPagesIntro/Pages/Index2.cshtml.cs)]
 
@@ -116,7 +116,7 @@ El archivo de vista *Pages/Create.cshtml*:
 
 [!code-cshtml[main](index/sample/RazorPagesContacts/Pages/Create.cshtml)]
 
-El archivo de código subyacente *Pages/Movies/Create.cshtml.cs* de la vista:
+Modelo de página *Pages/Create.cshtml.cs*:
 
 [!code-cs[main](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_ALL)]
 
@@ -332,7 +332,7 @@ El siguiente marcado en el archivo *Pages/Customers/Index.cshtml* muestra el val
 <h3>Msg: @Model.Message</h3>
 ```
 
-El archivo de código subyacente *Pages/Customers/Index.cshtml.cs* aplica el atributo `[TempData]` a la propiedad `Message`.
+El modelo de página *Pages/Customers/Index.cshtml.cs* aplica el atributo `[TempData]` a la propiedad `Message`.
 
 ```cs
 [TempData]
@@ -352,7 +352,7 @@ La siguiente página genera marcado para dos controladores de páginas mediante 
 
 El formulario del ejemplo anterior tiene dos botones de envío, y cada uno de ellos usa `FormActionTagHelper` para enviar a una dirección URL diferente. El atributo `asp-page-handler` es un complemento de `asp-page`. `asp-page-handler` genera direcciones URL que envían a cada uno de los métodos de controlador definidos por una página. `asp-page` no se especifica porque el ejemplo se vincula a la página actual.
 
-El archivo de código subyacente:
+Modelo de página:
 
 [!code-cs[main](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml.cs?highlight=20,32)]
 

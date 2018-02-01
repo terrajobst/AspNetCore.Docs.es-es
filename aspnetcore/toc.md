@@ -28,6 +28,21 @@
 ### [Examinar los métodos Details y Delete](tutorials/first-mvc-app/details.md)
 
 ## [Tutoriales multiplataforma](xref:tutorials/xplat)
+### [Aplicación web de páginas de Razor en Mac](xref:tutorials/razor-pages-mac/index)
+#### [Introducción a las páginas de Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
+#### [Adición de un modelo](xref:tutorials/razor-pages-mac/model)
+#### [Páginas de Razor con scaffolding](xref:tutorials/razor-pages-mac/page)
+#### [Trabajar con SQLite](xref:tutorials/razor-pages-mac/sql)
+#### [Actualización de las páginas](xref:tutorials/razor-pages-mac/da1)
+#### [Agregar búsqueda](xref:tutorials/razor-pages-mac/search)
+
+
+### [Aplicación web de páginas de Razor con VS Code](xref:tutorials/razor-pages-vsc/index)
+#### [Introducción a las páginas de Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
+#### [Adición de un modelo](xref:tutorials/razor-pages-vsc/model)
+#### [Páginas de Razor con scaffolding](xref:tutorials/razor-pages-vsc/page)
+#### [Trabajar con SQLite](xref:tutorials/razor-pages-vsc/sql)
+#### [Actualización de las páginas](xref:tutorials/razor-pages-vsc/da1)
 
 ### [Aplicación web MVC con Visual Studio para Mac](xref:tutorials/first-mvc-app-mac/index)
 #### [Introducción](xref:tutorials/first-mvc-app-mac/start-mvc)
@@ -41,7 +56,7 @@
 #### [Agregar una validación](xref:tutorials/first-mvc-app-mac/validation)
 #### [Inspección de los métodos Details y Delete](xref:tutorials/first-mvc-app/details)
 
-### [Aplicación web con Visual Studio Code en Mac o Linux](xref:tutorials/first-mvc-app-xplat/index)
+### [Aplicación web MVC con Visual Studio Code en Mac o Linux](xref:tutorials/first-mvc-app-xplat/index)
 #### [Introducción](tutorials/first-mvc-app-xplat/start-mvc.md)
 #### [Agregar un controlador](tutorials/first-mvc-app-xplat/adding-controller.md)
 #### [Agregar una vista](tutorials/first-mvc-app-xplat/adding-view.md)
@@ -52,14 +67,6 @@
 #### [Adición de un nuevo campo](tutorials/first-mvc-app-xplat/new-field.md)
 #### [Agregar una validación](tutorials/first-mvc-app-xplat/validation.md)
 #### [Inspección de los métodos Details y Delete](tutorials/first-mvc-app/details.md)
-
-
-### [Aplicación web de páginas de Razor en Mac](xref:tutorials/razor-pages-mac/index)
-#### [Introducción a las páginas de Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
-#### [Agregar un modelo](xref:tutorials/razor-pages-mac/model)
-### [Aplicación web de páginas de Razor con VS Code](xref:tutorials/razor-pages-vsc/index)
-#### [Introducción a las páginas de Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
-#### [Agregar un modelo](xref:tutorials/razor-pages-vsc/model)
 
 ### [API web con Visual Studio para Mac](xref:tutorials/first-web-api-mac)
 ### [API web con Visual Studio Code](xref:tutorials/web-api-vsc)
@@ -243,6 +250,7 @@
 ### [Azure Active Directory](xref:security/authentication/azure-active-directory/index)
 #### [Integración de Azure AD en una aplicación web de ASP.NET Core](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore/)
 #### [Integración de Azure AD B2C en una aplicación web de ASP.NET Core dirigida a los clientes](xref:security/authentication/azure-ad-b2c)
+#### [Integración de Azure AD B2C en una API web de ASP.NET Core](xref:security/authentication/azure-ad-b2c-webapi)
 #### [Llamada a una API web de ASP.NET Core desde una aplicación de WPF con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-native-aspnetcore/)
 #### [Llamada a una API web en una aplicación web de ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
 ### [Protección de aplicaciones de ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io/)

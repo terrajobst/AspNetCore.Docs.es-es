@@ -2,18 +2,18 @@
 title: "Migración de ASP.NET Core 1.x a 2.0"
 author: scottaddie
 description: "En este artículo se indican los requisitos previos y los pasos más comunes para migrar un proyecto de ASP.NET Core 1.x a ASP.NET Core 2.0."
-ms.author: scaddie
 manager: wpickett
+ms.author: scaddie
 ms.date: 10/03/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: 2ab6d72ca57332eb25435a144d77ea43203a7b4c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a88d22c88689d20376fec748b05fc4b5ecca3510
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="migrating-from-aspnet-core-1x-to-aspnet-core-20"></a>Migración de ASP.NET Core 1.x a ASP.NET Core 2.0
 
@@ -146,7 +146,7 @@ A partir de 2.0 se desaconseja cualquier acción en `BuildWebHost`, excepto la c
 
 <a name="view-compilation"></a>
 
-## <a name="review-your-razor-view-compilation-setting"></a>Revisión de la configuración de compilación de la vista Razor
+## <a name="review-razor-view-compilation-setting"></a>Revisión de la configuración de compilación de la vista Razor
 Un tiempo de inicio de aplicación más rápido y unos lotes publicados más pequeños son de la máxima importancia para el usuario. Por ello, la [compilación de la vista Razor](xref:mvc/views/view-compilation) está habilitada de forma predeterminada en ASP.NET Core 2.0.
 
 Ya no es necesario establecer la propiedad `MvcRazorCompileOnPublish` en true. A menos que se esté deshabilitando la compilación de la vista, se puede quitar la propiedad del archivo *.csproj*.
@@ -157,7 +157,7 @@ Cuando el destino es .NET Framework, se debe hacer referencia de forma explícit
 
 <a name="app-insights"></a>
 
-## <a name="rely-on-application-insights-light-up-features"></a>Características "Light-Up" de Application Insights como base
+## <a name="rely-on-application-insights-light-up-features"></a>Características "light-up" de Application Insights como base
 Es importante configurar sin esfuerzo la instrumentación de rendimiento de la aplicación. Ahora puede basarse en las nuevas características "light-up" de [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) disponibles en las herramientas de Visual Studio 2017.
 
 Los proyectos de ASP.NET Core 1.1 creados en Visual Studio 2017 han agregado Application Insights de forma predeterminada. Si no usa el SDK de Application Insights directamente, fuera de *Program.cs* y *Startup.cs*, siga estos pasos:
@@ -178,8 +178,9 @@ Si usa el SDK de Application Insights directamente, siga haciéndolo. El [metapa
 
 <a name="auth-and-identity"></a>
 
-## <a name="adopt-authentication--identity-improvements"></a>Adopción de mejoras de autenticación o Identity
+## <a name="adopt-authenticationidentity-improvements"></a>Adopción de mejoras de autenticación o identidad
 ASP.NET Core 2.0 tiene un nuevo modelo de autenticación y una serie de cambios significativos en ASP.NET Core Identity. Si ha creado el proyecto con la opción Cuentas de usuario individuales habilitada o si ha agregado manualmente la autenticación o Identity, vea [Migrating Authentication and Identity to ASP.NET Core 2.0](xref:migration/1x-to-2x/identity-2x) (Migración de la autenticación e Identity a ASP.NET Core 2.0).
 
 ## <a name="additional-resources"></a>Recursos adicionales
-- [Cambios importantes en ASP.NET Core 2.0](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)
+
+* [Cambios importantes en ASP.NET Core 2.0](https://github.com/aspnet/announcements/issues?page=1&q=is%3Aissue+is%3Aopen+label%3A2.0.0+label%3A%22Breaking+change%22&utf8=%E2%9C%93)

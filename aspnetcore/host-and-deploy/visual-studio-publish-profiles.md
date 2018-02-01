@@ -2,19 +2,19 @@
 title: "Perfiles para la implementación de aplicaciones de ASP.NET Core de publicación de Visual Studio"
 author: rick-anderson
 description: "Descubra cómo crear perfiles para las aplicaciones de ASP.NET Core de publicación en Visual Studio."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.custom: mvc
 ms.date: 09/26/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 1f403447c39db4ebfe3dafda591602f0dc9db8c3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 138b60d0e7c2a3d8848d534ffed854feaf0f5661
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Perfiles para la implementación de aplicaciones de ASP.NET Core de publicación de Visual Studio
 
@@ -294,7 +294,7 @@ MSBuild usa la sintaxis siguiente:
 
 `msbuild <path-to-project-file> /p:DeployOnBuild=true /p:PublishProfile=<Publish Profile> /p:Username=<USERNAME> /p:Password=<PASSWORD>`
 
-Obtener la `Password` desde el  *\<nombre de publicación >. Configuración de publicación* archivo. Descargue el *. Configuración de publicación* archivo desde:
+Obtener la `Password` desde el *\<nombre de publicación >. Configuración de publicación* archivo. Descargue el *. Configuración de publicación* archivo desde:
 
 * El Explorador de soluciones: Haga doble clic en la aplicación Web y seleccione **descargar un perfil de publicación**.
 * El Portal de administración de Azure: Seleccione **Get perfil de publicación** desde la hoja de la aplicación Web.
