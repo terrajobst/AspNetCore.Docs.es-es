@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: e076e301004c04b5c516d775353a4b6e50a3f36e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 079c36535b8c9e7229952a2f7bcd53174effa6af
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="preventing-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Prevención de ataques de falsificación (XSRF/CSRF) de solicitud entre sitios en ASP.NET Core
 
@@ -345,7 +345,7 @@ Ataques CSRF se basan en el comportamiento del explorador predeterminado de envi
 
 ### <a name="cookie-based-authentication"></a>Autenticación basada en cookies
 
-Una vez que un usuario se autentica con su nombre de usuario y contraseña, le emite un token que puede usarse para identificarlos y validar que se han autenticado. El token se almacena como hace que una cookie que acompaña a cada solicitud del cliente. Generar y validar esta cookie se realiza mediante el middleware de autenticación de la cookie. ASP.NET Core proporciona una cookie [middleware](../fundamentals/middleware.md) que serializa una entidad de seguridad de usuario en una cookie cifrada y, a continuación, en solicitudes posteriores, valida la cookie, vuelve a crear la entidad de seguridad y lo asigna a la `User` propiedad `HttpContext`.
+Una vez que un usuario se autentica con su nombre de usuario y contraseña, le emite un token que puede usarse para identificarlos y validar que se han autenticado. El token se almacena como hace que una cookie que acompaña a cada solicitud del cliente. Generar y validar esta cookie se realiza mediante el middleware de autenticación de la cookie. ASP.NET Core proporciona una cookie [middleware](xref:fundamentals/middleware/index) que serializa una entidad de seguridad de usuario en una cookie cifrada y, a continuación, en solicitudes posteriores, valida la cookie, vuelve a crear la entidad de seguridad y lo asigna a la `User` propiedad `HttpContext`.
 
 Cuando se utiliza una cookie, la cookie de autenticación es simplemente un contenedor para el vale de autenticación de formularios. El vale se pasa como el valor de la cookie de autenticación de formularios con cada solicitud y autenticación de formularios, en el servidor, se usa para identificar un usuario autenticado.
 

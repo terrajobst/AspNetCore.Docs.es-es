@@ -1,6 +1,6 @@
 <a name="codegenerator"></a> En la tabla siguiente se incluyen los detalles de los parámetros de los generadores de código de ASP.NET Core:
 
-| Parámetro               | Descripción|
+| Parámetro               | Description|
 | ----------------- | ------------ |
 | -m  | Nombre del modelo |
 | -dc  | Contexto de datos |

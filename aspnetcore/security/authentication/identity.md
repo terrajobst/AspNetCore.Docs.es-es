@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity
-ms.openlocfilehash: 52b78922da54a2d4e66120552c2ffc9f585f406b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0c05c636a991371b1a1feec88b5393724a6dc629
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad de un núcleo de ASP.NET
 
@@ -65,7 +65,7 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
     
     Estos servicios se ponen a disposición a la aplicación a través de [inyección de dependencia](xref:fundamentals/dependency-injection).
     
-    Identidad está habilitada para la aplicación mediante una llamada a `UseAuthentication` en el `Configure` método. `UseAuthentication`Agrega autenticación [middleware](xref:fundamentals/middleware) a la canalización de solicitud.
+    Identidad está habilitada para la aplicación mediante una llamada a `UseAuthentication` en el `Configure` método. `UseAuthentication`Agrega autenticación [middleware](xref:fundamentals/middleware/index) a la canalización de solicitud.
     
     [!code-csharp[Main](identity/sample/src/ASPNETv2-IdentityDemo/Startup.cs?name=snippet_configure&highlight=17)]
     
@@ -75,7 +75,7 @@ En este tema, podrá aprender a usar ASP.NET Core Identity para agregar funciona
     
     Estos servicios se ponen a disposición a la aplicación a través de [inyección de dependencia](xref:fundamentals/dependency-injection).
     
-    Identidad está habilitada para la aplicación mediante una llamada a `UseIdentity` en el `Configure` método. `UseIdentity`Agrega la autenticación basada en cookies [middleware](xref:fundamentals/middleware) a la canalización de solicitud.
+    Identidad está habilitada para la aplicación mediante una llamada a `UseIdentity` en el `Configure` método. `UseIdentity`Agrega la autenticación basada en cookies [middleware](xref:fundamentals/middleware/index) a la canalización de solicitud.
         
     [!code-csharp[Main](identity/sample/src/ASPNET-IdentityDemo/Startup.cs?name=snippet_configure&highlight=21)]
     

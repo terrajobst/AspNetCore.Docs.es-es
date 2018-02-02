@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: ebae76da01e1b24466174179a9d4bbe826202cc3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -127,7 +127,7 @@ Este código funciona, pero resulta muy alejado del cómo le gustaría implement
 
 Agrega una opción a tener en cuenta [MVC](xref:mvc/overview) a la aplicación y crear un controlador para controlar la comprobación primos. Sin embargo, suponiendo que actualmente no necesita ninguna otra funcionalidad MVC, que es un bit resulte excesiva.
 
-Sin embargo, puede sacar partido de ASP.NET Core [middleware](xref:fundamentals/middleware), que nos ayudarán a encapsular el primos lógica en su propia clase de comprobación y lograr mejor [separación de intereses](http://deviq.com/separation-of-concerns/) en el `Configure` método.
+Sin embargo, puede sacar partido de ASP.NET Core [middleware](xref:fundamentals/middleware/index), que nos ayudarán a encapsular el primos lógica en su propia clase de comprobación y lograr mejor [separación de intereses](http://deviq.com/separation-of-concerns/) en el `Configure` método.
 
 Desea permitir que la ruta de acceso del middleware que usa estar especificado como un parámetro, por lo que espera de la clase de middleware un `RequestDelegate` y un `PrimeCheckerOptions` instancia en su constructor. Si la ruta de acceso de la solicitud no coincide con lo que aparece este middleware configuró para esperar, simplemente llamará al siguiente middleware en la cadena y no hacer nada más. El resto del código de implementación que se encontraba en `Configure` está ahora en el `Invoke` método.
 
@@ -150,5 +150,5 @@ Después de esta operación de refactorización, esté seguro de que la aplicaci
 ## <a name="resources"></a>Recursos
 
 * [Pruebas unitarias](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
-* [Middleware](xref:fundamentals/middleware)
+* [Middleware](xref:fundamentals/middleware/index)
 * [Pruebas de controladores](xref:mvc/controllers/testing)
