@@ -9,17 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/index
-ms.openlocfilehash: 4666148edcf77fa7b3dec40f1672d491998c870a
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cbe68f6928e1d73d8e2f7f79075043dcef8ea888
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio"></a>Introducción a ASP.NET Core MVC y Entity Framework Core con Visual Studio
 
-Nota: Hay disponible una versión de páginas de Razor de este tutorial [aquí](xref:data/ef-rp/intro). La versión de las páginas de Razor es más fácil de seguir y abarca más características de EF.
-
-En esta serie de tutoriales aprenderá a crear aplicaciones web de ASP.NET Core MVC que usen Entity Framework Core para el acceso de datos. Los tutoriales requieren Visual Studio 2017.
+[!INCLUDE[RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
 1. [Introducción](intro.md)
 2. [Operaciones de creación, lectura, actualización y eliminación](crud.md)

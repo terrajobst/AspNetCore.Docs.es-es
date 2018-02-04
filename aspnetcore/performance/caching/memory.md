@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 4219cae4e3d3f9d15afe6725b21cc8966979d95c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8256240b46873d53bf1a6f6616ea5b520cfadf2e
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/03/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>En la memoria de almacenamiento en caché de ASP.NET Core
 
@@ -42,7 +42,7 @@ Almacenamiento en caché en memoria es un *servicio* que se hace referencia desd
 
 Solicitar la `IMemoryCache` instancia en el constructor:
 
-[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-)] 
+[!code-csharp[Main](memory/sample/WebCache/Controllers/HomeController.cs?name=snippet_ctor&highlight=3,5-999)] 
 
 `IMemoryCache`requiere el paquete NuGet "Microsoft.Extensions.Caching.Memory".
 

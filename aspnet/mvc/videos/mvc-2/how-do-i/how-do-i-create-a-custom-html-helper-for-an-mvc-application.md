@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application
 msc.type: video
-ms.openlocfilehash: 96e58c706101c8b304636947b723fc50cae7f3bc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 50a03799336636a8ba622b4ee3e8da99dcbc2708
+ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/03/2018
 ---
 <a name="how-do-i-create-a-custom-html-helper-for-an-mvc-application"></a>¿Cómo: crear una aplicación auxiliar de HTML personalizado para una aplicación MVC?
 ====================
 por [Chris Pels](https://twitter.com/chrispels)
 
-En este vídeo Chris Pels muestra cómo crear un HtmlHelper personalizado que no está disponible en el conjunto estándar en una aplicación MVC. En primer lugar, se crea una aplicación de MVC de ejemplo con un controlador de demostración y una vista para probar la HtmlHelper personalizado. A continuación, se crea un módulo con una función pública que sea un método de extensión que representa la implementación de la HtmlHelper personalizado. La aplicación auxiliar personalizada es para crear &amp;lt; img&amp;gt; etiquetas en una página y recibe varios parámetros de entrada, incluidos el identificador, la dirección url y el texto alternativo para la etiqueta de imagen. La lógica, a continuación, se agrega a la función para devolver el completado &amp;lt; img&amp;gt; etiquetas con la información especificada. A continuación, se utiliza el HtmlHelper personalizado en la página de demostración para mostrar una imagen. Por último, el HtmlHelper personalizado se expande para incluir varias invalidaciones de constructor que proporcionan flexibilidad para obtener más información crear fácilmente diferentes &amp;lt; img&amp;gt; etiquetas.
+En este vídeo Chris Pels muestra cómo crear un HtmlHelper personalizado que no está disponible en el conjunto estándar en una aplicación MVC. En primer lugar, se crea una aplicación de MVC de ejemplo con un controlador de demostración y una vista para probar la HtmlHelper personalizado. A continuación, se crea un módulo con una función pública que sea un método de extensión que representa la implementación de la HtmlHelper personalizado. La aplicación auxiliar personalizada es para crear `<img>` etiquetas en una página y recibe varios parámetros de entrada, incluidos el identificador, la dirección url y el texto alternativo para la etiqueta de imagen. La lógica, a continuación, se agrega a la función para devolver el completado `<img>` etiqueta con la información especificada. A continuación, se utiliza el HtmlHelper personalizado en la página de demostración para mostrar una imagen. Por último, el HtmlHelper personalizado se expande para incluir varias invalidaciones de constructor que proporcionan flexibilidad para obtener más información crear fácilmente diferentes `<img>` etiquetas.
 
 [&#9654; Vea el vídeo (18 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-create-a-custom-html-helper-for-an-mvc-application)
 
