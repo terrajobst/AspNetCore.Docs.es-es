@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: 946ccc80915c5de60976a98cbbb253cb8dfacaca
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7f0e30b3ac7f9cc3a32bd96f45d83ba13505a475
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -71,7 +71,7 @@ public class Startup
 }
 ```
 
-`ConfigureServices` define los [servicios](#dependency-injection-services) que usa la aplicación (por ejemplo, ASP.NET Core MVC, Entity Framework Core, Identity). `Configure` define el [software intermedio](xref:fundamentals/middleware) en la canalización de solicitudes.
+`ConfigureServices` define los [servicios](#dependency-injection-services) que usa la aplicación (por ejemplo, ASP.NET Core MVC, Entity Framework Core, Identity). `Configure` define el [software intermedio](xref:fundamentals/middleware/index) en la canalización de solicitudes.
 
 Para obtener más información, vea [Application startup](xref:fundamentals/startup) (Inicio de la aplicación).
 
@@ -91,9 +91,9 @@ Para obtener más información, consulte [Inserción de dependencias](xref:funda
 
 ## <a name="middleware"></a>Software intermedio
 
-En ASP.NET Core, se crea la canalización de solicitudes mediante [software intermedio](xref:fundamentals/middleware). El software intermedio de ASP.NET Core lleva a cabo la lógica asincrónica en `HttpContext` y después invoca al siguiente software intermedio de la secuencia o finaliza la solicitud directamente. Se agrega un componente de software intermedio denominado "XYZ" al invocar un método de extensión `UseXYZ` en el método `Configure`.
+En ASP.NET Core, se crea la canalización de solicitudes mediante [software intermedio](xref:fundamentals/middleware/index). El software intermedio de ASP.NET Core lleva a cabo la lógica asincrónica en `HttpContext` y después invoca al siguiente software intermedio de la secuencia o finaliza la solicitud directamente. Se agrega un componente de software intermedio denominado "XYZ" al invocar un método de extensión `UseXYZ` en el método `Configure`.
 
-ASP.NET Core incluye un amplio conjunto de software intermedio integrado:
+ASP.NET Core incluye un amplio conjunto de middleware integrado:
 
 * [Archivos estáticos](xref:fundamentals/static-files)
 * [Enrutamiento](xref:fundamentals/routing)
@@ -103,7 +103,7 @@ ASP.NET Core incluye un amplio conjunto de software intermedio integrado:
 
 El software intermedio basado en [OWIN](http://owin.org) está disponible para aplicaciones ASP.NET Core y puede escribir su propio software intermedio personalizado.
 
-Para obtener más información, consulte [Middleware](xref:fundamentals/middleware) (Software intermedio) y [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) [Interfaz web abierta para .NET (OWIN)].
+Para obtener más información, consulte [Middleware](xref:fundamentals/middleware/index) (Software intermedio) y [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) [Interfaz web abierta para .NET (OWIN)].
 
 ## <a name="environments"></a>Entornos
 
