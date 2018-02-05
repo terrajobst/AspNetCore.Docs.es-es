@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: c9fe97dbd5fe10cbde25b9daf5ddd35b2d7eaab5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>Perfiles, temas y elementos Web
 ====================
@@ -139,14 +139,14 @@ La ubicación donde se almacenan los temas difiere en función de su ámbito. Lo
 
 `C:\WINDOWS\Microsoft.NET\Framework\v2.x.xxxxx\ASP.NETClientFiles\Themes\<Theme_Name>`
 
-Un tema es específico de una aplicación determinada se almacena en una aplicación\_temas\&lt; El tema\_nombre&gt; directorio en la raíz del sitio Web.
+Un tema es específico de una aplicación determinada se almacena en un `App\_Themes\<Theme\_Name>` directorio en la raíz del sitio Web.
 
 > [!NOTE]
 > Un archivo de máscara sólo debe modificar las propiedades de control de servidor que afectan a la apariencia.
 
 Un tema global es un tema que se pueden aplicar a cualquier aplicación o sitio Web que se ejecuta en el servidor Web. Estos temas se almacenan de forma predeterminada en el directorio ASP.NETClientfiles\Themes dentro del directorio v2.x.xxxxx. Como alternativa, puede mover los archivos de temas en aspnet\_/sistema cliente\_web / /Themes/ [versión] [tema\_nombre] carpeta en la raíz del sitio Web.
 
-Los temas específicos de la aplicación solo pueden aplicarse a la aplicación en el que residen los archivos. Estos archivos se almacenan en la aplicación\_temas /&lt;tema\_nombre&gt; directorio en la raíz del sitio Web.
+Los temas específicos de la aplicación solo pueden aplicarse a la aplicación en el que residen los archivos. Estos archivos se almacenan en la `App\_Themes/<theme\_name>` directorio en la raíz del sitio Web.
 
 ## <a name="the-components-of-a-theme"></a>Los componentes de un tema
 
@@ -258,7 +258,7 @@ Hasta ahora, hemos hablado solo sobre la aplicación de temas mediante la propie
 
 Si desea invalidar las propiedades definidas en el archivo de máscara del tema con propiedades especificado en el diseñador, puede usar el **StyleSheetTheme** propiedad en lugar de la propiedad del tema. La propiedad StyleSheetTheme es igual que la propiedad de tema salvo que no reemplaza todos los valores de propiedad explícitos como hace la propiedad del tema.
 
-Para ver esto en acción, abra el archivo web.config del proyecto en el ejercicio 1 y cambiar la &lt;páginas&gt; elemento a la siguiente:
+Para ver esto en acción, abra el archivo web.config del proyecto en el ejercicio 1 y cambiar la `<pages>` elemento a la siguiente:
 
 [!code-xml[Main](profiles-themes-and-web-parts/samples/sample19.xml)]
 
@@ -338,11 +338,11 @@ En esta parte del tutorial, creará una página que utiliza controles de element
 1. Cierre la página predeterminada y agregue una nueva página en el sitio denominado WebPartsDemo.aspx.
 2. Cambie a **diseño** vista.
 3. Desde el **vista** menú, asegúrese de que el **controles no visuales** y **detalles** opciones están seleccionadas para que pueda ver etiquetas de diseño y los controles que no tienen una interfaz de usuario.
-4. Coloque el punto de inserción antes de la  **&lt;div&gt;**  etiquetas en la superficie de diseño y presione ENTRAR para agregar una nueva línea. Coloque el punto de inserción antes del carácter de nueva línea, haga clic en el **formato de bloque** lista desplegable de control en el menú y seleccione el **título 1** opción. En el encabezado, agregue el texto **página de demostración de elementos Web**.
-5. Desde el **WebParts** ficha del cuadro de herramientas, arrastre un **WebPartManager** control en la página, colóquela justo después del carácter de nueva línea y antes de la  **&lt;div&gt;**  etiquetas.   
+4. Coloque el punto de inserción antes de la `<div>` etiquetas en la superficie de diseño y presione ENTRAR para agregar una nueva línea. Coloque el punto de inserción antes del carácter de nueva línea, haga clic en el **formato de bloque** lista desplegable de control en el menú y seleccione el **título 1** opción. En el encabezado, agregue el texto **página de demostración de elementos Web**.
+5. Desde el **WebParts** ficha del cuadro de herramientas, arrastre un **WebPartManager** control en la página, colóquela justo después del carácter de nueva línea y antes de la `<div>`etiquetas.   
   
  El **WebPartManager** control no produce ningún resultado, por lo que aparece como un cuadro gris en la superficie del diseñador.
-6. Coloque el punto de inserción en el  **&lt;div&gt;**  etiquetas.
+6. Coloque el punto de inserción en el `<div>` etiquetas.
 7. En el **diseño** menú, haga clic en **Insertar tabla**y crear una nueva tabla que tiene una fila y tres columnas. Haga clic en el **propiedades de celda** botón, seleccione **arriba** desde el **alineación Vertical** la lista desplegable, haga clic en **Aceptar**y haga clic en **Aceptar** nuevo para crear la tabla.
 8. Arrastre un control WebPartZone en la columna de tabla de la izquierda. Haga clic en el **WebPartZone** de control, elija **propiedades**y establezca las siguientes propiedades:   
   
@@ -358,13 +358,13 @@ En esta parte del tutorial, creará una página que utiliza controles de element
 
 La página tiene ahora dos zonas distintas que se pueden controlar por separado. Sin embargo, ninguna zona tiene contenido, por lo que el paso siguiente consiste en crear contenido. En este tutorial, trabajará con controles de elementos Web que muestran solo contenido estático.
 
-El diseño de una zona de elementos Web especificado por un  **&lt;zonetemplate&gt;**  elemento. Dentro de la plantilla de zona, puede agregar cualquier control ASP.NET, ya sea un control de elementos Web personalizado, un control de usuario o un control de servidor existente. Observe que aquí se está utilizando el control de etiqueta y, a la que se va a agregar simplemente texto estático. Cuando coloca un control normal del servidor en un **WebPartZone** zona, ASP.NET lo trata como un control de elementos Web en tiempo de ejecución, lo que habilita características de elementos Web en el control.
+El diseño de una zona de elementos Web especificado por un &lt;zonetemplate&gt; elemento. Dentro de la plantilla de zona, puede agregar cualquier control ASP.NET, ya sea un control de elementos Web personalizado, un control de usuario o un control de servidor existente. Observe que aquí se está utilizando el control de etiqueta y, a la que se va a agregar simplemente texto estático. Cuando coloca un control normal del servidor en un **WebPartZone** zona, ASP.NET lo trata como un control de elementos Web en tiempo de ejecución, lo que habilita características de elementos Web en el control.
 
 **Para crear contenido para la zona principal**
 
 1. En **diseño** ver, arrastre un **etiqueta** controlar desde la **estándar** ficha del cuadro de herramientas al área de contenido de la zona cuyo **identificador** propiedad se establece en MainZone.
-2. Cambie a **origen** vista. Tenga en cuenta que un  **&lt;zonetemplate&gt;**  se agregó el elemento que va a contener la **etiqueta** control en MainZone.
-3. Agregue un atributo denominado **título** a la  **&lt;asp: label&gt;**  elemento y establezca su valor en contenido. Quite el texto = atributo "Etiqueta" de la  **&lt;asp: label&gt;**  elemento. Entre las etiquetas apertura y cierre de la  **&lt;asp: label&gt;**  elemento, agregue texto como **Bienvenido a la página principal** dentro de un par de  **&lt;h2 &gt;**  etiquetas de elemento. El código debe tener el aspecto siguiente. 
+2. Cambie a **origen** vista. Tenga en cuenta que un &lt;zonetemplate&gt; se agregó el elemento que va a contener la **etiqueta** control en MainZone.
+3. Agregue un atributo denominado **título** a la &lt;asp: label&gt; elemento y establezca su valor en contenido. Quite el texto = atributo "Etiqueta" de la &lt;asp: label&gt; elemento. Entre las etiquetas apertura y cierre de la &lt;asp: label&gt; elemento, agregue texto como **Bienvenido a la página principal** dentro de un par de &lt;h2&gt; etiquetas de elemento. El código debe tener el aspecto siguiente. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample21.aspx)]
 4. Guarde el archivo.
@@ -396,7 +396,7 @@ En tiempo de ejecución, el conjunto de controles de elementos Web contiene ambo
 3. Arrastre la página de control de usuario que creó, SearchUserControl.ascx, desde **el Explorador de soluciones** en la zona cuyo **identificador** propiedad está establecida en SidebarZone y colóquelo ahí.
 4. Guarde la página WebPartsDemo.aspx.
 5. Cambie a **origen** vista.
-6. Dentro de la  **&lt;asp: webpartzone&gt;**  elemento SidebarZone, justo encima de la referencia al control de usuario, agregue un  **&lt;asp: label&gt;**  elemento con enlaces independientes, tal como se muestra en el ejemplo siguiente. Además, agregue un **título** atributo a la etiqueta de control de usuario, con un valor de **búsqueda**, tal y como se muestra. 
+6. Dentro de la &lt;asp: webpartzone&gt; elemento SidebarZone, justo encima de la referencia al control de usuario, agregue un &lt;asp: label&gt; elemento con contenido de vínculos, tal como se muestra en el ejemplo siguiente. Además, agregue un **título** atributo a la etiqueta de control de usuario, con un valor de **búsqueda**, tal y como se muestra. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample23.aspx)]
 7. Guarde y cierre el archivo.
@@ -417,7 +417,7 @@ En el título de la barra de cada control es una flecha hacia abajo que proporci
 
 Elementos Web proporciona la funcionalidad que permite a los usuarios cambiar el diseño de controles de elementos Web arrastrándolos de una zona a otro. Además de permitir que los usuarios se desplacen **elemento Web** controles de una zona a otra, puede permitir que los usuarios los editen diversas características de los controles, incluyendo su apariencia, el diseño y el comportamiento. El conjunto de controles de elementos Web proporciona funcionalidad de edición básica **elemento Web** controles. Aunque no lo hará en este tutorial, también puede crear controles de editor personalizados que permiten a los usuarios editar las características de **elemento Web** controles. Al igual que con cambiar la ubicación de un **elemento Web** (control), editar las propiedades de un control se basa en la personalización de ASP.NET para guardar los cambios realizados por los usuarios.
 
-En esta parte del tutorial, agregará la posibilidad de que los usuarios modifiquen las características básicas de cualquier **elemento Web** control en la página. Para habilitar estas características, agregue otro control de usuario personalizado a la página, junto con un  **&lt;asp: editorzone&gt;**  elemento y dos controles de edición.
+En esta parte del tutorial, agregará la posibilidad de que los usuarios modifiquen las características básicas de cualquier **elemento Web** control en la página. Para habilitar estas características, agregue otro control de usuario personalizado a la página, junto con un &lt;asp: editorzone&gt; elemento y dos controles de edición.
 
 ### <a name="to-create-a-user-control-that-enables-changing-page-layout"></a>Para crear un control de usuario que permite cambiar el diseño de página
 
@@ -501,7 +501,7 @@ También puede permitir a los usuarios agregar controles de elementos Web a su p
 4. Desde el **WebParts** sección del cuadro de herramientas, arrastre un control DeclarativeCatalogPart en el área de contenido de la **CatalogZone** control.
 5. Haga clic en la flecha situada en la esquina superior derecha de la **DeclarativeCatalogPart** control para exponer su menú de tareas y, a continuación, seleccione **editar plantillas**.
 6. Desde el **estándar** sección del cuadro de herramientas, arrastre un **FileUpload** control y un **calendario** controlar en el **WebPartsTemplate** sección de la **DeclarativeCatalogPart** control.
-7. Cambie a **origen** vista. Inspeccionar el código fuente de la  **&lt;asp: catalogzone&gt;**  elemento. Tenga en cuenta que la **DeclarativeCatalogPart** control contiene un  **&lt;webpartstemplate&gt;**  elemento con los dos controles de servidor contenidos que podrá agregar a la página desde el catálogo.
+7. Cambie a **origen** vista. Inspeccionar el código fuente de la &lt;asp: catalogzone&gt; elemento. Tenga en cuenta que la **DeclarativeCatalogPart** control contiene un &lt;webpartstemplate&gt; elemento con los dos controles de servidor contenidos que podrá agregar a la página desde el catálogo.
 8. Agregar un **título** propiedad a cada uno de los controles que agregó en el catálogo, con el valor de cadena que se muestra para cada título en el ejemplo de código siguiente. Aunque el título no es una propiedad normalmente puede establecer en estas dos controles de servidor en tiempo de diseño, cuando un usuario agrega estos controles a una **WebPartZone** zona desde el catálogo en tiempo de ejecución, son cada una incluida con un  **GenericWebPart** control. Esto les permite actuar como controles de elementos Web, por lo que podrán mostrar títulos.   
   
  El código de los dos controles incluidos en el **DeclarativeCatalogPart** control debe ser similar al siguiente. 

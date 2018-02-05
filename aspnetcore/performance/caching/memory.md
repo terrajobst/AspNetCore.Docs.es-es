@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/memory
-ms.openlocfilehash: 8256240b46873d53bf1a6f6616ea5b520cfadf2e
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 7c6d629ea94dd7c79a2f4e24fd4d0ff797f7e516
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/05/2018
 ---
 # <a name="in-memory-caching-in-aspnet-core"></a>En la memoria de almacenamiento en caché de ASP.NET Core
 
@@ -30,7 +30,7 @@ ASP.NET Core es compatible con varias memorias caché diferentes. La memoria cac
 
 Las sesiones no son permanentes en una granja de servidores web requieren un [caché distribuida](distributed.md) para evitar problemas de coherencia de la memoria caché. Para algunas aplicaciones, una memoria caché distribuida puede admitir una escala mayor espera que una caché en memoria. Uso de una memoria caché distribuida, descarga la memoria caché para un proceso externo. 
 
-El `IMemoryCache` caché expulsará las entradas de caché bajo presión de memoria, a menos que la [almacenar en caché prioridad](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) está establecido en `CacheItemPriority.NeverRemove`. Puede establecer el `CacheItemPriority` para ajustar la prioridad de la memoria caché extrae elementos bajo presión de memoria.
+El `IMemoryCache` caché expulsará las entradas de caché bajo presión de memoria, a menos que la [almacenar en caché prioridad](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.caching.memory.cacheitempriority) está establecido en `CacheItemPriority.NeverRemove`. Puede establecer el `CacheItemPriority` para ajustar la prioridad con la que la memoria caché extrae elementos bajo presión de memoria.
 
 La memoria caché en memoria puede almacenar cualquier objeto; la interfaz de caché distribuida se limita a `byte[]`.
 

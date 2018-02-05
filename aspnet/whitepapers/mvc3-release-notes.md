@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: c1fa5d31f68b44bfdfda61c870a6825eeba18647
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/05/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -232,7 +232,7 @@ Esta plantilla le permite crear rápidamente una interfaz de usuario de la entra
 
 Para *clase de contexto de datos*, podrá seleccionar estas opciones:
 
-- Si desea usar Code First y no tienen ningún contexto de datos existente de clases, elija  *&lt;nuevo contexto de datos... &gt;*". Una clase de contexto de datos, a continuación, se generará automáticamente.
+- Si desea usar Code First y no tienen ningún contexto de datos existente de clases, elija ** nuevo contexto de datos **. Una clase de contexto de datos, a continuación, se generará automáticamente.
 - Si desea usar Code First y tienen una clase de contexto de datos existente, elija aquí. Se actualizará para conservar la clase del modelo que seleccionó.
 - Si usas Database First o Model First, elija la clase de contexto de objeto.
 
@@ -255,7 +255,7 @@ La lista de plantillas de proyecto incluye una nueva plantilla de aplicación de
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Plantillas de proyecto ahora están habilitados de HTML5
 
-El cuadro de diálogo nuevo proyecto contiene ahora una opción para agregar características específicas de HTML5 para las plantillas de proyecto. Al seleccionar la opción hace vistas generarse que contienen la nueva HTML5  *&lt;encabezado&gt;*,  *&lt;pie de página&gt;*, y  *&lt;navegación&gt;*  elementos.
+El cuadro de diálogo nuevo proyecto contiene ahora una opción para agregar características específicas de HTML5 para las plantillas de proyecto. Al seleccionar la opción hace vistas generarse que contienen la nueva HTML5 `<header>`, `<footer>`, y `<navigation>` elementos. elementos.
 
 Tenga en cuenta que las versiones anteriores de exploradores no admiten etiquetas específicas de HTML5. Para solucionar esta limitación, las plantillas de proyecto de HTML5 incluyen una referencia a la biblioteca de Modernizr. (Vea la sección siguiente).
 
@@ -293,7 +293,7 @@ Cuando crea un nuevo proyecto de ASP.NET MVC 3, el proyecto incluye los archivos
 
 Por ejemplo, dada la frecuencia de las nuevas versiones de jQuery, la versión de jQuery incluido en la plantilla de proyecto en algún momento será no está actualizada. Sin embargo, puesto que jQuery se incluye como un paquete de NuGet instalado, se le notificará en el cuadro de diálogo de NuGet cuando hay disponibles versiones más recientes de jQuery.
 
-Dado que jQuery incluye el número de versión en el nombre de archivo, actualización jQuery a la versión más reciente también es necesario actualizar el  *&lt;script&gt;*  etiqueta que hace referencia al archivo de jQuery para usar el nuevo nombre de archivo. Otras bibliotecas de secuencia de comandos incluida no incluyen el número de versión en el nombre de la secuencia de comandos, por lo que se pueden actualizar más fácilmente a sus versiones más recientes.
+Dado que jQuery incluye el número de versión en el nombre de archivo, actualización jQuery a la versión más reciente también es necesario actualizar la `<script>` etiqueta que hace referencia al archivo de jQuery para usar el nuevo nombre de archivo. Otras bibliotecas de secuencia de comandos incluida no incluyen el número de versión en el nombre de la secuencia de comandos, por lo que se pueden actualizar más fácilmente a sus versiones más recientes.
 
 <a id="tu-KI"></a>
 ## <a name="known-issues"></a>Problemas conocidos
@@ -353,7 +353,7 @@ Cambia el nombre de un archivo de Razor mediante el Explorador de soluciones, mi
 - IntelliSense para consultar la sintaxis Razor no funciona cuando se instala ReSharper. Si tiene ReSharper instalado y desea aprovechar las ventajas de la compatibilidad de IntelliSense de Razor en ASP.NET MVC 3, vea la entrada [Razor Intellisense y ReSharper](http://blogs.jetbrains.com/dotnet/2010/11/razor-intellisense-and-resharper/) en el blog de Hadi Hariri, que describe maneras de utilizarlos juntos hoy en día.
 - CCSHTML y VBHTML vistas creadas con la versión Beta de ASP.NET MVC 3 no dispone de su acción de compilación establecida correctamente, con lo que permite ver estos tipos se omiten cuando se publica el proyecto. El valor de acción de compilación de estos archivos debe establecerse en "Contenido". ASP.NET MVC 3 RTM corrige este problema para los nuevos archivos, pero no la configuración correcta de los archivos existentes para un proyecto creado con las versiones preliminares.
 - ![](mvc3-release-notes/_static/image3.png)
-- Durante la instalación, el cuadro de diálogo de aceptación de términos de licencia muestra los términos de licencia en una ventana que sea menor que planteado. / li&gt;
+- Durante la instalación, el cuadro de diálogo de aceptación de términos de licencia muestra los términos de licencia en una ventana que es inferior a lo esperado.
 - Al editar una vista Razor (archivo .cshtml), el elemento de menú de ir al controlador en Visual Studio no estará disponible y no hay ningún fragmentos de código.
 - Si instala ASP.NET MVC 3 para Visual Web Developer Express en un equipo donde no está instalado Visual Studio y después instala Visual Studio, debe volver a instalar ASP.NET MVC 3. Visual Studio y Visual Web Developer Express comparten componentes que se actualizarán con el instalador de ASP.NET MVC 3. El mismo problema se aplica si se instala ASP.NET MVC 3 para Visual Studio en un equipo que no tenga Visual Web Developer Express y, a continuación, instalar más adelante Visual Web Developer Express.
 
@@ -398,7 +398,7 @@ Las predeterminadas son editar y crear plantillas incluyen referencias a los scr
 <a id="_Toc2_4"></a>
 ### <a name="added-htmlraw-method"></a>Método Html.Raw agregado
 
-De forma predeterminada, el código Razor ver motor codifica en HTML todos los valores. Por ejemplo, el siguiente fragmento de código codifica el código HTML dentro de la variable de saludo para que se muestre en la página como &amp;lt; seguro&amp;gt; ¡Hola mundo! &amp;lt; / strong&amp;gt;.
+De forma predeterminada, el código Razor ver motor codifica en HTML todos los valores. Por ejemplo, el siguiente fragmento de código codifica el código HTML dentro de la variable de saludo para que se muestre en la página como `<strong>Hello World!</strong>`.
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample10.cshtml)]
 
@@ -621,7 +621,7 @@ Como alternativa, para desactivar la validación de solicitudes para cada propie
 - El programa de instalación puede tardar mucho más que en versiones anteriores de ASP.NET MVC en completarse que sólo actualiza los componentes de Visual Studio 2010.
 - El scaffolding de agregar vista cuando seleccionando un "Edit" fuertemente tipados vista scaffolds propiedades de sólo lectura. Del mismo modo, las propiedades de solo escritura se scaffolding para las vistas de "Presentación".
 - Durante la instalación, el cuadro de diálogo de aceptación de términos de licencia muestra los términos de licencia en una ventana que es inferior a lo esperado.
-- Instalar el [CTP de Visual Studio Async](https://www.microsoft.com/downloads/en/details.aspx?FamilyID=18712f38-fcd2-4e9f-9028-8373dc5732b2&amp;displaylang=en) provoca un conflicto con la versión de Razor que se incluye como parte de la instalación de herramientas de ASP.NET MVC 3. Asegúrese de que no intente instalar la versión de CTP de Visual Studio Async y la versión de Razor en el mismo equipo.
+- Instalar la versión de CTP de Visual Studio Async, genera un conflicto con la versión de Razor que se incluye como parte de la instalación de herramientas de ASP.NET MVC 3. Asegúrese de que no intente instalar la versión de CTP de Visual Studio Async y la versión de Razor en el mismo equipo.
 - Al editar una vista Razor (archivo .cshtml), el elemento de menú de ir al controlador en Visual Studio no estará disponible y no hay ningún fragmentos de código.
 
 <a id="TOC_ASP_NET_3_Beta"></a>
@@ -852,7 +852,7 @@ Al editar una vista de Razor (CSHTML archivo), el <a id="0.1__Toc224729061"> </a
 
 Cuando se usa el @model ver la sintaxis para especificar un CSHTML fuertemente tipado, no se reconocen los métodos abreviados específicos del idioma para los tipos. Por ejemplo, @model int no funcionará, pero @model funcionará Int32. La solución correspondiente a este error consiste en utilizar el nombre de tipo real cuando se especifica el tipo de modelo.
 
-Cuando se usa el @model sintaxis para especificar una vista fuertemente tipada de CSHTML (o @ModelType para especificar una vista fuertemente tipada de VBHTML), no se admiten los tipos que aceptan valores NULL y las declaraciones de matriz. Por ejemplo, @model int? no se admite. En su lugar, use @model Nullable&lt;Int32&gt;. La sintaxis @model string [] tampoco se admite; en su lugar, use @model IList&lt;cadena&gt;.
+Cuando se usa el @model sintaxis para especificar una vista fuertemente tipada de CSHTML (o @ModelType para especificar una vista fuertemente tipada de VBHTML), no se admiten los tipos que aceptan valores NULL y las declaraciones de matriz. Por ejemplo, @model int? no se admite. En su lugar, use `@model Nullable<Int32>`. La sintaxis @model string [] tampoco se admite; en su lugar, use `@model IList<string>`.
 
 Cuando actualiza un proyecto de ASP.NET MVC 2 a ASP.NET MVC 3, asegúrese de agregar lo siguiente a la sección appSettings del archivo Web.config:
 

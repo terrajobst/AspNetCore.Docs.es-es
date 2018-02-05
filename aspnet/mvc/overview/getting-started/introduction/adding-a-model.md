@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 13aab58e86829a8d4accd1d304420dcb34ffa472
-ms.sourcegitcommit: ec9371e2fbfcb8d62e7e7cae69e7752f3f205385
+ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
+ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 02/05/2018
 ---
 <a name="adding-a-model"></a>Agregar un modelo
 ====================
@@ -58,7 +58,7 @@ Puede hacerlo agregando manualmente el uso de la instrucción, o se puede manten
 
 ![](adding-a-model/_static/image2.png)
 
-Nota: Algunos sin usar `using` instrucciones se han quitado. Visual Studio mostrará dependencias no usadas en gris. Puede quitar las dependencias de unnused manteniendo el mouse sobre las dependencias gris, haga clic en `Show potential fixes` y haga clic en **quitar instrucciones using no usadas.**
+Nota: Algunos sin usar `using` instrucciones se han quitado. Visual Studio mostrará dependencias no usadas en gris. Puede quitar dependencias no usadas por el mouse sobre las dependencias de gris, haga clic en `Show potential fixes` y haga clic en **quitar instrucciones using no usadas.**
 
 ![](adding-a-model/_static/image3.png)
 
