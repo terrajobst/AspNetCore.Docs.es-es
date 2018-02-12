@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/ihostingstartup
-ms.openlocfilehash: bd2446d6133e0c06dc14509271c2d17be4c95b63
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e4b6293aff9fa39b70af40507a2cf5b7efcb295b
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="add-app-features-from-an-external-assembly-using-ihostingstartup-in-aspnet-core"></a>Agregar características de la aplicación desde un ensamblado externo con IHostingStartup en ASP.NET Core
 
@@ -28,7 +28,7 @@ Un [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) i
 
 Para detectar hospedaje ensamblados inicio cargados por la aplicación o bibliotecas, habilitar el registro y compruebe los registros de aplicación. Se registran los errores que se producen al cargar los ensamblados. Cargar ensamblados de inicio de hospedaje se registran en el nivel de depuración y se registran todos los errores.
 
-Las lecturas de la aplicación de ejemplo la la [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) en un `string` de matriz y se muestra el resultado en la página de índice de la aplicación:
+Las lecturas de la aplicación de ejemplo del [HostingStartupAssembliesKey](/dotnet/api/microsoft.aspnetcore.hosting.webhostdefaults.hostingstartupassemblieskey) en un `string` de matriz y se muestra el resultado en la página de índice de la aplicación:
 
 [!code-csharp[Main](ihostingstartup/sample/HostingStartupSample/Pages/Index.cshtml.cs?name=snippet1&highlight=14-16)]
 

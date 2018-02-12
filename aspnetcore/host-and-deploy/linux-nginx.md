@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 9939e420fee41b11e709da911d4051a048e789b3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1044a87a4dcc7636413078b0fc09ade206c97d0a
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hospedar ASP.NET Core en Linux con Nginx
 
@@ -55,13 +55,13 @@ Kestrel es excelente para servir contenido dinámico de ASP.NET Core. Sin embarg
 
 Para los fines de esta guía, se usa una única instancia de Nginx. Se ejecuta en el mismo servidor, junto con el servidor HTTP. En función de requisitos, una instalación diferentes pueden elegirá.
 
-Dado que el proxy inverso reenvía las solicitudes, use el software intermedio `ForwardedHeaders` del paquete `Microsoft.AspNetCore.HttpOverrides`. El software intermedio actualiza `Request.Scheme`, mediante el encabezado `X-Forwarded-Proto`, para que esos URI de redirección y otras directivas de seguridad funcionen correctamente.
+Dado que se reenvíen solicitudes por proxy inverso, usar el Middleware de encabezados reenviados desde el [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paquete. Las actualizaciones de software intermedio el `Request.Scheme`, usando la `X-Forwarded-Proto` encabezado, por lo que ese URI de redirección y las otras directivas de seguridad funcionen correctamente.
 
-Al configurar un servidor proxy inverso, el software intermedio de autenticación necesita que se ejecute `UseForwardedHeaders` primero. Este orden garantiza que el software intermedio de autenticación puede consumir los valores afectados y generar URI de redirección correctos.
+Al utilizar cualquier tipo de middleware de autenticación, el Middleware de encabezados reenviados primero debe ejecutar. Este orden garantiza que el middleware de autenticación puede consumir los valores de encabezado y generar el URI de redireccionamiento correcto.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
-Invoque el método `UseForwardedHeaders` (en el método `Configure` de *Startup.cs*) antes de llamar a `UseAuthentication` o un software intermedio de esquema de autenticación similar:
+Invocar la [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) método `Startup.Configure` antes de llamar a [UseAuthentication](/dotnet/api/microsoft.aspnetcore.builder.authappbuilderextensions.useauthentication) o similar middleware de esquema de autenticación:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -74,7 +74,7 @@ app.UseAuthentication();
 
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
-Invoque el método `UseForwardedHeaders` (en el método `Configure` de *Startup.cs*) antes de llamar a `UseIdentity` y `UseFacebookAuthentication` o un software intermedio de esquema de autenticación similar:
+Invocar la [UseForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) método `Startup.Configure` antes de llamar a [UseIdentity](/dotnet/api/microsoft.aspnetcore.builder.builderextensions.useidentity) y [UseFacebookAuthentication](/dotnet/api/microsoft.aspnetcore.builder.facebookappbuilderextensions.usefacebookauthentication) o un esquema de autenticación similares software intermedio:
 
 ```csharp
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -91,6 +91,8 @@ app.UseFacebookAuthentication(new FacebookOptions()
 ```
 
 ---
+
+Si no hay ningún [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) se especifican en el middleware, los encabezados de forma predeterminada para reenviar son `None`.
 
 ### <a name="install-nginx"></a>Instalar Nginx
 

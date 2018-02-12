@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 0c094c4d4c99702a5b513717126872a254ca3e5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Agregar un nuevo campo en el modelo de película como una tabla
 ====================
@@ -81,7 +81,7 @@ En el **Package Manager Console** ventana, escriba el comando "Agregar-migració
 
 ![](adding-a-new-field-to-the-movie-model-and-table/_static/image7.png)
 
-Migraciones de Code First crea otro archivo de clase en el *migraciones* carpeta (con el nombre *{DateStamp}\_Initial.cs* ), y esta clase contiene código que crea el esquema de base de datos. El nombre de archivo de migración previamente se fija con una marca de tiempo para ayudar a con la ordenación. Examine la *{DateStamp}\_Initial.cs* archivo, contiene las instrucciones para crear la tabla de películas para la base de datos de la película. Al actualizar la base de datos en las instrucciones a continuación, esto *{DateStamp}\_Initial.cs* archivo ejecutará y crear la el esquema de base de datos. La **inicialización** método se ejecutará para rellenar la base de datos con datos de prueba.
+Migraciones de Code First crea otro archivo de clase en el *migraciones* carpeta (con el nombre *{DateStamp}\_Initial.cs* ), y esta clase contiene código que crea el esquema de base de datos. El nombre de archivo de migración previamente se fija con una marca de tiempo para ayudar a con la ordenación. Examine la *{DateStamp}\_Initial.cs* archivo, contiene las instrucciones para crear la tabla de películas para la base de datos de la película. Al actualizar la base de datos en las instrucciones a continuación, esto *{DateStamp}\_Initial.cs* archivo ejecutará y crear el esquema de base de datos. La **inicialización** método se ejecutará para rellenar la base de datos con datos de prueba.
 
 En el **Package Manager Console**, escriba el comando "update-database" para crear la base de datos y ejecutar el **inicialización** método.
 

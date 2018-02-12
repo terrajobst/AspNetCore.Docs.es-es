@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 65717c1605c7f55bfd836110072772fe3dcdeb76
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: aa06200c6983f2c09a7271c8e8ce4b38f54163ad
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migración de ASP.NET a ASP.NET Core 2.0
 
@@ -77,7 +77,7 @@ El host y la aplicación se han desacoplado, lo que proporciona la flexibilidad 
 
 **Nota:** Para una referencia más detallada sobre el inicio de ASP.NET Core y middleware en [Startup in ASP.NET Core](xref:fundamentals/startup) (Inicio de aplicaciones en ASP.NET Core).
 
-## <a name="storing-configurations"></a>Almacenar configuraciones de
+## <a name="storing-configurations"></a>Almacenamiento de configuraciones
 ASP.NET admite el almacenamiento de valores de configuración. Estos valores de configuración se usan, por ejemplo, para admitir el entorno donde se implementan las aplicaciones. Antes se solían almacenar todos los pares de clave y valor personalizados en la sección `<appSettings>` del archivo *Web.config*:
 
 [!code-xml[Main](samples/webconfig-sample.xml)]
@@ -107,7 +107,7 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 
 **Nota:** Para una referencia más detallada sobre la configuración de ASP.NET Core, vea [Configuration in ASP.NET Core](xref:fundamentals/configuration/index) (Configuración en ASP.NET Core).
 
-## <a name="native-dependency-injection"></a>Inyección de dependencia nativo
+## <a name="native-dependency-injection"></a>Inserción de dependencias nativa
 Un objetivo importante al compilar aplicaciones grandes y escalables es lograr el acoplamiento flexible de los componentes y los servicios. La [inserción de dependencias](xref:fundamentals/dependency-injection) es una técnica popular para lograrlo y se trata de un componente nativo de ASP.NET Core.
 
 En las aplicaciones ASP.NET, los desarrolladores se basan en una biblioteca de terceros para implementar la inserción de dependencias. Una de estas bibliotecas es [Unity](https://github.com/unitycontainer/unity), suministrada por Microsoft Patterns & Practices. 
@@ -132,7 +132,7 @@ El repositorio se puede insertar en cualquier lugar, como ocurría con Unity.
 
 **Nota:** Para una referencia detallada sobre la inserción de dependencias en ASP.NET Core, vea [Dependency Injection in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container) (Inserción de dependencias en ASP.NET Core).
 
-## <a name="serving-static-files"></a>Enviar archivos estáticos
+## <a name="serving-static-files"></a>Trabajar con archivos estáticos
 Una parte importante del desarrollo web es la capacidad de trabajar con activos estáticos de cliente. Los ejemplos más comunes de archivos estáticos son HTML, CSS, JavaScript e imágenes. Estos archivos deben guardarse en la ubicación de publicación de la aplicación (o la red de entrega de contenido) y es necesario hacer referencia a ellos para que una solicitud los pueda cargar. Este proceso ha cambiado en ASP.NET Core.
 
 En ASP.NET, los archivos estáticos se almacenan en directorios distintos y se hace referencia a ellos en las vistas.

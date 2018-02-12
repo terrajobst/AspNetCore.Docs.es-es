@@ -8,11 +8,11 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1318ae855154dd8fc91ff0c19b0ab111d86c71e6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="azure-key-vault-configuration-provider"></a>Proveedor de configuración de almacén de claves de Azure
 
@@ -77,7 +77,7 @@ Cuando se ejecuta la aplicación, una página Web muestra los valores cargados s
 `AddAzureKeyVault`También proporciona una sobrecarga que acepta una implementación de `IKeyVaultSecretManager`, que le permite controlar cómo clave secretos del almacén se convierten en las claves de configuración. Por ejemplo, puede implementar la interfaz para cargar valores secretos basándose en un valor de prefijo que proporcione al iniciar la aplicación. Esto le permite, por ejemplo, para cargar los secretos en función de la versión de la aplicación.
 
 > [!WARNING]
-> No utilizar prefijos en secretos del almacén de claves colocar secretos para varias aplicaciones en el mismo almacén de claves o colocar secretos entorno (por ejemplo, *desarrollo* verus *producción* secretos) en el mismo almacén. Se recomienda que diferentes aplicaciones y entornos de desarrollo o de producción usan almacenes claves independientes para aislar los entornos de aplicación para el nivel más alto de seguridad.
+> No utilizar prefijos en secretos del almacén de claves colocar secretos para varias aplicaciones en el mismo almacén de claves o colocar secretos entorno (por ejemplo, *desarrollo* frente a *producción* secretos) en el mismo almacén. Se recomienda que diferentes aplicaciones y entornos de desarrollo o de producción usan almacenes claves independientes para aislar los entornos de aplicación para el nivel más alto de seguridad.
 
 Con la segunda aplicación de ejemplo, crear un secreto en el almacén de claves para `5000-AppSecret` (períodos no están permitidos en los nombres de secreto de almacén de claves) que representa un secreto de la aplicación para la versión 5.0.0.0 de la aplicación. Para obtener otra versión, 5.1.0.0, crear un secreto para `5100-AppSecret`. Cada versión de la aplicación carga su propio valor secreto en su configuración como `AppSecret`, extracción desactivar la versión cuando se cargue el secreto. Implementación del ejemplo se muestra a continuación:
 

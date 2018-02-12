@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/introduction-to-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 27150d314b6861f1098e6ef4a7de94e7b371a78e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 64ac4e3575f69c164ba053943984ef25f906d7f4
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/11/2018
 ---
 <a name="introduction-to-signalr"></a>Introducción a SignalR
 ====================
@@ -35,7 +35,7 @@ ASP.NET SignalR es una biblioteca para desarrolladores ASP.NET que simplifica el
 
 SignalR puede utilizarse para agregar a algún tipo de funcionalidad web "en tiempo real" a la aplicación ASP.NET. Mientras chat a menudo se utiliza como ejemplo, puede hacer mucho más. Siempre que un usuario actualiza una página web para ver los nuevos datos o la página implementa [sondeo largo](http://en.wikipedia.org/wiki/Push_technology#Long_polling) para recuperar nuevos datos, es un candidato para el uso de SignalR. Algunos ejemplos son paneles y supervisión de aplicaciones, aplicaciones de colaboración (por ejemplo, la edición simultánea de documentos), las actualizaciones de progreso y trabajo formularios en tiempo real.
 
-SignalR también permite completamente nuevos tipos de aplicaciones web que requieren actualizaciones de alta frecuencia desde el servidor, por ejemplo, los juegos en tiempo real. Para obtener un buen ejemplo de esto, consulte el [ShootR juego.](http://shootr.signalr.net/)
+SignalR también permite completamente nuevos tipos de aplicaciones web que requieren actualizaciones de alta frecuencia desde el servidor, por ejemplo, los juegos en tiempo real.
 
 SignalR proporciona una API sencilla para crear llamadas a procedimiento remoto de servidor a cliente (RPC) que llaman a funciones de JavaScript de cliente exploradores (y otras plataformas de cliente) desde el código de .NET en el servidor de. SignalR también incluye API para la administración de conexión (por ejemplo, la conexión y eventos de desconexión) y agrupación de conexiones.
 

@@ -11,11 +11,11 @@ ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: badc1c9b10ac27c3d876e3331c855a9d5904d27d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrar aplicaciones de ASP.NET MVC a contenedores de Windows
 
@@ -73,7 +73,7 @@ Haga clic en **Publicar** y Visual Studio copiará todos los recursos necesarios
 
 Defina la imagen de Docker en un Dockerfile. El Dockerfile que contenga instrucciones para la imagen base, componentes adicionales, la aplicación que quiere ejecutar y otras imágenes de configuración.  El Dockerfile es la entrada al comando `docker build`, que crea la imagen.
 
-Creará una imagen basada en la imagen `microsft/aspnet` que se encuentra en [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
+Creará una imagen basada en la imagen `microsoft/aspnet` que se encuentra en [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
 La imagen base, `microsoft/aspnet`, es una imagen de Windows Server. Contiene Windows Server Core, IIS y ASP.NET 4.6.2. Al ejecutar esta imagen en el contenedor, iniciará de forma automática IIS y los sitios web instalados.
 
 El Dockerfile que crea la imagen tiene el siguiente aspecto:

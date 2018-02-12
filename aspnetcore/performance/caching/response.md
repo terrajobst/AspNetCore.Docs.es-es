@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c38f9b9a1bf1c523951e2cf1f3070858fe5daf04
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
@@ -68,7 +68,7 @@ Para obtener más información, consulte [Introducción al almacenamiento en cac
 
 ### <a name="distributed-cache"></a>Caché distribuida
 
-Usar una memoria caché distribuida para almacenar datos en la memoria cuando la aplicación se hospeda en una granja de servidores en la nube o el servidor. La memoria caché se comparte entre los servidores que procesan las solicitudes. Un cliente puede enviar una solicitud que se administra cualquier servidor en el grupo y datos almacenados en caché para el cliente está disponible. ASP.NET Core ofrece SQL Server y las cachés de Redis distribuida.
+Usar una memoria caché distribuida para almacenar datos en la memoria cuando la aplicación se hospeda en una granja de servidores en la nube o el servidor. La memoria caché se comparte entre los servidores que procesan las solicitudes. Un cliente puede enviar una solicitud que controla cualquier servidor en el grupo si los datos almacenados en caché para el cliente están disponibles. ASP.NET Core ofrece SQL Server y las cachés de Redis distribuida.
 
 Para obtener más información, consulte [trabajar con una memoria caché distribuida](xref:performance/caching/distributed).
 
@@ -86,12 +86,14 @@ Para obtener más información, consulte [auxiliar de etiqueta de caché distrib
 
 ## <a name="responsecache-attribute"></a>Atributo ResponseCache
 
-El `ResponseCacheAttribute` especifica los parámetros necesarios para establecer encabezados apropiados en las respuestas en caché. Vea [ResponseCacheAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.responsecacheattribute) para obtener una descripción de los parámetros.
+El [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAttribute) especifica los parámetros necesarios para establecer encabezados apropiados en las respuestas en caché.
 
 > [!WARNING]
 > Deshabilitar el almacenamiento en caché para el contenido que contiene información para clientes autenticados. Sólo debe habilitarse el almacenamiento en caché para el contenido que no cambia en función de la identidad de un usuario o si un usuario ha iniciado sesión.
 
-`VaryByQueryKeys string[]`(requiere ASP.NET Core 1.1 y versiones posterior): cuando se establece, el Middleware de almacenamiento en caché de respuesta varía la respuesta almacenada en los valores de la lista de claves de consulta determinada. El Middleware de almacenamiento en caché de la respuesta debe estar habilitado para establecer el `VaryByQueryKeys` propiedad; en caso contrario, se produce una excepción en tiempo de ejecución. No hay ningún encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. Esta propiedad es una característica HTTP controlada el Middleware de almacenamiento en caché de respuesta. Para que el middleware atender una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la posibilidad de la secuencia de las solicitudes y resultados que se muestran en la tabla siguiente.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varía la respuesta almacenada en los valores de la lista de claves de consulta determinada. Cuando un valor único de `*` es siempre el middleware varía las respuestas por todos los parámetros de cadena de consulta de solicitud. `VaryByQueryKeys`requiere ASP.NET Core 1.1 o posterior.
+
+El Middleware de almacenamiento en caché de la respuesta debe estar habilitado para establecer el `VaryByQueryKeys` propiedad; en caso contrario, se produce una excepción en tiempo de ejecución. No hay un encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. La propiedad es una característica HTTP controlada el Middleware de almacenamiento en caché de respuesta. Para que el middleware atender una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la posibilidad de la secuencia de las solicitudes y resultados que se muestran en la tabla siguiente.
 
 | Solicitud                          | Resultado                   |
 | -------------------------------- | ------------------------ |
@@ -101,7 +103,7 @@ El `ResponseCacheAttribute` especifica los parámetros necesarios para establece
 
 La primera solicitud es devuelto por el servidor y en memoria caché de middleware. Dado que la cadena de consulta coincide con la solicitud anterior, se devuelve la segunda solicitud middleware. La tercera solicitud no se encuentra en la caché de middleware porque el valor de cadena de consulta no coincide con una solicitud anterior. 
 
-El `ResponseCacheAttribute` se utiliza para crear y configurar (a través de `IFilterFactory`) un `ResponseCacheFilter`. El `ResponseCacheFilter` realiza el trabajo de actualización de los encabezados HTTP adecuados y características de la respuesta. El filtro:
+El `ResponseCacheAttribute` se utiliza para crear y configurar (a través de `IFilterFactory`) un [ResponseCacheFilter](/dotnet/api/microsoft.aspnetcore.mvc.internal.responsecachefilter). El `ResponseCacheFilter` realiza el trabajo de actualización de los encabezados HTTP adecuados y características de la respuesta. El filtro:
 
 * Quita los encabezados existentes para `Vary`, `Cache-Control`, y `Pragma`. 
 * Escribe los encabezados adecuados en función de las propiedades establecidas en el `ResponseCacheAttribute`. 
