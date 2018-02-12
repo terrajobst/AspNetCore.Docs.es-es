@@ -1,38 +1,38 @@
 ---
-title: Anclar etiqueta auxiliar | Documentos de Microsoft
+title: "Aplicación auxiliar de etiquetas delimitadoras en ASP.NET Core"
 author: pkellner
-description: "Muestra cómo trabajar con la aplicación auxiliar de etiquetas de delimitador"
-ms.author: riande
+description: "Muestra cómo trabajar con la aplicación auxiliar de etiquetas delimitadoras"
 manager: wpickett
+ms.author: riande
 ms.date: 12/20/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 74609b515936ec7da8bfc133c27cb69f51311924
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 404fc7bc3b35114066f035e1ac28d10a8279ccbc
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="anchor-tag-helper"></a>Aplicación auxiliar de etiquetas de delimitador
+# <a name="anchor-tag-helper"></a>Aplicación auxiliar de etiquetas delimitadoras
 
 Por [Peter Kellner](http://peterkellner.net) 
 
-La aplicación auxiliar de etiquetas de delimitador mejora el delimitador HTML (`<a ... ></a>`) etiqueta mediante la adición de nuevos atributos. El vínculo generado (en la `href` etiqueta) se crea con los nuevos atributos. Esa dirección URL puede incluir un protocolo como https opcional.
+La aplicación auxiliar de etiquetas delimitadoras mejora la etiqueta delimitadora HTML (`<a ... ></a>`) mediante la adición de nuevos atributos. El vínculo generado (en la etiqueta `href`) se crea con los nuevos atributos. Esa dirección URL puede incluir un protocolo opcional como https.
 
-El controlador de altavoz siguiente se utiliza en los ejemplos de este documento.
+El siguiente controlador de altavoz se utiliza en los ejemplos de este documento.
 
 **SpeakerController.cs** 
 
 [!code-csharp[SpeakerController](sample/TagHelpersBuiltInAspNetCore/src/TagHelpersBuiltInAspNetCore/Controllers/SpeakerController.cs)]
 
 
-## <a name="anchor-tag-helper-attributes"></a>Atributos de aplicación auxiliar de etiqueta de anclaje
+## <a name="anchor-tag-helper-attributes"></a>Atributos de aplicación auxiliar de etiquetas delimitadoras
 
-### <a name="asp-controller"></a>controlador de ASP
+### <a name="asp-controller"></a>asp-controller
 
-`asp-controller`se utiliza para asociar el controlador que se usarán para generar la dirección URL. Los controladores especificados deben existir en el proyecto actual. El código siguiente enumera todos los altavoces: 
+`asp-controller` se utiliza para asociar el controlador que se usará para generar la dirección URL. Los controladores especificados deben existir en el proyecto actual. El código siguiente enumera todos los altavoces: 
 
 ```cshtml
 <a asp-controller="Speaker" asp-action="Index">All Speakers</a>
@@ -44,15 +44,15 @@ El marcado generado será:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Si el `asp-controller` se especifica y `asp-action` no es así, el valor predeterminado `asp-action` será el método de controlador predeterminado de la vista está ejecutando actualmente. Que es, en el ejemplo anterior, si `asp-action` se omite, y se genera esta aplicación auxiliar de etiquetas de delimitador de *HomeController*del `Index` vista (**/Home**), el marcado generado será:
+Si se especifica `asp-controller` pero no `asp-action`, el valor predeterminado `asp-action` será el método de controlador predeterminado de la vista que se está ejecutando en ese momento. Es decir, en el ejemplo anterior, si se omite `asp-action`, y esta aplicación auxiliar de etiquetas delimitadoras se genera desde la vista `Index` de *HomeController* (**/Home**), el marcado generado será:
 
 ```html
 <a href="/Home">All Speakers</a>
 ```
 
-### <a name="asp-action"></a>acción de ASP
+### <a name="asp-action"></a>asp-action
 
-`asp-action`es el nombre del método de acción en el controlador que se van a incluir en los botones generados `href`. Por ejemplo, el código siguiente establece el generado `href` para que apunte a la página de detalles de altavoces:
+`asp-action` es el nombre del método de acción en el controlador que se incluirá en el `href` generado. Por ejemplo, el código siguiente establece el `href` generado para que apunte a la página de detalles del altavoz:
 
 ```html
 <a asp-controller="Speaker" asp-action="Detail">Speaker Detail</a>
@@ -64,44 +64,44 @@ El marcado generado será:
 <a href="/Speaker/Detail">Speaker Detail</a>
 ```
 
-Si no hay ningún `asp-controller` atributo se especifica, se usará el controlador de forma predeterminada al llamar a la vista ejecutar la vista actual.  
+Si no hay ningún atributo `asp-controller` especificado, se usará el controlador predeterminado que llama a la vista que se ejecuta actualmente.  
  
-Si el atributo `asp-action` es `Index`, a continuación, no se anexa ninguna acción a la dirección URL, lo que el valor predeterminado `Index` llamada al método. La acción especificada (o su valor predeterminado), debe existir en el controlador al que hace referencia en `asp-controller`.
+Si el atributo `asp-action` es `Index`, no se anexa ninguna acción a la dirección URL, por lo que se llama al método `Index` predeterminado. La acción especificada (o su valor predeterminado), debe existir en el controlador al que se hace referencia en `asp-controller`.
 
-### <a name="asp-page"></a>página ASP
+### <a name="asp-page"></a>asp-page
 
-Use la `asp-page` atributo en una etiqueta delimitadora para establecer su dirección URL para que señale a una página específica. El nombre de la página con una barra diagonal "/" crea la dirección URL. La dirección URL en el ejemplo siguiente señala a la página "Altavoz" en el directorio actual.
+Use el atributo `asp-page` en una etiqueta delimitadora para establecer su dirección URL de modo que señale a una página específica. La dirección URL se crea al prefijar el nombre de la página con una barra diagonal "/". La dirección URL del ejemplo siguiente apunta a la página "Altavoz" en el directorio actual.
 
 ```cshtml
 <a asp-page="/Speakers">All Speakers</a>
 ```
 
-El `asp-page` atributo en el ejemplo de código anterior representa la salida HTML en la vista que es similar al fragmento de código siguiente:
+El atributo `asp-page` en el ejemplo de código anterior representa una salida HTML en la vista similar al fragmento de código siguiente:
 
 ```html
 <a href="/items?page=%2FSpeakers">Speakers</a>
 ```
 
-El `asp-page` atributo es mutuamente excluyente con la `asp-route`, `asp-controller`, y `asp-action` atributos. Sin embargo, `asp-page` puede utilizarse con `asp-route-id` para controlar el enrutamiento, como se muestra en el ejemplo de código siguiente:
+El atributo `asp-page` es mutuamente excluyente con los atributos `asp-route`, `asp-controller` y `asp-action`. Pero `asp-page` puede utilizarse con `asp-route-id` para controlar el enrutamiento, como se muestra en el ejemplo de código siguiente:
 
 ```cshtml
 <a asp-page="/Speaker" asp-route-id="@speaker.Id">View Speaker</a>
 ```
 
-El `asp-route-id` produce el siguiente resultado:
+`asp-route-id` genera el siguiente resultado:
 
 ```html
 https://localhost:44399/Speakers/Index/2?page=%2FSpeaker
 ```
 
 > [!NOTE]
-> Para usar el `asp-page` atributo en las páginas de Razor, las direcciones URL debe ser una ruta de acceso relativa, por ejemplo `"./Speaker"`. Rutas de acceso relativas en el `asp-page` atributo no están disponibles en las vistas de MVC. Utilice la sintaxis "/" para las vistas de MVC en su lugar.
+> Para usar el atributo `asp-page` en las páginas de Razor, las direcciones URL deben ser una ruta de acceso relativa, por ejemplo `"./Speaker"`. Las rutas de acceso relativas en el atributo `asp-page` no están disponibles en las vistas de MVC. En su lugar, use la sintaxis "/" para las vistas de MVC.
 
-### <a name="asp-route-value"></a>asp-route-{value}
+### <a name="asp-route-value"></a>asp-route-{valor}
 
-`asp-route-`es un prefijo de ruta comodín. Cualquier valor que se coloca después de que el guión al final se interpretará como un parámetro de ruta posibles. Si no se encuentra una ruta predeterminada, este prefijo de ruta se anexará a la etiqueta href generada como un parámetro de solicitud y un valor. En caso contrario, se sustituirá en la plantilla de ruta.
+`asp-route-` es un prefijo de ruta comodín. Cualquier valor que se coloque después del guion final se interpretará como un parámetro de ruta potencial. Si no se encuentra una ruta predeterminada, este prefijo de ruta se anexará a la etiqueta href generada como un parámetro de solicitud y un valor. En caso contrario, se sustituirá en la plantilla de ruta.
 
-Suponiendo que haya un método de controlador define como sigue:
+Suponiendo que tenga un método de controlador definido del modo siguiente:
 
 ```csharp
 public IActionResult AnchorTagHelper(string id)
@@ -114,7 +114,7 @@ public IActionResult AnchorTagHelper(string id)
 }
 ```
 
-Y haga que la plantilla de ruta predeterminados definida en su *Startup.cs* como se indica a continuación:
+Y que haya definido la plantilla de ruta predeterminada en su *Startup.cs* como se indica a continuación:
 
 ```csharp
 app.UseMvc(routes =>
@@ -126,7 +126,7 @@ app.UseMvc(routes =>
 
 ```
 
-El **cshtml** archivo que contiene la aplicación auxiliar etiqueta de anclaje necesarios para utilizar el **altavoces** es el parámetro de modelo que se pasan desde el controlador a la vista siguiente:
+A continuación se muestra el archivo **cshtml** que contiene la aplicación auxiliar de etiquetas delimitadoras necesaria para utilizar el parámetro de modelo **speaker** que se pasa desde el controlador a la vista:
 
 ```cshtml
 @model SpeakerData
@@ -136,13 +136,13 @@ El **cshtml** archivo que contiene la aplicación auxiliar etiqueta de anclaje n
 <body></html>
 ```
 
-El código HTML generado, a continuación, será la siguiente porque **identificador** se encontró en la ruta predeterminada.
+El código HTML generado será como sigue, dado que **id** se encontró en la ruta predeterminada.
 
 ```html
 <a href='/Speaker/Detail/12'>SpeakerId: 12</a>
 ```
 
-Si el prefijo de ruta no forma parte de la plantilla de enrutamiento, que es el caso de los siguientes **cshtml** archivo:
+Si el prefijo de ruta no forma parte de la plantilla de enrutamiento encontrada, como es el caso del siguiente archivo **cshtml**:
 
 ```cshtml
 @model SpeakerData
@@ -152,25 +152,25 @@ Si el prefijo de ruta no forma parte de la plantilla de enrutamiento, que es el 
 <body></html>
 ```
 
-El código HTML generado, a continuación, será la siguiente porque **speakerid** no se encontró en la ruta coincida:
+El código HTML generado será como sigue, dado que **speakerid** no se encontró en la ruta coincidente:
 
 ```html
 <a href='/Speaker/Detail?speakerid=12'>SpeakerId: 12</a>
 ```
 
-Si el valor `asp-controller` o `asp-action` no se especifica, se sigue el mismo proceso predeterminado tal y como se encuentra en la `asp-route` atributo.
+Si no se especifica `asp-controller` o `asp-action`, se sigue el mismo proceso predeterminado que en el atributo `asp-route`.
 
-### <a name="asp-route"></a>ruta de ASP
+### <a name="asp-route"></a>asp-route
 
-`asp-route`Proporciona una manera de crear una dirección URL que se vincula directamente a una ruta con nombre. Uso de atributos de enrutamientos, una ruta puede tener el nombre tal y como se muestra en el `SpeakerController` y se utiliza en su `Evaluations` método.
+`asp-route` proporciona una manera de crear una dirección URL que se vincula directamente a una ruta con nombre. Utilizando atributos de enrutamiento, puede asignarse el nombre a una ruta tal y como se muestra en `SpeakerController` y usarse en su método `Evaluations`.
 
-`Name = "speakerevals"`indica la etiqueta de anclaje de aplicación auxiliar para generar una ruta directa a ese método de controlador utilizando la dirección URL `/Speaker/Evaluations`. Si `asp-controller` o `asp-action` se especifica además `asp-route`, la ruta generadas no puede ser los esperados. `asp-route`no deben usarse con cualquiera de los atributos `asp-controller` o `asp-action` para evitar un conflicto de ruta.
+`Name = "speakerevals"` indica a la aplicación auxiliar de etiquetas delimitadoras que genere una ruta directa a ese método de controlador usando la dirección URL `/Speaker/Evaluations`. Si además de `asp-route` se especifica `asp-controller` o `asp-action`, la ruta generada puede no ser la esperada. `asp-route` no debe usarse con ninguno de los atributos `asp-controller` o `asp-action` para evitar un conflicto de ruta.
 
 ### <a name="asp-all-route-data"></a>asp-all-route-data
 
-`asp-all-route-data`permite crear un diccionario de pares clave / valor donde la clave es el nombre del parámetro y el valor es el valor asociado a esa clave.
+`asp-all-route-data` permite crear un diccionario de pares clave/valor donde la clave es el nombre del parámetro y el valor es el valor asociado a esa clave.
 
-Como muestra el ejemplo siguiente, se crea un diccionario en línea y los datos se pasan a la vista de razor. Como alternativa, también podrían pasar los datos con el modelo.
+Como se muestra en el ejemplo siguiente, se crea un diccionario insertado y los datos se pasan a la vista de Razor. También hay la opción de pasar los datos con su modelo.
 
 ```cshtml
 @{
@@ -187,13 +187,13 @@ asp-all-route-data="dict">SpeakerEvals</a>
 
 El código anterior genera la siguiente dirección URL: http://localhost/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true
 
-Cuando se hace clic el vínculo, el método del controlador `EvaluationsCurrent` se llama. Se denomina porque ese controlador tiene dos parámetros de cadena que coincide con lo que se ha creado a partir del `asp-all-route-data` diccionario.
+Cuando se hace clic en el vínculo, se llama al método de controlador `EvaluationsCurrent`. La llamada se realiza porque ese controlador tiene dos parámetros de cadena que coinciden con lo que se ha creado a partir del diccionario `asp-all-route-data`.
 
-Si todas las claves de la búsqueda de coincidencias de diccionario de parámetros de ruta, se sustituirán los valores en la ruta según corresponda y los demás valores no coincidentes se generará como parámetros de la solicitud.
+Si alguna de las claves del diccionario coincide con los parámetros de ruta, se sustituirán los valores en la ruta según corresponda y los demás valores no coincidentes se generarán como parámetros de solicitud.
 
-### <a name="asp-fragment"></a>fragmento de ASP
+### <a name="asp-fragment"></a>asp-fragment
 
-`asp-fragment`define un fragmento de dirección URL que se anexará a la dirección URL. La aplicación auxiliar de etiquetas de delimitador agregará el carácter de almohadilla (#). Si crea una etiqueta:
+`asp-fragment` define un fragmento de dirección URL que se anexará a la dirección URL. La aplicación auxiliar de etiquetas delimitadoras agregará el carácter de almohadilla (#). Si crea una etiqueta:
 
 ```cshtml
 <a asp-action="Evaluations" asp-controller="Speaker"  
@@ -202,11 +202,11 @@ Si todas las claves de la búsqueda de coincidencias de diccionario de parámetr
 
 La dirección URL generada será: http://localhost/Speaker/Evaluations#SpeakerEvaluations
 
-Etiquetas de hash son útiles al crear aplicaciones del lado cliente. Se puede usar para marcar y buscar en JavaScript, por ejemplo fácilmente.
+Las etiquetas hash son útiles al crear aplicaciones del lado cliente. Por ejemplo, se pueden usar para el marcado y la búsqueda en JavaScript.
 
-### <a name="asp-area"></a>área de ASP
+### <a name="asp-area"></a>asp-area
 
-`asp-area`establece el nombre del área que ASP.NET Core se utiliza para establecer la ruta adecuada. A continuación se muestran ejemplos de cómo el atributo de área hace una reasignación de rutas. Establecer `asp-area` a Blogs prefijos el directorio `Areas/Blogs` a las rutas de los controladores asociados y vistas de esta etiqueta delimitadora.
+`asp-area` establece el nombre del área que ASP.NET Core utiliza para establecer la ruta adecuada. A continuación se muestran ejemplos de cómo el atributo de área hace una reasignación de rutas. Al establecer `asp-area` en Blogs, el directorio `Areas/Blogs` se prefija en las rutas de los controladores y vistas asociados de esta etiqueta delimitadora.
 
 * Nombre de proyecto
   * wwwroot
@@ -220,32 +220,32 @@ Etiquetas de hash son útiles al crear aplicaciones del lado cliente. Se puede u
           * AboutBlog.cshtml
   * Controladores
 
-Especificar una etiqueta de área que es válida, como ```area="Blogs"``` al hacer referencia a la ```AboutBlog.cshtml``` archivo tendrá un aspecto similar al siguiente utilizando la aplicación auxiliar de etiquetas de delimitador.
+Especificar una etiqueta de área que sea válida, como ```area="Blogs"``` al hacer referencia al archivo ```AboutBlog.cshtml```, tendrá un aspecto similar al siguiente mediante la aplicación auxiliar de etiquetas delimitadoras.
 
 ```cshtml
 <a asp-action="AboutBlog" asp-controller="Home" asp-area="Blogs">Blogs About</a>
 ```
 
-El código HTML generado incluirá el segmento de áreas y será como se indica a continuación:
+El código HTML generado incluirá el segmento de áreas y será así:
 
 ```html
 <a href="/Blogs/Home/AboutBlog">Blogs About</a>
 ```
 
 > [!TIP]
-> Para que las áreas MVC trabajar en una aplicación web, la plantilla de ruta debe incluir una referencia al área si existe. Esa plantilla, que es el segundo parámetro de la `routes.MapRoute` llamada al método, se mostrarán como:`template: '"{area:exists}/{controller=Home}/{action=Index}"'`
+> Para que las áreas MVC funcionen en una aplicación web, la plantilla de ruta debe incluir una referencia al área si existe. Esa plantilla, que es el segundo parámetro de la llamada al método `routes.MapRoute`, se mostrará como: `template: '"{area:exists}/{controller=Home}/{action=Index}"'`
 
 ### <a name="asp-protocol"></a>asp-protocol
 
-El `asp-protocol` es para especificar un protocolo (como `https`) en la dirección URL. Un ejemplo de aplicación auxiliar de etiquetas de delimitador que incluya el protocolo será como se indica a continuación:
+`asp-protocol` sirve para especificar un protocolo (como `https`) en la dirección URL. El siguiente es un ejemplo de aplicación auxiliar de etiquetas delimitadoras que incluya el protocolo:
 
 ```<a asp-protocol="https" asp-action="About" asp-controller="Home">About</a>```
 
-y generará HTML de la siguiente manera:
+Este será el código HTML generado:
 
 ```<a href="https://localhost/Home/About">About</a>```
 
-El dominio en el ejemplo es el host local, pero la aplicación auxiliar de etiquetas de delimitador de dominio del sitio Web público se utiliza al generar la dirección URL.
+El dominio del ejemplo es el host local, pero la aplicación auxiliar de etiquetas delimitadoras utiliza el dominio público del sitio web al generar la dirección URL.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

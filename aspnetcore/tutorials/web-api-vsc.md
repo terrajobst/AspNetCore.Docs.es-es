@@ -1,25 +1,25 @@
 ---
 title: Crear una API Web con ASP.NET Core y Visual Studio Code
-description: Compilar una API web con ASP.NET Core MVC y Visual Studio Code en macOS, Linux o Windows
 author: rick-anderson
+description: Compilar una API web con ASP.NET Core MVC y Visual Studio Code en macOS, Linux o Windows
+manager: wpickett
 ms.author: riande
 ms.date: 09/22/2017
-ms.topic: get-started-article
 ms.prod: asp.net-core
 ms.technology: aspnet
-manager: wpickett
+ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 9fec8904cf05fc486160c0641731c6336fe2766a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 44566c4014400aa2ca3d512eeaa226637b5f0b97
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Crear una Web API con ASP.NET Core MVC y Visual Studio Code en Linux, macOS y Windows
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://github.com/mikewasson)
 
-En este tutorial compilará una API Web para administrar una lista de tareas pendientes. No compilará ninguna interfaz de usuario.
+En este tutorial se compila una API web para administrar una lista de tareas pendientes. No se construye una interfaz de usuario.
 
 Hay tres versiones de este tutorial:
 

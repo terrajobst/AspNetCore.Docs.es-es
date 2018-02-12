@@ -2,7 +2,7 @@
 
 En este tutorial se crea la siguiente API:
 
-|API | Descripción | Cuerpo de la solicitud | Cuerpo de la respuesta |
+|API | Description | Cuerpo de la solicitud | Cuerpo de la respuesta |
 |--- | ---- | ---- | ---- |
 |GET /api/todo | Obtener todas las tareas pendientes | Ninguna | Matriz de tareas pendientes|
 |GET /api/todo/{id} | Obtener un elemento por identificador | Ninguna | Tarea pendiente|

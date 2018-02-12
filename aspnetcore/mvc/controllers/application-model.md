@@ -2,106 +2,106 @@
 title: "Trabajar con el modelo de aplicación"
 author: ardalis
 description: 
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: a0913edaab723656c9be484332e02c551a5c88e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 08f67b517b2d7ee1186666a4eb5c6c925eb3bd5d
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="working-with-the-application-model"></a>Trabajar con el modelo de aplicación
 
 Por [Steve Smith](https://ardalis.com/)
 
-Núcleo ASP.NET MVC define un *modelo de aplicación* que representan los componentes de una aplicación MVC. Puede leer y manipular el modelo para modificar cómo se comportan los elementos MVC. De forma predeterminada, MVC sigue ciertas convenciones para determinar qué clases se consideran controladores, los métodos de esas clases son las acciones y el comportan de enrutamiento y parámetros. Puede personalizar este comportamiento para satisfacer las necesidades de su aplicación mediante la creación de sus propias convenciones y aplicarla globalmente o como atributos.
+ASP.NET Core MVC define un *modelo de aplicación* que representa los componentes de una aplicación MVC. Puede leer y manipular este modelo para modificar la manera en que se comportan los elementos de MVC. De forma predeterminada, MVC sigue ciertas convenciones para determinar qué clases se consideran controladores, qué métodos de esas clases son acciones y cómo se comportan los parámetros y el enrutamiento. Puede personalizar este comportamiento para adaptarlo a las necesidades de su aplicación. Para ello, basta con que cree sus propias convenciones y las aplique globalmente o como atributos.
 
-## <a name="models-and-providers"></a>Modelos y los proveedores
+## <a name="models-and-providers"></a>Modelos y proveedores
 
-El modelo de aplicación de MVC de ASP.NET Core incluyen interfaces abstractas y las clases de implementación concreta que describen una aplicación MVC. Este modelo es el resultado de la detección de controladores, acciones, parámetros de acción, rutas y filtros de acuerdo con las convenciones de forma predeterminada de la aplicación MVC. Cuando se trabaja con el modelo de aplicación, puede modificar la aplicación para seguir las convenciones diferentes del comportamiento de MVC predeterminada. Los parámetros, nombres, rutas y filtros usa como datos de configuración para las acciones y controladores.
+El modelo de aplicación de ASP.NET Core MVC incluye interfaces abstractas y clases de implementación concretas que describen una aplicación MVC. Este modelo es el resultado de la detección por parte de MVC de los controladores, las acciones, los parámetros de acción, las rutas y los filtros de la aplicación de acuerdo con las convenciones predeterminadas. Cuando trabaje con el modelo de aplicación, puede modificar la aplicación para que siga convenciones diferentes del comportamiento predeterminado de MVC. Los parámetros, nombres, rutas y filtros se usan como datos de configuración para las acciones y los controladores.
 
-El modelo de aplicación de MVC de ASP.NET Core tiene la estructura siguiente:
+El modelo de aplicación de ASP.NET Core MVC tiene la estructura siguiente:
 
 * ApplicationModel
     * Controladores (ControllerModel)
         * Acciones (ActionModel)
             * Parámetros (ParameterModel)
 
-Cada nivel del modelo tiene acceso a un común `Properties` colección niveles inferiores pueden tener acceso y sobrescribir los valores de propiedad establecidos por los niveles superiores de la jerarquía. Las propiedades se conservan en el `ActionDescriptor.Properties` cuando se crean las acciones. A continuación, cuando se está controlando una solicitud, las propiedades de una convención de agregado o modificado puede obtenerse a través `ActionContext.ActionDescriptor.Properties`. Usar propiedades es una excelente manera de configurar los filtros, enlazadores de modelos, etc. según una por cada acción.
+Cada nivel del modelo tiene acceso a una colección `Properties` común, y los niveles inferiores pueden tener acceso a los valores de propiedad establecidos por los niveles superiores de la jerarquía y sobrescribirlos. Las propiedades se conservan en `ActionDescriptor.Properties` cuando se crean las acciones. Después, cuando se controla una solicitud, se puede obtener acceso a través de `ActionContext.ActionDescriptor.Properties` a todas las propiedades que agregue o modifique una convención. El uso de propiedades es una manera excelente de configurar por acción los filtros, los enlazadores de modelos, etc.
 
 > [!NOTE]
-> El `ActionDescriptor.Properties` recolección no está subprocesos (para las escrituras) cuando haya finalizado el inicio de la aplicación. Las convenciones son la mejor manera de agregar datos de forma segura a esta colección.
+> La colección `ActionDescriptor.Properties` no es segura para subprocesos (para escrituras) una vez que el inicio de la aplicación haya finalizado. Las convenciones son la mejor manera de agregar datos de forma segura a esta colección.
 
 ### <a name="iapplicationmodelprovider"></a>IApplicationModelProvider
 
-Núcleo de ASP.NET MVC carga el modelo de aplicación con un modelo de proveedor, definido por el [IApplicationModelProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider) interfaz. En esta sección se trata algunos de los detalles de la implementación interna de cómo esta funciones del proveedor. Se trata de un tema avanzado: mayoría de las aplicaciones que aprovechan el modelo de aplicación debería hacerlo cuando se trabaja con convenciones.
+ASP.NET Core MVC carga el modelo de aplicación mediante un patrón de proveedor definido por la interfaz [IApplicationModelProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelprovider). En esta sección se describen algunos detalles de implementación interna relacionados con el funcionamiento de este proveedor. Se trata de un tema avanzado, ya que la mayoría de las aplicaciones que aprovechan el modelo de aplicación deberían hacerlo mediante convenciones.
 
-Las implementaciones de la `IApplicationModelProvider` interfaz "encapsular" entre sí, con cada llamada de implementación `OnProvidersExecuting` en orden ascendente según su `Order` propiedad. El `OnProvidersExecuted` en orden inverso después se llama al método. El marco de trabajo define varios proveedores:
+Las implementaciones de la interfaz `IApplicationModelProvider` "se encapsulan" entre sí, y cada implementación llama a `OnProvidersExecuting` en orden ascendente en función de su propiedad `Order`. Después, se llama al método `OnProvidersExecuted` en orden inverso. El marco de trabajo define varios proveedores:
 
-Primer (`Order=-1000`):
+Primero, (`Order=-1000`):
 
 * [`DefaultApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.internal.defaultapplicationmodelprovider)
 
-A continuación, (`Order=-990`):
+Después, (`Order=-990`):
 
 * [`AuthorizationApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.internal.authorizationapplicationmodelprovider)
 * [`CorsApplicationModelProvider`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.cors.internal.corsapplicationmodelprovider)
 
 > [!NOTE]
-> El orden en que dos proveedores con el mismo valor para `Order` se denominan no está definido y, por tanto, no debe confiar en ellos.
+> El orden en que se llama a dos proveedores con el mismo valor para `Order` no está definido y, por tanto, no se debe confiar en él.
 
 > [!NOTE]
-> `IApplicationModelProvider`es un concepto avanzado para que los autores de framework extender. En general, las aplicaciones deben usar las convenciones y marcos de trabajo deben utilizar proveedores. La diferencia clave es que proveedores se ejecutan siempre antes de convenciones.
+> `IApplicationModelProvider` es un concepto avanzado pensado para que los autores del marco de trabajo lo extiendan. En general, las aplicaciones deben usar convenciones y los marcos de trabajo deben usar proveedores. La diferencia clave es que los proveedores siempre se ejecutan antes que las convenciones.
 
-El `DefaultApplicationModelProvider` establece muchos de los comportamientos predeterminados utilizados por núcleo de ASP.NET MVC. Sus responsabilidades incluyen:
+`DefaultApplicationModelProvider` establece muchos de los comportamientos predeterminados que usa ASP.NET Core MVC. Entre sus responsabilidades se incluyen las siguientes:
 
-* Agregar filtros globales en el contexto
-* Adición de controladores en el contexto
-* Agregar métodos de controlador pública como acciones
-* Agregar parámetros de método de acción en el contexto
+* Agregar filtros globales al contexto
+* Agregar controladores al contexto
+* Agregar métodos de controlador públicos como acciones
+* Agregar parámetros de métodos de acción al contexto
 * Aplicar la ruta y otros atributos
 
-Algunos comportamientos integrados se implementan mediante el `DefaultApplicationModelProvider`. Este proveedor es responsable de construir el [ `ControllerModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), que hace referencia a su vez [ `ActionModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [ `PropertyModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel), y [ `ParameterModel` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel) instancias. La `DefaultApplicationModelProvider` clase es un detalle de implementación de marco interno que puede y cambiarán en el futuro. 
+Algunos comportamientos integrados se implementan mediante `DefaultApplicationModelProvider`. Este proveedor es responsable de la construcción de [`ControllerModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.controllermodel), que a su vez hace referencia a instancias de [`ActionModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.actionmodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ActionModel), [`PropertyModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.propertymodel) y [`ParameterModel`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.parametermodel#Microsoft_AspNetCore_Mvc_ApplicationModels_ParameterModel). La clase `DefaultApplicationModelProvider` es un detalle de implementación del marco de trabajo interno que cambiará en el futuro. 
 
-El `AuthorizationApplicationModelProvider` es responsable de aplicar el comportamiento asociado a la `AuthorizeFilter` y `AllowAnonymousFilter` atributos. [Más información acerca de estos atributos](xref:security/authorization/simple).
+`AuthorizationApplicationModelProvider` se encarga de aplicar el comportamiento asociado a los atributos `AuthorizeFilter` y `AllowAnonymousFilter`. [Más información sobre estos atributos](xref:security/authorization/simple).
 
-El `CorsApplicationModelProvider` implementa el comportamiento asociado con el `IEnableCorsAttribute` y `IDisableCorsAttribute`y el `DisableCorsAuthorizationFilter`. [Obtener más información acerca de CORS](xref:security/cors).
+`CorsApplicationModelProvider` implementa el comportamiento asociado a `IEnableCorsAttribute`, `IDisableCorsAttribute` y `DisableCorsAuthorizationFilter`. [Más información sobre CORS](xref:security/cors).
 
 ## <a name="conventions"></a>Convenciones
 
-El modelo de aplicación define abstracciones de convención que proporcionan una forma más sencilla para personalizar el comportamiento de los modelos que reemplazar el modelo completo o el proveedor. Estas abstracciones son la forma recomendada para modificar el comportamiento de la aplicación. Convenciones de proporcionan una manera de escribir código que se aplicará dinámicamente las personalizaciones. Mientras [filtros](xref:mvc/controllers/filters) proporcionan un medio de modificar el comportamiento del marco, las personalizaciones le permiten controlar cómo se conecta la aplicación completa juntos.
+El modelo de aplicación define abstracciones de convenciones que proporcionan una forma más sencilla de personalizar el comportamiento de los modelos que invalidan el modelo completo o el proveedor. Se recomienda el uso de estas abstracciones para modificar el comportamiento de la aplicación. Las convenciones ofrecen una manera de escribir código que aplica dinámicamente las personalizaciones. Mientras los [filtros](xref:mvc/controllers/filters) proporcionan una forma de modificar el comportamiento del marco de trabajo, las personalizaciones permiten controlar cómo se conecta la aplicación en su conjunto.
 
-Las convenciones siguientes están disponibles:
+Están disponibles las convenciones siguientes:
 
 * [`IApplicationModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iapplicationmodelconvention)
 * [`IControllerModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.icontrollermodelconvention)
 * [`IActionModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iactionmodelconvention)
 * [`IParameterModelConvention`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.iparametermodelconvention)
 
-Se aplican las convenciones agregándolas a opciones de MVC o implementando `Attribute`s y aplicarla a los controladores, acciones o parámetros de acción (similar a [ `Filters` ](xref:mvc/controllers/filters)). A diferencia de los filtros, convenciones solo se ejecutan cuando se inicia la aplicación, no como parte de cada solicitud.
+Para aplicar las convenciones, se agregan a las opciones de MVC, o bien se implementan valores de tipo `Attribute` y se aplican a controladores, acciones o parámetros de acción (de forma similar al uso de [`Filters`](xref:mvc/controllers/filters)). A diferencia de los filtros, las convenciones solo se ejecutan cuando se inicia la aplicación, no como parte de cada solicitud.
 
-### <a name="sample-modifying-the-applicationmodel"></a>Ejemplo: Modificar el ApplicationModel
+### <a name="sample-modifying-the-applicationmodel"></a>Ejemplo: modificar ApplicationModel
 
-La siguiente convención se utiliza para agregar una propiedad en el modelo de aplicación. 
+La siguiente convención se usa para agregar una propiedad al modelo de aplicación. 
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ApplicationDescription.cs)]
 
-Convenciones del modelo de aplicación se aplican como opciones cuando se agrega MVC en `ConfigureServices` en `Startup`.
+Las convenciones del modelo de aplicación se aplican como opciones cuando se agrega MVC en `ConfigureServices` en `Startup`.
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=5)]
 
-Las propiedades son accesibles desde el `ActionDescriptor` colección de propiedades de las acciones de controlador:
+Las propiedades son accesibles desde la colección de propiedades `ActionDescriptor` dentro de las acciones de controlador:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/AppModelController.cs?name=AppModelController)]
 
-### <a name="sample-modifying-the-controllermodel-description"></a>Ejemplo: Modificar la descripción de ControllerModel
+### <a name="sample-modifying-the-controllermodel-description"></a>Ejemplo: modificar la descripción de ControllerModel
 
-Como en el ejemplo anterior, también se puede modificar el modelo de controlador para incluir propiedades personalizadas. Estos invalidará las propiedades existentes con el mismo nombre especificado en el modelo de aplicación. El atributo de convención siguiente agrega una descripción en el nivel de controlador:
+Como en el ejemplo anterior, el modelo de controlador también se puede modificar para incluir propiedades personalizadas. Estos invalidará las propiedades existentes con el mismo nombre especificado en el modelo de aplicación. El atributo de convención siguiente agrega una descripción en el nivel de controlador:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ControllerDescriptionAttribute.cs)]
 
@@ -109,21 +109,21 @@ Esta convención se aplica como un atributo en un controlador.
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=ControllerDescription&highlight=1)]
 
-Se tiene acceso a la propiedad "Descripción" de la misma manera como en ejemplos anteriores.
+Se tiene acceso a la propiedad "description" de la misma manera que en ejemplos anteriores.
 
-### <a name="sample-modifying-the-actionmodel-description"></a>Ejemplo: Modificar la descripción de ActionModel
+### <a name="sample-modifying-the-actionmodel-description"></a>Ejemplo: modificar la descripción de ActionModel
 
-Una convención de atributo independiente puede aplicarse a las acciones individuales, invalidar el comportamiento que ya se aplica en el nivel de aplicación o el controlador.
+Se puede aplicar una convención de atributo independiente a acciones individuales, con lo que se invalida el comportamiento que ya se haya aplicado en el nivel de aplicación o controlador.
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/ActionDescriptionAttribute.cs)]
 
-Cuando se aplica esto a una acción en el controlador del ejemplo anterior muestra cómo invalida la convención de nivel de controlador:
+Si se aplica a una acción dentro del controlador del ejemplo anterior se puede ver cómo invalida la convención en el nivel de controlador:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/DescriptionAttributesController.cs?name=DescriptionAttributesController&highlight=9)]
 
-### <a name="sample-modifying-the-parametermodel"></a>Ejemplo: Modificar el ParameterModel
+### <a name="sample-modifying-the-parametermodel"></a>Ejemplo: modificar ParameterModel
 
-La siguiente convención se puede aplicar a los parámetros de acción para modificar sus `BindingInfo`. La convención siguiente requiere que el parámetro sea un parámetro de ruta; se omiten otras posibles orígenes de enlace (por ejemplo, los valores de cadena de consulta).
+La convención siguiente se puede aplicar a parámetros de acción para modificar su `BindingInfo`. La convención siguiente requiere que el parámetro sea un parámetro de ruta. Se ignorarán todos los demás orígenes de enlace posibles (por ejemplo, valores de cadena de consulta).
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/MustBeInRouteParameterModelConvention.cs)]
 
@@ -131,52 +131,52 @@ El atributo se puede aplicar a cualquier parámetro de acción:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/ParameterModelController.cs?name=ParameterModelController&highlight=5)]
 
-### <a name="sample-modifying-the-actionmodel-name"></a>Ejemplo: Modificar el nombre de ActionModel
+### <a name="sample-modifying-the-actionmodel-name"></a>Ejemplo: modificar el nombre de ActionModel
 
-La convención siguiente modifica la `ActionModel` para actualizar la *nombre* de la acción a la que se aplica. El nuevo nombre se proporciona como un parámetro del atributo. Este nuevo nombre se usa al enrutar, por lo que afectará a la ruta utilizada para llegar a este método de acción.
+La convención siguiente modifica el valor de `ActionModel` para actualizar el *nombre* de la acción a la que se aplica. El nuevo nombre se proporciona como un parámetro al atributo. El enrutamiento usará este nuevo nombre, lo que afectará a la ruta usada para llegar a este método de acción.
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/CustomActionNameAttribute.cs)]
 
-Este atributo se aplica a un método de acción en el `HomeController`:
+Este atributo se aplica a un método de acción en `HomeController`:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/HomeController.cs?name=ActionModelConvention&highlight=2)]
 
-Aunque es el nombre del método `SomeName`, el atributo invalida la convención MVC de usar el nombre del método y reemplaza el nombre de acción con `MyCoolAction`. Por lo tanto, la ruta utilizada para llegar a esta acción es `/Home/MyCoolAction`.
+Aunque el nombre del método es `SomeName`, el atributo invalida la convención de MVC de usar el nombre del método y reemplaza el nombre de la acción por `MyCoolAction`. De este modo, la ruta usada para llegar a esta acción es `/Home/MyCoolAction`.
 
 > [!NOTE]
-> En este ejemplo es básicamente lo mismo que usar integrado [ActionName](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.actionnameattribute) atributo.
+> Este ejemplo básicamente equivale a usar el atributo [ActionName](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.actionnameattribute) integrado.
 
-### <a name="sample-custom-routing-convention"></a>Ejemplo: Convención de enrutamiento personalizado
+### <a name="sample-custom-routing-convention"></a>Ejemplo: convención de enrutamiento personalizado
 
-Puede usar un `IApplicationModelConvention` para personalizar cómo funciona el enrutamiento. Por ejemplo, la siguiente convención incorporará los espacios de nombres de controladores en sus rutas, reemplazando `.` en el espacio de nombres con `/` en la ruta:
+Puede usar `IApplicationModelConvention` para personalizar cómo funciona el enrutamiento. Por ejemplo, la convención siguiente incorporará espacios de nombres de controladores en sus rutas, al reemplazar `.` en el espacio de nombres por `/` en la ruta:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/NamespaceRoutingConvention.cs)]
 
-La convención se agrega como una opción de inicio.
+La convención se agrega como una opción en Startup.
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Startup.cs?name=ConfigureServices&highlight=6)]
 
 > [!TIP]
-> Puede agregar una convención para su [middleware](xref:fundamentals/middleware) accediendo `MvcOptions` con`services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`
+> Para agregar convenciones a su [software intermedio](xref:fundamentals/middleware), obtenga acceso a `MvcOptions` con `services.Configure<MvcOptions>(c => c.Conventions.Add(YOURCONVENTION));`.
 
-En este ejemplo se aplica esta convención a las rutas que no se están usando la ruta de atributo donde el controlador tiene "Namespace" en su nombre. El siguiente controlador muestra esta convención:
+En este ejemplo se aplica esta convención a las rutas que no usan el enrutamiento de atributos donde el controlador contiene "Namespace" en su nombre. En el controlador siguiente se muestra esta convención:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Controllers/NamespaceRoutingController.cs?highlight=7-8)]
 
 ## <a name="application-model-usage-in-webapicompatshim"></a>Uso del modelo de aplicación en WebApiCompatShim
 
-Núcleo de ASP.NET MVC utiliza un conjunto diferente de convenciones de ASP.NET Web API 2. Mediante convenciones personalizadas, puede modificar el comportamiento de una aplicación de MVC de ASP.NET Core para que sea coherente con el de una aplicación de API de Web. Se suministra Microsoft la [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) específicamente para este propósito.
+ASP.NET Core MVC usa un conjunto diferente de convenciones de ASP.NET Web API 2. Mediante el uso de convenciones personalizadas, puede modificar el comportamiento de una aplicación ASP.NET Core MVC para que sea coherente con el de una aplicación Web API. Microsoft suministra [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) específicamente para este propósito.
 
 > [!NOTE]
-> Obtenga más información sobre [migrar de ASP.NET Web API](xref:migration/webapi).
+> Obtenga más información sobre cómo [migrar desde ASP.NET Web API](xref:migration/webapi).
 
-Para usar la corrección de compatibilidad de API de Web, debe agregar el paquete al proyecto y, a continuación, agregar las convenciones para MVC mediante una llamada a `AddWebApiConventions` en `Startup`:
+Para usar las correcciones de compatibilidad (shim) de Web API, debe agregar el paquete al proyecto y, después, agregar las convenciones a MVC mediante una llamada a `AddWebApiConventions` en `Startup`:
 
 ```c#
 services.AddMvc().AddWebApiConventions();
 ```
 
-Las convenciones proporcionadas por la corrección de compatibilidad solo se aplican a las partes de la aplicación que han tenido ciertos atributos que se aplican a ellos. Los cuatro atributos siguientes se utilizan para controlar qué controladores deben tener sus convenciones de modificar las convenciones de la corrección de compatibilidad:
+Las convenciones proporcionadas por las correcciones de compatibilidad solo se aplican a las partes de la aplicación a las que se han aplicado ciertos atributos. Los cuatro atributos siguientes se usan para controlar en qué controladores se deben modificar las convenciones mediante las convenciones de las correcciones de compatibilidad:
 
 * [UseWebApiActionConventionsAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapiactionconventionsattribute)
 * [UseWebApiOverloadingAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.webapicompatshim.usewebapioverloadingattribute)
@@ -185,26 +185,26 @@ Las convenciones proporcionadas por la corrección de compatibilidad solo se apl
 
 ### <a name="action-conventions"></a>Convenciones de acción
 
-El `UseWebApiActionConventionsAttribute` se utiliza para asignar el método HTTP a las acciones según su nombre (por ejemplo, `Get` asignaría a `HttpGet`). Solo se aplica a las acciones que no usan el enrutamiento de atributo.
+`UseWebApiActionConventionsAttribute` se usa para asignar el método HTTP a las acciones según su nombre (por ejemplo, `Get` se asignaría a `HttpGet`). Solo se aplica a las acciones que no usan el enrutamiento de atributos.
 
 ### <a name="overloading"></a>Sobrecarga
 
-El `UseWebApiOverloadingAttribute` se usa para aplicar la `WebApiOverloadingApplicationModelConvention` convención. Esta convención se agrega un `OverloadActionConstraint` para el proceso de selección de acción, lo que limita las acciones de candidato a aquellos para los que la solicitud cumple todos los parámetros no es opcional.
+`UseWebApiOverloadingAttribute` se usa para aplicar la convención `WebApiOverloadingApplicationModelConvention`. Esta convención agrega `OverloadActionConstraint` al proceso de selección de acciones, que limita las acciones candidatas a aquellas en las que la solicitud cumple todos los parámetros no opcionales.
 
 ### <a name="parameter-conventions"></a>Convenciones de parámetro
 
-El `UseWebApiParameterConventionsAttribute` se usa para aplicar la `WebApiParameterConventionsApplicationModelConvention` convención de acción. Esta convención especifica que tipos simples que se utilizan como parámetros de acción se enlazan del URI de forma predeterminada, mientras que los tipos complejos están enlazados desde el cuerpo de solicitud.
+`UseWebApiParameterConventionsAttribute` se usa para aplicar la convención de acción `WebApiParameterConventionsApplicationModelConvention`. Esta convención especifica que los tipos simples usados como parámetros de acción se enlazan desde el URI de forma predeterminada, mientras que los tipos complejos se enlazan desde el cuerpo de la solicitud.
 
 ### <a name="routes"></a>Rutas
 
-El `UseWebApiRoutesAttribute` controles si el `WebApiApplicationModelConvention` se aplica la convención de controlador. Cuando se habilita, esta convención se utiliza para agregar compatibilidad con [áreas](xref:mvc/controllers/areas) a la ruta.
+`UseWebApiRoutesAttribute` controla si se ha aplicado la convención de controlador `WebApiApplicationModelConvention`. Cuando se habilita, esta convención se usa para agregar a la ruta compatibilidad con [áreas](xref:mvc/controllers/areas).
 
-Además de un conjunto de convenciones, el paquete de compatibilidad incluye un `System.Web.Http.ApiController` clase base que reemplaza proporcionado por la API Web. Esto permite que los controladores escritos para API Web y hereda de su `ApiController` para trabajar como si estuvieran diseñados, mientras se ejecuta en el núcleo de ASP.NET MVC. Esta clase de controlador base se decora con todos los `UseWebApi*` atributos mencionados anteriormente. La `ApiController` expone propiedades, métodos y tipos de resultado que son compatibles con las que se encuentran en Web API.
+Además de un conjunto de convenciones, el paquete de compatibilidad incluye una clase base `System.Web.Http.ApiController` que reemplaza la que proporciona Web API. Esto permite que los controladores escritos para Web API y que heredan de `ApiController` funcionen de conformidad con su diseño, mientras se ejecutan en ASP.NET Core MVC. Esta clase de controlador base se decora con todos los atributos `UseWebApi*` mencionados anteriormente. `ApiController` expone propiedades, métodos y tipos de resultados compatibles con los que se encuentran en Web API.
 
-## <a name="using-apiexplorer-to-document-your-app"></a>Uso de ApiExplorer en la aplicación de un documento
+## <a name="using-apiexplorer-to-document-your-app"></a>Uso de ApiExplorer para documentar la aplicación
 
-El modelo de aplicación expone una [ `ApiExplorer` ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) propiedad en cada nivel que puede usarse para recorrer la estructura de la aplicación. Esto se puede usar para [generar páginas de ayuda para las API Web con herramientas como Swagger](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger). El `ApiExplorer` propiedad expone un `IsVisible` propiedad que se pueden establecer para especificar qué partes del modelo de la aplicación deben exponerse. Puede configurar esta configuración mediante una convención de:
+El modelo de aplicación expone una propiedad [`ApiExplorer`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.applicationmodels.apiexplorermodel) en cada nivel que se puede usar para recorrer la estructura de la aplicación. Esto se puede usar para [generar páginas de ayuda para las Web API mediante el uso de herramientas como Swagger](https://docs.microsoft.com/aspnet/core/tutorials/web-api-help-pages-using-swagger). La propiedad `ApiExplorer` expone una propiedad `IsVisible` que se puede establecer para especificar qué partes del modelo de la aplicación deben exponerse. Puede configurar esta opción mediante una convención:
 
 [!code-csharp[Main](./application-model/sample/src/AppModelSample/Conventions/EnableApiExplorerApplicationConvention.cs)]
 
-Con este enfoque (y convenciones adicionales si es necesario), puede habilitar o deshabilitar visibilidad de API en cualquier nivel dentro de la aplicación. 
+Mediante el uso de este enfoque (y de convenciones adicionales si es necesario), puede habilitar o deshabilitar las visibilidad de API en cualquier nivel dentro de la aplicación. 

@@ -1,72 +1,72 @@
 ---
-title: Trabajar con varios entornos de ASP.NET Core
+title: Trabajar con varios entornos en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo ASP.NET Core proporciona compatibilidad para controlar el comportamiento de la aplicación en varios entornos."
-ms.author: riande
+description: "Obtenga información sobre la manera en que ASP.NET Core proporciona compatibilidad para controlar el comportamiento de las aplicaciones en varios entornos."
 manager: wpickett
+ms.author: riande
 ms.date: 12/25/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: fundamentals/environments
-ms.openlocfilehash: 60a1543ce11d08490e6df0eb84f980672ecfe672
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: b40ee9b1c6feae4942f05d22dab776d3cf6c26a0
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="working-with-multiple-environments"></a>Trabajar con varios entornos
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core proporciona compatibilidad para establecer el comportamiento de la aplicación en tiempo de ejecución con las variables de entorno.
+ASP.NET Core proporciona compatibilidad para establecer el comportamiento de las aplicaciones en tiempo de ejecución con variables de entorno.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/environments/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="environments"></a>Entornos
 
-ASP.NET Core lee la variable de entorno `ASPNETCORE_ENVIRONMENT` al inicio de la aplicación y almacena ese valor en [IHostingEnvironment.EnvironmentName](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_IHostingEnvironment_EnvironmentName). `ASPNETCORE_ENVIRONMENT`se puede establecer en cualquier valor, pero [tres valores](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname?view=aspnetcore-2.0) son compatibles con el marco de trabajo: [desarrollo](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development?view=aspnetcore-2.0), [ensayo](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging?view=aspnetcore-2.0), y [producción](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production?view=aspnetcore-2.0). Si `ASPNETCORE_ENVIRONMENT` no está establecido, el valor predeterminado será `Production`.
+ASP.NET Core lee la variable de entorno `ASPNETCORE_ENVIRONMENT` al inicio de la aplicación y almacena ese valor en [IHostingEnvironment.EnvironmentName](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment.environmentname?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_IHostingEnvironment_EnvironmentName). `ASPNETCORE_ENVIRONMENT` se puede establecer en cualquier valor, pero el marco de trabajo admite [tres valores](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname?view=aspnetcore-2.0): [Development](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development?view=aspnetcore-2.0), [Staging](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging?view=aspnetcore-2.0) y [Production](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production?view=aspnetcore-2.0). Si no se ha establecido `ASPNETCORE_ENVIRONMENT`, el valor predeterminado será `Production`.
 
 [!code-csharp[Main](environments/sample/WebApp1/Startup.cs?name=snippet)]
 
 El código anterior:
 
-* Llamadas [UseDeveloperExceptionPage](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_DeveloperExceptionPageExtensions_UseDeveloperExceptionPage_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [UseBrowserLink](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.browserlinkextensions.usebrowserlink?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_BrowserLinkExtensions_UseBrowserLink_Microsoft_AspNetCore_Builder_IApplicationBuilder_) cuando `ASPNETCORE_ENVIRONMENT` está establecido en `Development`.
-* Llamadas [UseExceptionHandler](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ExceptionHandlerExtensions_UseExceptionHandler_Microsoft_AspNetCore_Builder_IApplicationBuilder_) cuando el valor de `ASPNETCORE_ENVIRONMENT` se establece uno de los siguientes:
+* Llama a [UseDeveloperExceptionPage](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_DeveloperExceptionPageExtensions_UseDeveloperExceptionPage_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [UseBrowserLink](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.browserlinkextensions.usebrowserlink?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_BrowserLinkExtensions_UseBrowserLink_Microsoft_AspNetCore_Builder_IApplicationBuilder_) cuando `ASPNETCORE_ENVIRONMENT` está establecido en `Development`.
+* Llama a [UseExceptionHandler](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.exceptionhandlerextensions.useexceptionhandler?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ExceptionHandlerExtensions_UseExceptionHandler_Microsoft_AspNetCore_Builder_IApplicationBuilder_) cuando el valor de `ASPNETCORE_ENVIRONMENT` está establecido en uno de los siguientes:
 
     * `Staging`
     * `Production`
     * `Staging_2`
 
-El [auxiliar de etiquetas de entorno ](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) utiliza el valor de `IHostingEnvironment.EnvironmentName` para incluir o excluir el marcado en el elemento:
+La [aplicación auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) usa el valor de `IHostingEnvironment.EnvironmentName` para incluir o excluir el marcado en el elemento:
 
 [!code-html[Main](environments/sample/WebApp1/Pages/About.cshtml)]
 
-Nota: En Windows y Mac OS, valores y variables de entorno no son distinguen mayúsculas de minúsculas. Las variables de entorno de Linux y los valores son **entre mayúsculas y minúsculas** de forma predeterminada.
+Nota: En Windows y macOS, los valores y las variables de entorno no distinguen mayúsculas de minúsculas. Los valores y las variables de entorno de Linux **distinguen mayúsculas de minúsculas** de forma predeterminada.
 
 ### <a name="development"></a>Desarrollo
 
-El entorno de desarrollo puede habilitar las características que no deben exponerse en producción. Por ejemplo, las plantillas de ASP.NET Core permiten la [página de excepción para desarrolladores](xref:fundamentals/error-handling#the-developer-exception-page) en el entorno de desarrollo.
+El entorno de desarrollo puede habilitar características que no deben exponerse en producción. Por ejemplo, las plantillas de ASP.NET Core habilitan la [página de excepciones para el desarrollador](xref:fundamentals/error-handling#the-developer-exception-page) en el entorno de desarrollo.
 
-El entorno de desarrollo de equipo local se puede establecer el *Properties\launchSettings.json* archivo del proyecto. Los valores de entorno establecer *launchSettings.json* invalidan los valores establecidos en el entorno del sistema.
+El entorno para el desarrollo del equipo local se puede establecer en el archivo *Properties\launchSettings.json* del proyecto. Los valores de entorno establecidos en *launchSettings.json* invalidan los valores establecidos en el entorno del sistema.
 
-El siguiente XML muestra tres perfiles de un *launchSettings.json* archivo:
+En el siguiente fragmento de JSON se muestran tres perfiles de un archivo *launchSettings.json*:
 
-[!code-xml[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
+[!code-json[Main](environments/sample/WebApp1/Properties/launchSettings.json?highlight=10,11,18,26)]
 
-Cuando se inicia la aplicación con `dotnet run`, el primer perfil con `"commandName": "Project"` se usará. El valor de `commandName` especifica el servidor web para iniciar. `commandName`puede ser uno de:
+Cuando se inicia la aplicación con `dotnet run`, se usa el primer perfil con `"commandName": "Project"`. El valor de `commandName` especifica el servidor web que se va a iniciar. `commandName` puede ser una de las siguientes opciones:
 
 * IIS Express
 * IIS
-* Proyecto (que inicia Kestrel)
+* Project (que inicia Kestrel)
 
-Cuando se inicia una aplicación con `dotnet run`:
+Cuando una aplicación se inicia con `dotnet run`:
 
-* *launchSettings.json* se lee si está disponible. `environmentVariables`configuración de *launchSettings.json* reemplazan a las variables de entorno.
+* Se lee *launchSettings.json*, si está disponible. La configuración de `environmentVariables` de *launchSettings.json* reemplaza las variables de entorno.
 * Se muestra el entorno de hospedaje.
 
 
-La siguiente salida muestra una aplicación que se inició con `dotnet run`:
+En la salida siguiente se muestra una aplicación que se ha iniciado con `dotnet run`:
 ```bash
 PS C:\Webs\WebApp1> dotnet run
 Using launch settings from C:\Webs\WebApp1\Properties\launchSettings.json...
@@ -76,41 +76,41 @@ Now listening on: http://localhost:54340
 Application started. Press Ctrl+C to shut down.
 ```
 
-Visual Studio **depurar** ficha proporciona una interfaz gráfica de usuario para editar la *launchSettings.json* archivo:
+La pestaña **Depurar** de Visual Studio proporciona una GUI para editar el archivo *launchSettings.json*:
 
-![Variables de entorno de configuración de propiedades de proyecto](environments/_static/project-properties-debug.png)
+![Variables de entorno de configuración de las propiedades del proyecto](environments/_static/project-properties-debug.png)
 
-Los cambios realizados en los perfiles de los proyectos podrán no surtan efecto hasta que se reinicie el servidor web. Kestrel debe reiniciarse para que se detectarán los cambios realizados en su entorno.
+Los cambios realizados en los perfiles de proyecto podrían no surtir efecto hasta que se reinicie el servidor web. Es necesario reiniciar Kestrel para que detecte los cambios realizados en su entorno.
 
 >[!WARNING]
-> *launchSettings.json* no debería almacenar secretos. El [herramienta Administrador de secreto](xref:security/app-secrets) puede usarse para almacenar secretos de desarrollo local.
+> En *launchSettings.json* no se deben almacenar secretos. Se puede usar la [herramienta Administrador de secretos](xref:security/app-secrets) a fin de almacenar secretos para el desarrollo local.
 
 ### <a name="production"></a>Producción
 
-El entorno de producción debe configurarse para maximizar la seguridad, rendimiento y eficacia de la aplicación. Algunas configuraciones comunes que podría tener un entorno de producción que serían diferentes entornos de desarrollo incluyen:
+El entorno de producción debe configurarse para maximizar la seguridad, el rendimiento y la solidez de la aplicación. A continuación se indican algunas de las opciones de configuración comunes del entorno de producción que podrían diferir de las del entorno de desarrollo:
 
 * Almacenamiento en caché.
-* Recursos del cliente están agrupados, reducidos y potencialmente provienen de una CDN.
-* Páginas de error de diagnóstico deshabilitadas.
-* Páginas de error descriptivo habilitadas.
-* El registro de producción y supervisión habilitada. Por ejemplo, [Application Insights](https://azure.microsoft.com/documentation/articles/app-insights-asp-net-five/).
+* Los recursos del cliente se agrupan, se reducen y se atienden potencialmente desde una CDN.
+* Las páginas de error de diagnóstico están deshabilitadas.
+* Las páginas de error descriptivas están habilitadas.
+* El registro y la supervisión de la producción están habilitados. Por ejemplo, [Application Insights](/azure/application-insights/app-insights-asp-net-core).
 
-## <a name="setting-the-environment"></a>Configurar el entorno
+## <a name="setting-the-environment"></a>Establecimiento del entorno
 
-A menudo resulta útil establecer un entorno de pruebas específico. Si no está configurado el entorno, serán `Production` que deshabilita la mayoría de características de depuración.
+A menudo resulta útil establecer un entorno específico para la realización de pruebas. Si el entorno no está establecido, el valor predeterminado será `Production`, lo que deshabilita la mayoría de las características de depuración.
 
 El método para establecer el entorno depende del sistema operativo.
 
 ### <a name="azure"></a>Azure
 
-Para el servicio de aplicaciones de Azure:
+Para Azure App Service:
 
-* Seleccione el **configuración de la aplicación** hoja.
-* Agregar la clave y el valor de **configuración de la aplicación**.
+* Seleccione la hoja **Configuración de la aplicación**.
+* Agregue la clave y el valor en **Configuración de la aplicación**.
 
 
 ### <a name="windows"></a>Windows
-Para establecer el `ASPNETCORE_ENVIRONMENT` para la sesión actual, si la aplicación se inicia con `dotnet run`, se utilizan los siguientes comandos
+Para establecer `ASPNETCORE_ENVIRONMENT` en la sesión actual, si la aplicación se ha iniciado con `dotnet run`, use los comandos siguientes.
 
 **Línea de comandos**
 ```
@@ -121,55 +121,55 @@ set ASPNETCORE_ENVIRONMENT=Development
 $Env:ASPNETCORE_ENVIRONMENT = "Development"
 ```
 
-Estos comandos sólo tendrán efecto en la ventana actual. Cuando se cierra la ventana, la configuración de ASPNETCORE_ENVIRONMENT vuelve a la configuración predeterminada o el valor de la máquina. Para establecer el valor global en ventanas abiertas del **el Panel de Control** > **System** > **configuración avanzada del sistema** y agregar o editar la `ASPNETCORE_ENVIRONMENT` valor.
+Estos comandos solo tienen efecto en la ventana actual. Cuando se cierre la ventana, la configuración de ASPNETCORE_ENVIRONMENT volverá a la configuración predeterminada o al valor del equipo. Para establecer el valor globalmente en Windows, abra **Panel de Control** > **Sistema** > **Configuración avanzada del sistema** y agregue o edite el valor `ASPNETCORE_ENVIRONMENT`.
 
 ![Propiedades avanzadas del sistema](environments/_static/systemsetting_environment.png)
 
-![Variable de entorno de ASPNET Core](environments/_static/windows_aspnetcore_environment.png)
+![Variable de entorno de ASP.NET Core](environments/_static/windows_aspnetcore_environment.png)
 
 
 **web.config**
 
-Consulte la *establecer variables de entorno* sección de la [referencia de configuración de ASP.NET Core módulo](xref:host-and-deploy/aspnet-core-module#setting-environment-variables) tema.
+Vea la sección *Establecer variables de entorno* del tema [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module#setting-environment-variables).
 
 **Por grupo de aplicaciones de IIS**
 
-Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aisladas (se admite en IIS 10.0 +), consulte el *comandos AppCmd.exe* sección de la [Variables de entorno \< environmentVariables >](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) tema.
+Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite en IIS 10.0+), vea la sección *AppCmd.exe command* (Comando AppCmd.exe) del tema [Environment Variables \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) (Variables de entorno <environmentVariables>).
 
 ### <a name="macos"></a>macOS
-Configurar el entorno actual para macOS puede realizarse en línea cuando se ejecuta la aplicación;
+Para establecer el entorno actual para macOS, puede hacerlo en línea al ejecutar la aplicación.
 
 ```bash
 ASPNETCORE_ENVIRONMENT=Development dotnet run
 ```
-o con `export` establecer antes de ejecutar la aplicación.
+También puede usar `export` para establecerlo antes de ejecutar la aplicación.
 
 ```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
-Las variables de entorno de nivel de equipo se establecen en los *.bashrc* o *. bash_profile* archivo. Edite el archivo con cualquier editor de texto y agregue la siguiente instrucción.
+Las variables de entorno de nivel de equipo se establecen en el archivo *.bashrc* o *.bash_profile*. Para editar el archivo, use cualquier editor de texto y agregue la instrucción siguiente.
 
-```
+```bash
 export ASPNETCORE_ENVIRONMENT=Development
 ```
 
 ### <a name="linux"></a>Linux
-Para distribuciones de Linux, use la `export` comando en la línea de comandos para la configuración de la variable basado en sesiones y *bash_profile* archivo de configuración del entorno de nivel de máquina.
+Para distribuciones de Linux, use el comando `export` en la línea de comandos para la configuración de variables basada en sesión y el archivo *bash_profile* para la configuración del entorno en el nivel de equipo.
 
 ### <a name="configuration-by-environment"></a>Configuración de entorno
 
-Vea [configuración entorno](xref:fundamentals/configuration/index#configuration-by-environment) para obtener más información.
+Para más información, vea [Configuración de entorno](xref:fundamentals/configuration/index#configuration-by-environment).
 
 <a name="startup-conventions"></a>
-## <a name="environment-based-startup-class-and-methods"></a>Entorno en función de métodos y la clase de inicio
+## <a name="environment-based-startup-class-and-methods"></a>Métodos y clase Startup basados en entorno
 
-Cuando se inicia una aplicación de ASP.NET Core, el [clase inicio](xref:fundamentals/startup) ejecuta un bootstrap la aplicación. Si una clase `Startup{EnvironmentName}` existe, que se llamará para esa clase `EnvironmentName`:
+Cuando se inicia una aplicación ASP.NET Core, la [clase Startup](xref:fundamentals/startup) arranca la aplicación. Si existe una clase `Startup{EnvironmentName}`, se llamará para ese `EnvironmentName`:
 
 [!code-csharp[Main](environments/sample/WebApp1/StartupDev.cs?name=snippet&highlight=1)]
 
-Nota: Al llamar a [WebHostBuilder.UseStartup<TStartup> ](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) invalida las secciones de configuración.
+Nota: Al llamar a [WebHostBuilder.UseStartup<TStartup>](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.usestartup?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_WebHostBuilderExtensions_UseStartup__1_Microsoft_AspNetCore_Hosting_IWebHostBuilder_) se invalidan las secciones de configuración.
 
-[Configurar](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_StartupBase_Configure_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [ConfigureServices](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices?view=aspnetcore-2.0) compatible con versiones específicas del entorno del formulario `Configure{EnvironmentName}` y `Configure{EnvironmentName}Services`:
+[Configure](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configure?view=aspnetcore-2.0#Microsoft_AspNetCore_Hosting_StartupBase_Configure_Microsoft_AspNetCore_Builder_IApplicationBuilder_) y [ConfigureServices](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.startupbase.configureservices?view=aspnetcore-2.0) son compatibles con versiones específicas del entorno con el formato `Configure{EnvironmentName}` y `Configure{EnvironmentName}Services`:
 
 [!code-csharp[Main](environments/sample/WebApp1/Startup.cs?name=snippet_all&highlight=15,37)]
 

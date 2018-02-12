@@ -1,39 +1,39 @@
-# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a>Ejemplo de reescritura de la URL de núcleo de ASP.NET (ASP.NET Core 2.x)
+# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a>Ejemplo de reescritura de dirección URL de ASP.NET Core (ASP.NET Core 2.x)
 
-Este ejemplo muestra el uso de ASP.NET Core 2.x Middleware de reescritura de dirección URL. La aplicación muestra el redireccionamiento de la dirección URL y opciones de reescritura de dirección URL. Para obtener el ejemplo de 1.x ASP.NET Core, vea [ejemplo de reescritura de URL de ASP.NET Core (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).
+En este ejemplo se muestra el uso del software intermedio de reescritura de dirección URL de ASP.NET Core 2.x. En la aplicación se muestran las opciones de redireccionamiento de dirección URL y reescritura de dirección URL. Para obtener el ejemplo de ASP.NET Core 1.x, vea [ASP.NET Core URL Rewriting Sample (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x) (Ejemplo de reescritura de dirección URL de ASP.NET Core [ASP.NET Core 1.x]).
 
-Al ejecutar el ejemplo, se enviará una respuesta que muestra la dirección URL redirigida o ha vuelto a escribir cuando una de las reglas se aplica a una dirección URL de la solicitud.
+Al ejecutar el ejemplo, se enviará una respuesta en la que aparecerá la dirección URL reescrita o redirigida al aplicar una de las reglas a una dirección URL de solicitud.
 
-## <a name="examples-in-this-sample"></a>En los ejemplos de este ejemplo
+## <a name="examples-in-this-sample"></a>Ejemplos incluidos
 
-* `AddRedirect("redirect-rule/(.*)", "$1")`
-  - Código de estado correcto: 302 (encontrado)
-  - Ejemplo (redirección): **/redirect-rule / {capture_group}** a **/redirected/ {capture_group}**
+* `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
+  - Código de estado correcto: 302 (Encontrado)
+  - Ejemplo (redireccionamiento): **/redirect-rule/{capture_group}** a **/redirected/{capture_group}**
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`
-  - Código de estado correcto: 200 (correcto)
-  - Ejemplo (reescritura): **/rewrite-rule / {capture_group_1} / {capture_group_2}** a **/ reescrito? var1 = {capture_group_1} & var2 = {capture_group_2}**
+  - Código de estado correcto: 200 - Correcto
+  - Ejemplo (reescritura): **/rewrite-rule/{capture_group_1}/{capture_group_2}** a **/rewritten?var1={capture_group_1}&var2={capture_group_2}**
 * `AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")`
-  - Código de estado correcto: 302 (encontrado)
-  - Ejemplo (redirección): **/apache-mod-rules-redirect / {capture_group}** a **/ redirigido? Id. = {capture_group}**
+  - Código de estado correcto: 302 (Encontrado)
+  - Ejemplo (redireccionamiento): **/apache-mod-rules-redirect/{capture_group}** a **/redirected?id={capture_group}**
 * `AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")`
-  - Código de estado correcto: 200 (correcto)
-  - Ejemplo (reescritura): **/iis-rules-rewrite / {capture_group}** a **/ reescrito? Id. = {capture_group}**
+  - Código de estado correcto: 200 - Correcto
+  - Ejemplo (reescritura): **/iis-rules-rewrite/{capture_group}** a **/rewritten?id={capture_group}**
 * `Add(RedirectXMLRequests)`
-  - Código de estado correcto: 301 (movida permanentemente)
-  - Ejemplo (redirección): **/file.xml** a **/xmlfiles/file.xml**
+  - Código de estado correcto: 301 - Movido definitivamente
+  - Ejemplo (redireccionamiento): **/file.xml** a **/xmlfiles/file.xml**
 * `Add(new RedirectPNGRequests(".png", "/png-images")))`<br>`Add(new RedirectPNGRequests(".jpg", "/jpg-images")))`
-  - Código de estado correcto: 301 (movida permanentemente)
-  - Ejemplo (redirección): **/image.png** a **/png-images/image.png**
-  - Ejemplo (redirección): **/image.jpg** a **/jpg-images/image.jpg**
+  - Código de estado correcto: 301 - Movido definitivamente
+  - Ejemplo (redireccionamiento): **/image.png** a **/png-images/image.png**
+  - Ejemplo (redireccionamiento): **/image.jpg** a **/jpg-images/image.jpg**
 
-## <a name="using-a-physicalfileprovider"></a>Con un`PhysicalFileProvider`
-También puede obtener un `IFileProvider` mediante la creación de un `PhysicalFileProvider` que se pasará a la `AddApacheModRewrite()` y `AddIISUrlRewrite()` métodos:
+## <a name="using-a-physicalfileprovider"></a>Uso de `PhysicalFileProvider`
+También puede obtener `IFileProvider` mediante la creación de un `PhysicalFileProvider` que se pasará a los métodos `AddApacheModRewrite()` y `AddIISUrlRewrite()`:
 ```csharp
 using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 ```
-## <a name="secure-redirection-extensions"></a>Extensiones de redirección segura
-Este ejemplo incluye `WebHostBuilder` configuración de la aplicación usar direcciones URL (**https://localhost:5001**, **https://localhost**) y un certificado de prueba (**testCert.pfx**) para ayudar a explorar estos redirigir métodos. Agregar cualquiera de ellos para que la `RewriteOptions()` en **Startup.cs** para estudiar su comportamiento.
+## <a name="secure-redirection-extensions"></a>Extensiones de redireccionamiento seguro
+En este ejemplo se incluye la configuración de `WebHostBuilder` para que la aplicación use direcciones URL (**https://localhost:5001**, **https://localhost**) y un certificado de prueba (**testCert.pfx**) para ayudar a explorar estos métodos de redireccionamiento. Agregue cualquiera de ellos a `RewriteOptions()` en **Startup.cs** para estudiar su comportamiento.
 
 Método | Código de estado | Puerto
 --- | :---: | :---:

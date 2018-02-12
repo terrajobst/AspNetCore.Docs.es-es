@@ -1,35 +1,35 @@
 ---
-title: "Aplicación auxiliar de etiqueta de entorno en el núcleo de ASP.NET"
+title: "Aplicación auxiliar de etiquetas de entorno en ASP.NET Core"
 author: pkellner
-description: "Aplicación auxiliar de etiquetas de entorno de ASP.NET Core define incluido todas las propiedades"
-ms.author: riande
+description: "Aplicación auxiliar de etiquetas de entorno de ASP.NET Core definida con todas las propiedades"
 manager: wpickett
+ms.author: riande
 ms.date: 07/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: 32646f1fdaf840f796da1ec573459157a41a86d1
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
-ms.translationtype: MT
+ms.openlocfilehash: 7a99ee0e59c7f49a3208d2c86c11cabce4294889
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="environment-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiqueta de entorno en el núcleo de ASP.NET
+# <a name="environment-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas de entorno en ASP.NET Core
 
-Por [Peter Kellner](http://peterkellner.net) y [Ateya Hisham Bin](https://twitter.com/hishambinateya)
+Por [Peter Kellner](http://peterkellner.net) y [Hisham Bin Ateya](https://twitter.com/hishambinateya)
 
-La etiqueta de entorno de aplicación auxiliar representa condicionalmente su contenido entre comillas según el entorno de hospedaje actual. Su único atributo `names` es una lista separada por comas de entorno de nombres, si cualquier coincide con el entorno actual, se activará el contenido entre comillas que se representará.
+La aplicación auxiliar de etiquetas de entorno representa condicionalmente el contenido incluido en función del entorno de hospedaje actual. Su único atributo `names` es una lista separada por comas de nombres de entorno que, en caso de que alguno coincida con el entorno actual, hará que se represente el contenido incluido.
 
-## <a name="environment-tag-helper-attributes"></a>Atributos de aplicación auxiliar de etiqueta de entorno
+## <a name="environment-tag-helper-attributes"></a>Atributos de aplicación auxiliar de etiquetas de entorno
 
 ### <a name="names"></a>nombres
 
-Acepta un solo nombre de entorno de hospedaje o una lista separada por comas de nombres de entorno que desencadenan la representación del contenido adjunto de hospedaje.
+Acepta un solo nombre de entorno de hospedaje o una lista separada por comas de nombres de entorno de hospedaje que desencadenan la representación del contenido incluido.
 
-Estos valores se comparan con el valor actual devuelto por la propiedad estática de ASP.NET Core `HostingEnvironment.EnvironmentName`.  Este valor es uno de los siguientes: **ensayo**; **Desarrollo** o **producción**. La comparación omite los casos.
+Estos valores se comparan con el valor actual devuelto desde la propiedad estática `HostingEnvironment.EnvironmentName` de ASP.NET Core.  Este valor es uno de los siguientes: **Staging**, **Development** o **Production**. La comparación ignora el uso de mayúsculas y minúsculas.
 
-Un ejemplo de válido `environment` aplicación auxiliar para etiqueta es:
+Un ejemplo de una aplicación auxiliar de etiquetas `environment` válida es el siguiente:
 
 ```cshtml
 <environment names="Staging,Production">
@@ -37,13 +37,13 @@ Un ejemplo de válido `environment` aplicación auxiliar para etiqueta es:
 </environment>
 ```
 
-## <a name="include-and-exclude-attributes"></a>incluir o excluir los atributos
+## <a name="include-and-exclude-attributes"></a>Atributos include y exclude
 
-ASP.NET Core 2.x agrega la `include`  &  `exclude` atributos. Estos atributos controlan el representar el contenido entre comillas basándose en los nombres de entorno de hospedaje incluidas o excluidas.
+ASP.NET Core 2.x agrega los atributos `include` & `exclude`. Estos atributos controlan la representación del contenido incluido en función de los nombres de entorno de hospedaje incluidos o excluidos.
 
-### <a name="include-aspnet-core-20-and-later"></a>incluir principales ASP.NET 2.0 y versiones posteriores
+### <a name="include-aspnet-core-20-and-later"></a>Propiedad include de ASP.NET 2.0 y versiones posteriores
 
-El `include` propiedad tiene un comportamiento similar de la `names` atributo en ASP.NET Core 1.0.
+La propiedad `include` tiene un comportamiento similar al del atributo `names` en ASP.NET Core 1.0.
 
 ```cshtml
 <environment include="Staging,Production">
@@ -51,9 +51,9 @@ El `include` propiedad tiene un comportamiento similar de la `names` atributo en
 </environment>
 ```
 
-### <a name="exclude-aspnet-core-20-and-later"></a>excluir principales ASP.NET 2.0 y versiones posteriores
+### <a name="exclude-aspnet-core-20-and-later"></a>Propiedad exclude de ASP.NET Core 2.0 y versiones posteriores
 
-En cambio, el `exclude` propiedad permite el `EnvironmentTagHelper` representar el contenido entre comillas para todos los nombres de entorno de hospedaje excepto el archivo que especificó.
+En cambio, la propiedad `exclude` permite que `EnvironmentTagHelper` represente el contenido incluido para todos los nombres de entorno de hospedaje, excepto los que haya especificado.
 
 ```cshtml
 <environment exclude="Development">

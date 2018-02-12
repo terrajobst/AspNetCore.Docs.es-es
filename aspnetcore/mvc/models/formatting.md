@@ -1,97 +1,97 @@
 ---
-title: Aplicar formato a los datos de respuesta en MVC de ASP.NET Core
+title: "Aplicación de formato a datos de respuesta en ASP.NET Core MVC"
 author: ardalis
-description: "Obtenga información acerca de cómo dar formato a los datos de respuesta en MVC de ASP.NET Core."
-ms.author: riande
+description: "Obtenga información sobre cómo dar formato a datos de respuesta en ASP.NET Core MVC."
 manager: wpickett
-ms.date: 10/14/2016
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/models/formatting
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddda494e0db22031af9d20325e14e8458756cbfd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 10/14/2016
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/models/formatting
+ms.openlocfilehash: 36231cd2bf59408e9c858ea99355c1e8dd859e6e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Introducción a los datos de respuesta de formato en MVC de ASP.NET Core
+# <a name="introduction-to-formatting-response-data-in-aspnet-core-mvc"></a>Introducción a la aplicación de formato a datos de respuesta en ASP.NET Core MVC
 
 Por [Steve Smith](https://ardalis.com/)
 
-Núcleo de ASP.NET MVC tiene compatibilidad integrada para dar formato a los datos de respuesta, con formatos fijos o en respuesta a las especificaciones del cliente.
+ASP.NET Core MVC tiene compatibilidad integrada para dar formato a datos de respuesta, en función de formatos fijos o especificaciones del cliente.
 
-[Ver o descargar el ejemplo desde GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/formatting/sample).
+[Vea o descargue el ejemplo de GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/models/formatting/sample).
 
 ## <a name="format-specific-action-results"></a>Resultados de acción específica de formato
 
-Algunos tipos de resultado de acción son específicos de un formato determinado, como `JsonResult` y `ContentResult`. Las acciones pueden devolver resultados específicos que siempre se da formato de una manera determinada. Por ejemplo, devolver un `JsonResult` devolverá datos con formato JSON, independientemente de las preferencias del cliente. Del mismo modo, devolver un `ContentResult` devolverá datos de cadena en formato de texto sin formato (así como devolver simplemente una cadena).
+Algunos tipos de resultado de acción son específicos de un formato determinado, como `JsonResult` y `ContentResult`. Las acciones pueden devolver resultados específicos a los que siempre se da formato de una manera determinada. Por ejemplo, si se devuelve un `JsonResult`, se devolverán datos con formato JSON, independientemente de las preferencias del cliente. Del mismo modo, si se devuelve un `ContentResult`, se devolverán datos de cadena con formato de texto sin formato (al igual que si se devuelve simplemente una cadena).
 
 > [!NOTE]
-> No es necesario una acción para devolver ningún tipo en particular; MVC es compatible con cualquier valor de objeto del valor devuelto. Si una acción devuelve un `IActionResult` hereda de implementación y el controlador de `Controller`, los desarrolladores tienen muchos métodos auxiliares correspondientes a muchas de las opciones. Resultados de las acciones que devuelven objetos que no son `IActionResult` tipos se serializará con la correspondiente `IOutputFormatter` implementación.
+> No se requieren acciones para devolver un tipo en particular, ya que MVC es compatible con cualquier valor devuelto por un objeto. Si una acción devuelve una implementación `IActionResult` y el controlador hereda de `Controller`, los desarrolladores disponen de diversos métodos auxiliares que se corresponden con muchas de las opciones. Los resultados de acciones que devuelven objetos que no son tipos `IActionResult` se serializarán con la implementación `IOutputFormatter` correspondiente.
 
-Se devuelven los datos en un formato específico de un controlador que hereda de la `Controller` clase base, utilice el método de aplicación auxiliar integradas `Json` para devolver JSON y `Content` de texto sin formato. El método de acción debe devolver el tipo de resultado específico (por ejemplo, `JsonResult`) o `IActionResult`.
+Para devolver datos en un formato específico desde un controlador que hereda de la clase base `Controller`, use el método auxiliar integrado `Json` para devolver JSON y `Content` para texto sin formato. El método de acción debe devolver el tipo de resultado específico (por ejemplo, `JsonResult`) o bien `IActionResult`.
 
-Devolver datos con formato JSON:
+Para devolver datos con formato JSON:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=21-26)]
 
 Respuesta de ejemplo de esta acción:
 
-![Pestaña red de las herramientas de desarrollo con Microsoft Edge, que muestra el tipo de contenido de la respuesta es application/json](formatting/_static/json-response.png)
+![Pestaña Red de Herramientas de desarrollo de Microsoft Edge en la que se muestra que el tipo de contenido de la respuesta es application/json](formatting/_static/json-response.png)
 
-Tenga en cuenta que el tipo de contenido de la respuesta es `application/json`, como se muestra en la lista de las solicitudes de red y en la sección de encabezados de respuesta. Tenga en cuenta también la lista de opciones que se presentan por el explorador (en este caso, Microsoft Edge) en el encabezado Accept en la sección de encabezados de solicitud. La técnica actual está omitiendo este encabezado; seguir se describe a continuación.
+Tenga en cuenta que el tipo de contenido de la respuesta es `application/json`, y se muestra en la lista de solicitudes de red y en la sección Encabezados de respuesta. Observe también la lista de opciones que aparecen en el explorador (en este caso, Microsoft Edge) en el encabezado Accept de la sección Encabezados de solicitud. La técnica actual omite este encabezado; más adelante se describe su uso.
 
-Para devolver datos de texto con formato, use `ContentResult` y `Content` auxiliar:
+Para devolver datos con formato de texto sin formato, use `ContentResult` y el método auxiliar `Content`:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
 
 Una respuesta de esta acción:
 
-![Pestaña red de las herramientas de desarrollo con Microsoft Edge, que muestra el tipo de contenido de la respuesta es texto/sin formato](formatting/_static/text-response.png)
+![Pestaña Red de Herramientas de desarrollo de Microsoft Edge en la que se muestra que el tipo de contenido de la respuesta es texto/sin formato](formatting/_static/text-response.png)
 
-Tenga en cuenta en este caso el `Content-Type` devuelto es `text/plain`. También se puede lograr este mismo comportamiento usando simplemente un tipo de respuesta de cadena:
+Observe que en este caso el `Content-Type` devuelto es `text/plain`. También puede obtener este mismo comportamiento mediante el uso de un tipo de respuesta de cadena:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=54-59)]
 
 >[!TIP]
-> Para acciones no trivial con varios, opciones (por ejemplo, códigos de estado HTTP distintos en función del resultado de las operaciones realizadas) o tipos de retorno, prefiera `IActionResult` como el tipo de valor devuelto.
+> Para las acciones no triviales con varias opciones o tipos de valor devueltos (por ejemplo, códigos de estado HTTP diferentes en función del resultado de las operaciones realizadas), se recomienda el uso de `IActionResult` como tipo de valor devuelto.
 
 ## <a name="content-negotiation"></a>Negociación de contenido
 
-Negociación de contenido (*conneg* abreviado) se produce cuando el cliente especifica un [encabezado Accept](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). El formato predeterminado utilizado por núcleo de ASP.NET MVC es JSON. Negociación de contenido se implementa mediante `ObjectResult`. También se integra en el código de estado que devuelven resultados de acción específica de los métodos auxiliares (que se basan en `ObjectResult`). También puede devolver un tipo de modelo (es decir, una clase que haya definido como el tipo de transferencia de datos) y el marco de trabajo ajustará automáticamente en un `ObjectResult` automáticamente.
+La negociación de contenido (o *conneg*) se produce cuando el cliente especifica un [encabezado Accept](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). El formato predeterminado que usa ASP.NET Core MVC es JSON. La negociación de contenido se implementa mediante `ObjectResult`. También se integra en los resultados de acción específicos del código de estado devueltos por los métodos auxiliares (que se basan en `ObjectResult`). También puede devolver un tipo de modelo (es decir, una clase que haya definido como tipo de transferencia de datos) y el marco de trabajo lo ajustará automáticamente en un `ObjectResult`.
 
-El siguiente método de acción utiliza el `Ok` y `NotFound` métodos auxiliares:
+El siguiente método de acción usa los métodos auxiliares `Ok` y `NotFound`:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 
-Se devolverá una respuesta con formato JSON a menos que se solicitó otro formato y el servidor puede devolver el formato solicitado. Puede usar una herramienta como [Fiddler](http://www.telerik.com/fiddler) para crear una solicitud que incluye un encabezado de aceptación y especifique otro formato. En ese caso, si el servidor tiene un *formateador* que puede producir una respuesta en el formato solicitado, se devolverá el resultado en el formato preferido por el cliente.
+Se devolverá una respuesta con formato JSON, a menos que se haya solicitado otro formato y el servidor pueda devolverlo. Puede usar una herramienta como [Fiddler](http://www.telerik.com/fiddler) para crear una solicitud que incluya un encabezado Accept y especifique otro formato. En ese caso, si el servidor tiene un *formateador* que puede producir una respuesta en el formato solicitado, el resultado se devolverá en el formato preferido por el cliente.
 
-![Consola de Fiddler que muestra un creados manualmente obtener la solicitud con un valor de encabezado de aceptación de aplicación/xml](formatting/_static/fiddler-composer.png)
+![Consola de Fiddler en la que se muestra una solicitud GET creada manualmente con el valor application/xml para el encabezado Accept](formatting/_static/fiddler-composer.png)
 
-En la captura de pantalla anterior, se ha utilizado el Compositor de Fiddler para generar una solicitud, especificar `Accept: application/xml`. De forma predeterminada, MVC de ASP.NET Core solo admite JSON, incluso cuando se especifica otro formato, el resultado devuelto es todavía con formato JSON. Verá cómo agregar los formateadores adicionales en la sección siguiente.
+En la captura de pantalla anterior, se ha usado el compositor de Fiddler para generar una solicitud mediante la especificación de `Accept: application/xml`. ASP.NET Core MVC solo admite JSON de forma predeterminada, por lo que, incluso si se especifica otro formato, el resultado devuelto tendrá formato JSON. En la sección siguiente verá cómo agregar otros formateadores.
 
-Acciones del controlador pueden devolver POCOs (sin formato antiguo objetos CLR), en cuyo caso ASP.NET MVC creará automáticamente un `ObjectResult` que ajusta el objeto. El cliente reciba el objeto serializado con formato (formato JSON es el valor predeterminado; puede configurar otros formatos o XML). Si el objeto que se va a devolver es `null`, el marco de trabajo se devolverá un `204 No Content` respuesta.
+Las acciones del controlador pueden devolver POCO (objetos CLR estándar), en cuyo caso ASP.NET MVC creará automáticamente un `ObjectResult` que ajuste el objeto. El cliente obtendrá el objeto serializado con formato (el formato predeterminado es JSON, pero puede configurar XML u otros formatos). Si el objeto que se devuelve es `null`, el marco de trabajo devolverá una respuesta `204 No Content`.
 
-Devuelve un tipo de objeto:
+Devolución de un tipo de objeto:
 
 [!code-csharp[Main](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3&range=40-45)]
 
-En el ejemplo, una solicitud de un alias válido autor recibirá una respuesta 200 OK con datos del autor. Una solicitud de un alias válido recibirá una respuesta 204 Sin contenido. A continuación se muestran capturas de pantalla que muestra la respuesta en formatos XML y JSON.
+En el ejemplo, una solicitud de un alias de autor válido recibirá una respuesta "200 - Correcto" con los datos del autor. Una solicitud de un alias no válido recibirá una respuesta "204 Sin contenido". A continuación se muestran capturas de pantalla en las que aparece la respuesta en formatos XML y JSON.
 
 ### <a name="content-negotiation-process"></a>Proceso de negociación de contenido
 
-Contenido *negociación* solo se lleva a cabo si una `Accept` encabezado aparece en la solicitud. Cuando una solicitud contiene un encabezado de aceptación, el marco de trabajo enumerará los tipos de medios en el encabezado accept en orden de preferencia e intentará encontrar a un formateador que puede generar una respuesta en uno de los formatos especificados por el encabezado accept. En caso de que no se encuentra ningún formateador que puede satisfacer la solicitud del cliente, el marco de trabajo intentará encontrar el primer formateador que puede generar una respuesta (a menos que el desarrollador ha configurado la opción de `MvcOptions` para devolver 406 No aceptable en su lugar). Si la solicitud especifica XML, pero no se ha configurado el formateador de XML, se usará el formateador JSON. Por lo general, si no se ha configurado ningún formateador que puede proporcionar el formato solicitado, a continuación, se utiliza el primer formateador que puede dar formato al objeto. Si no se especifica ningún encabezado, se utilizará el primer formateador que puede controlar el objeto que se va a devolver para serializar la respuesta. En este caso, no hay ninguna negociación que tienen lugar: el servidor es determinar qué formato va a usar.
+La *negociación* de contenido solo se lleva a cabo si en la solicitud aparece un encabezado `Accept`. Si una solicitud contiene un encabezado Accept, el marco de trabajo enumerará los tipos de medios en el encabezado Accept en orden de preferencia e intentará encontrar un formateador que pueda generar una respuesta en uno de los formatos especificados por dicho encabezado. En caso de que no se encuentre ningún formateador que satisfaga la solicitud del cliente, el marco de trabajo intentará encontrar el primer formateador que pueda generar una respuesta (a menos que el desarrollador haya configurado la opción en `MvcOptions` para devolver "406 - No aceptable"). Si la solicitud especifica XML pero no se ha configurado el formateador XML, se usará el formateador JSON. Por lo general, si no se ha configurado ningún formateador que proporcione el formato solicitado, se usará el primer formateador que pueda dar formato al objeto. Si no se especifica ningún encabezado, se usará para serializar la respuesta el primer formateador que pueda controlar el objeto que se va a devolver. En este caso no se produce ninguna negociación, ya que es el servidor el que determina qué formato usará.
 
 > [!NOTE]
-> Si el encabezado Accept contiene `*/*`, el encabezado se omitirá a menos que `RespectBrowserAcceptHeader` está establecida en true en `MvcOptions`.
+> Si el encabezado Accept contiene `*/*`, el encabezado se omitirá a menos que `RespectBrowserAcceptHeader` esté establecido en true en `MvcOptions`.
 
 ### <a name="browsers-and-content-negotiation"></a>Exploradores y negociación de contenido
 
-A diferencia de los clientes de API típicos, exploradores web tienden a proporcionar `Accept` encabezados que incluyen una amplia gama de formatos, incluidos los caracteres comodín. De forma predeterminada, cuando el marco de trabajo detecta que la solicitud procede de un explorador, omitirá el `Accept` encabezado y valor devuelto en su lugar, el contenido de la aplicación configurar formato predeterminado (JSON, a menos que se configure de otra). Esto proporciona una experiencia más coherente al utilizar otros exploradores para utilizar las API.
+A diferencia de los clientes de API típicos, los exploradores web suelen proporcionar encabezados `Accept` que incluyen una amplia gama de formatos, incluidos caracteres comodín. De forma predeterminada, cuando el marco de trabajo detecta que la solicitud procede de un explorador, omite el encabezado `Accept` y devuelve el contenido en el formato predeterminado configurado de la aplicación (JSON, a menos que se haya configurado otro). Esto proporciona una experiencia más coherente al usar exploradores diferentes para el consumo de API.
 
-Si prefiere el Explorador de honor aplicación encabezados de aceptación, puede configurar esto como parte de la configuración de MVC estableciendo `RespectBrowserAcceptHeader` a `true` en el `ConfigureServices` método *Startup.cs*.
+Si prefiere que la aplicación respete los encabezados Accept del explorador, puede incluirlo en la configuración de MVC mediante el establecimiento de `RespectBrowserAcceptHeader` en `true` en el método `ConfigureServices` de *Startup.cs*.
 
 ```csharp
 services.AddMvc(options =>
@@ -102,17 +102,17 @@ services.AddMvc(options =>
 
 ## <a name="configuring-formatters"></a>Configuración de formateadores
 
-Si la aplicación necesita admitir formatos adicionales más allá del valor predeterminado es JSON, puede agregar paquetes de NuGet y configurar MVC para admitirlas. Hay formateadores independientes para la entrada y salida. Formateadores de entrada se utilizan por [enlace de modelos](model-binding.md); formateadores de salida se utilizan para dar formato a las respuestas. También puede configurar [personalizado formateadores](../advanced/custom-formatters.md).
+Si la aplicación necesita admitir formatos adicionales además del formato JSON predeterminado, puede agregar paquetes NuGet y configurar MVC para que los admita. Hay formateadores independientes para la entrada y la salida. El [enlace de modelos](model-binding.md) usa formateadores de entrada, mientras que los formateadores de salida se usan para dar formato a las respuestas. También puede configurar [formateadores personalizados](../advanced/custom-formatters.md).
 
 ### <a name="adding-xml-format-support"></a>Agregar compatibilidad con el formato XML
 
-Para agregar compatibilidad para dar formato a XML, instale el `Microsoft.AspNetCore.Mvc.Formatters.Xml` paquete NuGet.
+Para agregar compatibilidad con el formato XML, instale el paquete NuGet `Microsoft.AspNetCore.Mvc.Formatters.Xml`.
 
-Agregue el XmlSerializerFormatters a configuración de MVC en *Startup.cs*:
+Agregue los formateadores serializadores de XML a la configuración de MVC en *Startup.cs*:
 
 [!code-csharp[Main](./formatting/sample/Startup.cs?name=snippet1&highlight=2)]
 
-Como alternativa, puede agregar al formateador de salida:
+También puede agregar simplemente el formateador de salida:
 
 ```csharp
 services.AddMvc(options =>
@@ -121,7 +121,7 @@ services.AddMvc(options =>
 });
 ```
 
-Estos dos enfoques serializará resultados con `System.Xml.Serialization.XmlSerializer`. Si lo prefiere, puede usar el `System.Runtime.Serialization.DataContractSerializer` agregando su formateador asociado:
+Estos dos métodos serializarán los resultados con `System.Xml.Serialization.XmlSerializer`. Si lo prefiere, puede usar `System.Runtime.Serialization.DataContractSerializer` mediante la adición de su formateador asociado:
 
 ```csharp
 services.AddMvc(options =>
@@ -130,32 +130,32 @@ services.AddMvc(options =>
 });
 ```
 
-Una vez que se ha agregado compatibilidad con formato XML, los métodos de controlador deben devolver el formato adecuado en función de la solicitud `Accept` encabezado, como en este ejemplo se muestra de Fiddler:
+Una vez que se ha agregado compatibilidad con el formato XML, los métodos de controlador deben devolver el formato adecuado en función del encabezado `Accept` de la solicitud, como se muestra en este ejemplo de Fiddler:
 
-![Consola de Fiddler: pestaña sin el formato de la solicitud muestra el valor del encabezado Accept es application/xml. La pestaña sin formato para la respuesta muestra el valor del encabezado Content-Type de aplicación/xml.](formatting/_static/xml-response.png)
+![Consola de Fiddler: en la pestaña Sin formato de la solicitud se ve que el valor del encabezado Accept es application/xml. En la pestaña Sin formato de la respuesta se ve el valor application/xml del encabezado Content-Type.](formatting/_static/xml-response.png)
 
-Puede ver en la ficha de inspectores que se realizó la solicitud GET sin formato con un `Accept: application/xml` conjunto de encabezados. Se muestra en el panel respuesta el `Content-Type: application/xml` encabezado y el `Author` objeto se ha serializado en XML.
+En la pestaña Inspectores puede ver que la solicitud GET sin formato se ha realizado con un conjunto de encabezados `Accept: application/xml`. En el panel de respuesta se muestra el encabezado `Content-Type: application/xml`, y el objeto `Author` se ha serializado a XML.
 
-Utilice la ficha compositor para modificar la solicitud para especificar `application/json` en el `Accept` encabezado. Ejecutar la solicitud y la respuesta se formatearán como JSON:
+Use la pestaña Compositor para modificar la solicitud para especificar `application/json` en el encabezado `Accept`. Ejecute la solicitud y la respuesta se formateará como JSON:
 
-![Consola de Fiddler: pestaña sin el formato de la solicitud muestra el valor del encabezado Accept es application/json. La pestaña sin formato para la respuesta muestra el valor del encabezado Content-Type de aplicación/json.](formatting/_static/json-response-fiddler.png)
+![Consola de Fiddler: en la pestaña Sin formato de la solicitud se ve que el valor del encabezado Accept es application/json. En la pestaña Sin formato de la respuesta se ve el valor application/json del encabezado Content-Type.](formatting/_static/json-response-fiddler.png)
 
-En esta captura de pantalla, puede ver la solicitud establece un encabezado de `Accept: application/json` y especifica la respuesta de la misma que su `Content-Type`. La `Author` objeto se muestra en el cuerpo de la respuesta, en formato JSON.
+En esta captura de pantalla, puede ver que la solicitud establece un encabezado `Accept: application/json` y la respuesta lo especifica como su `Content-Type`. El objeto `Author` se muestra en el cuerpo de la respuesta, en formato JSON.
 
-### <a name="forcing-a-particular-format"></a>Si fuerza un formato determinado
+### <a name="forcing-a-particular-format"></a>Forzar un formato determinado
 
-Si desea restringir los formatos de respuesta para una acción concreta puede, puede aplicar el `[Produces]` filtro. El `[Produces]` filtro especifica los formatos de respuesta para una acción específica (o controlador). Al igual que la mayoría [filtros](../controllers/filters.md), esto puede aplicarse a la acción, el controlador o el ámbito global.
+Si quiere restringir los formatos de respuesta para una acción concreta, aplique el filtro `[Produces]`. El filtro `[Produces]` especifica los formatos de respuesta para una acción o controlador específicos. Al igual que la mayoría de los [filtros](../controllers/filters.md), puede aplicarse a la acción, el controlador o el ámbito global.
 
 ```csharp
 [Produces("application/json")]
 public class AuthorsController
 ```
 
-El `[Produces]` filtro forzará todas las acciones dentro de la `AuthorsController` para devolver las respuestas con formato JSON, incluso si otros formateadores estaban configurados para la aplicación y el cliente proporciona un `Accept` encabezado solicita diferentes, disponibles formato. Vea [filtros](../controllers/filters.md) para obtener más información, incluida la forma de aplicar filtros globales.
+El filtro `[Produces]` obligará a que todas las acciones dentro de `AuthorsController` devuelvan respuestas con formato JSON, incluso si se han configurado otros formateadores para la aplicación y si el cliente ha proporcionado un encabezado `Accept` que solicita un formato diferente disponible. Vea [Filtros](../controllers/filters.md) para obtener más información, incluida la forma de aplicar filtros globales.
 
 ### <a name="special-case-formatters"></a>Formateadores de casos especiales
 
-Algunos casos especiales se implementan mediante formateadores integrados. De forma predeterminada, `string` tipos de valor devuelto se formatearán como *texto/sin formato* (*texto/html* si se solicita a través de `Accept` encabezado). Este comportamiento se puede quitar mediante la eliminación de la `TextOutputFormatter`. Quitar formateadores en el `Configure` método *Startup.cs* (se muestra a continuación). Las acciones que tienen un objeto de modelo devuelven tipo no devolverá un 204 contenido respuesta al devolver `null`. Este comportamiento se puede quitar mediante la eliminación de la `HttpNoContentOutputFormatter`. El siguiente código quita la `TextOutputFormatter` y `HttpNoContentOutputFormatter`.
+Algunos casos especiales se implementan mediante formateadores integrados. De forma predeterminada, los tipos de valor devueltos `string` se formatearán como *texto/sin formato* (*texto/html* si se solicita a través del encabezado `Accept`). Este comportamiento se puede quitar mediante la eliminación de `TextOutputFormatter`. Los formateadores deben quitarse del método `Configure` de *Startup.cs* (como se muestra a continuación). Las acciones que tienen un tipo de valor devuelto de objeto de modelo devolverán una respuesta "204 Sin contenido" al devolver `null`. Este comportamiento se puede quitar mediante la eliminación de `HttpNoContentOutputFormatter`. El código siguiente quita `TextOutputFormatter` y `HttpNoContentOutputFormatter`.
 
 ```csharp
 services.AddMvc(options =>
@@ -165,13 +165,13 @@ services.AddMvc(options =>
 });
 ```
 
-Sin el `TextOutputFormatter`, `string` devuelven tipos devuelven 406 No aceptable, por ejemplo. Tenga en cuenta que si existe un formateador XML, dará formato `string` tipos de valor devuelto si el `TextOutputFormatter` se quita.
+Sin `TextOutputFormatter`, los tipos de valor devueltos `string` devuelven "406 - No aceptable", por ejemplo. Tenga en cuenta que si existe un formateador XML, dará formato a los tipos de valor devueltos `string` si se quita `TextOutputFormatter`.
 
-Sin el `HttpNoContentOutputFormatter`, se da formato a objetos nulos utilizando el formateador configurado. Por ejemplo, el formateador JSON simplemente devuelven una respuesta con un cuerpo de `null`, mientras que el formateador XML devolverá un elemento XML vacío con el atributo `xsi:nil="true"` establecido.
+Sin `HttpNoContentOutputFormatter`, se da formato a los objetos nulos mediante el formateador configurado. Por ejemplo, el formateador JSON simplemente devolverá una respuesta con un cuerpo `null`, mientras que el formateador XML devolverá un elemento XML vacío con el atributo `xsi:nil="true"` establecido.
 
 ## <a name="response-format-url-mappings"></a>Asignaciones de direcciones URL de formato de respuesta
 
-Los clientes pueden solicitar un formato determinado como parte de la dirección URL, como en la cadena de consulta o una parte de la ruta de acceso, o mediante el uso de una extensión de archivo de formato específico, como .xml o .json. La asignación de ruta de acceso de solicitud debe especificarse en la ruta que es utilizando la API. Por ejemplo:
+Los clientes pueden solicitar un formato determinado como parte de la dirección URL, como en la cadena de consulta o en una parte de la ruta de acceso, o mediante el uso de una extensión de archivo de formato específico, como .xml o .json. La asignación de la ruta de acceso de la solicitud debe especificarse en la ruta que use la API. Por ejemplo:
 
 ```csharp
 [FormatFilter]
@@ -181,10 +181,10 @@ public class ProductsController
     public Product GetById(int id)
 ```
 
-Esta ruta permitiría que el formato solicitado estar especificado como una extensión de archivo opcional. El `[FormatFilter]` atributo comprueba la existencia del valor de formato en el `RouteData` y asignará el formato de respuesta al formateador adecuado cuando se crea la respuesta.
+Esta ruta permitiría especificar el formato solicitado como una extensión de archivo opcional. El atributo `[FormatFilter]` comprueba la existencia del valor de formato en `RouteData` y asignará el formato de respuesta al formateador adecuado cuando se cree la respuesta.
 
 | Ruta                      | Formateador                          |
 | -------------------------- | ---------------------------------- |
-| `/products/GetById/5`      | El formateador de salida predeterminado       |
-| `/products/GetById/5.json` | El formateador JSON (si está configurado) |
-| `/products/GetById/5.xml`  | El formateador XML (si está configurado)  |
+| `/products/GetById/5`      | Formateador de salida predeterminado       |
+| `/products/GetById/5.json` | Formateador JSON (si está configurado) |
+| `/products/GetById/5.xml`  | Formateador XML (si está configurado)  |

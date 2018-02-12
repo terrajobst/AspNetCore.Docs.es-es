@@ -2,18 +2,18 @@
 title: "Carga de archivos en una página de Razor en ASP.NET Core"
 author: guardrex
 description: "Aprenda a cargar archivos en una página de Razor."
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 09/12/2017
-ms.topic: get-started-article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: a29043ac5d28ae8efcbbd6919e73e3774ba22699
-ms.sourcegitcommit: 3e303620a125325bb9abd4b2d315c106fb8c47fd
+ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Carga de archivos en una página de Razor en ASP.NET Core
 
@@ -76,9 +76,9 @@ Cada grupo del formulario incluye una **\<etiqueta>** que muestra el nombre de c
 
 Cada grupo del formulario incluye un **\<intervalo>** de validación. Si la entrada del usuario no cumple los atributos de propiedad establecidos en la clase `FileUpload` o si se produce un error en alguna de las comprobaciones de validación del archivo del método `ProcessFormFile`, no se valida el modelo. Cuando se produce un error en la validación del modelo, se presenta un útil mensaje de validación al usuario. Por ejemplo, la propiedad `Title` se anota con `[Required]` y `[StringLength(60, MinimumLength = 3)]`. Si el usuario no proporciona un título, recibe un mensaje que indica que se necesita un valor. Si el usuario especifica un valor de menos de tres caracteres o de más de sesenta caracteres, recibe un mensaje que indica que el valor tiene una longitud incorrecta. Si se proporciona un archivo sin contenido, aparece un mensaje que indica que el archivo está vacío.
 
-## <a name="add-the-code-behind-file"></a>Adición del archivo de código subyacente
+## <a name="add-the-page-model"></a>Agregar el modelo de página
 
-Agregue el archivo de código subyacente (*Index.cshtml.cs*) a la carpeta *Schedules*:
+Agregue el modelo de página (*Index.cshtml.cs*) a la carpeta *Schedules*:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Index.cshtml.cs)]
 
@@ -110,7 +110,7 @@ Cuando el usuario hace clic para eliminar una programación, se recomienda ofrec
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
-El archivo de código subyacente (*Delete.cshtml.cs*) carga una sola programación identificada por `id` en los datos de ruta de la solicitud. Agregue el archivo *Delete.cshtml.cs* a la carpeta *Schedules*:
+El modelo de página (*Delete.cshtml.cs*) carga una sola programación identificada por `id` en los datos de ruta de la solicitud. Agregue el archivo *Delete.cshtml.cs* a la carpeta *Schedules*:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml.cs)]
 

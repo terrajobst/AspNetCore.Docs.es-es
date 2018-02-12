@@ -105,9 +105,9 @@ El elemento delimitador anterior es una [aplicación auxiliar de etiquetas](xref
 
 Guarde los cambios y pruebe la aplicación haciendo clic en el vínculo **RpMovie**. Consulte el archivo [_Layout.cshtml](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Pages/_Layout.cshtml) en GitHub.
 
-### <a name="the-create-code-behind-page"></a>Página de código subyacente Crear
+### <a name="the-create-page-model"></a>Modelo de página Crear
 
-Examine el archivo de código subyacente *Pages/Movies/Create.cshtml.cs*:
+Examine el modelo de página *Pages/Movies/Create.cshtml.cs*:
 
 [!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/snapshot_sample/RazorPagesMovie/Pages/Movies/Create.cshtml.cs?name=snippetALL)]
 

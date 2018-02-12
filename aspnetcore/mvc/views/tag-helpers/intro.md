@@ -1,38 +1,38 @@
 ---
-title: "Aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET"
+title: Aplicaciones auxiliares de etiquetas en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de qué son las aplicaciones auxiliares de etiquetas y cómo se utilizan en ASP.NET Core."
-ms.author: riande
+description: "Obtenga información sobre qué son las aplicaciones auxiliares de etiquetas y cómo se usan en ASP.NET Core."
 manager: wpickett
-ms.date: 7/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/tag-helpers/intro
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c198ccc3e3e2c11f3e2b9379bc63bd6428dbf69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 7/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/tag-helpers/intro
+ms.openlocfilehash: 939eccd45ec437f379fb9349c24246cc0683528b
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introducción a las aplicaciones auxiliares de etiquetas en el núcleo de ASP.NET 
+# <a name="introduction-to-tag-helpers-in-aspnet-core"></a>Introducción a las aplicaciones auxiliares de etiquetas en ASP.NET Core 
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-## <a name="what-are-tag-helpers"></a>¿Qué aplicaciones auxiliares de etiquetas?
+## <a name="what-are-tag-helpers"></a>¿Qué son las aplicaciones auxiliares de etiquetas?
 
-Aplicaciones auxiliares de etiquetas que el código de servidor pueda participar en la creación y representar elementos HTML en archivos de Razor. Por ejemplo, la integrada `ImageTagHelper` puede anexar un número de versión para el nombre de imagen. Cada vez que cambie la imagen, el servidor genera una nueva versión única para la imagen, por lo que se garantiza que los clientes para obtener la imagen actual (en lugar de una imagen almacenada en caché obsoleta). Hay muchas aplicaciones auxiliares de etiquetas integradas para las tareas comunes: como la creación de formularios, vínculos, activos de carga y los paquetes más - y aún más disponibles en repositorios públicos de GitHub y como NuGet. Aplicaciones auxiliares de etiquetas se crean en C# y se dirigen a los elementos HTML en función de nombre de elemento o atributo o etiqueta primaria. Por ejemplo, la integrada `LabelTagHelper` puede tener como destino el HTML `<label>` elemento cuando el `LabelTagHelper` se aplican atributos. Si está familiarizado con [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), aplicaciones auxiliares de etiquetas reducir las transiciones explícitas entre HTML y C# en las vistas de Razor. En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazar las aplicaciones auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. [Aplicaciones auxiliares en comparación con las aplicaciones auxiliares HTML de etiquetas](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle.
+Las aplicaciones auxiliares de etiquetas permiten que el código de servidor participe en la creación y la representación de elementos HTML en archivos de Razor. Por ejemplo, la aplicación auxiliar `ImageTagHelper` integrada puede anexar un número de versión al nombre de imagen. Cada vez que la imagen cambia, el servidor genera una nueva versión única para la imagen, lo que garantiza que los clientes puedan obtener la imagen actual (en lugar de una imagen obsoleta almacenada en caché). Hay muchas aplicaciones auxiliares de etiquetas integradas para tareas comunes (como la creación de formularios, vínculos, carga de activos, etc.) y existen muchas más a disposición en repositorios públicos de GitHub y como paquetes NuGet. Las aplicaciones auxiliares de etiquetas se crean en C# y tienen como destino elementos HTML en función del nombre de elemento, el nombre de atributo o la etiqueta principal. Por ejemplo, la aplicación auxiliar `LabelTagHelper` integrada puede tener como destino el elemento HTML `<label>` cuando se aplican atributos `LabelTagHelper`. Si está familiarizado con las [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers), las aplicaciones auxiliares de etiquetas reducen las transiciones explícitas entre HTML y C# en las vistas de Razor. En muchos casos, las aplicaciones auxiliares HTML proporcionan un método alternativo para una aplicación auxiliar de etiquetas específica, pero es importante tener en cuenta que las aplicaciones auxiliares de etiquetas no reemplazan a las aplicaciones auxiliares HTML y que no hay una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. En [Comparación entre las aplicaciones auxiliares de etiquetas y las aplicaciones auxiliares HTML](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle.
 
-## <a name="what-tag-helpers-provide"></a>¿Qué proporciona aplicaciones auxiliares de etiquetas
+## <a name="what-tag-helpers-provide"></a>¿Qué proporcionan las aplicaciones auxiliares de etiquetas?
 
-**Una experiencia de desarrollo compatible con HTML** para la mayor parte, con aplicaciones auxiliares de etiquetas de marcado de Razor es similar a HTML estándar. Diseñadores de front-end familiarizados con HTML, CSS y JavaScript pueden editar Razor sin tener que conocer la sintaxis Razor de C#.
+**Una experiencia de desarrollo compatible con HTML** La mayor parte del marcado de Razor con aplicaciones auxiliares de etiquetas es similar a HTML estándar. Los diseñadores de front-end familiarizados con HTML, CSS y JavaScript pueden editar Razor sin tener que aprender la sintaxis Razor de C#.
 
-**Un entorno rico de IntelliSense para crear marcado HTML y Razor** trata de un contraste agudo para aplicaciones auxiliares de HTML, el enfoque anterior para la creación del servidor de marcado en las vistas de Razor. [Aplicaciones auxiliares en comparación con las aplicaciones auxiliares HTML de etiquetas](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle. [Compatibilidad con IntelliSense para las aplicaciones auxiliares de etiquetas](#intellisense-support-for-tag-helpers) explica el entorno de IntelliSense. Incluso los desarrolladores que tienen experimentados con sintaxis Razor C# son más productivos mediante aplicaciones auxiliares de etiquetas que escribir marcado de C# Razor.
+**Un entorno de IntelliSense enriquecido para crear marcado HTML y Razor** Este es un marcado contraste con las aplicaciones auxiliares HTML, el método anterior para la creación en el lado servidor de marcado en vistas de Razor. En [Comparación entre las aplicaciones auxiliares de etiquetas y las aplicaciones auxiliares HTML](#tag-helpers-compared-to-html-helpers) se explican las diferencias con más detalle. En [Compatibilidad de IntelliSense con aplicaciones auxiliares de etiquetas](#intellisense-support-for-tag-helpers) se explica el entorno de IntelliSense. Incluso los desarrolladores que tienen experiencia con la sintaxis Razor de C# son más productivos cuando usan aplicaciones auxiliares de etiquetas que al escribir marcado de Razor de C#.
 
-**Una manera para que sea más productiva y pueden generar más sólida y confiable y código mantenible con información sólo está disponible en el servidor** por ejemplo, históricamente era el mantra sobre la actualización de imágenes cambiar el nombre de la imagen al cambiar la imagen. Las imágenes deben almacenarse en caché activamente por motivos de rendimiento y, a menos que cambie el nombre de una imagen, corre el riesgo de los clientes obtengan una copia obsoleta. Históricamente, una vez se ha editado una imagen, el nombre tenía cambiarse y todas las referencias a la imagen de la aplicación web necesita actualizarse. Esto no sólo es muy trabajo intensivo, también es propenso a errores (pudo faltaba una referencia, escriba accidentalmente la cadena incorrecta, etcetera.) Integrado `ImageTagHelper` puede hacer esto por usted automáticamente. La `ImageTagHelper` puede anexar una versión número al nombre de imagen, por lo que cada vez que cambie la imagen, el servidor genera automáticamente una nueva versión única para la imagen. Se garantiza que los clientes para obtener la imagen actual. Este ahorro solidez y trabajo viene esencialmente gratuita mediante el uso de la `ImageTagHelper`.
+**Una forma de ser más productivo y generar código más sólido, confiable y fácil de mantener con información que solo está disponible en el servidor** Por ejemplo, lo habitual a la hora de actualizar las imágenes era cambiar el nombre de la imagen cuando se modificaba. Las imágenes debían almacenarse en caché de forma activa por motivos de rendimiento y, a menos que se cambiase el nombre de una imagen, se corría el riesgo de que los clientes obtuviesen una copia obsoleta. Antes, después de editar una imagen, era necesario cambiarle el nombre y actualizar todas las referencias a la imagen en la aplicación web. Esto no solo exigía mucho trabajo, sino que era propenso a errores (por ejemplo, omitir una referencia, incluir accidentalmente una cadena incorrecta, etc.). La aplicación auxiliar `ImageTagHelper` integrada puede hacerlo automáticamente. `ImageTagHelper` puede anexar un número de versión al nombre de la imagen, por lo que cada vez que la imagen cambia, el servidor genera automáticamente una nueva versión única de la imagen. Esto garantiza que los clientes obtengan la imagen actual. Esta solidez y ahorro de trabajo se consiguen de forma gratuita mediante el uso de `ImageTagHelper`.
 
-La mayoría de las aplicaciones auxiliares de etiquetas integradas elementos HTML existentes de destino y proporciona atributos de servidor para el elemento. Por ejemplo, el `<input>` elemento utilizado en muchas de las vistas en el *Views/Account* carpeta contiene el `asp-for` atributo, que extrae el nombre de la propiedad de modelo especificado en el HTML representado. El siguiente marcado de Razor:
+La mayoría de las aplicaciones auxiliares de etiquetas integradas tienen como destino elementos HTML existentes y proporcionan atributos de servidor para el elemento. Por ejemplo, el elemento `<input>` usado en muchas de las vistas de la carpeta *Views/Account* contiene el atributo `asp-for`, que extrae el nombre de la propiedad de modelo especificada en el HTML representado. El siguiente marcado de Razor:
 
 ```cshtml
 <label asp-for="Email"></label>
@@ -44,27 +44,27 @@ Genera el siguiente código HTML:
 <label for="Email">Email</label>
 ```
 
-El `asp-for` atributo debe ponerse a disposición por la `For` propiedad en el `LabelTagHelper`. Vea [creación de aplicaciones auxiliares de etiquetas](authoring.md) para obtener más información.
+El atributo `asp-for` está disponible mediante la propiedad `For` en `LabelTagHelper`. Vea [Creación de aplicaciones auxiliares de etiquetas](authoring.md) para más información.
 
-## <a name="managing-tag-helper-scope"></a>Administración de ámbito de aplicación auxiliar de etiqueta
+## <a name="managing-tag-helper-scope"></a>Administración del ámbito de las aplicaciones auxiliares de etiquetas
 
-Ámbito de las aplicaciones auxiliares de etiqueta se controla mediante una combinación de `@addTagHelper`, `@removeTagHelper`y el "!" caracteres de desactivación.
+El ámbito de las aplicaciones auxiliares de etiquetas se controla mediante una combinación de `@addTagHelper`, `@removeTagHelper` y el carácter de exclusión "!".
 
 <a name="add-helper-label"></a>
 
-### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper`pone a disposición aplicaciones auxiliares de etiquetas
+### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` hace que las aplicaciones auxiliares de etiquetas estén disponibles
 
-Si creas una nueva aplicación web de ASP.NET Core denominada *AuthoringTagHelpers* (con sin autenticación), el siguiente *Views/_ViewImports.cshtml* archivo se agregará al proyecto:
+Si crea una aplicación web ASP.NET Core denominada *AuthoringTagHelpers* (sin autenticación), el siguiente archivo *Views/_ViewImports.cshtml* se agregará al proyecto:
 
 [!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-El `@addTagHelper` directiva pone a disposición de la vista de aplicaciones auxiliares de etiquetas. En este caso, el archivo de vista es *Views/_ViewImports.cshtml*, cuyo valor predeterminado es heredada por todos los archivos de vista en el *vistas* carpeta y los subdirectorios; ofrecer aplicaciones auxiliares de etiquetas. El código anterior utiliza la sintaxis de carácter comodín ("\*") para especificar que todas las aplicaciones auxiliares de etiquetas en el ensamblado especificado (*Microsoft.AspNetCore.Mvc.TagHelpers*) estará disponible para todos los archivos de vista la *vistas* directorio o subdirectorio. El primer parámetro después de `@addTagHelper` especifica las aplicaciones auxiliares de etiquetas para cargar (usamos "\*" para todas las aplicaciones auxiliares de etiquetas), y el segundo parámetro "Microsoft.AspNetCore.Mvc.TagHelpers" especifica el ensamblado que contiene las aplicaciones auxiliares de etiquetas. *Microsoft.AspNetCore.Mvc.TagHelpers* es el ensamblado para los asistentes de etiqueta de principales de ASP.NET integrado.
+La directiva `@addTagHelper` hace que las aplicaciones auxiliares de etiquetas estén disponibles en la vista. En este caso, el archivo de vista es *Views/_ViewImports.cshtml*, el cual heredan de forma predeterminada todos los archivos de vista de la carpeta *Views* y los subdirectorios, lo que hace que las aplicaciones auxiliares de etiquetas estén disponibles. El código anterior usa la sintaxis de comodines ("\*") para especificar que todas las aplicaciones auxiliares de etiquetas del ensamblado especificado (*Microsoft.AspNetCore.Mvc.TagHelpers*) estarán disponibles para todos los archivos de vista del directorio o subdirectorio *Views*. El primer parámetro después de `@addTagHelper` especifica las aplicaciones auxiliares de etiquetas que se van a cargar (usamos "\*" para todas las aplicaciones auxiliares de etiquetas), y el segundo parámetro ("Microsoft.AspNetCore.Mvc.TagHelpers") especifica el ensamblado que contiene las aplicaciones auxiliares de etiquetas. *Microsoft.AspNetCore.Mvc.TagHelpers* es el ensamblado para las aplicaciones auxiliares de etiquetas integradas de ASP.NET Core.
 
-Para exponer todas las aplicaciones auxiliares de etiquetas en este proyecto (que crea un ensamblado denominado *AuthoringTagHelpers*), utilizaría lo siguiente:
+Para exponer todas las aplicaciones auxiliares de etiquetas de este proyecto (que crea un ensamblado denominado *AuthoringTagHelpers*), use lo siguiente:
 
 [!code-cshtml[Main](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=3)]
 
-Si el proyecto contiene un `EmailTagHelper` con el espacio de nombres predeterminado (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), puede proporcionar el nombre completo (FQN) de la aplicación auxiliar de etiqueta:
+Si el proyecto contiene una aplicación auxiliar `EmailTagHelper` con el espacio de nombres predeterminado (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`), puede proporcionar el nombre completo (FQN) de la aplicación auxiliar de etiquetas:
 
 ```cshtml
 @using AuthoringTagHelpers
@@ -72,190 +72,187 @@ Si el proyecto contiene un `EmailTagHelper` con el espacio de nombres predetermi
 @addTagHelper AuthoringTagHelpers.TagHelpers.EmailTagHelper, AuthoringTagHelpers
 ```
 
-Para agregar una aplicación auxiliar de etiqueta a una vista con un FQN, agregue primero la FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) y, a continuación, el nombre del ensamblado (*AuthoringTagHelpers*). Mayoría de los desarrolladores prefiere usar la "\*" sintaxis de caracteres comodín. La sintaxis de comodines permite insertar el carácter comodín "\*" como el sufijo en un FQN. Por ejemplo, cualquiera de las siguientes directivas pondrá en el `EmailTagHelper`:
+Para agregar una aplicación auxiliar de etiquetas a una vista con un FQN, agregue primero el FQN (`AuthoringTagHelpers.TagHelpers.EmailTagHelper`) y, después, el nombre del ensamblado (*AuthoringTagHelpers*). La mayoría de los desarrolladores prefiere usar la sintaxis de comodines "\*". La sintaxis de comodines permite insertar el carácter comodín "\*" como sufijo en un FQN. Por ejemplo, cualquiera de las siguientes directivas incorporará `EmailTagHelper`:
 
 ```cshtml
 @addTagHelper AuthoringTagHelpers.TagHelpers.E*, AuthoringTagHelpers
 @addTagHelper AuthoringTagHelpers.TagHelpers.Email*, AuthoringTagHelpers
 ```
 
-Como se mencionó anteriormente, agregar el `@addTagHelper` directivas para la *Views/_ViewImports.cshtml* archivo pone a disposición de todos los archivos de vista de la aplicación auxiliar de etiqueta el *vistas* directorio y subdirectorios. Puede usar el `@addTagHelper` la directiva en los archivos de la vista específica si desea participar en exponer la aplicación auxiliar de etiqueta a solo aquellas vistas.
+Como se ha mencionado anteriormente, al agregar la directiva `@addTagHelper` al archivo *Views/_ViewImports.cshtml* la aplicación auxiliar de etiquetas se pone a disposición de todos los archivos de vista del directorio *Views* y los subdirectorios. Puede usar la directiva `@addTagHelper` en archivos de vista específicos si quiere exponer la aplicación auxiliar de etiquetas solo a esas vistas.
 
 <a name="remove-razor-directives-label"></a>
 
-### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper`Quita las aplicaciones auxiliares de etiquetas
+### <a name="removetaghelper-removes-tag-helpers"></a>`@removeTagHelper` quita las aplicaciones auxiliares de etiquetas
 
-El `@removeTagHelper` tiene los mismos parámetros como `@addTagHelper`, y quita una aplicación auxiliar de etiquetas que se agregó anteriormente. Por ejemplo, `@removeTagHelper` aplicados en una vista específica se quitan la aplicación auxiliar de etiqueta especificada de la vista. Usar `@removeTagHelper` en un *Views/Folder/_ViewImports.cshtml* archivo quita la aplicación auxiliar de etiqueta especificada de todas las vistas en *carpeta*.
+`@removeTagHelper` tiene los mismos parámetros que `@addTagHelper`, y quita una aplicación auxiliar de etiquetas que se ha agregado anteriormente. Por ejemplo, si se aplica `@removeTagHelper` a una vista específica, se quita de la vista la aplicación auxiliar de etiquetas especificada. Si se usa `@removeTagHelper` en un archivo *Views/Folder/_ViewImports.cshtml*, se quita la aplicación auxiliar de etiquetas especificada de todas las vistas de *Folder*.
 
-### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Controlar el ámbito de aplicación auxiliar de etiqueta con el *_ViewImports.cshtml* archivo
+### <a name="controlling-tag-helper-scope-with-the-viewimportscshtml-file"></a>Controlar el ámbito de la aplicación auxiliar de etiquetas con el archivo *_ViewImports.cshtml*
 
-Puede agregar un *_ViewImports.cshtml* a cualquier carpeta de la vista y la vista motor aplica las directivas de ambos ese archivo y la *Views/_ViewImports.cshtml* archivo. Si agregó vacío *Views/Home/_ViewImports.cshtml* de archivos para el *inicio* vistas, no habría ningún cambio porque la *_ViewImports.cshtml* archivo es suma. Cualquier `@addTagHelper` directivas se agrega a la *Views/Home/_ViewImports.cshtml* archivo (que no están en el valor predeterminado *Views/_ViewImports.cshtml* archivo) expondría esas aplicaciones auxiliares de etiquetas a las vistas solo en el *Inicio* carpeta.
+Si agrega un archivo *_ViewImports.cshtml* a cualquier carpeta de vistas, el motor de vistas aplica las directivas de ese archivo y del archivo *Views/_ViewImports.cshtml*. Si agregara un archivo *Views/Home/_ViewImports.cshtml* vacío para las vistas de *Home*, no se produciría ningún cambio porque el archivo *_ViewImports.cshtml* se suma. Todas las directivas `@addTagHelper` que agregue al archivo *Views/Home/_ViewImports.cshtml* (que no estén en el archivo predeterminado *Views/_ViewImports.cshtml*) expondrán esas aplicaciones auxiliares de etiquetas únicamente a las vistas de la carpeta *Home*.
 
 <a name="opt-out"></a>
 
-### <a name="opting-out-of-individual-elements"></a>No participar en de los elementos individuales
+### <a name="opting-out-of-individual-elements"></a>Excluir elementos individuales
 
-Puede deshabilitar una aplicación auxiliar de etiquetas en el nivel de elemento con el carácter de desactivación de aplicación auxiliar de etiqueta ("!"). Por ejemplo, `Email` validación está deshabilitada en el `<span>` con el carácter de desactivación de aplicación auxiliar de etiqueta:
+Puede deshabilitar una aplicación auxiliar de etiquetas en el nivel de elemento con el carácter de exclusión ("!") de la aplicación auxiliar de etiquetas. Por ejemplo, la validación de `Email` se deshabilita en `<span>` con el carácter de exclusión de la aplicación auxiliar de etiquetas:
 
 ```cshtml
 <!span asp-validation-for="Email" class="text-danger"></!span>
 ```
 
-Debe aplicar el carácter de desactivación de aplicación auxiliar de etiqueta a la apertura y la etiqueta de cierre. (El editor de Visual Studio agrega automáticamente el carácter de cancelación para la etiqueta de cierre al agregar una a la etiqueta de apertura). Después de agregar el carácter de cancelación, el elemento y atributos de la aplicación auxiliar de etiqueta ya no se muestran en una fuente distintos.
+Debe aplicar el carácter de exclusión de la aplicación auxiliar de etiquetas en la etiqueta de apertura y de cierre. (El editor de Visual Studio agrega automáticamente el carácter de exclusión a la etiqueta de cierre cuando se agrega uno a la etiqueta de apertura). Después de agregar el carácter de exclusión, el elemento y los atributos de la aplicación auxiliar de etiquetas ya no se muestran en una fuente distinta.
 
 <a name="prefix-razor-directives-label"></a>
 
-### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Usar `@tagHelperPrefix` para hacer uso de la aplicación auxiliar de etiqueta explícita
+### <a name="using-taghelperprefix-to-make-tag-helper-usage-explicit"></a>Usar `@tagHelperPrefix` para hacer explícito el uso de la aplicación auxiliar de etiquetas
 
-El `@tagHelperPrefix` directiva permite especificar una cadena de prefijo de etiqueta para habilitar la compatibilidad de la aplicación auxiliar de etiqueta y hacer uso de la aplicación auxiliar de etiqueta explícita. Por ejemplo, podría agregar el código siguiente para el *Views/_ViewImports.cshtml* archivo:
+La directiva `@tagHelperPrefix` permite especificar una cadena de prefijo de etiqueta para habilitar la compatibilidad con la aplicación auxiliar de etiquetas y hacer explícito su uso. Por ejemplo, podría agregar el marcado siguiente al archivo *Views/_ViewImports.cshtml*:
 
 ```cshtml
 @tagHelperPrefix th:
 ```
-En la imagen de código siguiente, se establece el prefijo de etiqueta auxiliares en `th:`, por lo que solo los elementos con el prefijo `th:` admite aplicaciones auxiliares de etiquetas (elementos de aplicación auxiliar de la etiqueta tienen una fuente distintos). El `<label>` y `<input>` elementos tienen el prefijo de etiqueta auxiliares y están habilitadas para auxiliar de etiqueta, mientras el `<span>` no de elemento.
+En la imagen de código siguiente, el prefijo de la aplicación auxiliar de etiquetas se establece en `th:`, por lo que solo los elementos con el prefijo `th:` admiten aplicaciones auxiliares de etiquetas (los elementos habilitados para aplicaciones auxiliares de etiquetas tienen una fuente distinta). Los elementos `<label>` y `<input>` tienen el prefijo de las aplicaciones auxiliares de etiquetas y están habilitados para estas, a diferencia del elemento `<span>`.
 
 ![imagen](intro/_static/thp.png)
 
 Las mismas reglas de jerarquía que se aplican a `@addTagHelper` también se aplican a `@tagHelperPrefix`.
 
-## <a name="intellisense-support-for-tag-helpers"></a>Compatibilidad con IntelliSense para las aplicaciones auxiliares de etiquetas
+## <a name="intellisense-support-for-tag-helpers"></a>Compatibilidad de IntelliSense con aplicaciones auxiliares de etiquetas
 
-Cuando se crea una nueva aplicación web ASP.NET en Visual Studio, agrega el paquete NuGet "Microsoft.AspNetCore.Razor.Tools". Este es el paquete que agrega herramientas de aplicación auxiliar de etiqueta.
+Cuando se crea una aplicación web ASP.NET en Visual Studio, se agrega el paquete NuGet "Microsoft.AspNetCore.Razor.Tools". Este es el paquete que agrega las herramientas de las aplicaciones auxiliares de etiquetas.
 
-Considere la posibilidad de escribir un elemento HTML `<label>` elemento. Tan pronto como escribe `<l` en el editor de Visual Studio, IntelliSense muestra elementos coincidentes:
+Considere la posibilidad de escribir un elemento HTML `<label>`. En cuanto escriba `<l` en el editor de Visual Studio, IntelliSense mostrará elementos coincidentes:
 
 ![imagen](intro/_static/label.png)
 
-No solo obtendrá la Ayuda HTML, pero el icono (el "@" symbol with "<>" debajo de él).
+No solo obtendrá ayuda HTML, sino el icono (el "@" symbol with "<>" situado debajo).
 
 ![imagen](intro/_static/tagSym.png)
 
-identifica el elemento como destino de aplicaciones auxiliares de etiquetas. Elementos HTML puros (como el `fieldset`) muestra el icono "<>".
+Esto identifica el elemento como el destino de las aplicaciones auxiliares de etiquetas. Los elementos HTML puros (como `fieldset`) muestran el icono "<>".
 
-Un código de HTML puro `<label>` la etiqueta HTML (con el tema de color de Visual Studio de forma predeterminada) se muestra en una fuente marrón, los atributos en rojo, y los valores de atributo en azul.
+Una etiqueta HTML pura `<label>` muestra la etiqueta HTML (con el tema de color de Visual Studio predeterminado) en una fuente marrón, con los atributos en rojo y los valores de atributo en azul.
 
 ![imagen](intro/_static/LableHtmlTag.png)
 
-Después de escribir `<label`, IntelliSense muestra los atributos HTML/CSS disponibles y los atributos de aplicación auxiliar de la etiqueta de destino:
+Después de escribir `<label`, IntelliSense muestra los atributos HTML/CSS disponibles y los atributos destinados a la aplicación auxiliar de etiquetas:
 
 ![imagen](intro/_static/labelattr.png)
 
-Finalización de instrucciones de IntelliSense permite especificar la tecla tab para completar la instrucción con el valor seleccionado:
+La finalización de instrucciones de IntelliSense permite presionar la tecla TAB para completar la instrucción con el valor seleccionado:
 
 ![imagen](intro/_static/stmtcomplete.png)
 
-Tan pronto como se escribe un atributo de aplicación auxiliar de etiquetas, cambian las fuentes de etiquetas y atributos. Con el valor predeterminado "Blue" de Visual Studio o el tema de color "Light", la fuente es negrita púrpura. Si usas el tema "Oscuro" de la fuente es verde azulado negrita. Las imágenes en este documento se realizaron con el tema predeterminado.
+En cuanto se especifica un atributo de la aplicación auxiliar de etiquetas, las fuentes de las etiquetas y los atributos cambian. Si usa el tema de color predeterminado "Azul" o "Claro" de Visual Studio, la fuente es púrpura en negrita. Si usa el tema "Oscuro", la fuente es verde azulado en negrita. Las imágenes de este documento se han realizado con el tema predeterminado.
 
 ![imagen](intro/_static/labelaspfor2.png)
 
-Puede escribir el Visual Studio *CompleteWord* acceso directo (Ctrl + barra espaciadora es el [predeterminado](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) dentro de las comillas dobles (""), y ahora se encuentran en C#, al igual que sería en una clase de C#. IntelliSense muestra todos los métodos y propiedades en el modelo de páginas. Los métodos y propiedades están disponibles porque el tipo de propiedad es `ModelExpression`. En la imagen siguiente, estoy editando el `Register` vista, por lo que el `RegisterViewModel` está disponible.
+Puede usar el acceso directo *CompleteWord* de Visual Studio (el valor [predeterminado](https://docs.microsoft.com/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio) es Ctrl+barra espaciadora) entre comillas dobles (""). Ahora se encuentra en C#, como si estuviera en una clase de C#. IntelliSense muestra todos los métodos y propiedades en el modelo de páginas. Los métodos y las propiedades están disponibles porque el tipo de propiedad es `ModelExpression`. En la imagen siguiente se edita la vista `Register`, por lo que `RegisterViewModel` está disponible.
 
 ![imagen](intro/_static/intellemail.png)
 
-IntelliSense muestra las propiedades y métodos disponibles para el modelo en la página. El entorno enriquecido de IntelliSense le ayuda a seleccionar la clase CSS:
+IntelliSense muestra las propiedades y los métodos disponibles para el modelo en la página. El entorno enriquecido de IntelliSense le ayuda a seleccionar la clase CSS:
 
 ![imagen](intro/_static/iclass.png)
 
 ![imagen](intro/_static/intel3.png)
 
-## <a name="tag-helpers-compared-to-html-helpers"></a>Aplicaciones auxiliares de etiquetas en comparación con las aplicaciones auxiliares HTML
+## <a name="tag-helpers-compared-to-html-helpers"></a>Comparación entre las aplicaciones auxiliares de etiquetas y las aplicaciones auxiliares HTML
 
-Aplicaciones auxiliares de etiquetas asociar a elementos HTML en las vistas de Razor, mientras que [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) se invocan como métodos entremezcladas con HTML en las vistas de Razor. Tenga en cuenta el siguiente marcado de Razor, que crea una etiqueta HTML con la clase CSS "título":
+Las aplicaciones auxiliares de etiquetas se asocian a elementos HTML en las vistas de Razor, mientras que las [aplicaciones auxiliares HTML](http://stephenwalther.com/archive/2009/03/03/chapter-6-understanding-html-helpers) se invocan como métodos intercalados con HTML en las vistas de Razor. Observe el siguiente marcado de Razor, que crea una etiqueta HTML con la clase CSS "caption":
 
 ```cshtml
 @Html.Label("FirstName", "First Name:", new {@class="caption"})
 ```
 
-El en (`@`) símbolo solicita Razor es el inicio del código. Los dos parámetros siguientes ("FirstName" y "nombre:") son cadenas, por lo que [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) no sirve de ayuda. El último argumento:
+El símbolo de arroba (`@`) le indica a Razor que este es el inicio del código. Los dos parámetros siguientes ("FirstName" y "First Name:") son cadenas, por lo que [IntelliSense](https://docs.microsoft.com/visualstudio/ide/using-intellisense) no sirve de ayuda. El último argumento:
 
 ```cshtml
 new {@class="caption"}
 ```
 
-Es un objeto anónimo que se usa para representar los atributos. Dado que **clase** es una palabra reservada en C#, utilice la `@` símbolos para forzar que C# para interpretar "@class=" como un símbolo (nombre de propiedad). Para un diseñador de front-end (alguien familiarizado con HTML, CSS y JavaScript y otras tecnologías de cliente pero no está familiarizado con C# y Razor), la mayor parte de la línea es externa. Toda la línea debe crearse con ninguna ayuda de IntelliSense.
+Es un objeto anónimo que se usa para representar atributos. Dado que **class** es una palabra reservada en C#, use el símbolo `@` para forzar a C# a interpretar "@class=" como un símbolo (nombre de propiedad). Para un diseñador de front-end (es decir, alguien familiarizado con HTML, CSS, JavaScript y otras tecnologías de cliente, pero desconocedor de C# y Razor), la mayor parte de la línea le resulta ajena. Es necesario crear toda la línea sin ayuda de IntelliSense.
 
-Mediante el `LabelTagHelper`, el mismo marcado puede escribirse como:
+Si usa `LabelTagHelper`, se puede escribir el mismo marcado de la manera siguiente:
 
 ![imagen](intro/_static/label2.png)
 
-Con la versión del auxiliar de etiquetas, tan pronto como escribe `<l` en el editor de Visual Studio, IntelliSense muestra elementos coincidentes:
+Con la versión de la aplicación auxiliar de etiquetas, en cuanto escriba `<l` en el editor de Visual Studio, IntelliSense mostrará elementos coincidentes:
 
 ![imagen](intro/_static/label.png)
 
-IntelliSense le ayuda a escribir toda la línea. El `LabelTagHelper` también tiene como valor predeterminado para establecer el contenido de la `asp-for` ("FirstName") de valor de atributo a "First Name"; Convierte la grafía camel propiedades en una frase formada por el nombre de propiedad con un espacio donde se produce cada nueva letra mayúscula. En el siguiente marcado:
+IntelliSense le ayuda a escribir toda la línea. `LabelTagHelper` también tiene como valor predeterminado el establecimiento del contenido del valor de atributo `asp-for` ("FirstName") en "First Name"; es decir, convierte las propiedades con grafía Camel en una oración formada por el nombre de la propiedad con un espacio donde aparece cada nueva letra mayúscula. En el marcado siguiente:
 
 ![imagen](intro/_static/label2.png)
 
-genera:
+Se genera:
 
 ```cshtml
 <label class="caption" for="FirstName">First Name</label>
 ```
 
-La grafía de camel al usar la grafía de frase contenido no se usa si agrega contenido a la `<label>`. Por ejemplo:
+El contenido con grafía Camel convertido en grafía de oración no se usa si agrega contenido a `<label>`. Por ejemplo:
 
 ![imagen](intro/_static/1stName.png)
 
-genera:
+Se genera:
 
 ```cshtml
 <label class="caption" for="FirstName">Name First</label>
 ```
 
-La imagen de código siguiente muestra la parte del formulario de la *Views/Account/Register.cshtml* vista Razor generada a partir de la plantilla MVC de 4.5 ASP.NET heredada incluida con Visual Studio 2015.
+En la imagen de código siguiente se muestra la parte Form de la vista de Razor *Views/Account/Register.cshtml* generada a partir de la plantilla heredada de MVC de ASP.NET 4.5.x incluida con Visual Studio 2015.
 
 ![imagen](intro/_static/regCS.png)
 
-El editor de Visual Studio muestra el código de C# con un fondo gris. Por ejemplo, el `AntiForgeryToken` aplicación auxiliar HTML:
+En el editor de Visual Studio se muestra el código de C# con un fondo gris. Por ejemplo, la aplicación auxiliar HTML `AntiForgeryToken`:
 
 ```cshtml
 @Html.AntiForgeryToken()
 ```
 
-se muestra con un fondo gris. La mayoría del marcado en la vista de registro es C#. Compárelo con el enfoque equivalente mediante aplicaciones auxiliares de etiquetas:
+Se muestra con un fondo gris. La mayor parte del marcado en la vista de registro es de C#. Compárelo con el método equivalente con aplicaciones auxiliares de etiquetas:
 
 ![imagen](intro/_static/regTH.png)
 
-El marcado es mucho más ordenados y fáciles de leer, modificar y mantener que el enfoque de aplicaciones auxiliares HTML. El código de C# se reduce al mínimo que necesita saber sobre el servidor. El editor de Visual Studio muestra marcado dirigido por una aplicación auxiliar de etiquetas en una fuente distintos.
+El marcado es mucho más ordenado y más fácil de leer, modificar y mantener que en el método de aplicaciones auxiliares HTML. El código de C# se reduce a la cantidad mínima que el servidor necesita conocer. En el editor de Visual Studio se muestra el marcado de destino de una aplicación auxiliar de etiquetas en una fuente distinta.
 
-Tenga en cuenta el *correo electrónico* grupo:
+Observe el grupo *Email*:
 
 [!code-csharp[Main](intro/sample/Register.cshtml?range=12-18)]
 
-Cada uno de los atributos "asp-" tiene un valor de "Email", pero "Email" no es una cadena. En este contexto, "Email" es la propiedad de expresión de modelo en C# para el `RegisterViewModel`.
+Cada uno de los atributos "asp-" tiene un valor de "Email", pero "Email" no es una cadena. En este contexto, "Email" es la propiedad de expresión del modelo de C# para `RegisterViewModel`.
 
-El editor de Visual Studio le ayuda a escribir **todos los** del marcado en el método de aplicación auxiliar de la etiqueta del formulario de registro, mientras que Visual Studio no proporciona ninguna ayuda para la mayor parte del código en el enfoque de aplicaciones auxiliares HTML. [Compatibilidad con IntelliSense para las aplicaciones auxiliares de etiquetas](#intellisense-support-for-tag-helpers) entra en detalle sobre cómo trabajar con aplicaciones auxiliares de etiquetas en el editor de Visual Studio.
+El editor de Visual Studio le ayuda a escribir **todo** el marcado en el método de aplicación auxiliar de etiquetas del formulario de registro, mientras que Visual Studio no proporciona ninguna ayuda para la mayor parte del código en el método de aplicaciones auxiliares HTML. En [Compatibilidad de IntelliSense con aplicaciones auxiliares de etiquetas](#intellisense-support-for-tag-helpers) se explica en detalle cómo trabajar con aplicaciones auxiliares de etiquetas en el editor de Visual Studio.
 
-## <a name="tag-helpers-compared-to-web-server-controls"></a>Aplicaciones auxiliares de etiquetas en comparación con controles de servidor Web
+## <a name="tag-helpers-compared-to-web-server-controls"></a>Comparación entre las aplicaciones auxiliares de etiquetas y los controles de servidor web
 
-* Aplicaciones auxiliares de etiquetas no poseen el elemento que están asociados a; basta con que participan en la representación del elemento y el contenido. ASP.NET [controles de servidor Web](https://msdn.microsoft.com/library/7698y1f0.aspx) se declaran y se invoca en una página.
+* Las aplicaciones auxiliares de etiquetas no poseen el elemento al que están asociadas; simplemente participan en la representación del elemento y el contenido. Los [controles de servidor web](https://msdn.microsoft.com/library/7698y1f0.aspx) de ASP.NET se declaran y se invocan en una página.
 
-* [Controles de servidor Web](https://msdn.microsoft.com/library/zsyt68f1.aspx) tienen un ciclo de vida no trivial que puede dificultar la desarrollar y depurar.
+* Los [controles de servidor web](https://msdn.microsoft.com/library/zsyt68f1.aspx) tienen un ciclo de vida no trivial que puede dificultar el desarrollo y la depuración.
 
-* Controles de servidor Web permiten agregar funcionalidad a los elementos de Document Object Model (DOM) de cliente mediante un control de cliente. Aplicaciones auxiliares de etiquetas no tengan ningún DOM.
+* Los controles de servidor web permiten agregar funcionalidad a los elementos Document Object Model (DOM) de cliente mediante el uso de un control cliente. Las aplicaciones auxiliares de etiquetas no tienen ningún DOM.
 
-* Controles de servidor Web incluyen la detección automática del explorador. Aplicaciones auxiliares de etiquetas debe tener ningún conocimiento del explorador.
+* Los controles de servidor web incluyen la detección automática del explorador. Las aplicaciones auxiliares de etiquetas no tienen conocimiento del explorador.
 
-* Varias aplicaciones auxiliares de etiquetas pueden actuar en el mismo elemento (vea [conflictos de aplicación auxiliar de etiqueta de evitar](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts) ) mientras que normalmente no se puede crear controles de servidor Web.
+* Varias aplicaciones auxiliares de etiquetas pueden actuar en el mismo elemento (vea [Evitar conflictos de aplicaciones auxiliares de etiquetas](https://docs.microsoft.com/aspnet/core/mvc/views/tag-helpers/authoring#avoiding-tag-helper-conflicts)), mientras que normalmente no se pueden crear controles de servidor web.
 
-* Aplicaciones auxiliares de etiquetas pueden modificar la etiqueta y el contenido de los elementos HTML que va al ámbito, pero directamente no modifique nada en una página. Controles de servidor Web tienen un ámbito menos específico y pueden realizar acciones que afectan a otras partes de la página; Habilitar efectos secundarios imprevistos.
+* Las aplicaciones auxiliares de etiquetas pueden modificar la etiqueta y el contenido de los elementos HTML que tienen como ámbito, pero no modifican directamente ningún otro elemento de una página. Los controles de servidor web tienen un ámbito menos específico y pueden realizar acciones que afectan a otras partes de la página, lo que puede tener efectos secundarios imprevistos.
 
-* Controles de servidor Web usan convertidores de tipos para convertir cadenas en objetos. Con aplicaciones auxiliares de etiquetas, trabaja forma nativa en C#, por lo que no necesita la conversión de tipos.
+* Los controles de servidor web usan convertidores de tipos para convertir cadenas en objetos. Con las aplicaciones auxiliares de etiquetas, trabajará de forma nativa en C#, por lo que no necesitará ninguna conversión de tipos.
 
-* Uso de controles de servidor Web [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) para implementar el comportamiento de tiempo de ejecución y tiempo de diseño de componentes y controles. `System.ComponentModel`incluye las clases base e interfaces para implementar atributos y convertidores de tipos, componentes de licencias y orígenes de enlace a datos. Esto contrasta con las aplicaciones auxiliares de etiquetas, que normalmente se derivan de `TagHelper`y el `TagHelper` clase base expone dos métodos: `Process` y `ProcessAsync`.
+* Los controles de servidor web usan [System.ComponentModel](https://docs.microsoft.com/dotnet/api/system.componentmodel) para implementar el comportamiento de componentes y controles en tiempo de diseño y en tiempo de ejecución. `System.ComponentModel` incluye las clases base y las interfaces para implementar atributos y convertidores de tipos, enlazarlos con orígenes de datos y generar licencias para los componentes. Compare esto con las aplicaciones auxiliares de etiquetas, que normalmente se derivan de `TagHelper`, y la clase base `TagHelper` solo expone dos métodos, `Process` y `ProcessAsync`.
 
-## <a name="customizing-the-tag-helper-element-font"></a>Personalizar la fuente del elemento de aplicación auxiliar de etiqueta
+## <a name="customizing-the-tag-helper-element-font"></a>Personalizar la fuente de elemento de aplicaciones auxiliares de etiquetas
 
-Puede personalizar la fuente y el color de **herramientas** > **opciones** > **entorno** > **fuentes y colores**:
+Puede personalizar la fuente y el color en **Herramientas** > **Opciones** > **Entorno** > **Fuentes y colores**:
 
 ![imagen](intro/_static/fontoptions2.png)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Creación de aplicaciones auxiliares de etiquetas](authoring.md)
-* [Trabajar con formularios](../working-with-forms.md)
-* [TagHelperSamples en GitHub](https://github.com/dpaquette/TagHelperSamples) contiene ejemplos de aplicación auxiliar de etiqueta para trabajar con [arranque](http://getbootstrap.com/).
-
-<!--
-* [Working with Forms ](xref:mvc/views/working-with-forms)
--->
+* [Creación de aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/authoring)
+* [Trabajar con formularios](xref:mvc/views/working-with-forms)
+* [TagHelperSamples en GitHub](https://github.com/dpaquette/TagHelperSamples) contiene ejemplos de aplicaciones auxiliares de etiquetas para trabajar con [Bootstrap](http://getbootstrap.com/).
+* [Trabajar con formularios](xref:mvc/views/working-with-forms)

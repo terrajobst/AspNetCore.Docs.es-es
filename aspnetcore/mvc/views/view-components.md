@@ -1,107 +1,107 @@
 ---
-title: Componentes de la vista
+title: Componentes de vista
 author: rick-anderson
-description: "Componentes de la vista pretenden en cualquier lugar que tiene lógica de representación reutilizable."
-ms.author: riande
+description: "Los componentes de vista están diseñados para cualquier lugar que tenga lógica de representación reutilizable."
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: 65074ca02a1365db278d348d4e024121a6eb4634
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 27e77b8fa032c2b5be753a27db748b7499e27105
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="view-components"></a>Componentes de la vista
+# <a name="view-components"></a>Componentes de vista
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Componentes de la vista de presentación
+## <a name="introducing-view-components"></a>Introducción a los componentes de vista
 
-Nuevo en MVC de ASP.NET Core, ver componentes son similares a las vistas parciales, pero son mucho más eficaces. Componentes de la vista no usar enlace de modelos y sólo dependen de los datos proporcionados al llamar a en él. Un componente de vista:
+Los componentes de vista son una novedad de ASP.NET Core MVC, similares a las vistas parciales pero mucho más eficaces. Los componentes de vista no usan el enlace de modelos y solo dependen de los datos proporcionados cuando se les llama. Un componente de vista:
 
-* Representa un fragmento en lugar de una respuesta toda
-* Incluye la misma separación de problemas y los beneficios de capacidad de prueba se encuentra entre un controlador y la vista
-* Puede tener parámetros y lógica de negocios
-* Normalmente se invoca desde una página de diseño
+* Representa un fragmento en lugar de una respuesta completa.
+* Incluye las mismas ventajas de separación de conceptos y capacidad de prueba que se encuentran entre un controlador y una vista.
+* Puede tener parámetros y lógica de negocios.
+* Normalmente se invoca desde una página de diseño.
 
-Componentes de la vista se han diseñado en cualquier lugar que tiene lógica de representación reutilizable que es demasiado compleja para una vista parcial, como:
+Los componentes de vista están diseñados para cualquier lugar que tenga lógica de representación reutilizable demasiado compleja para una vista parcial, como:
 
 * Menús de navegación dinámica
-* Nube de etiquetas (que consulta la base de datos)
+* Nube de etiquetas (donde consulta la base de datos)
 * Panel de inicio de sesión
 * Carro de la compra
 * Artículos publicados recientemente
-* Contenido de Sidebar en un blog típico
-* Un panel de inicio de sesión que se representan en cada página y mostrar los vínculos entre ambos para cerrar la sesión o de registro, según el registro de estado del usuario
+* Contenido de la barra lateral de un blog típico
+* Un panel de inicio de sesión que se representa en cada página y muestra los vínculos para iniciar o cerrar sesión, según el estado del usuario
 
-Un componente de vista consta de dos partes: la clase (normalmente derivado de [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) y lo devuelve (normalmente una vista). Al igual que los controladores, un componente de vista puede ser un POCO, pero la mayoría de los desarrolladores desee aprovechar las ventajas de los métodos y propiedades disponibles derivando de `ViewComponent`.
+Un componente de vista consta de dos partes: la clase (normalmente derivada de [ViewComponent](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.viewcomponent)) y el resultado que devuelve (por lo general, una vista). Al igual que los controladores, un componente de vista puede ser un POCO, pero la mayoría de los desarrolladores prefieren aprovechar las ventajas que ofrecen los métodos y las propiedades disponibles al derivar de `ViewComponent`.
 
 ## <a name="creating-a-view-component"></a>Crear un componente de vista
 
-Esta sección contiene los requisitos de alto nivel para crear un componente de vista. Más adelante en el artículo, se deberá examinar cada paso en detalle y crear un componente de vista.
+Esta sección contiene los requisitos de alto nivel para crear un componente de vista. Más adelante en el artículo examinaremos cada paso en detalle y crearemos un componente de vista.
 
 ### <a name="the-view-component-class"></a>La clase de componente de vista
 
-Una clase de componente de vista se puede crear por cualquiera de las siguientes acciones:
+Es posible crear una clase de componente de vista mediante una de las siguientes acciones:
 
 * Derivar de *ViewComponent*
-* Al decorar una clase con el `[ViewComponent]` atributo o derivar de una clase con el `[ViewComponent]` atributo
-* Crear una clase donde el nombre termina con el sufijo *ViewComponent*
+* Decorar una clase con el atributo `[ViewComponent]` o derivar de una clase con el atributo `[ViewComponent]`
+* Crear una clase cuyo nombre termina con el sufijo *ViewComponent*
 
-Como controladores, componentes de la vista deben ser clases públicas, no anidada y no abstracta. El nombre del componente de vista es el nombre de clase con el sufijo "ViewComponent" quitado. También se puede especificar explícitamente mediante el `ViewComponentAttribute.Name` propiedad.
+Al igual que los controladores, los componentes de vista deben ser clases públicas, no anidadas y no abstractas. El nombre del componente de vista es el nombre de la clase sin el sufijo "ViewComponent". También se puede especificar explícitamente mediante la propiedad `ViewComponentAttribute.Name`.
 
 Una clase de componente de vista:
 
-* Es totalmente compatible con constructor [inyección de dependencia](../../fundamentals/dependency-injection.md)
+* Es totalmente compatible con la [inserción de dependencias](../../fundamentals/dependency-injection.md) de constructor.
 
-* No participar en el ciclo de vida de controlador, lo que significa que no se puede utilizar [filtros](../controllers/filters.md) en un componente de vista
+* No participa en el ciclo de vida del controlador, lo que significa que no se pueden usar [filtros](../controllers/filters.md) en un componente de vista.
 
-### <a name="view-component-methods"></a>Ver los métodos de componente
+### <a name="view-component-methods"></a>Métodos de componente de vista
 
-Un componente de vista define su lógica en una `InvokeAsync` método que devuelve un `IViewComponentResult`. Parámetros proceden directamente de invocación del componente de vista, no desde el enlace de modelos. Un componente de vista nunca directamente controla una solicitud. Por lo general, inicializa un modelo de un componente de vista y la pasa a una vista mediante una llamada a la `View` método. En resumen, ver los métodos de componente:
+Un componente de vista define su lógica en un método `InvokeAsync` que devuelve `IViewComponentResult`. Los parámetros proceden directamente de la invocación del componente de vista, no del enlace de modelos. Un componente de vista nunca controla directamente una solicitud. Por lo general, un componente de vista inicializa un modelo y lo pasa a una vista mediante una llamada al método `View`. En resumen, los métodos de componente de vista:
 
-* Definir una `InvokeAsync` método que devuelva una`IViewComponentResult`
-* Inicializa un modelo normalmente y la pasa a una vista mediante una llamada a la `ViewComponent` `View` (método)
-* Parámetros provienen del método que realiza la llamada, y no HTTP, no hay ningún enlace de modelo
-* Son no es accesible directamente como un extremo HTTP, le invoca desde el código (normalmente en una vista). Un componente de vista nunca controla una solicitud
-* Están sobrecargados en la firma en lugar de los detalles de la solicitud HTTP actual
+* Definen un método `InvokeAsync` que devuelve `IViewComponentResult`.
+* Por lo general, inicializan un modelo y lo pasan a una vista mediante una llamada al método `ViewComponent` `View`.
+* Los parámetros provienen del método que realiza la llamada, y no de HTTP, ya que no hay ningún enlace de modelos.
+* No son accesibles directamente como un punto de conexión HTTP, sino que se invocan desde el código (normalmente en una vista). Un componente de vista nunca controla una solicitud.
+* Se sobrecargan en la firma, en lugar de los detalles de la solicitud HTTP actual.
 
-### <a name="view-search-path"></a>Ruta de acceso de búsqueda de vista
+### <a name="view-search-path"></a>Ruta de búsqueda de la vista
 
 El tiempo de ejecución busca la vista en las rutas de acceso siguientes:
 
-   * Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
-   * Views/Shared/Components/\<view_component_name>/\<view_name>
+   * Views/\<nombre_del_contrlador>/Components/\<nombre_del_componente_de_vista>/\<nombre_de_vista>
+   * Views/Shared/Components/\<nombre_del_componente_de_vista>/\<nombre_de_vista>
 
-El nombre de vista predeterminado para un componente de vista es *predeterminado*, lo que significa que el archivo de vista se suele denominar *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o cuando se llama a la `View` método.
+El nombre de vista predeterminado para un componente de vista es *Default*, lo que significa que el archivo de vista normalmente se denominará *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o al llamar al método `View`.
 
-Se recomienda que un nombre al archivo de vista *Default.cshtml* y use la *vistas / / componentes de uso compartido/\<view_component_name > /\<view_name >* ruta de acceso. El `PriorityList` componente de vista utilizado en este ejemplo utiliza *Views/Shared/Components/PriorityList/Default.cshtml* para la vista de componentes de la vista.
+Se recomienda que asigne al archivo de vista el nombre *Default.cshtml* y que use la ruta de acceso *Views/Shared/Components/\<nombre_del_componente_de_vista>/\<nombre_de_vista>*. El componente de vista `PriorityList` usado en este ejemplo usa *Views/Shared/Components/PriorityList/Default.cshtml* para la vista del componente de vista.
 
 ## <a name="invoking-a-view-component"></a>Invocar un componente de vista
 
-Para utilizar el componente de vista, llame a los siguientes dentro de una vista:
+Para usar el componente de vista, llame a lo siguiente dentro de una vista:
 
 ```cshtml
 @Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
 ```
 
-Los parámetros se pasará a la `InvokeAsync` método. El `PriorityList` desarrollado en el artículo del componente de vista se invoca desde la *Views/Todo/Index.cshtml* ver el archivo. En la siguiente tabla, el `InvokeAsync` se denomina método con dos parámetros:
+Los parámetros se pasarán al método `InvokeAsync`. El componente de vista `PriorityList` desarrollado en el artículo se invoca desde el archivo de vista *Views/Todo/Index.cshtml*. En la tabla siguiente, se llama al método `InvokeAsync` con dos parámetros:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-## <a name="invoking-a-view-component-as-a-tag-helper"></a>Invocar un componente de vista como una aplicación auxiliar de etiqueta
+## <a name="invoking-a-view-component-as-a-tag-helper"></a>Invocación de un componente de vista como una aplicación auxiliar de etiquetas
 
-Para ASP.NET Core 1.1 y versiones posteriores, puede invocar un componente de vista como una [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro):
+Para ASP.NET Core 1.1 y versiones posteriores, puede invocar un componente de vista como una [aplicación auxiliar de etiquetas](xref:mvc/views/tag-helpers/intro):
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-Parámetros de clase y método la grafía Pascal para aplicaciones auxiliares de etiquetas se convierten en sus [reducir caso kebab](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). La aplicación auxiliar de etiquetas para invocar un componente de vista utiliza la `<vc></vc>` elemento. El componente de vista se especifica como sigue:
+Los parámetros de clase y método con grafía Pascal para las aplicaciones auxiliares de etiquetas se convierten a su [grafía kebab en minúsculas](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). La aplicación auxiliar de etiquetas que va a invocar un componente de vista usa el elemento `<vc></vc>`. El componente de vista se especifica de la manera siguiente:
 
 ```cshtml
 <vc:[view-component-name]
@@ -110,115 +110,115 @@ Parámetros de clase y método la grafía Pascal para aplicaciones auxiliares de
 </vc:[view-component-name]>
 ```
 
-Nota: Para poder usar un componente de vista como una aplicación auxiliar de etiquetas, debe registrar el ensamblado que contiene el componente de vista mediante el `@addTagHelper` directiva. Por ejemplo, si el componente de la vista está en un ensamblado denominado "MyWebApp", agregue la siguiente directiva a la `_ViewImports.cshtml` archivo:
+Nota: Para poder usar un componente de vista como una aplicación auxiliar de etiquetas, debe registrar el ensamblado que contiene el componente de vista mediante la directiva `@addTagHelper`. Por ejemplo, si el componente de vista está en un ensamblado denominado "MyWebApp", agregue la directiva siguiente al archivo `_ViewImports.cshtml`:
 
 ```cshtml
 @addTagHelper *, MyWebApp
 ```
 
-Puede registrar un componente de vista como una aplicación auxiliar de etiqueta a cualquier archivo que hace referencia al componente de vista. Vea [administración de ámbito de aplicación auxiliar de la etiqueta](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) para obtener más información sobre cómo registrar aplicaciones auxiliares de etiquetas.
+Puede registrar un componente de vista como una aplicación auxiliar de etiquetas en cualquier archivo que haga referencia al componente de vista. Vea [Administración del ámbito de las aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) para más información sobre cómo registrar aplicaciones auxiliares de etiquetas.
 
-El `InvokeAsync` método utilizado en este tutorial:
+El método `InvokeAsync` usado en este tutorial:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-En el marcado de la aplicación auxiliar de etiqueta:
+En el marcado de la aplicación auxiliar de etiquetas:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-En el ejemplo anterior, el `PriorityList` del componente vista se convierte en `priority-list`. Los parámetros para el componente de vista se pasan como atributos en minúsculas kebab.
+En el ejemplo anterior, el componente de vista `PriorityList` se convierte en `priority-list`. Los parámetros para el componente de vista se pasan como atributos en grafía kebab en minúsculas.
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Invocar un componente de vista directamente desde un controlador
 
-Ver componentes normalmente se invocan desde una vista, pero se puede invocar directamente desde un método de controlador. Mientras que los componentes de la vista no definen extremos como controladores, puede implementar fácilmente una acción de controlador que devuelve el contenido de un `ViewComponentResult`.
+Los componentes de vista suelen invocarse desde una vista, pero se pueden invocar directamente desde un método de controlador. Aunque los componentes de vista no definen puntos de conexión como controladores, se puede implementar fácilmente una acción del controlador que devuelva el contenido de `ViewComponentResult`.
 
-En este ejemplo, el componente de vista se denomina directamente desde el controlador:
+En este ejemplo, se llama al componente de vista directamente desde el controlador:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-## <a name="walkthrough-creating-a-simple-view-component"></a>Tutorial: Crear un componente de vista simple
+## <a name="walkthrough-creating-a-simple-view-component"></a>Tutorial: Creación de un componente de vista simple
 
-[Descargar](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compilar y probar el código de inicio. Es un proyecto simple con un `Todo` controlador que muestra una lista de *tareas* elementos.
+[Descargue](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample), compile y pruebe el código de inicio. Se trata de un proyecto simple con un controlador `Todo` que muestra una lista de *tareas pendientes*.
 
-![Lista de ToDos](view-components/_static/2dos.png)
+![Lista de tareas pendientes](view-components/_static/2dos.png)
 
-### <a name="add-a-viewcomponent-class"></a>Agregue una clase ViewComponent
+### <a name="add-a-viewcomponent-class"></a>Agregar una clase ViewComponent
 
-Crear un *ViewComponents* carpeta y agregue las siguientes `PriorityListViewComponent` clase:
+Cree una carpeta *ViewComponents* y agregue la siguiente clase `PriorityListViewComponent`:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponent1.cs?name=snippet1)]
 
 Notas sobre el código:
 
-* Clases de componentes de vista pueden estar contenidas en **cualquier** carpeta del proyecto.
-* Dado que el nombre de clase PriorityList**ViewComponent** termina con el sufijo **ViewComponent**, el tiempo de ejecución utilizará la cadena "PriorityList" cuando se hace referencia el componente de la clase de una vista. Explicaremos con más detalle más adelante.
-* El `[ViewComponent]` atributos pueden cambiar el nombre utilizado para hacer referencia a un componente de vista. Por ejemplo, se podríamos haber con el nombre la clase `XYZ` y aplica la `ViewComponent` atributo:
+* Las clases de componentes de vista pueden estar contenidas en **cualquier** carpeta del proyecto.
+* Dado que el nombre de clase PriorityList**ViewComponent** acaba con el sufijo **ViewComponent**, el tiempo de ejecución usará la cadena "PriorityList" cuando haga referencia al componente de clase desde una vista. Más adelante explicaremos esta cuestión con más detalle.
+* El atributo `[ViewComponent]` puede cambiar el nombre usado para hacer referencia a un componente de vista. Por ejemplo, podríamos haber asignado a la clase el nombre `XYZ` y aplicado el atributo `ViewComponent`:
 
   ```csharp
   [ViewComponent(Name = "PriorityList")]
      public class XYZ : ViewComponent
      ```
 
-* El `[ViewComponent]` atributo anterior indica el selector de componente de vista para utilizar el nombre `PriorityList` al buscar las vistas asociadas con el componente y utilizar la cadena "PriorityList" cuando se hace referencia el componente de la clase de una vista. Explicaremos con más detalle más adelante.
-* El componente usa [inyección de dependencia](../../fundamentals/dependency-injection.md) para que esté disponible el contexto de datos.
-* `InvokeAsync`expone un método que se puede llamar desde una vista y puede tomar un número arbitrario de argumentos.
-* El `InvokeAsync` método devuelve el conjunto de `ToDo` los elementos que cumplen el `isDone` y `maxPriority` parámetros.
+* El atributo `[ViewComponent]` anterior le indica al selector de componentes de vista que use el nombre `PriorityList` al buscar las vistas asociadas al componente y que use la cadena "PriorityList" al hacer referencia al componente de clase desde una vista. Más adelante explicaremos esta cuestión con más detalle.
+* El componente usa la [inserción de dependencias](../../fundamentals/dependency-injection.md) para que el contexto de datos esté disponible.
+* `InvokeAsync` expone un método al que se puede llamar desde una vista y puede tomar un número arbitrario de argumentos.
+* El método `InvokeAsync` devuelve el conjunto de elementos `ToDo` que cumplen los parámetros `isDone` y `maxPriority`.
 
 ### <a name="create-the-view-component-razor-view"></a>Crear la vista de Razor del componente de vista
 
-* Crear el *vistas/Shared/componentes* carpeta. Esta carpeta **debe** denominarse *componentes*.
+* Cree la carpeta *Views/Shared/Components*. Esta carpeta **debe** denominarse *Components*.
 
-* Crear el *vistas/Shared/componentes/PriorityList* carpeta. Este nombre de carpeta debe coincidir con el nombre de la clase de componente de vista o el nombre de la clase menos el sufijo (si se siguió convención y usa el *ViewComponent* sufijo en el nombre de clase). Si ha usado la `ViewComponent` atributo, necesitaría el nombre de clase para que coincida con la designación de atributo.
+* Cree la carpeta *Views/Shared/Components/PriorityList*. El nombre de esta carpeta debe coincidir con el nombre de la clase de componente de vista o con el nombre de la clase sin el sufijo (si se ha seguido la convención y se ha usado el sufijo *ViewComponent* en el nombre de clase). Si ha usado el atributo `ViewComponent`, el nombre de clase debe coincidir con la designación del atributo.
 
-* Crear un *Views/Shared/Components/PriorityList/Default.cshtml* vista Razor:[!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
+* Cree una vista de Razor *Views/Shared/Components/PriorityList/Default.cshtml*: [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/Default1.cshtml)]
     
-   La vista Razor toma una lista de `TodoItem` y los muestra. Si el componente de vista `InvokeAsync` método no pasa el nombre de la vista (como en nuestro ejemplo), *predeterminado* por convención, se utiliza para el nombre de vista. Más adelante en el tutorial, mostraré cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregar una vista a la carpeta de la vista específica del controlador (por ejemplo *Views/Todo/Components/PriorityList/Default.cshtml)*.
+   La vista de Razor toma una lista de `TodoItem` y muestra estos elementos. Si el método `InvokeAsync` del componente de vista no pasa el nombre de la vista (como en nuestro ejemplo), se usa *Default* para el nombre de vista, según la convención. Más adelante en el tutorial veremos cómo pasar el nombre de la vista. Para reemplazar el estilo predeterminado de un controlador concreto, agregue una vista a la carpeta de vistas específicas del controlador (por ejemplo, *Views/Todo/Components/PriorityList/Default.cshtml)*.
     
-    Si el componente de vista es específicas del controlador, puede agregarlo a la carpeta específica del controlador (*Views/Todo/Components/PriorityList/Default.cshtml*).
+    Si el componente de vista es específico del controlador, puede agregarlo a la carpeta específica del controlador (*Views/Todo/Components/PriorityList/Default.cshtml*).
 
-* Agregar un `div` que contiene una llamada al componente de lista de prioridad para la parte inferior de la *Views/Todo/index.cshtml* archivo:
+* Agregue un elemento `div` que contenga una llamada al componente de lista de prioridad en la parte inferior del archivo *Views/Todo/index.cshtml*:
 
     [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFirst.cshtml?range=34-38)]
 
-El marcado `@await Component.InvokeAsync` muestra la sintaxis para llamar a los componentes de la vista. El primer argumento es el nombre del componente que desea invocar o llamar a. Los parámetros siguientes se pasan al componente. `InvokeAsync`puede tomar un número arbitrario de argumentos.
+El marcado `@await Component.InvokeAsync` muestra la sintaxis para llamar a los componentes de vista. El primer argumento es el nombre del componente que se quiere invocar o llamar. Los parámetros siguientes se pasan al componente. `InvokeAsync` puede tomar un número arbitrario de argumentos.
 
-Probar la aplicación. La siguiente imagen muestra la lista de tareas y los elementos de prioridad:
+Pruebe la aplicación. En la imagen siguiente se muestra la lista de tareas pendientes y los elementos de prioridad:
 
-![elementos de lista y la prioridad de tareas](view-components/_static/pi.png)
+![lista de tareas pendientes y elementos de prioridad](view-components/_static/pi.png)
 
 También puede llamar al componente de vista directamente desde el controlador:
 
 [!code-csharp[Main](view-components/sample/ViewCompFinal/Controllers/ToDoController.cs?name=snippet_IndexVC)]
 
-![elementos de prioridad de acción IndexVC](view-components/_static/indexvc.png)
+![elementos de prioridad de la acción IndexVC](view-components/_static/indexvc.png)
 
 ### <a name="specifying-a-view-name"></a>Especificar un nombre de vista
 
-Un componente de vista complejas que necesite especificar una vista no predeterminado en determinadas condiciones. El código siguiente muestra cómo especificar la vista de "Conexión virtual permanente" desde el `InvokeAsync` método. Actualización de la `InvokeAsync` método en la `PriorityListViewComponent` clase.
+En algunos casos, puede ser necesario que un componente de vista complejo especifique una vista no predeterminada. En el código siguiente se muestra cómo especificar la vista "PVC" desde el método `InvokeAsync`. Actualice el método `InvokeAsync` en la clase `PriorityListViewComponent`.
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityListViewComponentFinal.cs?highlight=4,5,6,7,8,9&range=28-39)]
 
-Copia la *Views/Shared/Components/PriorityList/Default.cshtml* archivo a una vista denominada *Views/Shared/Components/PriorityList/PVC.cshtml*. Agregar un encabezado para indicar que se está usando la vista de circuito virtual permanente.
+Copie el archivo *Views/Shared/Components/PriorityList/Default.cshtml* en una vista denominada *Views/Shared/Components/PriorityList/PVC.cshtml*. Agregue un encabezado para indicar que se está usando la vista PVC.
 
 [!code-cshtml[Main](../../mvc/views/view-components/sample/ViewCompFinal/Views/Shared/Components/PriorityList/PVC.cshtml?highlight=3)]
 
-Actualización *Views/TodoList/Index.cshtml*:
+Actualice *Views/TodoList/Index.cshtml*:
 
 <!-- Views/TodoList/Index.cshtml is never imported, so change to test tutorial -->
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-Ejecute la aplicación y comprobar la vista de circuito virtual permanente.
+Ejecute la aplicación y compruebe la vista PVC.
 
 ![Componente de vista de prioridad](view-components/_static/pvc.png)
 
-Si esta conexión virtual permanente no represente, compruebe que está llamando el componente de vista con una prioridad de 4 o posterior.
+Si la vista PVC no se representa, compruebe que está llamando al componente de vista con prioridad cuatro o superior.
 
-### <a name="examine-the-view-path"></a>Examine la ruta de acceso de vista
+### <a name="examine-the-view-path"></a>Examinar la ruta de acceso de la vista
 
-* Cambie el parámetro de prioridad a tres o menos, por lo que no se devuelve la vista priority.
-* Cambiar temporalmente el nombre del *Views/Todo/Components/PriorityList/Default.cshtml* a *1Default.cshtml*.
-* Probar la aplicación, obtendrá el siguiente error:
+* Cambie el parámetro de prioridad a tres o menos para que no se devuelva la vista de prioridad.
+* Cambie temporalmente el nombre de *Views/Todo/Components/PriorityList/Default.cshtml* a *1Default.cshtml*.
+* Pruebe la aplicación. Obtendrá el siguiente error:
 
    ```
    An unhandled exception occurred while processing the request.
@@ -228,22 +228,22 @@ Si esta conexión virtual permanente no represente, compruebe que está llamando
    EnsureSuccessful
    ```
 
-* Copia *Views/Todo/Components/PriorityList/1Default.cshtml* a *Views/Shared/Components/PriorityList/Default.cshtml*.
-* Agregar algún marcado para la *Shared* proviene de la vista de componentes de vista de lista de tareas para indicar la vista la *Shared* carpeta.
-* Prueba la **Shared** vista de componentes.
+* Copie *Views/Todo/Components/PriorityList/1Default.cshtml* en *Views/Shared/Components/PriorityList/Default.cshtml*.
+* Agregue algún marcado a la vista de componentes de vista de la lista de tareas pendientes *Shared* para indicar que la vista está en la carpeta *Shared*.
+* Pruebe la vista de componentes **Shared**.
 
-![Salida de la lista de tareas con vista de componentes compartidos](view-components/_static/shared.png)
+![Salida de la lista de tareas pendientes con la vista de componentes Shared](view-components/_static/shared.png)
 
 ### <a name="avoiding-magic-strings"></a>Evitar cadenas mágicas
 
-Si desea que la seguridad de tiempo de compilación, puede reemplazar el nombre del componente vista codificado de forma rígida con el nombre de clase. Crear el componente de vista sin el sufijo "ViewComponent":
+Si busca seguridad en tiempo de compilación, puede reemplazar el nombre del componente de vista codificado de forma rígida por el nombre de clase. Cree el componente de vista sin el sufijo "ViewComponent":
 
 [!code-csharp[Main](../../mvc/views/view-components/sample/ViewCompFinal/ViewComponents/PriorityList.cs?highlight=10&range=5-35)]
 
-Agregar un `using` instrucción para su Razor Ver archivo y usar el `nameof` operador:
+Agregue una instrucción `using` para su archivo de vista de Razor y use el operador `nameof`:
 
 [!code-cshtml[Main](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,33-)]
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Inserción de dependencias en vistas](dependency-injection.md)
+* [Inserción de dependencias en vistas](xref:mvc/views/dependency-injection)

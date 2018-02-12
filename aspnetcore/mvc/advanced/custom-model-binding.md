@@ -1,51 +1,51 @@
 ---
-title: Enlace de modelos personalizados
+title: Enlace de modelos personalizado
 author: ardalis
-description: Personalizar enlace de modelo en MVC de ASP.NET Core.
-ms.author: riande
+description: "Personalización del enlace de modelos en ASP.NET Core MVC."
 manager: wpickett
+ms.author: riande
 ms.date: 04/10/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: 85d5ca18944e774d1f2577459c6c45acde01e4d9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 313bc586a1c313f0bf5d8f413a4b082ffc2b7f0c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="custom-model-binding"></a>Enlace de modelos personalizados
+# <a name="custom-model-binding"></a>Enlace de modelos personalizado
 
 Por [Steve Smith](https://ardalis.com/)
 
-Enlace de modelos permite acciones de controlador trabajar directamente con los tipos de modelos (pasados como argumentos de método), en su lugar que las solicitudes HTTP. Asignación entre los modelos de datos y aplicaciones de solicitud entrantes se controla por enlazadores de modelos. Los programadores pueden ampliar la funcionalidad de enlace de modelo integrado mediante la implementación de enlazadores de modelos personalizados (aunque por lo general, no es necesario escribir su propio proveedor).
+Con el enlace de modelos, las acciones de controlador pueden funcionar directamente con tipos de modelos (pasados como argumentos de método), en lugar de con solicitudes HTTP. La asignación entre los datos de solicitudes entrantes y los modelos de aplicaciones se controla por medio de enlazadores de modelos. Los desarrolladores pueden ampliar la funcionalidad integrada de enlace de modelos implementando enlazadores de modelos personalizados (si bien, por lo general, no es necesario escribir un proveedor propio).
 
 [Ver o descargar el ejemplo desde GitHub](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/advanced/custom-model-binding/)
 
-## <a name="default-model-binder-limitations"></a>Limitaciones del enlazador de modelo predeterminado
+## <a name="default-model-binder-limitations"></a>Limitaciones de los enlazadores de modelos predeterminados
 
-Los enlazadores de modelos predeterminado admiten la mayoría de los tipos de datos de .NET Core comunes y para cubrir necesidades de la mayoría de los desarrolladores. Espera que enlazar entrada basada en texto de la solicitud directamente a los tipos de modelos. Debe transformar la entrada antes de enlazar a él. Por ejemplo, si tiene una clave que puede usarse para buscar los datos del modelo. Puede usar un enlazador de modelos personalizado para capturar los datos en función de la clave.
+Los enlazadores de modelos predeterminados admiten la mayoría de los tipos de datos de .NET Core comunes y deberían cubrir las necesidades de casi cualquier desarrollador. Esperan enlazar entradas basadas en texto desde la solicitud directamente a tipos de modelos. Puede que sea necesario transformar la entrada antes de enlazarla. Es el caso, por ejemplo, si tiene una clave que se puede usar para buscar datos del modelo. Se puede usar un enlazador de modelos personalizado para capturar datos en función de la clave.
 
-## <a name="model-binding-review"></a>Revisión del modelo de enlace
+## <a name="model-binding-review"></a>Revisión del enlace de modelos
 
-Enlace de modelo utiliza las definiciones específicas para los tipos que opera en. A *tipo simple* se convierte en una sola cadena de la entrada. A *tipo complejo* se convierten de varios valores de entrada. El marco de trabajo determina la diferencia se basa en la existencia de un `TypeConverter`. Se recomienda crear un convertidor de tipos si tiene un sencillo `string`  ->  `SomeType` asignación que no necesita recursos externos.
+El enlace de modelos usa definiciones específicas de los tipos con los que funciona. Un *tipo simple* se convierte a partir de una sola cadena de la entrada, mientras que un *tipo complejo* se convierte a partir de varios valores de entrada. El marco establece la diferencia dependiendo de si existe un `TypeConverter`. Conviene crear un convertidor de tipos si existe una asignación simple `string` -> `SomeType` que no necesita recursos externos.
 
-Antes de crear su propio enlazador de modelos personalizado, es que vale la pena revisado modelo existente cómo se implementan los enlazadores. Tenga en cuenta el [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder) que puede usarse para convertir cadenas codificadas en base64 en matrices de bytes. Las matrices de bytes se suelen almacenar como archivos o campos BLOB de base de datos.
+Antes de crear su propio enlazador de modelos personalizado, no está de más que repase cómo se implementan los enlazadores de modelos existentes. Hay que considerar el uso de [ByteArrayModelBinder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinder), que sirve para convertir cadenas codificadas con base64 en matrices de bytes. Las matrices de bytes se suelen almacenar como archivos o como campos de tipo BLOB de base de datos.
 
-### <a name="working-with-the-bytearraymodelbinder"></a>Trabajar con el ByteArrayModelBinder
+### <a name="working-with-the-bytearraymodelbinder"></a>Trabajar con ByteArrayModelBinder
 
-Cadenas codificadas en Base64 se pueden utilizar para representar datos binarios. Por ejemplo, la siguiente imagen puede codificarse como una cadena.
+Las cadenas codificadas con base64 se pueden usar para representar datos binarios. Por ejemplo, la siguiente imagen se puede codificar como una cadena.
 
-![dotnet bot](custom-model-binding/images/bot.png "bot dotnet.")
+![dotnet bot](custom-model-binding/images/bot.png "dotnet bot")
 
-Se muestra una pequeña parte de la cadena codificada en la siguiente imagen:
+En la siguiente imagen se muestra una pequeña porción de la cadena codificada:
 
-![bot dotnet codificado](custom-model-binding/images/encoded-bot.png "bot dotnet codificado")
+![dotnet bot codificada](custom-model-binding/images/encoded-bot.png "dotnet bot codificada")
 
-Siga las instrucciones de la [archivo Léame del ejemplo](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) para convertir la cadena codificada en base64 en un archivo.
+Siga las instrucciones del [archivo Léame del ejemplo](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/advanced/custom-model-binding/sample/CustomModelBindingSample/README.md) para convertir la cadena codificada con base64 en un archivo.
 
-Núcleo ASP.NET MVC puede tomar un cadenas codificadas en base64 y usar un `ByteArrayModelBinder` para convertirla en una matriz de bytes. El [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider) que implementa [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider) asigna `byte[]` argumentos `ByteArrayModelBinder`:
+ASP.NET Core MVC toma cadenas codificadas con base64 y usa un `ByteArrayModelBinder` para convertirlas en una matriz de bytes. [ByteArrayModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.binders.bytearraymodelbinderprovider), que implementa [IModelBinderProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinding.imodelbinderprovider), asigna argumentos `byte[]` a `ByteArrayModelBinder`:
 
 ```csharp
 public IModelBinder GetBinder(ModelBinderProviderContext context)
@@ -64,75 +64,75 @@ public IModelBinder GetBinder(ModelBinderProviderContext context)
 }
 ```
 
-Al crear su propio enlazador de modelos personalizado, puede implementar su propio `IModelBinderProvider` escribir o utilizar el [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute).
+Cuando cree su propio enlazador de modelos personalizado, puede implementar su tipo `IModelBinderProvider` particular o usar [ModelBinderAttribute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.modelbinderattribute).
 
-En el ejemplo siguiente se muestra cómo usar `ByteArrayModelBinder` para convertir una cadena codificada en base64 en un `byte[]` y guardar el resultado en un archivo:
+En el siguiente ejemplo se indica cómo usar `ByteArrayModelBinder` para convertir una cadena codificada con base64 en un `byte[]` y guardar el resultado en un archivo:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post1&highlight=3)]
 
-Puede publicar una cadena con codificación base64 a este método de api con una herramienta como [Postman](https://www.getpostman.com/):
+Se puede usar un método API POST en una cadena codificada con base64 con una herramienta como [Postman](https://www.getpostman.com/):
 
 ![postman](custom-model-binding/images/postman.png "postman")
 
-Siempre que el enlazador puede enlazar datos de la solicitud para las propiedades con el nombre adecuado o argumentos, enlace de modelos se realizará correctamente. En el ejemplo siguiente se muestra cómo usar `ByteArrayModelBinder` con un modelo de vista:
+Siempre y cuando el enlazador pueda enlazar datos de la solicitud a argumentos o propiedades con el nombre adecuado, el enlace de modelos se realizará correctamente. En el siguiente ejemplo se muestra cómo usar `ByteArrayModelBinder` con un modelo de vista:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/ImageController.cs?name=post2&highlight=2)]
 
-## <a name="custom-model-binder-sample"></a>Ejemplo de enlazador de modelos personalizados
+## <a name="custom-model-binder-sample"></a>Ejemplo de enlazador de modelos personalizado
 
-En esta sección se implementará un enlazador de modelos personalizados que:
+En esta sección implementaremos un enlazador de modelos personalizado que haga lo siguiente:
 
-- Convierte los datos de solicitud entrantes en argumentos claves fuertemente tipados.
-- Utiliza Entity Framework Core para capturar la entidad asociada.
-- La entidad asociada se pasa como argumento al método de acción.
+- Convertir los datos de solicitud entrantes en argumentos clave fuertemente tipados
+- Usar Entity Framework Core para capturar la entidad asociada
+- Pasar la entidad asociada como argumento al método de acción
 
-El siguiente ejemplo se utiliza la `ModelBinder` del atributo en el `Author` modelo:
+En el siguiente ejemplo se usa el atributo `ModelBinder` en el modelo `Author`:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Data/Author.cs?highlight=10)]
 
-En el código anterior, el `ModelBinder` atributo especifica el tipo de `IModelBinder` que debe utilizarse para enlazar `Author` parámetros de acción. 
+En el código anterior, el atributo `ModelBinder` especifica el tipo de `IModelBinder` que se debe emplear para enlazar parámetros de acción de `Author`. 
 
-El `AuthorEntityBinder` se usa para enlazar un `Author` parámetro mediante la captura de la entidad de un origen de datos mediante Entity Framework Core y una `authorId`:
+`AuthorEntityBinder` sirve para enlazar un parámetro `Author` capturando la entidad de un origen de datos por medio de Entity Framework Core y de un `authorId`:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinder.cs?name=demo)]
 
-El código siguiente muestra cómo utilizar el `AuthorEntityBinder` en un método de acción:
+En el siguiente código se indica cómo usar `AuthorEntityBinder` en un método de acción:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo2&highlight=2)]
 
-El `ModelBinder` atributo se puede usar para aplicar el `AuthorEntityBinder` a los parámetros que no usan convenciones predeterminadas:
+El atributo `ModelBinder` se puede usar para aplicar `AuthorEntityBinder` a los parámetros que no usan convenciones predeterminadas:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-En este ejemplo, puesto que el nombre del argumento no es el valor predeterminado `authorId`, se especifica en el parámetro utilizando `ModelBinder` atributo. Tenga en cuenta que el método de acción y controlador se simplifican en comparación con la búsqueda de la entidad en el método de acción. La lógica para capturar al autor mediante Entity Framework Core se mueve al enlazador de modelos. Esto puede ser considerable simplificación cuando existen varios métodos que enlazar con el modelo de autor y pueden ayudar a seguir la [principio SECA](http://deviq.com/don-t-repeat-yourself/).
+En este ejemplo, como el nombre del argumento no es el `authorId` predeterminado, se especifica en el parámetro por medio del atributo `ModelBinder`. Observe que tanto el controlador como el método de acción se simplifican, en contraste con tener que buscar la entidad en el método de acción. La lógica para capturar el autor a través de Entity Framework Core se traslada al enlazador de modelos. Esto puede reducir enormemente la complejidad cuando existen varios métodos que se enlazan con el modelo de autor, además de contribuir a seguir el [principio Una vez y solo una (DRY)](http://deviq.com/don-t-repeat-yourself/).
 
-Puede aplicar el `ModelBinder` atributo a las propiedades de modelo individual (como en un modelo de vista) o a los parámetros de método de acción para especificar un enlazador de modelos o un nombre de modelo para simplemente ese tipo o la acción concreto.
+Puede aplicar el atributo `ModelBinder` a propiedades de modelo individuales (como en un modelo de vista) o a parámetros del método de acción para especificar un determinado nombre de modelo o enlazador de modelos que sea exclusivo de ese tipo o acción en particular.
 
 ### <a name="implementing-a-modelbinderprovider"></a>Implementar un ModelBinderProvider
 
-En lugar de aplicar un atributo, puede implementar `IModelBinderProvider`. Se trata cómo se implementan los enlazadores de marco de trabajo integrado. Cuando se especifica el tipo funciona el enlazador en, especifique el tipo de argumento que se genera, **no** acepta el enlazador de la entrada. El proveedor de enlazador siguiente funciona con la `AuthorEntityBinder`. Cuando se agrega a la colección de MVC de proveedores de, no es necesario usar el `ModelBinder` atributo `Author` o `Author` con el tipo de parámetros.
+En lugar de aplicar un atributo, puede implementar `IModelBinderProvider`. Así es como se implementan los enlazadores de marco integrados. Cuando se especifica el tipo con el que el enlazador funciona, lo que se está indicando es el tipo de argumento que ese enlazador genera, **no** la entrada que acepta. El siguiente proveedor de enlazador funciona con `AuthorEntityBinder`. Cuando se agrega a la colección de proveedores de MVC, no es necesario usar el atributo `ModelBinder` en los parámetros con tipo `Author` o `Author`.
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Binders/AuthorEntityBinderProvider.cs?highlight=17-20)]
 
-> Nota: El código anterior devuelve un `BinderTypeModelBinder`. `BinderTypeModelBinder`actúa como un generador de enlazadores de modelos y proporciona la inserción de dependencias (DI). El `AuthorEntityBinder` requiere DI tener acceso a EF Core. Use `BinderTypeModelBinder` si el enlazador de modelos necesita los servicios de DI.
+> Nota: El código anterior devuelve un `BinderTypeModelBinder`. `BinderTypeModelBinder` actúa como una fábrica de enlazadores de modelos y proporciona la inserción de dependencias. `AuthorEntityBinder` requiere que la inserción de dependencias tenga acceso a Entity Framework Core. Use `BinderTypeModelBinder` si su enlazador de modelos necesita servicios de inserción de dependencias.
 
-Para utilizar un proveedor de enlazador de modelos personalizado, agréguelo en `ConfigureServices`:
-
-[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
-
-Al evaluar los enlazadores de modelos, la colección de proveedores se examina por orden. Se utiliza el primer proveedor que devuelve un enlazador.
-
-La siguiente imagen muestra el valor predeterminado de enlazadores de modelos desde el depurador.
-
-![valor predeterminado de enlazadores de modelos](custom-model-binding/images/default-model-binders.png "predeterminado enlazadores de modelos")
-
-Agregar el proveedor al final de la colección, se puede producir un enlazador de modelos integrados que se llama antes de que el enlazador predeterminado tiene una oportunidad. En este ejemplo, el proveedor personalizado se agrega al principio de la colección para asegurarse de se utiliza para `Author` argumentos de acción.
+Para usar un proveedor de enlazadores de modelos personalizado, agréguelo a `ConfigureServices`:
 
 [!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
 
-## <a name="recommendations-and-best-practices"></a>Recomendaciones y prácticas recomendadas
+Al evaluar enlazadores de modelos, la colección de proveedores se examina en orden. Se usará el primer proveedor que devuelva un enlazador.
 
-Enlazadores de modelos personalizados:
-- No debe intentar establecer códigos de estado o devolver resultados (por ejemplo, 404 no encontrado). Si se produce un error en el enlace de modelos, un [filtro de acción](xref:mvc/controllers/filters) o lógica en el propio método de acción debe controlar los errores.
-- Son muy útiles para eliminar código repetitivo y problemas surgidos de corte del cruce de los métodos de acción.
-- Por lo general no deben usarse para convertir una cadena en un tipo personalizado, un [ `TypeConverter` ](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) suele ser una mejor opción.
+En la siguiente imagen se muestran los enlazadores de modelos predeterminados en el depurador.
+
+![enlazadores de modelos predeterminados](custom-model-binding/images/default-model-binders.png "enlazadores de modelos predeterminados")
+
+Si su proveedor se agrega al final de la colección, puede ocurrir que se llame a un enlazador de modelos integrado antes que al suyo. En este ejemplo, el proveedor personalizado se agrega al principio de la colección para procurar que se use en los argumentos de acción de `Author`.
+
+[!code-csharp[Main](custom-model-binding/sample/CustomModelBindingSample/Startup.cs?name=callout&highlight=5-9)]
+
+## <a name="recommendations-and-best-practices"></a>Sugerencias y procedimientos recomendados
+
+Los enlazadores de modelos personalizados deben caracterizarse por lo siguiente:
+- No deben tratar de establecer códigos de estado ni devolver resultados (por ejemplo, 404 No encontrado). Los errores que se produzcan en un enlace de modelos se deben controlar con un [filtro de acciones](xref:mvc/controllers/filters) o con la lógica del propio método de acción.
+- Son realmente útiles para eliminar el código repetitivo y las cuestiones transversales de los métodos de acción.
+- No se deben usar en general para convertir una cadena en un tipo personalizado. Para ello, [`TypeConverter`](https://docs.microsoft.com//dotnet/api/system.componentmodel.typeconverter) suele ser una mejor opción.

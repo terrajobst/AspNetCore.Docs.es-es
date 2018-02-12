@@ -1,27 +1,27 @@
 ---
-title: "Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC"
+title: "Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC"
 author: pkellner
 description: "Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché"
-ms.author: riande
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 10aa1b493dbd0672cac789f6e48ddf2f14ba35dc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 51811ee1669a24a0fc4ce9bc67e782b61bff655c
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC
+# <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
 
 Por [Peter Kellner](http://peterkellner.net) 
 
-La aplicación auxiliar de etiqueta de caché proporciona la capacidad para mejorar drásticamente el rendimiento de la aplicación de ASP.NET Core almacenando en memoria caché su contenido para el proveedor de caché de ASP.NET Core interno.
+La aplicación auxiliar de etiqueta de caché proporciona la capacidad para mejorar drásticamente el rendimiento de la aplicación de ASP.NET Core al permitir almacenar en memoria caché su contenido en el proveedor de caché interno de ASP.NET Core.
 
-El motor de vista Razor establece el valor predeterminado `expires-after` veinte minutos.
+El motor de visualización Razor establece el valor predeterminado `expires-after` en veinte minutos.
 
 El siguiente marcado de Razor almacena en caché la fecha y hora:
 
@@ -29,7 +29,7 @@ El siguiente marcado de Razor almacena en caché la fecha y hora:
 <cache>@DateTime.Now</cache>
 ```
 
-La primera solicitud a la página que contiene `CacheTagHelper` mostrará la fecha y hora actuales. Las solicitudes adicionales mostrarán el valor almacenado en caché hasta que la memoria caché expira (el valor predeterminado es 20 minutos) o se expulsa a la presión de memoria.
+La primera solicitud a la página que contiene `CacheTagHelper` mostrará la fecha y hora actuales. Las solicitudes adicionales mostrarán el valor almacenado en caché hasta que la memoria caché expira (el valor predeterminado es 20 minutos) o se expulsa por la presión de memoria.
 
 Puede establecer la duración de la caché con los siguientes atributos:
 
@@ -46,7 +46,7 @@ Puede establecer la duración de la caché con los siguientes atributos:
 |                   | "false"   |
 
 
-Determina si el contenido incluido en la aplicación auxiliar de etiqueta de caché se almacena en caché. De manera predeterminada, es `true`.  Si establece en `false` esta aplicación auxiliar de etiqueta de caché no tiene ningún efecto de almacenamiento en caché en la salida representada.
+Determina si el contenido incluido en la aplicación auxiliar de etiqueta de caché se almacena en caché. El valor predeterminado es `true`.  Si se establece en `false`, la aplicación auxiliar de etiqueta de caché no tiene ningún efecto de almacenamiento en caché en la salida representada.
 
 Ejemplo:
 
@@ -58,14 +58,14 @@ Ejemplo:
 
 - - -
 
-### <a name="expires-on"></a>caduca en 
+### <a name="expires-on"></a>expires-on 
 
 | Tipo de atributo    | Valor de ejemplo     |
 |----------------   |----------------   |
 | DateTimeOffset    | "@new DateTime(2025,1,29,17,02,0)"    |
 
 
-Establece una fecha de expiración absoluta. En el ejemplo siguiente, se almacenará en memoria caché el contenido de la aplicación auxiliar de etiqueta de caché hasta 5:02 P.M. el 29 de enero de 2025.
+Establece una fecha de expiración absoluta. En el ejemplo siguiente, se almacenará en memoria caché el contenido de la aplicación auxiliar de etiqueta de caché hasta las 17:02 del 29 de enero de 2025.
 
 Ejemplo:
 
@@ -84,7 +84,7 @@ Ejemplo:
 | TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
 
 
-Establece el período de tiempo desde la primera vez de solicitud para almacenar en caché el contenido. 
+Establece el período de tiempo desde la primera solicitud para almacenar en caché el contenido. 
 
 Ejemplo:
 
@@ -103,7 +103,7 @@ Ejemplo:
 | TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
 
 
-Establece el tiempo que se debe expulsar una entrada de caché si no se ha accedido.
+Establece el tiempo en que se debe expulsar una entrada de caché si no se ha accedido a ella.
 
 Ejemplo:
 
@@ -115,14 +115,14 @@ Ejemplo:
 
 - - -
 
-### <a name="vary-by-header"></a>por encabezado Vary
+### <a name="vary-by-header"></a>vary-by-header
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | String            | "User-Agent"                  |
 |                   | "User-Agent,content-encoding" |
 
-Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando cambian. En el ejemplo siguiente se supervisa el valor del encabezado `User-Agent`. En el ejemplo se almacenará en memoria caché el contenido de cada diferentes `User-Agent` muestre en el servidor web.
+Acepta un valor de encabezado único o una lista separada por comas con los valores de encabezado que desencadenan una actualización de la caché cuando cambian. En el ejemplo siguiente se supervisa el valor del encabezado `User-Agent`. En el ejemplo se almacenará en memoria caché el contenido de cada `User-Agent` que se muestre al servidor web.
 
 Ejemplo:
 
@@ -134,14 +134,14 @@ Ejemplo:
 
 - - -
 
-### <a name="vary-by-query"></a>variar por consulta
+### <a name="vary-by-query"></a>vary-by-query
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | String            | "Make"                |
 |                   | "Make,Model" |
 
-Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando cambia el valor de encabezado. En el ejemplo siguiente se busca en los valores de `Make` y `Model`.
+Acepta un valor de encabezado único o una lista separada por comas con los valores de encabezado que desencadenan una actualización de la caché cuando cambia el valor de encabezado. En el ejemplo siguiente se examinan los valores de `Make` y `Model`.
 
 Ejemplo:
 
@@ -153,14 +153,14 @@ Ejemplo:
 
 - - -
 
-### <a name="vary-by-route"></a>variar ruta
+### <a name="vary-by-route"></a>vary-by-route
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | String            | "Make"                |
 |                   | "Make,Model" |
 
-Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando cambio de valores de parámetro de ruta de datos. Ejemplo:
+Acepta un valor de encabezado único o una lista separada por comas con los valores de encabezado que desencadenan una actualización de la caché cuando se produce un cambio en los valores de parámetro de datos de ruta. Ejemplo:
 
 *Startup.cs* 
 
@@ -180,14 +180,14 @@ routes.MapRoute(
 
 - - -
 
-### <a name="vary-by-cookie"></a>variar cookie
+### <a name="vary-by-cookie"></a>vary-by-cookie
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | String            | ".AspNetCore.Identity.Application"                |
 |                   | ".AspNetCore.Identity.Application,HairColor" |
 
-Acepta un valor de encabezado único o una lista separada por comas de los valores de encabezado que desencadenan una actualización de la caché cuando los valores de encabezado cambio (s). En el ejemplo siguiente se examina la cookie asociada con la identidad de ASP.NET. Cuando un usuario se autentica la cookie de solicitud para establecer lo que desencadena una actualización de la caché.
+Acepta un valor de encabezado único o una lista separada por comas con los valores de encabezado que desencadenan una actualización de la caché cuando cambian los valores de encabezado. En el ejemplo siguiente se examina la cookie asociada con ASP.NET Identity. Cuando un usuario se autentica, la cookie de solicitud que se establece desencadena una actualización de la caché.
 
 Ejemplo:
 
@@ -199,14 +199,14 @@ Ejemplo:
 
 - - -
 
-### <a name="vary-by-user"></a>variar por usuario
+### <a name="vary-by-user"></a>vary-by-user
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | Booleano             | "true"                  |
-|                     | "false" (default) |
+|                     | "false" (valor predeterminado) |
 
-Especifica si debe restablecer la memoria caché cuando el usuario ha iniciado la sesión (o la entidad de contexto) cambia. El usuario actual es también conocida como la entidad de contexto de solicitud y puede verse en una vista Razor haciendo referencia a `@User.Identity.Name`.
+Especifica si debe restablecerse la memoria caché cuando el usuario que ha iniciado la sesión (o la entidad de seguridad del contexto) cambia. El usuario actual también se conoce como entidad de seguridad del contexto de solicitud y puede verse en una vista Razor mediante una referencia a `@User.Identity.Name`.
 
 En el ejemplo siguiente se examina el usuario conectado actualmente.  
 
@@ -218,20 +218,20 @@ Ejemplo:
 </cache>
 ```
 
-Con este atributo, mantiene el contenido en caché a través de un ciclo de inicio de sesión y registro de salida.  Al utilizar `vary-by-user="true"`, una acción de inicio de sesión y registro horizontal invalida la caché para el usuario autenticado.  Se invalida la memoria caché porque se genera un nuevo valor de cookie único inicio de sesión. Memoria caché se mantiene para el estado anónimo cuando ninguna cookie está presente o ha expirado. Esto significa que si ningún usuario ha iniciado sesión, se mantendrá la memoria caché.
+Con este atributo, se mantiene el contenido en caché a través de un ciclo de inicio y cierre de sesión.  Al utilizar `vary-by-user="true"`, una acción de inicio y cierre de sesión invalida la caché para el usuario autenticado.  Se invalida la memoria caché porque se genera un nuevo valor único de cookie al iniciar sesión. Se mantiene la memoria caché para el estado anónimo cuando no hay ninguna cookie o la cookie ha expirado. Esto significa que si ningún usuario ha iniciado sesión, se mantendrá la memoria caché.
 
 - - -
 
-### <a name="vary-by"></a>variar por
+### <a name="vary-by"></a>vary-by
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
 | String             | "@Model"                 |
 
 
-Permite la personalización de los datos que se almacena en caché. Cuando se actualiza el objeto al que hace referencia cambia de valor de cadena del atributo, el contenido de la aplicación auxiliar de etiqueta de caché. A menudo una concatenación de cadenas de valores del modelo se asignan a este atributo.  De hecho, que significa que una actualización a cualquiera de los valores concatenados invalida la memoria caché.
+Permite la personalización de los datos que se almacenan en caché. Cuando el objeto al que hace referencia el valor de cadena del atributo cambia, el contenido de la aplicación auxiliar de etiqueta de caché se actualiza. A menudo se asignan a este atributo una concatenación de cadenas de valores del modelo.  De hecho, eso significa que una actualización de cualquiera de los valores concatenados invalida la memoria caché.
 
-El ejemplo siguiente supone que el método de controlador representar el valor del entero de los dos parámetros de ruta, de las sumas de vista `myParam1` y `myParam2`y que devuelve como la propiedad de modelo simple. Cuando se cambia esta suma, el contenido de la aplicación auxiliar de etiqueta de caché se representan y almacenado en caché nuevo.  
+En el ejemplo siguiente se supone que el método de controlador que representa la vista suma el valor del entero de los dos parámetros de ruta, `myParam1` y `myParam2`, y devuelve el resultado como la propiedad de modelo simple. Cuando se cambia esta suma, el contenido de la aplicación auxiliar de etiqueta de caché se representa y almacena en caché de nuevo.  
 
 Ejemplo:
 
@@ -262,12 +262,12 @@ public IActionResult Index(string myParam1,string myParam2,string myParam3)
 
 | Tipo de atributo    | Valores de ejemplo                |
 |----------------   |----------------               |
-| Enumeración CacheItemPriority  | "Alto"                   |
-|                    | "Bajo" |
+| CacheItemPriority  | "High"                   |
+|                    | "Low" |
 |                    | "NeverRemove" |
 |                    | "Normal" |
 
-Proporciona instrucciones de expulsión de caché para el proveedor de caché integrada. El servidor web expulsará `Low` entradas de caché de primero cuando está bajo presión de memoria.
+Proporciona instrucciones de expulsión de caché para el proveedor de caché integrado. El servidor web expulsará primero las entradas de caché `Low` cuando esté bajo presión de memoria.
 
 Ejemplo:
 
@@ -277,11 +277,11 @@ Ejemplo:
 </cache>
 ```
 
-El `priority` atributos no garantizan un nivel específico de retención de la memoria caché. `CacheItemPriority`es sólo una sugerencia. Establecer este atributo en `NeverRemove` no garantiza que siempre se conservará la memoria caché. Vea [recursos adicionales](#additional-resources) para obtener más información.
+El atributo `priority` no garantiza un nivel específico de retención de la memoria caché. `CacheItemPriority` es solo una sugerencia. Establecer este atributo en `NeverRemove` no garantiza que siempre se conservará la memoria caché. Para más información, consulte [Recursos adicionales](#additional-resources).
 
-La aplicación auxiliar de etiqueta de caché es dependiente de la [servicio de caché de memoria](xref:performance/caching/memory). La aplicación auxiliar de etiqueta de caché agrega el servicio si no se ha agregado.
+La aplicación auxiliar de etiqueta de caché es dependiente del [servicio de caché de memoria](xref:performance/caching/memory). La aplicación auxiliar de etiqueta de caché agrega el servicio si no se ha agregado.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* <xref:performance/caching/memory>
-* <xref:security/authentication/identity>
+* [Almacenamiento caché en memoria](xref:performance/caching/memory)
+* [Introducción a Identity](xref:security/authentication/identity)

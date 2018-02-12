@@ -1,61 +1,61 @@
 ---
-title: "Aplicación auxiliar de la etiqueta de imagen | Documentos de Microsoft"
+title: "Aplicación auxiliar de etiquetas de imagen en ASP.NET Core"
 author: pkellner
-description: "Muestra cómo trabajar con la aplicación auxiliar de etiqueta de imagen"
-ms.author: riande
+description: "Muestra cómo trabajar con la aplicación auxiliar de etiquetas de imagen"
 manager: wpickett
+ms.author: riande
 ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
 ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: d0857e1926c341b2357bc824fa379c4fc30affbc
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.openlocfilehash: 75bddd01a95f3ae0b1ea19de0eb64ad3b9066319
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
-# <a name="imagetaghelper"></a>ImageTagHelper
+# <a name="imagetaghelper"></a>Aplicación auxiliar de etiquetas de imagen
 
 Por [Peter Kellner](http://peterkellner.net) 
 
-Mejora de la aplicación auxiliar de etiqueta de imagen la `img` (`<img>`) etiqueta. Requiere un `src` etiqueta, así como la `boolean` atributo `asp-append-version`.
+La aplicación auxiliar de etiquetas de imagen es una mejora de la etiqueta `img` (`<img>`). Requiere una etiqueta `src`, así como el atributo `boolean` `asp-append-version`.
 
-Si el origen de imagen (`src`) es un archivo estático en el servidor web de host, se anexa una memoria caché única la desactivación de cadena como parámetro de consulta para el origen de la imagen. Esto garantiza que si cambia el archivo en el servidor web de host, una dirección URL de solicitud único se genera que incluya el parámetro de solicitud actualizada. La memoria caché de la desactivación de cadena es un valor único que representa el valor hash del archivo de imagen estática.
+Si el origen de la imagen (`src`) es un archivo estático en el servidor web del host, se anexa una cadena única de bloqueo de la caché como parámetro de consulta a ese origen de la imagen. De este modo, si el archivo en el servidor web del host cambia, se generará una dirección URL de solicitud única que incluye el parámetro de solicitud actualizada. La cadena de limpieza de memoria caché es un valor único que representa el valor hash del archivo de imagen estático.
 
-Si el origen de imagen (`src`) no es un archivo estático (por ejemplo una dirección URL remota o en el archivo no existe en el servidor), el `<img>` etiqueta `src` atributo se genera sin caché la desactivación de parámetro de cadena de consulta.
+Si el origen de la imagen (`src`) no es un archivo estático (por ejemplo, es una dirección URL remota o se trata de un archivo que no existe en el servidor) el atributo `src` de la etiqueta `<img>` se genera sin parámetro de cadena de consulta de limpieza de caché.
 
-## <a name="image-tag-helper-attributes"></a>Atributos de aplicación auxiliar de etiqueta de imagen
+## <a name="image-tag-helper-attributes"></a>Atributos de la aplicación auxiliar de etiquetas de imagen
 
 
-### <a name="asp-append-version"></a>versión anexar ASP
+### <a name="asp-append-version"></a>asp-append-version
 
-Cuando se especifica junto con un `src` se invoca el atributo, la aplicación auxiliar de etiqueta de imagen.
+Cuando se especifica junto con un atributo `src`, se invoca la aplicación auxiliar de etiquetas de imagen.
 
-Un ejemplo de válido `img` aplicación auxiliar para etiqueta es:
+Este es un ejemplo de aplicación auxiliar de etiquetas `img` válido:
 
 ```cshtml
 <img src="~/images/asplogo.png" 
     asp-append-version="true"  />
 ```
 
-Si existe el archivo estático en el directorio *... Wwwroot/images/asplogo.png* el código html generado es similar al siguiente (el valor hash será diferente):
+Si el archivo estático existe en el directorio *..wwwroot/images/asplogo.png*, el código HTML generado es similar al siguiente (el valor hash será diferente):
 
 ```html
 <img 
     src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM"/>
 ```
 
-El valor asignado al parámetro `v` es el valor hash del archivo en disco. Si el servidor web es no se puede obtener acceso de lectura para el archivo estático al que hace referencia, no `v` parámetros se agregan a la `src` atributo.
+El valor asignado al parámetro `v` es el valor hash del archivo almacenado en disco. Si el servidor web no es capaz de obtener acceso de lectura al archivo estático al que se hace referencia, no se agregará ningún parámetro `v` al atributo `src`.
 
 - - -
 
 ### <a name="src"></a>src
 
-Para activar la aplicación auxiliar de etiqueta de imagen, se requiere el atributo src en la `<img>` elemento. 
+Para activar la aplicación auxiliar de etiquetas de imagen, se requiere el atributo src en el elemento `<img>`. 
 
 > [!NOTE]
-> La aplicación auxiliar de etiqueta de imagen utiliza el `Cache` proveedor en el servidor web local para almacenar los calculados `Sha512` de un archivo determinado. Si el archivo se vuelve a solicitar la `Sha512` no necesita volver a calcular. La memoria caché se invalida por un monitor del archivo que se adjunta al archivo cuando el archivo `Sha512` se calcula.
+> La aplicación auxiliar de etiquetas de imagen usa el proveedor `Cache` en el servidor web local para almacenar el valor de `Sha512` calculado de un archivo determinado. Si el archivo se vuelve a solicitar, no es necesario volver a calcular `Sha512`. La memoria caché queda invalidada por un monitor del archivo que se adjunta al archivo cuando el valor de `Sha512` del archivo se calcula.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
