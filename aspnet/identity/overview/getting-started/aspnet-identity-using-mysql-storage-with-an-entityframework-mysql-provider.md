@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider
 msc.type: authoredcontent
-ms.openlocfilehash: ac254abcb756d048d159a9b67967a581f35ac871
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 82341724286a53f7883df324a391beeae3a9e2bd
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider-c"></a>Identidad de ASP.NET: Uso del almacenamiento de MySQL con un proveedor de Entity Framework MySQL (C#)
 ====================
@@ -139,7 +139,7 @@ Entity Framework Code First usa un **MigrationHistory** tabla para realizar un s
 
 ### <a name="creating-a-custom-entityframework-initializer-for-applicationdbcontext"></a>Creación de un inicializador de Entity Framework personalizado para ApplicationDbContext
 
-El proveedor de MySQL que se destaquen en este tutorial no admite actualmente las migraciones de Entity Framework, por lo que deberá usar a inicializadores de modelo para poder conectarse a la base de datos. Dado que este tutorial usa una instancia de MySQL en Azure, necesita debe crear a un inicializador personalizado de Entity Framework.
+El proveedor de MySQL que se destaquen en este tutorial no admite actualmente las migraciones de Entity Framework, por lo que deberá usar a inicializadores de modelo para poder conectarse a la base de datos. Dado que este tutorial usa una instancia de MySQL en Azure, debe crear a un inicializador personalizado de Entity Framework.
 
 > [!NOTE]
 > Este paso no es necesario si se conecta a una instancia de SQL Server en Azure o si está utilizando una base de datos que se hospeda de forma local.

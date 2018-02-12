@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/creating-a-web-api-that-supports-crud-operations
 msc.type: authoredcontent
-ms.openlocfilehash: a91bf065c9ce0fc5bd9b7115340edabea975a7e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b7d5453b6ff36d6e28a69428b016cb8cfd06e9
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="enabling-crud-operations-in-aspnet-web-api-1"></a>Habilitar las operaciones CRUD en ASP.NET Web API 1
 ====================
@@ -42,11 +42,11 @@ Los productos de API expondrá siguientes métodos.
 | Acción | Método HTTP | URI relativo |
 | --- | --- | --- |
 | Obtener una lista de todos los productos | GET | productos/api / |
-| Obtener un producto por Id. | GET | /API/products/*Id.* |
-| Obtener un producto por categoría | GET | productos/api /? categoría =*categoría* |
+| Obtener un producto por Id. | GET | /api/products/*id* |
+| Obtener un producto por categoría | GET | /api/products?category=*category* |
 | Crear un nuevo producto | EXPONER | productos/api / |
-| Actualizar un producto | PUT | /API/products/*Id.* |
-| Eliminar un producto | SUPRIMIR | /API/products/*Id.* |
+| Actualizar un producto | PUT | /api/products/*id* |
+| Eliminar un producto | SUPRIMIR | /api/products/*id* |
 
 Ten en cuenta que algunos de los URI incluyen el identificador de producto en la ruta de acceso. Por ejemplo, para obtener el producto cuyo identificador es 28, el cliente envía una solicitud GET `http://hostname/api/products/28`.
 
@@ -57,7 +57,7 @@ Los productos de API define el URI para dos tipos de recursos:
 | Recurso | Identificador URI |
 | --- | --- |
 | La lista de todos los productos. | productos/api / |
-| Un producto individual. | /API/products/*Id.* |
+| Un producto individual. | /api/products/*id* |
 
 ### <a name="methods"></a>Métodos
 
@@ -158,8 +158,8 @@ La API ProductStore expondrá varios &quot;leer&quot; acciones como métodos GET
 | Acción | Método HTTP | URI relativo |
 | --- | --- | --- |
 | Obtener una lista de todos los productos | GET | productos/api / |
-| Obtener un producto por Id. | GET | /API/products/*Id.* |
-| Obtener un producto por categoría | GET | productos/api /? categoría =*categoría* |
+| Obtener un producto por Id. | GET | /api/products/*id* |
+| Obtener un producto por categoría | GET | /api/products?category=*category* |
 
 Para obtener la lista de todos los productos, agregue este método a la `ProductsController` clase:
 

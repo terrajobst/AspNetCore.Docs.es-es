@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9acc02a1280446b9826c3f8f0022b4726139c7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Almacenar información de usuario adicional (VB)
 ====================
@@ -353,7 +353,7 @@ Ha terminado con los siguientes `LayoutTemplate`, `ItemTemplate`, y `ItemSeparat
 
 El `LayoutTemplate` define el marcado emitidos por el control, mientras el `ItemTemplate` procesa cada elemento devuelto por la SqlDataSource. El `ItemTemplate`del marcado resultante se coloca en el `LayoutTemplate`del `itemPlaceholder` control. Además el `itemPlaceholder`, el `LayoutTemplate` incluye un control DataPager, lo que limita la vista de lista para mostrar solo 10 comentarios de libro de visitas por página (valor predeterminado) y representa una interfaz de paginación.
 
-Mi `ItemTemplate` muestra el asunto del comentario de cada libro de visitas en un `<h4>` elemento con el cuerpo situado por debajo del sujeto. Tenga en cuenta que esta sintaxis utilizada para mostrar el cuerpo de la toma los datos devueltos por la `Eval("Body")` instrucción de enlace de datos, lo convierte en una cadena y los saltos de línea reemplaza con la `<br />` elemento. Esta conversión es necesario para mostrar los saltos de línea especificados al enviar el comentario, ya que omite el espacio en blanco HTML. Firma del usuario se muestra debajo el cuerpo en cursiva, seguido por ciudad natal del usuario, un vínculo a su página de inicio, la fecha y hora en que se realiza el comentario y el nombre de usuario de la persona que deja el comentario.
+Mi `ItemTemplate` muestra el asunto del comentario de cada libro de visitas en un `<h4>` elemento con el cuerpo situado por debajo del sujeto. Tenga en cuenta que la sintaxis utilizada para mostrar el cuerpo de la toma los datos devueltos por la `Eval("Body")` instrucción de enlace de datos, lo convierte en una cadena y los saltos de línea reemplaza con la `<br />` elemento. Esta conversión es necesario para mostrar los saltos de línea especificados al enviar el comentario, ya que omite el espacio en blanco HTML. Firma del usuario se muestra debajo el cuerpo en cursiva, seguido por ciudad natal del usuario, un vínculo a su página de inicio, la fecha y hora en que se realiza el comentario y el nombre de usuario de la persona que deja el comentario.
 
 Tómese un momento para ver la página a través de un explorador. Debería ver los comentarios que agregó en el libro de visitas en el paso 5 aparecerá aquí.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: a58b4a4893fca66800c012bebae4a8bbfedf7a6a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cac86760b90c90a0ea2fad16268f60b5ccf61299
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="adding-validation-to-the-model-vb"></a>Agregar validación para el modelo (VB)
 ====================
@@ -97,7 +97,7 @@ Observe cómo el código utiliza un `Html.EditorFor` auxiliar para generar el `<
 
 ¿Qué es excelente sobre este enfoque es que el controlador ni la plantilla de vista de crear sabe nada acerca de las reglas de validación real que se apliquen o acerca de los mensajes de error específicos que se muestran. Las reglas de validación y las cadenas de error solo se especifican en la clase `Movie`.
 
-Si desea cambiar la lógica de validación más adelante, puede hacerlo en exactamente un solo lugar. No tendrá que preocuparse de que diferentes partes de la aplicación sean incoherentes con el modo en que se aplican las reglas: toda la lógica de validación se definirá en un solo lugar y se usará en todas partes. Esto mantiene el código muy limpio y hace que sea fácil de mantener y evolucionar. Y significa que estará totalmente respetando el principio seco.
+Si desea cambiar la lógica de validación más adelante, puede hacerlo en exactamente un solo lugar. No tendrá que preocuparse de que diferentes partes de la aplicación sean incoherentes con el modo en que se aplican las reglas: toda la lógica de validación se definirá en un solo lugar y se usará en todas partes. Esto mantiene el código muy limpio y hace que sea fácil de mantener y evolucionar. También significa que respeta totalmente el principio DRY.
 
 ## <a name="adding-formatting-to-the-movie-model"></a>Si agrega un formato para el modelo de película
 

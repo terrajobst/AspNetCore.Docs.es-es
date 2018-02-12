@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 9c0edb301de85d15b9a3527382b72211f6f3d3ec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio: Introducción - 1 de 12
 ====================
@@ -137,7 +137,7 @@ Las siguientes características de la aplicación afecta a cómo implementarlo o
 - La aplicación usa Entity Framework 5.0 para tener acceso a datos en la base de datos de aplicación. El ensamblado que contiene el Entity Framework 5.0 debe implementarse con la aplicación.
 - La aplicación utiliza un error de terceros, registros e informes de utilidad. Esta utilidad se proporciona en un ensamblado que debe implementarse con la aplicación.
 - La utilidad de registro de error escribe información de error en archivos XML en una carpeta de archivos. Tiene que asegurarse de que la cuenta que ASP.NET se ejecuta en el sitio implementado tiene permiso de escritura en esta carpeta, y se debe excluir esta carpeta de implementación. (En caso contrario, los datos de registro de error desde el entorno de prueba podrían implementarse en producción o se podrían eliminar los archivos de registro de errores de producción).
-- La aplicación incluye algunos valores de configuración que deben modificarse en implementado *Web.config* archivo según el entorno de destino (prueba o producción) y otras opciones que se deben cambiar dependiendo de la compilación configuración (Debug o Release).
+- La aplicación incluye algunos valores de configuración que se deben cambiar en implementado *Web.config* archivo según el entorno de destino (prueba o producción) y otras opciones que se deben cambiar dependiendo de la compilación configuración (Debug o Release).
 - La solución de Visual Studio incluye un proyecto de biblioteca de clases. Se debe implementar únicamente el ensamblado que genera este proyecto, no el propio proyecto.
 
 En este primer tutorial de la serie, ha descargado el proyecto de Visual Studio de ejemplo y revisar las características de sitio que afectan a cómo implementar la aplicación. En los siguientes tutoriales para preparar para la implementación mediante la configuración de algunas de estas cosas administrará automáticamente. Otros que se ocupa de forma manual.

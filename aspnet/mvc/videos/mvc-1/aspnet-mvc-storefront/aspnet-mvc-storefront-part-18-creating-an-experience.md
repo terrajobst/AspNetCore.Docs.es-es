@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience
 msc.type: video
-ms.openlocfilehash: 992bafe2de63f11d5781e27247f296d265b53899
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2714f48535883740bafa7991c430f7259ad33ce9
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-storefront-part-18-creating-an-experience"></a>ASP.NET MVC escaparate parte 18: La creación de una experiencia
 ====================
@@ -28,4 +28,4 @@ En este episodio, se trabaja en la extracción de todas las piezas técnicas jun
 
 >[!div class="step-by-step"]
 [Anterior](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
-[Siguiente](aspnet-mvc-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+[Siguiente](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)

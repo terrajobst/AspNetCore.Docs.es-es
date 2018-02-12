@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 5d6e6727f387d047e7b41a6efa0d2dadf467558e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Servicios de autenticación externo con ASP.NET Web API (C#)
 ====================
@@ -243,8 +243,8 @@ Una vez obtenida la clave de consumidor y el secreto del consumidor, siga estos 
 
 Para obtener información adicional acerca de cómo crear aplicaciones que usan OAuth y OpenID, consulte las siguientes direcciones URL:
 
-- [https://go.Microsoft.com/fwlink/?LinkId=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
-- [https://go.Microsoft.com/fwlink/?LinkId=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
+- [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166)
+- [https://go.microsoft.com/fwlink/?LinkID=243995](https://go.microsoft.com/fwlink/?LinkID=243995)
 
 <a id="COMBINE"></a>
 ### <a name="combining-external-authentication-services"></a>Combinación de los servicios de autenticación externo
@@ -263,7 +263,7 @@ Algunos proveedores de autenticación externa no admiten probar la aplicación c
     1. Abra un símbolo del sistema con privilegios elevados en Windows.
     2. Escriba el comando siguiente:
 
-        <kbd>el Bloc de notas %WinDir%\system32\drivers\etc\hosts</kbd>
+        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
     3. Agregue una entrada similar al siguiente al archivo de HOSTS:
 
         <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
@@ -303,7 +303,7 @@ La vinculación de una aplicación para Windows Live de Microsoft Authentication
 <a id="DISABLE"></a>
 ### <a name="optional-disable-local-registration"></a>Opcional: Deshabilitar el registro Local
 
-La funcionalidad de registro local de ASP.NET actual impedir que programas automatizados (bots) crear miembro cuentas; Por ejemplo, mediante una tecnología de validación y la prevención de bot como [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Por este motivo, debe quitar el vínculo de formulario y el registro de inicio de sesión local en la página de inicio de sesión. Para ello, abra el  *\_Login.cshtml* página en el proyecto y, a continuación, comente las líneas para el panel de inicio de sesión local y el vínculo de registro. Debe ser similar de la página resultante como en el ejemplo de código siguiente:
+La funcionalidad de registro local de ASP.NET actual impedir que programas automatizados (bots) crear miembro cuentas; Por ejemplo, mediante una tecnología de validación y la prevención de bot como [CAPTCHA](../../../web-pages/overview/security/16-adding-security-and-membership.md). Por este motivo, debe quitar el vínculo de formulario y el registro de inicio de sesión local en la página de inicio de sesión. Para ello, abra el  *\_Login.cshtml* página en el proyecto y, a continuación, comente las líneas para el panel de inicio de sesión local y el vínculo de registro. La página resultante debería ser similar en el siguiente ejemplo de código:
 
 [!code-html[Main](external-authentication-services/samples/sample10.html)]
 

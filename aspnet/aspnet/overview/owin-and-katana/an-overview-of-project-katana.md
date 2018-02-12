@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8f28116f88f3cf5143d3d5c9821519d62c4e5452
-ms.sourcegitcommit: 6541c8b11001dd617adf5eb04c814cda165070b9
+ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="an-overview-of-project-katana"></a>Información general del proyecto Katana
 ====================
@@ -29,7 +29,7 @@ por [Howard Dierking](https://github.com/howarddierking)
 
  Sin tener en cuenta si uno está hablando de un producto de framework o por el usuario final de desarrollador, es importante comprender las motivaciones subyacentes para crear el producto y la parte de la que incluye saber que se creó el producto para. ASP.NET se creó originalmente con dos clientes en mente.   
   
-**El primer grupo de clientes era los programadores de ASP clásicos.** En el momento, ASP era una de las principales tecnologías para crear aplicaciones y sitios Web dinámicos, orientadas a datos por cruce marcado y el script de servidor. El tiempo de ejecución ASP había proporcionado script de servidor con un conjunto de objetos que se extraen los aspectos básicos del protocolo HTTP subyacente y el servidor Web y proporciona acceso a otros servicios de este tipo administración de Estados de sesión y aplicación, almacenar en memoria caché, etcetera. Aunque eficaz, las aplicaciones ASP clásicas pasó a ser un reto para administrar tal y como ha crecido en tamaño y complejidad. Esto era en gran medida debido a la falta de estructura encontrada en entornos junto con la duplicación de código resultante de la intercalación de marcado y código de scripting. Para aprovechar las ventajas de ASP clásico al resolver algunos de sus desafíos, ASP.NET tardó ventaja de la organización del código proporcionada los lenguajes orientados a objetos de .NET Framework mientras también conserva el modelo de programación de servidor para la aplicaciones ASP clásicas creció acostumbrados a los desarrolladores.
+**El primer grupo de clientes era los programadores de ASP clásicos.** En el momento, ASP era una de las principales tecnologías para crear aplicaciones y sitios Web dinámicos, orientadas a datos por cruce marcado y el script de servidor. El tiempo de ejecución ASP había proporcionado script de servidor con un conjunto de objetos que se extraen los aspectos básicos del protocolo HTTP subyacente y el servidor Web y proporciona acceso a otros servicios de este tipo administración de Estados de sesión y aplicación, almacenar en memoria caché, etcetera. Aunque eficaz, las aplicaciones ASP clásicas pasó a ser un reto para administrar tal y como ha crecido en tamaño y complejidad. Esto era en gran medida debido a la falta de estructura que se encuentra en entornos junto con la duplicación de código resultante de la intercalación de marcado y código de scripting. Para aprovechar las ventajas de ASP clásico al resolver algunos de sus desafíos, ASP.NET tardó ventaja de la organización del código proporcionada los lenguajes orientados a objetos de .NET Framework mientras también conserva el modelo de programación de servidor para la aplicaciones ASP clásicas creció acostumbrados a los desarrolladores.
 
 **El segundo grupo de clientes de destino para ASP.NET era que los desarrolladores de aplicaciones de negocio de Windows.** A diferencia de los desarrolladores ASP clásicos, que estaban acostumbrados a escribir código HTML y el código para generar el marcado HTML más, los desarrolladores de formularios Windows Forms (por ejemplo, los desarrolladores VB6 anteriores) estaba acostumbrado a una experiencia en tiempo de diseño que incluyen un lienzo y un amplio conjunto de usuario controles de interfaz. La primera versión de ASP.NET: también conocida como "Formularios Web Forms" proporciona una experiencia similar en tiempo de diseño junto con un modelo de eventos de servidor para los componentes de la interfaz de usuario y un conjunto de características de infraestructura (por ejemplo, ViewState) para crear una experiencia de desarrollador sin problemas entre el cliente y la programación del lado servidor. Formularios Web Forms hid eficazmente la naturaleza sin estado de la Web en un modelo de evento con estado que le resulta familiar a los desarrolladores de formularios Windows Forms.
 

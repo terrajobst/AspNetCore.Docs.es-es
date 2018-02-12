@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 7200899d54585cd09e0a648e3aaaf839db2649e0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 5
 ====================
@@ -77,7 +77,7 @@ Ejecute el *Courses.aspx* página y seleccione el mismo departamento para ver el
 
 ## <a name="working-with-many-to-many-relationships"></a>Trabajar con relaciones de varios a varios
 
-La relación entre el `Courses` conjunto de entidades y `People` conjunto de entidades es una relación de varios a varios. A `Course` entidad tiene una propiedad de navegación denominada `People` que puede contener cero, uno o más relacionadas con `Person` entidades (que representan instructores asignados a enseñar a dicho curso). Y un `Person` entidad tiene una propiedad de navegación denominada `Courses` que puede contener cero, uno o más relacionadas con `Course` entidades (que representan los cursos en los que se asigna esa instructor a enseñar). Un instructor puede enseñar a varios cursos y un curso podría ser imparten por instructores varios. En esta sección del tutorial, podrá agregar y quitar las relaciones entre `Person` y `Course` entidades mediante la actualización de las propiedades de navegación de las entidades relacionadas.
+La relación entre el `Courses` conjunto de entidades y `People` conjunto de entidades es una relación de varios a varios. A `Course` entidad tiene una propiedad de navegación denominada `People` que puede contener cero, uno o más relacionadas con `Person` entidades (que representan instructores asignados a enseñar a dicho curso). Y un `Person` entidad tiene una propiedad de navegación denominada `Courses` que puede contener cero, uno o más relacionadas con `Course` entidades (que representa los cursos ese instructor se asigna a enseñar). Un instructor puede enseñar a varios cursos y un curso podría ser imparten por instructores varios. En esta sección del tutorial, podrá agregar y quitar las relaciones entre `Person` y `Course` entidades mediante la actualización de las propiedades de navegación de las entidades relacionadas.
 
 Crear una nueva página web denominada *InstructorsCourses.aspx* que usa el *Site.Master* página principal y agregue el siguiente marcado para la `Content` control denominado `Content2`:
 
@@ -123,7 +123,7 @@ Ejecute la página.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Seleccione un instructor. El **asignar un curso** lista desplegable muestra los cursos que no indican el instructor, y el **quitar un curso** lista desplegable muestra los cursos que el instructor ya está asignado a. En el **asignar un curso** sección, seleccione un curso y, a continuación, haga clic en **asignar**. El curso se mueve a la **quitar un curso** lista desplegable. Seleccione un curso en el **quitar un curso** sección y haga clic en **quitar***.* El curso se mueve a la **asignar un curso** lista desplegable.
+Seleccione un instructor. El **asignar un curso** lista desplegable muestra los cursos que no indican el instructor, y el **quitar un curso** lista desplegable muestra los cursos que el instructor ya está asignado a. En el **asignar un curso** sección, seleccione un curso y, a continuación, haga clic en **asignar**. El curso se mueve a la **quitar un curso** lista desplegable. Seleccione un curso en el **quitar un curso** sección y haga clic en **Remove ***.* El curso se mueve a la **asignar un curso** lista desplegable.
 
 Ya ha visto algunas otras formas de trabajar con datos relacionados. En el siguiente tutorial, aprenderá a utilizar la herencia en el modelo de datos para mejorar la facilidad de mantenimiento de la aplicación.
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/working-with-the-dropdownlist-box-and-jquery/examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper
 msc.type: authoredcontent
-ms.openlocfilehash: 737773ab424b3ec3b6139b8c238a60ca23de2e69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: abd9b5c09e942b966eb3eaaebe1b315c30b8e0c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining--how--aspnet-mvc-scaffolds-the-dropdownlist-helper"></a>Examinar cómo ASP.NET MVC scaffolds la aplicación auxiliar DropDownList
 ====================
@@ -26,7 +26,7 @@ En **el Explorador de soluciones**, haga clic en el *controladores* carpeta y, a
 
 ![](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/_static/image1.png)
 
-Editar la *StoreManager\Index.cshtml* ver y quitar `AlbumArtUrl`. Quitar `AlbumArtUrl` hará que la presentación sea más legible. El código completo se muestra a continuación.
+Editar la *StoreManager\Index.cshtml* ver y quitar `AlbumArtUrl`. Quitar `AlbumArtUrl` hará que la presentación sea más legible. A continuación se muestra el código completado.
 
 [!code-cshtml[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample1.cshtml)]
 
@@ -112,7 +112,7 @@ Cree un nuevo método para agregar un género y el intérprete **SelectList** a 
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample10.cs)]
 
-Reemplace las dos líneas establecer el `ViewBag` en cada uno de los `Create` y `Edit` métodos con una llamada a la `SetGenreArtistViewBag` (método). El código completo se muestra a continuación.
+Reemplace las dos líneas establecer el `ViewBag` en cada uno de los `Create` y `Edit` métodos con una llamada a la `SetGenreArtistViewBag` (método). A continuación se muestra el código completado.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample11.cs)]
 
@@ -168,7 +168,7 @@ El `AlbumSelectListViewModel` constructor toma un álbum, una lista de intérpre
 
 Compile el proyecto por lo que el `AlbumSelectListViewModel` está disponible cuando se crea una vista en el paso siguiente.
 
-Agregar un `EditVM` método para el `StoreManagerController`. El código completo se muestra a continuación.
+Agregar un `EditVM` método para el `StoreManagerController`. A continuación se muestra el código completado.
 
 [!code-csharp[Main](examining-how-aspnet-mvc-scaffolds-the-dropdownlist-helper/samples/sample20.cs)]
 
@@ -202,7 +202,7 @@ Ejecute la aplicación y editar un álbum. Cambiar la dirección URL debe usar `
 
 Los tres métodos que se muestran son acceptible. Muchos desarrolladores prefieren explictily pase el `SelectList` a la `DropDownList` mediante el `ViewBag`. Este enfoque tiene la ventaja añadida de lo que le ofrece la flexibilidad de usar un nombre más adecuado para la colección. Una advertencia es que no se asigne un nombre a la `ViewBag SelectList` el mismo nombre que la propiedad del modelo de objetos.
 
-Algunos desarrolladores prefieren el enfoque ViewModel. Otras personas que considere más detallado marcado y código HTML generado de ViewModel enfocan un inconveniente.
+Algunos desarrolladores prefieren el enfoque ViewModel. Otras tenga en cuenta el marcado más detallado y HTML del enfoque ViewModel generan por un inconveniente.
 
 En esta sección, hemos aprendimos tres métodos para usar la **DropDownList** con datos de categoría. En la siguiente sección, le mostraremos cómo agregar una nueva categoría.
 

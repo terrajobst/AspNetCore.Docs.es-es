@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/authentication-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 7c704cc351876b49ec143a49b25cc0ca83876e06
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 16e451f52799625983368bc938091eff47019b52
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="authentication-filters-in-aspnet-web-api-2"></a>Filtros de autenticación en ASP.NET Web API 2
 ====================
@@ -160,7 +160,7 @@ Nota: El ejemplo de la autenticación básica abstrae un poco, esta lógica medi
 
 "Autenticación de nivel de host" es la autenticación realizada por el host (como IIS), antes el marco de trabajo de solicitud llega a la API Web.
 
-A menudo, puede que desee para habilitar la autenticación de nivel de host para el resto de la aplicación, pero deshabilitar para los controladores de API Web. Por ejemplo, un escenario típico es habilitar la autenticación de formularios en el nivel de host, pero usa autenticación basada en el símbolo (token) de API Web.
+A menudo, puede que desee habilitar la autenticación de nivel de host para el resto de la aplicación, pero deshabilitar para los controladores de API Web. Por ejemplo, un escenario típico es habilitar la autenticación de formularios en el nivel de host, pero usa autenticación basada en el símbolo (token) de API Web.
 
 Para deshabilitar la autenticación de nivel de host dentro de la canalización Web API, llamar a `config.SuppressHostPrincipal()` en la configuración. Esto hace que la API Web quitar la **IPrincipal** desde cualquier solicitud que entra en la canalización Web API. De hecho, se &quot;anular-autentica&quot; la solicitud.
 

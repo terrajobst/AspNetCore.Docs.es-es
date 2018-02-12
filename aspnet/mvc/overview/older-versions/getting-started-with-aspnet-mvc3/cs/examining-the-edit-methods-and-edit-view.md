@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: d588ff6ed03178ac8dc6934162252c1749cc9124
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 137254be69344f31e65e1b4d1318a107ff9d6d47
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a>Examen de los métodos de edición y la vista de edición (C#)
 ====================
@@ -61,7 +61,7 @@ Abra el `Movies` controlador. Los dos `Edit` a continuación se muestran los mé
 
 [!code-csharp[Main](examining-the-edit-methods-and-edit-view/samples/sample2.cs)]
 
-Observe que el segundo método de acción `Edit` va precedido del atributo `HttpPost`. Este atributo especifica que sobrecarga de la `Edit` método se puede invocar para solicitudes POST. Podría aplicar la `HttpGet` atributo al primer editar método, pero que no es necesario porque es el valor predeterminado. (Nos referiremos a métodos de acción que se le asigna implícitamente la `HttpGet` atributo como `HttpGet` métodos.)
+Observe que el segundo método de acción `Edit` va precedido del atributo `HttpPost`. Este atributo especifica esa sobrecarga de la `Edit` método se puede invocar para solicitudes POST. Podría aplicar la `HttpGet` atributo al primer editar método, pero que no es necesario porque es el valor predeterminado. (Nos referiremos a métodos de acción que se le asigna implícitamente la `HttpGet` atributo como `HttpGet` métodos.)
 
 El `HttpGet` `Edit` método toma el parámetro de identificador de película, busca la película con Entity Framework `Find` método y devuelve la película seleccionada a la vista de edición. Cuando el sistema de scaffolding creó la vista de edición, examinó la clase `Movie` y creó código para representar los elementos `<label>` y `<input>` para cada propiedad de la clase. En el ejemplo siguiente se muestra la vista de edición que se ha generado:
 

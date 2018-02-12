@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 92a6dee24b8942d721e3537a712be141155e61df
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -255,7 +255,7 @@ La lista de plantillas de proyecto incluye una nueva plantilla de aplicación de
 
 #### <a name="project-templates-are-now-html5-enabled"></a>Plantillas de proyecto ahora están habilitados de HTML5
 
-El cuadro de diálogo nuevo proyecto contiene ahora una opción para agregar características específicas de HTML5 para las plantillas de proyecto. Al seleccionar la opción hace vistas generarse que contienen la nueva HTML5 `<header>`, `<footer>`, y `<navigation>` elementos. elementos.
+El cuadro de diálogo nuevo proyecto contiene ahora una opción para agregar características específicas de HTML5 para las plantillas de proyecto. Al seleccionar la opción hace vistas generarse que contienen la nueva HTML5 `<header>`, `<footer>`, y `<navigation>` elementos.
 
 Tenga en cuenta que las versiones anteriores de exploradores no admiten etiquetas específicas de HTML5. Para solucionar esta limitación, las plantillas de proyecto de HTML5 incluyen una referencia a la biblioteca de Modernizr. (Vea la sección siguiente).
 
@@ -608,7 +608,7 @@ Como alternativa, para desactivar la validación de solicitudes para cada propie
 ## <a name="breaking-changes"></a>Cambios importantes
 
 - Ha cambiado el orden de ejecución para los filtros de excepción para los filtros de excepciones que tienen el mismo *orden* valor. En ASP.NET MVC 2 y versiones anteriores, los filtros de excepciones en el controlador que tenían el mismo *orden* a medida que los de un método de acción se ejecutan antes que los filtros de excepción en el método de acción. Esto normalmente sería el caso cuando se han aplicado filtros de excepción sin una especificado *orden* valor. En ASP.NET MVC 3, este pedido se ha invertido para que el controlador de excepciones más específico se ejecuta primero. Al igual que en versiones anteriores, si la *orden* propiedad se especifica explícitamente, los filtros se ejecutan en el orden especificado.
-- Agrega una nueva propiedad denominada *FileExtensions* a la *VirtualPathProviderViewEngine* clase base. Al buscar una vista por ruta de acceso (y no por nombre), sólo las vistas con una extensión de archivo contenidos en la lista especificada por esta nueva propiedad se considera. Esto es una novedad para aquellos que se registren un personalizado crear proveedor para habilitar una extensión de archivo personalizado para vistas de formulario web y y hacen referencia a esas vistas mediante el uso de una ruta de acceso completa en lugar de un nombre. La solución consiste en modificar el valor de la *FileExtensions* propiedad debe incluir la extensión de archivo personalizado.
+- Agrega una nueva propiedad denominada *FileExtensions* a la *VirtualPathProviderViewEngine* clase base. Al buscar una vista por ruta de acceso (y no por nombre), sólo las vistas con una extensión de archivo contenidos en la lista especificada por esta nueva propiedad se considera. Se trata de un cambio importante para aquellos que registrar un proveedor de compilación personalizada para habilitar una extensión de archivo personalizado para vistas de formulario web y se hace referencia a esas vistas mediante el uso de una ruta de acceso completa en lugar de un nombre. La solución consiste en modificar el valor de la *FileExtensions* propiedad debe incluir la extensión de archivo personalizado.
 
 <a id="_Toc276711795"></a>
 ## <a name="known-issues"></a>Problemas conocidos

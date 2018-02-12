@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-a-database-update
 msc.type: authoredcontent
-ms.openlocfilehash: 3fd29a5b26c564d88e4128d1904fab00b57a3b7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8e875a4282df78ec647579e74c3fbeabd2495fc2
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-database-update"></a>Implementación de Web ASP.NET con Visual Studio: implementar una actualización de la base de datos
 ====================
@@ -90,7 +90,7 @@ En esta sección, agregará una columna de fecha de nacimiento a la `Person` la 
 6. En el **Web uno haga clic en publicar** barra de herramientas, haga clic en el **producción** perfil de publicación y, a continuación, haga clic en **Publicar Web**.
 7. Ejecute el **instructores** página en producción para comprobar que la actualización se ha implementado correctamente.
 
-    Para una actualización de la aplicación de producción real que incluye un cambio de base de datos también normalmente se tardaría la aplicación sin conexión durante la implementación mediante el uso de *aplicación\_offline.htm*, tal y como se vio en el tutorial anterior.
+    Para una actualización de la aplicación de producción real que incluye un cambio de base de datos normalmente, también se podría pasar la aplicación sin conexión durante la implementación mediante *aplicación\_offline.htm*, tal y como se vio en el tutorial anterior.
 
 ## <a name="deploy-a-database-update-by-using-the-dbdacfx-provider"></a>Implementar una actualización de la base de datos mediante el proveedor dbDacFx
 

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 73e46134cfafb9edc4c1888211eab44b8f2bf828
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3eb588aad592605a8e368d1af6e62ece34b79d0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Usar métodos asíncronos en ASP.NET 4.5
 ====================
@@ -123,7 +123,7 @@ La versión asincrónica:
 - El `RegisterAsyncTask` método se usa para registrar una tarea asincrónica que contiene el código que se ejecuta de forma asincrónica.
 - El nuevo `GetGizmosSvcAsync` método está marcado con el [async](https://msdn.microsoft.com/library/hh156513(VS.110).aspx) palabra clave, que indica al compilador para generar las devoluciones de llamada para las partes del cuerpo y para crear automáticamente un `Task` que se devuelve.
 - &quot;Async&quot; se anexa al nombre del método asincrónico. Anexa "Async" no es necesario, pero es la convención al escribir métodos asincrónicos.
-- El tipo de valor devuelto de la nueva nueva `GetGizmosSvcAsync` método es `Task`. El tipo de valor devuelto de `Task` representa el trabajo en curso y proporciona a los llamadores del método con un identificador a través de la que se va a esperar a que finalice la operación asincrónica.
+- El tipo de valor devuelto de la nueva `GetGizmosSvcAsync` método es `Task`. El tipo de valor devuelto de `Task` representa el trabajo en curso y proporciona a los llamadores del método con un identificador a través de la que se va a esperar a que finalice la operación asincrónica.
 - El [await](https://msdn.microsoft.com/library/hh156528(VS.110).aspx) palabra clave se aplicó al llamar al servicio web.
 - Se llamó a la API del servicio web asincrónica (`GetGizmosAsync`).
 

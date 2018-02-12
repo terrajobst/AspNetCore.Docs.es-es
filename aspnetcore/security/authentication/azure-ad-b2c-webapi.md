@@ -10,17 +10,17 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: a63bfc26bb6b0f5ea1c64641d6f57a3555d7f401
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: d768e2daf2464b282b097e935ef6c5f85e8705f5
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c"></a>Autenticación de nube en web API con Azure Active Directory B2C
 
 Por [Cam Soper](https://twitter.com/camsoper)
 
-[Azure B2C Directory Active](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) es una solución de administración de identidades de nube para aplicaciones móviles y web. El servicio proporciona autenticación para las aplicaciones hospedadas en la nube y locales. Tipos de autenticación incluyen incluyen cuentas individuales, las cuentas de red social y federadas de cuentas de empresa. Además, Azure AD B2C puede proporcionar la autenticación multifactor con una configuración mínima.
+[Azure B2C Directory Active](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) es una solución de administración de identidades de nube para aplicaciones móviles y web. El servicio proporciona autenticación para las aplicaciones hospedadas en la nube y locales. Tipos de autenticación incluyen cuentas individuales, las cuentas de red social y federado cuentas empresariales. Además, Azure AD B2C puede proporcionar la autenticación multifactor con una configuración mínima.
 
 > [!TIP]
 > Azure Active Directory (Azure AD) Azure AD B2C son ofertas de productos independientes. Un inquilino de Azure AD representa una organización, mientras que un inquilino de Azure AD B2C representa una colección de identidades para su uso con aplicaciones de usuario de confianza. Para obtener más información, consulte [Azure AD B2C: preguntas más frecuentes (P+F)](/azure/active-directory-b2c/active-directory-b2c-faqs).

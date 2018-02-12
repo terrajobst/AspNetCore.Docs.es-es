@@ -12,11 +12,11 @@ ms.technology:
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: 58ae178a0e6578d8353e1a4e9d67fc1026e99f55
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/12/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -295,7 +295,7 @@ Versión Beta de ASP.NET MVC 4 es compatible con la versión 1.5 de septiembre d
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
     - *MvcVBRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
-- **Cuando se incluye WebMatrix.WebData.dll en el directorio/bin de las aplicaciones de ASP.NET MVC 4, asume la dirección URL para la autenticación de formularios.** Agrega el ensamblado WebMatrix.WebData.dll a la aplicación (por ejemplo, seleccionando "Páginas Web ASP.NET con la sintaxis de Razor" cuando se usa el cuadro de diálogo Agregar dependencias implementables) invalidará la redirección de inicio de sesión de autenticación al inicio de sesión/account/en lugar de / cuenta o inicio de sesión según lo esperado de forma predeterminada la cuenta de controlador de ASP.NET MVC. Para evitar este comportamiento y la dirección URL especificada ya en la sección de autenticación del archivo web.config, puede agregar un appSetting denominado PreserveLoginUrl y establézcalo en true: 
+- **Cuando WebMatrix.WebData.dll se incluye en el directorio/bin de las aplicaciones de ASP.NET MVC 4, asume la dirección URL para la autenticación de formularios.** Agrega el ensamblado WebMatrix.WebData.dll a la aplicación (por ejemplo, seleccionando "Páginas Web ASP.NET con la sintaxis de Razor" cuando se usa el cuadro de diálogo Agregar dependencias implementables) invalidará la redirección de inicio de sesión de autenticación al inicio de sesión/account/en lugar de / cuenta o inicio de sesión según lo esperado de forma predeterminada la cuenta de controlador de ASP.NET MVC. Para evitar este comportamiento y la dirección URL especificada ya en la sección de autenticación del archivo web.config, puede agregar un appSetting denominado PreserveLoginUrl y establézcalo en true: 
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample13.xml)]
 - **Se produce un error en el Administrador de paquetes de NuGet instalar al intentar instalar ASP.NET MVC 4 para instalaciones en paralelo de Visual Studio 2010 y Visual Web Developer 2010.** Para ejecutar Visual Studio 2010 y Visual Web Developer 2010 paralelo con ASP.NET MVC 4 debe instalar ASP.NET MVC 4 después de haberse instalados ambas versiones de Visual Studio.
