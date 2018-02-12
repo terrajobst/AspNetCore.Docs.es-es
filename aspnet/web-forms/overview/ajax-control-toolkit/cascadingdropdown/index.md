@@ -12,22 +12,22 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
-ms.openlocfilehash: 8d0708b03deb54d41c64ed383d319b0b70549e1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 200dc5ce3f27b5123edea2ac63f0a86b8502605d
+ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 02/12/2018
 ---
-<a name="cascadingdropdown"></a><span data-ttu-id="09fb8-103">CascadingDropdown</span><span class="sxs-lookup"><span data-stu-id="09fb8-103">CascadingDropdown</span></span>
+<a name="cascadingdropdown"></a><span data-ttu-id="684d7-103">CascadingDropdown</span><span class="sxs-lookup"><span data-stu-id="684d7-103">CascadingDropdown</span></span>
 ====================
-> <span data-ttu-id="09fb8-104">Este tutorial muestra cómo utilizar el las CascadingDropDown para crear una lista desplegable relacionada listas de control que se actualizan cuando los usuarios realizan una selección.</span><span class="sxs-lookup"><span data-stu-id="09fb8-104">This tutorial shows how to use the the CascadingDropDown control to create related drop-down lists that update when users make a selection.</span></span>
+> <span data-ttu-id="684d7-104">Este tutorial muestra cómo utilizar el control CascadingDropDown para crear listas desplegables relacionadas que se actualizan cuando los usuarios realizan una selección.</span><span class="sxs-lookup"><span data-stu-id="684d7-104">This tutorial shows how to use the CascadingDropDown control to create related drop-down lists that update when users make a selection.</span></span>
 
 
-- [<span data-ttu-id="09fb8-105">Rellenar una lista con CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="09fb8-105">Filling a List Using CascadingDropDown (C#)</span></span>](filling-a-list-using-cascadingdropdown-cs.md)
-- [<span data-ttu-id="09fb8-106">Usar CascadingDropDown con una base de datos (C#)</span><span class="sxs-lookup"><span data-stu-id="09fb8-106">Using CascadingDropDown with a Database (C#)</span></span>](using-cascadingdropdown-with-a-database-cs.md)
-- [<span data-ttu-id="09fb8-107">Entradas de lista de preconfiguración CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="09fb8-107">Presetting List Entries with CascadingDropDown (C#)</span></span>](presetting-list-entries-with-cascadingdropdown-cs.md)
-- [<span data-ttu-id="09fb8-108">Uso de devolución de datos automática con CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="09fb8-108">Using Auto-Postback with CascadingDropDown (C#)</span></span>](using-auto-postback-with-cascadingdropdown-cs.md)
-- [<span data-ttu-id="09fb8-109">Rellenar una lista con CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="09fb8-109">Filling a List Using CascadingDropDown (VB)</span></span>](filling-a-list-using-cascadingdropdown-vb.md)
-- [<span data-ttu-id="09fb8-110">Usar CascadingDropDown con una base de datos (VB)</span><span class="sxs-lookup"><span data-stu-id="09fb8-110">Using CascadingDropDown with a Database (VB)</span></span>](using-cascadingdropdown-with-a-database-vb.md)
-- [<span data-ttu-id="09fb8-111">Entradas de lista de preconfiguración CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="09fb8-111">Presetting List Entries with CascadingDropDown (VB)</span></span>](presetting-list-entries-with-cascadingdropdown-vb.md)
-- [<span data-ttu-id="09fb8-112">Uso de devolución de datos automática con CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="09fb8-112">Using Auto-Postback with CascadingDropDown (VB)</span></span>](using-auto-postback-with-cascadingdropdown-vb.md)
+- [<span data-ttu-id="684d7-105">Rellenar una lista con CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="684d7-105">Filling a List Using CascadingDropDown (C#)</span></span>](filling-a-list-using-cascadingdropdown-cs.md)
+- [<span data-ttu-id="684d7-106">Usar CascadingDropDown con una base de datos (C#)</span><span class="sxs-lookup"><span data-stu-id="684d7-106">Using CascadingDropDown with a Database (C#)</span></span>](using-cascadingdropdown-with-a-database-cs.md)
+- [<span data-ttu-id="684d7-107">Preconfigurar entradas de lista con CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="684d7-107">Presetting List Entries with CascadingDropDown (C#)</span></span>](presetting-list-entries-with-cascadingdropdown-cs.md)
+- [<span data-ttu-id="684d7-108">Usar el postback automático con CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="684d7-108">Using Auto-Postback with CascadingDropDown (C#)</span></span>](using-auto-postback-with-cascadingdropdown-cs.md)
+- [<span data-ttu-id="684d7-109">Rellenar una lista con CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="684d7-109">Filling a List Using CascadingDropDown (VB)</span></span>](filling-a-list-using-cascadingdropdown-vb.md)
+- [<span data-ttu-id="684d7-110">Usar CascadingDropDown con una base de datos (VB)</span><span class="sxs-lookup"><span data-stu-id="684d7-110">Using CascadingDropDown with a Database (VB)</span></span>](using-cascadingdropdown-with-a-database-vb.md)
+- [<span data-ttu-id="684d7-111">Preconfigurar entradas de lista con CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="684d7-111">Presetting List Entries with CascadingDropDown (VB)</span></span>](presetting-list-entries-with-cascadingdropdown-vb.md)
+- [<span data-ttu-id="684d7-112">Usar el postback automático con CascadingDropDown (VB)</span><span class="sxs-lookup"><span data-stu-id="684d7-112">Using Auto-Postback with CascadingDropDown (VB)</span></span>](using-auto-postback-with-cascadingdropdown-vb.md)
