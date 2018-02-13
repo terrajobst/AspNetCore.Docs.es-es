@@ -1,48 +1,48 @@
 ---
 title: Aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 author: rick-anderson
-description: Describe la integrada de aplicaciones auxiliares de etiquetas que se utilizan con formularios.
-ms.author: riande
+description: En este tema se describen las aplicaciones auxiliares de etiquetas que se usan en los formularios.
 manager: wpickett
-ms.date: 02/14/2017
-ms.topic: article
-ms.technology: aspnet
-ms.prod: asp.net-core
-uid: mvc/views/working-with-forms
+ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9fd51755e1dc9a1dfb9ab5cc4558f7da9475ce32
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
-ms.translationtype: MT
+ms.date: 02/14/2017
+ms.prod: asp.net-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/working-with-forms
+ms.openlocfilehash: 805c2ba5b3a9669d5547e1c595883436eea0d11a
+ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 01/30/2018
 ---
 # <a name="introduction-to-using-tag-helpers-in-forms-in-aspnet-core"></a>Introducción al uso de aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette), y [Jerrie Pelser](https://github.com/jerriep)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette) y [Jerrie Pelser](https://github.com/jerriep)
 
-Este documento muestra cómo trabajar con formularios y los elementos HTML que se utilizan habitualmente en un formulario. El código HTML [formulario](https://www.w3.org/TR/html401/interact/forms.html) elemento proporciona el uso de aplicaciones web mecanismo principal para enviar datos al servidor. La mayor parte de este documento describe [aplicaciones auxiliares de etiquetas](tag-helpers/intro.md) y cómo puede ayudarle a crear productiva sólidos formularios HTML. Le recomendamos que lea [Introducción a las aplicaciones auxiliares de etiquetas](tag-helpers/intro.md) antes de leer este documento.
+En este documento se explica cómo trabajar con formularios y se detallan los elementos HTML que se usan habitualmente en un formulario. El elemento HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) proporciona el mecanismo principal que las aplicaciones web usan a la hora de devolver datos al servidor. La mayor parte de este documento se centra en describir las [aplicaciones auxiliares de etiquetas](tag-helpers/intro.md) y cómo pueden servir para crear formularios HTML eficaces de manera productiva. Se recomienda leer [Introduction to Tag Helpers](tag-helpers/intro.md) (Introducción a las aplicaciones auxiliares de etiquetas) antes de este documento.
 
-En muchos casos, las aplicaciones auxiliares HTML proporcionan un enfoque alternativo para una aplicación auxiliar de etiqueta específico, pero es importante reconocer que aplicaciones auxiliares de etiquetas no reemplazar las aplicaciones auxiliares HTML y no es una aplicación auxiliar de etiquetas para cada aplicación auxiliar HTML. Cuando existe una alternativa de la aplicación auxiliar HTML, se menciona.
+En muchos casos, las aplicaciones auxiliares HTML proporcionan un método alternativo a una aplicación auxiliar de etiquetas específica, pero es importante tener en cuenta que las aplicaciones auxiliares de etiquetas no reemplazan a las aplicaciones auxiliares HTML y que, de igual modo, no hay una aplicación auxiliar de etiqueta para cada aplicación auxiliar HTML. Si existe una alternativa de aplicación auxiliar HTML, se mencionará aquí.
 
 <a name="my-asp-route-param-ref-label"></a>
 
-## <a name="the-form-tag-helper"></a>La aplicación auxiliar de etiqueta de formulario
+## <a name="the-form-tag-helper"></a>Aplicación auxiliar de etiquetas de formulario (Form)
 
-El [formulario](https://www.w3.org/TR/html401/interact/forms.html) auxiliar de etiquetas:
+La aplicación auxiliar de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.html) hace lo siguiente:
 
-* Genera el código HTML [ \<formulario >](https://www.w3.org/TR/html401/interact/forms.html) `action` valor de atributo para una acción de controlador MVC o la ruta con nombre
+* Genera el valor de atributo `action` del elemento HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) de una acción de controlador MVC o ruta con nombre.
 
-* Genera oculto [comprobación de solicitud de Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) para impedir la falsificación de solicitud entre sitios (cuando se usa con el `[ValidateAntiForgeryToken]` atributo en el método de acción HTTP Post)
+* Genera un [token comprobación de solicitudes](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).
 
-* Proporciona el `asp-route-<Parameter Name>` atributo, donde `<Parameter Name>` se agrega a los valores de ruta. El `routeValues` parámetros `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.
+* Proporciona el atributo `asp-route-<Parameter Name>`, donde `<Parameter Name>` se agrega a los valores de ruta. Los parámetros `routeValues` de `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.
 
-* Una alternativa de la aplicación auxiliar HTML `Html.BeginForm` y`Html.BeginRouteForm`
+* Tiene `Html.BeginForm` y `Html.BeginRouteForm` como alternativa de aplicación auxiliar HTML.
 
 Ejemplo:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
-El Ayudante de etiqueta de formulario anterior genera el siguiente código HTML:
+La aplicación auxiliar de etiquetas Form anterior genera el siguiente HTML:
 
 ```HTML
 <form method="post" action="/Demo/Register">
@@ -51,15 +51,15 @@ El Ayudante de etiqueta de formulario anterior genera el siguiente código HTML:
     </form>
 ```
 
-El tiempo de ejecución MVC genera el `action` valor del atributo de los atributos de la aplicación auxiliar de etiqueta de formulario `asp-controller` y `asp-action`. La aplicación auxiliar de etiqueta de formulario también genera oculto [comprobación de solicitud de Token](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) para impedir la falsificación de solicitud entre sitios (cuando se usa con el `[ValidateAntiForgeryToken]` atributo en el método de acción HTTP Post). Protección de un formulario HTML puro de falsificación de solicitudes entre sitios es difícil, la aplicación auxiliar de etiqueta de formulario proporciona este servicio.
+El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos de aplicación auxiliar de etiquetas Form `asp-controller` y `asp-action`. La aplicación auxiliar de etiquetas Form genera también un [token de comprobación de solicitudes](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post). Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y la aplicación auxiliar de etiquetas Form presta este servicio.
 
 ### <a name="using-a-named-route"></a>Uso de una ruta con nombre
 
-El `asp-route` atributo de aplicación auxiliar de etiquetas también puede generar el marcado para el código HTML `action` atributo. Una aplicación con un [ruta](../../fundamentals/routing.md) denominado `register` podría usar el siguiente marcado de la página de registro:
+El atributo de aplicación auxiliar de etiquetas `asp-route` puede generar también el marcado del atributo HTML `action`. Una aplicación con una [ruta](../../fundamentals/routing.md) denominada `register` podría usar el siguiente marcado para la página de registro:
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
-Muchas de las vistas en el *Views/Account* carpeta (generan cuando se crea una nueva aplicación web con *cuentas de usuario individuales*) contienen el [returnurl de ruta de asp](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms) atributo:
+Muchas de las vistas de la carpeta *Views/Account* (que se genera cuando se crea una aplicación web con *Cuentas de usuario individuales*) contienen el atributo [asp-route-returnurl](https://docs.microsoft.com/aspnet/core/mvc/views/working-with-forms):
 
 ```cshtml
 <form asp-controller="Account" asp-action="Login"
@@ -68,11 +68,11 @@ Muchas de las vistas en el *Views/Account* carpeta (generan cuando se crea una n
 ```
 
 >[!NOTE]
->Con las plantillas incorporadas, `returnUrl` solo se rellena automáticamente cuando intenta obtener acceso a un recurso autorizado, pero no son autentica o autoriza. Si trata de un acceso no autorizado, el middleware de seguridad le redirige a la página de inicio de sesión con el `returnUrl` establecido.
+>Con las plantillas integradas, `returnUrl` se rellena automáticamente solo cuando alguien intenta obtener acceso a un recurso autorizado, pero no se ha autenticado o no tiene autorización. Si se intenta realizar un acceso no autorizado, el middleware de seguridad redirige a la página de inicio de sesión con `returnUrl` configurado.
 
-## <a name="the-input-tag-helper"></a>La aplicación auxiliar de la etiqueta de entrada
+## <a name="the-input-tag-helper"></a>Aplicación auxiliar de etiquetas de entrada (Input)
 
-La aplicación auxiliar de etiqueta de entrada se enlaza a un elemento HTML [ \<entrada >](https://www.w3.org/wiki/HTML/Elements/input) elemento a una expresión de modelo en la vista de razor.
+La aplicación auxiliar de etiquetas Input enlaza un elemento HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) a una expresión de modelo en la vista de Razor.
 
 Sintaxis:
 
@@ -80,19 +80,19 @@ Sintaxis:
 <input asp-for="<Expression Name>" />
 ```
 
-La aplicación auxiliar de etiqueta de entrada:
+La aplicación auxiliar de etiquetas Input hace lo siguiente:
 
-* Genera el `id` y `name` atributos HTML para el nombre de la expresión especificada en el `asp-for` atributo. `asp-for="Property1.Property2"` es equivalente a `m => m.Property1.Property2`. El nombre de la expresión es lo que se usa para la `asp-for` valor de atributo. Consulte la [nombres de la expresión](#expression-names) sección para obtener información adicional.
+* Genera los atributos HTML `id` y `name` del nombre de expresión especificado en el atributo `asp-for`. `asp-for="Property1.Property2"` es equivalente a `m => m.Property1.Property2`. El nombre de una expresión es lo que se usa para el valor de atributo `asp-for`. Vea la sección [Nombres de expresión](#expression-names) para obtener más información.
 
-* Establece el código HTML `type` según el tipo de modelo de valor de atributo y [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos aplicados a la propiedad de modelo
+* Establece el valor de atributo HTML `type` según los atributos de tipo de modelo y de [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a la propiedad de modelo.
 
-* No sobrescribir el código HTML `type` valor de atributo cuando se especifica uno
+* No sobrescribirá el valor de atributo HTML `type` cuando se especifique uno.
 
-* Genera [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) atributos de validación de [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos aplicados a las propiedades del modelo
+* Genera atributos de validación [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) a partir de los atributos de [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a las propiedades de modelo.
 
-* Tiene una característica de la aplicación auxiliar HTML que se superponen con `Html.TextBoxFor` y `Html.EditorFor`. Consulte la **alternativas de la aplicación auxiliar HTML para la aplicación auxiliar de etiqueta de entrada** sección para obtener más información.
+* Tiene características de aplicación auxiliar HTML que se superponen a `Html.TextBoxFor` y `Html.EditorFor`. Vea la sección **Alternativas de aplicación auxiliar HTML a la aplicación auxiliar de etiquetas Input** para obtener más información.
 
-* Proporciona el establecimiento inflexible de tipos. Si el nombre de los cambios de propiedad y no actualiza la aplicación auxiliar de etiqueta obtendrá un error similar al siguiente:
+* Permite establecer tipado fuerte. Si el nombre de la propiedad cambia y no se actualiza la aplicación auxiliar de etiquetas, aparecerá un error similar al siguiente:
 
 ```HTML
 An error occurred during the compilation of a resource required to process
@@ -105,30 +105,30 @@ Type expected
  could be found (are you missing a using directive or an assembly reference?)
 ```
 
-El `Input` etiqueta auxiliar establece el código HTML `type` atributo basado en el tipo. NET. En la tabla siguiente se enumera algunos tipos comunes de .NET y el tipo HTML generado (no todos los tipos .NET aparece).
+La aplicación auxiliar de etiquetas `Input` establece el atributo HTML `type` en función del tipo .NET. En la siguiente tabla se enumeran algunos tipos .NET habituales y el tipo HTML generado correspondiente (no incluimos aquí todos los tipos .NET).
 
 |Tipo de .NET|Tipo de entrada|
 |---|---|
-|Bool|tipo = "checkbox"|
-|String|tipo = "text"|
-|DateTime|tipo = "datetime"|
-|Byte|tipo = "number"|
-|Valor int.|tipo = "number"|
-|Single, Double|tipo = "number"|
+|Bool|type=”checkbox”|
+|String|type=”text”|
+|DateTime|type=”datetime”|
+|Byte|type=”number”|
+|Valor int.|type=”number”|
+|Single, Double|type=”number”|
 
 
-La siguiente tabla muestra algunos común [las anotaciones de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) atributos que la aplicación auxiliar de la etiqueta de entrada se asigne a tipos de entrada específicos (no cada atributo de validación se muestra):
+En la siguiente tabla se muestran algunos atributos de [anotación de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que la aplicación auxiliar de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):
 
 
 |Atributo|Tipo de entrada|
 |---|---|
-|[EmailAddress]|tipo = "email"|
-|[Url]|tipo = "url"|
+|[EmailAddress]|type=”email”|
+|[Url]|type=”url”|
 |[HiddenInput]|type=”hidden”|
-|[Phone]|tipo = "tel"|
-|[DataType(DataType.Password)]| tipo = "contraseña"|
-|[DataType(DataType.Date)]| tipo = "fecha"|
-|[DataType(DataType.Time)]| tipo = "hora"|
+|[Phone]|type=”tel”|
+|[DataType(DataType.Password)]| type=”password”|
+|[DataType(DataType.Date)]| type=”date”|
+|[DataType(DataType.Time)]| type=”time”|
 
 
 Ejemplo:
@@ -137,13 +137,13 @@ Ejemplo:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/RegisterInput.cshtml)]
 
-El código anterior genera el siguiente código HTML:
+El código anterior genera el siguiente HTML:
 
 ```HTML
   <form method="post" action="/Demo/RegisterInput">
        Email:
        <input type="email" data-val="true"
-              data-val-email="The Email Address field is not a valid e-mail address."
+              data-val-email="The Email Address field is not a valid email address."
               data-val-required="The Email Address field is required."
               id="Email" name="Email" value="" /> <br>
        Password:
@@ -155,24 +155,24 @@ El código anterior genera el siguiente código HTML:
    </form>
 ```
 
-Las anotaciones de datos que se aplica a la `Email` y `Password` propiedades generan metadatos en el modelo. La aplicación auxiliar de etiqueta de entrada usa los metadatos del modelo y produce [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*` atributos (vea [validación del modelo](../models/validation.md)). Estos atributos describen los validadores para adjuntar a los campos de entrada. Esto proporciona HTML5 discreto y [jQuery](https://jquery.com/) validación. Los atributos discretos tienen el formato `data-val-rule="Error Message"`, donde la regla es el nombre de la regla de validación (como `data-val-required`, `data-val-email`, `data-val-maxlength`, etcetera.) Si un mensaje de error se proporciona en el atributo, se muestra como el valor de la `data-val-rule` atributo. También hay atributos del formulario `data-val-ruleName-argumentName="argumentValue"` que proporcionan detalles adicionales sobre la regla, por ejemplo, `data-val-maxlength-max="1024"` .
+Las anotaciones de datos que se aplican a las propiedades `Email` y `Password` generan metadatos en el modelo. La aplicación auxiliar de etiquetas Input usa esos metadatos del modelo y genera atributos [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*`. Vea [Model Validation](../models/validation.md) (Validación del modelo). Estos atributos describen los validadores que se van a adjuntar a los campos de entrada, lo que proporciona HTML5 discreto y validación de [jQuery](https://jquery.com/). Los atributos discretos tienen el formato `data-val-rule="Error Message"`, donde "rule" es el nombre de la regla de validación (como `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.). Si aparece un mensaje de error en el atributo, se mostrará como el valor del atributo `data-val-rule`. También hay atributos con el formato `data-val-ruleName-argumentName="argumentValue"` que aportan más información sobre la regla, por ejemplo, `data-val-maxlength-max="1024"`.
 
-### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternativas de la aplicación auxiliar HTML para la aplicación auxiliar de etiqueta de entrada
+### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternativas de aplicación auxiliar HTML a la aplicación auxiliar de etiquetas Input
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características a la aplicación auxiliar de etiqueta de entrada que se superponen. La aplicación auxiliar de etiqueta de entrada se establecerá automáticamente el `type` atributo; `Html.TextBox` y `Html.TextBoxFor` no. `Html.Editor`y `Html.EditorFor` controlar colecciones, objetos complejos y plantillas; no la aplicación auxiliar de etiqueta de entrada. La aplicación auxiliar etiqueta de entrada, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usar expresiones lambda;) `Html.TextBox` y `Html.Editor` no son (usan nombres de la expresión).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características que se superponen a la aplicación auxiliar de etiquetas Input. La aplicación auxiliar de etiquetas Input establecerá automáticamente el atributo `type`, cosa que no ocurrirá con `Html.TextBox` ni `Html.TextBoxFor`. `Html.Editor` y `Html.EditorFor` controlan colecciones, objetos complejos y plantillas, pero la aplicación auxiliar de etiquetas Input no. La aplicación auxiliar de etiquetas Input, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usan expresiones lambda), pero `Html.TextBox` y `Html.Editor` no (usan nombres de expresión).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
-`@Html.Editor()`y `@Html.EditorFor()` usar una clase especial `ViewDataDictionary` entrada denominada `htmlAttributes` al ejecutar sus plantillas predeterminadas. Este comportamiento es aumentar opcionalmente utilizando `additionalViewData` parámetros. La clave "htmlAttributes" distingue mayúsculas de minúsculas. La clave "htmlAttributes" se controla de forma similar a la `htmlAttributes` objeto pasado como entrada aplicaciones auxiliares como `@Html.TextBox()`.
+`@Html.Editor()` y `@Html.EditorFor()` usan una entrada `ViewDataDictionary` especial denominada `htmlAttributes` al ejecutar sus plantillas predeterminadas. Si lo desea, este comportamiento se puede enriquecer con parámetros `additionalViewData`. En la clave "htmlAttributes" se distingue entre mayúsculas y minúsculas. La clave "htmlAttributes" se controla de forma similar al objeto `htmlAttributes` pasado a aplicaciones auxiliares de etiqueta Input como `@Html.TextBox()`.
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
   new { htmlAttributes = new { @class="myCssClass", style="Width:100px" } })
 ```
 
-### <a name="expression-names"></a>Nombres de la expresión
+### <a name="expression-names"></a>Nombres de expresión
 
-El `asp-for` valor del atributo es un `ModelExpression` y el lado derecho de una expresión lambda. Por lo tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario con el prefijo `Model`. Puede usar el "@" caracteres para iniciar una expresión en línea y mover antes el `m.`:
+El valor del atributo `asp-for` es una `ModelExpression` y la parte de la derecha de una expresión lambda. Por tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario incluir el prefijo `Model`. Puede usar el carácter "@" para iniciar una expresión insertada y moverla antes de `m.`:
 
 ```HTML
 @{
@@ -181,35 +181,35 @@ El `asp-for` valor del atributo es un `ModelExpression` y el lado derecho de una
    <input asp-for="@joe" />
 ```
 
-Genera lo siguiente:
+Se genera el siguiente HTML:
 
 ```HTML
 <input type="text" id="joe" name="joe" value="Joe" />
 ```
 
-Con las propiedades de colección, `asp-for="CollectionProperty[23].Member"` genera el mismo nombre que `asp-for="CollectionProperty[i].Member"` cuando `i` tiene el valor `23`.
+Con las propiedades de colección, `asp-for="CollectionProperty[23].Member"` genera el mismo nombre que `asp-for="CollectionProperty[i].Member"` si `i` tiene el valor `23`.
 
-### <a name="navigating-child-properties"></a>Navegar por propiedades secundarias
+### <a name="navigating-child-properties"></a>Navegar a las propiedades secundarias
 
-También puede navegar a propiedades secundarias mediante la ruta de acceso de propiedad del modelo de vista. Considere la posibilidad de una clase de modelo más compleja que contiene un elemento secundario `Address` propiedad.
+También se puede navegar a las propiedades secundarias a través de la ruta de acceso de propiedades del modelo de vista. Pensemos en una clase de modelo más compleja que contiene una propiedad secundaria `Address`.
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/AddressViewModel.cs?highlight=1,2,3,4&range=5-8)]
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/RegisterAddressViewModel.cs?highlight=8&range=5-13)]
 
-En la vista, se enlazan a `Address.AddressLine1`:
+En la vista, enlazamos a `Address.AddressLine1`:
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterAddress.cshtml?highlight=6)]
 
-El siguiente código HTML se genera para `Address.AddressLine1`:
+Se genera el siguiente código HTML para `Address.AddressLine1`:
 
 ```HTML
 <input type="text" id="Address_AddressLine1" name="Address.AddressLine1" value="" />
 ```
 
-### <a name="expression-names-and-collections"></a>Nombres de la expresión y colecciones
+### <a name="expression-names-and-collections"></a>Colecciones y nombres de expresión
 
-Ejemplo de un modelo que contiene una matriz de `Colors`:
+Como ejemplo, un modelo que contiene una matriz de `Colors`:
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/Person.cs?highlight=3&range=5-10)]
 
@@ -223,44 +223,44 @@ public IActionResult Edit(int id, int colorIndex)
    }
 ```
 
-El código Razor siguiente muestra cómo tener acceso a un determinado `Color` elemento:
+El siguiente código de Razor muestra cómo se tiene acceso a un elemento `Color` concreto:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/EditColor.cshtml)]
 
-El *Views/Shared/EditorTemplates/String.cshtml* plantilla:
+La plantilla *Views/Shared/EditorTemplates/String.cshtml*:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/String.cshtml)]
 
-Uso de ejemplo `List<T>`:
+Ejemplo en el que se usa `List<T>`:
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/ToDoItem.cs?range=3-8)]
 
-El código Razor siguiente muestra cómo recorrer en iteración una colección:
+El siguiente código de Razor muestra cómo iterar por una colección:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Demo/Edit.cshtml)]
 
-El *Views/Shared/EditorTemplates/ToDoItem.cshtml* plantilla:
+La plantilla *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
 
 
 >[!NOTE]
->Utilice siempre `for` (y *no* `foreach`) para recorrer en iteración una lista. Evaluar un indizador en una LINQ expresión puede ser costosa y debe reducirse.
+>Use siempre `for` (y *no* `foreach`) para iterar por una lista. Evaluar un indizador en una expresión de LINQ puede ser costoso, con lo cual esa posibilidad hay que reducirla al mínimo.
 
 &nbsp;
 
 >[!NOTE]
->El código de ejemplo comentado anterior muestra cómo podría reemplazar la expresión lambda con la `@` operador para tener acceso a cada uno de ellos `ToDoItem` en la lista.
+>El código de ejemplo comentado anterior muestra cómo reemplazaríamos la expresión lambda por el operador `@` para tener acceso a cada elemento `ToDoItem` de la lista.
 
-## <a name="the-textarea-tag-helper"></a>La aplicación auxiliar de etiqueta Textarea
+## <a name="the-textarea-tag-helper"></a>Aplicación auxiliar de etiquetas de área de texto (Textarea)
 
-El `Textarea Tag Helper` auxiliar de etiqueta es similar a la aplicación auxiliar de etiqueta de entrada.
+La aplicación auxiliar de etiquetas `Textarea Tag Helper` es similar a la aplicación auxiliar de etiquetas Input.
 
-* Genera el `id` y `name` atributos y los atributos de validación de datos del modelo para un [ \<textarea >](https://www.w3.org/wiki/HTML/Elements/textarea) elemento.
+* Genera los atributos `id` y `name`, y los atributos de validación de datos del modelo de un elemento [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea).
 
-* Proporciona el establecimiento inflexible de tipos.
+* Permite establecer tipado fuerte.
 
-* Alternativa de la aplicación auxiliar HTML:`Html.TextAreaFor`
+* Alternativa de aplicación auxiliar HTML: `Html.TextAreaFor`.
 
 Ejemplo:
 
@@ -284,19 +284,19 @@ Se genera el siguiente código HTML:
 </form>
 ```
 
-## <a name="the-label-tag-helper"></a>La aplicación auxiliar de etiqueta de etiqueta
+## <a name="the-label-tag-helper"></a>Aplicación auxiliar de etiquetas Label
 
-* Genera el título de la etiqueta y `for` del atributo en un [ <label> ](https://www.w3.org/wiki/HTML/Elements/label) (elemento) para un nombre de expresión
+* Genera el título de la etiqueta y el atributo `for` en un elemento [<label>](https://www.w3.org/wiki/HTML/Elements/label) de un nombre de expresión.
 
-* Alternativa de la aplicación auxiliar HTML: `Html.LabelFor`.
+* Alternativa de aplicación auxiliar HTML: `Html.LabelFor`.
 
-El `Label Tag Helper` proporciona las siguientes ventajas con respecto a un elemento label HTML puro:
+`Label Tag Helper` proporciona las siguientes ventajas con respecto a un elemento HTML Label puro:
 
-* Obtendrá automáticamente el valor de etiqueta descriptiva de la `Display` atributo. Puede cambiar el nombre para mostrar deseado con el tiempo y la combinación de `Display` atributo y etiqueta etiqueta auxiliar se aplicarán la `Display` en cualquier lugar en el se utiliza.
+* Obtendrá automáticamente el valor de la etiqueta descriptiva del atributo `Display`. El nombre para mostrar que se busca puede cambiar con el tiempo y la combinación del atributo `Display`, y la aplicación auxiliar de etiquetas Label aplicará el elemento `Display` en cualquier lugar donde se use.
 
-* Menos marcado en el código fuente
+* El código fuente contiene menos marcado.
 
-* Establecimiento inflexible tipos con la propiedad de modelo.
+* Permite establecer tipado fuerte con la propiedad de modelo.
 
 Ejemplo:
 
@@ -304,33 +304,33 @@ Ejemplo:
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterLabel.cshtml?highlight=4)]
 
-El siguiente código HTML se genera para el `<label>` elemento:
+Se genera el siguiente código HTML para el elemento `<label>`:
 
 ```HTML
 <label for="Email">Email Address</label>
 ```
 
-La aplicación auxiliar de la etiqueta etiqueta genera el `for` valor de atributo de "Email", que es el identificador asociado a la `<input>` elemento. Las aplicaciones auxiliares de etiqueta generar coherente `id` y `for` elementos, para que puedan asociados correctamente. La descripción de este ejemplo proviene de la `Display` atributo. Si el modelo no contiene un `Display` atributo, el título sería el nombre de propiedad de la expresión.
+La aplicación auxiliar de etiquetas Label genera el valor de atributo `for` de "Email", que es el identificador asociado al elemento `<input>`. Las aplicaciones auxiliares de etiqueta generan elementos `id` y `for` coherentes para que se puedan asociar correctamente. El título de este ejemplo proviene del atributo `Display`. Si el modelo no contuviera un atributo `Display`, el título sería el nombre de propiedad de la expresión.
 
 ## <a name="the-validation-tag-helpers"></a>Aplicaciones auxiliares de etiquetas de validación
 
-Hay dos aplicaciones auxiliares de etiquetas de validación. El `Validation Message Tag Helper` (que muestra un mensaje de validación de una sola propiedad en el modelo) y el `Validation Summary Tag Helper` (que muestra un resumen de errores de validación). El `Input Tag Helper` agrega atributos de validación de lado de cliente de HTML5 para los elementos que basan en datos de los atributos de anotación en las clases de modelo de entrada. También se realiza la validación en el servidor. La aplicación auxiliar de etiqueta de validación muestra estos mensajes de error cuando se produce un error de validación.
+Hay dos aplicaciones auxiliares de etiquetas de validación: `Validation Message Tag Helper` (que muestra un mensaje de validación relativo a una única propiedad del modelo) y `Validation Summary Tag Helper` (que muestra un resumen de los errores de validación). `Input Tag Helper` agrega atributos de validación del lado cliente HTML5 a los elementos de entrada en función de los atributos de anotación de datos de las clases del modelo. La validación también se realiza en el lado servidor. La aplicación auxiliar de etiquetas de validación muestra estos mensajes de error cuando se produce un error de validación.
 
-### <a name="the-validation-message-tag-helper"></a>El Ayudante de etiqueta de mensaje de validación
+### <a name="the-validation-message-tag-helper"></a>Aplicación auxiliar de etiquetas de mensaje de validación
 
-* Agrega el [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` atribuir a la [abarcan](https://developer.mozilla.org/docs/Web/HTML/Element/span) elemento, que asocia los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificado. Cuando se produce un error de validación del lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en la `<span>` elemento.
+* Agrega el atributo [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` al elemento [span](https://developer.mozilla.org/docs/Web/HTML/Element/span), que adjunta los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificada. Cuando se produce un error de validación en el lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en el elemento `<span>`.
 
-* La validación también tiene lugar en el servidor. Los clientes pueden tener JavaScript deshabilitado y alguna validación solo puede realizarse en el servidor.
+* La validación también tiene lugar en el lado servidor. Puede que JavaScript esté deshabilitado en los clientes, mientras que hay algunas validaciones que solo se pueden realizar en el lado servidor.
 
-* Alternativa de la aplicación auxiliar HTML:`Html.ValidationMessageFor`
+* Alternativa de aplicación auxiliar HTML: `Html.ValidationMessageFor`.
 
-El `Validation Message Tag Helper` se utiliza con la `asp-validation-for` atributo en una HTML [abarcan](https://developer.mozilla.org/docs/Web/HTML/Element/span) elemento.
+`Validation Message Tag Helper` se usa con el atributo `asp-validation-for` en un elemento HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span).
 
 ```HTML
 <span asp-validation-for="Email"></span>
 ```
 
-El Ayudante de etiqueta de mensaje de validación generará el siguiente código HTML:
+La aplicación auxiliar de etiquetas de mensaje de validación generará el siguiente código HTML:
 
 ```HTML
 <span class="field-validation-valid"
@@ -338,12 +338,12 @@ El Ayudante de etiqueta de mensaje de validación generará el siguiente código
   data-valmsg-replace="true"></span>
 ```
 
-Se usa generalmente la `Validation Message Tag Helper` después de un `Input` auxiliar de etiqueta para la misma propiedad. Si lo hace, muestra los mensajes de error de validación cerca de la entrada que produjo el error.
+`Validation Message Tag Helper` suele usarse por lo general después de una aplicación auxiliar de etiquetas `Input` en la misma propiedad. Gracias a esto, se mostrarán todos los mensajes de error de validación cerca de la entrada que produjo el error.
 
 > [!NOTE]
-> Debe tener una vista con el código de JavaScript correcto y [jQuery](https://jquery.com/) referencias en su lugar para la validación del lado cliente de script. Vea [validación del modelo](../models/validation.md) para obtener más información.
+> Debe tener una vista con las referencias de script de JavaScript y de [jQuery](https://jquery.com/) adecuadas para la validación del lado cliente. Para más información, vea [Introduction to model validation in ASP.NET Core MVC](../models/validation.md) (Introducción a la validación de modelos en ASP.NET Core MVC).
 
-Cuando produce un error de validación del lado servidor (por ejemplo cuando tiene validación del lado servidor personalizado o de validación del lado cliente está deshabilitado), MVC coloca ese mensaje de error como el cuerpo de la `<span>` elemento.
+Cuando se produce un error de validación del lado servidor (por ejemplo, porque haya una validación del lado servidor personalizada o porque la validación del lado cliente esté deshabilitada), MVC pone ese mensaje de error como cuerpo del elemento `<span>`.
 
 ```HTML
 <span class="field-validation-error" data-valmsg-for="Email"
@@ -352,29 +352,29 @@ Cuando produce un error de validación del lado servidor (por ejemplo cuando tie
 </span>
 ```
 
-### <a name="the-validation-summary-tag-helper"></a>El Ayudante de validación del Summary (etiqueta)
+### <a name="the-validation-summary-tag-helper"></a>Aplicación auxiliar de etiquetas de resumen de validación
 
-* Destinos `<div>` elementos con el `asp-validation-summary` atributo
+* Tiene como destino todos los elementos `<div>` con el atributo `asp-validation-summary`.
 
-* Alternativa de la aplicación auxiliar HTML:`@Html.ValidationSummary`
+* Alternativa de aplicación auxiliar HTML: `@Html.ValidationSummary`.
 
-El `Validation Summary Tag Helper` se usa para mostrar un resumen de mensajes de validación. La `asp-validation-summary` valor de atributo puede ser cualquiera de las siguientes acciones:
+`Validation Summary Tag Helper` se usa para mostrar un resumen de los mensajes de validación. El valor de atributo `asp-validation-summary` puede ser cualquiera de los siguientes:
 
-|Resumen de validación de ASP|Mensajes de validación que se muestran|
+|asp-validation-summary|Mensajes de validación que se muestran|
 |--- |--- |
-|ValidationSummary.All|Nivel de propiedad y el modelo|
+|ValidationSummary.All|Nivel de modelo y de propiedad|
 |ValidationSummary.ModelOnly|Modelo|
 |ValidationSummary.None|Ninguna|
 
 ### <a name="sample"></a>Ejemplo
 
-En el ejemplo siguiente, el modelo de datos se decora con `DataAnnotation` atributos, que genera mensajes de error de validación en el `<input>` elemento.  Cuando se produce un error de validación, la aplicación auxiliar de etiqueta de validación muestra el mensaje de error:
+En el siguiente ejemplo, el modelo de datos se complementa con atributos `DataAnnotation`, lo que genera mensajes de error de validación sobre el elemento `<input>`.  Cuando se produce un error de validación, la aplicación auxiliar de etiquetas de validación muestra el mensaje de error:
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterValidation.cshtml?highlight=4,6,8&range=1-10)]
 
-El código HTML generado (cuando el modelo es válido):
+El código HTML generado (cuando el modelo es válido) es este:
 
 ```HTML
 <form action="/DemoReg/Register" method="post">
@@ -382,7 +382,7 @@ El código HTML generado (cuando el modelo es válido):
   <ul><li style="display:none"></li></ul></div>
   Email:  <input name="Email" id="Email" type="email" value=""
    data-val-required="The Email field is required."
-   data-val-email="The Email field is not a valid e-mail address."
+   data-val-email="The Email field is not a valid email address."
    data-val="true"> <br>
   <span class="field-validation-valid" data-valmsg-replace="true"
    data-valmsg-for="Email"></span><br>
@@ -395,13 +395,13 @@ El código HTML generado (cuando el modelo es válido):
 </form>
 ```
 
-## <a name="the-select-tag-helper"></a>La aplicación auxiliar de la etiqueta Select
+## <a name="the-select-tag-helper"></a>Aplicación auxiliar de etiquetas de selección (Select)
 
-* Genera [seleccione](https://www.w3.org/wiki/HTML/Elements/select) y [opción](https://www.w3.org/wiki/HTML/Elements/option) elementos para las propiedades del modelo.
+* Genera el elemento [select](https://www.w3.org/wiki/HTML/Elements/select) y el elemento asociado [option](https://www.w3.org/wiki/HTML/Elements/option) de las propiedades del modelo.
 
-* Una alternativa de la aplicación auxiliar HTML `Html.DropDownListFor` y`Html.ListBoxFor`
+* Tiene `Html.DropDownListFor` y `Html.ListBoxFor` como alternativa de aplicación auxiliar HTML.
 
-El `Select Tag Helper` `asp-for` especifica el nombre de la propiedad de modelo para el [seleccione](https://www.w3.org/wiki/HTML/Elements/select) elemento y `asp-items` especifica la [opción](https://www.w3.org/wiki/HTML/Elements/option) elementos.  Por ejemplo:
+El elemento `asp-for` de `Select Tag Helper` especifica el nombre de la propiedad de modelo del elemento [select](https://www.w3.org/wiki/HTML/Elements/select), mientras que `asp-items` especifica los elementos [option](https://www.w3.org/wiki/HTML/Elements/option).  Por ejemplo:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
@@ -409,19 +409,19 @@ Ejemplo:
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryViewModel.cs)]
 
-El `Index` método inicializa la `CountryViewModel`, Establece el país seleccionado y lo pasa a la `Index` vista.
+El método `Index` inicializa `CountryViewModel`, establece el país seleccionado y lo pasa a la vista `Index`.
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
-HTTP POST `Index` método muestra la selección:
+El método HTTP POST `Index` muestra la selección:
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=15-27)]
 
-El `Index` vista:
+La vista `Index`:
 
 [!code-cshtml[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?highlight=4)]
 
-Que genera el siguiente código HTML (con "CA" seleccionada):
+Genera el siguiente código HTML (con la selección "CA"):
 
 ```html
 <form method="post" action="/">
@@ -436,15 +436,15 @@ Que genera el siguiente código HTML (con "CA" seleccionada):
 ```
 
 > [!NOTE]
-> No se recomienda usar `ViewBag` o `ViewData` a la aplicación auxiliar seleccione etiqueta. Un modelo de vista es más eficaz al proporcionar metadatos MVC y generalmente menos problemática.
+> No se recomienda usar `ViewBag` o `ViewData` con la aplicación auxiliar de etiquetas Select. Un modelo de vista es más eficaz a la hora de proporcionar metadatos MVC y suele ser menos problemático.
 
-El `asp-for` valor de atributo es un caso especial y no requiere un `Model` de prefijo, los otro no de atributos de etiqueta auxiliar (como `asp-items`)
+El valor de atributo `asp-for` es un caso especial y no necesita un prefijo `Model`, mientras que los otros atributos de aplicación auxiliar de etiquetas sí (como `asp-items`).
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
-### <a name="enum-binding"></a>Enlace de enum
+### <a name="enum-binding"></a>Enlace con enum
 
-A menudo resulta cómodo para utilizarlo `<select>` con una `enum` propiedad y generar el `SelectListItem` elementos desde el `enum` valores.
+A menudo, conviene usar `<select>` con una propiedad `enum` y generar los elementos `SelectListItem` a partir de valores `enum`.
 
 Ejemplo:
 
@@ -452,11 +452,11 @@ Ejemplo:
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs)]
 
-El `GetEnumSelectList` método genera una `SelectList` objeto para una enumeración.
+El método `GetEnumSelectList` genera un objeto `SelectList` para una enumeración.
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEnum.cshtml?highlight=5)]
 
-Puede decorar la lista de enumeradores con el `Display` atributo para obtener una interfaz de usuario más enriquecida:
+Puede complementar la lista de enumeradores con el atributo `Display` para obtener una interfaz de usuario más completa:
 
 [!code-csharp[Main](working-with-forms/sample/final/ViewModels/CountryEnum.cs?highlight=5,7)]
 
@@ -478,17 +478,17 @@ Se genera el siguiente código HTML:
     </form>
 ```
 
-### <a name="option-group"></a>Grupo de opciones
+### <a name="option-group"></a>Agrupamiento de opciones
 
-El código HTML [ \<optgroup >](https://www.w3.org/wiki/HTML/Elements/optgroup) elemento se genera cuando el modelo de vista contiene uno o varios `SelectListGroup` objetos.
+El elemento HTML [\<optgroup>](https://www.w3.org/wiki/HTML/Elements/optgroup) se genera cuando el modelo de vista contiene uno o varios objetos `SelectListGroup`.
 
-El `CountryViewModelGroup` grupos el `SelectListItem` elementos en los grupos "América del Norte" y "Europe":
+`CountryViewModelGroup` agrupa los elementos `SelectListItem` en los grupos "North America" y "Europe":
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelGroup.cs?highlight=5,6,14,20,26,32,38,44&range=6-56)]
 
-Los dos grupos se muestran a continuación:
+Aquí mostramos los dos grupos:
 
-![ejemplo de grupo de opción](working-with-forms/_static/grp.png)
+![Ejemplo de agrupamiento de opciones](working-with-forms/_static/grp.png)
 
 El código HTML generado:
 
@@ -513,7 +513,7 @@ El código HTML generado:
 
 ### <a name="multiple-select"></a>Selección múltiple
 
-La aplicación auxiliar seleccione etiqueta generará automáticamente la [varios = "varios"](http://w3c.github.io/html-reference/select.html) atributo si la propiedad especificada en el `asp-for` atributo es un `IEnumerable`. Por ejemplo, dado el modelo siguiente:
+La aplicación auxiliar de etiquetas Select generará automáticamente el atributo [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) si la propiedad especificada en el atributo `asp-for` es `IEnumerable`. Por ejemplo, si tenemos el siguiente modelo:
 
 [!code-csharp[Main](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
@@ -521,7 +521,7 @@ Con la siguiente vista:
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexMultiSelect.cshtml?highlight=4)]
 
-Genera el siguiente código HTML:
+Se genera el siguiente código HTML:
 
 ```HTML
 <form method="post" action="/Home/IndexMultiSelect">
@@ -539,23 +539,23 @@ Genera el siguiente código HTML:
 </form>
 ```
 
-### <a name="no-selection"></a>No hay nada seleccionado
+### <a name="no-selection"></a>Sin selección
 
-Si se encuentra con la opción "no se ha especificado" en varias páginas, puede crear una plantilla para eliminar el código HTML de repetición:
+Si ve que usa la opción "sin especificar" en varias páginas, puede crear una plantilla para no tener que repetir el código HTML:
 
 [!code-HTML[Main](../../mvc/views/working-with-forms/sample/final/Views/Home/IndexEmptyTemplate.cshtml?highlight=5)]
 
-El *Views/Shared/EditorTemplates/CountryViewModel.cshtml* plantilla:
+La plantilla *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-Agregar HTML [ \<opción >](https://www.w3.org/wiki/HTML/Elements/option) elementos no se limita a la *ninguna selección* caso. Por ejemplo, el método de acción y la vista siguiente generará HTML similar al código anterior:
+La posibilidad de agregar elementos HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) no se limita exclusivamente a los casos en los que no se seleccionada nada**. Por ejemplo, el método de acción y vista siguientes generarán un código HTML similar al código anterior:
 
 [!code-csharp[Main](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 
 [!code-HTML[Main](working-with-forms/sample/final/Views/Home/IndexOption.cshtml)]
 
-El valor correcto `<option>` se seleccionará el elemento (contienen el `selected="selected"` atributo) según la actual `Country` valor.
+Se seleccionará el elemento `<option>` correcto (que contenga el atributo `selected="selected"`) en función del valor real de `Country`.
 
 ```HTML
  <form method="post" action="/Home/IndexEmpty">
@@ -572,16 +572,10 @@ El valor correcto `<option>` se seleccionará el elemento (contienen el `selecte
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Aplicaciones auxiliares de etiquetas](tag-helpers/intro.md)
-
-* [Elemento de formulario HTML](https://www.w3.org/TR/html401/interact/forms.html)
-
-* [Solicitud de Token de comprobación](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages)
-
-* [Enlace de modelos](../models/model-binding.md)
-
-* [Validación del modelo](../models/validation.md)
-
-* [anotaciones de datos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter)
-
-* [Fragmentos de este documento de código](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample).
+* [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
+* [HTML Form element](https://www.w3.org/TR/html401/interact/forms.html) (Elemento HTML Form)
+* [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Token de comprobación de solicitudes)
+* [Enlace de modelos](xref:mvc/models/model-binding)
+* [Introduction to model validation in ASP.NET Core MVC](xref:mvc/models/validation) (Introducción a la validación de modelos en ASP.NET Core MVC)
+* [IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter) (Interfaz IAttributeAdapter)
+* [Fragmentos de código de este documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/forms/sample)
