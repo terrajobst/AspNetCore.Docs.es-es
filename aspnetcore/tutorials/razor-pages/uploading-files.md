@@ -9,25 +9,43 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/uploading-files
-ms.openlocfilehash: 24eaa0dd9293cc932c51d280300308e835a0840e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4a2c6da6ed698d1a65ee51bd00a557e607f012da
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="uploading-files-to-a-razor-page-in-aspnet-core"></a>Carga de archivos en una página de Razor en ASP.NET Core
 
-Por [Luke Latham](https://github.com/guardrex)
+De [Luke Latham](https://github.com/guardrex)
 
 En esta sección se muestra cómo cargar archivos con una página de Razor.
 
 La [aplicación de ejemplo Razor Pages Movie](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie) de este tutorial usa el enlace de modelo simple para cargar archivos, lo que funciona bien para cargar archivos pequeños. Para más información sobre la transmisión de archivos de gran tamaño, vea [Uploading large files with streaming (Carga de archivos grandes mediante transmisión)](xref:mvc/models/file-uploads#uploading-large-files-with-streaming).
 
-En los pasos siguientes se agrega una característica de carga de archivo de programación de película a la aplicación de ejemplo. Una programación de película está representada por una clase `Schedule`. La clase incluye dos versiones de la programación. Una versión se proporciona a los clientes, `PublicSchedule`. La otra se usa para los empleados de la empresa, `PrivateSchedule`. Cada versión se carga como un archivo independiente. El tutorial muestra cómo realizar dos cargas de archivos desde una página con un solo elemento POST en el servidor.
+En los pasos siguientes se agrega a la aplicación de ejemplo una característica de carga de archivo de programación de película. Una programación de película está representada por una clase `Schedule`. La clase incluye dos versiones de la programación. Una versión se proporciona a los clientes, `PublicSchedule`. La otra se usa para los empleados de la empresa, `PrivateSchedule`. Cada versión se carga como un archivo independiente. El tutorial muestra cómo realizar dos cargas de archivos desde una página con un solo elemento POST en el servidor.
+
+## <a name="security-considerations"></a>Consideraciones de seguridad
+
+Debe tener precaución al proporcionar a los usuarios la capacidad de cargar archivos en un servidor, ya que los atacantes podrían ejecutar un ataque por [denegación de servicio](/windows-hardware/drivers/ifs/denial-of-service) u otros ataques en un sistema. A continuación se muestran algunos pasos de seguridad con los que se reduce la probabilidad de sufrir ataques:
+
+* Cargue archivos en un área de carga de archivos específica del sistema, con lo que resulta más fácil imponer medidas de seguridad en el contenido cargado. Al permitir las cargas de archivos, asegúrese de que los permisos de ejecución están deshabilitados en la ubicación de carga.
+* Use un nombre de archivo seguro determinado por la aplicación, y no por la entrada del usuario o el nombre de archivo del archivo cargado.
+* Permita únicamente un conjunto específico de extensiones de archivo aprobadas.
+* Compruebe que se llevan a cabo comprobaciones de cliente en el servidor. Las comprobaciones de cliente son fáciles de sortear.
+* Compruebe el tamaño de la carga y evite las cargas de mayor tamaño de lo esperado.
+* Ejecute un escáner de virus/malware en el contenido cargado.
+
+> [!WARNING]
+> La carga de código malintencionado en un sistema suele ser el primer paso para ejecutar código que puede:
+> * Tomar todo el poder en un sistema.
+> * Sobrecargar un sistema de manera que se producen errores generales del sistema.
+> * Poner en peligro los datos del usuario o del sistema.
+> * Aplicar grafitis a una interfaz pública.
 
 ## <a name="add-a-fileupload-class"></a>Adición de una clase FileUpload
 
-A continuación, cree una página de Razor para controlar un par de cargas de archivos. Agregue una clase `FileUpload`, que está enlazada a la página para obtener los datos de programación. Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Asigne a la clase el nombre **FileUpload** y agregue las siguientes propiedades:
+Cree una página de Razor para controlar un par de cargas de archivos. Agregue una clase `FileUpload`, que está enlazada a la página para obtener los datos de programación. Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Asigne a la clase el nombre **FileUpload** y agregue las siguientes propiedades:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/FileUpload.cs)]
 
@@ -38,6 +56,23 @@ La clase tiene una propiedad para el título de la programación y otra para cad
 Para evitar la duplicación de código para el procesamiento de archivos de programación cargados, primero agregue un método auxiliar estático. Cree una carpeta *Utilities* en la aplicación y agregue un archivo *FileHelpers.cs* con el siguiente contenido. El método auxiliar, `ProcessFormFile`, toma un elemento [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile) y [ModelStateDictionary](/api/microsoft.aspnetcore.mvc.modelbinding.modelstatedictionary) y devuelve una cadena con el contenido y el tamaño del archivo. Se comprueban el tipo de contenido y la longitud. Si el archivo no pasa una comprobación de validación, se agrega un error a `ModelState`.
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Utilities/FileHelpers.cs)]
+
+### <a name="save-the-file-to-disk"></a>Guardar el archivo en el disco
+
+La aplicación de ejemplo guarda el contenido del archivo en un campo de base de datos. Para guardar el contenido del archivo en el disco, use una clase [FileStream](/dotnet/api/system.io.filestream):
+
+```csharp
+using (var fileStream = new FileStream(filePath, FileMode.Create))
+{
+    await formFile.CopyToAsync(fileStream);
+}
+```
+
+El proceso de trabajo debe tener permisos de escritura en la ubicación especificada por `filePath`.
+
+### <a name="save-the-file-to-azure-blob-storage"></a>Guardar el archivo en Azure Blob Storage
+
+Para cargar el contenido del archivo en Azure Blob Storage, vea [Introducción a Azure Blob Storage mediante .NET](/azure/storage/blobs/storage-dotnet-how-to-use-blobs). En el tema se muestra cómo usar [UploadFromStream](/dotnet/api/microsoft.windowsazure.storage.file.cloudfile.uploadfromstreamasync) para guardar una clase [FileStream](/dotnet/api/system.io.filestream) en Blob Storage.
 
 ## <a name="add-the-schedule-class"></a>Adición de la clase Schedule
 
@@ -106,7 +141,7 @@ Abra *_Layout.cshtml* y agregue un vínculo a la barra de navegación para llega
 
 ## <a name="add-a-page-to-confirm-schedule-deletion"></a>Adición de una página para confirmar la eliminación de la programación
 
-Cuando el usuario hace clic para eliminar una programación, se recomienda ofrecerle una oportunidad de cancelar la operación. Agregue una página de confirmación de eliminación (*Delete.cshtml*) a la carpeta *Schedules*:
+Cuando el usuario hace clic para eliminar una programación, se le da la oportunidad de cancelar la operación. Agregue una página de confirmación de eliminación (*Delete.cshtml*) a la carpeta *Schedules*:
 
 [!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Schedules/Delete.cshtml)]
 
@@ -144,7 +179,7 @@ El usuario puede hacer clic en el vínculo **Eliminar** desde allí para llegar 
 
 Para más información de solución de problemas de carga de `IFormFile`, vea [Cargas de archivos en ASP.NET Core: Solución de problemas](xref:mvc/models/file-uploads#troubleshooting).
 
-Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos todos los comentarios que quiera hacernos. [Introducción a MVC y EF Core](xref:data/ef-mvc/intro) es un excelente seguimiento de este tutorial.
+Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos cualquier comentario. [Introducción a MVC y EF Core](xref:data/ef-mvc/intro) es un excelente seguimiento de este tutorial.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
