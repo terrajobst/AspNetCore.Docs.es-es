@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2897eb3a756654c61e38e847f5a8e1f8ca4f0b7c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
-Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+De [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 La funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta. Las rutas se definen en la aplicación ASP.NET y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación ASP.NET, la funcionalidad de enrutamiento también puede generar direcciones URL que se asignan a controladores de ruta. Por tanto, el enrutamiento puede buscar un controlador de ruta basado en una dirección URL o la dirección URL correspondiente a un controlador de ruta determinado en función de la información del controlador de ruta.
 
@@ -36,7 +36,7 @@ El enrutamiento usa *rutas* (implementaciones de [IRouter](https://docs.microsof
 
 Por lo general, una aplicación tiene una sola colección de rutas. Cuando llega una solicitud, la colección de rutas se procesa en orden. La solicitud entrante busca una ruta que coincida con la dirección URL de la solicitud. Para ello, llama al método `RouteAsync` en cada ruta disponible de la colección de rutas. En cambio, una respuesta puede usar el enrutamiento para generar direcciones URL (por ejemplo, para el redireccionamiento o los vínculos) en función de la información de ruta. De este modo, evita tener que codificar de forma rígida las direcciones URL, lo que facilita el mantenimiento.
 
-La clase `RouterMiddleware` conecta el enrutamiento a la canalización de [software intermedio](middleware.md). [ASP.NET MVC](../mvc/overview.md) agrega enrutamiento a la canalización de software intermedio como parte de su configuración. Para obtener información sobre el uso del enrutamiento como componente independiente, vea [Uso de software intermedio de enrutamiento](#using-routing-middleware).
+La clase `RouterMiddleware` conecta el enrutamiento a la canalización de [software intermedio](xref:fundamentals/middleware/index). [ASP.NET Core MVC](xref:mvc/overview) agrega enrutamiento a la canalización de software intermedio como parte de su configuración. Para obtener información sobre el uso del enrutamiento como componente independiente, vea [Uso de software intermedio de enrutamiento](#using-routing-middleware).
 
 <a name="url-matching-ref"></a>
 

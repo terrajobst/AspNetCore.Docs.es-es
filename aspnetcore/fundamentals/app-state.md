@@ -10,15 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/app-state
-ms.openlocfilehash: 7aa200d3612f766ab633ccab807421b9c5393975
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f4ed38f7395e3f4fe939584c1f3f5b0dba93724c
+ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="introduction-to-session-and-application-state-in-aspnet-core"></a>Introducción al estado de sesión y aplicación en ASP.NET Core
 
-Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/) y [Diana LaRose](https://github.com/DianaLaRose)
+De [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://ardalis.com/) y [Diana LaRose](https://github.com/DianaLaRose)
 
 HTTP es un protocolo sin estado. Un servidor web trata de manera independiente cada solicitud HTTP y no conserva los valores de usuario de las solicitudes anteriores. En este artículo se describen diferentes maneras de mantener el estado sesión y aplicación entre las solicitudes. 
 
@@ -84,7 +84,7 @@ El siguiente código de clase `Startup` configura el proveedor TempData basado e
 
 ---
 
-El orden es fundamental para los componentes de middleware. En el ejemplo anterior, se produce una excepción de tipo `InvalidOperationException` cuando `UseSession` se invoca después de `UseMvcWithDefaultRoute`. Vea [Ordenación de middleware](xref:fundamentals/middleware#ordering) para obtener más detalles.
+El orden es fundamental para los componentes de middleware. En el ejemplo anterior, se produce una excepción de tipo `InvalidOperationException` cuando `UseSession` se invoca después de `UseMvcWithDefaultRoute`. Vea [Ordenación de middleware](xref:fundamentals/middleware/index#ordering) para obtener más detalles.
 
 > [!IMPORTANT]
 > Si el destino es .NET Framework y usa el proveedor basado en sesión, agregue el paquete NuGet [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microsoft.AspNetCore.Session) a su proyecto.
@@ -189,7 +189,7 @@ En el ejemplo siguiente se muestra cómo establecer y obtener un objeto serializ
 
 La abstracción `HttpContext` proporciona compatibilidad para una colección de diccionarios de tipo `IDictionary<object, object>`, llamada `Items`. Esta colección está disponible desde el inicio de una solicitud *HttpRequest* y se descarta al final de cada solicitud. Para acceder a ella, se puede asignar un valor a una entrada con clave, o solicitar el valor de una clave determinada.
 
-En el ejemplo siguiente, [Middleware](middleware.md) agrega `isVerified` a la colección `Items`.
+En el ejemplo siguiente, [Middleware](xref:fundamentals/middleware/index) agrega `isVerified` a la colección `Items`.
 
 ```csharp
 app.Use(async (context, next) =>
