@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 887ba1a4742821226a7ebecfd238c97627d6c5f7
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
+ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/11/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -261,4 +261,5 @@ public class MyMiddleware
 * [Migración de módulos HTTP a middleware](xref:migration/http-modules)
 * [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Solicitud de características](xref:fundamentals/request-features)
-* [Factory-based middleware activation](xref:fundamentals/middleware/extensibility) (Activación de middleware basada en Factory)
+* [Activación de middleware basado en Factory](xref:fundamentals/middleware/extensibility)
+* [Activación de middleware basado en Factory con un contenedor de terceros](xref:fundamentals/middleware/extensibility-third-party-container)
