@@ -1,3 +1,3 @@
-# <a name="aspnet-using-options-sample"></a>ASP.NET utilizando el ejemplo de opciones
+# <a name="aspnet-using-options-sample"></a>Ejemplo de ASP.NET con el uso de opciones
 
-Este ejemplo muestra el uso del patrón de opciones en una aplicación de ASP.NET Core las páginas de Razor. Este ejemplo muestra las características descritas en la [patrón opciones](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) tema.
+En este ejemplo se muestra el uso del patrón de opciones en una aplicación de páginas de Razor de ASP.NET Core. En este ejemplo se muestran las características que se describen en el tema [Patrón de opciones](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).

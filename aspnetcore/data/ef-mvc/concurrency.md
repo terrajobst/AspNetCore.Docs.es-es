@@ -1,5 +1,5 @@
 ---
-title: "Núcleo de ASP.NET MVC con EF Core - simultaneidad - 8 de 10"
+title: 'ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)'
 author: tdykstra
 description: "Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo."
 manager: wpickett
@@ -10,99 +10,99 @@ ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
 ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Controlar los conflictos de simultaneidad - Core EF con el tutorial de MVC de ASP.NET Core (8 de 10)
+# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Controlar los conflictos de simultaneidad: tutorial de EF Core con ASP.NET Core MVC (8 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones web de MVC de ASP.NET Core con Entity Framework Core y Visual Studio. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](intro.md).
+En la aplicación web de ejemplo Contoso University se muestra cómo crear aplicaciones web de ASP.NET Core MVC con Entity Framework Core y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](intro.md).
 
 En los tutoriales anteriores, aprendió a actualizar los datos. Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
 
-Podrá crear páginas web que funcionan con la entidad Department y controlar los errores de simultaneidad. Las ilustraciones siguientes muestran las páginas de editar y eliminar, incluidos algunos mensajes que se muestran si se produce un conflicto de simultaneidad.
+Podrá crear páginas web que funcionan con la entidad Department y controlan los errores de simultaneidad. Las siguientes ilustraciones muestran las páginas Edit y Delete, incluidos algunos mensajes que se muestran si se produce un conflicto de simultaneidad.
 
-![Página de edición de departamento](concurrency/_static/edit-error.png)
+![Página Edit Department](concurrency/_static/edit-error.png)
 
-![Página de borrado de departamento](concurrency/_static/delete-error.png)
+![Página Department Delete](concurrency/_static/delete-error.png)
 
 ## <a name="concurrency-conflicts"></a>Conflictos de simultaneidad
 
-Cuando un usuario muestra los datos de una entidad con el fin de editarla y, a continuación, otro usuario actualiza los datos de la misma entidad antes de que el primer cambio del usuario se escribe en la base de datos, se produce un conflicto de simultaneidad. Si no habilita la detección de este tipo de conflictos, gana el jugador que actualiza la base de datos en último lugar sobrescribe los cambios del otro usuario. En muchas aplicaciones, el riesgo es aceptable: si hay determinados usuarios o algunas de las actualizaciones, o si no es realmente crítica si se sobrescriben algunos cambios, el costo de la programación para la simultaneidad puede sobrepasar el beneficio obtenido. En ese caso, no tendrá que configurar la aplicación para controlar conflictos de simultaneidad.
+Los conflictos de simultaneidad ocurren cuando un usuario muestra los datos de una entidad para editarlos y, después, otro usuario actualiza los datos de la misma entidad antes de que el primer cambio del usuario se escriba en la base de datos. Si no habilita la detección de este tipo de conflictos, quien actualice la base de datos en último lugar sobrescribe los cambios del otro usuario. En muchas aplicaciones, el riesgo es aceptable: si hay pocos usuarios o pocas actualizaciones, o si no es realmente importante si se sobrescriben algunos cambios, el costo de programación para la simultaneidad puede superar el beneficio obtenido. En ese caso, no tendrá que configurar la aplicación para que controle los conflictos de simultaneidad.
 
 ### <a name="pessimistic-concurrency-locking"></a>Simultaneidad pesimista (bloqueo)
 
-Si la aplicación necesita evitar la pérdida accidental de datos en escenarios de simultaneidad, una manera de hacerlo es utilizar bloqueos de base de datos. Esto se denomina simultaneidad pesimista. Por ejemplo, antes de leer una fila de una base de datos, se solicita un bloqueo de solo lectura o para acceso de actualización. Si bloquea una fila para el acceso de actualización, no se permite ningún otro usuario bloquea la fila de solo lectura o actualizar el acceso, porque se reciben una copia de datos que se están modificando. Si bloquea una fila para el acceso de solo lectura, otras personas también pueden bloquear, para acceso de solo lectura pero no para la actualización.
+Si la aplicación necesita evitar la pérdida accidental de datos en casos de simultaneidad, una manera de hacerlo es usar los bloqueos de base de datos. Esto se denomina simultaneidad pesimista. Por ejemplo, antes de leer una fila de una base de datos, solicita un bloqueo de solo lectura o para acceso de actualización. Si bloquea una fila para acceso de actualización, no se permite que ningún otro usuario bloquee la fila como solo lectura o para acceso de actualización, porque recibirían una copia de los datos que se están modificando. Si bloquea una fila para acceso de solo lectura, otras personas también pueden bloquearla para acceso de solo lectura pero no para actualización.
 
-Administrar bloqueos tiene desventajas. Puede ser bastante complicado programa. Se necesitan recursos de administración de base de datos, y puede provocar problemas de rendimiento como el número de usuarios de una aplicación aumenta. Por estos motivos, no todos los sistemas de administración de bases de datos admiten la simultaneidad pesimista. Entity Framework Core no proporciona ninguna compatibilidad integrada para él, y este tutorial no muestra cómo se implementa.
+Administrar los bloqueos tiene desventajas. Puede ser bastante complicado de programar. Se necesita un número significativo de recursos de administración de base de datos, y puede provocar problemas de rendimiento a medida que aumenta el número de usuarios de una aplicación. Por estos motivos, no todos los sistemas de administración de bases de datos admiten la simultaneidad pesimista. Entity Framework Core no proporciona ninguna compatibilidad integrada para ello y en este tutorial no se muestra cómo implementarla.
 
 ### <a name="optimistic-concurrency"></a>Simultaneidad optimista
 
-La alternativa a la simultaneidad pesimista es simultaneidad optimista. Simultaneidad optimista significa permitir conflictos de simultaneidad que se produzca y reaccionar correctamente si lo hacen. Por ejemplo, Julia visita la página Editar departamento y cambia la cantidad de presupuesto para el departamento de inglés de $350,000.00 a 0,00 USD.
+La alternativa a la simultaneidad pesimista es la simultaneidad optimista. La simultaneidad optimista implica permitir que se produzcan conflictos de simultaneidad y reaccionar correctamente si ocurren. Por ejemplo, Jane visita la página Edit Department y cambia la cantidad de Budget para el departamento de inglés de 350.000,00 a 0,00 USD.
 
-![Cambiar la asignación a 0](concurrency/_static/change-budget.png)
+![Cambiar el presupuesto a 0](concurrency/_static/change-budget.png)
 
-Antes de que Juan hace clic en **guardar**, Juan visita la misma página y cambia el campo de fecha de inicio de 1/9/2007 a 9/1/2013.
+Antes de que Jane haga clic en **Save**, John visita la misma página y cambia el campo Start Date de 9/1/2007 a 9/1/2013.
 
 ![Cambiar la fecha de inicio a 2013](concurrency/_static/change-date.png)
 
-Julia hace clic en **guardar** primera y ve su cambiar cuando el explorador vuelve a la página de índice.
+Jane hace clic en **Save** primero y ve su cambio cuando el explorador vuelve a la página de índice.
 
 ![Presupuesto cambiado a cero](concurrency/_static/budget-zero.png)
 
-A continuación, John hace clic en **guardar** en una página de edición que sigue mostrando un presupuesto de 350,000.00 $. ¿Qué sucede después viene determinado por la manera de controlar conflictos de simultaneidad.
+Entonces, John hace clic en **Save** en una página Edit que sigue mostrando un presupuesto de 350.000,00 USD. Lo que sucede después viene determinado por cómo controla los conflictos de simultaneidad.
 
-Algunas de las opciones son las siguientes:
+Algunas de las opciones se exponen a continuación:
 
-* Puede realizar un seguimiento de la propiedad que se ha modificado un usuario y actualizar solo las columnas correspondientes de la base de datos.
+* Puede realizar un seguimiento de la propiedad que ha modificado un usuario y actualizar solo las columnas correspondientes de la base de datos.
 
-     En el escenario de ejemplo, no se perderían, ningún dato porque se actualizaron las diferentes propiedades por los dos usuarios. La próxima vez que un usuario examina el departamento de inglés, verá los cambios de Jane y John Doe--una fecha de inicio de 9/1/2013 y un presupuesto de cero dólares. Este método de actualización puede reducir el número de conflictos que pueden dar lugar a pérdida de datos, pero no se puede evitar la pérdida de datos si se realizan cambios competencia a la misma propiedad de una entidad. Si Entity Framework funciona de esta manera depende de cómo implementar el código de actualización. A menudo no resulta práctico en una aplicación web, porque puede requerir que mantener grandes cantidades de estado con el fin de realizar un seguimiento de todos los valores de propiedad original de una entidad, así como nuevos valores. Mantenimiento de grandes cantidades de estado puede afectar al rendimiento de la aplicación porque requiere recursos del servidor o que deben incluirse en la propia página web (por ejemplo, en los campos ocultos) o en una cookie.
+     En el escenario de ejemplo, no se perdería ningún dato porque los dos usuarios actualizaron diferentes propiedades. La próxima vez que un usuario examine el departamento de inglés, verá los cambios tanto de Jane como de John: una fecha de inicio de 9/1/2013 y un presupuesto de cero dólares. Este método de actualización puede reducir el número de conflictos que pueden dar lugar a una pérdida de datos, pero no puede evitar la pérdida de datos si se realizan cambios paralelos a la misma propiedad de una entidad. Si Entity Framework funciona de esta manera o no, depende de cómo implemente el código de actualización. A menudo no resulta práctico en una aplicación web, porque puede requerir mantener grandes cantidades de estado con el fin de realizar un seguimiento de todos los valores de propiedad originales de una entidad, así como los valores nuevos. Mantener grandes cantidades de estado puede afectar al rendimiento de la aplicación porque requiere recursos del servidor o se deben incluir en la propia página web (por ejemplo, en campos ocultos) o en una cookie.
 
-* Puede permitir que los cambios de John sobrescribir los cambios de Julia.
+* Puede permitir que los cambios de John sobrescriban los cambios de Jane.
 
-     La próxima vez que un usuario examina el departamento de inglés, verá 9/1/2013 y el valor de $350,000.00 restaurada. Esto se denomina una *cliente Wins* o *el último gana* escenario. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos.) Como se mencionó en la introducción a esta sección, si no hace ninguna codificación para el control de simultaneidad, se realizará automáticamente.
+     La próxima vez que un usuario examine el departamento de inglés, verá 9/1/2013 y el valor de 350.000,00 USD restaurado. Esto se denomina un escenario de *Prevalece el cliente* o *Prevalece el último*. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos). Como se mencionó en la introducción de esta sección, si no hace ninguna codificación para el control de la simultaneidad, se realizará automáticamente.
 
-* Cambio de John puede impedir que se actualiza en la base de datos.
+* Puede evitar que el cambio de John se actualice en la base de datos.
 
-     Por lo general, debería mostrar un mensaje de error, le muestra el estado actual de los datos y le permitan volver a aplicar los cambios si quiere que estén. Esto se denomina una *almacén Wins* escenario. (Los valores de almacén de datos tienen prioridad sobre los valores enviados por el cliente). Implementaremos el escenario de almacén de Wins en este tutorial. Este método garantiza que ningún cambio se sobrescribe sin que un usuario se le avisa a lo que está sucediendo.
+     Por lo general, debería mostrar un mensaje de error, mostrarle el estado actual de los datos y permitirle volver a aplicar los cambios si quiere realizarlos. Esto se denomina un escenario de *Prevalece el almacén*. (Los valores del almacén de datos tienen prioridad sobre los valores enviados por el cliente). En este tutorial implementará el escenario de Prevalece el almacén. Este método garantiza que ningún cambio se sobrescriba sin que se avise al usuario de lo que está sucediendo.
 
-### <a name="detecting-concurrency-conflicts"></a>Detectar conflictos de simultaneidad
+### <a name="detecting-concurrency-conflicts"></a>Detectar los conflictos de simultaneidad
 
-Puede resolver conflictos de control de `DbConcurrencyException` las excepciones que inicia de Entity Framework. Para saber cuándo se producen estas excepciones, Entity Framework debe ser capaz de detectar conflictos. Por lo tanto, debe configurar la base de datos y el modelo de datos correctamente. Algunas opciones para habilitar la detección de conflictos son las siguientes:
+Puede resolver los conflictos controlando las excepciones `DbConcurrencyException` que inicia Entity Framework. Para saber cuándo se producen dichas excepciones, Entity Framework debe ser capaz de detectar conflictos. Por lo tanto, debe configurar correctamente la base de datos y el modelo de datos. Algunas opciones para habilitar la detección de conflictos son las siguientes:
 
-* En la tabla de base de datos, incluya una columna de seguimiento que puede usarse para determinar si una fila ha cambiado. A continuación, puede configurar el Entity Framework para incluir esa columna en el lugar en la cláusula de actualización de SQL o los comandos Delete.
+* En la tabla de la base de datos, incluya una columna de seguimiento que pueda usarse para determinar si una fila ha cambiado. Después puede configurar Entity Framework para que incluya esa columna en la cláusula Where de los comandos Update o Delete de SQL.
 
-     Suele ser el tipo de datos de la columna de seguimiento `rowversion`. El `rowversion` valor es un número secuencial que se incrementa cada vez que se actualiza la fila. En un comando Update o Delete, Where cláusula incluye el valor original de la columna de seguimiento (la versión de fila original). Si ha cambiado por otro usuario, el valor de la fila que se está actualiza la `rowversion` columna es diferente del valor original, por lo que la instrucción Update o Delete no puede encontrar la fila que se va a actualizar a causa de Where cláusula. Cuando la encuentra Entity Framework que no se haya actualizado ninguna fila mediante la actualización o eliminación de comandos (es decir, cuando el número de filas afectadas es cero), interpreta como un conflicto de simultaneidad.
+     El tipo de datos de la columna de seguimiento suele ser `rowversion`. El valor `rowversion` es un número secuencial que se incrementa cada vez que se actualiza la fila. En un comando Update o Delete, la cláusula Where incluye el valor original de la columna de seguimiento (la versión de la fila original). Si otro usuario ha cambiado la fila que se está actualizando, el valor en la columna `rowversion` es diferente del valor original, por lo que la instrucción Update o Delete no puede encontrar la fila que se va a actualizar debido a la cláusula Where. Cuando Entity Framework encuentra que no se ha actualizado ninguna fila mediante el comando Update o Delete (es decir, cuando el número de filas afectadas es cero), lo interpreta como un conflicto de simultaneidad.
 
-* Configurar Entity Framework para incluir los valores originales de cada columna en la tabla en el lugar en la cláusula de comandos Update y Delete.
+* Configure Entity Framework para que incluya los valores originales de cada columna de la tabla en la cláusula Where de los comandos Update y Delete.
 
-     Como se muestra en la primera opción, si algo en la fila ha cambiado desde que se leyó primero la fila, Where cláusula no devolverá una fila que se va a actualizar, que Entity Framework se interpreta como un conflicto de simultaneidad. Para las tablas de base de datos que tienen muchas columnas, puede dar lugar a este enfoque en muy grande, donde las cláusulas y puede requerir que mantener grandes cantidades de estado. Tal y como se indicó anteriormente, el mantenimiento de grandes cantidades de estado puede afectar al rendimiento de la aplicación. Por lo tanto, no por lo general se recomienda este enfoque, y no es el método utilizado en este tutorial.
+     Como se muestra en la primera opción, si algo en la fila ha cambiado desde que se leyó por primera, la cláusula Where no devolverá una fila para actualizar, lo cual Entity Framework interpreta como un conflicto de simultaneidad. Para las tablas de base de datos que tienen muchas columnas, este enfoque puede dar lugar a cláusulas Where muy grandes y puede requerir mantener grandes cantidades de estado. Tal y como se indicó anteriormente, el mantenimiento de grandes cantidades de estado puede afectar al rendimiento de la aplicación. Por tanto, generalmente este enfoque no se recomienda y no es el método usado en este tutorial.
 
-     Si desea implementar este enfoque para simultaneidad, tendrá que marcar todas las propiedades de clave no principal de la entidad que desea realizar un seguimiento de simultaneidad para agregando el `ConcurrencyCheck` atribuir a ellos. Este cambio permite a Entity Framework incluir todas las columnas en la cláusula Where de SQL de las instrucciones Update y Delete.
+     Si quiere implementar este enfoque para la simultaneidad, tendrá que marcar todas las propiedades de clave no principal de la entidad de la que quiere realizar un seguimiento de simultaneidad agregándoles el atributo `ConcurrencyCheck`. Este cambio permite que Entity Framework incluya todas las columnas en la cláusula Where de SQL de las instrucciones Update y Delete.
 
-En el resto de este tutorial agregará un `rowversion` propiedad de seguimiento para la entidad Department, crear un controlador y vistas y para comprobar que todo funciona correctamente.
+En el resto de este tutorial agregará una propiedad de seguimiento `rowversion` para la entidad Department, creará un controlador y vistas, y comprobará que todo funciona correctamente.
 
 ## <a name="add-a-tracking-property-to-the-department-entity"></a>Agregar una propiedad de seguimiento a la entidad Department
 
-En *Models/Department.cs*, agregar una propiedad de seguimiento denominada RowVersion:
+En *Models/Department.cs*, agregue una propiedad de seguimiento denominada RowVersion:
 
 [!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-El `Timestamp` atributo especifica que esta columna se incluirá en Where cláusula de comandos Update y Delete se envía a la base de datos. El atributo se denomina `Timestamp` porque las versiones anteriores de SQL Server utilizan una instancia de SQL `timestamp` tipo de datos antes de la instrucción SQL `rowversion` sustituirla por otra. El tipo .NET de `rowversion` es una matriz de bytes.
+El atributo `Timestamp` especifica que esta columna se incluirá en la cláusula Where de los comandos Update y Delete enviados a la base de datos. El atributo se denomina `Timestamp` porque las versiones anteriores de SQL Server usaban un tipo de datos `timestamp` antes de que la `rowversion` de SQL lo sustituyera por otro. El tipo .NET de `rowversion` es una matriz de bytes.
 
-Si prefiere usar la API fluida, puede usar el `IsConcurrencyToken` (método) (en *Data/SchoolContext.cs*) para especificar la propiedad de seguimiento, tal como se muestra en el ejemplo siguiente:
+Si prefiere usar la API fluida, puede usar el método `IsConcurrencyToken` (en *Data/SchoolContext.cs*) para especificar la propiedad de seguimiento, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
 modelBuilder.Entity<Department>()
     .Property(p => p.RowVersion).IsConcurrencyToken();
 ```
 
-Mediante la adición de una propiedad ha cambiado el modelo de base de datos, por lo que necesita realizar otra migración.
+Al agregar una propiedad cambió el modelo de base de datos, por lo que necesita realizar otra migración.
 
-Guardar los cambios, compile el proyecto y, a continuación, escriba los siguientes comandos en la ventana de comandos:
+Guarde los cambios, compile el proyecto y, después, escriba los siguientes comandos en la ventana de comandos:
 
 ```console
 dotnet ef migrations add RowVersion
@@ -112,172 +112,172 @@ dotnet ef migrations add RowVersion
 dotnet ef database update
 ```
 
-## <a name="create-a-departments-controller-and-views"></a>Crear un controlador de departamentos y vistas
+## <a name="create-a-departments-controller-and-views"></a>Crear un controlador y vistas de Departments
 
-Aplicar la técnica scaffolding un controlador de departamentos y vistas como lo hizo anteriormente para estudiantes, cursos e instructores.
+Aplique la técnica scaffolding a un controlador y vistas de Departments como lo hizo anteriormente para Students, Courses e Instructors.
 
-![Departamento de scaffolding](concurrency/_static/add-departments-controller.png)
+![Aplicar la técnica scaffolding a Department](concurrency/_static/add-departments-controller.png)
 
-En el *DepartmentsController.cs* de archivo, cambie todas las apariciones de cuatro de "FirstMidName" a "FullName" para que las listas desplegables de administrador de departamento va a contener el nombre completo del instructor en lugar de simplemente el apellido.
+En el archivo *DepartmentsController.cs*, cambie las cuatro repeticiones de "FirstMidName" a "FullName" para que las listas desplegables del administrador del departamento contengan el nombre completo del instructor en lugar de simplemente el apellido.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
-## <a name="update-the-departments-index-view"></a>Actualizar la vista de índice de departamentos
+## <a name="update-the-departments-index-view"></a>Actualizar la vista de índice de Departments
 
-El motor de scaffolding creó una columna RowVersion en la vista de índice, pero ese campo no debe mostrarse.
+El motor de scaffolding creó una columna RowVersion en la vista Index, pero ese campo no debería mostrarse.
 
 Reemplace el código de *Views/Departments/Index.cshtml* con el código siguiente.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
-Esto cambia el encabezado en "Departamentos", elimina la columna RowVersion y muestra el nombre completo en lugar del nombre para el administrador.
+Esto cambia el encabezado por "Departments", elimina la columna RowVersion y muestra el nombre completo en lugar del nombre del administrador.
 
-## <a name="update-the-edit-methods-in-the-departments-controller"></a>Actualizar los métodos de edición en el controlador de departamentos
+## <a name="update-the-edit-methods-in-the-departments-controller"></a>Actualizar los métodos Edit en el controlador de Departments
 
-En ambos el HttpGet `Edit` método y la `Details` método, agregue `AsNoTracking`. En el HttpGet `Edit` método, agregue carga diligente para el administrador.
+En el método `Edit` de HttpGet y el método `Details`, agregue `AsNoTracking`. En el método `Edit` de HttpGet, agregue carga diligente para el administrador.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
-Reemplace el código existente para el HttpPost `Edit` método por el código siguiente:
+Sustituya el código existente para el método `Edit` de HttpPost por el siguiente código:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
-El código comienza cuando se intenta leer el departamento de actualizarse. Si el `SingleOrDefaultAsync` método devuelve null, el departamento se ha eliminado por otro usuario. En ese caso, el código usa los valores de formulario expuesto para crear una entidad de departamento, por lo que puede volver a mostrarse la página de edición con un mensaje de error. Como alternativa, no tendrá que volver a crear la entidad department si mostrar sólo un mensaje de error sin volver a mostrar los campos de departamento.
+El código comienza por intentar leer el departamento que se va a actualizar. Si el método `SingleOrDefaultAsync` devuelve NULL, otro usuario eliminó el departamento. En ese caso, el código usa los valores del formulario expuesto para crear una entidad Department, por lo que puede volver a mostrarse la página Edit con un mensaje de error. Como alternativa, no tendrá que volver a crear la entidad Department si solo muestra un mensaje de error sin volver a mostrar los campos del departamento.
 
-La vista almacena el original `RowVersion` valor en un campo oculto y este método recibe ese valor en el `rowVersion` parámetro. Antes de llamar a `SaveChanges`, tendrá que colocar original `RowVersion` valor de propiedad en el `OriginalValues` colección para la entidad.
+La vista almacena el valor `RowVersion` original en un campo oculto, y este método recibe ese valor en el parámetro `rowVersion`. Antes de llamar a `SaveChanges`, tendrá que colocar dicho valor de propiedad `RowVersion` original en la colección `OriginalValues` para la entidad.
 
 ```csharp
 _context.Entry(departmentToUpdate).Property("RowVersion").OriginalValue = rowVersion;
 ```
 
-Cuando Entity Framework crea un comando SQL UPDATE, ese comando incluirá una cláusula WHERE que comprueba si hay una fila que tiene la versión original `RowVersion` valor. Si ninguna fila se ven afectada por el comando de actualización (no hay filas tienen la versión original `RowVersion` valor), Entity Framework produce un `DbUpdateConcurrencyException` excepción.
+Cuando Entity Framework crea un comando UPDATE de SQL, ese comando incluirá una cláusula WHERE que comprueba si hay una fila que tenga el valor `RowVersion` original. Si no hay ninguna fila afectada por el comando UPDATE (ninguna fila tiene el valor `RowVersion` original), Entity Framework inicia una excepción `DbUpdateConcurrencyException`.
 
-El código del bloque catch para esa excepción Obtiene la entidad afectada de departamento que tiene los valores actualizados de los `Entries` propiedad del objeto de excepción.
+El código del bloque catch de esa excepción obtiene la entidad Department afectada que tiene los valores actualizados de la propiedad `Entries` del objeto de excepción.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
-El `Entries` colección contará con una sola `EntityEntry` objeto.  Puede utilizar dicho objeto para obtener los nuevos valores especificados por el usuario y los valores de la base de datos actual.
+La colección `Entries` contará con un solo objeto `EntityEntry`.  Puede usar dicho objeto para obtener los nuevos valores especificados por el usuario y los valores actuales de la base de datos.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
-El código agrega un mensaje de error personalizado para cada columna que tiene valores de base de datos diferentes de lo que el usuario especificado en el menú Edición página (sólo un campo se muestra aquí por razones de brevedad).
+El código agrega un mensaje de error personalizado para cada columna que tenga valores de base de datos diferentes de lo que el usuario especificó en la página Edit (aquí solo se muestra un campo por razones de brevedad).
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
-Por último, el código establece la `RowVersion` valor de la `departmentToUpdate` para el nuevo valor recuperadas de la base de datos. Esta nueva `RowVersion` valor se almacenará en el campo oculto cuando la edición se volverá a abrir la página y la próxima vez que el usuario hace clic en **guardar**, solo los errores de simultaneidad que se producen desde que se detectarán el volver a mostrar de la página de edición.
+Por último, el código establece el valor `RowVersion` de `departmentToUpdate` para el nuevo valor recuperado de la base de datos. Este nuevo valor `RowVersion` se almacenará en el campo oculto cuando se vuelva a mostrar la página Edit y, la próxima vez que el usuario haga clic en **Save**, solo se detectarán los errores de simultaneidad que se produzcan desde que se vuelva a mostrar la página Edit.
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
-El `ModelState.Remove` instrucción es necesaria porque `ModelState` tiene la antigua `RowVersion` valor. En la vista, la `ModelState` el valor de un campo tiene prioridad sobre los valores de propiedad de modelo cuando ambos están presentes.
+La instrucción `ModelState.Remove` es necesaria porque `ModelState` tiene el valor `RowVersion` antiguo. En la vista, el valor `ModelState` de un campo tiene prioridad sobre los valores de propiedad de modelo cuando ambos están presentes.
 
-## <a name="update-the-department-edit-view"></a>Actualizar la vista de edición de departamento
+## <a name="update-the-department-edit-view"></a>Actualizar la vista Department Edit
 
 En *Views/Departments/Edit.cshtml*, realice los cambios siguientes:
 
-* Agregar un campo oculto para guardar la `RowVersion` valor de propiedad, inmediatamente después de un campo oculto para el `DepartmentID` propiedad.
+* Agregue un campo oculto para guardar el valor de propiedad `RowVersion`, inmediatamente después de un campo oculto para la propiedad `DepartmentID`.
 
-* Agregar una opción "Seleccionar Administrador" a la lista desplegable.
+* Agregue una opción "Select Administrator" a la lista desplegable.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
-## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Conflictos de simultaneidad de prueba en la página Editar
+## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Comprobar los conflictos de simultaneidad en la página Edit
 
-Ejecute la aplicación y vaya a la página de índice de departamentos. Haga clic en el **editar** hipervínculo para el departamento de inglés y seleccione **abrir en nueva ficha**, a continuación, haga clic en el **editar** hipervínculo para el departamento de inglés. Las pestañas del dos explorador ahora muestran la misma información.
+Ejecute la aplicación y vaya a la página de índice de Departments. Haga clic con el botón derecho en el hipervínculo **Edit** del departamento de inglés, seleccione **Abrir en nueva pestaña** y, después, haga clic en el hipervínculo **Edit** del departamento de inglés. Las dos pestañas del explorador ahora muestran la misma información.
 
-Cambiar un campo en la primera pestaña de explorador y haga clic en **guardar**.
+Cambie un campo en la primera pestaña del explorador y haga clic en **Save**.
 
-![Editar página 1 después de cambio de departamento](concurrency/_static/edit-after-change-1.png)
+![Página 1 de Department Edit después del cambio](concurrency/_static/edit-after-change-1.png)
 
 El explorador muestra la página de índice con el valor modificado.
 
-Cambiar un campo en la segunda pestaña de explorador.
+Cambie un campo en la segunda pestaña del explorador.
 
-![Editar página 2 después de cambio de departamento](concurrency/_static/edit-after-change-2.png)
+![Página 2 de Department Edit después del cambio](concurrency/_static/edit-after-change-2.png)
 
 Haga clic en **Guardar**. Verá un mensaje de error:
 
-![Mensaje de error de página de edición de departamento](concurrency/_static/edit-error.png)
+![Mensaje de error de la página Department Edit](concurrency/_static/edit-error.png)
 
-Haga clic en **guardar** nuevo. Se guarda el valor especificado en la segunda pestaña de explorador. Vea los valores guardados cuando aparezca la página de índice.
+Vuelva a hacer clic en **Save**. Se guarda el valor especificado en la segunda pestaña del explorador. Verá los valores guardados cuando aparezca la página de índice.
 
-## <a name="update-the-delete-page"></a>Actualizar la página de borrado
+## <a name="update-the-delete-page"></a>Actualizar la página Delete
 
-Para la página de borrado, Entity Framework detecta los conflictos de simultaneidad causados por una persona editar persona del departamento de forma similar. Cuando el HttpGet `Delete` método muestra la vista de confirmación, la vista incluye la versión original `RowVersion` valor en un campo oculto. Que el valor, a continuación, está disponible para el HttpPost `Delete` método al que se llama cuando el usuario confirma la eliminación. Cuando Entity Framework crea el comando SQL DELETE, incluye una cláusula WHERE con la versión original `RowVersion` valor. Si los resultados del comando en cero filas afectadas (es decir, la fila se cambió después de que se muestre la página de confirmación de eliminación), se produce una excepción de simultaneidad y el HttpGet `Delete` método se llama con una error marca establecida en true para volver a mostrar la página de confirmación con un mensaje de error. También es posible que se vieron afectados cero filas porque la fila se eliminó por otro usuario, por lo que en ese caso no se muestra ningún mensaje de error.
+Para la página Delete, Entity Framework detecta los conflictos de simultaneidad causados por una persona que edita el departamento de forma similar. Cuando el método `Delete` de HttpGet muestra la vista de confirmación, la vista incluye el valor `RowVersion` original en un campo oculto. Dicho valor está entonces disponible para el método `Delete` de HttpPost al que se llama cuando el usuario confirma la eliminación. Cuando Entity Framework crea el comando DELETE de SQL, incluye una cláusula WHERE con el valor `RowVersion` original. Si el comando tiene como resultado cero filas afectadas (es decir, la fila se cambió después de que se muestre la página de confirmación de eliminación), se produce una excepción de simultaneidad y el método `Delete` de HttpGet se llama con una marca de error establecida en true para volver a mostrar la página de confirmación con un mensaje de error. También es posible que se vieran afectadas cero filas porque otro usuario eliminó la fila, por lo que en ese caso no se muestra ningún mensaje de error.
 
-### <a name="update-the-delete-methods-in-the-departments-controller"></a>Actualizar los métodos de eliminación en el controlador de departamentos
+### <a name="update-the-delete-methods-in-the-departments-controller"></a>Actualizar los métodos Delete en el controlador de Departments
 
-En *DepartmentsController.cs*, reemplace el HttpGet `Delete` método por el código siguiente:
+En *DepartmentsController.cs*, reemplace el método `Delete` de HttpGet por el código siguiente:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
-El método acepta un parámetro opcional que indica si la página se volverá a aparecer después de un error de simultaneidad. Si esta marca es true y el departamento especificado ya no existe, se eliminó por otro usuario. En ese caso, el código se redirige a la página de índice.  Si existe el departamento y esta marca es true, se cambió por otro usuario. En ese caso, el código envía un mensaje de error a la vista mediante `ViewData`.  
+El método acepta un parámetro opcional que indica si la página volverá a aparecer después de un error de simultaneidad. Si esta marca es true y el departamento especificado ya no existe, significa que otro usuario lo eliminó. En ese caso, el código redirige a la página de índice.  Si esta marca es true y el departamento existe, significa que otro usuario lo modificó. En ese caso, el código envía un mensaje de error a la vista mediante `ViewData`.  
 
-Reemplace el código en el HttpPost `Delete` método (denominado `DeleteConfirmed`) con el código siguiente:
+Reemplace el código en el método `Delete` de HttpPost (denominado `DeleteConfirmed`) con el código siguiente:
 
 [!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
-En el código con scaffolding que acaba de reemplazar, este método acepta un identificador de registro:
+En el código al que se aplicó la técnica scaffolding que acaba de reemplazar, este método solo acepta un identificador de registro:
 
 
 ```csharp
 public async Task<IActionResult> DeleteConfirmed(int id)
 ```
 
-Ha cambiado este parámetro en una instancia de entidad de departamento creada por el enlazador de modelos. Esto proporciona acceso EF con el valor de la propiedad RowVersion además de la clave de registro.
+Ha cambiado este parámetro en una instancia de la entidad Department creada por el enlazador de modelos. Esto proporciona a EF acceso al valor de la propiedad RowVersion, además de la clave de registro.
 
 ```csharp
 public async Task<IActionResult> Delete(Department department)
 ```
 
-También ha cambiado el nombre del método de acción de `DeleteConfirmed` a `Delete`. El código con scaffolding usa el nombre `DeleteConfirmed` para proporcionar el método HttpPost una firma única. (El CLR requiere métodos sobrecargados para que tenga parámetros de método diferente). Ahora que las firmas son únicas, puede pegar con la convención MVC y usar el mismo nombre para los métodos de eliminación HttpPost y HttpGet.
+También ha cambiado el nombre del método de acción de `DeleteConfirmed` a `Delete`. El código al que se aplicó la técnica scaffolding usa el nombre `DeleteConfirmed` para proporcionar al método HttpPost una firma única. (El CLR requiere métodos sobrecargados para tener parámetros de método diferentes). Ahora que las firmas son únicas, puede ceñirse a la convención MVC y usar el mismo nombre para los métodos de eliminación de HttpPost y HttpGet.
 
-Si ya se ha eliminado el departamento, el `AnyAsync` método devuelve false y la aplicación simplemente vuelve al método de índice.
+Si ya se ha eliminado el departamento, el método `AnyAsync` devuelve false y la aplicación simplemente vuelve al método de índice.
 
-Si se detecta un error de simultaneidad, el código vuelve a mostrar la página de confirmación de eliminación y proporciona una marca que indica que debe mostrar un mensaje de error de simultaneidad.
+Si se detecta un error de simultaneidad, el código vuelve a mostrar la página de confirmación de Delete y proporciona una marca que indica que se debería mostrar un mensaje de error de simultaneidad.
 
-### <a name="update-the-delete-view"></a>Actualizar la vista de eliminación
+### <a name="update-the-delete-view"></a>Actualizar la vista Delete
 
-En *Views/Departments/Delete.cshtml*, reemplace el código con scaffolding con el siguiente código que agrega un campo de mensaje de error y los campos ocultos de las propiedades DepartmentID y RowVersion. Los cambios aparecen resaltados.
+En *Views/Departments/Delete.cshtml*, reemplace el código al que se aplicó la técnica scaffolding con el siguiente código, que agrega un campo de mensaje de error y campos ocultos para las propiedades DepartmentID y RowVersion. Los cambios aparecen resaltados.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
-Esto hace que los cambios siguientes:
+Esto realiza los cambios siguientes:
 
-* Agrega un mensaje de error entre la `h2` y `h3` encabezados.
+* Agrega un mensaje de error entre los encabezados `h2` y `h3`.
 
-* Reemplaza FirstMidName por FullName en la **administrador** campo.
+* Reemplaza FirstMidName por FullName en el campo **Administrator**.
 
 * Quita el campo RowVersion.
 
-* Agrega un campo oculto para el `RowVersion` propiedad.
+* Agrega un campo oculto para la propiedad `RowVersion`.
 
-Ejecute la aplicación y vaya a la página de índice de departamentos. Haga clic en el **eliminar** hipervínculo para el departamento de inglés y seleccione **abrir en nueva ficha**, a continuación, en la primera ficha, haga clic en el **editar** hipervínculo para el departamento de inglés.
+Ejecute la aplicación y vaya a la página de índice de Departments. Haga clic con el botón derecho en el hipervínculo **Delete** del departamento de inglés, seleccione **Abrir en nueva pestaña** y, después, en la primera pestaña, haga clic en el hipervínculo **Edit** del departamento de inglés.
 
-En la primera ventana, cambie uno de los valores y haga clic en **guardar**:
+En la primera ventana, cambie uno de los valores y haga clic en **Save**:
 
-![Página de edición de departamento después de cambio antes de eliminar](concurrency/_static/edit-after-change-for-delete.png)
+![Página Department Edit después del cambio antes de eliminar](concurrency/_static/edit-after-change-for-delete.png)
 
-En la segunda ficha, haga clic en **eliminar**. Verá el mensaje de error de simultaneidad y se actualizan los valores de departamento con lo que está actualmente en la base de datos.
+En la segunda pestaña, haga clic en **Delete**. Verá el mensaje de error de simultaneidad y se actualizarán los valores de Department con lo que está actualmente en la base de datos.
 
-![Página de confirmación de eliminación de departamento con error de simultaneidad](concurrency/_static/delete-error.png)
+![Página de confirmación de Department Delete con error de simultaneidad](concurrency/_static/delete-error.png)
 
-Si hace clic en **eliminar** nuevo, se le redirigirá a la página de índice, que muestra que se ha eliminado el departamento.
+Si vuelve a hacer clic en **Delete**, se le redirigirá a la página de índice, que muestra que se ha eliminado el departamento.
 
-## <a name="update-details-and-create-views"></a>Detalles de la actualización y crear vistas
+## <a name="update-details-and-create-views"></a>Actualizar las vistas Details y Create
 
-Si lo desea puede limpiar con scaffolding código en los detalles y crear vistas.
+Si quiere, puede limpiar el código al que se ha aplicado la técnica scaffolding en las vistas Details y Create.
 
-Reemplace el código de *Views/Departments/Details.cshtml* para eliminar la columna RowVersion y muestra el nombre completo del administrador.
+Reemplace el código de *Views/Departments/Details.cshtml* para eliminar la columna RowVersion y mostrar el nombre completo del administrador.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
-Reemplace el código de *Views/Departments/Create.cshtml* para agregar una opción que seleccione en la lista desplegable.
+Reemplace el código de *Views/Departments/Create.cshtml* para agregar una opción Select en la lista desplegable.
 
 [!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Resumen
 
-Con esto finaliza la introducción para controlar los conflictos de simultaneidad. Para obtener más información acerca de cómo administrar la simultaneidad en EF Core, vea [conflictos de simultaneidad](https://docs.microsoft.com/ef/core/saving/concurrency). El siguiente tutorial muestra cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
+Con esto finaliza la introducción para el control de los conflictos de simultaneidad. Para obtener más información sobre cómo administrar la simultaneidad en EF Core, vea [Concurrency conflicts](https://docs.microsoft.com/ef/core/saving/concurrency) (Conflictos de simultaneidad). El siguiente tutorial muestra cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
 
 >[!div class="step-by-step"]
 [Anterior](update-related-data.md)
