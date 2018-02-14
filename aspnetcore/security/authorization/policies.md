@@ -1,7 +1,7 @@
 ---
-title: "Autorización personalizada basada en directivas en ASP.NET Core"
+title: "Autorización basada en directivas en ASP.NET Core"
 author: rick-anderson
-description: "Obtenga información acerca de cómo crear y usar controladores de directiva de autorización personalizada para exigir requisitos de autorización en una aplicación de ASP.NET Core."
+description: "Obtenga información acerca de cómo crear y usar controladores de directiva de autorización para exigir requisitos de autorización en una aplicación de ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,21 +10,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: 0eb5451828a51771d9388c2db610ede6231ced51
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a9ee7e6fd06fa88485d7f578a9df74cbf87d9540
+ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="custom-policy-based-authorization"></a>Autorización personalizada basada en directivas
+# <a name="policy-based-authorization"></a>Autorización basada en directivas
 
 Interiormente, [autorización basada en roles](xref:security/authorization/roles) y [autorización basada en notificaciones](xref:security/authorization/claims) utilizan un requisito, un controlador de requisito y una directiva configurada previamente. Estos bloques de creación se admite la expresión de evaluaciones de autorización en el código. El resultado es una estructura de autorización más enriquecida, reutilizables, comprobable.
 
-Una directiva de autorización está formada por uno o más requisitos. Se registra como parte de la configuración de servicio de autorización, en la `ConfigureServices` método de la `Startup` clase:
+Una directiva de autorización está formada por uno o más requisitos. Se registra como parte de la configuración de servicio de autorización, en la `Startup.ConfigureServices` método:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Startup.cs?range=40-41,50-55,63,72)]
 
-En el ejemplo anterior, se crea una directiva de "AtLeast21". Tiene un requisito único, que de una antigüedad mínima, que se proporciona como un parámetro al requisito.
+En el ejemplo anterior, se crea una directiva de "AtLeast21". Tiene un requisito único&mdash;de una antigüedad mínima, que se proporciona como un parámetro al requisito.
 
 Las directivas se aplican mediante el `[Authorize]` atributo con el nombre de la directiva. Por ejemplo:
 
@@ -32,7 +32,7 @@ Las directivas se aplican mediante el `[Authorize]` atributo con el nombre de la
 
 ## <a name="requirements"></a>Requisitos
 
-Un requisito de autorización es una colección de parámetros de datos que puede usar una directiva para evaluar la entidad de seguridad del usuario actual. En nuestra directiva de "AtLeast21", el requisito es un parámetro único&mdash;la antigüedad mínima. Implementa un requisito `IAuthorizationRequirement`, que es una interfaz de marcador vacío. Un requisito de antigüedad mínima con parámetros podría implementarse como sigue:
+Un requisito de autorización es una colección de parámetros de datos que puede usar una directiva para evaluar la entidad de seguridad del usuario actual. En nuestra directiva de "AtLeast21", el requisito es un parámetro único&mdash;la antigüedad mínima. Implementa un requisito [IAuthorizationRequirement](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationrequirement), que es una interfaz de marcador vacío. Un requisito de antigüedad mínima con parámetros podría implementarse como sigue:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Requirements/MinimumAgeRequirement.cs?name=snippet_MinimumAgeRequirementClass)]
 
@@ -43,15 +43,27 @@ Un requisito de autorización es una colección de parámetros de datos que pued
 
 ## <a name="authorization-handlers"></a>Controladores de autorización
 
-Un controlador de autorización es responsable de la evaluación de propiedades de un requisito. El controlador de autorización evalúa los requisitos con proporcionado `AuthorizationHandlerContext` para determinar si se permite el acceso. Puede tener un requisito [varios controladores](#security-authorization-policies-based-multiple-handlers). Heredan de controladores `AuthorizationHandler<T>`, donde `T` es el requisito para procesarse.
+Un controlador de autorización es responsable de la evaluación de propiedades de un requisito. El controlador de autorización evalúa los requisitos con proporcionado [AuthorizationHandlerContext](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext) para determinar si se permite el acceso.
+
+Puede tener un requisito [varios controladores](#security-authorization-policies-based-multiple-handlers). Se puede heredar un controlador [AuthorizationHandler\<TRequirement >](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandler-1), donde `TRequirement` es el requisito para procesarse. Como alternativa, puede implementar un controlador [IAuthorizationHandler](/dotnet/api/microsoft.aspnetcore.authorization.iauthorizationhandler) para administrar más de un tipo de requisito.
+
+### <a name="use-a-handler-for-one-requirement"></a>Usar un controlador para uno de los requisitos
 
 <a name="security-authorization-handler-example"></a>
 
-El controlador de antigüedad mínima podría ser similar al siguiente:
+El siguiente es un ejemplo de una relación uno a uno en el que un controlador de antigüedad mínima emplea un requisito único:
 
 [!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/MinimumAgeHandler.cs?name=snippet_MinimumAgeHandlerClass)]
 
-El código anterior determina si la entidad de seguridad del usuario actual tiene una fecha de nacimiento de notificación de que se ha emitido por un emisor conocido y de confianza. No se puede realizar la autorización cuando falta la notificación, en cuyo caso se devuelve una tarea completa. Cuando está presente una notificación, se calcula la edad del usuario. Si el usuario cumple con la antigüedad mínima definida por el requisito, la autorización se considere correcta. Cuando se realiza correctamente, la autorización `context.Succeed` se invoca con el requisito satisfecho como un parámetro.
+El código anterior determina si la entidad de seguridad del usuario actual tiene una fecha de nacimiento de notificación de que se ha emitido por un emisor conocido y de confianza. No se puede realizar la autorización cuando falta la notificación, en cuyo caso se devuelve una tarea completa. Cuando está presente una notificación, se calcula la edad del usuario. Si el usuario cumple con la antigüedad mínima definida por el requisito, la autorización se considere correcta. Cuando se realiza correctamente, la autorización `context.Succeed` se invoca con el requisito satisfecho como su único parámetro.
+
+### <a name="use-a-handler-for-multiple-requirements"></a>Usar un controlador para varios requisitos
+
+El siguiente es un ejemplo de una relación de uno a varios en el que un controlador de permiso utiliza tres requisitos:
+
+[!code-csharp[](policies/samples/PoliciesAuthApp1/Services/Handlers/PermissionHandler.cs?name=snippet_PermissionHandlerClass)]
+
+Recorre el código anterior [PendingRequirements](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.pendingrequirements#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_PendingRequirements)&mdash;una propiedad que contiene requisitos no marcado como correcta. Si el usuario tiene permiso de lectura, que debe ser un propietario o un patrocinador para tener acceso al recurso solicitado. Si el usuario tiene editar o eliminar permiso, debe un propietario para tener acceso al recurso solicitado. Cuando se realiza correctamente, la autorización `context.Succeed` se invoca con el requisito satisfecho como su único parámetro.
 
 <a name="security-authorization-policies-based-handler-registration"></a>
 
@@ -73,7 +85,7 @@ Tenga en cuenta que la `Handle` método en el [controlador (ejemplo)](#security-
 
 * Para garantizar el error, incluso si otros controladores de requisito correctamente, llame a `context.Fail`.
 
-Independientemente de lo que se llama a dentro de su controlador, todos los controladores para un requisito se llamará cuando una directiva exige el requisito. Esto permite requisitos tienen efectos secundarios, como el registro, que siempre se llevará a cabo aunque `context.Fail()` se ha llamado en otro controlador.
+Cuando se establece en `false`, [InvokeHandlersAfterFailure](/dotnet/api/microsoft.aspnetcore.authorization.authorizationoptions.invokehandlersafterfailure#Microsoft_AspNetCore_Authorization_AuthorizationOptions_InvokeHandlersAfterFailure) propiedad (disponible en ASP.NET Core 1.1 y versiones posterior) cortocircuita la ejecución de controladores cuando `context.Fail` se llama. `InvokeHandlersAfterFailure` valor predeterminado es `true`, en cuyo caso se llama a todos los controladores. Esto permite que los requisitos producir efectos secundarios, como el registro, que siempre tienen lugar incluso si `context.Fail` se ha llamado en otro controlador.
 
 <a name="security-authorization-policies-based-multiple-handlers"></a>
 
