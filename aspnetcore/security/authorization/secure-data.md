@@ -1,7 +1,7 @@
 ---
 title: "Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización"
 author: rick-anderson
-description: "Obtenga información acerca de cómo crear una aplicación de páginas de Razor con datos de usuario protegidos mediante autorización. Incluye SSL, la autenticación, la seguridad, ASP.NET Core Identity."
+description: "Obtenga información acerca de cómo crear una aplicación de páginas de Razor con datos de usuario protegidos mediante autorización. Incluye HTTPS, la autenticación, la seguridad, ASP.NET Core Identity."
 manager: wpickett
 ms.author: riande
 ms.date: 01/24/2018
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 6333082a2b2b4f6d3f1ce2afc600b4203a0f5dca
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: e186adef2e72f852543a92ddce0e82be2a3bcd12
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -87,7 +87,7 @@ Usar ASP.NET [identidad](xref:security/authentication/identity) Id. de usuario p
 
 [!code-csharp[Main](secure-data/samples/final2/Models/Contact.cs?name=snippet1&highlight=5-6,16-999)]
 
-`OwnerID`es el identificador del usuario desde el `AspNetUser` tabla el [identidad](xref:security/authentication/identity) base de datos. El `Status` campo determina si un contacto es visible para los usuarios en general.
+`OwnerID` es el identificador del usuario desde el `AspNetUser` tabla el [identidad](xref:security/authentication/identity) base de datos. El `Status` campo determina si un contacto es visible para los usuarios en general.
 
 Crear una nueva migración y actualizar la base de datos:
 
@@ -96,7 +96,7 @@ dotnet ef migrations add userID_Status
 dotnet ef database update
 ```
 
-### <a name="require-ssl-and-authenticated-users"></a>Requerir SSL y los usuarios autenticados
+### <a name="require-https-and-authenticated-users"></a>Requerir HTTPS y los usuarios autenticados
 
 Agregar [IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) a `Startup`:
 
@@ -104,19 +104,26 @@ Agregar [IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostinge
 
 En el `ConfigureServices` método de la *Startup.cs* , agregue el [RequireHttpsAttribute](/aspnet/core/api/microsoft.aspnetcore.mvc.requirehttpsattribute) filtro de autorización:
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=19-999)]
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_SSL&highlight=10-999)]
 
-Si está utilizando Visual Studio, habilite SSL.
+Si está utilizando Visual Studio, habilitar HTTPS.
 
-Para redirigir las solicitudes HTTP a HTTPS, consulte [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting). Si está usando código de Visual Studio o pruebas en una plataforma local que no incluye un certificado de prueba para SSL:
+Para redirigir las solicitudes HTTP a HTTPS, consulte [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting). Si está usando Visual Studio Code o pruebas en una plataforma local que no incluye un certificado de prueba para HTTPS:
 
   Establecer `"LocalTest:skipSSL": true` en el *appsettings. Developement.JSON* archivo.
 
 ### <a name="require-authenticated-users"></a>Requerir a los usuarios autenticados
 
-Establecer la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen. Puede rechazar la autenticación en el nivel de método página Razor, controlador o acción con el `[AllowAnonymous]` atributo. Establecer la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen protege recién agregado las páginas Razor y controladores. Existencia de autenticación que requiere de forma predeterminada es más segura que confiar en los nuevos controladores y las páginas de Razor para incluir la `[Authorize]` atributo. Agregue lo siguiente a la `ConfigureServices` método de la *Startup.cs* archivo:
+Establecer la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen. Puede rechazar la autenticación en el nivel de método página Razor, controlador o acción con el `[AllowAnonymous]` atributo. Establecer la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen protege recién agregado las páginas Razor y controladores. Existencia de autenticación que requiere de forma predeterminada es más segura que confiar en los nuevos controladores y las páginas de Razor para incluir la `[Authorize]` atributo. 
 
-[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=31-999)]
+Con el requisito de todos los usuarios autenticados, el [AuthorizeFolder](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizefolder?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_PageConventionCollectionExtensions_AuthorizeFolder_Microsoft_AspNetCore_Mvc_ApplicationModels_PageConventionCollection_System_String_System_String_) y [AuthorizePage](/dotnet/api/microsoft.extensions.dependencyinjection.pageconventioncollectionextensions.authorizepage?view=aspnetcore-2.0) llamadas no son necesarias.
+
+Actualización `ConfigureServices` con los cambios siguientes:
+
+* Convertir en comentario `AuthorizeFolder` y `AuthorizePage`.
+* Establecer la directiva de autenticación predeterminado para exigir que los usuarios se autentiquen.
+
+[!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=snippet_defaultPolicy&highlight=23-27,31-999)]
 
 Agregar [AllowAnonymous](/dotnet/api/microsoft.aspnetcore.authorization.allowanonymousattribute) al índice, las páginas sobre y, a continuación, póngase en contacto con por lo que los usuarios anónimos pueden recibir información sobre el sitio antes de que registrar. 
 
@@ -155,11 +162,11 @@ Crear un `ContactIsOwnerAuthorizationHandler` clase en el *autorización* carpet
 El `ContactIsOwnerAuthorizationHandler` llamadas [contexto. Correctamente](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.succeed#Microsoft_AspNetCore_Authorization_AuthorizationHandlerContext_Succeed_Microsoft_AspNetCore_Authorization_IAuthorizationRequirement_) si el usuario autenticado actual es el propietario del contacto. Controladores de autorización general:
 
 * Devolver `context.Succeed` cuando se cumplen los requisitos.
-* Devolver `Task.CompletedTask` cuando no se cumplen los requisitos. `Task.CompletedTask`no correcto o error&mdash;permite que otros controladores de autorización para que se ejecute.
+* Devolver `Task.CompletedTask` cuando no se cumplen los requisitos. `Task.CompletedTask` no correcto o error&mdash;permite que otros controladores de autorización para que se ejecute.
 
 Si necesita explícitamente un error, devolver [contexto. Un error](/dotnet/api/microsoft.aspnetcore.authorization.authorizationhandlercontext.fail).
 
-La aplicación permite a los propietarios de contacto para editar, eliminar o crear sus propios datos. `ContactIsOwnerAuthorizationHandler`no tiene que comprobar la operación pasada en el parámetro de requisito.
+La aplicación permite a los propietarios de contacto para editar, eliminar o crear sus propios datos. `ContactIsOwnerAuthorizationHandler` no tiene que comprobar la operación pasada en el parámetro de requisito.
 
 ### <a name="create-a-manager-authorization-handler"></a>Crear un controlador del Administrador de autorización
 
@@ -179,7 +186,7 @@ Servicios mediante Entity Framework Core deben estar registrados para [inyecció
 
 [!code-csharp[Main](secure-data/samples/final2/Startup.cs?name=ConfigureServices&highlight=41-999)]
 
-`ContactAdministratorsAuthorizationHandler`y `ContactManagerAuthorizationHandler` se agregan como singleton. Son singletons porque no usan EF y toda la información necesaria se encuentra en la `Context` parámetro de la `HandleRequirementAsync` método.
+`ContactAdministratorsAuthorizationHandler` y `ContactManagerAuthorizationHandler` se agregan como singleton. Son singletons porque no usan EF y toda la información necesaria se encuentra en la `Context` parámetro de la `HandleRequirementAsync` método.
 
 ## <a name="support-authorization"></a>Admitir la autorización
 
@@ -263,9 +270,9 @@ Actualice el modelo de páginas de detalles:
 
 ## <a name="test-the-completed-app"></a>Probar la aplicación completada
 
-Si está usando código de Visual Studio o pruebas en una plataforma local que no incluye un certificado de prueba para SSL:
+Si está usando Visual Studio Code o pruebas en una plataforma local que no incluye un certificado de prueba para HTTPS:
 
-* Establecer `"LocalTest:skipSSL": true` en el *appsettings. Developement.JSON* archivo para omitir el requisito de SSL. Omitir SSL sólo en un equipo de desarrollo.
+* Establecer `"LocalTest:skipSSL": true` en el *appsettings. Developement.JSON* archivo para omitir el requisito de HTTPS. Skip HTTPS solamente en un equipo de desarrollo.
 
 Si la aplicación tiene contactos:
 
@@ -300,7 +307,7 @@ Crear un contacto en el explorador del administrador. Copie la dirección URL pa
   dotnet new razor -o ContactManager -au Individual -uld
   ```
 
-  * `-uld`Especifica LocalDB en lugar de SQLite
+  * `-uld` Especifica LocalDB en lugar de SQLite
 
 * Agregue las siguientes `Contact` modelo:
 

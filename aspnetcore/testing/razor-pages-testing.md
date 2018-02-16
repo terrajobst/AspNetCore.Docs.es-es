@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 5891b236306cd3790cbba14919796d6aa894ad53
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
+ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/15/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unidad de páginas de Razor y pruebas de integración en ASP.NET Core
 
@@ -69,9 +69,9 @@ La aplicación de prueba es una aplicación de consola en el *tests/RazorPagesTe
 
 | Carpeta de la aplicación de prueba    | Descripción |
 | ------------------ | ----------- |
-| *IntegrationTests* | <ul><li>*IndexPageTest.cs* contiene las pruebas de integración de la página de índice.</li><li>*TestFixture.cs* crea el host de prueba para probar la aplicación de mensaje.</li></ul> |
+| IntegrationTests | <ul><li>*IndexPageTest.cs* contiene las pruebas de integración de la página de índice.</li><li>*TestFixture.cs* crea el host de prueba para probar la aplicación de mensaje.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* contiene las pruebas unitarias para la capa DAL.</li><li>*IndexPageTest.cs* contiene las pruebas unitarias para el modelo de páginas de índice.</li></ul> |
-| *Utilidades*        | *Utilities.cs* contiene el:<ul><li>`TestingDbContextOptions`método usado para crear nueva base de datos de las opciones de contexto para cada prueba unitaria DAL para que la base de datos se restablece a su estado de línea de base para cada prueba.</li><li>`GetRequestContentAsync`método usado para preparar el `HttpClient` y contenido para las solicitudes que se envían a la aplicación de mensaje durante las pruebas de integración.</li></ul>
+| *Utilidades*        | *Utilities.cs* contiene el:<ul><li>`TestingDbContextOptions` método usado para crear nueva base de datos de las opciones de contexto para cada prueba unitaria DAL para que la base de datos se restablece a su estado de línea de base para cada prueba.</li><li>`GetRequestContentAsync` método usado para preparar el `HttpClient` y contenido para las solicitudes que se envían a la aplicación de mensaje durante las pruebas de integración.</li></ul>
 
 El marco de pruebas es [xUnit](https://xunit.github.io/). El objeto de marco de simulación es [Moq](https://github.com/moq/moq4). Pruebas de integración se realizan empleando el [Host de prueba de ASP.NET Core](xref:testing/integration-testing#the-test-host).
 
@@ -102,7 +102,7 @@ El problema con este enfoque es que cada prueba recibe la base de datos en el es
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
-Mediante el `DbContextOptions` en la unidad de la capa DAL pruebas permite que cada prueba para ejecutarse de forma atómica con una una instancia nueva de la base de datos:
+Mediante el `DbContextOptions` en la unidad de la capa DAL pruebas permite que cada prueba para ejecutarse de forma atómica con una instancia nueva de la base de datos:
 
 ```csharp
 using (var db = new AppDbContext(Utilities.TestingDbContextOptions()))
@@ -176,7 +176,7 @@ Paso de acción de prueba unitaria (*tests/RazorPagesTestingSample.Tests/UnitTes
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
-`IndexPage`modelo de páginas `OnGetAsync` método (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
+`IndexPage` modelo de páginas `OnGetAsync` método (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
@@ -212,7 +212,7 @@ El `Post_AddMessageHandler_ReturnsRedirectToRoot` método de prueba:
 * Realiza una solicitud POST a la aplicación.
 * Comprueba que la respuesta es una redirección a la página de índice.
 
-`Post_AddMessageHandler_ReturnsRedirectToRoot `método (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
+`Post_AddMessageHandler_ReturnsRedirectToRoot ` método (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
 [!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 
