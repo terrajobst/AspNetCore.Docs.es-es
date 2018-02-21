@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c1a05c3e40e6aab0f2e4a97c0b3bb9eca8a08a41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5addaada33364d044d89359196bd1d316590c517
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 
@@ -41,7 +41,7 @@ El módulo principal de ASP.NET se configura a través de una aplicación o siti
 </configuration>
 ```
 
-El *web.config* ejemplo siguiente es para un [implementación independiente](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) a la [servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/). Para obtener más información, consulte [Host en Windows con IIS](xref:host-and-deploy/iis/index). Vea [configuración de aplicaciones del subelemento](xref:host-and-deploy/iis/index#configuration-of-sub-applications) para una nota importante relacionada con la configuración de *web.config* archivos en subcarpetas de las aplicaciones.
+El *web.config* ejemplo siguiente es para un [implementación independiente](https://docs.microsoft.com/dotnet/articles/core/deploying/#self-contained-deployments-scd) a la [servicio de aplicaciones de Azure](https://azure.microsoft.com/services/app-service/). Para obtener más información, consulte [Host en Windows con IIS](xref:host-and-deploy/iis/index). Vea [configuración de aplicaciones del subelemento](xref:host-and-deploy/iis/index#sub-application-configuration) para una nota importante relacionada con la configuración de *web.config* archivos en subcarpetas de las aplicaciones.
 
 ```xml
 <configuration>
@@ -75,7 +75,7 @@ El *web.config* ejemplo siguiente es para un [implementación independiente](htt
 
 El módulo principal de ASP.NET le permite especificar las variables de entorno del proceso especificado en el `processPath` atributo especificándolas en uno o varios `environmentVariable` elementos secundarios de un `environmentVariables` elemento de la colección en el `aspNetCore` elemento. Las variables de entorno establecidas en esta sección tienen prioridad sobre el sistema las variables de entorno para el proceso.
 
-En el ejemplo siguiente establece dos variables de entorno. `ASPNETCORE_ENVIRONMENT`va a configurar el entorno de la aplicación para `Development`. Un programador puede establecer temporalmente este valor el *web.config* archivo con el fin de forzar la [página de excepción para desarrolladores](xref:fundamentals/error-handling) cargar al depurar una excepción de aplicación. `CONFIG_DIR`es un ejemplo de una variable de entorno definida por el usuario, donde el desarrollador ha escrito el código que va a leer el valor de inicio para formar una ruta de acceso para cargar el archivo de configuración de la aplicación.
+En el ejemplo siguiente establece dos variables de entorno. `ASPNETCORE_ENVIRONMENT` va a configurar el entorno de la aplicación para `Development`. Un programador puede establecer temporalmente este valor el *web.config* archivo con el fin de forzar la [página de excepción para desarrolladores](xref:fundamentals/error-handling) cargar al depurar una excepción de aplicación. `CONFIG_DIR` es un ejemplo de una variable de entorno definida por el usuario, donde el desarrollador ha escrito el código que va a leer el valor de inicio para formar una ruta de acceso para cargar el archivo de configuración de la aplicación.
 
 ```xml
 <aspNetCore processPath="dotnet"

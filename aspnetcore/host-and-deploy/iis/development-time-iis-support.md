@@ -1,7 +1,7 @@
 ---
 title: Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 author: shirhatti
-description: "Descubra la compatibilidad para depurar aplicaciones de ASP.NET Core al ejecutarlas detrás de IIS en Windows Server."
+description: "Descubrir compatibilidad para depurar aplicaciones de ASP.NET Core cuando se ejecuta detrás de IIS en Windows Server."
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a5f727dd21ac0c6702691df2215c42f4adc0ec27
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
+ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/19/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
 De: [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-En este artículo se describe la compatibilidad de [Visual Studio](https://www.visualstudio.com/vs/) para depurar aplicaciones de ASP.NET Core ejecutadas detrás de IIS en Windows Server. Este tema le guía a través de habilitar esta característica y configurar un proyecto.
+Este artículo se describen [Visual Studio](https://www.visualstudio.com/vs/) la compatibilidad para depurar aplicaciones de ASP.NET Core que se ejecutan detrás de IIS en Windows Server. Este tema le guía a través de habilitar esta característica y configurar un proyecto.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,7 +37,7 @@ Si la instalación de IIS requiere un reinicio, reinicie el sistema.
 
 ## <a name="enable-development-time-iis-support"></a>Habilitar compatibilidad con IIS en tiempo de desarrollo
 
-Una vez instalado IIS, inicie el instalador de Visual Studio para modificar la instalación existente de Visual Studio. En el instalador, seleccione el componente **Compatibilidad con IIS en tiempo de desarrollo**. Aparece como componente opcional en el panel **Resumen** de la carga de trabajo **Desarrollo de ASP.NET y web**. Se instalará el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module), que es un módulo de IIS nativo necesario para ejecutar aplicaciones de ASP.NET Core.
+Inicie al instalador de Visual Studio. Seleccione el **IIS compatible con el tiempo de desarrollo** componente. El componente se enumera como opcionales en la **resumen** panel para la **ASP.NET y desarrollo web** carga de trabajo. Esto instala los [módulo principal de ASP.NET](xref:fundamentals/servers/aspnet-core-module), que es un módulo nativo de IIS necesario para ejecutar aplicaciones de ASP.NET Core.
 
 ![Modificación de las características de Visual Studio: la pestaña Cargas de trabajo está seleccionada. En la sección Web and Cloud (Web y nube), el panel Desarrollo de ASP.NET y web está seleccionado. A la derecha en el área opcional del panel de resumen, hay una casilla de verificación para IIS compatible con el tiempo de desarrollo.](development-time-iis-support/_static/development_time_support.png)
 
@@ -73,8 +73,6 @@ O bien, agregar manualmente un perfil de inicio para la [launchSettings.json](ht
 ```
 
 Visual Studio puede solicitar un reinicio si no se ejecuta como administrador. Si es así, reinicie Visual Studio.
-
-¡Enhorabuena! En este momento, el proyecto está configurado para admitir IIS de tiempo de desarrollo. 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
