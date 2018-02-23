@@ -25,13 +25,13 @@ Las memorias caché distribuidas pueden mejorar el rendimiento y la escalabilida
 
 ## <a name="what-is-a-distributed-cache"></a>¿Qué es una memoria caché distribuida
 
-Una memoria caché distribuida es compartida por varios servidores de aplicación (consulte [conceptos básicos de almacenamiento en caché](memory.md#caching-basics)). La información de la memoria caché no se guardan en la memoria de los servidores web individuales y los datos almacenados en caché están disponibles para todos los servidores de la aplicación. Esto proporciona varias ventajas:
+Una memoria caché distribuida se comparte entre varios servidores de aplicaciones (consulte [Conceptos básicos sobre el almacenamiento en caché](memory.md#caching-basics)). La información de la memoria caché no se guarda en la memoria de los servidores web individuales y los datos almacenados en caché están disponibles para todos los servidores de aplicaciones. Esto proporciona varias ventajas:
 
-1. Los datos almacenados en caché son coherentes en todos los servidores web. Los usuarios no verán los resultados diferentes dependiendo de qué web server controla su solicitud
+1. Los datos almacenados en caché son coherentes en todos los servidores web. Los usuarios no verán resultados distintos sin importar el servidor web que controla su solicitud.
 
 2. Los datos almacenados en caché sobreviven a reinicios del servidor web y las implementaciones. Servidores web individuales se pueden quitar o agregar sin afectar a la memoria caché.
 
-3. El almacén de datos de origen tiene menos las solicitudes realizadas a él (que con varias cachés en memoria o sin caché en absoluto).
+3. El almacén de datos de origen tiene menos las solicitudes realizadas a él (de con varias cachés en memoria o en no caché en absoluto).
 
 > [!NOTE]
 > Si usa una memoria caché distribuida de SQL Server, algunas de las siguientes ventajas solo son ciertas si se utiliza una instancia de base de datos independiente para la memoria caché que para los datos de origen de la aplicación.
@@ -42,7 +42,7 @@ La configuración de la caché es específica de la implementación. En este art
 
 ## <a name="the-idistributedcache-interface"></a>The IDistributedCache Interface
 
-El interfaz `IDistributedCache` incluye métodos sincrónicos y asincrónicos. La interfaz permite agregar, recuperar y eliminar elementos de la implementación de caché distribuida. El interfaz `IDistributedCache` incluye los métodos siguientes:
+El `IDistributedCache` interfaz incluye métodos sincrónicos y asincrónicos. La interfaz permite elementos agregar, recuperar y quitar de la implementación de caché distribuida. El `IDistributedCache` interfaz incluye los métodos siguientes:
 
 **Get, GetAsync**
 
