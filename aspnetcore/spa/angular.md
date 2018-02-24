@@ -1,34 +1,34 @@
 ---
 title: Use la plantilla de proyecto Angular
 author: SteveSandersonMS
-description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página principal de ASP.NET (SPA) versión candidata para Angular y la CLI Angular."
+description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para Angular y la CLI Angular."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: 4162b1c26e9d278c811f691c4277d4de25adb204
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f81130b67d61ee063b697f19862449c3054d547d
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-angular-project-template-release-candidate"></a>Utilice la plantilla de proyecto Angular (candidato de versión comercial)
+# <a name="use-the-angular-project-template"></a>Use la plantilla de proyecto Angular
 
 > [!NOTE]
-> Esta documentación no consiste en la plantilla de proyecto Angular publicadas. **Esta documentación está sobre el candidato de versión de la plantilla Angular.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
+> Esta documentación no acerca de la plantilla de proyecto Angular se incluye en el núcleo de ASP.NET 2.0. Se trata de la plantilla Angular más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.
 
-La plantilla de proyecto Angular actualizado proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con 5 Angular y la CLI Angular para implementar una interfaz de usuario de cliente enriquecido (UI).
+La plantilla de proyecto Angular actualizado proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con Angular y la CLI Angular para implementar una interfaz de usuario de cliente enriquecido (UI).
 
 La plantilla es equivalente a crear un proyecto de ASP.NET Core para actuar como un API de back-end y un proyecto de CLI Angular para actuar como una interfaz de usuario. La plantilla ofrece la ventaja de alojar ambos tipos de proyecto en un proyecto de aplicación único. Por lo tanto, el proyecto de aplicación puede ser creado y publicado como una sola unidad.
 
 ## <a name="create-a-new-app"></a>Crear una nueva aplicación
 
-Para empezar, asegúrese de que haya [instalar la plantilla de proyecto Angular actualizado](xref:spa/index#installation). Estas instrucciones no son aplicables a la plantilla de proyecto Angular anterior incluida en el núcleo de .NET SDK 2.0. x.
+Si usa ASP.NET Core 2.0, asegúrese de que se haya [instalar la plantilla de proyecto Angular actualizado](xref:spa/index#installation). Si tiene ASP.NET Core 2.1, no es necesario instalarlo.
 
 Crear un nuevo proyecto desde un símbolo del sistema mediante el comando `dotnet new angular` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un *mi aplicación nuevo* directorio y cambie a ese directorio:
 

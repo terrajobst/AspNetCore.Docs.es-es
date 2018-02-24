@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: aaa14e2f2704a7cfa836c5524642d2138a3ae7c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 02/23/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Configurar la autenticación de Windows en una aplicación de ASP.NET Core
 
@@ -111,6 +111,9 @@ Cuando se habilita la autenticación de Windows y acceso anónimo está deshabil
 Cuando se habilitan la autenticación de Windows y el acceso anónimo, use la `[Authorize]` y `[AllowAnonymous]` atributos. El `[Authorize]` atributo permite proteger partes de la aplicación que realmente requieren autenticación de Windows. El `[AllowAnonymous]` atributo invalidaciones `[Authorize]` atributo uso dentro de las aplicaciones que permiten el acceso anónimo. Vea [autorización sencilla](xref:security/authorization/simple) para obtener detalles de uso de atributos.
 
 En ASP.NET Core 2.x, el `[Authorize]` atributo requiere una configuración adicional de *Startup.cs* Desafíe solicitudes anónimas para la autenticación de Windows. La configuración recomendada varía ligeramente según el servidor web que se va a usar.
+
+> [!NOTE]
+> De forma predeterminada, los usuarios que no tienen autorización para acceder a una página se presentan con un documento en blanco. El [StatusCodePages middleware](xref:fundamentals/error-handling#configuring-status-code-pages) se puede configurar para proporcionar a los usuarios una mejor experiencia de "Acceso denegado".
 
 #### <a name="iis"></a>IIS
 

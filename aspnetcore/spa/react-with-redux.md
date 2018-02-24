@@ -1,26 +1,26 @@
 ---
 title: "Utilice la plantilla de proyecto reaccionan con reducción"
 author: SteveSandersonMS
-description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página principal de ASP.NET (SPA) versión candidata para reaccionar con Redux y aplicación reaccionar crear."
+description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar con Redux y aplicación reaccionar crear."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: 71a8702b9f6e9a2b40f150026f1955450e0fa7a3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-with-redux-project-template-release-candidate"></a>Utilice la plantilla de proyecto reaccionan con reducción (candidato de versión comercial)
+# <a name="use-the-react-with-redux-project-template"></a>Utilice la plantilla de proyecto reaccionan con reducción
 
 > [!NOTE]
-> Esta documentación no consiste en la plantilla de proyecto reaccionan con reducción publicada. **Esta documentación está sobre el candidato de versión de la plantilla de reaccionar con reducción.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
+> Esta documentación no acerca de la plantilla de proyecto reaccionan con reducción se incluye en ASP.NET 2.0 de núcleo. Se trata de la plantilla de reaccionar con reducción más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.
 
 La plantilla de proyecto de reaccionar con Redux actualizada proporciona un punto de partida cómodo para aplicaciones de ASP.NET Core con reaccionan, Redux, y [aplicación reaccionar crear](https://github.com/facebookincubator/create-react-app) convenciones (CRA) para implementar una interfaz de usuario de cliente enriquecido (UI).
 

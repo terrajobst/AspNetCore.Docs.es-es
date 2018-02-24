@@ -1,26 +1,26 @@
 ---
 title: Utilice la plantilla de proyecto de reaccionar
 author: SteveSandersonMS
-description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página principal de ASP.NET (SPA) versión candidata para reaccionar y aplicación reaccionar crear."
+description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar y aplicación reaccionar crear."
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 12/06/2017
+ms.date: 02/21/2018
 ms.devlang: csharp
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 5978094083a098a771f5dca103434ea8fcce7777
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e093a47159fd8278ff3705bb2c53571a8e27fab8
+ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 02/23/2018
 ---
-# <a name="use-the-react-project-template-release-candidate"></a>Utilice la plantilla de proyecto de reaccionar (candidato de versión comercial)
+# <a name="use-the-react-project-template"></a>Utilice la plantilla de proyecto de reaccionar
 
 > [!NOTE]
-> Esta documentación no consiste en la plantilla de proyecto de reaccionar publicada. **Esta documentación está sobre el candidato de versión de la plantilla de reaccionar.** Esperamos que enviar la versión de lanzamiento en 2018 temprano.
+> Acerca de la plantilla de proyecto de reaccionar en esta documentación no está incluida en ASP.NET 2.0 de núcleo. Se trata de la plantilla de reaccionar más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.
 
 La plantilla de proyecto de reaccionar actualizada proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con reaccionar y [aplicación reaccionar crear](https://github.com/facebookincubator/create-react-app) convenciones (CRA) para implementar una interfaz de usuario de cliente enriquecido (UI).
 
@@ -28,7 +28,7 @@ La plantilla es equivalente a crear un proyecto de ASP.NET Core para actuar como
 
 ## <a name="create-a-new-app"></a>Crear una nueva aplicación
 
-Para empezar, asegúrese de que haya [instalar la plantilla de proyecto de reaccionar actualizada](xref:spa/index#installation). Estas instrucciones no son aplicables a la plantilla de proyecto reaccionar anterior que se incluye en el núcleo de .NET SDK 2.0. x.
+Si usa ASP.NET Core 2.0, asegúrese de que se haya [instalar la plantilla de proyecto de reaccionar actualizada](xref:spa/index#installation). Si tiene ASP.NET Core 2.1, no es necesario instalarlo.
 
 Crear un nuevo proyecto desde un símbolo del sistema mediante el comando `dotnet new react` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un *mi aplicación nuevo* directorio y cambie a ese directorio:
 
