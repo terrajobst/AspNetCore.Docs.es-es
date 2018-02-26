@@ -204,7 +204,7 @@
 ## [Agrupar y minimizar](xref:client-side/bundling-and-minification)
 ## [Uso de Vínculo con exploradores](xref:client-side/using-browserlink)
 ## [Uso de JavaScriptServices para aplicaciones de página única](xref:client-side/spa-services)
-## [Uso de plantillas de proyectos de aplicaciones de página única (RC)](xref:spa/index)
+## [Uso de plantillas de proyectos de aplicaciones de página única](xref:spa/index)
 ### [Plantilla de proyecto Angular](xref:spa/angular)
 ### [Plantilla de proyecto React](xref:spa/react)
 ### [Plantilla de proyecto React con Redux](xref:spa/react-with-redux)
