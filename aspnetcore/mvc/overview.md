@@ -19,7 +19,7 @@ ms.lasthandoff: 01/30/2018
 
 Por [Steve Smith](https://ardalis.com/)
 
-ASP.NET Core MVC es un marco completo para crear aplicaciones web y varias API mediante el patrón de diseño del controlador de vista de modelos.
+ASP.NET Core MVC es un completo marco de trabajo para compilar aplicaciones web y API mediante el patrón de diseño Modelo-Vista-Controlador.
 
 ## <a name="what-is-the-mvc-pattern"></a>¿Qué es el patrón de MVC?
 
@@ -32,7 +32,7 @@ En el siguiente diagrama se muestran los tres componentes principales y cuál ha
 Con esta delineación de responsabilidades es más sencillo escalar la aplicación, porque resulta más fácil codificar, depurar y probar algo (modelo, vista o controlador) que tenga un solo trabajo (y siga el [principio de responsabilidad única ](http://deviq.com/single-responsibility-principle/)). Es más difícil actualizar, probar y depurar código que tenga dependencias repartidas entre dos o más de estas tres áreas. Por ejemplo, la lógica de la interfaz de usuario tiende a cambiar con mayor frecuencia que la lógica de negocios. Si el código de presentación y la lógica de negocios se combinan en un solo objeto, un objeto que contenga lógica de negocios deberá modificarse cada vez que cambie la interfaz de usuario. A menudo esto genera errores y es necesario volver a probar la lógica de negocio después de cada cambio mínimo en la interfaz de usuario.
 
 > [!NOTE]
-> Tanto la vista como el controlador dependen del modelo. Pero el modelo no depende de la vista ni del controlador. Esta es una de las principales ventajas de la separación. Esta separación permite que el modelo se compile y se pruebe de manera independiente de la presentación visual.
+> La vista y el controlador dependen del modelo. Sin embargo, el modelo no depende de la vista ni del controlador.  Esta es una de las ventajas principales de la separación. Esta separación permite compilar y probar el modelo con independencia de la presentación visual.
 
 ### <a name="model-responsibilities"></a>Responsabilidades del modelo
 
