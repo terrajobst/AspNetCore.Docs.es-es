@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: fe44581829d53b1633347762df0a72f62e6e5760
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 8da97b2148c0a784e3b1fdfe210db35e3fcceade
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) es un [servicio de plataforma de informática en la nube de Microsoft](https://azure.microsoft.com/) que sirve para hospedar aplicaciones web, como ASP.NET Core.
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 ## <a name="useful-resources"></a>Recursos útiles
 
