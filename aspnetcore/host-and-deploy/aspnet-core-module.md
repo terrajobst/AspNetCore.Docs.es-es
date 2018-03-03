@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: c01abed767a226eae68725c1c53d922eac2f705e
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 
@@ -128,6 +128,12 @@ El ejemplo siguiente `aspNetCore` elemento configura `stdout` el registro para u
 ```
 
 Vea [configuración con web.config](#configuration-with-webconfig) para obtener un ejemplo de la `aspNetCore` elemento en el *web.config* archivo.
+
+## <a name="proxy-configuration-uses-http-protocol-and-a-pairing-token"></a>La configuración de proxy usa el protocolo HTTP y un token de emparejamiento
+
+El proxy creado entre el módulo principal de ASP.NET y Kestrel utiliza el protocolo HTTP. Uso de HTTP es una optimización del rendimiento, donde el tráfico entre el módulo y Kestrel realiza en una dirección de bucle invertido fuera de la interfaz de red. No hay ningún riesgo de interceptación el tráfico entre el módulo y Kestrel desde una ubicación fuera del servidor.
+
+Un token de emparejamiento sirve para garantizar que las solicitudes recibidas por Kestrel se redirigieron mediante proxy por IIS y no procedieron de otra fuente. El token de emparejamiento se crea y se ha establecido en una variable de entorno (`ASPNETCORE_TOKEN`) por el módulo. El token de emparejamiento también se establece en un encabezado (`MSAspNetCoreToken`) en cada solicitud redirigida mediante proxy. El middleware de IIS comprueba cada solicitud recibida para confirmar que el valor del encabezado del token de emparejamiento coincida con el valor de la variable de entorno. Si los valores del token no coinciden, la solicitud se registra y se rechaza. La variable de entorno token emparejamiento y el tráfico entre el módulo y Kestrel no son accesibles desde una ubicación fuera del servidor. Sin conocer el valor del token de emparejamiento, un atacante no puede enviar solicitudes que omitan la comprobación en el middleware de IIS.
 
 ## <a name="aspnet-core-module-with-an-iis-shared-configuration"></a>Configuración compartida de módulo de núcleo de ASP.NET con un servicio de IIS
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 1044a87a4dcc7636413078b0fc09ade206c97d0a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 5e85cf909c1a360f245bcc83233ccc1347735b26
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hospedar ASP.NET Core en Linux con Nginx
 
@@ -38,7 +38,7 @@ En esta guía:
 
 ## <a name="copy-over-the-app"></a>Copiar a través de la aplicación
 
-Ejecute `dotnet publish` desde el entorno de desarrollo para empaquetar una aplicación en un directorio independiente que se puede ejecutar en el servidor.
+Ejecutar [publicar dotnet](/dotnet/core/tools/dotnet-publish) desde el entorno de desarrollo para empaquetar una aplicación en un directorio independiente que se puede ejecutar en el servidor.
 
 Copie la aplicación de ASP.NET Core en el servidor mediante cualquier herramienta que se integra en el flujo de trabajo de la organización (por ejemplo, SCP, FTP). Pruebe la aplicación, por ejemplo:
 
@@ -53,7 +53,7 @@ Un proxy inverso es una configuración común para servir las aplicaciones web d
 
 Kestrel es excelente para servir contenido dinámico de ASP.NET Core. Sin embargo, las capacidades de servicio web tienen tantas características como servidores, como IIS, Apache o Nginx. Un servidor proxy inverso puede descargar de trabajo, como servir contenido estático, almacenamiento en caché las solicitudes de la compresión de las solicitudes y la terminación SSL desde el servidor HTTP. Un servidor proxy inverso puede residir en un equipo dedicado o se puede implementar junto con un servidor HTTP.
 
-Para los fines de esta guía, se usa una única instancia de Nginx. Se ejecuta en el mismo servidor, junto con el servidor HTTP. En función de requisitos, una instalación diferentes pueden elegirá.
+Para los fines de esta guía, se usa una única instancia de Nginx. Se ejecuta en el mismo servidor, junto con el servidor HTTP. En función de requisitos, se puede elegir una configuración diferente.
 
 Dado que se reenvíen solicitudes por proxy inverso, usar el Middleware de encabezados reenviados desde el [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/) paquete. Las actualizaciones de software intermedio el `Request.Scheme`, usando la `X-Forwarded-Proto` encabezado, por lo que ese URI de redirección y las otras directivas de seguridad funcionen correctamente.
 
@@ -283,11 +283,11 @@ Considere el uso de un firewall de aplicación web como *ModSecurity* para prote
 
 Agregue el archivo de configuración */etc/nginx/proxy.conf*:
 
-[!code-nginx[Main](linux-nginx/proxy.conf)]
+[!code-nginx[](linux-nginx/proxy.conf)]
 
 Edite el archivo de configuración */etc/nginx/nginx.conf*. El ejemplo contiene las dos secciones `http` y `server` en un archivo de configuración.
 
-[!code-nginx[Main](linux-nginx/nginx.conf?highlight=2)]
+[!code-nginx[](linux-nginx/nginx.conf?highlight=2)]
 
 #### <a name="secure-nginx-from-clickjacking"></a>Proteger Nginx frente al secuestro de clic
 El secuestro de clic es una técnica malintencionada para recopilar los clics de un usuario infectado. El secuestro de clic engaña a la víctima (visitante) para que haga clic en un sitio infectado. X-FRAME-OPTIONS de la utilice para proteger el sitio.

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: ee628ee14aa38969cdb4443718c378fd36192596
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Administrar paquetes de cliente con Bower en ASP.NET Core
 
@@ -67,13 +67,13 @@ Puede usar el cuadro de búsqueda en el Explorador de soluciones para buscar y m
 
 Abra la *Views\Shared\_Layout.cshtml* de archivos y agregar el archivo CSS de fuente Maravilla en el entorno de [etiqueta auxiliar](xref:mvc/views/tag-helpers/intro) para `Development`. En el Explorador de soluciones, arrastre y coloque *fuente awesome.css* dentro de la `<environment names="Development">` elemento.
 
-[!code-html[Main](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
+[!code-html[](bower/sample/_Layout.cshtml?highlight=4&range=9-13)]
 
 En una aplicación de producción agregaría *fuente awesome.min.css* a la aplicación auxiliar de etiquetas de entorno para `Staging,Production`.
 
 Reemplace el contenido de la *Views\Home\About.cshtml* archivo Razor con el marcado siguiente:
 
-[!code-html[Main](bower/sample/About.cshtml)]
+[!code-html[](bower/sample/About.cshtml)]
 
 Ejecutar la aplicación y navegue hasta la vista acerca para comprobar el funciona de Maravilla de fuente del paquete.
 
@@ -96,7 +96,7 @@ Una vez que enumerar los paquetes en el *bower.json* archivo, Visual Studio, des
 
 * Abra *bower.json*y agregar jquery y arrancar en el `dependencies` sección. Resultante *bower.json* archivo tendrá un aspecto similar al ejemplo siguiente. Las versiones cambiarán con el tiempo y no pueden coincidir con la imagen siguiente.
 
-[!code-json[Main](bower/sample/bower.json?highlight=5,6)]
+[!code-json[](bower/sample/bower.json?highlight=5,6)]
 
 * Guardar el *bower.json* archivo.
 
@@ -109,7 +109,7 @@ Una vez que enumerar los paquetes en el *bower.json* archivo, Visual Studio, des
 * Agregar el `Microsoft.AspNetCore.StaticFiles` paquete NuGet para el proyecto.
 * Habilitar archivos estáticos que se sirvan con el [middleware de archivos estáticos](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions). Agregue una llamada a [UseStaticFiles](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.staticfileextensions) a la `Configure` método `Startup`.
 
-[!code-csharp[Main](bower/sample/Startup.cs?highlight=9)]
+[!code-csharp[](bower/sample/Startup.cs?highlight=9)]
 
 ### <a name="reference-packages"></a>Paquetes de referencia
 
@@ -119,7 +119,7 @@ En esta sección, creará una página HTML para comprobar puede tener acceso a l
 
  Reemplace el contenido de *Index.html* con el siguiente marcado:
 
-[!code-html[Main](bower/sample/Index.html)]
+[!code-html[](bower/sample/Index.html)]
 
 * Ejecute la aplicación y vaya a `http://localhost:<port>/Index.html`. O bien, con *Index.html* abierto, presione `Ctrl+Shift+W`. Compruebe que se aplica el estilo jumbotron, el código de jQuery responde cuando se hace clic en el botón y que el botón de arranque cambia el estado.
 

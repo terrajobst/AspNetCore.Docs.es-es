@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
-ms.openlocfilehash: c229537e7f533eea2173dbc51b8d0d0e097d434a
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: f6efd838d7b6c837c75f36591a49eab812f9d54c
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="configure-windows-authentication-in-an-aspnet-core-app"></a>Configurar la autenticación de Windows en una aplicación de ASP.NET Core
 
@@ -56,7 +56,7 @@ Como alternativa, estas dos propiedades pueden configurarse en el *launchSetting
 
 ## <a name="enable-windows-authentication-with-iis"></a>Habilitar la autenticación de Windows con IIS
 
-IIS usa el [módulo principal de ASP.NET](xref:fundamentals/servers/aspnet-core-module) (ANCM) para hospedar aplicaciones ASP.NET Core. La ANCM flujos autenticación de Windows en IIS de forma predeterminada. Configuración de autenticación de Windows se realiza dentro de IIS, no en el proyecto de aplicación. Las secciones siguientes muestran cómo usar el Administrador de IIS para configurar una aplicación ASP.NET Core para usar la autenticación de Windows.
+IIS usa el [módulo principal de ASP.NET](xref:fundamentals/servers/aspnet-core-module) a las aplicaciones ASP.NET Core de host. El módulo flujos autenticación de Windows en IIS de forma predeterminada. Se configura la autenticación de Windows en IIS, no la aplicación. Las secciones siguientes muestran cómo usar el Administrador de IIS para configurar una aplicación ASP.NET Core para usar la autenticación de Windows.
 
 ### <a name="create-a-new-iis-site"></a>Crear un nuevo sitio IIS
 
@@ -113,7 +113,7 @@ Cuando se habilitan la autenticación de Windows y el acceso anónimo, use la `[
 En ASP.NET Core 2.x, el `[Authorize]` atributo requiere una configuración adicional de *Startup.cs* Desafíe solicitudes anónimas para la autenticación de Windows. La configuración recomendada varía ligeramente según el servidor web que se va a usar.
 
 > [!NOTE]
-> De forma predeterminada, los usuarios que no tienen autorización para acceder a una página se presentan con un documento en blanco. El [StatusCodePages middleware](xref:fundamentals/error-handling#configuring-status-code-pages) se puede configurar para proporcionar a los usuarios una mejor experiencia de "Acceso denegado".
+> De forma predeterminada, los usuarios que no tienen autorización para acceder a una página se le presentará una respuesta HTTP 403 vacía. El [StatusCodePages middleware](xref:fundamentals/error-handling#configuring-status-code-pages) se puede configurar para proporcionar a los usuarios una mejor experiencia de "Acceso denegado".
 
 #### <a name="iis"></a>IIS
 

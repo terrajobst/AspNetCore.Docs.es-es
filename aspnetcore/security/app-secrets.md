@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 337782a0530a37916b04aa562174b5921ddbc46b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core
 
@@ -45,11 +45,11 @@ La herramienta Administrador de secreto almacena datos confidenciales en el trab
 
 Haga clic en el proyecto en el Explorador de soluciones y seleccione **editar \<Nombre_proyecto\>.csproj** en el menú contextual. Agregue la línea resaltada en el *.csproj* y guardar archivos para restaurar el paquete NuGet asociado:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Haga clic de nuevo en el proyecto en el Explorador de soluciones y seleccione **administrar secretos del usuario** en el menú contextual. Este movimiento agrega un nuevo `UserSecretsId` nodo dentro de un `PropertyGroup` de la *.csproj* archivo, como se resalta en el ejemplo siguiente:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Guardar modificados *.csproj* archivo también se abre un `secrets.json` archivo en el editor de texto. Reemplace el contenido de la `secrets.json` archivo con el código siguiente:
 
@@ -61,9 +61,9 @@ Guardar modificados *.csproj* archivo también se abre un `secrets.json` archivo
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
-Agregar `Microsoft.Extensions.SecretManager.Tools` a la *.csproj* de archivos y ejecutar `dotnet restore`. Puede usar los mismos pasos para instalar la herramienta de administrador de secreto mediante la línea de comandos.
+Agregar `Microsoft.Extensions.SecretManager.Tools` a la *.csproj* de archivos y ejecutar [dotnet restauración](/dotnet/core/tools/dotnet-restore). Puede usar los mismos pasos para instalar la herramienta de administrador de secreto mediante la línea de comandos.
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
 
 Probar la herramienta Administrador de secreto ejecutando el siguiente comando:
 
@@ -80,7 +80,7 @@ La herramienta Administrador de secreto opera en valores de configuración espec
 
 Agregar un `UserSecretsId` para el proyecto en el *.csproj* archivo:
 
-[!code-xml[Main](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
+[!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-after.csproj?highlight=4)]
 
 Utilice la herramienta Administrador de secreto para establecer un secreto. Por ejemplo, en una ventana de comandos desde el directorio del proyecto, escriba lo siguiente:
 
@@ -100,25 +100,25 @@ También puede usar la herramienta Administrador de secreto para enumerar, quita
 
 ## <a name="accessing-user-secrets-via-configuration"></a>Obtener acceso a información confidencial del usuario mediante la configuración
 
-Obtener acceso a los secretos de administrador de secreto a través del sistema de configuración. Agregar el `Microsoft.Extensions.Configuration.UserSecrets` empaquetar y ejecutar `dotnet restore`.
+Obtener acceso a los secretos de administrador de secreto a través del sistema de configuración. Agregar el `Microsoft.Extensions.Configuration.UserSecrets` empaquetar y ejecutar [dotnet restauración](/dotnet/core/tools/dotnet-restore).
 
 Agregar el origen de configuración de secretos de usuario para el `Startup` método:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=16-19)]
 
 Puede tener acceso a los secretos del usuario a través de la API de configuración:
 
-[!code-csharp[Main](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
+[!code-csharp[](app-secrets/sample/UserSecrets/Startup.cs?highlight=26-29)]
 
 ## <a name="how-the-secret-manager-tool-works"></a>Cómo funciona la herramienta Administrador de secreto
 
 La herramienta Administrador de secreto abstrae los detalles de implementación, como dónde y cómo se almacenan los valores. Puede usar la herramienta sin conocer estos detalles de implementación. En la versión actual, los valores se almacenan en un [JSON](http://json.org/) archivo de configuración en el directorio del perfil de usuario:
 
-* Windows:`%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
+* Windows: `%APPDATA%\microsoft\UserSecrets\<userSecretsId>\secrets.json`
 
-* Linux:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-* Mac:`~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* Mac: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 El valor de `userSecretsId` proviene del valor especificado en *.csproj* archivo.
 

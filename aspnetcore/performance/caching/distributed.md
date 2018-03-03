@@ -1,7 +1,7 @@
 ---
 title: "Trabajar con una memoria caché distribuida en ASP.NET Core"
 author: ardalis
-description: "Obtenga información acerca de cómo usar el almacenamiento en caché distribuido para mejorar el rendimiento y escalabilidad de las aplicaciones de ASP.NET Core, especialmente cuando se hospeda en un entorno de granja de servidores en la nube o de servidor."
+description: "Obtenga información acerca de cómo usar ASP.NET Core distribuida almacenamiento en caché para mejorar el rendimiento de la aplicación y la escalabilidad, especialmente en un entorno de granja de servidores en la nube o de servidor."
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 877a3e1f8c3282fdd67a389ddf5b4ff49dea3b42
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 635c61cbb72a6a9eb822307bbc80936ee73bedc8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="working-with-a-distributed-cache-in-aspnet-core"></a>Trabajar con una memoria caché distribuida en ASP.NET Core
 
@@ -25,20 +25,20 @@ Las memorias caché distribuidas pueden mejorar el rendimiento y la escalabilida
 
 ## <a name="what-is-a-distributed-cache"></a>¿Qué es una memoria caché distribuida
 
-Una memoria caché distribuida se comparte entre varios servidores de aplicaciones (consulte [Conceptos básicos sobre el almacenamiento en caché](memory.md#caching-basics)). La información de la memoria caché no se guarda en la memoria de los servidores web individuales y los datos almacenados en caché están disponibles para todos los servidores de aplicaciones. Esto proporciona varias ventajas:
+Una memoria caché distribuida es compartida por varios servidores de aplicación (consulte [conceptos básicos de almacenamiento en caché](memory.md#caching-basics)). La información de la memoria caché no se guardan en la memoria de servidores web individuales y los datos almacenados en caché están disponibles para todos los servidores de la aplicación. Esto proporciona varias ventajas:
 
-1. Los datos almacenados en caché son coherentes en todos los servidores web. Los usuarios no verán resultados distintos sin importar el servidor web que controla su solicitud.
+1. Datos almacenados en caché están coherentes en todos los servidores web. Los usuarios no verán los resultados diferentes dependiendo de qué web server controla su solicitud
 
-2. Los datos almacenados en caché sobreviven a reinicios del servidor web y las implementaciones. Servidores web individuales se pueden quitar o agregar sin afectar a la memoria caché.
+2. Datos almacenados en caché sobrevive reinicios del servidor web y las implementaciones. Servidores web individuales se pueden quitar o agregar sin afectar a la memoria caché.
 
 3. El almacén de datos de origen tiene menos las solicitudes realizadas a él (de con varias cachés en memoria o en no caché en absoluto).
 
 > [!NOTE]
-> Si usa una memoria caché distribuida de SQL Server, algunas de las siguientes ventajas solo son ciertas si se utiliza una instancia de base de datos independiente para la memoria caché que para los datos de origen de la aplicación.
+> Si usa una memoria caché distribuida de SQL Server, algunas de las siguientes ventajas solo son true si se utiliza una instancia de base de datos independiente para la memoria caché que para los datos de origen de la aplicación.
 
 Al igual que cualquier memoria caché, una memoria caché distribuida puede mejorar considerablemente la capacidad de respuesta de una aplicación, ya que normalmente se pueden recuperar datos de la memoria caché mucho más rápida que de una base de datos relacional (o servicio web).
 
-La configuración de la caché es específica de la implementación. En este artículo se describe cómo configurar los almacenes distribuidos en caché Redis y SQL Server. Independientemente de qué implementación se seleccione, la aplicación interactúa con la memoria caché utilizando una interfaz común `IDistributedCache`.
+Configuración de la caché es específico de la implementación. En este artículo se describe cómo configurar ambos Redis y distribuidas de SQL Server almacena en caché. Independientemente de qué implementación está seleccionada, la aplicación interactúa con la memoria caché utilizando una común `IDistributedCache` interfaz.
 
 ## <a name="the-idistributedcache-interface"></a>The IDistributedCache Interface
 
@@ -73,26 +73,26 @@ Para usar el `IDistributedCache` interfaz:
 
 En el ejemplo siguiente se muestra cómo utilizar una instancia de `IDistributedCache` en un componente de middleware simple:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/StartTimeHeader.cs?highlight=15,18,21,27,28,29,30,31)]
 
 En el código anterior, el valor almacenado en caché se lee pero nunca se ha escrito. En este ejemplo, el valor sólo se establece cuando se inicia un servidor y no cambia. En un escenario de varios servidores, el servidor más reciente para iniciar sobrescribirá los valores anteriores que se establecieron con otros servidores. El `Get` y `Set` métodos utilizan el `byte[]` tipo. Por lo tanto, se debe convertir el valor de cadena mediante `Encoding.UTF8.GetString` (para `Get`) y `Encoding.UTF8.GetBytes` (para `Set`).
 
 El siguiente código *Startup.cs* muestra el valor que se va a establecer:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=2,4,5,6&range=58-66)]
 
 > [!NOTE]
-> Puesto que `IDistributedCache` está configurado en el método `ConfigureServices`, está disponible para el método `Configure` como parámetro. Agregado como un parámetro permitirá proporcionar la instancia configurada a través de DI.
+> Puesto que `IDistributedCache` está configurado en el `ConfigureServices` método, está disponible para el `Configure` método como parámetro. Agregar como un parámetro permitirá la instancia configurada proporcionar a través de DI.
 
 ## <a name="using-a-redis-distributed-cache"></a>Uso de una caché de Redis distribuida
 
-[Redis](https://redis.io/) es un almacén de datos en memoria de código abierto, que a menudo se usa como una memoria caché distribuida. Puede usar de forma local, y puede configurar un [Azure Redis Cache](https://azure.microsoft.com/services/cache/) para las aplicaciones principales de ASP.NET hospedados en Azure. La aplicación de ASP.NET Core configura la implementación de caché mediante una instancia `RedisDistributedCache`.
+[Redis](https://redis.io/) es un almacén de datos en memoria de código abierto, que a menudo se usa como una memoria caché distribuida. Puede usar de forma local, y puede configurar un [Azure Redis Cache](https://azure.microsoft.com/services/cache/) para las aplicaciones principales de ASP.NET hospedados en Azure. La aplicación de ASP.NET Core configura la implementación de caché mediante un `RedisDistributedCache` instancia.
 
 Configurar la implementación de Redis en `ConfigureServices` y tener acceso a él en el código de aplicación solicitando una instancia de `IDistributedCache` (vea el código anterior).
 
-En el código de ejemplo, se utiliza una implementación `RedisCache` cuando el servidor está configurado para un entorno `Staging`. Por lo tanto el método `ConfigureStagingServices` configura el `RedisCache`:
+En el código de ejemplo, un `RedisCache` implementación se utiliza cuando el servidor está configurado para un `Staging` entorno. Por lo tanto la `ConfigureStagingServices` método configura el `RedisCache`:
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=8,9,10,11,12,13&range=27-40)]
 
 > [!NOTE]
 > Para instalar Redis en el equipo local, instale el paquete chocolatey [https://chocolatey.org/packages/redis-64/](https://chocolatey.org/packages/redis-64/) y ejecutar `redis-server` desde un símbolo del sistema.
@@ -101,9 +101,9 @@ En el código de ejemplo, se utiliza una implementación `RedisCache` cuando el 
 
 La implementación de SqlServerCache permite que la memoria caché distribuida usar una base de datos de SQL Server como su memoria auxiliar. Para crear SQL Server se puede utilizar la herramienta de caché de sql, la herramienta crea una tabla con el nombre y el esquema que especifica.
 
-Para usar la herramienta de caché de sql, agregue `SqlConfig.Tools` al elemento `<ItemGroup>` del archivo *.csproj* y ejecute la restauración de dotnet.
+Para usar la herramienta de caché de sql, agregue `SqlConfig.Tools` a la `<ItemGroup>` elemento de la *.csproj* archivo y ejecutar la restauración de dotnet.
 
-[!code-xml[Main](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
+[!code-xml[](./distributed/sample/src/DistCacheSample/DistCacheSample.csproj?range=23-25)]
 
 Ejecute el siguiente comando para comprobar SqlConfig.Tools
 
@@ -111,7 +111,7 @@ Ejecute el siguiente comando para comprobar SqlConfig.Tools
 C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create --help
    ```
 
-La herramienta de caché de SQL muestra ayuda sobre uso, opciones y comandos, ahora puede crear tablas en sql server, ejecuta el comando "creación de caché de sql":
+herramienta de caché de SQL muestra ayuda sobre uso, opciones y comandos, ahora puede crear tablas en sql server, ejecuta el comando "creación de caché de sql":
 
 ```none
 C:\DistCacheSample\src\DistCacheSample>dotnet sql-cache create "Data Source=(localdb)\v11.0;Initial Catalog=DistCache;Integrated Security=True;" dbo TestCache
@@ -125,14 +125,14 @@ La tabla creada tiene el siguiente esquema:
 
 Al igual que todas las implementaciones de caché, la aplicación debe obtener y establecer valores de caché mediante una instancia de `IDistributedCache`, no un `SqlServerCache`. El ejemplo implementa `SqlServerCache` en el `Production` entorno (por lo que se configura en `ConfigureProductionServices`).
 
-[!code-csharp[Main](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
+[!code-csharp[](./distributed/sample/src/DistCacheSample/Startup.cs?highlight=7,8,9,10,11,12&range=42-56)]
 
 > [!NOTE]
 > El `ConnectionString` (y, opcionalmente, `SchemaName` y `TableName`) normalmente deberían almacenarse fuera de control de código fuente (por ejemplo, UserSecrets), ya que pueden contener las credenciales.
 
 ## <a name="recommendations"></a>Recomendaciones
 
-A la hora de decidir qué implementación de `IDistributedCache` es adecuado para la aplicación, elija entre Redis y SQL Server en base a la infraestructura existente y entorno, los requisitos de rendimiento y experiencia de su equipo. Si para su equipo es más fácil trabajar con Redis, es una excelente opción. Si el equipo prefiere SQL Server, puede confiar en esa implementación también. Tenga en cuenta que una solución de almacenamiento en caché tradicional, almacena datos en memoria y permite la recuperación rápida de datos. Debe almacenar los datos de uso frecuente en una memoria caché y almacenar todos los datos en un almacén persistente de back-end como SQL Server o el almacenamiento de Azure. Caché en Redis es una solución de almacenamiento en caché que proporciona un alto rendimiento y baja latencia en comparación con la memoria caché de SQL.
+La hora de decidir qué implementación de `IDistributedCache` es adecuado para la aplicación, elija entre Redis y SQL Server se basa en la infraestructura existente y entorno, los requisitos de rendimiento y experiencia de su equipo. Si su equipo es más fácil trabajar con Redis, es una excelente opción. Si el equipo prefiera SQL Server, puede estar seguro de que así la implementación. Tenga en cuenta que una solución de almacenamiento en caché tradicional almacena datos en memoria que permite la recuperación rápida de datos. Debe almacenar los datos de uso frecuente en una memoria caché y almacenar todos los datos en un almacén persistente de back-end como SQL Server o el almacenamiento de Azure. Caché en Redis es una solución de almacenamiento en caché que proporciona un alto rendimiento y baja latencia en comparación con la memoria caché de SQL.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

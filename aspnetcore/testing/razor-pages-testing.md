@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: 6f9e986c34f41fe96beb492680106f725bc1e2f9
-ms.sourcegitcommit: 809ee4baf8bf7b4cae9e366ecae29de1037d2bbb
+ms.openlocfilehash: 3f53924e0b36b7924d82f97a8702aa461d9ebd78
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unidad de páginas de Razor y pruebas de integración en ASP.NET Core
 
@@ -69,7 +69,7 @@ La aplicación de prueba es una aplicación de consola en el *tests/RazorPagesTe
 
 | Carpeta de la aplicación de prueba    | Descripción |
 | ------------------ | ----------- |
-| IntegrationTests | <ul><li>*IndexPageTest.cs* contiene las pruebas de integración de la página de índice.</li><li>*TestFixture.cs* crea el host de prueba para probar la aplicación de mensaje.</li></ul> |
+| *IntegrationTests* | <ul><li>*IndexPageTest.cs* contiene las pruebas de integración de la página de índice.</li><li>*TestFixture.cs* crea el host de prueba para probar la aplicación de mensaje.</li></ul> |
 | *UnitTests*        | <ul><li>*DataAccessLayerTest.cs* contiene las pruebas unitarias para la capa DAL.</li><li>*IndexPageTest.cs* contiene las pruebas unitarias para el modelo de páginas de índice.</li></ul> |
 | *Utilidades*        | *Utilities.cs* contiene el:<ul><li>`TestingDbContextOptions` método usado para crear nueva base de datos de las opciones de contexto para cada prueba unitaria DAL para que la base de datos se restablece a su estado de línea de base para cada prueba.</li><li>`GetRequestContentAsync` método usado para preparar el `HttpClient` y contenido para las solicitudes que se envían a la aplicación de mensaje durante las pruebas de integración.</li></ul>
 
@@ -100,7 +100,7 @@ using (var db = new AppDbContext(optionsBuilder.Options))
 
 El problema con este enfoque es que cada prueba recibe la base de datos en el estado de la prueba anterior dejó. Esto puede ser problemático al intentar escribir pruebas de unidad atómica que no interfieren entre sí. Para forzar la `AppDbContext` para utilizar un nuevo contexto de base de datos para cada prueba, proporcione un `DbContextOptions` instancia que se basa en un nuevo proveedor de servicios. La aplicación de prueba muestra cómo hacer esto con su `Utilities` método de la clase `TestingDbContextOptions` (*tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet1)]
 
 Mediante el `DbContextOptions` en la unidad de la capa DAL pruebas permite que cada prueba para ejecutarse de forma atómica con una instancia nueva de la base de datos:
 
@@ -119,23 +119,23 @@ Cada método de prueba en el `DataAccessLayerTest` clase (*UnitTests/DataAccessL
 
 Por ejemplo, el `DeleteMessageAsync` método es responsable de quitar un único mensaje identificado por su `Id` (*src/RazorPagesTestingSample/Data/AppDbContext.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/AppDbContext.cs?name=snippet4)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/AppDbContext.cs?name=snippet4)]
 
 Hay dos pruebas para este método. Una prueba comprueba que el método elimina un mensaje cuando el mensaje está presente en la base de datos. Las demás pruebas de método que la base de datos no cambia si el mensaje `Id` para su eliminación no existe. El `DeleteMessageAsync_MessageIsDeleted_WhenMessageIsFound` método se muestra a continuación:
 
-[!code-csharp[Main](razor-pages-testing/sample_snapshot/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample_snapshot/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
 En primer lugar, el método realiza el paso de organización, donde realiza la preparación para el paso de acción. Los mensajes de propagación se obtienen y mantienen en `seedMessages`. Los mensajes de propagación se guardan en la base de datos. El mensaje con un `Id` de `1` está establecido para su eliminación. Cuando el `DeleteMessageAsync` método se ejecuta, los mensajes esperados deben tener todos los mensajes excepto el con una `Id` de `1`. El `expectedMessages` variable representa este resultado esperado.
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet1)]
 
 El método actúa: el `DeleteMessageAsync` método se ejecuta pasando el `recId` de `1`:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet2)]
 
 Por último, el método obtiene la `Messages` desde el contexto y lo compara con el `expectedMessages` validar que los dos son iguales:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet3)]
 
 Para que compare los dos `List<Message>` son los mismos:
 
@@ -144,7 +144,7 @@ Para que compare los dos `List<Message>` son los mismos:
 
 Un método de prueba similar, `DeleteMessageAsync_NoMessageIsDeleted_WhenMessageIsNotFound` comprueba el resultado de intentar eliminar un mensaje que no existe. En este caso, los mensajes esperados en la base de datos deben ser iguales a los mensajes reales después de la `DeleteMessageAsync` se ejecuta el método. No debería haber ningún cambio en el contenido de la base de datos:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/DataAccessLayerTest.cs?name=snippet4)]
 
 ## <a name="unit-testing-the-page-model-methods"></a>Los métodos del modelo de página de pruebas unitarias
 
@@ -168,27 +168,27 @@ Este grupo de pruebas a menudo simular los métodos de la capa DAL para generar 
 
 El `OnGetAsync_PopulatesThePageModel_WithAListOfMessages` prueba muestra cómo el `GetMessagesAsync` método es simulado para el modelo de páginas:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet1&highlight=3-4)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet1&highlight=3-4)]
 
 Cuando el `OnGetAsync` método se ejecuta en el paso de acción, llama al modelo de página `GetMessagesAsync` método.
 
 Paso de acción de prueba unitaria (*tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet2)]
 
 `IndexPage` modelo de páginas `OnGetAsync` método (*src/RazorPagesTestingSample/Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Pages/Index.cshtml.cs?name=snippet1&highlight=3)]
 
 El `GetMessagesAsync` método en la capa DAL no devuelve el resultado de llamar a este método. La versión del método simulada devuelve el resultado.
 
 En el `Assert` paso, los mensajes reales (`actualMessages`) se asignan a partir del `Messages` propiedad del modelo de página. También se realiza una comprobación de tipo cuando se asignen los mensajes. Los mensajes esperados y reales se comparan sus `Text` propiedades. La prueba valida que los dos `List<Message>` instancias contienen los mismos mensajes.
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet3)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet3)]
 
 Otras pruebas en este grupo crean página de objetos del modelo que incluyen la `DefaultHttpContext`, el `ModelStateDictionary`, `ActionContext` para establecer el `PageContext`, un `ViewDataDictionary`y un `PageContext`. Estos son útiles para realizar las pruebas. Por ejemplo, la aplicación de mensaje establece una `ModelState` error con `AddModelError` para comprobar que válido `PageResult` se devuelve cuando `OnPostAddMessageAsync` se ejecuta:
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet4&highlight=11,26,29,32)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/UnitTests/IndexPageTest.cs?name=snippet4&highlight=11,26,29,32)]
 
 ## <a name="integration-testing-the-app"></a>La aplicación de pruebas de integración
 
@@ -196,7 +196,7 @@ La integración de la prueba se centran en pruebas que funcionan conjuntamente l
 
 Un ejemplo del ejemplo de pruebas de integración, comprueba el resultado de la página de índice de la aplicación de mensaje de solicitud (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet1)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet1)]
 
 No hay ningún paso de organización. El `GetAsync` método se llama en el `HttpClient` para enviar una solicitud GET al extremo. La prueba valida que el resultado es un código de estado 200 OK.
 
@@ -214,19 +214,19 @@ El `Post_AddMessageHandler_ReturnsRedirectToRoot` método de prueba:
 
 `Post_AddMessageHandler_ReturnsRedirectToRoot ` método (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet2)]
 
 El `GetRequestContentAsync` método de utilidad administra la preparación del cliente con la cookie antiforgery y el token de comprobación de la solicitud. Tenga en cuenta cómo el método recibe una `IDictionary` que permite que el método de prueba que realiza la llamada para pasar los datos de la solicitud codificar junto con el token de comprobación de solicitud (*tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet2&highlight=1-2,8-9,29)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/Utilities/Utilities.cs?name=snippet2&highlight=1-2,8-9,29)]
 
 Pruebas de integración también pueden pasar datos incorrectos a la aplicación para probar el comportamiento de respuesta de la aplicación. La aplicación de mensaje limita la longitud del mensaje a 200 caracteres (*src/RazorPagesTestingSample/Data/Message.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/Message.cs?name=snippet1&highlight=7)]
+[!code-csharp[](razor-pages-testing/sample/src/RazorPagesTestingSample/Data/Message.cs?name=snippet1&highlight=7)]
 
 El `Post_AddMessageHandler_ReturnsSuccess_WhenMessageTextTooLong` probar `Message` pasa explícitamente en texto con 201 caracteres "X". Esto da como resultado un `ModelState` error. La publicación no se redirige a la página de índice. Devuelve un 200 OK con un `null` `Location` encabezado (*tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs*):
 
-[!code-csharp[Main](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet3&highlight=7,16-17)]
+[!code-csharp[](razor-pages-testing/sample/tests/RazorPagesTestingSample.Tests/IntegrationTests/IndexPageTest.cs?name=snippet3&highlight=7,16-17)]
 
 ## <a name="see-also"></a>Vea también
 

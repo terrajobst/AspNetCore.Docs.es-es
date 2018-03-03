@@ -12,34 +12,32 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 925d659f42496045089ba056e194ac977c37a8de
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Validación, formularios y aplicaciones auxiliares de ASP.NET MVC 4
-====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Validación, formularios y aplicaciones auxiliares de ASP.NET MVC 4
 
-> En **acceso a datos y modelos de ASP.NET MVC 4** los laboratorios de prácticas, han sido cargar y mostrar los datos de la base de datos. En este laboratorio práctico, va a agregar a la **tienda de música** aplicación la capacidad de editar esos datos.
-> 
-> Con ese objetivo en mente, primero creará el controlador que admitirá las acciones de creación, lectura, actualización y eliminación (CRUD) de álbumes. Se generará una plantilla de vista de índice sacar partido de las características de scaffolding de ASP.NET MVC para mostrar las propiedades de los álbumes en una tabla HTML. Para mejorar esa vista, deberá agregar una aplicación auxiliar HTML personalizada que se truncará descripciones largas.
-> 
-> Después, agregará la edición y crear vistas que se pueden modificar los álbumes en la base de datos, con la Ayuda de los elementos de formulario como listas desplegables.
-> 
-> Por último, se permitirán a los usuarios eliminar un álbum y también se les impedirá introducir datos erróneos al validar su entrada.
-> 
-> > [!NOTE]
-> > Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC**. Si no ha usado **ASP.NET MVC** antes, le recomendamos que repase **Fundamentos de MVC de ASP.NET** laboratorio práctico.
-> 
-> 
-> Esta práctica le guiará a través de las mejoras y nuevas características descritos anteriormente aplicando cambios menores a una aplicación Web de ejemplo proporcionada en la carpeta de origen.
-> 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
+[Descargar el Kit de aprendizaje de colonias de Web](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+En **acceso a datos y modelos de ASP.NET MVC 4** los laboratorios de prácticas, han sido cargar y mostrar los datos de la base de datos. En este laboratorio práctico, va a agregar a la **tienda de música** aplicación la capacidad de editar esos datos.
+
+Con ese objetivo en mente, primero creará el controlador que admitirá las acciones de creación, lectura, actualización y eliminación (CRUD) de álbumes. Se generará una plantilla de vista de índice sacar partido de las características de scaffolding de ASP.NET MVC para mostrar las propiedades de los álbumes en una tabla HTML. Para mejorar esa vista, deberá agregar una aplicación auxiliar HTML personalizada que se truncará descripciones largas.
+
+Después, agregará la edición y crear vistas que se pueden modificar los álbumes en la base de datos, con la Ayuda de los elementos de formulario como listas desplegables.
+
+Por último, se permitirán a los usuarios eliminar un álbum y también se les impedirá introducir datos erróneos al validar su entrada.
+
+Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC**. Si no ha usado **ASP.NET MVC** antes, le recomendamos que repase **Fundamentos de MVC de ASP.NET** laboratorio práctico.
+
+Esta práctica le guiará a través de las mejoras y nuevas características descritos anteriormente aplicando cambios menores a una aplicación Web de ejemplo proporcionada en la carpeta de origen.
+
+> [!NOTE]
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [versiones de Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Está disponible en el proyecto específico para este laboratorio [aplicaciones auxiliares de ASP.NET MVC 4, formularios y la validación](https://github.com/Microsoft-Web/HOL-MVC4HelpersFormsAndValidation).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Objetivos
@@ -659,7 +657,7 @@ En esta tarea, probará que validan campos, en la creación y edición de págin
 
     ![Campos validados en la página Editar](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    *Campos validados en la página Editar*
+    Campos validados en la página Editar
 
 <a id="Exercise7"></a>
 

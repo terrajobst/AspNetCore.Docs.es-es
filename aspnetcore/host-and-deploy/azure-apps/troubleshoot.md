@@ -10,15 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: 150603d17f3bed983f9871fe7665748a70177f89
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 27a46446e9bf63e96eecc392e6d6863e27b34730
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Solucionar problemas de núcleo de ASP.NET en el servicio de aplicaciones de Azure
 
 Por [Luke Latham](https://github.com/guardrex)
+
+[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Este artículo proporciona instrucciones sobre cómo diagnosticar un ASP.NET Core problema de inicio de aplicación mediante herramientas de diagnóstico del servicio de aplicaciones de Azure. Si desea obtener consejos de solución de problemas adicionales, consulte [información general sobre diagnóstico de servicio de aplicaciones de Azure](/azure/app-service/app-service-diagnostics) y [Cómo: supervisar aplicaciones en el servicio de aplicaciones de Azure](/azure/app-service/web-sites-monitor) en la documentación de Azure.
 
@@ -96,14 +98,14 @@ El registro de stdout módulo principal de ASP.NET a menudo registra mensajes de
 1. Inspeccionar el **Modified** columna y seleccione el icono de lápiz para editar el stdout, inicie sesión con la última fecha de modificación.
 1. Cuando se abre el archivo de registro, se muestra el error.
 
-**Importante:** Deshabilitar el registro de stdout cuando se completa la solución de problemas.
+**¡Importante!** Deshabilitar el registro de stdout cuando se completa la solución de problemas.
 
 1. En el Kudu **consola de diagnóstico**, vuelva a la ruta de acceso **sitio** > **wwwroot** para revelar el *web.config* archivo. Abra la **web.config** archivo nuevo, seleccione el icono de lápiz.
 1. Establecer **stdoutLogEnabled** a `false`.
 1. Seleccione **guardar** para guardar el archivo.
 
 > [!WARNING]
-> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro o el número de archivos de registro creados.
+> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados.
 >
 > Para registrar la rutina en una aplicación de ASP.NET Core, utiliza una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
 
@@ -158,7 +160,7 @@ Continúe para activar el registro de diagnóstico:
 1. Realizar una solicitud a la aplicación.
 1. Dentro de los datos de la secuencia de registro, se indica la causa del error.
 
-**Importante:** No olvide deshabilitar el registro de stdout cuando se completa la solución de problemas. Consulte las instrucciones de la [registro de ASP.NET Core módulo stdout](#aspnet-core-module-stdout-log) sección.
+**¡Importante!** No olvide deshabilitar el registro de stdout cuando se completa la solución de problemas. Consulte las instrucciones de la [registro de ASP.NET Core módulo stdout](#aspnet-core-module-stdout-log) sección.
 
 Para ver los registros de seguimiento de solicitudes con error (registros FREB):
 
@@ -170,7 +172,7 @@ Vea [error solicitud realiza un seguimiento de la sección del registro de diagn
 Para obtener más información, consulte [habilitar el registro de diagnósticos para aplicaciones web en el servicio de aplicaciones de Azure](/azure/app-service/web-sites-enable-diagnostic-log).
 
 > [!WARNING]
-> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro o el número de archivos de registro creados.
+> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados.
 >
 > Para registrar la rutina en una aplicación de ASP.NET Core, utiliza una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
 

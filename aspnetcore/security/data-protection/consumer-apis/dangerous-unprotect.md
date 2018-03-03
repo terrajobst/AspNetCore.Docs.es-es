@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: 584dbb545c15add4401086b9160d4bf30caf41b5
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 37332dda794f898fb866424b38394f5d4441e166
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="unprotecting-payloads-whose-keys-have-been-revoked"></a>Desproteger cargas cuyas claves se han revocado
 
@@ -30,7 +30,7 @@ Para admitir el escenario de permitir cargas que se debe desproteger incluso de 
 > [!NOTE]
 > No todos los `IDataProtector` instancias pueden convertirse a `IPersistedDataProtector`. Los programadores deben utilizar el C# como operador o similar evitar las excepciones en tiempo de ejecución deberse a conversiones no válidas y que deben estar preparado para controlar el caso de fallo adecuadamente.
 
-`IPersistedDataProtector`expone la superficie de API siguiente:
+`IPersistedDataProtector` expone la superficie de API siguiente:
 
 ```csharp
 DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
@@ -46,4 +46,4 @@ Esta API toma la carga protegida (como una matriz de bytes) y devuelve la carga 
 >[!WARNING]
 > Debe extremar las precauciones al pasar `ignoreRevocationErrors: true` a la `DangerousUnprotect` método. Si después de llamar a este método la `wasRevoked` valor es true, a continuación, la clave utilizada para proteger esta carga ha sido revocada y autenticidad de la carga debe tratarse como sospechosa. En este caso, solo seguir funcionando en la carga sin protección si tienen seguridad independiente que es auténtica, por ejemplo, que procede de una base de datos segura en lugar de enviarse por un cliente web no es de confianza.
 
-[!code-csharp[Main](dangerous-unprotect/samples/dangerous-unprotect.cs)]
+[!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

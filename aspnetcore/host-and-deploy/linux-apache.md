@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: 61827f456ba01ffa726f3446401156409b29111d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: b11bc811b6aefce22b60a28afd72c2a2d0b26955
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -232,7 +232,7 @@ sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-
 
 ### <a name="configure-firewall"></a>Configurar el firewall
 
-*Firewalld* es un demonio dinámico para administrar el firewall con compatibilidad para las zonas de red. Puertos y el filtrado de paquetes pueden seguir administrándose mediante iptables. *Firewalld* debe instalarse de forma predeterminada. `yum`puede utilizarse para instalar el paquete o compruebe que está instalado.
+*Firewalld* es un demonio dinámico para administrar el firewall con compatibilidad para las zonas de red. Puertos y el filtrado de paquetes pueden seguir administrándose mediante iptables. *Firewalld* debe instalarse de forma predeterminada. `yum` puede utilizarse para instalar el paquete o compruebe que está instalado.
 
 ```bash
 sudo yum install firewalld -y

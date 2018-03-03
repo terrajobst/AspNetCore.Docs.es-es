@@ -8,11 +8,11 @@ ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: 37592c3b2099c2cb74dc42ad4a7937b32c281f65
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
@@ -78,7 +78,7 @@ Puede almacenar en caché el contenido de una vista MVC o Razor página a la apl
 
 Para obtener más información, consulte [aplicación auxiliar de la etiqueta de caché en MVC de ASP.NET Core](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-### <a name="distributed-cache-tag-helper"></a>Aplicación auxiliar de etiqueta de caché distribuida
+### <a name="distributed-cache-tag-helper"></a>Aplicación auxiliar de etiquetas de caché distribuida
 
 Puede almacenar en caché el contenido de una vista MVC o la página de Razor en nube distribuida o escenarios de granja de servidores web con el Ayudante de etiqueta de caché distribuida. El Ayudante de etiqueta de caché distribuida usa SQL Server o Redis para almacenar datos.
 
@@ -91,7 +91,7 @@ El [ResponseCacheAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.ResponseCacheAt
 > [!WARNING]
 > Deshabilitar el almacenamiento en caché para el contenido que contiene información para clientes autenticados. Sólo debe habilitarse el almacenamiento en caché para el contenido que no cambia en función de la identidad de un usuario o si un usuario ha iniciado sesión.
 
-[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varía la respuesta almacenada en los valores de la lista de claves de consulta determinada. Cuando un valor único de `*` es siempre el middleware varía las respuestas por todos los parámetros de cadena de consulta de solicitud. `VaryByQueryKeys`requiere ASP.NET Core 1.1 o posterior.
+[VaryByQueryKeys](/dotnet/api/microsoft.aspnetcore.mvc.responsecacheattribute.varybyquerykeys) varía la respuesta almacenada en los valores de la lista de claves de consulta determinada. Cuando un valor único de `*` es siempre el middleware varía las respuestas por todos los parámetros de cadena de consulta de solicitud. `VaryByQueryKeys` requiere ASP.NET Core 1.1 o posterior.
 
 El Middleware de almacenamiento en caché de la respuesta debe estar habilitado para establecer el `VaryByQueryKeys` propiedad; en caso contrario, se produce una excepción en tiempo de ejecución. No hay un encabezado HTTP correspondiente para el `VaryByQueryKeys` propiedad. La propiedad es una característica HTTP controlada el Middleware de almacenamiento en caché de respuesta. Para que el middleware atender una respuesta almacenada en caché, la cadena de consulta y el valor de cadena de consulta deben coincidir con una solicitud anterior. Por ejemplo, considere la posibilidad de la secuencia de las solicitudes y resultados que se muestran en la tabla siguiente.
 
@@ -113,7 +113,7 @@ El `ResponseCacheAttribute` se utiliza para crear y configurar (a través de `IF
 
 Este encabezado solo cuando se escribe el `VaryByHeader` se establece la propiedad. Se establece en el `Vary` valor de la propiedad. El siguiente ejemplo se utiliza la `VaryByHeader` propiedad:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_VaryByHeader&highlight=1)]
 
 Puede ver los encabezados de respuesta con las herramientas de red de su explorador. La siguiente imagen muestra la F12 de borde de salida en el **red** ficha cuando el `About2` se actualiza el método de acción:
 
@@ -121,7 +121,7 @@ Puede ver los encabezados de respuesta con las herramientas de red de su explora
 
 ### <a name="nostore-and-locationnone"></a>NoStore y Location.None
 
-`NoStore`invalida la mayoría de las demás propiedades. Cuando esta propiedad se establece en `true`, `Cache-Control` encabezado se establece en `no-store`. Si `Location` está establecido en `None`:
+`NoStore` invalida la mayoría de las demás propiedades. Cuando esta propiedad se establece en `true`, `Cache-Control` encabezado se establece en `no-store`. Si `Location` está establecido en `None`:
 
 * El valor de `Cache-Control` está establecido en `no-store,no-cache`.
 * El valor de `Pragma` está establecido en `no-cache`.
@@ -130,7 +130,7 @@ Si `NoStore` es `false` y `Location` es `None`, `Cache-Control` y `Pragma` se es
 
 Normalmente establece `NoStore` a `true` en las páginas de error. Por ejemplo:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet1&highlight=1)]
 
 Esto genera los encabezados siguientes:
 
@@ -148,7 +148,7 @@ Para habilitar el almacenamiento en caché, `Duration` debe establecerse en un v
 
 A continuación se muestra un ejemplo que muestra los encabezados genera estableciendo `Duration` y deja el valor predeterminado `Location` valor:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_duration&highlight=1)]
 
 Esto produce el siguiente encabezado:
 
@@ -162,11 +162,11 @@ En lugar de duplicar `ResponseCache` configuración en muchos atributos de acci�
 
 Cómo configurar un perfil de caché:
 
-[!code-csharp[Main](response/sample/Startup.cs?name=snippet1)] 
+[!code-csharp[](response/sample/Startup.cs?name=snippet1)] 
 
 Hacer referencia a un perfil de caché:
 
-[!code-csharp[Main](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
+[!code-csharp[](response/sample/Controllers/HomeController.cs?name=snippet_controller&highlight=1,4)]
 
 El `ResponseCache` atributo se puede aplicar tanto a las acciones (métodos) y controladores (clases). Atributos de nivel de método invalidan la configuración especificada en los atributos de nivel de clase.
 

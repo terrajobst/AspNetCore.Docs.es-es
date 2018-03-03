@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/limited-lifetime-payloads
-ms.openlocfilehash: 812d0373d24c8578bae83db4876549246f189be3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d631851b5b933d75c37a308f492840e3442e6f1a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="limiting-the-lifetime-of-protected-payloads"></a>Limita la duración de cargas protegidos
 
@@ -25,7 +25,7 @@ Para facilitar esta tarea para nuestros clientes de desarrollador, el paquete [M
 
 El `ITimeLimitedDataProtector` es la interfaz principal para proteger y desproteger cargas de tiempo limitado / expiración automática. Para crear una instancia de un `ITimeLimitedDataProtector`, primero necesitará una instancia de una normal [IDataProtector](overview.md) construido con un propósito específico. Una vez el `IDataProtector` instancia esté disponible, llame a la `IDataProtector.ToTimeLimitedDataProtector` método de extensión para devolver un protector con capacidades integradas de expiración.
 
-`ITimeLimitedDataProtector`expone los siguientes métodos de superficie y extensión de API:
+`ITimeLimitedDataProtector` expone los siguientes métodos de superficie y extensión de API:
 
 * CreateProtector (propósito de cadena): ITimeLimitedDataProtector - esta API es similar a la existente `IDataProtectionProvider.CreateProtector` en que se puede utilizar para crear [finalidad cadenas](purpose-strings.md) desde un protector de tiempo limitado de raíz.
 
@@ -58,4 +58,4 @@ El `Unprotect` métodos devuelven los datos protegidos originales. Si aún no ha
 
 El ejemplo siguiente utiliza la [las rutas de código no DI](../configuration/non-di-scenarios.md) para crear instancias del sistema de protección de datos. Para ejecutar este ejemplo, asegúrese de que ha agregado una referencia al paquete Microsoft.AspNetCore.DataProtection.Extensions en primer lugar.
 
-[!code-csharp[Main](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]
+[!code-csharp[](limited-lifetime-payloads/samples/limitedlifetimepayloads.cs)]

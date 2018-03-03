@@ -12,23 +12,24 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
-ms.openlocfilehash: 076fa87eff140a3e7ff6855e4876abac40419c57
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-models-and-data-access"></a>Acceso a datos y modelos de ASP.NET MVC 4
-====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-models-and-data-access"></a>Acceso a datos y modelos de ASP.NET MVC 4
+
+Por [Web colonias equipo](https://twitter.com/webcamps)
+
+[Descargar el Kit de aprendizaje de colonias de Web](https://aka.ms/webcamps-training-kit)
+
+Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC**. Si no ha usado **ASP.NET MVC** antes, le recomendamos que repase **Fundamentos de ASP.NET MVC 4** laboratorio práctico.
+
+Esta práctica le guiará a través de las mejoras y nuevas características descritos anteriormente aplicando cambios menores a una aplicación Web de ejemplo proporcionada en la carpeta de origen.
 
 > [!NOTE]
-> Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC**. Si no ha usado **ASP.NET MVC** antes, le recomendamos que repase **Fundamentos de ASP.NET MVC 4** laboratorio práctico.
-> 
-> Esta práctica le guiará a través de las mejoras y nuevas características descritos anteriormente aplicando cambios menores a una aplicación Web de ejemplo proporcionada en la carpeta de origen.
-> 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://www.microsoft.com/download/29843](https://www.microsoft.com/download/29843).
-
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [versiones de Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Está disponible en el proyecto específico para este laboratorio [acceso a datos y modelos de ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4ModelsAndDataAccess).
 
 En **Fundamentos de MVC de ASP.NET** los laboratorios de prácticas, que se ha pasando datos codificados de forma rígida desde los controladores para las plantillas de vista. Sin embargo, para crear una aplicación Web real, debe usar una base de datos real.
 
@@ -38,7 +39,7 @@ Sin embargo, también puede usar el **Model First** enfocar, crear el mismo mode
 
 ![Primer frente a base de datos. Modelo primero](aspnet-mvc-4-models-and-data-access/_static/image1.png "frente a Database First. En primer lugar del modelo")
 
-*Primer frente a base de datos. En primer lugar del modelo*
+*Primer frente a base de datos. En primer lugar del modelo
 
 Después de generar el modelo, hará que los ajustes adecuados en el StoreController para proporcionar las vistas del almacén con los datos tomados de la base de datos, en lugar de utilizar datos codificados de forma rígida. No necesitará realizar cualquier cambio en las plantillas de vista porque el StoreController devolverá el mismo ViewModels a las plantillas de vista, aunque esta vez los datos depende de la base de datos.
 
@@ -325,7 +326,7 @@ Ahora que ya ha agregado una base de datos para el proyecto, se escribirá el **
 
     ![Ubicación del archivo Web.config](aspnet-mvc-4-models-and-data-access/_static/image19.png "ubicación del archivo Web.config")
 
-    *Ubicación del archivo Web.config*
+    *ubicación del archivo Web.config*
 
 
     [!code-xml[Main](aspnet-mvc-4-models-and-data-access/samples/sample7.xml)]
@@ -666,12 +667,12 @@ Si la aplicación realiza el uso de SQL Server debe crear un servidor de base de
 
     ![Agregar dirección IP del cliente](aspnet-mvc-4-models-and-data-access/_static/image41.png)
 
-    *Agregar dirección IP del cliente*
+    Agregar dirección IP del cliente
 3. Una vez el **dirección IP del cliente** se agrega a las direcciones IP permitidas lista, haga clic en **guardar** para confirmar los cambios.
 
     ![Confirmar cambios](aspnet-mvc-4-models-and-data-access/_static/image42.png)
 
-    *Confirmar cambios*
+    Confirmar cambios
 
 <a id="ApxBTask3"></a>
 

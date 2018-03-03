@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: dfed5c7a8e103973048295b7607008ecc7e90eeb
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creación de sitios maravillosas y capacidad de respuesta con arranque
 
@@ -31,7 +31,7 @@ Hay varias maneras de empezar a trabajar con arranque. Si está iniciando una nu
 
 Adición de arranque a un núcleo de ASP.NET proyecto es simplemente cuestión de agregar a *bower.json* como una dependencia:
 
-[!code-json[Main](../common/samples/WebApplication1/bower.json?highlight=5)]
+[!code-json[](../common/samples/WebApplication1/bower.json?highlight=5)]
 
 Se trata de la manera recomendada de agregar Bootstrap a un proyecto de ASP.NET Core.
 
@@ -60,7 +60,7 @@ Install-Package bootstrap
 
 Si se están haciendo referencia a sus propias versiones locales de arranque, debe hacer referencia a ellos en todas las páginas que va a usar. En producción, a que debería hacer referencia arrancar con una CDN. En la plantilla de sitio ASP.NET de forma predeterminada, el *_Layout.cshtml* archivo tan similar a la siguiente:
 
-[!code-html[Main](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
+[!code-html[](../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=9,13,51,59)]
 
 > [!NOTE]
 > Si se va a usar cualquiera de los complementos de jQuery de Bootstrap, también debe hacer referencia a jQuery.

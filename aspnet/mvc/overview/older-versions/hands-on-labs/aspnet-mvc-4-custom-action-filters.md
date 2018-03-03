@@ -12,25 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 103cd68c576463d87d0077cc149f9b89c6e028e8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-custom-action-filters"></a>Filtros de acción personalizada de ASP.NET MVC 4
-====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-custom-action-filters"></a>Filtros de acción personalizada de ASP.NET MVC 4
 
-> ASP.NET MVC proporciona filtros de acción para ejecutar lógica de filtrado antes o después de llama a un método de acción. Filtros de acción son atributos personalizados que proporcionan un medio declarativo para agregar comportamiento previo y posterior a la acción a los métodos de acción del controlador.
-> 
-> En este laboratorio práctico creará un atributo de filtro de acción personalizada a la solución de MvcMusicStore para detectar las solicitudes del controlador y registra la actividad de un sitio en una tabla de base de datos. Podrá agregar el filtro de registro por inyección de código a cualquier acción o controlador. Por último, verá la vista del registro que muestra la lista de los visitantes.
-> 
-> > [!NOTE]
-> > Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC**. Si no ha usado **ASP.NET MVC** antes, le recomendamos que repase **Fundamentos de ASP.NET MVC 4** laboratorio práctico.
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
+[Descargar el Kit de aprendizaje de colonias de Web](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+ASP.NET MVC proporciona filtros de acción para ejecutar lógica de filtrado antes o después de llama a un método de acción. Filtros de acción son atributos personalizados que proporcionan un medio declarativo para agregar comportamiento previo y posterior a la acción a los métodos de acción del controlador.
+
+En este laboratorio práctico creará un atributo de filtro de acción personalizada a la solución de MvcMusicStore para detectar las solicitudes del controlador y registra la actividad de un sitio en una tabla de base de datos. Podrá agregar el filtro de registro por inyección de código a cualquier acción o controlador. Por último, verá la vista del registro que muestra la lista de los visitantes.
+
+Este laboratorio práctico se da por supuesto que tiene conocimientos básicos de **ASP.NET MVC**. Si no ha usado **ASP.NET MVC** antes, le recomendamos que repase **Fundamentos de ASP.NET MVC 4** laboratorio práctico.
+
+> [!NOTE]
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible desde en [versiones de Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Está disponible en el proyecto específico para este laboratorio [filtros de acción personalizados de ASP.NET MVC 4](https://github.com/Microsoft-Web/HOL-MVC4CustomActionFilters).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Objetivos
@@ -332,7 +333,7 @@ En esta tarea, actualizará la solución para registrar el nuevo filtro (**MyNew
 1. En **StoreController** clase, quite **[MyNewCustomActionFilter]** atributo y la propiedad order de **[CustomActionFilter]**. Debería ser similar al siguiente:
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample13.cs)]
-2. Abra **Global.asax** de archivos y busque la **aplicación\_iniciar** método. Observe que cada thime inicia la aplicación está registrando los filtros globales mediante una llamada a **RegisterGlobalFilters** método dentro de **FilterConfig** clase.
+2. Abra **Global.asax** de archivos y busque la **aplicación\_iniciar** método. Observe que cada vez que inicia la aplicación está registrando los filtros globales mediante una llamada a **RegisterGlobalFilters** método dentro de **FilterConfig** clase.
 
     ![Registro de filtros globales en Global.asax](aspnet-mvc-4-custom-action-filters/_static/image10.png "registrar filtros globales en Global.asax")
 

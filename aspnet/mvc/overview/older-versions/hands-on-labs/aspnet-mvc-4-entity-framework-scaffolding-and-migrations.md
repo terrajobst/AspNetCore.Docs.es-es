@@ -12,24 +12,26 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 15db1589eb90739458b430c35cea38e93e3dec5a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/02/2018
 ---
-<a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>Las migraciones y Scaffolding de ASP.NET MVC 4 Entity Framework
-====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+# <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>Las migraciones y Scaffolding de ASP.NET MVC 4 Entity Framework
 
-> Si está familiarizado con los métodos de controlador de ASP.NET MVC 4 o ha completado la &quot;aplicaciones auxiliares, formularios y la validación&quot; laboratorio práctico, deben tenerse en cuenta que muchos de la lógica para crear, actualizar, enumerar y quitar cualquier entidad de datos se repite entre la aplicación. No se mencione que, si el modelo tiene varias clases para manipular, es posible que pueda dedicar un tiempo considerable escribir los métodos de acción POST y GET para cada operación de entidad, así como cada una de las vistas.
-> 
-> En este laboratorio, aprenderá cómo utilizar el scaffolding de ASP.NET MVC 4 para generar automáticamente la línea de base de CRUD la aplicación (crear, leer, actualizar y eliminar). A partir de una clase de modelo simple y, sin escribir una sola línea de código, se creará un controlador que contendrá todas las operaciones CRUD, así como el todas las necesarias vistas. Después de compilar y ejecutar la solución más fácil, tendrá la base de datos de aplicación generado, junto con la lógica MVC y vistas para la manipulación de datos.
-> 
-> Además, obtendrá información sobre lo fácil que es usar migraciones de Entity Framework para realizar actualizaciones del modelo a lo largo de toda la aplicación. Migraciones de Entity Framework permiten modificar la base de datos después de que el modelo ha cambiado con pasos sencillos. Con todo esto en cuenta, podrá crear y mantener las aplicaciones web de forma más eficaz, sacar partido de las últimas características de ASP.NET MVC 4.
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
+[Descargar el Kit de aprendizaje de colonias de Web](https://aka.ms/webcamps-training-kit)
 
-<a id="Objectives"></a>
+Si está familiarizado con los métodos de controlador de ASP.NET MVC 4 o ha completado la &quot;aplicaciones auxiliares, formularios y la validación&quot; laboratorio práctico, deben tenerse en cuenta que muchos de la lógica para crear, actualizar, enumerar y quitar cualquier entidad de datos se repite entre la aplicación. No se mencione que, si el modelo tiene varias clases para manipular, es posible que pueda dedicar un tiempo considerable escribir los métodos de acción POST y GET para cada operación de entidad, así como cada una de las vistas.
+
+En este laboratorio, aprenderá cómo utilizar el scaffolding de ASP.NET MVC 4 para generar automáticamente la línea de base de CRUD la aplicación (crear, leer, actualizar y eliminar). A partir de una clase de modelo simple y, sin escribir una sola línea de código, se creará un controlador que contendrá todas las operaciones CRUD, así como el todas las necesarias vistas. Después de compilar y ejecutar la solución más fácil, tendrá la base de datos de aplicación generado, junto con la lógica MVC y vistas para la manipulación de datos.
+
+Además, obtendrá información sobre lo fácil que es usar migraciones de Entity Framework para realizar actualizaciones del modelo a lo largo de toda la aplicación. Migraciones de Entity Framework permiten modificar la base de datos después de que el modelo ha cambiado con pasos sencillos. Con todo esto en cuenta, podrá crear y mantener las aplicaciones web de forma más eficaz, sacar partido de las últimas características de ASP.NET MVC 4.
+
+> [!NOTE]
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible desde en [versiones de Microsoft-Web/WebCampTrainingKit](https://aka.ms/webcamps-training-kit). Está disponible en el proyecto específico para este laboratorio [Entity Framework Scaffolding de ASP.NET MVC 4 y migraciones](https://github.com/Microsoft-Web/HOL-EntityFrameworkScaffoldingAndMigrations).
 
 <a id="Objectives"></a>
 ### <a name="objectives"></a>Objetivos
@@ -291,7 +293,7 @@ Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Ex
 
     ![Acepte los términos de licencia](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    *Acepte los términos de licencia*
+    Acepte los términos de licencia
 5. Espere hasta que finalice el proceso de descarga e instalación.
 
     ![Progreso de la instalación](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
@@ -301,13 +303,13 @@ Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Ex
 
     ![Se completó la instalación](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    *Se completó la instalación*
+    Se completó la instalación
 7. Haga clic en **Exit** para cerrar el instalador de plataforma Web.
 8. Para abrir Visual Studio Express para Web, vaya a la **iniciar** pantalla y comienza a escribir &quot; **Express frente a**&quot;, a continuación, haga clic en el **VS Express para Web** colocar en mosaico.
 
     ![Express de VS para icono Web](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    *Express de VS para icono Web*
+    Express de VS para icono Web
 
 <a id="AppendixB"></a>
 

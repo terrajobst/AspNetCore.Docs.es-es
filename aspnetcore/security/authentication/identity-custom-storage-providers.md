@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 8cadb550eaa2dbc4541f945dc8d8d49fa757d4d3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -112,7 +112,7 @@ Almacena y recupera los roles asignados a los usuarios. [Ejemplo](https://docs.m
 
 En las clases de acceso a datos, proporcionar código para realizar operaciones de datos para el mecanismo de persistencia. Por ejemplo, dentro de un proveedor personalizado, podría tener el código siguiente para crear un nuevo usuario en el *almacenar* clase:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
 La lógica de implementación para crear el usuario está en el ``_usersTable.CreateAsync`` método, se muestra a continuación.
 
@@ -133,7 +133,7 @@ Crear un `UserStore` clase que proporciona los métodos para todas las operacion
 - IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
 - IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
 - IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
-- IUserSecurityStampStore<!-- make these all links and remove / -->
+- IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
 - IQueryableUserStore
@@ -145,7 +145,7 @@ Las interfaces opcionales heredan de `IUserStore`. Puede ver un usuario de ejemp
 
 Dentro de la `UserStore` (clase), se utilizan las clases de acceso de datos que ha creado para realizar operaciones. Estos se pasan mediante la inserción de dependencia. Por ejemplo, en el servidor SQL Server con la implementación Dapper, la `UserStore` clase tiene la `CreateAsync` método que usa una instancia de `DapperUsersTable` para insertar un nuevo registro:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/DapperUsersTable.cs?name=createuser&highlight=7)]
 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfaces para implementar al personalizar el almacén de usuario
 
@@ -196,7 +196,7 @@ Al implementar un proveedor de almacenamiento de rol, puede crear un tipo de fun
 
 La siguiente es una clase de rol de ejemplo:
 
-[!code-csharp[Main](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
+[!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/ApplicationRole.cs)]
 
 ## <a name="customize-the-role-store"></a>Personalizar el almacén de roles
 

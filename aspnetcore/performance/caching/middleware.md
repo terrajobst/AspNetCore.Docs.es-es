@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 29ef3cf3d8bcd6b4ebbf08d831dc146e830fa1ac
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -31,11 +31,11 @@ Para incluir el software intermedio en un proyecto, agregue una referencia a la 
 
 En `ConfigureServices`, agregue el middleware a la colección de servicio.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
 Configurar la aplicación para usar el middleware con el `UseResponseCaching` método de extensión, que agrega el middleware a la canalización de procesamiento de la solicitud. La aplicación de ejemplo agrega un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) encabezado a la respuesta que se almacena en caché las respuestas almacenable en caché durante 10 segundos. El ejemplo envía una [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) encabezado para configurar el middleware para dar servicio a un respuesta almacenada en caché solo si la [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) coincide con el encabezado de las solicitudes posteriores de la solicitud original.
 
-[!code-csharp[Main](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
 Middleware de almacenamiento en caché de respuesta sólo almacena en caché las respuestas del servidor que dan como resultado un código de estado 200 (OK). Otras respuestas, incluidos los [páginas de errores](xref:fundamentals/error-handling), se omiten el middleware.
 
@@ -125,10 +125,10 @@ Al probar y solucionar problemas de comportamiento de almacenamiento en caché, 
 * El método de solicitud debe ser GET o HEAD.
 * Middleware de Terminal, como [Middleware de archivos estáticos](xref:fundamentals/static-files), no se debe procesar la respuesta antes de Middleware de almacenamiento en caché de respuesta.
 * El `Authorization` encabezado no debe estar presente.
-* `Cache-Control`parámetros del encabezado deben ser válidos y debe marcarse la respuesta `public` y no marcado como `private`.
+* `Cache-Control` parámetros del encabezado deben ser válidos y debe marcarse la respuesta `public` y no marcado como `private`.
 * El `Pragma: no-cache` encabezado no debe estar presente si el `Cache-Control` encabezado no está presente, como la `Cache-Control` encabezado reemplaza la `Pragma` encabezado cuando está presente.
 * El `Set-Cookie` encabezado no debe estar presente.
-* `Vary`parámetros del encabezado deben ser válida y no es igual a `*`.
+* `Vary` parámetros del encabezado deben ser válida y no es igual a `*`.
 * La `Content-Length` valor de encabezado (si establece) debe coincidir con el tamaño del cuerpo de respuesta.
 * El [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) no se utiliza.
 * La respuesta no debe ser obsoleta según lo especificado por el `Expires` encabezado y el `max-age` y `s-maxage` directivas de caché.

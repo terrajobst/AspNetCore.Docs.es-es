@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: ccf4329e6684d07570bfaabfaa1a570664fb2ca3
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8dc2221ea19a33f1d34ba3aae8c60e365423e140
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/02/2018
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Crear una aplicación de ASP.NET MVC 5 con Facebook, Twitter, LinkedIn y Google OAuth2 Sign-on (C#)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial muestra cómo crear una aplicación web de ASP.NET MVC 5 que permite a los usuarios iniciar sesión mediante [OAuth 2.0](http://oauth.net/2/) con credenciales de un proveedor de autenticación externo, como Facebook, Twitter, LinkedIn, Microsoft o Google. Por simplicidad, este tutorial se centra en trabajar con las credenciales de Google y Facebook.
 > 
@@ -114,6 +114,9 @@ Para conectarse a proveedores de autenticación como Google y Facebook, debe con
 <a id="goog"></a>
 ## <a name="creating-a-google-app-for-oauth-2-and-connecting-the-app-to-the-project"></a>Crear una aplicación de Google para OAuth 2 y conectar la aplicación al proyecto
 
+> [!WARNING]
+> Para obtener instrucciones de Google OAuth actuales, vea [Google configurar la autenticación en ASP.NET Core](/aspnet/core/security/authentication/social/google-logins).
+
 1. Navegue hasta la [Google Developers Console](https://console.developers.google.com/).
 1. Si no ha creado un proyecto antes de, seleccione **credenciales** en la pestaña de la izquierda y, a continuación, seleccione **crear**.
 1. En la pestaña de la izquierda, haga clic en **credenciales**.
@@ -158,6 +161,9 @@ Para conectarse a proveedores de autenticación como Google y Facebook, debe con
 
 <a id="fb"></a>
 ## <a name="creating-the-app-in-facebook-and-connecting-the-app-to-the-project"></a>Crear la aplicación de Facebook y conectar la aplicación al proyecto
+
+> [!WARNING]
+> Para instrucciones de autenticación de Facebook OAuth2 actuales, vea [autenticación de configuración de Facebook](/aspnet/core/security/authentication/social/facebook-logins)
 
 Para la autenticación de Facebook OAuth2, debe copiar en el proyecto algunas opciones de configuración de una aplicación que cree en Facebook.
 

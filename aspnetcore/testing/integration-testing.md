@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 4a5f14e11de6ed91f67808c3ea8c78a7b1d43b03
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 8c28f1b4f66433eaebd9e474e784ecf3f1ac271b
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="integration-testing-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
-Pruebas de integración garantizan que los componentes de una aplicación funcionan correctamente cuando se ensamblan juntos. Integración de es compatible con ASP.NET Core pruebas con marcos de pruebas unitarias y un host de web de prueba integrados que puede usarse para controlar las solicitudes sin la sobrecarga de la red.
+Pruebas de integración garantizan que los componentes de una aplicación funcionan correctamente cuando se ensamblan juntos. ASP.NET Core admite las pruebas de integración que usan marcos de pruebas unitarias y un host de web de prueba integrado que puede usarse para controlar las solicitudes sin sobrecargar la red.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/testing/integration-testing/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
@@ -47,7 +47,7 @@ ASP.NET Core incluye un host de prueba que se puede agregar a proyectos de prueb
 
 Una vez el `Microsoft.AspNetCore.TestHost` paquete se incluye en el proyecto, podrá crear y configurar un `TestServer` en las pruebas. La prueba siguiente muestra cómo comprobar que una solicitud realizada a la raíz de un sitio devuelve "¡Hello World!" y debe ejecutarse correctamente y el valor predeterminado plantilla Web de ASP.NET Core vacía creada por Visual Studio.
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebDefaultRequestShould.cs?name=snippet_WebDefault&highlight=7,16,22)]
 
 Esta prueba está usando el patrón Assert para organizar Act. El paso de organización se realiza en el constructor, que crea una instancia de `TestServer`. Un objeto configurado `WebHostBuilder` se usará para crear un `TestHost`; en este ejemplo, el `Configure` método desde el sistema sometido a prueba (SUT) `Startup` clase se pasa a la `WebHostBuilder`. Este método se utilizará para configurar la canalización de solicitud de la `TestServer` forma idéntica a cómo se puede configurar el servidor SUT.
 
@@ -55,7 +55,7 @@ En la parte de la acción de la prueba, se realiza una solicitud a la `TestServe
 
 Ahora puede agregar algunas pruebas de integración adicionales para confirmar que la funcionalidad de comprobación de primos funciona a través de la aplicación web:
 
-[!code-csharp[Main](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
+[!code-csharp[](../testing/integration-testing/sample/test/PrimeWeb.IntegrationTests/PrimeWebCheckPrimeShould.cs?name=snippet_CheckPrime)]
 
 Tenga en cuenta que realmente no intenta comprobar la corrección del Comprobador de números primos con estas pruebas pero en su lugar que la aplicación web está haciendo lo que espera. Ya tiene cobertura de pruebas unitarias que aporta la confianza en `PrimeService`, como puede ver aquí:
 
@@ -134,13 +134,13 @@ Desea permitir que la ruta de acceso del middleware que usa estar especificado c
 > [!NOTE]
 > Ya que el middleware depende de la `PrimeService` servicio, que también está solicitando una instancia de este servicio con el constructor. El marco de trabajo proporcionará este servicio a través de [inyección de dependencia](xref:fundamentals/dependency-injection), suponiendo que se ha configurado, por ejemplo en `ConfigureServices`.
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Middleware/PrimeCheckerMiddleware.cs?highlight=39-63)]
 
 Puesto que este middleware actúa como un punto de conexión en la cadena de delegados de la solicitud cuando coincide con su ruta de acceso, no hay ninguna llamada a `_next.Invoke` cuando este middleware gestiona la solicitud.
 
 Con este middleware en vigor y algunos útil métodos de extensión creados para facilitar la configuración, el refactorizado `Configure` método tiene el siguiente aspecto:
 
-[!code-csharp[Main](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
+[!code-csharp[](../testing/integration-testing/sample/src/PrimeWeb/Startup.cs?highlight=9&range=19-33)]
 
 Después de esta operación de refactorización, esté seguro de que la aplicación web sigue funcionando como antes, ya que las pruebas de integración se superan.
 

@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 5032c9f07af4f9291b44538cecbc310bfabc8e02
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="using-iis-modules-with-aspnet-core"></a>Uso de módulos IIS con ASP.NET Core
 
@@ -31,28 +31,28 @@ Aplicaciones de ASP.NET Core están hospedadas por IIS en una configuración de 
 | **Autenticación de asignaciones de certificados de cliente**<br>`CertificateMappingAuthenticationModule` | Sí | |
 | **CGI**<br>`CgiModule` | No | |
 | **Validación de la configuración**<br>`ConfigurationValidationModule` | Sí | |
-| Errores HTTP<br>`CustomErrorModule` | No | [Middleware de páginas de código de estado](xref:fundamentals/error-handling#configuring-status-code-pages) |
+| **Errores HTTP**<br>`CustomErrorModule` | No | [Middleware de páginas de código de estado](xref:fundamentals/error-handling#configuring-status-code-pages) |
 | **Registro personalizado**<br>`CustomLoggingModule` | Sí | |
-| Documento predeterminado<br>`DefaultDocumentModule` | No | [Middleware de archivos predeterminado](xref:fundamentals/static-files#serve-a-default-document) |
+| **Documento predeterminado**<br>`DefaultDocumentModule` | No | [Middleware de archivos predeterminado](xref:fundamentals/static-files#serve-a-default-document) |
 | **Autenticación implícita**<br>`DigestAuthenticationModule` | Sí | |
-| Examen de directorios<br>`DirectoryListingModule` | No | [Middleware de exploración de directorios](xref:fundamentals/static-files#enable-directory-browsing) |
+| **Examen de directorios**<br>`DirectoryListingModule` | No | [Middleware de exploración de directorios](xref:fundamentals/static-files#enable-directory-browsing) |
 | **Compresión dinámica**<br>`DynamicCompressionModule` | Sí | [Middleware de compresión de respuestas](xref:performance/response-compression) |
 | **Traza**<br>`FailedRequestsTracingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging/index#the-tracesource-provider) |
 | **Almacenamiento en caché de archivo**<br>`FileCacheModule` | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) |
 | **Almacenamiento en caché de HTTP**<br>`HttpCacheModule` | No | [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware) |
-| Registro HTTP<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging/index)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
-| Redirección HTTP<br>`HttpRedirectionModule` | Sí | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) |
+| **Registro HTTP**<br>`HttpLoggingModule` | Sí | [Registro de ASP.NET Core](xref:fundamentals/logging/index)<br>Implementaciones: [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging), [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging), [NLog](https://github.com/NLog/NLog.Extensions.Logging), [Serilog](https://github.com/serilog/serilog-extensions-logging)
+| **Redirección HTTP**<br>`HttpRedirectionModule` | Sí | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) |
 | **Autenticación de asignaciones de certificado de cliente IIS**<br>`IISCertificateMappingAuthenticationModule` | Sí | |
 | **Restricciones de IP y dominio**<br>`IpRestrictionModule` | Sí | |
 | **Filtros ISAPI**<br>`IsapiFilterModule` | Sí | [Middleware](xref:fundamentals/middleware/index) |
 | **ISAPI**<br>`IsapiModule` | Sí | [Middleware](xref:fundamentals/middleware/index) |
 | **Compatibilidad con el protocolo**<br>`ProtocolSupportModule` | Sí | |
-| Filtrado de solicitudes<br>`RequestFilteringModule` | Sí | [Middleware de reescritura de dirección URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
-| Monitor de solicitudes<br>`RequestMonitorModule` | Sí | |
+| **Filtrado de solicitudes**<br>`RequestFilteringModule` | Sí | [Middleware de reescritura de dirección URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
+| **Monitor de solicitudes**<br>`RequestMonitorModule` | Sí | |
 | **Reescritura de direcciones URL**<br>`RewriteModule` | Sí &#8224; | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) |
 | **Inclusiones del lado servidor**<br>`ServerSideIncludeModule` | No | |
 | **Compresión estática**<br>`StaticCompressionModule` | No | [Middleware de compresión de respuestas](xref:performance/response-compression) |
-| Contenido estático<br>`StaticFileModule` | No | [Middleware de archivos estáticos](xref:fundamentals/static-files) |
+| **Contenido estático**<br>`StaticFileModule` | No | [Middleware de archivos estáticos](xref:fundamentals/static-files) |
 | **Símbolo (token) de almacenamiento en caché**<br>`TokenCacheModule` | Sí | |
 | **Almacenamiento en caché de URI**<br>`UriCacheModule` | Sí | |
 | **Autorización de URL**<br>`UrlAuthorizationModule` | Sí | [Identidad principal de ASP.NET](xref:security/authentication/identity) |
@@ -159,6 +159,7 @@ Los módulos solo necesarios para ejecutar una aplicación de ASP.NET Core son e
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Hospedaje en Windows con IIS](xref:host-and-deploy/iis/index)
-* [Información general de los módulos IIS](https://docs.microsoft.com/iis/get-started/introduction-to-iis/iis-modules-overview)
+* [Introducción a las arquitecturas de IIS: módulos de IIS](/iis/get-started/introduction-to-iis/introduction-to-iis-architecture#modules-in-iis)
+* [Información general de los módulos IIS](/iis/get-started/introduction-to-iis/iis-modules-overview)
 * [Personalización de IIS 7.0 Roles y módulos](https://technet.microsoft.com/library/cc627313.aspx)
-* [IIS `<system.webServer>`](https://docs.microsoft.com/iis/configuration/system.webServer/)
+* [IIS `<system.webServer>`](/iis/configuration/system.webServer/)
