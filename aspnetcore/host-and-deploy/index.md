@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: 7d8ba912da4c0e543bd4dd56632cdc41706814d1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: baa77eba837ff8b86ad543a74ebeee51ace4c25d
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 
@@ -26,7 +26,7 @@ En general, para implementar una aplicación de ASP.NET Core en un entorno de ho
 
 ## <a name="publish-to-a-folder"></a>Publicar la aplicación en una carpeta 
 
-El comando de la CLI [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) compila el código de la aplicación y copia los archivos necesarios para ejecutar la aplicación en una carpeta *publish*. Al efectuar una implementación desde Visual Studio, el paso `dotnet publish` se lleva a cabo de forma automática antes de que se copien los archivos en el destino de implementación.
+El comando de la CLI [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) compila el código de la aplicación y copia los archivos necesarios para ejecutar la aplicación en una carpeta *publish*. Al efectuar una implementación desde Visual Studio, el paso del comando [dotnet publish](/dotnet/core/tools/dotnet-publish) se produce automáticamente antes de que los archivos se copien en el destino de implementación.
 
 ### <a name="folder-contents"></a>Contenido de la carpeta
 
@@ -61,7 +61,7 @@ Si la aplicación usa el servidor web [Kestrel](xref:fundamentals/servers/kestre
 
 ## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Usar Visual Studio y MSBuild para automatizar la implementación
 
-La implementación a menudo requiere tareas adicionales además de copiar el resultado de `dotnet publish` a un servidor. Por ejemplo, podrían necesitarse o eliminarse archivos adicionales de la carpeta *publish*. Para la implementación web, Visual Studio usa MSBuild, que puede personalizar de modo que lleve a cabo muchas otras tareas durante la implementación. Para más información, vea [Publish profiles in Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) (Publicar perfiles en Visual Studio) y el libro [Using MSBuild and Team Foundation Build](http://msbuildbook.com/) (Usar MSBuild y Team Foundation Build).
+La implementación a menudo requiere tareas adicionales además de copiar el resultado del comando [dotnet publish](/dotnet/core/tools/dotnet-publish) en un servidor. Por ejemplo, podrían necesitarse o eliminarse archivos adicionales de la carpeta *publish*. Para la implementación web, Visual Studio usa MSBuild, que puede personalizar de modo que lleve a cabo muchas otras tareas durante la implementación. Para más información, vea [Publish profiles in Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles) (Publicar perfiles en Visual Studio) y el libro [Using MSBuild and Team Foundation Build](http://msbuildbook.com/) (Usar MSBuild y Team Foundation Build).
 
 Mediante la [característica de publicación web](xref:tutorials/publish-to-azure-webapp-using-vs) o la [compatibilidad integrada con Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment), puede implementar las aplicaciones directamente desde Visual Studio en Azure App Service. Visual Studio Team Services es compatible con la [implementación continua en Azure App Service](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp?tabs=vsts).
 

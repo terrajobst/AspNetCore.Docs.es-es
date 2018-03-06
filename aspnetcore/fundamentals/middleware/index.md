@@ -9,15 +9,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 158f11875f22f8f9dba6f7f109123717b9da8d18
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
+ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/05/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
-De [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ardalis.com/)
+Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Steve Smith](https://ardalis.com/)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/middleware/index/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
@@ -44,13 +44,13 @@ Cada delegado puede realizar operaciones antes y después del siguiente. Tambié
 
 La aplicación ASP.NET Core más sencilla posible configura un solo delegado de solicitudes que controla todas las solicitudes. En este caso no se incluye una canalización de solicitudes real. En su lugar, solo se llama a una única función anónima en respuesta a todas las solicitudes HTTP.
 
-[!code-csharp[Main](index/sample/Middleware/Startup.cs)]
+[!code-csharp[](index/sample/Middleware/Startup.cs)]
 
 El primer delegado [app.Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) finaliza la canalización.
 
 Puede encadenar varios delegados de solicitudes con [app.Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). El parámetro `next` representa el siguiente delegado de la canalización. Recuerde que puede cortocircuitar la canalización si *no* llama al *siguiente* parámetro. Normalmente puede realizar acciones antes y después del siguiente delegado, tal y como se muestra en este ejemplo:
 
-[!code-csharp[Main](index/sample/Chain/Startup.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
 >[!WARNING]
 > No llame a `next.Invoke` después de haber enviado la respuesta al cliente. Se producirá una excepción si se modifica `HttpResponse` después de haber iniciado la respuesta. Por ejemplo, se producirá una excepción al realizar cambios como el establecimiento de encabezados, el código de estado, etc. Si escribe en el cuerpo de la respuesta después de llamar a `next`:
@@ -61,9 +61,9 @@ Puede encadenar varios delegados de solicitudes con [app.Use](https://docs.micro
 
 ## <a name="ordering"></a>Ordenación
 
-El orden en el que se agrega el middleware en el método `Configure` define el orden en el que se invocarán en las solicitudes y el orden inverso de la respuesta. Este orden es esencial por motivos de seguridad, rendimiento y funcionalidad.
+El orden en el que se agregan los componentes de middleware en el método `Configure` define el orden en el que se invocarán en las solicitudes y el orden inverso de la respuesta. Este orden es esencial por motivos de seguridad, rendimiento y funcionalidad.
 
-El método Configure (que se muestra a continuación) agrega los siguientes componentes de middleware:
+El método Configure (que se muestra aquí) agrega los siguientes componentes de middleware:
 
 1. Control de errores y excepciones
 2. Servidor de archivos estáticos
@@ -107,9 +107,9 @@ public void Configure(IApplicationBuilder app)
 
 -----------
 
-En el código anterior, `UseExceptionHandler` es el primer componente de middleware que se agrega a la canalización. Por lo tanto, captura todas las excepciones que se puedan producir en las llamadas posteriores.
+En el código anterior, `UseExceptionHandler` es el primer componente de middleware que se agrega a la canalización. Por tanto, captura todas las excepciones que se puedan producir en las llamadas posteriores.
 
-El middleware de archivos estáticos se llama al principio de la canalización para que pueda controlar solicitudes y realizar cortocircuitos sin pasar por los componentes restantes. Este middleware **no** proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los *wwwroot*, están disponibles de forma pública. Consulte [Working with static files](xref:fundamentals/static-files) (Trabajo con archivos estáticos) para obtener información sobre cómo proteger archivos estáticos.
+El middleware de archivos estáticos se llama al principio de la canalización para que pueda controlar solicitudes y realizar cortocircuitos sin pasar por los componentes restantes. Este middleware **no** proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los de *wwwroot*, están disponibles de forma pública. Vea [Working with static files](xref:fundamentals/static-files) (Trabajo con archivos estáticos) para obtener información sobre cómo proteger archivos estáticos.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -142,7 +142,7 @@ Puede configurar la canalización HTTP con `Use`, `Run` y `Map`. El método `Use
 
 Las extensiones `Map*` se usan como convenciones para la creación de ramas en la canalización. [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) crea una rama de la canalización de solicitudes según las coincidencias de la ruta de solicitud proporcionada. Si la ruta de solicitud comienza con la ruta proporcionada, se ejecuta la creación de la rama.
 
-[!code-csharp[Main](index/sample/Chain/StartupMap.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
 En la siguiente tabla se muestran las solicitudes y las respuestas de `http://localhost:1234` con el código anterior:
 
@@ -157,7 +157,7 @@ Cuando se usa `Map`, los segmentos de ruta que coincidan se eliminan de `HttpReq
 
 [MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) crea una rama de la canalización de solicitudes según el resultado del predicado proporcionado. Se puede usar cualquier predicado de tipo `Func<HttpContext, bool>` para asignar solicitudes a nuevas ramas de la canalización. En el ejemplo siguiente se usa un predicado para detectar la presencia de una `branch` variable de cadena de consulta:
 
-[!code-csharp[Main](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
+[!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
 En la siguiente tabla se muestran las solicitudes y las respuestas de `http://localhost:1234` con el código anterior:
 
@@ -189,7 +189,7 @@ app.Map("/level1/level2", HandleMultiSeg);
 
 ## <a name="built-in-middleware"></a>Middleware integrado
 
-ASP.NET incluye los siguientes componentes de middleware, así como una descripción del orden en el que se deberían agregar:
+ASP.NET Core incluye los siguientes componentes de middleware, así como una descripción del orden en el que se deberían agregar:
 
 | Software intermedio | Description | Orden |
 | ---------- | ----------- | ----- |
@@ -212,25 +212,28 @@ ASP.NET incluye los siguientes componentes de middleware, así como una descripc
 
 El middleware normalmente está encapsulado en una clase y se expone con un método de extensión. Use el siguiente middleware a modo de ejemplo. En este se establece la referencia cultural de la solicitud actual a partir de la cadena de solicitud:
 
-[!code-csharp[Main](index/sample/Culture/StartupCulture.cs?name=snippet1)]
+[!code-csharp[](index/sample/Culture/StartupCulture.cs?name=snippet1)]
 
-Nota: El código de ejemplo que se muestra anteriormente se usa para mostrar la creación de un componente de middleware. Consulte [Globalization and localization](xref:fundamentals/localization) (Globalización y localización) para ver la compatibilidad con localización integrada de ASP.NET Core.
+Nota: El código de ejemplo anterior se usa para mostrar la creación de un componente de middleware. Vea [Globalization and localization](xref:fundamentals/localization) (Globalización y localización) para ver la compatibilidad con localización integrada de ASP.NET Core.
 
 Puede probar el middleware pasando la referencia cultural, por ejemplo, `http://localhost:7997/?culture=no`.
 
 El código siguiente mueve el delegado de middleware a una clase:
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddleware.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddleware.cs)]
+
+> [!NOTE]
+> En ASP.NET Core 1.x, el nombre del método del middleware `Task` debe ser `Invoke`. En ASP.NET Core 2.0 o posterior, el nombre puede ser `Invoke` o `InvokeAsync`.
 
 El método de extensión siguiente expone el middleware mediante [IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder):
 
-[!code-csharp[Main](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
+[!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
 El código siguiente llama al middleware desde `Configure`:
 
-[!code-csharp[Main](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
+[!code-csharp[](index/sample/Culture/Startup.cs?name=snippet1&highlight=5)]
 
-El middleware debería seguir el [principio de dependencias explicitas](http://deviq.com/explicit-dependencies-principle/) mediante la exposición de sus dependencias en el constructor. El middleware se construye una vez por *duración de la aplicación*. Consulte *Dependencias bajo solicitud* a continuación si necesita compartir servicios con middleware en una solicitud.
+El middleware debería seguir el [principio de dependencias explicitas](http://deviq.com/explicit-dependencies-principle/) mediante la exposición de sus dependencias en el constructor. El middleware se construye una vez por *duración de la aplicación*. Vea *Dependencias bajo solicitud* a continuación si necesita compartir servicios con middleware en una solicitud.
 
 Los componentes de middleware pueden resolver las dependencias de una inserción de dependencias mediante parámetros del constructor. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) también puede aceptar parámetros adicionales directamente.
 
@@ -261,5 +264,5 @@ public class MyMiddleware
 * [Migración de módulos HTTP a middleware](xref:migration/http-modules)
 * [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Solicitud de características](xref:fundamentals/request-features)
-* [Activación de middleware basado en Factory](xref:fundamentals/middleware/extensibility)
-* [Activación de middleware basado en Factory con un contenedor de terceros](xref:fundamentals/middleware/extensibility-third-party-container)
+* [Factory-based middleware activation](xref:fundamentals/middleware/extensibility) (Activación de middleware basada en Factory)
+* [Activación de middleware con un contenedor de terceros](xref:fundamentals/middleware/extensibility-third-party-container)

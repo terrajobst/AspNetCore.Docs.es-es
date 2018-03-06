@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 620bfefa625f4b39cb2731b4f553caaa4526c71b
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: b1ca9303c620597f7844c401048129044e99d7be
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -45,6 +45,8 @@ public static IWebHost BuildWebHost(string[] args) =>
         ...
 ```
 
+El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. El método `UseIISIntegration` toma el puerto dinámico y configura Kestrel para que escuche en `http://locahost:{dynamicPort}/`. Esto invalida otras configuraciones de URL, como las llamadas a `UseUrls` o a la [API Listen de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). Por lo tanto, no es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
+
 # <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
 
 Incluya una dependencia en el paquete [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) de dependencias de la aplicación. Use el middleware de integración con IIS agregando el método de extensión [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) a [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder):
@@ -57,6 +59,10 @@ var host = new WebHostBuilder()
 ```
 
 Tanto [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel) como [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) son necesarios. La llamada al código `UseIISIntegration` no afecta a la portabilidad del código. Si la aplicación no se ejecuta detrás de IIS (por ejemplo, si se ejecuta directamente en Kestrel), `UseIISIntegration` no funciona.
+
+El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. El método `UseIISIntegration` toma el puerto dinámico y configura Kestrel para que escuche en `http://locahost:{dynamicPort}/`. Esto invalida otras configuraciones de URL, como las llamadas a `UseUrls`. Por lo tanto, no es necesario realizar una llamada a `UseUrls` cuando se usa el módulo. Si se llama a `UseUrls`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
+
+Si se llama a `UseUrls` en una aplicación de ASP.NET Core 1.0, hágalo **antes** de llamar a `UseIISIntegration` para que no se sobrescriba el puerto configurado por el módulo. Este orden de llamada no es necesario en ASP.NET Core 1.1, ya que la configuración del módulo reemplaza a `UseUrls`.
 
 ---
 
@@ -164,6 +170,8 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
 1. Instale el [lote de hospedaje .NET Core Windows Server](https://aka.ms/dotnetcore-2-windowshosting) en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el lote de hospedaje .NET Core Windows Server.
 
    **¡Importante!** Si el lote de hospedaje se instala antes que IIS, se debe reparar la instalación de dicho paquete. Ejecute el instalador del lote de hospedaje de nuevo después de instalar IIS.
+   
+   Para evitar que el instalador instale paquetes x86 en un sistema operativo x64, ejecute el instalador desde un símbolo del sistema de administrador con el modificador `OPT_NO_X86=1`.
 
 1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema. Al reiniciar IIS se recoge un cambio en la variable PATH del sistema realizado por el programa de instalación.
 

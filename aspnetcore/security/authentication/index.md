@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/index
-ms.openlocfilehash: fbef1545f3cdcbe3887a5dd9ceca0e9b420193f1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b9640e33043d452246f81b7968996bda1f7474ff
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="authentication"></a>Autenticación
 
@@ -22,6 +22,8 @@ ms.lasthandoff: 01/30/2018
 * [Introducción a Identity](identity.md)
 
 * [Habilitar la autenticación con Facebook, Google y otros proveedores externos](social/index.md)
+
+* [Habilitar la autenticación con WS-Federation](ws-federation.md)
 
 * [Habilitar la generación de código QR en Identity](identity-enable-qrcodes.md)
 
