@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/visual-studio-tools-for-docker
-ms.openlocfilehash: caf0e423d8e6f61fd2470d1f4ea2dd93909c3696
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 590d32342b1724a0cbc937655c35631938eb09b2
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="visual-studio-tools-for-docker-with-aspnet-core"></a>Visual Studio Tools para Docker con ASP.NET Core
 
@@ -38,7 +38,7 @@ Las **[unidades compartidas](https://docs.docker.com/docker-for-windows/#shared-
 
 ## <a name="add-docker-support-to-an-app"></a>Agregar compatibilidad con Docker a una aplicación
 
-El marco de trabajo de destino del proyecto de ASP.NET Core determina los tipos de contenedor admitidos. Los proyectos para .NET Core admiten contenedores de Linux y Windows. Los proyectos para .NET Framework solo admiten contenedores de Windows.
+Para agregar compatibilidad de Docker a un proyecto de ASP.NET Core, el proyecto debe tener como destino .NET Core. Se admiten los contenedores de Linux y Windows.
 
 Al agregar compatibilidad con Docker a un proyecto, elija Windows o un contenedor de Linux. El host de Docker debe ejecutar el mismo tipo de contenedor. Para cambiar el tipo de contenedor en la instancia de Docker en ejecución, haga clic con el botón derecho en el icono de Docker en la bandeja del sistema y elija **Switch to Windows containers...** (Cambiar a contenedores Windows) o **Switch to Linux containers...** (Cambiar a contenedores Linux).
 
@@ -67,7 +67,7 @@ Visual Studio Tools para Docker agrega un proyecto *docker-compose* a la soluci�
 
 Se agrega un *Dockerfile*, la receta para crear una imagen de Docker final, a la raíz del proyecto. Vea [Dockerfile reference (Referencia de Dockerfile)](https://docs.docker.com/engine/reference/builder/) para obtener una descripción de los comandos que contiene. Este *Dockerfile* concreto usa una [compilación de varias fases](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) con cuatro fases de compilación distintas con nombre:
 
-[!code-text[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
+[!code-dockerfile[](visual-studio-tools-for-docker/samples/HelloDockerTools/HelloDockerTools/Dockerfile?highlight=1,5,14,17)]
 
 El *Dockerfile* se basa en la imagen [microsoft/aspnetcore](https://hub.docker.com/r/microsoft/aspnetcore). Esta imagen base incluye los paquetes NuGet de ASP.NET Core, que se han precompilado para mejorar el rendimiento en el inicio.
 
