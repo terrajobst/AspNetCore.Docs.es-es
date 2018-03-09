@@ -213,6 +213,9 @@
 # [Móvil](xref:mobile/index)
 ## [Creación de servicios back-end para aplicaciones móviles nativas](xref:mobile/native-mobile-backend)
 
+# [SignalR](xref:signalr/index)
+## [Introducción](xref:signalr/get-started-signalr-core)
+
 # [Hospedaje e implementación](xref:host-and-deploy/index)
 ## [Hospedaje en Azure App Service](xref:host-and-deploy/azure-apps/index)
 ### [Publicación en Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
