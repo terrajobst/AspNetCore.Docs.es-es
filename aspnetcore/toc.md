@@ -210,6 +210,9 @@
 ### [Plantilla de proyecto React](xref:spa/react)
 ### [Plantilla de proyecto React con Redux](xref:spa/react-with-redux)
 
+# [SignalR](xref:signalr/introduction-signalr-core)
+## [Introducción](xref:signalr/introduction-signalr-core)
+
 # [Móvil](xref:mobile/index)
 ## [Creación de servicios back-end para aplicaciones móviles nativas](xref:mobile/native-mobile-backend)
 
