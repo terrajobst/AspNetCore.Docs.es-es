@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5a4d2e3468c9b7db5d3acf9f59fc13a6b791497
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f5bf39bc2433a2fb277cb56554ddf39bea7a9c79
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/12/2018
 ---
 <a name="processing-unhandled-exceptions-vb"></a>Procesar las excepciones no controladas (VB)
 ====================
 por [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
-[Descargar código](http://download.microsoft.com/download/1/0/C/10CC829F-A808-4302-97D3-59989B8F9C01/ASPNET_Hosting_Tutorial_12_VB.zip) o [descarga de PDF](http://download.microsoft.com/download/5/C/5/5C57DB8C-5DEA-4B3A-92CA-4405544D313B/aspnet_tutorial12_ErrorHandling_vb.pdf)
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnet/web-forms/overview/older-versions-getting-started/deploying-web-site-projects/processing-unhandled-exceptions-vb/samples) ([cómo descargarlo](/aspnet/core/tutorials/index#how-to-download-a-sample))
 
 > Cuando se produce un error en tiempo de ejecución en una aplicación web en producción es importante para notificar a un desarrollador y registre el error para que se pueden diagnosticar en un momento posterior en el tiempo. Este tutorial proporciona una visión general del proceso de ASP.NET procesa los errores en tiempo de ejecución y se examinan una manera de tener código personalizado se ejecute cada vez que un burbujas de excepción no controlada al tiempo de ejecución de ASP.NET.
 
@@ -159,7 +159,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 - [Información general de los controladores HTTP y módulos HTTP de ASP.NET](https://support.microsoft.com/kb/307985)
 - [Responde correctamente a las excepciones no controladas - procesar las excepciones no controladas](http://aspnet.4guysfromrolla.com/articles/091306-1.aspx)
-- [`HttpApplication`Clase y el objeto de aplicación de ASP.NET](http://www.eggheadcafe.com/articles/20030211.asp)
+- [`HttpApplication` Clase y el objeto de aplicación de ASP.NET](http://www.eggheadcafe.com/articles/20030211.asp)
 - [Controladores HTTP y módulos HTTP de ASP.NET](http://www.15seconds.com/Issue/020417.htm)
 - [Enviar correo electrónico en ASP.NET](http://aspnet.4guysfromrolla.com/articles/072606-1.aspx)
 - [Descripción de la `Global.asax` archivo](http://aspalliance.com/1114_Understanding_the_Globalasax_file.all)

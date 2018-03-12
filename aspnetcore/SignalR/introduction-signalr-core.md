@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction-signalr-core
-ms.openlocfilehash: 0e26ecf913bbe6d24da96c1ece8b13aa5240818f
-ms.sourcegitcommit: 6fa546140575b3eb279eabae12d9acad966f70e0
+ms.openlocfilehash: d4ad9bb1910a3339ac8d0d8ff740417f4e7262b7
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="introduction-to-signalr"></a>Introducción a SignalR
 
@@ -38,7 +38,7 @@ SignalR principales de ASP.NET:
 * Controla automáticamente la administración de conexiones.
 * Permite difundir mensajes a todos los clientes conectados al mismo tiempo. Por ejemplo, un salón de chat.
 * Habilita el envío de mensajes a clientes específicos o grupos de clientes.
-* Es código abierto en [GitHub](https://github.com/aspnet/SignalR).
+* Es código abierto en [GitHub](https://github.com/aspnet/signalr).
 * Si se escala bien.
 
 La conexión entre el cliente y el servidor es persistente, a diferencia de una conexión HTTP.
@@ -63,4 +63,4 @@ El siguiente diagrama muestra la relación entre los concentradores, los puntos 
 
 ## <a name="related-resources"></a>Recursos relacionados
 
-[Empezar a trabajar con SignalR para ASP.NET Core](get-started-signalr-core)
+[Empezar a trabajar con SignalR para ASP.NET Core](xref:signalr/get-started-signalr-core)

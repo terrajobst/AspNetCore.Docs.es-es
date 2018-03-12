@@ -4,16 +4,16 @@ author: rick-anderson
 description: "Proporciona una introducción a ASP.NET Core."
 manager: wpickett
 ms.author: riande
-ms.date: 12/12/2017
+ms.date: 02/28/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: index
-ms.openlocfilehash: 42bf005a29a8723233a0d9e5532827f7522f0e75
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 112e1e4dc4eed2cf0ee94741a52ce6625e1f42a6
+ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="aspnet-core"></a>ASP.NET Core
 
@@ -43,7 +43,7 @@ ASP.NET Core ofrece las siguientes ventajas:
 * Capacidad para compilarse y ejecutarse en Windows, macOS y Linux.
 * De código abierto y [centrado en la comunidad](https://live.asp.net/).
 
-ASP.NET Core se distribuye en su totalidad como paquetes [NuGet](https://www.nuget.org/). Esto le permite optimizar la aplicación para incluir únicamente los paquetes NuGet necesarios. De hecho, las aplicaciones ASP.NET Core 2.x que tienen .NET Core como destino solo requieren un [paquete NuGet único](xref:fundamentals/metapackage). Entre las ventajas de una menor superficie de aplicación se incluyen una mayor seguridad, un mantenimiento reducido y un rendimiento mejorado.
+ASP.NET Core se distribuye en su totalidad como paquetes [NuGet](https://www.nuget.org/). El uso de paquetes NuGet permite optimizar la aplicación para incluir únicamente las dependencias necesarias. De hecho, las aplicaciones ASP.NET Core 2.x que tienen .NET Core como destino solo requieren un [paquete NuGet único](xref:fundamentals/metapackage). Entre las ventajas de una menor superficie de aplicación se incluyen una mayor seguridad, un mantenimiento reducido y un rendimiento mejorado.
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Creación de API web e interfaces de usuario web mediante ASP.NET Core MVC
 
@@ -59,7 +59,21 @@ ASP.NET Core MVC proporciona características para crear [API web](xref:tutorial
 
 ## <a name="client-side-development"></a>Desarrollo del lado cliente
 
-ASP.NET Core se integra perfectamente con bibliotecas y marcos de trabajo populares del lado cliente, que incluyen [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](xref:client-side/bootstrap). Vea [Client-side development](xref:client-side/index) (Desarrollo del lado cliente) para más información.
+ASP.NET Core se integra perfectamente con bibliotecas y marcos de trabajo populares del lado cliente, que incluyen [Angular](xref:spa/angular), [React](xref:spa/react) y [Bootstrap](xref:client-side/bootstrap). Para obtener más información, vea [Desarrollo del lado cliente](xref:client-side/index).
+
+## <a name="aspnet-core-targeting-net-framework"></a>ASP.NET Core con .NET Framework como destino
+
+ASP.NET Core puede tener como destino .NET Core o .NET Framework. Las aplicaciones de ASP.NET Core que tienen como destino .NET Framework no son multiplataforma, sino que solo se ejecutan en Windows. No está previsto eliminar la compatibilidad con .NET Framework como destino en ASP.NET Core. Por lo general, ASP.NET Core está formado por bibliotecas de [.NET Standard](/dotnet/standard/net-standard). Las aplicaciones escritas con .NET Standard 2.0 se ejecutan en cualquier lugar en el que se admita .NET Standard 2.0.
+
+El uso de .NET Core como destino cuenta con varias ventajas que van en aumento con cada versión. Entre las ventajas del uso de .NET Core en vez de .NET Framework se incluyen las siguientes:
+
+* Multiplataforma. Ejecución en macOS, Linux y Windows.
+* Rendimiento mejorado
+* Control de versiones en paralelo.
+* Nuevas API.
+* Abrir origen
+
+Estamos trabajando intensamente para cerrar la brecha de API entre .NET Framework y .NET Core. El [paquete de compatibilidad de Windows](/dotnet/core/porting/windows-compat-pack) ha permitido que miles de API solo de Windows estén disponibles en .NET Core. Estas API no estaban disponibles en .NET Core 1.x.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

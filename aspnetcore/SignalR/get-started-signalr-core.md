@@ -1,5 +1,4 @@
 ---
-uid: signalr/get-started-signalr-core
 title: Empezar a trabajar con SignalR en ASP.NET Core
 author: rachelappel
 ms.author: rachelap
@@ -10,11 +9,12 @@ ms.topic: tutorial
 ms.technology: dotnet-signalr
 ms.prod: aspnet-core
 ms.custom: mvc
-ms.openlocfilehash: 5e16569aa492e3639aa97abd241610b361fb0c56
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+uid: signalr/get-started-signalr-core
+ms.openlocfilehash: 4afb9785fc3d0f472226a745537acbc77adefb4c
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="tutorial-get-started-with-signalr-for-aspnet-core"></a>Tutorial: Introducción a SignalR para ASP.NET Core
 
