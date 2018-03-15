@@ -1,7 +1,7 @@
 ---
-title: "Habilitación de solicitudes entre orígenes (CORS)"
+title: "Habilitación de solicitudes entre orígenes (CORS) en el núcleo de ASP.NET"
 author: rick-anderson
-description: "Este documento presentan como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core CORS."
+description: "Obtenga información acerca de cómo CORS como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: ee61798fc1bde89ca3712eae9b7c4413e58cf70d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="enabling-cross-origin-requests-cors"></a>Habilitación de solicitudes entre orígenes (CORS)
+# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>Habilitación de solicitudes entre orígenes (CORS) en el núcleo de ASP.NET
 
 Por [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), y [Tom Dykstra](https://github.com/tdykstra)
 
@@ -160,7 +160,7 @@ Los exploradores no son completamente coherentes en forma de conjunto de acceso-
 
 ### <a name="set-the-exposed-response-headers"></a>Establecer los encabezados de respuesta expuesto
 
-De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. (See [http://www.w3.org/TR/cors/#simple-response-header](http://www.w3.org/TR/cors/#simple-response-header).) Los encabezados de respuesta que están disponibles de forma predeterminada son:
+De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. (Consulte [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Los encabezados de respuesta que están disponibles de forma predeterminada son:
 
 * Cache-Control
 

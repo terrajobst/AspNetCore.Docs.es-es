@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
 ms.openlocfilehash: 60ef1f93efea777e9309ad8c664a2c6645f1ce80
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Configuración de la aplicación Web de producción para usar la base de datos de producción (VB)
 ====================
@@ -37,16 +37,16 @@ No es raro para obtener información de configuración que difieren entre los en
 
 ## <a name="examining-the-connection-string-information"></a>Examinar la información de la cadena de conexión
 
-La cadena de conexión utilizada por la aplicación web de reseñas de libros se almacena en el archivo de configuración de aplicación s `Web.config`. `Web.config`incluye una sección especial para almacenar cadenas de conexión, un nombre muy apropiado [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). El `Web.config` archivo para el sitio Web de reseñas de libros tiene una cadena de conexión definida en esta sección denominada `ReviewsConnectionString`:
+La cadena de conexión utilizada por la aplicación web de reseñas de libros se almacena en el archivo de configuración de aplicación s `Web.config`. `Web.config` incluye una sección especial para almacenar cadenas de conexión, un nombre muy apropiado [ &lt;connectionStrings&gt;](https://msdn.microsoft.com/library/bf7sd233.aspx). El `Web.config` archivo para el sitio Web de reseñas de libros tiene una cadena de conexión definida en esta sección denominada `ReviewsConnectionString`:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample1.xml)]
 
 La cadena de conexión: origen de datos =. \SQLEXPRESS; AttachDbFilename = | Seguridad DataDirectory|\Reviews.mdf;Integrated = True; User Instance = True: se compone de una serie de opciones y valores, con pares de opción y valor delimitados por punto y coma y cada opción y valor delimitados por un signo igual. Las cuatro opciones que se usan en esta cadena de conexión son:
 
-- `Data Source`-Especifica la ubicación del servidor de base de datos y el nombre de instancia del servidor de base de datos (si existe). El valor `.\SQLEXPRESS`, es un ejemplo donde hay un servidor de base de datos y un nombre de instancia. El período especifica que el servidor de base de datos está en el mismo equipo que la aplicación; es el nombre de instancia `SQLEXPRESS`.
-- `AttachDbFilename`-Especifica la ubicación del archivo de base de datos. El valor contiene el marcador de posición `|DataDirectory|`, que se resuelve en la ruta de acceso completa de la aplicación s `App_Data` carpeta en tiempo de ejecución.
-- `Integrated Security`-un valor booleano que indica si se usa una nombre de usuario/contraseña especificada al conectarse a la base de datos (false) o las ventanas actuales credenciales de cuenta (true).
-- `User Instance`-una opción de configuración específica de SQL Server Express Edition que indica si se debe permitir que los usuarios no administrativos en el equipo local, adjuntar y conectan a una base de datos de SQL Server Express Edition. Vea [instancias de SQL Server Express usuario](https://msdn.microsoft.com/library/ms254504.aspx) para obtener más información acerca de esta opción.
+- `Data Source` -Especifica la ubicación del servidor de base de datos y el nombre de instancia del servidor de base de datos (si existe). El valor `.\SQLEXPRESS`, es un ejemplo donde hay un servidor de base de datos y un nombre de instancia. El período especifica que el servidor de base de datos está en el mismo equipo que la aplicación; es el nombre de instancia `SQLEXPRESS`.
+- `AttachDbFilename` -Especifica la ubicación del archivo de base de datos. El valor contiene el marcador de posición `|DataDirectory|`, que se resuelve en la ruta de acceso completa de la aplicación s `App_Data` carpeta en tiempo de ejecución.
+- `Integrated Security` -un valor booleano que indica si se usa una nombre de usuario/contraseña especificada al conectarse a la base de datos (false) o las ventanas actuales credenciales de cuenta (true).
+- `User Instance` -una opción de configuración específica de SQL Server Express Edition que indica si se debe permitir que los usuarios no administrativos en el equipo local, adjuntar y conectan a una base de datos de SQL Server Express Edition. Vea [instancias de SQL Server Express usuario](https://msdn.microsoft.com/library/ms254504.aspx) para obtener más información acerca de esta opción.
   
 
 Las opciones de cadena de conexión permitidos dependen de la base de datos se conecta a y el [ADO.NET](http://ADO.NET) proveedor de base de datos que se utiliza. Por ejemplo, la cadena de conexión para conectarse a Microsoft SQL Server difiere de base de datos que utiliza para conectarse a una base de datos de Oracle. Asimismo, si se conecta a una base de datos de Microsoft SQL Server que utiliza el proveedor SqlClient, utiliza una cadena de conexión diferente que cuando se utiliza el proveedor OLE DB.
@@ -125,7 +125,7 @@ En este momento la `ConfigSections` carpeta debe contener tres archivos (consult
 **Figura 4**: ConfigSections ([haga clic aquí para ver la imagen a tamaño completo](configuring-the-production-web-application-to-use-the-production-database-vb/_static/image12.jpg))
 
 
-Ahora necesitamos indicar a `Web.config` para usar el archivo databaseConnectionStrings.config para su almacén de cadenas de conexión. Abra `Web.config` y reemplazar el existente `<connectionStrings>` elemento por lo siguiente:
+Ahora necesitamos indicar a `Web.config` para usar el archivo databaseConnectionStrings.config para su almacén de cadenas de conexión. Abra `Web.config` y reemplace el elemento `<connectionStrings>` existente por lo siguiente:
 
 [!code-xml[Main](configuring-the-production-web-application-to-use-the-production-database-vb/samples/sample4.xml)]
 

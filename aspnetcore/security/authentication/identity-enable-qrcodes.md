@@ -1,7 +1,7 @@
 ---
 title: "Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core"
 author: rick-anderson
-description: "Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core"
+description: "Descubra cómo habilitar la generación de código QR para aplicaciones de autenticador que funcionan con la autenticación de dos factores principales de ASP.NET."
 manager: wpickett
 ms.author: riande
 ms.date: 09/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: cf941314d54aa4a7bd1724805dc62c763ca71dfb
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: dd326bb32565b743d21e196bcb616a716d7994bf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="enabling-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core
 
@@ -25,7 +25,7 @@ Las plantillas de aplicación web de ASP.NET Core admiten autenticadores, pero n
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Agregar códigos QR a la página de configuración de 2FA
 
-Estas instrucciones usan *qrcode.js* desde el repositorio de https://davidshimjs.github.io/qrcodejs/.
+Utilizan estas instrucciones *qrcode.js* de la https://davidshimjs.github.io/qrcodejs/ repo.
 
 * Descargue el [qrcode.js javascript biblioteca](https://davidshimjs.github.io/qrcodejs/) a la `wwwroot\lib` carpeta del proyecto.
 
@@ -84,8 +84,8 @@ Puede reemplazar la biblioteca de código QR por la biblioteca preferida. El có
 
 La dirección URL con el formato correcto para el código QR está disponible en el:
 
-* `AuthenticatorUri`propiedad del modelo.
-* `data-url`propiedad en el `qrCodeData` elemento. 
+* `AuthenticatorUri` propiedad del modelo.
+* `data-url` propiedad en el `qrCodeData` elemento. 
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP cliente y servidor sesgo horario
 

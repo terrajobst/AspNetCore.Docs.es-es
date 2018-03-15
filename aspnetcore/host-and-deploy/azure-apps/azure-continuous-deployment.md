@@ -1,5 +1,5 @@
 ---
-title: "Implementación continua en Azure con Visual Studio y Git"
+title: "Implementación continua a Azure con Visual Studio y Git con ASP.NET Core"
 author: rick-anderson
 description: "Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con Visual Studio e implementarla en Azure App Service con Git para una implementación continua."
 manager: wpickett
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: ea4788b5daead9e355e13b963c025dd110eb2bff
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7302de1ace62dba53b317039aac7f4763314aa19
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="continuous-deployment-to-azure-for-aspnet-core-with-visual-studio-and-git"></a>Implementación continua para Azure para ASP.NET Core con Visual Studio y Git
+# <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Implementación continua a Azure con Visual Studio y Git con ASP.NET Core
 
 Por [Erik Reitan](https://github.com/Erikre)
 
@@ -43,7 +43,7 @@ Este tutorial se da por supuesto que está instalado el siguiente software:
 
 1. En el menú **Archivo**, seleccione **Nuevo** > **Proyecto**.
 
-1. Seleccione la plantilla de proyecto **Aplicación web ASP.NET Core**. Aparece en **Instalados** > **Plantillas** > **Visual C#** > **.NET Core**. Dé un nombre al proyecto `SampleWebAppDemo`. Seleccione la opción **Crear nuevo repositorio de Git** y haga clic en **Aceptar**.
+1. Seleccione la plantilla de proyecto **Aplicación web ASP.NET Core**. Aparece en **Instalados** > **Plantillas** > **Visual C#** > **.NET Core**. Dé un nombre al proyecto `SampleWebAppDemo`. Seleccione el **crear nuevo repositorio de Git** opción y haga clic en **Aceptar**.
 
    ![Cuadro de diálogo Nuevo proyecto](azure-continuous-deployment/_static/01-new-project.png)
 

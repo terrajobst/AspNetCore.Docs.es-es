@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-configuration
-ms.openlocfilehash: 469068af2fc12627a0a5d1c5623eb60bef51cea0
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: f8be8a555454a99a3e75b5cd3d42c11e1d7b2b7e
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-identity"></a>Configurar la identidad
 
@@ -36,7 +36,18 @@ El [IdentityOptions](/dotnet/api/microsoft.aspnetcore.identity.identityoptions) 
 
 ### <a name="lockout"></a>Bloqueo
 
+Impide al usuario durante un período de tiempo después de un determinado número de intentos de acceso erróneos (valor predeterminado: bloqueo de 5 minutos después de 5 intentos de acceso). Una autenticación correcta restablece el número de intentos de acceso erróneos y restablece el reloj.
+
+En el ejemplo siguiente se muestra los valores predeterminados:
+
 [!code-csharp[](identity/sample/src/ASPNETv2-IdentityDemo-Configuration/Startup.cs?range=29-30,39-42,50-52)]
+
+Confirme que [PasswordSignInAsync](/dotnet/api/microsoft.aspnetcore.identity.signinmanager-1.passwordsigninasync) establece `lockoutOnFailure` a `true`:
+
+```csharp
+var result = await _signInManager.PasswordSignInAsync(
+                 Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+```
 
 [IdentityOptions.Lockout](/dotnet/api/microsoft.aspnetcore.identity.identityoptions.lockout) especifica la [LockoutOptions](/dotnet/api/microsoft.aspnetcore.identity.lockoutoptions) con las propiedades mostradas en la tabla.
 

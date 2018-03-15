@@ -1,5 +1,5 @@
 ---
-title: "Autenticación en la nube con Azure Active Directory B2C"
+title: "Autenticación en la nube con Azure Active Directory B2C en ASP.NET Core"
 author: camsoper
 description: "Descubra cómo configurar la autenticación de Azure Active Directory B2C con ASP.NET Core."
 manager: wpickett
@@ -9,13 +9,13 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 65372020ef6554476fb95549f13d110a748b5863
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: a7bad452a68cf7fe7aa81645d79a0ee9e7719fe7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="cloud-authentication-with-azure-active-directory-b2c"></a>Autenticación en la nube con Azure Active Directory B2C
+# <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en la nube con Azure Active Directory B2C en ASP.NET Core
 
 Por [Cam Soper](https://twitter.com/camsoper)
 
@@ -51,7 +51,7 @@ Utilice los siguientes valores:
 
 | Parámetro                       | Valor                     | Notas                                                                                                                                                                                              |
 |-------------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Name**                      | *&lt;nombre de la aplicación&gt;*        | Escriba un **nombre** para la aplicación que describe la aplicación a los consumidores.                                                                                                                                 |
+| **Name**                      | *&lt;Nombre de la aplicación&gt;*        | Escriba un **nombre** para la aplicación que describe la aplicación a los consumidores.                                                                                                                                 |
 | **Incluir la aplicación web / web API** | Sí                       |                                                                                                                                                                                                    |
 | **Permitir flujo implícito**       | Sí                       |                                                                                                                                                                                                    |
 | **Dirección URL de respuesta**                 | `https://localhost:44300` | Direcciones URL de respuesta son los puntos de conexión que Azure AD B2C devuelve los tokens que solicita la aplicación. Visual Studio proporciona la dirección URL de respuesta a la utilice. Por ahora, escriba `https://localhost:44300` para completar el formulario. |

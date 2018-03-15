@@ -1,7 +1,7 @@
 ---
-title: "Creación de sitios maravillosas y capacidad de respuesta con arranque"
+title: "Creación de sitios maravillosas y capacidad de respuesta con arranque y ASP.NET Core"
 author: ardalis
-description: 
+description: "Obtenga información acerca de cómo utilizar el arranque para desarrollar aplicaciones web con capacidad de respuesta con ASP.NET Core."
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: e2ade6223cdc56a4f0f00ff0b985ceda4ab5484a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c3dfaa53e9e3277d025d014f65004e4c24a5acc4
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="building-beautiful-responsive-sites-with-bootstrap"></a>Creación de sitios maravillosas y capacidad de respuesta con arranque
+# <a name="building-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Creación de sitios maravillosas y capacidad de respuesta con arranque y ASP.NET Core
 
 <a name="bootstrap-index"></a>
 
@@ -23,7 +23,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 Bootstrap actualmente es el marco de trabajo web más popular para desarrollar aplicaciones web con capacidad de respuesta. Ofrece una serie de características y ventajas que pueden mejorar la experiencia de los usuarios con el sitio web, si tiene experiencia en el diseño de front-end y de desarrollo o de un experto. Bootstrap se implementa como un conjunto de archivos CSS y JavaScript y está diseñado para ayudar a su sitio Web o aplicación escala eficazmente desde teléfonos a tabletas a equipos de escritorio.
 
-## <a name="getting-started"></a>Introducción
+## <a name="get-started"></a>Primeros pasos
 
 Hay varias maneras de empezar a trabajar con arranque. Si está iniciando una nueva aplicación web en Visual Studio, puede elegir la plantilla de inicio predeterminado para ASP.NET Core, en el que se vienen preinstalada Bootstrap mayúscula:
 
@@ -190,7 +190,7 @@ Si desea cambiar el tema del arranque, coloque el *bootstrap.css* archivo para e
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
 ```
 
-Si desea crear su propio panel, puede iniciar desde el ejemplo libre está disponible aquí: [http://getbootstrap.com/examples/dashboard/](http://getbootstrap.com/examples/dashboard/).
+Si desea crear su propio panel, puede iniciar desde el ejemplo libre está disponible aquí: [ http://getbootstrap.com/examples/dashboard/ ](http://getbootstrap.com/examples/dashboard/).
 
 ## <a name="components"></a>Componentes
 
@@ -214,7 +214,7 @@ Rutas son un componente de interfaz de usuario común usado para mostrar su hist
 
 ## <a name="javascript-support"></a>Compatibilidad con JavaScript
 
-Biblioteca de JavaScript del arranque incluye compatibilidad con la API para los componentes incluyen, lo que le permite controlar su comportamiento mediante programación dentro de la aplicación. Además, *bootstrap.js* incluye más de una docena complementos de jQuery personalizados, proporcionar características adicionales, como las transiciones, cuadros de diálogo modales, desplácese detección (actualicen los estilos en función de dónde se desplaza el usuario en el documento), comportamiento de contraer, cintas y colocación los menús de la ventana, por lo que no se desplazan fuera de la pantalla. No hay espacio suficiente para cubrir todos los complementos de JavaScript que se integran Bootstrap: para aprender más, visite [http://getbootstrap.com/javascript/](http://getbootstrap.com/javascript/).
+Biblioteca de JavaScript del arranque incluye compatibilidad con la API para los componentes incluyen, lo que le permite controlar su comportamiento mediante programación dentro de la aplicación. Además, *bootstrap.js* incluye más de una docena complementos de jQuery personalizados, proporcionar características adicionales, como las transiciones, cuadros de diálogo modales, desplácese detección (actualicen los estilos en función de dónde se desplaza el usuario en el documento), comportamiento de contraer, cintas y colocación los menús de la ventana, por lo que no se desplazan fuera de la pantalla. No hay espacio suficiente para cubrir todos los complementos de JavaScript que se integran Bootstrap: para aprender más, visite [ http://getbootstrap.com/javascript/ ](http://getbootstrap.com/javascript/).
 
 ## <a name="summary"></a>Resumen
 

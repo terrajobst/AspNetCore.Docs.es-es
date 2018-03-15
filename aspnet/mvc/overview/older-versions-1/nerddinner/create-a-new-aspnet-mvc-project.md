@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-new-aspnet-mvc-project
 msc.type: authoredcontent
 ms.openlocfilehash: 4d30a6803b1478014a2afb814ac317df27394446
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="create-a-new-aspnet-mvc-project"></a>Cree un nuevo proyecto de MVC de ASP.NET
 ====================
@@ -63,13 +63,13 @@ Cuando se crea una nueva aplicación MVC de ASP.NET con Visual Studio, agrega au
 
 Proyectos de ASP.NET MVC predeterminada tienen seis directorios de nivel superior:
 
-| **Directorio** | **Propósito** |
+| **Directorio** | **Purpose** |
 | --- | --- |
 | **/ Controladores** | Dónde colocar las clases de controlador que controlan las solicitudes de dirección URL |
-| **/ Modelos** | En la que colocar las clases que representan y manipulan datos |
+| **/Models** | En la que colocar las clases que representan y manipulan datos |
 | **/ Vistas** | Dónde colocar los archivos de plantilla de interfaz de usuario que son responsables de una salida de representación |
 | **/ Secuencias de comandos** | Dónde colocar scripts (.js) y archivos de la biblioteca de JavaScript |
-| **/ Content** | Dónde se colocan el CSS y archivos de imagen y otro tipo de contenido no-dinámicos no admiten de JavaScript |
+| **/Content** | Dónde se colocan el CSS y archivos de imagen y otro tipo de contenido no-dinámicos no admiten de JavaScript |
 | **/ Aplicación\_datos** | Donde almacenar los archivos de datos que desee a lectura/escritura. |
 
 ASP.NET MVC no requiere esta estructura. De hecho, los desarrolladores que trabajan en aplicaciones de gran tamaño será normalmente particionar la aplicación de seguridad en varios proyectos para que sea más fácil de administrar (por ejemplo: clases del modelo de datos entran a menudo en un proyecto de biblioteca de clases independiente de la aplicación web). La estructura del proyecto de forma predeterminada, obstante, ofrece una convención de directorio predeterminado "nice" que podemos usar para mantener lo que nos ocupa aplicación limpio.

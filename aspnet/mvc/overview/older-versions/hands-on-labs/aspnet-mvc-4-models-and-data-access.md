@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-models-and-data-access
 msc.type: authoredcontent
 ms.openlocfilehash: 353419077422516761df56f730352b19b5db5ff2
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-mvc-4-models-and-data-access"></a>Acceso a datos y modelos de ASP.NET MVC 4
 
@@ -39,7 +39,7 @@ Sin embargo, también puede usar el **Model First** enfocar, crear el mismo mode
 
 ![Primer frente a base de datos. Modelo primero](aspnet-mvc-4-models-and-data-access/_static/image1.png "frente a Database First. En primer lugar del modelo")
 
-*Primer frente a base de datos. En primer lugar del modelo
+*Primer frente a base de datos. En primer lugar del modelo*
 
 Después de generar el modelo, hará que los ajustes adecuados en el StoreController para proporcionar las vistas del almacén con los datos tomados de la base de datos, en lugar de utilizar datos codificados de forma rígida. No necesitará realizar cualquier cambio en las plantillas de vista porque el StoreController devolverá el mismo ViewModels a las plantillas de vista, aunque esta vez los datos depende de la base de datos.
 
@@ -560,7 +560,7 @@ Por completar este laboratorio práctico ha aprendido los conceptos básicos del
 
 Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la  **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
-1. Vaya a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con SDK de Windows Azure*&quot;.
+1. Vaya a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con SDK de Windows Azure*&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 
@@ -667,12 +667,12 @@ Si la aplicación realiza el uso de SQL Server debe crear un servidor de base de
 
     ![Agregar dirección IP del cliente](aspnet-mvc-4-models-and-data-access/_static/image41.png)
 
-    Agregar dirección IP del cliente
+    *Agregar dirección IP del cliente*
 3. Una vez el **dirección IP del cliente** se agrega a las direcciones IP permitidas lista, haga clic en **guardar** para confirmar los cambios.
 
     ![Confirmar cambios](aspnet-mvc-4-models-and-data-access/_static/image42.png)
 
-    Confirmar cambios
+    *Confirmar cambios*
 
 <a id="ApxBTask3"></a>
 

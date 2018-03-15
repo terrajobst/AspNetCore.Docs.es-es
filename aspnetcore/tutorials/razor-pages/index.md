@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/index
-ms.openlocfilehash: 0a3d5ae039bc73d20cc05140e53a8bc4daaefd6c
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: 162fa4e0a6d5b6fdda7f043c9d106838a1c19954
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="create-a-razor-pages-web-app-with-aspnet-core"></a>Creación de una aplicación web de páginas de Razor con ASP.NET Core
 

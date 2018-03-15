@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
 ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Creación de una capa de acceso a datos (C#)
 ====================
@@ -308,7 +308,7 @@ Ambos patrones de modificación de datos utiliza el TableAdapter **InsertCommand
 
 [![El objeto TableAdapter tiene InsertCommand, UpdateCommand y DeleteCommand propiedades](creating-a-data-access-layer-cs/_static/image62.png)](creating-a-data-access-layer-cs/_static/image61.png)
 
-**Figura 23**: tiene el TableAdapter **InsertCommand**, **UpdateCommand**, y **DeleteCommand** propiedades ([haga clic aquí para ver imagen a tamaño completo](creating-a-data-access-layer-cs/_static/image63.png))
+**Figura 23**: tiene el TableAdapter **InsertCommand**, **UpdateCommand**, y **DeleteCommand** propiedades ([haga clic para ver tamaño completo imagen](creating-a-data-access-layer-cs/_static/image63.png))
 
 
 Para examinar o modificar cualquiera de estas propiedades de comando de base de datos, haga clic en el **CommandText** subpropiedad, que abrirá el generador de consultas.
@@ -316,7 +316,7 @@ Para examinar o modificar cualquiera de estas propiedades de comando de base de 
 
 [![Configurar la INSERCIÓN, actualización y las instrucciones DELETE en el generador de consultas](creating-a-data-access-layer-cs/_static/image65.png)](creating-a-data-access-layer-cs/_static/image64.png)
 
-**Figura 24**: configurar la **insertar**, **actualización**, y **eliminar** las instrucciones en el generador de consultas ([haga clic aquí para ver la imagen a tamaño completo ](creating-a-data-access-layer-cs/_static/image66.png))
+**Figura 24**: configurar la **insertar**, **actualización**, y **eliminar** las instrucciones en el generador de consultas ([haga clic aquí para ver la imagen a tamaño completo](creating-a-data-access-layer-cs/_static/image66.png))
 
 
 En el ejemplo de código siguiente se muestra cómo usar el patrón de actualización por lotes para doblar el precio de todos los productos que no están suspendidos y que tienen 25 unidades en existencias o menos:
@@ -537,7 +537,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 

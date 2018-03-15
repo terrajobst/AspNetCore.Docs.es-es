@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/index
-ms.openlocfilehash: 7e5f6bc44241dc6fc11569a145a04340f1b3ee7f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e03256d7b8b442569b0b0126983732c10817e20f
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-core-security-overview"></a>Introducción a la seguridad de ASP.NET Core
 
@@ -97,7 +97,6 @@ Hay más vulnerabilidades que debe tener en cuenta. Para más información, vea 
         *   [Formato de almacenamiento de claves](data-protection/implementation/key-storage-format.md)
         *   [Proveedores de protección de datos efímeros](data-protection/implementation/key-storage-ephemeral.md)
     *   [Compatibilidad](data-protection/compatibility/index.md)
-        *   [Compartir cookies entre aplicaciones](data-protection/compatibility/cookie-sharing.md)
         *   [Reemplazar <machineKey> en ASP.NET](data-protection/compatibility/replacing-machinekey.md)
 *   [Creación de una aplicación con datos de usuario protegidos por autorización](xref:security/authorization/secure-data)
 *   [Almacenamiento seguro de secretos de aplicación durante el desarrollo](app-secrets.md)
@@ -107,3 +106,4 @@ Hay más vulnerabilidades que debe tener en cuenta. Para más información, vea 
 *   [Prevención de ataques de redireccionamiento abierto](preventing-open-redirects.md)
 *   [Prevención de scripting entre sitios](cross-site-scripting.md)
 *   [Habilitar solicitudes entre orígenes (CORS)](cors.md)
+*   [Compartir cookies entre aplicaciones](cookie-sharing.md)

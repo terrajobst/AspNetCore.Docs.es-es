@@ -1,7 +1,7 @@
 ---
 title: Proveedores de almacenamiento de claves
 author: rick-anderson
-description: Proveedores de almacenamiento de claves
+description: "Obtenga información acerca de los proveedores de almacenamiento de claves en ASP.NET Core y cómo configurar ubicaciones de almacenamiento de claves."
 manager: wpickett
 ms.author: riande
 ms.date: 01/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 4f0e29a94593cd1cbb9890d7ee8bd09cddb4f69c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 83e02a19e465b3ff81a0c0c62c2c8b090bfab052
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="key-storage-providers"></a>Proveedores de almacenamiento de claves
 

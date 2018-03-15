@@ -1,5 +1,5 @@
 ---
-title: "Proveedor de configuración de almacén de claves de Azure"
+title: "Proveedor de configuración de almacén de claves Azure en ASP.NET Core"
 author: guardrex
 description: "Obtenga información acerca de cómo usar el proveedor de configuración de almacén de claves de Azure para configurar una aplicación con pares de nombre / valor que se carga en tiempo de ejecución."
 manager: wpickett
@@ -8,13 +8,13 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 1a91a87fb90d4d4651e07f32415e4364c8e2d993
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="azure-key-vault-configuration-provider"></a>Proveedor de configuración de almacén de claves de Azure
+# <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves Azure en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex) y [Andrew Stanton-enfermera](https://github.com/anurse)
 
@@ -74,7 +74,7 @@ Cuando se ejecuta la aplicación, una página Web muestra los valores cargados s
 ![Ventana del explorador que muestra valores secretos carga mediante el proveedor de configuración de almacén de claves de Azure](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Crear el almacén de claves con prefijo secretos y cargar los valores de configuración (clave-nombre-ejemplo de prefijo)
-`AddAzureKeyVault`También proporciona una sobrecarga que acepta una implementación de `IKeyVaultSecretManager`, que le permite controlar cómo clave secretos del almacén se convierten en las claves de configuración. Por ejemplo, puede implementar la interfaz para cargar valores secretos basándose en un valor de prefijo que proporcione al iniciar la aplicación. Esto le permite, por ejemplo, para cargar los secretos en función de la versión de la aplicación.
+`AddAzureKeyVault` También proporciona una sobrecarga que acepta una implementación de `IKeyVaultSecretManager`, que le permite controlar cómo clave secretos del almacén se convierten en las claves de configuración. Por ejemplo, puede implementar la interfaz para cargar valores secretos basándose en un valor de prefijo que proporcione al iniciar la aplicación. Esto le permite, por ejemplo, para cargar los secretos en función de la versión de la aplicación.
 
 > [!WARNING]
 > No utilizar prefijos en secretos del almacén de claves colocar secretos para varias aplicaciones en el mismo almacén de claves o colocar secretos entorno (por ejemplo, *desarrollo* frente a *producción* secretos) en el mismo almacén. Se recomienda que diferentes aplicaciones y entornos de desarrollo o de producción usan almacenes claves independientes para aislar los entornos de aplicación para el nivel más alto de seguridad.

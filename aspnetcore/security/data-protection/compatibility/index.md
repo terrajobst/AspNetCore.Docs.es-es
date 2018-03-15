@@ -9,14 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/compatibility/index
-ms.openlocfilehash: c5ef75c995c247d75103d38b9f8b4e137550d1fa
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4f60f399c724a5f88e7fba3caa2c48f5cec6b137
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="compatibility-in-aspnet-core"></a>Compatibilidad en ASP.NET Core
-
-* [Uso compartido de cookies entre aplicaciones](xref:security/data-protection/compatibility/cookie-sharing)
 
 * [Reemplazar \<machineKey> en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)

@@ -1,7 +1,7 @@
 ---
-title: Configurar el tipo de datos de clave principal de identidad
+title: Configurar el tipo de datos de clave principal de identidad en ASP.NET Core
 author: AdrienTorris
-description: "En este artículo se describe los pasos para configurar el tipo de datos que desee utilizado para la clave principal de ASP.NET Core Identity."
+description: "Obtenga información acerca de los pasos para configurar el tipo de datos que desee utilizado para la clave principal de ASP.NET Core Identity."
 manager: wpickett
 ms.author: scaddie
 ms.date: 09/28/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: ff1c3aff3ea833081a25ea5fc4f2c2b65823f536
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 02482b81faa64b01765a90c2c6ffe9cf92b1a7e7
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="configure-the-aspnet-core-identity-primary-key-data-type"></a>Configurar el tipo de datos de clave principal de ASP.NET Core Identity
+# <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>Configurar el tipo de datos de clave principal de identidad en ASP.NET Core
 
 Identidad de ASP.NET Core le permite configurar el tipo de datos que se utiliza para representar una clave principal. Identidad utiliza el `string` tipo de datos de forma predeterminada. Puede invalidar este comportamiento.
 

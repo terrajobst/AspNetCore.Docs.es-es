@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: 315914056c0a666fdf23cf82a314a999e03114b6
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Examen de los métodos de edición y la vista de edición
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -81,7 +81,7 @@ Si los valores registrados no son válidos, se vuelven a mostrar en el formulari
 ![abcNotValid](examining-the-edit-methods-and-edit-view/_static/image4.png)
 
 > [!NOTE]
-> para admitir la validación de jQuery para configuraciones regionales no inglesas que usan una coma (&quot;,&quot;) para que un separador decimal, debe incluir *globalize.js* y específica de su *cultures/globalize.cultures.js* archivo (de [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) y JavaScript para usar `Globalize.parseFloat`. El código siguiente muestra las modificaciones en el archivo Views\Movies\Edit.cshtml para trabajar con la &quot;fr-FR&quot; referencia cultural:
+> para admitir la validación de jQuery para configuraciones regionales no inglesas que usan una coma (&quot;,&quot;) para que un separador decimal, debe incluir *globalize.js* y específica de su *cultures/globalize.cultures.js* archivo (de [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) y JavaScript para usar `Globalize.parseFloat`. El código siguiente muestra las modificaciones en el archivo Views\Movies\Edit.cshtml para trabajar con la &quot;fr-FR&quot; referencia cultural:
 
 
 [!code-cshtml[Main](examining-the-edit-methods-and-edit-view/samples/sample7.cshtml)]

@@ -1,20 +1,20 @@
 ---
 title: Empezar a trabajar con SignalR en ASP.NET Core
 author: rachelappel
-ms.author: rachelap
-description: "En este tutorial, creará una aplicación con SignalR para ASP.NET Core."
+description: "Obtenga información acerca de los conceptos básicos de la creación de una aplicación en tiempo real con SignalR para ASP.NET Core."
 manager: wpickett
-ms.date: 03/06/2018
-ms.topic: tutorial
-ms.technology: dotnet-signalr
-ms.prod: aspnet-core
+ms.author: rachelap
 ms.custom: mvc
+ms.date: 03/06/2018
+ms.prod: aspnet-core
+ms.technology: dotnet-signalr
+ms.topic: tutorial
 uid: signalr/get-started-signalr-core
-ms.openlocfilehash: 4afb9785fc3d0f472226a745537acbc77adefb4c
-ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
+ms.openlocfilehash: 79af59fc8c2ada71d764ada95a431e10f4f00f27
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="tutorial-get-started-with-signalr-for-aspnet-core"></a>Tutorial: Introducción a SignalR para ASP.NET Core
 

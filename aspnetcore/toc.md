@@ -61,7 +61,7 @@
 ## [Tutoriales multiplataforma](xref:tutorials/xplat)
 ### [Aplicación web de páginas de Razor en Mac](xref:tutorials/razor-pages-mac/index)
 #### [Introducción a las páginas de Razor](xref:tutorials/razor-pages-mac/razor-pages-start)
-#### [Adición de un modelo](xref:tutorials/razor-pages-mac/model)
+#### [Agregar un modelo](xref:tutorials/razor-pages-mac/model)
 #### [Páginas de Razor con scaffolding](xref:tutorials/razor-pages-mac/page)
 #### [Trabajar con SQLite](xref:tutorials/razor-pages-mac/sql)
 #### [Actualización de las páginas](xref:tutorials/razor-pages-mac/da1)
@@ -69,7 +69,7 @@
 
 ### [Aplicación web de páginas de Razor con VS Code](xref:tutorials/razor-pages-vsc/index)
 #### [Introducción a las páginas de Razor](xref:tutorials/razor-pages-vsc/razor-pages-start)
-#### [Adición de un modelo](xref:tutorials/razor-pages-vsc/model)
+#### [Agregar un modelo](xref:tutorials/razor-pages-vsc/model)
 #### [Páginas de Razor con scaffolding](xref:tutorials/razor-pages-vsc/page)
 #### [Trabajar con SQLite](xref:tutorials/razor-pages-vsc/sql)
 #### [Actualización de las páginas](xref:tutorials/razor-pages-vsc/da1)
@@ -313,7 +313,6 @@
 #### [Formato de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-format)
 #### [Proveedores de protección de datos efímeros](xref:security/data-protection/implementation/key-storage-ephemeral)
 ### [Compatibilidad](xref:security/data-protection/compatibility/index)
-#### [Compartir cookies entre aplicaciones](xref:security/data-protection/compatibility/cookie-sharing)
 #### [Reemplazar <machineKey> en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
 ## [Aplicación de HTTPS](xref:security/enforcing-ssl)
 ## [Almacenamiento seguro de secretos de aplicación durante el desarrollo](xref:security/app-secrets)
@@ -322,6 +321,7 @@
 ## [Prevención de ataques de redireccionamiento abierto](xref:security/preventing-open-redirects)
 ## [Prevención de scripting entre sitios](xref:security/cross-site-scripting)
 ## [Habilitar solicitudes entre orígenes (CORS)](xref:security/cors)
+## [Compartir cookies entre aplicaciones](xref:security/cookie-sharing)
 
 # [Rendimiento](xref:performance/index)
 ## [Almacenamiento en caché](xref:performance/caching/index)
