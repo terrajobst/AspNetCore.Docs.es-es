@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
 ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Implementación de Web de la empresa
 ====================
@@ -26,7 +26,7 @@ por [Jason Lee](https://github.com/jrjlee)
 
 > Este tutorial describe cómo satisfacer una gran cantidad de los desafíos que encontrará al administrar la implementación de aplicaciones web a escala empresarial a los entornos de desarrollo, prueba, ensayo y producción. El tutorial incluye una solución de referencia junto con una combinación de contenido conceptual y orientada a tareas para guiarle a través de varias tareas comunes y procedimientos.
 > 
-> Para una traducción de italiano de estos tutoriales, visite [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Para una traducción de italiano de estos tutoriales, visite [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="enterprise-deployment-challenges"></a>Problemas de implementación de las empresas
@@ -68,19 +68,19 @@ Este tutorial incluye temas que se dividen en cuatro áreas principales.
 
 Estos temas presentan la solución de referencia & #x 2014; la solución póngase en contacto con el administrador & #x 2014; y describen cómo descargarlo y configurarlo en el equipo local:
 
-- [La solución póngase en contacto con el administrador](the-contact-manager-solution.md)
-- [Cómo configurar la solución póngase en contacto con el administrador](setting-up-the-contact-manager-solution.md)
+- [La solución Contact Manager](the-contact-manager-solution.md)
+- [Configurar la solución Contact Manager](setting-up-the-contact-manager-solution.md)
 
 Estos temas presentan los archivos de proyecto de MSBuild, se detalla cómo puede crear y usar archivos de proyecto personalizado y guiar el proceso de implementación para la solución póngase en contacto con el administrador:
 
-- [Comprender el archivo de proyecto](understanding-the-project-file.md)
+- [Descripción del archivo de proyecto](understanding-the-project-file.md)
 - [Descripción del proceso de compilación](understanding-the-build-process.md)
 
 Estos temas describen la implementación de aplicaciones web, incluido cómo la compilación y empaquetado del proceso, cómo el proceso de compilación se integra con la canalización de publicación de Web, cómo modificar los parámetros de implementación y cómo implementar paquetes de web en el destino entornos:
 
-- [Compilar y empaquetar proyectos de aplicación Web](building-and-packaging-web-application-projects.md)
-- [Configurar parámetros para la implementación de paquete de Web](configuring-parameters-for-web-package-deployment.md)
-- [Implementar paquetes de Web](deploying-web-packages.md)
+- [Crear y empaquetar proyectos de aplicación web](building-and-packaging-web-application-projects.md)
+- [Configurar los parámetros para la implementación de paquetes web](configuring-parameters-for-web-package-deployment.md)
+- [Implementar paquetes web](deploying-web-packages.md)
 
 - [Implementar proyectos de base de datos](deploying-database-projects.md) describe las distintas técnicas que puede usar para implementar proyectos de base de datos de Visual Studio, junto con las ventajas y desventajas de cada enfoque. [Crear y ejecutar un archivo de comandos de implementación](creating-and-running-a-deployment-command-file.md) describe cómo crear un archivo de comandos simple que encapsula la lógica de implementación y le permite implementar soluciones complejas como un proceso paso a paso.
 - Por último, [instalación manual de paquetes de Web](manually-installing-web-packages.md) concluye el tutorial mostrándole para importar paquetes de web en IIS.

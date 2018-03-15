@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/7-displaying-data-in-a-chart
 msc.type: authoredcontent
 ms.openlocfilehash: f252b74bc42d0ea65b8b1150973c4f3c50cc9cf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/15/2018
 ---
 <a name="displaying-data-in-a-chart-with-aspnet-web-pages-razor"></a>Mostrar datos en un gráfico con las páginas Web ASP.NET (Razor)
 ====================
@@ -41,7 +41,7 @@ por [Microsoft](https://github.com/microsoft)
 <a id="The_Chart_Helper"></a>
 ## <a name="the-chart-helper"></a>La aplicación auxiliar de gráfico
 
-Cuando desea mostrar los datos en forma gráfica, puede usar `Chart` auxiliar. El `Chart` auxiliar puede presentar una imagen que muestra datos en una variedad de tipos de gráficos. Admite muchas opciones para aplicar formato y el etiquetado. El `Chart` auxiliar puede procesar más de 30 tipos de gráficos, incluidos todos los tipos de gráficos que es posible que esté familiarizado con desde Microsoft Excel u otras herramientas &#8212; gráficos de áreas, gráficos, gráficos de columnas, de barras y línea gráficos, gráficos circulares, junto con más gráficos especializados, como los gráficos de cotizaciones.
+Cuando desea mostrar los datos en forma gráfica, puede usar `Chart` auxiliar. El `Chart` auxiliar puede presentar una imagen que muestra datos en una variedad de tipos de gráficos. Admite muchas opciones para aplicar formato y el etiquetado. El `Chart` auxiliar puede procesar más de 30 tipos de gráficos, incluidos todos los tipos de gráficos que es posible que esté familiarizado con desde Microsoft Excel u otras herramientas &#8212; gráficos de áreas, gráficos de barras, gráficos de columnas, gráficos de líneas y los gráficos circulares, junto con más gráficos especializados, como los gráficos de cotizaciones.
 
 | **Gráfico de áreas** ![Descripción: imagen del tipo de gráfico de área](7-displaying-data-in-a-chart/_static/image1.jpg) | **Gráfico de barras** ![Descripción: imagen del tipo de gráfico de barras](7-displaying-data-in-a-chart/_static/image2.jpg) |
 | --- | --- |
@@ -239,7 +239,7 @@ Los gráficos guardados en la memoria caché podrían quitarse si el servidor se
 
     Por último, el código usa el `WriteFromCache` método para capturar y representar el gráfico de la memoria caché. Tenga en cuenta que este método está fuera del `if` bloque que comprueba la memoria caché, ya que obtendrá el gráfico de la memoria caché si el gráfico estaba presente con el que comenzar o tenía que se genera y se guarda en la memoria caché.
 
-    Tenga en cuenta que en el ejemplo, el `AddTitle` método incluye una marca de tiempo. (Agregan la fecha actual y hora &#8212; `DateTime.Now` &#8212; para el título.)
+    Tenga en cuenta que en el ejemplo, el `AddTitle` método incluye una marca de tiempo. (Agregan la fecha y hora actuales &#8212; `DateTime.Now` &#8212; al título.)
 5. Crear una nueva página denominada *ClearCache.cshtml* y reemplace su contenido por lo siguiente:
 
     [!code-cshtml[Main](7-displaying-data-in-a-chart/samples/sample14.cshtml)]

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
 ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Introducción a trabajar con una base de datos en ASP.NET Web Pages (Razor) sitios
 ====================
@@ -54,9 +54,9 @@ Imagine una libreta de direcciones típico. Para cada entrada de la libreta de d
 
 Una forma habitual a los datos de imagen así es como una tabla con filas y columnas. En términos de base de datos, cada fila se conoce a menudo como un registro. Cada columna (a veces denominada campos) contiene un valor para cada tipo de datos: nombre, nombre de último y así sucesivamente.
 
-| **ID** | **FirstName** | **Apellidos** | **Dirección** | **Correo electrónico** | **Teléfono** |
+| **ID** | **FirstName** | **LastName** | **Dirección** | **Correo electrónico** | **Teléfono** |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Jim | Abrus | 210 100 St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
+| 1 | Jim | Abrus | 210 100th St SE Orcas WA 98031 | jim@contoso.com | 555 0100 |
 | 2 | Terry | Adams | 1234 Main St. Seattle WA 99011 | terry@cohowinery.com | 555 0101 |
 
 Para la mayoría de las tablas de base de datos, la tabla debe tener una columna que contiene un identificador único, como un número de cliente, número de cuenta, etcetera. Esto se conoce como la tabla *clave principal*, y usarlo para identificar cada fila de la tabla. En el ejemplo, la columna Id. es la clave principal de la libreta de direcciones.
@@ -91,7 +91,7 @@ Este procedimiento muestra cómo crear una base de datos denominada SmallBakery 
     Como sugiere su nombre, **es la clave principal** indica que la base de datos que será clave principal de la tabla. **Identidad** indica a la base de datos que se va a crear automáticamente un número de identificación para cada nuevo registro como asignar el siguiente número secuencial (comenzando en 1).
 10. Haga clic en la siguiente fila. Iniciará una nueva definición de columna en el editor.
 11. Para el valor de nombre, escriba &quot;nombre&quot;.
-12. Para **tipo de datos**, elija &quot;nvarchar&quot; y establecer la longitud en 50. El *var* forma parte de `nvarchar` indica que la base de datos que los datos de esta columna será una cadena cuyo tamaño puede variar entre los registros. (El  *n*  prefijo representa *national*, lo que indica que el campo puede contener datos de caracteres que representa cualquier alfabeto o escribir sistema &#8212; es decir, que el campo contiene Unicode datos.)
+12. Para **tipo de datos**, elija &quot;nvarchar&quot; y establecer la longitud en 50. El *var* forma parte de `nvarchar` indica que la base de datos que los datos de esta columna será una cadena cuyo tamaño puede variar entre los registros. (El *n* prefijo representa *national*, que indica que el campo puede contener datos de caracteres que representa cualquier alfabeto o sistema de escritura &#8212; es decir, que el campo contiene datos Unicode.)
 13. Establecer el **permitir valores NULL** opción **No**. Esto exigirá la *nombre* columna no se deja en blanco.
 14. Con el mismo proceso, cree una columna denominada *descripción*. Establecer **tipo de datos** "nvarchar" y 50 para la longitud y el conjunto **permitir valores NULL** en false.
 15. Cree una columna denominada *precio*. Establecer **tipo de datos "money"** y establecer **permitir valores NULL** en false.
@@ -110,7 +110,7 @@ Ahora puede agregar algunos datos de ejemplo a la base de datos que trabajará c
 2. Haga clic en la tabla Product y, a continuación, haga clic en **datos**.
 3. En el panel de edición, escriba los siguientes registros:
 
-    | **Nombre** | **Descripción** | **Precio** |
+    | **Name** | **Descripción** | **Price** |
     | --- | --- | --- |
     | Pan | Preparado reciente cada día. | 2.99 |
     | Shortcake fresa | Se realiza con fresas orgánicas desde nuestro multiproceso. | 9.99 |
@@ -258,7 +258,7 @@ Después de que se han especificado datos en una tabla, debe actualizarla. Este 
 
     [!code-html[Main](5-working-with-data/samples/sample12.html)]
 
-    Tenga en cuenta que la `href` atributo está establecido en `UpdateProducts/n`, donde  *n*  es un número de producto. Cuando un usuario hace clic en uno de estos vínculos, la dirección URL resultante tendrá un aspecto similar al siguiente:
+    Tenga en cuenta que la `href` atributo está establecido en `UpdateProducts/n`, donde *n* es un número de producto. Cuando un usuario hace clic en uno de estos vínculos, la dirección URL resultante tendrá un aspecto similar al siguiente:
 
     `http://localhost:18816/UpdateProducts/6`
 
@@ -384,7 +384,7 @@ Esta sección muestra cómo permitir a los usuarios eliminar un producto de la *
 > 
 > [!code-cshtml[Main](5-working-with-data/samples/sample28.cshtml)]
 > 
-> Como se mencionó, la `Database.Open` método le permite pasar un nombre de base de datos o una cadena de conexión y podrá averiguar que se va a usar. Esto resulta muy útil al implementar (publicar) el sitio Web. Puede usar un *.sdf* un archivo en el *aplicación\_datos* carpeta cuando está desarrollar y probar su sitio. Cuando se mueve el sitio a un servidor de producción, puede utilizar una cadena de conexión en el *Web.config* archivo que tiene el mismo nombre que su *.sdf* archivo pero que apunta a # & base de datos del proveedor de hospedaje 8212; sin tener que cambiar el código.
+> Como se mencionó, la `Database.Open` método le permite pasar un nombre de base de datos o una cadena de conexión y podrá averiguar que se va a usar. Esto resulta muy útil al implementar (publicar) el sitio Web. Puede usar un *.sdf* un archivo en el *aplicación\_datos* carpeta cuando está desarrollar y probar su sitio. Cuando se mueve el sitio a un servidor de producción, puede utilizar una cadena de conexión en el *Web.config* archivo que tiene el mismo nombre que su *.sdf* archivo pero que &#8212;sin tener que cambiar el código.
 > 
 > Por último, si desea trabajar directamente con una cadena de conexión, puede llamar a la `Database.OpenConnectionString` método y pase, la conexión real de cadena en lugar de simplemente el nombre de un elemento de la *Web.config* archivo. Esto puede resultar útil en situaciones donde por algún motivo no tiene acceso a la cadena de conexión (o valores en él, como el *.sdf* nombre de archivo) hasta que la página se está ejecutando. Sin embargo, para la mayoría de los escenarios, puede usar `Database.Open` tal como se describe en este artículo.
 
@@ -393,4 +393,4 @@ Esta sección muestra cómo permitir a los usuarios eliminar un producto de la *
 
 - [SQL Server Compact](https://www.microsoft.com/sqlserver/2008/en/us/compact.aspx)
 - [Conectarse a SQL Server o de base de datos MySQL en WebMatrix](https://go.microsoft.com/fwlink/?LinkId=208661)
-- [Validar la entrada del usuario en los sitios de páginas Web de ASP.NET](https://go.microsoft.com/fwlink/?LinkId=253002)
+- [Validar la entrada del usuario en los sitios de ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=253002)

@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/15/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Configurar permisos de equipo de implementación de compilaciones
 ====================
@@ -38,7 +38,7 @@ Cuando se instala el servicio de Team Foundation Server (TFS) 2010 compilación,
 Las tareas de implementación que requieren autenticación de Windows y que tiene previsto automatizar mediante Team Build, ejecutarán con la identidad de servicio de compilación. Por lo tanto, debe conceder los permisos necesarios en los servidores web y los servidores de base de datos de la identidad del servicio de compilación.
 
 > [!NOTE]
-> La cuenta de servicio de red usa la cuenta de equipo para autenticarse en otros equipos. Cuentas de equipo que adoptan la forma *[nombre de dominio]\[nombre de equipo]***$**& #x 2014; por ejemplo, **FABRIKAM\TFSBUILD$**. Por lo tanto, si el servicio de compilación se ejecuta con la identidad Network Service, debe conceder los permisos necesarios para la identidad de la cuenta de equipo para el servidor de compilación.
+> La cuenta de servicio de red usa la cuenta de equipo para autenticarse en otros equipos. Cuentas de equipo que adoptan la forma * [nombre de dominio]\[nombre de equipo] ***$**& #x 2014; por ejemplo, **FABRIKAM\TFSBUILD$**. Por lo tanto, si el servicio de compilación se ejecuta con la identidad Network Service, debe conceder los permisos necesarios para la identidad de la cuenta de equipo para el servidor de compilación.
 
 
 ## <a name="configuring-web-server-permissions"></a>Configurar permisos de servidor Web
