@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: bcfd20fcea1e683bcbef00a9e67bb28add4f23be
-ms.sourcegitcommit: 7a87d66cf1d01febe6635c7306f2f679434901d1
+ms.openlocfilehash: 45b00fbc15740fad60202bb7e5ab14beb9ebe495
+ms.sourcegitcommit: 9622bdc6326c28c3322c70000468a80ef21ad376
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/12/2018
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -47,8 +47,11 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
   * [API web con Visual Studio para Windows](first-web-api.md)
   * [API web con Visual Studio para Mac](xref:tutorials/first-web-api-mac)
   * [API web con Visual Studio Code](web-api-vsc.md)
-  
-* [Páginas de ayuda de ASP.NET Core Web API mediante Swagger](web-api-help-pages-using-swagger.md)
+
+* [Páginas de ayuda de ASP.NET Core Web API mediante Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+  * [Get started with NSwag](xref:tutorials/get-started-with-nswag) (Introducción a NSwag)
+  * [Get started with Swashbuckle](xref:tutorials/get-started-with-swashbuckle) (Introducción a Swashbuckle)
+
 * [Creación de servicios web de back-end para aplicaciones móviles nativas](../mobile/native-mobile-backend.md)
 
 ## <a name="data-access-and-storage"></a>Acceso a datos y almacenamiento
