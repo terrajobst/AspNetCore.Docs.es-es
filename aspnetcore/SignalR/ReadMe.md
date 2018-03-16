@@ -1,0 +1,1 @@
+Esta carpeta si para el contenido de SignalR. Eliminar este archivo cuando se agrega el primer archivo a este directorio.
