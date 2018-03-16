@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 489c53c066af87e02e43ab0b42b0712d80d5ee5a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: a23c9dc9ee1e20c0e0551a372e1cd706bb82070e
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="safe-storage-of-app-secrets-during-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de aplicación durante el desarrollo de ASP.NET Core
 
@@ -118,7 +118,7 @@ La herramienta Administrador de secreto abstrae los detalles de implementación,
 
 * Linux: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
-* Mac: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
+* macOS: `~/.microsoft/usersecrets/<userSecretsId>/secrets.json`
 
 El valor de `userSecretsId` proviene del valor especificado en *.csproj* archivo.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: e00a0929db9dff6c97c4b22468156f621a1a3820
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 979f5639e382560d952df45ba6e0b8af3b132c2d
+ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introducción a las aplicaciones de estilo con menos, Sass y fuente Maravilla en ASP.NET Core
 
@@ -323,7 +323,7 @@ Menor proporciona una serie de características adicionales, pero esto debe tene
 
 SASS es similar a la menor, lo que proporciona compatibilidad para muchas de las mismas características, pero con una sintaxis ligeramente diferente. Se compila con Ruby, en lugar de JavaScript y, por lo que tiene requisitos de instalación diferentes. El idioma de Sass original no usa llaves o punto y coma, sino que define ámbito mediante espacios en blanco y sangría. En la versión 3 de Sass, se introdujo una nueva sintaxis, **SCSS** ("CSS Sassy"). SCSS es similar a CSS en que se pasa por alto los espacios en blanco y niveles de sangría y en su lugar utiliza el punto y coma y llaves.
 
-Para instalar Sass, normalmente se instala por primera vez Ruby (preinstalado en Mac) y, a continuación, ejecute:
+Para instalar Sass, normalmente se instala por primera vez Ruby (preinstalado en Mac OS) y, a continuación, ejecute:
 
 ```console
 gem install sass
