@@ -1,7 +1,7 @@
 ---
 title: Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
 author: pkellner
-description: Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
+description: "Descubra cómo las aplicaciones auxiliares de etiquetas integradas de ASP.NET Core le ayudan a mejorar su productividad."
 manager: wpickett
 ms.author: riande
 ms.date: 09/13/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 1d086bc0bc210fe19dda34d13008a49d48801607
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f539f96a87b125c0f55855f780bbff005db8c0d9
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
 

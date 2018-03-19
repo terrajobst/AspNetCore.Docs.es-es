@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: f24de7ab12a3bbd7915ce6c3c93a107eb47fe864
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -23,7 +23,7 @@ Las páginas de Razor son una nueva característica de ASP.NET Core MVC que faci
 
 Si busca un tutorial que use el enfoque Model-View-Controller, consulte [Introducción a ASP.NET Core MVC](xref:tutorials/first-mvc-app/start-mvc).
 
-En este documento se proporciona una introducción a las páginas de Razor. No es un tutorial paso a paso. Si encuentra alguna sección difícil de seguir, vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start).
+En este documento se proporciona una introducción a las páginas de Razor. No es un tutorial paso a paso. Si encuentra que alguna sección es demasiado avanzada, consulte [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start). Para obtener información general de ASP.NET Core, vea [Introducción a ASP.NET Core](xref:index).
 
 <a name="prerequisites"></a>
 
@@ -151,6 +151,11 @@ La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el e
 [!code-cs[](index/sample/RazorPagesContacts/Pages/Create.cshtml.cs?name=snippet_PageModel&highlight=10-11)]
 
 De forma predeterminada, las páginas de Razor enlazan propiedades solo con verbos que no sean GET. Enlazar a propiedades puede reducir la cantidad de código que se debe escribir. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name" />`) y aceptar la entrada.
+
+> [!NOTE]
+> Por motivos de seguridad, debe participar en el enlace de datos de solicitud GET con las propiedades del modelo de página. Compruebe las entradas de los usuarios antes de asignarlas a las propiedades. Si participa en este comportamiento, le puede ser útil al crear características que dependan de cadenas de consultas o valores de rutas.
+>
+> Para enlazar una propiedad en solicitudes GET, establezca la propiedad `SupportsGet` del atributo `[BindProperty]` como `true`: `[BindProperty(SupportsGet = true)]`
 
 La página principal (*Index.cshtml*):
 
@@ -384,7 +389,7 @@ Para precompilar vistas, vea [Razor view compilation](xref:mvc/views/view-compil
 
 [Descargue o vea el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/razor-pages/index/sample).
 
-Consulte [Introducción a las páginas de Razor en ASP.NET Core](xref:tutorials/razor-pages/razor-pages-start), en el que se desarrolla esta introducción.
+Vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start), que se basa en esta introducción.
 
 ### <a name="specify-that-razor-pages-are-at-the-content-root"></a>Especificar que las páginas de Razor se encuentran en la raíz de contenido
 
@@ -414,6 +419,7 @@ services.AddMvc()
 
 ## <a name="see-also"></a>Vea también
 
+* [Introducción a ASP.NET Core](xref:index)
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization)
 * [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-convention-features)

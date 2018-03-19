@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 8da97b2148c0a784e3b1fdfe210db35e3fcceade
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
@@ -45,6 +45,9 @@ Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con V
 
 [Implementación continua en Azure con VSTS](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)  
 Configure una compilación de integración continua para una aplicación de ASP.NET Core y, después, cree una versión de implementación continua para Azure App Service.
+
+[Espacio aislado de Azure Web App](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)  
+Detecte limitaciones de ejecución en tiempo de ejecución de Azure App Service aplicadas por la plataforma de aplicaciones de Azure.
 
 ## <a name="application-configuration"></a>Configuración de aplicación
 
@@ -99,4 +102,4 @@ Azure App Service en Windows Server utiliza [Internet Information Services (IIS)
 * [Introducción al módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 * [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
 * [Uso de módulos de IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
-* [Biblioteca de TechNet de Microsoft: Windows Server](https://docs.microsoft.com/windows-server/windows-server-versions)
+* [Biblioteca de TechNet de Microsoft: Windows Server](/windows-server/windows-server-versions)

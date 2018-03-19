@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: 8f52f2dc9515761510de870f10ad0975401db74a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 7c41621db835b452c9aad9463a9ffccdf0c06484
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="configure-an-aspnet-core-app"></a>Configurar una aplicación ASP.NET Core
 
@@ -24,13 +24,13 @@ La API de configuración proporciona una manera de configurar una aplicación we
 
 Existen proveedores de configuración para:
 
-* Formatos de archivo (INI, JSON y XML)
-* Argumentos de la línea de comandos
-* Variables de entorno
-* Objetos de .NET en memoria
-* Un almacén de usuario cifrado
-* [Azure Key Vault](xref:security/key-vault-configuration)
-* Proveedores personalizados (instalados o creados)
+* Formatos de archivo (INI, JSON y XML).
+* Argumentos de la línea de comandos.
+* Variables de entorno.
+* Objetos de .NET en memoria.
+* El almacenamiento de [administrador secreto](xref:security/app-secrets) sin cifrar.
+* Un almacén de usuario cifrado, como [Azure Key Vault](xref:security/key-vault-configuration).
+* Proveedores personalizados (instalados o creados).
 
 Cada valor de configuración se asigna a una clave de cadena. Hay compatibilidad de enlace integrada para deserializar la configuración en un objeto [POCO](https://wikipedia.org/wiki/Plain_Old_CLR_Object) personalizado (una clase simple de .NET con propiedades).
 
