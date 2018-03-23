@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
-title: "Personalización de las implementaciones de la base de datos para varios entornos | Documentos de Microsoft"
+title: Personalización de las implementaciones de la base de datos para varios entornos | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo personalizar las propiedades de una base de datos a los entornos de destino específico como parte del proceso de implementación. Nota: El tema se da por supuesto th..."
+description: 'En este tema se describe cómo personalizar las propiedades de una base de datos a los entornos de destino específico como parte del proceso de implementación. Nota: El tema se da por supuesto th...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -94,7 +94,7 @@ Para admitir la implementación de un proyecto de base de datos a varios destino
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image1.png)
 3. En el **nuevo archivo de configuración de implementación** diálogo cuadro, asigne al archivo un nombre descriptivo (por ejemplo, **TestEnvironment.sqldeployment**) y, a continuación, haga clic en **guardar**.
-4. En el *[nombreDeArchivo] *** .sqldeployment** página, establezca las propiedades de implementación para que coincida con los requisitos de su entorno de destino y, a continuación, guarde el archivo.
+4. En el *[nombreDeArchivo]***.sqldeployment** página, establezca las propiedades de implementación para que coincida con los requisitos de su entorno de destino y, a continuación, guarde el archivo.
 
     ![](customizing-database-deployments-for-multiple-environments/_static/image2.png)
 5. Observe que el nuevo archivo se agrega a la carpeta de propiedades del proyecto de base de datos.

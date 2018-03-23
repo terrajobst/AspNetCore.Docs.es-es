@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
-title: "Creación de una capa de acceso a datos (C#) | Documentos de Microsoft"
+title: Creación de una capa de acceso a datos (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial comenzaremos desde el principio y crear la capa de acceso de datos (DAL), que con los conjuntos de datos, para tener acceso a la información en una base de datos."
+description: En este tutorial comenzaremos desde el principio y crear la capa de acceso de datos (DAL), que con los conjuntos de datos, para tener acceso a la información en una base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/05/2010
@@ -84,7 +84,7 @@ Todo el código que es específico del origen de datos subyacente como la creaci
 
 Estos métodos, cuando se invoca, conéctese a la base de datos, emitir la consulta apropiada y devolver los resultados. ¿Cómo se devuelven estos resultados es importante. Estos métodos pudieron devolver simplemente un conjunto de datos o DataReader rellenado por la consulta de base de datos, pero lo ideal es que se deben devolver estos resultados usando *objetos fuertemente tipados*. Un objeto fuertemente tipado es uno cuyo esquema se define estrictamente en tiempo de compilación, mientras que lo contrario, un objeto débilmente tipadas, es uno cuyo esquema no se conoce hasta el tiempo de ejecución.
 
-Por ejemplo, el DataReader y el conjunto de datos (de forma predeterminada) son objetos de imprecisa puesto que su esquema se define mediante las columnas devueltas por la consulta de base de datos utilizada para rellenarlos. Para obtener acceso a una columna concreta de un objeto DataTable débilmente tipadas que debemos usar sintaxis similar a la: ***DataTable*. Filas [*índice*] ["*columnName *"]**. La tabla de datos flexible escribiendo en este ejemplo se exhibe por el hecho de que es necesario obtener acceso al nombre de columna mediante una cadena o el índice ordinal. Un DataTable fuertemente tipado, por otro lado, tendrá cada una de sus columnas que se implementan como propiedades, lo que genera código similar: ***DataTable*. Filas [*índice*].* columnName***.
+Por ejemplo, el DataReader y el conjunto de datos (de forma predeterminada) son objetos de imprecisa puesto que su esquema se define mediante las columnas devueltas por la consulta de base de datos utilizada para rellenarlos. Para obtener acceso a una columna concreta de un objeto DataTable débilmente tipadas que debemos usar sintaxis similar a la: ***DataTable*.Filas[*índice*]["*columnName*"]**. La tabla de datos flexible escribiendo en este ejemplo se exhibe por el hecho de que es necesario obtener acceso al nombre de columna mediante una cadena o el índice ordinal. Un DataTable fuertemente tipado, por otro lado, tendrá cada una de sus columnas que se implementan como propiedades, lo que genera código similar: ***DataTable*.Filas[*índice*].* columnName***.
 
 Para devolver objetos fuertemente tipados, los desarrolladores pueden crear sus propios objetos de negocios personalizada o usar conjuntos de datos con tipo. Un objeto de negocios se implementa con el desarrollador como representa una clase cuyas propiedades normalmente reflejan las columnas de la tabla de base de datos subyacente del objeto de negocios. Un conjunto de datos con tipo es una clase generada automáticamente por Visual Studio basado en un esquema de base de datos y cuyos miembros son fuertemente tipada de acuerdo con este esquema. El conjunto de datos con tipo propio consta de las clases que extienden las clases de conjunto de datos de ADO.NET y DataTable, DataRow. Además de tablas de datos fuertemente tipados, conjuntos de datos con tipo ahora también incluyen TableAdapters, que son clases con métodos para rellenar tablas de datos del conjunto de datos y la propagación de modificaciones en las tablas de datos a la base de datos.
 

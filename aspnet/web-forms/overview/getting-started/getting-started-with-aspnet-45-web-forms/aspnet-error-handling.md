@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/aspnet-error-handling
 title: Control de errores de ASP.NET | Documentos de Microsoft
 author: Erikre
-description: "Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se..."
+description: Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -313,7 +313,7 @@ En este tutorial, ha aprendido sobre el control de errores en el nivel de aplica
 
 ## <a name="tutorial-series-conclusion"></a>Conclusión de la serie de tutoriales
 
-*Gracias por seguir. Espero que este conjunto de tutoriales le ayudó familiarizarse más con ASP.NET Web Forms. Si necesita obtener más información acerca de las características de formularios Web Forms disponibles en ASP.NET 4.5 y Visual Studio 2013, consulte* [ *ASP.NET y herramientas Web para Visual Studio 2013 notas* ](../../../../visual-studio/overview/2013/release-notes.md)  *. Además, asegúrese de echar un vistazo el tutorial mencionado en el* ***pasos *** sección y defintely probar la* [ *Azure evaluación gratuita* ](https://azure.microsoft.com/pricing/free-trial/)*.*
+*Gracias por seguir. Espero que este conjunto de tutoriales le ayudó familiarizarse más con ASP.NET Web Forms. Si necesita obtener más información acerca de las características de formularios Web Forms disponibles en ASP.NET 4.5 y Visual Studio 2013, consulte* [*ASP.NET y herramientas Web para Visual Studio 2013 notas*](../../../../visual-studio/overview/2013/release-notes.md)*. Además, asegúrese de echar un vistazo el tutorial mencionado en el* ***pasos****sección y defintely probar la* [*Azure evaluación gratuita*](https://azure.microsoft.com/pricing/free-trial/)*.*
 
 ![Gracias - Erik](aspnet-error-handling/_static/image10.png)  
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
-title: "Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 5 | Documentos de Microsoft"
+title: Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 5 | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -123,7 +123,7 @@ Ejecute la página.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Seleccione un instructor. El **asignar un curso** lista desplegable muestra los cursos que no indican el instructor, y el **quitar un curso** lista desplegable muestra los cursos que el instructor ya está asignado a. En el **asignar un curso** sección, seleccione un curso y, a continuación, haga clic en **asignar**. El curso se mueve a la **quitar un curso** lista desplegable. Seleccione un curso en el **quitar un curso** sección y haga clic en **Remove ***.* El curso se mueve a la **asignar un curso** lista desplegable.
+Seleccione un instructor. El **asignar un curso** lista desplegable muestra los cursos que no indican el instructor, y el **quitar un curso** lista desplegable muestra los cursos que el instructor ya está asignado a. En el **asignar un curso** sección, seleccione un curso y, a continuación, haga clic en **asignar**. El curso se mueve a la **quitar un curso** lista desplegable. Seleccione un curso en el **quitar un curso** sección y haga clic en **Remove***.* El curso se mueve a la **asignar un curso** lista desplegable.
 
 Ya ha visto algunas otras formas de trabajar con datos relacionados. En el siguiente tutorial, aprenderá a utilizar la herencia en el modelo de datos para mejorar la facilidad de mantenimiento de la aplicación.
 

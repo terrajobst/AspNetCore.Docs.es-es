@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file
 title: Comprender el archivo de proyecto | Documentos de Microsoft
 author: jrjlee
-description: "Archivos de proyecto de Microsoft Build Engine (MSBuild) se encuentran en el núcleo del proceso de compilación e implementación. Este tema comienza con una visión general de MSBuild..."
+description: Archivos de proyecto de Microsoft Build Engine (MSBuild) se encuentran en el núcleo del proceso de compilación e implementación. Este tema comienza con una visión general de MSBuild...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -93,7 +93,7 @@ Un archivo de proyecto, normalmente, debe proporcionar una gran cantidad de dife
 [!code-xml[Main](understanding-the-project-file/samples/sample2.xml)]
 
 
-Para recuperar un valor de propiedad, utilice el formato **$(***PropertyName***) ***.* Por ejemplo, para recuperar el valor de la **ServerName** propiedad, escriba:
+Para recuperar un valor de propiedad, utilice el formato **$(***PropertyName***)***.*Por ejemplo, para recuperar el valor de la **ServerName** propiedad, escriba:
 
 
 [!code-powershell[Main](understanding-the-project-file/samples/sample3.ps1)]
