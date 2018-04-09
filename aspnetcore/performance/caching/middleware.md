@@ -1,7 +1,7 @@
 ---
-title: "Respuesta de almacenamiento en caché de Middleware en ASP.NET Core"
+title: Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 author: guardrex
-description: "Obtenga información acerca de cómo configurar y usar el Middleware de almacenamiento en caché de respuesta en ASP.NET Core."
+description: Obtenga información acerca de cómo configurar y usar el Middleware de almacenamiento en caché de respuesta en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: e9a74d8f6c3945b1bc8c62d0ab21145a7c5717fb
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -88,7 +88,7 @@ Las respuestas en caché el middleware se configura mediante encabezados HTTP.
 | Header | Detalles |
 | ------ | ------- |
 | Autorización | La respuesta no está almacenado en memoria caché si el encabezado no existe. |
-| Cache-Control | El middleware solamente tiene en cuenta el almacenamiento en caché las respuestas que se marca con el `public` directiva de caché. Controlar el almacenamiento en caché con los parámetros siguientes:<ul><li>max-age</li><li>max-stale&#8224;</li><li>min-nuevo</li><li>Directiva must-revalidate</li><li>sin caché</li><li>ningún almacén</li><li>solo if-almacenamiento en caché</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224; si no se especifica ningún límite para `max-stale`, el middleware no realiza ninguna acción.<br>&#8225; `proxy-revalidate` tiene el mismo efecto que `must-revalidate`.<br><br>Para obtener más información, consulte [RFC 7231: solicitar directivas de Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Cache-Control | El middleware solamente tiene en cuenta el almacenamiento en caché las respuestas que se marca con el `public` directiva de caché. Controlar el almacenamiento en caché con los parámetros siguientes:<ul><li>max-age</li><li>max-stale&#8224;</li><li>min-nuevo</li><li>Directiva must-revalidate</li><li>sin caché</li><li>ningún almacén</li><li>solo if-almacenamiento en caché</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Si no se especifica ningún límite para `max-stale`, el middleware no realiza ninguna acción.<br>&#8225;`proxy-revalidate`tiene el mismo efecto que `must-revalidate`.<br><br>Para obtener más información, consulte [RFC 7231: solicitar directivas de Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | A `Pragma: no-cache` encabezado en la solicitud produce el mismo efecto que `Cache-Control: no-cache`. Este encabezado se haya reemplazado por las directivas correspondientes en el `Cache-Control` encabezado, si está presente. Cuenta para mantener la compatibilidad con HTTP/1.0. |
 | Set-Cookie | La respuesta no está almacenado en memoria caché si el encabezado no existe. |
 | Variar | El `Vary` encabezado se utiliza para modificar la respuesta almacenada en caché por otro encabezado. Por ejemplo, almacenar en caché las respuestas mediante la codificación mediante la inclusión de la `Vary: Accept-Encoding` encabezado, que se almacena en caché las respuestas para las solicitudes con encabezados `Accept-Encoding: gzip` y `Accept-Encoding: text/plain` por separado. Una respuesta con un valor de encabezado de `*` nunca se almacena. |
@@ -105,7 +105,7 @@ El middleware respeta las reglas de la [especificación HTTP 1.1 Caching](https:
 
 Para tener más control sobre el almacenamiento en caché de comportamiento, explore otras características de almacenamiento en caché de ASP.NET Core. Consulte los temas siguientes:
 
-* [Almacenamiento caché en memoria](xref:performance/caching/memory)
+* [En la memoria de caché](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
@@ -142,7 +142,7 @@ Al probar y solucionar problemas de comportamiento de almacenamiento en caché, 
 
 * [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware/index)
-* [Almacenamiento caché en memoria](xref:performance/caching/memory)
+* [En la memoria de caché](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)

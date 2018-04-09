@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
-title: "Rellenar dinámicamente un Control (C#) | Documentos de Microsoft"
+title: Rellenar dinámicamente un Control (C#) | Documentos de Microsoft
 author: wenz
-description: "El control DynamicPopulate en el Kit de herramientas de Control de AJAX de ASP.NET llama a un servicio web (o el método de la página) y rellena el valor resultante en un control de destino en t..."
+description: El control DynamicPopulate en el Kit de herramientas de Control de AJAX de ASP.NET llama a un servicio web (o el método de la página) y rellena el valor resultante en un control de destino en t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a1868a0e4cec4a95d4175ce255fea2e200692075
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 113b8c043c14e4ebc476b021884dd1430757452a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-populating-a-control-c"></a>Rellenar dinámicamente un Control (C#)
 ====================
@@ -55,12 +55,12 @@ Un botón HTML (como un control HTML, puesto que no se requiere un postback al s
 
 Por último, necesitamos la `DynamicPopulateExtender` control para conexión las cosas. Los siguientes atributos se establecerá (excepto los obvios, `ID` y `runat` = `"server"`):
 
-- `TargetControlID`dónde colocar el resultado de llamar al servicio web
-- `ServicePath`ruta de acceso al servicio web (omitir si desea utilizar un método de página)
-- `ServiceMethod`nombre del método web o método de página
-- `ContextKey`información de contexto en que se enviará al servicio web
-- `PopulateTriggerControlID`elemento que desencadena la llamada del servicio web
-- `ClearContentsDuringUpdate`Si desea vaciar el elemento de destino durante la llamada de servicio web
+- `TargetControlID` dónde colocar el resultado de llamar al servicio web
+- `ServicePath` ruta de acceso al servicio web (omitir si desea utilizar un método de página)
+- `ServiceMethod` nombre del método web o método de página
+- `ContextKey` información de contexto en que se enviará al servicio web
+- `PopulateTriggerControlID` elemento que desencadena la llamada del servicio web
+- `ClearContentsDuringUpdate` Si desea vaciar el elemento de destino durante la llamada de servicio web
 
 Como puede ver, el control requiere cierta información pero puesta en marcha de todo lo que es bastante sencilla. Este es el marcado para el `DynamicPopulateExtender` control en el escenario actual:
 
@@ -73,5 +73,5 @@ Ejecute la página ASP.NET en el explorador y haga clic en el botón; recibirá 
 
 Al hacer clic en el botón recupera la fecha del servidor ([haga clic aquí para ver la imagen a tamaño completo](dynamically-populating-a-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](dynamically-populating-a-control-using-javascript-code-cs.md)

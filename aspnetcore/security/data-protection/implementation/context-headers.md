@@ -1,7 +1,7 @@
 ---
-title: Encabezados de contexto
+title: Encabezados de contexto en ASP.NET Core
 author: rick-anderson
-description: "Este documento describen los detalles de implementación de los encabezados de contexto de protección de datos de ASP.NET Core."
+description: Obtenga información acerca de los detalles de implementación de encabezados de contexto de protección de datos de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/context-headers
-ms.openlocfilehash: c047c54efdcdb6192e4d38d2822c1077ee0a73e1
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5ba247a74e11408145e1f6e87c7cfa251c66707f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="context-headers"></a>Encabezados de contexto
+# <a name="context-headers-in-aspnet-core"></a>Encabezados de contexto en ASP.NET Core
 
 <a name="data-protection-implementation-context-headers"></a>
 
@@ -27,7 +27,7 @@ Mayoría de los sistemas que son compatibles con agilidad criptográfica hacerlo
 
 Ejecución paso a paso atrás, decidimos que estábamos se está aproximando al problema de la dirección equivocada. Un OID indica cuál es el algoritmo, pero se no realmente le interesa esto. Si se necesita usar un único valor entropic de forma segura en los dos algoritmos diferentes, no es necesario para que podamos saber cuáles son en realidad los algoritmos. ¿Qué nos realmente importa es su comportamiento. Cualquier algoritmo de cifrado de bloques simétrico decente también es una permutación pseudoaleatoria segura (PRP): corrija las entradas (clave, el encadenamiento de texto simple de modo, IV) y la salida de texto cifrado con una sobrecarga probabilidad será distinta de cualquier otro cifrado por bloques simétrico algoritmo dada las entradas de la mismas. Del mismo modo, cualquier función de hash con clave decente también es una función pseudoaleatoria segura (PRF), y debido a un conjunto de entrada fijo su salida muy será distinta de cualquier otra función de hash con clave.
 
-Este concepto de PRPs y PRFs seguros se usa para crear un encabezado de contexto. Este encabezado de contexto actúa esencialmente como una huella digital estable sobre los algoritmos en uso para una operación determinada, así como la agilidad criptográfica necesaria para el sistema de protección de datos. Este encabezado es "reproducible" y se utiliza posteriormente como parte de la [proceso de derivación de la subclave](subkeyderivation.md#data-protection-implementation-subkey-derivation). Hay dos maneras diferentes para generar el encabezado de contexto de función de los modos de funcionamiento de los algoritmos subyacentes.
+Este concepto de PRPs y PRFs seguros se usa para crear un encabezado de contexto. Este encabezado de contexto actúa esencialmente como una huella digital estable sobre los algoritmos en uso para una operación determinada, así como la agilidad criptográfica necesaria para el sistema de protección de datos. Este encabezado es "reproducible" y se utiliza posteriormente como parte de la [proceso de derivación de la subclave](xref:security/data-protection/implementation/subkeyderivation#data-protection-implementation-subkey-derivation). Hay dos maneras diferentes para generar el encabezado de contexto de función de los modos de funcionamiento de los algoritmos subyacentes.
 
 ## <a name="cbc-mode-encryption--hmac-authentication"></a>Cifrado del modo CBC + autenticación HMAC
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
-title: "Parte 10: Final las actualizaciones de navegación y el diseño del sitio, conclusión | Documentos de Microsoft"
+title: 'Parte 10: Final las actualizaciones de navegación y el diseño del sitio, conclusión | Documentos de Microsoft'
 author: jongalloway
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 10 cubre Final actualizaciones para navegación y S..."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 10 cubre Final actualizaciones para navegación y S...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 2a65e4b793b615c45cdf31166e0a000ae72ee534
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: b40d194c4d08f3564da59bacde4b5d3d7663373a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Parte 10: Final las actualizaciones de navegación y el diseño del sitio, conclusión
 ====================
@@ -138,5 +138,5 @@ Ahora, cuando se ejecuta la aplicación, veremos nuestra página de principal ac
 Hemos visto que ASP.NET MVC facilita el proceso para crear un sitio Web sofisticado con acceso de base de datos de pertenencia, AJAX, etcetera. muy rápidamente. Espero que este tutorial le ha concedido las herramientas que necesita para empezar a compilar las aplicaciones de su propia ASP.NET MVC.
 
 
->[!div class="step-by-step"]
-[Anterior](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Anterior](mvc-music-store-part-9.md)

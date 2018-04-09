@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 title: Implementar proyectos de base de datos | Documentos de Microsoft
 author: jrjlee
-description: "Nota: En una gran cantidad de escenarios de implementación empresarial, necesita la capacidad para publicar actualizaciones incrementales en una base de datos implementada. La alternativa es volver a..."
+description: 'Nota: En una gran cantidad de escenarios de implementación empresarial, necesita la capacidad para publicar actualizaciones incrementales en una base de datos implementada. La alternativa es volver a...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-database-projects
 msc.type: authoredcontent
-ms.openlocfilehash: 9b1f9a19c76e33b5d996cb4d562cf0c1a3e2f83b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a0b3871ea098b549271bce2b9d5f0c24f9ca8a9c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-database-projects"></a>Implementar proyectos de base de datos
 ====================
@@ -92,8 +92,8 @@ En este caso:
 
 - El **/a** (o **/Action**) modificador especifica la acción que realizará VSDBCMD hacer. También puede establecerlo en **importación** o **implementar**. El **importación** opción se usa para generar un archivo .dbschema desde una base de datos existente y la **implementar** opción se utiliza para implementar un archivo .dbschema en una base de datos de destino.
 - El **/manifest** (o **/MANIFESTFILE**) conmutador identifica el archivo .deploymanifest que desea implementar. Si desea utilizar el archivo .dbschema en su lugar, utilice la **/modelo** (o **/ModelFile**) cambiar.
-- El **/cs** (o **bien**) conmutador proporciona la cadena de conexión para el servidor de base de datos de destino. Tenga en cuenta que esto no incluye el nombre de la base de datos & #x 2014; VSDBCMD necesita para conectarse al servidor para crear la base de datos; no es necesario conectarse a una base de datos individual. Si el archivo .deploymanifest incluye una cadena de conexión, puede omitir este modificador. Si utiliza el modificador de todos modos, el valor del modificador invalidará el valor .deploymanifest.
-- El **/p: TargetDatabase** propiedad proporciona el nombre que desea asignar a la base de datos de destino durante la creación. Esto reemplaza el valor de la **TargetDatabase** propiedad en el archivo .deploymanifest. Puede usar el **/p:** *[nombre de la propiedad]*sintaxis para establecer una gran variedad de propiedades de implementación y para invalidar las variables SQLCMD declarados en el archivo .sqlcmdvars.
+- El **/cs** (o **bien**) conmutador proporciona la cadena de conexión para el servidor de base de datos de destino. Tenga en cuenta que esto no incluye el nombre de la base de datos&#x2014;VSDBCMD necesita para conectarse al servidor para crear la base de datos; no es necesario conectarse a una base de datos individual. Si el archivo .deploymanifest incluye una cadena de conexión, puede omitir este modificador. Si utiliza el modificador de todos modos, el valor del modificador invalidará el valor .deploymanifest.
+- El <strong>/p: TargetDatabase</strong> propiedad proporciona el nombre que desea asignar a la base de datos de destino durante la creación. Esto reemplaza el valor de la <strong>TargetDatabase</strong> propiedad en el archivo .deploymanifest. Puede usar el <strong>/p:</strong> <em>[nombre de la propiedad]</em>sintaxis para establecer una gran variedad de propiedades de implementación y para invalidar las variables SQLCMD declarados en el archivo .sqlcmdvars.
 - El **/dd+** (o **/DeployToDatabase+**) conmutador indica que desea crear una implementación e implementarlo en el entorno de destino. Si especifica **/dd-**, u omite el modificador, VSDBCMD generará un script de implementación, pero no implementará en el entorno de destino. Este modificador es a menudo el origen de confusión y se explica con más detalle en la sección siguiente.
 - El **/script** (o **/DeploymentScriptFile**) modificador especifica dónde desea generar el script de implementación. Este valor no afecta el proceso de implementación.
 
@@ -150,6 +150,6 @@ Estos temas en MSDN proporcionan instrucciones más amplio y obtener informació
 - [Cómo: preparar una base de datos para la implementación desde un símbolo del sistema mediante VSDBCMD. EXE](https://msdn.microsoft.com/library/dd193258.aspx)
 - [Información general de implementación y compilación de la base de datos](https://msdn.microsoft.com/library/aa833165.aspx)
 
->[!div class="step-by-step"]
-[Anterior](deploying-web-packages.md)
-[Siguiente](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-web-packages.md)
+> [Siguiente](creating-and-running-a-deployment-command-file.md)

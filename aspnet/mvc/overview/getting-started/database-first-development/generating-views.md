@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'Base de datos EF primero con ASP.NET MVC: generar vistas | Documentos de Microsoft'
 author: tfitzmac
-description: "Con MVC, Entity Framework y Scaffolding de ASP.NET, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri..."
+description: Con MVC, Entity Framework y Scaffolding de ASP.NET, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/29/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 5fccb3c56af0945ec448becff777a3e92dc160d7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b60e89a187a879255eb051dc87241714cef6fa63
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>Base de datos EF primero con ASP.NET MVC: generación de vistas
 ====================
@@ -109,6 +109,6 @@ Además, la validación de los valores proporcionados se aplica automáticamente
 
 Ha comprobado que las vistas generado automáticamente que los usuarios puedan trabajar con los datos en la base de datos. En el siguiente tutorial de esta serie, se actualizará la base de datos y realice los cambios correspondientes en la aplicación web.
 
->[!div class="step-by-step"]
-[Anterior](creating-the-web-application.md)
-[Siguiente](changing-the-database.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-the-web-application.md)
+> [Siguiente](changing-the-database.md)

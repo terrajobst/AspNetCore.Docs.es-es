@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/an-overview-of-project-katana
-title: "Información general del proyecto Katana | Documentos de Microsoft"
+title: Información general del proyecto Katana | Documentos de Microsoft
 author: howarddierking
-description: "El marco de trabajo de ASP.NET ha estado presente durante más de diez años, y la plataforma ha habilitado el desarrollo de innumerables sitios Web y servicios. Como aplicación Web..."
+description: El marco de trabajo de ASP.NET ha estado presente durante más de diez años, y la plataforma ha habilitado el desarrollo de innumerables sitios Web y servicios. Como aplicación Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/30/2013
 ms.topic: article
 ms.assetid: 0ee21741-c1bf-4025-a9b0-24580cae24bc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/an-overview-of-project-katana
 msc.type: authoredcontent
-ms.openlocfilehash: ceb7d3a7d1cb1685c0f1e62698f508c9a73e77c2
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3c2bcbbc6e506af759f6d77af17d015278cc0bdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-project-katana"></a>Información general del proyecto Katana
 ====================
@@ -137,14 +137,14 @@ Desde la línea de comandos, podemos, a continuación, navegue hasta la carpeta 
 
 ![](an-overview-of-project-katana/_static/image3.png)
 
-## <a name="host"></a>Host
+## <a name="host"></a>administrador de flujos de trabajo
 
  El host es responsable de:
 
 - Administrar el proceso subyacente.
 - Se controlarán la coordinación de flujo de trabajo que da como resultado la selección de un servidor y la construcción de una canalización OWIN a través de las solicitudes.
 
- En la actualidad, hay 3 opciones de hospedaje principales para aplicaciones basadas en Katana:  
+  En la actualidad, hay 3 opciones de hospedaje principales para aplicaciones basadas en Katana:  
   
 **IIS/ASP.NET**: con los tipos de HttpModule y HttpHandler estándares, pueden ejecutar canalizaciones OWIN en IIS como parte de un flujo de solicitud ASP.NET. Compatibilidad con el host de ASP.NET está habilitado al instalar el paquete de Microsoft.AspNet.Host.SystemWeb NuGet en un proyecto de aplicación Web. Además, debido a que IIS actúa como un host y un servidor, la distinción de servidor/host OWIN está vinculada en este paquete de NuGet, lo que significa que si utiliza el host SystemWeb, un desarrollador no puede sustituir una implementación de servidor alternativo.  
   
@@ -221,7 +221,7 @@ Para Katana 2.0, los componentes de middleware principalmente se centran en prop
 
 ## <a name="for-more-information-about-katana"></a>Para obtener más información acerca de Katana
 
-- El proyecto Katana en GitHub: [https://github.com/aspnet/AspNetKatana/](https://github.com/aspnet/AspNetKatana/).
+- El proyecto Katana en GitHub: [ https://github.com/aspnet/AspNetKatana/ ](https://github.com/aspnet/AspNetKatana/).
 - Vídeo: [el proyecto de Katana - OWIN para ASP.NET](https://channel9.msdn.com/Shows/Web+Camps+TV/The-Katana-Project-OWIN-for-ASPNET), por Howard Dierking.
 
 ## <a name="acknowledgements"></a>Reconocimientos

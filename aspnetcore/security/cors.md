@@ -1,7 +1,7 @@
 ---
-title: "Habilitación de solicitudes entre orígenes (CORS) en el núcleo de ASP.NET"
+title: Permitir solicitudes entre orígenes (CORS) en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo CORS como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core."
+description: Obtenga información acerca de cómo CORS como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cors
-ms.openlocfilehash: 64d939033fee14fad37a08c60da608898e20c01b
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 3c5d0840426c7ed52353a7832a1a1959027121de
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="enabling-cross-origin-requests-cors-in-aspnet-core"></a>Habilitación de solicitudes entre orígenes (CORS) en el núcleo de ASP.NET
+# <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Permitir solicitudes entre orígenes (CORS) en ASP.NET Core
 
 Por [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), y [Tom Dykstra](https://github.com/tdykstra)
 

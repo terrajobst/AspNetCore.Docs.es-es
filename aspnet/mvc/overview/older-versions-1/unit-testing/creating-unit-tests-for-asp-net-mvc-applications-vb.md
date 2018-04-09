@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 title: Crear pruebas unitarias para aplicaciones de MVC de ASP.NET (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "Obtenga información acerca de cómo crear pruebas unitarias para acciones de controlador. En este tutorial, Stephen Walther muestra cómo probar si una acción de controlador devuelve un ParteI..."
+description: Obtenga información acerca de cómo crear pruebas unitarias para acciones de controlador. En este tutorial, Stephen Walther muestra cómo probar si una acción de controlador devuelve un ParteI...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing/creating-unit-tests-for-asp-net-mvc-applications-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d92ee0c26787e5c482e8695001d8809d3ee9ee30
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 299665f45d72fee33f92344ed53c87dfb1a76d60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications-vb"></a>Crear pruebas unitarias para aplicaciones de MVC de ASP.NET (VB)
 ====================
@@ -33,7 +33,7 @@ El objetivo de este tutorial es mostrar cómo se pueden escribir pruebas unitari
 
 Empecemos creando el controlador que se va a probar. El controlador, denominado el `ProductController`, se encuentra en la lista 1.
 
-**Lista 1:`ProductController.vb`**
+**Lista 1: `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample1.vb)]
 
@@ -43,7 +43,7 @@ El `ProductController` contiene dos métodos de acción denominados `Index()` y 
 
 Suponga que desea probar o no el `ProductController` devuelve la vista derecha. Queremos para asegurarse de que, cuando el `ProductController.Details()` se invoca la acción, se devuelve la vista de detalles. La clase de prueba en el listado 2 contiene una prueba unitaria para probar la vista devuelve el `ProductController.Details()` acción.
 
-**La lista 2:`ProductControllerTest.vb`**
+**La lista 2: `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample2.vb)]
 
@@ -74,11 +74,11 @@ Puede ejecutar la prueba unitaria en el listado 2 escribiendo la combinación de
 
 ## <a name="testing-the-view-data-returned-by-a-controller"></a>Comprobación de los datos de vista devuelta por un controlador
 
-Controlador de MVC pasa los datos a una vista mediante el uso de lo que se denomina  *`View Data`* . Por ejemplo, imagine que desea mostrar los detalles de un producto específico cuando se invoca el `ProductController Details()` acción. En ese caso, puede crear una instancia de un `Product` clase (definido en el modelo) y pasar la instancia a la `Details` vista aprovechando las ventajas de `View Data`.
+Controlador de MVC pasa los datos a una vista mediante el uso de lo que se denomina *`View Data`*. Por ejemplo, imagine que desea mostrar los detalles de un producto específico cuando se invoca el `ProductController Details()` acción. En ese caso, puede crear una instancia de un `Product` clase (definido en el modelo) y pasar la instancia a la `Details` vista aprovechando las ventajas de `View Data`.
 
 Modificados `ProductController` en el listado 3 incluye un controlador actualizado, `Details()` acción que devuelve un producto.
 
-**Enumerar 3:`ProductController.vb`**
+**Enumerar 3: `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample5.vb)]
 
@@ -86,7 +86,7 @@ En primer lugar, el `Details()` acción crea una nueva instancia de la `Product`
 
 Puede escribir pruebas unitarias probar si los datos esperados están contenidos en la vista datos. La prueba unitaria en el listado 4 pruebas si o no es un producto que representa un equipo portátil que se devuelve cuando se llama a la `ProductController Details()` método de acción.
 
-**Enumerar 4:`ProductControllerTest.vb`**
+**Enumerar 4: `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample6.vb)]
 
@@ -98,13 +98,13 @@ Una acción de controlador más compleja podría devolver distintos tipos de res
 
 Por ejemplo, la modificación `Details()` acción en el listado 5 devuelve el `Details` ver cuando se pasa un identificador de producto válido para la acción. Si se pasa un producto no es válida: Id. de un identificador con un valor menor que 1, a continuación, se le redirigirá a la `Index()` acción.
 
-**Enumerar 5:`ProductController.vb`**
+**Enumerar 5: `ProductController.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample7.vb)]
 
 Puede probar el comportamiento de la `Details()` acción con la prueba unitaria en el listado 6. La prueba unitaria en el listado 6 comprueba que se le redirigirá a la `Index` ver cuando se pasa un identificador con el valor -1 para el `Details()` método.
 
-**Enumerar 6:`ProductControllerTest.vb`**
+**Enumerar 6: `ProductControllerTest.vb`**
 
 [!code-vb[Main](creating-unit-tests-for-asp-net-mvc-applications-vb/samples/sample8.vb)]
 
@@ -118,5 +118,5 @@ A continuación, se examina cómo puede probar el contenido de `View Data`. Ha a
 
 Por último, analizamos cómo puede probar si se devuelven tipos diferentes de los resultados de la acción de una acción de controlador. Ha aprendido cómo probar si un controlador devuelve un `ViewResult` o `RedirectToRouteResult`.
 
->[!div class="step-by-step"]
-[Anterior](creating-unit-tests-for-asp-net-mvc-applications-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-unit-tests-for-asp-net-mvc-applications-cs.md)

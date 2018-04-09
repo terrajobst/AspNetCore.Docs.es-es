@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/introduction-to-debugging
-title: "Introducción a la depuración ASP.NET Web Pages (Razor) sitios | Documentos de Microsoft"
+title: Introducción a la depuración ASP.NET Web Pages (Razor) sitios | Documentos de Microsoft
 author: tfitzmac
-description: "La depuración es el proceso de encontrar y corregir errores en las páginas de código. Este capítulo muestra algunas herramientas y técnicas que puede usar para depurar y analyz..."
+description: La depuración es el proceso de encontrar y corregir errores en las páginas de código. Este capítulo muestra algunas herramientas y técnicas que puede usar para depurar y analyz...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/introduction-to-debugging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b6b5a886efe515b434948dade1ae840ddaecd42
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c28d63acda6e585f4aa64f294049c1790faac850
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a>Introducción a la depuración ASP.NET Web Pages (Razor) sitios
 ====================
@@ -33,7 +33,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 > Estas son las características ASP.NET presentadas en el artículo:
 > 
 > - El `ServerInfo` auxiliar.
-> - `ObjectInfo`aplicación auxiliar.
+> - `ObjectInfo` aplicación auxiliar.
 >   
 > 
 > ## <a name="software-versions"></a>Versiones de software
@@ -66,12 +66,12 @@ El `ServerInfo` auxiliar es una herramienta de diagnóstico que le ofrece una vi
 
     El `ServerInfo` auxiliar muestra cuatro tablas de información en la página:
 
-    - Configuración del servidor. Esta sección proporciona información sobre el servidor de hospedaje web, incluido el nombre de equipo, la versión de ASP.NET que se está ejecutando, el nombre de dominio y la hora del servidor.
-    - Variables de servidor de ASP.NET. En esta sección se proporcionan detalles acerca de los numerosos detalles de protocolo HTTP (llamado HTTP variables) y valores que forman parte de cada solicitud de página web.
-    - Información de tiempo de ejecución HTTP. Esta sección se proporcionan detalles sobre el que la versión de Microsoft .NET Framework que se está ejecutando la página web, la ruta de acceso, los detalles acerca de la memoria caché y así sucesivamente. (Según se desprende de [Introducción a ASP.NET Web programación mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages usando el código Razor sintaxis se basan en la tecnología del servidor web de Microsoft ASP.NET que a su vez se basa en una amplia de software biblioteca de desarrollo denomina .NET Framework).
-    - Variables de entorno. En esta sección se proporciona una lista de todas las variables de entorno local y sus valores en el servidor web.
+   - Configuración del servidor. Esta sección proporciona información sobre el servidor de hospedaje web, incluido el nombre de equipo, la versión de ASP.NET que se está ejecutando, el nombre de dominio y la hora del servidor.
+   - Variables de servidor de ASP.NET. En esta sección se proporcionan detalles acerca de los numerosos detalles de protocolo HTTP (llamado HTTP variables) y valores que forman parte de cada solicitud de página web.
+   - Información de tiempo de ejecución HTTP. Esta sección se proporcionan detalles sobre el que la versión de Microsoft .NET Framework que se está ejecutando la página web, la ruta de acceso, los detalles acerca de la memoria caché y así sucesivamente. (Según se desprende de [Introducción a ASP.NET Web programación mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkId=202890), ASP.NET Web Pages usando el código Razor sintaxis se basan en la tecnología del servidor web de Microsoft ASP.NET que a su vez se basa en una amplia de software biblioteca de desarrollo denomina .NET Framework).
+   - Variables de entorno. En esta sección se proporciona una lista de todas las variables de entorno local y sus valores en el servidor web.
 
-    Una descripción completa de toda la información de servidor y la solicitud está fuera del ámbito de este artículo, pero puede ver que el `ServerInfo` auxiliar devuelve una gran cantidad de información de diagnóstico. Para obtener más información acerca de los valores que `ServerInfo` devuelve, vea [reconoce las Variables de entorno](https://technet.microsoft.com/library/dd560744(WS.10).aspx) en el sitio Web de Microsoft TechNet y [Variables de servidor IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) en el sitio Web MSDN.
+     Una descripción completa de toda la información de servidor y la solicitud está fuera del ámbito de este artículo, pero puede ver que el `ServerInfo` auxiliar devuelve una gran cantidad de información de diagnóstico. Para obtener más información acerca de los valores que `ServerInfo` devuelve, vea [reconoce las Variables de entorno](https://technet.microsoft.com/library/dd560744(WS.10).aspx) en el sitio Web de Microsoft TechNet y [Variables de servidor IIS](https://msdn.microsoft.com/library/ms524602(VS.90).aspx) en el sitio Web MSDN.
 
 ## <a name="embedding-output-expressions-to-display-page-values"></a>Incrustar expresiones de salida para mostrar los valores de la página
 
@@ -115,10 +115,10 @@ El `ObjectInfo` auxiliar muestra el tipo y el valor de cada objeto que se pasa a
 
     En este ejemplo, el `ObjectInfo` auxiliar muestra dos elementos:
 
-    - Tipo. En la primera variable, el tipo es `DayOfWeek`. En la segunda variable, el tipo es `String`.
-    - Valor. En este caso, puesto que ya se muestra el valor de la variable de saludo en la página, el valor se muestra otra vez cuando pase la variable a `ObjectInfo`.
+   - Tipo. En la primera variable, el tipo es `DayOfWeek`. En la segunda variable, el tipo es `String`.
+   - Valor. En este caso, puesto que ya se muestra el valor de la variable de saludo en la página, el valor se muestra otra vez cuando pase la variable a `ObjectInfo`.
 
-    Para los objetos más complejos, la `ObjectInfo` auxiliar puede mostrar más información &#8212; básicamente, puede mostrar los tipos y valores de todas las propiedades de un objeto.
+     Para los objetos más complejos, la `ObjectInfo` auxiliar puede mostrar más información &#8212; básicamente, puede mostrar los tipos y valores de todas las propiedades de un objeto.
 
 ## <a name="using-debugging-tools-in-visual-studio"></a>Con herramientas de depuración en Visual Studio
 

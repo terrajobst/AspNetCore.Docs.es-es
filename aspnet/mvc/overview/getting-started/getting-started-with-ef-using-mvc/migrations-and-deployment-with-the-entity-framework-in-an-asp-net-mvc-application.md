@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Code First Migrations e implementación con Entity Framework en una aplicación ASP.NET MVC | Documentos de Microsoft"
+title: Code First Migrations e implementación con Entity Framework en una aplicación ASP.NET MVC | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2014
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2294f2aba3f765d7849d1f407e85f424dc8b2518
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04d393edca0469df140f06a7d083a48aa8f84b65
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Code First Migrations e implementación con Entity Framework en una aplicación ASP.NET MVC
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [descarga de PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio 2013. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio 2013. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Hasta ahora la aplicación ha se ejecuta de manera local en IIS Express en el equipo de desarrollo. Para que una aplicación real disponible para otras personas a través de Internet, se debe implementar en un proveedor de hospedaje web. En este tutorial, implementará la aplicación de la Universidad de Contoso a la nube en Azure.
 
@@ -37,9 +37,9 @@ Se recomienda que utilice un proceso de integración continua con control de có
 
 ## <a name="enable-code-first-migrations"></a>Habilitar migraciones de Code First
 
-Al desarrollar una aplicación nueva, el modelo de datos cambia con frecuencia y cada vez que los cambios del modelo, se le asigna sincronizada con la base de datos. Ha configurado el Entity Framework para quitar y volver a crear la base de datos cada vez que cambie el modelo de datos automáticamente. Al agregar, quitar, o cambiar las clases de entidad o cambiar su `DbContext` de la clase, la próxima vez que ejecute la aplicación automáticamente se elimina la base de datos existente, se crea uno nuevo que coincide con el modelo y propaga con datos de prueba.
+Al desarrollar una aplicación nueva, el modelo de datos cambia con frecuencia y, cada vez que lo hace, se deja de sincronizar con la base de datos. Ha configurado el Entity Framework para quitar y volver a crear la base de datos cada vez que cambie el modelo de datos automáticamente. Al agregar, quitar, o cambiar las clases de entidad o cambiar su `DbContext` de la clase, la próxima vez que ejecute la aplicación automáticamente se elimina la base de datos existente, se crea uno nuevo que coincide con el modelo y propaga con datos de prueba.
 
-Este método para mantener la base de datos sincronizada con el modelo de datos funciona bien hasta que implemente la aplicación en producción. Cuando se ejecuta la aplicación en producción, normalmente almacena los datos que desea mantener, y no desea perder todo lo que cada vez que realice un cambio como agregar una nueva columna. El [migraciones de Code First](https://msdn.microsoft.com/data/jj591621) característica soluciona este problema habilitando Code First actualizar el esquema de base de datos en lugar de quitar y volver a crear la base de datos. En este tutorial, va a implementar la aplicación y preparar para la se habilitará las migraciones.
+Este método para mantener la base de datos sincronizada con el modelo de datos funciona bien hasta que la aplicación se implemente en producción. Cuando se ejecuta la aplicación en producción, normalmente almacena los datos que desea mantener, y no desea perder todo lo que cada vez que realice un cambio como agregar una nueva columna. El [migraciones de Code First](https://msdn.microsoft.com/data/jj591621) característica soluciona este problema habilitando Code First actualizar el esquema de base de datos en lugar de quitar y volver a crear la base de datos. En este tutorial, va a implementar la aplicación y preparar para la se habilitará las migraciones.
 
 1. Deshabilitar el inicializador que configuró anteriormente como comentario o eliminando el `contexts` elemento agregado al archivo Web.config de la aplicación.
 
@@ -48,7 +48,7 @@ Este método para mantener la base de datos sincronizada con el modelo de datos 
 
     [!code-xml[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.xml?highlight=2)]
 
-    Este cambio se configura el proyecto para que la primera migración creará una nueva base de datos. Esto no es necesario pero verá más adelante por eso es una buena idea.
+    Este cambio configura el proyecto para que la primera migración cree una base de datos. Esto no es necesario pero verá más adelante por eso es una buena idea.
 3. Desde el **herramientas** menú, haga clic en **Administrador de paquetes de biblioteca** y, a continuación, **Package Manager Console**.
 
     ![Selecting_Package_Manager_Console](https://asp.net/media/4336350/1pm.png)
@@ -112,11 +112,11 @@ Cuando ejecuta el `add-migration` comando migraciones generan el código que pue
 
 [!code-csharp[Main](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-Llamadas de migraciones el `Up` método para implementar los cambios de modelo de datos para una migración. Cuando se especifica un comando para revertir la actualización, llamadas de migraciones el `Down` método.
+Las migraciones llaman al método `Up` para implementar los cambios del modelo de datos para una migración. Cuando se escribe un comando para revertir la actualización, las migraciones llaman al método `Down`.
 
 Se trata de la migración inicial que se creó cuando escribe el `add-migration InitialCreate` comando. El parámetro (`InitialCreate` en el ejemplo) se utiliza para el archivo de nombre y puede ser todo lo que desees; normalmente elegir una palabra o frase que resume lo que se hace en la migración. Por ejemplo, podría denominar una migración posterior &quot;AddDepartmentTable&quot;.
 
-Si ha creado la migración inicial cuando la base de datos ya existe, se genera el código de creación de la base de datos pero no es necesario ejecutar porque la base de datos ya coincide con el modelo de datos. Al implementar la aplicación en otro entorno donde la base de datos no existe aún, se ejecutará este código para crear la base de datos, por lo que es una buena idea para probarla en primer lugar. Por eso ha cambiado el nombre de la base de datos en versiones anteriores, la cadena de conexión para que las migraciones pueden crear uno nuevo desde cero.
+Si creó la migración inicial cuando la base de datos ya existía, se genera el código de creación de la base de datos pero no es necesario ejecutarlo porque la base de datos ya coincide con el modelo de datos. Al implementar la aplicación en otro entorno donde la base de datos todavía no existe, se ejecutará este código para crear la base de datos, por lo que es recomendable probarlo primero. Por ese motivo se cambió antes el nombre de la base de datos en la cadena de conexión, para que las migraciones puedan crear uno desde cero.
 
 1. En el **Package Manager Console** ventana, escriba el siguiente comando:
 
@@ -125,7 +125,7 @@ Si ha creado la migración inicial cuando la base de datos ya existe, se genera 
     ![](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
     El `update-database` comando se ejecuta la `Up` método para crear la base de datos y, a continuación, se ejecuta el `Seed` método para rellenar la base de datos. El mismo proceso se ejecutará automáticamente en producción después de implementar la aplicación, como verá en la sección siguiente.
-- Use **Explorador de servidores** para inspeccionar la base de datos como lo hizo en el primer tutorial y ejecutar la aplicación para comprobar que todo el contenido todavía funciona igual que antes.
+2. Use **Explorador de servidores** para inspeccionar la base de datos como lo hizo en el primer tutorial y ejecutar la aplicación para comprobar que todo el contenido todavía funciona igual que antes.
 
 ## <a name="deploy-to-azure"></a>Implementar en Azure
 
@@ -153,7 +153,7 @@ Va a implementar la base de datos a base de datos de SQL Azure. Base de datos SQ
 
     ![Botón nuevo en el Portal de administración](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/CreateWeb-Sql.png)
 
- El **nueva aplicación Web y SQL - crear** abre el asistente.
+   El **nueva aplicación Web y SQL - crear** abre el asistente.
 
 2. En la hoja, escriba una cadena en el **nombre de la aplicación** cuadro que se usará como la dirección URL única para la aplicación. La dirección URL completa constará de las que se especifican aquí junto con el dominio predeterminado de servicios de aplicaciones de Azure (. azurewebsites.net). Si el **nombre de la aplicación** ya está en uso, el asistente le notificará de esto con un color rojo *el nombre de la aplicación no está disponible* mensaje. Si el **nombre de la aplicación** está disponible, aparecerá una marca de verificación verde.
 
@@ -175,9 +175,9 @@ Va a implementar la base de datos a base de datos de SQL Azure. Base de datos SQ
 10. Modificar [intercalación](https://docs.microsoft.com/sql/relational-databases/collations/collation-and-unicode-support) según sea necesario.
 11. Especifique un administrador **nombre de usuario de administrador de SQL** y **contraseña de administrador de SQL**. Si seleccionó **servidor de base de datos SQL nueva**, no se escribe un nombre existente y la contraseña aquí, que se están escribiendo un nuevo nombre y una contraseña que se está definiendo ahora para usarla más adelante cuando tiene acceso a la base de datos. Si ha seleccionado un servidor que creó anteriormente, que especifique las credenciales para ese servidor.
 12. Recopilación de telemetría se puede habilitar para el uso de visión de la aplicación de servicio de aplicaciones. Visión de la aplicación con muy poca configuración recopila eventos valiosos, excepción, dependencia, solicitud e información de seguimiento. Para obtener más información acerca de Application Insights, empezar a trabajar [documentos de Azure](https://azure.microsoft.com/services/application-insights/).
-12. Haga clic en **crear** en la parte inferior de la hoja para indicar que haya terminado.
+13. Haga clic en **crear** en la parte inferior de la hoja para indicar que haya terminado.
   
- El Portal de administración que se devuelve a la página de paneles y el **notificaciones** hoja en la parte superior de la página muestra que se está creando el sitio. Después de un tiempo (normalmente menos de un minuto), habrá una notificación de que la implementación se realizó correctamente. En la barra de navegación de la izquierda, la nueva **servicio de aplicaciones** aparece en la *servicios de aplicaciones* sección y la nueva **base de datos SQL** aparece en la *bases de datos SQL*  sección.
+    El Portal de administración que se devuelve a la página de paneles y el **notificaciones** hoja en la parte superior de la página muestra que se está creando el sitio. Después de un tiempo (normalmente menos de un minuto), habrá una notificación de que la implementación se realizó correctamente. En la barra de navegación de la izquierda, la nueva **servicio de aplicaciones** aparece en la *servicios de aplicaciones* sección y la nueva **base de datos SQL** aparece en la *bases de datos SQL*  sección.
 
 ### <a name="deploy-the-application-to-azure"></a>Implementar la aplicación en Azure
 
@@ -195,30 +195,30 @@ Va a implementar la base de datos a base de datos de SQL Azure. Base de datos SQ
 5. Una vez configurado el perfil, el **conexión** se mostrará la pestaña. Haga clic en **validar conexión** para asegurarse de que la configuración es correcta
 
     ![Validar la conexión](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Connection.png)
-7. Cuando se ha validado la conexión, se muestra junto a una marca de verificación verde el **validar conexión** botón. Haga clic en **Siguiente**.
+6. Cuando se ha validado la conexión, se muestra junto a una marca de verificación verde el **validar conexión** botón. Haga clic en **Siguiente**.
   
     ![Conexión validada correctamente](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-SettingsValidated.png)
-8. Abra la **cadena de conexión remota** lista desplegable situada bajo **SchoolContext** y seleccione la cadena de conexión para la base de datos que creó.
-9. Seleccione **Actualizar base de datos**.
+7. Abra la **cadena de conexión remota** lista desplegable situada bajo **SchoolContext** y seleccione la cadena de conexión para la base de datos que creó.
+8. Seleccione **Actualizar base de datos**.
 
     ![Pestaña Configuración](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Settings.png)
 
     Esta configuración hace que el proceso de implementación configurar automáticamente la aplicación *Web.config* de archivos en el servidor de destino para que utilice Code First la `MigrateDatabaseToLatestVersion` clase inicializador.
-10. Haga clic en **Siguiente**.
-11. En el **vista previa** , haga clic en **iniciar Preview**.
+9. Haga clic en **Siguiente**.
+10. En el **vista previa** , haga clic en **iniciar Preview**.
   
     ![Botón de inicio en la ficha Vista previa](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Preview.png)
   
- La pestaña muestra una lista de los archivos que se copiarán en el servidor. Mostrar la vista previa no es necesaria para publicar la aplicación, pero es una función útil tener en cuenta. En este caso, no es necesario hacer nada con la lista de archivos que se muestra. La próxima vez que implemente esta aplicación, sólo los archivos que han cambiado aparecerá en esta lista.
+    La pestaña muestra una lista de los archivos que se copiarán en el servidor. Mostrar la vista previa no es necesaria para publicar la aplicación, pero es una función útil tener en cuenta. En este caso, no es necesario hacer nada con la lista de archivos que se muestra. La próxima vez que implemente esta aplicación, sólo los archivos que han cambiado aparecerá en esta lista.
     ![Salida del archivo de inicio](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-PreviewLoaded.png)
 
-12. Haga clic en **Publicar**.
- Visual Studio inicia el proceso de copiar los archivos en el servidor de Azure.
-13. El **salida** ventana muestra qué acciones de implementación se realizaron y notifica la finalización correcta de la implementación.
+11. Haga clic en **Publicar**.
+    Visual Studio inicia el proceso de copiar los archivos en el servidor de Azure.
+12. El **salida** ventana muestra qué acciones de implementación se realizaron y notifica la finalización correcta de la implementación.
   
     ![Ventana de salida correcta implementación de informes](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-BuildOutput.png)
-14. Tras una implementación correcta, el explorador predeterminado se abre automáticamente a la dirección URL del sitio web implementado.
- Ahora se está ejecutando la aplicación que creó en la nube. 
+13. Tras una implementación correcta, el explorador predeterminado se abre automáticamente a la dirección URL del sitio web implementado.
+    Ahora se está ejecutando la aplicación que creó en la nube. 
   
     ![Students_index_page_with_paging](migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application/_static/Publish-Site.png)
 
@@ -258,6 +258,6 @@ Vota sobre cómo le gustó este tutorial y lo que podemos mejorar. También pued
 
 Vínculos a otros recursos de Entity Framework se pueden encontrar en [ASP.NET Data Access: recursos recomendados](xref:whitepapers/aspnet-data-access-content-map).
 
->[!div class="step-by-step"]
-[Anterior](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
-[Siguiente](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)
+> [!div class="step-by-step"]
+> [Anterior](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application)
+> [Siguiente](xref:mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application)

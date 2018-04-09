@@ -2,7 +2,7 @@
 uid: web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 title: Con distintas versiones de ASP.NET Web Pages (Razor) en paralelo | Documentos de Microsoft
 author: tfitzmac
-description: "Este artículo explica cómo ejecutar sitios Web de ASP.NET Web Pages (Razor) en el mismo servidor o equipo cuando los sitios Web están configurados para usar una versión diferente..."
+description: Este artículo explica cómo ejecutar sitios Web de ASP.NET Web Pages (Razor) en el mismo servidor o equipo cuando los sitios Web están configurados para usar una versión diferente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 msc.type: authoredcontent
-ms.openlocfilehash: c11399b0bde59d18fa378ed48c15844454c1f956
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1729f3201013926b221afc92d23416b0081d8efb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>Ejecutar en paralelo de distintas versiones de ASP.NET Web Pages (Razor)
 ====================
@@ -52,7 +52,7 @@ Estas son algunas cosas que recordar cuando se instalación las páginas Web con
 - Si desea ejecutar un sitio con una versión diferente de las páginas Web ASP.NET, puede configurar el sitio para hacerlo. Si el sitio ya no tiene un *web.config* un archivo en la raíz del sitio, cree uno nuevo y copie el siguiente código XML en él, sobrescribiendo el contenido existente. Si el sitio ya contiene un *web.config* , agregue un `<appSettings>` elemento como el siguiente a la `<configuration>` sección.
 
     [!code-xml[Main](running-v1-and-v2-sites-side-by-side/samples/sample1.xml)]
-'-Si no especifica ninguna versión en el *web.config* archivo, un sitio se implementa como la versión más reciente. (Los ensamblados se copian en el *bin* carpeta en el sitio implementado.)
+  '-Si no especifica ninguna versión en el *web.config* archivo, un sitio se implementa como la versión más reciente. (Los ensamblados se copian en el *bin* carpeta en el sitio implementado.)
 - Las aplicaciones nuevas que cree mediante las plantillas de sitio en Web Matrix incluyen los ensamblados de la versión de las páginas Web en el sitio *bin* carpeta.
 
 En general, siempre puede controlar qué versión de páginas Web para utilizar con su sitio mediante el uso de NuGet para instalar los ensamblados correspondientes en el sitio *bin* carpeta. Para buscar paquetes, visite [NuGet.org](http://NuGet.org).

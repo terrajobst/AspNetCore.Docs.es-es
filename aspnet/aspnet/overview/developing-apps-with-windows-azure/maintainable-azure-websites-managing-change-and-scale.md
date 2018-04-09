@@ -1,26 +1,26 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
-title: "Laboratorio de prácticas: fácil de mantener sitios Web de Azure: administración de cambios y escala | Documentos de Microsoft"
+title: 'Laboratorio de prácticas: fácil de mantener sitios Web de Azure: administración de cambios y escala | Documentos de Microsoft'
 author: rick-anderson
-description: "En este laboratorio, obtenga información acerca de cómo Microsoft Azure facilita a compilar e implementar sitios Web en producción."
+description: En este laboratorio, obtenga información acerca de cómo Microsoft Azure facilita a compilar e implementar sitios Web en producción.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: ecfd0eb4-c4ad-44e6-9db9-a2a66611ff6a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/maintainable-azure-websites-managing-change-and-scale
 msc.type: authoredcontent
-ms.openlocfilehash: 4bce02b2c592ff04e0dbce78d18004c69268e4fd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a79921681b4e742b5cd23f7119d19f4dd74c3f83
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hands-on-lab-maintainable-azure-websites-managing-change-and-scale"></a>Laboratorio de prácticas: fácil de mantener sitios Web de Azure: administración de cambios y la escala
 ====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
 [Descargar el Kit de aprendizaje de colonias de Web](http://aka.ms/webcamps-training-kit)
 
@@ -34,7 +34,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > 
 > Con las bases de datos de SQL, es importante mantener actualizada la base de datos productivo al implementar nuevas versiones de la aplicación. Gracias a **Entity Framework Code First Migrations**, el desarrollo e implementación de su modelo de datos se ha simplificado para actualizar los entornos en minutos. Este laboratorio práctico le mostrará los temas diferentes que podrían surgir al implementar la aplicación web en entornos de producción en Microsoft Azure.
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 > 
 > Para obtener información más detallada de este tema, consulte el [creación de aplicaciones de nube reales con Azure de libros electrónicos](building-real-world-cloud-apps-with-windows-azure/introduction.md).
 
@@ -281,13 +281,13 @@ En esta tarea, creará una aplicación web en **servicio de aplicaciones de Azur
     *Personalizar la nueva aplicación web*
 5. Especifique la siguiente información para la configuración de la base de datos:
 
-    - En el **nombre** texto cuadro, escriba un nombre de base de datos (por ejemplo, *geekquiz\_db*)
-    - En el servidor **desplegable** lista, seleccione **servidor de base de datos SQL nueva**. Como alternativa, puede seleccionar un servidor existente.
-    - En el **nombre de usuario de base de datos** y **contraseña de base de datos** cuadros, escriba el nombre de usuario de administrador y la contraseña para el servidor de base de datos SQL. Si selecciona un servidor que ya ha creado, se le pedirá la contraseña.
+   - En el **nombre** texto cuadro, escriba un nombre de base de datos (por ejemplo, *geekquiz\_db*)
+   - En el servidor **desplegable** lista, seleccione **servidor de base de datos SQL nueva**. Como alternativa, puede seleccionar un servidor existente.
+   - En el **nombre de usuario de base de datos** y **contraseña de base de datos** cuadros, escriba el nombre de usuario de administrador y la contraseña para el servidor de base de datos SQL. Si selecciona un servidor que ya ha creado, se le pedirá la contraseña.
 
-    ![Especificar la configuración de la base de datos](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
+     ![Especificar la configuración de la base de datos](maintainable-azure-websites-managing-change-and-scale/_static/image17.png)
 
-    *Especificar la configuración de la base de datos*
+     *Especificar la configuración de la base de datos*
 6. Haga clic en **Siguiente** para continuar.
 7. Seleccione **repositorio de Git Local** para el control de código fuente utilizar y haga clic en **siguiente**.
 
@@ -687,7 +687,7 @@ En esta tarea, utilizará la ventana Explorador de servidores de Visual Studio p
 
 En esta tarea, configurará la **GeekQuiz** solución para consumir la imagen cargado al almacenamiento de blobs de Azure (en lugar de la imagen que se encuentra en la aplicación web) mediante la adición de una regla de reescritura de direcciones URL de ASP.NET en el **web.config**archivo.
 
-1. En Visual Studio, abra el **Web.config** archivo dentro de la **GeekQuiz** del proyecto y busque el  **&lt;system.webServer&gt;**  elemento.
+1. En Visual Studio, abra el **Web.config** archivo dentro de la **GeekQuiz** del proyecto y busque el **&lt;system.webServer&gt;** elemento.
 2. Agregue el código siguiente para agregar una URL rewrite regla, para actualizar el marcador de posición con el nombre de cuenta de almacenamiento.
 
     (Código de fragmento de código: *UrlRewriteRule WebSitesInProduction - Ex4 -*)
@@ -785,7 +785,7 @@ Ahora que **escalado automático** ha sido configurado, se creará un **proyecto
     ![Agregar una solicitud a WebTest1](maintainable-azure-websites-managing-change-and-scale/_static/image81.png "agregar una solicitud a WebTest1")
 
     *Agregar una solicitud a WebTest1*
-4. En el **propiedades** ventana del nuevo nodo de solicitud, actualizar el **Url** propiedad para señalar a la dirección URL de la aplicación web (por ejemplo,  *[http://geek-quiz.azurewebsites.net/](http://geek-quiz.azurewebsites.net/)* ).
+4. En el **propiedades** ventana del nuevo nodo de solicitud, actualizar el **Url** propiedad para señalar a la dirección URL de la aplicación web (por ejemplo, *[ http://geek-quiz.azurewebsites.net/ ](http://geek-quiz.azurewebsites.net/)*).
 
     ![Cambiar la propiedad de dirección Url](maintainable-azure-websites-managing-change-and-scale/_static/image82.png "cambiar la propiedad de dirección Url")
 
@@ -797,13 +797,13 @@ Ahora que **escalado automático** ha sido configurado, se creará un **proyecto
     *Agregar un bucle a WebTest1*
 6. En el **Agregar regla condicional y elementos al bucle** cuadro de diálogo, seleccione la **de bucles for** de regla y modificar las siguientes propiedades.
 
-    1. **Valor de finalización:** 1000
-    2. **Nombre del parámetro de contexto:** iterador
-    3. **Valor de incremento:** 1
+   1. **Valor de finalización:** 1000
+   2. **Nombre del parámetro de contexto:** iterador
+   3. **Valor de incremento:** 1
 
-    ![Seleccione la regla de bucles for y actualización de las propiedades](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "seleccionando la regla de bucles for y actualizar las propiedades")
+      ![Seleccione la regla de bucles for y actualización de las propiedades](maintainable-azure-websites-managing-change-and-scale/_static/image84.png "seleccionando la regla de bucles for y actualizar las propiedades")
 
-    *Seleccione la regla de bucles for y actualizar las propiedades*
+      *Seleccione la regla de bucles for y actualizar las propiedades*
 7. En el **elementos en bucle** sección, seleccione la solicitud que creó anteriormente para que sea el primer y último elemento para el bucle. Haga clic en **Aceptar** para continuar.
 
     ![Seleccionar el primer y último elemento para el bucle](maintainable-azure-websites-managing-change-and-scale/_static/image85.png "al seleccionar el primer y último elemento del bucle")
