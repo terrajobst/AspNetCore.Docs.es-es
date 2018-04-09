@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-2
 title: Agregar modelos y controladores | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 7e09316f0faaf0731e4cdda48040fdaedc0f244a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 015bb9698d81387d03ea8f9629316fb53232e708
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="add-models-and-controllers"></a>Agregar modelos y controladores
 ====================
@@ -84,8 +84,8 @@ En el **nuevo contexto de datos** cuadro de diálogo, deje el nombre predetermin
 
 Haga clic en **agregar** para completar la **Agregar controlador** cuadro de diálogo. El cuadro de diálogo agrega dos clases al proyecto:
 
-- `AuthorsController`define un controlador de Web API. El controlador implementa la API de REST que los clientes utilizan para realizar operaciones CRUD en la lista de autores.
-- `BookServiceContext`administra los objetos de entidad en tiempo de ejecución, que incluye rellenar los objetos con datos de una base de datos, el seguimiento de cambios y conservar los datos de la base de datos. Hereda de `DbContext`.
+- `AuthorsController` define un controlador de Web API. El controlador implementa la API de REST que los clientes utilizan para realizar operaciones CRUD en la lista de autores.
+- `BookServiceContext` administra los objetos de entidad en tiempo de ejecución, que incluye rellenar los objetos con datos de una base de datos, el seguimiento de cambios y conservar los datos de la base de datos. Hereda de `DbContext`.
 
 ![](part-2/_static/image7.png)
 
@@ -93,6 +93,6 @@ En este momento, compile el proyecto de nuevo. Vaya ahora a través de los mismo
 
 ![](part-2/_static/image8.png)
 
->[!div class="step-by-step"]
-[Anterior](part-1.md)
-[Siguiente](part-3.md)
+> [!div class="step-by-step"]
+> [Anterior](part-1.md)
+> [Siguiente](part-3.md)

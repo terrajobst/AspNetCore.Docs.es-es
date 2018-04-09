@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: solución de problemas (12 de 12) | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: solución de problemas (12 de 12) | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-creating-and-installing-deployment-packages-12-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: d8c4931a1d26af49ee61c896897fa6ddf12fccea
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2a8342f026498a7cf3ff4a3c158ed177c15b7111
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-troubleshooting-12-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: solución de problemas (12 de 12)
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -290,7 +290,7 @@ Publicación se produce un error que indica no tiene autoridad para establecer l
 
 ### <a name="possible-cause-and-solution"></a>Causa y solución posibles
 
-De forma predeterminada, Visual Studio establece permisos de lectura en la carpeta raíz del sitio y permisos de escritura en la aplicación\_carpeta de datos. Si sabe que los permisos predeterminados de las carpetas del sitio son correctos y no deben establecerse, deshabilitar este comportamiento mediante la adición de  **&lt;IncludeSetACLProviderOn destino&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  hasta el archivo de perfil de publicación (que afecta a un solo perfil) o al archivo wpp.targets (que afecta a todos los perfiles). Para obtener información sobre cómo editar estos archivos, consulte [Cómo: modificar la configuración de implementación en los archivos de perfil (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
+De forma predeterminada, Visual Studio establece permisos de lectura en la carpeta raíz del sitio y permisos de escritura en la aplicación\_carpeta de datos. Si sabe que los permisos predeterminados de las carpetas del sitio son correctos y no deben establecerse, deshabilitar este comportamiento mediante la adición de **&lt;IncludeSetACLProviderOn destino&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** hasta el archivo de perfil de publicación (que afecta a un solo perfil) o al archivo wpp.targets (que afecta a todos los perfiles). Para obtener información sobre cómo editar estos archivos, consulte [Cómo: modificar la configuración de implementación en los archivos de perfil (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). 
 
 ## <a name="access-denied-errors-when-the-application-tries-to-write-to-an-application-folder"></a>Errores de acceso denegado cuando la aplicación intenta escribir en una carpeta de la aplicación
 
@@ -300,7 +300,7 @@ Los errores de aplicación cuando intenta crear o editar un archivo en una de la
 
 ### <a name="possible-cause-and-solution"></a>Causa y solución posibles
 
-De forma predeterminada, Visual Studio establece permisos de lectura en la carpeta raíz del sitio y permisos de escritura en la aplicación\_carpeta de datos. Si la aplicación necesita acceso de escritura a una subcarpeta, puede establecer permisos para esa carpeta, como se muestra en el [permisos de la carpeta de configuración](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) y [implementarla en el entorno de producción](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) tutoriales. Si la aplicación necesita acceso de escritura a la carpeta raíz del sitio, tiene que evitar desde la configuración de acceso de solo lectura en la carpeta raíz mediante la adición de  **&lt;IncludeSetACLProviderOn destino&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;**  hasta el archivo de perfil de publicación (que afecta a un solo perfil) o al archivo wpp.targets (que afecta a todos los perfiles). Para obtener información sobre cómo editar estos archivos, consulte [Cómo: modificar la configuración de implementación en los archivos de perfil (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
+De forma predeterminada, Visual Studio establece permisos de lectura en la carpeta raíz del sitio y permisos de escritura en la aplicación\_carpeta de datos. Si la aplicación necesita acceso de escritura a una subcarpeta, puede establecer permisos para esa carpeta, como se muestra en el [permisos de la carpeta de configuración](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md) y [implementarla en el entorno de producción](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md) tutoriales. Si la aplicación necesita acceso de escritura a la carpeta raíz del sitio, tiene que evitar desde la configuración de acceso de solo lectura en la carpeta raíz mediante la adición de **&lt;IncludeSetACLProviderOn destino&gt;False&lt;/ IncludeSetACLProviderOnDestination&gt;** hasta el archivo de perfil de publicación (que afecta a un solo perfil) o al archivo wpp.targets (que afecta a todos los perfiles). Para obtener información sobre cómo editar estos archivos, consulte [Cómo: modificar la configuración de implementación en los archivos de perfil (.pubxml)](https://msdn.microsoft.com/library/ff398069.aspx). <a id="aspnet45error"></a>
 
 ## <a name="configuration-error---targetframework-attribute-references-a-version-that-is-later-than-the-installed-version-of-the-net-framework"></a>Error de configuración: atributo targetFramework hace referencia a una versión posterior a la versión instalada de .NET Framework
 
@@ -320,5 +320,5 @@ El servidor no es compatible con ASP.NET 4.5. Póngase en contacto con el provee
 
 El proyecto **propiedades** windows incluye una lista desplegable de plataforma de destino, pero no se puede resolver este problema, simplemente cambie de **.NET Framework 4.5** a **de.NETFramework4**. Si cambia la plataforma de destino a una versión anterior de framework, el proyecto seguirá teniendo referencias a ensamblados de la versión de framework posterior y no se ejecutará. Tendrá que cambiar esas referencias manualmente o crear un nuevo proyecto que tenga como destino .NET Framework 4 o versiones anterior. Para obtener más información, consulte [.NET Framework de destino para los sitios Web](https://msdn.microsoft.com/library/bb398791(v=vs.100).aspx).
 
->[!div class="step-by-step"]
-[Anterior](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Anterior](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

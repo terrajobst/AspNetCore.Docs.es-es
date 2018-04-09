@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/how-do-i-display-unknown-datatypes
-title: "¿Cómo puedo desconocido mostrar tipos de datos? | Microsoft Docs"
+title: ¿Cómo puedo desconocido mostrar tipos de datos? | Microsoft Docs
 author: shanselman
-description: "En este vídeo se muestra cómo configurar los datos dinámicos para controlar un tipo de datos personalizado completamente desconocidos que se almacena en la base de datos como un BLOB binario."
+description: En este vídeo se muestra cómo configurar los datos dinámicos para controlar un tipo de datos personalizado completamente desconocidos que se almacena en la base de datos como un BLOB binario.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/how-do-i-display-unknown-datatypes
 msc.type: video
-ms.openlocfilehash: f9b75542ba35384dfc82b3059d1a2a18212bc184
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e246ec8e0686a72f2b67e89dbcbbfd0ca6a74d20
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-display-unknown-datatypes"></a>¿Cómo puedo desconocido mostrar tipos de datos?
 ====================
@@ -24,8 +24,8 @@ por [Scott Hanselman](https://github.com/shanselman)
 
 En este vídeo se muestra cómo configurar los datos dinámicos para controlar un tipo de datos personalizado completamente desconocidos que se almacena en la base de datos como un BLOB binario.
 
-[&#9654; Vea el vídeo (8 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-display-unknown-datatypes)
+[&#9654;Vea el vídeo (8 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-display-unknown-datatypes)
 
->[!div class="step-by-step"]
-[Anterior](how-do-i-make-custom-pages.md)
-[Siguiente](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)
+> [!div class="step-by-step"]
+> [Anterior](how-do-i-make-custom-pages.md)
+> [Siguiente](how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls.md)

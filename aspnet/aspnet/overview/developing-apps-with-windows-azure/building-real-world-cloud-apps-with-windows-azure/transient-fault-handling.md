@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
-title: "Transient Fault Handling (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Transient Fault Handling (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/03/2015
 ms.topic: article
 ms.assetid: 7ead83bc-c08c-4b26-8617-00e07292e35c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling
 msc.type: authoredcontent
-ms.openlocfilehash: b743b04789c5e5ebf5ab922cf34a516a16a6d356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86bd67b04931ae2452f6e063e6475a434a0125bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="transient-fault-handling-building-real-world-cloud-apps-with-azure"></a>Transient Fault Handling (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -104,6 +104,6 @@ Ejemplo de código
 
 - [Fundamentos de servicio en Azure en la nube](https://code.msdn.microsoft.com/Cloud-Service-Fundamentals-4ca72649). Ejemplo de aplicación creada por el equipo de asesoramiento de cliente Azure de Microsoft que se muestra cómo utilizar el [Enterprise Library Transient Fault Handling Block](http://nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/) (TFH). Para obtener más información, consulte [nube servicio Fundamentos capa acceso a datos: administración de errores transitorios](https://social.technet.microsoft.com/wiki/contents/articles/18665.cloud-service-fundamentals-data-access-layer-transient-fault-handling.aspx). TFH se recomienda para el acceso de la base de datos con ADO.NET directamente (sin usar Entity Framework).
 
->[!div class="step-by-step"]
-[Anterior](monitoring-and-telemetry.md)
-[Siguiente](distributed-caching.md)
+> [!div class="step-by-step"]
+> [Anterior](monitoring-and-telemetry.md)
+> [Siguiente](distributed-caching.md)

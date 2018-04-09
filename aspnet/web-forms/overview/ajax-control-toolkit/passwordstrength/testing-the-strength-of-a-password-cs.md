@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
-title: "Probar la seguridad de una contraseña (C#) | Documentos de Microsoft"
+title: Probar la seguridad de una contraseña (C#) | Documentos de Microsoft
 author: wenz
-description: "Casi siempre, las contraseñas son obligatorias para que los usuarios diferidos tienden a elegir contraseñas sencillas que son fáciles de descifrar. El control PasswordStrength en ASP. N..."
+description: Casi siempre, las contraseñas son obligatorias para que los usuarios diferidos tienden a elegir contraseñas sencillas que son fáciles de descifrar. El control PasswordStrength en ASP. N...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength/testing-the-strength-of-a-password-cs
 msc.type: authoredcontent
-ms.openlocfilehash: eda7baae1833b074ba34d8f10fa434df14cc592e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f5f4a7128f2edbef4fbe95faf9de19bdae5f436e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="testing-the-strength-of-a-password-c"></a>Probar la seguridad de una contraseña (C#)
 ====================
@@ -35,10 +35,10 @@ Casi siempre, las contraseñas son obligatorias para que los usuarios diferidos 
 
 El `PasswordStrength` control extiende un cuadro de texto y comprueba si la contraseña es suficientemente buena. Ofrece una gran variedad de opciones a través de atributos; Estas son solo algunas de ellas:
 
-- `MinimumNumericCharacters`número mínimo de caracteres numéricos que requiere la contraseña
-- `MinimumSymbolCharacters`número mínimo de caracteres de símbolos (no letras y dígitos) requerido la contraseña
-- `PreferredPasswordLength`longitud mínima de la contraseña
-- `RequiresUpperAndLowerCaseCharacters`Si la contraseña se debe usar caracteres en mayúsculas y minúsculas
+- `MinimumNumericCharacters` número mínimo de caracteres numéricos que requiere la contraseña
+- `MinimumSymbolCharacters` número mínimo de caracteres de símbolos (no letras y dígitos) requerido la contraseña
+- `PreferredPasswordLength` longitud mínima de la contraseña
+- `RequiresUpperAndLowerCaseCharacters` Si la contraseña se debe usar caracteres en mayúsculas y minúsculas
 
 El `StrengthIndicatorType` proporciona la información sobre cómo presentar la seguridad de la contraseña, como texto (valor `"Text"`) o como un tipo de barra de progreso (valor `"BarIndicator"`). En el `DisplayPosition` atributo, configurar dónde aparece la información. Este es un ejemplo completo, incluido ASP.NET AJAX `ScriptManager` (control), el `PasswordStrength` control y, por supuesto, un cuadro de texto donde el usuario puede escribir una contraseña. En aras de la demostración, el campo de formulario de este último es un campo de texto normal y no es un campo de contraseña para que puedan ver durante el desarrollo de lo que está escribiendo.
 
@@ -51,5 +51,5 @@ Ejecute la página y escriba inmediata: solo después de escribir letras minúsc
 
 Ahora, la contraseña es buena (bastante) ([haga clic aquí para ver la imagen a tamaño completo](testing-the-strength-of-a-password-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](testing-the-strength-of-a-password-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](testing-the-strength-of-a-password-vb.md)

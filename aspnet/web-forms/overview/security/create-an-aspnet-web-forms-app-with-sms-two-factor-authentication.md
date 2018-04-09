@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
-title: "Crear un sitio Web de ASP.NET aplicación de formularios con la autenticación de dos factores SMS (C#) | Documentos de Microsoft"
+title: Crear un sitio Web de ASP.NET aplicación de formularios con la autenticación de dos factores SMS (C#) | Documentos de Microsoft
 author: Erikre
-description: "Este tutorial muestra cómo crear una aplicación de formularios Web Forms de ASP.NET con la autenticación en dos fases. Este tutorial se ha diseñado para complementar el tutorial titulado Cr..."
+description: Este tutorial muestra cómo crear una aplicación de formularios Web Forms de ASP.NET con la autenticación en dos fases. Este tutorial se ha diseñado para complementar el tutorial titulado Cr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/09/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-an-aspnet-web-forms-app-with-sms-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: b1f0ec0fdefa12eb7f7b2714dbc224fef735f4bb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6c040fd3e0592b8cfd230dcd85ed3293f0a22ba7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-an-aspnet-web-forms-app-with-sms-two-factor-authentication-c"></a>Crear un sitio Web de ASP.NET aplicación de formularios con la autenticación de dos factores SMS (C#)
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 [Descargar la aplicación de formularios Web de ASP.NET con correo electrónico y SMS autenticación en dos fases](https://code.msdn.microsoft.com/ASPNET-Web-Forms-App-with-5a0ff94e)
 
@@ -63,12 +63,12 @@ Este tutorial usa Twilio, pero se puede utilizar cualquier proveedor SMS.
 2. Desde el **panel** ficha de la cuenta de Twilio, copia el **SID de cuenta** y **Token de autenticación.** Agregará ellos a la aplicación más tarde.
 3. Desde el **números** ficha, copie su Twilio **número de teléfono** así.
 4. Realizar la Twilio **SID de cuenta**, **Token de autenticación** y **número de teléfono** disponibles para la aplicación. Para no complicar las cosas almacenará estos valores en el *web.config* archivo. Cuando se implementa en Azure, puede almacenar los valores de forma segura en el **appSettings** pestaña de configuración de la sección en el sitio web. Además, al agregar el número de teléfono, usar solo números.   
- Tenga en cuenta que también puede agregar credenciales de SendGrid. SendGrid es un servicio de notificación de correo electrónico. Para obtener más información sobre cómo habilitar SendGrid, consulte la sección 'Enlace SendGrid' del tutorial titulada [crear una aplicación de Secure ASP.NET Web Forms con el registro de usuario, el restablecimiento de contraseña y de confirmación de correo electrónico.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
+   Tenga en cuenta que también puede agregar credenciales de SendGrid. SendGrid es un servicio de notificación de correo electrónico. Para obtener más información sobre cómo habilitar SendGrid, consulte la sección 'Enlace SendGrid' del tutorial titulada [crear una aplicación de Secure ASP.NET Web Forms con el registro de usuario, el restablecimiento de contraseña y de confirmación de correo electrónico.](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset.md)
 
     [!code-xml[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample1.xml?highlight=2,6-10)]
 
     > [!WARNING]
-    > Seguridad - nunca almacenar los datos confidenciales en el código fuente. En este ejemplo, la cuenta y las credenciales se almacenan en la **appSettings** sección de la *Web.config* archivo. En Azure, puede almacenar con seguridad estos valores en el  **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  ficha en el portal de Azure. Para obtener información relacionada, vea el tema de Rick Anderson [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Seguridad - nunca almacenar los datos confidenciales en el código fuente. En este ejemplo, la cuenta y las credenciales se almacenan en la **appSettings** sección de la *Web.config* archivo. En Azure, puede almacenar con seguridad estos valores en el **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ficha en el portal de Azure. Para obtener información relacionada, vea el tema de Rick Anderson [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 5. Configurar la `SmsService` clase en el *aplicación\_Start\IdentityConfig.cs* resaltada en amarillo cambios del archivo realizando lo siguiente: 
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample2.cs?highlight=5-17)]
@@ -85,7 +85,7 @@ Este tutorial usa Twilio, pero se puede utilizar cualquier proveedor SMS.
 
     [!code-csharp[Main](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/samples/sample6.cs?highlight=3-4,13)]
 
- Si hace que el código anterior se cambia, no se restablecerán DropDownList "Providers" que contiene las opciones de autenticación para el primer valor. Esto le permitirá al usuario seleccionar correctamente todas las opciones para utilizar al autenticar, no solo la primera.
+   Si hace que el código anterior se cambia, no se restablecerán DropDownList "Providers" que contiene las opciones de autenticación para el primer valor. Esto le permitirá al usuario seleccionar correctamente todas las opciones para utilizar al autenticar, no solo la primera.
 10. En **el Explorador de soluciones**, haga clic en *Default.aspx* y seleccione **establecer como página principal**.
 11. Al probar la aplicación, primero compile la aplicación (**Ctrl**+**MAYÚS**+**B**) y, a continuación, ejecute la aplicación (**F5**) y Seleccionar una opción **registrar** para crear una nueva cuenta de usuario o seleccionar **sesión** si ya se ha registrado la cuenta de usuario.
 12. Después haber iniciado (como el usuario), haga clic en el identificador de usuario (dirección de correo electrónico) en la barra de navegación para mostrar el **administrar cuenta** página (Manage.aspx).  
@@ -94,7 +94,7 @@ Este tutorial usa Twilio, pero se puede utilizar cualquier proveedor SMS.
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image3.png)
 14. Agregar el número de teléfono donde usted (como el usuario) le gustaría recibir mensajes SMS (mensajes de texto) y haga clic en el **enviar** botón.   
     ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image4.png)  
- En este punto, la aplicación usará las credenciales de la *Web.config* ponerse en contacto con Twilio. Se enviará un mensaje SMS (mensaje de texto) al teléfono asociado a la cuenta de usuario. Puede comprobar que se envió el mensaje de Twilio mediante la visualización del panel de Twilio.
+    En este punto, la aplicación usará las credenciales de la *Web.config* ponerse en contacto con Twilio. Se enviará un mensaje SMS (mensaje de texto) al teléfono asociado a la cuenta de usuario. Puede comprobar que se envió el mensaje de Twilio mediante la visualización del panel de Twilio.
 15. En unos segundos, el teléfono asociado a la cuenta de usuario recibirá un mensaje de texto que contiene el código de comprobación. Escriba el código de comprobación y presione **enviar**.  
      ![](create-an-aspnet-web-forms-app-with-sms-two-factor-authentication/_static/image5.png)
 

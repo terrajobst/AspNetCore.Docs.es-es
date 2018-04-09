@@ -1,26 +1,26 @@
 ---
 uid: visual-studio/overview/2012/windows-azure-authentication
-title: "Windows Azure autenticación | Documentos de Microsoft"
+title: Windows Azure autenticación | Documentos de Microsoft
 author: Rick-Anderson
-description: "Herramientas de Microsoft ASP.NET para Windows Azure Active Directory simplifica el proceso de habilitar la autenticación para las aplicaciones web hospedadas en sitios Web de Windows Azure..."
+description: Herramientas de Microsoft ASP.NET para Windows Azure Active Directory simplifica el proceso de habilitar la autenticación para las aplicaciones web hospedadas en sitios Web de Windows Azure...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2013
 ms.topic: article
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 4deb3536699f1ef3025f8858ee71a76a1c2def18
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 09cb37ceb0132958a48f5f3a5d52dc46c6f0a78d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="windows-azure-authentication"></a>Windows autenticación de Azure
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Herramientas de Microsoft ASP.NET para Windows Azure Active Directory simplifica el proceso de habilitar la autenticación para las aplicaciones web hospedadas en [sitios Web Windows Azure](https://www.windowsazure.com/home/features/web-sites/). Puede utilizar la autenticación de Windows Azure para autenticar a los usuarios de Office 365 a su organización, las cuentas corporativas que se sincronizan desde su Active Directory local o los usuarios creados en su propio dominio personalizado de Windows Azure Active Directory. Habilitar la autenticación de Windows Azure configura su aplicación para autenticar a los usuarios con una sola [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) inquilino.
 > 
@@ -50,7 +50,7 @@ Si no tiene un inquilino de Windows Azure Active Directory existente (por ejempl
 
 1. En el menú proyecto, seleccione **habilitar la autenticación de Windows Azure**:  
   
- ![](windows-azure-authentication/_static/image2.png)
+   ![](windows-azure-authentication/_static/image2.png)
 
 2. Escriba el dominio para el inquilino de Windows Azure Active Directory (por ejemplo, contoso.onmicrosoft.com) y haga clic en **habilitar**:
 
@@ -58,7 +58,7 @@ Si no tiene un inquilino de Windows Azure Active Directory existente (por ejempl
 
 3. En la autenticación Web cuadro de diálogo de inicio de sesión como administrador para su inquilino de Windows Azure Active Directory:  
   
- ![](windows-azure-authentication/_static/image4.png)
+   ![](windows-azure-authentication/_static/image4.png)
 
 ![](windows-azure-authentication/_static/image5.png)
 

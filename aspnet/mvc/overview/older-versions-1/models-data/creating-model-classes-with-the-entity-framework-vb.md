@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 title: Crear clases de modelo con Entity Framework (VB) | Documentos de Microsoft
 author: microsoft
-description: "En este tutorial, aprenderá a usar ASP.NET MVC con Microsoft Entity Framework. Obtenga información acerca de cómo usar al Asistente para Entity para crear el primero de una entidad de ADO.NET..."
+description: En este tutorial, aprenderá a usar ASP.NET MVC con Microsoft Entity Framework. Obtenga información acerca de cómo usar al Asistente para Entity para crear el primero de una entidad de ADO.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-the-entity-framework-vb
 msc.type: authoredcontent
-ms.openlocfilehash: efc190d856fe9ebf1c09e0ae4758aabb1e3254dc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3442435c7b2b9ce2ce6bd016ba74fe671eb76f62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-the-entity-framework-vb"></a>Crear clases de modelo con Entity Framework (VB)
 ====================
@@ -38,7 +38,7 @@ Para ilustrar cómo puede usar Microsoft Entity Framework con ASP.NET MVC, vamos
 
 Este tutorial se da por supuesto que tiene Visual Studio 2008 o Visual Web Developer 2008 con Service Pack 1. Necesita el Service Pack 1 para poder usar Entity Framework. Puede descargar Visual Studio 2008 Service Pack 1 o Visual Web Developer con Service Pack 1 desde la siguiente dirección:
 
-> [https://www.ASP.NET/downloads/](https://www.asp.net/downloads)
+> [https://www.asp.net/downloads/](https://www.asp.net/downloads)
 
 
 ## <a name="creating-the-movie-sample-database"></a>Crear la base de datos de ejemplo de película
@@ -48,8 +48,8 @@ La aplicación de base de datos de película utiliza una tabla de base de datos 
 | Nombre de columna | Tipo de datos | ¿Permitir valores null? | ¿Es la clave principal? |
 | --- | --- | --- | --- |
 | Id. | int | False | True |
-| Título | nvarchar (100) | False | False |
-| Director de | nvarchar (100) | False | False |
+| Title | nvarchar(100) | False | False |
+| Director de | nvarchar(100) | False | False |
 
 Puede agregar esta tabla a un proyecto de MVC de ASP.NET, siga estos pasos:
 
@@ -217,6 +217,6 @@ El objetivo de este tutorial era demostrar cómo puede compilar aplicaciones ori
 
 En primer lugar, se explica cómo puede usar al Asistente para Entity Data Model para generar un Entity Data Model desde dentro de Visual Studio. A continuación, se muestra cómo usar LINQ to Entities para recuperar un conjunto de registros de base de datos de una tabla de base de datos. Por último, Entity Framework se utiliza para insertar, actualizar y eliminar registros de base de datos.
 
->[!div class="step-by-step"]
-[Anterior](validation-with-the-data-annotation-validators-cs.md)
-[Siguiente](creating-model-classes-with-linq-to-sql-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](validation-with-the-data-annotation-validators-cs.md)
+> [Siguiente](creating-model-classes-with-linq-to-sql-vb.md)

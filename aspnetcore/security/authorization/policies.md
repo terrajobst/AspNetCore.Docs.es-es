@@ -1,7 +1,7 @@
 ---
-title: "Autorización basada en directivas en ASP.NET Core"
+title: Autorización basada en directivas en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo crear y usar controladores de directiva de autorización para exigir requisitos de autorización en una aplicación de ASP.NET Core."
+description: Obtenga información acerca de cómo crear y usar controladores de directiva de autorización para exigir requisitos de autorización en una aplicación de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/policies
-ms.openlocfilehash: a9ee7e6fd06fa88485d7f578a9df74cbf87d9540
-ms.sourcegitcommit: 7ee6e7582421195cbd675355c970d3d292ee668d
+ms.openlocfilehash: 411fee90bdccfb45c33f5d4ccd7864c83c614e70
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="policy-based-authorization"></a>Autorización basada en directivas
+# <a name="policy-based-authorization-in-aspnet-core"></a>Autorización basada en directivas en ASP.NET Core
 
 Interiormente, [autorización basada en roles](xref:security/authorization/roles) y [autorización basada en notificaciones](xref:security/authorization/claims) utilizan un requisito, un controlador de requisito y una directiva configurada previamente. Estos bloques de creación se admite la expresión de evaluaciones de autorización en el código. El resultado es una estructura de autorización más enriquecida, reutilizables, comprobable.
 

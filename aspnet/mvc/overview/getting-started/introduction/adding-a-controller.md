@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-a-controller
-title: "Cómo agregar un controlador | Documentos de Microsoft"
+title: Cómo agregar un controlador | Documentos de Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: c8f317b2ac133f560461917af1588b7a1fa51c4f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3864bab284661b0c44f9e4cb363c2d60eccc7c66
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Agregar un controlador
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 MVC es el acrónimo *model-view-controller*. MVC es un modelo para desarrollar aplicaciones que están bien diseñada, comprobable y fáciles de mantener. Las aplicaciones basadas en MVC contienen:
 
@@ -95,7 +95,7 @@ Reemplace el método Bienvenido con el código siguiente:
 
 [!code-csharp[Main](adding-a-controller/samples/sample4.cs)]
 
-Ejecute la aplicación y escriba la dirección URL siguiente:`http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
+Ejecute la aplicación y escriba la dirección URL siguiente: `http://localhost:xxx/HelloWorld/Welcome/1?name=Scott`
 
 ![](adding-a-controller/_static/image8.png)
 
@@ -115,6 +115,6 @@ Para muchas aplicaciones de MVC, la ruta predeterminada funciona bien. Aprender�
 
 En estos ejemplos, el controlador ha realizado la &quot;VC&quot; parte de MVC, es decir, el trabajo de vista y controlador. El controlador devuelve HTML directamente. Normalmente no desea devolver HTML directamente, desde que se vuelve muy complicada al código de controladores. En su lugar, vamos a usar normalmente un archivo de plantilla de vista independiente para ayudar a generar la respuesta HTML. Echemos un vistazo siguiente en cómo podemos hacer esto.
 
->[!div class="step-by-step"]
-[Anterior](getting-started.md)
-[Siguiente](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Anterior](getting-started.md)
+> [Siguiente](adding-a-view.md)

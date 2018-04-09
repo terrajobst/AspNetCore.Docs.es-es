@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/filling-a-list-using-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1c5cb23be4366365c73ce4774e6a53e452e2a6c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e488a30443970d5e2ce825abd96d8e4a027585d1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="filling-a-list-using-cascadingdropdown-vb"></a>Rellenar una lista con CascadingDropDown (VB)
 ====================
@@ -68,6 +68,6 @@ Cargar la página en el explorador se activará la lista que se debe satisfacer 
 
 La lista se rellena automáticamente ([haga clic aquí para ver la imagen a tamaño completo](filling-a-list-using-cascadingdropdown-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](using-auto-postback-with-cascadingdropdown-cs.md)
-[Siguiente](using-cascadingdropdown-with-a-database-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-auto-postback-with-cascadingdropdown-cs.md)
+> [Siguiente](using-cascadingdropdown-with-a-database-vb.md)

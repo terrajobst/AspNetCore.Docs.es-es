@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
 title: 'Base de datos EF primero con ASP.NET MVC: cambiar la base de datos | Documentos de Microsoft'
 author: tfitzmac
-description: "Con MVC, Entity Framework y Scaffolding de ASP.NET, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri..."
+description: Con MVC, Entity Framework y Scaffolding de ASP.NET, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/01/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
-ms.openlocfilehash: 1ffe753812e5eef817f03ab488a28ae5fcefd41e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 63ee8768a43dbdac80922e3adbedd3378c10da73
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>Base de datos EF primero con ASP.NET MVC: cambiar la base de datos
 ====================
@@ -63,6 +63,6 @@ Las vistas contienen ahora la propiedad MiddleName.
 
 En la siguiente sección, agregará código para personalizar la vista para mostrar detalles acerca de un registro de estudiante.
 
->[!div class="step-by-step"]
-[Anterior](generating-views.md)
-[Siguiente](customizing-a-view.md)
+> [!div class="step-by-step"]
+> [Anterior](generating-views.md)
+> [Siguiente](customizing-a-view.md)

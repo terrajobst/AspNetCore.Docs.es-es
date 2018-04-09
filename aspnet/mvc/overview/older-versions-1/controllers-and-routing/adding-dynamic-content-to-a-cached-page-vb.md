@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
-title: "Agregar contenido dinámico a una página almacenada en caché (VB) | Documentos de Microsoft"
+title: Agregar contenido dinámico a una página almacenada en caché (VB) | Documentos de Microsoft
 author: microsoft
-description: "Obtenga información acerca de cómo mezclar contenido dinámico y almacenado en caché en la misma página. Sustitución tras la caché le permite mostrar contenido dinámico, como o de anuncios de pancarta..."
+description: Obtenga información acerca de cómo mezclar contenido dinámico y almacenado en caché en la misma página. Sustitución tras la caché le permite mostrar contenido dinámico, como o de anuncios de pancarta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f07f4ecec36e71679dbc471b65f26d260349a07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89421b4bec2170e408ded87ccc918a7a16844a98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-dynamic-content-to-a-cached-page-vb"></a>Agregar contenido dinámico a una página almacenada en caché (VB)
 ====================
@@ -97,6 +97,6 @@ Este tutorial explica cómo puede actualizar dinámicamente el contenido de una 
 
 Aprovechar las ventajas del almacenamiento en caché siempre que sea posible: puede tener un impacto significativo en el rendimiento de las aplicaciones web. Como se explica en este tutorial, puede aprovechar las ventajas del almacenamiento en caché incluso cuando se necesitan para mostrar contenido dinámico en las páginas.
 
->[!div class="step-by-step"]
-[Anterior](improving-performance-with-output-caching-vb.md)
-[Siguiente](creating-a-controller-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](improving-performance-with-output-caching-vb.md)
+> [Siguiente](creating-a-controller-vb.md)

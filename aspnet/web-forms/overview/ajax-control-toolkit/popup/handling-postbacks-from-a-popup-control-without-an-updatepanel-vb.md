@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb
 title: Controla las devoluciones de datos de un Control emergente sin un UpdatePanel (VB) | Documentos de Microsoft
 author: wenz
-description: "El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. Cuando se produce un postback en su..."
+description: El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. Cuando se produce un postback en su...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-without-an-updatepanel-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7c4afee37eab33036e5e563e78f873275951700b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c92083d4a57067c7b646721f21af059fc1e1e7d9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-vb"></a>Controla las devoluciones de datos de un Control emergente sin un UpdatePanel (VB)
 ====================
@@ -61,5 +61,5 @@ El calendario aparece cuando el usuario hace clic en el cuadro de texto ([haga c
 
 Al hacer clic en una fecha, coloca en el cuadro de texto ([haga clic aquí para ver la imagen a tamaño completo](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[Anterior](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/performance/bundling-and-minification
 title: Agrupar y Minificar | Documentos de Microsoft
 author: Rick-Anderson
-description: "Agrupar y minificar son dos técnicas puede usar en ASP.NET 4.5 para mejorar el tiempo de carga de solicitud. Agrupar y minificar mejora el tiempo de carga por reducin..."
+description: Agrupar y minificar son dos técnicas puede usar en ASP.NET 4.5 para mejorar el tiempo de carga de solicitud. Agrupar y minificar mejora el tiempo de carga por reducin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/23/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 7192481de46c36f7de71164766e68afdbba74f6d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="bundling-and-minification"></a>Agrupar y Minificar
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Agrupar y minificar son dos técnicas puede usar en ASP.NET 4.5 para mejorar el tiempo de carga de solicitud. Agrupar y minificar mejora el tiempo de carga, lo que reduce el número de solicitudes al servidor y reducir el tamaño de los activos solicitados (por ejemplo, CSS y JavaScript).
 
@@ -98,7 +98,7 @@ Para habilitar la agrupación y minificación, establezca el `debug` valor en "f
 [!code-csharp[Main](bundling-and-minification/samples/sample4.cs?highlight=7)]
 
 > [!NOTE]
-> A menos que `EnableOptimizations` es `true` o el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo se establece en `false`, los archivos no se incluye o se reduce. Además, no se usará la versión .min de archivos, se seleccionará las versiones de depuración completa. `EnableOptimizations`invalida el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo
+> A menos que `EnableOptimizations` es `true` o el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo se establece en `false`, los archivos no se incluye o se reduce. Además, no se usará la versión .min de archivos, se seleccionará las versiones de depuración completa. `EnableOptimizations` invalida el atributo de depuración en el [compilación elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en el *Web.config* archivo
 
 
 ## <a name="using-bundling-and-minification-with-aspnet-web-forms-and-web-pages"></a>Mediante la agrupación y Minificación con ASP.NET Web Forms y páginas Web
@@ -186,7 +186,7 @@ Agregar explícitamente cada archivo a una agrupación es generalmente el prefer
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
- El selector de comodín "\*.css" pone en cada archivo CSS en la carpeta, incluido el *Content\themes\base\jquery.ui.all.css* archivo. El *jquery.ui.all.css* archivo importa otros archivos CSS.
+  El selector de comodín "\*.css" pone en cada archivo CSS en la carpeta, incluido el *Content\themes\base\jquery.ui.all.css* archivo. El *jquery.ui.all.css* archivo importa otros archivos CSS.
 
 ## <a name="bundle-caching"></a>Agrupar el almacenamiento en caché
 
@@ -233,15 +233,15 @@ Los paquetes se deben dividir por las páginas que las necesiten. Por ejemplo, e
 
 El `System.Web.Optimization` espacio de nombres se implementa en System.Web.Optimization.DLL. Aprovecha la biblioteca de WebGrease (WebGrease.dll) para capacidades de reducción, que a su vez usa Antlr3.Runtime.dll.
 
-*Utilizo Twitter realizar entradas rápidos y compartir vínculos. Es el identificador de Twitter*:[@RickAndMSFT](http://twitter.com/RickAndMSFT)
+*Utilizo Twitter realizar entradas rápidos y compartir vínculos. Es el identificador de Twitter*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 - Vídeo:[agrupación y optimizar](https://channel9.msdn.com/Events/aspConf/aspConf/Bundling-and-Optimizing) por [Howard Dierking](https://twitter.com/#!/howard_dierking)
 - [Adición de optimización Web a un sitio de páginas Web](https://blogs.msdn.com/b/rickandy/archive/2012/08/15/adding-web-optimization-to-a-web-pages-site.aspx).
 - [Agregar agrupación y Minificación a formularios Web Forms](https://blogs.msdn.com/b/rickandy/archive/2012/08/14/adding-bundling-and-minification-to-web-forms.aspx).
-- [Implicaciones de rendimiento de agrupación y Minificación de exploración Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) por [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen)[@frystyk](https://twitter.com/frystyk)
-- [Usar CDN y caduca para mejorar el rendimiento del sitio Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) Rick Anderson[@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
+- [Implicaciones de rendimiento de agrupación y Minificación de exploración Web](https://blogs.msdn.com/b/henrikn/archive/2012/06/17/performance-implications-of-bundling-and-minification-on-http.aspx) por [Henrik F Nielsen](http://en.wikipedia.org/wiki/Henrik_Frystyk_Nielsen) [@frystyk](https://twitter.com/frystyk)
+- [Usar CDN y caduca para mejorar el rendimiento del sitio Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx) Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
 - [Minimizar RTT (tiempos de ida y vuelta)](https://developers.google.com/speed/docs/best-practices/rtt)
 
 ## <a name="contributors"></a>Colaboradores

@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 927b2490b5c539a79bb9939b88942499b23cc464
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7e1a457c23ef659bf7ee9c15b66dc5c2d8a31416
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-data-access-layer-c"></a>Creación de una capa de acceso a datos (C#)
 ====================
@@ -84,7 +84,7 @@ Todo el código que es específico del origen de datos subyacente como la creaci
 
 Estos métodos, cuando se invoca, conéctese a la base de datos, emitir la consulta apropiada y devolver los resultados. ¿Cómo se devuelven estos resultados es importante. Estos métodos pudieron devolver simplemente un conjunto de datos o DataReader rellenado por la consulta de base de datos, pero lo ideal es que se deben devolver estos resultados usando *objetos fuertemente tipados*. Un objeto fuertemente tipado es uno cuyo esquema se define estrictamente en tiempo de compilación, mientras que lo contrario, un objeto débilmente tipadas, es uno cuyo esquema no se conoce hasta el tiempo de ejecución.
 
-Por ejemplo, el DataReader y el conjunto de datos (de forma predeterminada) son objetos de imprecisa puesto que su esquema se define mediante las columnas devueltas por la consulta de base de datos utilizada para rellenarlos. Para obtener acceso a una columna concreta de un objeto DataTable débilmente tipadas que debemos usar sintaxis similar a la: ***DataTable*.Filas[*índice*]["*columnName*"]**. La tabla de datos flexible escribiendo en este ejemplo se exhibe por el hecho de que es necesario obtener acceso al nombre de columna mediante una cadena o el índice ordinal. Un DataTable fuertemente tipado, por otro lado, tendrá cada una de sus columnas que se implementan como propiedades, lo que genera código similar: ***DataTable*.Filas[*índice*].*columnName***\*.
+Por ejemplo, el DataReader y el conjunto de datos (de forma predeterminada) son objetos de imprecisa puesto que su esquema se define mediante las columnas devueltas por la consulta de base de datos utilizada para rellenarlos. Para obtener acceso a una columna concreta de un objeto DataTable débilmente tipadas que debemos usar sintaxis similar a la:  <strong><em>DataTable</em>. Filas [<em>índice</em>] ["<em>columnName</em>"]</strong>. La tabla de datos flexible escribiendo en este ejemplo se exhibe por el hecho de que es necesario obtener acceso al nombre de columna mediante una cadena o el índice ordinal. Un DataTable fuertemente tipado, por otro lado, tendrá cada una de sus columnas que se implementan como propiedades, lo que genera código similar:  <strong><em>DataTable</em>. Filas [<em>índice</em>]. *columnName</strong>*.
 
 Para devolver objetos fuertemente tipados, los desarrolladores pueden crear sus propios objetos de negocios personalizada o usar conjuntos de datos con tipo. Un objeto de negocios se implementa con el desarrollador como representa una clase cuyas propiedades normalmente reflejan las columnas de la tabla de base de datos subyacente del objeto de negocios. Un conjunto de datos con tipo es una clase generada automáticamente por Visual Studio basado en un esquema de base de datos y cuyos miembros son fuertemente tipada de acuerdo con este esquema. El conjunto de datos con tipo propio consta de las clases que extienden las clases de conjunto de datos de ADO.NET y DataTable, DataRow. Además de tablas de datos fuertemente tipados, conjuntos de datos con tipo ahora también incluyen TableAdapters, que son clases con métodos para rellenar tablas de datos del conjunto de datos y la propagación de modificaciones en las tablas de datos a la base de datos.
 
@@ -233,7 +233,7 @@ En primer lugar, se nos pide sobre si desea tener acceso a la base de datos medi
 **Figura 15**: optar por crear un **seleccione** que devuelve filas del informe de ([haga clic aquí para ver la imagen a tamaño completo](creating-a-data-access-layer-cs/_static/image41.png))
 
 
-El paso siguiente es definir la consulta SQL utilizada para tener acceso a los datos. Puesto que deseamos devolver solo los productos que pertenecen a una categoría determinada, usar el mismo **seleccione** instrucción desde **GetProducts()**, pero agregue el siguiente **donde** cláusula: **donde CategoryID = @CategoryID** . El **@CategoryID** parámetro indica el Asistente de TableAdapter para que el método estamos creando requerirá un parámetro de entrada del tipo correspondiente (es decir, un entero que acepta valores NULL).
+El paso siguiente es definir la consulta SQL utilizada para tener acceso a los datos. Puesto que deseamos devolver solo los productos que pertenecen a una categoría determinada, usar el mismo <strong>seleccione</strong> instrucción desde <strong>GetProducts()</strong>, pero agregue el siguiente <strong>donde</strong> cláusula: <strong>donde CategoryID = @CategoryID</strong> . El <strong>@CategoryID</strong> parámetro indica el Asistente de TableAdapter para que el método estamos creando requerirá un parámetro de entrada del tipo correspondiente (es decir, un entero que acepta valores NULL).
 
 
 [![Escribir una consulta para devolver sólo los productos para una categoría específica](creating-a-data-access-layer-cs/_static/image43.png)](creating-a-data-access-layer-cs/_static/image42.png)
@@ -241,7 +241,7 @@ El paso siguiente es definir la consulta SQL utilizada para tener acceso a los d
 **Figura 16**: escriba una consulta para devolver sólo los productos de una categoría especificada ([haga clic aquí para ver la imagen a tamaño completo](creating-a-data-access-layer-cs/_static/image44.png))
 
 
-En el paso final podemos elegir que patrones a usar, así como personalizar los nombres de los métodos generados de acceso a datos. Para la trama de relleno, vamos a cambiar el nombre a **FillByCategoryID** y para la devolución de un objeto DataTable retorno patrón (el **obtener * X*** métodos), vamos a usar **GetProductsByCategoryID**.
+En el paso final podemos elegir que patrones a usar, así como personalizar los nombres de los métodos generados de acceso a datos. Para la trama de relleno, vamos a cambiar el nombre a <strong>FillByCategoryID</strong> y para la devolución de un objeto DataTable retorno patrón (el <strong>obtener*X</strong>*  métodos), vamos a usar  <strong>GetProductsByCategoryID</strong>.
 
 
 [![Elija los nombres de los métodos de TableAdapter](creating-a-data-access-layer-cs/_static/image46.png)](creating-a-data-access-layer-cs/_static/image45.png)
@@ -403,48 +403,48 @@ Tardar unos minutos para crear los siguientes métodos con las consultas siguien
 
 - **ProductsTableAdapter**
 
-    - **GetProducts**: 
+  - **GetProducts**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
-    - **GetProductsByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample10.sql)]
+  - **GetProductsByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
-    - **GetProductsBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample11.sql)]
+  - **GetProductsBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
-    - **GetProductByProductID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample12.sql)]
+  - **GetProductByProductID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample13.sql)]
 - **CategoriesTableAdapter**
 
-    - **GetCategories**: 
+  - **GetCategories**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
-    - **GetCategoryByCategoryID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample14.sql)]
+  - **GetCategoryByCategoryID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample15.sql)]
 - **SuppliersTableAdapter**
 
-    - **GetSuppliers**: 
+  - **GetSuppliers**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
-    - **GetSuppliersByCountry**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample16.sql)]
+  - **GetSuppliersByCountry**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
-    - **GetSupplierBySupplierID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample17.sql)]
+  - **GetSupplierBySupplierID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample18.sql)]
 - **EmployeesTableAdapter**
 
-    - **GetEmployees**: 
+  - **GetEmployees**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
-    - **GetEmployeesByManager**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample19.sql)]
+  - **GetEmployeesByManager**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
-    - **GetEmployeeByEmployeeID**: 
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample20.sql)]
+  - **GetEmployeeByEmployeeID**: 
 
-        [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
+      [!code-sql[Main](creating-a-data-access-layer-cs/samples/sample21.sql)]
 
 
 [![El Diseñador de DataSet después de haber agregado los cuatro TableAdapters](creating-a-data-access-layer-cs/_static/image84.png)](creating-a-data-access-layer-cs/_static/image83.png)
@@ -543,5 +543,5 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Ron Green, Hilton Giesenow, Dennis Patterson, Liz Shulok, Abel Gomez y Carlos Santos. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Siguiente](creating-a-business-logic-layer-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](creating-a-business-logic-layer-cs.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 title: Empezar a trabajar con el Kit de herramientas de Control de AJAX (C#) | Documentos de Microsoft
 author: microsoft
-description: "Obtenga información acerca de todo lo que necesita saber para empezar a usar el Kit de herramientas de Control de AJAX."
+description: Obtenga información acerca de todo lo que necesita saber para empezar a usar el Kit de herramientas de Control de AJAX.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/get-started-with-the-ajax-control-toolkit-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8d3f4dd26a9f82dce78b1c3665f9da6b54bdacba
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6a7a8d45f32a33eaacf3c42b52a02d2ada1aab6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="get-started-with-the-ajax-control-toolkit-c"></a>Empezar a trabajar con el Kit de herramientas de Control de AJAX (C#)
 ====================
@@ -89,5 +89,5 @@ Si usaba una versión anterior del Kit de herramientas y ahora tiene que mover a
 - Los archivos binarios - eliminar la versión anterior del ensamblado AjaxControlToolkit.dll desde la carpeta Bin del sitio Web.
 - Elementos de cuadro de herramientas - eliminar la ficha del Kit de herramientas de Control de AJAX y siga los pasos anteriores para volver a crear la pestaña con la nueva versión del ensamblado AjaxControlToolkit.dll.
 
->[!div class="step-by-step"]
-[Siguiente](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)

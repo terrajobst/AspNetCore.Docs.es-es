@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 title: Usar DynamicPopulate con un Control de usuario y JavaScript (C#) | Documentos de Microsoft
 author: wenz
-description: "El control DynamicPopulate en el Kit de herramientas de Control de AJAX de ASP.NET llama a un servicio web (o el método de la página) y rellena el valor resultante en un control de destino en t..."
+description: El control DynamicPopulate en el Kit de herramientas de Control de AJAX de ASP.NET llama a un servicio web (o el método de la página) y rellena el valor resultante en un control de destino en t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d98177561b72ffbe05455f785e156f91e450d36
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cced645733375de7ab6235efa46b8d20ed262e50
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-c"></a>Usar DynamicPopulate con un Control de usuario y JavaScript (C#)
 ====================
@@ -74,6 +74,6 @@ Y listo. La página se comporta según lo esperado: un usuario hace clic en uno 
 
 Los botones de radio residen en un control de usuario ([haga clic aquí para ver la imagen a tamaño completo](using-dynamicpopulate-with-a-user-control-and-javascript-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](dynamically-populating-a-control-using-javascript-code-cs.md)
-[Siguiente](dynamically-populating-a-control-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](dynamically-populating-a-control-using-javascript-code-cs.md)
+> [Siguiente](dynamically-populating-a-control-vb.md)

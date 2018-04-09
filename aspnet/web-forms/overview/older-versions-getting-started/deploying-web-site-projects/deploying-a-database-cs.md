@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 title: Implementar una base de datos (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Implementar una aplicación web ASP.NET implica obtener los archivos necesarios y los recursos del entorno de desarrollo al entorno de producción. Para da..."
+description: Implementar una aplicación web ASP.NET implica obtener los archivos necesarios y los recursos del entorno de desarrollo al entorno de producción. Para da...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f71e3cd1e81644df7b3dfed363b6f2ca826e610d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 203bf64da887f31e5f0727fc57173d6a573095da
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-database-c"></a>Implementar una base de datos (C#)
 ====================
@@ -41,10 +41,10 @@ Las reseñas de libros actualizados web aplicación usa un [SQL Server 2008 Expr
 
 El `Reviews.mdf` base de datos contiene cuatro tablas:
 
-- `Genres`-incluye un registro para cada género, como la tecnología, ficción y Business.
-- `Books`-incluye un registro para cada revisión, con columnas como `Title`, `GenreId`, `ReviewDate`, y `Review`, entre otros.
-- `Authors`-incluye información acerca de cada autor que ha contribuido a un libro de revisión.
-- `BooksAuthors`-una tabla de la combinación de varios a varios que especifica qué autores escribieron qué libros.
+- `Genres` -incluye un registro para cada género, como la tecnología, ficción y Business.
+- `Books` -incluye un registro para cada revisión, con columnas como `Title`, `GenreId`, `ReviewDate`, y `Review`, entre otros.
+- `Authors` -incluye información acerca de cada autor que ha contribuido a un libro de revisión.
+- `BooksAuthors` -una tabla de la combinación de varios a varios que especifica qué autores escribieron qué libros.
   
 
 La figura 1 muestra un diagrama de ER de estos cuatro tablas.
@@ -195,6 +195,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Descargar la base de datos de Microsoft SQL Server 1.1 de Asistente para publicación](https://www.microsoft.com/downloads/details.aspx?familyid=56E5B1C5-BF17-42E0-A410-371A838E570A&amp;displaylang=en)
 - [Descargar Microsoft SQL Server Management Studio Express Edition](https://www.microsoft.com/downloads/details.aspx?FamilyId=C243A5AE-4BD1-4E3D-94B8-5A0F62BF7796&amp;displaylang=en)
 
->[!div class="step-by-step"]
-[Anterior](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
-[Siguiente](configuring-the-production-web-application-to-use-the-production-database-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](core-differences-between-iis-and-the-asp-net-development-server-cs.md)
+> [Siguiente](configuring-the-production-web-application-to-use-the-production-database-cs.md)

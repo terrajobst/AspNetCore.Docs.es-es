@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
-title: "Introducción a ASP.NET Web Pages: se eliminarán los datos de la base de datos | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: se eliminarán los datos de la base de datos | Documentos de Microsoft'
 author: tfitzmac
-description: "Este tutorial muestra cómo eliminar una entrada de la base de datos individuales. Supone que ha completado la serie a través de actualizar los datos de base de datos de ASP.NET Web PA..."
+description: Este tutorial muestra cómo eliminar una entrada de la base de datos individuales. Supone que ha completado la serie a través de actualizar los datos de base de datos de ASP.NET Web PA...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/02/2018
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 5bc92b5d40e7a55dcd730d552c71031d913b277e
-ms.sourcegitcommit: 281f0c614543a6c3db565ea4655b70fe49b61d84
+ms.openlocfilehash: 146199e862cd6fa2607671d31633476b1cb67021
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Introducción a las páginas Web ASP.NET: se eliminarán los datos de la base de datos
 ====================
@@ -172,6 +172,6 @@ El siguiente tutorial muestra cómo proporcionar a todas las páginas en su siti
 - [Introducción a la programación Web de ASP.NET mediante la sintaxis de Razor](../introducing-razor-syntax-c.md)
 - [Instrucción DELETE de SQL](http://www.w3schools.com/sql/sql_delete.asp) en el sitio W3Schools
 
->[!div class="step-by-step"]
-[Anterior](updating-data.md)
-[Siguiente](layouts.md)
+> [!div class="step-by-step"]
+> [Anterior](updating-data.md)
+> [Siguiente](layouts.md)

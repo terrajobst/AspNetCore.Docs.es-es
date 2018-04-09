@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 title: Consultar datos con el Control SqlDataSource (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En los tutoriales anteriores hemos utilizado el control ObjectDataSource para separar totalmente el nivel de presentación de la capa de acceso a datos. A partir de este tutor..."
+description: En los tutoriales anteriores hemos utilizado el control ObjectDataSource para separar totalmente el nivel de presentación de la capa de acceso a datos. A partir de este tutor...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/querying-data-with-the-sqldatasource-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4652e5820e621a7b2ad3b03bb5a1d2cb4968fadd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3d6f681169267ad5c65486c1d1fac0a9396535d1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="querying-data-with-the-sqldatasource-control-c"></a>Consultar datos con el Control SqlDataSource (C#)
 ====================
@@ -201,7 +201,7 @@ Agregue otro control GridView a la `Querying.aspx` página y decide crear un nue
 
 ![Crear un nuevo Control SqlDataSource denominado ProductsWithCategoryInfoDataSource](querying-data-with-the-sqldatasource-control-cs/_static/image18.gif)
 
-**Figura 12**: crear un nuevo Control SqlDataSource denominado`ProductsWithCategoryInfoDataSource`
+**Figura 12**: crear un nuevo Control SqlDataSource denominado `ProductsWithCategoryInfoDataSource`
 
 
 La siguiente pantalla le pide que especifique la base de datos. Igual que hicimos en la figura 7, seleccione el `NORTHWINDConnectionString` en la lista desplegable lista y haga clic en siguiente. En la pantalla de la instrucción Select de configurar, elija la especificar una instrucción SQL personalizada o un botón de opción de procedimiento almacenado y haga clic en siguiente. Se abrirá la pantalla definir personalizado instrucciones o procedimientos almacenados, que ofrece pestañas con la etiqueta SELECT, UPDATE, INSERT y DELETE. En cada pestaña puede especificar una instrucción SQL personalizada en el cuadro de texto o elija un procedimiento almacenado en la lista desplegable. En este tutorial, veremos si escribe una instrucción SQL personalizada; el tutorial siguiente incluye un ejemplo que utiliza un procedimiento almacenado.
@@ -256,11 +256,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Susan Connery, Bernadette Leigh y David Suru. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Siguiente](using-parameterized-queries-with-the-sqldatasource-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](using-parameterized-queries-with-the-sqldatasource-cs.md)

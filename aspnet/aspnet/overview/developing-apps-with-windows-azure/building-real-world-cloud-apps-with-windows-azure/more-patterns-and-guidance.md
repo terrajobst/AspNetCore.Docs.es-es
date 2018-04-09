@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
-title: "Varios patrones y las directrices (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Varios patrones y las directrices (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7e97cfc3-d830-4002-8ff7-5790d1ff49e6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/more-patterns-and-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: a388f2e0ca3e1f0ce24a6def2a2b91711a7bf5a7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5da5110afc50fa02fcfae551a18741821f18fcbb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="more-patterns-and-guidance-building-real-world-cloud-apps-with-azure"></a>Varios patrones y las directrices (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -78,7 +78,7 @@ Libros de la copia impresa
 Por último, al empezar a compilar aplicaciones reales y ejecutarlos en Azure, antes o después probablemente necesitará asistencia de expertos. Puede hacer preguntas en sitios de comunidades como [foros de Azure o StackOverflow](https://azure.microsoft.com/support/forums/), o puede ponerse en contacto con Microsoft directamente para el soporte técnico de Azure. Microsoft ofrece varios niveles de soporte técnico de Azure: para un resumen y una comparación de las opciones, consulte [Azure admite](https://azure.microsoft.com/support/plans/).
 
 <a id="acknowledgments"></a>
-## <a name="acknowledgments"></a>Confirmaciones
+## <a name="acknowledgments"></a>Agradecimientos
 
 Este contenido se escribió Tom Dykstra y Rick Anderson, Mike Wasson. La mayoría del contenido original proviene de [Scott Guthrie](https://weblogs.asp.net/scottgu/), y a su vez dibujó en material de Mark Simms y el cliente consulta Team (CAT) de Microsoft.
 
@@ -132,6 +132,6 @@ Otros miembros de la DGAC revisan y comentarios en el esquema preliminar:
 - Roger Whitehead
 - Pawel Wilkosz
 
->[!div class="step-by-step"]
-[Anterior](queue-centric-work-pattern.md)
-[Siguiente](the-fix-it-sample-application.md)
+> [!div class="step-by-step"]
+> [Anterior](queue-centric-work-pattern.md)
+> [Siguiente](the-fix-it-sample-application.md)

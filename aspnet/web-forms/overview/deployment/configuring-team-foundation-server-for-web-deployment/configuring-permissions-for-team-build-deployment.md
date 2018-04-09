@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
-title: "Configurar permisos de equipo de implementación de compilaciones | Documentos de Microsoft"
+title: Configurar permisos de equipo de implementación de compilaciones | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo configurar permisos para habilitar el servidor de compilación implementar contenido en servidores web y servidores de base de datos como parte de una b automatizada..."
+description: En este tema se describe cómo configurar permisos para habilitar el servidor de compilación implementar contenido en servidores web y servidores de base de datos como parte de una b automatizada...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-permissions-for-team-build-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cb3d013d69e36f97335ea31dd6e4997772ba2d8e
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4698349d664816ec49475bbfe71fb32af79ea96d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-permissions-for-team-build-deployment"></a>Configurar permisos de equipo de implementación de compilaciones
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > En este tema se describe cómo configurar permisos para habilitar el servidor de compilación implementar contenido en servidores web y servidores de base de datos como parte de un proceso automatizado de compilación.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
@@ -38,7 +38,7 @@ Cuando se instala el servicio de Team Foundation Server (TFS) 2010 compilación,
 Las tareas de implementación que requieren autenticación de Windows y que tiene previsto automatizar mediante Team Build, ejecutarán con la identidad de servicio de compilación. Por lo tanto, debe conceder los permisos necesarios en los servidores web y los servidores de base de datos de la identidad del servicio de compilación.
 
 > [!NOTE]
-> La cuenta de servicio de red usa la cuenta de equipo para autenticarse en otros equipos. Cuentas de equipo que adoptan la forma * [nombre de dominio]\[nombre de equipo] ***$**& #x 2014; por ejemplo, **FABRIKAM\TFSBUILD$**. Por lo tanto, si el servicio de compilación se ejecuta con la identidad Network Service, debe conceder los permisos necesarios para la identidad de la cuenta de equipo para el servidor de compilación.
+> La cuenta de servicio de red usa la cuenta de equipo para autenticarse en otros equipos. Cuentas de equipo que adoptan la forma * [nombre de dominio]\[nombre de equipo] ***$**&#x2014;por ejemplo, **FABRIKAM\TFSBUILD$**. Por lo tanto, si el servicio de compilación se ejecuta con la identidad Network Service, debe conceder los permisos necesarios para la identidad de la cuenta de equipo para el servidor de compilación.
 
 
 ## <a name="configuring-web-server-permissions"></a>Configurar permisos de servidor Web
@@ -50,7 +50,7 @@ Como se describe en [la elección del enfoque de derecha a la implementación de
 
 El agente remoto tiene dos limitaciones más importantes en este caso:
 
-- El agente remoto admite únicamente la autenticación NTLM. En otras palabras, la implementación debe utilizar la identidad de servicio de compilación & #x 2014; no se puede suplantar a otra cuenta.
+- El agente remoto admite únicamente la autenticación NTLM. En otras palabras, la implementación debe utilizar la identidad del servicio de compilación&#x2014;no puede suplantar a otra.
 - Para usar al agente remoto, la cuenta que realiza la implementación debe ser un administrador en el servidor de destino.
 
 Juntas, estas dos limitaciones forman el enfoque de agente remoto deseable para una implementación automatizada de Team Build. Para utilizar este enfoque, se debe hacer que el servicio de compilación de la cuenta Administrador en los servidores web de destino.
@@ -93,5 +93,5 @@ En este punto, debe entender los permisos necesarios, junto con las opciones de 
 
 Para obtener más información acerca de cómo configurar entornos de servidor de Windows para permitir la implementación remota, vea [configurar entornos de servidor para la implementación Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Anterior](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-a-specific-build.md)

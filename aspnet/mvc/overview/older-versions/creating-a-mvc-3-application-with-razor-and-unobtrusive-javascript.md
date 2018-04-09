@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 title: Crear un MVC 3 aplicaciones con JavaScript Razor y discreto | Documentos de Microsoft
 author: microsoft
-description: "La aplicación web de ejemplo de lista de usuarios muestra lo fácil que es crear aplicaciones de ASP.NET MVC 3 con el motor de vista Razor. La s de aplicación de ejemplo..."
+description: La aplicación web de ejemplo de lista de usuarios muestra lo fácil que es crear aplicaciones de ASP.NET MVC 3 con el motor de vista Razor. La s de aplicación de ejemplo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/01/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 29b45c07b5498542abbf22c4c3001b1cee41edc9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Crear un MVC 3 aplicaciones con JavaScript Razor y discreto
 ====================
@@ -54,7 +54,7 @@ En este tutorial no usará el proveedor de pertenencia ASP.NET, por lo que puede
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Editar la  *\_Layout.cshtml* archivo y reemplace el marcado dentro de la `<div>` elemento denominado `logindisplay` con el mensaje  *&quot;* inicio de sesión deshabilitado&quot;. En el ejemplo siguiente se muestra el marcado nuevo:
+Editar la  <em>\_Layout.cshtml</em> archivo y reemplace el marcado dentro de la `<div>` elemento denominado `logindisplay` con el mensaje <em>&quot;</em>inicio de sesión deshabilitado&quot;. En el ejemplo siguiente se muestra el marcado nuevo:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -122,7 +122,7 @@ Agregue las siguientes `Details` método al controlador home:
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample8.cs)]
 
-Pulse el botón derecho dentro de la `Details` método y, a continuación, seleccione **agregar vista**. Compruebe que la **Ver clase de datos** cuadro contiene **Mvc3Razor.Models.UserModel***.* Establecer **ver contenido** a **detalles** y, a continuación, haga clic en **agregar**.
+Pulse el botón derecho dentro de la `Details` método y, a continuación, seleccione <strong>agregar vista</strong>. Compruebe que la <strong>Ver clase de datos</strong> cuadro contiene <strong>Mvc3Razor.Models.UserModel</strong><em>.</em> Establecer <strong>ver contenido</strong> a <strong>detalles</strong> y, a continuación, haga clic en <strong>agregar</strong>.
 
 ![Agregar la vista de detalles](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image11.png)
 

@@ -2,7 +2,7 @@
 uid: web-forms/videos/ajax-control-toolkit/control-extenders
 title: Los extensores de control | Documentos de Microsoft
 author: JoeStagner
-description: "Vea este vídeo para comprender la diferencia entre los controles y extensores de Control de AJAX y cómo utilizar los extensores en sus aplicaciones."
+description: Vea este vídeo para comprender la diferencia entre los controles y extensores de Control de AJAX y cómo utilizar los extensores en sus aplicaciones.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/13/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/control-extenders
 msc.type: video
-ms.openlocfilehash: c913a7895e88812c804afc0696c5820ed363452a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c8be85c6683064c697a11d4b895438cc2722d159
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-extenders"></a>Extender de control
 ====================
@@ -24,8 +24,8 @@ por [Joe Stagner](https://github.com/JoeStagner)
 
 Vea este vídeo para comprender la diferencia entre los controles y extensores de Control de AJAX y cómo utilizar los extensores en sus aplicaciones.
 
-[&#9654; Vea el vídeo (3 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/control-extenders)
+[&#9654;Vea el vídeo (3 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/control-extenders)
 
->[!div class="step-by-step"]
-[Anterior](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
-[Siguiente](color-picker.md)
+> [!div class="step-by-step"]
+> [Anterior](utilize-the-ajax-rating-control-in-the-aspnet-toolkit.md)
+> [Siguiente](color-picker.md)

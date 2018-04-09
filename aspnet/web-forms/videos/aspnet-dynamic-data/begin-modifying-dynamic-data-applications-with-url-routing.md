@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-dynamic-data/begin-modifying-dynamic-data-applications-with-url-routing
-title: "Empezar a modificar las aplicaciones de datos dinámicos con enrutamiento de direcciones URL | Documentos de Microsoft"
+title: Empezar a modificar las aplicaciones de datos dinámicos con enrutamiento de direcciones URL | Documentos de Microsoft
 author: JoeStagner
-description: "Este vídeo presenta el enrutamiento de direcciones URL de datos dinámicos de ASP.NET y muestra cómo configurar la dirección URL de una aplicación con opciones de enrutamiento."
+description: Este vídeo presenta el enrutamiento de direcciones URL de datos dinámicos de ASP.NET y muestra cómo configurar la dirección URL de una aplicación con opciones de enrutamiento.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/23/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/begin-modifying-dynamic-data-applications-with-url-routing
 msc.type: video
-ms.openlocfilehash: c23facf151802622eb1b7627378e4a359113ac36
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c3ade9e3d648469cab8473175af74b5072b16d4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="begin-modifying-dynamic-data-applications-with-url-routing"></a>Empezar a modificar las aplicaciones de datos dinámicos con enrutamiento de direcciones URL
 ====================
@@ -24,8 +24,8 @@ por [Joe Stagner](https://github.com/JoeStagner)
 
 Este vídeo presenta el enrutamiento de direcciones URL de datos dinámicos de ASP.NET y muestra cómo configurar la dirección URL de una aplicación con opciones de enrutamiento.
 
-[&#9654; Vea el vídeo (5 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/begin-modifying-dynamic-data-applications-with-url-routing)
+[&#9654;Vea el vídeo (5 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/begin-modifying-dynamic-data-applications-with-url-routing)
 
->[!div class="step-by-step"]
-[Anterior](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
-[Siguiente](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)
+> [!div class="step-by-step"]
+> [Anterior](begin-editing-the-templates-in-aspnet-dynamic-data-applications.md)
+> [Siguiente](enable-in-line-editing-in-aspnet-dynamic-data-applications.md)

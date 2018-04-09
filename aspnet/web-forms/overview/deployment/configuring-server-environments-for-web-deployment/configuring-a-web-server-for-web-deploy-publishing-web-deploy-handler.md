@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
-title: "Publicación de implementación de la configuración de un servidor Web para Web (Web Deploy controlador) | Documentos de Microsoft"
+title: Publicación de implementación de la configuración de un servidor Web para Web (Web Deploy controlador) | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo configurar un servidor web de Internet Information Services (IIS) para admitir la publicación de web y la implementación con el patrón de implementación Web de IIS..."
+description: En este tema se describe cómo configurar un servidor web de Internet Information Services (IIS) para admitir la publicación de web y la implementación con el patrón de implementación Web de IIS...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler
 msc.type: authoredcontent
-ms.openlocfilehash: 81848c683fb9ddaa8942f030a520847a3c89fde0
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d98be2859181e014ad332298ee3a572ad4235649
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler"></a>Publicación de implementación de la configuración de un servidor Web para Web (Web Deploy controlador)
 ====================
@@ -236,7 +236,7 @@ En orden para el sitio Web servir el contenido, la identidad del grupo de aplica
 
 Para conceder permisos a una identidad del grupo de aplicación en un archivo o carpeta, tiene dos opciones:
 
-- Asignar permisos a la identidad del grupo de aplicación directamente, con el formato **IIS AppPool\***[nombre de grupo de aplicaciones]*(por ejemplo, **IIS AppPool\DemoSite**).
+- Asignar permisos a la identidad del grupo de aplicación directamente, con el formato <strong>IIS AppPool\</ strong ><em>[nombre de grupo de aplicaciones]</em>(por ejemplo, <strong>IIS AppPool\DemoSite</strong>).
 - Asignar permisos para la **IIS\_IUSRS** grupo.
 
 El enfoque más común consiste en asignar permisos a la variable local **IIS\_IUSRS** del grupo, porque este enfoque le permite cambiar los grupos de aplicaciones sin volver a configurar los permisos de sistema de archivos. El siguiente procedimiento usa este enfoque basado en grupos.
@@ -254,8 +254,8 @@ El enfoque más común consiste en asignar permisos a la variable local **IIS\_I
 
     ![](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler/_static/image15.png)
 5. En el **Seleccionar usuarios o grupos** cuadro de diálogo, escriba **IIS\_IUSRS**, haga clic en **comprobar nombres**y, a continuación, haga clic en **Aceptar**.
-6. En el **permisos para *** [nombre de la carpeta]* cuadro de diálogo, tenga en cuenta que el nuevo grupo se ha asignado la **lectura &amp; ejecutar**, **mostrar el contenido de la carpeta**, y **Lectura** permisos de forma predeterminada. Deja sin modificar y haga clic en **Aceptar**.
-7. Haga clic en **Aceptar** para cerrar el *[nombre de la carpeta] *** propiedades** cuadro de diálogo.
+6. En el <strong>permisos para</strong><em>[nombre de la carpeta]</em> cuadro de diálogo, tenga en cuenta que el nuevo grupo se ha asignado la <strong>lectura &amp; ejecutar</strong>, <strong>Listar carpeta contenido</strong>, y <strong>lectura</strong> permisos de forma predeterminada. Deja sin modificar y haga clic en <strong>Aceptar</strong>.
+7. Haga clic en <strong>Aceptar</strong> para cerrar el <em>[nombre de la carpeta]</em><strong>propiedades</strong> cuadro de diálogo.
 
 Como una tarea final, debe conceder los permisos adecuados para el usuario sin privilegios de administrador que tenga las credenciales que usará para implementar el contenido. Este usuario requiere los permisos para implementar el contenido de forma remota a su sitio Web.
 
@@ -306,6 +306,6 @@ El servidor web ahora estará preparado para aceptar implementaciones remotas al
 
 Para obtener instrucciones sobre cómo configurar los archivos de proyecto personalizados de Microsoft Build Engine (MSBuild) para implementar paquetes de web en el controlador de implementación Web, consulte [configurar propiedades de implementación de un entorno de destino](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Anterior](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
-[Siguiente](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+> [Siguiente](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)

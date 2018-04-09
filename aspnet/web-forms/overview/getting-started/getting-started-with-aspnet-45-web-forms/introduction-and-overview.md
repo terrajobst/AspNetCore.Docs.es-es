@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
-title: "Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013 | Documentos de Microsoft"
+title: Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013 | Documentos de Microsoft
 author: Erikre
-description: "Esta serie de tutoriales paso a paso le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express..."
+description: Esta serie de tutoriales paso a paso le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 6ae398f94c0ac3872601bdc8fd935f6d285793db
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013
 ====================
@@ -177,9 +177,9 @@ Después de instalar los requisitos previos, está listo para empezar a crear el
 
 [Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) (C#) 
 
-La descarga es un *.zip* archivo. Para ver el proyecto completado que crea esta serie de tutoriales, busque y seleccione el *C#*carpeta en el *.zip* archivo. Guardar el *C#* carpeta a la carpeta usada para trabajar con proyectos de Visual Studio 2013. De forma predeterminada, la carpeta de proyectos de Visual Studio 2013 es la siguiente:
+La descarga es un <em>.zip</em> archivo. Para ver el proyecto completado que crea esta serie de tutoriales, busque y seleccione el <em>C#</em>carpeta en el <em>.zip</em> archivo. Guardar el <em>C#</em> carpeta a la carpeta usada para trabajar con proyectos de Visual Studio 2013. De forma predeterminada, la carpeta de proyectos de Visual Studio 2013 es la siguiente:
 
-**C:\Users\*****&lt;username&gt;*****\Documents\Visual Studio 2013\Projects**
+<strong>C:\Users\</ strong ><strong><em>&lt;nombre de usuario&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 Cambiar el nombre de la ***C#*** carpeta ***WingtipToys***.
 
@@ -197,5 +197,5 @@ Comentarios en esta serie de tutoriales son bienvenidos y cuando se actualiza es
 
 Cuando se produce un error durante el desarrollo, o si el sitio Web no se ejecuta correctamente, los mensajes de error pueden provocar pistas complejos para el origen del problema o no podrían explicar cómo corregirlo. Para ayudarle con algunos escenarios comunes de problema, también puede usar el [foros ASP.NET](https://forums.asp.net/) o en la sección de preguntas y r incluido con el [Introducción a formularios Web Forms de ASP.NET 4.5 y Visual Studio 2013 - Wingtip Toys](https://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) () C#) ejemplo. Si aparece un mensaje de error o algo no funciona tal y como se vaya a través de los tutoriales, asegúrese de comprobar las ubicaciones anteriores.
 
->[!div class="step-by-step"]
-[Siguiente](create-the-project.md)
+> [!div class="step-by-step"]
+> [Siguiente](create-the-project.md)

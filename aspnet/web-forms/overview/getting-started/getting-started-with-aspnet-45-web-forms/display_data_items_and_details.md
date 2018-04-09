@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
-title: "Muestre los datos de elementos y le proporcionará detalles | Documentos de Microsoft"
+title: Muestre los datos de elementos y le proporcionará detalles | Documentos de Microsoft
 author: Erikre
-description: "Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se..."
+description: Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/display_data_items_and_details
 msc.type: authoredcontent
-ms.openlocfilehash: 809d7a9c21a3ddf5dfd07d079eb8fe0d1d81712d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5fea654aa5116193cb7496c1b9020ed8e25fc06f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="display-data-items-and-details"></a>Muestre los datos de elementos y detalles
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 [Descargar el proyecto de ejemplo de Wingtip Toys (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [descargar libros electrónicos (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -131,7 +131,7 @@ Este código usa un **FormView** control para mostrar detalles sobre un producto
 Para conectar el marcado anterior a la base de datos, debe agregar código adicional para la *ProductDetails.aspx* código.
 
 1. En **el Explorador de soluciones**, haga clic en *ProductDetails.aspx* y, a continuación, haga clic en **ver código**.  
- El *ProductDetails.aspx.cs* se mostrará el archivo.
+   El *ProductDetails.aspx.cs* se mostrará el archivo.
 2. Reemplace el código existente con el siguiente código:   
 
     [!code-csharp[Main](display_data_items_and_details/samples/sample6.cs)]
@@ -160,6 +160,6 @@ En este tutorial de la serie se agregar marcado y código para mostrar una lista
 
 [Recuperar y mostrar los datos con el enlace de modelos y formularios web forms](../../presenting-and-managing-data/model-binding/retrieving-data.md)
 
->[!div class="step-by-step"]
-[Anterior](ui_and_navigation.md)
-[Siguiente](shopping-cart.md)
+> [!div class="step-by-step"]
+> [Anterior](ui_and_navigation.md)
+> [Siguiente](shopping-cart.md)

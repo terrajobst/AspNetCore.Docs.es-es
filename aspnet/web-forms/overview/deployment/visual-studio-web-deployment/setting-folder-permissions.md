@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
-title: "Implementación de Web ASP.NET con Visual Studio: establecer los permisos de carpeta | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: establecer los permisos de carpeta | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/setting-folder-permissions
 msc.type: authoredcontent
-ms.openlocfilehash: 19bef5ff97fd5b79135df8ca9bd6bd316594cc5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7efe267975835e889950983126088f1b637c28fb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-setting-folder-permissions"></a>Implementación de Web ASP.NET con Visual Studio: establecer los permisos de carpeta
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -54,7 +54,7 @@ Ahora ejecute *Elmah.axd* para ver el informe de errores. Después de iniciar se
 Puede establecer permisos de las carpetas manualmente o puede hacer que una parte del proceso de implementación automática. Lo que automática requiere código complejo de MSBuild y, puesto que solo tiene que hacer esto la primera vez que implemente, los siguientes pasos de cómo hacerlo manualmente. (Para obtener información acerca de cómo realizar esta parte del proceso de implementación, consulte [establecer permisos de carpeta en Web publicar](http://sedodream.com/2011/11/08/SettingFolderPermissionsOnWebPublish.aspx) en el blog de Sayed Hashimi.)
 
 1. En **Explorador de archivos**, vaya a *C:\inetpub\wwwroot\ContosoUniversity*. Haga clic en el *Elmah* carpeta, seleccione **propiedades**y, a continuación, seleccione la **seguridad** ficha.
-2. Haga clic en **editar**.
+2. Haga clic en **Editar**.
 3. En el **permisos para Elmah** cuadro de diálogo, seleccione **DefaultAppPool**y, a continuación, seleccione la **escribir** casilla de verificación en la **permitir** columna.
 
     ![Permisos de carpeta ELMAH](setting-folder-permissions/_static/image3.png)
@@ -77,6 +77,6 @@ En este ejemplo, motivo por qué se ha podido guardar archivos de registro Elmah
 
 Para obtener más información acerca de cómo conceder permisos a las identidades del grupo de aplicaciones, consulte [identidades del grupo de aplicaciones](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) y [contenido seguro en IIS a través de ACL del sistema archivo](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) en el sitio de IIS.net.
 
->[!div class="step-by-step"]
-[Anterior](deploying-to-iis.md)
-[Siguiente](deploying-to-production.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-to-iis.md)
+> [Siguiente](deploying-to-production.md)

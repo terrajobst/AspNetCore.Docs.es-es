@@ -1,7 +1,7 @@
 ---
-title: "Solucionar problemas de núcleo de ASP.NET en IIS"
+title: Solucionar problemas de núcleo de ASP.NET en IIS
 author: guardrex
-description: "Obtenga información acerca de cómo diagnosticar problemas con las implementaciones de servicios de Internet Information Server (IIS) de las aplicaciones de ASP.NET Core."
+description: Obtenga información acerca de cómo diagnosticar problemas con las implementaciones de servicios de Internet Information Server (IIS) de las aplicaciones de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/troubleshoot
-ms.openlocfilehash: 65173e0101a17c64f4cde583e5bbb9fb0a9c7718
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: e44892d2022ca1a176cee9d027e220e196c6572d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-iis"></a>Solucionar problemas de núcleo de ASP.NET en IIS
 
@@ -29,7 +29,7 @@ Temas de solución de problemas adicionales:
 [Solución de problemas de ASP.NET Core en Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)  
 Aunque el servicio de aplicaciones usa la [módulo principal de ASP.NET](xref:fundamentals/servers/aspnet-core-module) y IIS para las aplicaciones de host, vea el tema dedicado para obtener instrucciones específicas para el servicio de aplicaciones.
 
-[Control de errores](xref:fundamentals/error-handling)  
+[Controlar errores](xref:fundamentals/error-handling)  
 Descubra cómo controlar errores en aplicaciones de ASP.NET Core durante el desarrollo en un sistema local.
 
 [Información sobre cómo depurar con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)  
@@ -96,20 +96,20 @@ Para habilitar y ver los registros de stdout:
 
 1. Navegue hasta la carpeta de implementación del sitio en el sistema host.
 1. Si el *registros* carpeta no está presente, cree la carpeta. Para obtener instrucciones sobre cómo habilitar MSBuild crear el *registros* carpeta en la implementación, automáticamente, consulte la [estructura de directorios](xref:host-and-deploy/directory-structure) tema.
-1. Editar la *web.config* archivo. Establecer **stdoutLogEnabled** a `true` y cambie el **stdoutLogFile** ruta de acceso para que apunte a la *registros* carpeta (por ejemplo, `.\logs\stdout`). `stdout`en la ruta de acceso es el prefijo del nombre de archivo de registro. Una marca de tiempo, el Id. de proceso y la extensión de archivo se agregan automáticamente cuando se crea el registro. Usar `stdout` como el prefijo de nombre de archivo, se denomina un archivo de registro típico *stdout_20180205184032_5412.log*. 
+1. Editar la *web.config* archivo. Establecer **stdoutLogEnabled** a `true` y cambie el **stdoutLogFile** ruta de acceso para que apunte a la *registros* carpeta (por ejemplo, `.\logs\stdout`). `stdout` en la ruta de acceso es el prefijo del nombre de archivo de registro. Una marca de tiempo, el Id. de proceso y la extensión de archivo se agregan automáticamente cuando se crea el registro. Usar `stdout` como el prefijo de nombre de archivo, se denomina un archivo de registro típico *stdout_20180205184032_5412.log*. 
 1. Guardar actualizado *web.config* archivo.
 1. Realizar una solicitud a la aplicación.
 1. Navegue hasta la *registros* carpeta. Busque y abra el registro más reciente de stdout.
 1. Estudie el registro de errores.
 
-**Importante:** Deshabilitar el registro de stdout cuando se completa la solución de problemas.
+**¡Importante!** Deshabilitar el registro de stdout cuando se completa la solución de problemas.
 
 1. Editar la *web.config* archivo.
 1. Establecer **stdoutLogEnabled** a `false`.
 1. Guarde el archivo.
 
 > [!WARNING]
-> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro o el número de archivos de registro creados.
+> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados.
 >
 > Para registrar la rutina en una aplicación de ASP.NET Core, utiliza una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
 

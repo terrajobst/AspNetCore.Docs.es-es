@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
-title: "Parte 1: Información general y archivo -> Nuevo proyecto | Documentos de Microsoft"
+title: 'Parte 1: Información general y archivo -> Nuevo proyecto | Documentos de Microsoft'
 author: jongalloway
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 1 cubre información general y archivo -> Nuevo proyecto."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 1 cubre información general y archivo -> Nuevo proyecto.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 1e3373a21c7d1766cfad390a7ba68b1363d8d895
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2082927d18c95563893da199d60347fa15952446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-overview-and-file-new-project"></a>Parte 1: Información general y archivo -> Nuevo proyecto
 ====================
@@ -115,15 +115,15 @@ La plantilla vacía MVC 3 no está completamente vacía, agrega una estructura d
 
 ASP.NET MVC hace uso de algunas convenciones de nomenclatura básicas para los nombres de carpeta:
 
-| **Carpeta** | **Propósito** |
+| **Folder** | **Purpose** |
 | --- | --- |
 | **/ Controladores** | Controladores de responden a los datos proporcionados por el explorador, decidir qué hacer con él y devolver la respuesta al usuario. |
 | **/ Vistas** | Vistas mantenga nuestras plantillas de interfaz de usuario |
-| **/ Modelos** | Modelos de mantengan y manipulan datos |
-| **/ Content** | Esta carpeta contiene nuestras imágenes, CSS y cualquier otro contenido estático |
+| **/Models** | Modelos de mantengan y manipulan datos |
+| **/Content** | Esta carpeta contiene nuestras imágenes, CSS y cualquier otro contenido estático |
 | **/ Secuencias de comandos** | Esta carpeta contiene los archivos de JavaScript |
 
 Estas carpetas se incluyen incluso en una aplicación MVC de ASP.NET vacía porque el marco de MVC de ASP.NET de forma predeterminada, usa un enfoque de "Convención sobre configuración" y hace algunas suposiciones predeterminado basados en convenciones de nomenclatura de la carpeta. Por ejemplo, controladores de buscarán vistas en la carpeta Views de forma predeterminada sin tener que especificarlo explícitamente en el código. Quede con las convenciones predeterminadas reduce la cantidad de código que necesita para escribir, y también puede hacer sea más fácil para otros programadores a comprender el proyecto. Explicaremos estas convenciones más mientras compilamos nuestra aplicación.
 
->[!div class="step-by-step"]
-[Siguiente](mvc-music-store-part-2.md)
+> [!div class="step-by-step"]
+> [Siguiente](mvc-music-store-part-2.md)

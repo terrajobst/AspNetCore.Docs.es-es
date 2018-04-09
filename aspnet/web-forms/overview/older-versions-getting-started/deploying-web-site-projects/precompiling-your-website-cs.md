@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 title: Precompilar el sitio Web (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Visual Studio ofrece a los programadores de ASP.NET dos tipos de proyectos: proyectos de aplicación Web (WAP) y proyectos de sitios Web (WSPs). Una de la diferencias clave betwe..."
+description: 'Visual Studio ofrece a los programadores de ASP.NET dos tipos de proyectos: proyectos de aplicación Web (WAP) y proyectos de sitios Web (WSPs). Una de la diferencias clave betwe...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/precompiling-your-website-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f31f470b4d2b6736b98c0b7d88ea7a53ad1438b9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fe49029d09db99735a181b90e781396929f22d8d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="precompiling-your-website-c"></a>Precompilar el sitio Web (C#)
 ====================
@@ -97,7 +97,7 @@ Después de precompilar el sitio Web, navegue hasta la ubicación de destino esp
 
 [![](precompiling-your-website-cs/_static/image5.png)](precompiling-your-website-cs/_static/image4.png)
 
-**Figura 2**: el directorio del proyecto contiene `.aspx` y `.aspx.cs` archivos; el `Bin` carpeta incluye solo`Elmah.dll`  
+**Figura 2**: el directorio del proyecto contiene `.aspx` y `.aspx.cs` archivos; el `Bin` carpeta incluye solo `Elmah.dll`  
  ([Haga clic aquí para ver la imagen a tamaño completo](precompiling-your-website-cs/_static/image6.png))
 
 **Figura 3** muestra la carpeta de ubicación de destino cuyo contenido se crearon mediante la herramienta de compilación de ASP.NET. Esta carpeta no contiene ningún archivo de código subyacente. Además, esta carpeta `Bin` directorio incluye varios ensamblados y dos `.compiled` archivos además la `Elmah.dll` ensamblado.
@@ -190,6 +190,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Precompilación en ASP.NET](http://www.odetocode.com/Articles/417.aspx)
 - [Opciones de sitio precompilado en ASP.NET](http://www.dotnetperls.com/precompiled)
 
->[!div class="step-by-step"]
-[Anterior](logging-error-details-with-elmah-cs.md)
-[Siguiente](users-and-roles-on-the-production-website-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](logging-error-details-with-elmah-cs.md)
+> [Siguiente](users-and-roles-on-the-production-website-cs.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 title: 'Parte 5: Editar formularios y plantillas | Documentos de Microsoft'
 author: jongalloway
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 5 cubre editar formularios y plantillas."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 5 cubre editar formularios y plantillas.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: cde6fe133291254531a797a434a4b2cdd226dd5f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d584e614b5a4124044cd9decd2272192ca164643
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-edit-forms-and-templating"></a>Parte 5: Editar formularios y plantillas
 ====================
@@ -262,9 +262,9 @@ Ahora cuando se examina la dirección URL /StoreManager/, los álbumes y título
 
 ![](mvc-music-store-part-5/_static/image18.png)
 
-Nota: Esto muestra el caso más sencillo de crear y usar una aplicación auxiliar en una vista. Para más información acerca de cómo crear aplicaciones auxiliares que puede utilizar en todo el sitio, consulte mi entrada de blog: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
+Nota: Esto muestra el caso más sencillo de crear y usar una aplicación auxiliar en una vista. Para más información acerca de cómo crear aplicaciones auxiliares que puede utilizar en todo el sitio, consulte la entrada de mi de blog: [http://bit.ly/mvc3-helper-options](http://bit.ly/mvc3-helper-options)
 
 
->[!div class="step-by-step"]
-[Anterior](mvc-music-store-part-4.md)
-[Siguiente](mvc-music-store-part-6.md)
+> [!div class="step-by-step"]
+> [Anterior](mvc-music-store-part-4.md)
+> [Siguiente](mvc-music-store-part-6.md)

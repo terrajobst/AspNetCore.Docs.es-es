@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
-title: "Descripción de los filtros de acción (VB) | Documentos de Microsoft"
+title: Descripción de los filtros de acción (VB) | Documentos de Microsoft
 author: microsoft
-description: "El objetivo de este tutorial es explicar los filtros de acción. Un filtro de acción es un atributo que se puede aplicar a una acción de controlador o un controlador de todo..."
+description: El objetivo de este tutorial es explicar los filtros de acción. Un filtro de acción es un atributo que se puede aplicar a una acción de controlador o un controlador de todo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 483133ec5db27c2fa1ed4b463e37e17efab12e0f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2796b67cba6a2ddaee7a006a170dfb7e5ff89888
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-action-filters-vb"></a>Descripción de los filtros de acción (VB)
 ====================
@@ -45,7 +45,7 @@ Un filtro de acción es un atributo. Puede aplicar la mayoría de los filtros de
 
 Por ejemplo, el controlador de datos en la lista 1 expone una acción denominada `Index()` que devuelve la hora actual. Esta acción se decora con el `OutputCache` filtro de acción. Este filtro hace que el valor devuelto por la acción que se almacenarán en caché durante 10 segundos.
 
-**Lista 1:`Controllers\DataController.vb`**
+**Lista 1: `Controllers\DataController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample1.vb)]
 
@@ -103,7 +103,7 @@ En la siguiente sección, veremos cómo puede implementar cada uno de estos mét
 
 Para ilustrar cómo se puede crear un filtro de acción personalizado, vamos a crear un filtro de acción personalizado que registra las fases de procesamiento de una acción de controlador a la ventana Resultados de Visual Studio. Nuestro `LogActionFilter` se encuentra en el listado 2.
 
-**La lista 2:`ActionFilters\LogActionFilter.vb`**
+**La lista 2: `ActionFilters\LogActionFilter.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample2.vb)]
 
@@ -117,7 +117,7 @@ En el listado 2, el `OnActionExecuting()`, `OnActionExecuted()`, `OnResultExecut
 
 El controlador Home en el listado 3 muestra cómo puede aplicar el filtro de acción de registro a una clase de controlador completo. Cada vez que cualquiera de las acciones expuestas por el controlador Home se invocan: ya sea el `Index()` método o la `About()` método – las fases de procesamiento de la acción se registran en la ventana Resultados de Visual Studio.
 
-**Enumerar 3:`Controllers\HomeController.vb`**
+**Enumerar 3: `Controllers\HomeController.vb`**
 
 [!code-vb[Main](understanding-action-filters-vb/samples/sample3.vb)]
 
@@ -127,6 +127,6 @@ En este tutorial, se introdujeron en filtros de acción de MVC de ASP.NET. Apren
 
 Por último, aprendió cómo implementar un filtro de acción simple. Hemos creado un filtro de acción de registro que registra las fases de procesamiento de una acción de controlador a la ventana Resultados de Visual Studio.
 
->[!div class="step-by-step"]
-[Anterior](asp-net-mvc-routing-overview-vb.md)
-[Siguiente](improving-performance-with-output-caching-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](asp-net-mvc-routing-overview-vb.md)
+> [Siguiente](improving-performance-with-output-caching-vb.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
-title: "Descripción de los desencadenadores ASP.NET AJAX UpdatePanel | Documentos de Microsoft"
+title: Descripción de los desencadenadores ASP.NET AJAX UpdatePanel | Documentos de Microsoft
 author: scottcate
 description: Cuando se trabaja en el editor de marcado en Visual Studio, puede observar (de IntelliSense) que hay dos elementos secundarios de un control UpdatePanel. Uno de qu...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-updatepanel-triggers
 msc.type: authoredcontent
-ms.openlocfilehash: 1338ef0763d9bfab451bc30cafa39f715200153d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f30f2ead402d2f49a89b2caf47cc30b6445d4cfb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a>Descripción de los desencadenadores de UpdatePanel de AJAX de ASP.NET
 ====================
@@ -57,10 +57,10 @@ De forma similar, la `<asp:PostBackTrigger>` elemento puede utilizarse para repr
 
 *Descendientes de marcado:*
 
-| **Etiqueta** | **Descripción** |
+| **Tag** | **Descripción** |
 | --- | --- |
-| &lt;ASP: AsyncPostBackTrigger&gt; | Especifica un control y el evento que hará que una actualización parcial de página para el control UpdatePanel que contiene una referencia de desencadenador. |
-| &lt;ASP: PostBackTrigger&gt; | Especifica un control y el evento que hará que una actualización de página completa (una actualización de página completa). Esta etiqueta se puede utilizar para forzar una actualización completa cuando un control en caso contrario, se activará la representación parcial. |
+| &lt;asp:AsyncPostBackTrigger&gt; | Especifica un control y el evento que hará que una actualización parcial de página para el control UpdatePanel que contiene una referencia de desencadenador. |
+| &lt;asp:PostBackTrigger&gt; | Especifica un control y el evento que hará que una actualización de página completa (una actualización de página completa). Esta etiqueta se puede utilizar para forzar una actualización completa cuando un control en caso contrario, se activará la representación parcial. |
 
 ## <a name="walkthrough-cross-updatepanel-triggers"></a>*Tutorial: Entre-UpdatePanel desencadenadores*
 
@@ -85,7 +85,7 @@ De forma similar, la `<asp:PostBackTrigger>` elemento puede utilizarse para repr
 ([Haga clic aquí para ver la imagen a tamaño completo](understanding-asp-net-ajax-updatepanel-triggers/_static/image3.png))
 
 
-## <a name="under-the-hood"></a>*En segundo plano*
+## <a name="under-the-hood"></a>*Aspectos técnicos*
 
 Al utilizar el ejemplo que se acaba de crear, podemos realizar un vistazo a lo que está haciendo AJAX de ASP.NET y el funcionan de nuestro desencadenadores entre-panel de UpdatePanel. Para ello, vamos a trabajar con el origen de la página generada HTML, así como la extensión de Mozilla Firefox, denominada a FireBug - con él, podemos examinar fácilmente las devoluciones de AJAX. También utilizamos la herramienta .NET Reflector de Lutz Roeder. Ambas herramientas están disponibles en línea y pueden encontrarse con una búsqueda en internet.
 
@@ -149,12 +149,12 @@ Para reducir la posibilidad de carga de procesamiento del servidor, se recomiend
 
 Mediante el examen de los mecanismos internos de la forma de AJAX de ASP.NET después de modelo de interceptación, hemos podidos determinar que utiliza el marco de trabajo ya proporcionada por ASP.NET. Si lo hace, se conserva la máxima compatibilidad con controles diseñado con el mismo marco de trabajo y mínimamente entra en todo el código JavaScript adicional escrito para la página.
 
-## <a name="bio"></a>Biografía del
+## <a name="bio"></a>Bio
 
-Rob Paveza es un desarrollador de aplicaciones .NET senior en Terralever ([www.terralever.com](http://www.terralever.com)), una empresa de marketing interactiva inicial en Tempe, AZ. Puede ponerse en [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), y se encuentra en su blog [http://geekswithblogs.net/robp/](http://geekswithblogs.net/robp/).
+Rob Paveza es un desarrollador de aplicaciones .NET senior en Terralever ([www.terralever.com](http://www.terralever.com)), una empresa de marketing interactiva inicial en Tempe, AZ. Puede ponerse en [ robpaveza@gmail.com ](mailto:robpaveza@gmail.com), y se encuentra en su blog [ http://geekswithblogs.net/robp/ ](http://geekswithblogs.net/robp/).
 
 Scott categoría ha estado trabajando con las tecnologías Web de Microsoft desde 1997 y es el director general de myKB.com ([www.myKB.com](http://www.myKB.com)) donde está especializado en la escritura de ASP.NET en función de las aplicaciones que se centra en las soluciones de Software de Base de conocimiento. Scott se puede contactar a través de correo electrónico en [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o su blog en [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Anterior](understanding-partial-page-updates-with-asp-net-ajax.md)
-[Siguiente](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [!div class="step-by-step"]
+> [Anterior](understanding-partial-page-updates-with-asp-net-ajax.md)
+> [Siguiente](understanding-asp-net-ajax-authentication-and-profile-application-services.md)

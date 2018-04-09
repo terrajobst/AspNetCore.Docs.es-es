@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 title: Animar un Control UpdatePanel (C#) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Para el contenido de un..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Para el contenido de un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animating-an-updatepanel-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7e6d8954d2ec886994cdd723121e540b471131f6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5d8d5b9c3f15b39045b5e01b455bdddfc9443a24
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="animating-an-updatepanel-control-c"></a>Animar un Control UpdatePanel (C#)
 ====================
@@ -43,8 +43,8 @@ La animación en este escenario se aplicarán a un ASP.NET `Wizard` control web 
 
 El marcado que sea necesario para la `UpdatePanelAnimationExtender` control es muy similar para el marcado usado para la `AnimationExtender`. En el `TargetControlID` atributo proporcionamos el `ID` de la `UpdatePanel` a animar; dentro de la `UpdatePanelAnimationExtender` (control), el `<Animations>` elemento contiene el marcado XML de la animación. Sin embargo, es una diferencia: la cantidad de eventos y controladores de eventos se limita en comparación con `AnimationExtender`. Para `UpdatePanels`, sólo dos de ellos existe:
 
-- `<OnUpdated>`Cuando se ha actualizado el UpdatePanel
-- `<OnUpdating>`Cuando inicia la actualización UpdatePanel
+- `<OnUpdated>` Cuando se ha actualizado el UpdatePanel
+- `<OnUpdating>` Cuando inicia la actualización UpdatePanel
 
 En este escenario, el nuevo contenido de la `UpdatePanel` (después de la devolución de datos) serán fundido de entrada. Éste es el formato necesario para:
 
@@ -57,6 +57,6 @@ Ahora cada vez que se produce un postback en UpdatePanel, el nuevo contenido del
 
 El siguiente paso del asistente se difuminado ([haga clic aquí para ver la imagen a tamaño completo](animating-an-updatepanel-control-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](changing-an-animation-using-client-side-code-cs.md)
-[Siguiente](dynamically-controlling-updatepanel-animations-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](changing-an-animation-using-client-side-code-cs.md)
+> [Siguiente](dynamically-controlling-updatepanel-animations-cs.md)

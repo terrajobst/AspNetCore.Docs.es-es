@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 title: 'Parte 2: Controladores | Documentos de Microsoft'
 author: jongalloway
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 2 trata los controladores."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 2 trata los controladores.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: bdafd751e996e759d516d0fa25b09eff21241ed7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 680cdea388d9b01961bd626643c0fd91c9205ed7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-2-controllers"></a>Parte 2: controladores
 ====================
@@ -63,7 +63,7 @@ El método debe tener el siguiente aspecto:
 Ahora vamos a ejecutar el sitio. Podemos iniciar el servidor web y probar el sitio mediante cualquiera de las siguientes acciones:
 
 - Elija el elemento de menú Iniciar depuración de depuración ⇨
-- Haga clic en el botón de flecha verde en la barra de herramientas![](mvc-music-store-part-2/_static/image2.jpg)
+- Haga clic en el botón de flecha verde en la barra de herramientas ![](mvc-music-store-part-2/_static/image2.jpg)
 - Utilice el método abreviado de teclado F5.
 
 Mediante cualquiera de los pasos anteriores se compile el proyecto y, a continuación, hacer que el servidor de desarrollo de ASP.NET que está integrada en Visual Web Developer para iniciar. Una notificación aparecerá en la esquina inferior de la pantalla para indicar que el servidor de desarrollo de ASP.NET se ha iniciado y se mostrará al número de puerto que se está ejecutando bajo.
@@ -116,7 +116,7 @@ En primer lugar, se cambiará el método de acción de exploración para recuper
 
 [!code-csharp[Main](mvc-music-store-part-2/samples/sample4.cs)]
 
-*Nota: Estamos usando el método de utilidad HttpUtility.HtmlEncode al corregir la entrada del usuario. ¿Esto impide que los usuarios insertar Javascript en la vista con un vínculo como /Store/Browse? Género =&lt;script&gt;window.location= 'http://hackersite.com'&lt;/script&gt;.*
+*Nota: Estamos usando el método de utilidad HttpUtility.HtmlEncode al corregir la entrada del usuario. ¿Esto impide que los usuarios insertar Javascript en la vista con un vínculo como /Store/Browse? Género =&lt;script&gt;window.location='http://hackersite.com'&lt;/script&gt;.*
 
 ¿Ahora vamos a examinar para/almacén/examinar? Género = Disco
 
@@ -141,6 +141,6 @@ Resumamos lo que hemos hecho hasta ahora:
 - Hemos agregado los métodos de acción a nuestro controladores que respondan a solicitudes de dirección URL y devuelven texto en el explorador
 
 
->[!div class="step-by-step"]
-[Anterior](mvc-music-store-part-1.md)
-[Siguiente](mvc-music-store-part-3.md)
+> [!div class="step-by-step"]
+> [Anterior](mvc-music-store-part-1.md)
+> [Siguiente](mvc-music-store-part-3.md)

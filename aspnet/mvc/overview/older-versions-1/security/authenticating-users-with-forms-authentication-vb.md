@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
-title: "Autenticar a los usuarios con la autenticación (VB) de formularios | Documentos de Microsoft"
+title: Autenticar a los usuarios con la autenticación (VB) de formularios | Documentos de Microsoft
 author: microsoft
-description: "Obtenga información acerca de cómo utilizar el atributo [Authorize] para proteger por contraseña páginas específicas de la aplicación de MVC. Obtenga información acerca de cómo usar el sitio Web de administración demasiado..."
+description: Obtenga información acerca de cómo utilizar el atributo [Authorize] para proteger por contraseña páginas específicas de la aplicación de MVC. Obtenga información acerca de cómo usar el sitio Web de administración demasiado...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c7d52e51158575c674264efd19c81de9b077d27b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0ff425a4c9728de2eec3d0c94e76cb51a15de487
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-vb"></a>Autenticar a los usuarios con autenticación de formularios (VB)
 ====================
@@ -33,25 +33,25 @@ Antes de hacer nada más, debemos empezamos creando algunos usuarios y roles. La
 
 **Ilustración 1: iniciar la herramienta de administración de sitios Web**
 
-![clip_image002 [4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
+![clip_image002[4]](authenticating-users-with-forms-authentication-vb/_static/image1.jpg)
 
 Dentro de la herramienta de administración de sitios Web, cree nuevos usuarios y roles, seleccione la pestaña seguridad. Haga clic en el **crear usuario** vínculo para crear un nuevo usuario denominado Stephen (consulte la figura 2). Proporcionar al usuario Stephen con cualquier contraseña que desee (por ejemplo, *secreto*).
 
 **Figura 2: crear un nuevo usuario**
 
-![clip_image004 [4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
+![clip_image004[4]](authenticating-users-with-forms-authentication-vb/_static/image2.jpg)
 
 Crear nuevos roles de habilitación de roles y definir uno o varios roles. Habilitar los roles, haga clic en el **habilitar funciones** vínculo. A continuación, cree un rol denominado *administradores* haciendo clic en el **crear o administrar roles** vincular (consulte la figura 3).
 
 **Figura 3: crear un nuevo rol**
 
-![clip_image006 [4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
+![clip_image006[4]](authenticating-users-with-forms-authentication-vb/_static/image3.jpg)
 
 Por último, cree un nuevo usuario denominado Sally y asociar Sally con la función administradores haciendo clic en el vínculo de Create User y seleccionando los administradores al crear Sally (consulte la figura 4).
 
 **Figura 4: agregar un usuario a un rol**
 
-![clip_image008 [4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
+![clip_image008[4]](authenticating-users-with-forms-authentication-vb/_static/image4.jpg)
 
 Cuando todo está listo, debe tener dos nuevos usuarios denominados Stephen y Sally. También debe tener una nueva función llamada Administrators. Juan es un miembro de la función Administradores y Stephen no lo es.
 
@@ -69,7 +69,7 @@ Si se invoca la acción CompanySecrets() escribiendo la dirección URL /Home/Com
 
 **Figura 5: la vista de inicio de sesión**
 
-![clip_image010 [4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
+![clip_image010[4]](authenticating-users-with-forms-authentication-vb/_static/image5.jpg)
 
 Puede usar la vista de inicio de sesión para escribir su nombre de usuario y contraseña. Si no es un usuario registrado, a continuación, puede hacer clic en el **registrar** vínculo para navegar a la caja registradora ver (consulte la figura 6). Puede utilizar la vista de registro para crear una nueva cuenta de usuario.
 
@@ -107,7 +107,7 @@ Uso de la base de datos de SQL Express de forma predeterminada es correcto al de
 
 El primer paso es agregar todos los objetos de base de datos necesarios (tablas y procedimientos almacenados) a la base de datos de producción. La manera más fácil de agregar estos objetos a una base de datos consiste en aprovechar el Asistente para la instalación de ASP.NET SQL Server (consulte la figura 8). Puede iniciar esta herramienta, abra el símbolo del sistema de Visual Studio 2008 desde el grupo de programas de Microsoft Visual Studio 2008 y ejecutar el comando siguiente desde el símbolo del sistema:
 
-ASPNET\_regsql
+aspnet\_regsql
 
 **Figura 8: el Asistente para la instalación del servidor de SQL de ASP.NET**
 
@@ -117,8 +117,8 @@ El Asistente para la instalación de ASP.NET SQL Server le permite seleccionar u
 
 > [!NOTE]
 > Si no desea usar al Asistente para la instalación de ASP.NET SQL Server, puede encontrar secuencias de comandos SQL para agregar los objetos de base de datos de servicios de aplicación en la siguiente carpeta:
-
-
+> 
+> 
 > C:\Windows\Microsoft.NET\Framework\v2.0.50727
 
 
@@ -152,6 +152,6 @@ Después de crear el inicio de sesión necesario, debe asignar el inicio de sesi
 
 En este tutorial, aprendió a utilizar la autenticación de formularios al crear una aplicación ASP.NET MVC. En primer lugar, aprendió a crear nuevos usuarios y roles aprovechando las ventajas de la herramienta de administración de sitios Web. A continuación, aprendió a utilizar el atributo [Authorize] para evitar que usuarios no autorizados de invocar acciones del controlador. Por último, aprendió a configurar la aplicación de MVC para almacenar información de usuarios y roles en una base de datos de producción.
 
->[!div class="step-by-step"]
-[Anterior](preventing-javascript-injection-attacks-cs.md)
-[Siguiente](authenticating-users-with-windows-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](preventing-javascript-injection-attacks-cs.md)
+> [Siguiente](authenticating-users-with-windows-authentication-vb.md)

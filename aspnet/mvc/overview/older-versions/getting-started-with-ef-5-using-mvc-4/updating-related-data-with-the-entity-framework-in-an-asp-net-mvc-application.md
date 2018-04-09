@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Actualizar datos relacionados con Entity Framework en una aplicación de ASP.NET MVC (6 de 10) | Documentos de Microsoft"
+title: Actualizar datos relacionados con Entity Framework en una aplicación de ASP.NET MVC (6 de 10) | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 mediante Code First de Entity Framework 5 y Visual Studio..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 mediante Code First de Entity Framework 5 y Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 2ca76364a2e9a71dc92644bd579345ae3c304a69
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 227a7fed0ced884db591f0375454d6d0a62518f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application-6-of-10"></a>Actualizar datos relacionados con Entity Framework en una aplicación de ASP.NET MVC (6 de 10)
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar el proyecto completado](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 con Code First de Entity Framework 5 y Visual Studio 2012. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Puede iniciar la serie de tutoriales desde el principio o [descargar un proyecto de inicio para este capítulo](building-the-ef5-mvc4-chapter-downloads.md) y empiece aquí.
+> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 con Code First de Entity Framework 5 y Visual Studio 2012. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Puede iniciar la serie de tutoriales desde el principio o [descargar un proyecto de inicio para este capítulo](building-the-ef5-mvc4-chapter-downloads.md) y empiece aquí.
 > 
 > > [!NOTE] 
 > > 
@@ -33,21 +33,21 @@ Por [Tom Dykstra](https://github.com/tdykstra)
 
 En el tutorial anterior se muestran datos relacionados; en este tutorial, actualizará los datos relacionados. Para la mayoría de las relaciones, esto puede hacerse mediante la actualización de los campos de clave externos correspondientes. Para las relaciones de varios a varios, Entity Framework no ofrece la tabla de combinación directamente, por lo que debe agregar explícitamente y quitar entidades a y desde las propiedades de navegación adecuado.
 
-Las ilustraciones siguientes muestran las páginas que trabajará con.
+En las ilustraciones siguientes se muestran las páginas con las que va a trabajar.
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
 ![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image2.png)
 
-## <a name="customize-the-create-and-edit-pages-for-courses"></a>Personalizar la creación y edición de páginas para cursos
+## <a name="customize-the-create-and-edit-pages-for-courses"></a>Personalizar las páginas Create y Edit de Courses
 
-Cuando se crea una nueva entidad de curso, debe tener una relación con un departamento existente. Para facilitar esto, el código con scaffolding incluye métodos de controlador y crear y editar vistas que incluyen una lista desplegable para seleccionar el departamento. Los conjuntos de la lista desplegable el `Course.DepartmentID` propiedad de clave externa, y eso es todo lo que necesita de Entity Framework para cargar la `Department` propiedad de navegación con el adecuado `Department` entidad. Podrá usar el código con scaffolding, pero cambiar ligeramente para agregar el control de errores y ordenar la lista desplegable.
+Cuando se crea una entidad de curso, debe tener una relación con un departamento existente. Para facilitar esto, el código con scaffolding incluye métodos de controlador y vistas de Create y Edit que incluyen una lista desplegable para seleccionar el departamento. Los conjuntos de la lista desplegable el `Course.DepartmentID` propiedad de clave externa, y eso es todo lo que necesita de Entity Framework para cargar la `Department` propiedad de navegación con el adecuado `Department` entidad. Podrá usar el código con scaffolding, pero cámbielo ligeramente para agregar el control de errores y ordenar la lista desplegable.
 
 En *CourseController.cs*, elimine las cuatro `Edit` y `Create` métodos y reemplácelas con el código siguiente:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs?highlight=3,10,13-14,21-27,34,41,44-45,52-58,62-68)]
 
-El `PopulateDepartmentsDropDownList` /método siguiente obtiene una lista de todos los departamentos que se ordenan por nombre, se crea un `SelectList` colección para obtener una lista desplegable y pasa la colección a la vista en un `ViewBag` propiedad. El método acepta opcional `selectedDepartment` parámetro que permita al código que realiza la llamada especificar el elemento que se seleccionará cuando se procesa la lista desplegable. La vista pasará el nombre `DepartmentID` a [el `DropDownList` auxiliar](../working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md), y, a continuación, sabe que la aplicación auxiliar debe para buscar en el `ViewBag` de objeto para un `SelectList` denominado `DepartmentID`.
+El `PopulateDepartmentsDropDownList` /método siguiente obtiene una lista de todos los departamentos que se ordenan por nombre, se crea un `SelectList` colección para obtener una lista desplegable y pasa la colección a la vista en un `ViewBag` propiedad. El método acepta el parámetro opcional `selectedDepartment`, que permite al código que realiza la llamada especificar el elemento que se seleccionará cuando se procese la lista desplegable. La vista pasará el nombre `DepartmentID` a [el `DropDownList` auxiliar](../working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md), y, a continuación, sabe que la aplicación auxiliar debe para buscar en el `ViewBag` de objeto para un `SelectList` denominado `DepartmentID`.
 
 El `HttpGet` `Create` llamadas al método el `PopulateDepartmentsDropDownList` método sin tener que configurar el elemento seleccionado, ya que para un nuevo curso el departamento aún no está establecido:
 
@@ -75,7 +75,7 @@ Ejecute el **crear** página (mostrar la página de índice de curso y haga clic
 
 ![Course_create_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image3.png)
 
-Haga clic en **Crear**. La página de índice de curso se muestra con el nuevo curso agregado a la lista. El nombre de departamento en la lista de páginas de índice proviene de la propiedad de navegación, que muestra que la relación se estableció correctamente.
+Haga clic en **Crear**. La página de índice de curso se muestra con el nuevo curso agregado a la lista. El nombre de departamento de la lista de páginas de índice proviene de la propiedad de navegación, que muestra que la relación se estableció correctamente.
 
 ![Course_Index_page_showing_new_course](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image4.png)
 
@@ -83,11 +83,11 @@ Ejecute el **editar** página (mostrar la página de índice de curso y haga cli
 
 ![Course_edit_page](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image5.png)
 
-Cambiar los datos en la página y haga clic en **guardar**. La página de índice de curso se muestra con los datos de curso actualizado.
+Cambie los datos en la página y haga clic en **Save**. La página de índice de curso se muestra con los datos de curso actualizado.
 
 ## <a name="adding-an-edit-page-for-instructors"></a>Agregar una página de edición para instructores
 
-Cuando se edita un registro instructor, desea poder actualizar la asignación de office del instructor. El `Instructor` entidad tiene una relación de uno a cero o uno con el `OfficeAssignment` entidad, lo que significa que debe controlar las situaciones siguientes:
+Al editar un registro de instructor, necesita poder actualizar la asignación de la oficina del instructor. El `Instructor` entidad tiene una relación de uno a cero o uno con el `OfficeAssignment` entidad, lo que significa que debe controlar las situaciones siguientes:
 
 - Si el usuario borra la asignación de office y que tenía originalmente un valor, debe quitar y eliminar el `OfficeAssignment` entidad.
 - Si el usuario especifica un valor de asignación de office y originalmente estaba vacío, debe crear un nuevo `OfficeAssignment` entidad.
@@ -107,10 +107,10 @@ Reemplace el `HttpPost` `Edit` método por el código siguiente. que controla la
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-El código hace lo siguiente:
+El código realiza lo siguiente:
 
-- Obtiene el actual `Instructor` entidad desde la base de datos con carga diligente de la `OfficeAssignment` propiedad de navegación. Esto equivale a lo que hizo el `HttpGet` `Edit` método.
-- Actualiza el objeto recuperado `Instructor` entidad con valores desde el enlazador de modelos. El [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) sobrecarga utiliza permite *lista blanca de direcciones* las propiedades que van a incluir. Esto evita que el registro excesivo, como se explica en [el segundo tutorial](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
+- Obtiene la entidad `Instructor` actual de la base de datos mediante la carga diligente de la propiedad de navegación `OfficeAssignment`. Esto equivale a lo que hizo el `HttpGet` `Edit` método.
+- Actualiza la entidad `Instructor` recuperada con valores del enlazador de modelos. El [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.108).aspx) sobrecarga utiliza permite *lista blanca de direcciones* las propiedades que van a incluir. Esto evita que el registro excesivo, como se explica en [el segundo tutorial](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md).
 
     [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 - Si la ubicación de la oficina está en blanco, Establece el `Instructor.OfficeAssignment` propiedad en null para que la fila relacionada en el `OfficeAssignment` se eliminará la tabla.
@@ -122,21 +122,21 @@ En *Views\Instructor\Edit.cshtml*, después la `div` elementos para la **fecha d
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml)]
 
-Ejecute la página (seleccione la **instructores** ficha y, a continuación, haga clic en **editar** en un instructor). Cambiar el **oficina** y haga clic en **guardar**.
+Ejecute la página (seleccione la **instructores** ficha y, a continuación, haga clic en **editar** en un instructor). Cambie el valor de **Office Location** y haga clic en **Save**.
 
 ![Changing_the_office_location](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image6.png)
 
 ## <a name="adding-course-assignments-to-the-instructor-edit-page"></a>Agregar trabajos del curso para el Instructor y editar páginas
 
-Instructores pueden enseñar a cualquier número de cursos. Ahora mejorará la página Editar Instructor agregando la capacidad de cambiar las asignaciones de curso mediante un grupo de casillas de verificación, tal y como se muestra en la siguiente captura de pantalla:
+Los instructores pueden impartir cualquier número de cursos. Ahora mejorará la página Edit Instructor al agregar la capacidad de cambiar las asignaciones de cursos mediante un grupo de casillas, tal y como se muestra en la siguiente captura de pantalla:
 
 ![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
 La relación entre el `Course` y `Instructor` entidades es de varios a varios, lo que significa que no tiene acceso directo a la tabla de combinación. En su lugar, se agrega y quita las entidades a y desde el `Instructor.Courses` propiedad de navegación.
 
-La interfaz de usuario que permite cambiar los cursos un instructor está asignado a es un grupo de casillas de verificación. Se muestra una casilla de verificación para cada curso en la base de datos y se seleccionan los que está asignado actualmente el instructor a. El usuario puede activar o desactivar casillas de verificación para cambiar las asignaciones de curso. Si el número de cursos era mucho mayor, probablemente desee utilizar un método diferente de presentar los datos en la vista, pero podría utilizar el mismo método de manipulación de propiedades de navegación con el fin de crear o eliminar relaciones.
+La interfaz de usuario que le permite cambiar los cursos a los que está asignado un instructor es un grupo de casillas. Se muestra una casilla para cada curso en la base de datos y se seleccionan aquellos a los que está asignado actualmente el instructor. El usuario puede activar o desactivar las casillas para cambiar las asignaciones de cursos. Si el número de cursos era mucho mayor, probablemente desee utilizar un método diferente de presentar los datos en la vista, pero podría utilizar el mismo método de manipulación de propiedades de navegación con el fin de crear o eliminar relaciones.
 
-Para proporcionar datos a la vista de la lista de casillas de verificación, deberá usar una clase de modelo de vista. Crear *AssignedCourseData.cs* en el *ViewModels* carpeta y reemplace el código existente por el código siguiente:
+Para proporcionar datos a la vista de la lista de casillas, deberá usar una clase de modelo de vista. Crear *AssignedCourseData.cs* en el *ViewModels* carpeta y reemplace el código existente por el código siguiente:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cs)]
 
@@ -144,27 +144,27 @@ En *InstructorController.cs*, reemplace la `HttpGet` `Edit` método por el códi
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cs?highlight=5,8,12-27)]
 
-El código agrega carga diligente de la `Courses` propiedad de navegación y llama a la nueva `PopulateAssignedCourseData` método para proporcionar información de la matriz de casilla utilizando la `AssignedCourseData` Ver clase de modelo.
+El código agrega carga diligente para la propiedad de navegación `Courses` y llama al método `PopulateAssignedCourseData` nuevo para proporcionar información de la matriz de casilla mediante la clase de modelo de vista `AssignedCourseData`.
 
-El código en el `PopulateAssignedCourseData` método lee a través de todos los `Course` clase de modelo de entidades para cargar una lista de cursos mediante la vista. Para cada curso, el código comprueba si existe el curso en el instructor `Courses` propiedad de navegación. Para crear una búsqueda eficaz al comprobar si se asigna un curso para el instructor, los cursos asignados al instructor se colocan en un [HashSet](https://msdn.microsoft.com/library/bb359438.aspx) colección. El `Assigned` propiedad está establecida en `true` cursos está asignado el instructor. La vista utilizará esta propiedad para determinar qué Compruebe cuadros deben mostrarse como seleccionado. Por último, la lista se pasa a la vista en un `ViewBag` propiedad.
+El código en el `PopulateAssignedCourseData` método lee a través de todos los `Course` clase de modelo de entidades para cargar una lista de cursos mediante la vista. Para cada curso, el código comprueba si existe el curso en la propiedad de navegación `Courses` del instructor. Para crear una búsqueda eficaz al comprobar si se asigna un curso para el instructor, los cursos asignados al instructor se colocan en un [HashSet](https://msdn.microsoft.com/library/bb359438.aspx) colección. El `Assigned` propiedad está establecida en `true` cursos está asignado el instructor. La vista usará esta propiedad para determinar qué casilla debe mostrarse como seleccionada. Por último, la lista se pasa a la vista en un `ViewBag` propiedad.
 
-A continuación, agregue el código que se ejecuta cuando el usuario hace clic en **guardar**. Reemplace el `HttpPost` `Edit` método con el código siguiente, que llama a un método nuevo que actualiza el `Courses` propiedad de navegación de la `Instructor` entidad. Los cambios aparecen resaltados.
+A continuación, agregue el código que se ejecuta cuando el usuario hace clic en **Save**. Reemplace el `HttpPost` `Edit` método con el código siguiente, que llama a un método nuevo que actualiza el `Courses` propiedad de navegación de la `Instructor` entidad. Los cambios aparecen resaltados.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cs?highlight=3,7,20,33,37-65)]
 
-Puesto que la vista no tiene una colección de `Course` entidades, el enlazador de modelos no se puede actualizar automáticamente el `Courses` propiedad de navegación. En lugar de usar el enlazador de modelos para actualizar la propiedad de navegación de cursos, lo hará en el nuevo `UpdateInstructorCourses` método. Por lo tanto, tendrá que excluir el `Courses` propiedad de enlace de modelos. Esto no requiere ningún cambio en el código que llama [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) porque lo está utilizando la *crear listas blancas* sobrecarga y `Courses` no se encuentra en la lista de inclusión.
+Puesto que la vista no tiene una colección de `Course` entidades, el enlazador de modelos no se puede actualizar automáticamente el `Courses` propiedad de navegación. En lugar de usar el enlazador de modelos para actualizar la propiedad de navegación de cursos, lo hará en el nuevo `UpdateInstructorCourses` método. Por lo tanto, tendrá que excluir la propiedad `Courses` del enlace de modelos. Esto no requiere ningún cambio en el código que llama [TryUpdateModel](https://msdn.microsoft.com/library/dd470908(v=vs.98).aspx) porque lo está utilizando la *crear listas blancas* sobrecarga y `Courses` no se encuentra en la lista de inclusión.
 
 Si ninguna comprobación cuadros estaban seleccionados, el código en `UpdateInstructorCourses` inicializa el `Courses` propiedad de navegación con una colección vacía:
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample16.cs)]
 
-A continuación, el código recorre en bucle todos los cursos en la base de datos y comprueba cada curso en los que está asignado actualmente al instructor frente a los que se han seleccionado en la vista. Para facilitar las búsquedas eficaces, las dos colecciones este últimas se almacenan en `HashSet` objetos.
+A continuación, el código recorre en bucle todos los cursos de la base de datos y coteja los que están asignados actualmente al instructor frente a los que se han seleccionado en la vista. Para facilitar las búsquedas eficaces, estas dos últimas colecciones se almacenan en objetos `HashSet`.
 
-Si se activó la casilla de verificación para un curso pero no se encuentra en el transcurso del `Instructor.Courses` propiedad de navegación, el curso se agrega a la colección en la propiedad de navegación.
+Si se ha activado la casilla para un curso pero este no se encuentra en la propiedad de navegación `Instructor.Courses`, el curso se agrega a la colección en la propiedad de navegación.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample17.cs)]
 
-Si no se ha seleccionado la casilla de verificación para un curso, pero el curso está en el `Instructor.Courses` propiedad de navegación, el curso se quita de la propiedad de navegación.
+Si no se ha activado la casilla para un curso pero este se encuentra en la propiedad de navegación `Instructor.Courses`, el curso se quita de la colección en la propiedad de navegación.
 
 [!code-csharp[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
@@ -172,7 +172,7 @@ En *Views\Instructor\Edit.cshtml*, agregar un **cursos** campo con una matriz de
 
 [!code-cshtml[Main](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample19.cshtml?highlight=51-73)]
 
-Este código crea una tabla HTML que tiene tres columnas. En cada columna es una casilla de verificación seguida de un título que está formada por el número y el título. Las casillas de verificación todos tienen el mismo nombre ("selectedCourses"), que informa al enlazador de modelos que se van a tratar como un grupo. El `value` atributo de cada casilla de verificación se establece en el valor de `CourseID.` cuando se envía la página, el enlazador de modelos pasa una matriz al controlador que está formada por el `CourseID` valores de las casillas de verificación que están seleccionadas.
+Este código crea una tabla HTML que tiene tres columnas. En cada columna hay una casilla seguida de un título que está formado por el número y el título del curso. Las casillas de verificación todos tienen el mismo nombre ("selectedCourses"), que informa al enlazador de modelos que se van a tratar como un grupo. El `value` atributo de cada casilla de verificación se establece en el valor de `CourseID.` cuando se envía la página, el enlazador de modelos pasa una matriz al controlador que está formada por el `CourseID` valores de las casillas de verificación que están seleccionadas.
 
 Cuando inicialmente se representan las casillas de verificación, aquellos que por cursos asignados al instructor tienen `checked` atributos, que selecciona (muestra ellos activadas).
 
@@ -194,9 +194,9 @@ Haga clic en **editar** en un instructor para ver la página de edición.
 
 ![Instructor_edit_page_with_courses](updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
-Cambiar algunos trabajos del curso y haga clic en **guardar**. Los cambios que realice se reflejan en la página de índice.
+Cambiar algunos trabajos del curso y haga clic en **guardar**. Los cambios que haga se reflejan en la página de índice.
 
- Nota: Al enfoque tomado para editar datos de curso instructor funciona bien cuando hay un número limitado de cursos. Para las colecciones que son mucho más grandes, una interfaz de usuario diferente y un método de actualización diferentes sería necesarios.  
+ Nota: Al enfoque tomado para editar datos de curso instructor funciona bien cuando hay un número limitado de cursos. Para las colecciones que son mucho más grandes, se necesitaría una interfaz de usuario y un método de actualización diferentes.  
  
 
 ## <a name="update-the-delete-method"></a>El método Delete de actualización
@@ -214,6 +214,6 @@ Ahora ha completado esta introducción a trabajar con los datos relacionados. Ha
 
 Vínculos a otros recursos de Entity Framework, puede encontrarse al final de [del último tutorial de esta serie](advanced-entity-framework-scenarios-for-an-mvc-web-application.md).
 
->[!div class="step-by-step"]
-[Anterior](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Siguiente](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Anterior](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Siguiente](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md)

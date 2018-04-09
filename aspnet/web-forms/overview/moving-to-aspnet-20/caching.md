@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/caching
-title: "Almacenamiento en caché | Documentos de Microsoft"
+title: Almacenamiento en caché | Documentos de Microsoft
 author: microsoft
-description: "Una descripción del almacenamiento en caché es importante para una aplicación ASP.NET rendimiento satisfactorio. ASP.NET 1.x que ofrece tres opciones distintas para el almacenamiento en caché; almacenamiento en caché, de salida..."
+description: Una descripción del almacenamiento en caché es importante para una aplicación ASP.NET rendimiento satisfactorio. ASP.NET 1.x que ofrece tres opciones distintas para el almacenamiento en caché; almacenamiento en caché, de salida...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/caching
 msc.type: authoredcontent
-ms.openlocfilehash: 9b229de60e09b94189f62a6bb6fa61a9973d637b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="caching"></a>Almacenamiento en memoria caché
 ====================
@@ -59,7 +59,7 @@ Para invalidar el elemento que se insertó anteriormente, basta con quitar el el
 
 Tenga en cuenta que la clave del elemento que actúa como la clave de caché debe ser el mismo que el valor que se agrega a la matriz de claves de caché.
 
-## <a name="polling-based-sql-cache-dependenciesalso-called-table-based-dependencies"></a>Basado en sondeo de dependencias de caché SQL*(también denominados dependencias basadas en tablas)*
+## <a name="polling-based-sql-cache-dependenciesemalso-called-table-based-dependenciesem"></a>Basado en sondeo de dependencias de caché SQL<em>(también denominados dependencias basadas en tablas)</em>
 
 SQL Server 7 y 2000 utilizan el modelo basado en sondeo de dependencias de caché SQL. El modelo basado en sondeo usa un desencadenador en una tabla de base de datos que se desencadena cuando cambian los datos de la tabla. Que desencadenan actualizaciones un **changeId** campo en la tabla de notificación que ASP.NET comprueba periódicamente. Si el **changeId** campo se ha actualizado, ASP.NET sabe que los datos han cambiado y no invalida los datos almacenados en caché.
 
@@ -170,7 +170,7 @@ Otro método de configuración de una dependencia de caché basadas en consultas
 
 [!code-csharp[Main](caching/samples/sample14.cs)]
 
-More Information: [https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp](https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp)
+Obtener más información: [https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp](https://msdn.microsoft.com/library/default.asp?url=/library/enus/dnvs05/html/querynotification.asp)
 
 ## <a name="post-cache-substitution"></a>Sustitución tras la caché
 
@@ -237,12 +237,13 @@ Los siguientes atributos están disponibles en la &lt;caché&gt; elemento:
 
 Los siguientes atributos están disponibles para la &lt;outputCache&gt; elemento.
 
-| **Attribute** | **Descripción** |
-| --- | --- |
-| **enableOutputCache** | Opcional **booleano** atributo. Habilita o deshabilita la caché de resultados de página. Si deshabilita esta opción, no se almacenan en caché ninguna página independientemente de la configuración declarativa o mediante programación. Valor predeterminado es **true**. |
-| **enableFragmentCache** | Opcional **booleano** atributo. Habilita o deshabilita la caché de fragmentos de la aplicación. Si deshabilita esta opción, no se almacenan en caché ninguna página independientemente de la [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) directiva o un perfil que se usa el almacenamiento en caché. Incluye un encabezado de control de caché que indica que los servidores proxy de nivel superior, así como los clientes de explorador no deberían intentar poner en la caché de resultados de página. Valor predeterminado es **false**. |
-| **sendCacheControlHeader** | Opcional **booleano** atributo. Obtiene o establece un valor que indica si la **caché-control: private** encabezado se envía por el módulo de salida de la memoria caché de forma predeterminada. Valor predeterminado es **false**. |
-| **omitVaryStar** | Opcional **booleano** atributo. Habilita o deshabilita el envío de Http "**Vary: \*** " encabezado en la respuesta. Con el valor predeterminado de false, un "**Vary: \*** " se envía el encabezado para las páginas de salida que se almacenan en caché. Cuando se envía el encabezado Vary, permite diferentes versiones en la memoria caché según lo especificado en el encabezado Vary. Por ejemplo, *Vary: usuario-agentes* almacenará las diferentes versiones de una página basándose en el agente de usuario que se emite la solicitud. Valor predeterminado es **false**. |
+
+|       <strong>Attribute</strong>        |                                                                                                                                                                                                                                                       <strong>Descripción</strong>                                                                                                                                                                                                                                                       |
+|-----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|   <strong>enableOutputCache</strong>    |                                                                                                                                                          Opcional <strong>booleano</strong> atributo. Habilita o deshabilita la caché de resultados de página. Si deshabilita esta opción, no se almacenan en caché ninguna página independientemente de la configuración declarativa o mediante programación. Valor predeterminado es <strong>true</strong>.                                                                                                                                                           |
+|  <strong>enableFragmentCache</strong>   |                                                Opcional <strong>booleano</strong> atributo. Habilita o deshabilita la caché de fragmentos de la aplicación. Si deshabilita esta opción, no se almacenan en caché ninguna página independientemente de la [@ OutputCache](https://msdn.microsoft.com/library/hdxfb6cy.aspx) directiva o un perfil que se usa el almacenamiento en caché. Incluye un encabezado de control de caché que indica que los servidores proxy de nivel superior, así como los clientes de explorador no deberían intentar poner en la caché de resultados de página. Valor predeterminado es <strong>false</strong>.                                                 |
+| <strong>sendCacheControlHeader</strong> |                                                                                                                                                      Opcional <strong>booleano</strong> atributo. Obtiene o establece un valor que indica si la <strong>caché-control: private</strong> encabezado se envía por el módulo de salida de la memoria caché de forma predeterminada. Valor predeterminado es <strong>false</strong>.                                                                                                                                                      |
+|      <strong>omitVaryStar</strong>      | Opcional <strong>booleano</strong> atributo. Habilita o deshabilita el envío de Http "<strong>Vary: \</ strong ><em>" encabezado en la respuesta. Con el valor predeterminado de false, un "</em>* variación: \* <strong>" se envía el encabezado para las páginas de salida que se almacenan en caché. Cuando se envía el encabezado Vary, permite diferentes versiones en la memoria caché según lo especificado en el encabezado Vary. Por ejemplo, <em>Vary: usuario-agentes</em> almacenará las diferentes versiones de una página basándose en el agente de usuario que se emite la solicitud. Valor predeterminado es ** false</strong>. |
 
 ### <a name="the-ltoutputcachesettingsgt-element"></a>El &lt;outputCacheSettings&gt; elemento
 

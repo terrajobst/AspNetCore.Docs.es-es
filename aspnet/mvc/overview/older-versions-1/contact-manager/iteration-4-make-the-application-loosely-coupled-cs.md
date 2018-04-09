@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
-title: "Iteración #4: hacer que la aplicación de acoplamiento flexible (C#) | Documentos de Microsoft"
+title: 'Iteración #4: hacer que la aplicación de acoplamiento flexible (C#) | Documentos de Microsoft'
 author: microsoft
-description: "En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que resulten más fáciles de mantener y modificar la aplicación póngase en contacto con el administrador. Para..."
+description: En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que resulten más fáciles de mantener y modificar la aplicación póngase en contacto con el administrador. Para...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1b8df72f51b4730a1fa9178b51a3770ce9edf181
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 33221c6c3326c7034fe013f152579828e2fc8a3a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteración #4: hacer que la aplicación de acoplamiento flexible (C#)
 ====================
@@ -43,7 +43,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -196,6 +196,6 @@ Cuando se crea el nivel de servicio, aprovechamos el patrón de decorador para a
 
 Por último, aprovechamos de un modelo de diseño de software denominado el modelo de inserción de dependencias. Este patrón permite programar en interfaces (abstracciones) en lugar de las clases concretas. Implementar el patrón de diseño de inyección de dependencia también hace que el código más comprobables. En la siguiente iteración, se agregan pruebas unitarias a nuestro proyecto.
 
->[!div class="step-by-step"]
-[Anterior](iteration-3-add-form-validation-cs.md)
-[Siguiente](iteration-5-create-unit-tests-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-3-add-form-validation-cs.md)
+> [Siguiente](iteration-5-create-unit-tests-cs.md)

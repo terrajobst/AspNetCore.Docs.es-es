@@ -1,7 +1,7 @@
 ---
-title: "Autenticación en dos fases con SMS en ASP.NET Core"
+title: Autenticación en dos fases con SMS en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo configurar la autenticación en dos fases (2FA) con una aplicación de ASP.NET Core."
+description: Obtenga información acerca de cómo configurar la autenticación en dos fases (2FA) con una aplicación de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 08/15/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: c328c6f4b674695dd1f2db8145a7ac1b8f12d36d
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 1c4acc4e4be593051d30793b7f73ad90ce727283
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Autenticación en dos fases con SMS en ASP.NET Core
 
@@ -21,7 +21,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [desarrolladores suizo](h
 
 Este tutorial se aplica a ASP.NET Core solo 1.x. Vea [generación habilitar código QR para las aplicaciones de autenticador de ASP.NET Core](xref:security/authentication/identity-enable-qrcodes) para ASP.NET Core 2.0 y versiones posteriores.
 
-Este tutorial muestra cómo configurar la autenticación en dos fases (2FA) con SMS. Se proporcionan instrucciones para [twilio](https://www.twilio.com/) y [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), pero puede usar cualquier otro proveedor SMS. Se recomienda realizar [confirmación de cuenta y contraseña de recuperación](accconfirm.md) antes de iniciar este tutorial.
+Este tutorial muestra cómo configurar la autenticación en dos fases (2FA) con SMS. Se proporcionan instrucciones para [twilio](https://www.twilio.com/) y [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), pero puede usar cualquier otro proveedor SMS. Se recomienda realizar [confirmación de cuenta y contraseña de recuperación](xref:security/authentication/accconfirm) antes de iniciar este tutorial.
 
 Ver el [ejemplo completo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/2fa/sample/Web2FA). [Cómo descargar](xref:tutorials/index#how-to-download-a-sample).
 

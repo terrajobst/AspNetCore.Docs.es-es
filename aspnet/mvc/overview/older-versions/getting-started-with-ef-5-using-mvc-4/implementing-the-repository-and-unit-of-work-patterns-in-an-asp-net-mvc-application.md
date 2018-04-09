@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-title: "Implementar el repositorio y una unidad de patrones de trabajo en una aplicación de MVC de ASP.NET (9 de 10) | Documentos de Microsoft"
+title: Implementar el repositorio y una unidad de patrones de trabajo en una aplicación de MVC de ASP.NET (9 de 10) | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 mediante Code First de Entity Framework 5 y Visual Studio..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 mediante Code First de Entity Framework 5 y Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,19 +12,19 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 02b1de31b9513247facc92bc6b72247865d176f9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1f870b61658686769304a7809bde62e66da3bd0c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-the-repository-and-unit-of-work-patterns-in-an-aspnet-mvc-application-9-of-10"></a>Implementar el repositorio y una unidad de patrones de trabajo en una aplicación de MVC de ASP.NET (9 de 10)
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar el proyecto completado](http://code.msdn.microsoft.com/Getting-Started-with-dd0e2ed8)
 
-> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 con Code First de Entity Framework 5 y Visual Studio 2012. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Puede iniciar la serie de tutoriales desde el principio o [descargar un proyecto de inicio para este capítulo](building-the-ef5-mvc4-chapter-downloads.md) y empiece aquí.
+> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 4 con Code First de Entity Framework 5 y Visual Studio 2012. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Puede iniciar la serie de tutoriales desde el principio o [descargar un proyecto de inicio para este capítulo](building-the-ef5-mvc4-chapter-downloads.md) y empiece aquí.
 > 
 > > [!NOTE] 
 > > 
@@ -35,7 +35,7 @@ En el tutorial anterior usa la herencia para reducir el código redundante en la
 
 ## <a name="the-repository-and-unit-of-work-patterns"></a>El repositorio y una unidad de patrones de trabajo
 
-El repositorio y una unidad de patrones de trabajo están diseñados para crear una capa de abstracción entre la capa de acceso a datos y la capa de lógica empresarial de una aplicación. Implementación de estos modelos puede ayudar a aislar la aplicación de cambios en el almacén de datos y puede facilitar el desarrollo controlado por pruebas (TDD) o pruebas unitarias automatizadas.
+El repositorio y una unidad de patrones de trabajo están diseñados para crear una capa de abstracción entre la capa de acceso a datos y la capa de lógica empresarial de una aplicación. Implementar estos patrones puede ayudar a aislar la aplicación de cambios en el almacén de datos y puede facilitar la realización de pruebas unitarias automatizadas o el desarrollo controlado por pruebas (TDD).
 
 En este tutorial se implementa una clase de repositorio para cada tipo de entidad. Para el `Student` tipo de entidad que se creará una interfaz del repositorio y una clase de repositorio. Cuando se crean instancias del repositorio en el controlador, deberá usar la interfaz para que el controlador acepta una referencia a cualquier objeto que implementa la interfaz del repositorio. Cuando el controlador se ejecuta en un servidor web, recibe un repositorio que funciona con Entity Framework. Cuando el controlador se ejecuta en una clase de prueba unitaria, recibe un repositorio que funciona con los datos almacenados de forma que se puede manipular fácilmente para las pruebas, como una colección en memoria.
 
@@ -124,7 +124,7 @@ Solo el código resaltado ha cambiado.
 
 En la versión original del código, `students` se escribe como un `IQueryable` objeto. La consulta no se envía a la base de datos hasta que se convierte en una colección utilizando un método como `ToList`, que no se produce hasta que la vista de índice tiene acceso al modelo de estudiante. El `Where` método en el código original anterior se convierte en un `WHERE` cláusula de la consulta SQL que se envía a la base de datos. A su vez, esto significa que solo las entidades seleccionadas se devuelven por la base de datos. Sin embargo, como resultado de cambiar `context.Students` a `studentRepository.GetStudents()`, `students` variable después de esta instrucción es un `IEnumerable` colección que incluye todos los alumnos en la base de datos. El resultado final de aplicar el `Where` método es el mismo, pero ahora se realiza el trabajo en memoria en el servidor web y no por la base de datos. Para las consultas que devuelven grandes volúmenes de datos, esto puede ser ineficaz.
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Vs IQueryable. IEnumerable**
 > 
@@ -249,6 +249,6 @@ Ahora ha implementado el repositorio y la unidad de patrones de trabajo. Ha usad
 
 Vínculos a otros recursos de Entity Framework pueden encontrarse en el [mapa de contenido de acceso de datos de ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Anterior](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
-[Siguiente](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)
+> [!div class="step-by-step"]
+> [Anterior](implementing-inheritance-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [Siguiente](advanced-entity-framework-scenarios-for-an-mvc-web-application.md)

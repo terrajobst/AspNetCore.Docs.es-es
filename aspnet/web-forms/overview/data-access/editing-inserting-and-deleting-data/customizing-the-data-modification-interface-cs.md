@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
-title: "Personalizar la interfaz de modificación de datos (C#) | Documentos de Microsoft"
+title: Personalizar la interfaz de modificación de datos (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial se examinará cómo personalizar la interfaz de un control GridView editable, sustituyendo el cuadro de texto estándar y controles CheckBox con alterna..."
+description: En este tutorial se examinará cómo personalizar la interfaz de un control GridView editable, sustituyendo el cuadro de texto estándar y controles CheckBox con alterna...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: fb0b20ab25d87eddc0b2f9da786db469b16f861a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f25b265c50870d59721a94c01d78f589a5d5f1c3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-the-data-modification-interface-c"></a>Personalizar la interfaz de modificación de datos (C#)
 ====================
@@ -236,7 +236,7 @@ Iniciar convirtiendo el `Discontinued` CampoCasillaVerificación en TemplateFiel
 Reemplace la casilla de verificación tanto en el `ItemTemplate` y `EditItemTemplate` con un control RadioButtonList, configuración de ambos RadioButtonList `ID` propiedades para `DiscontinuedChoice`. A continuación, indican que el RadioButtonList debe contener dos botones de radio, una con la etiqueta "activa" en cada uno con un valor de "False" y otra con la etiqueta "Suspendido" con un valor "True". Para lograr esto puede escribir el `<asp:ListItem>` elementos directamente a través de la sintaxis declarativa o use el `ListItem` Editor de la colección desde el diseñador. La figura 13 muestra el `ListItem` se han especificado el Editor de la colección después de las dos opciones de botón de radio.
 
 
-[![Agregar](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
+[![Add](customizing-the-data-modification-interface-cs/_static/image38.png)](customizing-the-data-modification-interface-cs/_static/image37.png)
 
 **Figura 13**: agregar opciones de "Suspendido" y "Activo" a RadioButtonList ([haga clic aquí para ver la imagen a tamaño completo](customizing-the-data-modification-interface-cs/_static/image39.png))
 
@@ -276,8 +276,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
-[Siguiente](implementing-optimistic-concurrency-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-validation-controls-to-the-editing-and-inserting-interfaces-cs.md)
+> [Siguiente](implementing-optimistic-concurrency-cs.md)

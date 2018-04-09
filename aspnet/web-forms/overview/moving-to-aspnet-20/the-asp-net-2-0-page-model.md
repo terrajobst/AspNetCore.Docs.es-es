@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
-title: "El modelo ASP.NET 2.0 página | Documentos de Microsoft"
+title: El modelo ASP.NET 2.0 página | Documentos de Microsoft
 author: microsoft
-description: "En ASP.NET 1.x, los programadores tenían una opción entre un modelo de código en línea y un modelo de código de código subyacente. Código subyacente se pueden implementar mediante el attr de Src..."
+description: En ASP.NET 1.x, los programadores tenían una opción entre un modelo de código en línea y un modelo de código de código subyacente. Código subyacente se pueden implementar mediante el attr de Src...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/the-asp-net-2-0-page-model
 msc.type: authoredcontent
-ms.openlocfilehash: e008f197cf08bec81c560018f2d42306598f9e6d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fda85ec03f845cafa7720382bf85652937932c44
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-aspnet-20-page-model"></a>El modelo de páginas 2.0 de ASP.NET
 ====================
@@ -115,7 +115,7 @@ Este atributo permite invalidar propiedades de apariencia de interfaz de usuario
 
 Especifica el tema de la página. Si no se especifica un valor para el atributo StyleSheetTheme, el atributo de tema invalida todos los estilos aplicados a los controles de la página.
 
-## <a name="title"></a>Título
+## <a name="title"></a>Title
 
 Establece el título de la página. El valor especificado aquí aparecerán en la &lt;título&gt; elemento de la página presentada.
 
@@ -148,7 +148,7 @@ Devuelve la ruta de acceso relativa a la aplicación a la página o el control. 
 
 ## <a name="apprelativevirtualpath"></a>AppRelativeVirtualPath
 
-Devuelve la ruta de acceso virtual relativa a la página o el control. Por ejemplo para una página que se encuentra en http://app/folder/page.aspx, la propiedad devuelve ~ / folder/page.aspx.
+Devuelve la ruta de acceso virtual relativa a la página o el control. Por ejemplo, para una página que se encuentra en http://app/folder/page.aspx, la propiedad devuelve ~ / folder/page.aspx.
 
 ## <a name="asynctimeout"></a>AsyncTimeout
 
@@ -238,7 +238,7 @@ Devuelve una referencia al control de contenedor para la página.
 
 Obtiene o establece el nombre del tema de ASP.NET 2.0 aplicado a la página. Este valor debe establecerse antes del método PreInit.
 
-## <a name="title"></a>Título
+## <a name="title"></a>Title
 
 Esta propiedad obtiene o establece el título de la página obtenida con el encabezado de páginas.
 
@@ -600,11 +600,13 @@ Utilice el método IsStartupScriptRegistered comprobó para determinar si ya se 
 
 Éstos son algunos de los otros métodos de la clase ClientScriptManager útiles.
 
-| **GetCallbackEventReference** | Vea las devoluciones de llamada de secuencia de comandos incluida anteriormente en este módulo. |
-| --- | --- |
-| **GetPostBackClientHyperlink** | Obtiene una referencia de JavaScript (javascript:&lt;llamar&gt;) que se puede utilizar para registrar desde un evento de cliente. |
-| **GetPostBackEventReference** | Obtiene una cadena que puede utilizarse para iniciar una operación post desde el cliente. |
-| **GetWebResourceUrl** | Devuelve una dirección URL a un recurso que está incrustado en un ensamblado. Debe utilizarse junto con **RegisterClientScriptResource**. |
-| **RegisterClientScriptResource** | Registra un recurso Web con la página. Estos son los recursos incrustados en ensamblados y administradas por el nuevo controlador WebResource.axd. |
-| **RegisterHiddenField** | Registra un campo oculto del formulario en la página. |
-| **RegisterOnSubmitStatement** | Registra el código de cliente que se ejecuta cuando se envía el formulario HTML. |
+
+|  <strong>GetCallbackEventReference</strong>   |                                                 Vea las devoluciones de llamada de secuencia de comandos incluida anteriormente en este módulo.                                                 |
+|-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+|  <strong>GetPostBackClientHyperlink</strong>  |                Obtiene una referencia de JavaScript (javascript:&lt;llamar&gt;) que se puede utilizar para registrar desde un evento de cliente.                 |
+|  <strong>GetPostBackEventReference</strong>   |                                   Obtiene una cadena que puede utilizarse para iniciar una operación post desde el cliente.                                    |
+|      <strong>GetWebResourceUrl</strong>       | Devuelve una dirección URL a un recurso que está incrustado en un ensamblado. Debe utilizarse junto con <strong>RegisterClientScriptResource</strong>. |
+| <strong>RegisterClientScriptResource</strong> |     Registra un recurso Web con la página. Estos son los recursos incrustados en ensamblados y administradas por el nuevo controlador WebResource.axd.      |
+|     <strong>RegisterHiddenField</strong>      |                                                 Registra un campo oculto del formulario en la página.                                                 |
+|  <strong>RegisterOnSubmitStatement</strong>   |                                  Registra el código de cliente que se ejecuta cuando se envía el formulario HTML.                                   |
+

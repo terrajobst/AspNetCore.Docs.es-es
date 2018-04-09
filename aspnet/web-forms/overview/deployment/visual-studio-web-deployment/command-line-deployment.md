@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
-title: "Implementación de Web ASP.NET con Visual Studio: implementación de línea de comandos | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: implementación de línea de comandos | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/command-line-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 8446b3fc05e3ef4a5a30c753c989252fd7f1a56f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: acc4a0e7f4744a3759b90e0f1b159da68b7c7362
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-command-line-deployment"></a>Implementación de Web ASP.NET con Visual Studio: implementación de línea de comandos
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -45,7 +45,7 @@ Abra la *About.aspx* página, elimine todas las revisiones dentro de la `MainCon
 
 Ejecute el proyecto y seleccione el **sobre** página.
 
-![Acerca de la página](command-line-deployment/_static/image2.png)
+![Página About](command-line-deployment/_static/image2.png)
 
 ## <a name="deploy-to-test-by-using-the-command-line"></a>Implementar en prueba mediante la línea de comandos
 
@@ -98,9 +98,9 @@ Puede especificar el perfil de publicación por nombre o por la ruta de acceso c
 
 Tres métodos de publicación se admiten para la publicación de la línea de comandos:
 
-- `MSDeploy`-Publicar mediante Web Deploy.
-- `Package`-Publicar mediante la creación de un paquete de Web Deploy. Tendrá que instalar el paquete por separado desde el comando de MSBuild que lo crea.
-- `FileSystem`-Publicar copiando archivos a una carpeta especificada.
+- `MSDeploy` -Publicar mediante Web Deploy.
+- `Package` -Publicar mediante la creación de un paquete de Web Deploy. Tendrá que instalar el paquete por separado desde el comando de MSBuild que lo crea.
+- `FileSystem` -Publicar copiando archivos a una carpeta especificada.
 
 ### <a name="specifying-the-build-configuration-and-platform"></a>Especificar la configuración de compilación y plataforma
 
@@ -144,6 +144,6 @@ Ahora ha implementado una actualización de la aplicación mediante la línea de
 
 En el siguiente tutorial, verá un ejemplo de cómo extender la web canalización de publicación. En el ejemplo se le mostrará cómo implementar archivos que no están incluidos en el proyecto.
 
->[!div class="step-by-step"]
-[Anterior](deploying-a-database-update.md)
-[Siguiente](deploying-extra-files.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-a-database-update.md)
+> [Siguiente](deploying-extra-files.md)

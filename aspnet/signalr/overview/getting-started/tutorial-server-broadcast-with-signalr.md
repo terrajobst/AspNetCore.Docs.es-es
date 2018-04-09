@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
-title: "Tutorial: Servidor difusión con SignalR 2 | Documentos de Microsoft"
+title: 'Tutorial: Servidor difusión con SignalR 2 | Documentos de Microsoft'
 author: tdykstra
-description: "Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR 2 para proporcionar funcionalidad de difusión de servidor. Difusión de servidor significa que esa común..."
+description: Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR 2 para proporcionar funcionalidad de difusión de servidor. Difusión de servidor significa que esa común...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 98a7ce4991d58181177cf56976888e9fd1526987
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de4ccb4f0865e250fa0d78a9707fe5129c78e764
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Tutorial: Servidor difusión con SignalR 2
 ====================
@@ -65,7 +65,7 @@ La aplicación que compilará en la primera parte de este tutorial muestra una c
 
 ![Versión inicial de indicador de cotizaciones](tutorial-server-broadcast-with-signalr/_static/image1.png)
 
-Periódicamente el servidor aleatoriamente actualiza cotizaciones e inserta las actualizaciones a todos los clientes conectados. En el explorador los números y símbolos en el **cambiar** y  **%**  columnas cambian dinámicamente en respuesta a las notificaciones desde el servidor. Si abre exploradores adicionales a la misma dirección URL, todos ellos muestran los mismos datos y los mismos cambios a los datos al mismo tiempo.
+Periódicamente el servidor aleatoriamente actualiza cotizaciones e inserta las actualizaciones a todos los clientes conectados. En el explorador los números y símbolos en el **cambiar** y **%** columnas cambian dinámicamente en respuesta a las notificaciones desde el servidor. Si abre exploradores adicionales a la misma dirección URL, todos ellos muestran los mismos datos y los mismos cambios a los datos al mismo tiempo.
 
 Este tutorial contiene las siguientes secciones:
 
@@ -218,7 +218,7 @@ Ahora ha completado al configurar el código de servidor. En la siguiente secci�
 
     Las etiquetas de script especifican el archivo de script de jQuery, el archivo de script de SignalR core, el archivo de script de SignalR servidores proxy y un archivo de script de indicador de cotizaciones que creará más adelante. El archivo de script de proxy de SignalR, que especifica la dirección URL "/ signalr/concentradores", se genera dinámicamente y define los métodos de proxy para los métodos de la clase base de datos central, en este caso para StockTickerHub.GetAllStocks. Si lo prefiere, puede generar este archivo JavaScript manualmente mediante [utilidades de SignalR](http://nuget.org/packages/Microsoft.AspNet.SignalR.Utils/) y deshabilitar la creación dinámica de archivos en la llamada al método MapHubs.
 3. > [!IMPORTANT]
- > Asegúrese de que el archivo JavaScript hace referencia en *StockTicker.html* son correctos. Es decir, asegúrese de que la versión de jQuery en la etiqueta de script (1.10.2 en el ejemplo) es la misma que la versión de jQuery en el proyecto *Scripts* carpeta y asegúrese de que la versión de SignalR en la etiqueta de script es el mismo que el objeto de SignalR versión del proyecto *Scripts* carpeta. Si es necesario, cambie los nombres de archivo en las etiquetas de script.
+   > Asegúrese de que el archivo JavaScript hace referencia en *StockTicker.html* son correctos. Es decir, asegúrese de que la versión de jQuery en la etiqueta de script (1.10.2 en el ejemplo) es la misma que la versión de jQuery en el proyecto *Scripts* carpeta y asegúrese de que la versión de SignalR en la etiqueta de script es el mismo que el objeto de SignalR versión del proyecto *Scripts* carpeta. Si es necesario, cambie los nombres de archivo en las etiquetas de script.
 4. En **el Explorador de soluciones**, haga clic en *StockTicker.html*y, a continuación, haga clic en **establecer como página de inicio**.
 5. Crear un nuevo archivo de JavaScript en la carpeta del proyecto y asígnele el nombre *StockTicker.js*...
 6. Reemplace el código de plantilla con el código siguiente:

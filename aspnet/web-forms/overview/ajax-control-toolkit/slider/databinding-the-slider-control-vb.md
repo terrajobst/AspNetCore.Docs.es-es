@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 title: Enlace de datos del Control deslizante (VB) | Documentos de Microsoft
 author: wenz
-description: "El control deslizante en el Kit de herramientas de Control de AJAX proporciona un control deslizante gráfico que puede controlarse mediante el mouse. Es posible enlazar el sición actual..."
+description: El control deslizante en el Kit de herramientas de Control de AJAX proporciona un control deslizante gráfico que puede controlarse mediante el mouse. Es posible enlazar el sición actual...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d106fda523356c9b7abd2d82b2d82537b50bd21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3ecd8598cd7fdcbbb4812e501bb30fa1f563a054
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="databinding-the-slider-control-vb"></a>Enlace de datos del Control deslizante (VB)
 ====================
@@ -52,5 +52,5 @@ Como puede ver en el explorador, el enlace de datos funciona en ambas direccione
 
 Control deslizante y el cuadro de texto están sincronizados ([haga clic aquí para ver la imagen a tamaño completo](databinding-the-slider-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](using-the-slider-control-with-auto-postback-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-slider-control-with-auto-postback-vb.md)

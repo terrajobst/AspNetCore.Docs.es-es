@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
-title: "Los filtros de acción personalizada de ASP.NET MVC 4 | Documentos de Microsoft"
+title: Los filtros de acción personalizada de ASP.NET MVC 4 | Documentos de Microsoft
 author: rick-anderson
-description: "ASP.NET MVC proporciona filtros de acción para ejecutar lógica de filtrado antes o después de llama a un método de acción. Los filtros de acción son atributos personalizados tha..."
+description: ASP.NET MVC proporciona filtros de acción para ejecutar lógica de filtrado antes o después de llama a un método de acción. Los filtros de acción son atributos personalizados tha...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-custom-action-filters
 msc.type: authoredcontent
-ms.openlocfilehash: 639815cc92b7cb5f3dfb4e1a198f6b4c2476dc90
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8b135b23aea64b0c7c7d4368eef9ee80914159e4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-custom-action-filters"></a>Filtros de acción personalizada de ASP.NET MVC 4
 
@@ -139,14 +139,14 @@ En esta tarea creará una clase de atributo de filtro personalizado que contendr
 
 1. Abra la **comenzar** solución ubicado en **\Source\Ex01-LoggingActions\Begin** carpeta.
 
-    1. Debe descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Debe descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
-    > 
-    > Para obtener más información, consulte este artículo: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > 
+      > Para obtener más información, consulte este artículo: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Agregue una nueva clase de C# en el **filtros** carpeta y asígnele el nombre *CustomActionFilter.cs*. Esta carpeta almacenará todos los filtros personalizados.
 3. Abra **CustomActionFilter.cs** y agregue una referencia a **System.Web.Mvc** y **MvcMusicStore.Models** espacios de nombres:
 
@@ -185,10 +185,10 @@ También es posible interceptar un método de un controlador específico.
 
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample5.cs)]
 
-    > [!NOTE]
-    > Cuando se aplica un filtro en una clase de controlador, también se insertan todas sus acciones. Si desea que se aplica el filtro sólo para un conjunto de acciones, tendría que insertar **[CustomActionFilter]** a cada uno de ellos:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
+   > [!NOTE]
+   > Cuando se aplica un filtro en una clase de controlador, también se insertan todas sus acciones. Si desea que se aplica el filtro sólo para un conjunto de acciones, tendría que insertar **[CustomActionFilter]** a cada uno de ellos:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample6.cs)]
 
 <a id="Ex1Task3"></a>
 
@@ -204,14 +204,14 @@ En esta tarea, probará que funciona el filtro de registro. Se iniciará la apli
 
     *Estado de seguimiento de registro antes de la actividad de la página*
 
-    > [!NOTE]
-    > De forma predeterminada, siempre mostrará un elemento que se genera cuando se recuperan los géneros existentes para el menú.
-    > 
-    > Para fines de simplificar nos estamos limpiar el **ActionLog** tabla cada vez que se ejecuta la aplicación, por lo que sólo mostrará los registros de comprobación de cada tarea determinada.
-    > 
-    > Tendrá que quitar el código siguiente desde el **sesión\_iniciar** (método) (en el **Global.asax** clase), con el fin de guardar un registro histórico de todas las acciones que se ejecuta en el almacén Controlador.
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
+   > [!NOTE]
+   > De forma predeterminada, siempre mostrará un elemento que se genera cuando se recuperan los géneros existentes para el menú.
+   > 
+   > Para fines de simplificar nos estamos limpiar el **ActionLog** tabla cada vez que se ejecuta la aplicación, por lo que sólo mostrará los registros de comprobación de cada tarea determinada.
+   > 
+   > Tendrá que quitar el código siguiente desde el **sesión\_iniciar** (método) (en el **Global.asax** clase), con el fin de guardar un registro histórico de todas las acciones que se ejecuta en el almacén Controlador.
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample7.cs)]
 3. Haga clic en uno de los **géneros** en el menú y realizar algunas acciones, como navegar por un álbum disponible.
 4. Vaya a **/ActionLog** y si el registro está vacío presione **F5** para actualizar la página. Compruebe que se realizó el seguimiento de las visitas:
 
@@ -250,7 +250,7 @@ En esta tarea, creará un nuevo filtro de acción personalizado para insertar en
         > [!NOTE]
         > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
         > 
-        > Para obtener más información, consulte este artículo: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+        > Para obtener más información, consulte este artículo: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Agregue una nueva clase de C# en el **filtros** carpeta y asígnele el nombre *MyNewCustomActionFilter.cs*
 3. Abra **MyNewCustomActionFilter.cs** y agregue una referencia a **System.Web.Mvc** y **MvcMusicStore.Models** espacio de nombres:
 
@@ -264,7 +264,7 @@ En esta tarea, creará un nuevo filtro de acción personalizado para insertar en
     [!code-csharp[Main](aspnet-mvc-4-custom-action-filters/samples/sample9.cs)]
 
     > [!NOTE]
-    > Este filtro de acción personalizado es casi idéntico a la que creó en el ejercicio anterior. La principal diferencia es que tiene el  *&quot;iniciado por&quot;*  atributo actualizado con el nombre de esta nueva clase para identificar el filtro wich registra el registro.
+    > Este filtro de acción personalizado es casi idéntico a la que creó en el ejercicio anterior. La principal diferencia es que tiene el *&quot;iniciado por&quot;* atributo actualizado con el nombre de esta nueva clase para identificar el filtro wich registra el registro.
 
 <a id="Ex2Task2"></a>
 
@@ -376,9 +376,9 @@ Al completar este laboratorio práctico ha aprendido cómo ampliar un filtro de 
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Apéndice A: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la  **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
-1. Vaya a [ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con SDK de Windows Azure*&quot;.
+1. Vaya a [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con SDK de Windows Azure</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 
@@ -522,14 +522,14 @@ Si la aplicación realiza el uso de SQL Server debe crear un servidor de base de
     *Configuración de Web deploy*
 5. Configure la conexión de base de datos de la manera siguiente:
 
-    - En el **nombre del servidor** escriba la dirección URL de base de datos de SQL server mediante la *tcp:* prefijo.
-    - En **nombre de usuario** escriba el nombre de inicio de sesión del Administrador de servidor.
-    - En **contraseña** escriba la contraseña de inicio de sesión de administrador de servidor.
-    - Escriba un nuevo nombre de base de datos.
+   - En el **nombre del servidor** escriba la dirección URL de base de datos de SQL server mediante la *tcp:* prefijo.
+   - En **nombre de usuario** escriba el nombre de inicio de sesión del Administrador de servidor.
+   - En **contraseña** escriba la contraseña de inicio de sesión de administrador de servidor.
+   - Escriba un nuevo nombre de base de datos.
 
-    ![Configurar la cadena de conexión de destino](aspnet-mvc-4-custom-action-filters/_static/image33.png "configurar la cadena de conexión de destino")
+     ![Configurar la cadena de conexión de destino](aspnet-mvc-4-custom-action-filters/_static/image33.png "configurar la cadena de conexión de destino")
 
-    *Configurar la cadena de conexión de destino*
+     *Configurar la cadena de conexión de destino*
 6. A continuación, haga clic en **Aceptar**. Cuando se le solicite para crear la base de datos, haga clic en **Sí**.
 
     ![Crear la base de datos](aspnet-mvc-4-custom-action-filters/_static/image34.png "crear la cadena de la base de datos")

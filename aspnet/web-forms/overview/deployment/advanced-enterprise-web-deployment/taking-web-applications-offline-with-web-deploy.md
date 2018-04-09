@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
-title: "Implementarán aplicaciones sin conexión de toma de Web con Web | Documentos de Microsoft"
+title: Implementarán aplicaciones sin conexión de toma de Web con Web | Documentos de Microsoft
 author: jrjlee
-description: "Este tema describe cómo hacer que una aplicación web sin conexión durante el tiempo que dure una implementación automatizada mediante el Administrador de implementaciones de Web de Internet Information Services (IIS)..."
+description: Este tema describe cómo hacer que una aplicación web sin conexión durante el tiempo que dure una implementación automatizada mediante el Administrador de implementaciones de Web de Internet Information Services (IIS)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/taking-web-applications-offline-with-web-deploy
 msc.type: authoredcontent
-ms.openlocfilehash: 1c262ec7b834107524a18c6552b171f731452c91
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 511201dc5646340b21023430fa319417f2b53ae2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="taking-web-applications-offline-with-web-deploy"></a>Implementarán aplicaciones sin conexión de toma de Web con Web
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > En este tema se describe cómo hacer que una aplicación web sin conexión durante el tiempo que dure una implementación automatizada con la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy). Los usuarios que vaya a la aplicación web se redirigen a un *aplicación\_offline.htm* archivo hasta que se complete la implementación.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
@@ -94,7 +94,7 @@ Para automatizar estos comandos como parte de un proceso de compilación e imple
 2. En la raíz **proyecto** elemento, cree un nuevo **PropertyGroup** elemento que se va a almacenar las variables para el *aplicación\_sin conexión* implementación:
 
     [!code-xml[Main](taking-web-applications-offline-with-web-deploy/samples/sample3.xml)]
-3. El **SourceRoot** propiedad se define en otra parte en el *Publish.proj* archivo. Indica la ubicación de la carpeta raíz para el contenido de origen en relación con la ruta de acceso actual & #x 2014; es decir, relativa a la ubicación de la *Publish.proj* archivo.
+3. El **SourceRoot** propiedad se define en otra parte en el *Publish.proj* archivo. Indica la ubicación de la carpeta raíz para el contenido de origen en relación con la ruta de acceso actual&#x2014;en otras palabras, con respecto a la ubicación de la *Publish.proj* archivo.
 4. El **contentPath** proveedor no aceptará las rutas de acceso de archivo relativa, por lo que necesita obtener una ruta de acceso absoluta al archivo de origen para que puede implementar. Puede usar el [ConvertToAbsolutePath](https://msdn.microsoft.com/library/bb882668.aspx) tarea para hacer esto.
 5. Agregue un nuevo **destino** elemento denominado **GetAppOfflineAbsolutePath**. En este destino, use la **ConvertToAbsolutePath** tarea para obtener una ruta de acceso absoluta a la *aplicación\_plantillas sin conexión* archivo en la carpeta del proyecto.
 
@@ -116,7 +116,7 @@ Al ejecutar el archivo de proyecto de MSBuild personalizado, el *aplicación\_si
 
 ## <a name="adding-an-appoffline-file-to-deployment-packages"></a>Adición de una aplicación\_archivos sin conexión a los paquetes de implementación
 
-Dependiendo de cómo configurar la implementación, cualquier contenido existente en la aplicación web IIS de destino & #x 2014; como el *aplicación\_offline.htm* archivo & #x 2014; podrían eliminarse automáticamente cuando se implementa un sitio web paquete para el destino. Para asegurarse de que el *aplicación\_offline.htm* archivo permanece en su lugar para la duración de la implementación, debe incluir el archivo dentro del propio paquete de implementación web además implementar el archivo directamente en el inicio de el proceso de implementación.
+Dependiendo de cómo configure la implementación, cualquier contenido existente en el destino IIS aplicación web&#x2014;como el *aplicación\_offline.htm* archivo&#x2014;podrían eliminarse automáticamente cuando se implementa un sitio web paquete para el destino. Para asegurarse de que el *aplicación\_offline.htm* archivo permanece en su lugar para la duración de la implementación, debe incluir el archivo dentro del propio paquete de implementación web además implementar el archivo directamente en el inicio de el proceso de implementación.
 
 - Si ha seguido las tareas anteriores de este tema, se habrán agregado el *aplicación\_offline.htm* archivo al proyecto de aplicación web en un nombre de archivo diferente (utilizáramos *aplicación\_ sin conexión template.htm*) y habrá establece la acción de compilación en **ninguno**. Estos cambios son necesarios para evitar que el archivo desde interfiera con el desarrollo y depuración. Como resultado, debe personalizar el proceso de empaquetado para asegurarse de que el *aplicación\_offline.htm* archivo se incluye en el paquete de implementación web.
 
@@ -125,7 +125,7 @@ La canalización de publicación de Web (WPP) utiliza una lista de elementos con
 1. Cree un archivo de proyecto personalizado denominado *.wpp.targets [nombre del proyecto]* en la misma carpeta que el archivo de proyecto.
 
     > [!NOTE]
-    > El *. wpp.targets* archivo debe estar en la misma carpeta que el archivo de proyecto de aplicación web & #x 2014; por ejemplo, *ContactManager.Mvc.csproj*& #x 2014; en lugar de en la misma carpeta cualquiera archivos de proyecto personalizadas que se usan al control de la compilación y proceso de implementación.
+    > El *. wpp.targets* archivo debe estar en la misma carpeta que el archivo de proyecto de aplicación web&#x2014;por ejemplo, *ContactManager.Mvc.csproj*&#x2014;en lugar de en la misma carpeta que personalizada archivos de proyecto que se usan para controlar el proceso de compilación e implementación.
 2. En el *. wpp.targets* , cree un nuevo destino de MSBuild que ejecuta *antes de* el **CopyAllFilesToSingleFolderForPackage** destino. Este es el destino WPP que genera una lista de aspectos que se deben incluir en el paquete.
 3. En el nuevo destino, cree un **ItemGroup** elemento.
 4. En el **ItemGroup** elemento, agregue un **FilesForPackagingFromProject** de elemento y especifique el *aplicación\_offline.htm* archivo.
@@ -175,6 +175,6 @@ Para obtener más información sobre el empaquetado y el proceso de implementaci
 
 Si publicar sus aplicaciones web directamente desde Visual Studio, en lugar de usar el enfoque de archivo de proyecto de MSBuild personalizado descrito en estos tutoriales, necesitará utilizar un enfoque ligeramente diferente para hacer que su aplicación sin conexión durante la publicación proceso. Para obtener más información, consulte [cómo aprovechar la aplicación web sin conexión durante la publicación](https://go.microsoft.com/?linkid=9805135) (entrada de blog).
 
->[!div class="step-by-step"]
-[Anterior](excluding-files-and-folders-from-deployment.md)
-[Siguiente](running-windows-powershell-scripts-from-msbuild-project-files.md)
+> [!div class="step-by-step"]
+> [Anterior](excluding-files-and-folders-from-deployment.md)
+> [Siguiente](running-windows-powershell-scripts-from-msbuild-project-files.md)

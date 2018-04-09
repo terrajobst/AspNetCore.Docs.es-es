@@ -1,7 +1,7 @@
 ---
-title: Formato de almacenamiento de claves
+title: Formato de almacenamiento de claves en ASP.NET Core
 author: tdykstra
-description: "Este documento explica los detalles de implementación del formato de almacenamiento de claves de protección de datos de ASP.NET Core."
+description: Obtenga información acerca de los detalles de implementación del formato de almacenamiento de claves de protección de datos de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-format
-ms.openlocfilehash: 66783eb7264a4551eafdd9d5c7d99b014701a6de
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: abe23da3de70107aa4f4d84f4da27aadfe7b2061
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-storage-format"></a>Formato de almacenamiento de claves
+# <a name="key-storage-format-in-aspnet-core"></a>Formato de almacenamiento de claves en ASP.NET Core
 
 <a name="data-protection-implementation-key-storage-format"></a>
 
@@ -66,7 +66,7 @@ El formato en cuestión de la \<descriptor > elemento depende de la implementaci
 
 ## <a name="the-encryptedsecret-element"></a>El \<encryptedSecret > elemento
 
-Un <encryptedSecret> elemento que contiene la forma cifrada del material de clave secreta puede estar presente si [está habilitado el cifrado de secretos en reposo](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest). El atributo decryptorType será el nombre calificado con el ensamblado de un tipo que implementa IXmlDecryptor. Este tipo es responsable de leer interna <encryptedKey> elemento y el descifrado para recuperar el texto sin formato original.
+Un <encryptedSecret> elemento que contiene la forma cifrada del material de clave secreta puede estar presente si [está habilitado el cifrado de secretos en reposo](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest). El atributo decryptorType será el nombre calificado con el ensamblado de un tipo que implementa IXmlDecryptor. Este tipo es responsable de leer interna <encryptedKey> elemento y el descifrado para recuperar el texto sin formato original.
 
 Al igual que con \<descriptor >, el formato en cuestión de la <encryptedSecret> elemento depende el mecanismo de cifrado en reposo en uso. En el ejemplo anterior, la clave maestra se cifra mediante DPAPI de Windows por el comentario.
 

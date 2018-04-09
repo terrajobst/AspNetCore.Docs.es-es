@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
-title: "La cuenta de confirmación y recuperación de contraseña con la identidad de ASP.NET (C#) | Documentos de Microsoft"
+title: La cuenta de confirmación y recuperación de contraseña con la identidad de ASP.NET (C#) | Documentos de Microsoft
 author: HaoK
-description: "Antes de realizar este tutorial que debe completar primero cree una aplicación web de ASP.NET MVC 5 segura con registro de restablecimiento de contraseña y de confirmación de correo electrónico. Este tutorial..."
+description: Antes de realizar este tutorial que debe completar primero cree una aplicación web de ASP.NET MVC 5 segura con registro de restablecimiento de contraseña y de confirmación de correo electrónico. Este tutorial...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
 ms.topic: article
 ms.assetid: 8d54180d-f826-4df7-b503-7debf5ed9fb3
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/account-confirmation-and-password-recovery-with-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 548baaaa06980fb793c079b66b6edc34422eb579
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0167388cf6b488b72ca36f583a7794690dbf9900
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="account-confirmation-and-password-recovery-with-aspnet-identity-c"></a>Confirmación de cuenta y contraseña de recuperación con la identidad de ASP.NET (C#)
 ====================
@@ -88,7 +88,7 @@ Empiece por instalar y ejecutar [Visual Studio Express 2013 para Web](https://go
   
     ![](account-confirmation-and-password-recovery-with-aspnet-identity/_static/image10.png)  
   
- En este momento, no se ha confirmado el correo electrónico.
+   En este momento, no se ha confirmado el correo electrónico.
 
 El almacén de datos predeterminado para ASP.NET Identity es Entity Framework, pero puede configurarlo para usar otros almacenes de datos y para agregar campos adicionales. Vea [recursos adicionales](#addRes) sección al final de este tutorial.
 
@@ -117,7 +117,7 @@ Examine el `ApplicationUserManager` (clase), que contiene la información de ide
 - Autenticación en dos fases (2FA). Se cubren 2FA y SMS en el otro tutorial.
 - Enlazar el correo electrónico y servicios de SMS. (Tratarán SMS en otro tutorial).
 
-El `ApplicationUserManager` clase se deriva de la interfaz genérica `UserManager<ApplicationUser>` clase. `ApplicationUser`se deriva de [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser`se deriva de la interfaz genérica `IdentityUser` clase:
+El `ApplicationUserManager` clase se deriva de la interfaz genérica `UserManager<ApplicationUser>` clase. `ApplicationUser` se deriva de [IdentityUser](https://msdn.microsoft.com/library/microsoft.aspnet.identity.entityframework.identityuser.aspx). `IdentityUser` se deriva de la interfaz genérica `IdentityUser` clase:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample1.cs)]
 
@@ -127,11 +127,11 @@ Argumentos genéricos en `IUser` le permiten derivar una clase con distintos tip
 
 ### <a name="applicationuser"></a>ApplicationUser
 
-`ApplicationUser`(`public class ApplicationUserManager : UserManager<ApplicationUser>`) se define en *Models\IdentityModels.cs* como:
+`ApplicationUser` (`public class ApplicationUserManager : UserManager<ApplicationUser>`) se define en *Models\IdentityModels.cs* como:
 
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample2.cs?highlight=8-9)]
 
-El resaltado código anterior genera un [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity y OWIN Cookie de autenticación basada en notificaciones, por lo tanto, el marco de trabajo requiere la aplicación para generar un `ClaimsIdentity` para el usuario. `ClaimsIdentity`contiene información acerca de todas las notificaciones para el usuario, como el nombre del usuario, la edad y cuáles son las funciones que pertenece el usuario. También puede agregar más notificaciones para el usuario en esta fase.
+El resaltado código anterior genera un [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). ASP.NET Identity y OWIN Cookie de autenticación basada en notificaciones, por lo tanto, el marco de trabajo requiere la aplicación para generar un `ClaimsIdentity` para el usuario. `ClaimsIdentity` contiene información acerca de todas las notificaciones para el usuario, como el nombre del usuario, la edad y cuáles son las funciones que pertenece el usuario. También puede agregar más notificaciones para el usuario en esta fase.
 
 OWIN `AuthenticationManager.SignIn` método pasa en el `ClaimsIdentity` e inicia sesión en el usuario:
 
@@ -152,7 +152,7 @@ En esta sección, deberá usar NuGet para descargar un ejemplo más completo, co
 
     [!code-console[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample4.cmd)]
 
- En este tutorial, usaremos [SendGrid](http://sendgrid.com/) para enviar correo electrónico. El `Identity.Samples` paquete instala el código que se va a trabajar.
+   En este tutorial, usaremos [SendGrid](http://sendgrid.com/) para enviar correo electrónico. El `Identity.Samples` paquete instala el código que se va a trabajar.
 3. Establecer el [proyecto para usar SSL](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md).
 4. Creación de la cuenta local de pruebas mediante la ejecución de la aplicación, haga clic en el **registrar** vincular y publicar el formulario de registro.
 5. Haga clic en el vínculo de correo electrónico de demostración, que simula la confirmación por correo electrónico.
@@ -198,7 +198,7 @@ El código siguiente muestra cómo enviar correo electrónico utilizando el [Mai
 [!code-csharp[Main](account-confirmation-and-password-recovery-with-aspnet-identity/samples/sample8.cs)]
 
 > [!WARNING]
-> Seguridad - nunca almacenar los datos confidenciales en el código fuente. La cuenta y las credenciales se almacenan en el appSetting. En Azure, puede almacenar con seguridad estos valores en el  **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  ficha en el portal de Azure. Vea [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Seguridad - nunca almacenar los datos confidenciales en el código fuente. La cuenta y las credenciales se almacenan en el appSetting. En Azure, puede almacenar con seguridad estos valores en el **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ficha en el portal de Azure. Vea [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 Escriba las credenciales de SendGrid, ejecutar la aplicación, registrarse con un alias de correo electrónico puede haga clic en el vínculo de confirmación en el correo electrónico. Para ver cómo hacerlo con su [Outlook.com](http://outlook.com) cuentas de correo electrónico, consulte de John Atten [configuración SMTP de C# para el Host de SMTP de Outlook.Com](http://typecastexception.com/post/2013/12/20/C-SMTP-Configuration-for-OutlookCom-SMTP-Host.aspx) y su[ASP.NET 2.0 de identidad: configuración de la validación de la cuenta y la autorización de dos fases](http://typecastexception.com/post/2014/04/20/ASPNET-Identity-20-Setting-Up-Account-Validation-and-Two-Factor-Authorization.aspx) envía.

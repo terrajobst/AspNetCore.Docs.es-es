@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 title: Asignar Roles a los usuarios (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial crearemos dos páginas ASP.NET para ayudar con la administración de los que los usuarios pertenecen a qué funciones. La primera página incluirá instalaciones para ver qué..."
+description: En este tutorial crearemos dos páginas ASP.NET para ayudar con la administración de los que los usuarios pertenecen a qué funciones. La primera página incluirá instalaciones para ver qué...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/24/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/assigning-roles-to-users-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 15d2b427e6fccfc82eab535200ba6878ab41b72e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a0518cd04f6b7f055a413b2b236712965451839c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="assigning-roles-to-users-c"></a>Asignar Roles a los usuarios (C#)
 ====================
@@ -362,12 +362,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a...
 
-Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Teresa Murphy. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Teresa Murphy. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](creating-and-managing-roles-cs.md)
-[Siguiente](role-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-and-managing-roles-cs.md)
+> [Siguiente](role-based-authorization-cs.md)

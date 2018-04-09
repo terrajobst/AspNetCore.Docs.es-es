@@ -2,7 +2,7 @@
 uid: signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 title: Pruebas unitarias de aplicaciones SignalR | Documentos de Microsoft
 author: pfletcher
-description: "En este artículo se describe cómo usar las características de pruebas unitarias de SignalR 2.0."
+description: En este artículo se describe cómo usar las características de pruebas unitarias de SignalR 2.0.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: d767e1a9d27670387133e5a48a8f92f5bdd39d9e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cff866716cb1179e02b930f33cb0f8c33d4a6cf0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unit-testing-signalr-applications"></a>Aplicaciones de SignalR de pruebas unitarias
 ====================
@@ -72,11 +72,11 @@ En esta sección, agregará una prueba unitaria para la aplicación creada en el
     ![Agregar referencia de proyecto](unit-testing-signalr-applications/_static/image3.png)
 6. Agregar los paquetes SignalR, Moq y XUnit el **TestLibrary** proyecto. En el **Package Manager Console**, establezca el **proyecto predeterminado** control dropdown **TestLibrary**. Ejecute los siguientes comandos en la ventana de consola:
 
-    - `Install-Package Microsoft.AspNet.SignalR`
-    - `Install-Package Moq`
-    - `Install-Package XUnit`
+   - `Install-Package Microsoft.AspNet.SignalR`
+   - `Install-Package Moq`
+   - `Install-Package XUnit`
 
-    ![Instalar paquetes](unit-testing-signalr-applications/_static/image4.png)
+     ![Instalar paquetes](unit-testing-signalr-applications/_static/image4.png)
 7. Crear el archivo de prueba. Haga clic en el **TestLibrary** del proyecto y haga clic en **agregar...** , **Clase**. La nueva clase el nombre **Tests.cs**.
 8. Reemplace el contenido de Tests.cs con el código siguiente.
 

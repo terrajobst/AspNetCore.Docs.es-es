@@ -1,7 +1,7 @@
 ---
-title: "Administración de claves"
+title: Administración de claves en ASP.NET Core
 author: rick-anderson
-description: "Este documento describen los detalles de implementación de la administración de claves de protección las API de datos principal de ASP.NET."
+description: Obtenga información acerca de los detalles de implementación de la administración de claves de protección de datos de ASP.NET Core API.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-management
-ms.openlocfilehash: a1fd7c55ec94d5def569bb407c064f4fd2fe9695
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 1b073d8779547a828c17e825b0663b26efb61d14
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-management"></a>Administración de claves
+# <a name="key-management-in-aspnet-core"></a>Administración de claves en ASP.NET Core
 
 <a name="data-protection-implementation-key-management"></a>
 
@@ -29,7 +29,7 @@ El sistema de protección de datos administra automáticamente la duración de c
 
 * Revocar - la clave está en peligro y no se debe utilizar para nuevas operaciones de protección.
 
-Claves creadas, activas y caducadas pueden utilizarse para desproteger cargas entrantes. Claves revocadas de forma predeterminada no pueden usarse para desproteger cargas, pero el desarrollador de aplicaciones puede [invalidar este comportamiento](../consumer-apis/dangerous-unprotect.md#data-protection-consumer-apis-dangerous-unprotect) si es necesario.
+Claves creadas, activas y caducadas pueden utilizarse para desproteger cargas entrantes. Claves revocadas de forma predeterminada no pueden usarse para desproteger cargas, pero el desarrollador de aplicaciones puede [invalidar este comportamiento](xref:security/data-protection/consumer-apis/dangerous-unprotect#data-protection-consumer-apis-dangerous-unprotect) si es necesario.
 
 >[!WARNING]
 > El programador podría verse tentado a eliminar una clave desde el anillo de clave (p. ej., eliminando el archivo correspondiente del sistema de archivos). En ese momento, todos los datos protegidos por la clave es indescifrables permanentemente, y no hay ninguna invalidación emergencia que hay con claves revocadas. Si se elimina una clave es un comportamiento destructivo realmente y, por consiguiente, el sistema de protección de datos no expone ninguna API de primera clase para realizar esta operación.
@@ -83,6 +83,6 @@ El ejemplo siguiente muestra cómo utilizar el `IKeyManager` interfaz para inspe
 
 El sistema de protección de datos tiene una heurística mediante el cual intenta deducir automáticamente una ubicación de almacenamiento de claves adecuado y el cifrado en el mecanismo de rest. Esto también es configurable por el desarrollador de aplicaciones. Los documentos siguientes explican las implementaciones de forma predeterminada de estos mecanismos:
 
-* [Proveedores de almacenamiento de claves de forma predeterminada](key-storage-providers.md#data-protection-implementation-key-storage-providers)
+* [Proveedores de almacenamiento de claves de forma predeterminada](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers)
 
-* [Cifrado de claves de forma predeterminada en proveedores de rest](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers)
+* [Cifrado de claves de forma predeterminada en proveedores de rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers)

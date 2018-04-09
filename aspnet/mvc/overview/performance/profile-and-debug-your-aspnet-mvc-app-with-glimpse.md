@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
-title: "Cree un perfil y depurar la aplicación de ASP.NET MVC con perspectiva | Documentos de Microsoft"
+title: Cree un perfil y depurar la aplicación de ASP.NET MVC con perspectiva | Documentos de Microsoft
 author: Rick-Anderson
-description: "Perspectiva es un éxito y aumenta la familia de paquetes de NuGet de código abierto que proporciona rendimiento detallados, depuración e información de diagnóstico para ASP.NET un..."
+description: Perspectiva es un éxito y aumenta la familia de paquetes de NuGet de código abierto que proporciona rendimiento detallados, depuración e información de diagnóstico para ASP.NET un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: 9cfdced21251b482ca527dda9c3a698de77cc8ca
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6ac23256c57116de81c7bf690d5ce743301c75ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Cree un perfil y depurar la aplicación de ASP.NET MVC con perspectiva
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Perspectiva es un éxito y aumenta la familia de paquetes de NuGet de código abierto que proporciona rendimiento detallados, depuración e información de diagnóstico para las aplicaciones ASP.NET. Es muy fácil de instalar, ultrarrápido ligero y muestra las métricas de rendimiento clave en la parte inferior de cada página. Permite profundizar en la aplicación cuando necesite averiguar qué está sucediendo en el servidor. Perspectiva proporciona sea tan valiosa información que le recomendamos que use a lo largo del ciclo de desarrollo, incluidos el entorno de prueba de Azure. Mientras [Fiddler](http://www.telerik.com/fiddler) y [herramientas de desarrollo de F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) proporcionan un cliente, vista de perspectiva proporciona una vista detallada del servidor. Este tutorial se centrará en utilizar los paquetes EF y vistazo ASP.NET MVC, pero hay muchos otros paquetes disponibles. Siempre que sea posible vinculará a la correspondiente [echarle documentos](http://getglimpse.com/Docs/) que ayudar a mantener. Perspectiva es un proyecto de código abierto, demasiado pueden contribuir a los documentos, el código fuente.
 
@@ -55,7 +55,7 @@ El siguiente comando instala módulos Glimpse MVC5 y EF6 desde la consola de adm
 <a id="eg"></a>
 ## <a name="enable-glimpse-for-localhost"></a>Habilitar la perspectiva para el host local
 
-Vaya a http://localhost:&lt;º de puerto&gt;/glimpse.axd y haga clic en el **activar Glimpse** botón.
+Vaya a http://localhost: &lt;º de puerto&gt;/glimpse.axd y haga clic en el <strong>activar Glimpse</strong> botón.
 
 ![Página de perspectiva axd](profile-and-debug-your-aspnet-mvc-app-with-glimpse/_static/image4.png)
 

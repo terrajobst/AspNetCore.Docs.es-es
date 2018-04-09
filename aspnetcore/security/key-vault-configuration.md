@@ -1,18 +1,18 @@
 ---
-title: "Proveedor de configuración de almacén de claves Azure en ASP.NET Core"
+title: Proveedor de configuración de almacén de claves Azure en ASP.NET Core
 author: guardrex
-description: "Obtenga información acerca de cómo usar el proveedor de configuración de almacén de claves de Azure para configurar una aplicación con pares de nombre / valor que se carga en tiempo de ejecución."
+description: Obtenga información acerca de cómo usar el proveedor de configuración de almacén de claves de Azure para configurar una aplicación con pares de nombre / valor que se carga en tiempo de ejecución.
 manager: wpickett
 ms.author: riande
 ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: e1a4be77417f0a74182f1b123bfba429737d4330
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 09f28ec3792cf137fbcfdecc593e27ce6b2e7e09
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves Azure en ASP.NET Core
 
@@ -54,20 +54,21 @@ El proveedor se agrega a la `ConfigurationBuilder` con el `AddAzureKeyVault` ext
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Creación de secretos del almacén de claves y cargar los valores de configuración (ejemplo de basic)
 1. Crear un almacén de claves y configurar Azure Active Directory (Azure AD) para la aplicación siguiendo las instrucciones de [empezar a trabajar con el almacén de claves de Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Agregar secretos en el almacén de claves mediante el [módulo de PowerShell de almacén de claves AzureRM](/powershell/module/azurerm.keyvault) disponibles desde el [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), el [API de REST del almacén de claves de Azure](/rest/api/keyvault/), o la [Portal de azure](https://portal.azure.com/). Los secretos se crean como *Manual* o *certificado* secretos. *Certificado* secretos están certificados para su uso por aplicaciones y servicios, pero no son compatibles con el proveedor de configuración. Debe utilizar el *Manual* opción para crear los secretos de par nombre / valor para su uso con el proveedor de configuración.
-    * Secretos simples se crean como pares nombre / valor. Nombres de secreto de almacén de claves Azure están limitados a caracteres alfanuméricos y guiones.
-    * Usan valores jerárquicos (secciones de configuración) `--` (dos guiones) como separador en el ejemplo. Caracteres de dos puntos, que normalmente se utilizan para delimitar una sección de una subclave en [configuración de ASP.NET Core](xref:fundamentals/configuration/index), no están permitidos en los nombres de secreto. Por lo tanto, se usa dos guiones y se intercambian en dos puntos cuando se cargan los secretos en la configuración de la aplicación.
-    * Cree dos *Manual* secretos con los siguientes pares de nombre-valor. El secreto del primer es un nombre simple y el valor y el secreto del segundo crea un valor secreto con una sección y la subclave en el nombre de secreto:
-      * `SecretName`: `secret_value_1`
-      * `Section--SecretName`: `secret_value_2`
-  * Registrar la aplicación de ejemplo con Azure Active Directory.
-  * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToSecrets list,get`.
+   * Agregar secretos en el almacén de claves mediante el [módulo de PowerShell de almacén de claves AzureRM](/powershell/module/azurerm.keyvault) disponibles desde el [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), el [API de REST del almacén de claves de Azure](/rest/api/keyvault/), o la [Portal de azure](https://portal.azure.com/). Los secretos se crean como *Manual* o *certificado* secretos. *Certificado* secretos están certificados para su uso por aplicaciones y servicios, pero no son compatibles con el proveedor de configuración. Debe utilizar el *Manual* opción para crear los secretos de par nombre / valor para su uso con el proveedor de configuración.
+     * Secretos simples se crean como pares nombre / valor. Nombres de secreto de almacén de claves Azure están limitados a caracteres alfanuméricos y guiones.
+     * Usan valores jerárquicos (secciones de configuración) `--` (dos guiones) como separador en el ejemplo. Caracteres de dos puntos, que normalmente se utilizan para delimitar una sección de una subclave en [configuración de ASP.NET Core](xref:fundamentals/configuration/index), no están permitidos en los nombres de secreto. Por lo tanto, se usa dos guiones y se intercambian en dos puntos cuando se cargan los secretos en la configuración de la aplicación.
+     * Cree dos *Manual* secretos con los siguientes pares de nombre-valor. El secreto del primer es un nombre simple y el valor y el secreto del segundo crea un valor secreto con una sección y la subclave en el nombre de secreto:
+       * `SecretName`: `secret_value_1`
+       * `Section--SecretName`: `secret_value_2`
+   * Registrar la aplicación de ejemplo con Azure Active Directory.
+   * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToSecrets list,get`.
+
 2. Actualización de la aplicación *appSettings.JSON que se* archivo con los valores de `Vault`, `ClientId`, y `ClientSecret`.
 3. Ejecute la aplicación de ejemplo, que obtiene sus valores de configuración de `IConfigurationRoot` con el mismo nombre que el nombre de secreto.
-  * Valores no son jerárquicos: el valor de `SecretName` se obtiene con `config["SecretName"]`.
-  * Valores jerárquicos (secciones): Use `:` notación (coma) o el `GetSection` método de extensión. Use cualquiera de estos métodos para obtener el valor de configuración:
-    * `config["Section:SecretName"]`
-    * `config.GetSection("Section")["SecretName"]`
+   * Valores no son jerárquicos: el valor de `SecretName` se obtiene con `config["SecretName"]`.
+   * Valores jerárquicos (secciones): Use `:` notación (coma) o el `GetSection` método de extensión. Use cualquiera de estos métodos para obtener el valor de configuración:
+     * `config["Section:SecretName"]`
+     * `config.GetSection("Section")["SecretName"]`
 
 Cuando se ejecuta la aplicación, una página Web muestra los valores cargados secretos:
 
@@ -97,13 +98,14 @@ Al implementar este enfoque:
 > También puede proporcionar sus propios `KeyVaultClient` implementación `AddAzureKeyVault`. Proporciona a un cliente personalizado le permite compartir una única instancia del cliente entre el proveedor de configuración y otras partes de la aplicación.
 
 1. Crear un almacén de claves y configurar Azure Active Directory (Azure AD) para la aplicación siguiendo las instrucciones de [empezar a trabajar con el almacén de claves de Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
-  * Agregar secretos en el almacén de claves mediante el [módulo de PowerShell de almacén de claves AzureRM](/powershell/module/azurerm.keyvault) disponibles desde el [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), el [API de REST del almacén de claves de Azure](/rest/api/keyvault/), o la [Portal de azure](https://portal.azure.com/). Los secretos se crean como *Manual* o *certificado* secretos. *Certificado* secretos están certificados para su uso por aplicaciones y servicios, pero no son compatibles con el proveedor de configuración. Debe utilizar el *Manual* opción para crear los secretos de par nombre / valor para su uso con el proveedor de configuración.
-    * Usan valores jerárquicos (secciones de configuración) `--` (dos guiones) como separador.
-    * Cree dos *Manual* secretos con los siguientes pares de nombre y valor:
-      * `5000-AppSecret`: `5.0.0.0_secret_value`
-      * `5100-AppSecret`: `5.1.0.0_secret_value`
-  * Registrar la aplicación de ejemplo con Azure Active Directory.
-  * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToSecrets list,get`.
+   * Agregar secretos en el almacén de claves mediante el [módulo de PowerShell de almacén de claves AzureRM](/powershell/module/azurerm.keyvault) disponibles desde el [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), el [API de REST del almacén de claves de Azure](/rest/api/keyvault/), o la [Portal de azure](https://portal.azure.com/). Los secretos se crean como *Manual* o *certificado* secretos. *Certificado* secretos están certificados para su uso por aplicaciones y servicios, pero no son compatibles con el proveedor de configuración. Debe utilizar el *Manual* opción para crear los secretos de par nombre / valor para su uso con el proveedor de configuración.
+     * Usan valores jerárquicos (secciones de configuración) `--` (dos guiones) como separador.
+     * Cree dos *Manual* secretos con los siguientes pares de nombre y valor:
+       * `5000-AppSecret`: `5.0.0.0_secret_value`
+       * `5100-AppSecret`: `5.1.0.0_secret_value`
+   * Registrar la aplicación de ejemplo con Azure Active Directory.
+   * Autorizar la aplicación para tener acceso al almacén de claves. Cuando se usa el `Set-AzureRmKeyVaultAccessPolicy` cmdlet de PowerShell para autorizar la aplicación para tener acceso al almacén de claves, proporcionar `List` y `Get` acceso a los secretos con `-PermissionsToSecrets list,get`.
+
 2. Actualización de la aplicación *appSettings.JSON que se* archivo con los valores de `Vault`, `ClientId`, y `ClientSecret`.
 3. Ejecute la aplicación de ejemplo, que obtiene sus valores de configuración de `IConfigurationRoot` con el mismo nombre que el nombre de secreto con prefijo. En este ejemplo, el prefijo es la versión de la aplicación, que proporciona a los `PrefixKeyVaultSecretManager` cuando agrega el proveedor de configuración de almacén de claves de Azure. El valor de `AppSecret` se obtiene con `config["AppSecret"]`. La página Web generada por la aplicación muestra el valor cargado:
 

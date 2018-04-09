@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 title: Desbloquear y aprobar las cuentas de usuario (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo crear una página web para los administradores puedan administrar los usuarios bloqueada y aprueba Estados. También verá cómo aprobar nuevas o de usuarios..."
+description: Este tutorial muestra cómo crear una página web para los administradores puedan administrar los usuarios bloqueada y aprueba Estados. También verá cómo aprobar nuevas o de usuarios...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f22a745f42dae66cd64dc38df28c59b910c17070
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8b3d69e96513192bc73a2a6a7cbb4c6e33eb610b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unlocking-and-approving-user-accounts-c"></a>Desbloquear y a cuentas de usuario (C#)
 ====================
@@ -208,12 +208,12 @@ Feliz programación.
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a...
 
-Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](recovering-and-changing-passwords-cs.md)
-[Siguiente](building-an-interface-to-select-one-user-account-from-many-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](recovering-and-changing-passwords-cs.md)
+> [Siguiente](building-an-interface-to-select-one-user-account-from-many-vb.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 title: Mostrar datos binarios en la Web de datos controla (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos las opciones para presentar datos binarios en una página Web, incluida la presentación de un archivo de imagen y el aprovisionamiento de un vínculo de 'Descargar' f..."
+description: En este tutorial veremos las opciones para presentar datos binarios en una página Web, incluida la presentación de un archivo de imagen y el aprovisionamiento de un vínculo de 'Descargar' f...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/displaying-binary-data-in-the-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d66079f784792a2514eefabf57f70826aab5dcf1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5b56fc45ea8fb5aee934530fc62e23b9d364242
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-binary-data-in-the-data-web-controls-c"></a>Mostrar datos binarios en los controles Web de datos (C#)
 ====================
@@ -89,7 +89,7 @@ En lugar de mostrar el texto de la `BrochurePath` columna, desea crear un víncu
 
 ![Agregar un campo HYPERLINK para BrochurePath](displaying-binary-data-in-the-data-web-controls-cs/_static/image6.gif)
 
-**Figura 6**: agregar un campo HYPERLINK para`BrochurePath`
+**Figura 6**: agregar un campo HYPERLINK para `BrochurePath`
 
 
 Esto agregará una columna de vínculos a la GridView, como se muestra en la figura 7. Al hacer clic en un vínculo de ver el folleto se mostrará el archivo PDF directamente en el explorador o pedir al usuario que descargue el archivo, dependiendo de si está instalado un lector PDF y la configuración del explorador s.
@@ -226,12 +226,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial fueron Teresa Murphy y Dave Gardner. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](uploading-files-cs.md)
-[Siguiente](including-a-file-upload-option-when-adding-a-new-record-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](uploading-files-cs.md)
+> [Siguiente](including-a-file-upload-option-when-adding-a-new-record-cs.md)

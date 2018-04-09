@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
-title: "Iteración #5: las pruebas unitarias de crear (C#) | Documentos de Microsoft"
+title: 'Iteración #5: las pruebas unitarias de crear (C#) | Documentos de Microsoft'
 author: microsoft
-description: "En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para o..."
+description: En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-5-create-unit-tests-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f9b2d05ec8756d68f6bd2f387c85faf03abd167e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7a61b5791a40088df9d27f7b1bd37df1831ef22b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-5--create-unit-tests-c"></a>Iteración #5: crear pruebas unitarias (C#)
 ====================
@@ -43,7 +43,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -105,9 +105,9 @@ Por ejemplo, puede usar un marco de objeto simular para generar una versión fic
 
 Visual Studio no incluye un marco de objeto simular. Sin embargo, existen varios marcos de trabajo de simular objetos comerciales y de código abierto de .NET framework:
 
-1. Moq - este marco de trabajo está disponible bajo la licencia BSD de código abierto. Puede descargar Moq de [https://code.google.com/p/moq/](https://code.google.com/p/moq/).
-2. Rhino Mocks; este marco de trabajo está disponible bajo la licencia BSD de código abierto. Puede descargar Rhino Mocks de [http://ayende.com/projects/rhino-mocks.aspx](http://ayende.com/projects/rhino-mocks.aspx).
-3. Typemock aislador - se trata de un entorno comercial. Puede descargar una versión de prueba de [http://www.typemock.com/](http://www.typemock.com/).
+1. Moq - este marco de trabajo está disponible bajo la licencia BSD de código abierto. Puede descargar Moq de [ https://code.google.com/p/moq/ ](https://code.google.com/p/moq/).
+2. Rhino Mocks; este marco de trabajo está disponible bajo la licencia BSD de código abierto. Puede descargar Rhino Mocks de [ http://ayende.com/projects/rhino-mocks.aspx ](http://ayende.com/projects/rhino-mocks.aspx).
+3. Typemock aislador - se trata de un entorno comercial. Puede descargar una versión de prueba de [ http://www.typemock.com/ ](http://www.typemock.com/).
 
 En este tutorial, se decidió usar Moq. Sin embargo, puede usar fácilmente Rhino Mocks o Typemock aislador para crear el simulacro objetos para la aplicación póngase en contacto con el administrador.
 
@@ -239,6 +239,6 @@ Hemos creado dos conjuntos de pruebas unitarias. En primer lugar, hemos probado 
 
 En la siguiente iteración, se modifique la aplicación póngase en contacto con el administrador para que admita grupos de contactos. Vamos a agregar esta nueva funcionalidad a la aplicación mediante un proceso de diseño de software llamado desarrollo controlado por pruebas.
 
->[!div class="step-by-step"]
-[Anterior](iteration-4-make-the-application-loosely-coupled-cs.md)
-[Siguiente](iteration-6-use-test-driven-development-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-4-make-the-application-loosely-coupled-cs.md)
+> [Siguiente](iteration-6-use-test-driven-development-cs.md)

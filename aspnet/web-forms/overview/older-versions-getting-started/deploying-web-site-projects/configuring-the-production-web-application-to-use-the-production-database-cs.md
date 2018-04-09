@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
-title: "Configuración de la aplicación Web de producción para usar la base de datos de producción (C#) | Documentos de Microsoft"
+title: Configuración de la aplicación Web de producción para usar la base de datos de producción (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Como se describe en los tutoriales anteriores, no es raro para obtener información de configuración que difieren entre los entornos de desarrollo y producción. Se trata de es..."
+description: Como se describe en los tutoriales anteriores, no es raro para obtener información de configuración que difieren entre los entornos de desarrollo y producción. Se trata de es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 21eac6a4d829795f02eeeca5f9870b1ab8132d08
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7fef7ecab0e51790ff7737b16500f6c2bb5eecdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Configuración de la aplicación Web de producción para usar la base de datos de producción (C#)
 ====================
@@ -71,7 +71,7 @@ A continuación, especifique los distintos información de conexión de base de 
 
 La base de datos del entorno de producción debe aparecer ahora en el Explorador de servidores. Seleccione la base de datos desde el Explorador de servidores y vaya a la ventana Propiedades. Allí encontrará una propiedad de cadena de conexión con la cadena de conexión de base de datos s con nombre. Suponiendo que usa una base de datos de Microsoft SQL Server en producción y el proveedor SqlClient la cadena de conexión debe ser similar al siguiente:
 
-**Origen de datos =*serverName*; Catálogo inicial =*databaseName*; Persist Security Info = True; Id. de usuario =*nombre de usuario*; Contraseña = * contraseña***
+<strong>Origen de datos =<em>serverName</em>; Catálogo inicial =<em>databaseName</em>; Persist Security Info = True; Id. de usuario =<em>nombre de usuario</em>; Contraseña =*contraseña</strong>*
 
 Donde *serverName*, *databaseName*, *nombre de usuario*, y *contraseña* con los valores para el nombre del servidor de base de datos, la base de datos nombre y el nombre de usuario y la contraseña proporcionado por su compañía de host web.
 
@@ -152,6 +152,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Mover la configuración fuera del archivo Web.config](http://www.asp101.com/tips/index.asp?id=154)
 - [Documentación técnica de la &lt;connectionStrings&gt; elemento](https://msdn.microsoft.com/library/bf7sd233.aspx)
 
->[!div class="step-by-step"]
-[Anterior](deploying-a-database-cs.md)
-[Siguiente](configuring-a-website-that-uses-application-services-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-a-database-cs.md)
+> [Siguiente](configuring-a-website-that-uses-application-services-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
-title: "Configurar Team Foundation Server para la implementación Web | Documentos de Microsoft"
+title: Configurar Team Foundation Server para la implementación Web | Documentos de Microsoft
 author: jrjlee
-description: "Este tutorial le mostrará cómo configurar Team Foundation Server (TFS) 2010 para compilar soluciones e implementar contenido web en varios entornos de destino. Esto..."
+description: Este tutorial le mostrará cómo configurar Team Foundation Server (TFS) 2010 para compilar soluciones e implementar contenido web en varios entornos de destino. Esto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 72f60841a1381380c0ea6167077420f960180dc7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c4cfac333c9400d9ee613ba88520b0b0439873f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-team-foundation-server-for-web-deployment"></a>Configurar Team Foundation Server para la implementación Web
 ====================
@@ -39,9 +39,9 @@ Este tutorial se supone que ha instalado TFS 2010 y ha creado una colección de 
 
 ## <a name="context"></a>Contexto
 
-Esto forma parte de una serie de tutoriales en función de los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el Administrador de](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) solución & #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Esto forma parte de una serie de tutoriales en función de los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el Administrador de](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) solución&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [descripción del proceso de compilación](../web-deployment-in-the-enterprise/understanding-the-build-process.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [descripción del proceso de compilación](../web-deployment-in-the-enterprise/understanding-the-build-process.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="scenario-overview"></a>Información general del escenario
 
@@ -77,5 +77,5 @@ Esto forma parte de una serie de cinco tutoriales en la implementación de web d
 - [Configurar entornos de servidor para la implementación Web](../configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment.md). Este tutorial describe cómo configurar servidores de Windows para admitir diferentes escenarios de implementación, incluida la implementación de paquete de web remoto mediante el servicio Web Deployment Agent (agente remoto) o el controlador de implementar de Web y la implementación de la base de datos remota. Proporciona instrucciones sobre cómo elegir el método de implementación adecuada para su propio entorno, y se describe cómo usar Web Farm Framework (WFF) para replicar las aplicaciones web implementadas a través de todos los servidores web en una granja de servidores.
 - [Avanzada de implementación Web de empresa](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Este tutorial describe cómo realizar diversas tareas de implementación más avanzadas, como la personalización de las implementaciones de la base de datos para varios entornos, excluir archivos y carpetas de implementación y dejar las aplicaciones de web sin conexión durante el proceso de implementación .
 
->[!div class="step-by-step"]
-[Siguiente](creating-a-team-project-in-tfs.md)
+> [!div class="step-by-step"]
+> [Siguiente](creating-a-team-project-in-tfs.md)

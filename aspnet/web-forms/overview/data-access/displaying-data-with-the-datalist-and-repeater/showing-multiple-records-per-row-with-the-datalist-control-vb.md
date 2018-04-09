@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 title: Mostrar varios registros por cada fila con el Control DataList (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este breve tutorial exploraremos cómo personalizar el diseño del control DataList a través de sus propiedades RepeatColumns y RepeatDirection."
+description: En este breve tutorial exploraremos cómo personalizar el diseño del control DataList a través de sus propiedades RepeatColumns y RepeatDirection.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 416178533f022f2a262799e6f042d6009bb9d999
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9c85e5a1d7b88a9ed53ed8392a300d5118363bf8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a>Mostrar varios registros por cada fila con el Control DataList (VB)
 ====================
@@ -55,7 +55,7 @@ Después de crear y enlazar la nueva ObjectDataSource a DataList, Visual Studio 
 
 [!code-aspx[Main](showing-multiple-records-per-row-with-the-datalist-control-vb/samples/sample2.aspx)]
 
-Observe que se ha incluido un especificador de formato en el `Eval` sintaxis de enlace de datos para el `UnitPrice`, dé formato al valor devuelto como una moneda -`Eval("UnitPrice", "{0:C}").`
+Observe que se ha incluido un especificador de formato en el `Eval` sintaxis de enlace de datos para el `UnitPrice`, dé formato al valor devuelto como una moneda - `Eval("UnitPrice", "{0:C}").`
 
 Tómese un momento para visitar la página en un explorador. Como se muestra en la figura 2, el control DataList se representa como una tabla de una sola columna y varias filas de productos.
 
@@ -113,12 +113,12 @@ DataList, de forma predeterminada, enumera sus elementos en una tabla de una sol
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era John Suru. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
-[Siguiente](nested-data-web-controls-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](formatting-the-datalist-and-repeater-based-upon-data-vb.md)
+> [Siguiente](nested-data-web-controls-vb.md)

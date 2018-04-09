@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel/collapsing-and-expanding-a-panel-from-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6adca6771042cad71139977496f985cb8dac63aa
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5cf61cd0d8204a5405ba62cd3884d66ccb21968b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-vb"></a>Contraer y expandir un Panel desde JavaScript (VB)
 ====================
@@ -53,7 +53,7 @@ Desafortunadamente, el dispositivo extender actualmente no expone una API espec�
 
 [!code-aspx[Main](collapsing-and-expanding-a-panel-from-javascript-vb/samples/sample5.aspx)]
 
-En el código de JavaScript del lado cliente (partió `<script type="text/javascript">`), el `$find()` método debe usarse para tener acceso a la `CollapsiblePanelExtender`. `$find("cpe")`Devuelve una referencia a él. Desde aquí, los métodos específicos resolverá la tarea en cuestión.
+En el código de JavaScript del lado cliente (partió `<script type="text/javascript">`), el `$find()` método debe usarse para tener acceso a la `CollapsiblePanelExtender`. `$find("cpe")` Devuelve una referencia a él. Desde aquí, los métodos específicos resolverá la tarea en cuestión.
 
 El método de apertura (expandir) se denomina el panel `_doOpen()`; el código siguiente implementa la `doOpen()` función se llama cuando se hace clic en el primer botón:
 
@@ -72,5 +72,5 @@ El tercer botón alterna el estado del panel: de contraer para expandir y viceve
 
 El tercer botón cambia el estado del panel: desde contraído a expandido y viceversa ([haga clic aquí para ver la imagen a tamaño completo](collapsing-and-expanding-a-panel-from-javascript-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](collapsing-and-expanding-a-panel-from-javascript-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](collapsing-and-expanding-a-panel-from-javascript-cs.md)

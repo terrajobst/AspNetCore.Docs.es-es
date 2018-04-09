@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
-title: "Permitir que sólo determinados caracteres en un cuadro de texto (C#) | Documentos de Microsoft"
+title: Permitir que sólo determinados caracteres en un cuadro de texto (C#) | Documentos de Microsoft
 author: wenz
-description: "Controles de validación de ASP.NET pueden asegurarse de que sólo ciertos caracteres se permiten en proporcionados por el usuario. Esto todavía no impide que los usuarios escriban en válido..."
+description: Controles de validación de ASP.NET pueden asegurarse de que sólo ciertos caracteres se permiten en proporcionados por el usuario. Esto todavía no impide que los usuarios escriban en válido...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox/allowing-only-certain-characters-in-a-text-box-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 246c3b5dd55ceb0f47ad1f4982ae5b3bf855e747
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d2ffc4b741bd0c7f9c456b6e76017f5350ab6378
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="allowing-only-certain-characters-in-a-text-box-c"></a>Permitir que sólo determinados caracteres en un cuadro de texto (C#)
 ====================
@@ -45,10 +45,10 @@ A continuación, necesitamos un cuadro de texto:
 
 Por último, el `FilteredTextBoxExtender` control se encarga de restringir que los caracteres que el usuario puede escribir. En primer lugar, establezca el `TargetControlID` atribuir a la `ID` de la `TextBox` control. A continuación, elija uno de los contadores `FilterType` valores:
 
-- `Custom`de forma predeterminada; tendrá que proporcionar una lista de caracteres válidos
-- `LowercaseLetters`solo minúsculas
-- `Numbers`solo los dígitos
-- `UppercaseLetters`sólo las letras mayúsculas
+- `Custom` de forma predeterminada; tendrá que proporcionar una lista de caracteres válidos
+- `LowercaseLetters` solo minúsculas
+- `Numbers` solo los dígitos
+- `UppercaseLetters` sólo las letras mayúsculas
 
 Si el `Custom FilterType` se utiliza, el `ValidChars` propiedad debe configurarse y proporcionar una lista de caracteres que pueden escribirse. Por cierto: si se intenta pegar texto en el cuadro de texto, se quitan todos los caracteres no válidos.
 
@@ -63,5 +63,5 @@ Ejecutar la página y pruebe a escribir una carta si JavaScript está habilitado
 
 Pueden especificarse únicamente dígitos ([haga clic aquí para ver la imagen a tamaño completo](allowing-only-certain-characters-in-a-text-box-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](allowing-only-certain-characters-in-a-text-box-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](allowing-only-certain-characters-in-a-text-box-vb.md)

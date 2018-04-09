@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
-title: "Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 3 | Documentos de Microsoft"
+title: Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 3 | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 1ec8891c4ccf71494389ba562fdfb4b88055d12f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 654f3556af5d05ec186e1811421966bbaffd2e21
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-3"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 3
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET con el Entity Framework 4.0 y Visual Studio 2010. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -33,7 +33,7 @@ Cambiará la *Students.aspx* página para filtrar para estudiantes, ordene por n
 
 [![Image02](the-entity-framework-and-aspnet-getting-started-part-3/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image1.png)
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image3.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image3.png)
 
 [![Image10](the-entity-framework-and-aspnet-getting-started-part-3/_static/image6.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image5.png)
 
@@ -158,7 +158,7 @@ La primera columna es un campo de plantilla que muestra el nombre del departamen
 
 Ejecute la página. La pantalla inicial muestra una lista de todos los cursos en orden por departamento y, a continuación, por título del curso.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image29.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-3/_static/image30.png)](the-entity-framework-and-aspnet-getting-started-part-3/_static/image29.png)
 
 Escriba una "m" y haga clic en **búsqueda** para ver todos los cursos cuyos títulos comienzan por "m" (la búsqueda no es mayúsculas de minúsculas).
 
@@ -184,6 +184,6 @@ Escriba la letra "g" en el cuadro de texto y haga clic en **búsqueda**. Ver una
 
 Ahora ha muestra, actualiza, filtran, ordenan y agrupan los datos de tablas individuales. En el siguiente tutorial comenzará a trabajar con los datos relacionados (escenarios de principal-detalle).
 
->[!div class="step-by-step"]
-[Anterior](the-entity-framework-and-aspnet-getting-started-part-2.md)
-[Siguiente](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [!div class="step-by-step"]
+> [Anterior](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [Siguiente](the-entity-framework-and-aspnet-getting-started-part-4.md)

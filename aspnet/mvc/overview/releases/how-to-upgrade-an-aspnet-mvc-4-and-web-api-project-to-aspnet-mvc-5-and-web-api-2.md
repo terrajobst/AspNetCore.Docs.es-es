@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
-title: "Cómo actualizar un MVC de ASP.NET 4 y proyecto de API para ASP.NET MVC 5 y Web API 2 Web | Documentos de Microsoft"
+title: Cómo actualizar un MVC de ASP.NET 4 y proyecto de API para ASP.NET MVC 5 y Web API 2 Web | Documentos de Microsoft
 author: Rick-Anderson
-description: "MVC de ASP.NET 5 y API Web 2 aportan una serie de características nuevas, como ruta de atributo, filtros de autenticación y mucho más."
+description: MVC de ASP.NET 5 y API Web 2 aportan una serie de características nuevas, como ruta de atributo, filtros de autenticación y mucho más.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 05a3189cf105d1230b96e90b46ea5ab60fef1bf1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f61502933a5ba92896ee97cef9cff915fe23831d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Cómo actualizar un ASP.NET MVC 4 y el proyecto de API Web MVC de ASP.NET 5 y Web API 2
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
-> MVC de ASP.NET 5 y API Web 2 aportan una serie de características nuevas, como ruta de atributo, filtros de autenticación y mucho más. Vea [https://www.asp.net/vnext](https://www.asp.net/core) para obtener más detalles.
+> MVC de ASP.NET 5 y API Web 2 aportan una serie de características nuevas, como ruta de atributo, filtros de autenticación y mucho más. Vea [ https://www.asp.net/vnext ](https://www.asp.net/core) para obtener más detalles.
 > 
 > Este tutorial le ayudará con los pasos necesarios para actualizar la aplicación a la versión más reciente.  
 > 
@@ -41,7 +41,7 @@ Por [Rick Anderson](https://github.com/Rick-Anderson)
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample1.cs)]
 
- por
+   por
 
     [!code-csharp[Main](how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2/samples/sample2.cs)]
 3. Asegúrese de que todos los paquetes que utilizan los proyectos son compatibles con MVC 5 y API Web 2. La siguiente tabla se muestran MVC 4 y Web API relacionadas con los paquetes que deben cambiarse. Si tiene un paquete que depende de uno de los paquetes que se enumeran a continuación, póngase en contacto con los publicadores para obtener las versiones más recientes que son compatibles con MVC 5 y API Web 2. Si tiene el código fuente de esos paquetes, debe volver a compilar con los nuevos ensamblados de MVC 5 y API Web 2.   
@@ -62,13 +62,13 @@ Por [Rick Anderson](https://github.com/Rick-Anderson)
     | Microsoft.AspNet.WebApi.WebHost | 4.0 | 5.0.0 |
     | Microsoft.AspNet.WebApi.Tracing | 4.0 | 5.0.0 |
     | Microsoft.AspNet.WebApi.HelpPage | 4.0 | 5.0.0 |
-    | Microsoft.Net.Http | 2.0. x. | 2.2. x. |
+    | Microsoft.Net.Http | 2.0. x. | 2.2.x. |
     | Microsoft.Data.OData | 5.2. x | 5.6.x |
     | System.Spatial | 5.2. x | 5.6.x |
     | Microsoft.Data.Edm | 5.2. x | 5.6.x |
-    | Microsoft.AspNet.Mvc.FixedDisplayModes | < o: p >< / o: p > | Quitado |
-    | Microsoft.AspNet.WebPages.Administration | < o: p >< / o: p > | Quitado |
-    | Aplicaciones auxiliares de Web de Microsoft | < o: p >< / o: p > | Microsoft.AspNet.WebHelpers |
+    | Microsoft.AspNet.Mvc.FixedDisplayModes | <o:p> </o:p> | Quitada |
+    | Microsoft.AspNet.WebPages.Administration | <o:p> </o:p> | Quitada |
+    | Microsoft-Web-Helpers | <o:p> </o:p> | Microsoft.AspNet.WebHelpers |
 
     > [!NOTE]
     > Aplicaciones auxiliares de Web de Microsoft se ha reemplazado por Microsoft.AspNet.WebHelpers. Debe quitar el paquete antiguo en primer lugar y, a continuación, instale el paquete más reciente.   
@@ -78,17 +78,17 @@ Por [Rick Anderson](https://github.com/Rick-Anderson)
 5. Quite alguno de los siguientes paquetes de NuGet de ASP.NET que están instalados. Se quitan estas mediante la consola de administrador de paquete (PMC). Para abrir el PMC, seleccione la **herramientas** menú y, a continuación, seleccione **Administrador de paquetes de biblioteca,** , a continuación, seleccione **Package Manager Console**. El proyecto no puede incluir todos ellos.
 
     1. `Microsoft.AspNet.WebPages.Administration`  
- Este paquete normalmente se agrega al actualizar desde MVC 3 a MVC 4. Para quitarlo, ejecute el siguiente comando en el PMC:  
+   Este paquete normalmente se agrega al actualizar desde MVC 3 a MVC 4. Para quitarlo, ejecute el siguiente comando en el PMC:  
         `Uninstall-Package -Id Microsoft.AspNet.WebPages.Administration`
     2. `Microsoft-Web-Helpers`   
- Este paquete se ha cambiado el nombre `Microsoft.AspNet.WebHelpers`. Para quitarlo, ejecute el siguiente comando en el PMC:  
+   Este paquete se ha cambiado el nombre `Microsoft.AspNet.WebHelpers`. Para quitarlo, ejecute el siguiente comando en el PMC:  
         `Uninstall-Package -Id Microsoft-Web-Helpers`
     3. `Microsoft.AspNet.Mvc.FixedDisplayMode`  
- Este paquete contiene una solución alternativa para un error en MVC 4 que se ha solucionado en MVC 5. Para quitarlo, ejecute el siguiente comando en el PMC:  
+   Este paquete contiene una solución alternativa para un error en MVC 4 que se ha solucionado en MVC 5. Para quitarlo, ejecute el siguiente comando en el PMC:  
         `Uninstall-Package -Id Microsoft.AspNet.Mvc.FixedDisplayModes`
 6. Actualizar todos los paquetes de NuGet de ASP.NET mediante el PMC. En el PMC, ejecute el siguiente comando:  
     `Update-Package`  
- El `Update-Package` comando sin ningún parámetro actualizará todos los paquetes. Puede actualizar paquetes individualmente mediante el argumento de ID. Para obtener más información sobre el comando de actualización, ejecute `get-help update-package` .
+   El `Update-Package` comando sin ningún parámetro actualizará todos los paquetes. Puede actualizar paquetes individualmente mediante el argumento de ID. Para obtener más información sobre el comando de actualización, ejecute `get-help update-package` .
 
 ## <a name="update-the-application-webconfig-file"></a>Actualizar la aplicación *web.config* archivo
 

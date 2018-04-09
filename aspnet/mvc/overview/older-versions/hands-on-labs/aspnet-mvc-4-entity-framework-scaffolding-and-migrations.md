@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 title: Scaffolding de ASP.NET MVC 4 Entity Framework y migraciones | Documentos de Microsoft
 author: rick-anderson
-description: "Si está familiarizado con los métodos de controlador de ASP.NET MVC 4 o ha completado la &quot;aplicaciones auxiliares, formularios y la validación&quot; laboratorio práctico, debe tener en cuenta..."
+description: Si está familiarizado con los métodos de controlador de ASP.NET MVC 4 o ha completado la &quot;aplicaciones auxiliares, formularios y la validación&quot; laboratorio práctico, debe tener en cuenta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 396859463446d95c58271c4b00fc950bcd0d539a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 548afe1926eed49841251832d54dc213da0cb753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>Las migraciones y Scaffolding de ASP.NET MVC 4 Entity Framework
 
@@ -109,7 +109,9 @@ En este ejercicio, aprenderá a usar el scaffolding de ASP.NET MVC 4 con código
     (Código de fragmento de código: *MVC de ASP.NET 4 y migraciones de Entity Framework - Ex1 persona propiedades*)
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample1.cs)]
+~~~
 6. Haga clic en **compilar | Compilar solución** para guardar los cambios y compile el proyecto.
 
     ![Compilar la aplicación](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image3.png "compilar la aplicación")
@@ -118,14 +120,14 @@ En este ejercicio, aprenderá a usar el scaffolding de ASP.NET MVC 4 con código
 7. En el Explorador de soluciones, haga clic en la carpeta controllers y seleccione **agregar | Controlador**.
 8. Nombre del controlador *PersonController* y completar la **opciones de Scaffolding** con los valores siguientes.
 
-    1. En el **plantilla** lista desplegable, seleccione la **controlador de MVC con acciones de lectura/escritura y vistas, mediante Entity Framework** opción.
-    2. En el **clase modelo** lista desplegable, seleccione la **persona** clase.
-    3. En el **clase de contexto de datos** lista, seleccione  **&lt;nuevo contexto de datos... &gt;**. Elegir un nombre y haga clic en **Aceptar**.
-    4. En el **vistas** lista desplegable lista, asegúrese de que **Razor** está seleccionada.
+   1. En el **plantilla** lista desplegable, seleccione la **controlador de MVC con acciones de lectura/escritura y vistas, mediante Entity Framework** opción.
+   2. En el **clase modelo** lista desplegable, seleccione la **persona** clase.
+   3. En el **clase de contexto de datos** lista, seleccione  **&lt;nuevo contexto de datos... &gt;**. Elegir un nombre y haga clic en **Aceptar**.
+   4. En el **vistas** lista desplegable lista, asegúrese de que **Razor** está seleccionada.
 
-    ![Agregar el controlador de la persona con la técnica scaffolding](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "agregar el controlador de la persona con la técnica scaffolding")
+      ![Agregar el controlador de la persona con la técnica scaffolding](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image4.png "agregar el controlador de la persona con la técnica scaffolding")
 
-    *Agregar el controlador de la persona con la técnica scaffolding*
+      *Agregar el controlador de la persona con la técnica scaffolding*
 9. Haga clic en **agregar** para crear el nuevo controlador de la persona con la técnica scaffolding. Ahora se ha generado las acciones de controlador, así como las vistas.
 
     ![Después de crear el controlador de la persona con la técnica scaffolding](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image5.png "después de crear el controlador de la persona con la técnica scaffolding")
@@ -133,9 +135,9 @@ En este ejercicio, aprenderá a usar el scaffolding de ASP.NET MVC 4 con código
     *Después de crear el controlador de la persona con la técnica scaffolding*
 10. Abra **PersonController** clase. Tenga en cuenta que los métodos de acción CRUD completos se han generado automáticamente.
 
-    ![En el controlador de la persona](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "controlador dentro de la persona")
+   ![En el controlador de la persona](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image6.png "controlador dentro de la persona")
 
-    *En el controlador de persona*
+   *En el controlador de persona*
 
 <a id="Ex1Task2"></a>
 
@@ -195,11 +197,15 @@ En esta tarea se actualizará la base de datos usando migraciones de Entity Fram
 3. Abra la **archivo Configuration.cs que** archivos en la carpeta Migrations. Busque el constructor de clase y cambie la **AutomaticMigrationsEnabled** valor *true*.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample3.cs)]
+~~~
 4. Abra la clase de persona y agregue un atributo para el segundo nombre de la persona. Con este nuevo atributo, va a cambiar el modelo.
 
 
-    [!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
+~~~
+[!code-csharp[Main](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/samples/sample4.cs)]
+~~~
 5. Seleccione **compilar | Compilar solución** en el menú para compilar la aplicación.
 
     ![Compilar la aplicación](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image13.png "compilar la aplicación")
@@ -247,9 +253,9 @@ En esta tarea se actualizará la base de datos usando migraciones de Entity Fram
     *Actualizar el controlador*
 10. Haga clic en **Agregar**. A continuación, seleccione los valores **sobrescribir PersonController.cs** y **sobrescribir vistas asociadas** y haga clic en **Aceptar**.
 
-    ![Agregar una sobrescritura de controlador](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
+   ![Agregar una sobrescritura de controlador](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image19.png)
 
-    *Actualizar el controlador*
+   *Actualizar el controlador*
 
 <a id="Ex1Task4"></a>
 
@@ -280,9 +286,9 @@ En este laboratorio práctico, ha aprendido sencillos pasos para crear operacion
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Apéndice A: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la  **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
-1. Vaya a [ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con SDK de Windows Azure*&quot;.
+1. Vaya a [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con SDK de Windows Azure</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 
@@ -293,7 +299,7 @@ Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Ex
 
     ![Acepte los términos de licencia](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image23.png)
 
-    Acepte los términos de licencia
+    *Acepte los términos de licencia*
 5. Espere hasta que finalice el proceso de descarga e instalación.
 
     ![Progreso de la instalación](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image24.png)
@@ -303,13 +309,13 @@ Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Ex
 
     ![Se completó la instalación](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image25.png)
 
-    Se completó la instalación
+    *Se completó la instalación*
 7. Haga clic en **Exit** para cerrar el instalador de plataforma Web.
 8. Para abrir Visual Studio Express para Web, vaya a la **iniciar** pantalla y comienza a escribir &quot; **Express frente a**&quot;, a continuación, haga clic en el **VS Express para Web** colocar en mosaico.
 
     ![Express de VS para icono Web](aspnet-mvc-4-entity-framework-scaffolding-and-migrations/_static/image26.png)
 
-    Express de VS para icono Web
+    *Express de VS para icono Web*
 
 <a id="AppendixB"></a>
 

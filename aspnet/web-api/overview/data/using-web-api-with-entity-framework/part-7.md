@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-7
 title: Crear la vista (UI) | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 8c5cc662e2e3c9cb07ca9e30ff57eb084d58e1bb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5052d7cca4a5c12a9ea56eb929d4794b19e82603
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-view-ui"></a>Crear la vista (UI)
 ====================
@@ -54,6 +54,6 @@ Si se ejecuta la aplicación ahora, debería ser similar al siguiente:
 
 La lista de libros carga de forma asincrónica, después de la página se cargue. Ahora, el &quot;detalles&quot; vínculos no son funcionales. Vamos a agregar esta funcionalidad en la sección siguiente.
 
->[!div class="step-by-step"]
-[Anterior](part-6.md)
-[Siguiente](part-8.md)
+> [!div class="step-by-step"]
+> [Anterior](part-6.md)
+> [Siguiente](part-8.md)

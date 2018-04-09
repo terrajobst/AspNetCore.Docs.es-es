@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
-title: "Configurar parámetros para la implementación de paquete de Web | Documentos de Microsoft"
+title: Configurar parámetros para la implementación de paquete de Web | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo establecer valores de parámetro, como nombres de aplicaciones web de Internet Information Services (IIS), las cadenas de conexión y los puntos de conexión de servicio..."
+description: En este tema se describe cómo establecer valores de parámetro, como nombres de aplicaciones web de Internet Information Services (IIS), las cadenas de conexión y los puntos de conexión de servicio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 12a4ba8ad30df43e7192500ad4514dfa9679f899
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7be08f1a1fb7232911a44cf64e2e784dbb95ff48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-parameters-for-web-package-deployment"></a>Configurar parámetros para la implementación de paquete de Web
 ====================
@@ -92,7 +92,7 @@ Para obtener detalles completos sobre cómo crear un *parameters.xml* de archivo
 
 ## <a name="modifying-the-setparametersxml-file"></a>Modificar el archivo SetParameters.xml
 
-Si planea implementar manualmente el paquete de aplicación web & #x 2014; ya sea ejecutando el *. deploy.cmd* de archivo o ejecute MSDeploy.exe desde la línea de comandos & #x 2014; que no hay nada que evite que editar manualmente el *SetParameters.xml* archivo antes de la implementación. Sin embargo, si está trabajando en una solución empresarial, debe implementar un paquete de aplicación web como parte de un proceso de compilación e implementación automatizado, mayor. En este escenario, necesita Microsoft Build Engine (MSBuild) para modificar el *SetParameters.xml* archivo automáticamente. Puede hacerlo mediante el uso de MSBuild **XmlPoke** tarea.
+Si tiene previsto implementar manualmente el paquete de aplicación web&#x2014;ya sea ejecutando el *. deploy.cmd* archivo o ejecutando MSDeploy.exe desde la línea de comandos&#x2014;no hay nada que evite que editar manualmente el  *SetParameters.xml* archivo antes de la implementación. Sin embargo, si está trabajando en una solución empresarial, debe implementar un paquete de aplicación web como parte de un proceso de compilación e implementación automatizado, mayor. En este escenario, necesita Microsoft Build Engine (MSBuild) para modificar el *SetParameters.xml* archivo automáticamente. Puede hacerlo mediante el uso de MSBuild **XmlPoke** tarea.
 
 El [solución de ejemplo de Contact Manager](the-contact-manager-solution.md) ilustra este proceso. Los ejemplos de código siguientes se han editado para mostrar sólo los detalles que son relevantes para este ejemplo.
 
@@ -148,6 +148,6 @@ Para obtener información sobre cómo crear paquetes de web, consulte [edificio 
 
 Para obtener información general sobre la parametrización de Web Deploy, vea [Web implementar parametrización en acción](https://go.microsoft.com/?linkid=9805119) (entrada de blog).
 
->[!div class="step-by-step"]
-[Anterior](building-and-packaging-web-application-projects.md)
-[Siguiente](deploying-web-packages.md)
+> [!div class="step-by-step"]
+> [Anterior](building-and-packaging-web-application-projects.md)
+> [Siguiente](deploying-web-packages.md)

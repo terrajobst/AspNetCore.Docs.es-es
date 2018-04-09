@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 title: Habilitar automatizada pruebas unitarias | Documentos de Microsoft
 author: microsoft
-description: "Paso 12, muestra cómo desarrollar un conjunto de pruebas unitarias automatizadas que comprueben nuestra funcionalidad NerdDinner, así que nos proporcionará la confianza para realizar cambios..."
+description: Paso 12, muestra cómo desarrollar un conjunto de pruebas unitarias automatizadas que comprueben nuestra funcionalidad NerdDinner, así que nos proporcionará la confianza para realizar cambios...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 1a4258054d90b2d5bcc06a63fb6f3b4673a4837d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fede08be7e06327c6d04fa5d36f7dd818d79b380
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enable-automated-unit-testing"></a>Habilitar pruebas unitarias automatizadas
 ====================
@@ -128,7 +128,7 @@ Pruebas unitarias de código con una base de datos real, sin embargo, aporta una
 
 Echemos un vistazo a un modelo de diseño que se denomina "inyección de dependencia" que nos ayudan a solucionar estos problemas y evitar la necesidad de usar una base de datos real con nuestras pruebas.
 
-### <a name="dependency-injection"></a>Inyección de dependencia
+### <a name="dependency-injection"></a>Inserción de dependencias
 
 Ahora DinnersController es "estrechamente" a la clase DinnerRepository. "Acoplamiento" hace referencia a una situación donde una clase explícitamente se basa en otra clase para poder funcionar:
 
@@ -234,7 +234,7 @@ El objeto de usuario en la clase base del controlador encapsula los detalles sob
 
 Marcos de simulación simplificar las pruebas por lo que nos permite crear dinámicamente falsas versiones de los objetos dependientes que admiten nuestras pruebas. Por ejemplo, podemos usar un marco de simulación en nuestra prueba de acción de edición para crear dinámicamente un objeto de usuario que nuestro DinnersController puede usar para buscar un nombre de usuario simulada. Esto evita que una referencia nula desde que se producen al ejecutar la prueba.
 
-Hay muchas .NET marcos que pueden usarse con ASP.NET MVC de simulación (puede ver una lista de las mismas: [http://www.mockframeworks.com/](http://www.mockframeworks.com/)). Para probar la aplicación de NerdDinner vamos a usar un marco denominado "Moq" de simulación de código abierto, que puede descargarse de forma gratuita desde [http://www.mockframeworks.com/moq](http://www.mockframeworks.com/moq).
+Hay muchas .NET marcos que pueden usarse con ASP.NET MVC de simulación (puede ver una lista de las mismas: [ http://www.mockframeworks.com/ ](http://www.mockframeworks.com/)). Para probar la aplicación de NerdDinner vamos a usar un marco denominado "Moq" de simulación de código abierto, que puede descargarse de forma gratuita desde [ http://www.mockframeworks.com/moq ](http://www.mockframeworks.com/moq).
 
 Una vez descargado, vamos a agregar una referencia en el proyecto NerdDinner.Tests al ensamblado Moq.dll:
 
@@ -285,6 +285,6 @@ Un capítulo posterior en el libro tratará desarrollo controlado por pruebas (T
 
 Algunos encapsulado final los comentarios.
 
->[!div class="step-by-step"]
-[Anterior](use-ajax-to-implement-mapping-scenarios.md)
-[Siguiente](nerddinner-wrap-up.md)
+> [!div class="step-by-step"]
+> [Anterior](use-ajax-to-implement-mapping-scenarios.md)
+> [Siguiente](nerddinner-wrap-up.md)

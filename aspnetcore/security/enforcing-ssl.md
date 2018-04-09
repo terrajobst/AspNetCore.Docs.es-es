@@ -1,7 +1,7 @@
 ---
-title: "Exigir HTTPS en una aplicación ASP.NET básica"
+title: Exigir HTTPS en un núcleo de ASP.NET
 author: rick-anderson
-description: "Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET de aplicación web."
+description: Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET de aplicación web.
 manager: wpickett
 ms.author: riande
 ms.date: 2/9/2018
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: dc320faf0048200412f131ea816f33f29ac023e1
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2ebb975e1ea17698cee13ca00d3f5df4a5135e38
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="enforcing-https-in-an-aspnet-core-app"></a>Exigir HTTPS en una aplicación ASP.NET básica
+# <a name="enforce-https-in-an-aspnet-core"></a>Exigir HTTPS en un núcleo de ASP.NET
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 

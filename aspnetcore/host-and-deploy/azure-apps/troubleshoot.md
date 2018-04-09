@@ -1,7 +1,7 @@
 ---
-title: "Solucionar problemas de núcleo de ASP.NET en el servicio de aplicaciones de Azure"
+title: Solucionar problemas de núcleo de ASP.NET en el servicio de aplicaciones de Azure
 author: guardrex
-description: "Obtenga información sobre cómo diagnosticar problemas con las implementaciones de Azure App Service de ASP.NET Core."
+description: Obtenga información sobre cómo diagnosticar problemas con las implementaciones de Azure App Service de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: e6a8404d3fe96a0136d7f874107b2cdf63e8e890
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 47056c80c7abf5dd5ad5ae96af7b821d31b21b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Solucionar problemas de núcleo de ASP.NET en el servicio de aplicaciones de Azure
 
 Por [Luke Latham](https://github.com/guardrex)
 
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
+[!INCLUDE [Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 Este artículo proporciona instrucciones sobre cómo diagnosticar un ASP.NET Core problema de inicio de aplicación mediante herramientas de diagnóstico del servicio de aplicaciones de Azure. Si desea obtener consejos de solución de problemas adicionales, consulte [información general sobre diagnóstico de servicio de aplicaciones de Azure](/azure/app-service/app-service-diagnostics) y [Cómo: supervisar aplicaciones en el servicio de aplicaciones de Azure](/azure/app-service/web-sites-monitor) en la documentación de Azure.
 
@@ -105,9 +105,9 @@ El registro de stdout módulo principal de ASP.NET a menudo registra mensajes de
 1. Seleccione **guardar** para guardar el archivo.
 
 > [!WARNING]
-> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados.
+> Error al deshabilitar el registro de stdout puede provocar errores de aplicación o un servidor. No hay ningún límite en el tamaño del archivo de registro ni en el número de archivos de registro creados. Utilice únicamente stdout registro para solucionar problemas de inicio de la aplicación.
 >
-> Para registrar la rutina en una aplicación de ASP.NET Core, utiliza una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
+> Para general el registro en una aplicación de ASP.NET Core después del inicio, utilice una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
 
 ## <a name="common-startup-errors"></a>Errores comunes de inicio 
 

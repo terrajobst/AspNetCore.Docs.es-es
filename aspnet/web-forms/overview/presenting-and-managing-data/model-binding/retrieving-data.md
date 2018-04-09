@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 title: Recuperar y mostrar los datos con modelo de enlace y formularios web | Documentos de Microsoft
 author: tfitzmac
-description: "Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-..."
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: e750250285fcb0088da284588d721ac21e73820c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 26873efa5dbfdbdab39a52cfb9cfd5a65c8231a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Recuperar y mostrar los datos con el enlace de modelos y formularios web forms
 ====================
@@ -97,7 +97,7 @@ La clase SchoolContext se deriva de DbContext, que administra la conexión de ba
 
 En la clase Student, observe los atributos que se han aplicado a la **FirstName**, **LastName**, y **año** propiedades. Estos atributos se usará para la validación de datos en este tutorial. Para simplificar el código para este proyecto de demostración, estas propiedades se han marcado con atributos de validación de datos. En un proyecto real, se aplicaría atributos de validación para todas las propiedades que se deben validados datos, como propiedades en las clases de curso e inscripción.
 
-Guardar UniversityModels.cs.
+Save UniversityModels.cs.
 
 Utilizará las herramientas de migraciones de Code First para configurar una base de datos basado en estas clases.
 
@@ -182,5 +182,5 @@ En este tutorial, ha creado clases del modelo de datos y genera una base de dato
 
 En la siguiente [tutorial](updating-deleting-and-creating-data.md) de esta serie, le permitirá actualizar, eliminar y crear datos.
 
->[!div class="step-by-step"]
-[Siguiente](updating-deleting-and-creating-data.md)
+> [!div class="step-by-step"]
+> [Siguiente](updating-deleting-and-creating-data.md)

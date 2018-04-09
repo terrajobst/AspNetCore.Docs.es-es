@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
-title: "Servidor de autorización de OAuth 2.0 OWIN | Documentos de Microsoft"
+title: Servidor de autorización de OAuth 2.0 OWIN | Documentos de Microsoft
 author: hongyes
-description: "Este tutorial le guiará en cómo implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth. Esto es un tutorial avanzado que solo figuración..."
+description: Este tutorial le guiará en cómo implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth. Esto es un tutorial avanzado que solo figuración...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/20/2014
 ms.topic: article
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
 ms.openlocfilehash: e5968f8d19191c3f44e9bd58f8e22a39d8d8faff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-oauth-20-authorization-server"></a>Servidor de autorización de OAuth 2.0 OWIN
 ====================
@@ -104,7 +104,7 @@ OAuth no le importa dónde y cómo administrar la información de su cuenta de u
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample4.cs?highlight=1)]
 
-`ValidateClientRedirectUri`se utiliza para validar al cliente con su dirección URL de redireccionamiento registrado. `ValidateClientAuthentication`comprueba el encabezado de esquema básico y el cuerpo del formulario para obtener las credenciales del cliente.
+`ValidateClientRedirectUri` se utiliza para validar al cliente con su dirección URL de redireccionamiento registrado. `ValidateClientAuthentication` comprueba el encabezado de esquema básico y el cuerpo del formulario para obtener las credenciales del cliente.
 
 A continuación se muestra la página de inicio de sesión:
 
@@ -241,10 +241,10 @@ Vea *AuthorizationServer\ResourceServer\App\_Start\Startup.WebApi.cs* en el ejem
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample13.cs)]
 
-- `UseCors`método permite CORS para todos los dominios.
-- `UseOAuthBearerAuthentication`método permite que el middleware de autenticación de token de portador de OAuth que recibirá y validar el token de portador encabezado de autorización de la solicitud.
-- `Config.SuppressDefaultHostAuthenticaiton`Suprime la predeterminada principal autenticado desde la aplicación de host, por lo tanto, todas las solicitudes será anónimas después de esta llamada.
-- `HostAuthenticationFilter`habilita la autenticación solo para el tipo de autenticación especificado. En este caso, es el tipo de autenticación de portador.
+- `UseCors` método permite CORS para todos los dominios.
+- `UseOAuthBearerAuthentication` método permite que el middleware de autenticación de token de portador de OAuth que recibirá y validar el token de portador encabezado de autorización de la solicitud.
+- `Config.SuppressDefaultHostAuthenticaiton` Suprime la predeterminada principal autenticado desde la aplicación de host, por lo tanto, todas las solicitudes será anónimas después de esta llamada.
+- `HostAuthenticationFilter` habilita la autenticación solo para el tipo de autenticación especificado. En este caso, es el tipo de autenticación de portador.
 
 Para demostrar la identidad autenticada, creamos un ApiController para generar notificaciones del usuario actual.
 
@@ -272,7 +272,7 @@ Este es el código de ejemplo de la `HomeController` del cliente.
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample16.cs)]
 
-`DotNetOpenAuth`requiere SSL de forma predeterminada. Dado que nuestra demostración está usando HTTP, debe agregar después de la configuración en el archivo de configuración:
+`DotNetOpenAuth` requiere SSL de forma predeterminada. Dado que nuestra demostración está usando HTTP, debe agregar después de la configuración en el archivo de configuración:
 
 [!code-xml[Main](owin-oauth-20-authorization-server/samples/sample17.xml?highlight=4-6)]
 

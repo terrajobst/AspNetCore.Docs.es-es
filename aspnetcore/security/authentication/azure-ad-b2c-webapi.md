@@ -1,7 +1,7 @@
 ---
-title: "Autenticación de nube en web API con Azure Active Directory B2C en ASP.NET Core"
+title: Autenticación de nube en web API con Azure Active Directory B2C en ASP.NET Core
 author: camsoper
-description: "Descubra cómo configurar la autenticación de Azure Active Directory B2C con API Web de ASP.NET Core. Pruebe la API con Postman de web autenticado."
+description: Descubra cómo configurar la autenticación de Azure Active Directory B2C con API Web de ASP.NET Core. Pruebe la API con Postman de web autenticado.
 ms.author: casoper
 manager: wpickett
 ms.date: 01/25/2018
@@ -10,11 +10,11 @@ ms.technology: aspnet
 ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 1213f7eb25fb6525f98d83dff0956a841ae686a7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación de nube en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -23,7 +23,7 @@ Por [Cam Soper](https://twitter.com/camsoper)
 [Azure B2C Directory Active](/azure/active-directory-b2c/active-directory-b2c-overview) (Azure AD B2C) es una solución de administración de identidades de nube para aplicaciones móviles y web. El servicio proporciona autenticación para las aplicaciones hospedadas en la nube y locales. Tipos de autenticación incluyen cuentas individuales, las cuentas de red social y federado cuentas empresariales. Además, Azure AD B2C puede proporcionar la autenticación multifactor con una configuración mínima.
 
 > [!TIP]
-> Azure Active Directory (Azure AD) Azure AD B2C son ofertas de productos independientes. Un inquilino de Azure AD representa una organización, mientras que un inquilino de Azure AD B2C representa una colección de identidades para su uso con aplicaciones de usuario de confianza. Para obtener más información, consulte [Azure AD B2C: preguntas más frecuentes (P+F)](/azure/active-directory-b2c/active-directory-b2c-faqs).
+> Azure Active Directory (Azure AD) y Azure AD B2C son ofertas de producto independiente. Un inquilino de Azure AD representa una organización, mientras que un inquilino de Azure AD B2C representa una colección de identidades para su uso con aplicaciones de usuario de confianza. Para obtener más información, consulte [Azure AD B2C: preguntas más frecuentes (P+F)](/azure/active-directory-b2c/active-directory-b2c-faqs).
 
 Puesto que las API web no tienen ninguna interfaz de usuario, se trata de no se puede redirigir al usuario a un servicio de token seguro como Azure AD B2C. En su lugar, la API se pasa un token de portador de la aplicación que realiza la llamada, que ya se ha autenticado al usuario con Azure AD B2C. La API, a continuación, valida el token sin interacción directa del usuario.
 
@@ -78,21 +78,21 @@ En Visual Studio:
 1. Cree una aplicación web de ASP.NET Core. 
 2. Seleccione **API Web** en la lista de plantillas.
 3. Seleccione el **Cambiar autenticación** botón.
-    
+
     ![Botón de autenticación de cambio](./azure-ad-b2c-webapi/change-auth-button.png)
 
 4. En el **Cambiar autenticación** cuadro de diálogo, seleccione **cuentas de usuario individuales**y, a continuación, seleccione **conectar a un almacén de usuario existente en la nube** en la lista desplegable. 
-    
+
     ![Cuadro de diálogo de autenticación de cambio](./azure-ad-b2c-webapi/change-auth-dialog.png)
 
 5. Rellene el formulario con los siguientes valores:
-    
+
     | Parámetro                       | Valor                                                 |
     |-------------------------------|-------------------------------------------------------|
     | **Nombre de dominio**               | *&lt;el nombre de dominio del inquilino B2C&gt;*          |
     | **Identificador de la aplicación**            | *&lt;Pegue el identificador de aplicación desde el Portapapeles&gt;* |
     | **Directiva de inicio de sesión o inicio de sesión** | `B2C_1_SiUpIn`                                        |
-    
+
     Seleccione **Aceptar** para cerrar el **Cambiar autenticación** cuadro de diálogo. Seleccione **Aceptar** para crear la aplicación web.
 
 Visual Studio crea la API web con un controlador denominado *ValuesController.cs* que devuelva valores codificados de forma rígida para las solicitudes GET. La clase se decora con el [atributo Authorize](xref:security/authorization/simple), por lo que todas las solicitudes requieren autenticación.
@@ -140,17 +140,17 @@ Inicie a Postman. De forma predeterminada, se muestra Postman el **crear nuevo**
 Desde el **crear nuevo** cuadro de diálogo:
 
 1. Seleccione **solicitar**.
-    
+
     ![Botón de solicitud](./azure-ad-b2c-webapi/postman-create-new.png)
 
 2. Escriba *obtener valores* en el **nombre de la solicitud** cuadro.
 3. Seleccione **+ Crear colección** para crear una nueva colección para almacenar la solicitud. Asignar nombre a la colección *tutoriales de ASP.NET Core* y, a continuación, seleccione la marca de verificación.
-    
+
     ![Crear una nueva colección](./azure-ad-b2c-webapi/postman-create-collection.png)
 
 4. Seleccione el **guardar a los tutoriales de ASP.NET Core** botón.
 
-### <a name="test-the-web-api-withoutauthentication"></a>Probar la withoutauthentication API web
+### <a name="test-the-web-api-without-authentication"></a>Probar la API web sin autenticación
 
 Para comprobar que la API web requiere autenticación, primero hay que realizar una solicitud sin autenticación.
 
@@ -165,34 +165,36 @@ Para comprobar que la API web requiere autenticación, primero hay que realizar 
 Para realizar una solicitud autenticada a la API web, se requiere un token de portador. Postman facilita la inicie sesión en el inquilino de Azure AD B2C y obtener un token.
 
 1. En el **autorización** ficha la **tipo** lista desplegable, seleccione **OAuth 2.0**. En el **agregar datos de autorización a** lista desplegable, seleccione **encabezados de solicitud**. Seleccione **obtener Token de acceso nuevo**.
-    
+
     ![Ficha de autorización con la configuración](./azure-ad-b2c-webapi/postman-auth-tab.png)
 
 2. Completar la **obtener TOKEN de acceso nuevo** diálogo como se indica a continuación:
-    
-    | Parámetro                   | Valor                                                                                         | Notas                                                                                      |
-    |---------------------------|-----------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-    | **Nombre del token**            | *&lt;nombre del token&gt;*                                                                          | Escriba un nombre descriptivo para el token.                                                    |
-    | **Tipo de concesión**            | Implícitas                                                                                      |                                                                                            |
-    | **Dirección URL de devolución de llamada**          | `https://getpostman.com/postman`                                                              |                                                                                            |
-    | **Dirección URL de autenticación**              | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` | Reemplace  *&lt;nombre_de_dominio_de&gt;*  con el nombre de dominio del inquilino sin corchetes angulares. |
-    | **Id. de cliente**             | *&lt;Escriba la aplicación Postman <b>Id. de aplicación</b>&gt;*                                       |                                                                                            |
-    | **Secreto del cliente**         | *&lt;Deje en blanco&gt;*                                                                         |                                                                                            |
-    | **Ámbito**                 | `https://<tenant domain name>/api/user_impersonation openid offline_access`                   | Reemplace  *&lt;nombre_de_dominio_de&gt;*  con el nombre de dominio del inquilino sin corchetes angulares. |
-    | **Autenticación de cliente** | Enviar las credenciales del cliente en el cuerpo                                                               |                                                                                            |
-    
+
+
+   |                Parámetro                 |                                             Valor                                             |                                                                                                                                    Notas                                                                                                                                     |
+   |----------------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   |      <strong>Nombre del token</strong>       |                                  <em>&lt;nombre del token&gt;</em>                                  |                                                                                                                   Escriba un nombre descriptivo para el token.                                                                                                                    |
+   |      <strong>Tipo de concesión</strong>       |                                           Implícitas                                            |                                                                                                                                                                                                                                                                              |
+   |     <strong>Dirección URL de devolución de llamada</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
+   |       <strong>Dirección URL de autenticación</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Reemplace <em>&lt;nombre_de_dominio_de&gt;</em> con el nombre de dominio del inquilino.                                                                                                  |
+   |       <strong>Id. de cliente</strong>       |                <em>&lt;Escriba la aplicación Postman <b>Id. de aplicación</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
+   |     <strong>Secreto del cliente</strong>     |                                 <em>&lt;Deje en blanco&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
+   |         <strong>Ámbito</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Reemplace <em>&lt;nombre_de_dominio_de&gt;</em> con el nombre de dominio del inquilino. Reemplace <em>&lt;api&gt;</em> con el nombre del proyecto Web API. También puede usar el identificador de aplicación. El patrón para la dirección URL es: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope nombre}</em>. |
+   | <strong>Autenticación de cliente</strong> |                                Enviar las credenciales del cliente en el cuerpo                                |                                                                                                                                                                                                                                                                              |
+
+
 3. Seleccione el **solicitar Token** botón.
 
 4. Postman abre una nueva ventana que contiene el inicio de sesión del inquilino de Azure AD B2C en cuadro de diálogo. Inicie sesión con una cuenta existente (si se ha creado uno probar las directivas) o seleccione **Regístrese ahora** para crear una nueva cuenta. El **¿olvidó su contraseña?** vínculo se usa para restablecer una contraseña olvidada.
 
 5. Después de iniciar sesión correctamente, la ventana se cierra y la **administrar TOKENS de acceso** aparece el cuadro de diálogo. Desplácese hacia abajo hasta la parte inferior y seleccione el **uso Token** botón.
-    
+
     ![Dónde se encuentra el botón "Usar símbolo (token)"](./azure-ad-b2c-webapi/postman-access-token.png)
 
 ### <a name="test-the-web-api-with-authentication"></a>Probar la API web con autenticación
 
 Seleccione el **enviar** botón volver a enviar la solicitud. En esta ocasión, el estado de la respuesta es *200 Aceptar* y la carga de JSON es visible en la respuesta **cuerpo** ficha.
-    
+
 ![Estado de carga y el éxito](./azure-ad-b2c-webapi/postman-success.png)
 
 ## <a name="next-steps"></a>Pasos siguientes

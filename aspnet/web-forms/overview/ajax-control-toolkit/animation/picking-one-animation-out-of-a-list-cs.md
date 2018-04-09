@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
-title: "Seleccionar una animación de una lista (C#) | Documentos de Microsoft"
+title: Seleccionar una animación de una lista (C#) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. El marco de trabajo también permitir..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. El marco de trabajo también permitir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a24c4ffe49df4eb663f833eb1814f7cbcf15e07e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d4aac447fcdfbf296560091cfcdf5eb51997a7b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="picking-one-animation-out-of-a-list-c"></a>Seleccionar una animación de una lista (C#)
 ====================
@@ -45,7 +45,7 @@ En la clase CSS asociada para el panel, definir un color de fondo "nice" y tambi
 
 [!code-css[Main](picking-one-animation-out-of-a-list-cs/samples/sample3.css)]
 
-A continuación, agregue el `AnimationExtender` a la página, proporciona un `ID`, el `TargetControlID` atributo y el obligatoria`runat="server":`
+A continuación, agregue el `AnimationExtender` a la página, proporciona un `ID`, el `TargetControlID` atributo y el obligatoria `runat="server":`
 
 [!code-aspx[Main](picking-one-animation-out-of-a-list-cs/samples/sample4.aspx)]
 
@@ -60,6 +60,6 @@ El marcado siguiente define tres las subanimaciones: cambio de tamaño el ancho,
 
 Una de las animaciones de tres posibles: el panel obtiene más amplio ([haga clic aquí para ver la imagen a tamaño completo](picking-one-animation-out-of-a-list-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](animation-depending-on-a-condition-cs.md)
-[Siguiente](animating-in-response-to-user-interaction-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](animation-depending-on-a-condition-cs.md)
+> [Siguiente](animating-in-response-to-user-interaction-cs.md)

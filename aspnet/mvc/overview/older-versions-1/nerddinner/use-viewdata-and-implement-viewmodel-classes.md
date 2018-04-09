@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 title: Use ViewData e implemente ViewModel clases | Documentos de Microsoft
 author: microsoft
-description: "Paso 6 se muestra cómo habilita la compatibilidad de forma más completa que modificar escenarios y también se explican dos enfoques que pueden utilizarse para pasar datos de controladores a vistas:..."
+description: Paso 6 se muestra cómo habilita la compatibilidad de forma más completa que modificar escenarios y también se explican dos enfoques que pueden utilizarse para pasar datos de controladores a vistas:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 36b9e87cc24f74f7f2cc592afb5102709b598f74
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-viewdata-and-implement-viewmodel-classes"></a>Use ViewData e implemente ViewModel clases
 ====================
@@ -127,6 +127,6 @@ Clases de ViewModel en forma de personalizado pueden proporcionar una gran canti
 
 Ahora veamos cómo podemos usar parciales y las páginas maestras para reutilizar y compartir la interfaz de usuario a través de nuestra aplicación.
 
->[!div class="step-by-step"]
-[Anterior](provide-crud-create-read-update-delete-data-form-entry-support.md)
-[Siguiente](re-use-ui-using-master-pages-and-partials.md)
+> [!div class="step-by-step"]
+> [Anterior](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [Siguiente](re-use-ui-using-master-pages-and-partials.md)

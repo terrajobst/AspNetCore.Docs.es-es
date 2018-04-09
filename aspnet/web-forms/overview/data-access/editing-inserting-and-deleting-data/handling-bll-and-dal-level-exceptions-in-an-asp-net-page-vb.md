@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
-title: "Control de excepciones de nivel de DAL y BLL en una página de ASP.NET (VB) | Documentos de Microsoft"
+title: Control de excepciones de nivel de DAL y BLL en una página de ASP.NET (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos cómo se muestra un mensaje de error informativo y sencillo debe producir una excepción durante la operación de inserción, actualización o delete de..."
+description: En este tutorial veremos cómo se muestra un mensaje de error informativo y sencillo debe producir una excepción durante la operación de inserción, actualización o delete de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2269458cbc41fd3a483aaade0f07288ee805bdd1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b76554b6e8c00dbe3b33de8158b925d7314afb72
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-bll--and-dal-level-exceptions-in-an-aspnet-page-vb"></a>Control de excepciones de nivel de DAL y BLL en una página de ASP.NET (VB)
 ====================
@@ -155,9 +155,9 @@ Creación de este controlador de eventos agregará el código siguiente a la cla
 
 Segundo parámetro de entrada de este controlador de eventos es un objeto de tipo [GridViewUpdatedEventArgs](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridviewupdatedeventargs.aspx), que tiene tres propiedades de interés para controlar las excepciones:
 
-- `Exception`una referencia a la excepción; Si no se ha producido ninguna excepción, esta propiedad tendrá un valor de`null`
-- `ExceptionHandled`un valor booleano que indica si se controló la excepción en el `RowUpdated` controlador de eventos; si `false` (valor predeterminado), la excepción se vuelve a producir, filtre hasta el tiempo de ejecución ASP.NET
-- `KeepInEditMode`Si establece en `true` la fila editada de GridView permanece en modo de edición; si `false` (valor predeterminado), la fila de GridView vuelve a su modo de solo lectura
+- `Exception` una referencia a la excepción; Si no se ha producido ninguna excepción, esta propiedad tendrá un valor de `null`
+- `ExceptionHandled` un valor booleano que indica si se controló la excepción en el `RowUpdated` controlador de eventos; si `false` (valor predeterminado), la excepción se vuelve a producir, filtre hasta el tiempo de ejecución ASP.NET
+- `KeepInEditMode` Si establece en `true` la fila editada de GridView permanece en modo de edición; si `false` (valor predeterminado), la fila de GridView vuelve a su modo de solo lectura
 
 A continuación, el código, debe comprobar para ver si `Exception` no es `null`, lo que significa que se generó una excepción al realizar la operación. Si este es el caso, queremos que:
 
@@ -224,12 +224,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Liz Shulok. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
-[Siguiente](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](examining-the-events-associated-with-inserting-updating-and-deleting-vb.md)
+> [Siguiente](adding-validation-controls-to-the-editing-and-inserting-interfaces-vb.md)

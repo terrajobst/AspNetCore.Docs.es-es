@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
-title: "Crear un diseño de todo el sitio mediante páginas maestras (VB) | Documentos de Microsoft"
+title: Crear un diseño de todo el sitio mediante páginas maestras (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial le mostrará los conceptos básicos de la página maestra. Es decir, ¿cuáles son las páginas maestras, ¿cómo uno crear una página maestra, ¿cuáles son los marcadores de posición de contenido, ¿cómo un cr..."
+description: Este tutorial le mostrará los conceptos básicos de la página maestra. Es decir, ¿cuáles son las páginas maestras, ¿cómo uno crear una página maestra, ¿cuáles son los marcadores de posición de contenido, ¿cómo un cr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 29671970dc6f53d0e14170cf6376c02634b7b08e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d18993af7159de552db0c622fbef58e814e36ebb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-vb"></a>Crear un diseño de todo el sitio mediante páginas maestras (VB)
 ====================
@@ -34,7 +34,7 @@ Un atributo de un sitio Web bien diseñado es un diseño de página coherente de
 
 [![El sitio Web www.asp.net emplea una apariencia coherente en todas las páginas](creating-a-site-wide-layout-using-master-pages-vb/_static/image2.png)](creating-a-site-wide-layout-using-master-pages-vb/_static/image1.png)
 
-**Figura 01**: el sitio Web www.asp.net emplea un aspecto coherente y sentirse a través de todas las páginas ([haga clic aquí para ver la imagen a tamaño completo](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
+<strong>Figura 01</strong>: el sitio Web www.asp.net emplea un aspecto coherente y sentirse a través de todas las páginas ([haga clic aquí para ver la imagen a tamaño completo](creating-a-site-wide-layout-using-master-pages-vb/_static/image3.png))
 
 
 Otro atributo de un sitio bien diseñado es la facilidad con la que se puede cambiar la apariencia del sitio. La figura 1 muestra la página principal de www.asp.net a partir de marzo de 2008, pero entre ahora y publicación de este tutorial, puede haber cambiado la apariencia y comportamiento. Quizás los elementos de menú en la parte superior se expandirán para incluir una sección nueva para el marco de MVC. O quizás será dio un diseño radicalmente nuevo con distintos colores, fuentes y diseño. Aplicar dichos cambios a todo el sitio debe ser un proceso rápido y simple que no se requiere la modificación de las miles de páginas web que componen el sitio.
@@ -281,12 +281,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](nested-master-pages-cs.md)
-[Siguiente](multiple-contentplaceholders-and-default-content-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](nested-master-pages-cs.md)
+> [Siguiente](multiple-contentplaceholders-and-default-content-vb.md)

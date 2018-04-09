@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
-title: "Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#) | Documentos de Microsoft"
+title: Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#) | Documentos de Microsoft
 author: tfitzmac
-description: "Este capítulo proporciona información general de la programación con ASP.NET Web Pages usando la sintaxis de Razor. ASP.NET es la tecnología de Microsoft para ejecutar pa de web dinámico..."
+description: Este capítulo proporciona información general de la programación con ASP.NET Web Pages usando la sintaxis de Razor. ASP.NET es la tecnología de Microsoft para ejecutar pa de web dinámico...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/07/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 32cdd8d524d783d7ccc3ab076de636ce4a868132
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 430033c06df74cc3661c40ca7f7bd9244cd257c9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#)
 ====================
@@ -122,7 +122,7 @@ Este es el resultado del uso de estos ejemplos de ambos en una página:
 
 ### <a name="6-code-is-case-sensitive"></a>6. Código distingue mayúsculas de minúsculas
 
-En C#, palabras clave (como `var`, `true`, y `if`) y nombres de variables distinguen entre mayúsculas y minúsculas. Las siguientes líneas de código crean dos variables distintas, `lastName` y`LastName.`
+En C#, palabras clave (como `var`, `true`, y `if`) y nombres de variables distinguen entre mayúsculas y minúsculas. Las siguientes líneas de código crean dos variables distintas, `lastName` y `LastName.`
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample8.cshtml)]
 
@@ -134,7 +134,7 @@ Si se declara una variable como `var lastName = "Smith";` y si se intenta hacer 
 
 ### <a name="7-much-of-your-coding-involves-objects"></a>7. Gran parte de la codificación implica objetos
 
-Un *objeto* representa algo que se puede programar con &#8212; una página, un cuadro de texto, un archivo, una imagen, una solicitud web, un mensaje de correo electrónico, un registro de cliente (filas de la base de datos), etcetera. Los objetos tienen propiedades que describen sus características y que puede leer o cambiar &#8212; un objeto de cuadro de texto tiene un `Text` propiedad (entre otras cosas), un objeto de solicitud tiene un `Url` propiedad, un mensaje de correo electrónico tiene un `From` propiedad y un objeto customer tiene una `FirstName` propiedad. Métodos de los objetos también tienen la &quot;verbos&quot; pueden realizar. Algunos ejemplos son un objeto de archivo `Save` /método siguiente, un objeto de imagen `Rotate` método y un objeto de correo electrónico `Send` método.
+Un *objeto* representa algo que se puede programar con &#8212; una página, un cuadro de texto, un archivo, una imagen, una solicitud web, un mensaje de correo electrónico, un registro de cliente (filas de la base de datos), etcetera. Los objetos tienen propiedades que describen sus características y que puede leer o cambiar &#8212; un objeto de cuadro de texto tiene un `Text` propiedad (entre otras cosas), un objeto de solicitud tiene un `Url` propiedad, un mensaje de correo electrónico tiene un `From` propiedad, y un objeto customer tiene una `FirstName` propiedad. Métodos de los objetos también tienen la &quot;verbos&quot; pueden realizar. Algunos ejemplos son un objeto de archivo `Save` /método siguiente, un objeto de imagen `Rotate` método y un objeto de correo electrónico `Send` método.
 
 A menudo trabajará con la `Request` objeto, que proporciona información como los valores de los cuadros de texto (campos de formulario) en la página, el tipo de explorador realizó la solicitud, la dirección URL de la página, la identidad del usuario, etcetera. En el ejemplo siguiente se muestra cómo obtener acceso a propiedades de la `Request` objeto y cómo llamar a la `MapPath` método de la `Request` objeto, que proporciona la ruta de acceso absoluta de la página en el servidor:
 
@@ -199,7 +199,7 @@ Pero primero, una pequeña Introducción técnica.
 
 La sintaxis Razor es una simple programación para incrustar código basado en el servidor en una página web. En una página web que usa la sintaxis de Razor, hay dos tipos de contenido: código de contenido y el servidor de cliente. Contenido de cliente es el material que está acostumbrado a en páginas web: el formato HTML (elementos), la información de estilo como CSS, tal vez algunos scripts de cliente, como JavaScript y texto sin formato.
 
-Sintaxis de Razor le permite agregar código de servidor a este contenido de cliente. Si no hay código de servidor en la página, el servidor ejecuta dicho código en primer lugar, antes de enviar la página al explorador. Mediante la ejecución en el servidor, el código puede realizar las tareas que pueden ser mucho más complejas para hacer con solo, como el acceso a bases de datos basadas en servidor de contenido de cliente. Lo más importante, el código de servidor puede crear dinámicamente cliente contenido &#8212; puede generar marcado HTML u otro tipo de contenido sobre la marcha y, a continuación, se enviará al explorador junto con cualquier HTML estático que la página puede contener. Desde la perspectiva del explorador, el contenido de cliente generado por el código del servidor es similar a cualquier otro contenido de cliente. Como ya ha visto, el código de servidor que se necesita es muy sencillo.
+Sintaxis de Razor le permite agregar código de servidor a este contenido de cliente. Si no hay código de servidor en la página, el servidor ejecuta dicho código en primer lugar, antes de enviar la página al explorador. Mediante la ejecución en el servidor, el código puede realizar las tareas que pueden ser mucho más complejas para hacer con solo, como el acceso a bases de datos basadas en servidor de contenido de cliente. Lo más importante, el código de servidor puede crear dinámicamente el contenido de cliente &#8212; puede generar el marcado HTML u otro contenido sobre la marcha y, a continuación, se enviará al explorador junto con cualquier HTML estático que la página puede contener. Desde la perspectiva del explorador, el contenido de cliente generado por el código del servidor es similar a cualquier otro contenido de cliente. Como ya ha visto, el código de servidor que se necesita es muy sencillo.
 
 Páginas web ASP.NET que incluya la sintaxis Razor tienen una extensión de archivo especial (*.cshtml* o *.vbhtml*). El servidor reconoce estas extensiones, se ejecuta el código que se marca con sintaxis Razor y, a continuación, envía la página al explorador.
 
@@ -224,7 +224,7 @@ La sintaxis de Razor le ofrece toda la potencia de ASP.NET, pero con una sintaxi
 
 ## <a name="basic-syntax"></a>Sintaxis básica
 
-Anteriormente se mostró un ejemplo básico de cómo crear una página de ASP.NET Web Pages y cómo puede agregar código de servidor en formato HTML. Aquí aprenderá los conceptos básicos de la escritura de código de servidor ASP.NET mediante la sintaxis de Razor &#8212; es decir, las reglas de lenguaje de programación.
+Anteriormente se mostró un ejemplo básico de cómo crear una página de ASP.NET Web Pages y cómo puede agregar código de servidor en formato HTML. Aquí aprenderá los conceptos básicos de la escritura de código de servidor ASP.NET mediante la sintaxis Razor &#8212; es decir, las reglas de lenguaje de programación.
 
 Si tiene experiencia con la programación (sobre todo si ha usado C, C++, C#, Visual Basic o JavaScript), gran parte de lo que leer aquí le resultará familiar. Probablemente necesitará para familiarizarse con cómo se agrega el código del servidor para el marcado en *.cshtml* archivos.
 
@@ -343,33 +343,35 @@ Para convertir los valores enteros, se llama a la `AsInt` método. Si la convers
 
 En la tabla siguiente se enumera algunos métodos de conversión y prueba comunes para las variables.
 
-| **Método** | **Descripción** | **Ejemplo** |
-| --- | --- | --- |
-| `AsInt(), IsInt()` | Convierte una cadena que representa un número entero (por ejemplo, "593") en un entero. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)] |
-| `AsBool(), IsBool()` | Convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)] |
-| `AsFloat(), IsFloat()` | Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)] |
-| `AsDecimal(), IsDecimal()` | Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante.) | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)] |
-| `AsDateTime(), IsDateTime()` | Convierte una cadena que representa un valor de fecha y hora para ASP.NET `DateTime` tipo. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)] |
-| `ToString()` | Cualquier otro tipo de datos se convierte en una cadena. | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
+
+|   <strong>Método</strong>    |                                                                              <strong>Descripción</strong>                                                                              |                         <strong>Ejemplo</strong>                         |
+|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|      `AsInt(), IsInt()`      |                                                      Convierte una cadena que representa un número entero (por ejemplo, "593") en un entero.                                                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]   |
+|     `AsBool(), IsBool()`     |                                                    Convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]   |
+|    `AsFloat(), IsFloat()`    |                                    Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]   |
+|  `AsDecimal(), IsDecimal()`  | Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante.) |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]   |
+| `AsDateTime(), IsDateTime()` |                                                Convierte una cadena que representa un valor de fecha y hora para ASP.NET `DateTime` tipo.                                                 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]   |
+|         `ToString()`         |                                                                       Cualquier otro tipo de datos se convierte en una cadena.                                                                        | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
 
 ## <a name="operators"></a>Operadores
 
 Un operador es una palabra clave o un carácter que indica qué tipo de comando que se ejecuta en una expresión de ASP.NET. El lenguaje C# (y la sintaxis de Razor que se basan en ellos) admiten muchos de los operadores, pero solo debe reconocer algunos para empezar a trabajar. En la tabla siguiente se resume los operadores más comunes.
 
-| **Operator** | **Descripción** | **Ejemplos** |
-| --- | --- | --- |
-| `+` `-` `*` `/` | Operadores matemáticos usados en expresiones numéricas. | [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)] |
-| `=` | Asignación. Asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)] |
-| `==` | Igualdad. Devuelve `true` si los valores son iguales. (Tenga en cuenta la distinción entre el `=` operador y el `==` operador.) | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)] |
-| `!=` | Desigualdad. Devuelve `true` si los valores no son iguales. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)] |
-| `< > <= >=` | Menor-que, mayor-que, menor o igual que y mayor o igual. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)] |
-| `+` | Concatenación, que se usa para combinar cadenas. ASP.NET se conoce la diferencia entre este operador y el operador de suma según el tipo de datos de la expresión. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)] |
-| `+=` `-=` | Los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)] |
-| `.` | Punto. Se utiliza para distinguir objetos y sus propiedades y métodos. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)] |
-| `()` | Paréntesis. Se utiliza para las expresiones de grupo y para pasar parámetros a métodos. | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
-| `[]` | Corchetes. Se utiliza para tener acceso a los valores de las matrices o colecciones. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)] |
-| `!` | No. Invierte un `true` valor `false` y viceversa. Se utiliza normalmente como una manera abreviada para comprobar la `false` (es decir, para no `true`). | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)] |
-| `&&` <code>&#124;&#124;</code> | Operador lógico AND y OR, que se usan para vincular condiciones. | [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)] |
+
+|   <strong>Operator</strong>    |                                                                     <strong>Descripción</strong>                                                                     |                        <strong>Ejemplos</strong>                         |
+|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
+|        `+` `-` `*` `/`         |                                                            Operadores matemáticos usados en expresiones numéricas.                                                             |    [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]    |
+|              `=`               |                                    Asignación. Asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]   |
+|              `==`              |                      Igualdad. Devuelve `true` si los valores son iguales. (Tenga en cuenta la distinción entre el `=` operador y el `==` operador.)                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]   |
+|              `!=`              |                                                       Desigualdad. Devuelve `true` si los valores no son iguales.                                                        |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]   |
+|          `< > <= >=`           |                                               Menor-que, mayor-que, menor o igual que y mayor o igual.                                                |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]   |
+|              `+`               | Concatenación, que se usa para combinar cadenas. ASP.NET se conoce la diferencia entre este operador y el operador de suma según el tipo de datos de la expresión. |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]   |
+|           `+=` `-=`            |                                   Los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]   |
+|              `.`               |                                                  Punto. Se utiliza para distinguir objetos y sus propiedades y métodos.                                                  |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]   |
+|              `()`              |                                              Paréntesis. Se utiliza para las expresiones de grupo y para pasar parámetros a métodos.                                               | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
+|              `[]`              |                                                    Corchetes. Se utiliza para tener acceso a los valores de las matrices o colecciones.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]   |
+|              `!`               |               No. Invierte un `true` valor `false` y viceversa. Se utiliza normalmente como una manera abreviada para comprobar la `false` (es decir, para no `true`).               |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]   |
+| `&&` <code>&#124;&#124;</code> |                                                   Operador lógico AND y OR, que se usan para vincular condiciones.                                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]   |
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Trabajar con archivos y rutas de acceso de carpeta en el código
@@ -515,7 +517,7 @@ A menudo podrá trabajar con datos en colecciones. Dos tipos de colección comun
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample59.cshtml)]
 
-Con las matrices, se declara un tipo de datos específico, como `string`, `int`, o `DateTime`. Para indicar que la variable puede contener una matriz, agregar corchetes a la declaración (como `string[]` o `int[]`). Se pueden tener acceso a los elementos en una matriz mediante su posición (índice) o mediante el `foreach` instrucción. Matriz de índices de base cero de se &#8212; es decir, el primer elemento está en posición 0, el segundo elemento está en la posición 1 y así sucesivamente.
+Con las matrices, se declara un tipo de datos específico, como `string`, `int`, o `DateTime`. Para indicar que la variable puede contener una matriz, agregar corchetes a la declaración (como `string[]` o `int[]`). Se pueden tener acceso a los elementos en una matriz mediante su posición (índice) o mediante el `foreach` instrucción. Los índices de matriz son de base cero &#8212; es decir, el primer elemento está en posición 0, el segundo elemento en la posición 1 y así sucesivamente.
 
 [!code-cshtml[Main](introducing-razor-syntax-c/samples/sample60.cshtml)]
 
@@ -549,7 +551,7 @@ Cuando lea anteriormente en este artículo, los objetos que se han programado co
 
 Este método devuelve la ruta de acceso física en el servidor que corresponde a una ruta de acceso virtual especificada. Los tres parámetros para el método son `virtualPath`, `baseVirtualDir`, y `allowCrossAppMapping`. (Tenga en cuenta que en la declaración, se enumeran los parámetros con los tipos de datos de los datos que aceptará.) Cuando se llama a este método, debe suministrar valores para los tres parámetros.
 
-La sintaxis de Razor le ofrece dos opciones para pasar parámetros a un método: *parámetros posicionales* y *parámetros con nombre*. Para llamar a un método con parámetros posicionales, pasar los parámetros en un orden estricto que se especifica en la declaración del método. (Normalmente sabría este orden, lea la documentación del método.) Debe seguir el orden y no se puede omitir cualquiera de los parámetros &#8212; Si es necesario, se pasa una cadena vacía (`""`) o `null` para un parámetro posicional que no tienen un valor para.
+La sintaxis de Razor le ofrece dos opciones para pasar parámetros a un método: *parámetros posicionales* y *parámetros con nombre*. Para llamar a un método con parámetros posicionales, pasar los parámetros en un orden estricto que se especifica en la declaración del método. (Normalmente sabría este orden, lea la documentación del método.) Debe seguir el orden y no se puede omitir cualquiera de los parámetros &#8212; si es necesario, se pasa una cadena vacía (`""`) o `null` para un parámetro posicional que no tienen un valor para.
 
 En el siguiente ejemplo se da por supuesto que tiene una carpeta denominada *secuencias de comandos* en el sitio Web. El código llama el `Request.MapPath` método y pasa los valores para los tres parámetros en el orden correcto. A continuación, muestra la ruta de acceso asignado resultante.
 

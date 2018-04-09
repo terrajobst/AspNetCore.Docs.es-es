@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/getting-started/introduction-to-aspnet-identity
-title: "Introducción a la identidad de ASP.NET | Documentos de Microsoft"
+title: Introducción a la identidad de ASP.NET | Documentos de Microsoft
 author: jongalloway
-description: "El sistema de pertenencia ASP.NET se introdujo con ASP.NET 2.0 back en 2005 y, puesto que, a continuación, ha habido muchos cambios en el normalmente de las aplicaciones web de formas..."
+description: El sistema de pertenencia ASP.NET se introdujo con ASP.NET 2.0 back en 2005 y, puesto que, a continuación, ha habido muchos cambios en el normalmente de las aplicaciones web de formas...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 7c7dcb7903b0d0772acc560161ff39c6869c599a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 59272f4659256e108ee99b22eb3bd3e2583a617c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-aspnet-identity"></a>Introducción a la identidad de ASP.NET
 ====================
@@ -112,37 +112,37 @@ Identidad de ASP.NET se implementa mediante el procedimiento siguiente. El prop�
 2. El proyecto creado contiene los siguientes tres paquetes para identidades de ASP.NET.
 
     - [`Microsoft.AspNet.Identity.EntityFramework`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.EntityFramework/)  
- Este paquete incluye la implementación de Entity Framework de identidad de ASP.NET que se conservarán los datos de identidad de ASP.NET y el esquema para SQL Server.
+   Este paquete incluye la implementación de Entity Framework de identidad de ASP.NET que se conservarán los datos de identidad de ASP.NET y el esquema para SQL Server.
     - [`Microsoft.AspNet.Identity.Core`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Core/)  
- Este paquete tiene las interfaces principales para la identidad de ASP.NET. Este paquete se puede utilizar para escribir una implementación de ASP.NET Identity que persistencia diferentes destinos almacena como almacenamiento de tablas de Azure, NoSQL etcetera las bases de datos.
+   Este paquete tiene las interfaces principales para la identidad de ASP.NET. Este paquete se puede utilizar para escribir una implementación de ASP.NET Identity que persistencia diferentes destinos almacena como almacenamiento de tablas de Azure, NoSQL etcetera las bases de datos.
     - [`Microsoft.AspNet.Identity.OWIN`](http://www.nuget.org/packages/Microsoft.AspNet.Identity.Owin/)  
- Este paquete contiene la funcionalidad que se usa para conectar la autenticación OWIN con la identidad de ASP.NET en aplicaciones de ASP.NET. Se utiliza cuando se agrega un registro en la funcionalidad a la aplicación y llamar al middleware de autenticación con cookies OWIN para generar una cookie.
+   Este paquete contiene la funcionalidad que se usa para conectar la autenticación OWIN con la identidad de ASP.NET en aplicaciones de ASP.NET. Se utiliza cuando se agrega un registro en la funcionalidad a la aplicación y llamar al middleware de autenticación con cookies OWIN para generar una cookie.
 3. Crear un usuario.  
- Inicie la aplicación y, a continuación, haga clic en el **registrar** vínculo para crear un usuario. La siguiente imagen muestra la página de registro que recopila el nombre de usuario y la contraseña.  
+   Inicie la aplicación y, a continuación, haga clic en el **registrar** vínculo para crear un usuario. La siguiente imagen muestra la página de registro que recopila el nombre de usuario y la contraseña.  
   
     ![](introduction-to-aspnet-identity/_static/image2.png)  
   
- Cuando el usuario hace clic en el **registrar** botón, el `Register` de controlador de la cuenta se crea el usuario mediante una llamada a la API de identidad de ASP.NET, como se indica a continuación:
+   Cuando el usuario hace clic en el **registrar** botón, el `Register` de controlador de la cuenta se crea el usuario mediante una llamada a la API de identidad de ASP.NET, como se indica a continuación:
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample1.cs?highlight=8-9)]
 4. Inicia sesión.  
- Si el usuario se creó correctamente, registra el `SignInAsync` método.  
+   Si el usuario se creó correctamente, registra el `SignInAsync` método.  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample2.cs?highlight=12)]
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample3.cs?highlight=5-6)]
 
- El código que aparece resaltado por encima de la `SignInAsync` método genera una [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Puesto que ASP.NET Identity y autenticación con cookies OWIN son sistema basado en notificaciones, el marco de trabajo requiere la aplicación para generar un valor de ClaimsIdentity para el usuario. Valor de ClaimsIdentity incluye información sobre todas las notificaciones para el usuario, como los roles que pertenece el usuario. También puede agregar más notificaciones para el usuario en esta fase.  
+   El código que aparece resaltado por encima de la `SignInAsync` método genera una [ClaimsIdentity](https://msdn.microsoft.com/library/system.security.claims.claimsidentity.aspx). Puesto que ASP.NET Identity y autenticación con cookies OWIN son sistema basado en notificaciones, el marco de trabajo requiere la aplicación para generar un valor de ClaimsIdentity para el usuario. Valor de ClaimsIdentity incluye información sobre todas las notificaciones para el usuario, como los roles que pertenece el usuario. También puede agregar más notificaciones para el usuario en esta fase.  
   
- El código que aparece resaltado a continuación en el `SignInAsync` método inicia sesión el usuario mediante el uso de la clase AuthenticationManager de OWIN y llamar al método `SignIn` y pasar el valor de ClaimsIdentity.  
+   El código que aparece resaltado a continuación en el `SignInAsync` método inicia sesión el usuario mediante el uso de la clase AuthenticationManager de OWIN y llamar al método `SignIn` y pasar el valor de ClaimsIdentity.  
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample4.cs?highlight=8-11)]
 5. Cierre la sesión.  
- Al hacer clic en el **cerrar** vínculo llama a la acción de cierre de sesión en el controlador de la cuenta. 
+   Al hacer clic en el **cerrar** vínculo llama a la acción de cierre de sesión en el controlador de la cuenta. 
 
     [!code-csharp[Main](introduction-to-aspnet-identity/samples/sample5.cs?highlight=6)]
 
- El resaltado de código anterior muestra OWIN `AuthenticationManager.SignOut` método. Esto es análogo a [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) método utilizado por el [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) módulo en formularios Web Forms.
+   El resaltado de código anterior muestra OWIN `AuthenticationManager.SignOut` método. Esto es análogo a [FormsAuthentication.SignOut](https://msdn.microsoft.com/library/system.web.security.formsauthentication.signout.aspx) método utilizado por el [FormsAuthentication](https://msdn.microsoft.com/library/system.web.security.formsauthenticationmodule.aspx) módulo en formularios Web Forms.
 
 ## <a name="components-of-aspnet-identity"></a>Componentes de identidad de ASP.NET
 

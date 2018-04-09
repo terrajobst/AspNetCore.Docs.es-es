@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
-title: "Proteger aplicaciones mediante la autenticación y autorización | Documentos de Microsoft"
+title: Proteger aplicaciones mediante la autenticación y autorización | Documentos de Microsoft
 author: microsoft
-description: "Paso 9 muestra cómo agregar autenticación y autorización para proteger nuestra aplicación NerdDinner, para que los usuarios necesitan registrar e inicie sesión en el sitio para crear..."
+description: Paso 9 muestra cómo agregar autenticación y autorización para proteger nuestra aplicación NerdDinner, para que los usuarios necesitan registrar e inicie sesión en el sitio para crear...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: a23b2cf4d1728624698c0db49c25ea7efd3af67d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4a9b1e6d7d453bd8dc5a61b1f1cec4617af7d693
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Proteger aplicaciones mediante la autenticación y autorización
 ====================
@@ -155,6 +155,6 @@ Podemos actualizar nuestro ver plantilla condicionalmente mostrar u ocultar los 
 
 Ahora veamos cómo podemos habilitar a usuarios autenticados RSVP para cenas mediante AJAX.
 
->[!div class="step-by-step"]
-[Anterior](implement-efficient-data-paging.md)
-[Siguiente](use-ajax-to-deliver-dynamic-updates.md)
+> [!div class="step-by-step"]
+> [Anterior](implement-efficient-data-paging.md)
+> [Siguiente](use-ajax-to-deliver-dynamic-updates.md)

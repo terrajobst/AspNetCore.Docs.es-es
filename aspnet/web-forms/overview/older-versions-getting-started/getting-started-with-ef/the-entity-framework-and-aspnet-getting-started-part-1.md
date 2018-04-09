@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
-title: "Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms | Documentos de Microsoft"
+title: Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante el Entity Framework 4.0 y Visual Studio 2010..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante el Entity Framework 4.0 y Visual Studio 2010...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: ae2fddc81f6f4da866ec0719a0e74516bdd2a4d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ad504b02d801f9513787f9fde1a4d00d7b0afff0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
-> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET con el Entity Framework 4.0 y Visual Studio 2010. La aplicación de ejemplo es un sitio Web de una universidad ficticia de Contoso. Incluye una funcionalidad, como la admisión de estudiantes, la creación de curso y asignaciones de instructor.
+> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET con el Entity Framework 4.0 y Visual Studio 2010. La aplicación de ejemplo es un sitio Web de una universidad ficticia de Contoso. Incluye funciones como la admisión de estudiantes, la creación de cursos y asignaciones de instructores.
 > 
 > El tutorial muestra ejemplos en C#. El [ejemplo descargable](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) contiene código en C# y Visual Basic.
 > 
@@ -54,7 +54,7 @@ La aplicación que se va a compilar en estos tutoriales es un sitio Web de la Un
 
 [![Image03](the-entity-framework-and-aspnet-getting-started-part-1/_static/image2.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image1.png)
 
-Los usuarios pueden ver y actualizar la información de instructor, curso y estudiantes. A continuación se muestran algunas de las pantallas que se va a crear.
+Los usuarios pueden ver y actualizar la información de estudiantes, cursos e instructores. A continuación se muestran algunas de las pantallas que se va a crear.
 
 [![Image30](the-entity-framework-and-aspnet-getting-started-part-1/_static/image4.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image3.png)
 
@@ -161,7 +161,7 @@ Puede ver que el diagrama de la entidad es muy similar al diagrama de base de da
 
     [![Image40](the-entity-framework-and-aspnet-getting-started-part-1/_static/image38.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image37.png)
 
-    En este caso, un `Person` entidad puede o no pueden tener asociados `StudentGrade` entidades. A `StudentGrade` debe estar asociada con una entidad `Person` entidad. `StudentGrade`las entidades representan realmente cursos inscritos en esta base de datos; Si un alumno está inscrito en un curso y todavía, no hay ningún grado el `Grade` propiedad es null. En otras palabras, un estudiante no puede inscribirse en los cursos todavía, puede inscribirse en un curso o puede inscribirse en varios cursos. Cada curso en un curso inscrito se aplica a uno solo.
+    En este caso, un `Person` entidad puede o no pueden tener asociados `StudentGrade` entidades. A `StudentGrade` debe estar asociada con una entidad `Person` entidad. `StudentGrade` las entidades representan realmente cursos inscritos en esta base de datos; Si un alumno está inscrito en un curso y todavía, no hay ningún grado el `Grade` propiedad es null. En otras palabras, un estudiante no puede inscribirse en los cursos todavía, puede inscribirse en un curso o puede inscribirse en varios cursos. Cada curso en un curso inscrito se aplica a uno solo.
 - Representa una asociación de varios a varios "\*"y"\*".
 
     [![Image41](the-entity-framework-and-aspnet-getting-started-part-1/_static/image40.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image39.png)
@@ -174,7 +174,7 @@ Otra diferencia entre el diagrama de base de datos y el modelo de datos es la ad
 
 Otra diferencia entre el modelo y base de datos es la ausencia de la `CourseInstructor` tabla de asociación que se utiliza en la base de datos para vincular la `Person` y `Course` tablas en una relación de varios a varios. Las propiedades de navegación permiten obtener relacionados con `Course` entidades de la `Person` entidad relacionados y `Person` entidades desde el `Course` entidad, por lo que no es necesario para representar la tabla de asociación en el modelo de datos.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-1/_static/image44.png)](the-entity-framework-and-aspnet-getting-started-part-1/_static/image43.png)
 
 Para fines de este tutorial, supongamos que la `FirstName` columna de la `Person` tabla realmente contiene una persona apellido y segundo nombre. Desea cambiar el nombre del campo para reflejar esto, pero el Administrador de base de datos (DBA) posible que no desee cambiar la base de datos. Puede cambiar el nombre de la `FirstName` sin cambios de propiedad en el modelo de datos, dejando su base de datos equivalente.
 
@@ -214,5 +214,5 @@ Entity Framework usa XML para almacenar información acerca de la base de datos,
 
 Ahora ha creado un sitio Web, una base de datos y un modelo de datos. En el siguiente tutorial podrá comenzar a trabajar con datos utilizando el modelo de datos y ASP.NET `EntityDataSource` control.
 
->[!div class="step-by-step"]
-[Siguiente](the-entity-framework-and-aspnet-getting-started-part-2.md)
+> [!div class="step-by-step"]
+> [Siguiente](the-entity-framework-and-aspnet-getting-started-part-2.md)

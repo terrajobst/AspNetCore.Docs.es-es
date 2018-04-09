@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
 title: Obtiene acceso a datos de su modelo desde un controlador (C#) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 5ee29dbc5b4566273592041d94458104e6e0f65e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4218116eec6f177730087955b8fb69e5ecc0022f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller-c"></a>Obtiene acceso a datos de su modelo desde un controlador (C#)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -142,6 +142,6 @@ Cuando haya terminado, cierre la conexión. (Si no cierra la conexión, se podr�
 
 Ahora tiene la base de datos y una página de lista simple para mostrar el contenido del mismo. En el siguiente tutorial, podrá examinar el resto del código con scaffolding y agregue un `SearchIndex` método y un `SearchIndex` vista que le permite buscar películas en esta base de datos.
 
->[!div class="step-by-step"]
-[Anterior](adding-a-model.md)
-[Siguiente](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-model.md)
+> [Siguiente](examining-the-edit-methods-and-edit-view.md)

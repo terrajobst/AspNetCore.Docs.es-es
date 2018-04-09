@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
-title: "Configuración de opciones de nivel de conexión y comandos de la capa de acceso a datos (C#) | Documentos de Microsoft"
+title: Configuración de opciones de nivel de conexión y comandos de la capa de acceso a datos (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Los TableAdapters dentro de un conjunto de datos con tipo se ocupan automáticamente de conectarse a la base de datos, emitir comandos y rellenar un DataTable con los resultados..."
+description: Los TableAdapters dentro de un conjunto de datos con tipo se ocupan automáticamente de conectarse a la base de datos, emitir comandos y rellenar un DataTable con los resultados...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: be81bde63d66c3a7070f31be830f7d10ba3a5f8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f5f221fd792956fc21cb6eb5834299d3c5bfa80d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Configuración de opciones de nivel de conexión y comandos de la capa de acceso a datos (C#)
 ====================
@@ -93,7 +93,7 @@ Como se describe en el [crear una capa de acceso a datos](../introduction/creati
 
 ![Agregar una subcarpeta denominada ConnectionAndCommandSettings](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs/_static/image5.png)
 
-**Figura 3**: agregar una subcarpeta denominada`ConnectionAndCommandSettings`
+**Figura 3**: agregar una subcarpeta denominada `ConnectionAndCommandSettings`
 
 
 Agregar un nuevo archivo de clase denominado `ProductsTableAdapter.ConnectionAndCommandSettings.cs` y escriba el código siguiente:
@@ -169,12 +169,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Provocar a revisores para este tutorial se han Burnadette Leigh, S ren Jacob Lauritsen, Teresa Murphy y Hilton Geisenow. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](working-with-computed-columns-cs.md)
-[Siguiente](protecting-connection-strings-and-other-configuration-information-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](working-with-computed-columns-cs.md)
+> [Siguiente](protecting-connection-strings-and-other-configuration-information-cs.md)

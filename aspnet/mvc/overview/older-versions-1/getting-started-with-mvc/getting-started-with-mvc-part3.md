@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 title: Agregar una vista | Documentos de Microsoft
 author: shanselman
-description: "Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos."
+description: Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part3
 msc.type: authoredcontent
-ms.openlocfilehash: 8725d054861c857ceac10a42b0cc3f2afe056aea
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view"></a>Agregar una vista
 ====================
@@ -120,6 +120,6 @@ Ejecute la aplicación y visite `http://localhost:xx/HelloWorld/Welcome?name=Sco
 
 Bueno, era un tipo de una "M" para el modelo, pero no el tipo de base de datos. ¡Eche lo que hemos aprendido y crear una base de datos de películas.
 
->[!div class="step-by-step"]
-[Anterior](getting-started-with-mvc-part2.md)
-[Siguiente](getting-started-with-mvc-part4.md)
+> [!div class="step-by-step"]
+> [Anterior](getting-started-with-mvc-part2.md)
+> [Siguiente](getting-started-with-mvc-part4.md)

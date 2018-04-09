@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
-title: "Iteración &#6;: Use desarrollo controlado por pruebas (VB) | Documentos de Microsoft"
+title: 'Iteración 6 #: Use desarrollo controlado por pruebas (VB) | Documentos de Microsoft'
 author: microsoft
-description: "En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración..."
+description: En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,13 +12,13 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b558df9c0b44f5f76115270d361b6022658f9f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 71b3425c5ca8cbfc1b89493c7afb26681f8bdc9d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="iteration-6--use-test-driven-development-vb"></a>Iteración &#6;: Use desarrollo controlado por pruebas (VB)
+<a name="iteration-6--use-test-driven-development-vb"></a>Iteración 6 #: Use desarrollo controlado por pruebas (VB)
 ====================
 por [Microsoft](https://github.com/microsoft)
 
@@ -44,7 +44,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -250,7 +250,7 @@ Es necesario crear una nueva tabla de base de datos de grupo. Siga estos pasos:
 | **Nombre de columna** | **Tipo de datos** | **Permitir valores null** |
 | --- | --- | --- |
 | Id. | int | False |
-| Name | nvarchar (50) | False |
+| nombre | nvarchar(50) | False |
 
 
 A continuación, es necesario eliminar todos los datos de la tabla Contacts (en caso contrario, ganados t que pueda crear una relación entre las tablas de contactos y grupos). Siga estos pasos:
@@ -360,6 +360,6 @@ Una vez finalizada la escritura de código suficiente para satisfacer los requis
 
 En la siguiente iteración--la última iteración--volvemos a escribir la aplicación para aprovechar las ventajas de Ajax. Aprovechando las ventajas de Ajax, se podrá mejorar la capacidad de respuesta y el rendimiento de la aplicación póngase en contacto con el administrador.
 
->[!div class="step-by-step"]
-[Anterior](iteration-5-create-unit-tests-vb.md)
-[Siguiente](iteration-7-add-ajax-functionality-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-5-create-unit-tests-vb.md)
+> [Siguiente](iteration-7-add-ajax-functionality-vb.md)

@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/create-a-database
 title: Crear una base de datos | Documentos de Microsoft
 author: microsoft
-description: "Paso 2 muestra los pasos para crear la base de datos que contiene todos los de la cena y RSVP datos para nuestra aplicación NerdDinner."
+description: Paso 2 muestra los pasos para crear la base de datos que contiene todos los de la cena y RSVP datos para nuestra aplicación NerdDinner.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/create-a-database
 msc.type: authoredcontent
-ms.openlocfilehash: 7635722fc357356edd06fb4cff301a8c4dfebbef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ba28d671bf13ec54b83b876462e2c23f90310037
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-database"></a>Crear una base de datos
 ====================
@@ -131,6 +131,6 @@ Vamos a agregar algunas filas de datos de la cena que podemos usar más adelante
 
 Hemos terminado de crear la base de datos. Vamos a crear ahora las clases de modelo que podemos usar para consultar y actualizar.
 
->[!div class="step-by-step"]
-[Anterior](create-a-new-aspnet-mvc-project.md)
-[Siguiente](build-a-model-with-business-rule-validations.md)
+> [!div class="step-by-step"]
+> [Anterior](create-a-new-aspnet-mvc-project.md)
+> [Siguiente](build-a-model-with-business-rule-validations.md)

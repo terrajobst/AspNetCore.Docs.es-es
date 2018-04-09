@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/positioning-a-modalpopup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4b9c0790d1696bcf478bcdea089d4d3d92450369
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 2d20888674dfedee7a7af85efd8df118c8394c6c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="positioning-a-modalpopup-vb"></a>Colocar un ModalPopup (VB)
 ====================
@@ -62,5 +62,5 @@ Y el `stopMoving()` función entra en juego cuando la ventana emergente se cierr
 
 La ventana emergente modal aparece en la posición designada ([haga clic aquí para ver la imagen a tamaño completo](positioning-a-modalpopup-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](handling-postbacks-from-a-modalpopup-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](handling-postbacks-from-a-modalpopup-vb.md)

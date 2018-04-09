@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-vb
-title: "Utilizando varios controles de menú emergente (VB) | Documentos de Microsoft"
+title: Utilizando varios controles de menú emergente (VB) | Documentos de Microsoft
 author: wenz
-description: "El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. También es posible utilizar m..."
+description: El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. También es posible utilizar m...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 32e170ebd78a6f849004e789f53c03d9cd40be01
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7c57aab3ecf2c02a8488b5ea4e3e0ed33ac5e7fe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-multiple-popup-controls-vb"></a>Utilizando varios controles de menú emergente (VB)
 ====================
@@ -56,6 +56,6 @@ Al hacer clic en un campo de texto, un calendario aparece debajo del campo, que 
 
 El calendario aparece cuando el usuario hace clic en el cuadro de texto ([haga clic aquí para ver la imagen a tamaño completo](using-multiple-popup-controls-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)
-[Siguiente](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](handling-postbacks-from-a-popup-control-without-an-updatepanel-cs.md)
+> [Siguiente](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb.md)

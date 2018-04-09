@@ -1,28 +1,28 @@
 ---
 uid: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
-title: "Introducción a OWIN y Katana | Documentos de Microsoft"
+title: Introducción a OWIN y Katana | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/27/2013
 ms.topic: article
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 8922aada723da9b149ec111902fcd883c8241dfb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac0302ef1a786f6b1eef8119b3134a965f01c533
+ms.sourcegitcommit: 5ab5c5f4bfdb0150f42ba84c2770eadf540cae48
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 <a name="getting-started-with-owin-and-katana"></a>Introducción a OWIN y Katana
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
-[Abrir la interfaz Web para .NET (OWIN)](http://owin.org/) define una abstracción entre servidores web de .NET y las aplicaciones web. Si se desacopla el servidor web de la aplicación, OWIN resulta más fácil crear middleware para el desarrollo web. NET. Además, OWIN facilita a las aplicaciones web de puerto a otros hosts &#8212; por ejemplo, hospeda a sí mismo en un servicio de Windows u otro proceso.
+[Abrir la interfaz Web para .NET (OWIN)](http://owin.org/) define una abstracción entre servidores web de .NET y las aplicaciones web. Si se desacopla el servidor web de la aplicación, OWIN resulta más fácil crear middleware para el desarrollo web. NET. Además, OWIN facilita a las aplicaciones web de puerto a otros hosts&#8212;por ejemplo, hospeda a sí mismo en un servicio de Windows u otro proceso.
 
 OWIN es una especificación de propiedad de la Comunidad, no es una implementación. El proyecto de Katana es un conjunto de componentes OWIN de código abierto desarrollado por Microsoft. Para obtener una descripción general de OWIN y Katana, consulte [una información general del proyecto Katana](an-overview-of-project-katana.md). En este artículo, saltará derecha en el código para empezar a trabajar.
 
@@ -74,7 +74,7 @@ Presione F5 para comenzar la depuración. Visual Studio abrirá una ventana del 
 
 ## <a name="self-host-owin-in-a-console-application"></a>Autohospedaje OWIN en una aplicación de consola
 
-Es fácil convertir esta aplicación de hospedaje de IIS que hospeda a sí mismo en un proceso personalizado. Con el hospedaje de IIS, los IIS actúa como el servidor HTTP y que el proceso que hospedan el servidor. Con que se hospeda a sí mismo, la aplicación crea el proceso y usa el **HttpListener** clase como el servidor HTTP.
+Es fácil convertir esta aplicación de hospedaje de IIS que hospeda a sí mismo en un proceso personalizado. Hospedaje de IIS, IIS actúa como el servidor HTTP y que el proceso que hospeda el servicio. Con que se hospeda a sí mismo, la aplicación crea el proceso y usa el **HttpListener** clase como el servidor HTTP.
 
 En Visual Studio, cree una nueva aplicación de consola. En la ventana de la consola de administrador de paquetes, escriba el siguiente comando:
 
@@ -108,6 +108,6 @@ Ahora use CTRL + F5 para ejecutar la aplicación sin depuración, para que Visua
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Detección de clase de inicio OWIN](owin-startup-class-detection.md)
+- [Detección de la clase de inicio OWIN](owin-startup-class-detection.md)
 - [Usar OWIN para probar internamente ASP.NET Web API](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [Usar OWIN para auto-hospedar SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

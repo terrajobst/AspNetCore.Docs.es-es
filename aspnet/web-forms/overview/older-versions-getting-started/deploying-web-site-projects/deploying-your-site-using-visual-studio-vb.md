@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
-title: "Implementación del sitio con Visual Studio (VB) | Documentos de Microsoft"
+title: Implementación del sitio con Visual Studio (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Visual Studio incluye herramientas para implementar un sitio Web. Más información acerca de estas herramientas en este tutorial."
+description: Visual Studio incluye herramientas para implementar un sitio Web. Más información acerca de estas herramientas en este tutorial.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-visual-studio-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 362f8391f3352b3abf00045bca0c212cd850b17f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1c0e094761a92b10555d2cfcef586ad8c2fb8d27
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-visual-studio-vb"></a>Implementación del sitio con Visual Studio (VB)
 ====================
@@ -156,6 +156,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Cómo: Publicar sitios Web](https://msdn.microsoft.com/library/20yh9f1b.aspx)
 - [El programa de instalación y proyectos de implementación de Visual Studio](https://msdn.microsoft.com/library/wx3b589t.aspx)
 
->[!div class="step-by-step"]
-[Anterior](deploying-your-site-using-an-ftp-client-vb.md)
-[Siguiente](common-configuration-differences-between-development-and-production-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-your-site-using-an-ftp-client-vb.md)
+> [Siguiente](common-configuration-differences-between-development-and-production-vb.md)

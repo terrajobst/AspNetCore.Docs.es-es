@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 title: Muestra una tabla de base de datos (VB) | Documentos de Microsoft
 author: microsoft
-description: "En este tutorial, muestran dos métodos de presentación de un conjunto de registros de base de datos. Muestran dos métodos para dar formato a un conjunto de registros de base de datos en un elemento HTML ta..."
+description: En este tutorial, muestran dos métodos de presentación de un conjunto de registros de base de datos. Muestran dos métodos para dar formato a un conjunto de registros de base de datos en un elemento HTML ta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6dc0aa91cfb68d308ed098f429d3251d424ab778
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dd871520f98aaae2d7b33d83b1646eb9eee88821
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-table-of-database-data-vb"></a>Muestra una tabla de base de datos (VB)
 ====================
@@ -39,8 +39,8 @@ Vamos a mostrar el conjunto de registros de la tabla de base de datos de pelícu
 | **Nombre de columna** | **Tipo de datos** | **Permitir valores null** |
 | --- | --- | --- |
 | Id. | Valor int. | False |
-| Título | Nvarchar (200) | False |
-| Director de | Nvarchar (50) | False |
+| Title | Nvarchar(200) | False |
+| Director de | NVarchar(50) | False |
 | DateReleased | DateTime | False |
 
 
@@ -185,6 +185,6 @@ El método RenderPartial() es diferente de la mayoría de los otros métodos de 
 
 El objetivo de este tutorial era explicar cómo se puede mostrar un conjunto de registros de base de datos en una tabla HTML. En primer lugar, aprendió cómo devolver un conjunto de registros de base de datos de una acción de controlador aprovechando las ventajas de Microsoft Entity Framework. A continuación, aprendió a utilizar el scaffolding de Visual Studio para generar una vista que muestra automáticamente una colección de elementos. Por último, aprendió a simplificar la vista aprovechando las ventajas de una parcial. Aprendió a utilizar un parcial como una plantilla, por lo que puede dar formato a cada registro de base de datos.
 
->[!div class="step-by-step"]
-[Anterior](creating-model-classes-with-linq-to-sql-vb.md)
-[Siguiente](performing-simple-validation-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-model-classes-with-linq-to-sql-vb.md)
+> [Siguiente](performing-simple-validation-vb.md)

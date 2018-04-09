@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
-title: "Los formularios de configuración de autenticación y temas avanzados (C#) | Documentos de Microsoft"
+title: Los formularios de configuración de autenticación y temas avanzados (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial se examinará las distintas configuraciones de autenticación de formularios y vea cómo modificarlas a través del elemento de formularios. Esto supondrá un detallada..."
+description: En este tutorial se examinará las distintas configuraciones de autenticación de formularios y vea cómo modificarlas a través del elemento de formularios. Esto supondrá un detallada...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c57722965b510ac4f5cf0c06c7c01c8cea26384f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Configuración de autenticación de formularios y temas avanzados (C#)
 ====================
@@ -41,19 +41,20 @@ El sistema de autenticación de formularios de ASP.NET ofrece una serie de opcio
 
 Tabla 1 se resumen las propiedades que se pueden personalizar mediante el &lt;formularios&gt; elemento. Puesto que el archivo Web.config es un archivo XML, los nombres de atributo en la columna izquierda distinguen mayúsculas de minúsculas.
 
-| **Attribute** | **Descripción** |
-| --- | --- |
-| sin cookies | Este atributo especifica bajo qué condiciones se almacena el vale de autenticación en una cookie en comparación con la que se incrusta en la dirección URL. Valores permitidos son: UseCookies; UseUri; Detección automática; y UseDeviceProfile (valor predeterminado). Paso 2 examina esta configuración con más detalle. |
-| defaultUrl | Indica la dirección URL que se redirigen a los usuarios después de iniciar sesión en la página de inicio de sesión si no hay ningún valor de URL de redireccionamiento especificado en la cadena de consulta. El valor predeterminado es default.aspx. |
-| dominio | Cuando se utiliza vales de autenticación basado en cookies, esta configuración especifica el valor de dominio de la cookie. El valor predeterminado es una cadena vacía, que hace que el explorador que utilice el dominio desde el que se emitió (por ejemplo, www.yourdomain.com). En este caso, la cookie le **no** enviará al realizar solicitudes a subdominios, como admin.yourdomain.com. Si desea que la cookie que se pasan a todos los subdominios que necesite personalizar el atributo de dominio si se establece como "sudominio.com". |
-| enableCrossAppRedirects | Un valor booleano que indica si los usuarios autenticados se memorizan al redirigir a direcciones URL en otras aplicaciones web en el mismo servidor. El valor predeterminado es false. |
-| loginUrl | La dirección URL de la página de inicio de sesión. El valor predeterminado es login.aspx. |
-| name | Cuando se usa vales de autenticación basado en cookies, el nombre de la cookie. El valor predeterminado es. ASPXAUTH. |
-| ruta de acceso | Cuando se utiliza vales de autenticación basado en cookies, esta configuración especifica el atributo de ruta de acceso de la cookie. El atributo de ruta de acceso permite que un programador limitar el ámbito de una cookie a una jerarquía de directorio concreto. El valor predeterminado es /, que informa el explorador para que envíe la cookie de vale de autenticación a cualquier solicitud que se producen en el dominio. |
-| protección | Indica qué técnicas se utilizan para proteger el vale de autenticación de formularios. Los valores permitidos son: todos (predeterminado); Cifrado; None; y la validación. Estas opciones se describen en detalle en el paso 3. |
-| requireSSL | Un valor booleano que indica si se requiere una conexión SSL para transmitir la cookie de autenticación. El valor predeterminado es false. |
-| slidingExpiration | Un valor booleano que indica que si el tiempo de espera de la cookie de autenticación se restablece cada vez que el usuario visita el sitio durante una sola sesión. El valor predeterminado es true. La directiva de tiempo de espera de vale de autenticación se describe con más detalle en la especificación sección del valor de tiempo de espera del vale. |
-| tiempo de espera | Especifica el tiempo, en minutos, tras el cual expira la cookie de vale de autenticación. El valor predeterminado es 30. La directiva de tiempo de espera de vale de autenticación se describe con más detalle en la especificación sección del valor de tiempo de espera del vale. |
+
+| <strong>Attribute</strong> |                                                                                                                                                                                                                                     <strong>Descripción</strong>                                                                                                                                                                                                                                      |
+|----------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|         sin cookies         |                                                                                                                Este atributo especifica bajo qué condiciones se almacena el vale de autenticación en una cookie en comparación con la que se incrusta en la dirección URL. Valores permitidos son: UseCookies; UseUri; Detección automática; y UseDeviceProfile (valor predeterminado). Paso 2 examina esta configuración con más detalle.                                                                                                                |
+|         defaultUrl         |                                                                                                                                                         Indica la dirección URL que se redirigen a los usuarios después de iniciar sesión en la página de inicio de sesión si no hay ningún valor de URL de redireccionamiento especificado en la cadena de consulta. El valor predeterminado es default.aspx.                                                                                                                                                         |
+|           dominio           | Cuando se utiliza vales de autenticación basado en cookies, esta configuración especifica el valor de dominio de la cookie. El valor predeterminado es una cadena vacía, que hace que el explorador que utilice el dominio desde el que se emitió (por ejemplo, www.yourdomain.com). En este caso, la cookie le <strong>no</strong> enviará al realizar solicitudes a subdominios, como admin.yourdomain.com. Si desea que la cookie que se pasan a todos los subdominios que necesite personalizar el atributo de dominio si se establece como "sudominio.com". |
+|  enableCrossAppRedirects   |                                                                                                                                                                   Un valor booleano que indica si los usuarios autenticados se memorizan al redirigir a direcciones URL en otras aplicaciones web en el mismo servidor. El valor predeterminado es false.                                                                                                                                                                   |
+|          loginUrl          |                                                                                                                                                                                                                      La dirección URL de la página de inicio de sesión. El valor predeterminado es login.aspx.                                                                                                                                                                                                                      |
+|            name            |                                                                                                                                                                                                   Cuando se usa vales de autenticación basado en cookies, el nombre de la cookie. El valor predeterminado es. ASPXAUTH.                                                                                                                                                                                                   |
+|            ruta de acceso            |                                                                             Cuando se utiliza vales de autenticación basado en cookies, esta configuración especifica el atributo de ruta de acceso de la cookie. El atributo de ruta de acceso permite que un programador limitar el ámbito de una cookie a una jerarquía de directorio concreto. El valor predeterminado es /, que informa el explorador para que envíe la cookie de vale de autenticación a cualquier solicitud que se producen en el dominio.                                                                              |
+|         protección         |                                                                                                                                            Indica qué técnicas se utilizan para proteger el vale de autenticación de formularios. Los valores permitidos son: todos (predeterminado); Cifrado; None; y la validación. Estas opciones se describen en detalle en el paso 3.                                                                                                                                            |
+|         requireSSL         |                                                                                                                                                                                Un valor booleano que indica si se requiere una conexión SSL para transmitir la cookie de autenticación. El valor predeterminado es false.                                                                                                                                                                                |
+|     slidingExpiration      |                                                                                                 Un valor booleano que indica que si el tiempo de espera de la cookie de autenticación se restablece cada vez que el usuario visita el sitio durante una sola sesión. El valor predeterminado es true. La directiva de tiempo de espera de vale de autenticación se describe con más detalle en la especificación sección del valor de tiempo de espera del vale.                                                                                                 |
+|          tiempo de espera           |                                                                                                                               Especifica el tiempo, en minutos, tras el cual expira la cookie de vale de autenticación. El valor predeterminado es 30. La directiva de tiempo de espera de vale de autenticación se describe con más detalle en la especificación sección del valor de tiempo de espera del vale.                                                                                                                               |
 
 **Tabla 1**: un resumen de la &lt;formularios&gt; atributos del elemento
 
@@ -166,7 +167,7 @@ Guarde los cambios en Default.aspx y, a continuación, se visita a través de un
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-La dirección URL SomePage.aspx en el vínculo se convierte automáticamente en una dirección URL que incluye el vale de autenticación - no teníamos escribir ni una sola línea de código. El vale de autenticación de formularios se incrustarán automáticamente en la dirección URL de los hipervínculos que no comienzan por http:// o /. No importa si aparece el hipervínculo en una llamada a Response.Redirect, en un control de hipervínculo o en un elemento delimitador HTML (es decir, &lt;un href = "..."&gt;... &lt;/a&gt;). La dirección URL no es algo como http://www.someserver.com/SomePage.aspx o /SomePage.aspx, siempre y cuando el vale de autenticación de formularios se incrustarán para nosotros.
+La dirección URL SomePage.aspx en el vínculo se convierte automáticamente en una dirección URL que incluye el vale de autenticación - no teníamos escribir ni una sola línea de código. El vale de autenticación de formularios se incrustarán automáticamente en la dirección URL de los hipervínculos que no comienzan por http:// o /. No importa si aparece el hipervínculo en una llamada a Response.Redirect, en un control de hipervínculo o en un elemento delimitador HTML (es decir, &lt;un href = "..."&gt;... &lt;/a&gt;). Siempre y cuando la dirección URL no es algo parecido a http://www.someserver.com/SomePage.aspx o /SomePage.aspx, los formularios se incrustará el vale de autenticación para que podamos.
 
 > [!NOTE]
 > Vales de autenticación de formularios sin cookies adhieren a las mismas directivas de tiempo de espera como vales de autenticación basado en cookies. Sin embargo, los vales de autenticación sin cookies son más susceptibles de ataques de reproducción, puesto que el vale de autenticación se incrusta directamente en la dirección URL. Imagine un usuario que visita un sitio Web, inicia sesión en y, a continuación, pega la dirección URL en un correo electrónico a un compañero de trabajo. Si el compañero hace clic en ese vínculo antes de alcanza la expiración, registrará que el usuario que envió el correo electrónico.
@@ -432,12 +433,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Alicja Maziarz. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Anterior](an-overview-of-forms-authentication-cs.md)
-[Siguiente](security-basics-and-asp-net-support-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](an-overview-of-forms-authentication-cs.md)
+> [Siguiente](security-basics-and-asp-net-support-vb.md)

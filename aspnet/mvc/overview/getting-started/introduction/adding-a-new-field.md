@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-new-field
 title: Agregar un nuevo campo | Documentos de Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 453fbf68aa2f3a1d9ea708355c06c53d4f1eabd0
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 0dac798eba586cdcc232cedd262e610b954004df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field"></a>Adición de un nuevo campo
 ====================
 por [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 En esta sección usará Entity Framework Code First Migrations migrar algunos cambios a las clases del modelo, por lo que el cambio se aplica a la base de datos.
 
@@ -62,7 +62,7 @@ Si lo hace, agrega la siguiente instrucción using:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample2.cs)]
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > Code First Migrations llamadas el `Seed` método después de cada migración (es decir, una llamada a **Actualizar base de datos** en la consola de administrador de paquetes), y este método actualiza las filas que ya se han insertado o insertan si únicamente aún no existen.
 > 
@@ -71,15 +71,15 @@ Si lo hace, agrega la siguiente instrucción using:
 > [!code-csharp[Main](adding-a-new-field/samples/sample3.cs)]
 > 
 > Dado que la [inicialización](https://msdn.microsoft.com/library/hh829453(v=vs.103).aspx) método se ejecuta con cada migración, simplemente no se puede insertar datos, porque las filas que se está intentando agregar ya estarán ahí después de la primera migración que crea la base de datos. El "[upsert](http://en.wikipedia.org/wiki/Upsert)" operación evita los errores que sucedería si se intenta insertar una fila que ya existe, pero reemplaza los cambios a los datos que haya podido realizar durante la comprobación de la aplicación. Con datos de prueba en algunas tablas puede no ser conveniente que ocurra esto: en algunos casos si cambia los datos durante las pruebas se desea que permanecen después de las actualizaciones de base de datos los cambios. En ese caso en el que desea realizar una operación de inserción condicional: insertar una fila sólo si aún no existe.   
->   
+> 
 > El primer parámetro pasado a la [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) método especifica la propiedad que se va a usar para comprobar si ya existe una fila. Para los datos de la película de prueba que se va a proporcionar, el `Title` propiedad puede utilizarse para este propósito, puesto que cada título de la lista es único:
 > 
 > [!code-csharp[Main](adding-a-new-field/samples/sample4.cs)]
 > 
 > Este código supone que los títulos sean únicos. Si agrega manualmente un título duplicado, obtendrá la excepción siguiente la próxima vez que se realiza una migración.   
->   
+> 
 >  *La secuencia contiene más de un elemento*  
->   
+> 
 > Para obtener más información sobre la [AddOrUpdate](https://msdn.microsoft.com/library/system.data.entity.migrations.idbsetextensions.addorupdate(v=vs.103).aspx) método, consulte [tener cuidado con el método de EF 4.3 AddOrUpdate](http://thedatafarm.com/blog/data-access/take-care-with-ef-4-3-addorupdate-method/)...
 
 
@@ -191,6 +191,6 @@ Puede escribir el comando "update-database" en la **Package Manager Console** vo
 
 En esta sección se ha visto cómo puede modificar objetos de modelo y mantenerlos sincronizados con los cambios de la base de datos. También aprendió una forma de rellenar una base de datos recién creada con datos de ejemplo para probar escenarios. Esto era simplemente una breve introducción a Code First, vea [crear un modelo de datos de Entity Framework para una aplicación de MVC de ASP.NET](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) para ver un tutorial más completado sobre el tema. A continuación, echemos un vistazo a cómo puede agregar una lógica de validación a las clases del modelo y habilitar algunas reglas de negocios que se aplicará.
 
->[!div class="step-by-step"]
-[Anterior](adding-search.md)
-[Siguiente](adding-validation.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-search.md)
+> [Siguiente](adding-validation.md)

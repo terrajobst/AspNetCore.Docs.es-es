@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
-title: "Elegir el enfoque adecuado para la implementación Web | Documentos de Microsoft"
+title: Elegir el enfoque adecuado para la implementación Web | Documentos de Microsoft
 author: jrjlee
-description: "Cuando se trabaja con (Web Deploy) la herramienta de implementación de servicios de Internet Information Server (IIS) Web 2.0 o posterior, hay tres enfoques principales que puede usar para obtener..."
+description: Cuando se trabaja con (Web Deploy) la herramienta de implementación de servicios de Internet Information Server (IIS) Web 2.0 o posterior, hay tres enfoques principales que puede usar para obtener...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/choosing-the-right-approach-to-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: b77aa37160f3822f58908866e44497aea3d3bdc8
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 2d690744687af93a69743dc6ce6c853629f61f5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="choosing-the-right-approach-to-web-deployment"></a>Elegir el enfoque adecuado para la implementación Web
 ====================
@@ -118,7 +118,7 @@ En el caso de los usuarios sin privilegios de administrador, el servicio de admi
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample6.cmd)]
 
 
-Por ejemplo, suponga que un proceso de compilación está configurado para implementar automáticamente una aplicación web en un entorno de ensayo después de cada compilación correcta. Si utiliza el enfoque de agente remoto, necesitará realizar un administrador de la identidad del proceso de compilación en los servidores de destino. En cambio, utiliza el enfoque de controlador de implementación Web puede dar a un usuario sin privilegios de administrador & #x 2014; **FABRIKAM\stagingdeployer** en este caso & #x 2014; permiso para un específico sitio Web de IIS solo y el proceso de compilación puede proporcionar estas credenciales para implementar el paquete de web.
+Por ejemplo, suponga que un proceso de compilación está configurado para implementar automáticamente una aplicación web en un entorno de ensayo después de cada compilación correcta. Si utiliza el enfoque de agente remoto, necesitará realizar un administrador de la identidad del proceso de compilación en los servidores de destino. En cambio, utiliza el enfoque de controlador de implementación Web se puede permitir que un usuario sin privilegios de administrador&#x2014;**FABRIKAM\stagingdeployer** en este caso&#x2014;permiso para un específico sitio Web de IIS solo y el proceso de compilación puede proporcionar estos credenciales para implementar el paquete de web.
 
 
 [!code-console[Main](choosing-the-right-approach-to-web-deployment/samples/sample7.cmd)]
@@ -150,6 +150,6 @@ Para obtener más información sobre Web Deploy operaciones de línea de comando
 
 Para obtener instrucciones más general sobre las distintas maneras en que puede implementar paquetes de web desde un equipo remoto, consulte [utilizando Web implementar remotamente](https://technet.microsoft.com/library/ee461175(WS.10).aspx). Para obtener más información sobre el uso de implementación Web a petición, consulte [implementar Web a petición](https://technet.microsoft.com/library/ee517345(WS.10).aspx).
 
->[!div class="step-by-step"]
-[Anterior](configuring-server-environments-for-web-deployment.md)
-[Siguiente](scenario-configuring-a-test-environment-for-web-deployment.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-server-environments-for-web-deployment.md)
+> [Siguiente](scenario-configuring-a-test-environment-for-web-deployment.md)

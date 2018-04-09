@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 096c32d6004474d3d5952ce12d7349b9ebda6003
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 183725db62ba8b4037f368ed9d87d5059e3f1bcb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a>Controla las devoluciones de datos desde un ModalPopup (C#)
 ====================
@@ -62,6 +62,6 @@ Además, los controles de cuadro de texto dentro de la ventana emergente modal d
 
 La ventana emergente modal provoca una devolución de datos ([haga clic aquí para ver la imagen a tamaño completo](handling-postbacks-from-a-modalpopup-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](using-modalpopup-with-a-repeater-control-cs.md)
-[Siguiente](positioning-a-modalpopup-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](using-modalpopup-with-a-repeater-control-cs.md)
+> [Siguiente](positioning-a-modalpopup-cs.md)

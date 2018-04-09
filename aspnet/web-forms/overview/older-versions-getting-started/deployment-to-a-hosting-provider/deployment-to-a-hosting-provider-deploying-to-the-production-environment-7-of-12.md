@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementarla en el entorno de producción - 7 de 12 | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementarla en el entorno de producción - 7 de 12 | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 4aa6766c2c7765f499f5c5380962a5fe443e8c9d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementarla en el entorno de producción - 7 de 12
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -125,7 +125,7 @@ En el **importar la configuración de publicación** cuadro de diálogo, selecci
 
 ![Publicar la ficha de conexión del Asistente de Web](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image26.png)
 
-El archivo .publishsettings coloca la dirección de URL permanente planeada para el sitio en el cuadro de dirección URL de destino, pero si aún no ha adquirido ese dominio, reemplace el valor con la dirección URL temporal. En este ejemplo, la dirección URL es  *[http://contosouniversity.com.vserver01.cytanium.com](http://contosouniversity.com.vserver01.cytanium.com).* Es el único propósito de este cuadro especificar qué dirección URL del explorador abrirá automáticamente después de correctamente después de la implementación. Si se deja en blanco, la única consecuencia es que el explorador no se inicia automáticamente después de la implementación.
+El archivo .publishsettings coloca la dirección de URL permanente planeada para el sitio en el cuadro de dirección URL de destino, pero si aún no ha adquirido ese dominio, reemplace el valor con la dirección URL temporal. En este ejemplo, la dirección URL es  *[ http://contosouniversity.com.vserver01.cytanium.com ](http://contosouniversity.com.vserver01.cytanium.com).* Es el único propósito de este cuadro especificar qué dirección URL del explorador abrirá automáticamente después de correctamente después de la implementación. Si se deja en blanco, la única consecuencia es que el explorador no se inicia automáticamente después de la implementación.
 
 Haga clic en **validar conexión** para comprobar que la configuración es correcta y que puede conectarse al servidor. Como se vio anteriormente, una marca de verificación verde comprueba que la conexión es correcta.
 
@@ -137,9 +137,9 @@ Haga clic en **Siguiente**.
 
 En el **bases de datos** sección de la **configuración** ficha, especifique el mismo perfil de publicación de los valores que ha especificado para la prueba. Encontrará las cadenas de conexión que necesita en las listas desplegables.
 
-- En el cuadro de la cadena de conexión para **SchoolContext,** seleccionar`Data Source=|DataDirectory|School-Prod.sdf`
+- En el cuadro de la cadena de conexión para **SchoolContext,** seleccionar `Data Source=|DataDirectory|School-Prod.sdf`
 - En **SchoolContext**, seleccione **aplicar Code First Migrations**.
-- En el cuadro de la cadena de conexión para **DefaultConnection**, seleccione`Data Source=|DataDirectory|aspnet-Prod.sdf`
+- En el cuadro de la cadena de conexión para **DefaultConnection**, seleccione `Data Source=|DataDirectory|aspnet-Prod.sdf`
 - En **DefaultConnection**, deje **Actualizar base de datos** desactivada.
 
 ![Publicar la pestaña de configuración del Asistente de Web](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image28.png)
@@ -252,6 +252,6 @@ Crear una segunda cuenta de hospedaje es una forma de trabajar con un entorno de
 
 En el siguiente tutorial, podrá actualizar código de aplicación e implementar el cambio a los entornos de prueba y producción.
 
->[!div class="step-by-step"]
-[Anterior](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
-[Siguiente](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)
+> [!div class="step-by-step"]
+> [Anterior](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12.md)
+> [Siguiente](deployment-to-a-hosting-provider-deploying-a-code-only-update-8-of-12.md)

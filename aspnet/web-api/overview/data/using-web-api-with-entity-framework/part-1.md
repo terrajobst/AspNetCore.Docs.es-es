@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-1
 title: Usar Web API 2 con Entity Framework 6 | Documentos de Microsoft
 author: MikeWasson
-description: "Este tutorial le enseñará a los conceptos básicos de creación de una aplicación web con ASP.NET Web API back-end. El tutorial usa Entity Framework 6 para el diseño de datos..."
+description: Este tutorial le enseñará a los conceptos básicos de creación de una aplicación web con ASP.NET Web API back-end. El tutorial usa Entity Framework 6 para el diseño de datos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: cceefa128f90b4c3e23dd31119f44e6ffc55f46f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e6d381509a121e3036ca3af91ea3b9bd0be33c2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Usar Web API 2 con Entity Framework 6
 ====================
@@ -88,5 +88,5 @@ Después de iniciar sesión Azure, Visual Studio le pide que configure la aplica
 
 [![](part-1/_static/image10.png)](part-1/_static/image9.png)
 
->[!div class="step-by-step"]
-[Siguiente](part-2.md)
+> [!div class="step-by-step"]
+> [Siguiente](part-2.md)

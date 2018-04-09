@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 title: Crear un modelo con las validaciones de regla de negocios | Documentos de Microsoft
 author: microsoft
-description: "Paso 3 muestra cómo crear un modelo que podemos usar para ambos consultar y actualizar la base de datos de nuestra aplicación NerdDinner."
+description: Paso 3 muestra cómo crear un modelo que podemos usar para ambos consultar y actualizar la base de datos de nuestra aplicación NerdDinner.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/build-a-model-with-business-rule-validations
 msc.type: authoredcontent
-ms.openlocfilehash: dbe6370979f218988c168df3e80314ef9b338fbd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c5a482474fd2f41836f70952306ada5cd9136455
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="build-a-model-with-business-rule-validations"></a>Crear un modelo con las validaciones de regla de negocios
 ====================
@@ -228,6 +228,6 @@ Ahora tenemos un modelo que podemos usar para consultar y actualizar la base de 
 
 Ahora agreguemos algunos controladores y vistas al proyecto que podemos usar para crear una experiencia de interfaz de usuario HTML alrededor de ella.
 
->[!div class="step-by-step"]
-[Anterior](create-a-database.md)
-[Siguiente](use-controllers-and-views-to-implement-a-listingdetails-ui.md)
+> [!div class="step-by-step"]
+> [Anterior](create-a-database.md)
+> [Siguiente](use-controllers-and-views-to-implement-a-listingdetails-ui.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
-title: "Implementación de Web ASP.NET con Visual Studio: implementar archivos adicionales | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: implementar archivos adicionales | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/23/2015
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-extra-files
 msc.type: authoredcontent
-ms.openlocfilehash: 46e18ba81c3db8bb04c5cb997bcc1607e4e38bae
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5cefcedde7715844a7d7a9db1455193564ef9805
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-extra-files"></a>Implementación de Web ASP.NET con Visual Studio: implementar archivos adicionales
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -104,6 +104,6 @@ Me gustaría dar las gracias a las siguientes personas que realizado aportacione
 - [Srđan Božović, Serbia](http://msforge.net/blogs/zmajcek/)
 - [Vishal Joshi, Microsoft](http://vishaljoshi.blogspot.com/) (twitter: [ @vishalrjoshi ](http://twitter.com/vishalrjoshi))
 
->[!div class="step-by-step"]
-[Anterior](command-line-deployment.md)
-[Siguiente](troubleshooting.md)
+> [!div class="step-by-step"]
+> [Anterior](command-line-deployment.md)
+> [Siguiente](troubleshooting.md)

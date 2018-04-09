@@ -1,7 +1,7 @@
 ---
-title: Proveedores de almacenamiento de claves
+title: Proveedores de almacenamiento de claves en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de los proveedores de almacenamiento de claves en ASP.NET Core y cómo configurar ubicaciones de almacenamiento de claves."
+description: Obtenga información acerca de los proveedores de almacenamiento de claves en ASP.NET Core y cómo configurar ubicaciones de almacenamiento de claves.
 manager: wpickett
 ms.author: riande
 ms.date: 01/14/2017
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-storage-providers
-ms.openlocfilehash: 83e02a19e465b3ff81a0c0c62c2c8b090bfab052
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e8b7804e93b812c2e710ab15510c2fbaa7c4866d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-storage-providers"></a>Proveedores de almacenamiento de claves
+# <a name="key-storage-providers-in-aspnet-core"></a>Proveedores de almacenamiento de claves en ASP.NET Core
 
 <a name="data-protection-implementation-key-storage-providers"></a>
 
 De forma predeterminada, el sistema de protección de datos [emplea un método heurístico](xref:security/data-protection/configuration/default-settings) para determinar dónde se debe conservar el material de clave de cifrado. El desarrollador puede invalidar la heurística y especificar manualmente la ubicación.
 
 > [!NOTE]
-> Si especifica una ubicación de persistencia de clave explícita, el sistema de protección de datos se anular el registro el cifrado de claves de forma predeterminada en el mecanismo de rest que proporciona la heurística, por lo que ya no se cifrarán las claves en reposo. Se recomienda que, además [especificar un mecanismo de cifrado de clave explícita](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest-providers) para las aplicaciones de producción.
+> Si especifica una ubicación de persistencia de clave explícita, el sistema de protección de datos se anular el registro el cifrado de claves de forma predeterminada en el mecanismo de rest que proporciona la heurística, por lo que ya no se cifrarán las claves en reposo. Se recomienda que, además [especificar un mecanismo de cifrado de clave explícita](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest-providers) para las aplicaciones de producción.
 
 El sistema de protección de datos que se suministra con varios proveedores de almacenamiento de claves de forma predeterminada.
 
@@ -36,7 +36,7 @@ sc.AddDataProtection()
        .PersistKeysToFileSystem(new DirectoryInfo(@"c:\temp-keys\"));
    ```
 
-La `DirectoryInfo` puede apuntar a un directorio en el equipo local, o puede apuntar a una carpeta en un recurso compartido de red. Si señala a un directorio en el equipo local (y el escenario es que sólo las aplicaciones en el equipo local tendrá que utilizar este repositorio), considere el uso de [Windows DPAPI](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) para cifrar las claves en reposo. En caso contrario, considere el uso de un [certificado X.509](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) para cifrar las claves en reposo.
+La `DirectoryInfo` puede apuntar a un directorio en el equipo local, o puede apuntar a una carpeta en un recurso compartido de red. Si señala a un directorio en el equipo local (y el escenario es que sólo las aplicaciones en el equipo local tendrá que utilizar este repositorio), considere el uso de [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) para cifrar las claves en reposo. En caso contrario, considere el uso de un [certificado X.509](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) para cifrar las claves en reposo.
 
 ## <a name="azure-and-redis"></a>Azure y Redis
 
@@ -84,7 +84,7 @@ A veces, la aplicación podría no tener acceso de escritura al sistema de archi
        .PersistKeysToRegistry(Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Sample\keys"));
    ```
 
-Si usa el registro del sistema como un mecanismo de persistencia, considere el uso de [Windows DPAPI](key-encryption-at-rest.md#data-protection-implementation-key-encryption-at-rest) para cifrar las claves en reposo.
+Si usa el registro del sistema como un mecanismo de persistencia, considere el uso de [Windows DPAPI](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) para cifrar las claves en reposo.
 
 ## <a name="custom-key-repository"></a>Repositorio de clave personalizado
 

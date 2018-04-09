@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
-title: "Examen de los detalles y métodos de Delete | Documentos de Microsoft"
+title: Examen de los detalles y métodos de Delete | Documentos de Microsoft
 author: Rick-Anderson
-description: "Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones..."
+description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: f3c56356aaa595e200a16fe0045a8b00dc5823b7
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00f7e5d6679f1bd8875931e601c8151049f785ac
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-details-and-delete-methods"></a>Examen de los detalles y los métodos de eliminación
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -52,7 +52,7 @@ El método `HttpPost` que elimina los datos se denomina `DeleteConfirmed` para p
 
 Common Language Runtime (CLR) requiere métodos sobrecargados para disponer de una firma de parámetro única (mismo nombre de método, pero lista de parámetros diferente). Sin embargo, aquí deberá dos métodos de eliminación: uno para GET--y otro para POST que tienen la misma firma de parámetro. (ambos deben aceptar un número entero como parámetro).
 
-Para ordenar este comando, puede hacer un par de cosas. Una consiste en asignar nombres diferentes a los métodos. que es lo que hizo el mecanismo de scaffolding en el ejemplo anterior. Pero esto implica un pequeño problema: ASP.NET asigna segmentos de una dirección URL a los métodos de acción por nombre y, si cambia el nombre de un método, normalmente el enrutamiento no podría encontrar ese método. La solución es la que ve en el ejemplo, que consiste en agregar el atributo `ActionName("Delete")` al método `DeleteConfirmed`. Esto realiza eficazmente asignación para el sistema de enrutamiento para que una dirección URL que incluya */Delete/*para una entrada de blog solicitud encontrará el `DeleteConfirmed` método.
+Para ordenar este comando, puede hacer un par de cosas. Una consiste en asignar nombres diferentes a los métodos. que es lo que hizo el mecanismo de scaffolding en el ejemplo anterior. Pero esto implica un pequeño problema: ASP.NET asigna segmentos de una dirección URL a los métodos de acción por nombre y, si cambia el nombre de un método, normalmente el enrutamiento no podría encontrar ese método. La solución es la que ve en el ejemplo, que consiste en agregar el atributo `ActionName("Delete")` al método `DeleteConfirmed`. Esto realiza eficazmente asignación para el sistema de enrutamiento para que una dirección URL que incluya <em>/Delete/</em>para una entrada de blog solicitud encontrará el `DeleteConfirmed` método.
 
 Otro método común para evitar un problema con los métodos que tienen nombres idénticos y firmas es artificialmente cambiar la firma del método POST para incluir un parámetro sin usar. Por ejemplo, algunos desarrolladores agregar un tipo de parámetro `FormCollection` que se pasa al método POST y, a continuación, simplemente no usa el parámetro:
 
@@ -70,8 +70,8 @@ Después de haber creado y probado una aplicación web, el paso siguiente es pon
 
 Comentarios son bienvenidos.
 
-: [Rick Anderson](https://blogs.msdn.com/rickAndy) twitter:[@RickAndMSFT](https://twitter.com/RickAndMSFT)  
-: [Scott Hanselman](http://www.hanselman.com/blog/) twitter:[@shanselman](https://twitter.com/shanselman)
+: [Rick Anderson](https://blogs.msdn.com/rickAndy) twitter: [@RickAndMSFT](https://twitter.com/RickAndMSFT)  
+: [Scott Hanselman](http://www.hanselman.com/blog/) twitter: [@shanselman](https://twitter.com/shanselman)
 
->[!div class="step-by-step"]
-[Anterior](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-validation-to-the-model.md)

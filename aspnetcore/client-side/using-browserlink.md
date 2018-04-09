@@ -1,7 +1,7 @@
 ---
-title: "Vínculo de explorador en ASP.NET Core"
+title: Vínculo de explorador en ASP.NET Core
 author: ncarandini
-description: "Explica cómo vínculo de explorador es una característica de Visual Studio que se vincula el entorno de desarrollo con uno o varios exploradores web."
+description: Explica cómo vínculo de explorador es una característica de Visual Studio que se vincula el entorno de desarrollo con uno o varios exploradores web.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-browserlink
-ms.openlocfilehash: 3e62bdd180bb1f5e2ce0645a8cf13c9ffe76197e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a75a896dd7ebc488e3e9344ec705c24201924375
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core 
+# <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core
 
 Por [Nicolò Carandini](https://github.com/ncarandini), [Mike Wasson](https://github.com/MikeWasson), y [Tom Dykstra](https://github.com/tdykstra)
 
@@ -66,7 +66,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Para obtener más información, consulte [Trabajar con varios entornos](xref:fundamentals/environments).
+Para obtener más información, consulte [trabajar con varios entornos](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Cómo usar el vínculo de explorador
 

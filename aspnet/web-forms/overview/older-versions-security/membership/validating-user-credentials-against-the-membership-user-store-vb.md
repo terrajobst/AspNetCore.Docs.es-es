@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
-title: "Validando las credenciales de usuario en el almacén de usuario de pertenencia (VB) | Documentos de Microsoft"
+title: Validando las credenciales de usuario en el almacén de usuario de pertenencia (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial, examinaremos cómo validar las credenciales del usuario en el almacén de usuario de pertenencia mediante medios mediante programación y el control de inicio de sesión..."
+description: En este tutorial, examinaremos cómo validar las credenciales del usuario en el almacén de usuario de pertenencia mediante medios mediante programación y el control de inicio de sesión...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f57bc8c32757c1ea25bf6bbb34539570e4c09aad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f8d3de9736d901e02096d20345650b47c47897ae
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Validando las credenciales de usuario en el almacén de usuario de pertenencia (VB)
 ====================
@@ -71,8 +71,8 @@ Cuando un visitante llega a la página de inicio de sesión y envía sus credenc
 
 Para evitar estos ataques por fuerza bruta, el marco de trabajo de pertenencia se bloquea un usuario si hay un determinado número de intentos de inicio de sesión incorrecto en un período de tiempo determinado. Los parámetros exactos que son configurables a través de los dos valores de configuración de proveedor de pertenencia:
 
-- `maxInvalidPasswordAttempts`-Especifica cuántas contraseñas no válidas se permiten los intentos del usuario dentro del período de tiempo antes de que la cuenta está bloqueada. El valor predeterminado es 5.
-- `passwordAttemptWindow`-indica el período de tiempo en minutos durante los que el número especificado de intentos de inicio de sesión no válido hará que la cuenta que se bloquee. El valor predeterminado es 10.
+- `maxInvalidPasswordAttempts` -Especifica cuántas contraseñas no válidas se permiten los intentos del usuario dentro del período de tiempo antes de que la cuenta está bloqueada. El valor predeterminado es 5.
+- `passwordAttemptWindow` -indica el período de tiempo en minutos durante los que el número especificado de intentos de inicio de sesión no válido hará que la cuenta que se bloquee. El valor predeterminado es 10.
 
 Si un usuario se ha bloqueado, no puede iniciar sesión hasta que un administrador desbloquee su cuenta de usuario. Cuando un usuario está bloqueado, el `ValidateUser` método *siempre* devolver `False`, incluso si se han proporcionado credenciales válidas. Aunque este comportamiento reduce la probabilidad de que un hacker se interrumpirá en el sitio a través de métodos de fuerza bruta, puede acabar bloquear un usuario válido que simplemente se ha olvidado su contraseña o accidentalmente tiene las teclas BLOQ MAYÚS o es tener un mal día de escritura.
 
@@ -110,7 +110,7 @@ Y acabamos! Cuando se hace clic en el botón Iniciar sesión del control de inic
 
 El control de inicio de sesión utiliza cuatro factores para determinar la página correspondiente para redirigir al usuario cuando inician una sesión correctamente:
 
-- Si el control de inicio de sesión está en la página de inicio de sesión definido por `loginUrl` en la configuración de autenticación de formularios; este valor de configuración predeterminado es`Login.aspx`
+- Si el control de inicio de sesión está en la página de inicio de sesión definido por `loginUrl` en la configuración de autenticación de formularios; este valor de configuración predeterminado es `Login.aspx`
 - La presencia de un `ReturnUrl` parámetro querystring
 - El valor del control de inicio de sesión [ `DestinationUrl` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
 - El `defaultUrl` valor especificadas en los formularios de los valores de configuración de autenticación; este valor de configuración predeterminado es Default.aspx
@@ -230,7 +230,7 @@ Como puede ver, el `Authenticate` controlador de eventos se pasa un objeto de ti
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Determinar y validar las credenciales proporcionadas
 
-Utilice el control de inicio de sesión [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) y [ `Password` propiedades](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) para determinar las credenciales de nombre de usuario y una contraseña escritas por el usuario. Para determinar los valores especificados en los controles Web adicionales (como el `Email` cuadro de texto se agregó en el paso anterior), utilice `LoginControlID.FindControl`("*`controlID`*") para obtener una referencia a la Web mediante programación control de la plantilla cuya `ID` propiedad es igual a  *`controlID`* . Por ejemplo, para obtener una referencia a la `Email` cuadro de texto, utilice el código siguiente:
+Utilice el control de inicio de sesión [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) y [ `Password` propiedades](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) para determinar las credenciales de nombre de usuario y una contraseña escritas por el usuario. Para determinar los valores especificados en los controles Web adicionales (como el `Email` cuadro de texto se agregó en el paso anterior), utilice `LoginControlID.FindControl`("*`controlID`*") para obtener una referencia a la Web mediante programación control de la plantilla cuya `ID` propiedad es igual a *`controlID`*. Por ejemplo, para obtener una referencia a la `Email` cuadro de texto, utilice el código siguiente:
 
 `Dim EmailTextBox As TextBox = CType(myLogin.FindControl("Email"), TextBox)`
 
@@ -310,12 +310,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial fueron Teresa Murphy y Michael Olivero. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](creating-user-accounts-vb.md)
-[Siguiente](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-user-accounts-vb.md)
+> [Siguiente](user-based-authorization-vb.md)

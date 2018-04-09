@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 title: Actualizar, eliminar y crear datos con el enlace de modelos y formularios web forms | Documentos de Microsoft
 author: tfitzmac
-description: "Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-..."
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/updating-deleting-and-creating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 18c065b44524e7738c048b5908fa50c592188064
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e6536f7858afde5faf3aedd34f3cbe95c5ed0d53
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-deleting-and-creating-data-with-model-binding-and-web-forms"></a>Actualizar, eliminar y crear datos con el enlace de modelos y formularios web forms
 ====================
@@ -133,6 +133,6 @@ En este tutorial, se habilitó actualizar, eliminar y crear datos. Se garantiza 
 
 En la siguiente [tutorial](sorting-paging-and-filtering-data.md) de esta serie, podrá aplicar ordenación, paginación y filtrado de datos.
 
->[!div class="step-by-step"]
-[Anterior](retrieving-data.md)
-[Siguiente](sorting-paging-and-filtering-data.md)
+> [!div class="step-by-step"]
+> [Anterior](retrieving-data.md)
+> [Siguiente](sorting-paging-and-filtering-data.md)

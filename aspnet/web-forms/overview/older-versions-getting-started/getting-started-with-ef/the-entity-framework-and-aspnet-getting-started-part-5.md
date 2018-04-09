@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: 5efc5ff367d5da5df060eba0028399af898a69fa
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 7f351718123e881e832f4ac95af506ed601d3337
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-5"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 5
 ====================
@@ -123,10 +123,10 @@ Ejecute la página.
 
 [![Image01](the-entity-framework-and-aspnet-getting-started-part-5/_static/image10.png)](the-entity-framework-and-aspnet-getting-started-part-5/_static/image9.png)
 
-Seleccione un instructor. El **asignar un curso** lista desplegable muestra los cursos que no indican el instructor, y el **quitar un curso** lista desplegable muestra los cursos que el instructor ya está asignado a. En el **asignar un curso** sección, seleccione un curso y, a continuación, haga clic en **asignar**. El curso se mueve a la **quitar un curso** lista desplegable. Seleccione un curso en el **quitar un curso** sección y haga clic en **Remove***.* El curso se mueve a la **asignar un curso** lista desplegable.
+Seleccione un instructor. El <strong>asignar un curso</strong> lista desplegable muestra los cursos que no indican el instructor, y el <strong>quitar un curso</strong> lista desplegable muestra los cursos que el instructor ya está asignado a. En el <strong>asignar un curso</strong> sección, seleccione un curso y, a continuación, haga clic en <strong>asignar</strong>. El curso se mueve a la <strong>quitar un curso</strong> lista desplegable. Seleccione un curso en el <strong>quitar un curso</strong> sección y haga clic en <strong>quitar</strong><em>.</em> El curso se mueve a la <strong>asignar un curso</strong> lista desplegable.
 
 Ya ha visto algunas otras formas de trabajar con datos relacionados. En el siguiente tutorial, aprenderá a utilizar la herencia en el modelo de datos para mejorar la facilidad de mantenimiento de la aplicación.
 
->[!div class="step-by-step"]
-[Anterior](the-entity-framework-and-aspnet-getting-started-part-4.md)
-[Siguiente](the-entity-framework-and-aspnet-getting-started-part-6.md)
+> [!div class="step-by-step"]
+> [Anterior](the-entity-framework-and-aspnet-getting-started-part-4.md)
+> [Siguiente](the-entity-framework-and-aspnet-getting-started-part-6.md)

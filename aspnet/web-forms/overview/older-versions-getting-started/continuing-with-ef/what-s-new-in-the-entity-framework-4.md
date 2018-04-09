@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
-title: "¿Qué es nueva en Entity Framework 4.0 | Documentos de Microsoft"
+title: ¿Qué es nueva en Entity Framework 4.0 | Documentos de Microsoft
 author: tdykstra
-description: "Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I..."
+description: Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: c114627388217e892c84d6b76366d0fa96b0b70c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 04444ce98fa60045cf617a6c518dd55677258148
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>¿Qué es nueva en Entity Framework 4.0
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > Esta serie de tutoriales que se basa en la aplicación web de la Universidad de Contoso que se crea mediante la [Introducción a Entity Framework](../getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-1.md) serie de tutoriales. Si no has completado los tutoriales anteriores, como punto de partida para este tutorial puede [descargar la aplicación](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) que puede haberla creado. También puede [descargar la aplicación](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creado por la serie de tutoriales completa. Si tiene alguna pregunta acerca de los tutoriales, puede publicar para la [foro de ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -122,7 +122,7 @@ Para agregar una asociación entre estas dos entidades, haga clic en el `Alumnus
 
 Los valores predeterminados de la **Agregar asociación** cuadro de diálogo son las que desea (uno a varios, incluyen propiedades de navegación, incluya las claves externas), por lo que simplemente haga clic en **Aceptar**.
 
-[![Image11](what-s-new-in-the-entity-framework-4/_static/image20.png)](what-s-new-in-the-entity-framework-4/_static/image19.png)
+[![image11](what-s-new-in-the-entity-framework-4/_static/image20.png)](what-s-new-in-the-entity-framework-4/_static/image19.png)
 
 El diseñador agrega una línea de asociación y una propiedad de clave externa.
 
@@ -203,7 +203,7 @@ Para obtener más información acerca de cómo utilizar el enfoque basado en có
 - [Tutorial de la tienda de música de MVC - parte 4: acceso a datos y modelos](../../../../mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-4.md)
 - [Introducción a MVC 3 - parte 4: desarrollo Code First de Entity Framework](../../../../mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model.md)
 
-Además, se proyecta un nuevo tutorial de MVC Code-First que compila una aplicación similar a la aplicación de la Universidad de Contoso para publicarse en la primavera de 2011 a [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
+Además, se proyecta un nuevo tutorial de MVC Code-First que compila una aplicación similar a la aplicación de la Universidad de Contoso para publicarse en la primavera de 2011 a las [https://asp.net/entity-framework/tutorials](../../../../entity-framework.md)
 
 ## <a name="more-information"></a>Más información
 
@@ -212,5 +212,5 @@ Con esto finaliza la información general sobre novedades de Entity Framework y 
 - [What's New in ADO.NET](https://msdn.microsoft.com/library/ex6y04yf.aspx) tema MSDN sobre las nuevas características en la versión 4 de Entity Framework.
 - [Anuncio de la versión de Entity Framework 4](https://blogs.msdn.com/b/efdesign/archive/2010/04/12/announcing-the-release-of-entity-framework-4.aspx) entrada de blog del equipo de desarrollo de Entity Framework sobre las nuevas características en la versión 4.
 
->[!div class="step-by-step"]
-[Anterior](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [!div class="step-by-step"]
+> [Anterior](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application.md)

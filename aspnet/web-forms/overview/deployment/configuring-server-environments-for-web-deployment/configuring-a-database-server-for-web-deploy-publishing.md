@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
-title: "Configurar un servidor de base de datos Web de publicación de implementación | Documentos de Microsoft"
+title: Configurar un servidor de base de datos Web de publicación de implementación | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo configurar un servidor de base de datos de SQL Server 2008 R2 para admitir la publicación e implementación de web. Las tareas descritas en este tema son co..."
+description: En este tema se describe cómo configurar un servidor de base de datos de SQL Server 2008 R2 para admitir la publicación e implementación de web. Las tareas descritas en este tema son co...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 98fd728f48f6fb64a61686bc58824b9fb3a28b13
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: a2340c0d561ed274e281b5f6d942af0a2027315a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Configurar un servidor de base de datos para publicación de implementación Web
 ====================
@@ -26,7 +26,7 @@ por [Jason Lee](https://github.com/jrjlee)
 
 > En este tema se describe cómo configurar un servidor de base de datos de SQL Server 2008 R2 para admitir la publicación e implementación de web.
 > 
-> Las tareas descritas en este tema son comunes a cada escenario de implementación & #x 2014; no importa si los servidores web están configurados para utilizar el servicio del agente remoto de la herramienta de implementación Web de IIS (Web Deploy), el controlador de implementación Web o la implementación sin conexión o la aplicación se está ejecutando en un único servidor web o una granja de servidores. Puede cambiar la forma de implementar la base de datos según los requisitos de seguridad y otras consideraciones. Por ejemplo, puede implementar la base de datos con o sin datos de ejemplo y puede implementar las asignaciones de rol de usuario o configurarlos manualmente después de la implementación. Sin embargo, la forma de configurar el servidor de base de datos sigue siendo el mismo.
+> Las tareas descritas en este tema son comunes a cada escenario de implementación&#x2014;no importa si los servidores web están configurados para utilizar el servicio del agente remoto de la herramienta de implementación Web de IIS (Web Deploy), el controlador de implementación Web o la implementación sin conexión o su aplicación se ejecuta en un único servidor web o una granja de servidores. Puede cambiar la forma de implementar la base de datos según los requisitos de seguridad y otras consideraciones. Por ejemplo, puede implementar la base de datos con o sin datos de ejemplo y puede implementar las asignaciones de rol de usuario o configurarlos manualmente después de la implementación. Sin embargo, la forma de configurar el servidor de base de datos sigue siendo el mismo.
 
 
 No tienes que instalar otros productos y herramientas para configurar un servidor de base de datos para admitir la implementación de web. Suponiendo que el servidor de base de datos y el servidor web que se ejecutan en distintos equipos, basta con:
@@ -65,8 +65,8 @@ Para habilitar SQL Server para comunicarse a través de TCP/IP, use el Administr
 1. En el **iniciar** menú, elija **todos los programas**, haga clic en **Microsoft SQL Server 2008 R2**, haga clic en **herramientas de configuración**y, a continuación, haga clic en **Administrador de configuración de SQL Server**.
 2. En el panel de vista de árbol, expanda **configuración de red de SQL Server**y, a continuación, haga clic en **protocolos para MSSQLSERVER**.
 
-    > [!NOTE]
-    > Si tiene instaladas varias instancias de SQL Server, verá un **protocolos de *** [nombre de instancia]* elemento para cada instancia. Debe configurar una red en una instancia por instancia.
+   > [!NOTE]
+   > Si tiene instaladas varias instancias de SQL Server, verá un <strong>protocolos de</strong><em>[nombre de instancia]</em> elemento para cada instancia. Debe configurar una red en una instancia por instancia.
 3. En el panel de detalles, haga clic en el **TCP/IP** fila y, a continuación, haga clic en **habilitar**.
 
     ![](configuring-a-database-server-for-web-deploy-publishing/_static/image1.png)
@@ -130,7 +130,7 @@ Para obtener más información acerca de cómo configurar Firewall de Windows pa
 
 ## <a name="configure-logins-and-database-permissions"></a>Configurar inicios de sesión y permisos de base de datos
 
-Al implementar una aplicación web para Internet Information Services (IIS), la aplicación ejecuta con la identidad del grupo de aplicaciones. En un entorno de dominio, identidades del grupo de aplicaciones usa la cuenta de equipo del servidor en el que ejecuta para acceder a los recursos de red. Cuentas de equipo que adoptan la forma * [nombre de dominio]***\*** [nombre máquina]***$** & #x 2014; por ejemplo, **FABRIKAM\TESTWEB1$**. Para permitir que la aplicación web tener acceso a una base de datos a través de la red, debe:
+Al implementar una aplicación web para Internet Information Services (IIS), la aplicación ejecuta con la identidad del grupo de aplicaciones. En un entorno de dominio, identidades del grupo de aplicaciones usa la cuenta de equipo del servidor en el que ejecuta para acceder a los recursos de red. Cuentas de equipo que adoptan la forma <em>[nombre de dominio]</em><strong>\</ strong ><em>[nombre máquina]</em><strong>$</strong>&#x2014;por ejemplo, <strong>FABRIKAM\TESTWEB1$</strong>. Para permitir que la aplicación web tener acceso a una base de datos a través de la red, debe:
 
 - Agregar un inicio de sesión para la cuenta del equipo de servidor web a la instancia de SQL Server.
 - El inicio de sesión de cuenta de equipo se asignan a los roles de base de datos requerida (normalmente **db\_datareader** y **db\_datawriter**).
@@ -231,6 +231,6 @@ El servidor de base de datos estará listo para aceptar las implementaciones de 
 
 Para obtener instrucciones sobre la implementación de proyectos de base de datos, vea [implementar proyectos de base de datos](../web-deployment-in-the-enterprise/deploying-database-projects.md). Para obtener instrucciones sobre la creación de las pertenencias a roles de base de datos ejecutando un script posterior a la implementación, consulte [implementar pertenencias a roles de base de datos a los entornos de prueba](../advanced-enterprise-web-deployment/deploying-database-role-memberships-to-test-environments.md). Para obtener instrucciones sobre cómo cumplir los desafíos de implementación único que suponen las bases de datos de pertenencia, vea [implementar bases de datos de pertenencia a los entornos empresariales](../advanced-enterprise-web-deployment/deploying-membership-databases-to-enterprise-environments.md).
 
->[!div class="step-by-step"]
-[Anterior](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
-[Siguiente](creating-a-server-farm-with-the-web-farm-framework.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md)
+> [Siguiente](creating-a-server-farm-with-the-web-farm-framework.md)

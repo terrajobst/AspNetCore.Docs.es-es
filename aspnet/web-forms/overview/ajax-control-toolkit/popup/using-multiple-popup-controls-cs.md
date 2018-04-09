@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
-title: "Uso de varios controles de menú emergente (C#) | Documentos de Microsoft"
+title: Uso de varios controles de menú emergente (C#) | Documentos de Microsoft
 author: wenz
-description: "El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. También es posible utilizar m..."
+description: El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. También es posible utilizar m...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d8c9742bb39b655115cb1862ff6e867989e63665
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7acd1b53e1b3e3e0d09d248b68941b166da3e81e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-multiple-popup-controls-c"></a>Uso de varios controles de menú emergente (C#)
 ====================
@@ -56,5 +56,5 @@ Al hacer clic en un campo de texto, un calendario aparece debajo del campo, que 
 
 El calendario aparece cuando el usuario hace clic en el cuadro de texto ([haga clic aquí para ver la imagen a tamaño completo](using-multiple-popup-controls-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](handling-postbacks-from-a-popup-control-with-an-updatepanel-cs.md)

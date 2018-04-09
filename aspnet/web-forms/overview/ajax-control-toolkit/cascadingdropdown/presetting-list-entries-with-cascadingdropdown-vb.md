@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb
-title: "Preconfiguración de entradas de la lista con CascadingDropDown (VB) | Documentos de Microsoft"
+title: Preconfiguración de entradas de la lista con CascadingDropDown (VB) | Documentos de Microsoft
 author: wenz
 description: El control CascadingDropDown en el Kit de herramientas de Control de AJAX extiende un control DropDownList para que los cambios en una carga de DropDownList asociados valores de anoth...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/presetting-list-entries-with-cascadingdropdown-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c28c7893c39d9ba9f828c34da7ffdce525ee248e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f74e6ac80b756240870d9406a03db11c610093aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-vb"></a>Entradas de lista de preconfiguración CascadingDropDown (VB)
 ====================
@@ -60,6 +60,6 @@ Cargar la página en el explorador, se rellenará la lista desplegable con los t
 
 La lista se rellena y se preselecciona automáticamente ([haga clic aquí para ver la imagen a tamaño completo](presetting-list-entries-with-cascadingdropdown-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](using-cascadingdropdown-with-a-database-vb.md)
-[Siguiente](using-auto-postback-with-cascadingdropdown-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-cascadingdropdown-with-a-database-vb.md)
+> [Siguiente](using-auto-postback-with-cascadingdropdown-vb.md)

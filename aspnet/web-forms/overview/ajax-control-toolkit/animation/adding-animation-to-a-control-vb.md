@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
-title: "Agregar animación a un Control (VB) | Documentos de Microsoft"
+title: Agregar animación a un Control (VB) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Este tutorial se muestra cómo..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Este tutorial se muestra cómo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/adding-animation-to-a-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c2d6971ade89405245c8d23cafb6fd8bb9468639
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3da98e478c45213875b3829e51351d03571a05b8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-animation-to-a-control-vb"></a>Agregar animación a un Control (VB)
 ====================
@@ -51,22 +51,22 @@ A continuación, necesitamos la `AnimationExtender`. Después de proporcionar un
 
 Toda la animación se aplica mediante declaración, utilizando una sintaxis XML, que Desafortunadamente actualmente no se admiten totalmente IntelliSense de Visual Studio. El nodo raíz es `<Animations>;` dentro de este nodo, se permiten varios eventos que determinan si la animación adopten lugar:
 
-- `OnClick`(haga clic del mouse)
-- `OnHoverOut`(cuando el mouse sale de un control)
-- `OnHoverOver`(cuando se sitúa el mouse sobre un control, detener la `OnHoverOut` animación)
-- `OnLoad`(cuando se ha cargado la página)
-- `OnMouseOut`(cuando el mouse sale de un control)
-- `OnMouseOver`(cuando se sitúa el mouse sobre un control, no detiene el `OnMouseOut` animación)
+- `OnClick` (haga clic del mouse)
+- `OnHoverOut` (cuando el mouse sale de un control)
+- `OnHoverOver` (cuando se sitúa el mouse sobre un control, detener la `OnHoverOut` animación)
+- `OnLoad` (cuando se ha cargado la página)
+- `OnMouseOut` (cuando el mouse sale de un control)
+- `OnMouseOver` (cuando se sitúa el mouse sobre un control, no detiene el `OnMouseOut` animación)
 
 El marco de trabajo incluye un conjunto de animaciones, cada uno de ellos representado por su propio elemento XML. Esta es una selección:
 
-- `<Color>`(cambiar un color)
-- `<FadeIn>`(resaltar)
-- `<FadeOut>`(difuminado)
-- `<Property>`(cambiar la propiedad del control)
-- `<Pulse>`(pulsating)
-- `<Resize>`(cambiar el tamaño)
-- `<Scale>`(y cambiar el tamaño proporcionalmente)
+- `<Color>` (cambiar un color)
+- `<FadeIn>` (resaltar)
+- `<FadeOut>` (difuminado)
+- `<Property>` (cambiar la propiedad del control)
+- `<Pulse>` (pulsating)
+- `<Resize>` (cambiar el tamaño)
+- `<Scale>` (y cambiar el tamaño proporcionalmente)
 
 En este ejemplo, el panel será fundido de salida. La animación adoptarán 1,5 segundos (`Duration` atributo), mostrar 24 fotogramas (pasos de animación) por segundo (`Fps` attributs). Este es el marcado completo para el `AnimationExtender` control:
 
@@ -79,6 +79,6 @@ Al ejecutar este script, el panel se muestra y atenúa en segundos de uno y medi
 
 El panel se atenúa ([haga clic aquí para ver la imagen a tamaño completo](adding-animation-to-a-control-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](dynamically-controlling-updatepanel-animations-cs.md)
-[Siguiente](executing-several-animations-at-the-same-time-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](dynamically-controlling-updatepanel-animations-cs.md)
+> [Siguiente](executing-several-animations-at-the-same-time-vb.md)

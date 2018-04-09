@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 title: Actualizar y eliminar los datos binarios existentes (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En los tutoriales anteriores hemos visto cómo el control GridView simplifica el proceso modificar y eliminar datos de texto. En este tutorial se muestra cómo el control GridView que también..."
+description: En los tutoriales anteriores hemos visto cómo el control GridView simplifica el proceso modificar y eliminar datos de texto. En este tutorial se muestra cómo el control GridView que también...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/updating-and-deleting-existing-binary-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f2fca1e91720fba0215e12b1a1894a3a31e86b5c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 28d9d7a7e45eb4df9f61e3f587edfe2388583507
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="updating-and-deleting-existing-binary-data-c"></a>Actualizar y eliminar los datos binarios existentes (C#)
 ====================
@@ -264,8 +264,8 @@ Cuando se hace clic en el botón de actualización de s GridView, su `RowUpdatin
 
 Los pasos necesarios para completar cuando las operaciones de asignación RadioButtonList `SelectedValue` es 3 son prácticamente idénticos a los usados por las operaciones de asignación DetailsView `ItemInserting` controlador de eventos. Este controlador de eventos se ejecuta cuando se agrega un nuevo registro de categoría desde el control de DetailsView que hemos agregado en el [tutorial anterior](including-a-file-upload-option-when-adding-a-new-record-cs.md). Por consiguiente, responsabilidad nos refactorizar esta funcionalidad out en métodos independientes. En concreto, ha sacado de la funcionalidad común en dos métodos:
 
-- `ProcessBrochureUpload(FileUpload, out bool)`acepta como entrada una instancia del control FileUpload y un valor booleano de salida que especifica si debe continuar la operación de eliminación o editar o si se debe cancelar debido a un error de validación. Este método devuelve la ruta de acceso al archivo guardado o `null` si se ha guardado ningún archivo.
-- `DeleteRememberedBrochurePath`Elimina el archivo especificado por la ruta de acceso en la variable de página `deletedCategorysPdfPath` si `deletedCategorysPdfPath` no es `null`.
+- `ProcessBrochureUpload(FileUpload, out bool)` acepta como entrada una instancia del control FileUpload y un valor booleano de salida que especifica si debe continuar la operación de eliminación o editar o si se debe cancelar debido a un error de validación. Este método devuelve la ruta de acceso al archivo guardado o `null` si se ha guardado ningún archivo.
+- `DeleteRememberedBrochurePath` Elimina el archivo especificado por la ruta de acceso en la variable de página `deletedCategorysPdfPath` si `deletedCategorysPdfPath` no es `null`.
 
 A continuación se muestra el código de estos dos métodos. Tenga en cuenta la similitud entre `ProcessBrochureUpload` y las operaciones de asignación DetailsView `ItemInserting` controlador de eventos en el tutorial anterior. En este tutorial he actualizado los controladores de eventos de DetailsView s para utilizar estos nuevos métodos. Descargar el código asociado con este tutorial para ver las modificaciones en los controladores de eventos de DetailsView s.
 
@@ -362,12 +362,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Teresa Murphy. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](including-a-file-upload-option-when-adding-a-new-record-cs.md)
-[Siguiente](uploading-files-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](including-a-file-upload-option-when-adding-a-new-record-cs.md)
+> [Siguiente](uploading-files-vb.md)

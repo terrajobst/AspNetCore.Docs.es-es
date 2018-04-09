@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
-title: "Pertenencia y administración | Documentos de Microsoft"
+title: Pertenencia y administración | Documentos de Microsoft
 author: Erikre
-description: "Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se..."
+description: Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/membership-and-administration
 msc.type: authoredcontent
-ms.openlocfilehash: a10dbfe1ca49baee1604aac8dd9a1f93ccfcb7f9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 166bc642ea2083f455be0648e424f0b0ae3b082c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="membership-and-administration"></a>Pertenencia y administración
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 [Descargar el proyecto de ejemplo de Wingtip Toys (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [descargar libros electrónicos (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -66,14 +66,14 @@ Uso de la identidad de ASP.NET, puede agregar un rol personalizado y asignar a u
 
     [!code-csharp[Main](membership-and-administration/samples/sample2.cs?highlight=11,26-28)]
 6. Tenga en cuenta que `AddUserAndRole` está subrayado en rojo. Haga doble clic en el código de AddUserAndRole.  
- La letra "A" al principio del método resaltado quedará subrayada.
+   La letra "A" al principio del método resaltado quedará subrayada.
 7. Mantenga el mouse sobre la letra "A" y haga clic en la interfaz de usuario que le permite generar un código auxiliar del método para el `AddUserAndRole` método. 
 
     ![Pertenencia y Advministration - generar código auxiliar del método](membership-and-administration/_static/image1.png)
 8. Haga clic en la opción titulada:  
     `Generate method stub for "AddUserAndRole" in "WingtipToys.Logic.RoleActions"`
 9. Abra la *RoleActions.cs* de archivos desde el *lógica* carpeta.  
- El `AddUserAndRole` método se ha agregado al archivo de clase.
+   El `AddUserAndRole` método se ha agregado al archivo de clase.
 10. Modificar el *RoleActions.cs* archivo mediante la eliminación de la `NotImplementedeException` y agregue el código que se resalta en amarillo, para que aparezca como sigue:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample3.cs?highlight=5-7,15-51)]
@@ -120,8 +120,8 @@ A continuación, creará una carpeta denominada *administración* aplicación de
 1. Haga clic en el nombre del proyecto (**Wingtip Toys**) en **el Explorador de soluciones** y seleccione **agregar**  - &gt; **nueva carpeta**.
 2. Nombre de la nueva carpeta *administración*.
 3. Haga clic en el *administración* carpeta y, a continuación, seleccione **agregar**  - &gt; **nuevo elemento**.   
- Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
-4. Seleccione el **Visual C#** - &gt; **Web** grupo de plantillas de la izquierda. En la lista central, seleccione **formulario Web con página maestra**, asígnele el nombre *AdminPage.aspx***,** y, a continuación, seleccione **agregar**.
+   Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
+4. Seleccione el <strong>Visual C#</strong> - &gt; <strong>Web</strong> grupo de plantillas de la izquierda. En la lista central, seleccione <strong>formulario Web con página maestra</strong>, asígnele el nombre <em>AdminPage.aspx</em><strong>,</strong> y, a continuación, seleccione <strong>agregar</strong>.
 5. Seleccione el *Site.Master* de archivos como la página maestra y, a continuación, elija **Aceptar**.
 
 #### <a name="add-a-webconfig-file"></a>Agregue un archivo Web.config
@@ -129,8 +129,8 @@ A continuación, creará una carpeta denominada *administración* aplicación de
 Mediante la adición de un *Web.config* del archivo a la *administración* carpeta, puede restringir el acceso a la página de contenido en la carpeta.
 
 1. Haga clic en el *administración* carpeta y seleccione **agregar**  - &gt; **nuevo elemento**.  
- Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
-2. En la lista de plantillas web de Visual C#, seleccione **archivo de configuración Web**desde la lista en el medio, acepte el nombre predeterminado de *Web.config***,** y, a continuación, seleccione **Agregar**.
+   Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
+2. En la lista de plantillas web de Visual C#, seleccione <strong>archivo de configuración Web</strong>desde la lista en el medio, acepte el nombre predeterminado de <em>Web.config</em><strong>,</strong> y, a continuación, seleccione <strong>Agregar</strong>.
 3. Reemplace el documento XML contenido en el *Web.config* archivo con lo siguiente:  
 
     [!code-xml[Main](membership-and-administration/samples/sample4.xml)]
@@ -167,9 +167,9 @@ Hasta ahora, ha creado el rol "canEdit" y agrega un usuario "canEditUser", una c
 En el código que ha especificado para la *AdminPage.aspx.cs* archivo de código subyacente, una clase denominada `AddProducts` realiza el trabajo real de agregar productos a la base de datos. Esta clase no existe aún, por lo que creará ahora.
 
 1. En **el Explorador de soluciones**, haga clic en el *lógica* carpeta y, a continuación, seleccione **agregar**  - &gt; **nuevo elemento**.   
- Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
+   Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
 2. Seleccione el **Visual C#**  - &gt; **código** grupo de plantillas de la izquierda. A continuación, seleccione **clase**desde la mitad de lista y asígnele el nombre *AddProducts.cs*.   
- Se muestra el nuevo archivo de clase.
+   Se muestra el nuevo archivo de clase.
 3. Reemplace el código existente por el siguiente:  
 
     [!code-csharp[Main](membership-and-administration/samples/sample9.cs)]
@@ -235,15 +235,15 @@ El `Page_Load` controlador de eventos comprueba el valor de cadena de consulta y
 Puede ejecutar la aplicación ahora para ver cómo se pueden agregar, eliminar y actualiza los artículos en el carro de la compra. El total de carro de la compra reflejará el costo total de todos los elementos en el carro de la compra.
 
 1. En el Explorador de soluciones, presione **F5** para ejecutar la aplicación de ejemplo Wingtip Toys.  
- El explorador se abre y muestra el *Default.aspx* página.
+   El explorador se abre y muestra el *Default.aspx* página.
 2. Haga clic en el **sesión** vínculo en la parte superior de la página. 
 
     ![Pertenencia y administración - registro de vínculo](membership-and-administration/_static/image2.png)
 
- El *Login.aspx* se muestra la página.
+   El *Login.aspx* se muestra la página.
 3. Utilice el siguiente nombre de usuario y la contraseña:  
- Nombre de usuario:canEditUser@wingtiptoys.com  
- Contraseña: Pa$ $word1 
+   Nombre de usuario: canEditUser@wingtiptoys.com  
+   Contraseña: Pa$ $word1 
 
     ![Pertenencia y administración - iniciar sesión en la página](membership-and-administration/_static/image3.png)
 4. Haga clic en el **sesión** botón situado cerca de la parte inferior de la página.
@@ -254,7 +254,7 @@ Puede ejecutar la aplicación ahora para ver cómo se pueden agregar, eliminar y
 
     ![Pertenencia y administración - página de administración](membership-and-administration/_static/image5.png)
 
- Tenga en cuenta que se muestran los mensajes de campo obligatorio.
+   Tenga en cuenta que se muestran los mensajes de campo obligatorio.
 7. Agregue los detalles de un nuevo producto y, a continuación, haga clic en el **agregar producto** botón. 
 
     ![Pertenencia y administración - agregar producto](membership-and-administration/_static/image6.png)
@@ -268,7 +268,7 @@ Puede ejecutar la aplicación ahora para ver cómo se pueden agregar, eliminar y
     ![Pertenencia y administración - Remove producto](membership-and-administration/_static/image8.png)
 12. Seleccione **productos** en el menú de navegación superior para confirmar que se ha quitado el producto.
 13. Haga clic en **cerrar** que existe el modo de administración.   
- Tenga en cuenta que el panel de navegación superior ya no muestra la **administración** elemento de menú.
+    Tenga en cuenta que el panel de navegación superior ya no muestra la **administración** elemento de menú.
 
 ## <a name="summary"></a>Resumen
 
@@ -281,6 +281,6 @@ En este tutorial, ha agregado un rol personalizado y un usuario que pertenezca a
 [Implementar una aplicación de formularios Web de ASP.NET segura con pertenencia, OAuth y base de datos SQL en un sitio Web de Azure](https://azure.microsoft.com/documentation/articles/web-sites-dotnet-deploy-aspnet-webforms-app-membership-oauth-sql-database/)  
 [Microsoft Azure - versión de prueba gratuita](https://azure.microsoft.com/pricing/free-trial/)
 
->[!div class="step-by-step"]
-[Anterior](checkout-and-payment-with-paypal.md)
-[Siguiente](url-routing.md)
+> [!div class="step-by-step"]
+> [Anterior](checkout-and-payment-with-paypal.md)
+> [Siguiente](url-routing.md)

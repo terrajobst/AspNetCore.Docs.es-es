@@ -1,6 +1,6 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
-title: "Introducción a ASP.NET Web Pages: conceptos básicos de programación | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: conceptos básicos de programación | Documentos de Microsoft'
 author: tfitzmac
 description: "Este tutorial ofrece una introducción al programa en ASP.NET Web Pages con sintaxis Razor. Lo que aprenderá: la sintaxis 'Razor' básica que utiliza para pr..."
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: eed07f4f8a13ea9082ab3aad3e3db24febff8ef6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Introducción a ASP.NET Web Pages: conceptos básicos de programación
 ====================
@@ -103,7 +103,7 @@ No está limitado a las variables, aunque. En algunos casos, el carácter @ prec
 
 - @(una\*b) representa el producto de cualquier objeto almacenado en las variables de una y b. (El \* significa de operador de multiplicación.)
 - @(tecnología + "" + producto) representa los valores de la tecnología de las variables y el producto después de concatenarlas todas y agregar un espacio entre ambas. El operador (+) para la concatenación de cadenas es el mismo que el operador para agregar números. ASP.NET normalmente puede saber si está trabajando con números o con cadenas y toma las medidas adecuadas con el operador +.
-- @Request.Urlrepresenta la propiedad de dirección Url del objeto de solicitud. El objeto de solicitud contiene información sobre la solicitud actual desde el explorador y, por supuesto, la propiedad de dirección Url contiene la dirección URL de la solicitud actual.
+- @Request.Url representa la propiedad de dirección Url del objeto de solicitud. El objeto de solicitud contiene información sobre la solicitud actual desde el explorador y, por supuesto, la propiedad de dirección Url contiene la dirección URL de la solicitud actual.
 
 El ejemplo también se ha diseñado para mostrar que puede trabajar de maneras diferentes. Puede realizar cálculos en el bloque de código en la parte superior, colocar los resultados en una variable y, a continuación, representar la variable en el marcado. O bien, puede realizar cálculos en un derecho de la expresión en el marcado. El método utilizado depende de lo que está haciendo y, hasta cierto punto, en sus propias preferencias.
 
@@ -165,7 +165,7 @@ Estos son algunos ejemplos de condiciones que puede probar en if instrucción:
 
 [!code-csharp[Main](intro-to-web-pages-programming/samples/sample7.cs)]
 
-Puede probar las variables con valores o en expresiones mediante un *operador lógico* o *operador de comparación*: igual a (==), mayor que (&gt;), menor que (&lt;), mayor o igual que (&gt;=) y menor o igual que (&lt;=). El! = (operador) significa que no es igual a, por ejemplo, si (un! = 0) significa *si* *un**no es igual a 0*.
+Puede probar las variables con valores o en expresiones mediante un <em>operador lógico</em> o <em>operador de comparación</em>: igual a (==), mayor que (&gt;), menor que (&lt;), mayor o igual que (&gt;=) y menor o igual que (&lt;=). El! = (operador) significa que no es igual a, por ejemplo, si (un! = 0) significa <em>si</em> <em>un</em><em>no es igual a 0</em>.
 
 > [!NOTE]
 > Asegúrese de que se tenga en cuenta que el operador de comparación para igual a (==) no es el mismo valor que =. El = operador se usa solo para asignar valores (var un = 2). Si mezcla estos operadores, obtendrá un error u obtendrá resultados extraños.
@@ -259,7 +259,7 @@ En caso de que no está completamente seguro de lo que acaba de hecho, este es u
 
 Ejecute la página. No hay ningún mensaje, porque showMessage es false, por lo que en el marcado de la prueba de if(showMessage) devuelve false.
 
-Haga clic en **enviar**. Verá la fecha y hora, pero aún no hay ningún mensaje.
+Haga clic en **Enviar**. Verá la fecha y hora, pero aún no hay ningún mensaje.
 
 En el explorador, vaya al cuadro de dirección URL y agregue lo siguiente al final de la dirección URL:? mostrar = true y, a continuación, presione ENTRAR.
 
@@ -281,7 +281,7 @@ ASP.NET Web Pages tiene algunas aplicaciones auxiliares integradas. Sin embargo,
 
 En esta parte del tutorial, instalará una aplicación auxiliar que le permite mostrar una imagen de Gravatar ("avatar globalmente reconocido"). Aprenderá dos cosas. Uno se muestra cómo buscar e instalar una aplicación auxiliar. También aprenderá cómo una aplicación auxiliar facilita la hacer algo que tendrían que hacer con una gran cantidad de código que tendría que escribir expresamente.
 
-Puede registrar su propio Gravatar en el sitio Web de Gravatar en [http://www.gravatar.com/](http://www.gravatar.com/), pero no es esencial para crear una cuenta de Gravatar para llevar a cabo esta parte del tutorial.
+Puede registrar su propio Gravatar en el sitio Web de Gravatar en [ http://www.gravatar.com/ ](http://www.gravatar.com/), pero no es esencial para crear una cuenta de Gravatar para llevar a cabo esta parte del tutorial.
 
 En WebMatrix, haga clic en el **NuGet** botón.
 
@@ -360,6 +360,6 @@ El siguiente tutorial muestra cómo trabajar con una base de datos. En este tuto
 - [Introducción a la programación Web de ASP.NET mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 - [Aplicación auxiliar de Twitter](../../ui-layouts-and-themes/twitter-helper.md)
 
->[!div class="step-by-step"]
-[Anterior](getting-started.md)
-[Siguiente](displaying-data.md)
+> [!div class="step-by-step"]
+> [Anterior](getting-started.md)
+> [Siguiente](displaying-data.md)

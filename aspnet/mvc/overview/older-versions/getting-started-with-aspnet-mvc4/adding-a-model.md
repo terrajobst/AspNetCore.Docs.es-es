@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 title: Agregar un modelo | Documentos de Microsoft
 author: Rick-Anderson
-description: "Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones..."
+description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 304c428b0d787e902f30c1989471c476f54d3b39
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 562a06e22aad62b6982aca3316a2dfe18a6eba2e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model"></a>Agregar un modelo
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -78,6 +78,6 @@ Esta cantidad pequeña de código y XML es todo lo que necesario para escribir c
 
 A continuación, vamos a compilar un nuevo `MoviesController` clase que puede usar para mostrar los datos de la película y permitir a los usuarios crear nuevos anuncios de película.
 
->[!div class="step-by-step"]
-[Anterior](adding-a-view.md)
-[Siguiente](accessing-your-models-data-from-a-controller.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-view.md)
+> [Siguiente](accessing-your-models-data-from-a-controller.md)

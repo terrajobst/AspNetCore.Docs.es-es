@@ -1,5 +1,5 @@
 ---
-title: "Migración de ASP.NET a ASP.NET Core 2.0"
+title: Migrar de ASP.NET a ASP.NET Core 2.0
 author: isaac2004
 description: Reciben instrucciones para migrar aplicaciones existentes de ASP.NET MVC o Web API principales de ASP.NET 2.0.
 manager: wpickett
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc2
-ms.openlocfilehash: 9424234011525afdba35824b6b324f5175ba023f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 58fac7642dbfdad58fef99f04d17de33e7218524
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-to-aspnet-core-20"></a>Migración de ASP.NET a ASP.NET Core 2.0
+# <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migrar de ASP.NET a ASP.NET Core 2.0
 
 Por [Isaac Levin](https://isaaclevin.com)
 
@@ -23,7 +23,12 @@ Este artículo sirve de guía de referencia para migrar aplicaciones de ASP.NET 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
+Instalar **una** de las siguientes en [.NET descargas: Windows](https://www.microsoft.com/net/download/windows):
+
+* SDK de .NET Core
+* Visual Studio para Windows
+  * **ASP.NET y desarrollo web** carga de trabajo
+  * **Desarrollo multiplataforma de .NET core** carga de trabajo
 
 ## <a name="target-frameworks"></a>Versiones de .NET Framework de destino
 Los proyectos de ASP.NET Core 2.0 proporcionan a los desarrolladores la flexibilidad de usar la versión .NET Core, .NET Framework o ambas. Vea [Selección entre .NET Core y .NET Framework para aplicaciones de servidor](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) para determinar qué plataforma de destino es más adecuada.
@@ -145,7 +150,7 @@ En ASP.NET Core, los archivos estáticos se almacenan en la "raíz web" (*&lt;ra
 
 Por ejemplo, el explorador puede acceder a un recurso de imagen en la carpeta *wwwroot/images* en una ubicación como `http://<app>/images/<imageFileName>`.
 
-**Nota:** Para una referencia más detallada sobre cómo trabajar con archivos estáticos en ASP.NET Core, vea [Introduction to working with static files in ASP.NET Core](xref:fundamentals/static-files) (Introducción sobre cómo trabajar con archivos estáticos en ASP.NET Core).
+**Nota:** para una referencia más detallada para enviar archivos estáticos en ASP.NET Core, vea [trabajar con archivos estáticos en ASP.NET Core](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

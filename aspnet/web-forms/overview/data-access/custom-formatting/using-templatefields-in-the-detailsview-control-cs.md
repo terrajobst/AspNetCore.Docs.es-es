@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
 title: Uso de TemplateFields en el Control DetailsView (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Las mismas capacidades de TemplateFields disponibles con GridView también están disponibles con el control DetailsView. En este tutorial se mostrará uno de los productos..."
+description: Las mismas capacidades de TemplateFields disponibles con GridView también están disponibles con el control DetailsView. En este tutorial se mostrará uno de los productos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-detailsview-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8004937b758ee1bdb2a2df84c5ea40d47e89dd1c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f1d2e8312451c0bd1b3aba448963317f5fe06029
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-templatefields-in-the-detailsview-control-c"></a>Uso de TemplateFields en el Control DetailsView (C#)
 ====================
@@ -199,12 +199,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Dan Jagers. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](using-templatefields-in-the-gridview-control-cs.md)
-[Siguiente](using-the-formview-s-templates-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](using-templatefields-in-the-gridview-control-cs.md)
+> [Siguiente](using-the-formview-s-templates-cs.md)

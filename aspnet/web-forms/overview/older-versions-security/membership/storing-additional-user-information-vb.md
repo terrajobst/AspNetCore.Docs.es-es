@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
-title: "Almacenar información de usuario adicional (VB) | Documentos de Microsoft"
+title: Almacenar información de usuario adicional (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial se responderá a esta pregunta mediante la creación de una aplicación de libro de visitas muy rudimentarios. Si lo hace, veremos distintas opciones para modeli..."
+description: En este tutorial se responderá a esta pregunta mediante la creación de una aplicación de libro de visitas muy rudimentarios. Si lo hace, veremos distintas opciones para modeli...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/storing-additional-user-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a40238605e8fb3e26d80264af9156eec634affbe
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 9a8673e764ae94b12fbc01f81ef12ea4c133b7d5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Almacenar información de usuario adicional (VB)
 ====================
@@ -107,13 +107,13 @@ El `GuestbookComments` tabla ilustra cómo almacenar la información que compart
 
 Ahora necesitamos asociar tres columnas con cada cuenta de usuario para almacenar la ciudad natal, página de inicio y firma, que aparecerá en sus libro de visitas comentarios del usuario. Hay números de diferentes formas de lograr esto:
 
-- **Agregar nuevas columnas a la ***`aspnet_Users`*** o ***`aspnet_Membership`*** tablas.** No recomendamos este enfoque porque modifica el esquema utilizado por el `SqlMembershipProvider`. Esta decisión puede reanudarse en su contra cabeza. Por ejemplo, ¿qué ocurre si una versión futura de ASP.NET usa otra `SqlMembershipProvider` esquema. Microsoft puede incluir una herramienta para migrar la versión 2.0 de ASP.NET `SqlMembershipProvider` datos al nuevo esquema, pero si ha modificado la versión 2.0 de ASP.NET `SqlMembershipProvider` esquema, este tipo de conversión puede no ser posible.
+- <strong>Agregar nuevas columnas a la</strong><strong>`aspnet_Users`</strong><strong>o</strong><strong>`aspnet_Membership`</strong><strong>tablas.</strong> No recomendamos este enfoque porque modifica el esquema utilizado por el `SqlMembershipProvider`. Esta decisión puede reanudarse en su contra cabeza. Por ejemplo, ¿qué ocurre si una versión futura de ASP.NET usa otra `SqlMembershipProvider` esquema. Microsoft puede incluir una herramienta para migrar la versión 2.0 de ASP.NET `SqlMembershipProvider` datos al nuevo esquema, pero si ha modificado la versión 2.0 de ASP.NET `SqlMembershipProvider` esquema, este tipo de conversión puede no ser posible.
 
 - **Use ASP. Framework de perfil de .NET, definir una propiedad de perfil para la ciudad natal, la página principal y la firma.** ASP.NET incluye un marco de perfil que está diseñado para almacenar datos específicos de los usuarios adicionales. Al igual que el marco de trabajo de pertenencia, el marco de trabajo de perfil se crea sobre el modelo de proveedor. .NET Framework se suministra con un `SqlProfileProvider` que almacena los datos en una base de datos de SQL Server de perfil. De hecho, nuestra base de datos ya tiene la tabla utilizada por el `SqlProfileProvider` (`aspnet_Profile`), tal y como se agregó al agregar los servicios de aplicación de nuevo en el [ *crear el esquema de pertenencia en SQL Server* ](creating-the-membership-schema-in-sql-server-vb.md)tutorial.   
- La principal ventaja del marco de trabajo de perfil es que permite a los programadores definir las propiedades del perfil en `Web.config` : ningún código debe escribirse para serializar los datos del perfil a y desde el almacén de datos subyacente. En resumen, es muy fácil para definir un conjunto de propiedades de perfil y trabajar con ellos en el código. Sin embargo, el sistema del perfil deja mucho que se desee en cuanto a control de versiones, por lo que si tiene una aplicación que esperar nuevas propiedades específicas del usuario para agregarse a un momento posterior, o las existentes para quitar o modificar, a continuación, el marco de trabajo de perfil no puede ser el  mejor opción. Además, la `SqlProfileProvider` almacena las propiedades de perfil en un modo sin normalizar alta, lo que casi imposible ejecutar consultas directamente en los datos de perfil (por ejemplo, ¿cuántos usuarios tienen una versión particular ciudad de Nueva York).   
- Para obtener más información sobre el marco de trabajo de perfil, consulte la sección "Lecturas adicionales" al final de este tutorial.
+  La principal ventaja del marco de trabajo de perfil es que permite a los programadores definir las propiedades del perfil en `Web.config` : ningún código debe escribirse para serializar los datos del perfil a y desde el almacén de datos subyacente. En resumen, es muy fácil para definir un conjunto de propiedades de perfil y trabajar con ellos en el código. Sin embargo, el sistema del perfil deja mucho que se desee en cuanto a control de versiones, por lo que si tiene una aplicación que esperar nuevas propiedades específicas del usuario para agregarse a un momento posterior, o las existentes para quitar o modificar, a continuación, el marco de trabajo de perfil no puede ser el  mejor opción. Además, la `SqlProfileProvider` almacena las propiedades de perfil en un modo sin normalizar alta, lo que casi imposible ejecutar consultas directamente en los datos de perfil (por ejemplo, ¿cuántos usuarios tienen una versión particular ciudad de Nueva York).   
+  Para obtener más información sobre el marco de trabajo de perfil, consulte la sección "Lecturas adicionales" al final de este tutorial.
 
-- **Agregue estas tres columnas a una nueva tabla en la base de datos y establecer una relación uno a uno entre esta tabla y ***`aspnet_Users`***.** Este enfoque implica un poco más trabajo con el marco de trabajo de perfil, pero proporciona la máxima flexibilidad en cómo se modelan las propiedades de usuario adicionales en la base de datos. Esta es la opción que se usará en este tutorial.
+- <strong>Agregue estas tres columnas a una nueva tabla en la base de datos y establecer una relación uno a uno entre esta tabla y</strong><strong>`aspnet_Users`</strong><strong>.</strong> Este enfoque implica un poco más trabajo con el marco de trabajo de perfil, pero proporciona la máxima flexibilidad en cómo se modelan las propiedades de usuario adicionales en la base de datos. Esta es la opción que se usará en este tutorial.
 
 Se creará una nueva tabla denominada `UserProfiles` para guardar la ciudad natal, la página de inicio y la firma para cada usuario. Haga doble clic en la carpeta de tablas en la ventana Explorador de base de datos y elija crear una nueva tabla. Nombre de la primera columna `UserId` y establezca su tipo en `uniqueidentifier`. No permitir `NULL` valores y marcar la columna como una clave principal. A continuación, agregue las columnas denominadas: `HomeTown` de tipo `nvarchar(50)`; `HomepageUrl` de tipo `nvarchar(100)`; y la firma del tipo `nvarchar(500)`. Cada una de estas tres columnas puede aceptar un `NULL` valor.
 
@@ -131,7 +131,7 @@ Ahora que tenemos el modelo de datos creado, estamos preparados para utilizarlo.
 
 Hay varias maneras de permitir que el usuario ha iniciado sesión actualmente ver y editar su información principal de la ciudad, la firma y la página principal. Podríamos crear manualmente la interfaz de usuario con el cuadro de texto y controles de etiqueta o se podríamos usar uno de los controles Web, como el control DetailsView de datos. Para realizar la base de datos `SELECT` y `UPDATE` instrucciones podríamos escribir ADO.NET en la clase de código subyacente de nuestra página de código o, alternativamente, emplean un enfoque declarativo con SqlDataSource. Lo ideal es que nuestra aplicación contendría una arquitectura en capas, que se pudo invocar mediante programación desde la clase de código subyacente de la página o de manera declarativa mediante el control ObjectDataSource.
 
-Puesto que esta serie de tutoriales se centra en la autenticación de formularios, autorización, cuentas de usuario y roles, no habrá una discusión detallada de estas opciones de acceso de datos diferente o por qué una arquitectura en capas es preferible ejecutar instrucciones SQL directamente en la página ASP.NET. Voy a recorrer mediante un DetailsView y SqlDataSource: la opción más rápida y sencilla: pero por supuesto, se pueden aplicar los conceptos tratados alternativo Web controles y datos de lógica de acceso. Para obtener más información sobre cómo trabajar con datos en ASP.NET, consulte mi  *[trabajar con datos en ASP.NET 2.0](../../data-access/index.md)*  serie de tutoriales.
+Puesto que esta serie de tutoriales se centra en la autenticación de formularios, autorización, cuentas de usuario y roles, no habrá una discusión detallada de estas opciones de acceso de datos diferente o por qué una arquitectura en capas es preferible ejecutar instrucciones SQL directamente en la página ASP.NET. Voy a recorrer mediante un DetailsView y SqlDataSource: la opción más rápida y sencilla: pero por supuesto, se pueden aplicar los conceptos tratados alternativo Web controles y datos de lógica de acceso. Para obtener más información sobre cómo trabajar con datos en ASP.NET, consulte mi *[trabajar con datos en ASP.NET 2.0](../../data-access/index.md)* serie de tutoriales.
 
 Abra la `AdditionalUserInfo.aspx` página en el `Membership` carpeta y agregar un control DetailsView a la página, si se establece su propiedad ID en `UserProfile` y borrando su `Width` y `Height` propiedades. Expanda la etiqueta inteligente de DetailsView y elija enlazar a un nuevo control de origen de datos. Se iniciará el Asistente para configuración de origen de datos (consulte la figura 7). El primer paso en el que se le pide que especifique el tipo de origen de datos. Puesto que vamos a conectar directamente a la `SecurityTutorials` base de datos, elija el icono de la base de datos, especificar el `ID` como `UserProfileDataSource`.
 
@@ -428,9 +428,9 @@ La primera `WizardStep`, `CreateUserWizardStep`, representa la interfaz que soli
 
 Para personalizar la interfaz del control CreateUserWizard para incluir campos de formulario adicionales, se puede:
 
-- **Crear uno o varios nuevos ***`WizardStep`*** s para contener los elementos de la interfaz de usuario adicionales**. Para agregar un nuevo `WizardStep` a CreateUserWizard, haga clic en el "Agregar o quitar `WizardStep` s" vínculo desde su etiqueta inteligente para iniciar la `WizardStep` Editor de la colección. Desde ahí puede agregar, quitar o reordenar los pasos del asistente. Éste es el enfoque que se usará para este tutorial.
+- <strong>Crear uno o varios nuevos</strong><strong>`WizardStep`</strong><strong>s para contener los elementos de la interfaz de usuario adicionales</strong>. Para agregar un nuevo `WizardStep` a CreateUserWizard, haga clic en el "Agregar o quitar `WizardStep` s" vínculo desde su etiqueta inteligente para iniciar la `WizardStep` Editor de la colección. Desde ahí puede agregar, quitar o reordenar los pasos del asistente. Éste es el enfoque que se usará para este tutorial.
 
-- **Convertir el ***`CreateUserWizardStep`*** en un modo editable ***`WizardStep`***.** Esto reemplaza el `CreateUserWizardStep` con un equivalente `WizardStep` cuyo marcado define una interfaz de usuario que coincida con el `CreateUserWizardStep`' s. Convirtiendo el `CreateUserWizardStep` en un `WizardStep` podemos cambiar la posición de los controles o agregar elementos de la interfaz de usuario adicionales a este paso. Para convertir el `CreateUserWizardStep` o `CompleteWizardStep` en un modo editable `WizardStep`, haga clic en el "personalizar crear usuario paso a paso" o "Personalizar paso completo" vincular de etiquetas inteligentes del control.
+- <strong>Convertir el</strong><strong>`CreateUserWizardStep`</strong><strong>en un modo editable</strong><strong>`WizardStep`</strong><strong>.</strong> Esto reemplaza el `CreateUserWizardStep` con un equivalente `WizardStep` cuyo marcado define una interfaz de usuario que coincida con el `CreateUserWizardStep`' s. Convirtiendo el `CreateUserWizardStep` en un `WizardStep` podemos cambiar la posición de los controles o agregar elementos de la interfaz de usuario adicionales a este paso. Para convertir el `CreateUserWizardStep` o `CompleteWizardStep` en un modo editable `WizardStep`, haga clic en el "personalizar crear usuario paso a paso" o "Personalizar paso completo" vincular de etiquetas inteligentes del control.
 
 - **Usar una combinación de las dos opciones anteriores.**
 
@@ -527,11 +527,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a...
 
 Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](user-based-authorization-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](user-based-authorization-vb.md)

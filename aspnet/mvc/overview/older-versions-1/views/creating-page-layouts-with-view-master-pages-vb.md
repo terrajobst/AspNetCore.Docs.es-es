@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
-title: "Crear diseños de página con las páginas maestras de vista (VB) | Documentos de Microsoft"
+title: Crear diseños de página con las páginas maestras de vista (VB) | Documentos de Microsoft
 author: microsoft
-description: "En este tutorial, aprenderá a crear un diseño de página común para varias páginas en la aplicación aprovechando las ventajas de la vista de páginas maestras. Puede usar un..."
+description: En este tutorial, aprenderá a crear un diseño de página común para varias páginas en la aplicación aprovechando las ventajas de la vista de páginas maestras. Puede usar un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5466ea8a33bd2ccfe36c0f01b6b474bbb8d540a3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5208cedd8d24a290a0227bdcbaa84ae6210cd969
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-page-layouts-with-view-master-pages-vb"></a>Crear diseños de página con las páginas maestras de vista (VB)
 ====================
@@ -51,7 +51,7 @@ Una página maestra de vista parece mucho a una vista de ASP.NET MVC estándar. 
 
 Por ejemplo, la página maestra de la vista en la lista 1 define un diseño de dos columnas. Contiene dos `<contentplaceholder>` etiquetas. Un `<ContentPlaceHolder>` para cada columna.
 
-**Lista 1:`Views\Shared\Site.master`**
+**Lista 1: `Views\Shared\Site.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample1.aspx)]
 
@@ -83,7 +83,7 @@ Tras hacer clic en el botón Agregar, aparece un diálogo nuevo que le permite s
 
 Después de crear una nueva página de contenido de vista basada en la página maestra Site.master, se crea el archivo en el listado 2.
 
-**La lista 2:`Views\Home\Index.aspx`**
+**La lista 2: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample2.aspx)]
 
@@ -97,7 +97,7 @@ No es necesario invalidar cada `<asp:ContentPlaceHolder>` etiqueta desde una pá
 
 Por ejemplo, la vista de índice modificada en el listado 3 contiene solo dos `<asp:Content>` etiquetas. Cada uno de los `<asp:Content>` etiquetas incluye algún texto.
 
-**Enumerar 3:`Views\Home\Index.aspx (modified)`**
+**Enumerar 3: `Views\Home\Index.aspx (modified)`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample3.aspx)]
 
@@ -127,7 +127,7 @@ Hay un requisito importante que debe cumplir una página de vista maestra en ord
 
 Un enfoque alternativo para modificar el contenido de la página maestra de una página de contenido de la vista individuales consiste en encapsular la región que desea modificar en un `<asp:ContentPlaceHolder>` etiqueta. Por ejemplo, imagine que desea cambiar no solo el título, sino también las etiquetas meta, representadas por una página de vista maestra. La página de vista maestra en el listado 4 contiene un `<asp:ContentPlaceHolder>` etiquetar dentro de su `<head>` etiqueta.
 
-**Enumerar 4:`Views\Shared\Site2.master`**
+**Enumerar 4: `Views\Shared\Site2.master`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample5.aspx)]
 
@@ -135,7 +135,7 @@ Tenga en cuenta que la `<asp:ContentPlaceHolder>` etiqueta en el listado 4 inclu
 
 La página de vista de contenido en el listado 5 invalida la `<asp:ContentPlaceHolder>` etiqueta con el fin de mostrar un título personalizado y etiquetas meta personalizadas.
 
-**Enumerar 5:`Views\Home\Index2.aspx`**
+**Enumerar 5: `Views\Home\Index2.aspx`**
 
 [!code-aspx[Main](creating-page-layouts-with-view-master-pages-vb/samples/sample6.aspx)]
 
@@ -143,6 +143,6 @@ La página de vista de contenido en el listado 5 invalida la `<asp:ContentPlaceH
 
 Este tutorial le proporcionará una introducción básica a ver páginas maestras y páginas de contenido. Aprendió a crear nueva vista páginas maestras y crear páginas de contenido de la vista basadas en ellas. También se examina cómo puede modificar el contenido de una página maestra de la vista de una página de contenido de la vista.
 
->[!div class="step-by-step"]
-[Anterior](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
-[Siguiente](passing-data-to-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-tagbuilder-class-to-build-html-helpers-vb.md)
+> [Siguiente](passing-data-to-view-master-pages-vb.md)

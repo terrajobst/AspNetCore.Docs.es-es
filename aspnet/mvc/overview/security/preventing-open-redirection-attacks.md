@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/preventing-open-redirection-attacks
-title: "Prevención de ataques de redirección abierta (C#) | Documentos de Microsoft"
+title: Prevención de ataques de redirección abierta (C#) | Documentos de Microsoft
 author: jongalloway
-description: "Este tutorial le explica cómo se pueden impedir los ataques de redirección abiertos en sus aplicaciones de ASP.NET MVC. Este tutorial describe los cambios que se han realizado..."
+description: Este tutorial le explica cómo se pueden impedir los ataques de redirección abiertos en sus aplicaciones de ASP.NET MVC. Este tutorial describe los cambios que se han realizado...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 17944c0600a174176e3e9940f414b34f0835b800
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec1cd1791eb6d32e7c1ea50bc6626929cad2960e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Prevención de ataques de redirección abierta (C#)
 ====================
@@ -39,7 +39,7 @@ Para entender la vulnerabilidad, echemos un vistazo a cómo funciona la redirecc
 
 **Figura 01**: página de inicio de sesión con una redirección abierta
 
-Puesto que no se valida el parámetro de cadena de consulta ReturnUrl, un atacante puede modificar para insertar cualquier dirección URL en el parámetro para realizar un ataque de redirección abierta. Para demostrar esto, se podrá modificar el parámetro ReturnUrl [http://bing.com](http://bing.com), por lo que la dirección URL de inicio de sesión resultante será/Account/inicio de sesión? ReturnUrl = http://www.bing.com/. Tras iniciar sesión correctamente el sitio, estamos redirigidos a [http://bing.com](http://bing.com). Puesto que no se valida esta redirección, podría señalar en su lugar a un sitio malintencionado que intenta engañar al usuario.
+Puesto que no se valida el parámetro de cadena de consulta ReturnUrl, un atacante puede modificar para insertar cualquier dirección URL en el parámetro para realizar un ataque de redirección abierta. ¿Para demostrar esto, se podrá modificar el parámetro ReturnUrl [ http://bing.com ](http://bing.com), por lo que la dirección URL de inicio de sesión resultante será/Account/inicio de sesión? ReturnUrl =<http://www.bing.com/>. Tras iniciar sesión correctamente el sitio, estamos redirigidos a [ http://bing.com ](http://bing.com). Puesto que no se valida esta redirección, podría señalar en su lugar a un sitio malintencionado que intenta engañar al usuario.
 
 ### <a name="a-more-complex-open-redirection-attack"></a>Un ataque de redirección abierta más complejos
 
@@ -55,7 +55,7 @@ Tenga en cuenta que la dirección URL de retorno señala a nerddiner.com, que le
 
 **Figura 02**: página de inicio de sesión de NerdDinner con una redirección abierta
 
-Cuando se inicia sesión correctamente, acción de inicio de sesión del AccountController de ASP.NET MVC nos redirige a la dirección URL especificada en el parámetro de cadena de consulta returnUrl. En este caso, es la dirección URL que ha escrito el atacante, que es [http://nerddiner.com/Account/LogOn](http://nerddiner.com/Account/LogOn). A menos que estamos muy por ejemplo, es muy probable que no perciba este comportamiento, sobre todo porque el atacante ha sido cuidado para asegurarse de que su página falsificado es exactamente igual que la página de inicio de sesión legítimo. Esta página de inicio de sesión incluye un mensaje de error que solicita que se sesión de nuevo. Difíciles de manejar us, nos debemos haya escrito incorrectamente la contraseña.
+Cuando se inicia sesión correctamente, acción de inicio de sesión del AccountController de ASP.NET MVC nos redirige a la dirección URL especificada en el parámetro de cadena de consulta returnUrl. En este caso, es la dirección URL que ha escrito el atacante, que es [ http://nerddiner.com/Account/LogOn ](http://nerddiner.com/Account/LogOn). A menos que estamos muy por ejemplo, es muy probable que no perciba este comportamiento, sobre todo porque el atacante ha sido cuidado para asegurarse de que su página falsificado es exactamente igual que la página de inicio de sesión legítimo. Esta página de inicio de sesión incluye un mensaje de error que solicita que se sesión de nuevo. Difíciles de manejar us, nos debemos haya escrito incorrectamente la contraseña.
 
 [![](preventing-open-redirection-attacks/_static/image6.png)](preventing-open-redirection-attacks/_static/image5.png)
 
@@ -67,13 +67,13 @@ Cuando se vuelva a escribir el nombre de usuario y una contraseña, la página d
 
 El código para la acción de inicio de sesión en una aplicación de ASP.NET MVC 2 se muestra a continuación. Tenga en cuenta que cuando inician una sesión correctamente, el controlador devuelve un redireccionamiento para el elemento returnUrl. Puede ver que no se realiza ninguna validación con respecto al parámetro returnUrl.
 
-**Lista 1: acción de inicio de sesión de ASP.NET MVC 2 en`AccountController.cs`**
+**Lista 1: acción de inicio de sesión de ASP.NET MVC 2 en `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample1.cs)]
 
 Ahora Echemos un vistazo a los cambios a la acción de inicio de sesión de ASP.NET MVC 3. Este código se ha cambiado para validar el parámetro returnUrl al llamar a un nuevo método de la clase de aplicación auxiliar de System.Web.Mvc.Url denominada `IsLocalUrl()`.
 
-**La lista 2: acción de inicio de sesión de ASP.NET MVC 3 en`AccountController.cs`**
+**La lista 2: acción de inicio de sesión de ASP.NET MVC 3 en `AccountController.cs`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample2.cs)]
 
@@ -85,7 +85,7 @@ Podemos realizar ventaja de los cambios de ASP.NET MVC 3 en nuestra versión exi
 
 El método UrlHelper IsLocalUrl() realmente simplemente llamar a un método en System.Web.WebPages, como esta validación también se utiliza en aplicaciones de ASP.NET Web Pages.
 
-**Lista 3: el método IsLocalUrl() desde el UrlHelper de ASP.NET MVC 3`class`**
+**Lista 3: el método IsLocalUrl() desde el UrlHelper de ASP.NET MVC 3 `class`**
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample3.cs)]
 
@@ -107,7 +107,7 @@ Ahora que el método IsLocalUrl() está en su lugar, podemos llamarlo desde la a
 
 [!code-csharp[Main](preventing-open-redirection-attacks/samples/sample6.cs)]
 
-Ahora podemos probar un ataque de redirección abierta intentando iniciar sesión con una dirección URL de retorno externa. Vamos a usar/Account/inicio de sesión? ReturnUrl = http://www.bing.com/ de nuevo.
+Ahora podemos probar un ataque de redirección abierta intentando iniciar sesión con una dirección URL de retorno externa. ¿Vamos a usar /Account/LogOn? ReturnUrl =<http://www.bing.com/> nuevo.
 
 [![](preventing-open-redirection-attacks/_static/image8.png)](preventing-open-redirection-attacks/_static/image7.png)
 

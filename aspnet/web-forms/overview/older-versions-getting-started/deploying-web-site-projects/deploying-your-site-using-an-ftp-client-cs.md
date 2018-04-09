@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
-title: "Implementación del sitio mediante un cliente FTP (C#) | Documentos de Microsoft"
+title: Implementación del sitio mediante un cliente FTP (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "La manera más sencilla de implementar una aplicación de ASP.NET es copiar manualmente los archivos necesarios del entorno de desarrollo en el entorno de producción. Este..."
+description: La manera más sencilla de implementar una aplicación de ASP.NET es copiar manualmente los archivos necesarios del entorno de desarrollo en el entorno de producción. Este...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3c53dcf40cde244a9df9afc27b20c9e7ef288198
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3b7add6765374fc3e5dba2c90239102354da3922
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Implementación del sitio mediante un cliente FTP (C#)
 ====================
@@ -161,6 +161,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Aplicación\_Offline.htm y trabajar con la característica de "Errores compatible de Internet Explorer"](https://weblogs.asp.net/scottgu/App_5F00_Offline.htm-and-working-around-the-_2200_IE-Friendly-Errors_2200_-feature)
 - [Modos de estado de sesión](https://msdn.microsoft.com/library/ms178586.aspx)
 
->[!div class="step-by-step"]
-[Anterior](determining-what-files-need-to-be-deployed-cs.md)
-[Siguiente](deploying-your-site-using-visual-studio-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](determining-what-files-need-to-be-deployed-cs.md)
+> [Siguiente](deploying-your-site-using-visual-studio-cs.md)

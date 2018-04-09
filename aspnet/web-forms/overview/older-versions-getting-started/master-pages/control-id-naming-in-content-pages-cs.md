@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
-title: "Controlar la nomenclatura de Id. de páginas de contenido (C#) | Documentos de Microsoft"
+title: Controlar la nomenclatura de Id. de páginas de contenido (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Muestra cómo ContentPlaceHolder controles actúan como un contenedor de nomenclatura y, por tanto, asegúrese de trabajar mediante programación con un control difícil (a través de FindConrol)..."
+description: Muestra cómo ContentPlaceHolder controles actúan como un contenedor de nomenclatura y, por tanto, asegúrese de trabajar mediante programación con un control difícil (a través de FindConrol)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/control-id-naming-in-content-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0c0db7fd76a7a486ff45085329ef7c77b0af5ebe
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1e834c38457c8477e0c81598d32f1e98473949d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="control-id-naming-in-content-pages-c"></a>Id. de control de nomenclatura en páginas de contenido (C#)
 ====================
@@ -121,7 +121,7 @@ Tenga en cuenta que la `id` atributo incluye tanto la página principal `ID` val
 
 Cada control de servidor ASP.NET incluye una `FindControl("controlID")` método que busca en los descendientes del control para un control denominado *controlID*. Si se encuentra este tipo de control, se devuelve; Si no se encuentra ningún control coincidente, `FindControl` devuelve `null`.
 
-`FindControl`es útil en escenarios donde necesita acceder a un control, pero no tiene una referencia directa a él. Cuando se trabaja con datos de controles Web como GridView, por ejemplo, los controles en los campos de GridView se definen una vez en la sintaxis declarativa, pero en tiempo de ejecución se crea una instancia del control para cada fila de GridView. Por lo tanto, los controles que se generan en tiempo de ejecución existen, pero no tenemos una referencia directa disponible desde la clase de código subyacente. Como resultado que debemos usar `FindControl` para trabajar mediante programación con un control específico en los campos de GridView. (Para obtener más información sobre el uso de `FindControl` para tener acceso a los controles en plantillas del control de Web de datos, vea [formato basado en datos personalizados](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Este mismo escenario se produce al agregar dinámicamente controles Web a un formulario Web Forms, un tema se ha explicado en [crear Interfaces de usuario de entrada de dinámica datos](https://msdn.microsoft.com/library/aa479330.aspx).
+`FindControl` es útil en escenarios donde necesita acceder a un control, pero no tiene una referencia directa a él. Cuando se trabaja con datos de controles Web como GridView, por ejemplo, los controles en los campos de GridView se definen una vez en la sintaxis declarativa, pero en tiempo de ejecución se crea una instancia del control para cada fila de GridView. Por lo tanto, los controles que se generan en tiempo de ejecución existen, pero no tenemos una referencia directa disponible desde la clase de código subyacente. Como resultado que debemos usar `FindControl` para trabajar mediante programación con un control específico en los campos de GridView. (Para obtener más información sobre el uso de `FindControl` para tener acceso a los controles en plantillas del control de Web de datos, vea [formato basado en datos personalizados](../../data-access/custom-formatting/custom-formatting-based-upon-data-cs.md).) Este mismo escenario se produce al agregar dinámicamente controles Web a un formulario Web Forms, un tema se ha explicado en [crear Interfaces de usuario de entrada de dinámica datos](https://msdn.microsoft.com/library/aa479330.aspx).
 
 Para ilustrar con el `FindControl` método para buscar controles dentro de una página de contenido, crear un controlador de eventos para el `SubmitButton`de `Click` eventos. En el controlador de eventos, agregue el código siguiente, que hace referencia a mediante programación el `Age` cuadro de texto y `Results` etiqueta mediante el `FindControl` método y, a continuación, muestra un mensaje en `Results` en función de la entrada del usuario.
 
@@ -256,7 +256,7 @@ Feliz programación.
 
 Para obtener más información sobre los temas tratados en este tutorial, consulte los siguientes recursos:
 
-- [Páginas principales de ASP.NET y`FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
+- [Páginas principales de ASP.NET y `FindControl`](http://www.west-wind.com/WebLog/posts/5127.aspx)
 - [Crear Interfaces de usuario de entrada de datos dinámicos](https://msdn.microsoft.com/library/aa479330.aspx)
 - [Ampliar la funcionalidad de tipo Base con métodos de extensión](http://aspnet.4guysfromrolla.com/articles/120507-1.aspx)
 - [Cómo: Hacer referencia a contenido de página principal de ASP.NET](https://msdn.microsoft.com/library/xxwa0ff0.aspx)
@@ -265,12 +265,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Zack Jones y Suchi Barnerjee. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](urls-in-master-pages-cs.md)
-[Siguiente](interacting-with-the-master-page-from-the-content-page-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](urls-in-master-pages-cs.md)
+> [Siguiente](interacting-with-the-master-page-from-the-content-page-cs.md)

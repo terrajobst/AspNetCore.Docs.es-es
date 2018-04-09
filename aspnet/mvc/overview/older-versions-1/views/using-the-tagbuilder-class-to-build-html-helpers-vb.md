@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 title: Mediante la clase TagBuilder para compilar aplicaciones auxiliares HTML (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "Stephen Walther presenta una clase de utilidad en el marco de MVC de ASP.NET con el nombre de la clase TagBuilder. Puede usar la clase TagBuilder fácilmente..."
+description: Stephen Walther presenta una clase de utilidad en el marco de MVC de ASP.NET con el nombre de la clase TagBuilder. Puede usar la clase TagBuilder fácilmente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 92c003cf929448d0b03f9de76330e9495ac51d20
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 2b72e08dff646f66252f210543230186cab6e641
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Mediante la clase TagBuilder para compilar aplicaciones auxiliares HTML (VB)
 ====================
@@ -79,6 +79,6 @@ Tenga en cuenta que se debe importar el espacio de nombres asociado a la aplicac
 
 En una aplicación de Visual Basic, el espacio de nombres predeterminado es el mismo que el nombre de la aplicación.
 
->[!div class="step-by-step"]
-[Anterior](creating-custom-html-helpers-vb.md)
-[Siguiente](creating-page-layouts-with-view-master-pages-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-custom-html-helpers-vb.md)
+> [Siguiente](creating-page-layouts-with-view-master-pages-vb.md)

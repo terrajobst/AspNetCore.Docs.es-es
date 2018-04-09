@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
-title: "Almacenamiento de blobs no estructurados (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Almacenamiento de blobs no estructurados (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/30/2015
 ms.topic: article
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 489769533a26c99404c6a5186d66f560385dcffd
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c2c82a579feb586287c40bb82eba53c5f84afaba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Almacenamiento de blobs no estructurados (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -148,6 +148,6 @@ Para obtener más información, vea los siguientes recursos:
 - [FailSafe: Creación de servicios en la nube escalables y resistentes](https://channel9.msdn.com/Series/FailSafe). Serie de vídeos de nueve partes por Ulrich Homann y Marc Mercuri, Mark Simms. Presenta los conceptos y principios de la arquitectura de una manera muy interesante y accesible, con casos extraídos de la experiencia del equipo de asesoramiento al cliente (CAT) de Microsoft con clientes reales. Para obtener una descripción de servicio de almacenamiento de Azure y los blobs, vea episodio 5 a partir de 35:13.
 - [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Patrón de clave Valet vea.
 
->[!div class="step-by-step"]
-[Anterior](data-partitioning-strategies.md)
-[Siguiente](design-to-survive-failures.md)
+> [!div class="step-by-step"]
+> [Anterior](data-partitioning-strategies.md)
+> [Siguiente](design-to-survive-failures.md)

@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: e8fc758936953970ff3e9ba289516925dee9ef45
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: f0d32edd3ab54c55aa06c803cd91e01cbbb8f08a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>Las principales características de ASP.NET Web Pages 2
 ====================
@@ -53,7 +53,7 @@ Para instalar las páginas Web, puede usar al instalador de plataforma Web de Mi
 
 1. Vaya a la página de instalación de la versión más reciente del instalador de plataforma Web:
 
-    [https://go.Microsoft.com/fwlink/?LinkId=226883](https://go.microsoft.com/fwlink/?LinkId=226883)
+    [https://go.microsoft.com/fwlink/?LinkId=226883](https://go.microsoft.com/fwlink/?LinkId=226883)
 
     > [!NOTE]
     > Si ya tiene instalado el 1 de WebMatrix, esta instalación actualiza a la versión Beta 2 de WebMatrix. Puede ejecutar sitios Web que se crearon con la versión 1 o 2 en el mismo equipo. Para obtener más información, vea la sección sobre [aplicaciones de páginas Web de ejecución en paralelo](#sidebyside).
@@ -62,9 +62,9 @@ Para instalar las páginas Web, puede usar al instalador de plataforma Web de Mi
     Si utiliza Internet Explorer, vaya al paso siguiente. Si utiliza un explorador diferente como Mozilla Firefox o Google Chrome, deberá guardar los *Webmatrix.exe* archivo en el equipo. Guarde el archivo y, a continuación, haga clic en él para iniciar el programa de instalación.
 3. Ejecute el programa de instalación y elija la **instalar** botón. Esto instala WebMatrix y Web Pages.
 
-## <a id="New_and_Enhanced_Features"></a>Características nuevas y mejoradas
+## <a id="New_and_Enhanced_Features"></a>  Características nuevas y mejoradas
 
-### <a id="Changes_for_the_RC_Version"></a>Cambios de la versión RC (junio de 2012)
+### <a id="Changes_for_the_RC_Version"></a>  Cambios de la versión RC (junio de 2012)
 
 La versión RC en junio de 2012 tiene algunos cambios de la actualización de versión Beta que se publicó en marzo de 2012. Estos cambios son:
 
@@ -94,8 +94,8 @@ La versión Beta han publicado en febrero de 2012 tiene sólo algunos cambios de
     `<a href="~/Default.cshtml">Home</a>`
 - El `Scripts` auxiliar para la administración de activos (recurso) se ha reemplazado por la `Assets` auxiliar, que tiene métodos ligeramente distintos, como la siguiente:
 
-    - Para `Scripts.Add`, usar`Assets.AddScript`
-    - Para `Scripts.GetScriptTags`, usar`Assets.GetScripts`
+  - Para `Scripts.Add`, usar `Assets.AddScript`
+  - Para `Scripts.GetScriptTags`, usar `Assets.GetScripts`
 
     Se trata de un cambio brusco; la `Scripts` clase no está disponible en la versión Beta. Los ejemplos de código en este documento que usan la administración de activos se han actualizado con este cambio.
 
@@ -149,13 +149,13 @@ Para mostrar un resumen (`<ul>` lista) de todos los errores en la página, `Html
 
 Estos pasos son suficientes para implementar la validación de servidor. Si desea agregar la validación del lado cliente, haga lo siguiente en otra parte.
 
-Agregue las siguientes referencias de archivo de script dentro de la `<head>` sección de una página web. Las primeras dos referencias de script señalan a archivos remotos en un servidor de entrega de contenido (CDN) de la red. El tercer puntos de referencia a un archivo de secuencia de comandos local.
+Agregue las siguientes referencias de archivo de script dentro de la `<head>` sección de una página web. Las primeras dos referencias de script señalan a archivos remotos en un servidor de entrega de contenido (CDN) de la red. El tercer puntos de referencia a un archivo de secuencia de comandos local. Aplicaciones de producción deben implementar una acción de reserva cuando la red CDN no está disponible. Probar el recurso de reserva.
 
 [!code-html[Main](top-features-in-web-pages-2/samples/sample5.html)]
 
 La manera más fácil de obtener una copia local de la *jquery.validate.unobtrusive.min.js* biblioteca consiste en crear un nuevo sitio de páginas Web en función de una de las plantillas de sitio (por ejemplo, el sitio de inicio). El sitio creado mediante la plantilla incluye *jquery.validate.unobtrusive.js* archivo en su carpeta de secuencias de comandos, desde donde puede copiarla a su sitio.
 
-Si el sitio Web usa un*\_SiteLayout* página para controlar el diseño de página, puede incluir estas referencias de script en esa página para que la validación está disponible para todas las páginas de contenido. Si desea realizar la validación solo en determinadas páginas, puede usar el Administrador de activos para registrar los scripts en únicamente aquellas páginas. Para ello, llame a `Assets.AddScript(path)` en la página que desea validar y hacer referencia a cada uno de los archivos de script. A continuación, agregue una llamada a `Assets.GetScripts` en el  *\_SiteLayout* página para representar el registrado `<script>` etiquetas. Para obtener más información, vea la sección [registrar Scripts con el Administrador de activos](#resmanagement).
+Si el sitio Web usa un<em>\_SiteLayout</em> página para controlar el diseño de página, puede incluir estas referencias de script en esa página para que la validación está disponible para todas las páginas de contenido. Si desea realizar la validación solo en determinadas páginas, puede usar el Administrador de activos para registrar los scripts en únicamente aquellas páginas. Para ello, llame a `Assets.AddScript(path)` en la página que desea validar y hacer referencia a cada uno de los archivos de script. A continuación, agregue una llamada a `Assets.GetScripts` en el  <em>\_SiteLayout</em> página para representar el registrado `<script>` etiquetas. Para obtener más información, vea la sección [registrar Scripts con el Administrador de activos](#resmanagement).
 
 En el marcado de un elemento individual, llame a la `Validation.For` método. Este método emite atributos que jQuery puede enlazar con el fin de proporcionar la validación del lado cliente. Por ejemplo:
 
@@ -172,15 +172,15 @@ En el ejemplo siguiente se muestra una página que valida la entrada de usuario 
 
 Ésta es la página cuando un usuario envía una entrada válida:
 
-[![1 topSeven válido](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
+[![topSeven-valid-1](top-features-in-web-pages-2/_static/image8.png)](top-features-in-web-pages-2/_static/image7.png)
 
 Ésta es la página cuando un usuario envía con un campo obligatorio dejado vacío:
 
-[![2 topSeven válido](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
+[![topSeven-valid-2](top-features-in-web-pages-2/_static/image10.png)](top-features-in-web-pages-2/_static/image9.png)
 
 Ésta es la página cuando un usuario envía con un valor distinto de un entero en el **créditos** campo:
 
-[![3 topSeven válido](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
+[![topSeven-valid-3](top-features-in-web-pages-2/_static/image12.png)](top-features-in-web-pages-2/_static/image11.png)
 
 Para obtener más información, vea las entradas de blog siguientes:
 
@@ -207,7 +207,7 @@ En el ejemplo siguiente se muestra cómo funciona el Administrador de recursos. 
 
 - Una aplicación auxiliar personalizada denominada `MakeNote`. Esta aplicación auxiliar representa una cadena dentro de un cuadro ajustando un `div` elemento alrededor de él que se aplicado el estilo con un borde y agregando &quot;Nota:&quot; a él. La aplicación auxiliar también llama a un archivo de JavaScript que agrega el comportamiento en tiempo de ejecución a la nota. En lugar de hacer referencia a la secuencia de comandos con un `<script>` etiqueta, la aplicación auxiliar registra la secuencia de comandos mediante una llamada a `Assets.AddScript` .
 - Un archivo JavaScript. Este es el archivo que se llama a la aplicación auxiliar, y aumenta temporalmente el tamaño de fuente de las notas durante una `mouseover` eventos.
-- Una página de contenido, que hace referencia el*\_SiteLayout* representa algún contenido en el cuerpo de la página y, a continuación, llama a la `MakeNote` auxiliar.
+- Una página de contenido, que hace referencia el<em>\_SiteLayout</em> representa algún contenido en el cuerpo de la página y, a continuación, llama a la `MakeNote` auxiliar.
 - A  *\_SiteLayout* página. Esta página proporciona un encabezado común y una estructura de diseño de página. También incluye una llamada a `Assets.GetScripts`, que es cómo el Administrador de recursos representa script llama en una página.
 
 Para ejecutar el ejemplo:
@@ -447,7 +447,7 @@ Estas son algunas cosas que recordar cuando se instala la versión Beta 2 de pá
 - Si desea ejecutar un sitio mediante Web Pages versión 1 (en lugar del predeterminado, como en el punto anterior), puede configurar el sitio para hacerlo. Si el sitio ya no tiene un *web.config* un archivo en la raíz del sitio, cree uno nuevo y copie el siguiente código XML en él, sobrescribiendo el contenido existente. Si el sitio ya contiene un *web.config* , agregue un `<appSettings>` elemento como el siguiente a la `<configuration>` sección.
 
     [!code-xml[Main](top-features-in-web-pages-2/samples/sample22.xml)]
-'-Si no especifica ninguna versión en el *web.config* archivo, un sitio se implementa como un sitio de la versión 2. (Los ensamblados de la versión 2 se copian en el *bin* carpeta en el sitio implementado.)
+  '-Si no especifica ninguna versión en el *web.config* archivo, un sitio se implementa como un sitio de la versión 2. (Los ensamblados de la versión 2 se copian en el *bin* carpeta en el sitio implementado.)
 - Las aplicaciones nuevas que se crean con las plantillas de sitio en la versión de Web Matrix Beta 2 incluyen los ensamblados de la versión 2 de páginas Web en el sitio *bin* carpeta.
 
 En general, siempre puede controlar qué versión de páginas Web para utilizar con su sitio mediante el uso de NuGet para instalar los ensamblados correspondientes en el sitio *bin* carpeta. Para buscar paquetes, visite [NuGet.org](http://NuGet.org).
@@ -459,7 +459,7 @@ En general, siempre puede controlar qué versión de páginas Web para utilizar 
 
 El `System.Web.WebPages` espacio de nombres contiene las siguientes clases que permiten trabajar con modos de presentación: `DefaultDisplayMode`, `DisplayInfo`, y `DisplayModes`. Puede utilizar estas clases directamente y escribir código que presenta la salida derecha para dispositivos específicos.
 
-Como alternativa, puede crear páginas específicas de dispositivo mediante el uso de un patrón de nomenclatura de archivos similar al siguiente: *nombre de archivo.* *Mobile**.cshtml*. Por ejemplo, puede crear dos versiones de una página, una denominada *MyFile.cshtml* y otro denominado *MyFile.Mobile.cshtml*. Durante la ejecución, cuando se solicita un dispositivo móvil *MyFile.cshtml*, páginas Web presenta el contenido de *MyFile.Mobile.cshtml*. En caso contrario, *MyFile.cshtml* se representa.
+Como alternativa, puede crear páginas específicas de dispositivo mediante el uso de un patrón de nomenclatura de archivos similar al siguiente: <em>nombre de archivo.</em> <em>Mobile</em><em>.cshtml</em>. Por ejemplo, puede crear dos versiones de una página, una denominada <em>MyFile.cshtml</em> y otro denominado <em>MyFile.Mobile.cshtml</em>. Durante la ejecución, cuando se solicita un dispositivo móvil <em>MyFile.cshtml</em>, páginas Web presenta el contenido de <em>MyFile.Mobile.cshtml</em>. En caso contrario, <em>MyFile.cshtml</em> se representa.
 
 En el ejemplo siguiente se muestra cómo habilitar la representación de dispositivos móvil mediante la adición de una página de contenido para dispositivos móviles. *Page1.cshtml* contiene contenido más de una barra lateral de navegación. *Page1.Mobile.cshtml* contiene el mismo contenido, pero omite la barra lateral.
 

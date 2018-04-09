@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
-title: "Interactuar con la página de contenido de la página maestra (C#) | Documentos de Microsoft"
+title: Interactuar con la página de contenido de la página maestra (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Examina cómo llamar a métodos, establecer propiedades, etc. de la página de contenido desde el código en la página maestra."
+description: Examina cómo llamar a métodos, establecer propiedades, etc. de la página de contenido desde el código en la página maestra.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4d7f6eeac084f3516ab470adf8973351cf08a7f1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7c845c7b0077e6d3fb5ce770029b4f9f48609b17
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interactuar con la página de contenido de la página maestra (C#)
 ====================
@@ -153,7 +153,7 @@ Según lo descrito anteriormente en este tutorial, es necesario generar un event
 Una clase se suscribe a un evento mediante la creación de un *controlador de eventos*, que es un método que se ejecuta en respuesta al evento que se está generando. El publicador define los eventos que genera definiendo un *delegado de evento*. El delegado de eventos especifica qué parámetros de entrada debe aceptar el controlador de eventos. En .NET Framework, los delegados de eventos no devolver ningún valor y acepta dos parámetros de entrada:
 
 - Un `Object`, que identifica el origen del evento, y
-- Una clase derivada de`System.EventArgs`
+- Una clase derivada de `System.EventArgs`
 
 El segundo parámetro pasado a un controlador de eventos puede incluir información adicional sobre el evento. Mientras que la base de `EventArgs` no pasa la clase a lo largo de toda la información, .NET Framework incluye una serie de clases que extienden `EventArgs` e incluir propiedades adicionales. Por ejemplo, un `CommandEventArgs` instancia se pasa a los controladores de eventos que responden a la `Command` eventos e incluye dos propiedades informativas: `CommandArgument` y `CommandName`.
 
@@ -199,7 +199,7 @@ El código del controlador de eventos se completa, pero hemos aún a la página 
 
 [!code-csharp[Main](interacting-with-the-content-page-from-the-master-page-cs/samples/sample11.cs)]
 
-*Publisher* es una referencia al objeto que ofrece el evento *eventName*, y *methodName* es el nombre del controlador de eventos definido en el suscriptor que le corresponde una firma para el *eventDelegate*. En otras palabras, si el evento de delegado es `EventHandler`, a continuación, *methodName* debe ser el nombre de un método en el suscriptor que no devuelve un valor y acepta dos parámetros de tipos de entrada `Object` y `EventArgs`, respectivamente.
+*Publisher* es una referencia al objeto que ofrece el evento *eventName*, y *methodName* es el nombre del controlador de eventos definido en el suscriptor que tenga una firma correspondiente a el *eventDelegate*. En otras palabras, si el evento de delegado es `EventHandler`, a continuación, *methodName* debe ser el nombre de un método en el suscriptor que no devuelve un valor y acepta dos parámetros de tipos de entrada `Object` y `EventArgs`, respectivamente.
 
 Este código de cableado de eventos debe ejecutarse en la primera página visita y postbacks posteriores y debe realizarse en un punto en el ciclo de vida de la página que precede al que se puede generar el evento. Es un buen momento para agregar código de conexión de eventos en la fase de PreInit, lo que sucede muy pronto en el ciclo de vida de la página.
 
@@ -257,12 +257,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
-Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Suchi Banerjee. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Suchi Banerjee. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](interacting-with-the-master-page-from-the-content-page-cs.md)
-[Siguiente](master-pages-and-asp-net-ajax-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](interacting-with-the-master-page-from-the-content-page-cs.md)
+> [Siguiente](master-pages-and-asp-net-ajax-cs.md)

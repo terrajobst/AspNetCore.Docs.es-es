@@ -1,7 +1,7 @@
 ---
-title: "Inserción de dependencias en los controladores de requisito"
+title: Inserción de dependencias en los controladores de requisito en ASP.NET Core
 author: rick-anderson
-description: "Este documento describe cómo insertar controladores de requisito de autorización en una aplicación de ASP.NET Core mediante la inserción de dependencias."
+description: Obtenga información acerca de cómo insertar controladores de requisito de autorización en una aplicación de ASP.NET Core mediante la inserción de dependencias.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/dependencyinjection
-ms.openlocfilehash: 1b7506b49109264a8c628ea2e39ded9f5ace95d3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4de7f0e49ade459968f8c30fbad76ce96a65815f
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="dependency-injection-in-requirement-handlers"></a>Inserción de dependencias en los controladores de requisito
+# <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a>Inserción de dependencias en los controladores de requisito en ASP.NET Core
 
 <a name="security-authorization-di"></a>
 
-[Controladores de autorización deben estar registrados](policies.md#handler-registration) en la colección de servicio durante la configuración (mediante [inyección de dependencia](../../fundamentals/dependency-injection.md#fundamentals-dependency-injection)).
+[Controladores de autorización deben estar registrados](xref:security/authorization/policies#handler-registration) en la colección de servicio durante la configuración (mediante [inyección de dependencia](xref:fundamentals/dependency-injection#fundamentals-dependency-injection)).
 
 Suponga que tiene un repositorio de reglas que desea evaluar dentro de un controlador de autorización y ese repositorio se ha registrado en la colección de servicio. La autorización se resuelva e insertar en el constructor.
 

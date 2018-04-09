@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 title: Validar la entrada del usuario en ASP.NET Web Pages (Razor) sitios | Documentos de Microsoft
 author: tfitzmac
-description: "Este artículo describe cómo validar la información que se obtiene de los usuarios &mdash; es decir, para asegurarse de que los usuarios escribir válido información en formato HTML, constituye un sistema autónomo...."
+description: Este artículo describe cómo validar la información que se obtiene de los usuarios &mdash; es decir, para asegurarse de que los usuarios escribir válido información en formato HTML, constituye un sistema autónomo....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 3bde2a4ea69577ebcbe3e9e89a7ee07e6ece8dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 34f703e6db70ac79c22f4a50d4cfd4e2326b4c74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Validar la entrada del usuario en sitios de ASP.NET Web Pages (Razor)
 ====================
@@ -83,15 +83,15 @@ En ASP.NET Web Pages 2, puede usar el `Validator` auxiliares para probar proporc
     Para comprobar si los campos obligatorios, utilice `Validation.RequireField(field, [error message])` (para un campo individual) o `Validation.RequireFields(field1, field2, ...))` (para obtener una lista de campos). Para otros tipos de validación, utilice `Validation.Add(field, ValidationType)`. Para `ValidationType`, puede utilizar estas opciones:
 
     `Validator.DateTime ([error message])`  
-`Validator.Decimal([error message])`  
-`Validator.EqualsTo(otherField [, error message])`  
-`Validator.Float([error message])`  
-`Validator.Integer([error message])`  
-`Validator.Range(min, max [, error message])`  
-`Validator.RegEx(pattern [, error message])`  
-`Validator.Required([error message])`  
-`Validator.StringLength(length)`  
-`Validator.Url([error message])`
+   `Validator.Decimal([error message])`  
+   `Validator.EqualsTo(otherField [, error message])`  
+   `Validator.Float([error message])`  
+   `Validator.Integer([error message])`  
+   `Validator.Range(min, max [, error message])`  
+   `Validator.RegEx(pattern [, error message])`  
+   `Validator.Required([error message])`  
+   `Validator.StringLength(length)`  
+   `Validator.Url([error message])`
 3. Cuando se envía la página, compruebe si ha pasado la validación mediante la comprobación de `Validation.IsValid`:
 
     [!code-csharp[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample1.cs)]
@@ -122,7 +122,7 @@ Puede agregar compatibilidad para realizar la validación en el script de client
 
     [!code-html[Main](validating-user-input-in-aspnet-web-pages-sites/samples/sample3.html)]
 
- Dos de las bibliotecas son puede cargar desde una red de entrega de contenido (CDN), por lo que no necesariamente deben tener en su equipo o servidor. Sin embargo, debe tener una copia local de *jquery.validate.unobtrusive.js*. Si no ya se encuentra trabajando con una plantilla de WebMatrix (como **Starter Site** ) que incluye la biblioteca, cree un sitio de páginas Web que se basa en **Starter Site**. A continuación, copie el *.js* archivo al sitio actual.
+   Dos de las bibliotecas son puede cargar desde una red de entrega de contenido (CDN), por lo que no necesariamente deben tener en su equipo o servidor. Sin embargo, debe tener una copia local de *jquery.validate.unobtrusive.js*. Si no ya se encuentra trabajando con una plantilla de WebMatrix (como **Starter Site** ) que incluye la biblioteca, cree un sitio de páginas Web que se basa en **Starter Site**. A continuación, copie el *.js* archivo al sitio actual.
 2. En el marcado, para cada elemento que se está validando, agregue una llamada a `Validation.For(field)`. Este método emite atributos de validación del lado cliente. (En lugar de emitir el código de JavaScript real, el método emite atributos como `data-val-...`. Estos atributos admiten la validación de cliente discretos que utiliza jQuery para realizar el trabajo.)
 
 La página siguiente muestra cómo agregar características de validación de cliente al ejemplo mostrado anteriormente.

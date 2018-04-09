@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
-title: "Agregar un nuevo campo al modelo de película y tabla (C#) | Documentos de Microsoft"
+title: Agregar un nuevo campo al modelo de película y tabla (C#) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: c10f3be30a92a605c34fa1c56fa3691389374beb
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f6364e438bbb7e128945255a5150e1e84e593ac4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table-c"></a>Agregar un nuevo campo al modelo de película y tabla (C#)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -133,6 +133,6 @@ Haga clic en **Crear**. La película nuevo, incluida la clasificación, se muest
 
 En esta sección se ha visto cómo puede modificar objetos de modelo y mantenerlos sincronizados con los cambios de la base de datos. También aprendió una forma de rellenar una base de datos recién creada con datos de ejemplo para probar escenarios. A continuación, echemos un vistazo a cómo puede agregar una lógica de validación a las clases del modelo y habilitar algunas reglas de negocios que se aplicará.
 
->[!div class="step-by-step"]
-[Anterior](examining-the-edit-methods-and-edit-view.md)
-[Siguiente](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Anterior](examining-the-edit-methods-and-edit-view.md)
+> [Siguiente](adding-validation-to-the-model.md)

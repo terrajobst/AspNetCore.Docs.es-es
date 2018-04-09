@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
-title: "Manipular propiedades de sombra paralela desde el código de cliente (VB) | Documentos de Microsoft"
+title: Manipular propiedades de sombra paralela desde el código de cliente (VB) | Documentos de Microsoft
 author: wenz
-description: "El control de sombra paralela en el Kit de herramientas de Control de AJAX extiende un panel con una sombra paralela. Propiedades de este extensor también pueden cambiarse mediante cliente JavaScrip..."
+description: El control de sombra paralela en el Kit de herramientas de Control de AJAX extiende un panel con una sombra paralela. Propiedades de este extensor también pueden cambiarse mediante cliente JavaScrip...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 706ccb5a95873aad4c1b9e0942ab06cf4162710a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5b024811ea511e67ce180169de9f0b7e3ef51d9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-vb"></a>Manipular propiedades de sombra paralela desde el código de cliente (VB)
 ====================
@@ -62,5 +62,5 @@ La función de JavaScript `changeOpacity()` , a continuación, debe buscar prime
 
 Se cambia la opacidad del lado cliente ([haga clic aquí para ver la imagen a tamaño completo](manipulating-dropshadow-properties-from-client-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](adjusting-the-z-index-of-a-dropshadow-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](adjusting-the-z-index-of-a-dropshadow-vb.md)

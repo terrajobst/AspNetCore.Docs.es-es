@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
-title: "Deshabilite las acciones durante la animación (VB) | Documentos de Microsoft"
+title: Deshabilite las acciones durante la animación (VB) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. También admite la acción..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. También admite la acción...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0f68d27f60e9b224a7cc0d598962553afeb3f28f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9e2a0517800e90788bb67c1d75482a3d9340674b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="disabling-actions-during-animation-vb"></a>Deshabilite las acciones durante la animación (VB)
 ====================
@@ -62,6 +62,6 @@ Sin embargo en el escenario que nos ocupa sería inservible desde el botón aten
 
 El botón está deshabilitado en cuanto se ejecuta la animación ([haga clic aquí para ver la imagen a tamaño completo](disabling-actions-during-animation-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](animating-in-response-to-user-interaction-vb.md)
-[Siguiente](triggering-an-animation-in-another-control-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](animating-in-response-to-user-interaction-vb.md)
+> [Siguiente](triggering-an-animation-in-another-control-vb.md)

@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-3
 title: Usar migraciones de Code First para inicializar la base de datos | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 1ca627397f0f100d13388f9afc27ff481886e098
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 33bc6d82daa9ca5f46452a1adf4e2eebea04fa6c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-code-first-migrations-to-seed-the-database"></a>Usar migraciones de Code First para inicializar la base de datos
 ====================
@@ -102,6 +102,6 @@ Captura de pantalla siguiente muestra los resultados de la tabla de libros. Teng
 
 ![](part-3/_static/image9.png)
 
->[!div class="step-by-step"]
-[Anterior](part-2.md)
-[Siguiente](part-4.md)
+> [!div class="step-by-step"]
+> [Anterior](part-2.md)
+> [Siguiente](part-4.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 title: Perfiles, temas y elementos Web | Documentos de Microsoft
 author: microsoft
-description: "Hay cambios importantes en la configuración y la instrumentación en ASP.NET 2.0. La nueva API de configuración de ASP.NET permite cambios de configuración que se realizan pr..."
+description: Hay cambios importantes en la configuración y la instrumentación en ASP.NET 2.0. La nueva API de configuración de ASP.NET permite cambios de configuración que se realizan pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/profiles-themes-and-web-parts
 msc.type: authoredcontent
-ms.openlocfilehash: 2c6ba11799a5a9be3d8c0037fad5d79d8177c0e8
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b749ed093fbaacf45b60f2826a2c20bac219a5c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="profiles-themes-and-web-parts"></a>Perfiles, temas y elementos Web
 ====================
@@ -341,19 +341,19 @@ En esta parte del tutorial, creará una página que utiliza controles de element
 4. Coloque el punto de inserción antes de la `<div>` etiquetas en la superficie de diseño y presione ENTRAR para agregar una nueva línea. Coloque el punto de inserción antes del carácter de nueva línea, haga clic en el **formato de bloque** lista desplegable de control en el menú y seleccione el **título 1** opción. En el encabezado, agregue el texto **página de demostración de elementos Web**.
 5. Desde el **WebParts** ficha del cuadro de herramientas, arrastre un **WebPartManager** control en la página, colóquela justo después del carácter de nueva línea y antes de la `<div>`etiquetas.   
   
- El **WebPartManager** control no produce ningún resultado, por lo que aparece como un cuadro gris en la superficie del diseñador.
+   El **WebPartManager** control no produce ningún resultado, por lo que aparece como un cuadro gris en la superficie del diseñador.
 6. Coloque el punto de inserción en el `<div>` etiquetas.
 7. En el **diseño** menú, haga clic en **Insertar tabla**y crear una nueva tabla que tiene una fila y tres columnas. Haga clic en el **propiedades de celda** botón, seleccione **arriba** desde el **alineación Vertical** la lista desplegable, haga clic en **Aceptar**y haga clic en **Aceptar** nuevo para crear la tabla.
 8. Arrastre un control WebPartZone en la columna de tabla de la izquierda. Haga clic en el **WebPartZone** de control, elija **propiedades**y establezca las siguientes propiedades:   
   
- Id.: SidebarZone   
+   Id.: SidebarZone   
   
- HeaderText: Sidebar
+   HeaderText: Sidebar
 9. Arrastre una segunda **WebPartZone** controlar en la columna central de la tabla y establezca las siguientes propiedades:   
   
- Id.: MainZone   
+   Id.: MainZone   
   
- HeaderText: principal
+   HeaderText: principal
 10. Guarde el archivo.
 
 La página tiene ahora dos zonas distintas que se pueden controlar por separado. Sin embargo, ninguna zona tiene contenido, por lo que el paso siguiente consiste en crear contenido. En este tutorial, trabajará con controles de elementos Web que muestran solo contenido estático.
@@ -462,10 +462,10 @@ Ahora puede probar la capacidad de editar páginas y cambiar el diseño.
 2. Para demostrar que la personalización funciona, cierre el explorador y, a continuación, vuelva a cargar la página. Los cambios realizados se guardan para futuras sesiones del explorador.
 3. Desde el **modo de presentación** menú, seleccione **editar**.   
   
- Ahora, cada control en la página se muestra con una flecha hacia abajo en la barra de título que contiene el menú desplegable de verbos.
+   Ahora, cada control en la página se muestra con una flecha hacia abajo en la barra de título que contiene el menú desplegable de verbos.
 4. Haga clic en la flecha para mostrar el menú de verbos en el **Mis vínculos** control. Haga clic en el **editar** verbo.   
   
- El **EditorZone** que aparezca el control, mostrando la EditorPart controles que ha agregado.
+   El **EditorZone** que aparezca el control, mostrando la EditorPart controles que ha agregado.
 5. En el **apariencia** sección del control de edición, cambie el **título** en Mis favoritos, utilice la **tipo de cromo** la lista desplegable para seleccionar **título sólo**y, a continuación, haga clic en **aplicar**. La captura de pantalla siguiente muestra la página en modo de edición.
 
 ### <a name="web-parts-demo-page-in-edit-mode"></a>Página de demostración de elementos Web en modo de edición
@@ -496,7 +496,7 @@ También puede permitir a los usuarios agregar controles de elementos Web a su p
 1. Abra la página WebPartsDemo.aspx y cambie a **diseño** vista.
 2. Desde el **WebParts** ficha del cuadro de herramientas, arrastre un control CatalogZone en la columna derecha de la tabla, debajo del **EditorZone** control.   
   
- Ambos controles pueden estar en la misma celda de la tabla porque no se mostrará al mismo tiempo.
+   Ambos controles pueden estar en la misma celda de la tabla porque no se mostrará al mismo tiempo.
 3. En el panel Propiedades, asigne la cadena **agregar elementos Web** a la propiedad HeaderText de la **CatalogZone** control.
 4. Desde el **WebParts** sección del cuadro de herramientas, arrastre un control DeclarativeCatalogPart en el área de contenido de la **CatalogZone** control.
 5. Haga clic en la flecha situada en la esquina superior derecha de la **DeclarativeCatalogPart** control para exponer su menú de tareas y, a continuación, seleccione **editar plantillas**.
@@ -504,7 +504,7 @@ También puede permitir a los usuarios agregar controles de elementos Web a su p
 7. Cambie a **origen** vista. Inspeccionar el código fuente de la &lt;asp: catalogzone&gt; elemento. Tenga en cuenta que la **DeclarativeCatalogPart** control contiene un &lt;webpartstemplate&gt; elemento con los dos controles de servidor contenidos que podrá agregar a la página desde el catálogo.
 8. Agregar un **título** propiedad a cada uno de los controles que agregó en el catálogo, con el valor de cadena que se muestra para cada título en el ejemplo de código siguiente. Aunque el título no es una propiedad normalmente puede establecer en estas dos controles de servidor en tiempo de diseño, cuando un usuario agrega estos controles a una **WebPartZone** zona desde el catálogo en tiempo de ejecución, son cada una incluida con un  **GenericWebPart** control. Esto les permite actuar como controles de elementos Web, por lo que podrán mostrar títulos.   
   
- El código de los dos controles incluidos en el **DeclarativeCatalogPart** control debe ser similar al siguiente. 
+   El código de los dos controles incluidos en el **DeclarativeCatalogPart** control debe ser similar al siguiente. 
 
     [!code-aspx[Main](profiles-themes-and-web-parts/samples/sample26.aspx)]
 9. Guarde la página.
@@ -516,12 +516,12 @@ Ahora puede probar el catálogo.
 1. Cargar la página en un explorador.
 2. Haga clic en el **modo de presentación** menú desplegable y seleccione **catálogo**.   
   
- El catálogo titulado **agregar elementos Web** se muestra.
+   El catálogo titulado **agregar elementos Web** se muestra.
 3. Arrastre el **Mis favoritos** controlar desde la zona principal hacia la parte superior de la zona de Sidebar y colóquelo ahí.
 4. En el **agregar elementos Web** de catálogo, seleccione las casillas de verificación y, a continuación, seleccione **Main** en la lista desplegable que contiene las zonas disponibles.
 5. Haga clic en **agregar** en el catálogo. Los controles se agregan a la zona principal. Si lo desea, puede agregar varias instancias de controles desde el catálogo a la página.   
   
- La captura de pantalla siguiente muestra la página con el control de carga de archivos y el calendario en la zona principal. 
+   La captura de pantalla siguiente muestra la página con el control de carga de archivos y el calendario en la zona principal. 
 
 ![Controles agregados a la zona principal desde el catálogo](profiles-themes-and-web-parts/_static/image7.gif)
 

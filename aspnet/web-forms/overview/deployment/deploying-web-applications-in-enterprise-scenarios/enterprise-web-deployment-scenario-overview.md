@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
-title: "Implementación Web de Enterprise: Información general del escenario | Documentos de Microsoft"
+title: 'Implementación Web de Enterprise: Información general del escenario | Documentos de Microsoft'
 author: jrjlee
-description: "Este conjunto de tutoriales usa una solución de ejemplo con un nivel de complejidad, junto con un escenario de implementación de la empresa ficticia, realista para proporcionar a ref..."
+description: Este conjunto de tutoriales usa una solución de ejemplo con un nivel de complejidad, junto con un escenario de implementación de la empresa ficticia, realista para proporcionar a ref...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/enterprise-web-deployment-scenario-overview
 msc.type: authoredcontent
-ms.openlocfilehash: f90db22bf98456661c530e728e854ce109aec6fd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20f6e206d6aa4bebb4936246468f5ada0e213236
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="enterprise-web-deployment-scenario-overview"></a>Implementación Web de empresa: Información general del escenario
 ====================
@@ -39,7 +39,7 @@ Los procesos de Application Lifecycle Management (ALM) en Fabrikam, Inc. requier
 
 Cada uno de estos entornos tiene requisitos de seguridad y de configuración diferente y cada uno puede causar problemas de implementación único.
 
-### <a name="the-fabrikam-inc-server-infrastructure"></a>Fabrikam, Inc. Infraestructura de servidor
+### <a name="the-fabrikam-inc-server-infrastructure"></a>The Fabrikam, Inc. Infraestructura de servidor
 
 Se trata de la infraestructura de desarrollo e implementación de alto nivel en Fabrikam, Inc.
 
@@ -122,6 +122,6 @@ Además, administración de implementación cuando haya actualizaciones incremen
 - Que desee registrar las actividades de implementación. El proceso de implementación debe enviar notificaciones de correo electrónico de las implementaciones correctas o incorrecto a destinatarios designados.
 - Si se produce un error en una implementación automatizada, el proceso de implementación debe reintentar la implementación actual o implementar el paquete de web anterior en su lugar.
 
->[!div class="step-by-step"]
-[Anterior](deploying-web-applications-in-enterprise-scenarios.md)
-[Siguiente](application-lifecycle-management-from-development-to-production.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-web-applications-in-enterprise-scenarios.md)
+> [Siguiente](application-lifecycle-management-from-development-to-production.md)

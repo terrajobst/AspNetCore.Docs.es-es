@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
-title: "Introducción a ASP.NET Web Pages: crear un diseño homogéneo | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: crear un diseño homogéneo | Documentos de Microsoft'
 author: tfitzmac
-description: "Este tutorial muestra cómo usar diseños para crear una apariencia coherente para las páginas en un sitio que usa ASP.NET Web Pages. Supone que ha completado el..."
+description: Este tutorial muestra cómo usar diseños para crear una apariencia coherente para las páginas en un sitio que usa ASP.NET Web Pages. Supone que ha completado el...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 692adc5a03892f27c91fe8868c8eab6ce08f49cd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c2d5c4d8ed8a71979c16d484ab90d283a45de537
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Introducción a las páginas Web ASP.NET - crear un diseño coherente
 ====================
@@ -149,7 +149,7 @@ Abra la *Movies.cshtml* página de nuevo. En el código en la parte superior, ag
 
 El `Page` el objeto está disponible en todos los *.cshtml* páginas y es para este propósito, es decir, para compartir información entre una página y su diseño.
 
-Abra la*\_Layout.cshtml* página. Cambiar el `<title>` elemento para que aparezca como este marcado:
+Abra la<em>\_Layout.cshtml</em> página. Cambiar el `<title>` elemento para que aparezca como este marcado:
 
 [!code-html[Main](layouts/samples/sample9.html)]
 
@@ -237,6 +237,6 @@ En el siguiente tutorial, aprenderá a publicar el sitio en Internet para que to
 - [Crear un aspecto coherente](https://go.microsoft.com/fwlink/?LinkID=202891) : un artículo que proporciona cierto nivel de detalle más sobre cómo trabajar con diseños. También describe cómo pasar un valor a una página de diseño que muestra u oculta la parte del contenido.
 - [Páginas de diseño con Razor anidadas](http://www.mikesdotnetting.com/Article/164/Nested-Layout-Pages-with-Razor) : blogs de Mike Brind un ejemplo de cómo anidar las páginas de diseño. (Incluye una descarga de las páginas).
 
->[!div class="step-by-step"]
-[Anterior](deleting-data.md)
-[Siguiente](publishing.md)
+> [!div class="step-by-step"]
+> [Anterior](deleting-data.md)
+> [Siguiente](publishing.md)

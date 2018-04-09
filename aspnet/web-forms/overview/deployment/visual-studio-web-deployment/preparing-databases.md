@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
-title: "Implementación de Web ASP.NET con Visual Studio: preparación para la implementación de la base de datos | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: preparación para la implementación de la base de datos | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/preparing-databases
 msc.type: authoredcontent
-ms.openlocfilehash: caa79725ede320c4bd3e87ac246966c57175eb8e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 61392af322de454687da522055005a670b34f510
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a>Implementación de Web ASP.NET con Visual Studio: preparación para la implementación de la base de datos
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -171,7 +171,7 @@ Aquí también, normalmente no desea que los mismos datos en producción que tie
 Implementará los usuarios de desarrollo en el entorno de prueba y los usuarios de producción a ensayo y producción. Para hacer creará dos secuencias de comandos SQL en este tutorial, uno para el desarrollo y otro para producción y, en tutoriales posteriores configurará el proceso de publicación para ejecutarlos.
 
 > [!NOTE]
-> La base de datos de pertenencia almacena un valor hash de las contraseñas de cuentas. Para implementar las cuentas de un equipo a otro, debe asegurarse de que las rutinas de hash no generan hash diferentes en el servidor de destino que lo hacen en el equipo de origen. Generará el mismo hash cuando se usan ASP.NET Universal Providers, siempre y cuando no cambie el algoritmo predeterminado. El algoritmo predeterminado es HMACSHA256 y se especifica en el **validación** atributo de la  **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)**  elemento en el archivo Web.config.
+> La base de datos de pertenencia almacena un valor hash de las contraseñas de cuentas. Para implementar las cuentas de un equipo a otro, debe asegurarse de que las rutinas de hash no generan hash diferentes en el servidor de destino que lo hacen en el equipo de origen. Generará el mismo hash cuando se usan ASP.NET Universal Providers, siempre y cuando no cambie el algoritmo predeterminado. El algoritmo predeterminado es HMACSHA256 y se especifica en el **validación** atributo de la **[machineKey](https://msdn.microsoft.com/library/system.web.configuration.machinekeysection.aspx)** elemento en el archivo Web.config.
 
 
 Puede crear scripts de implementación de datos manualmente, mediante el uso de SQL Server Management Studio (SSMS), o mediante una herramienta de terceros. Este resto de este tutorial le mostrará cómo hacerlo en SSMS, pero si no desea instalar y usar SSMS puede obtener las secuencias de comandos de la versión completa del proyecto y vaya a la sección donde se almacenan en la carpeta de soluciones.
@@ -215,11 +215,11 @@ Dado que aún no ejecuta el proyecto con la base de datos de producción, no est
 1. En SSMS **Explorador de objetos**, haga clic en **bases de datos** y haga clic en **adjuntar**.
 
     ![Adjuntar de SSMS](preparing-databases/_static/image15.png)
-- En el **adjuntar bases de datos** cuadro de diálogo, haga clic en **agregar** y, a continuación, navegue hasta la *aspnet-ContosoUniversity-Prod.mdf* un archivo en el *aplicación\_ Datos* carpeta.
+2. En el **adjuntar bases de datos** cuadro de diálogo, haga clic en **agregar** y, a continuación, navegue hasta la *aspnet-ContosoUniversity-Prod.mdf* un archivo en el *aplicación\_ Datos* carpeta.
 
-    ![SSMS Agregar archivo .mdf para adjuntar](preparing-databases/_static/image16.png)
-- Haga clic en **Aceptar**.
-- Siga el mismo procedimiento que usó anteriormente para crear una secuencia de comandos para el archivo de producción. Asignar nombre al archivo de script *prod.sql de datos de aspnet*.
+     ![SSMS Agregar archivo .mdf para adjuntar](preparing-databases/_static/image16.png)
+3. Haga clic en **Aceptar**.
+4. Siga el mismo procedimiento que usó anteriormente para crear una secuencia de comandos para el archivo de producción. Asignar nombre al archivo de script *prod.sql de datos de aspnet*.
 
 ## <a name="summary"></a>Resumen
 
@@ -233,6 +233,6 @@ En el tutorial siguiente configurará las opciones de proyecto que afectan a la 
 
 Para obtener más información sobre NuGet, consulte [administrar bibliotecas de proyecto con NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) y [documentación de NuGet](http://docs.nuget.org/docs/start-here/overview). Si no desea usar NuGet, debe aprender cómo analizar un paquete de NuGet para determinar lo que hace cuando se instala. (Por ejemplo, puede configurar *Web.config* transformaciones, configurar secuencias de comandos de PowerShell para ejecutar en tiempo de compilación, etcetera.) Para más información acerca del funcionamiento de NuGet, consulte [crear y publicar un paquete](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) y [archivo de configuración y las transformaciones de código de origen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Anterior](introduction.md)
-[Siguiente](web-config-transformations.md)
+> [!div class="step-by-step"]
+> [Anterior](introduction.md)
+> [Siguiente](web-config-transformations.md)

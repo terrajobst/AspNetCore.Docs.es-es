@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
-title: "Determinar qué archivos deben tener implementado (VB) | Documentos de Microsoft"
+title: Determinar qué archivos deben tener implementado (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "¿Qué archivos deben implementarse desde el entorno de desarrollo al entorno de producción depende en parte de si la aplicación ASP.NET se ha generado us..."
+description: ¿Qué archivos deben implementarse desde el entorno de desarrollo al entorno de producción depende en parte de si la aplicación ASP.NET se ha generado us...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/determining-what-files-need-to-be-deployed-vb
 msc.type: authoredcontent
-ms.openlocfilehash: aad0d4d4f7db5942c51255c34f36be73ed0e1f2d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4b9fcdbaaa0c2a6d7610339ecb6018a0fe6895f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="determining-what-files-need-to-be-deployed-vb"></a>Determinar qué archivos deben tener implementado (VB)
 ====================
@@ -41,7 +41,7 @@ Considere la posibilidad de una página ASP.NET denominada `Clock.aspx` que cont
 
 [!code-vb[Main](determining-what-files-need-to-be-deployed-vb/samples/sample1.vb)]
 
-En orden para el motor ASP.NET para atender una solicitud de esta página, la parte correspondiente al código de la página (el  *`WebPage`*  `.aspx.vb` archivo) en primer lugar debe compilarse. Esta compilación puede suceder de forma explícita o automáticamente.
+En orden para el motor ASP.NET para atender una solicitud de esta página, la parte correspondiente al código de la página (el *`WebPage`* `.aspx.vb` archivo) en primer lugar debe compilarse. Esta compilación puede suceder de forma explícita o automáticamente.
 
 Si la compilación se produce de forma explícita, a continuación, se compila código fuente de la aplicación todo en uno o más ensamblados (`.dll` archivos) ubicado en la aplicación `Bin` directory. Si la compilación se realiza automáticamente, a continuación, resultante generada automáticamente es el ensamblado, de forma predeterminada, se coloca en el `Temporary ASP.NET Files` carpeta, que se encuentra en `%WINDOWS%\Microsoft.NET\Framework\<version>`, aunque esta ubicación es configurable a través de la [ &lt; compilación&gt; elemento](https://msdn.microsoft.com/library/s10awwz0.aspx) en `Web.config`. Con la compilación explícita debe realizar alguna acción para compilar el código de la aplicación ASP.NET en un ensamblado, y este paso se realiza antes de la implementación. Compilación automática con el proceso de compilación se produce en el servidor web cuando se acceda al recurso por primera vez.
 
@@ -79,15 +79,15 @@ La descarga de este tutorial incluye una aplicación de ASP.NET denominada rese�
 - Una página maestra (`Site.master`).
 - Siete páginas ASP.NET diferentes:
 
-    - ~/`Default.aspx`-página principal del sitio.
-    - ~/`About.aspx`-una página "Sobre el sitio".
-    - ~/`Fiction/Default.aspx`-una página con una lista de los libros de ficción revisados.
+    - ~/`Default.aspx` -página principal del sitio.
+    - ~/`About.aspx` -una página "Sobre el sitio".
+    - ~/`Fiction/Default.aspx` -una página con una lista de los libros de ficción revisados.
 
-        - ~/`Fiction/Blaze.aspx`-una revisión de la novel Richard Bachman *Blaze*.
-    - ~/`Tech/Default.aspx`-una página con una lista de los libros de tecnología que se han revisado.
+        - ~/`Fiction/Blaze.aspx` -una revisión de la novel Richard Bachman *Blaze*.
+    - ~/`Tech/Default.aspx` -una página con una lista de los libros de tecnología que se han revisado.
 
-        - ~/`Tech/CYOW.aspx`-una revisión de *crear su propio sitio Web de*.
-        - ~/`Tech/TYASP35.aspx`-una revisión de *enseñar a usted mismo ASP.NET 3.5 en 24 horas*.
+        - ~/`Tech/CYOW.aspx` -una revisión de *crear su propio sitio Web de*.
+        - ~/`Tech/TYASP35.aspx` -una revisión de *enseñar a usted mismo ASP.NET 3.5 en 24 horas*.
 - Tres archivos CSS diferentes en el `Styles` carpeta.
 - Cuatro archivos de imagen: una con tecnología de logotipo ASP.NET y las imágenes de los bastidores de los tres libros revisados - todos los localizados en el `Images` carpeta.
 - A `Web.sitemap` archivo, que define el mapa del sitio y se usa para mostrar los menús en la `Default.aspx` páginas en el directorio raíz y `Fiction` y `Tech` carpetas.
@@ -189,6 +189,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Sistema de proyectos del Visual Studio 2005 sitio Web: ¿qué son y por qué hacemos?](https://weblogs.asp.net/scottgu/archive/2005/08/21/423201.aspx)
 - [Tutorial: Convertir un proyecto de sitio Web a un proyecto de aplicación Web en Visual Studio](https://msdn.microsoft.com/library/aa983476.aspx)
 
->[!div class="step-by-step"]
-[Anterior](asp-net-hosting-options-vb.md)
-[Siguiente](deploying-your-site-using-an-ftp-client-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](asp-net-hosting-options-vb.md)
+> [Siguiente](deploying-your-site-using-an-ftp-client-vb.md)

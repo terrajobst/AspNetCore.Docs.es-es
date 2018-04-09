@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
-title: "Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 2 | Documentos de Microsoft"
+title: Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 2 | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: a549bd62bd78573c368784fd1529a830e009b0d4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a6c95a92aa77e2bb73aa513a207e0469d1aedbd2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-2"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 2
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET con el Entity Framework 4.0 y Visual Studio 2010. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -125,7 +125,7 @@ Haga clic en **Editar columnas**.
 
 En el **campos seleccionados** box, elimine **PersonID**, **LastName**, y **HireDate**. Normalmente no mostrar una clave de registro a los usuarios, fecha de contratación no es relevante para los alumnos y pondrá en práctica todas las partes del nombre en un campo, para que solo tenga uno de los campos de nombre.)
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-2/_static/image32.png)](the-entity-framework-and-aspnet-getting-started-part-2/_static/image31.png)
 
 Seleccione el **FirstMidName** campo y, a continuación, haga clic en **convertir este campo en TemplateField**.
 
@@ -249,6 +249,6 @@ Ejecute la página y puede seleccionar un departamento de la lista desplegable.
 
 Con esto finaliza la introducción al uso de la `EntityDataSource` control. Trabajar con este control generalmente no es diferente de trabajar con otros datos ASP.NET, controles de origen, salvo que se hacen referencia a entidades y propiedades en lugar de tablas y columnas. La única excepción es cuando desea tener acceso a propiedades de navegación. En el siguiente tutorial, verá que la sintaxis utilice con `EntityDataSource` control también puede diferir de otros controles de origen de datos al filtrar, agrupar y ordenar los datos.
 
->[!div class="step-by-step"]
-[Anterior](the-entity-framework-and-aspnet-getting-started-part-1.md)
-[Siguiente](the-entity-framework-and-aspnet-getting-started-part-3.md)
+> [!div class="step-by-step"]
+> [Anterior](the-entity-framework-and-aspnet-getting-started-part-1.md)
+> [Siguiente](the-entity-framework-and-aspnet-getting-started-part-3.md)

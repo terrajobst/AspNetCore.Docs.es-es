@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-cs
-title: "Creación de casillas de verificación mutuamente excluyentes (C#) | Documentos de Microsoft"
+title: Creación de casillas de verificación mutuamente excluyentes (C#) | Documentos de Microsoft
 author: wenz
-description: "Cuando se puede seleccionar sólo uno de un conjunto de opciones, normalmente se utilizan los botones de radio. Hay una desventaja, sin embargo: una vez que se selecciona un botón de radio en un grupo,..."
+description: 'Cuando se puede seleccionar sólo uno de un conjunto de opciones, normalmente se utilizan los botones de radio. Hay una desventaja, sin embargo: una vez que se selecciona un botón de radio en un grupo,...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e165c3784b246effcaeafc0ad4274bc0ca81a99c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c3a5abe7d02ace16f4aaad8d4adfbd0cba8e84ef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-mutually-exclusive-checkboxes-c"></a>Creación de casillas de verificación mutuamente excluyentes (C#)
 ====================
@@ -54,5 +54,5 @@ Guarde y ejecute la página: puede comprobar y desactive las casillas de verific
 
 Se puede comprobar solo una casilla a la vez ([haga clic aquí para ver la imagen a tamaño completo](creating-mutually-exclusive-checkboxes-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](creating-mutually-exclusive-checkboxes-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](creating-mutually-exclusive-checkboxes-vb.md)

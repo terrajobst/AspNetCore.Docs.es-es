@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
-title: "Usar TextBoxWatermark con controles de validación (C#) | Documentos de Microsoft"
+title: Usar TextBoxWatermark con controles de validación (C#) | Documentos de Microsoft
 author: wenz
 description: El control TextBoxWatermark en el Kit de herramientas de Control de AJAX extiende un cuadro de texto para que se muestre un texto en el cuadro. Cuando un usuario hace clic en el cuadro, lo...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/textboxwatermark/using-textboxwatermark-with-validation-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 61fa55c8c4580800de1097b7242c7077cda27115
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b5cc7974f3444b54770cba54b991aab7b103f753
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-textboxwatermark-with-validation-controls-c"></a>Usar TextBoxWatermark con controles de validación (C#)
 ====================
@@ -56,6 +56,6 @@ Finalmente, agregue el código del servidor para el texto en el campo de salida 
 
 El validador se queja de que no hay ningún texto en el campo ([haga clic aquí para ver la imagen a tamaño completo](using-textboxwatermark-with-validation-controls-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](using-textboxwatermark-in-a-formview-cs.md)
-[Siguiente](using-textboxwatermark-in-a-formview-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-textboxwatermark-in-a-formview-cs.md)
+> [Siguiente](using-textboxwatermark-in-a-formview-vb.md)

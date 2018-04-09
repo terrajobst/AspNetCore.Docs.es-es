@@ -1,7 +1,7 @@
 ---
-title: "Empezar a trabajar con las API de protección de datos"
+title: Empezar a trabajar con las API de protección de datos en ASP.NET Core
 author: rick-anderson
-description: "Este documento explica cómo usar las API de protección de datos de ASP.NET Core para proteger y desproteger los datos en una aplicación."
+description: Obtenga información acerca de cómo usar las API de protección de datos de ASP.NET Core para proteger y desproteger los datos en una aplicación.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/using-data-protection
-ms.openlocfilehash: ff72773fce28ba75aa8777eea321ed2bfb8f7e54
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 3a69abd2b58e02f87ccaf2317b0a8a2a7e9d7b4a
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="get-started-with-the-data-protection-apis"></a>Empezar a trabajar con las API de protección de datos
+# <a name="get-started-with-the-data-protection-apis-in-aspnet-core"></a>Empezar a trabajar con las API de protección de datos en ASP.NET Core
 
 <a name="security-data-protection-getting-started"></a>
 
@@ -31,7 +31,7 @@ La mayoría de los marcos y modelos de aplicación, por ejemplo, ASP.NET o Signa
 
 [!code-csharp[](../../security/data-protection/using-data-protection/samples/protectunprotect.cs?highlight=26,34,35,36,37,38,39,40)]
 
-Cuando se crea un protector debe proporcionar uno o varios [propósito cadenas](consumer-apis/purpose-strings.md). Una cadena de propósito proporciona aislamiento entre los consumidores. Por ejemplo, un protector creado con una cadena de fin de "verde" no podrá desproteger los datos proporcionados por un protector con un propósito de "púrpura".
+Cuando se crea un protector debe proporcionar uno o varios [propósito cadenas](xref:security/data-protection/consumer-apis/purpose-strings). Una cadena de propósito proporciona aislamiento entre los consumidores. Por ejemplo, un protector creado con una cadena de fin de "verde" no podrá desproteger los datos proporcionados por un protector con un propósito de "púrpura".
 
 >[!TIP]
 > Instancias de `IDataProtectionProvider` y `IDataProtector` son seguras para subprocesos para varios de los llamadores. Se ha diseñado que una vez que un componente obtiene una referencia a un `IDataProtector` mediante una llamada a `CreateProtector`, utilizará dicha referencia para varias llamadas a `Protect` y `Unprotect`.

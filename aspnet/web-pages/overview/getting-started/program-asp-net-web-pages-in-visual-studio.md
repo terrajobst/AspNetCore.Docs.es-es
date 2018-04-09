@@ -1,8 +1,8 @@
 ---
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
-title: "Programación de ASP.NET Web Pages (Razor) en Visual Studio | Documentos de Microsoft"
+title: Programación de ASP.NET Web Pages (Razor) en Visual Studio | Documentos de Microsoft
 author: tfitzmac
-description: "Este apéndice explica cómo puede usar Visual Studio 2010 o Visual Web Developer 2010 Express al programa ASP.NET Web Pages con la sintaxis de Razor."
+description: Este apéndice explica cómo puede usar Visual Studio 2010 o Visual Web Developer 2010 Express al programa ASP.NET Web Pages con la sintaxis de Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: 5cfeda206eda8fb3fd769d34fb40bae2c3b65093
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: eb17c8cc1fab5b552c8495e74bb86ae9dbc5b972
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Programar páginas Web ASP.NET (Razor) con Visual Studio
 ====================
@@ -68,7 +68,7 @@ Para trabajar con Visual Studio 2010, vea [instalar compatibilidad con para ASP.
 
 Si ha iniciado un proyecto en WebMatrix y desea cambiar a Visual Studio, WebMatrix proporciona un botón para abrir fácilmente el proyecto en Visual Studio. Debe tener instalado Visual Studio en el equipo para que este botón esté habilitado. La siguiente imagen muestra el botón de WebMatrix.
 
-![Inicie Visual Studio](program-asp-net-web-pages-in-visual-studio/_static/image1.png)
+![launch Visual Studio](program-asp-net-web-pages-in-visual-studio/_static/image1.png)
 
 Al hacer clic en el botón, se abre el proyecto en Visual Studio. Puede alternar entre WebMatrix y Visual Studio sin problemas. Se le notificará si los archivos han cambiado en otro entorno y necesitan volver a cargarse para obtener los cambios más recientes.
 
@@ -97,7 +97,7 @@ Ahora que ha creado un sitio, puede ver cómo funciona IntelliSense en Visual St
 
     ![IntelliSense](program-asp-net-web-pages-in-visual-studio/_static/image4.png)
 3. Seleccione el `GetHtml` método en la lista y, a continuación, presione ENTRAR. IntelliSense se rellena automáticamente en el método. (Como con cualquier método en C#, debe agregar `()` caracteres después del método.)  
- El código completo para el `GetHtml` método es similar al ejemplo siguiente:  
+   El código completo para el `GetHtml` método es similar al ejemplo siguiente:  
 
     [!code-cshtml[Main](program-asp-net-web-pages-in-visual-studio/samples/sample1.cshtml)]
 4. Presione Ctrl + F5 para ejecutar la página. Esto es lo que la página es similar al que se muestran en un explorador: 
@@ -138,7 +138,7 @@ Esta sección muestra cómo instalar Visual Web Developer Express 2010 y las her
 
 1. Si ya no tiene el instalador de plataforma Web, descárguelo desde la dirección URL siguiente:
 
-    [https://www.Microsoft.com/Web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
+    [https://www.microsoft.com/web/downloads/platform.aspx](https://www.microsoft.com/web/downloads/platform.aspx)
 2. Ejecute al instalador de plataforma Web.
 3. Haga clic en el **productos** ficha.
 

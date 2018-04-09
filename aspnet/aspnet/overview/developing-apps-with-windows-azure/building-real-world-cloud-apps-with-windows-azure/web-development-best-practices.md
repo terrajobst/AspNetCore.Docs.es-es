@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
-title: "Web prácticas recomendadas de desarrollo (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Web prácticas recomendadas de desarrollo (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 52d6c941-2cd9-442f-9872-2c798d6d90cd
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices
 msc.type: authoredcontent
-ms.openlocfilehash: de536a0ca39cb752c0962f0c4ae36eb00b586bff
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4c43b256018d91e89b3427f90fc5c6cd018641f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-development-best-practices-building-real-world-cloud-apps-with-azure"></a>Prácticas recomendadas de desarrollo de Web (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -165,6 +165,6 @@ Para prácticas recomendadas de desarrollo de web adicionales, consulte los sigu
 - [La corrección de ejemplo de aplicación: prácticas recomendadas](the-fix-it-sample-application.md#bestpractices). El apéndice de este libro electrónico enumera una serie de prácticas recomendadas que se implementaron en la aplicación repararlo.
 - [Lista de comprobación de desarrollador Web](http://webdevchecklist.com/asp.net)
 
->[!div class="step-by-step"]
-[Anterior](continuous-integration-and-continuous-delivery.md)
-[Siguiente](single-sign-on.md)
+> [!div class="step-by-step"]
+> [Anterior](continuous-integration-and-continuous-delivery.md)
+> [Siguiente](single-sign-on.md)

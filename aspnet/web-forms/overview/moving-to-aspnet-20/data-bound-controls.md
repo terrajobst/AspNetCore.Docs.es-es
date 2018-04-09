@@ -2,7 +2,7 @@
 uid: web-forms/overview/moving-to-aspnet-20/data-bound-controls
 title: Controles enlazados a datos | Documentos de Microsoft
 author: microsoft
-description: "La mayoría de las aplicaciones de ASP.NET se basan en cierto grado de presentación de los datos de un origen de datos back-end. Controles enlazados a datos han sido una parte fundamental de interactivas w..."
+description: La mayoría de las aplicaciones de ASP.NET se basan en cierto grado de presentación de los datos de un origen de datos back-end. Controles enlazados a datos han sido una parte fundamental de interactivas w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: 3ebb0f9a7a2f071b7bf7aa3855920f1a5784a61f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5c3f6aad4b87450149189352e86106f46c765fb8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-bound-controls"></a>Controles enlazados a datos
 ====================
@@ -152,7 +152,7 @@ En la tabla siguiente se enumera los tipos de campo de otra columna que se puede
 | ImageField | Muestra una imagen para cada elemento en el control GridView. |
 | TemplateField | Muestra el contenido definido por el usuario para cada elemento en el control GridView según una plantilla especificada. Este tipo de campo de columna permite crear un campo de columna personalizado. |
 
-Para definir una colección de campos de columna mediante declaración, primero agregue de apertura y cierre  **&lt;columnas&gt;**  etiquetas entre las etiquetas apertura y cierre del control GridView. A continuación, mostrar los campos de columna que se van a incluir entre la apertura y cierre  **&lt;columnas&gt;**  etiquetas. Las columnas especificadas se agregan a la colección de columnas en el orden indicado. El **columnas** colección almacena todos los campos en el control de la columna y le permite administrar mediante programación los campos de columna en el control GridView.
+Para definir una colección de campos de columna mediante declaración, primero agregue de apertura y cierre **&lt;columnas&gt;** etiquetas entre las etiquetas apertura y cierre del control GridView. A continuación, mostrar los campos de columna que se van a incluir entre la apertura y cierre **&lt;columnas&gt;** etiquetas. Las columnas especificadas se agregan a la colección de columnas en el orden indicado. El **columnas** colección almacena todos los campos en el control de la columna y le permite administrar mediante programación los campos de columna en el control GridView.
 
 Campos de columna declarados explícitamente se pueden mostrar en combinación con los campos de columna generada automáticamente. Cuando se utilizan ambos, los campos de columna declarados explícitamente se representan en primer lugar, seguido de los campos de columna generada automáticamente.
 
@@ -341,7 +341,7 @@ Cada fila de datos en el control DetailsView se crea mediante la declaración de
 
 De forma predeterminada, se establece la propiedad AutoGenerateRows en **true**, lo cual genera automáticamente un objeto de campo de fila enlazado para cada campo de tipo enlazable del origen de datos. Los tipos enlazables válidos son String, DateTime, Decimal, Guid y el conjunto de tipos primitivos. Cada campo, a continuación, se muestra en una fila como texto, en el orden en el que cada campo aparece en el origen de datos.
 
-Generación automática de las filas proporciona una manera rápida y sencilla para mostrar cada campo en el registro. Sin embargo, para que use de DetailsView control capacidades avanzadas de que debe declarar explícitamente los campos de fila para incluir en el control DetailsView. Para declarar los campos de fila, establezca primero la **AutoGenerateRows** propiedad **false**. A continuación, agregue la apertura y cierre  **&lt;campos&gt;**  etiquetas entre las etiquetas apertura y cierre del control DetailsView. Por último, enumerar los campos de fila que se van a incluir entre la apertura y cierre  **&lt;campos&gt;**  etiquetas. Los campos de fila especificados se agregan a la colección de campos en el orden indicado. El **campos** colección le permite administrar mediante programación los campos de fila en el control DetailsView.
+Generación automática de las filas proporciona una manera rápida y sencilla para mostrar cada campo en el registro. Sin embargo, para que use de DetailsView control capacidades avanzadas de que debe declarar explícitamente los campos de fila para incluir en el control DetailsView. Para declarar los campos de fila, establezca primero la **AutoGenerateRows** propiedad **false**. A continuación, agregue la apertura y cierre **&lt;campos&gt;** etiquetas entre las etiquetas apertura y cierre del control DetailsView. Por último, enumerar los campos de fila que se van a incluir entre la apertura y cierre **&lt;campos&gt;** etiquetas. Los campos de fila especificados se agregan a la colección de campos en el orden indicado. El **campos** colección le permite administrar mediante programación los campos de fila en el control DetailsView.
 
 > [!NOTE]
 > Campos no se agregan a la colección de campos de fila generados automáticamente.
@@ -511,7 +511,7 @@ El control de vista de árbol tiene varias propiedades que afectan al funcionami
 
 El **ShowCheckBoxes** propiedad afecta a los nodos muestran una casilla de verificación cuando se representan como si no. Los valores válidos para esta propiedad son **ninguno**, **raíz**, **primario**, **hoja**, y **todos los**. Estos afectan a TreeView (control) como se indica a continuación:
 
-| **Valor de propiedad** | **Efecto** |
+| **Valor de propiedad** | **Effect** |
 | --- | --- |
 | Ninguna | No se muestran casillas de verificación en todos los nodos. Ésta es la configuración predeterminada. |
 | Raíz | Solo se muestra una casilla en el nodo raíz. |
@@ -701,16 +701,16 @@ Este ejercicio se supone que dispone de SQL Server que se ejecuta de forma local
 16. Haga clic en el **Editar columnas** vincular y asegúrese de que **generar automáticamente campos** está activada.
 17. Haga clic en **Aceptar**.
 18. Con el control GridView seleccionado, haga clic en el botón junto a la **DataKeyNames** propiedad en el panel de propiedades.
-19. Seleccione **ProductID** desde el **campos de datos disponibles** lista y haga clic en el  **&gt;**  botón para agregarlo.
+19. Seleccione **ProductID** desde el **campos de datos disponibles** lista y haga clic en el **&gt;** botón para agregarlo.
 20. Haga clic en Aceptar.
 21. Agregar un nuevo control SqlDataSource a la página.
 22. Cambie el identificador del control SqlDataSource para **detalles**.
 23. En el menú tareas de SqlDataSource, elija **Configurar origen de datos**.
 24. Elija **Northwind** desde la lista desplegable y haga clic en **siguiente**.
-25. Seleccione **productos** desde el **nombre** desplegable y comprobar la  **\***  casilla de verificación en la **columnas** listbox.
+25. Seleccione <strong>productos</strong> desde el <strong>nombre</strong> lista desplegable y compruebe el <strong> \</ strong > * checkbox en el <strong>columnas</strong> cuadro de lista.
 26. Haga clic en el **donde** botón.
 27. Seleccione **ProductID** desde el **columna** lista desplegable.
-28. Seleccione  **=**  en la lista desplegable operador.
+28. Seleccione **=** en la lista desplegable operador.
 29. Seleccione **Control** desde el **origen** lista desplegable.
 30. Seleccione **GridView1** desde el **Id. de Control** lista desplegable.
 31. Haga clic en el **agregar** botón para agregar la cláusula WHERE.

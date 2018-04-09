@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 title: Botones personalizados DataList y repetidor (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial vamos a crear una interfaz que se utiliza un repetidor para enumerar las categorías en el sistema, con cada categoría de proporcionar un botón para mostrar su associ..."
+description: En este tutorial vamos a crear una interfaz que se utiliza un repetidor para enumerar las categorías en el sistema, con cada categoría de proporcionar un botón para mostrar su associ...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9a072ae18bbb19d086eb825c6e72b68d40b2e429
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d6d07f1dc3f97523da6d9ee1d45302cac06b45d2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>Botones personalizados DataList y repetidor (C#)
 ====================
@@ -104,8 +104,8 @@ Cada vez que se hace clic en un botón, LinkButton o ImageButton en una plantill
 
 Cuando se hace clic en un botón dentro de un DataList o repetidor, a menudo es necesario pasar (como qué botón se hizo clic (en el caso de que puede haber varios botones dentro del control, como una modificación de ambos y botón Eliminar) y quizás alguna información adicional el valor de clave principal del elemento cuyo botón se hizo clic). El botón, LinkButton e ImageButton proporcionan dos propiedades cuyos valores se pasan a la `ItemCommand` controlador de eventos:
 
-- `CommandName`una cadena que se utiliza normalmente para identificar cada botón en la plantilla
-- `CommandArgument`Normalmente se usa para contener el valor de algún campo de datos, como el valor de clave principal
+- `CommandName` una cadena que se utiliza normalmente para identificar cada botón en la plantilla
+- `CommandArgument` Normalmente se usa para contener el valor de algún campo de datos, como el valor de clave principal
 
 En este ejemplo, establezca la s LinkButton `CommandName` propiedad ShowProducts y se enlaza el valor de clave principal actual de registro s `CategoryID` a la `CommandArgument` propiedad utilizando la sintaxis de enlace de datos `CategoryArgument='<%# Eval("CategoryID") %>'`. Después de especificar estas dos propiedades, la sintaxis declarativa de LinkButton s debería ser similar al siguiente:
 
@@ -116,10 +116,10 @@ Cuando se presiona el botón, se produce un postback y la s DataList o repetidor
 
 Crear un controlador de eventos para el repetidor s `ItemCommand` eventos y observe el segundo parámetro pasan en el controlador de eventos (denominado `e`). Este segundo parámetro es de tipo [ `RepeaterCommandEventArgs` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeatercommandeventargs.aspx) y tiene las cuatro propiedades siguientes:
 
-- `CommandArgument`el valor del botón ha hecho clic s `CommandArgument` propiedad
-- `CommandName`el valor del botón s `CommandName` propiedad
-- `CommandSource`una referencia al control de botón que se hizo clic
-- `Item`una referencia a la [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) que contiene el botón que se hizo clic; cada registro enlazado a repetidor se manifiesta como un`RepeaterItem`
+- `CommandArgument` el valor del botón ha hecho clic s `CommandArgument` propiedad
+- `CommandName` el valor del botón s `CommandName` propiedad
+- `CommandSource` una referencia al control de botón que se hizo clic
+- `Item` una referencia a la [ `RepeaterItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.repeateritem.aspx) que contiene el botón que se hizo clic; cada registro enlazado a repetidor se manifiesta como un `RepeaterItem`
 
 Desde la categoría seleccionada s `CategoryID` se pasa a través de la `CommandArgument` propiedad, podemos obtener el conjunto de productos asociados con la categoría seleccionada en el `ItemCommand` controlador de eventos. Estos productos, a continuación, se pueden enlazar a un control BulletedList en el `ItemTemplate` (que se ve todavía para agregar). Todo lo que permanece, a continuación, consiste en Agregar BulletedList, hacer referencia a él en el `ItemCommand` controlador de eventos y enlazar el conjunto de productos para la categoría seleccionada, que abordaremos en el paso 4.
 
@@ -162,11 +162,11 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Dennis Patterson. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Siguiente](custom-buttons-in-the-datalist-and-repeater-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](custom-buttons-in-the-datalist-and-repeater-vb.md)

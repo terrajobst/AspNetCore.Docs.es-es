@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/adding-validation
-title: "Agregar validación | Documentos de Microsoft"
+title: Agregar validación | Documentos de Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 8d768727772738264d088315e605cca72db8de0a
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d084c5c7e232b92c8cfe2230e076752d42d8da5d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation"></a>Agregar una validación
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 En esta sección agregará una lógica de validación para el `Movie` modelo y deberá asegurarse de que las reglas de validación se aplican siempre que un usuario intenta crear o editar una película con la aplicación.
 
@@ -132,7 +132,7 @@ Abra el archivo *Movie.cs* y examine la clase `Movie`. El [ `System.ComponentMod
 
 [!code-csharp[Main](adding-validation/samples/sample7.cs)]
 
-El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributos sólo proporcionan sugerencias para el motor de vista para dar formato a los datos (y proporcionar atributos como `<a>` para la dirección URL y `<a href="mailto:EmailAddress.com">` para correo electrónico. Puede usar el [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atributo para validar el formato de los datos. El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributo se utiliza para especificar un tipo de datos que es más específico que el tipo intrínseco de base de datos, son ***no*** atributos de validación. En este caso sólo desea realizar un seguimiento de la fecha, no la fecha y hora. El [enumeración DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) proporciona para muchos tipos de datos, como *fecha, hora, número de teléfono, moneda, EmailAddress* y mucho más. El atributo `DataType` también puede permitir que la aplicación proporcione automáticamente características específicas del tipo. Por ejemplo, un `mailto:` vínculo se puede crear para [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), y no se puede proporcionar un selector de fecha para [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) en exploradores que admiten [HTML5](http://html5.org/). El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributos emite HTML 5 [datos -](http://ejohn.org/blog/html-5-data-attributes/) (pronunciado *guión datos*) atributos que pueden entender exploradores HTML 5. El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributos no proporcionan ninguna validación.
+El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributos sólo proporcionan sugerencias para el motor de vista para dar formato a los datos (y proporcionar atributos como `<a>` para la dirección URL y `<a href="mailto:EmailAddress.com">` para correo electrónico. Puede usar el [RegularExpression](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.regularexpressionattribute.aspx) atributo para validar el formato de los datos. El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributo se utiliza para especificar un tipo de datos que es más específico que el tipo intrínseco de base de datos, son ***no*** atributos de validación. En este caso solo se quiere realizar el seguimiento de la fecha, no de la fecha y la hora. El [enumeración DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) proporciona para muchos tipos de datos, como *fecha, hora, número de teléfono, moneda, EmailAddress* y mucho más. El atributo `DataType` también puede permitir que la aplicación proporcione automáticamente características específicas del tipo. Por ejemplo, un `mailto:` vínculo se puede crear para [DataType.EmailAddress](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx), y no se puede proporcionar un selector de fecha para [DataType.Date](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatype.aspx) en exploradores que admiten [HTML5](http://html5.org/). El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributos emite HTML 5 [datos -](http://ejohn.org/blog/html-5-data-attributes/) (pronunciado *guión datos*) atributos que pueden entender exploradores HTML 5. El [DataType](https://msdn.microsoft.com/library/system.componentmodel.dataannotations.datatypeattribute.aspx) atributos no proporcionan ninguna validación.
 
 `DataType.Date` no especifica el formato de la fecha que se muestra. De forma predeterminada, se muestra el campo de datos según los formatos predeterminados en función del servidor[CultureInfo](https://msdn.microsoft.com/library/vstudio/system.globalization.cultureinfo(v=vs.110).aspx).
 
@@ -166,6 +166,6 @@ El código siguiente muestra la combinación de atributos en una línea:
 
 En la siguiente parte de la serie de tutoriales, revisaremos la aplicación y realizaremos algunas mejoras a los métodos `Details` y `Delete` generados automáticamente.
 
->[!div class="step-by-step"]
-[Anterior](adding-a-new-field.md)
-[Siguiente](examining-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-new-field.md)
+> [Siguiente](examining-the-details-and-delete-methods.md)

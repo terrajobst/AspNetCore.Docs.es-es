@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
-title: "Escenario: Configurar un entorno de producción para la implementación Web | Documentos de Microsoft"
+title: 'Escenario: Configurar un entorno de producción para la implementación Web | Documentos de Microsoft'
 author: jrjlee
-description: "En este tema se describe un escenario de implementación web típica para un entorno de producción y se explica las tareas que debe completar para configurar un proceso similar..."
+description: En este tema se describe un escenario de implementación web típica para un entorno de producción y se explica las tareas que debe completar para configurar un proceso similar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cdd13f96ddf08ff86b01ef9de17ea82cf038ab28
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4de5b1f20f3adcb53765c7cb9765c0d90a80e677
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Escenario: Configurar un entorno de producción para la implementación Web
 ====================
@@ -59,6 +59,6 @@ Estos temas ofrece toda la información que necesita para completar estas tareas
 
 Para obtener instrucciones acerca de cómo configurar un entorno de prueba de desarrollo típicas, consulte [escenario: configuración de un entorno de prueba para la implementación Web](scenario-configuring-a-test-environment-for-web-deployment.md). Para obtener instrucciones acerca de cómo configurar un entorno típico de almacenamiento provisional, consulte [escenario: configuración de un entorno de ensayo para la implementación Web](scenario-configuring-a-staging-environment-for-web-deployment.md).
 
->[!div class="step-by-step"]
-[Anterior](scenario-configuring-a-staging-environment-for-web-deployment.md)
-[Siguiente](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)
+> [!div class="step-by-step"]
+> [Anterior](scenario-configuring-a-staging-environment-for-web-deployment.md)
+> [Siguiente](configuring-a-web-server-for-web-deploy-publishing-remote-agent.md)

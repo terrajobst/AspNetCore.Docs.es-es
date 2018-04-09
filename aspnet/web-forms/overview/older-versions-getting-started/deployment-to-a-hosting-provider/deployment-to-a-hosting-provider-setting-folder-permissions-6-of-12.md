@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: establecimiento de permisos de carpeta - 6 de 12 | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: establecimiento de permisos de carpeta - 6 de 12 | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 42085fff5f1aed1440f49e1e2ceee0cf0e751e2c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 573e75221a1c0018bded7544e584b0c75f47d607
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-setting-folder-permissions---6-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: establecimiento de permisos de carpeta - 6 de 12
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -61,7 +61,7 @@ En **el Explorador de Windows**, vaya a *C:\inetpub\wwwroot\ContosoUniversity*. 
 
 (Si no ve **DefaultAppPool** en el **nombres de grupo o usuario** lista, probablemente ha utilizado algún otro método que el especificado en este tutorial para configurar IIS y ASP.NET 4 en el equipo. En ese caso, averigüe qué identidad es usada por el grupo de aplicaciones asignado a la aplicación de la Universidad de Contoso y conceda el permiso de escritura para esa identidad. Consulte los vínculos acerca de las identidades de grupo de aplicaciones al final de este tutorial).
 
-Haga clic en **editar**. En el **permisos para Elmah** cuadro de diálogo, seleccione **DefaultAppPool**y, a continuación, seleccione la **escribir** casilla de verificación en la **permitir** columna.
+Haga clic en **Editar**. En el **permisos para Elmah** cuadro de diálogo, seleccione **DefaultAppPool**y, a continuación, seleccione la **escribir** casilla de verificación en la **permitir** columna.
 
 [![Permissions_for_Elmah_dialog_box](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image8.png)](deployment-to-a-hosting-provider-setting-folder-permissions-6-of-12/_static/image7.png)
 
@@ -83,6 +83,6 @@ En este ejemplo, motivo por qué se ha podido guardar archivos de registro Elmah
 
 Para obtener más información acerca de cómo conceder permisos a las identidades del grupo de aplicaciones, consulte [identidades del grupo de aplicaciones](https://www.iis.net/learn/manage/configuring-security/application-pool-identities) y [contenido seguro en IIS a través de ACL del sistema archivo](https://www.iis.net/learn/get-started/planning-for-security/secure-content-in-iis-through-file-system-acls) en el sitio de IIS.net.
 
->[!div class="step-by-step"]
-[Anterior](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
-[Siguiente](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)
+> [!div class="step-by-step"]
+> [Anterior](deployment-to-a-hosting-provider-deploying-to-iis-as-a-test-environment-5-of-12.md)
+> [Siguiente](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12.md)

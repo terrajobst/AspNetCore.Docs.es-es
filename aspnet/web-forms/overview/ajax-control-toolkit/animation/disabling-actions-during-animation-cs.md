@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
-title: "Deshabilite las acciones durante la animación (C#) | Documentos de Microsoft"
+title: Deshabilite las acciones durante la animación (C#) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. También admite la acción..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. También admite la acción...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/disabling-actions-during-animation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 875c6be5e190c31fac030fc17ef040a934233f16
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7862c5026a48fbee6eb48beb411e5e1d60c8b406
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="disabling-actions-during-animation-c"></a>Deshabilite las acciones durante la animación (C#)
 ====================
@@ -62,6 +62,6 @@ Sin embargo en el escenario que nos ocupa sería inservible desde el botón aten
 
 El botón está deshabilitado en cuanto se ejecuta la animación ([haga clic aquí para ver la imagen a tamaño completo](disabling-actions-during-animation-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](animating-in-response-to-user-interaction-cs.md)
-[Siguiente](triggering-an-animation-in-another-control-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](animating-in-response-to-user-interaction-cs.md)
+> [Siguiente](triggering-an-animation-in-another-control-cs.md)

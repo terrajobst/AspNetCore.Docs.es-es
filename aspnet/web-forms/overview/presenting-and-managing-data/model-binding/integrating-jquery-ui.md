@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
-title: "Integración de JQuery UI Datepicker con el enlace de modelos y formularios web forms | Documentos de Microsoft"
+title: Integración de JQuery UI Datepicker con el enlace de modelos y formularios web forms | Documentos de Microsoft
 author: tfitzmac
-description: "Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-..."
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/integrating-jquery-ui
 msc.type: authoredcontent
-ms.openlocfilehash: da3c8f347a709a4c9a47fd0ecce5201d9b0cd1b1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 126262b440f3e914a7fac3f0b7eeadb4f648d2bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="integrating-jquery-ui-datepicker-with-model-binding-and-web-forms"></a>Integración de JQuery UI Datepicker con el enlace de modelos y formularios web forms
 ====================
@@ -115,6 +115,6 @@ En este tutorial, aprendió a incorporar un widget de JQuery en un formulario we
 
 En la siguiente [tutorial](using-query-string-values-to-retrieve-data.md), usará un valor de cadena de consulta al seleccionar los datos.
 
->[!div class="step-by-step"]
-[Anterior](sorting-paging-and-filtering-data.md)
-[Siguiente](using-query-string-values-to-retrieve-data.md)
+> [!div class="step-by-step"]
+> [Anterior](sorting-paging-and-filtering-data.md)
+> [Siguiente](using-query-string-values-to-retrieve-data.md)

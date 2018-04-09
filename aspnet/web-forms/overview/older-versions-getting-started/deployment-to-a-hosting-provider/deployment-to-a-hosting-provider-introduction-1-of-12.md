@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio: Introducción - 1 de 12 | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio: Introducción - 1 de 12 | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-introduction-1-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: a0f38c83bd9231dbd37d3d505c90316af521b336
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 3f1572bb890ee136cdd746040a5efae2ce537116
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-introduction---1-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio: Introducción - 1 de 12
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -53,7 +53,7 @@ Los tutoriales están dirigidos a los desarrolladores ASP.NET que trabajan en or
 
 En entornos empresariales, es más habitual para implementar los procesos de integración continua y el entorno de producción normalmente está hospedado en los servidores de la compañía. Cada persona normalmente, también ejecutan diferentes roles. Para obtener información acerca de la implementación empresarial, consulte [implementar aplicaciones Web en escenarios empresariales](../../deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios.md).
 
-Las organizaciones de todos los tamaños también pueden implementar aplicaciones web en Azure y la mayoría de los procedimientos que se muestran en estos tutoriales se aplica también a aplicaciones de Web de servicios de aplicación de Azure. Para obtener una introducción a Azure, consulte [https://azure.microsoft.com](https://azure.microsoft.com).
+Las organizaciones de todos los tamaños también pueden implementar aplicaciones web en Azure y la mayoría de los procedimientos que se muestran en estos tutoriales se aplica también a aplicaciones de Web de servicios de aplicación de Azure. Para obtener una introducción a Azure, consulte [ https://azure.microsoft.com ](https://azure.microsoft.com).
 
 ## <a name="the-hosting-provider-shown-in-the-tutorials"></a>El proveedor de hospedaje que se muestra en los tutoriales
 
@@ -142,5 +142,5 @@ Las siguientes características de la aplicación afecta a cómo implementarlo o
 
 En este primer tutorial de la serie, ha descargado el proyecto de Visual Studio de ejemplo y revisar las características de sitio que afectan a cómo implementar la aplicación. En los siguientes tutoriales para preparar para la implementación mediante la configuración de algunas de estas cosas administrará automáticamente. Otros que se ocupa de forma manual.
 
->[!div class="step-by-step"]
-[Siguiente](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [!div class="step-by-step"]
+> [Siguiente](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 title: Opciones (VB) de hospedaje de ASP.NET | Documentos de Microsoft
 author: rick-anderson
-description: "Las aplicaciones web ASP.NET se diseñan habitualmente, crean y probaron en un entorno de desarrollo local y deben implementarse para un o del entorno de producción..."
+description: Las aplicaciones web ASP.NET se diseñan habitualmente, crean y probaron en un entorno de desarrollo local y deben implementarse para un o del entorno de producción...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/asp-net-hosting-options-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 54bac82a96a35d871d764849856c8e31f6570666
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0e99423ec803927d0f621c88f3d814578fec11f5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-hosting-options-vb"></a>Opciones de hospedaje de ASP.NET (VB)
 ====================
@@ -61,7 +61,7 @@ La información de configuración para una aplicación web normalmente se encuen
 Además de los cambios de configuración de aplicación web, paso 1 también puede implicar la configuración para el servidor web y la base de datos. Por ejemplo, si una página ASP.NET crea o elimina archivos de un directorio en el servidor web, a continuación, el servidor web debe configurarse para permitir que estas modificaciones del sistema de archivos. De forma similar, puede haber configuración de autenticación o permisos que deben realizarse en la base de datos.
 
 
-Paso 2 implica la sincronización el conjunto de páginas ASP.NET esenciales y archivos de compatibilidad entre los entornos de desarrollo y producción. El conjunto determinado de ASP. Archivos relacionados con la red que deben estar sincronizada entre los dos entornos depende del tipo de proyecto creado en Visual Studio y el análisis en el tutorial siguiente, es  *[determinar qué archivos deben implementarse](determining-what-files-need-to-be-deployed-vb.md)*. Los tutoriales terceros y cuarto -  *[implementar su sitio mediante FTP](deploying-your-site-using-an-ftp-client-vb.md)*y  *[implementar su sitio con Visual Studio](deploying-your-site-using-visual-studio-vb.md)*  -examinar diferentes herramientas y técnicas de sincronización de estos archivos.
+Paso 2 implica la sincronización el conjunto de páginas ASP.NET esenciales y archivos de compatibilidad entre los entornos de desarrollo y producción. El conjunto determinado de ASP. Archivos relacionados con la red que deben estar sincronizada entre los dos entornos depende del tipo de proyecto creado en Visual Studio y el análisis en el tutorial siguiente, es  <em>[determinar qué archivos deben implementarse](determining-what-files-need-to-be-deployed-vb.md)</em>. Los tutoriales terceros y cuarto -  <em>[implementar su sitio mediante FTP](deploying-your-site-using-an-ftp-client-vb.md)</em>y <em>[implementar su sitio con Visual Studio](deploying-your-site-using-visual-studio-vb.md)</em> -examinar diferentes herramientas y técnicas de sincronización de estos archivos.
 
 Al compilar aplicaciones orientadas a datos hay normalmente dos bases de datos que se va a usar: uno para desarrollo y otro en producción. Durante el desarrollo, esquema de la base de datos del desarrollo puede modificarse para incluir nuevas tablas, columnas, procedimientos almacenados y desencadenadores, o puede modificar para quitar o cambiar el nombre de los objetos de base de datos existentes. Entre el tiempo que se realizan estos cambios y la hora en que la aplicación se implementa en producción, las bases de datos de desarrollo y producción están sincronizados. Este asincronía debe solucionarse durante el proceso de implementación. Estos desafíos se examinarán en tutoriales futuros.
 
@@ -95,6 +95,6 @@ Feliz programación.
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Teresa Murphy. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](users-and-roles-on-the-production-website-cs.md)
-[Siguiente](determining-what-files-need-to-be-deployed-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](users-and-roles-on-the-production-website-cs.md)
+> [Siguiente](determining-what-files-need-to-be-deployed-vb.md)

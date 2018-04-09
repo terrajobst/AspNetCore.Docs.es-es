@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 title: Agregar una columna al modelo | Documentos de Microsoft
 author: shanselman
-description: "Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos."
+description: Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part8
 msc.type: authoredcontent
-ms.openlocfilehash: 17ee105f596319423ac83cf718683ed293f952f3
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7a0b64ce00fc5ee6d49990f1d4d93a154c467bf5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-column-to-the-model"></a>Agregar una columna al modelo
 ====================
@@ -77,11 +77,11 @@ Después de hacer clic en crear, se envían a la página de índice donde se nue
 
 Este tutorial básico de tenemos que pueda empezar a hacer que los controladores, asociarlos con las vistas y pasar sobre los datos codificados de forma rígida. A continuación, se crea y diseñado una base de datos y poner algunos datos en. Se recuperan los datos de la base de datos y se muestran en una tabla HTML. A continuación, agregamos un formulario de creación que permiten al usuario agregar datos a la base de datos por sí mismos desde dentro de la aplicación Web. Se agrega validación, a continuación, realice la validación usa JavaScript en el cliente. Por último, se cambia la base de datos para incluir una nueva columna de datos, a continuación, actualizan nuestras dos páginas para crear y mostrar los nuevos datos.
 
-Ahora le animo a pasar a nuestro tutorial de nivel intermedio "[tienda de música de MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)", así como los vídeos y recursos en muchas [https://asp.net/mvc](https://asp.net/mvc) para más información sobre ASP.NET MVC.
+Ahora le animo a pasar a nuestro tutorial de nivel intermedio "[tienda de música de MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md)", así como los vídeos y recursos en muchas [ https://asp.net/mvc ](https://asp.net/mvc) para más información sobre ASP.NET MVC.
 
 Disfrútelo.
 
-- Scott Hanselman - [http://hanselman.com](http://hanselman.com) y [ @shanselman ](http://twitter.com/shanselman) en Twitter.
+- Scott Hanselman - [ http://hanselman.com ](http://hanselman.com) y [ @shanselman ](http://twitter.com/shanselman) en Twitter.
 
->[!div class="step-by-step"]
-[Anterior](getting-started-with-mvc-part7.md)
+> [!div class="step-by-step"]
+> [Anterior](getting-started-with-mvc-part7.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/api-reference/asp-net-web-pages-api-reference
-title: "Referencia de API rápida (Razor) de ASP.NET Web Pages | Documentos de Microsoft"
+title: Referencia de API rápida (Razor) de ASP.NET Web Pages | Documentos de Microsoft
 author: tfitzmac
-description: "Esta página contiene una lista con ejemplos breves de los objetos usados más habitualmente, propiedades y métodos de programación en ASP.NET Web Pages con sintaxis Razor."
+description: Esta página contiene una lista con ejemplos breves de los objetos usados más habitualmente, propiedades y métodos de programación en ASP.NET Web Pages con sintaxis Razor.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/api-reference/asp-net-web-pages-api-reference
 msc.type: authoredcontent
-ms.openlocfilehash: 35f91f4dbea4881d9dabc4ab7c6b96dbb6a01ea2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5f9d84f4d453583d7d4eae12e4fc510275255616
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-api-quick-reference"></a>Referencia de API rápida (Razor) de ASP.NET Web Pages
 ====================
@@ -158,13 +158,13 @@ Obtiene los archivos que se cargaron en la solicitud actual.
 
 ### `Request.Form[key]`
 
-Obtiene los datos que se ha registrado en un formulario (como cadenas). `Request[key]`comprueba tanto el `Request.Form` y `Request.QueryString` colecciones.
+Obtiene los datos que se ha registrado en un formulario (como cadenas). `Request[key]` comprueba tanto el `Request.Form` y `Request.QueryString` colecciones.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample19.cs)]
 
 ### `Request.QueryString[key]`
 
-Obtiene los datos que se especificó en la cadena de consulta de dirección URL. `Request[key]`comprueba tanto el `Request.Form` y `Request.QueryString` colecciones.
+Obtiene los datos que se especificó en la cadena de consulta de dirección URL. `Request[key]` comprueba tanto el `Request.Form` y `Request.QueryString` colecciones.
 
 [!code-csharp[Main](asp-net-web-pages-api-reference/samples/sample20.cs)]
 
@@ -692,7 +692,7 @@ Envía un mensaje de correo electrónico.
 
 ### `WebMail.SmtpServer`
 
-Establece el nombre del servidor SMTP. Normalmente, debe establecer esta propiedad el*\_AppStart* página.
+Establece el nombre del servidor SMTP. Normalmente, debe establecer esta propiedad el<em>\_AppStart</em> página.
 
 [!code-html[Main](asp-net-web-pages-api-reference/samples/sample105.html)]
 

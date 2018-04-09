@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
-title: "Instalar una aplicación auxiliar en un ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft"
+title: Instalar una aplicación auxiliar en un ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft
 author: tfitzmac
-description: "En este artículo se describe cómo instalar una aplicación auxiliar en un sitio Web de ASP.NET Web Pages (Razor). Una aplicación auxiliar es un componente reutilizable que incluye código y marcado en por..."
+description: En este artículo se describe cómo instalar una aplicación auxiliar en un sitio Web de ASP.NET Web Pages (Razor). Una aplicación auxiliar es un componente reutilizable que incluye código y marcado en por...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 842c5a56d14314217c1e6ad6d48ded28d3cc5b4e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 766fbb87ae8bcb8917eb8fa7f552c00792242cf6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Instalar una aplicación auxiliar en un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -49,10 +49,10 @@ ASP.NET Web Pages tiene algunas aplicaciones auxiliares integradas. Sin embargo,
 2. Esto inicia el Administrador de paquetes de NuGet y muestra los paquetes disponibles. En el cuadro de búsqueda, escriba una palabra clave para la aplicación auxiliar que se va a instalar.
 
     ![Cuadro de diálogo de la Galería de NuGet en WebMatrix](installing-helpers/_static/image2.png)
-- Seleccione el paquete y, a continuación, haga clic en **instalar**. Haga clic en **Sí** cuando se le pregunte si desea instalar el paquete e indique que acepta los términos.
+3. Seleccione el paquete y, a continuación, haga clic en **instalar**. Haga clic en **Sí** cuando se le pregunte si desea instalar el paquete e indique que acepta los términos.
 
-    Si se trata de la primera vez que se ha instalado una aplicación auxiliar, NuGet crea carpetas en el sitio Web para el código que constituye la aplicación auxiliar.
-- Para desinstalar una aplicación auxiliar, haga clic en el **galería** botón, haga clic en el **instalado** pestaña y elegir el paquete que desea desinstalar.
+     Si se trata de la primera vez que se ha instalado una aplicación auxiliar, NuGet crea carpetas en el sitio Web para el código que constituye la aplicación auxiliar.
+4. Para desinstalar una aplicación auxiliar, haga clic en el **galería** botón, haga clic en el **instalado** pestaña y elegir el paquete que desea desinstalar.
 
 ## <a name="installing-the-twitter-helper"></a>Instalar la aplicación auxiliar de Twitter
 

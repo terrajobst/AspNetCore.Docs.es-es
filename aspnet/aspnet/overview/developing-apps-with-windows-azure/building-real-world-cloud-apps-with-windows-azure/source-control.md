@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
-title: "(Creación de aplicaciones de nube reales con Azure) del Control de código fuente | Documentos de Microsoft"
+title: (Creación de aplicaciones de nube reales con Azure) del Control de código fuente | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/23/2015
 ms.topic: article
 ms.assetid: 2a0370d3-c2fb-4bf3-88b8-aad5a736c793
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control
 msc.type: authoredcontent
-ms.openlocfilehash: e3ce68b949199db35c18a09771d99d38562b74e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0022458fa89a3be7ee8303750ad0e072df3b1bab
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a>Control de código fuente (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -66,7 +66,7 @@ La bifurcación principal siempre coincide con código que se encuentra en produ
 
 Para los equipos grandes puede ser bifurcaciones independientes para cada nueva característica; para un equipo más pequeño es posible que tenga todos los usuarios la comprobación a la bifurcación development.
 
-Si tienes una bifurcación para cada característica, característica A una vez listo mezcla sus cambios de código fuente de la seguridad en el desarrollo de crear una bifurcación y hacia abajo en las demás ramas de característica. Este código de origen, proceso de mezcla puede llevar mucho tiempo y para evitar ese trabajo mientras mantiene características independientes, algunos equipos implementan alternativa llama  *[característica alterna](http://en.wikipedia.org/wiki/Feature_toggle)*  (también conocida como *característica marcas*). Esto significa que todo el código para todas las características de está en la misma bifurcación y habilitar o deshabilitar cada característica mediante el uso de modificadores en el código. Por ejemplo, suponga que una característica es un nuevo campo para repararlo tareas de aplicación y de características B agrega funcionalidad de almacenamiento en caché. El código para ambas características puede estar en la bifurcación development, pero sólo la mostrará de aplicación el nuevo campo cuando una variable se establece en true y sólo utilizará almacenamiento en caché cuando se establece una variable distinta en true. Si una característica no está listo para promocionar pero características B está listo, puede promocionar todo el código a producción con el modificador de característica A desactivar y activar la característica B. A continuación, puede finalizar una característica y promover una versión posterior, todos con ninguna combinación de código de origen.
+Si tienes una bifurcación para cada característica, característica A una vez listo mezcla sus cambios de código fuente de la seguridad en el desarrollo de crear una bifurcación y hacia abajo en las demás ramas de característica. Este código de origen, proceso de mezcla puede llevar mucho tiempo y para evitar ese trabajo mientras mantiene características independientes, algunos equipos implementan alternativa llama *[característica alterna](http://en.wikipedia.org/wiki/Feature_toggle)* (también conocida como *característica marcas*). Esto significa que todo el código para todas las características de está en la misma bifurcación y habilitar o deshabilitar cada característica mediante el uso de modificadores en el código. Por ejemplo, suponga que una característica es un nuevo campo para repararlo tareas de aplicación y de características B agrega funcionalidad de almacenamiento en caché. El código para ambas características puede estar en la bifurcación development, pero sólo la mostrará de aplicación el nuevo campo cuando una variable se establece en true y sólo utilizará almacenamiento en caché cuando se establece una variable distinta en true. Si una característica no está listo para promocionar pero características B está listo, puede promocionar todo el código a producción con el modificador de característica A desactivar y activar la característica B. A continuación, puede finalizar una característica y promover una versión posterior, todos con ninguna combinación de código de origen.
 
 Si no utiliza bifurcaciones o alterna para características, una estructura de bifurcación parecido a esto hace posible pasar el código de desarrollo al entorno de producción de una manera ágil y repetible.
 
@@ -221,6 +221,6 @@ Para obtener más información sobre cómo controlar la información confidencia
 
 Para obtener información acerca de otros métodos para mantener la información confidencial fuera del control de código fuente, consulte [ASP.NET MVC: mantener privada configuración fuera de Control de código fuente](http://typecastexception.com/post/2014/04/06/ASPNET-MVC-Keep-Private-Settings-Out-of-Source-Control.aspx).
 
->[!div class="step-by-step"]
-[Anterior](automate-everything.md)
-[Siguiente](continuous-integration-and-continuous-delivery.md)
+> [!div class="step-by-step"]
+> [Anterior](automate-everything.md)
+> [Siguiente](continuous-integration-and-continuous-delivery.md)

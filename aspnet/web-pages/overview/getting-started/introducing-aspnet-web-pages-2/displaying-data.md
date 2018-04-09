@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
-title: "Introducción a ASP.NET Web Pages: mostrar datos | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: mostrar datos | Documentos de Microsoft'
 author: tfitzmac
-description: "Este tutorial muestra cómo crear una base de datos en WebMatrix y cómo mostrar datos de la base de datos en una página cuando se utiliza ASP.NET Web Pages (Razor). Se supone y..."
+description: Este tutorial muestra cómo crear una base de datos en WebMatrix y cómo mostrar datos de la base de datos en una página cuando se utiliza ASP.NET Web Pages (Razor). Se supone y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/displaying-data
 msc.type: authoredcontent
-ms.openlocfilehash: fdb9af0ba87c7802c63451ac7aa422e0020b5719
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6c66e5fb0a1a49da411286e19c7954f83055c3fd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---displaying-data"></a>Introducción a ASP.NET Web Pages: mostrar datos
 ====================
@@ -36,7 +36,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 > Características y tecnologías que se tratan:
 > 
 > - Herramientas de base de datos de WebMatrix.
-> - `WebGrid`aplicación auxiliar.
+> - `WebGrid` aplicación auxiliar.
 
 
 ## <a name="what-youll-build"></a>Lo que vamos a compilar
@@ -338,6 +338,6 @@ En el siguiente tutorial, aprenderá cómo utilizar código Razor y C# para obte
 
 - [Introducción a la programación Web de ASP.NET mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkID=202890)
 
->[!div class="step-by-step"]
-[Anterior](intro-to-web-pages-programming.md)
-[Siguiente](form-basics.md)
+> [!div class="step-by-step"]
+> [Anterior](intro-to-web-pages-programming.md)
+> [Siguiente](form-basics.md)

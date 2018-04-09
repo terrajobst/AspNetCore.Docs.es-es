@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 title: Depurar procedimientos almacenados (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Ediciones de Visual Studio Professional y Team System permiten establecer puntos de interrupción y paso a paso los procedimientos almacenados de SQL Server, que realiza la depuración almacenados..."
+description: Ediciones de Visual Studio Professional y Team System permiten establecer puntos de interrupción y paso a paso los procedimientos almacenados de SQL Server, que realiza la depuración almacenados...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/debugging-stored-procedures-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad09847d828d02019a72e3022d035a8fbe921568
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 3391a78eaeb0add46e75048069a614ba00628f67
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="debugging-stored-procedures-vb"></a>Depurar procedimientos almacenados (VB)
 ====================
@@ -167,7 +167,7 @@ El primer paso es relativamente sencillo. En primer lugar, identificar la cuenta
 
 La segunda tarea requiere que la cuenta de usuario de Windows que se utilizar para depurar la aplicación sea un inicio de sesión válido en la base de datos remota. Sin embargo, lo más probable es que conectado a la estación de trabajo con la cuenta de Windows no es un inicio de sesión válido en SQL Server. En lugar de agregar la cuenta de inicio de sesión determinado a SQL Server, sería una opción mejor designar alguna cuenta de usuario de Windows como la cuenta de depuración de SQL Server. A continuación, para depurar los objetos de base de datos de una instancia de SQL Server remota, podría ejecutar Visual Studio con las credenciales que cuenta s de inicio de sesión de Windows.
 
-Un ejemplo debe ayudar a aclarar cosas. Imagine que hay una cuenta de Windows denominada `SQLDebug` dentro del dominio de Windows. Esta cuenta se debe agregarse a la instancia remota de SQL Server como un inicio de sesión válido, como un miembro de la `sysadmin` rol. A continuación, para depurar la instancia de SQL Server remota desde Visual Studio, se necesita ejecutar Visual Studio como la `SQLDebug` usuario. Esto puede realizarse al cerrar sesión en la estación de trabajo, en el registro como `SQLDebug`, y, a continuación, inicie Visual Studio, pero un enfoque más simple sería iniciar sesión en la estación de trabajo con nuestros propio credenciales y, a continuación, usar `runas.exe` para iniciar Visual Studio como el `SQLDebug` usuario. `runas.exe`permite que una aplicación concreta que se ejecuta en forma de una cuenta de usuario diferente. Para iniciar Visual Studio como `SQLDebug`, puede escribir la siguiente instrucción en la línea de comandos:
+Un ejemplo debe ayudar a aclarar cosas. Imagine que hay una cuenta de Windows denominada `SQLDebug` dentro del dominio de Windows. Esta cuenta se debe agregarse a la instancia remota de SQL Server como un inicio de sesión válido, como un miembro de la `sysadmin` rol. A continuación, para depurar la instancia de SQL Server remota desde Visual Studio, se necesita ejecutar Visual Studio como la `SQLDebug` usuario. Esto puede realizarse al cerrar sesión en la estación de trabajo, en el registro como `SQLDebug`, y, a continuación, inicie Visual Studio, pero un enfoque más simple sería iniciar sesión en la estación de trabajo con nuestros propio credenciales y, a continuación, usar `runas.exe` para iniciar Visual Studio como el `SQLDebug` usuario. `runas.exe` permite que una aplicación concreta que se ejecuta en forma de una cuenta de usuario diferente. Para iniciar Visual Studio como `SQLDebug`, puede escribir la siguiente instrucción en la línea de comandos:
 
 
 [!code-console[Main](debugging-stored-procedures-vb/samples/sample2.cmd)]
@@ -190,8 +190,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](protecting-connection-strings-and-other-configuration-information-vb.md)
-[Siguiente](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](protecting-connection-strings-and-other-configuration-information-vb.md)
+> [Siguiente](creating-stored-procedures-and-user-defined-functions-with-managed-code-vb.md)

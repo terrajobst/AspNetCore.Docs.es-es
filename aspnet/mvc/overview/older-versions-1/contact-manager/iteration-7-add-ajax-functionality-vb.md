@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
-title: "Iteración #7: la funcionalidad de Ajax de agregar (VB) | Documentos de Microsoft"
+title: 'Iteración #7: la funcionalidad de Ajax de agregar (VB) | Documentos de Microsoft'
 author: microsoft
-description: "En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax."
+description: En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-7-add-ajax-functionality-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fa50fdea8ac165be3f8e96322ec049196a511ebe
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d961ee39d7b87a31c7208645148b45c7b0c563
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-7--add-ajax-functionality-vb"></a>Iteración #7: la funcionalidad de Ajax de agregar (VB)
 ====================
@@ -44,7 +44,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -243,5 +243,5 @@ También hemos agregado compatibilidad con exploradores de historial a nuestra a
 
 Por último, hemos creado un vínculo de eliminación que admite operaciones HTTP DELETE. Si realiza eliminaciones de Ajax, se permiten a los usuarios eliminar registros de base de datos sin solicitar al usuario solicitar una página de confirmación de eliminación adicionales.
 
->[!div class="step-by-step"]
-[Anterior](iteration-6-use-test-driven-development-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-6-use-test-driven-development-vb.md)

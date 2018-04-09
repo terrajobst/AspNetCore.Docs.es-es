@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 title: Lote Insertar (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Obtenga información acerca de cómo insertar varios registros de base de datos en una sola operación. En la capa de interfaz de usuario se amplía GridView para permitir al usuario que escriba n varios..."
+description: Obtenga información acerca de cómo insertar varios registros de base de datos en una sola operación. En la capa de interfaz de usuario se amplía GridView para permitir al usuario que escriba n varios...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-batched-data/batch-inserting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f09b5fd86c1cc6641fb42a466b07da161c1dd35
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a25c889784ccc6cee3ae01df59bd489b48114e74
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="batch-inserting-vb"></a>Lote Insertar (VB)
 ====================
@@ -203,7 +203,7 @@ A continuación, crear controladores de eventos para agregar productos desde los
 
 [!code-vb[Main](batch-inserting-vb/samples/sample5.vb)]
 
-Ambos `Click` basta con llamar controladores de eventos el `ReturnToDisplayInterface` método, aunque se tendrá que volver a agregar productos de envío `Click` controlador de eventos en el paso 4 y agregue código para guardar los productos. `ReturnToDisplayInterface`inicia devolviendo el `Suppliers` y `Categories` listas desplegables para sus primeras opciones. Las dos constantes `firstControlID` y `lastControlID` marcar iniciales y finales de los valores de índice de control utilizados para designar el nombre y la unidad precio del producto cuadros de texto en la inserción de la interfaz y se usan en los límites de la `For` bucle que establece el `Text`de respaldo de propiedades de los controles de cuadro de texto en una cadena vacía. Por último, los paneles `Visible` se restablecen propiedades para que se oculta la interfaz de inserción y se muestra la interfaz de presentación.
+Ambos `Click` basta con llamar controladores de eventos el `ReturnToDisplayInterface` método, aunque se tendrá que volver a agregar productos de envío `Click` controlador de eventos en el paso 4 y agregue código para guardar los productos. `ReturnToDisplayInterface` inicia devolviendo el `Suppliers` y `Categories` listas desplegables para sus primeras opciones. Las dos constantes `firstControlID` y `lastControlID` marcar iniciales y finales de los valores de índice de control utilizados para designar el nombre y la unidad precio del producto cuadros de texto en la inserción de la interfaz y se usan en los límites de la `For` bucle que establece el `Text`de respaldo de propiedades de los controles de cuadro de texto en una cadena vacía. Por último, los paneles `Visible` se restablecen propiedades para que se oculta la interfaz de inserción y se muestra la interfaz de presentación.
 
 Tómese un momento para probar esta página en un explorador. Al visitar la página de en primer lugar verá la interfaz de presentación tal y como se muestra en la figura 5. Haga clic en el botón de envío del producto de proceso. La página se de devolución de datos y ahora debería ver la interfaz de inserción tal como se muestra en la figura 12. Al hacer clic en cualquier los productos agregar botones de envío o en Cancelar, se devuelve a la interfaz de presentación.
 
@@ -269,11 +269,11 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Provocar a revisores para este tutorial fueron Hilton Giesenow y S ren Jacob Lauritsen. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](batch-deleting-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](batch-deleting-vb.md)

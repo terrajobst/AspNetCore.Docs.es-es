@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
-title: "Parte 7: Creación de los principales página | Documentos de Microsoft"
+title: 'Parte 7: Creación de los principales página | Documentos de Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 4d06e72bc664f707bbbe4603be41347158c58903
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2c378e68a1e6600daf655c19afbfe355e89496d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-7-creating-the-main-page"></a>Parte 7: Creación de los principales página
 ====================
@@ -59,13 +59,13 @@ Los usuarios pueden seleccionar un pedido existente y obtener los detalles del p
 
 El `OrderDetailsViewModel` se inicializa con un pedido, y captura los detalles del pedido mediante el envío de una solicitud AJAX al servidor.
 
-Además, tenga en cuenta el `total` propiedad en el `OrderDetailsViewModel`. Esta propiedad es un tipo especial de objeto observable que se llama a un [calcula observable](http://knockoutjs.com/documentation/computedObservables.html). Como su nombre indica, un objeto observable calculada le permite enlazar los datos a un valor calculado &#8212; en este caso, el coste total del pedido.
+Además, tenga en cuenta el `total` propiedad en el `OrderDetailsViewModel`. Esta propiedad es un tipo especial de objeto observable que se llama a un [calcula observable](http://knockoutjs.com/documentation/computedObservables.html). Como su nombre indica, un objeto observable calculada le permite enlazar los datos con un valor calculado&#8212;en este caso, el coste total del pedido.
 
 A continuación, agregue estas funciones para `AppViewModel`:
 
-- `resetCart`Quita todos los elementos del carro.
-- `getDetails`Obtiene los detalles de un pedido (por pusing un nuevo `OrderDetailsViewModel` en el `details` lista).
-- `createOrder`crea un nuevo pedido y vacía el carro.
+- `resetCart` Quita todos los elementos del carro.
+- `getDetails` Obtiene los detalles de un pedido (por pusing un nuevo `OrderDetailsViewModel` en el `details` lista).
+- `createOrder` crea un nuevo pedido y vacía el carro.
 
 
 [!code-javascript[Main](using-web-api-with-entity-framework-part-7/samples/sample6.js?highlight=4)]
@@ -119,5 +119,5 @@ Recursos adicionales:
 - [Mapa de contenido de acceso de datos de ASP.NET](https://msdn.microsoft.com/library/6759sth4.aspx)
 - [Centro para desarrolladores de Entity Framework](https://msdn.microsoft.com/data/ef)
 
->[!div class="step-by-step"]
-[Anterior](using-web-api-with-entity-framework-part-6.md)
+> [!div class="step-by-step"]
+> [Anterior](using-web-api-with-entity-framework-part-6.md)

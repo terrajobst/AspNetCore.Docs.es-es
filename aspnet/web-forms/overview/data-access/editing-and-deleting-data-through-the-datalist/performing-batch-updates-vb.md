@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 title: Realizar actualizaciones por lotes (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Información sobre cómo crear un totalmente editable DataList donde todos sus elementos están en modo de edición y cuyos valores se pueden guardar haciendo clic en un botón \"Actualizar todo\" en los..."
+description: Información sobre cómo crear un totalmente editable DataList donde todos sus elementos están en modo de edición y cuyos valores se pueden guardar haciendo clic en un botón "Actualizar todo" en los...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: df22a7c4aedb5e5fef183817e9d2b1e4c4a919ee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4d28a431c2b09de8c46079e888aa191017de4e30
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-batch-updates-vb"></a>Realizar actualizaciones por lotes (VB)
 ====================
@@ -43,8 +43,8 @@ En este tutorial, examinaremos cómo permitir a los usuarios actualizar informac
 
 En el tutorial anterior, donde se crea a un DataList editable estándar, el nivel de elemento, utilizamos dos plantillas:
 
-- `ItemTemplate`contiene la interfaz de usuario de solo lectura (los controles Web de etiqueta para mostrar cada nombre de producto s y precio).
-- `EditItemTemplate`contiene la interfaz de usuario de modo de edición (los dos controles de cuadro de texto Web).
+- `ItemTemplate` contiene la interfaz de usuario de solo lectura (los controles Web de etiqueta para mostrar cada nombre de producto s y precio).
+- `EditItemTemplate` contiene la interfaz de usuario de modo de edición (los dos controles de cuadro de texto Web).
 
 El control DataList s `EditItemIndex` propiedad determina qué `DataListItem` (si existe) se representa mediante el `EditItemTemplate`. En concreto, el `DataListItem` cuyo `ItemIndex` valor coincide con el control DataList s `EditItemIndex` propiedad se represente usando el `EditItemTemplate`. Este modelo funciona bien cuando se puede editar un único elemento en un momento, pero la diferencia se encuentra al crear a un control DataList totalmente editables.
 
@@ -163,12 +163,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Zack Jones y Ken Pespisa. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
-[Siguiente](handling-bll-and-dal-level-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](an-overview-of-editing-and-deleting-data-in-the-datalist-vb.md)
+> [Siguiente](handling-bll-and-dal-level-exceptions-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
-title: "Agregar controles de validación para la edición e insertar Interfaces (VB) | Documentos de Microsoft"
+title: Agregar controles de validación para la edición e insertar Interfaces (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos lo fácil que es agregar controles de validación a las plantillas EditItemTemplate e InsertItemTemplate de un control Web de datos para proporcionar una más..."
+description: En este tutorial veremos lo fácil que es agregar controles de validación a las plantillas EditItemTemplate e InsertItemTemplate de un control Web de datos para proporcionar una más...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/17/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-validation-controls-to-the-editing-and-inserting-interfaces-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 53414aa17514d07083fe05b8c2abcba10a01cf98
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: eda86c5481e5739b6cd9a2470889a26144302a3f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-vb"></a>Agregar controles de validación para la edición e insertar Interfaces (VB)
 ====================
@@ -269,12 +269,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial fueron Liz Shulok y Zack Jones. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
-[Siguiente](customizing-the-data-modification-interface-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](handling-bll-and-dal-level-exceptions-in-an-asp-net-page-vb.md)
+> [Siguiente](customizing-the-data-modification-interface-vb.md)

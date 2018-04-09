@@ -2,21 +2,21 @@
 uid: visual-studio/overview/2013/release-notes
 title: ASP.NET y herramientas Web para Visual Studio 2013 notas | Documentos de Microsoft
 author: microsoft
-description: "Este documento describe la versión de ASP.NET y herramientas Web para Visual Studio 2013."
+description: Este documento describe la versión de ASP.NET y herramientas Web para Visual Studio 2013.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 08815768-2702-42ae-ae85-0a59934a11d1
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 7f38a0f2693aeb2a4884b9c03719b583423957a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e9ddd96f186564834ff6bb2c30cf0ed5444cbf1b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-and-web-tools-for-visual-studio-2013-release-notes"></a>ASP.NET y herramientas Web para Visual Studio 2013 notas
 ====================
@@ -199,16 +199,16 @@ Los filtros de autenticación son un nuevo tipo de filtro de MVC de ASP.NET que 
 
 Ahora puede invalidar los filtros se aplican a un método de acción determinado o un controlador mediante la especificación de un filtro de invalidación. Filtros de reemplazo especifican un conjunto de tipos de filtro que no se debe ejecutar para un ámbito determinado (acción o controlador). Esto le permite configurar los filtros que se aplican globalmente pero, a continuación, excluirán determinados filtros globales de la aplicación a acciones específicas o controladores.
 
-### <a name="attribute-routing"></a>Ruta de atributo
+### <a name="attribute-routing"></a>Enrutamiento mediante atributos
 
-Ahora, ASP.NET MVC admite el enrutamiento del atributo, gracias a una contribución por Tim McCall, el autor de [http://attributerouting.net](http://attributerouting.net). Con el enrutamiento de atributo puede especificar sus rutas anotando las acciones y los controladores.
+Ahora, ASP.NET MVC admite el enrutamiento del atributo, gracias a una contribución por Tim McCall, el autor de [ http://attributerouting.net ](http://attributerouting.net). Con el enrutamiento de atributo puede especificar sus rutas anotando las acciones y los controladores.
 
 <a id="TOC11"></a>
 ## <a name="aspnet-web-api-2"></a>ASP.NET Web API 2
 
-### <a name="attribute-routing"></a>Ruta de atributo
+### <a name="attribute-routing"></a>Enrutamiento mediante atributos
 
-ASP.NET Web API ahora admite el enrutamiento del atributo, gracias a una contribución por Tim McCall, el autor de [http://attributerouting.net](http://attributerouting.net). Con el enrutamiento de atributo puede especificar sus rutas de API Web anotando las acciones y los controladores similar al siguiente:
+ASP.NET Web API ahora admite el enrutamiento del atributo, gracias a una contribución por Tim McCall, el autor de [ http://attributerouting.net ](http://attributerouting.net). Con el enrutamiento de atributo puede especificar sus rutas de API Web anotando las acciones y los controladores similar al siguiente:
 
 [!code-csharp[Main](release-notes/samples/sample1.cs)]
 
@@ -332,7 +332,7 @@ SignalR 2.0 se basa completamente en [OWIN (la interfaz Web abierta para. NET)](
 
 ### <a name="maphubs-and-mapconnection-are-now-mapsignalr"></a>MapHubs y MapConnection ahora son MapSignalR
 
-Por compatibilidad con los estándares OWIN, estos métodos se ha cambiado a `MapSignalR`. `MapSignalR`llama sin parámetros asignarán todos los concentradores (como `MapHubs` en versión 1.x); para asignar individuales **PersistentConnection** objetos, especifique el tipo de conexión como parámetro de tipo y la extensión de dirección URL para la conexión como la primer argumento.
+Por compatibilidad con los estándares OWIN, estos métodos se ha cambiado a `MapSignalR`. `MapSignalR` llama sin parámetros asignarán todos los concentradores (como `MapHubs` en versión 1.x); para asignar individuales **PersistentConnection** objetos, especifique el tipo de conexión como parámetro de tipo y la extensión de dirección URL para la conexión como la primer argumento.
 
 El `MapSignalR` método se llama en una clase de inicio de Owin. Visual Studio 2013 contiene una nueva plantilla para una clase de inicio de Owin; Para usar esta plantilla, haga lo siguiente:
 
@@ -392,7 +392,7 @@ El código siguiente muestra cómo habilitar CORS o JSONP en un proyecto de Sign
 
 Se ha agregado compatibilidad para clientes de iOS y Android mediante componentes MonoTouch y MonoDroid desde el [Xamarin biblioteca](https://xamarin.com/). Para obtener más información sobre cómo utilizarlas, vea [utilización de componentes de Xamarin](https://github.com/SignalR/SignalR/wiki/Building-Mono.Mobile.sln). Estos componentes estarán disponibles en la [Xamarin almacén](https://store.xamarin.com/) cuando está disponible la versión RTW de SignalR.
 
-<a id="portable"></a>### Cliente de .NET portátil
+<a id="portable"></a> ### Cliente de .NET portátil
 
 Mejor facilitar el desarrollo multiplataforma, la Silverlight, WinRT y los clientes de Windows Phone se han reemplazado por un solo cliente .NET portátil que admite las siguientes plataformas:
 
@@ -580,8 +580,8 @@ ASP.NET Razor 3 incluye las siguientes características nuevas:
 - Compatibilidad con la edición de pestaña. Preivously, la **dar formato al documento** comando, aplicar sangría automática y automáticamente el formato de Visual Studio no funcionaron correctamente cuando se usa el **Mantener tabulaciones** opción. Este cambio corrige el formato de código Razor para el formato de tabulación de Visual Studio.
 - Compatibilidad con las reglas de reescritura de direcciones URL al generar vínculos.
 - Eliminación de atributos de seguridad transparente.
- > [!NOTE]
- > Esto es un cambio brusco y tiene 3 Razor incompatible con MVC4 y versiones anteriores, mientras que Razor 2 no es compatible con MVC5 o los ensamblados compilados con MVC5.
+  > [!NOTE]
+  > Esto es un cambio brusco y tiene 3 Razor incompatible con MVC4 y versiones anteriores, mientras que Razor 2 no es compatible con MVC5 o los ensamblados compilados con MVC5.
 
 Pueden encontrar problemas de Razor 3 corregidos en Visual Studio 2013 de versiones preliminares [aquí](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&status=Resolved%7cClosed&type=All&priority=All&release=All%7cv5.0%2bPreview%7cv5.0%2bRC%7cv5.0%2bRTM&assignedTo=All&component=Web%2bPages%252fRazor&reasonClosed=Fixed&sortField=LastUpdatedDate&sortDirection=Descending&page=0).
 
@@ -603,7 +603,7 @@ Esta sección describen problemas conocidos y cambios importantes en las herrami
 
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
 
-1. `ODataQueryOptions<T>.ApplyTo(IQueryable)`no devuelve `IQueryable<T>` siempre, tal y como se agregó compatibilidad para `$select` y `$expand`.
+1. `ODataQueryOptions<T>.ApplyTo(IQueryable)` no devuelve `IQueryable<T>` siempre, tal y como se agregó compatibilidad para `$select` y `$expand`.
 
     Nuestros ejemplos anteriores para `ODataQueryOptions<T>` convertir siempre el valor devuelto de `ApplyTo` a `IQueryable<T>`. Esto funcionaba anteriormente como opciones de la consulta que se admitían anteriormente (`$filter`, `$orderby`, `$skip`, `$top`) no cambian la forma de la consulta. Ahora que admitimos `$select` y `$expand` el valor devuelto de `ApplyTo` no estará `IQueryable<T>` siempre.
 
@@ -632,7 +632,7 @@ Esta sección describen problemas conocidos y cambios importantes en las herrami
 
     *Error del servidor en la aplicación '/'.*
 
-    *Una notificación de tipo 'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier' o 'http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider' no estaba presente en el valor de ClaimsIdentity proporcionado. Para habilitar la compatibilidad de token antifalsificación con autenticación basada en notificaciones, compruebe que el proveedor de notificaciones configurada proporciona ambas de estas notificaciones en las instancias de ClaimsIdentity que genera. Si el proveedor de notificaciones configurada en su lugar, utiliza un tipo de notificación diferente como un identificador único, se puede configurar estableciendo la propiedad estática AntiForgeryConfig.UniqueClaimTypeIdentifier.*
+    <em>Una notificación de tipo '<http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier>'o'<http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider>' no estaba presente en el valor de ClaimsIdentity proporcionado. Para habilitar la compatibilidad de token antifalsificación con autenticación basada en notificaciones, compruebe que el proveedor de notificaciones configurada proporciona ambas de estas notificaciones en las instancias de ClaimsIdentity que genera. Si el proveedor de notificaciones configurada en su lugar, utiliza un tipo de notificación diferente como un identificador único, se puede configurar estableciendo la propiedad estática AntiForgeryConfig.UniqueClaimTypeIdentifier.</em>
 
     **Solución alternativa**:
 
@@ -647,14 +647,14 @@ Esta sección describen problemas conocidos y cambios importantes en las herrami
 
     Para corregir el error anterior, abra *todos los* los archivos Web.config (incluidas las de la carpeta Views) en el proyecto y haga lo siguiente:
 
-    1. Actualizar todas las apariciones de la versión "4.0.0.0" de "System.Web.Mvc" a "5.0.0.0".
-    2. Actualizar todas las apariciones de la versión "2.0.0.0" de "System.Web.Helpers", &quot;System.Web.WebPages&quot; y &quot;System.Web.WebPages.Razor&quot; a "3.0.0.0"
+   1. Actualizar todas las apariciones de la versión "4.0.0.0" de "System.Web.Mvc" a "5.0.0.0".
+   2. Actualizar todas las apariciones de la versión "2.0.0.0" de "System.Web.Helpers", &quot;System.Web.WebPages&quot; y &quot;System.Web.WebPages.Razor&quot; a "3.0.0.0"
 
-    Por ejemplo, después de realizar los cambios mencionados anteriormente, los enlaces de ensamblado deben ser similar al siguiente:
+      Por ejemplo, después de realizar los cambios mencionados anteriormente, los enlaces de ensamblado deben ser similar al siguiente:
 
-    [!code-xml[Main](release-notes/samples/sample24.xml)]
+      [!code-xml[Main](release-notes/samples/sample24.xml)]
 
-    Para obtener información sobre cómo actualizar proyectos MVC 4 a 5 de MVC, vea [cómo actualizar un ASP.NET MVC 4 y el proyecto de API Web para ASP.NET MVC 5 y API Web 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
+      Para obtener información sobre cómo actualizar proyectos MVC 4 a 5 de MVC, vea [cómo actualizar un ASP.NET MVC 4 y el proyecto de API Web para ASP.NET MVC 5 y API Web 2](../../../mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2.md).
 3. Al utilizar la validación del lado cliente con jQuery validación discreto, el mensaje de validación a veces es correcto para un elemento input de HTML con el tipo = 'number'. El error de validación para un valor requerido ("edad el campo es obligatorio") se muestran cuando se escribe un número no válido en lugar del mensaje correcto que se requiere un número válido.
 
     Este problema normalmente se encuentra con código con scaffolding para un modelo con una propiedad de entero en las vistas de creación y edición.
@@ -697,13 +697,13 @@ Solución:
 - Para corregir este error para MVC, agregar un nuevo elemento con scaffolding y seleccionar las dependencias de MVC 5 (básica o completa). Este proceso agregará todos los cambios necesarios al proyecto.
 - Para corregir este error para la API Web:
 
-    1. Agregue la clase WebApiConfig al proyecto.
+  1. Agregue la clase WebApiConfig al proyecto.
 
-        [!code-csharp[Main](release-notes/samples/sample25.cs)]
+      [!code-csharp[Main](release-notes/samples/sample25.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample26.vb)]
-    2. Configure WebApiConfig.Register en la aplicación\_Start (método) en Global.asax, como se indica a continuación:
+      [!code-vb[Main](release-notes/samples/sample26.vb)]
+  2. Configure WebApiConfig.Register en la aplicación\_Start (método) en Global.asax, como se indica a continuación:
 
-        [!code-csharp[Main](release-notes/samples/sample27.cs)]
+      [!code-csharp[Main](release-notes/samples/sample27.cs)]
 
-        [!code-vb[Main](release-notes/samples/sample28.vb)]
+      [!code-vb[Main](release-notes/samples/sample28.vb)]

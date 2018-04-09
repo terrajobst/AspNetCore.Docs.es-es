@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 title: Principales diferencias entre IIS y el servidor de desarrollo de ASP.NET (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Cuando se prueba una aplicación de ASP.NET localmente, lo más probable es que usa el servidor Web de desarrollo de ASP.NET. Sin embargo, el sitio Web de producción es más probable pow..."
+description: Cuando se prueba una aplicación de ASP.NET localmente, lo más probable es que usa el servidor Web de desarrollo de ASP.NET. Sin embargo, el sitio Web de producción es más probable pow...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/core-differences-between-iis-and-the-asp-net-development-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 79f06707cadf027baa03652dc722cab31f494b09
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: e343a6eac39d7959718cb791012cfa3b931ae33f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="core-differences-between-iis-and-the-aspnet-development-server-c"></a>Diferencias principales entre IIS y el servidor de desarrollo de ASP.NET (C#)
 ====================
@@ -94,7 +94,7 @@ Por:
 
 [!code-xml[Main](core-differences-between-iis-and-the-asp-net-development-server-cs/samples/sample4.xml)]
 
-Use el servidor de desarrollo de ASP.NET, visite el sitio y escriba la dirección URL directa a uno de los archivos PDF en la barra de direcciones de su explorador. Si ha descargado del sitio Web asociado a este tutorial que la dirección URL debe ser similar:`http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
+Use el servidor de desarrollo de ASP.NET, visite el sitio y escriba la dirección URL directa a uno de los archivos PDF en la barra de direcciones de su explorador. Si ha descargado del sitio Web asociado a este tutorial que la dirección URL debe ser similar: `http://localhost:portNumber/PrivateDocs/aspnet_tutorial01_Basics_vb.pdf`
 
 Escribir esta dirección URL en la barra de direcciones hace que el explorador enviar una solicitud al servidor de desarrollo de ASP.NET para el archivo. El servidor de desarrollo de ASP.NET cederá la solicitud para el tiempo de ejecución ASP.NET para su procesamiento. Porque nos hemos no han iniciado sesión y que la `Web.config` en el `PrivateDocs` carpeta está configurada para denegar el acceso anónimo, el tiempo de ejecución ASP.NET nos redirige automáticamente a la página de inicio de sesión, `Login.aspx` (consulte la figura 3). Cuando se redirige al usuario a la página de inicio de sesión, ASP.NET incluye una `ReturnUrl` parámetro de cadena de consulta que indique la página el usuario estaba intentando ver. Después de iniciar sesión correctamente en el usuario puede devolverse a esta página.
 
@@ -140,6 +140,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Mediante la autenticación de foros ASP.NET con todos los tipos de contenido en IIS 7](https://blogs.iis.net/bills/archive/2007/05/19/using-asp-net-forms-authentication-with-all-types-of-content-with-iis7-video.aspx) (vídeo)
 - [Servidores Web en Visual Web Developer](https://msdn.microsoft.com/library/58wxa9w5.aspx)
 
->[!div class="step-by-step"]
-[Anterior](common-configuration-differences-between-development-and-production-cs.md)
-[Siguiente](deploying-a-database-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](common-configuration-differences-between-development-and-production-cs.md)
+> [Siguiente](deploying-a-database-cs.md)

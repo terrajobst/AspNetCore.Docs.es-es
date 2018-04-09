@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
-title: "Páginas maestras y ASP.NET AJAX (C#) | Documentos de Microsoft"
+title: Páginas maestras y ASP.NET AJAX (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Describe las opciones para el uso de AJAX de ASP.NET y las páginas maestras. Si se examinan mediante la clase ScriptManagerProxy; Describe cómo los distintos archivos JS se cargan dependi..."
+description: Describe las opciones para el uso de AJAX de ASP.NET y las páginas maestras. Si se examinan mediante la clase ScriptManagerProxy; Describe cómo los distintos archivos JS se cargan dependi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/master-pages-and-asp-net-ajax-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e09951be5483ed098b8cab6517335f9962a5d95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 87e5855354610723823da88ec961e7391c3f705f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages-and-aspnet-ajax-c"></a>Páginas maestras y ASP.NET AJAX (C#)
 ====================
@@ -184,9 +184,9 @@ Para agregar las personalizaciones de ScriptManager según una página a página
 
 Para ver el control ScriptManagerProxy en acción, vamos a aumentar el UpdatePanel en `ShowRandomProduct.aspx` para incluir un botón que utiliza el script de cliente para pausar o reanudar el control Timer. El control Timer tiene tres métodos de lado cliente que podemos usar para lograr esta funcionalidad deseada:
 
-- `_startTimer()`-inicia el control Timer
-- `_raiseTick()`-hace que el control Timer a "otro", con lo que se devolución y provocar su `Tick` eventos en el servidor
-- `_stopTimer()`-detiene el control Timer
+- `_startTimer()` -inicia el control Timer
+- `_raiseTick()` -hace que el control Timer a "otro", con lo que se devolución y provocar su `Tick` eventos en el servidor
+- `_stopTimer()` -detiene el control Timer
 
 Vamos a crear un archivo JavaScript a una variable denominada `timerEnabled` y una función denominada `ToggleTimer`. El `timerEnabled` variable indica si el control Timer está actualmente habilitado o deshabilitado; el valor predeterminado es true. El `ToggleTimer` función acepta dos parámetros de entrada: una referencia para el botón de pausa/reanudar y el cliente `id` valor del control Timer. Esta función alterna el valor de `timerEnabled`, obtiene una referencia al control de temporizador, se inicia o detiene el temporizador (dependiendo del valor de `timerEnabled`) y actualiza el texto del botón Mostrar "Pausa" o "Reanudar". Esta función se llamará cada vez que se hace clic en el botón de pausa/reanudar.
 
@@ -228,7 +228,7 @@ Ahora podemos llamar el `ToggleTimer` función definida en `TimerScript.js` desd
 
 [!code-aspx[Main](master-pages-and-asp-net-ajax-cs/samples/sample10.aspx)]
 
-Esto muestra un botón con el texto "Pausa". Cada vez que se hace clic, la función de JavaScript `ToggleTimer` se llama pasando una referencia para el botón y el valor de identificador del control Timer (`ProductTimer`). Tenga en cuenta la sintaxis para obtener la `id` valor del control Timer. `<%=ProductTimer.ClientID%>`emite el valor de la `ProductTimer` del control Timer `ClientID` propiedad. En el [ *nombres de identificador de Control en páginas de contenido* ](control-id-naming-in-content-pages-cs.md) tutorial analizamos las diferencias entre el lado del servidor `ID` valor y el lado de cliente resultante `id` valor y cómo `ClientID` devuelve el cliente `id`.
+Esto muestra un botón con el texto "Pausa". Cada vez que se hace clic, la función de JavaScript `ToggleTimer` se llama pasando una referencia para el botón y el valor de identificador del control Timer (`ProductTimer`). Tenga en cuenta la sintaxis para obtener la `id` valor del control Timer. `<%=ProductTimer.ClientID%>` emite el valor de la `ProductTimer` del control Timer `ClientID` propiedad. En el [ *nombres de identificador de Control en páginas de contenido* ](control-id-naming-in-content-pages-cs.md) tutorial analizamos las diferencias entre el lado del servidor `ID` valor y el lado de cliente resultante `id` valor y cómo `ClientID` devuelve el cliente `id`.
 
 La figura 11 muestra esta página cuando visita por primera vez a través de un explorador. El temporizador se está ejecutando actualmente y actualiza la información de producto mostrado cada 15 segundos. La figura 12 muestra la pantalla después de que se ha hecho clic el botón de pausa. Haga clic en el botón de pausa se detiene el temporizador y se actualiza el texto del botón para "Reanudar". La información de producto se actualice (y continuar actualizar cada 15 segundos) una vez que el usuario hace clic en Reanudar.
 
@@ -264,12 +264,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
-Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](interacting-with-the-content-page-from-the-master-page-cs.md)
-[Siguiente](specifying-the-master-page-programmatically-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](interacting-with-the-content-page-from-the-master-page-cs.md)
+> [Siguiente](specifying-the-master-page-programmatically-cs.md)

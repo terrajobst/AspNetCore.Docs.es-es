@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/master-pages
-title: "Páginas maestras | Documentos de Microsoft"
+title: Páginas maestras | Documentos de Microsoft
 author: microsoft
-description: "Uno de los componentes claves para un sitio Web tenga éxito es una apariencia coherente. En ASP.NET 1.x, los desarrolladores usan controles de usuario para replicar comunes elem. de página..."
+description: Uno de los componentes claves para un sitio Web tenga éxito es una apariencia coherente. En ASP.NET 1.x, los desarrolladores usan controles de usuario para replicar comunes elem. de página...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2005
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: bd9effd4b73a014d4d7bb825b382b8db34d636f1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f45dd9704f665244d2a48ec000326f6e98984e4f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="master-pages"></a>Páginas maestras
 ====================
@@ -74,7 +74,7 @@ Para crear una nueva página maestra:
 **Figura 2**: crear una nueva página maestra
 
 
-Tenga en cuenta que la extensión de archivo para una página maestra es *. master*. Esta es una de las maneras en que una página maestra difiere de una página normal. La principal diferencia es que en lugar de un @Page directiva, la página maestra contiene un @Master directiva. Cambie a la vista de origen para el patrón de página que acaba de crear y revisa el código.
+Tenga en cuenta que la extensión de archivo para una página maestra es <em>. master</em>. Esta es una de las maneras en que una página maestra difiere de una página normal. La principal diferencia es que en lugar de un @Page directiva, la página maestra contiene un @Master directiva. Cambie a la vista de origen para el patrón de página que acaba de crear y revisa el código.
 
 Una nueva página maestra tendrá un control ContentPlaceHolder de forma predeterminada. En la mayoría de los casos, tiene más sentido para crear primero los elementos comunes de página y, a continuación, insertar controles ContentPlaceHolder donde desee contenido personalizado. En esos casos, los desarrolladores deseará eliminar el control de ContentPlaceHolder predeterminado e insertar otros nuevos, tal y como se desarrolla a la página. Los controles ContentPlaceHolder no son puede cambiar el tamaño a pesar de que muestren los controladores de tamaño. Los tamaños de control ContentPlaceHolder automáticamente según el contenido que contiene, con una excepción; Si coloca un control ContentPlaceHolder dentro de un elemento de bloque, como una celda de tabla, se ajustará en función del tamaño del elemento.
 
@@ -142,10 +142,10 @@ La nueva página de contenido aparece en Visual Studio con un control de conteni
 
 La asociación entre una página maestra y una página de contenido puede configurarse en uno de cuatro formas distintas:
 
-- El **MasterPageFile** atributo de la @Page directiva
+- El <strong>MasterPageFile</strong> atributo de la @Page directiva
 - Establecer el **Page.MasterPageFile** propiedad en el código.
-- El  **&lt;páginas&gt;**  elemento en el archivo de configuración de aplicaciones (web.config en la carpeta raíz de la aplicación)
-- El  **&lt;páginas&gt;**  elemento en un archivo de configuración (web.config en una subcarpeta) de las subcarpetas
+- El **&lt;páginas&gt;** elemento en el archivo de configuración de aplicaciones (web.config en la carpeta raíz de la aplicación)
+- El **&lt;páginas&gt;** elemento en un archivo de configuración (web.config en una subcarpeta) de las subcarpetas
 
 ## <a name="masterpagefile-attribute"></a>Atributo MasterPageFile
 
@@ -157,7 +157,7 @@ Si establece la propiedad MasterPageFile en código, puede aplicar una determina
 
 ## <a name="using-the-ltpagesgt-element"></a>Mediante el &lt;páginas&gt; elemento
 
-Puede configurar una página maestra para las páginas estableciendo el atributo masterPageFile el &lt;páginas&gt; elemento del archivo web.config. Cuando se usa este método, tenga en cuenta que los archivos web.config hacia abajo en la estructura de la aplicación pueden invalidar esta configuración. Cualquier atributo MasterPageFile establecido un @Page directiva también reemplazará esta configuración. Mediante el &lt;páginas&gt; elemento simplifica el proceso crear un *maestro* página maestra que se pueden invalidar si es necesario en determinadas carpetas o archivos.
+Puede configurar una página maestra para las páginas estableciendo el atributo masterPageFile el &lt;páginas&gt; elemento del archivo web.config. Cuando se usa este método, tenga en cuenta que los archivos web.config hacia abajo en la estructura de la aplicación pueden invalidar esta configuración. Cualquier atributo MasterPageFile establecido un @Page directiva también reemplazará esta configuración. Mediante el &lt;páginas&gt; elemento simplifica el proceso crear un <em>maestro</em> página maestra que se pueden invalidar si es necesario en determinadas carpetas o archivos.
 
 ## <a name="properties-in-master-pages"></a>Propiedades de páginas maestras
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: migrar a SQL Server - 10 de 12 | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: migrar a SQL Server - 10 de 12 | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: b97834e3e287645151bf927996fde63d93ae8356
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 25a829f1d3c730c7bb3b174f075ce8163999e482
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-migrating-to-sql-server---10-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: migrar a SQL Server - 10 de 12
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -242,7 +242,7 @@ En **el Explorador de soluciones**, haga clic en el proyecto ContosoUniversity y
 
 Seleccione el **perfil** ficha.
 
-Seleccione  **&lt;nuevo... &gt;**  en la lista desplegable lista y, escriba "Test" como el nombre del perfil.
+Seleccione **&lt;nuevo... &gt;** en la lista desplegable lista y, escriba "Test" como el nombre del perfil.
 
 En el **dirección URL del servicio** cuadro, escriba *localhost*.
 
@@ -268,7 +268,7 @@ Visual Studio implementa la aplicación y abre el explorador a la página princi
 
 Ahora que se han implementado en el entorno de prueba, está listo para configurar la implementación de producción. Comenzar como hizo en el entorno de prueba mediante la creación de una base de datos para implementar en. Tal y como recuerda la información general, el plan de hospedaje Cytanium Lite solo permite una sola base de datos de SQL Server, por lo que vamos a configurar una base de datos, no dos. Todas las tablas y los datos de la pertenencia y las bases de datos School SQL Server Compact se implementará en una base de datos de SQL Server en producción.
 
-Vaya al panel de control Cytanium en [http://panel.cytanium.com](http://panel.cytanium.com). Mantenga el mouse sobre **bases de datos** y, a continuación, haga clic en **SQL Server 2008**.
+Vaya al panel de control Cytanium en [ http://panel.cytanium.com ](http://panel.cytanium.com). Mantenga el mouse sobre **bases de datos** y, a continuación, haga clic en **SQL Server 2008**.
 
 [![Selecting_Databases_in_Control_Panel](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image22.png)](deployment-to-a-hosting-provider-migrating-to-sql-server-10-of-12/_static/image21.png)
 
@@ -380,7 +380,7 @@ En una aplicación real en el que se está actualizando la base de datos en prod
 
 En el **Web uno haga clic en publicar** barra de herramientas, asegúrese de que el **producción** perfil está seleccionada y, a continuación, haga clic en **publicar**.
 
-Si cargó *aplicación\_offline.htm* antes de la publicación, deberá utilizar el **el Administrador de archivos** utilidad en el panel de control de Cytanium eliminar *aplicación\_sin conexión.* htm antes de probar. También puede al mismo tiempo eliminar el *.sdf* archivos desde el *aplicación\_datos* carpeta.
+Si cargó <em>aplicación\_offline.htm</em> antes de la publicación, deberá utilizar el <strong>el Administrador de archivos</strong> utilidad en el panel de control de Cytanium eliminar <em>aplicación\_sin conexión.</em> htm antes de probar. También puede al mismo tiempo eliminar el <em>.sdf</em> archivos desde el <em>aplicación\_datos</em> carpeta.
 
 Ahora puede abrir un explorador y vaya a la dirección URL de su sitio público para probar la aplicación de la misma manera que después de implementar en el entorno de prueba.
 
@@ -450,6 +450,6 @@ Siga el mismo procedimiento para desinstalar el **SqlServerCompact** paquete. (L
 
 Ahora ha migrado correctamente a SQL Server Express y completa de SQL Server. En el siguiente tutorial realizará otro cambio de base de datos y aprenderá a implementar los cambios de la base de datos cuando las bases de datos de prueba y producción usan SQL Server Express y completa de SQL Server.
 
->[!div class="step-by-step"]
-[Anterior](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
-[Siguiente](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)
+> [!div class="step-by-step"]
+> [Anterior](deployment-to-a-hosting-provider-deploying-a-database-update-9-of-12.md)
+> [Siguiente](deployment-to-a-hosting-provider-deploying-a-sql-server-database-update-11-of-12.md)

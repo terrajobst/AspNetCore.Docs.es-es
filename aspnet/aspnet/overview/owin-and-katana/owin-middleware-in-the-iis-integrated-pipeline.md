@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
-title: "Middleware de OWIN en IIS integrado canalización | Documentos de Microsoft"
+title: Middleware de OWIN en IIS integrado canalización | Documentos de Microsoft
 author: Praburaj
-description: "Este artículo muestra cómo ejecutar los componentes de middleware OWIN (OMCs) en la canalización integrada de IIS y cómo establecer el evento de canalización un OMC se ejecuta en. Debe..."
+description: Este artículo muestra cómo ejecutar los componentes de middleware OWIN (OMCs) en la canalización integrada de IIS y cómo establecer el evento de canalización un OMC se ejecuta en. Debe...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/07/2013
 ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 5f6ed1ae0309e9bdd3ca4ae229195835f20bc729
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5df70c80084a32c5f61ac9288c8cdbfaaa47f124
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Middleware de OWIN en la canalización integrada de IIS
 ====================
@@ -83,13 +83,13 @@ Componentes de middleware de Owin (OMC) se pueden configurar para ejecutarse en 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample9.cmd)]
 
- las llamadas a `app.UseStageMarker` pasar `Authenticate` o `PostAuthenticate` no se aplican y no se producirá ninguna excepción. OMCs ejecutar en la fase más reciente, cuyo valor predeterminado es `PreHandlerExecute`. Los marcadores de fase se utilizan para hacer que se ejecuten versiones anteriores. Si especifica marcadores de fase fuera de servicio, se redondeará al marcador anterior. En otras palabras, agregar un marcador de fases dice "Ejecutar ya no posterior a la fase X". Ejecución del OMC en el marcador de fase más temprano agregado después de ellos en la canalización OWIN.
+   las llamadas a `app.UseStageMarker` pasar `Authenticate` o `PostAuthenticate` no se aplican y no se producirá ninguna excepción. OMCs ejecutar en la fase más reciente, cuyo valor predeterminado es `PreHandlerExecute`. Los marcadores de fase se utilizan para hacer que se ejecuten versiones anteriores. Si especifica marcadores de fase fuera de servicio, se redondeará al marcador anterior. En otras palabras, agregar un marcador de fases dice "Ejecutar ya no posterior a la fase X". Ejecución del OMC en el marcador de fase más temprano agregado después de ellos en la canalización OWIN.
 4. La primera etapa de llamadas a `app.UseStageMarker` wins. Por ejemplo, si cambia el orden de `app.UseStageMarker` llamadas desde nuestro ejemplo anterior:
 
     [!code-csharp[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample10.cs?highlight=13,19)]
 
- Se mostrará la ventana de salida: 
+   Se mostrará la ventana de salida: 
 
     [!code-console[Main](owin-middleware-in-the-iis-integrated-pipeline/samples/sample11.cmd)]
 
- El OMCs ejecutar en el `AuthenticateRequest` fase, porque el último OMC registrado con el `Authenticate` eventos y el `Authenticate` event precede a todos los demás eventos.
+   El OMCs ejecutar en el `AuthenticateRequest` fase, porque el último OMC registrado con el `Authenticate` eventos y el `Authenticate` event precede a todos los demás eventos.

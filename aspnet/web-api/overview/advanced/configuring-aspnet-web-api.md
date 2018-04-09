@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/advanced/configuring-aspnet-web-api
-title: "Configuración de ASP.NET Web API 2 | Documentos de Microsoft"
+title: Configuración de ASP.NET Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/advanced/configuring-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f9b471fe2afdce278869a2e4d9b693a78030324b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: de2396710fb9434c84bf14a2faa37b98154f34d8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-aspnet-web-api-2"></a>Configuración de ASP.NET Web API 2
 ====================
@@ -99,7 +99,7 @@ El **servicios** colección se inicializa con un conjunto predeterminado de serv
 Servicios de instancia única
 
 
-| Servicio | Descripción |
+| web de Office | Descripción |
 | --- | --- |
 | **IActionValueBinder** | Obtiene un enlace para un parámetro. |
 | **IApiExplorer** | Obtiene las descripciones de las API expuestas por la aplicación. Vea [crear una página de Ayuda de una API Web](../getting-started-with-aspnet-web-api/creating-api-help-pages.md). |
@@ -120,13 +120,13 @@ Servicios de instancia única
 Servicios de varias instancias
 
 
-| Servicio | Descripción |
-| --- | --- |
-| **IFilterProvider** | Devuelve una lista de filtros para una acción de controlador. |
-| **ModelBinderProvider** | Devuelve un enlazador de modelos para un tipo determinado. |
-| **ModelMetadataProvider** | Proporciona los metadatos para un modelo. |
-| **ModelValidatorProvider** | Proporciona un validador para un modelo. |
-| **ValueProviderFactory** | Crea un proveedor de valores. Para obtener más información, consulte el blog de Mike Stall [cómo crear un proveedor de valor personalizado en WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |.
+|                 web de Office                 |                                                                                                              Descripción                                                                                                               |
+|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|    <strong>IFilterProvider</strong>     |                                                                                           Devuelve una lista de filtros para una acción de controlador.                                                                                           |
+|  <strong>ModelBinderProvider</strong>   |                                                                                                Devuelve un enlazador de modelos para un tipo determinado.                                                                                                |
+| <strong>ModelMetadataProvider</strong>  |                                                                                                     Proporciona los metadatos para un modelo.                                                                                                     |
+| <strong>ModelValidatorProvider</strong> |                                                                                                   Proporciona un validador para un modelo.                                                                                                    |
+|  <strong>ValueProviderFactory</strong>  | Crea un proveedor de valores. Para obtener más información, consulte el blog de Mike Stall [cómo crear un proveedor de valor personalizado en WebAPI](https://blogs.msdn.com/b/jmstall/archive/2012/04/23/how-to-create-a-custom-value-provider-in-webapi.aspx) |
 
 Para agregar una implementación personalizada a un servicio de varias instancias, llame **agregar** o **insertar** en el **servicios** colección:
 

@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
 title: Principal-detalle filtrado con DropDownList (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos cómo mostrar informes de maestro y detalles en una sola página web mediante las listas desplegables para mostrar los registros de 'master' y un control DataList en la pantalla de..."
+description: En este tutorial veremos cómo mostrar informes de maestro y detalles en una sola página web mediante las listas desplegables para mostrar los registros de 'master' y un control DataList en la pantalla de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f480cfcfb3b02c9398b2db3e66cec432152a05d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4ece466319e268a74bbe8c4ed96ffc33cff432f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Principal-detalle filtrado con DropDownList (VB)
 ====================
@@ -103,12 +103,12 @@ El último paso de nuestro informe principal-detalle es enumerar los productos a
 **Figura 7**: seleccione la `GetProductsByCategoryID(categoryID)` método ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image17.png))
 
 
-Después de hacer clic en siguiente, el Asistente ObjectDataSource nos solicita para el origen del valor de la `GetProductsByCategoryID(categoryID)` del método  *`categoryID`*  parámetro. Para usar el valor de seleccionado `categories` DropDownList elemento establezca el origen de parámetro para el Control y la ControlID a `Categories`.
+Después de hacer clic en siguiente, el Asistente ObjectDataSource nos solicita para el origen del valor de la `GetProductsByCategoryID(categoryID)` del método *`categoryID`* parámetro. Para usar el valor de seleccionado `categories` DropDownList elemento establezca el origen de parámetro para el Control y la ControlID a `Categories`.
 
 
 [![Establece el parámetro categoryID en el valor de las categorías de DropDownList](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image19.png)](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image18.png)
 
-**Figura 8**: establecer el  *`categoryID`*  parámetro en el valor de la `Categories` DropDownList ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
+**Figura 8**: establecer el *`categoryID`* parámetro en el valor de la `Categories` DropDownList ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image20.png))
 
 
 Tras completar el Asistente para configurar orígenes de datos, Visual Studio generará automáticamente un `ItemTemplate` para el control DataList que muestra el nombre y el valor de cada campo de datos. Vamos a mejorar el control DataList usar en su lugar un `ItemTemplate` que muestre solo el nombre del producto, categoría, proveedor, cantidad por unidad y el precio junto con un `SeparatorTemplate` que inserta un `<hr>` elemento entre cada elemento. Voy a usar el `ItemTemplate` de ejemplo en el [mostrar datos con los controles de repetidor y DataList](../displaying-data-with-the-datalist-and-repeater/displaying-data-with-the-datalist-and-repeater-controls-vb.md) tutorial, pero puede usar cualquier formato de plantilla encuentra más visualmente atractivo.
@@ -164,7 +164,7 @@ El motivo que elegimos el valor `0` para la lista ", elija una categoría:" elem
 **Figura 13**: cuando se selecciona el elemento de lista ", elija una categoría:", los productos No se muestran ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-datalist-vb/_static/image31.png))
 
 
-Si en su lugar se mostraría *todos los* de los productos cuando se selecciona la opción "--Elija una categoría:", utilice un valor de `-1` en su lugar. El lector astuto recordará esa copia en el *filtrado de maestro y detalles con un DropDownList* tutorial se han actualizado los `ProductsBLL` la clase `GetProductsByCategoryID(categoryID)` método para que si un  *`categoryID`*  valor de `-1` se pasó en todos los productos que se han devuelto registros.
+Si en su lugar se mostraría *todos los* de los productos cuando se selecciona la opción "--Elija una categoría:", utilice un valor de `-1` en su lugar. El lector astuto recordará esa copia en el *filtrado de maestro y detalles con un DropDownList* tutorial se han actualizado los `ProductsBLL` la clase `GetProductsByCategoryID(categoryID)` método para que si un *`categoryID`* valor de `-1` se pasó en todos los productos que se han devuelto registros.
 
 ## <a name="summary"></a>Resumen
 
@@ -176,12 +176,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a...
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Randy Schmidt. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
-[Siguiente](master-detail-filtering-acess-two-pages-datalist-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [Siguiente](master-detail-filtering-acess-two-pages-datalist-vb.md)

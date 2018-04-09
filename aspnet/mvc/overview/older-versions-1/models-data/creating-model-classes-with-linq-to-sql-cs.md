@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 title: Crear clases de modelo con LINQ to SQL (C#) | Documentos de Microsoft
 author: microsoft
-description: "El objetivo de este tutorial es explicar un método de creación de clases del modelo para una aplicación ASP.NET MVC. En este tutorial, aprenderá a crear modelo c..."
+description: El objetivo de este tutorial es explicar un método de creación de clases del modelo para una aplicación ASP.NET MVC. En este tutorial, aprenderá a crear modelo c...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/07/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c640007a75f2421e0f6c1e86e525de4834bbc8e4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>Crear clases de modelo con LINQ to SQL (C#)
 ====================
@@ -74,8 +74,8 @@ Tenemos que agregar las columnas siguientes a la tabla de base de datos:
 | **Nombre de columna** | **Tipo de datos** | **Permitir valores null** |
 | --- | --- | --- |
 | Id. | Valor int. | False |
-| Título | Nvarchar (200) | False |
-| Director de | nvarchar (50) | False |
+| Title | Nvarchar(200) | False |
+| Director de | Nvarchar(50) | False |
 
 Debe hacer dos cosas especial a la columna de identificador. En primer lugar, debe marcar la columna Id. como una columna de clave principal, seleccionando la columna en el Diseñador de tablas y haga clic en el icono de una clave. LINQ to SQL requiere especificar las columnas de clave principales al realizar inserta o actualiza la base de datos.
 
@@ -109,7 +109,7 @@ Ahora que tenemos nuestras clases de LINQ to SQL, podemos usar estas clases para
 
 En primer lugar, es necesario modificar la clase HomeController. Esta clase puede encontrarse en la carpeta de controladores de la aplicación. Modifique la clase para que aparezca la clase en la lista 1.
 
-**Lista 1:`Controllers\HomeController.cs`**
+**Lista 1: `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample1.cs)]
 
@@ -119,7 +119,7 @@ Una consulta LINQ se realiza contra el DataContext para recuperar todas las pel�
 
 Para mostrar las películas, a continuación es necesario modificar la vista de índice. Puede encontrar la vista de índice en el `Views\Home\` carpeta. Actualizar la vista de índice para que tenga un aspecto similar a la vista en el listado 2.
 
-**La lista 2:`Views\Home\Index.aspx`**
+**La lista 2: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample2.aspx)]
 
@@ -161,19 +161,19 @@ Cuando se crea la clase de repositorio, crear una interfaz que representa todos 
 
 La interfaz en el listado 3 se denomina `IMovieRepository` y representa un método único denominado `ListAll()`.
 
-**Enumerar 3:`Models\IMovieRepository.cs`**
+**Enumerar 3: `Models\IMovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample3.cs)]
 
 La clase de repositorio en el listado 4 implementa el `IMovieRepository` interfaz. Tenga en cuenta que contiene un método denominado `ListAll()` que se corresponde con el método requerido por la `IMovieRepository` interfaz.
 
-**Enumerar 4:`Models\MovieRepository.cs`**
+**Enumerar 4: `Models\MovieRepository.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample4.cs)]
 
 Por último, la `MoviesController` clase en el listado 5 usa el modelo de repositorio. Ya no se utiliza LINQ a clases SQL directamente.
 
-**Enumerar 5:`Controllers\MoviesController.cs`**
+**Enumerar 5: `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](creating-model-classes-with-linq-to-sql-cs/samples/sample5.cs)]
 
@@ -183,7 +183,7 @@ El segundo constructor con un único parámetro: un `IMovieRepository` parámetr
 
 La `MoviesController` clase es sacar partido de un modelo de diseño de software denominado el modelo de inserción de dependencias. En concreto, que está usando lo que se denomina inyección de dependencia de Constructor. Puede leer más sobre este patrón, lea el artículo siguiente de Martin Fowler:
 
-[http://martinfowler.com/articles/Injection.HTML](http://martinfowler.com/articles/injection.html)
+[http://martinfowler.com/articles/injection.html](http://martinfowler.com/articles/injection.html)
 
 Tenga en cuenta que todo el código en el `MoviesController` clase (salvo el primer constructor) interactúa con el `IMovieRepository` interfaz en lugar de los datos reales `MovieRepository` clase. El código interactúa con una interfaz abstracta en lugar de una implementación concreta de la interfaz.
 
@@ -197,6 +197,6 @@ El objetivo de este tutorial era demostrar cómo puede crear clases de modelo MV
 
 A continuación, se explora una ruta de acceso un poco más difícil, pero sin duda alguna más virtuoso, para mostrar datos de la base de datos. Se tardó aprovechar el modelo de repositorio y colocan todos nuestra lógica de acceso de la base de datos en una clase independiente de repositorio. En nuestro controlador, indicamos a todo el código en una interfaz en lugar de una clase concreta. La ventaja del modelo de repositorio es que permite cambiar fácilmente las tecnologías de acceso de base de datos en el futuro y que nos permite probar fácilmente las clases de controlador.
 
->[!div class="step-by-step"]
-[Anterior](creating-model-classes-with-the-entity-framework-cs.md)
-[Siguiente](displaying-a-table-of-database-data-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-model-classes-with-the-entity-framework-cs.md)
+> [Siguiente](displaying-a-table-of-database-data-cs.md)

@@ -10,23 +10,25 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/directory-structure
-ms.openlocfilehash: 55e1e0dac32609446243098dbb4a4373f06b4212
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 2a6ee4fefcc6d23b1c893a40b7b1be9edfcf9732
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="directory-structure-of-published-aspnet-core-apps"></a>Estructura de directorios de las aplicaciones ASP.NET Core publicadas
+# <a name="aspnet-core-directory-structure"></a>Estructura de directorios de ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
 En el núcleo de ASP.NET, el directorio de la aplicación, *publicar*, consta de los archivos de la aplicación, archivos de configuración, activos estáticos, paquetes y el tiempo de ejecución (para aplicaciones independientes).
 
-| Tipo de aplicación                       | Estructura de directorios |
-| ------------------------------ | ------------------- |
+
+|            Tipo de aplicación            |                                                                                                                                                                                                                                                     Estructura de directorios                                                                                                                                                                                                                                                      |
+|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Implementación del marco de trabajo dependiente | <ul><li>publish\*<ul><li>registros de\* (si se incluye en publishOptions)</li><li>Refs\*</li><li>tiempos de ejecución\*</li><li>Vistas\* (si se incluye en publishOptions)</li><li>wwwroot\* (si se incluye en publishOptions)</li><li>archivos .dll</li><li>myapp.deps.json</li><li>MyApp.dll</li><li>MyApp.pdb</li><li>MyApp. PrecompiledViews.dll (si precompilar vistas Razor)</li><li>MyApp. PrecompiledViews.pdb (si precompilar vistas Razor)</li><li>myapp.runtimeconfig.json</li><li>Web.config (si se incluye en publishOptions)</li></ul></li></ul> |
-| Implementación independiente      | <ul><li>publish\*<ul><li>registros de\* (si se incluye en publishOptions)</li><li>Refs\*</li><li>Vistas\* (si se incluye en publishOptions)</li><li>wwwroot\* (si se incluye en publishOptions)</li><li>archivos .dll</li><li>myapp.deps.json</li><li>MyApp.exe</li><li>MyApp.pdb</li><li>MyApp. PrecompiledViews.dll (si precompilar vistas Razor)</li><li>MyApp. PrecompiledViews.pdb (si precompilar vistas Razor)</li><li>myapp.runtimeconfig.json</li><li>Web.config (si se incluye en publishOptions)</li></ul></li></ul> |
-\*Indica un directorio
+|   Implementación independiente    |          <ul><li>publish\*<ul><li>registros de\* (si se incluye en publishOptions)</li><li>Refs\*</li><li>Vistas\* (si se incluye en publishOptions)</li><li>wwwroot\* (si se incluye en publishOptions)</li><li>archivos .dll</li><li>myapp.deps.json</li><li>MyApp.exe</li><li>MyApp.pdb</li><li>MyApp. PrecompiledViews.dll (si precompilar vistas Razor)</li><li>MyApp. PrecompiledViews.pdb (si precompilar vistas Razor)</li><li>myapp.runtimeconfig.json</li><li>Web.config (si se incluye en publishOptions)</li></ul></li></ul>           |
+
+\* Indica un directorio
 
 El contenido de la *publicar* directorio representa el *ruta de acceso raíz del contenido*, también denominado el *ruta de acceso base de aplicación*, de la implementación. El nombre se asigna a la *publicar* su ubicación de directorio en la implementación, actúa como ruta de acceso física del servidor a la aplicación hospedada. El *wwwroot* directory, si está presente, sólo contiene recursos estáticos. El *registros* directorio puede incluirse en la implementación mediante la creación del proyecto y agregar la `<Target>` elemento se muestra a continuación para su *.csproj* archivo o creando físicamente el directorio en el servidor.
 

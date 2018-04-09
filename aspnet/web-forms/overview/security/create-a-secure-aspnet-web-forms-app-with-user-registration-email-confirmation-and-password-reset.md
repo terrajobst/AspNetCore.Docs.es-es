@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
-title: "Crear una aplicación de formularios Web Forms de ASP.NET segura con el registro de usuario, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#) | Documentos de Microsoft"
+title: Crear una aplicación de formularios Web Forms de ASP.NET segura con el registro de usuario, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#) | Documentos de Microsoft
 author: Erikre
-description: "Este tutorial muestra cómo compilar una aplicación de formularios Web Forms de ASP.NET con el registro de usuario, confirmación por correo electrónico y contraseña restablecer mediante el miembro de la identidad de ASP.NET..."
+description: Este tutorial muestra cómo compilar una aplicación de formularios Web Forms de ASP.NET con el registro de usuario, confirmación por correo electrónico y contraseña restablecer mediante el miembro de la identidad de ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: ed39295ed1bcaa924336a1faf52049e291abeadb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1dc7ace69473b45432fd942b9cf1ba32332cb707
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Crear una aplicación de formularios Web Forms de ASP.NET segura con el registro de usuario, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#)
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 > Este tutorial muestra cómo compilar una aplicación de formularios Web Forms de ASP.NET con el registro de usuario, confirmación por correo electrónico y con el sistema de pertenencia de ASP.NET Identity de restablecimiento de contraseña. Este tutorial se basa en de Rick Anderson [tutorial MVC](../../../mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md).
 
@@ -90,7 +90,7 @@ Aunque este tutorial solo muestra cómo agregar la notificación de correo elect
     [!code-xml[Main](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/samples/sample3.xml?highlight=2-5)]
 
     > [!WARNING]
-    > Seguridad - nunca almacenar los datos confidenciales en el código fuente. En este ejemplo, la cuenta y las credenciales se almacenan en la **appSetting** sección de la *Web.config* archivo. En Azure, puede almacenar con seguridad estos valores en el  **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  ficha en el portal de Azure. Para obtener información relacionada, vea tema de Rick Anderson [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
+    > Seguridad - nunca almacenar los datos confidenciales en el código fuente. En este ejemplo, la cuenta y las credenciales se almacenan en la **appSetting** sección de la *Web.config* archivo. En Azure, puede almacenar con seguridad estos valores en el **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ficha en el portal de Azure. Para obtener información relacionada, vea tema de Rick Anderson [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](https://go.microsoft.com/fwlink/?LinkId=513141).
 6. Agregue los valores de servicio de correo electrónico para reflejar los valores de autenticación de SendGrid (nombre de usuario y contraseña) para que pueda correcta envían correo electrónico desde la aplicación. Asegúrese de usar el nombre de la cuenta de SendGrid en lugar de la dirección de correo electrónico que proporcionó SendGrid.
 
 ### <a name="enable-email-confirmation"></a>Habilitar la confirmación por correo electrónico
@@ -104,9 +104,9 @@ Aunque este tutorial solo muestra cómo agregar la notificación de correo elect
 2. En **el Explorador de soluciones**, haga clic en *Default.aspx* y seleccione **establecer como página principal**.
 3. Ejecute la aplicación presionando **F5.** Cuando se muestre la página, haga clic en el **registrar** vínculo para mostrar la página de registro.
 4. Escriba su correo electrónico y contraseña, a continuación, haga clic en el **registrar** botón para enviar un mensaje de correo electrónico a través de SendGrid.  
- El estado actual de su proyecto y de código le permitirá al usuario iniciar sesión una vez que complete el formulario de registro, incluso si aún no lo ha confirmado que su cuenta.
+   El estado actual de su proyecto y de código le permitirá al usuario iniciar sesión una vez que complete el formulario de registro, incluso si aún no lo ha confirmado que su cuenta.
 5. Compruebe su cuenta de correo electrónico y haga clic en el vínculo para confirmar su correo electrónico.  
- Una vez que se envía el formulario de registro, se grabará en.  
+   Una vez que se envía el formulario de registro, se grabará en.  
     ![Sitio Web de ejemplo - iniciado sesión](create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset/_static/image4.png)
 
 <a id="require"></a>
@@ -146,9 +146,9 @@ Aunque se haya confirmado la cuenta de correo electrónico, en este momento no n
 4. Ejecute la aplicación presionando **F5.** Cuando se muestre la página, haga clic en el **sesión** vínculo.
 5. Haga clic en el **¿olvidó su contraseña?** vínculo para mostrar la **contraseña olvidada** página.
 6. Escriba su dirección de correo electrónico y haga clic en el **enviar** botón para enviar un correo electrónico a la dirección que le permitirá restablecer su contraseña.   
- Compruebe su cuenta de correo electrónico y haga clic en el vínculo para mostrar la **restablecer contraseña** página.
+   Compruebe su cuenta de correo electrónico y haga clic en el vínculo para mostrar la **restablecer contraseña** página.
 7. En el **restablecer contraseña** página, escriba su correo electrónico, la contraseña y la contraseña confirmada. A continuación, presione la **restablecer** botón.  
- Cuando se restableció correctamente la contraseña, el **cambiar contraseña** se mostrará la página. Ahora puede iniciar sesión con la nueva contraseña.
+   Cuando se restableció correctamente la contraseña, el **cambiar contraseña** se mostrará la página. Ahora puede iniciar sesión con la nueva contraseña.
 
 <a id="rsend"></a>
 ## <a name="resend-email-confirmation-link"></a>Vínculo de confirmación de correo electrónico de reenvío
@@ -167,7 +167,7 @@ Una vez que un usuario crea una nueva cuenta local, reciben un correo electróni
 4. Elimine las cuentas en el **AspNetUsers** tabla que contenga el alias de correo electrónico que se va a probar.
 5. Ejecutar la aplicación (**F5**) y registrar su dirección de correo electrónico.
 6. Antes de confirmar la nueva cuenta a través del correo electrónico que acabamos de enviar, intenta iniciar sesión con la nueva cuenta.  
- Verá que no es posible iniciar sesión y que debe tener una cuenta de correo electrónico confirmado. Además, ahora puede reenviar un mensaje de confirmación a su cuenta de correo electrónico.
+   Verá que no es posible iniciar sesión y que debe tener una cuenta de correo electrónico confirmado. Además, ahora puede reenviar un mensaje de confirmación a su cuenta de correo electrónico.
 7. Escriba su dirección de correo electrónico y contraseña, a continuación, presione la **Enviar confirmación** botón.
 8. Una vez que confirme la dirección de correo electrónico basada en el mensaje de correo electrónico enviados recientemente, inicie sesión en la aplicación.
 

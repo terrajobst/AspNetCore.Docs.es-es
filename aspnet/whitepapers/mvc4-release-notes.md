@@ -2,21 +2,21 @@
 uid: whitepapers/mvc4-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: "Este documento describe la versión de ASP.NET MVC 4."
+description: Este documento describe la versión de ASP.NET MVC 4.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: f014524f-25c0-4094-b8e1-886d99536f00
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-release-notes
 msc.type: content
-ms.openlocfilehash: bea6f6112388290a2c6b5ed267626ba28fc36671
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: dbcea6090a0376b8732e02c0891721672bfe50f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -103,7 +103,7 @@ ASP.NET Web API incluye compatibilidad para las siguientes características:
 - **Plantilla de proyecto Web API:** seleccione el nuevo formato de proyecto de Web API el Asistente nuevo proyecto MVC 4 para obtener rápidamente a trabajar con ASP.NET Web API.
 - **Scaffolding:** Use la **Agregar controlador** cuadro de diálogo para aplicar la técnica scaffolding un controlador de web API basado en un Entity Framework rápidamente según el tipo de modelo.
 
-Para obtener más detalles sobre la API Web de ASP.NET, visitan [https://www.asp.net/web-api](../web-api/index.md).
+Para obtener más detalles sobre la API Web de ASP.NET, visitan [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Mejoras en las plantillas de proyecto predeterminadas
@@ -230,7 +230,7 @@ A continuación se resumen los cambios más importantes de ASP.NET MVC 4 Release
 - **Por controladores de mensajes de ruta:** ahora puede especificar el controlador de mensaje final de la cadena de solicitud en una determinada ruta. Esto habilita la compatibilidad con marcos de conducción junto a utilizar el enrutamiento para enviar a su propia (no -*IHttpController*) los puntos de conexión.
 - **Las notificaciones de progreso:** el *ProgressMessageHandler* genera notificaciones de progreso para entidades de solicitud que se va a cargar y entidades de respuesta que se va a descargar. Con este controlador es posible realizar un seguimiento de hasta qué punto se carga un cuerpo de solicitud o descargar un cuerpo de respuesta.
 - **Insertar contenido:** el *PushStreamContent* clase permite escenarios donde un productor de datos desea escribir directamente en la solicitud o respuesta (forma sincrónica o asincrónica) mediante una secuencia. Cuando el *PushStreamContent* está listo para aceptar los datos que llama a un delegado de acción con el flujo de salida. El programador, a continuación, puede escribir en la secuencia para siempre que es necesario y cierre se ha completado la secuencia al escribir. El *PushStreamContent* detecta el cierre de la secuencia y se completa asincrónica subyacente *tarea* para escribir el contenido.
-- **Creación de respuestas de error:** Use la *HttpError* tipo para representar información de error como errores de validación y las excepciones sigue respetando al mismo tiempo de forma coherente la *IncludeErrorDetailPolicy* . Use la nueva *CreateErrorResponse* métodos de extensión para crear fácilmente las respuestas de error con *HttpError* como contenido. El *HttpError* contenido está totalmente contenido negociado.
+- **Creación de respuestas de error:** Use la *HttpError* tipo para representar información de error como errores de validación y las excepciones sigue respetando al mismo tiempo de forma coherente la *IncludeErrorDetailPolicy*. Use la nueva *CreateErrorResponse* métodos de extensión para crear fácilmente las respuestas de error con *HttpError* como contenido. El *HttpError* contenido está totalmente contenido negociado.
 - **MediaRangeMapping quitado:** intervalos de tipos de medios se pueden controlar mediante el negociador de contenido de forma predeterminada.
 - **Enlace de parámetro predeterminado para los parámetros de tipo simple es ahora [FromUri]:** en versiones anteriores de ASP.NET Web API, el enlace de parámetros predeterminados para el enlace de modelos de uso de parámetros de tipo simple. El enlace de parámetro predeterminado para los parámetros de tipo simple es ahora *[FromUri]*.
 - **Selección de acción respeta los parámetros necesarios:** selección de acción en ASP.NET Web API ahora seleccionará solo una acción, si se proporcionan todos los parámetros necesarios que proceden de la dirección URI. Un parámetro puede especificarse como opcional, proporcionando un valor predeterminado para el argumento de la firma del método de acción.
@@ -245,7 +245,7 @@ A continuación se resumen los cambios más importantes de ASP.NET MVC 4 Release
 - **Mejoras de generación de vínculo:** el *UrlHelper* ya no depende *HttpControllerContext*. Ahora puede tener acceso a la *UrlHelper* desde cualquier contexto donde el *HttpRequestMessage* está disponible.
 - **Cambio de orden de ejecución de controlador de mensajes:** controladores de mensajes ahora se ejecutan en el orden en que están configurados en lugar de en orden inverso.
 - **Aplicación auxiliar para la conexión de controladores de mensajes:** nuevo *HttpClientFactory* que puede conectarlo *DelegatingHandlers* y crear un *HttpClient* con el canalización que desee ir. También proporciona funcionalidad para la conexión de con controladores internos alternativos (el valor predeterminado es *HttpClientHandler*), así como realizar la conexión de con *HttpMessageInvoker* u otro  *DelegatingHandler* en lugar de *HttpClient* como el invocador de la parte superior.
-- **Compatibilidad con CDN de optimización Web de ASP.NET:** optimización Web de ASP.NET ahora proporciona compatibilidad con CDN rutas de acceso alternativas lo que le permite especificar para cada paquete una dirección URL adicional que apunta a ese mismo recurso en una red de entrega de contenido. Compatibilidad con CDN permite obtener los paquetes de secuencias de comandos y el estilo geográficamente más cerca a los consumidores de final de las aplicaciones Web.
+- **Compatibilidad con CDN de optimización Web de ASP.NET:** optimización Web de ASP.NET ahora proporciona compatibilidad con CDN rutas de acceso alternativas lo que le permite especificar para cada paquete una dirección URL adicional que apunta a ese mismo recurso en una red de entrega de contenido. Compatibilidad con CDN permite obtener los paquetes de secuencias de comandos y el estilo geográficamente más cerca a los consumidores de final de las aplicaciones Web. Aplicaciones de producción deben implementar una acción de reserva cuando la red CDN no está disponible. Probar el recurso de reserva.
 - **ASP.NET Web API enruta y configuración se mueve a *WebApiConfig.Register* método estático que puede ser resused en el código de prueba.** Rutas de ASP.NET Web API se agregaron previamente en *RouteConfig.RegisterRoutes* junto con el estándar MVC enruta. El predeterminado que se enruta de ASP.NET Web API y la configuración ahora se controlan en otro *WebApiConfig.Register* método para facilitar la prueba.
 
 <a id="_Toc303253815"></a>
@@ -261,7 +261,7 @@ A continuación se resumen los cambios más importantes de ASP.NET MVC 4 Release
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- También se han quitado los siguientes métodos: 
+  También se han quitado los siguientes métodos: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -275,22 +275,23 @@ A continuación se resumen los cambios más importantes de ASP.NET MVC 4 Release
 
     **Actualizaciones necesarias**
 
-    1. En el archivo raíz Web.config, agregue un nuevo  *&lt;appSettings&gt;*  entrada con la clave *webPages:Version* y el valor *1.0.0.0*. 
+  1. En el archivo raíz Web.config, agregue un nuevo *&lt;appSettings&gt;* entrada con la clave *webPages:Version* y el valor *1.0.0.0*. 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
-    2. En el Explorador de soluciones, haga clic en el nombre del proyecto y, a continuación, seleccione Descargar proyecto. A continuación, haga clic en el nombre nuevo y seleccione Editar *ProjectName*.csproj.
-    3. Busque las siguientes referencias de ensamblado: 
+      [!code-xml[Main](mvc4-release-notes/samples/sample7.xml)]
+  2. En el Explorador de soluciones, haga clic en el nombre del proyecto y, a continuación, seleccione Descargar proyecto. A continuación, haga clic en el nombre nuevo y seleccione Editar *ProjectName*.csproj.
+  3. Busque las siguientes referencias de ensamblado: 
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
+      [!code-xml[Main](mvc4-release-notes/samples/sample8.xml)]
 
-        Reemplácelas con lo siguiente:
+      Reemplácelas con lo siguiente:
 
-        [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
-    4. Guardar los cambios, cierre el archivo de proyecto (.csproj) estaba editando y, a continuación, haga clic en el proyecto y seleccione volver a cargar.
+      [!code-xml[Main](mvc4-release-notes/samples/sample9.xml)]
+  4. Guardar los cambios, cierre el archivo de proyecto (.csproj) estaba editando y, a continuación, haga clic en el proyecto y seleccione volver a cargar.
+
 - **Cambiar un proyecto de ASP.NET MVC 4 al destino 4.0 desde 4.5, no actualiza la referencia de ensamblado de EntityFramework:** si cambia un proyecto de ASP.NET MVC 4 a destino 4.0 después como destino 4.5 seguirán apuntando hacia la referencia al ensamblado de Entity Framework la versión 4.5. Para corregir esta desinstalación de problema y vuelva a instalar el paquete EntityFramework NuGet.
-- **403 Prohibido cuando se ejecuta una aplicación ASP.NET MVC 4 en Azure después de cambiar al destino 4.0 desde 4.5:** si cambia un proyecto de ASP.NET MVC 4 a destino 4.0 después como destino la 4.5 y, a continuación, implementar en Azure puede ver un error 403 Prohibido en tiempo de ejecución. Para solucionar este problema, agregue lo siguiente al archivo web.config:`<modules runAllManagedModulesForAllRequests="true" />`
+- **403 Prohibido cuando se ejecuta una aplicación ASP.NET MVC 4 en Azure después de cambiar al destino 4.0 desde 4.5:** si cambia un proyecto de ASP.NET MVC 4 a destino 4.0 después como destino la 4.5 y, a continuación, implementar en Azure puede ver un error 403 Prohibido en tiempo de ejecución. Para solucionar este problema, agregue lo siguiente al archivo web.config: `<modules runAllManagedModulesForAllRequests="true" />`
 - **Visual Studio 2012 se bloquea cuando se escribe un '\' en un literal de cadena en un archivo Razor.** Intentar resolver el problema, escriba la comilla de cierre de la cadena literal en primer lugar.
-- **Vaya a &quot;cuenta/administrar&quot; en los resultados de la plantilla de Internet en un error en tiempo de ejecución para los idiomas chino simplificado, TRK y CHT.** Para corregir el problema modificar la página para apartar  *@User.Identity.Name*  colocando como el único contenido dentro de la  *&lt;seguro&gt;*  etiqueta.
+- <strong>Vaya a &quot;cuenta/administrar&quot; en los resultados de la plantilla de Internet en un error en tiempo de ejecución para los idiomas chino simplificado, TRK y CHT.</strong> Para corregir el problema modificar la página para apartar <em>@User.Identity.Name</em> colocando como el único contenido dentro de la <em>&lt;seguro&gt;</em> etiqueta.
 - **Proveedores de Google y LinkedIn no se admiten dentro de los sitios Web.** Usar proveedores de autenticación alternativo al implementar sitios Web de Azure.
 - **Cuando se utiliza UriPathExtensionMapping con IIS 8 Express o IIS, recibiría 404 errores no encontrado al intentar usar la extensión.** El controlador de archivos estáticos va a interferir con las solicitudes de API web que usan *UriPathExtensionMappings*. Establecer *runAllManagedModulesForAllRequests = true* en el archivo web.config para solucionar el problema.
 - **Método Controller.Execute ya no se llama.** Todos los controladores MVC ahora siempre se ejecutan asincrónicamente.

@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 title: Detalles del Error de registro con ELMAH (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Error de registro de módulos y controladores (ELMAH) ofrece otra alternativa a registro de errores de tiempo de ejecución en un entorno de producción. ELMAH es un error de código abierto..."
+description: Error de registro de módulos y controladores (ELMAH) ofrece otra alternativa a registro de errores de tiempo de ejecución en un entorno de producción. ELMAH es un error de código abierto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b4bba02449debff17422f6b7008247fdf61856c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 584791a944c9e8eb0113da68719292f448573980
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-elmah-vb"></a>Detalles de Error de registro con ELMAH (VB)
 ====================
@@ -70,9 +70,9 @@ La `Elmah.dll` ensamblado incluye las clases utilizadas por el sistema ELMAH. Es
 
 - **Módulos HTTP** -un módulo HTTP es una clase que defina los controladores de eventos para `HttpApplication` eventos, como el `Error` eventos. ELMAH incluye varios módulos HTTP, tres las más relevante que se va a: 
 
-    - `ErrorLogModule`: registra las excepciones no controladas en un origen de registro.
-    - `ErrorMailModule`-envía los detalles de una excepción no controlada en un mensaje de correo electrónico.
-    - `ErrorFilterModule`-se aplica filtros especificado por el desarrollador para determinar qué excepciones se registran y lo que los que se pasan por alto.
+    - `ErrorLogModule` : registra las excepciones no controladas en un origen de registro.
+    - `ErrorMailModule` -envía los detalles de una excepción no controlada en un mensaje de correo electrónico.
+    - `ErrorFilterModule` -se aplica filtros especificado por el desarrollador para determinar qué excepciones se registran y lo que los que se pasan por alto.
 - **Controladores HTTP** -un controlador HTTP es una clase que es responsable de generar el marcado para un tipo concreto de solicitud. ELMAH incluye controladores HTTP que representen los detalles del error como una página web, como una fuente RSS o como un archivo delimitado por comas (CSV).
 - **Orígenes de registro de error** : de fábrica ELMAH puede registrar errores en la memoria, una base de datos de Microsoft SQL Server, una base de datos de Microsoft Access, una base de datos de Oracle, en un archivo XML, una base de datos de SQLite, o a una base de datos de la base de datos de Vista. Al igual que el sistema de supervisión de estado, arquitectura del ELMAH se generó usando el modelo de proveedor, lo que significa que puede crear e integrar fácilmente sus propios proveedores de orígenes de registro personalizado, si es necesario.
 
@@ -257,6 +257,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Usar módulos HTTP y controladores para crear componentes ASP.NET conectables](https://msdn.microsoft.com/library/aa479332.aspx)
 - [Tutoriales de seguridad de sitio Web](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 
->[!div class="step-by-step"]
-[Anterior](logging-error-details-with-asp-net-health-monitoring-vb.md)
-[Siguiente](precompiling-your-website-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](logging-error-details-with-asp-net-health-monitoring-vb.md)
+> [Siguiente](precompiling-your-website-vb.md)

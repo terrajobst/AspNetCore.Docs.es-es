@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
-title: "Pasar datos a páginas de vista maestra (C#) | Documentos de Microsoft"
+title: Pasar datos a páginas de vista maestra (C#) | Documentos de Microsoft
 author: microsoft
-description: "El objetivo de este tutorial es explicar cómo se puede pasar los datos de un controlador a una página maestra de la vista. Se examinan dos estrategias para pasar datos a una vista m..."
+description: El objetivo de este tutorial es explicar cómo se puede pasar los datos de un controlador a una página maestra de la vista. Se examinan dos estrategias para pasar datos a una vista m...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b8bc8ce0690d2e45877be75011d8883facbc74a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bfb58cbe0c415c092f3a41e518281a7461d2803c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="passing-data-to-view-master-pages-c"></a>Pasar datos a las páginas de vista maestra (C#)
 ====================
@@ -53,7 +53,7 @@ Comenzaremos con la solución más sencilla para pasar datos de vista de un cont
 
 Tenga en cuenta el controlador en la lista 1. Expone dos acciones denominadas `Index()` y `Details()`. El `Index()` método de acción devuelve cada película en la tabla de base de datos de películas. El `Details()` método de acción devuelve cada película en una categoría determinada de película.
 
-**Lista 1:`Controllers\HomeController.cs`**
+**Lista 1: `Controllers\HomeController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample1.cs)]
 
@@ -69,13 +69,13 @@ La acción Details() también agrega dos claves con el nombre de categorías y p
 
 La vista de índice se encuentra en el listado 2. Simplemente recorre en iteración la lista de películas representada por el elemento de películas en los datos de vista.
 
-**La lista 2:`Views\Home\Index.aspx`**
+**La lista 2: `Views\Home\Index.aspx`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-cs/samples/sample2.aspx)]
 
 La vista de página maestra se encuentra en la lista 3. La página maestra de vista recorre en iteración y representa todas las categorías de película representadas por el elemento de categorías de datos de la vista.
 
-**Enumerar 3:`Views\Shared\Site.master`**
+**Enumerar 3: `Views\Shared\Site.master`**
 
 [!code-aspx[Main](passing-data-to-view-master-pages-cs/samples/sample3.aspx)]
 
@@ -89,7 +89,7 @@ En esta sección, examinaremos una solución alternativa y, a continuación, mej
 
 La clase ApplicationController se encuentra en el listado 4.
 
-**Enumerar 4:`Controllers\ApplicationController.cs`**
+**Enumerar 4: `Controllers\ApplicationController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample4.cs)]
 
@@ -101,7 +101,7 @@ En tercer lugar, tenga en cuenta que el controlador de aplicación contiene un c
 
 El controlador de películas en el listado 5 se hereda desde el controlador de la aplicación.
 
-**Enumerar 5:`Controllers\MoviesController.cs`**
+**Enumerar 5: `Controllers\MoviesController.cs`**
 
 [!code-csharp[Main](passing-data-to-view-master-pages-cs/samples/sample5.cs)]
 
@@ -115,6 +115,6 @@ En este tutorial, se describen dos métodos para pasar datos de vista de un cont
 
 A continuación, se examina una mejor estrategia para agregar los datos requeridos por una página maestra de la vista para ver los datos. En lugar de agregar los datos de vista en cada acción de controlador, hemos agregado una sola vez los datos de la vista dentro de un controlador de la aplicación. De este modo, puede evitar código duplicado cuando se pasan datos a una página maestra de la vista en una aplicación ASP.NET MVC.
 
->[!div class="step-by-step"]
-[Anterior](creating-page-layouts-with-view-master-pages-cs.md)
-[Siguiente](asp-net-mvc-views-overview-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-page-layouts-with-view-master-pages-cs.md)
+> [Siguiente](asp-net-mvc-views-overview-vb.md)

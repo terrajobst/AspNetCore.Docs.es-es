@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
-title: "Agregar un nuevo campo en el modelo de película como una tabla de base de datos (VB) | Documentos de Microsoft"
+title: Agregar un nuevo campo en el modelo de película como una tabla de base de datos (VB) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: 377c667a56bb5c0d58ecef5c3550ca510ec52546
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 5927b7d977e375881fe618b4b844cbd708023ba1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-database-table-vb"></a>Agregar un nuevo campo en el modelo de película como una tabla de base de datos (VB)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es una versión gratuita de Microsoft Visual Studio. Antes de empezar, asegúrese de que ha instalado los requisitos previos descritos a continuación. Puede instalar todas ellas haciendo clic en el siguiente vínculo: [instalador de plataforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Como alternativa, puede instalar por separado los requisitos previos mediante los siguientes vínculos:
 > 
@@ -49,7 +49,7 @@ Volver a compilar la aplicación mediante el **depurar** &gt; **crear películas
 
 Ahora que ha actualizado el `Model` (clase), también debe actualizar el *\Views\Movies\Index.vbhtml* y *\Views\Movies\Create.vbhtml* ver plantillas para admitir la nueva `Rating`propiedad.
 
-Abra la*\Views\Movies\Index.vbhtml* de archivos y agregar un `<th>Rating</th>` justo después de encabezado de columna la **precio** columna. A continuación, agregue un `<td>` columna cerca del final de la plantilla para representar la `@item.Rating` valor. A continuación se muestra qué actualizado *Index.vbhtml* plantilla de vista es similar:
+Abra la<em>\Views\Movies\Index.vbhtml</em> de archivos y agregar un `<th>Rating</th>` justo después de encabezado de columna la <strong>precio</strong> columna. A continuación, agregue un `<td>` columna cerca del final de la plantilla para representar la `@item.Rating` valor. A continuación se muestra qué actualizado <em>Index.vbhtml</em> plantilla de vista es similar:
 
 [!code-vbhtml[Main](adding-a-new-field/samples/sample3.vbhtml)]
 
@@ -123,6 +123,6 @@ Haga clic en **Crear**. La película nuevo, incluida la clasificación, se muest
 
 En esta sección se ha visto cómo puede modificar objetos de modelo y mantenerlos sincronizados con los cambios de la base de datos. También aprendió una forma de rellenar una base de datos recién creada con datos de ejemplo para probar escenarios. A continuación, echemos un vistazo a cómo puede agregar una lógica de validación a las clases del modelo y habilitar algunas reglas de negocios que se aplicará.
 
->[!div class="step-by-step"]
-[Anterior](examining-the-edit-methods-and-edit-view.md)
-[Siguiente](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Anterior](examining-the-edit-methods-and-edit-view.md)
+> [Siguiente](adding-validation-to-the-model.md)

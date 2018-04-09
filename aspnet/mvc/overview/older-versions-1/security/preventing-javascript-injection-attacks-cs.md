@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
-title: "Prevención de ataques de inyección de código de JavaScript (C#) | Documentos de Microsoft"
+title: Prevención de ataques de inyección de código de JavaScript (C#) | Documentos de Microsoft
 author: StephenWalther
-description: "Evitar ataques de inyección de código de JavaScript y los ataques de Scripting entre sitios de elementos no utilizados para usted. En este tutorial, Stephen Walther explica cómo puede fácilmente de..."
+description: Evitar ataques de inyección de código de JavaScript y los ataques de Scripting entre sitios de elementos no utilizados para usted. En este tutorial, Stephen Walther explica cómo puede fácilmente de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/preventing-javascript-injection-attacks-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 67f53162cb1bb0771d632ba7a3f5960db00e2744
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fbec58c009640164d908db5a45557c9e50041173
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="preventing-javascript-injection-attacks-c"></a>Prevención de ataques de inyección de código de JavaScript (C#)
 ====================
@@ -43,7 +43,7 @@ Imagine que ha creado un sitio Web de comentarios de cliente (consulte la figura
 
 El sitio Web de comentarios de cliente utiliza la `controller` en la lista 1. Esto `controller` contiene dos acciones denominadas `Index()` y `Create()`.
 
-**Lista 1:`HomeController.cs`**
+**Lista 1: `HomeController.cs`**
 
 [!code-csharp[Main](preventing-javascript-injection-attacks-cs/samples/sample1.cs)]
 
@@ -53,7 +53,7 @@ El `Create()` método crea un nuevo elemento de comentarios y lo agrega a la bas
 
 El `Index` vista está incluida en el listado 2.
 
-**La lista 2:`Index.aspx`**
+**La lista 2: `Index.aspx`**
 
 [!code-aspx[Main](preventing-javascript-injection-attacks-cs/samples/sample2.aspx)]
 
@@ -65,7 +65,7 @@ Imagine que escribir el texto siguiente en el formulario de comentarios del clie
 
 [!code-html[Main](preventing-javascript-injection-attacks-cs/samples/sample3.html)]
 
-Este texto representa una secuencia de comandos de JavaScript que muestra un cuadro de mensaje de alerta. Después de que alguien envía esta secuencia de comandos en los comentarios de formulario, el mensaje *Boo!* aparecerá cada vez que alguien visita el sitio Web de comentarios de cliente en el futuro (consulte la figura 2).
+Este texto representa una secuencia de comandos de JavaScript que muestra un cuadro de mensaje de alerta. Después de que alguien envía esta secuencia de comandos en los comentarios de formulario, el mensaje <em>Boo!</em> aparecerá cada vez que alguien visita el sitio Web de comentarios de cliente en el futuro (consulte la figura 2).
 
 
 [![Inyección de código de JavaScript](preventing-javascript-injection-attacks-cs/_static/image5.png)](preventing-javascript-injection-attacks-cs/_static/image4.png)
@@ -121,6 +121,6 @@ Normalmente, conviene utilizar el primer enfoque descrito en este tutorial sobre
 
 El objetivo de este tutorial era imposibles acerca de la perspectiva de un ataque de inyección de código de JavaScript. Este tutorial describe dos enfoques para defenderse de las aplicaciones de ASP.NET MVC frente a ataques de inyección de código de JavaScript: puede ya sea HTML codificar usuario enviada datos en la vista o bien pueden HTML codificar usuario enviado datos en el controlador.
 
->[!div class="step-by-step"]
-[Anterior](authenticating-users-with-windows-authentication-cs.md)
-[Siguiente](authenticating-users-with-forms-authentication-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](authenticating-users-with-windows-authentication-cs.md)
+> [Siguiente](authenticating-users-with-forms-authentication-vb.md)

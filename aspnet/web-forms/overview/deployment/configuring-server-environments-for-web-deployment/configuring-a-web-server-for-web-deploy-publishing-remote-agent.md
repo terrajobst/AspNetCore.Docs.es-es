@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
-title: "Configurar un servidor Web para Web de publicación (agente remoto) de implementación | Documentos de Microsoft"
+title: Configurar un servidor Web para Web de publicación (agente remoto) de implementación | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo configurar un servidor web de Internet Information Services (IIS) para admitir la publicación de web y la implementación mediante la implementación de Web de IIS..."
+description: En este tema se describe cómo configurar un servidor web de Internet Information Services (IIS) para admitir la publicación de web y la implementación mediante la implementación de Web de IIS...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 23195949121cd13ca4b1809b8db91a7320d1fdd2
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Configurar un servidor Web de publicación (agente remoto) de implementación Web
 ====================
@@ -180,7 +180,7 @@ En orden para el sitio Web servir el contenido, la identidad del grupo de aplica
 
 Para conceder permisos a una identidad del grupo de aplicación en un archivo o carpeta, tiene dos opciones:
 
-- Asignar permisos a la identidad del grupo de aplicación directamente, con el formato **IIS AppPool\***[nombre de grupo de aplicaciones]*(por ejemplo, **IIS AppPool\DemoSite**).
+- Asignar permisos a la identidad del grupo de aplicación directamente, con el formato <strong>IIS AppPool\</ strong ><em>[nombre de grupo de aplicaciones]</em>(por ejemplo, <strong>IIS AppPool\DemoSite</strong>).
 - Asignar permisos para la **IIS\_IUSRS** grupo.
 
 El enfoque más común consiste en asignar permisos a la variable local **IIS\_IUSRS** agrupar debido a este enfoque le permite cambiar los grupos de aplicaciones sin volver a configurar los permisos de sistema de archivos. El siguiente procedimiento usa este enfoque basado en grupos.
@@ -198,8 +198,8 @@ El enfoque más común consiste en asignar permisos a la variable local **IIS\_I
 
     ![](configuring-a-web-server-for-web-deploy-publishing-remote-agent/_static/image8.png)
 5. En el **Seleccionar usuarios o grupos** cuadro de diálogo, escriba **IIS\_IUSRS**, haga clic en **comprobar nombres**y, a continuación, haga clic en **Aceptar**.
-6. En el **permisos para *** [nombre de la carpeta]*cuadro de diálogo, tenga en cuenta que el nuevo grupo se ha asignado la **lectura &amp; ejecutar**, **mostrar el contenido de la carpeta**, y **Lectura** permisos de forma predeterminada. Deja sin modificar y haga clic en **Aceptar**.
-7. Haga clic en **Aceptar** para cerrar el *[nombre de la carpeta] *** propiedades** cuadro de diálogo.
+6. En el <strong>permisos para</strong><em>[nombre de la carpeta]</em>cuadro de diálogo, tenga en cuenta que el nuevo grupo se ha asignado la <strong>lectura &amp; ejecutar</strong>, <strong>Listar carpeta contenido</strong>, y <strong>lectura</strong> permisos de forma predeterminada. Deja sin modificar y haga clic en <strong>Aceptar</strong>.
+7. Haga clic en <strong>Aceptar</strong> para cerrar el <em>[nombre de la carpeta]</em><strong>propiedades</strong> cuadro de diálogo.
 
 Como una tarea final antes de intentar implementar los paquetes de web en el servidor, debe asegurarse de que se está ejecutando el servicio del agente de implementación Web. Al implementar un paquete desde un equipo remoto, el servicio del agente de implementación Web es responsable de extraer e instalar el contenido del paquete. El servicio se inicia de forma predeterminada cuando se instala la herramienta de implementación Web y se ejecuta bajo la identidad Network Service.
 
@@ -217,7 +217,7 @@ Puede comprobar si está ejecutando un servicio de varias maneras diferentes, co
 
 De forma predeterminada, el servicio del agente remoto escucha en el puerto TCP 80, en esta dirección URL:
 
-http:// [*nombre del servidor*] / MSDEPLOYAGENTSERVICE
+http:// [<em>nombre del servidor</em>] / MSDEPLOYAGENTSERVICE
 
 En la mayoría de los casos, no necesitará configurar las reglas de firewall adicionales para el servicio del agente remoto porque los servidores web suelen realizar escuchas para las solicitudes HTTP en el puerto 80. Si ha personalizado la instalación para que escuche en un puerto no estándar, debe configurar excepciones de firewall según sea necesario.
 
@@ -233,6 +233,6 @@ En este momento, el servidor web está listo para aceptar e instalar paquetes de
 
 Para obtener instrucciones sobre cómo configurar los archivos de proyecto personalizados de Microsoft Build Engine (MSBuild) para implementar paquetes de web con el servicio del agente remoto, consulte [configurar propiedades de implementación de un entorno de destino](configuring-deployment-properties-for-a-target-environment.md).
 
->[!div class="step-by-step"]
-[Anterior](scenario-configuring-a-production-environment-for-web-deployment.md)
-[Siguiente](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)
+> [!div class="step-by-step"]
+> [Anterior](scenario-configuring-a-production-environment-for-web-deployment.md)
+> [Siguiente](configuring-a-web-server-for-web-deploy-publishing-web-deploy-handler.md)

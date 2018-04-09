@@ -1,18 +1,18 @@
 ---
-title: "Las respuestas en caché de ASP.NET Core"
+title: Las respuestas en caché de ASP.NET Core
 author: rick-anderson
-description: "Aprenda a usar el almacenamiento en caché a menores requisitos de ancho de banda de respuesta y aumentar el rendimiento de las aplicaciones de ASP.NET Core."
+description: Aprenda a usar el almacenamiento en caché a menores requisitos de ancho de banda de respuesta y aumentar el rendimiento de las aplicaciones de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: c654cfd7c2d291849067bfd3297f940018ccb3d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: cc1ec50155398ba4143a2bf697ca26435c228c49
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
@@ -64,7 +64,7 @@ No hay ningún control del desarrollador actual sobre este comportamiento de alm
 
 Almacenamiento en caché en memoria utiliza memoria del servidor para almacenar los datos almacenados en caché. Este tipo de almacenamiento en caché es adecuado para un único servidor o varios servidores mediante *sesiones permanentes*. Sesiones permanentes significa que siempre se enrutan las solicitudes de un cliente en el mismo servidor para su procesamiento.
 
-Para obtener más información, consulte [Introducción al almacenamiento en caché en memoria de ASP.NET Core](xref:performance/caching/memory).
+Para obtener más información, consulte [almacenar en memoria caché en memoria](xref:performance/caching/memory).
 
 ### <a name="distributed-cache"></a>Caché distribuida
 
@@ -180,9 +180,9 @@ Cache-Control: public,max-age=60
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Almacenamiento en caché de HTTP de la especificación](https://tools.ietf.org/html/rfc7234#section-3)
+* [Almacenar las respuestas en las cachés](https://tools.ietf.org/html/rfc7234#section-3)
 * [Cache-Control](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Almacenamiento caché en memoria](xref:performance/caching/memory)
+* [En la memoria de caché](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)

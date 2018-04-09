@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 title: Obtiene acceso a datos de su modelo desde un controlador | Documentos de Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 91bfa5fe3c5bd3029b7d7c12c8831e1653fb1d2b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d3dfa079c334e04f368531456ec2ec4e9728f893
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Obtiene acceso a datos de su modelo desde un controlador
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 En esta sección, creará un nuevo `MoviesController` clase y escribir código que recupera los datos de la película y lo muestra en el explorador utilizando una plantilla de vista.
 
@@ -40,7 +40,7 @@ En el **agregar scaffolding** cuadro de diálogo, haga clic en **controlador de 
 - Seleccione **MovieDBContext (MvcMovie.Models)** para la clase de contexto de datos.
 - Para el nombre del controlador, escriba **MoviesController**.
 
- La imagen siguiente muestra el cuadro de diálogo completada.  
+  La imagen siguiente muestra el cuadro de diálogo completada.  
   
 ![](accessing-your-models-data-from-a-controller/_static/image3.png)   
 
@@ -64,7 +64,7 @@ Seleccione el vínculo **Crear nuevo**. Escriba algunos detalles acerca de una p
 ![](accessing-your-models-data-from-a-controller/_static/image5.png)
 
 > [!NOTE]
-> Es podrán que no pueda escribir decimales ni comas en el campo Precio. Para admitir la validación de jQuery para configuraciones regionales no inglesas que usan una coma (&quot;,&quot;) para obtener un separador decimal y formatos de fecha no es inglés de Estados Unidos, debe incluir *globalize.js* y específica de su  *Cultures/globalize.Cultures.js* archivo (de [https://github.com/jquery/globalize](https://github.com/jquery/globalize) ) y JavaScript para usar `Globalize.parseFloat`. Voy a explicar cómo hacerlo en el siguiente tutorial. Por ahora, escriba solamente números enteros como 10.
+> Es podrán que no pueda escribir decimales ni comas en el campo Precio. para admitir la validación de jQuery para configuraciones regionales no inglesas que usan una coma (&quot;,&quot;) para obtener un separador decimal y formatos de fecha no es inglés de Estados Unidos, debe incluir *globalize.js* y específica de su  *Cultures/globalize.Cultures.js* archivo (de [ https://github.com/jquery/globalize ](https://github.com/jquery/globalize) ) y JavaScript para usar `Globalize.parseFloat`. Voy a explicar cómo hacerlo en el siguiente tutorial. Por ahora, escriba solamente números enteros como 10.
 
 
 Al hacer clic en el **crear** botón hace que el formulario se envía al servidor, donde se guarda la información de la película en la base de datos. A continuación, se le redirigirá a la */Movies* dirección URL, donde puede ver la película recién creada en la lista.
@@ -157,6 +157,6 @@ Cuando haya terminado, cierre la conexión haciendo clic *MovieDBContext* y sele
 
 Ahora dispone de una base de datos y de páginas para mostrar, editar, actualizar y eliminar datos. En el siguiente tutorial, podrá examinar el resto del código con scaffolding y agregue un `SearchIndex` método y un `SearchIndex` vista que le permite buscar películas en esta base de datos. Para obtener más información sobre el uso de Entity Framework con MVC, consulte [crear un modelo de datos de Entity Framework para una aplicación de MVC de ASP.NET](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
->[!div class="step-by-step"]
-[Anterior](creating-a-connection-string.md)
-[Siguiente](examining-the-edit-methods-and-edit-view.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-a-connection-string.md)
+> [Siguiente](examining-the-edit-methods-and-edit-view.md)

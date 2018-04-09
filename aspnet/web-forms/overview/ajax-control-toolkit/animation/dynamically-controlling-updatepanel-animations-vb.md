@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
-title: "Controlar dinámicamente UpdatePanel animaciones (VB) | Documentos de Microsoft"
+title: Controlar dinámicamente UpdatePanel animaciones (VB) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Para el contenido de un..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Para el contenido de un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 75b1f169724d8d3f8bcbc46198d320eeb8e7260c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ff2853b4457a83a7367b4d1072d21929c40a3ed2
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-controlling-updatepanel-animations-vb"></a>Controlar dinámicamente UpdatePanel animaciones (VB)
 ====================
@@ -65,5 +65,5 @@ Ejecute el archivo en el explorador. Al hacer clic en el botón, se muestra la h
 
 La hora actual es difuminado ([haga clic aquí para ver la imagen a tamaño completo](dynamically-controlling-updatepanel-animations-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](animating-an-updatepanel-control-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](animating-an-updatepanel-control-vb.md)

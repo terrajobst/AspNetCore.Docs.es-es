@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
-title: "Anidar páginas maestras (VB) | Documentos de Microsoft"
+title: Anidar páginas maestras (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Muestra cómo anidar una página maestra dentro de otra."
+description: Muestra cómo anidar una página maestra dentro de otra.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/28/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/nested-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9059e358311cc80b6a64aa3ee1168f4ffcd4e94c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8c0123c12bb653a7f680154e2155eae0eb129428
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-master-pages-vb"></a>Páginas maestras anidadas (VB)
 ====================
@@ -94,7 +94,7 @@ Este marcado muestra un vínculo titulado "Nested las páginas maestras (Simple)
 
 ## <a name="step-2-creating-a-simple-nested-master-page"></a>Paso 2: Crear una página maestra anidada Simple
 
-`Simple.master`contiene dos controles ContentPlaceHolder: el `MainContent` ContentPlaceHolder agregamos dentro del formulario Web junto con la `head` ContentPlaceHolder en la `<head>` elemento. Si deseáramos crear una página de contenido y enlazarlo a `Simple.master` la página de contenido tendría dos controles de contenido que hacen referencia a los dos ContentPlaceHolders. De forma similar, si se crea una página maestra anidada y enlácelo al `Simple.master` , a continuación, la página maestra anidada tendrá dos controles de contenido.
+`Simple.master` contiene dos controles ContentPlaceHolder: el `MainContent` ContentPlaceHolder agregamos dentro del formulario Web junto con la `head` ContentPlaceHolder en la `<head>` elemento. Si deseáramos crear una página de contenido y enlazarlo a `Simple.master` la página de contenido tendría dos controles de contenido que hacen referencia a los dos ContentPlaceHolders. De forma similar, si se crea una página maestra anidada y enlácelo al `Simple.master` , a continuación, la página maestra anidada tendrá dos controles de contenido.
 
 Vamos a agregar una nueva página maestra anidada para el `NestedMasterPages` carpeta denominada `SimpleNested.master`. Haga doble clic en el `NestedMasterPages` carpeta y elija Agregar nuevo elemento. Se abrirá el cuadro de diálogo Agregar nuevo elemento que se muestra en la figura 2. Seleccione el tipo de plantilla de página maestra y escriba el nombre de la nueva página maestra. Para indicar que la nueva página maestra debe ser una página maestra anidada, active la casilla "Seleccionar la página principal".
 
@@ -126,7 +126,7 @@ Actualizar esta página maestra anidada para que se muestre el texto "Hola, desd
 
 [!code-aspx[Main](nested-master-pages-vb/samples/sample4.aspx)]
 
-Después de realizar esta adición, guarde la página maestra anidada y, a continuación, agregue una nueva página de contenido a la `NestedMasterPages` carpeta denominada `Default.aspx`y enlácelo a la `SimpleNested.master` página maestra. Tras agregar esta página puede ser sorprenderá ver que no contiene ningún control de contenido (consulte la figura 4). Sólo puede tener acceso una página de contenido su *principal* principal ContentPlaceHolders de la página. `SimpleNested.master`no contiene todos los controles ContentPlaceHolder; por lo tanto, cualquier página de contenido enlazado a esta página principal no puede contener los controles de contenido.
+Después de realizar esta adición, guarde la página maestra anidada y, a continuación, agregue una nueva página de contenido a la `NestedMasterPages` carpeta denominada `Default.aspx`y enlácelo a la `SimpleNested.master` página maestra. Tras agregar esta página puede ser sorprenderá ver que no contiene ningún control de contenido (consulte la figura 4). Sólo puede tener acceso una página de contenido su *principal* principal ContentPlaceHolders de la página. `SimpleNested.master` no contiene todos los controles ContentPlaceHolder; por lo tanto, cualquier página de contenido enlazado a esta página principal no puede contener los controles de contenido.
 
 
 [![La nueva página de contenido no contiene controles de contenido](nested-master-pages-vb/_static/image11.png)](nested-master-pages-vb/_static/image10.png)
@@ -258,7 +258,7 @@ La figura 10 muestra la `AdminNested.master` página maestra anidada cuando se v
 
 Cada vez que se agregue una nueva página de contenido a la sección de administración es necesario enlazarla a la `AdminNested.master` página maestra que acabamos de crear. Pero ¿qué ocurre con las existentes páginas de contenido? Actualmente, todas las páginas de contenido en el sitio se derivan de la `BasePage` (clase), que establece mediante programación el contenido de página principal en tiempo de ejecución. No es el comportamiento que deseamos para las páginas de contenido en la sección de administración. En su lugar, queremos que estas páginas de contenido que utilice siempre la `AdminNested.master` página. Será la responsabilidad de la página maestra anidada para elegir la página de contenido de nivel superior derecha en tiempo de ejecución.
 
-Para la mejor manera de lograr esto deseada comportamiento consiste en crear una nueva clase de página base personalizada denominada `AdminBasePage` que abarca el `BasePage` clase. `AdminBasePage`a continuación, puede invalidar la `SetMasterPageFile` y establezca el `Page` del objeto `MasterPageFile` con el valor codificado de forma rígida "~ / Admin/AdminNested.master". De este modo, cualquier página que se deriva de `AdminBasePage` utilizará `AdminNested.master`, mientras que cualquier página que se deriva de `BasePage` tendrá su `MasterPageFile` propiedad establece dinámicamente en "~ / Site.master" o "~ / Alternate.master" en función del valor de la `MyMasterPage` Variable de sesión.
+Para la mejor manera de lograr esto deseada comportamiento consiste en crear una nueva clase de página base personalizada denominada `AdminBasePage` que abarca el `BasePage` clase. `AdminBasePage` a continuación, puede invalidar la `SetMasterPageFile` y establezca el `Page` del objeto `MasterPageFile` con el valor codificado de forma rígida "~ / Admin/AdminNested.master". De este modo, cualquier página que se deriva de `AdminBasePage` utilizará `AdminNested.master`, mientras que cualquier página que se deriva de `BasePage` tendrá su `MasterPageFile` propiedad establece dinámicamente en "~ / Site.master" o "~ / Alternate.master" en función del valor de la `MyMasterPage` Variable de sesión.
 
 Empiece agregando un nuevo archivo de clase para la `App_Code` carpeta denominada `AdminBasePage.vb`. Tener `AdminBasePage` extender `BasePage` y, a continuación, reemplace el `SetMasterPageFile` método. En ese método asignar el `MasterPageFile` el valor "~ / Admin/AdminNested.master". Después de realizar estos cambios en la clase de archivo debe ser similar al siguiente:
 
@@ -358,11 +358,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
-Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Esta serie de tutoriales se revisó por varios revisores útiles. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](specifying-the-master-page-programmatically-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](specifying-the-master-page-programmatically-vb.md)

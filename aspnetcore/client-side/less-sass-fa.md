@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/less-sass-fa
-ms.openlocfilehash: 979f5639e382560d952df45ba6e0b8af3b132c2d
-ms.sourcegitcommit: 6548a3dd0cd1e3e92ac2310dee757ddad9fd6456
+ms.openlocfilehash: 3bb1c9006f8633485a420b52b5fa9b91b1875cc5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-styling-applications-with-less-sass-and-font-awesome-in-aspnet-core"></a>Introducción a las aplicaciones de estilo con menos, Sass y fuente Maravilla en ASP.NET Core
+# <a name="less-sass-and-font-awesome-in-aspnet-core"></a>Menor, Sass y la fuente Maravilla en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 

@@ -1,7 +1,7 @@
 ---
 title: Usar Gulp en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo usar Gulp en ASP.NET Core."
+description: Obtenga información acerca de cómo usar Gulp en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: 0a3443e8187d46992f55dc537d0f400c6771c50c
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="introduction-to-using-gulp-in-aspnet-core"></a>Introducción al uso de Gulp en ASP.NET Core 
+# <a name="use-gulp-in-aspnet-core"></a>Usar Gulp en ASP.NET Core
 
 Por [Erik Reitan](https://github.com/Erikre), [Scott Addie](https://scottaddie.com), [Daniel Roth](https://github.com/danroth27), y [Shayne Boyer](https://twitter.com/spboyer)
 
@@ -183,6 +183,9 @@ Si aún no ha creado una nueva aplicación Web, cree un nuevo proyecto de aplica
     **Explorador del ejecutor de tareas** muestra la lista de tareas de Gulp. (Tendrá que hacer clic en el **actualizar** botón que aparece a la izquierda del nombre del proyecto.)
     
     ![Explorador del ejecutor de tareas](using-gulp/_static/03-TaskRunnerExplorer.png)
+    
+    > [!IMPORTANT]
+    > El **explorador del ejecutor de tareas** elemento de menú contextual aparece sólo si *gulpfile.js* está en el directorio raíz del proyecto.
 
 4.  Debajo de la directiva **tareas** en **explorador del ejecutor de tareas**, haga clic en **limpia**y seleccione **ejecutar** en el menú emergente.
 
@@ -228,7 +231,7 @@ Para definir una nueva tarea de Gulp, modificar *gulpfile.js*.
 
     ![Explorador del ejecutor de tareas ejecute la primera tarea](using-gulp/_static/06-TaskRunner-First.png)
 
-    Verá que se muestra el texto de salida. Si está interesado en ejemplos basados en un escenario común, consulte Gulp recetas.
+    Se muestra el texto de salida. Para ver ejemplos basados en los escenarios comunes, consulte [Gulp recetas](#gulp-recipes).
 
 ## <a name="defining-and-running-tasks-in-a-series"></a>Definir y ejecutar tareas en una serie
 

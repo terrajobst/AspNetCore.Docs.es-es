@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 title: Usar el calendario HTML5 y jQuery UI Datepicker emergente con ASP.NET MVC - parte 3 | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de cómo trabajar con plantillas de editor, plantillas de presentación y el calendario emergente de jQuery UI datepicker en una máquina virtual de ASP.NET..."
+description: Este tutorial le enseñará los aspectos básicos de cómo trabajar con plantillas de editor, plantillas de presentación y el calendario emergente de jQuery UI datepicker en una máquina virtual de ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/29/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 7d4ed67254c2b0fc2aef748cfab1c8f628b25641
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: fd1ae746f4f134b779c7eee50cf6c840bbb7068e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-3"></a>Usar el calendario HTML5 y jQuery UI Datepicker emergente con ASP.NET MVC - parte 3
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial le enseñará los aspectos básicos de cómo trabajar con plantillas de editor, plantillas de presentación y el calendario emergente de jQuery UI datepicker en una aplicación Web de MVC de ASP.NET.
 
@@ -99,6 +99,6 @@ El método utilizado depende de lo que necesita hacer en la aplicación. No es r
 
 En la sección siguiente, cambiará el tercio un poco y mover de personalizar cómo se muestran los datos para personalizar la forma de especificar. Podrá enlazar el datepicker de jQuery a las vistas de edición en la aplicación con el fin de proporcionar una manera fácil de especificar las fechas.
 
->[!div class="step-by-step"]
-[Anterior](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
-[Siguiente](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-2.md)
+> [Siguiente](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4.md)

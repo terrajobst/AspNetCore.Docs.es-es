@@ -2,7 +2,7 @@
 uid: web-pages/overview/security/16-adding-security-and-membership
 title: Agregar seguridad y pertenencia a ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft
 author: tfitzmac
-description: "Este capítulo muestra cómo proteger su sitio Web para que estén disponibles sólo para las personas que inicien sesión en algunas de las páginas. (También verá cómo crear páginas tha..."
+description: Este capítulo muestra cómo proteger su sitio Web para que estén disponibles sólo para las personas que inicien sesión en algunas de las páginas. (También verá cómo crear páginas tha...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: af2eeb128cff554e7ae3d903e2117861087344e9
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 351368a356a71e85d4abfdceac8d4f84e0b217f4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Adición de seguridad y pertenencia a un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -47,7 +47,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 > - ASP.NET Web Helpers Library
 
 
-Puede configurar su sitio Web para que los usuarios pueden iniciar sesión en &#8212; es decir, para que el sitio admite *pertenencia*. Esto puede ser útil por diversos motivos. Por ejemplo, el sitio podría tener páginas que deben estar disponibles solo para miembros. En algunos casos, es posible que necesite los usuarios inicien sesión con el fin de enviar comentarios o deje un comentario.
+Puede configurar su sitio Web para que los usuarios pueden iniciar sesión en él &#8212; es decir, para que el sitio admite *pertenencia*. Esto puede ser útil por diversos motivos. Por ejemplo, el sitio podría tener páginas que deben estar disponibles solo para miembros. En algunos casos, es posible que necesite los usuarios inicien sesión con el fin de enviar comentarios o deje un comentario.
 
 Incluso si su sitio Web es compatible con la pertenencia, los usuarios no son necesariamente requeridos para iniciar sesión para usar algunas de las páginas en el sitio. Los usuarios que no inició sesión en se conocen como *a los usuarios anónimos*.
 
@@ -88,26 +88,26 @@ El siguiente procedimiento describe cómo crear el sitio y configurarlo.
     Si no desea configurar la confirmación por correo electrónico, puede omitir este paso y el paso siguiente. Si no se establecen los valores de SMTP, la nueva cuenta está inmediatamente disponible sin un correo electrónico de confirmación.
 6. Modificar las siguientes opciones relacionadas con el correo electrónico en el código:
 
-    - Establecer `WebMail.SmtpServer` en el nombre del servidor SMTP que tienen acceso a.
-    - Deje `WebMail.EnableSsl` establecido en `true`. Esta configuración protege las credenciales que se envían al servidor SMTP mediante su cifrado.
-    - Establecer `WebMail.UserName` al nombre de usuario para la cuenta del servidor SMTP.
-    - Establecer `WebMail.Password` como la contraseña para la cuenta del servidor SMTP.
-    - Establecer `WebMail.From` a su propia dirección de correo electrónico. Se trata de la dirección de correo electrónico que se envía el mensaje desde.
+   - Establecer `WebMail.SmtpServer` en el nombre del servidor SMTP que tienen acceso a.
+   - Deje `WebMail.EnableSsl` establecido en `true`. Esta configuración protege las credenciales que se envían al servidor SMTP mediante su cifrado.
+   - Establecer `WebMail.UserName` al nombre de usuario para la cuenta del servidor SMTP.
+   - Establecer `WebMail.Password` como la contraseña para la cuenta del servidor SMTP.
+   - Establecer `WebMail.From` a su propia dirección de correo electrónico. Se trata de la dirección de correo electrónico que se envía el mensaje desde.
 
-    > [!NOTE] 
-    > 
-    > **Sugerencia** para obtener información adicional acerca de los valores de estas propiedades, vea [configurar opciones de correo electrónico](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) en [personalizar el comportamiento de todo el sitio para ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
+     > [!NOTE] 
+     > 
+     > **Sugerencia** para obtener información adicional acerca de los valores de estas propiedades, vea [configurar opciones de correo electrónico](https://go.microsoft.com/fwlink/?LinkID=202906#configuring_email_settings) en [personalizar el comportamiento de todo el sitio para ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkID=202906).
 7. Guarde y cierre  *\_AppStart.cshtml*.
 8. Ejecute el *Default.cshtml* página en un explorador.
 
     ![seguridad-pertenencia-2](16-adding-security-and-membership/_static/image1.png)
 
-    > [!NOTE]
-    > Si ve un error que indica que una propiedad debe ser una instancia de `ExtendedMembershipProvider`, el sitio podría no estar configurado para usar el sistema de pertenencia de ASP.NET Web Pages (SimpleMembership). A veces, esto puede ocurrir si el servidor de un proveedor de hospedaje está configurado de manera diferente que el servidor local. Para solucionar este problema, agregue el siguiente elemento en el sitio *Web.config* archivo:
-    > 
-    > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
-    > 
-    > Agregue este elemento como elemento secundario de la `<configuration>` elemento y como un homólogo de la `<system.web>` elemento.
+   > [!NOTE]
+   > Si ve un error que indica que una propiedad debe ser una instancia de `ExtendedMembershipProvider`, el sitio podría no estar configurado para usar el sistema de pertenencia de ASP.NET Web Pages (SimpleMembership). A veces, esto puede ocurrir si el servidor de un proveedor de hospedaje está configurado de manera diferente que el servidor local. Para solucionar este problema, agregue el siguiente elemento en el sitio *Web.config* archivo:
+   > 
+   > [!code-xml[Main](16-adding-security-and-membership/samples/sample2.xml)]
+   > 
+   > Agregue este elemento como elemento secundario de la `<configuration>` elemento y como un homólogo de la `<system.web>` elemento.
 9. En la esquina superior derecha de la página, haga clic en el **registrar** vínculo. El *Register.cshtml* se muestra la página.
 10. Escriba un nombre de usuario y una contraseña y, a continuación, haga clic en **registrar**.
 
@@ -120,14 +120,14 @@ El siguiente procedimiento describe cómo crear el sitio y configurarlo.
 12. Haga clic en el hipervínculo para activar su cuenta. El hipervínculo de confirmación abre una página de confirmación de registro.
 
     ![seguridad-pertenencia-5](16-adding-security-and-membership/_static/image4.png)
-- Haga clic en el **inicio de sesión** vincular y, a continuación, inicie sesión con la cuenta que haya registrado.
+13. Haga clic en el **inicio de sesión** vincular y, a continuación, inicie sesión con la cuenta que haya registrado.
 
-    Tras iniciar sesión, el **inicio de sesión** y **registrar** vínculos se reemplazan por un **Logout** vínculo. El nombre de inicio de sesión se muestra como un vínculo. (El vínculo le permite ir a una página donde puede cambiar la contraseña.)
+      Tras iniciar sesión, el **inicio de sesión** y **registrar** vínculos se reemplazan por un **Logout** vínculo. El nombre de inicio de sesión se muestra como un vínculo. (El vínculo le permite ir a una página donde puede cambiar la contraseña.)
 
-    ![6 de pertenencia de seguridad](16-adding-security-and-membership/_static/image5.png)
+      ![6 de pertenencia de seguridad](16-adding-security-and-membership/_static/image5.png)
 
-    > [!NOTE]
-    > De forma predeterminada, las páginas web ASP.NET enviar credenciales al servidor en texto no cifrado (como texto legible). Un sitio de producción debe usar HTTP seguro (https://, también conocida como la *capa de sockets seguros* o SSL) para cifrar información confidencial que se intercambia con el servidor. Puede que correo electrónico necesario para enviar mensajes mediante SSL estableciendo `WebMail.EnableSsl=true` como en el ejemplo anterior. Para obtener más información acerca de SSL, consulte [asegurar las comunicaciones Web: certificados SSL y https://](https://go.microsoft.com/fwlink/?LinkId=208660).
+      > [!NOTE]
+      > De forma predeterminada, las páginas web ASP.NET enviar credenciales al servidor en texto no cifrado (como texto legible). Un sitio de producción debe usar HTTP seguro (https://, también conocida como la *capa de sockets seguros* o SSL) para cifrar información confidencial que se intercambia con el servidor. Puede que correo electrónico necesario para enviar mensajes mediante SSL estableciendo `WebMail.EnableSsl=true` como en el ejemplo anterior. Para obtener más información acerca de SSL, consulte [asegurar las comunicaciones Web: certificados SSL y https://](https://go.microsoft.com/fwlink/?LinkId=208660).
 
 ## <a name="additional-membership-functionality-in-the-site"></a>Funcionalidad de pertenencia adicionales en el sitio
 
@@ -165,7 +165,7 @@ En este procedimiento, creará una carpeta que contendrá las páginas que solo 
     (El número de puerto (38366) probablemente será diferente en la dirección URL.)
 
     Se le redirigirá a la *Login.cshtml* página, porque no inició sesión.
-- Inicie sesión con la cuenta que creó anteriormente. Se le redirigirá a la *MembersInformation* página. Dado que ha iniciado sesión, este tiempo se mostrará el contenido de página.
+7. Inicie sesión con la cuenta que creó anteriormente. Se le redirigirá a la *MembersInformation* página. Dado que ha iniciado sesión, este tiempo se mostrará el contenido de página.
 
 Para proteger el acceso a varias páginas, puede hacer esto:
 
@@ -227,10 +227,10 @@ La página de inicio de sesión no detendrá programas automatizados (a veces se
 7. Reemplace `PUBLIC_KEY` con su clave.
 8. Si aún no lo ha quitado ya, quitar el `<div>` elemento que contiene el texto que empieza por "Para habilitar la comprobación CAPTCHA...". (Elimina toda la `<div>` elemento y su contenido.)
 
-1. Ejecutar *Default.cshtml* en un explorador. Si ha iniciado sesión en el sitio, haga clic en el **Logout** vínculo.
-2. Haga clic en el **registrar** vincular y probar el registro mediante la prueba CAPTCHA.
+9. Ejecutar *Default.cshtml* en un explorador. Si ha iniciado sesión en el sitio, haga clic en el **Logout** vínculo.
+10. Haga clic en el **registrar** vincular y probar el registro mediante la prueba CAPTCHA.
 
-    ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
+     ![security-membership-10](16-adding-security-and-membership/_static/image9.png)
 
 Para obtener más información sobre la `ReCaptcha` auxiliar, vea [mediante un CATPCHA para evitar que los programas automatizada (Bots) de uso de su sitio Web de ASP.NET](https://go.microsoft.com/fwlink/?LinkId=251967).
 

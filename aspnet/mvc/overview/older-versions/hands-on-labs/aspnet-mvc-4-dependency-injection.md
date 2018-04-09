@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
-title: "Inserción de dependencias de MVC de ASP.NET 4 | Documentos de Microsoft"
+title: Inserción de dependencias de MVC de ASP.NET 4 | Documentos de Microsoft
 author: rick-anderson
-description: "Nota: Este laboratorio práctico sobre supone que tiene conocimientos básicos de los filtros ASP.NET MVC y ASP.NET MVC 4. Si no ha utilizado filtros de ASP.NET MVC 4 antes de, rec..."
+description: 'Nota: Este laboratorio práctico sobre supone que tiene conocimientos básicos de los filtros ASP.NET MVC y ASP.NET MVC 4. Si no ha utilizado filtros de ASP.NET MVC 4 antes de, rec...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: c735bbdafe4b8f0423abb6bacd076f173a1be9d8
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e6c24d03039f0e6005948a73348589627c9df2df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>Inserción de dependencias de MVC de ASP.NET 4
 
@@ -158,12 +158,12 @@ Cuando se ejecuta la aplicación, recibirá una excepción, como el servicio del
 
 1. Abra la **comenzar** soluciones se encuentran en **Controller\Begin insertar Source\Ex01**.
 
-    1. Deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Presione **Ctrl + F5** para ejecutar la aplicación sin depuración. Se le devolverá el mensaje de error &quot; **ningún constructor sin parámetros definido para este objeto**&quot;:
 
     ![Error al ejecutar la aplicación de ASP.NET MVC comenzar](aspnet-mvc-4-dependency-injection/_static/image3.png "Error al ejecutar la aplicación de ASP.NET MVC comenzar")
@@ -265,14 +265,14 @@ En esta tarea, creará una vista que realiza una llamada de servicio para genera
 
 1. Abra el **comenzar** soluciones se encuentran en la **View\Begin inyectar Source\Ex02** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
-    > 
-    > Para obtener más información, consulte este artículo: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > 
+      > Para obtener más información, consulte este artículo: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Incluir el **MessageService.cs** y la **IMessageService.cs** clases se encuentran en el **origen \Assets** carpeta en **/servicios**. Para ello, haga clic en **servicios** carpeta y seleccione **Agregar elemento existente**. Vaya a la ubicación de los archivos y los incluye.
 
     ![Agregar servicio de mensajes y la interfaz de servicio](aspnet-mvc-4-dependency-injection/_static/image8.png "Agregar servicio de mensajes y la interfaz de servicio")
@@ -290,7 +290,7 @@ En esta tarea, creará una vista que realiza una llamada de servicio para genera
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample8.cshtml)]
 5. En el **examinar** ver, agregar una llamada a **MessageService** para mostrar una imagen y un mensaje recuperado por el servicio.
-(C#)
+   (C#)
 
     [!code-cshtml[Main](aspnet-mvc-4-dependency-injection/samples/sample9.cshtml)]
 
@@ -305,7 +305,7 @@ En la tarea anterior, se insertado una dependencia nuevo dentro de una vista par
 > Desde ASP.NET MVC 3, la implementación para la inyección de dependencia tenía simplificado las interfaces para registrar los servicios. **Objeto IDependencyResolver** y **IViewPageActivator** forman parte de las características de ASP.NET MVC 3 para la inyección de dependencia.
 > 
 > **-IDependencyResolver** interfaz reemplaza el IMvcServiceLocator anterior. Los implementadores de IDependencyResolver deben devolver una instancia del servicio o una colección de servicio.
->
+> 
 > 
 > [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample10.cs)]
 > 
@@ -404,14 +404,14 @@ En esta tarea, se incluirá en la tienda de música un filtro de acción persona
 
 1. Abra la **comenzar** soluciones se encuentran en la **Source\Ex03 - Filter\Begin de acción de insertar** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
-    > 
-    > Para obtener más información, consulte este artículo: [http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > 
+      > Para obtener más información, consulte este artículo: [ http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages ](http://docs.nuget.org/docs/workflows/using-nuget-without-committing-packages).
 2. Incluir **TraceActionFilter.cs** archivo **/orígenes/activos** a **/filtros** carpeta.
 
     [!code-csharp[Main](aspnet-mvc-4-dependency-injection/samples/sample18.cs)]
@@ -509,9 +509,9 @@ Se tratan los conceptos siguientes:
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Apéndice A: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la  **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
-1. Vaya a [ [https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con SDK de Windows Azure*&quot;.
+1. Vaya a [ [ https://go.microsoft.com/? linkid = 9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con SDK de Windows Azure</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 

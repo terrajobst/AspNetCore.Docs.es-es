@@ -1,7 +1,7 @@
 ---
-title: "Configuración de protección de datos en ASP.NET Core"
+title: Configurar la protección de datos de ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo configurar la protección de datos en ASP.NET Core."
+description: Obtenga información acerca de cómo configurar la protección de datos en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 07/17/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 0fe1fd7b81a0e5aa00ae14c7e6fdbd9cc88ec4fe
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="configuring-data-protection-in-aspnet-core"></a>Configuración de protección de datos en ASP.NET Core
+# <a name="configure-aspnet-core-data-protection"></a>Configurar la protección de datos de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Cuando se inicializa el sistema de protección de datos, se aplica [configuración predeterminada](xref:security/data-protection/configuration/default-settings) basado en el entorno operativo. Esta configuración es suelen ser adecuada para aplicaciones que se ejecutan en un único equipo. Hay casos donde un desarrollador puede cambiar la configuración predeterminada, es posible porque la aplicación se distribuye entre varias máquinas o por motivos de cumplimiento. En estos casos, el sistema de protección de datos ofrece una API enriquecida de configuración.
 
-Hay un método de extensión [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) que devuelve un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder`expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de opciones.
+Hay un método de extensión [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) que devuelve un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de opciones.
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

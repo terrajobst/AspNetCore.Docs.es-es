@@ -1,7 +1,7 @@
 ---
-title: Utilice la plantilla de proyecto de reaccionar
+title: Utilizar la plantilla de proyecto de reaccionar con ASP.NET Core
 author: SteveSandersonMS
-description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar y aplicación reaccionar crear."
+description: Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar y aplicación reaccionar crear.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: cda9f52d1f5fa1d240e210488bf1bd5c76e49be7
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-project-template"></a>Utilice la plantilla de proyecto de reaccionar
+# <a name="use-the-react-project-template-with-aspnet-core"></a>Utilizar la plantilla de proyecto de reaccionar con ASP.NET Core
 
 > [!NOTE]
 > Acerca de la plantilla de proyecto de reaccionar en esta documentación no está incluida en ASP.NET 2.0 de núcleo. Se trata de la plantilla de reaccionar más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.

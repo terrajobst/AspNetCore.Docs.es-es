@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 title: Mostrar mapas en un ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft
 author: tfitzmac
-description: "Este artículo explica cómo mostrar los mapas interactivos en páginas en un sitio Web de ASP.NET Web Pages (Razor) en función de asignación de servicios proporcionados por Bing, Google, Ma..."
+description: Este artículo explica cómo mostrar los mapas interactivos en páginas en un sitio Web de ASP.NET Web Pages (Razor) en función de asignación de servicios proporcionados por Bing, Google, Ma...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: 6f3e6a0cfb8c08cd971e88986d0f059dd8237aab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 608dab8760bad7b877ab6fd4f89b21e980f5b1db
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-maps-in-an-aspnet-web-pages-razor-site"></a>Mostrar mapas en un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -89,9 +89,9 @@ En el ejemplo siguiente se muestra cómo crear una página que representa un map
         > [!NOTE]
         > Si usa una versión diferente de la biblioteca de jQuery, asegúrese de que está señalando a esa versión correctamente.
     - La llamada a la `@Maps.GetGoogleHtml` en el cuerpo de la página. Para asignar una dirección, debe pasar una cadena de dirección. Los métodos para el resto de los motores de asignación de trabajo de una manera similar (`@Maps.GetYahooHtml`, `@Maps.GetMapQuestHtml`).
-- Ejecute la página e introduzca una dirección. La página muestra una asignación, en función de Google Maps, que muestra la ubicación que especificó.
+3. Ejecute la página e introduzca una dirección. La página muestra una asignación, en función de Google Maps, que muestra la ubicación que especificó.
 
-    ![asignación-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
+     ![asignación-1](displaying-maps-in-an-aspnet-web-pages-site/_static/image2.png)
 
 ## <a name="creating-a-map-based-on-latitude-and-longitude-coordinates-using-bing"></a>Creación de un mapa en función de latitud y longitud coordina (con Bing)
 
@@ -103,12 +103,12 @@ En este ejemplo se muestra cómo crear un mapa en función de coordenadas. En es
 2. Reemplace `your-key-here` con la clave de mapas de Bing que ha generado anteriormente.
 3. Ejecute el *MapCoordinates.cshtml* página, escriba las coordenadas de latitud y longitud y, a continuación, haga clic en el **Map It!** . (Si no conoce las coordenadas, intente lo siguiente. Esta es una ubicación en la sede de Redmond de Microsoft.)
 
-    - Latitud: 47.6781005859375
-    - Longitud:-122.158317565918
+   - Latitud: 47.6781005859375
+   - Longitud:-122.158317565918
 
-    Se abrirá la página utilizando las coordenadas que especificó.
+     Se abrirá la página utilizando las coordenadas que especificó.
 
-    ![asignación-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
+     ![asignación-3](displaying-maps-in-an-aspnet-web-pages-site/_static/image3.png)
 
 <a id="Additional_Resources"></a>
 ## <a name="additional-resources"></a>Recursos adicionales

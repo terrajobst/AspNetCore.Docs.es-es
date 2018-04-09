@@ -1,7 +1,7 @@
 ---
-title: Agrupar y minificar en ASP.NET Core
+title: Agrupación y minifiy activos estáticos en ASP.NET Core
 author: scottaddie
-description: "Obtenga información acerca de cómo optimizar recursos estáticos en una aplicación web de ASP.NET Core aplicando técnicas de agrupación y minificación."
+description: Obtenga información acerca de cómo optimizar recursos estáticos en una aplicación web de ASP.NET Core aplicando técnicas de agrupación y minificación.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: 6c233d0957ce9974adbc6112e6194c072aab0b41
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="bundling-and-minification"></a>Agrupar y minificar
+# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Agrupación y minifiy activos estáticos en ASP.NET Core
 
 Por [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -79,7 +79,7 @@ Opciones de configuración incluyen:
 
 * `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **required**
 * `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) patrones son compatibles.
-* `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado:`minify: { enabled: true }`*
+* `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado: `minify: { enabled: true }`*
   * Opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
@@ -220,28 +220,22 @@ Especificar qué archivos desea incluir en las páginas mediante el [auxiliar de
 
 El siguiente `environment` etiqueta representa los archivos sin procesar de CSS cuando se ejecuta en el `Development` entorno:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=21-24)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=9-12)]
 
----
-
+* * *
 El siguiente `environment` etiqueta representa los archivos CSS agrupados y reducidos cuando se ejecuta en un entorno distinto de `Development`. Por ejemplo, que se ejecutan `Production` o `Staging` desencadena el procesamiento de estas hojas de estilos:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=5&range=25-30)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-cshtml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/Pages/_Layout.cshtml?highlight=3&range=13-18)]
 
----
-
+* * *
 ## <a name="consume-bundleconfigjson-from-gulp"></a>Consumir bundleconfig.json desde Gulp
 
 Hay casos en los que el flujo de trabajo de una aplicación agrupar y minificar requiere un procesamiento adicional. Algunos ejemplos son la optimización de la imagen, la desactivación de caché y el procesamiento del recurso de red CDN. Para satisfacer estos requisitos, que puede convertir el flujo de trabajo de agrupación y minificación para usar Gulp.

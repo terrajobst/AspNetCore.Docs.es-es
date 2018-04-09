@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 title: Usar controladores y vistas para implementar una interfaz de usuario de la lista y detalles | Documentos de Microsoft
 author: microsoft
-description: "Paso 4 muestra cómo agregar un controlador a la aplicación que aprovecha las ventajas de nuestro modelo para proporcionar a los usuarios una experiencia de exploración de datos/detalles del anuncio..."
+description: Paso 4 muestra cómo agregar un controlador a la aplicación que aprovecha las ventajas de nuestro modelo para proporcionar a los usuarios una experiencia de exploración de datos/detalles del anuncio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
-ms.openlocfilehash: 2f9148a2d419863229e2c5a2a0c98984001fcee5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Usar controladores y vistas para implementar una interfaz de usuario de la lista y detalles
 ====================
@@ -59,10 +59,10 @@ También se abrirá la nueva clase de DinnersController en el editor de código.
 
 Queremos permitir a que los visitantes con nuestra aplicación para examinar una lista de las próximas cenas y que puedan hacer clic en cualquier cena en la lista para ver detalles concretos sobre él. Deberá hacerlo mediante la publicación de las siguientes direcciones URL de nuestra aplicación:
 
-| **URL** | **Propósito** |
+| **URL** | **Purpose** |
 | --- | --- |
 | */Dinners/* | Mostrar una lista HTML de cenas próximos |
-| */Dinners/detalles / [id]* | Mostrar los detalles sobre una cena específica indicado por un parámetro "id" incrustado en la dirección URL: que coincidirá con la DinnerID de la cena de la base de datos. Por ejemplo: /Dinners/Details/2 podría mostrar una página HTML con detalles acerca de la cena cuyo valor de DinnerID es 2. |
+| */Dinners/Details/[id]* | Mostrar los detalles sobre una cena específica indicado por un parámetro "id" incrustado en la dirección URL: que coincidirá con la DinnerID de la cena de la base de datos. Por ejemplo: /Dinners/Details/2 podría mostrar una página HTML con detalles acerca de la cena cuyo valor de DinnerID es 2. |
 
 Publicaremos implementaciones iniciales de estas direcciones URL mediante la adición de dos público "métodos de acción" a nuestra clase DinnersController como a continuación:
 
@@ -92,14 +92,14 @@ Las reglas de enrutamiento de ASP.NET MVC predeterminada se registran en el mét
 
 Las rutas de". MapRoute() "llamada al método anterior registra una regla de enrutamiento predeterminada que asigna las direcciones URL entrantes a las clases de controlador con el formato de dirección URL:" / {controller} / {action} / {id} ", donde"controller"es el nombre de la clase de controlador para crear una instancia,"action"es el nombre de un método público que se invoca en él y "id" es un parámetro opcional incrustado en la dirección URL que puede pasarse como argumento al método. El tercer parámetro pasado a la llamada al método de "MapRoute()" es un conjunto de valores predeterminados que se va a usar para los valores de controlador / / Id. de acción en caso de que no están presentes en la dirección URL (controlador = "Home", acción = "Index", Id = "").
 
-A continuación se muestra una tabla que muestra cómo una variedad de direcciones URL se asignan mediante el valor predeterminado "*/ {controladores} / {action} / {id}"*regla de ruta:
+A continuación se muestra una tabla que muestra cómo una variedad de direcciones URL se asignan mediante el valor predeterminado "<em>/ {controladores} / {action} / {id}"</em>regla de ruta:
 
 | **URL** | **Clase de controlador** | **Método de acción** | **Parámetros pasados** |
 | --- | --- | --- | --- |
-| */ Cenas/detalles/2* | DinnersController | Details(ID) | Id. = 2 |
-| */ Cenas/editar/5* | DinnersController | Edit(ID) | Id. = 5 |
-| */ Cenas/crear* | DinnersController | Método Create() | N/D |
-| */ Cenas* | DinnersController | Index() | N/D |
+| */Dinners/Details/2* | DinnersController | Details(ID) | id=2 |
+| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
+| */Dinners/Create* | DinnersController | Método Create() | N/D |
+| */Dinners* | DinnersController | Index() | N/D |
 | */ Principal* | HomeController | Index() | N/D |
 | */* | HomeController | Index() | N/D |
 
@@ -301,6 +301,6 @@ Ahora tenemos una cena nice exploración compilada.
 
 Permite ahora habilitar compatibilidad de edición de formularios de datos CRUD (creación, lectura, actualización, eliminación).
 
->[!div class="step-by-step"]
-[Anterior](build-a-model-with-business-rule-validations.md)
-[Siguiente](provide-crud-create-read-update-delete-data-form-entry-support.md)
+> [!div class="step-by-step"]
+> [Anterior](build-a-model-with-business-rule-validations.md)
+> [Siguiente](provide-crud-create-read-update-delete-data-form-entry-support.md)

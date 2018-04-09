@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 title: Varios ContentPlaceHolders y contenido predeterminado (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Examina cómo agregar varios marcadores de posición de contenido a una página maestra, así como cómo especificar contenido predeterminado en los marcadores de posición de contenido."
+description: Examina cómo agregar varios marcadores de posición de contenido a una página maestra, así como cómo especificar contenido predeterminado en los marcadores de posición de contenido.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ccb65f0b2f16e0c7a67787f7dfab14303daeca1d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fcd1d8f34dba52a04c0d9f6a1961df7b97405b42
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a>Varios ContentPlaceHolders y contenido predeterminado (VB)
 ====================
@@ -179,12 +179,12 @@ Feliz programación.
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Suchi Banerjee. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](creating-a-site-wide-layout-using-master-pages-vb.md)
-[Siguiente](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-a-site-wide-layout-using-master-pages-vb.md)
+> [Siguiente](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-vb.md)

@@ -2,7 +2,7 @@
 uid: web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 title: Hospedar ASP.NET Web API 2 en un rol de trabajador de Azure | Documentos de Microsoft
 author: MikeWasson
-description: "Este tutorial muestra cómo hospedar ASP.NET Web API en un rol de trabajador de Azure, mediante OWIN para probar internamente el marco Web API. Abrir la interfaz Web de .NET (OWIN)..."
+description: Este tutorial muestra cómo hospedar ASP.NET Web API en un rol de trabajador de Azure, mediante OWIN para probar internamente el marco Web API. Abrir la interfaz Web de .NET (OWIN)...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/hosting-aspnet-web-api/host-aspnet-web-api-in-an-azure-worker-role
 msc.type: authoredcontent
-ms.openlocfilehash: 9a7f8242bf482e81513accfe05e10a64ae0ca0b2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7ba1dc850e2f9d9c88e6ddf263a796e1867a98be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="host-aspnet-web-api-2-in-an-azure-worker-role"></a>Hospedar ASP.NET Web API 2 en un rol de trabajador de Azure
 ====================
@@ -131,7 +131,7 @@ El emulador de proceso asigna una dirección IP local para el punto de conexión
 
 [![](host-aspnet-web-api-in-an-azure-worker-role/_static/image11.png)](host-aspnet-web-api-in-an-azure-worker-role/_static/image10.png)
 
-Buscar la dirección IP en implementaciones de servicios de implementación [id], detalles del servicio. Abra un explorador web y vaya a http://*dirección*/test/1, donde *dirección* es la dirección IP asignada por el emulador de proceso; por ejemplo, `http://127.0.0.1:80/test/1`. Debería ver la respuesta desde el controlador de API Web:
+Buscar la dirección IP en implementaciones de servicios de implementación [id], detalles del servicio. Abra un explorador web y vaya a http://<em>dirección</em>/test/1, donde <em>dirección</em> es la dirección IP asignada por el emulador de proceso; por ejemplo, `http://127.0.0.1:80/test/1`. Debería ver la respuesta desde el controlador de API Web:
 
 ![](host-aspnet-web-api-in-an-azure-worker-role/_static/image12.png)
 

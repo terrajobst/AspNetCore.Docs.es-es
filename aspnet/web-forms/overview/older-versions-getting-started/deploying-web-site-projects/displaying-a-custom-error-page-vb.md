@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
-title: "Mostrar una página de Error personalizada (VB) | Documentos de Microsoft"
+title: Mostrar una página de Error personalizada (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "¿Lo que ve el usuario cuando se produce un error en tiempo de ejecución en una aplicación web ASP.NET? La respuesta depende del sitio Web &lt;customErrors&gt; configuración..."
+description: ¿Lo que ve el usuario cuando se produce un error en tiempo de ejecución en una aplicación web ASP.NET? La respuesta depende del sitio Web &lt;customErrors&gt; configuración...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e8a2f88490de08f731f9737d15237ae445c5ec0d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: eda7ceeac174f0d1697cb95d2eab4127f124011e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-a-custom-error-page-vb"></a>Mostrar una página de Error personalizada (VB)
 ====================
@@ -60,7 +60,7 @@ Tenga en cuenta la información de excepción que se presentan en **figura 1**. 
 
 El otro tipo de YSOD es el YSOD de Error en tiempo de ejecución y se muestra en **figura 2**. El YSOD de Error en tiempo de ejecución informa al visitante que se ha producido un error en tiempo de ejecución, pero no incluir toda la información sobre la excepción que se produjo. (Sin embargo,, proporcionan instrucciones sobre cómo hacer visibles los detalles del error modificando la `Web.config` archivo, que forma parte de lo que hace que estos un YSOD parezca poco profesional.)
 
-De forma predeterminada, el YSOD de Error en tiempo de ejecución se muestra a los usuarios que visitan de forma remota (a través de http://www.yoursite.com), como pone de manifiesto por la dirección URL en la barra de direcciones del explorador de **figura 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Las dos pantallas YSOD diferentes existen porque los desarrolladores están interesados en conocer los detalles del error, pero dicha información no se debe mostrar en un sitio en vivo tal y como puede revelar vulnerabilidades de seguridad u otra información confidencial a cualquier persona que visita el sitio.
+De forma predeterminada, se muestra la YSOD de Error en tiempo de ejecución para los usuarios que visitan de forma remota (a través de http://www.yoursite.com), como pone de manifiesto por la dirección URL en la barra de direcciones del explorador de **figura 2**: `http://httpruntime.web703.discountasp.net/Genre.aspx?ID=foo`. Las dos pantallas YSOD diferentes existen porque los desarrolladores están interesados en conocer los detalles del error, pero dicha información no se debe mostrar en un sitio en vivo tal y como puede revelar vulnerabilidades de seguridad u otra información confidencial a cualquier persona que visita el sitio.
 
 > [!NOTE]
 > Si está siguiendo y está utilizando DiscountASP.NET como su host de web, puede observar que la YSOD de Error en tiempo de ejecución no se muestran al visitar el sitio activo. Esto es porque DiscountASP.NET tiene sus servidores configurados para mostrar el YSOD de detalles de excepción de forma predeterminada. Lo bueno es que puede invalidar este comportamiento predeterminado mediante la adición de un `<customErrors>` sección a su `Web.config` archivo. La sección "Configurar que Error es mostrar la página" examina la `<customErrors>` sección detalladamente.
@@ -89,11 +89,11 @@ Cuál de las tres páginas de error posibles se muestra se basa en dos variables
 
 El [ `<customErrors>` sección](https://msdn.microsoft.com/library/h0hfz6fc.aspx) en `Web.config` tiene dos atributos que afectan a la página de error se muestra: `defaultRedirect` y `mode`. El atributo `defaultRedirect` es opcional. Si se proporciona, especifica la dirección URL de la página de error personalizada e indica que se debe mostrar la página de error personalizado en lugar de la YSOD de Error en tiempo de ejecución. El `mode` atributo es obligatorio y acepta uno de estos tres valores: `On`, `Off`, o `RemoteOnly`. Estos valores tienen el siguiente comportamiento:
 
-- `On`-indica que se muestra la página de error personalizada o el YSOD de Error en tiempo de ejecución a todos los visitantes, independientemente de si son locales o remotos.
-- `Off`: Especifica que la YSOD de detalles de excepción se muestra a todos los visitantes, independientemente de si son locales o remotos.
-- `RemoteOnly`-indica que la página de error personalizada o el YSOD de Error en tiempo de ejecución se muestra a los visitantes remotos, mientras que la YSOD de detalles de excepción se muestra a los visitantes del locales.
+- `On` -indica que se muestra la página de error personalizada o el YSOD de Error en tiempo de ejecución a todos los visitantes, independientemente de si son locales o remotos.
+- `Off` : Especifica que la YSOD de detalles de excepción se muestra a todos los visitantes, independientemente de si son locales o remotos.
+- `RemoteOnly` -indica que la página de error personalizada o el YSOD de Error en tiempo de ejecución se muestra a los visitantes remotos, mientras que la YSOD de detalles de excepción se muestra a los visitantes del locales.
 
-A menos que se especifique lo contrario, ASP.NET actúa como si hubiera establecido el atributo de modo `RemoteOnly` y no se ha especificado un `defaultRedirect` valor. En otras palabras, el comportamiento predeterminado es que la YSOD de detalles de excepción se muestra a los visitantes locales mientras el YSOD de Error en tiempo de ejecución se muestra a los visitantes remotos. Puede invalidar este comportamiento predeterminado mediante la adición de un `<customErrors>` sección en su aplicación web`Web.config file.`
+A menos que se especifique lo contrario, ASP.NET actúa como si hubiera establecido el atributo de modo `RemoteOnly` y no se ha especificado un `defaultRedirect` valor. En otras palabras, el comportamiento predeterminado es que la YSOD de detalles de excepción se muestra a los visitantes locales mientras el YSOD de Error en tiempo de ejecución se muestra a los visitantes remotos. Puede invalidar este comportamiento predeterminado mediante la adición de un `<customErrors>` sección en su aplicación web `Web.config file.`
 
 ## <a name="using-a-custom-error-page"></a>Uso de una página de Error personalizado
 
@@ -143,7 +143,7 @@ Con este cambio en su lugar, cada vez que un usuario que visita de forma remota 
 > Extraer del repositorio [404 páginas de Error, una vez más](http://www.smashingmagazine.com/2009/01/29/404-error-pages-one-more-time/) para obtener instrucciones sobre cómo crear páginas de error 404 efectivo.
 
 
-[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Figura 7**: la página de Error 404 personalizada muestra un mensaje más concretas que`Oops.aspx`  
+[![](displaying-a-custom-error-page-vb/_static/image19.png)](displaying-a-custom-error-page-vb/_static/image18.png)**Figura 7**: la página de Error 404 personalizada muestra un mensaje más concretas que `Oops.aspx`  
  ([Haga clic aquí para ver la imagen a tamaño completo](displaying-a-custom-error-page-vb/_static/image20.png)) 
 
 Dado que sabe que la `404.aspx` página solo se alcanza cuando el usuario realiza una solicitud para una página que no se encontró, se puede mejorar esta página de error personalizada para incluir funcionalidades para ayudar al usuario a resolver este tipo de error específico. Por ejemplo, podría crear una tabla de base de datos que asigna conocida las direcciones de URL incorrectas a buen direcciones URL y, a continuación, tiene la `404.aspx` página de errores personalizados ejecutar una consulta en que la tabla y sugerir páginas que el usuario intenta alcanzar.
@@ -172,6 +172,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Controlar y generar excepciones](https://msdn.microsoft.com/library/5b2yeyab.aspx)
 - [Correctamente con páginas de errores personalizadas en ASP.NET](http://professionalaspnet.com/archive/2007/09/30/Properly-Using-Custom-Error-Pages-in-ASP.NET.aspx)
 
->[!div class="step-by-step"]
-[Anterior](strategies-for-database-development-and-deployment-vb.md)
-[Siguiente](processing-unhandled-exceptions-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](strategies-for-database-development-and-deployment-vb.md)
+> [Siguiente](processing-unhandled-exceptions-vb.md)

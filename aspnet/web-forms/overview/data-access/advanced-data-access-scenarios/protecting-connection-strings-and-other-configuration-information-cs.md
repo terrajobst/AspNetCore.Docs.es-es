@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
-title: "Proteger las cadenas de conexión y otra información de configuración (C#) | Documentos de Microsoft"
+title: Proteger las cadenas de conexión y otra información de configuración (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Normalmente, una aplicación ASP.NET almacena información de configuración en un archivo Web.config. Parte de esta información es confidencial y garantiza la protección. Por def..."
+description: Normalmente, una aplicación ASP.NET almacena información de configuración en un archivo Web.config. Parte de esta información es confidencial y garantiza la protección. Por def...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e3782e3d4acc2db0e744128dad64fdfae1e8766d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 20a18a36cb5d1621b0b718f87c05eb3175110143
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-c"></a>Proteger las cadenas de conexión y otra información de configuración (C#)
 ====================
@@ -60,8 +60,8 @@ ASP.NET 2.0 incluye un sistema de configuración protegida para cifrar y descifr
 
 .NET Framework incluye dos proveedores de configuración protegida:
 
-- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx)-usa la asimétrica [algoritmo de RSA](http://en.wikipedia.org/wiki/Rsa) para el cifrado y descifrado.
-- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx)-usa las ventanas [API de protección de datos (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) para el cifrado y descifrado.
+- [`RSAProtectedConfigurationProvider`](https://msdn.microsoft.com/library/system.configuration.rsaprotectedconfigurationprovider.aspx) -usa la asimétrica [algoritmo de RSA](http://en.wikipedia.org/wiki/Rsa) para el cifrado y descifrado.
+- [`DPAPIProtectedConfigurationProvider`](https://msdn.microsoft.com/system.configuration.dpapiprotectedconfigurationprovider.aspx) -usa las ventanas [API de protección de datos (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx) para el cifrado y descifrado.
 
 Puesto que el sistema de configuración protegida implementa el patrón de diseño de proveedor, es posible crear su propio proveedor de configuración protegida y conéctelo a la aplicación. Vea [implementar un proveedor de configuración protegida](https://msdn.microsoft.com/library/wfc2t3az(VS.80).aspx) para obtener más información acerca de este proceso.
 
@@ -228,12 +228,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial fueron Teresa Murphy y Randy Schmidt. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
-[Siguiente](debugging-stored-procedures-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-the-data-access-layer-s-connection-and-command-level-settings-cs.md)
+> [Siguiente](debugging-stored-procedures-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
-title: "Maximizar el rendimiento con Entity Framework 4.0 en una aplicación de ASP.NET 4 Web | Documentos de Microsoft"
+title: Maximizar el rendimiento con Entity Framework 4.0 en una aplicación de ASP.NET 4 Web | Documentos de Microsoft
 author: tdykstra
-description: "Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I..."
+description: Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application
 msc.type: authoredcontent
-ms.openlocfilehash: 40a53a110115e5f6342d2a97d21b64470450fd3c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b85645eebf2822b33df944692736ea9d9b69b9aa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="maximizing-performance-with-the-entity-framework-40-in-an-aspnet-4-web-application"></a>Maximizar el rendimiento con Entity Framework 4.0 en una aplicación Web 4 de ASP.NET
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > Esta serie de tutoriales que se basa en la aplicación web de la Universidad de Contoso que se crea mediante la [Getting Started with the Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serie de tutoriales. Si no has completado los tutoriales anteriores, como punto de partida para este tutorial puede [descargar la aplicación](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) que puede haberla creado. También puede [descargar la aplicación](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creado por la serie de tutoriales completa. Si tiene alguna pregunta acerca de los tutoriales, puede publicar para la [foro de ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -54,11 +54,11 @@ Para iniciar el tutorial, inicie Visual Studio y abra la aplicación web de la U
 
 Hay varias maneras que Entity Framework pueda cargar los datos relacionados en las propiedades de navegación de una entidad:
 
-- *Carga diferida*. Cuando la entidad es de lectura en primer lugar, no recuperan datos relacionados. Sin embargo, la primera vez que intente acceder a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Esto da como resultado varias consultas que se envían a la base de datos: uno para la propia entidad y otro se debe recuperar cada vez que los datos de la entidad relacionados. 
+- *Carga diferida*. Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. Pero la primera vez que intente obtener acceso a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Esto da como resultado varias consultas que se envían a la base de datos: uno para la propia entidad y otro se debe recuperar cada vez que los datos de la entidad relacionados. 
 
     [![Image05](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image2.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image1.png)
 
-*Carga diligente*. Cuando se lee la entidad, se recuperan los datos relacionados con él. Esto normalmente como resultado de una consulta de combinación única que recupera todos los datos que se necesitan. Carga diligente se especifica mediante el `Include` método, como se ha visto ya en estos tutoriales.
+*Carga diligente*. Cuando se lee la entidad, junto a ella se recuperan datos relacionados. Esto normalmente da como resultado una única consulta de combinación en la que se recuperan todos los datos que se necesitan. Carga diligente se especifica mediante el `Include` método, como se ha visto ya en estos tutoriales.
 
 [![Image07](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image4.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image3.png)
 
@@ -76,7 +76,7 @@ En general, si sabe que necesita datos relacionados para cada entidad carga dili
 
 En una aplicación web, la carga diferida puede ser de relativamente poco valor de todos modos, porque tienen lugar en el explorador, que no tiene conexión con el contexto del objeto que representa la página de acciones de usuario que afectan a la necesidad de datos relacionados. Por otro lado, al enlazar un control, normalmente saber qué datos hay que necesita y, por lo que normalmente es mejor para elegir carga diligente o la carga aplazada en función de lo que es adecuado para cada escenario.
 
-Además, un control enlazado a datos podría usar un objeto de entidad después de que se elimine el contexto del objeto. En ese caso, se producirá un error en un intento de carga diferida una propiedad de navegación. El mensaje de error que recibe es claro:&quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
+Además, un control enlazado a datos podría usar un objeto de entidad después de que se elimine el contexto del objeto. En ese caso, se producirá un error en un intento de carga diferida una propiedad de navegación. El mensaje de error que recibe es claro: &quot;`The ObjectContext instance has been disposed and can no longer be used for operations that require a connection.`&quot;
 
 El `EntityDataSource` control deshabilita la carga diferida de forma predeterminada. Para el `ObjectDataSource` control que está usando para el tutorial actual (o si tiene acceso al contexto del objeto de código de la página), hay varias maneras de hacer que sea diferida carga deshabilitada de forma predeterminada. Se puede deshabilitar cuando cree instancias de un contexto del objeto. Por ejemplo, puede agregar la línea siguiente al método de constructor de la `SchoolRepository` clase:
 
@@ -187,7 +187,7 @@ Restaure el código original en el `GetDepartmentsByName` método y, a continuac
 
 En Visual Studio, seleccione la **depurar** menú, a continuación, **IntelliTrace**y, a continuación, **eventos de IntelliTrace**.
 
-[![Image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
+[![image11](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image14.png)](maximizing-performance-with-the-entity-framework-in-an-asp-net-web-application/_static/image13.png)
 
 En el **IntelliTrace** ventana, haga clic en **interrumpir todos**.
 
@@ -266,6 +266,6 @@ Con esto finaliza la introducción a mejorar el rendimiento en una aplicación w
 
 El siguiente tutorial revisa algunas de las mejoras importantes a Entity Framework que son nuevas en la versión 4.
 
->[!div class="step-by-step"]
-[Anterior](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
-[Siguiente](what-s-new-in-the-entity-framework-4.md)
+> [!div class="step-by-step"]
+> [Anterior](handling-concurrency-with-the-entity-framework-in-an-asp-net-web-application.md)
+> [Siguiente](what-s-new-in-the-entity-framework-4.md)

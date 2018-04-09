@@ -1,7 +1,7 @@
 ---
 title: Evitar que las secuencias de comandos (XSS) en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de Scripting entre sitios (XSS) y las técnicas para tener acceso a esta vulnerabilidad en una aplicación de ASP.NET Core."
+description: Obtenga información acerca de Scripting entre sitios (XSS) y las técnicas para tener acceso a esta vulnerabilidad en una aplicación de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: 9e54ee0b1169c01629c3cd91a378509a73c53904
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="preventing-cross-site-scripting-xss-in-aspnet-core"></a>Evitar que las secuencias de comandos (XSS) en ASP.NET Core
+# <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitar que las secuencias de comandos (XSS) en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -37,7 +37,7 @@ AT un XSS de nivel básico funciona engañar a su aplicación en Insertar un `<s
 
 ## <a name="html-encoding-using-razor"></a>Codificación HTML con Razor
 
-El motor de Razor usado en MVC automáticamente codifica todos los resultados como origen de las variables, a menos que trabaje mucho para evitar que esto. Usa el atributo HTML reglas de codificación, siempre que se use la  *@*  directiva. Como HTML la codificación del atributo es un supraconjunto de codificación HTML, que esto significa que no tiene que preocuparse de si debe utilizar la codificación HTML o codificación del atributo HTML. Debe asegurarse de que utiliza solo en un contexto HTML, no al intentar insertar la entrada que no se confía directamente en JavaScript. Aplicaciones auxiliares de etiquetas codificará también usen en parámetros de la etiqueta de entrada.
+El motor de Razor usado en MVC automáticamente codifica todos los resultados como origen de las variables, a menos que trabaje mucho para evitar que esto. Usa el atributo HTML reglas de codificación, siempre que se use la *@* directiva. Como HTML la codificación del atributo es un supraconjunto de codificación HTML, que esto significa que no tiene que preocuparse de si debe utilizar la codificación HTML o codificación del atributo HTML. Debe asegurarse de que utiliza solo en un contexto HTML, no al intentar insertar la entrada que no se confía directamente en JavaScript. Aplicaciones auxiliares de etiquetas codificará también usen en parámetros de la etiqueta de entrada.
 
 Realizar la siguiente vista Razor;
 
@@ -145,7 +145,7 @@ Esto se representará en el Explorador de manera;
 
 ## <a name="accessing-encoders-in-code"></a>Obtener acceso a los codificadores en código
 
-Los codificadores HTML, JavaScript y URL están disponibles en el código de dos maneras, también puede insertar ellos a través de [inyección de dependencia](../fundamentals/dependency-injection.md#fundamentals-dependency-injection) o puede usar los codificadores predeterminados incluidos en el `System.Text.Encodings.Web` espacio de nombres. Si usas los codificadores de manera predeterminada, a continuación, aplicado a los intervalos de caracteres se traten como seguros no surtirán efecto: los codificadores predeterminado usen las reglas de codificación más seguras posible.
+Los codificadores HTML, JavaScript y URL están disponibles en el código de dos maneras, también puede insertar ellos a través de [inyección de dependencia](xref:fundamentals/dependency-injection#fundamentals-dependency-injection) o puede usar los codificadores predeterminados incluidos en el `System.Text.Encodings.Web` espacio de nombres. Si usas los codificadores de manera predeterminada, a continuación, aplicado a los intervalos de caracteres se traten como seguros no surtirán efecto: los codificadores predeterminado usen las reglas de codificación más seguras posible.
 
 Para usar los codificadores configurables a través de DI deben tomar los constructores de una *HtmlEncoder*, *JavaScriptEncoder* y *UrlEncoder* parámetro según corresponda. Por ejemplo,
 

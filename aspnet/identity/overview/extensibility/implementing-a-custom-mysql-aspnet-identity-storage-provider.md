@@ -2,21 +2,21 @@
 uid: identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 title: Implementar un proveedor de almacenamiento de la identidad de ASP.NET de MySQL personalizado | Documentos de Microsoft
 author: raquelsa
-description: "Identidad de ASP.NET es un sistema extensible que permite crear su propio proveedor de almacenamiento y conectarlo a la aplicación sin necesidad de volver a trabajar el fac..."
+description: Identidad de ASP.NET es un sistema extensible que permite crear su propio proveedor de almacenamiento y conectarlo a la aplicación sin necesidad de volver a trabajar el fac...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/22/2015
 ms.topic: article
 ms.assetid: 248f5fe7-39ba-40ea-ab1e-71a69b0bd649
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/implementing-a-custom-mysql-aspnet-identity-storage-provider
 msc.type: authoredcontent
-ms.openlocfilehash: 3bfbccd91705755fc24bb8305fff171baa26f370
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d843b31e011fe520aad6cfdab0beca2d12477f12
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-a-custom-mysql-aspnet-identity-storage-provider"></a>Implementar un proveedor de almacenamiento de la identidad de ASP.NET de MySQL personalizado
 ====================
@@ -124,7 +124,7 @@ Si es necesario, instala ni [Visual Studio Express 2013 para Web](https://go.mic
 5. Haga clic en el proyecto de IdentityMySQLDemo, seleccione **agregar**, **referencia, soluciones, proyectos;** seleccione el proyecto AspNet.Identity.MySQL y haga clic en **Aceptar**.
 6. En el proyecto IdentityMySQLDemo, reemplace todas las referencias a  
     `using Microsoft.AspNet.Identity.EntityFramework;`  
- with  
+   with  
      `using AspNet.Identity.MySQL;`
 7. En IdentityModels.cs, establezca **ApplicationDbContext** pueden derivar **MySqlDatabase** e incluir un constructor que toman un único parámetro con el nombre de la conexión.  
 

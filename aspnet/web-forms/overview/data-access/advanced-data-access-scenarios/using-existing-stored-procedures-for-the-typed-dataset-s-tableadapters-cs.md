@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 title: Usar existente los procedimientos almacenados para los TableAdapters del conjunto de datos con tipo (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En el tutorial anterior, hemos visto cómo utilizar al Asistente de TableAdapter para generar nuevos procedimientos almacenados. En este tutorial se obtenga información acerca de cómo el mismo TableAdapter..."
+description: En el tutorial anterior, hemos visto cómo utilizar al Asistente de TableAdapter para generar nuevos procedimientos almacenados. En este tutorial se obtenga información acerca de cómo el mismo TableAdapter...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/18/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/using-existing-stored-procedures-for-the-typed-dataset-s-tableadapters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f95a6868ccce8ce0dfa16a92486e705c42e1db4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: df8a714325ce99db615eddc3d457da5c926919ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-existing-stored-procedures-for-the-typed-datasets-tableadapters-c"></a>Usar existente los procedimientos almacenados para los TableAdapters del conjunto de datos con tipo (C#)
 ====================
@@ -56,7 +56,7 @@ Escriba el siguiente script:
 
 Este script, cuando se ejecuta, agregará un nuevo procedimiento almacenado a la base de datos de Northwind denominado `Products_SelectByCategoryID`. Este procedimiento almacenado acepta un parámetro de entrada (`@CategoryID`, del tipo `int`) y devuelve todos los campos para los productos que tengan una coincidencia `CategoryID` valor.
 
-Para ejecutar este procedimiento `CREATE PROCEDURE` de secuencias de comandos y agregue el procedimiento almacenado a la base de datos, haga clic en el icono Guardar en la barra de herramientas o aciertos CTRL+s. Una vez hecho esto, las actualizaciones de la carpeta procedimientos almacenados, el procedimiento almacenado que muestra el recién creado. Además, la secuencia de comandos en la ventana cambiará detalle de `CREATE PROCEDURE dbo.Products_SelectProductByCategoryID` a `ALTER PROCEDURE` `dbo.Products_SelectProductByCategoryID`. `CREATE PROCEDURE`Agrega un nuevo procedimiento almacenado a la base de datos, mientras que `ALTER PROCEDURE` actualiza uno existente. Puesto que el inicio de la secuencia de comandos ha cambiado a `ALTER PROCEDURE`, cambiar los procedimientos almacenados de entrada de parámetros o instrucciones SQL y haga clic en el icono Guardar actualizará el procedimiento almacenado con estos cambios.
+Para ejecutar este procedimiento `CREATE PROCEDURE` de secuencias de comandos y agregue el procedimiento almacenado a la base de datos, haga clic en el icono Guardar en la barra de herramientas o aciertos CTRL+s. Una vez hecho esto, las actualizaciones de la carpeta procedimientos almacenados, el procedimiento almacenado que muestra el recién creado. Además, la secuencia de comandos en la ventana cambiará detalle de `CREATE PROCEDURE dbo.Products_SelectProductByCategoryID` a `ALTER PROCEDURE` `dbo.Products_SelectProductByCategoryID`. `CREATE PROCEDURE` Agrega un nuevo procedimiento almacenado a la base de datos, mientras que `ALTER PROCEDURE` actualiza uno existente. Puesto que el inicio de la secuencia de comandos ha cambiado a `ALTER PROCEDURE`, cambiar los procedimientos almacenados de entrada de parámetros o instrucciones SQL y haga clic en el icono Guardar actualizará el procedimiento almacenado con estos cambios.
 
 La figura 2 muestra Visual Studio después de la `Products_SelectByCategoryID` procedimiento almacenado se ha guardado.
 
@@ -273,12 +273,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Hilton Geisenow, S ren Jacob Lauritsen y Teresa Murphy. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
-[Siguiente](updating-the-tableadapter-to-use-joins-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-cs.md)
+> [Siguiente](updating-the-tableadapter-to-use-joins-cs.md)

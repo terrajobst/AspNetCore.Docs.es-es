@@ -1,7 +1,7 @@
 ---
-title: "Uso de módulos IIS con ASP.NET Core"
+title: Módulos IIS con ASP.NET Core
 author: guardrex
-description: "Detectar activos e inactivos módulos IIS para aplicaciones ASP.NET Core y cómo administrar los módulos IIS."
+description: Detectar activos e inactivos módulos IIS para aplicaciones ASP.NET Core y cómo administrar los módulos IIS.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: a6610e33abdc3eafb5908728b3299e95e6e7183f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: d9b3de915df333153255f91649f9169f76ba2fe0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="using-iis-modules-with-aspnet-core"></a>Uso de módulos IIS con ASP.NET Core
+# <a name="iis-modules-with-aspnet-core"></a>Módulos IIS con ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
@@ -49,7 +49,7 @@ Aplicaciones de ASP.NET Core están hospedadas por IIS en una configuración de 
 | **Compatibilidad con el protocolo**<br>`ProtocolSupportModule` | Sí | |
 | **Filtrado de solicitudes**<br>`RequestFilteringModule` | Sí | [Middleware de reescritura de dirección URL `IRule`](xref:fundamentals/url-rewriting#irule-based-rule) |
 | **Monitor de solicitudes**<br>`RequestMonitorModule` | Sí | |
-| **Reescritura de direcciones URL**<br>`RewriteModule` | Sí &#8224; | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) |
+| **Reescritura de direcciones URL**<br>`RewriteModule` | Sí&#8224; | [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting) |
 | **Inclusiones del lado servidor**<br>`ServerSideIncludeModule` | No | |
 | **Compresión estática**<br>`StaticCompressionModule` | No | [Middleware de compresión de respuestas](xref:performance/response-compression) |
 | **Contenido estático**<br>`StaticFileModule` | No | [Middleware de archivos estáticos](xref:fundamentals/static-files) |
@@ -58,7 +58,7 @@ Aplicaciones de ASP.NET Core están hospedadas por IIS en una configuración de 
 | **Autorización de URL**<br>`UrlAuthorizationModule` | Sí | [Identidad principal de ASP.NET](xref:security/authentication/identity) |
 | **Autenticación de Windows**<br>`WindowsAuthenticationModule` | Sí | |
 
-&#8224; Del módulo URL Rewrite `isFile` y `isDirectory` coincide con los tipos no funcionan con aplicaciones de ASP.NET Core debido a los cambios en [estructura de directorios](xref:host-and-deploy/directory-structure).
+&#8224;Del módulo URL Rewrite `isFile` y `isDirectory` coincide con los tipos no funcionan con aplicaciones de ASP.NET Core debido a los cambios en [estructura de directorios](xref:host-and-deploy/directory-structure).
 
 ## <a name="managed-modules"></a>Módulos administrados
 
@@ -106,21 +106,21 @@ Si la aceptación para quitar un módulo con una configuración en *web.config*,
 
 1. Desbloquear el módulo en el nivel de servidor. Seleccione el servidor IIS en el Administrador de IIS **conexiones** sidebar. Abra la **módulos** en el **IIS** área. Seleccione el módulo en la lista. En el **acciones** sidebar a la derecha, seleccione **Unlock**. Desbloquear tantos módulos como va a quitar de *web.config* más tarde.
 
-1. Implementar la aplicación sin un  **\<módulos >** sección *web.config*. Si una aplicación se implementa con un *web.config* que contiene el  **\<módulos >** sección sin necesidad de desbloquear la sección en primer lugar en el Administrador de IIS, el Administrador de configuración produce una excepción al intentar desbloquear la sección. Por lo tanto, implementar la aplicación sin un  **\<módulos >** sección.
+2. Implementar la aplicación sin un  **\<módulos >** sección *web.config*. Si una aplicación se implementa con un *web.config* que contiene el  **\<módulos >** sección sin necesidad de desbloquear la sección en primer lugar en el Administrador de IIS, el Administrador de configuración produce una excepción al intentar desbloquear la sección. Por lo tanto, implementar la aplicación sin un  **\<módulos >** sección.
 
-1. Desbloquear la  **\<módulos >** sección de *web.config*. En el **conexiones** sidebar, seleccione el sitio Web en **sitios**. En el **administración** área, abra el **Editor de configuración**. Utilice los controles de navegación para seleccionar la `system.webServer/modules` sección. En el **acciones** sidebar a la derecha, seleccione esta opción para **Unlock** la sección.
+3. Desbloquear la  **\<módulos >** sección de *web.config*. En el **conexiones** sidebar, seleccione el sitio Web en **sitios**. En el **administración** área, abra el **Editor de configuración**. Utilice los controles de navegación para seleccionar la `system.webServer/modules` sección. En el **acciones** sidebar a la derecha, seleccione esta opción para **Unlock** la sección.
 
-1. En este punto, un  **\<módulos >** sección puede agregarse a la *web.config* de archivos con una  **\<quitar >** elemento que se va a quitar el módulo de la aplicación. Varios  **\<quitar >** pueden agregarse los elementos para quitar varios módulos. Si *web.config* se realizan cambios en el servidor, realizar inmediatamente los mismos cambios en el proyecto *web.config* archivo localmente. Si quita un módulo de esta manera no afectan al uso del módulo con otras aplicaciones en el servidor.
+4. En este punto, un  **\<módulos >** sección puede agregarse a la *web.config* de archivos con una  **\<quitar >** elemento que se va a quitar el módulo de la aplicación. Varios  **\<quitar >** pueden agregarse los elementos para quitar varios módulos. Si *web.config* se realizan cambios en el servidor, realizar inmediatamente los mismos cambios en el proyecto *web.config* archivo localmente. Si quita un módulo de esta manera no afectan al uso del módulo con otras aplicaciones en el servidor.
 
-  ```xml
-  <configuration> 
+   ```xml
+   <configuration> 
     <system.webServer> 
       <modules> 
         <remove name="MODULE_NAME" /> 
       </modules> 
     </system.webServer> 
-  </configuration>
-  ```
+   </configuration>
+   ```
 
 Para una instalación de IIS con los módulos predeterminados instalados, utilice la siguiente  **\<módulo >** sección para desinstalar los módulos predeterminados.
 

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
-title: "Crear una aplicación de base de datos de la película en 15 minutos con MVC de ASP.NET (VB) | Documentos de Microsoft"
+title: Crear una aplicación de base de datos de la película en 15 minutos con MVC de ASP.NET (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "Stephen Walther compila una todo controlada por la base de datos ASP.NET MVC la aplicación desde el principio para finalizar. Este tutorial se muestra una introducción excelente para las personas que son t nuevo..."
+description: Stephen Walther compila una todo controlada por la base de datos ASP.NET MVC la aplicación desde el principio para finalizar. Este tutorial se muestra una introducción excelente para las personas que son t nuevo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/movie-database/create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b87a69df24a410161dfaf055519eb6137fa76c06
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecd5892457af5bc14a939672c64eed85fc05ec22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-a-movie-database-application-in-15-minutes-with-aspnet-mvc-vb"></a>Crear una aplicación de base de datos de la película en 15 minutos con MVC de ASP.NET (VB)
 ====================
@@ -48,7 +48,7 @@ Nuevo, puesto que deseamos no complicar las cosas, se podrá aprovechar el núme
 Para crear nuestra aplicación, es necesario completar cada uno de los siguientes pasos:
 
 1. Crear el proyecto de aplicación Web de ASP.NET MVC
-2. Crear la base de datos
+2. Creación de la base de datos
 3. Crear el modelo de base de datos
 4. Crear el controlador de MVC de ASP.NET
 5. Crear vistas de ASP.NET MVC
@@ -366,5 +366,5 @@ El objetivo de este tutorial era para proporcionarle una idea de la experiencia 
 
 En este tutorial, se examinan solo las características más básicas del marco de MVC de ASP.NET. En tutoriales futuros, hemos profundizar más en temas tales como controladores, las acciones de controlador, vistas, ver datos y aplicaciones auxiliares HTML.
 
->[!div class="step-by-step"]
-[Anterior](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](create-a-movie-database-application-in-15-minutes-with-asp-net-mvc-cs.md)

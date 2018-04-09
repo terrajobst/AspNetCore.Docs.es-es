@@ -1,7 +1,7 @@
 ---
-title: Cifrado de claves en reposo
+title: Cifrado de claves en reposo en ASP.NET Core
 author: rick-anderson
-description: "Este documento describen los detalles de implementación del cifrado de clave de protección de datos y ASP.NET Core en reposo."
+description: Obtenga información acerca de los detalles de implementación del cifrado de clave de protección de datos de ASP.NET Core en reposo.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,20 +9,20 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/implementation/key-encryption-at-rest
-ms.openlocfilehash: c66430bfe547cf061e9e79a703ac665a968bbe0b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 9247b141a44c958f34529e5a42a0ddc8c8893cb0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="key-encryption-at-rest"></a>Cifrado de claves en reposo
+# <a name="key-encryption-at-rest-in-aspnet-core"></a>Cifrado de claves en reposo en ASP.NET Core
 
 <a name="data-protection-implementation-key-encryption-at-rest"></a>
 
 De forma predeterminada, el sistema de protección de datos [emplea un método heurístico](xref:security/data-protection/configuration/default-settings) para determinar cómo criptográfico material de clave debe cifrarse en reposo. El desarrollador puede invalidar la heurística y especificar manualmente cómo se deben cifrar las claves en reposo.
 
 > [!NOTE]
-> Si especifica un cifrado de clave explícita en el mecanismo de rest, el sistema de protección de datos se anular el registro el mecanismo de almacenamiento de claves predeterminado que proporciona la heurística. Debe [especifican un mecanismo de almacenamiento de claves explícitas](key-storage-providers.md#data-protection-implementation-key-storage-providers), en caso contrario, no podrá iniciar el sistema de protección de datos.
+> Si especifica un cifrado de clave explícita en el mecanismo de rest, el sistema de protección de datos se anular el registro el mecanismo de almacenamiento de claves predeterminado que proporciona la heurística. Debe [especifican un mecanismo de almacenamiento de claves explícitas](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers), en caso contrario, no podrá iniciar el sistema de protección de datos.
 
 <a name="data-protection-implementation-key-encryption-at-rest-providers"></a>
 
@@ -95,7 +95,7 @@ En este escenario, el controlador de dominio de AD es responsable de distribuir 
 
 ## <a name="certificate-based-encryption-with-windows-dpapi-ng"></a>Cifrado basada en certificados con Windows DPAPI-NG
 
-Si se está ejecutando en Windows 8.1 / Windows Server 2012 R2 o versiones posteriores, puede usar Windows DPAPI-NG para realizar el cifrado basada en certificados, incluso si la aplicación se ejecuta en [.NET Core](https://www.microsoft.com/net/core). Para aprovechar estas características, utilice la cadena de descriptor de la regla "certificado = HashId:thumbprint", donde la huella digital es la huella digital con codificación hexadecimal SHA1 del certificado que se va a usar. Vea a continuación para obtener un ejemplo.
+Si se está ejecutando en Windows 8.1 / Windows Server 2012 R2 o versiones posteriores, puede usar Windows DPAPI-NG para realizar el cifrado basada en certificados, incluso si la aplicación se ejecuta en .NET Core. Para aprovechar estas características, utilice la cadena de descriptor de la regla "certificado = HashId:thumbprint", donde la huella digital es la huella digital con codificación hexadecimal SHA1 del certificado que se va a usar. Vea a continuación para obtener un ejemplo.
 
 ```csharp
 sc.AddDataProtection()

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
-title: "Inicio de sesión único (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Inicio de sesión único (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 7d82d5e9-0619-4f22-9e03-32a6d52940a5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/single-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: b3640c94a8ae9ede330c0fe6a392acb5843cb65c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 82f2f99154d94074b03d580a0f491053d6f53bde
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="single-sign-on-building-real-world-cloud-apps-with-azure"></a>Inicio de sesión único (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -130,7 +130,7 @@ Y, dentro de unos minutos haya terminado.
 
 Solamente debe ejecutar esto en un controlador de dominio en la organización, en Windows 2003 o posterior. Y no se necesita reiniciar. Cuando haya terminado, todos los usuarios están en la nube y puede realizar un inicio de sesión único desde cualquier web o aplicaciones móviles, con SAML, OAuth o WS-Fed.
 
-A veces nos preguntan acerca de cómo proteger es: Microsoft usa para sus propios datos empresariales confidenciales? Y la respuesta es Sí, que hacemos. Por ejemplo, si va al sitio de SharePoint de Microsoft interno en [https://microsoft.sharepoint.com/](https://microsoft.sharepoint.com/), se le pida que inicie sesión.
+A veces nos preguntan acerca de cómo proteger es: Microsoft usa para sus propios datos empresariales confidenciales? Y la respuesta es Sí, que hacemos. Por ejemplo, si va al sitio de SharePoint de Microsoft interno en [ https://microsoft.sharepoint.com/ ](https://microsoft.sharepoint.com/), se le pida que inicie sesión.
 
 ![Inicio de sesión en Office 365](single-sign-on/_static/image20.png)
 
@@ -193,6 +193,6 @@ Para obtener más información, vea los siguientes recursos:
 - [Blog de Azure Active Directory Graph API](https://blogs.msdn.com/b/aadgraphteam/).
 - [Control de acceso en BYOD y la integración de directorios en una infraestructura de identidad híbrida](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/PCIT-B213#fbid=). Tech Ed 2014 sesión vídeo Gayana Bagdasaryan.
 
->[!div class="step-by-step"]
-[Anterior](web-development-best-practices.md)
-[Siguiente](data-storage-options.md)
+> [!div class="step-by-step"]
+> [Anterior](web-development-best-practices.md)
+> [Siguiente](data-storage-options.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
-title: "Las estrategias de desarrollo de base de datos y la implementaci처n (C#) | Documentos de Microsoft"
+title: Las estrategias de desarrollo de base de datos y la implementaci처n (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Al implementar una aplicaci처n controlada por datos por primera vez a ciegas puede copiar la base de datos en el entorno de desarrollo al entorno de producci처n. B..."
+description: Al implementar una aplicaci처n controlada por datos por primera vez a ciegas puede copiar la base de datos en el entorno de desarrollo al entorno de producci처n. B...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 551a04296ff92e174a14bd9d2636714e823397e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 801eedba50e03b2fd9327e9a2902178b35b4275a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="strategies-for-database-development-and-deployment-c"></a>Estrategias de desarrollo de base de datos y la implementaci처n (C#)
 ====================
@@ -160,6 +160,6 @@ Este tutorial concluye nuestro enfoque sobre la implementaci처n de una aplicaci�
 
 Feliz programaci처n.
 
->[!div class="step-by-step"]
-[Anterior](configuring-a-website-that-uses-application-services-cs.md)
-[Siguiente](displaying-a-custom-error-page-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-a-website-that-uses-application-services-cs.md)
+> [Siguiente](displaying-a-custom-error-page-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
-title: "Insertar un nuevo registro de pie de página de GridView (C#) | Documentos de Microsoft"
+title: Insertar un nuevo registro de pie de página de GridView (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Mientras el control GridView no proporciona compatibilidad integrada para insertar un nuevo registro de datos, este tutorial muestra cómo aumentar GridView para incluir un..."
+description: Mientras el control GridView no proporciona compatibilidad integrada para insertar un nuevo registro de datos, este tutorial muestra cómo aumentar GridView para incluir un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b0208b4df0194abaf37f7f9ac66c9ce24c35d721
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: f131280f4769507d169f8ada7568184233591446
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>Insertar un nuevo registro de pie de página de GridView (C#)
 ====================
@@ -140,18 +140,18 @@ Para crear la interfaz de edición, elija el vínculo Editar plantillas de la et
 
 En la lista con viñetas siguiente enumera los campos de GridView, especificar la interfaz de inserción para agregar:
 
-- `ProductID`Ninguno.
-- `ProductName`Agregue un cuadro de texto y establezca su `ID` a `NewProductName`. Agregue un control RequiredFieldValidator para asegurarse de que el usuario escribe un valor para el nuevo nombre de producto s.
-- `SupplierID`Ninguno.
-- `CategoryID`Ninguno.
-- `QuantityPerUnit`Agregar un cuadro de texto, establecer su `ID` a `NewQuantityPerUnit`.
-- `UnitPrice`Agregar un cuadro de texto denominado `NewUnitPrice` y un control CompareValidator que garantiza que el valor especificado es un valor de moneda mayor que o igual a cero.
-- `UnitsInStock`usar un cuadro de texto cuyo `ID` está establecido en `NewUnitsInStock`. Incluir un control CompareValidator que garantiza que el valor especificado es un valor entero mayor o igual a cero.
-- `UnitsOnOrder`usar un cuadro de texto cuyo `ID` está establecido en `NewUnitsOnOrder`. Incluir un control CompareValidator que garantiza que el valor especificado es un valor entero mayor o igual a cero.
-- `ReorderLevel`usar un cuadro de texto cuyo `ID` está establecido en `NewReorderLevel`. Incluir un control CompareValidator que garantiza que el valor especificado es un valor entero mayor o igual a cero.
-- `Discontinued`Agregar un control CheckBox, establecer su `ID` a `NewDiscontinued`.
-- `CategoryName`Agregue un DropDownList y establezca su `ID` a `NewCategoryID`. Enlazar a un nuevo ObjectDataSource denominado `CategoriesDataSource` y configúrelo para utilizar el `CategoriesBLL` clase s. `GetCategories()` método. Tiene la s DropDownList `ListItem` mostrar s el `CategoryName` datos campo, con el `CategoryID` campo de datos como sus valores.
-- `SupplierName`Agregue un DropDownList y establezca su `ID` a `NewSupplierID`. Enlazar a un nuevo ObjectDataSource denominado `SuppliersDataSource` y configúrelo para utilizar el `SuppliersBLL` clase s. `GetSuppliers()` método. Tiene la s DropDownList `ListItem` mostrar s el `CompanyName` datos campo, con el `SupplierID` campo de datos como sus valores.
+- `ProductID` Ninguno.
+- `ProductName` Agregue un cuadro de texto y establezca su `ID` a `NewProductName`. Agregue un control RequiredFieldValidator para asegurarse de que el usuario escribe un valor para el nuevo nombre de producto s.
+- `SupplierID` Ninguno.
+- `CategoryID` Ninguno.
+- `QuantityPerUnit` Agregar un cuadro de texto, establecer su `ID` a `NewQuantityPerUnit`.
+- `UnitPrice` Agregar un cuadro de texto denominado `NewUnitPrice` y un control CompareValidator que garantiza que el valor especificado es un valor de moneda mayor que o igual a cero.
+- `UnitsInStock` usar un cuadro de texto cuyo `ID` está establecido en `NewUnitsInStock`. Incluir un control CompareValidator que garantiza que el valor especificado es un valor entero mayor o igual a cero.
+- `UnitsOnOrder` usar un cuadro de texto cuyo `ID` está establecido en `NewUnitsOnOrder`. Incluir un control CompareValidator que garantiza que el valor especificado es un valor entero mayor o igual a cero.
+- `ReorderLevel` usar un cuadro de texto cuyo `ID` está establecido en `NewReorderLevel`. Incluir un control CompareValidator que garantiza que el valor especificado es un valor entero mayor o igual a cero.
+- `Discontinued` Agregar un control CheckBox, establecer su `ID` a `NewDiscontinued`.
+- `CategoryName` Agregue un DropDownList y establezca su `ID` a `NewCategoryID`. Enlazar a un nuevo ObjectDataSource denominado `CategoriesDataSource` y configúrelo para utilizar el `CategoriesBLL` clase s. `GetCategories()` método. Tiene la s DropDownList `ListItem` mostrar s el `CategoryName` datos campo, con el `CategoryID` campo de datos como sus valores.
+- `SupplierName` Agregue un DropDownList y establezca su `ID` a `NewSupplierID`. Enlazar a un nuevo ObjectDataSource denominado `SuppliersDataSource` y configúrelo para utilizar el `SuppliersBLL` clase s. `GetSuppliers()` método. Tiene la s DropDownList `ListItem` mostrar s el `CompanyName` datos campo, con el `SupplierID` campo de datos como sus valores.
 
 Para cada uno de los controles de validación, borrar el `ForeColor` propiedad para que la `FooterStyle` se usará el color de primer plano blanco de la clase s CSS en lugar del predeterminado rojo. Usar el `ErrorMessage` propiedad para obtener una descripción detallada, pero establece el `Text` propiedad con un asterisco. Para evitar que el texto del control s validación haciendo que la interfaz de inserción ajustar en dos líneas, establezca el `FooterStyle` s `Wrap` propiedad en false para cada uno de los `FooterTemplate` que utilizan un control de validación. Por último, agregue un control debajo la GridView y establezca su `ShowMessageBox` propiedad `true` y su `ShowSummary` propiedad `false`.
 
@@ -234,7 +234,7 @@ GridView usado en este tutorial no aplica ningún criterio de ordenación para l
 
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample9.cs)]
 
-`SendUserToLastPage`se asigna una variable booleana de nivel de página que al principio, es un valor de `false`. En las operaciones de asignación GridView `DataBound` controlador de eventos, si `SendUserToLastPage` es false, el `PageIndex` propiedad se actualiza para enviar al usuario a la última página.
+`SendUserToLastPage` se asigna una variable booleana de nivel de página que al principio, es un valor de `false`. En las operaciones de asignación GridView `DataBound` controlador de eventos, si `SendUserToLastPage` es false, el `PageIndex` propiedad se actualiza para enviar al usuario a la última página.
 
 
 [!code-csharp[Main](inserting-a-new-record-from-the-gridview-s-footer-cs/samples/sample10.cs)]
@@ -262,12 +262,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Bernadette Leigh. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](adding-a-gridview-column-of-checkboxes-cs.md)
-[Siguiente](adding-a-gridview-column-of-radio-buttons-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-gridview-column-of-checkboxes-cs.md)
+> [Siguiente](adding-a-gridview-column-of-radio-buttons-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
-title: "Iteración #3: agregar validación del formulario (VB) | Documentos de Microsoft"
+title: 'Iteración #3: agregar validación del formulario (VB) | Documentos de Microsoft'
 author: microsoft
-description: "En la tercera iteración, agregamos la validación del formulario básico. Es evitar que los usuarios enviar un formulario sin completar los campos obligatorios. También se valida emai..."
+description: En la tercera iteración, agregamos la validación del formulario básico. Es evitar que los usuarios enviar un formulario sin completar los campos obligatorios. También se valida emai...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e9ed182fb58addd8c5dadbe6e3d09c391840ca00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e30e247bd31dfb800eea517d195025f9e881cd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-3--add-form-validation-vb"></a>Iteración #3: agregar validación del formulario (VB)
 ====================
@@ -44,7 +44,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -108,7 +108,7 @@ Una vez que se ejecutan las reglas de validación, se comprueba la propiedad IsV
 
 > [!NOTE] 
 > 
-> Tengo que las expresiones regulares para validar la dirección de correo electrónico y número de teléfono desde el repositorio de expresión regular en [ *http://regexlib.com*](http://regexlib.com)
+> Tengo que las expresiones regulares para validar la dirección de correo electrónico y número de teléfono desde el repositorio de expresión regular en [*http://regexlib.com*](http://regexlib.com)
 
 
 ## <a name="adding-validation-logic-to-the-edit-action"></a>Agregar lógica de validación a la acción de modificación
@@ -129,6 +129,6 @@ En esta iteración, agregamos la lógica de validación a nuestra aplicación p�
 
 En la siguiente iteración, se va a refactorizar nuestra lógica de validación y la lógica de acceso de la base de datos fuera de nuestro controladores. Se podrá sacar partido de varios principios de diseño de software para poder crear una aplicación de acoplamiento más flexible y más fácil de mantener.
 
->[!div class="step-by-step"]
-[Anterior](iteration-2-make-the-application-look-nice-vb.md)
-[Siguiente](iteration-4-make-the-application-loosely-coupled-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-2-make-the-application-look-nice-vb.md)
+> [Siguiente](iteration-4-make-the-application-loosely-coupled-vb.md)

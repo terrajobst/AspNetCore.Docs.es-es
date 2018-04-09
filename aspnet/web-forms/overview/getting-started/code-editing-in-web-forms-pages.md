@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/getting-started/code-editing-in-web-forms-pages
-title: "Edición de código de ASP.NET Web Forms en Visual Studio 2013 | Documentos de Microsoft"
+title: Edición de código de ASP.NET Web Forms en Visual Studio 2013 | Documentos de Microsoft
 author: Erikre
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/03/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 8714f673cb0434189ca23d2dda14035d8652a051
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 79b10df04432490d6338dadb8f7ddd36192beb3e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Código editar formularios Web Forms ASP.NET en Visual Studio 2013
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 En muchas páginas de formulario Web de ASP.NET, se escribe código en Visual Basic, C# u otro lenguaje. El editor de código en Visual Studio puede ayudarle a escribir código rápidamente al ayudarle a evitar errores. Además, el editor proporciona métodos crear código reutilizable para ayudar a reducir la cantidad de trabajo que necesita hacer.
 
@@ -46,7 +46,7 @@ Para poder completar este tutorial, necesitará:
     >   
     > Si se utiliza Visual Studio, en este tutorial se da por supuesto que ha seleccionado la **desarrollo Web** colección de valores de la primera vez que inicia Visual Studio. Para obtener más información, consulte [Cómo: seleccionar configuración de entorno de desarrollo Web](https://msdn.microsoft.com/library/ff521558.aspx).
 
- Para obtener una introducción a Visual Studio y ASP.NET, vea [crear una página de formularios Web Forms de ASP.NET 4.5 básica en Visual Studio 2013](creating-a-basic-web-forms-page.md).   
+  Para obtener una introducción a Visual Studio y ASP.NET, vea [crear una página de formularios Web Forms de ASP.NET 4.5 básica en Visual Studio 2013](creating-a-basic-web-forms-page.md).   
  
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Crear un proyecto de aplicación Web y una página
@@ -98,19 +98,19 @@ El editor de código de Visual Studio le ayuda a evitar errores tal y como se es
 
 
 1. En **diseño** ver, haga doble clic en la página en blanco para crear un controlador para el **carga** eventos de la página.   
-Utiliza el controlador de eventos como un lugar para escribir código.
+   Utiliza el controlador de eventos como un lugar para escribir código.
 2. Dentro del controlador, escriba la siguiente línea que contiene un error y presione **ENTRAR**:
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample1.cs)]
 
- Cuando se presiona **ENTRAR**, el editor de código coloca un subrayado rojo y verde (normalmente llamar a &quot;onduladas&quot; líneas) en las áreas del código que tienen problemas. Un subrayado de color verde indica una advertencia. Un subrayado rojo indica un error que debe corregir. 
+   Cuando se presiona **ENTRAR**, el editor de código coloca un subrayado rojo y verde (normalmente llamar a &quot;onduladas&quot; líneas) en las áreas del código que tienen problemas. Un subrayado de color verde indica una advertencia. Un subrayado rojo indica un error que debe corregir. 
 
     Mantenga el puntero del mouse sobre `myStr` para ver una información sobre herramientas que muestra información acerca de la advertencia. Además, mantenga el puntero del mouse sobre el subrayado rojo para ver el mensaje de error.
 
     La siguiente imagen muestra el código con los subrayados.
 
     ![Texto de bienvenida en la vista Diseño](code-editing-in-web-forms-pages/_static/image5.png "texto de bienvenida en la vista Diseño")  
- Debe solucionar el error agregando un punto y coma `;` hasta el final de la línea. La advertencia simplemente le notifica que no ha usado el `myStr` variable todavía.  
+   Debe solucionar el error agregando un punto y coma `;` hasta el final de la línea. La advertencia simplemente le notifica que no ha usado el `myStr` variable todavía.  
 
     > [!NOTE] 
     > 
@@ -137,7 +137,7 @@ En esta parte del tutorial, escribirá un código sencillo y, a continuación, e
 
     [!code-csharp[Main](code-editing-in-web-forms-pages/samples/sample2.cs?highlight=3-16)]
 
- El código crea un **ArrayList** objeto, usa un bucle para cargarlo con valores y, a continuación, utiliza otro bucle para mostrar el contenido de la **ArrayList** objeto.
+   El código crea un **ArrayList** objeto, usa un bucle para cargarlo con valores y, a continuación, utiliza otro bucle para mostrar el contenido de la **ArrayList** objeto.
 4. Presione **CTRL+F5** para ejecutar la página y, a continuación, haga clic en el **botón** para asegurarse de que ve el siguiente resultado:   
 
     [!code-html[Main](code-editing-in-web-forms-pages/samples/sample3.html)]

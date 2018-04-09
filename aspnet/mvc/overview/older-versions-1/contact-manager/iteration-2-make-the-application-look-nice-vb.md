@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
-title: "Iteración #2: hacer que la aplicación buscar nice (VB) | Documentos de Microsoft"
+title: 'Iteración #2: hacer que la aplicación buscar nice (VB) | Documentos de Microsoft'
 author: microsoft
-description: "En esta iteración, mejorar la apariencia de la aplicación mediante la modificación de la página principal de vista de MVC de ASP.NET predeterminada y en cascada hoja de estilos."
+description: En esta iteración, mejorar la apariencia de la aplicación mediante la modificación de la página principal de vista de MVC de ASP.NET predeterminada y en cascada hoja de estilos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 07c4eaaf9ae5a389605a98951e970d410ca23122
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8545351b099e52533789b372903cd493f533f834
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Iteración #2: hacer que la aplicación buscar nice (VB)
 ====================
@@ -44,7 +44,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7: la funcionalidad de Ajax de complemento. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -66,7 +66,7 @@ Se decidió no utilizar una plantilla de la Galería de diseño de MVC de ASP.NE
 
 La Galería de diseño de MVC de ASP.NET es un recurso gratuito proporcionado por Microsoft. La Galería de MVC de ASP.NET se encuentra en la siguiente dirección:
 
-[https://www.ASP.NET/MVC/Gallery](https://www.asp.net/mvc/gallery)
+[https://www.asp.net/mvc/gallery](https://www.asp.net/mvc/gallery)
 
 La Galería de diseño de MVC de ASP.NET hospeda una colección de diseños de sitio Web gratuita que se crearon específicamente para usar en un proyecto de MVC de ASP.NET. Diseños se cargan los miembros de la Comunidad. Los visitantes de la Galería pueden votar por sus diseños favoritos (consulte la figura 2).
 
@@ -115,7 +115,7 @@ La Galería de diseño de MVC de ASP.NET tiene una buena selección de estilos d
 
 Sin embargo, deberá crear un diseño completamente único para el sitio Web. En ese caso, tiene sentido para trabajar con una empresa de diseño del sitio Web. Se decidió adoptar este enfoque para el diseño de la aplicación póngase en contacto con el administrador.
 
-Seguridad Contact Manager del iteración #1 y lo envíe el proyecto a la empresa de diseño. No poseen Visual Studio (lástima en ellos!), pero que t Professionals representa un problema. Fueran puede descargar Microsoft Visual Web Developer de forma gratuita desde el [https://www.asp.net](https://www.asp.net) sitio Web y abra la aplicación de administrador de contacto en Visual Web Developer. En un par de días, se hubiera producido el diseño en la figura 7.
+Seguridad Contact Manager del iteración #1 y lo envíe el proyecto a la empresa de diseño. No poseen Visual Studio (lástima en ellos!), pero que t Professionals representa un problema. Fueran puede descargar Microsoft Visual Web Developer de forma gratuita desde el [ https://www.asp.net ](https://www.asp.net) sitio Web y abra la aplicación de administrador de contacto en Visual Web Developer. En un par de días, se hubiera producido el diseño en la figura 7.
 
 
 [![El cuadro de diálogo nuevo proyecto](iteration-2-make-the-application-look-nice-vb/_static/image7.jpg)](iteration-2-make-the-application-look-nice-vb/_static/image13.png)
@@ -163,6 +163,6 @@ A continuación, explicamos cómo puede crear un diseño personalizado modifican
 
 En la siguiente iteración, se abordar al asunto muy importante de validación. Agregamos código de validación a la aplicación para que un usuario no puede crear un nuevo contacto sin proporcionar valores necesarios, como una persona s primero y apellidos.
 
->[!div class="step-by-step"]
-[Anterior](iteration-1-create-the-application-vb.md)
-[Siguiente](iteration-3-add-form-validation-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-1-create-the-application-vb.md)
+> [Siguiente](iteration-3-add-form-validation-vb.md)

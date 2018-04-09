@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/introduction
-title: "Implementación de Web ASP.NET con Visual Studio: Introducción | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: Introducción | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web por aplicación para aplicaciones de Web del servicio de aplicación de Azure o un proveedor de hospedaje de terceros mediante V..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web por aplicación para aplicaciones de Web del servicio de aplicación de Azure o un proveedor de hospedaje de terceros mediante V...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: a7c5b348e44a88a56680237b0cac75c999901ec3
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 1ff4cc3b0fa6ce7e6cdc833a0c2f7fea2050c4e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-introduction"></a>Implementación de Web ASP.NET con Visual Studio: Introducción
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -202,5 +202,5 @@ Las siguientes características de la aplicación afecta a cómo implementarlo o
 
 En este primer tutorial de la serie, ha descargado el proyecto de Visual Studio de ejemplo y revisar las características de sitio que afectan a cómo implementar la aplicación. En los siguientes tutoriales para preparar para la implementación mediante la configuración de algunas de estas cosas administrará automáticamente. Otros que se ocupa de forma manual.
 
->[!div class="step-by-step"]
-[Siguiente](preparing-databases.md)
+> [!div class="step-by-step"]
+> [Siguiente](preparing-databases.md)

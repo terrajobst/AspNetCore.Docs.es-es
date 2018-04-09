@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
-title: "Examen de los métodos de edición y la vista de edición | Documentos de Microsoft"
+title: Examen de los métodos de edición y la vista de edición | Documentos de Microsoft
 author: Rick-Anderson
-description: "Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones..."
+description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 315914056c0a666fdf23cf82a314a999e03114b6
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 304d3c1efbce8949fd9385529f2a16b07e05ffdf
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Examen de los métodos de edición y la vista de edición
 ====================
@@ -212,6 +212,6 @@ Ejecute la aplicación y vaya a */películas/SearchIndex*. Intenta una búsqueda
 
 En esta sección se examinan los métodos de acción CRUD y las vistas generadas por el marco de trabajo. Crea un método de acción de búsqueda y una vista que los usuarios pueden buscar por título de la película y el género. En la siguiente sección, examinará cómo agregar una propiedad a la `Movie` modelo y cómo agregar un inicializador que creará automáticamente una base de datos de prueba.
 
->[!div class="step-by-step"]
-[Anterior](accessing-your-models-data-from-a-controller.md)
-[Siguiente](adding-a-new-field-to-the-movie-model-and-table.md)
+> [!div class="step-by-step"]
+> [Anterior](accessing-your-models-data-from-a-controller.md)
+> [Siguiente](adding-a-new-field-to-the-movie-model-and-table.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 title: Ejecutar varias animaciones al mismo tiempo (C#) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Lo que permite para ejecutar severa..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Lo que permite para ejecutar severa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-several-animations-at-the-same-time-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b7ee9c2da392bed512e259b44237e5ff997dca23
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6ecd822f7fa00a24e97b9aa14888798825624617
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-several-animations-at-the-same-time-c"></a>Ejecutar varias animaciones al mismo tiempo (C#)
 ====================
@@ -62,6 +62,6 @@ Y realmente: al ejecutar este script, el panel se muestra, a continuación, se c
 
 El panel se atenúa y cambiar el tamaño (incluido su contenido, gracias al motor de representación del explorador) ([haga clic aquí para ver la imagen a tamaño completo](executing-several-animations-at-the-same-time-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](adding-animation-to-a-control-cs.md)
-[Siguiente](executing-several-animations-after-each-other-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-animation-to-a-control-cs.md)
+> [Siguiente](executing-several-animations-after-each-other-cs.md)

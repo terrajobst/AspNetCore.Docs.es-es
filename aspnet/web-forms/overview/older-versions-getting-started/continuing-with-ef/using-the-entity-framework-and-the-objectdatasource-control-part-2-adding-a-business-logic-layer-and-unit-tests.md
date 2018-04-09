@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
-title: "Con Entity Framework 4.0 y el Control ObjectDataSource, parte 2: agregar una capa de lógica de negocios y pruebas unitarias | Documentos de Microsoft"
+title: 'Con Entity Framework 4.0 y el Control ObjectDataSource, parte 2: agregar una capa de lógica de negocios y pruebas unitarias | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I..."
+description: Esta serie de tutoriales se basa en la aplicación web de la Universidad de Contoso que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. I...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/using-the-entity-framework-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests
 msc.type: authoredcontent
-ms.openlocfilehash: df37acd8901b457f7887afe767d42d53e45e4815
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: ecdfb2bdc546f55778ec4cc1f61aa66e129134ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-entity-framework-40-and-the-objectdatasource-control-part-2-adding-a-business-logic-layer-and-unit-tests"></a>Con Entity Framework 4.0 y el Control ObjectDataSource, parte 2: agregar una capa de lógica de negocios y pruebas unitarias
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > Esta serie de tutoriales que se basa en la aplicación web de la Universidad de Contoso que se crea mediante la [Getting Started with the Entity Framework 4.0](https://asp.net/entity-framework/tutorials#Getting%20Started) serie de tutoriales. Si no has completado los tutoriales anteriores, como punto de partida para este tutorial puede [descargar la aplicación](https://code.msdn.microsoft.com/ASPNET-Web-Forms-97f8ee9a) que puede haberla creado. También puede [descargar la aplicación](https://code.msdn.microsoft.com/ASPNET-Web-Forms-6c7197aa) creado por la serie de tutoriales completa. Si tiene alguna pregunta acerca de los tutoriales, puede publicar para la [foro de ASP.NET Entity Framework](https://forums.asp.net/1227.aspx).
 
@@ -225,6 +225,6 @@ Con esto finaliza la introducción a implementar el patrón de repositorio para 
 
 En el tutorial siguiente verá cómo agregar ordenación y filtrado funcionalidad a la aplicación.
 
->[!div class="step-by-step"]
-[Anterior](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
-[Siguiente](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-entity-framework-and-the-objectdatasource-control-part-1-getting-started.md)
+> [Siguiente](using-the-entity-framework-and-the-objectdatasource-control-part-3-sorting-and-filtering.md)

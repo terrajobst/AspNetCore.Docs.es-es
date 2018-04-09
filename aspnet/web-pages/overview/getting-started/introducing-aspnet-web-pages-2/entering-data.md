@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
-title: "Introducción a ASP.NET Web Pages: escribir datos de la base de datos mediante el uso de formularios | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: escribir datos de la base de datos mediante el uso de formularios | Documentos de Microsoft'
 author: tfitzmac
-description: "Este tutorial muestra cómo crear un formulario de entrada y, a continuación, escriba los datos que se obtienen de la forma en una tabla de base de datos cuando se usa ASP.NET Web Pages (..."
+description: Este tutorial muestra cómo crear un formulario de entrada y, a continuación, escriba los datos que se obtienen de la forma en una tabla de base de datos cuando se usa ASP.NET Web Pages (...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/entering-data
 msc.type: authoredcontent
-ms.openlocfilehash: b74eecb16b2c4695bb417816b90f701f724cc9d0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: bbccf8134e90c19e29efaa5afe1e46e15320c189
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Introducción a ASP.NET Web Pages: escribir datos de la base de datos mediante el uso de formularios
 ====================
@@ -101,7 +101,7 @@ En otras palabras, se especifican a continuación, muestre las columnas que se v
 
 Las columnas que se inserta en ya figuran en el comando: `(Title, Genre, Year)`. La parte interesante es cómo obtener los valores de los cuadros de texto en el `VALUES` parte del comando. En lugar de valores reales, verá `@0`, `@1`, y `@2`, que son, por supuesto, los marcadores de posición. Al ejecutar el comando (en la `db.Execute` línea), se pasan los valores que obtuvo en los cuadros de texto.
 
-**Importante:** Recuerde que la única manera de nunca debe incluir datos en línea introducidos por un usuario en una instrucción SQL es usar marcadores de posición, como puede ver aquí (`VALUES(@0, @1, @2)`). Si se unen proporcionados por el usuario en una instrucción SQL, abrir usted mismo a un ataque de inyección de código SQL, como se explica en [conceptos básicos de formularios en ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (el tutorial anterior).
+**¡Importante!** Recuerde que la única manera de nunca debe incluir datos en línea introducidos por un usuario en una instrucción SQL es usar marcadores de posición, como puede ver aquí (`VALUES(@0, @1, @2)`). Si se unen proporcionados por el usuario en una instrucción SQL, abrir usted mismo a un ataque de inyección de código SQL, como se explica en [conceptos básicos de formularios en ASP.NET Web Pages](https://go.microsoft.com/fwlink/?LinkId=251581) (el tutorial anterior).
 
 Todavía en el `if` bloquear, agregue la siguiente línea después de la `db.Execute` línea:
 
@@ -121,7 +121,7 @@ En la vista de árbol de archivos en WebMatrix, haga clic en el *AddMovie.cshtml
 
 ![Página 'Agregar película' en el explorador](entering-data/_static/image2.png)
 
-(Si finalmente con otra página en el explorador, asegúrese de que la dirección URL es `http://localhost:nnnnn/AddMovie`), donde  *nnnnn*  es el número de puerto que está usando.)
+(Si finalmente con otra página en el explorador, asegúrese de que la dirección URL es `http://localhost:nnnnn/AddMovie`), donde *nnnnn* es el número de puerto que está usando.)
 
 ¿Si obtuvo una página de error? Si es así, léalo atentamente y asegurarse de que el código tiene exactamente lo que se incluyó en versiones anteriores.
 
@@ -145,7 +145,7 @@ En este caso, realmente no provoca la base de datos (o *throw*) un error. No ha 
 
 Obviamente, no desea que los usuarios puedan especificar información de la película de medio en blanco en la base de datos. La solución consiste en validar la entrada del usuario. Inicialmente, la validación simplemente asegurará que el usuario ha escrito un valor para todos los campos (es decir, que ninguna de ellas contiene una cadena vacía).
 
-> [!TIP] 
+> [!TIP]
 > 
 > **Cadenas NULL y vacías**
 > 
@@ -260,6 +260,6 @@ En el siguiente tutorial, aprenderá cómo permitir a los usuarios editar los da
 - [Instrucción SQL INSERT INTO](http://www.w3schools.com/sql/sql_insert.asp) en el sitio W3Schools
 - [Validar la entrada del usuario en ASP.NET Web Pages sitios](https://go.microsoft.com/fwlink/?LinkId=253002). Para obtener más información sobre cómo trabajar con el `Validation` auxiliar.
 
->[!div class="step-by-step"]
-[Anterior](form-basics.md)
-[Siguiente](updating-data.md)
+> [!div class="step-by-step"]
+> [Anterior](form-basics.md)
+> [Siguiente](updating-data.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
-title: "ASP.NET Web Pages (Razor) Guía de solución de problemas | Documentos de Microsoft"
+title: ASP.NET Web Pages (Razor) Guía de solución de problemas | Documentos de Microsoft
 author: tfitzmac
-description: "Este artículo describen los problemas que podría tener al trabajar con ASP.NET Web Pages (Razor) y algunas soluciones sugeridas. Versiones de software de página Web de ASP.NET..."
+description: Este artículo describen los problemas que podría tener al trabajar con ASP.NET Web Pages (Razor) y algunas soluciones sugeridas. Versiones de software de página Web de ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 2e25e9c7cea937016301e0f11919adb9647ca216
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: ec51169ccea0016712de3fdb28a16a174150a8bd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Guía de solución de problemas (Razor) de ASP.NET Web Pages
 ====================
@@ -144,12 +144,12 @@ Sustituya los valores adecuados para `your-SMTP-server-name`, y así sucesivamen
     *Un intento de conexión no se pudo porque la parte conectada no respondió adecuadamente tras un período de tiempo o conexión establecida no se pudo porque el host conectado no respondió*
 
     Este error normalmente significa que la aplicación no se pudo conectar al servidor SMTP. Compruebe el nombre del servidor y número de puerto.
-- *Buzón no disponible. La respuesta del servidor fue: 5.1.0 &lt; someuser@invaliddomain &gt; remitente rechazado: dominio del remitente no válido*
+- <em>Buzón no disponible. La respuesta del servidor fue: 5.1.0 &lt; someuser@invaliddomain &gt; remitente rechazado: dominio del remitente no válido</em>
 
     Este mensaje puede indicar que el `From` dirección no es correcta o falta.
 - *La cadena especificada no está en la forma necesaria para una dirección de correo electrónico.*
 
-    Este error puede indicar que el valor de la `To` o `From` propiedades no se reconocen como direcciones de correo electrónico. (ASP.NET no puede comprobar que la dirección de correo electrónico es válida, solo 's en el formato correcto, como  *name@domain.com* .)
+    Este error puede indicar que el valor de la `To` o `From` propiedades no se reconocen como direcciones de correo electrónico. (ASP.NET no puede comprobar que la dirección de correo electrónico es válida, solo 's en el formato correcto, como *name@domain.com*.)
 
 > [!NOTE]
 > Quite el código que muestra el error (`@errorMessage`) antes de publicar la página en un sitio en vivo. No es una buena idea de que los usuarios puedan ver los mensajes de error que se obtengan de un servidor.

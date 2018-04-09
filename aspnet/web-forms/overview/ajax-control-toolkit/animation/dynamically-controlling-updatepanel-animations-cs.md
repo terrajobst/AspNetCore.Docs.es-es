@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
-title: "Controlar dinámicamente UpdatePanel animaciones (C#) | Documentos de Microsoft"
+title: Controlar dinámicamente UpdatePanel animaciones (C#) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Para el contenido de un..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. Para el contenido de un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/dynamically-controlling-updatepanel-animations-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0408556e322a46211388fbd557d7a967044129ef
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 78401ee35027040dffea50c295c752dd182e75a1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-controlling-updatepanel-animations-c"></a>Controlar dinámicamente UpdatePanel animaciones (C#)
 ====================
@@ -65,6 +65,6 @@ Ejecute el archivo en el explorador. Al hacer clic en el botón, se muestra la h
 
 La hora actual es difuminado ([haga clic aquí para ver la imagen a tamaño completo](dynamically-controlling-updatepanel-animations-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](animating-an-updatepanel-control-cs.md)
-[Siguiente](adding-animation-to-a-control-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](animating-an-updatepanel-control-cs.md)
+> [Siguiente](adding-animation-to-a-control-vb.md)

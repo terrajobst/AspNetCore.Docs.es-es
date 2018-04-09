@@ -1,7 +1,7 @@
 ---
-title: "Utilice la plantilla de proyecto reaccionan con reducción"
+title: Utilizar la plantilla de proyecto reaccionan con reducción con ASP.NET Core
 author: SteveSandersonMS
-description: "Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar con Redux y aplicación reaccionar crear."
+description: Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar con Redux y aplicación reaccionar crear.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,13 +11,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react-with-redux
-ms.openlocfilehash: f52f4a866b8bb2adeee19548df32f3e7a91761d1
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: 9abfbfe5be69d3145de453d9d9e56ea35eec64ed
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="use-the-react-with-redux-project-template"></a>Utilice la plantilla de proyecto reaccionan con reducción
+# <a name="use-the-react-with-redux-project-template-with-aspnet-core"></a>Utilizar la plantilla de proyecto reaccionan con reducción con ASP.NET Core
 
 > [!NOTE]
 > Esta documentación no acerca de la plantilla de proyecto reaccionan con reducción se incluye en ASP.NET 2.0 de núcleo. Se trata de la plantilla de reaccionar con reducción más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.

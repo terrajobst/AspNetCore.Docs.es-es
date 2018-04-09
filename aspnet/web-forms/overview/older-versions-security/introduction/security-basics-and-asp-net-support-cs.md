@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
-title: "Conceptos básicos de seguridad y compatibilidad de ASP.NET (C#) | Documentos de Microsoft"
+title: Conceptos básicos de seguridad y compatibilidad de ASP.NET (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Este es el primer tutorial en una serie de tutoriales que se explorarán técnicas para autenticar a los visitantes a través de un formulario web Forms, autorizar el acceso a partic..."
+description: Este es el primer tutorial en una serie de tutoriales que se explorarán técnicas para autenticar a los visitantes a través de un formulario web Forms, autorizar el acceso a partic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/13/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4080e3ccaffefd02c76b89a77e320e963f854961
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2b89a8b0dd88505c1d63054db508590c26684158
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="security-basics-and-aspnet-support-c"></a>Conceptos básicos de seguridad y compatibilidad de ASP.NET (C#)
 ====================
@@ -188,11 +188,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era este tutorial serie se revisó por varios revisores útiles. Los revisores iniciales para este tutorial incluyen Alicja Maziarz, John Suru y Teresa Murphy. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Siguiente](an-overview-of-forms-authentication-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](an-overview-of-forms-authentication-cs.md)

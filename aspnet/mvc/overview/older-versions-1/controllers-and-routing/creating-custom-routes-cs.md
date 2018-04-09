@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 title: Crear rutas personalizadas (C#) | Documentos de Microsoft
 author: microsoft
-description: "Obtenga información acerca de cómo agregar rutas personalizadas a una aplicación ASP.NET MVC. En este tutorial, aprenderá a modificar la tabla de rutas predeterminadas en el archivo Global.asax."
+description: Obtenga información acerca de cómo agregar rutas personalizadas a una aplicación ASP.NET MVC. En este tutorial, aprenderá a modificar la tabla de rutas predeterminadas en el archivo Global.asax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-custom-routes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d1542103298f2fa09dc71706284afb18d8381403
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 573b6a3360124feea92788ff7a3de363840fa1ef
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-custom-routes-c"></a>Crear rutas personalizadas (C#)
 ====================
@@ -47,7 +47,7 @@ La ruta de Blog personalizada coincide con cualquier solicitud que se inicia con
 
 - / Archivo/12-25-2009
 
-- / Archivo/10-6-2004
+- /Archive/10-6-2004
 
 - / Archivo/apple
 
@@ -73,6 +73,6 @@ Observe que el método Entry() en el listado 2 acepta un parámetro de tipo Date
 
 El objetivo de este tutorial era demostrar cómo puede crear una ruta personalizada. Aprendido cómo agregar una ruta personalizada a la tabla de rutas en el archivo Global.asax que representa las entradas de blog. Se describe cómo asignar las solicitudes para las entradas de blog a un controlador denominado ArchiveController y una acción de controlador denominado Entry().
 
->[!div class="step-by-step"]
-[Anterior](aspnet-mvc-controllers-overview-cs.md)
-[Siguiente](creating-a-route-constraint-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](aspnet-mvc-controllers-overview-cs.md)
+> [Siguiente](creating-a-route-constraint-cs.md)

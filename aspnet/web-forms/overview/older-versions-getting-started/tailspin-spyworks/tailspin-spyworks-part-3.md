@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
-title: "Parte 3: Diseño y menú categoría | Documentos de Microsoft"
+title: 'Parte 3: Diseño y menú categoría | Documentos de Microsoft'
 author: JoeStagner
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 3 trata la adición de diseño y un menú de categoría."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 3 trata la adición de diseño y un menú de categoría.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 57c0342efb67b94a0d8c8b06dc13a727e7184db8
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 27a493173b03f813ee3dcbbfafd8bc52fb0b9771
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-layout-and-category-menu"></a>Parte 3: Diseño y menú de categoría
 ====================
@@ -27,7 +27,7 @@ por [Joe Stagner](https://github.com/JoeStagner)
 > Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 3 trata la adición de diseño y un menú de categoría.
 
 
-## <a id="_Toc260221669"></a>Agregar algunos diseño y un menú de categoría
+## <a id="_Toc260221669"></a>  Agregar algunos diseño y un menú de categoría
 
 En la página principal del sitio se agregará un elemento div de la columna del lado izquierdo que contendrá el menú de la categoría de producto.
 
@@ -77,6 +77,6 @@ Permite ejecutar la aplicación.
 
 Tenga en cuenta que ahora se muestra el menú de la categoría de producto cuando se mantiene el mouse sobre uno de los elementos de menú de categoría podemos ver los puntos de vínculo de elemento de menú a una página se ha comenzado aún a implementar denominada ProductsList.aspx y que hemos creado un argumento de cadena de consulta dinámica que contiene la  Id. de categoría.
 
->[!div class="step-by-step"]
-[Anterior](tailspin-spyworks-part-2.md)
-[Siguiente](tailspin-spyworks-part-4.md)
+> [!div class="step-by-step"]
+> [Anterior](tailspin-spyworks-part-2.md)
+> [Siguiente](tailspin-spyworks-part-4.md)

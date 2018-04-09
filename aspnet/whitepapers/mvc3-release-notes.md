@@ -2,21 +2,21 @@
 uid: whitepapers/mvc3-release-notes
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/06/2010
 ms.topic: article
 ms.assetid: f44c166e-7e91-48a0-a6f8-d9285f3594e5
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc3-release-notes
 msc.type: content
-ms.openlocfilehash: 058b7c6fe6eeeea4403e7e5fdc05bb44d2ba1300
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -262,7 +262,7 @@ Tenga en cuenta que las versiones anteriores de exploradores no admiten etiqueta
 <a id="tu-Modernizr"></a>
 ### <a name="project-templates-now-include-modernizr-17"></a>Plantillas de proyecto ahora incluyen Modernizr 1.7
 
-Modernizr es una biblioteca de JavaScript que habilita la compatibilidad con CSS 3 y HTML5 en exploradores que aún no admite estas características. Esta biblioteca se incluye como un paquete de NuGet preinstalado en plantillas para proyectos de ASP.NET MVC 3. Para obtener más información acerca de Modernizr, consulte [http://www.modernizr.com/](http://www.modernizr.com/).
+Modernizr es una biblioteca de JavaScript que habilita la compatibilidad con CSS 3 y HTML5 en exploradores que aún no admite estas características. Esta biblioteca se incluye como un paquete de NuGet preinstalado en plantillas para proyectos de ASP.NET MVC 3. Para obtener más información acerca de Modernizr, consulte [ http://www.modernizr.com/ ](http://www.modernizr.com/).
 
 <a id="tu-UpdatedJQuery"></a>
 ### <a name="project-templates-include-updated-versions-of-jquery-jquery-ui-and-jquery-validation"></a>Plantillas de proyecto incluyen versiones actualizadas de jQuery, jQuery UI y jQuery validación
@@ -373,7 +373,7 @@ Esta sección describe los cambios realizados en la versión de ASP.NET MVC 3 RC
 <a id="_Toc2_1"></a>
 ### <a name="project-templates-changed-to-include-jquery-144-jquery-validation-17-and-jquery-ui-186"></a>Cambien de plantillas de proyecto para incluir 1.4.4 jQuery, jQuery validación 1.7 y jQuery UI 1.8.6
 
-Las plantillas de proyecto de ASP.NET MVC 3 ahora incluyen las versiones más recientes de jQuery y validación de jQuery, jQuery UI. jQuery UI es una novedad en las plantillas de proyecto y proporciona los widgets de interfaz de usuario útil. Para obtener más información acerca de jQuery UI, visite su página de inicio: [http://jqueryui.com/](http://jqueryui.com/).
+Las plantillas de proyecto de ASP.NET MVC 3 ahora incluyen las versiones más recientes de jQuery y validación de jQuery, jQuery UI. jQuery UI es una novedad en las plantillas de proyecto y proporciona los widgets de interfaz de usuario útil. Para obtener más información acerca de jQuery UI, visite su página de inicio: [ http://jqueryui.com/ ](http://jqueryui.com/).
 
 <a id="_Toc2_2"></a>
 ### <a name="added-additionalmetadataattribute-class"></a>Clase de agregado "AdditionalMetadataAttribute"
@@ -438,7 +438,7 @@ Cuando el *Html.ValidationMessage* método muestra un mensaje de validación, om
 <a id="_Toc2_10"></a>
 ### <a name="fixed-model-declaration-to-not-add-whitespace-to-the-document"></a>Fijo @model declaración no agregar espacio en blanco al documento
 
-En versiones anteriores, el  *@model*  declaración en la parte superior de una vista, agrega una línea en blanco a la salida HTML representada. Esto se ha solucionado para que la declaración no incluye un espacio en blanco.
+En versiones anteriores, el <em>@model</em> declaración en la parte superior de una vista, agrega una línea en blanco a la salida HTML representada. Esto se ha solucionado para que la declaración no incluye un espacio en blanco.
 
 <a id="_Toc2_11"></a>
 ### <a name="added-fileextensions-property-to-view-engines-to-support-engine-specific-file-names"></a>Propiedad agregada "FileExtensions" para motores de vista para admitir los nombres de archivo específicas del motor
@@ -465,7 +465,7 @@ En versiones anteriores, los valores explícitos que se pasaron a la *RenderActi
 - En versiones anteriores de ASP.NET MVC, los filtros de acción se crearon por solicitud excepto en algunos casos. Este comportamiento era nunca un comportamiento garantizado pero simplemente un detalle de implementación y el contrato para filtros era tenerlos en cuenta sin estado. En ASP.NET MVC 3, los filtros se almacenan en caché una forma más agresiva. Por lo tanto, los filtros de acción personalizada que se almacenen de forma incorrecta el estado de instancia podrían dejar de funcionar.
 - Ha cambiado el orden de ejecución para los filtros de excepción para los filtros de excepciones que tienen el mismo *orden* valor. En ASP.NET MVC 2 y versiones anteriores, los filtros de excepciones en el controlador que tenían el mismo *orden* valor tal como los de un método de acción se ejecutaron antes que los filtros de excepción en el método de acción. Esto normalmente sería el caso cuando se han aplicado filtros de excepción sin una especificado *orden* valor. En ASP.NET MVC 3, este pedido se ha invertido para que el controlador de excepciones más específico se ejecuta primero. Al igual que en versiones anteriores, si la *orden* propiedad se especifica explícitamente, los filtros se ejecutan en el orden especificado.
 - Una nueva propiedad denominada *FileExtensions* se agregó a la *VirtualPathProviderViewEngine* clase base. Cuando ASP.NET busca una vista por ruta de acceso (no por nombre), se consideran solo vistas con una extensión de archivo contenidos en la lista especificada por esta nueva propiedad. Se trata de un cambio importante en las aplicaciones que se registra un proveedor de compilación personalizada con el fin de habilitar una extensión de archivo personalizadas para las vistas de formulario Web Forms y donde el proveedor hace referencia a esas vistas mediante el uso de una ruta de acceso completa en lugar de un nombre. La solución consiste en modificar el valor de la *FileExtensions* propiedad debe incluir la extensión de archivo personalizado.
-- Implementaciones de generador de dispositivo personalizado que se implementan directamente la *IControllerFactory* interfaz debe proporcionar una implementación de la nueva *GetControllerSessionBehavior ** método que se agregó a la interfaz en esta versión*. En general, se recomienda no implementar esta interfaz directamente y en su lugar, derive su clase de *DefaultControllerFactory*.
+- Implementaciones de generador de dispositivo personalizado que se implementan directamente la <em>IControllerFactory</em> interfaz debe proporcionar una implementación de la nueva <em>GetControllerSessionBehavior</em>  <em>método que se agregó a la interfaz en esta versión</em>. En general, se recomienda no implementar esta interfaz directamente y en su lugar, derive su clase de <em>DefaultControllerFactory</em>.
 
 <a id="_Toc2_KI"></a>
 ## <a name="known-issues"></a>Problemas conocidos
@@ -629,11 +629,11 @@ Como alternativa, para desactivar la validación de solicitudes para cada propie
 
 Versión Beta de ASP.NET MVC 3 se publicó en 6 de octubre de 2010. Las notas siguientes son específicas de la versión Beta y están sujetos a las actualizaciones o los cambios que se hace referencia en la sección de ASP.NET MVC 3 Release Candidate anterior.
 
-## <a id="0.1__Toc274034215"></a>Nueva versión Beta de ASP.NET MVC 3 de funciones
+## <a id="0.1__Toc274034215"></a>  Nueva versión Beta de ASP.NET MVC 3 de funciones
 
 <a id="0.1__Default_validation_system"></a>Esta sección describen las características que se han introducido en la versión Beta de ASP.NET MVC 3.
 
-### <a id="0.1__Toc274034216"></a>Administrador de paquetes de NuGet
+### <a id="0.1__Toc274034216"></a>  Administrador de paquetes de NuGet
 
 ASP.NET MVC 3 incluye Administrador de paquetes de NuGet, que es una herramienta de administración del paquete integrado para agregar las bibliotecas y herramientas para proyectos de Visual Studio. En su mayor parte, automatiza los pasos que los desarrolladores realizar hoy en día para obtener una biblioteca en el árbol de origen.
 
@@ -641,7 +641,7 @@ También puede trabajar con NuGet como una herramienta de línea de comandos, co
 
 Para obtener más información sobre NuGet, lea la [documentación de NuGet](https://docs.microsoft.com/nuget/).
 
-### <a id="0.1__Toc274034217"></a>Mejora el cuadro de diálogo nuevo proyecto
+### <a id="0.1__Toc274034217"></a>  Mejora el cuadro de diálogo nuevo proyecto
 
 Cuando crea un nuevo proyecto, el cuadro de diálogo nuevo proyecto ahora permite especificar el motor de vista, así como un tipo de proyecto de MVC de ASP.NET.
 
@@ -655,7 +655,7 @@ Vacía. Contiene un conjunto mínimo de archivos para un proyecto de MVC de ASP.
 
 Aplicación de Internet. Contiene la funcionalidad de ejemplo que muestra cómo utilizar el proveedor de pertenencia de ASP.NET MVC.
 
-### <a id="0.1__Toc274034218"></a>Forma simplificada para especificar fuertemente tipados modelos en las vistas de Razor
+### <a id="0.1__Toc274034218"></a>  Forma simplificada para especificar fuertemente tipados modelos en las vistas de Razor
 
 Se ha simplificado la forma de especificar el tipo de modelo para las vistas de Razor fuertemente tipados mediante el uso de la nueva @model directivas para las vistas CSHTML y @ModelType la directiva para las vistas VBHTML. En versiones anteriores de ASP.NET MVC, debe especificar que un modelo fuertemente tipado para Razor ve así:
 
@@ -665,7 +665,7 @@ En esta versión, puede usar la sintaxis siguiente:
 
 [!code-cshtml[Main](mvc3-release-notes/samples/sample26.cshtml)]
 
-### <a id="0.1__Toc274034219"></a>Compatibilidad con nuevos métodos de aplicación auxiliar de páginas Web ASP.NET
+### <a id="0.1__Toc274034219"></a>  Compatibilidad con nuevos métodos de aplicación auxiliar de páginas Web ASP.NET
 
 La nueva tecnología de ASP.NET Web Pages incluye un conjunto de métodos auxiliares que resultan útiles para agregar funcionalidad de uso frecuente a controladores y vistas. ASP.NET MVC 3 admite el uso de estos métodos auxiliares en controladores y vistas (cuando proceda). Estos métodos se encuentran en el ensamblado System.Web.Helpers. En la tabla siguiente se enumera algunos de los métodos de aplicación auxiliar de ASP.NET Web Pages.
 
@@ -681,7 +681,7 @@ Un tema de referencia rápida que enumera las aplicaciones auxiliares y la sinta
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-api-reference](../web-pages/overview/api-reference/asp-net-web-pages-api-reference.md)
 
-### <a id="0.1__Toc274034220"></a>Soporte técnico de inyección de dependencia adicional
+### <a id="0.1__Toc274034220"></a>  Soporte técnico de inyección de dependencia adicional
 
 Basándose en la versión de ASP.NET MVC 3 Preview 1, la versión actual incluye agregó compatibilidad para dos nuevos servicios y cuatro servicios existentes y compatibilidad mejorada para la resolución de dependencia y el localizador de servicios común.
 
@@ -732,7 +732,7 @@ La nueva versión incluye compatibilidad con la resolución de dependencia para 
 - Proveedores de valores. Las clases que implementan ValueProviderFactory se pueden registrar en la resolución de dependencia y el sistema usa para crear proveedores de valores que se usan por el controlador y durante el enlace del modelo.
 - Enlazadores de modelos. Las clases que implementan IModelBinderProvider se pueden registrar en la resolución de dependencia y el sistema usa para crear enlazadores de modelos que se usan por el sistema de enlace de modelo.
 
-### <a id="0.1__Toc274034221"></a>Nueva compatibilidad con Ajax de jQuery-Based discreto
+### <a id="0.1__Toc274034221"></a>  Nueva compatibilidad con Ajax de jQuery-Based discreto
 
 ASP.NET MVC incluye métodos de aplicación auxiliar de Ajax como los siguientes:
 
@@ -748,7 +748,7 @@ Estos métodos usan JavaScript para invocar un método de acción en el servidor
 
 Esta característica está habilitada de forma predeterminada en el archivo Web.config en las plantillas de proyecto nuevo de ASP.NET MVC 3, pero está deshabilitada de forma predeterminada para los proyectos existentes. Para obtener más información, consulte [agrega marcas de toda la aplicación para la validación de cliente y JavaScript discreto](#0.1_AddedApplicationWideFlagsForClientValida) más adelante en este documento.
 
-### <a id="0.1__Toc274034222"></a>Nueva compatibilidad con la validación de jQuery discreta
+### <a id="0.1__Toc274034222"></a>  Nueva compatibilidad con la validación de jQuery discreta
 
 De forma predeterminada, versión Beta de ASP.NET MVC 3 usa validación de jQuery de forma discreta para realizar la validación del lado cliente. Para habilitar la validación del cliente discreta, realizar una llamada similar al siguiente desde dentro de una vista:
 
@@ -768,7 +768,7 @@ Esta característica está habilitada de forma predeterminada en el archivo Web.
 
 <a id="0.1__Toc274034223"></a>
 
-### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>Nuevos indicadores de toda la aplicación para la validación de cliente y JavaScript discreto
+### <a id="0.1_AddedApplicationWideFlagsForClientValida"></a>  Nuevos indicadores de toda la aplicación para la validación de cliente y JavaScript discreto
 
 Puede habilitar o deshabilitar la validación del cliente y JavaScript discreto globalmente con miembros estáticos de la clase HtmlHelper, como en el ejemplo siguiente:
 
@@ -784,7 +784,7 @@ Dado que puede habilitar estas características de forma predeterminada, se intr
 
 Por compatibilidad con versiones anteriores, ambas características están deshabilitadas de forma predeterminada.
 
-### <a id="0.1__Toc274034224"></a>Nueva compatibilidad con el código que se ejecuta antes de la ejecución de vistas
+### <a id="0.1__Toc274034224"></a>  Nueva compatibilidad con el código que se ejecuta antes de la ejecución de vistas
 
 Ahora puede colocar un archivo denominado \_viewstart.cshtml (o \_viewstart.vbhtml) en el directorio de vistas y agregue el código que se compartirá entre varias vistas en ese directorio y sus subdirectorios. Por ejemplo, se puede colocar el código siguiente en el \_viewstart.cshtml página en la carpeta ~/Views:
 
@@ -794,7 +794,7 @@ Esto establece la página de diseño para todas las vistas dentro de la carpeta 
 
 De forma predeterminada, el código en el \_viewstart.cshtml archivo también se aplica a las vistas en las subcarpetas. Sin embargo, las subcarpetas individuales pueden tener su propia versión de la \_viewstart.cshtml archivo; en que los casos, la versión local tiene prioridad. Por ejemplo, para ejecutar código que es común a todas las vistas para HomeController, coloque un \_viewstart.cshtml archivo en la carpeta ~/Views/Home.
 
-### <a id="0.1__Toc274034225"></a>Nueva compatibilidad con la sintaxis de Razor VBHTML
+### <a id="0.1__Toc274034225"></a>  Nueva compatibilidad con la sintaxis de Razor VBHTML
 
 La versión preliminar de ASP.NET MVC anterior incluye compatibilidad para las vistas con sintaxis Razor basada en C#. Estas vistas utilizan la extensión de archivo .cshtml. Como parte del trabajo en curso para admitir Razor, la versión Beta de ASP.NET MVC 3 incluye compatibilidad con la sintaxis de Razor en Visual Basic, que usa la extensión de archivo .vbhtml.
 
@@ -802,7 +802,7 @@ Para obtener una introducción al uso de sintaxis de Visual Basic en páginas VB
 
 [https://www.asp.net/webmatrix/tutorials/asp-net-web-pages-visual-basic](../web-pages/overview/getting-started/introducing-razor-syntax-vb.md)
 
-### <a id="0.1__Toc274034226"></a>Más Control Granular sobre ValidateInputAttribute
+### <a id="0.1__Toc274034226"></a>  Más Control Granular sobre ValidateInputAttribute
 
 ASP.NET MVC siempre se incluye la clase ValidateInputAttribute, que invoca la infraestructura básica de la validación de solicitud ASP.NET para asegurarse de que la solicitud entrante no contiene datos potencialmente dañinos. De forma predeterminada, está habilitada la validación de entrada. Es posible deshabilitar la validación de solicitudes con el atributo ValidateInputAttribute, como en el ejemplo siguiente:
 
@@ -814,7 +814,7 @@ Por ejemplo, si está desarrollando un motor de blogs, puede permitir marcado en
 
 [!code-csharp[Main](mvc3-release-notes/samples/sample38.cs)]
 
-### <a id="0.1__Toc274034227"></a>Aplicaciones auxiliares de convertir los caracteres de subrayado en guiones para nombres de atributo HTML especificados mediante objetos anónimos
+### <a id="0.1__Toc274034227"></a>  Aplicaciones auxiliares de convertir los caracteres de subrayado en guiones para nombres de atributo HTML especificados mediante objetos anónimos
 
 Métodos auxiliares permiten especificar pares de nombre/valor de atributo mediante un objeto anónimo, como en el ejemplo siguiente:
 
@@ -830,7 +830,7 @@ En el ejemplo anterior se representa el marcado siguiente cuando se ejecuta la a
 
 [!code-html[Main](mvc3-release-notes/samples/sample41.html)]
 
-## <a id="0.1__Toc274034228"></a>Correcciones de errores
+## <a id="0.1__Toc274034228"></a>  Correcciones de errores
 
 La plantilla de objeto predeterminado para las aplicaciones auxiliares de plantilla EditorFor y DisplayFor ahora es compatible con el orden especificado en la propiedad DisplayAttribute.Order. (En versiones anteriores, la configuración del orden no se utilizó.)
 
@@ -838,11 +838,11 @@ La validación del cliente ahora admite la validación de propiedades que tienen
 
 JsonValueProviderFactory ya está registrado de forma predeterminada.
 
-## <a id="0.1__Toc274034229"></a>Cambios importantes
+## <a id="0.1__Toc274034229"></a>  Cambios importantes
 
 Ha cambiado el orden de ejecución para los filtros de excepción para los filtros de excepciones que tienen el mismo valor de orden. En ASP.NET MVC 2 y versiones anteriores, los filtros de excepciones en el controlador con el mismo orden a medida que los de un método de acción se ejecutan antes que los filtros de excepción en el método de acción. Normalmente sería el caso cuando se aplicaron los filtros de excepción sin especificar un valor de orden. En ASP.NET MVC 3, este pedido se ha invertido para que el controlador de excepciones más específico se ejecuta primero. Al igual que en versiones anteriores, si la propiedad orden se especifica explícitamente, los filtros se ejecutan en el orden especificado.
 
-## <a id="0.1__Toc274034230"></a>Problemas conocidos
+## <a id="0.1__Toc274034230"></a>  Problemas conocidos
 
 Durante la instalación, el cuadro de diálogo de aceptación de términos de licencia muestra los términos de licencia en una ventana que es inferior a lo esperado.
 
@@ -862,7 +862,7 @@ Hay un problema conocido que hace que la autenticación de formularios redirigir
 
 [!code-xml[Main](mvc3-release-notes/samples/sample43.xml)]
 
-## <a id="0.1__Toc274034231"></a>Declinación de responsabilidades
+## <a id="0.1__Toc274034231"></a>  Declinación de responsabilidades
 
 © 2011 Microsoft Corporation. Todos los derechos reservados. Este documento se proporciona "como-es." Información y opiniones expresadas en este documento, incluidas direcciones URL y otras referencias a sitios Web de Internet, pueden cambiar sin previo aviso. Usted asume el riesgo de utilizarla.
 

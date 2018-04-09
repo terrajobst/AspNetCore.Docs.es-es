@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/11-adding-email-to-your-web-site
-title: "Enviar correo electrónico desde un sitio Web de ASP.NET Pages (Razor) sitio | Documentos de Microsoft"
+title: Enviar correo electrónico desde un sitio Web de ASP.NET Pages (Razor) sitio | Documentos de Microsoft
 author: tfitzmac
-description: "Este capítulo explica cómo enviar un mensaje de correo electrónico automatizadas desde un sitio Web."
+description: Este capítulo explica cómo enviar un mensaje de correo electrónico automatizadas desde un sitio Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/11-adding-email-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: c5878c3bc468daef050dcebee99f64441066409a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9be242d238c627a9557fe7ff7e596974e5b7d1c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sending-email-from-an-aspnet-web-pages-razor-site"></a>Enviar correo electrónico de un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -48,7 +48,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 
 Hay todo tipo de razones por las que podría necesitar para enviar correo electrónico desde su sitio Web. Puede enviar mensajes de confirmación a los usuarios, o puede enviar notificaciones a sí mismo (por ejemplo, que se ha registrado un usuario nuevo.) El `WebMail` auxiliar facilita el proceso para enviar correo electrónico.
 
-Para usar el `WebMail` auxiliar, tiene que tener acceso a un servidor SMTP. (Es el acrónimo SMTP *Protocolo Simple de transferencia de correo electrónico*.) Un servidor SMTP es un servidor de correo electrónico que sólo reenvía mensajes para el destinatario servidor &#8212; es la parte de la salida de correo electrónico. Si usa un proveedor de hospedaje de su sitio Web, probablemente configurarle correo electrónico y puede saber cuál puede ser el nombre del servidor SMTP. Si está trabajando dentro de una red corporativa, un administrador o el departamento de TI normalmente puede proporcionar la información sobre un servidor SMTP que puede usar. Si trabaja en casa, incluso puede probar mediante el proveedor de correo electrónico normal, que puede indicar el nombre de su servidor SMTP. Normalmente debe:
+Para usar el `WebMail` auxiliar, tiene que tener acceso a un servidor SMTP. (Es el acrónimo SMTP *Protocolo Simple de transferencia de correo electrónico*.) Un servidor SMTP es un servidor de correo electrónico que sólo reenvía mensajes al servidor del destinatario &#8212; es la parte de la salida de correo electrónico. Si usa un proveedor de hospedaje de su sitio Web, probablemente configurarle correo electrónico y puede saber cuál puede ser el nombre del servidor SMTP. Si está trabajando dentro de una red corporativa, un administrador o el departamento de TI normalmente puede proporcionar la información sobre un servidor SMTP que puede usar. Si trabaja en casa, incluso puede probar mediante el proveedor de correo electrónico normal, que puede indicar el nombre de su servidor SMTP. Normalmente debe:
 
 - El nombre del servidor SMTP.
 - El número de puerto. Esto casi siempre es 25. Sin embargo, puede que el ISP requiera que use el puerto 587. Si está utilizando capa de sockets seguros (SSL) para correo electrónico, tendrá que un puerto diferente. Póngase en contacto con su proveedor de correo electrónico.
@@ -86,23 +86,23 @@ En este procedimiento, creará dos páginas. La primera página tiene un formula
 
     Modificar la configuración relacionada en el código de correo electrónico de los siguientes:
 
-    - Establecer `your-SMTP-host` en el nombre del servidor SMTP que tienen acceso a.
-    - Establecer `your-user-name-here` al nombre de usuario para la cuenta del servidor SMTP.
-    - Establecer `your-account-password` como la contraseña para la cuenta del servidor SMTP.
-    - Establecer `your-email-address-here` a su propia dirección de correo electrónico. Se trata de la dirección de correo electrónico que se envía el mensaje desde. (Algunos proveedores de correo electrónico no permiten especificar otro `From` de direcciones y usará el nombre de usuario como la `From` dirección.)
+   - Establecer `your-SMTP-host` en el nombre del servidor SMTP que tienen acceso a.
+   - Establecer `your-user-name-here` al nombre de usuario para la cuenta del servidor SMTP.
+   - Establecer `your-account-password` como la contraseña para la cuenta del servidor SMTP.
+   - Establecer `your-email-address-here` a su propia dirección de correo electrónico. Se trata de la dirección de correo electrónico que se envía el mensaje desde. (Algunos proveedores de correo electrónico no permiten especificar otro `From` de direcciones y usará el nombre de usuario como la `From` dirección.)
 
-    > [!TIP] 
-    > 
-    > <a id="configuring_email_settings"></a>
-    > ### <a name="configuring-email-settings"></a>Configuración de correo electrónico
-    > 
-    > Puede ser un desafío en ocasiones para asegurarse de que tiene la configuración de derechos para el servidor SMTP, número de puerto y así sucesivamente. A continuación se muestran algunas sugerencias:
-    > 
-    > - El nombre del servidor SMTP suele ser algo parecido a `smtp.provider.com` o `smtp.provider.net`. Sin embargo, si se publica un sitio en un proveedor de hospedaje, el nombre del servidor SMTP en ese momento podría ser `localhost`. Esto es porque una vez que ha publicado y el sitio se ejecuta en el servidor del proveedor, el servidor de correo electrónico puede ser local desde la perspectiva de la aplicación. Este cambio en los nombres de servidor, podría significar que tiene que cambiar el nombre del servidor SMTP como parte del proceso de publicación.
-    > - Normalmente, el número de puerto es 25. Sin embargo, algunos proveedores requieren que se va a utilizar el puerto 587 o algún otro puerto.
-    > - Asegúrese de que utiliza las credenciales correctas. Si ha publicado su sitio en un proveedor de hospedaje, utilice las credenciales que el proveedor ha indicado específicamente son para correo electrónico. Estos podrían ser diferentes de las credenciales que use para publicar.
-    > - En ocasiones, no necesita credenciales en absoluto. Si va a enviar correo electrónico mediante el ISP personal, el proveedor de correo electrónico ya quizá sepa que sus credenciales. Después de publicar, debe utilizar credenciales diferentes a cuando se prueba en el equipo local.
-    > - Si su proveedor de correo electrónico usa cifrado, tendrá que configurar `WebMail.EnableSsl` a `true`.
+     > [!TIP] 
+     > 
+     > <a id="configuring_email_settings"></a>
+     > ### <a name="configuring-email-settings"></a>Configuración de correo electrónico
+     > 
+     > Puede ser un desafío en ocasiones para asegurarse de que tiene la configuración de derechos para el servidor SMTP, número de puerto y así sucesivamente. A continuación se muestran algunas sugerencias:
+     > 
+     > - El nombre del servidor SMTP suele ser algo parecido a `smtp.provider.com` o `smtp.provider.net`. Sin embargo, si se publica un sitio en un proveedor de hospedaje, el nombre del servidor SMTP en ese momento podría ser `localhost`. Esto es porque una vez que ha publicado y el sitio se ejecuta en el servidor del proveedor, el servidor de correo electrónico puede ser local desde la perspectiva de la aplicación. Este cambio en los nombres de servidor, podría significar que tiene que cambiar el nombre del servidor SMTP como parte del proceso de publicación.
+     > - Normalmente, el número de puerto es 25. Sin embargo, algunos proveedores requieren que se va a utilizar el puerto 587 o algún otro puerto.
+     > - Asegúrese de que utiliza las credenciales correctas. Si ha publicado su sitio en un proveedor de hospedaje, utilice las credenciales que el proveedor ha indicado específicamente son para correo electrónico. Estos podrían ser diferentes de las credenciales que use para publicar.
+     > - En ocasiones, no necesita credenciales en absoluto. Si va a enviar correo electrónico mediante el ISP personal, el proveedor de correo electrónico ya quizá sepa que sus credenciales. Después de publicar, debe utilizar credenciales diferentes a cuando se prueba en el equipo local.
+     > - Si su proveedor de correo electrónico usa cifrado, tendrá que configurar `WebMail.EnableSsl` a `true`.
 4. Ejecute el *EmailRequest.cshtml* página en un explorador. (Asegúrese de que la página está seleccionada en el **archivos** área de trabajo antes de ejecutarlo.)
 5. Escriba su nombre y una descripción del problema y, a continuación, haga clic en el **enviar** botón. Se le redirigirá a la *ProcessRequest.cshtml* página, que confirma el mensaje y que envía un mensaje de correo electrónico. 
 

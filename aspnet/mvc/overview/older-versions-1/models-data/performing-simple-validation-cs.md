@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
-title: "Realizar una validación Simple (C#) | Documentos de Microsoft"
+title: Realizar una validación Simple (C#) | Documentos de Microsoft
 author: StephenWalther
-description: "Obtenga información acerca de cómo realizar la validación en una aplicación ASP.NET MVC. En este tutorial, Stephen Walther presenta se usa para modelar el estado y la aplicación auxiliar validation HTML..."
+description: Obtenga información acerca de cómo realizar la validación en una aplicación ASP.NET MVC. En este tutorial, Stephen Walther presenta se usa para modelar el estado y la aplicación auxiliar validation HTML...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/performing-simple-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 005872308d9d4d8ac7feb12dd5ab1fc463d0140e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7fc1dcc6935841382215f67a519cd241ac68931a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-simple-validation-c"></a>Realizar una validación Simple (C#)
 ====================
@@ -130,6 +130,6 @@ Si desea personalizar la apariencia de estos prebinding mensajes de error, a con
 
 El objetivo de este tutorial era describir los mecanismos básicos de validación en el marco de MVC de ASP.NET. Aprendió a utilizar el estado del modelo y las aplicaciones auxiliares HTML de validación. También se explica la distinción entre prebinding y postbinding validación. En otros tutoriales, analizaremos diversas estrategias para mover el código de validación de los controladores y en las clases de modelo.
 
->[!div class="step-by-step"]
-[Anterior](displaying-a-table-of-database-data-cs.md)
-[Siguiente](validating-with-the-idataerrorinfo-interface-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](displaying-a-table-of-database-data-cs.md)
+> [Siguiente](validating-with-the-idataerrorinfo-interface-cs.md)

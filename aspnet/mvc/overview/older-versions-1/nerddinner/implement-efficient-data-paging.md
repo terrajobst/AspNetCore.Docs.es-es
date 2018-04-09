@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
-title: "Implementar la paginación de datos eficaz | Documentos de Microsoft"
+title: Implementar la paginación de datos eficaz | Documentos de Microsoft
 author: microsoft
-description: "Paso 8 muestra cómo agregar compatibilidad con la paginación a la dirección URL de /Dinners para que en lugar de mostrar 1000s de cenas a la vez, solo se mostrará 10 cenas próximos en..."
+description: Paso 8 muestra cómo agregar compatibilidad con la paginación a la dirección URL de /Dinners para que en lugar de mostrar 1000s de cenas a la vez, solo se mostrará 10 cenas próximos en...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/implement-efficient-data-paging
 msc.type: authoredcontent
-ms.openlocfilehash: 0b0fba604f97d3bb72d2d403e643b422b9ce48bd
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0188e21438820adf2adbe05b047fdb772540e1a0
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implement-efficient-data-paging"></a>Implementar la paginación de datos eficaces
 ====================
@@ -139,6 +139,6 @@ También tenemos &lt; &lt; &lt; y &gt; &gt; &gt; navegación interfaz de usuario
 
 Ahora veamos cómo podemos agregar compatibilidad con autenticación y autorización a nuestra aplicación.
 
->[!div class="step-by-step"]
-[Anterior](re-use-ui-using-master-pages-and-partials.md)
-[Siguiente](secure-applications-using-authentication-and-authorization.md)
+> [!div class="step-by-step"]
+> [Anterior](re-use-ui-using-master-pages-and-partials.md)
+> [Siguiente](secure-applications-using-authentication-and-authorization.md)

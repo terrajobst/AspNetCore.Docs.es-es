@@ -2,7 +2,7 @@
 uid: web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 title: Usar valores de cadena de consulta para filtrar los datos con el enlace de modelos y formularios web Forms | Documentos de Microsoft
 author: tfitzmac
-description: "Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-..."
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/using-query-string-values-to-retrieve-data
 msc.type: authoredcontent
-ms.openlocfilehash: 2e5328ccda019462163b984da3661f7322b738df
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 03d20decf0eeff6062fbc6f8dd66f644b405c7cc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-query-string-values-to-filter-data-with-model-binding-and-web-forms"></a>Uso de valores de cadena de consulta para filtrar los datos con el enlace de modelos y formularios web forms
 ====================
@@ -85,6 +85,6 @@ En este tutorial, ha agregado un vínculo con un valor de cadena de consulta. Us
 
 En la siguiente [tutorial](adding-business-logic-layer.md), se moverá el código de los archivos de código subyacente en una capa de lógica de negocios y una capa de acceso a datos.
 
->[!div class="step-by-step"]
-[Anterior](integrating-jquery-ui.md)
-[Siguiente](adding-business-logic-layer.md)
+> [!div class="step-by-step"]
+> [Anterior](integrating-jquery-ui.md)
+> [Siguiente](adding-business-logic-layer.md)

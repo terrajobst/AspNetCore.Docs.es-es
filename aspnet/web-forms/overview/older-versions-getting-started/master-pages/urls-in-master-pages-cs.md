@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
-title: "Las direcciones URL de páginas maestras (C#) | Documentos de Microsoft"
+title: Las direcciones URL de páginas maestras (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Aborda cómo pueden interrumpir las direcciones URL en la página maestra porque el archivo de página maestra que se está en un directorio diferente relativo a la página de contenido. Examina el reajuste..."
+description: Aborda cómo pueden interrumpir las direcciones URL en la página maestra porque el archivo de página maestra que se está en un directorio diferente relativo a la página de contenido. Examina el reajuste...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8b01f0ac780121c4e0941df6016220a1cb1ed2d1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 494338f1a0705c8d7e15bc693ae1ec6362b26d64
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="urls-in-master-pages-c"></a>Direcciones URL de páginas maestras (C#)
 ====================
@@ -182,12 +182,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com).
 
->[!div class="step-by-step"]
-[Anterior](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
-[Siguiente](control-id-naming-in-content-pages-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](specifying-the-title-meta-tags-and-other-html-headers-in-the-master-page-cs.md)
+> [Siguiente](control-id-naming-in-content-pages-cs.md)

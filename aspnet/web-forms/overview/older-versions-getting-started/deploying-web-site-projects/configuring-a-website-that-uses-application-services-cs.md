@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 title: Configurar un sitio Web que usa los servicios de aplicaciones (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Versión ASP.NET 2.0 incorporó una serie de servicios de aplicación, que forman parte de .NET Framework y servir como un conjunto de bloques de creación de servicios que yo..."
+description: Versión ASP.NET 2.0 incorporó una serie de servicios de aplicación, que forman parte de .NET Framework y servir como un conjunto de bloques de creación de servicios que yo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/23/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-a-website-that-uses-application-services-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3f2b8e395505c1d13b914399b8de2196f0ba230a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: da4ef328e3461e96fbb0cdca156ce1b9a076748f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="configuring-a-website-that-uses-application-services-c"></a>Configurar un sitio Web que usa los servicios de aplicaciones (C#)
 ====================
@@ -200,6 +200,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [*Tutoriales de seguridad de sitio Web*](../../older-versions-security/introduction/security-basics-and-asp-net-support-cs.md)
 - [*Información general de herramienta de administración de sitios Web*](https://msdn.microsoft.com/library/yy40ytx0.aspx)
 
->[!div class="step-by-step"]
-[Anterior](configuring-the-production-web-application-to-use-the-production-database-cs.md)
-[Siguiente](strategies-for-database-development-and-deployment-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-the-production-web-application-to-use-the-production-database-cs.md)
+> [Siguiente](strategies-for-database-development-and-deployment-cs.md)

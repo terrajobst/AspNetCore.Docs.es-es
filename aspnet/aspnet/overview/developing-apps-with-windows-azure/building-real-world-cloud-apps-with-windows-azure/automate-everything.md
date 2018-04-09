@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
-title: "Automatizar todas las acciones (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Automatizar todas las acciones (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: ba6e6baa-9b9f-471f-b39d-b007a3addadc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 msc.type: authoredcontent
-ms.openlocfilehash: aa8bb895ed6eaa0ef4c5752f475ea7c911544ef2
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2e30ab7831a10f215a08f74e61adf2d147e76543
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="automate-everything-building-real-world-cloud-apps-with-azure"></a>Automatizar todas las acciones (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -128,7 +128,7 @@ Lo primero que hace la secuencia de comandos es crear la aplicación web mediant
 
 ### <a name="create-the-storage-account"></a>Crear la cuenta de almacenamiento
 
-A continuación, ejecuta el script principal la *New-AzureStorage.ps1* secuencia de comandos, especificando "*&lt;websitename&gt;*almacenamiento" para el nombre de cuenta de almacenamiento, y ubicación como del centro de los mismos datos la aplicación web.
+A continuación, ejecuta el script principal la <em>New-AzureStorage.ps1</em> secuencia de comandos, especificando "<em>&lt;websitename&gt;</em>almacenamiento" para el nombre de cuenta de almacenamiento, y ubicación como del centro de los mismos datos la aplicación web.
 
 [!code-powershell[Main](automate-everything/samples/sample4.ps1?highlight=3)]
 
@@ -158,7 +158,7 @@ El script de creación de la base de datos recupera la dirección IP del equipo 
 
     [!code-powershell[Main](automate-everything/samples/sample10.ps1?highlight=4)]
 
-    `New-PSCredentialFromPlainText`es una función en la secuencia de comandos que llama el `ConvertTo-SecureString` cmdlet para cifrar la contraseña y devuelve un `PSCredential` de objeto, el mismo tipo que el `Get-Credential` cmdlet devuelve.
+    `New-PSCredentialFromPlainText` es una función en la secuencia de comandos que llama el `ConvertTo-SecureString` cmdlet para cifrar la contraseña y devuelve un `PSCredential` de objeto, el mismo tipo que el `Get-Credential` cmdlet devuelve.
 - Crea la base de datos de aplicación y la base de datos de pertenencia mediante la `New-AzureSqlDatabase` cmdlet.
 
     [!code-powershell[Main](automate-everything/samples/sample11.ps1?highlight=2,5)]
@@ -264,6 +264,6 @@ En el [siguiente capítulo](source-control.md) se examinará el código fuente y
 - [Uso de Scripts de Windows PowerShell para publicar en entornos de prueba y desarrollo](https://msdn.microsoft.com/library/azure/dn642480.aspx). La documentación de MSDN que explica cómo usar los scripts que Visual Studio genera automáticamente para los proyectos web de publicación.
 - [Herramientas de PowerShell para Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597). Extensión de Visual Studio que agrega compatibilidad con idiomas de Windows PowerShell en Visual Studio.
 
->[!div class="step-by-step"]
-[Anterior](introduction.md)
-[Siguiente](source-control.md)
+> [!div class="step-by-step"]
+> [Anterior](introduction.md)
+> [Siguiente](source-control.md)

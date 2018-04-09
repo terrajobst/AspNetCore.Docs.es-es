@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
-title: "Archivo de comandos de creación y ejecución de una implementación | Documentos de Microsoft"
+title: Archivo de comandos de creación y ejecución de una implementación | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo crear un archivo de comandos que le permiten ejecutar una implementación con los archivos de proyecto de Microsoft Build Engine (MSBuild) como un solo paso, re..."
+description: En este tema se describe cómo crear un archivo de comandos que le permiten ejecutar una implementación con los archivos de proyecto de Microsoft Build Engine (MSBuild) como un solo paso, re...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: bc31bf55b29661816e0ca9a50b51b0abc3eb2c98
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: e5fb034a67bc9f2ea549af269eae51a49acc4d98
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Crear y ejecutar un archivo de comandos de implementación
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > Este tema describe cómo crear un archivo de comandos que le permiten ejecutar una implementación con los archivos de proyecto de Microsoft Build Engine (MSBuild) como un proceso paso a paso y reproducible.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el Administrador de](the-contact-manager-solution.md) solución & #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el Administrador de](the-contact-manager-solution.md) solución&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [descripción del proceso de compilación](understanding-the-build-process.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [descripción del proceso de compilación](understanding-the-build-process.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="process-overview"></a>Información general del proceso
 
@@ -40,7 +40,7 @@ En este tema, aprenderá a crear y ejecutar un archivo de comandos que usa estos
 
 ## <a name="create-an-msbuild-command"></a>Crear un comando de MSBuild
 
-Como se describe en [descripción del proceso de compilación](understanding-the-build-process.md), el archivo de proyecto específicas del entorno & #x 2014; por ejemplo, *Dev.proj Env*& #x 2014; está diseñado para su importación en el independiente del entorno *Publish.proj* archivo en tiempo de compilación. Juntos, estos dos archivos proporcionan un conjunto completo de instrucciones que indican cómo compilar e implementar la solución de MSBuild.
+Como se describe en [descripción del proceso de compilación](understanding-the-build-process.md), el archivo de proyecto específicas del entorno&#x2014;por ejemplo, *Env Dev.proj*&#x2014;está diseñado para su importación en el entorno independiente *Publish.proj* archivo en tiempo de compilación. Juntos, estos dos archivos proporcionan un conjunto completo de instrucciones que indican cómo compilar e implementar la solución de MSBuild.
 
 El *Publish.proj* archivo usa un **importar** elemento que se va a importar el archivo de proyecto específicos del entorno.
 
@@ -92,7 +92,7 @@ Cuando haya creado un archivo de comandos para el entorno de destino, debe compl
 5. Si se trata de la primera vez que se ha implementado la solución a este entorno, debe agregar la cuenta de equipo de servidor web de prueba para la **db\_datawriter** y **db\_datareader**roles en el **ContactManager** base de datos. Este procedimiento se describe en [configurar un servidor de base de datos para publicación en Web implementar](../configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing.md).
 
     > [!NOTE]
-    > Basta con estos permisos se asignan al crear la base de datos. De forma predeterminada, el proceso de compilación no volverá a crear la base de datos en cada implementación & #x 2014; en su lugar, comparará la base de datos existente en el esquema más reciente y realizar solo los cambios necesarios. Como resultado, sólo necesitará asignar estos roles de base de datos la primera vez que implemente la solución.
+    > Basta con estos permisos se asignan al crear la base de datos. De forma predeterminada, el proceso de compilación no volverá a crear la base de datos en cada implementación&#x2014;en su lugar, comparará la base de datos existente en el esquema más reciente y realizar solo los cambios necesarios. Como resultado, sólo necesitará asignar estos roles de base de datos la primera vez que implemente la solución.
 6. Abra Internet Explorer y vaya a la dirección URL de la aplicación Administrador de contacto (por ejemplo, `http://testweb1:85/ContactManager/`).
 7. Compruebe que la aplicación funciona según lo previsto y puede agregar contactos.
 
@@ -118,6 +118,6 @@ Un archivo de comandos para publicar en un entorno de ensayo podría contener es
 
 También puede personalizar el proceso de compilación para cada entorno reemplazar propiedades o estableciendo diversos otros modificadores en el comando MSBuild. Para obtener más información, consulte [referencia de línea de comandos de MSBuild](https://msdn.microsoft.com/library/ms164311.aspx).
 
->[!div class="step-by-step"]
-[Anterior](deploying-database-projects.md)
-[Siguiente](manually-installing-web-packages.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-database-projects.md)
+> [Siguiente](manually-installing-web-packages.md)

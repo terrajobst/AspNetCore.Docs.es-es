@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
-title: "Instalación manual de paquetes de Web | Documentos de Microsoft"
+title: Instalación manual de paquetes de Web | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo importar manualmente un paquete de implementación web en Internet Information Services (IIS). La creación de tema y empaquetado Web Instaland..."
+description: En este tema se describe cómo importar manualmente un paquete de implementación web en Internet Information Services (IIS). La creación de tema y empaquetado Web Instaland...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/manually-installing-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: e06d37c01ab66f0723b687f4ed1ee72561099aef
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4a28ea92b22e4928e41a39a8a91b62bfa4f08175
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="manually-installing-web-packages"></a>Instalación manual de paquetes de Web
 ====================
@@ -30,10 +30,10 @@ por [Jason Lee](https://github.com/jrjlee)
 > 
 > Después de crear un paquete de implementación web, puede publicarlo en un servidor IIS de varias maneras. En muchos escenarios, es conveniente aprovechar las ventajas de los puntos de integración entre MSBuild, WPP y Web Deploy para crear e instalar paquetes de web de forma remota como parte de un proceso de compilación e implementación automatizado o paso a paso. Este proceso se describe en [implementar paquetes de Web](deploying-web-packages.md). Sin embargo, esto no siempre es posible. Imagine que desea implementar una aplicación web en un entorno de producción a través de Internet. Por motivos de seguridad, un entorno de producción de este tipo está en el muy menos probable que esté detrás de un firewall en una subred que es independiente del servidor de compilación, en una red perimetral (también conocida como DMZ, zona desmilitarizada y subred filtrada). En muchos casos, el entorno de producción será en un dominio independiente o en una red aislada físicamente.
 > 
-> En estos casos, puede ser la única opción transportar el paquete web en el servidor de destino e importarla manualmente en IIS. Aunque este enfoque impide la implementación automatizada, todavía es una técnica muy eficaz para publicar una aplicación web & #x 2014; basta con copiar un solo archivo zip en su servidor web y usar a un asistente que le guiará a través del proceso de importación.
+> En estos casos, puede ser la única opción transportar el paquete web en el servidor de destino e importarla manualmente en IIS. Aunque este enfoque impide la implementación automatizada, todavía es una técnica muy eficaz para publicar una aplicación web&#x2014;simplemente copiar un solo archivo zip en su servidor web y usar un asistente que le guiará a través del proceso de importación.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
@@ -133,5 +133,5 @@ En este tema se describe cómo importar un paquete de implementación web a un s
 
 Para obtener instrucciones sobre cómo configurar un servidor web IIS para admitir manualmente importar un paquete web, consulte [configurar un servidor Web de publicación de implementar en Web (sin conexión implementación)](../configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment.md). Para obtener instrucciones más general sobre la implementación de paquetes de web, consulte [Tutorial: implementar un proyecto de aplicación Web mediante un paquete de implementación Web (parte 1 de 4)](https://msdn.microsoft.com/library/dd483479.aspx).
 
->[!div class="step-by-step"]
-[Anterior](creating-and-running-a-deployment-command-file.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-and-running-a-deployment-command-file.md)

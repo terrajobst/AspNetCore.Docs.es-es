@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 title: Incluido un archivo de opciones de carga al agregar un nuevo registro (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo crear una interfaz Web que permite al usuario introducir datos de texto y cargar archivos binarios. Para ilustrar la t disponibles opciones..."
+description: Este tutorial muestra cómo crear una interfaz Web que permite al usuario introducir datos de texto y cargar archivos binarios. Para ilustrar la t disponibles opciones...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/27/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/working-with-binary-files/including-a-file-upload-option-when-adding-a-new-record-vb
 msc.type: authoredcontent
-ms.openlocfilehash: eb462a0e8ce88037855ea12d00c1afc0419fa04e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 39608eef7cc88be56ef6e21820e4afcfaa4ffd8d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a>Incluida una opción de carga de archivo al agregar un nuevo registro (VB)
 ====================
@@ -280,12 +280,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Dave Gardner, Teresa Murphy y Bernadette Leigh. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](displaying-binary-data-in-the-data-web-controls-vb.md)
-[Siguiente](updating-and-deleting-existing-binary-data-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](displaying-binary-data-in-the-data-web-controls-vb.md)
+> [Siguiente](updating-and-deleting-existing-binary-data-vb.md)

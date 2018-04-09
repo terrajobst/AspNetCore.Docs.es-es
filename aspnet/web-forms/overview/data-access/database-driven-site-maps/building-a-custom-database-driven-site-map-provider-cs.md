@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
-title: "Creación de un proveedor de mapas de sitio personalizada controlada por la base de datos (C#) | Documentos de Microsoft"
+title: Creación de un proveedor de mapas de sitio personalizada controlada por la base de datos (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "El proveedor de mapas de sitio predeterminado en ASP.NET 2.0 recupera sus datos de un archivo XML estático. Mientras que el proveedor basado en XML es adecuado para muchas pequeño y mediano ventana..."
+description: El proveedor de mapas de sitio predeterminado en ASP.NET 2.0 recupera sus datos de un archivo XML estático. Mientras que el proveedor basado en XML es adecuado para muchas pequeño y mediano ventana...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc0de856cb1ae2cf8e1f18a29ae29a3b226c12ab
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cab1b02dff27e9bacec2f4d4f7facc9f99d76b0a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-a-custom-database-driven-site-map-provider-c"></a>Creación de un proveedor de mapas de sitio personalizada controlada por la base de datos (C#)
 ====================
@@ -145,7 +145,7 @@ A continuación, agregue un campo Hyperlink y muévalo a la posición más a la 
 
 ![Agregar un campo de detalles de la vista a Hyperlink que apunta a ProductDetails.aspx](building-a-custom-database-driven-site-map-provider-cs/_static/image10.gif)
 
-**Figura 10**: agregar una vista de detalles campo Hyperlink que apunta a`ProductDetails.aspx`
+**Figura 10**: agregar una vista de detalles campo Hyperlink que apunta a `ProductDetails.aspx`
 
 
 Después de realizar estas personalizaciones, el marcado declarativo de s GridView y ObjectDataSource debería parecerse al siguiente:
@@ -210,7 +210,7 @@ Cuando el `SiteMap` se tiene acceso a propiedades de la clase s, debe serializar
 
 Todos los proveedores del mapa del sitio deben derivarse de la [ `SiteMapProvider` clase](https://msdn.microsoft.com/library/system.web.sitemapprovider.aspx), que incluye los métodos esenciales y propiedades necesarias para el sitio asignar proveedores, pero omite muchos de los detalles de implementación. Una segunda clase, [ `StaticSiteMapProvider` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.aspx), extiende la `SiteMapProvider` clase y contiene una implementación más sólida de la funcionalidad necesaria. Internamente, la `StaticSiteMapProvider` almacena la `SiteMapNode` mapa de instancias del sitio en un `Hashtable` y proporciona métodos como `AddNode(child, parent)`, `RemoveNode(siteMapNode),` y `Clear()` que agregar y quitar `SiteMapNode` s a interno `Hashtable`. La clase `XmlSiteMapProvider` se deriva de la clase `StaticSiteMapProvider`.
 
-Al crear un proveedor de mapas de sitio personalizado que extiende `StaticSiteMapProvider`, hay dos métodos abstractos que se deben invalidar: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) y [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, como su nombre implica, es responsable de cargar la estructura de mapa del sitio desde el almacenamiento persistente y a construir en memoria. `GetRootNodeCore`Devuelve el nodo raíz del mapa del sitio.
+Al crear un proveedor de mapas de sitio personalizado que extiende `StaticSiteMapProvider`, hay dos métodos abstractos que se deben invalidar: [ `BuildSiteMap` ](https://msdn.microsoft.com/library/system.web.staticsitemapprovider.buildsitemap.aspx) y [ `GetRootNodeCore` ](https://msdn.microsoft.com/library/system.web.sitemapprovider.getrootnodecore.aspx). `BuildSiteMap`, como su nombre implica, es responsable de cargar la estructura de mapa del sitio desde el almacenamiento persistente y a construir en memoria. `GetRootNodeCore` Devuelve el nodo raíz del mapa del sitio.
 
 Antes de un sitio web aplicación puede utilizar un proveedor de mapas de sitio que debe estar registrada en la configuración de s de la aplicación. De forma predeterminada, el `XmlSiteMapProvider` clase se registra con el nombre `AspNetXmlSiteMapProvider`. Para registrar proveedores del mapa del sitio adicional, agregue el siguiente marcado al `Web.config`:
 
@@ -221,10 +221,10 @@ El *nombre* valor asigna un nombre legible para el proveedor al *tipo* especific
 
 La clase de proveedor de asignación de sitio se crea una instancia de la primera vez que se accede desde la `SiteMap` clase y permanece en memoria durante la vigencia de la aplicación web. Puesto que hay solo una instancia del proveedor de mapa del sitio que se puede invocar desde varios, los visitantes del sitio web simultáneas, es imperativo que los métodos de proveedor s sea *subprocesos*.
 
-Para razones de rendimiento y escalabilidad, lo importante que se almacena en caché el sitio en la memoria de estructura se asignan y devolver se almacenan en caché estructura en lugar de volver a crear cada vez el `BuildSiteMap` se invoca el método. `BuildSiteMap`puede llamarse varias veces por cada solicitud de página por usuario, dependiendo de los controles de navegación en uso en la página y la profundidad de la estructura de mapa del sitio. En cualquier caso, si la estructura de mapa del sitio se almacenan en caché no `BuildSiteMap` , a continuación, se invoca cada vez que se necesita volver a recuperar la información de producto y categoría de la arquitectura (lo que daría como resultado de una consulta a la base de datos). Como se explicó en los tutoriales anteriores de almacenamiento en caché, los datos almacenados en caché pueden queden obsoletos. Para hacer frente a esto, podemos usar tiempo - o expirados de basado en la dependencia de caché SQL.
+Para razones de rendimiento y escalabilidad, lo importante que se almacena en caché el sitio en la memoria de estructura se asignan y devolver se almacenan en caché estructura en lugar de volver a crear cada vez el `BuildSiteMap` se invoca el método. `BuildSiteMap` puede llamarse varias veces por cada solicitud de página por usuario, dependiendo de los controles de navegación en uso en la página y la profundidad de la estructura de mapa del sitio. En cualquier caso, si la estructura de mapa del sitio se almacenan en caché no `BuildSiteMap` , a continuación, se invoca cada vez que se necesita volver a recuperar la información de producto y categoría de la arquitectura (lo que daría como resultado de una consulta a la base de datos). Como se explicó en los tutoriales anteriores de almacenamiento en caché, los datos almacenados en caché pueden queden obsoletos. Para hacer frente a esto, podemos usar tiempo - o expirados de basado en la dependencia de caché SQL.
 
 > [!NOTE]
-> Un proveedor de mapas de sitio, opcionalmente, puede reemplazar el [ `Initialize` método](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize`se invoca cuando el proveedor de mapas de sitio en primer lugar se crea una instancia y se pasa cualquier atributo personalizado asignado para el proveedor en `Web.config` en el `<add>` elemento como: `<add name="name" type="type" customAttribute="value" />`. Resulta útil si desea permitir que un desarrollador de páginas especificar la configuración de relacionadas con el proveedor de asignación de varios sitio sin tener que modificar el código s del proveedor. Por ejemplo, si se estábamos leyendo los datos de categoría y productos directamente desde la base de datos en lugar de hacerlo a través de la arquitectura, se d probablemente desee permiten a los programadores de la página Especificar la cadena de conexión de base de datos a través de `Web.config` en lugar de usar un codificado valor en el código del proveedor s. El proveedor de mapas de sitio personalizado que vamos a crear en el paso 6 no invalidar esta `Initialize` método. Para obtener un ejemplo del uso de la `Initialize` método, consulte [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [almacenar mapas de sitio en SQL Server](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) artículo.
+> Un proveedor de mapas de sitio, opcionalmente, puede reemplazar el [ `Initialize` método](https://msdn.microsoft.com/library/system.web.sitemapprovider.initialize.aspx). `Initialize` se invoca cuando el proveedor de mapas de sitio en primer lugar se crea una instancia y se pasa cualquier atributo personalizado asignado para el proveedor en `Web.config` en el `<add>` elemento como: `<add name="name" type="type" customAttribute="value" />`. Resulta útil si desea permitir que un desarrollador de páginas especificar la configuración de relacionadas con el proveedor de asignación de varios sitio sin tener que modificar el código s del proveedor. Por ejemplo, si se estábamos leyendo los datos de categoría y productos directamente desde la base de datos en lugar de hacerlo a través de la arquitectura, se d probablemente desee permiten a los programadores de la página Especificar la cadena de conexión de base de datos a través de `Web.config` en lugar de usar un codificado valor en el código del proveedor s. El proveedor de mapas de sitio personalizado que vamos a crear en el paso 6 no invalidar esta `Initialize` método. Para obtener un ejemplo del uso de la `Initialize` método, consulte [Jeff Prosise](http://www.wintellect.com/Weblogs/CategoryView,category,Jeff%20Prosise.aspx) s [almacenar mapas de sitio en SQL Server](https://msdn.microsoft.com/msdnmag/issues/05/06/WickedCode/) artículo.
 
 
 ## <a name="step-6-creating-the-custom-site-map-provider"></a>Paso 6: Crear el proveedor de mapas de sitio personalizado
@@ -238,13 +238,13 @@ Permiten s empezar por explorar esta clase s `BuildSiteMap` método, que comienz
 
 El nivel de clase `SiteMapNode` variable `root` se usa para almacenar en caché la estructura de mapa del sitio. Cuando se crea el mapa del sitio por primera vez, o por primera vez después de que se ha modificado los datos subyacentes, `root` será `null` y se creará la estructura de mapa del sitio. El nodo de raíz del mapa s de sitio se asigna a `root` durante la construcción para que la próxima vez que este método se denomina proceso, `root` no será `null`. Por lo tanto, siempre y cuando `root` no es `null` la estructura de mapa del sitio se devolverá al autor de la llamada sin tener que volver a crearla.
 
-Si es de raíz `null`, se crea la estructura de mapa del sitio de la información de producto y categoría. El mapa del sitio se compila mediante la creación de la `SiteMapNode` instancias y, a continuación, que forman la jerarquía a través de llamadas a la `StaticSiteMapProvider` clase s. `AddNode` método. `AddNode`lleva a cabo la contabilización interna, almacenar el ordenados `SiteMapNode` instancias en un `Hashtable`. Antes de empezar a crear la jerarquía, se inicia mediante una llamada a la `Clear` método, que borra los elementos de interno `Hashtable`. Después, el `ProductsBLL` clase s `GetProducts` método y resultante `ProductsDataTable` se almacenan en variables locales.
+Si es de raíz `null`, se crea la estructura de mapa del sitio de la información de producto y categoría. El mapa del sitio se compila mediante la creación de la `SiteMapNode` instancias y, a continuación, que forman la jerarquía a través de llamadas a la `StaticSiteMapProvider` clase s. `AddNode` método. `AddNode` lleva a cabo la contabilización interna, almacenar el ordenados `SiteMapNode` instancias en un `Hashtable`. Antes de empezar a crear la jerarquía, se inicia mediante una llamada a la `Clear` método, que borra los elementos de interno `Hashtable`. Después, el `ProductsBLL` clase s `GetProducts` método y resultante `ProductsDataTable` se almacenan en variables locales.
 
 La construcción de asignaciones s sitio comienza por crear el nodo raíz y asignarlo al `root`. La sobrecarga de la [ `SiteMapNode` constructor de s](https://msdn.microsoft.com/library/system.web.sitemapnode.sitemapnode.aspx) utiliza aquí y en todo esto `BuildSiteMap` se pasa la información siguiente:
 
 - Una referencia al proveedor de mapa del sitio (`this`).
 - El `SiteMapNode` s `Key`. Esto requiere el valor debe ser único para cada `SiteMapNode`.
-- El `SiteMapNode` s `Url`. `Url`es opcional, pero si se proporciona, cada uno de ellos `SiteMapNode` s `Url` valor debe ser único.
+- El `SiteMapNode` s `Url`. `Url` es opcional, pero si se proporciona, cada uno de ellos `SiteMapNode` s `Url` valor debe ser único.
 - El `SiteMapNode` s `Title`, lo cual es necesario.
 
 El `AddNode(root)` llamada al método agrega la `SiteMapNode` `root` a la asignación de sitio como raíz. Después, cada `ProductRow` en el `ProductsDataTable` es de tipo enumerado. Si ya existe un `SiteMapNode` para la categoría de producto s actual, se hace referencia. En caso contrario, un nuevo `SiteMapNode` para la categoría se crea y se agrega como un elemento secundario de la `SiteMapNode``root` a través de la `AddNode(categoryNode, root)` llamada al método. Después de la categoría correspondiente `SiteMapNode` nodo se ha encontrado o se ha creado, un `SiteMapNode` se crea para el producto actual y se agrega como elemento secundario de la categoría `SiteMapNode` a través de `AddNode(productNode, categoryNode)`. Tenga en cuenta que la categoría `SiteMapNode` s `Url` es el valor de la propiedad `~/SiteMapProvider/ProductsByCategory.aspx?CategoryID=categoryID` mientras el producto `SiteMapNode` s `Url` se asigna la propiedad `~/SiteMapNode/ProductDetails.aspx?ProductID=productID`.
@@ -261,7 +261,7 @@ Después de crear el mapa del sitio, se agrega un objeto arbitrario a la caché 
 
 El `BuildSiteMap` método completa devolviendo el nodo raíz del mapa del sitio.
 
-Los métodos restantes son bastante sencillos. `GetRootNodeCore`es responsable de devolver el nodo raíz. Puesto que `BuildSiteMap` devuelve la raíz, `GetRootNodeCore` simplemente devuelve `BuildSiteMap` s valor devuelto. El `OnSiteMapChanged` método establece `root` a `null` cuando se quita el elemento en caché. Con raíz vuelve a establecer en `null`, la próxima vez `BuildSiteMap` es invoca, se reconstruirá la estructura de mapa del sitio. Por último, el `CachedDate` propiedad devuelve el valor de fecha y hora almacenado en la caché de datos, si existe este tipo de valor. Esta propiedad puede utilizarse por un desarrollador de la página para determinar cuando los datos del mapa del sitio se última almacenado en caché.
+Los métodos restantes son bastante sencillos. `GetRootNodeCore` es responsable de devolver el nodo raíz. Puesto que `BuildSiteMap` devuelve la raíz, `GetRootNodeCore` simplemente devuelve `BuildSiteMap` s valor devuelto. El `OnSiteMapChanged` método establece `root` a `null` cuando se quita el elemento en caché. Con raíz vuelve a establecer en `null`, la próxima vez `BuildSiteMap` es invoca, se reconstruirá la estructura de mapa del sitio. Por último, el `CachedDate` propiedad devuelve el valor de fecha y hora almacenado en la caché de datos, si existe este tipo de valor. Esta propiedad puede utilizarse por un desarrollador de la página para determinar cuando los datos del mapa del sitio se última almacenado en caché.
 
 ## <a name="step-7-registering-thenorthwindsitemapprovider"></a>Paso 7: Registrar la`NorthwindSiteMapProvider`
 
@@ -362,11 +362,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisores para este tutorial eran Dave Gardner, Zack Jones, Teresa Murphy y Bernadette Leigh. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Siguiente](building-a-custom-database-driven-site-map-provider-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](building-a-custom-database-driven-site-map-provider-vb.md)

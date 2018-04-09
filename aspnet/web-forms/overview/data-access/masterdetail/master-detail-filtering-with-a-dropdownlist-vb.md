@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 title: Principal-detalle filtrado con DropDownList (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos cómo mostrar los registros maestros en un control DropDownList y los detalles del elemento de lista seleccionado en un control GridView."
+description: En este tutorial veremos cómo mostrar los registros maestros en un control DropDownList y los detalles del elemento de lista seleccionado en un control GridView.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-a-dropdownlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3f66e133b2bc8cdececf55b4d92508e6ff157d95
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 5d1ae660ddbc6c8e2874190ade6f3deddeebe820
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Principal-detalle filtrado con DropDownList (VB)
 ====================
@@ -87,12 +87,12 @@ Este último paso en nuestro informe principal-detalle es enumerar los productos
 **Figura 7**: seleccione la `GetProductsByCategoryID(categoryID)` método ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-vb/_static/image21.png))
 
 
-Después de elegir este método, el Asistente ObjectDataSource nos solicita para el valor para el método  *`categoryID`*  parámetro. Para usar el valor de seleccionado `categories` DropDownList elemento establezca el origen de parámetro para el Control y la ControlID a `Categories`.
+Después de elegir este método, el Asistente ObjectDataSource nos solicita para el valor para el método *`categoryID`* parámetro. Para usar el valor de seleccionado `categories` DropDownList elemento establezca el origen de parámetro para el Control y la ControlID a `Categories`.
 
 
 [![Establece el parámetro categoryID en el valor de las categorías de DropDownList](master-detail-filtering-with-a-dropdownlist-vb/_static/image23.png)](master-detail-filtering-with-a-dropdownlist-vb/_static/image22.png)
 
-**Figura 8**: establecer el  *`categoryID`*  parámetro en el valor de la `Categories` DropDownList ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
+**Figura 8**: establecer el *`categoryID`* parámetro en el valor de la `Categories` DropDownList ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-vb/_static/image24.png))
 
 
 Tómese un momento para desproteger nuestro progreso en un explorador. Al visitar primero la página, los productos pertenecen a la categoría seleccionada se muestran (bebidas) (como se muestra en la figura 9), pero cambiar DropDownList no actualiza los datos. Esto es porque se debe producir una devolución de datos del control GridView actualizar. Para ello se tiene dos opciones (ninguno de los cuales requiere escribir código alguno):
@@ -146,12 +146,12 @@ Después de estos cambios, cuando en primer lugar, visite la página que está s
 **Figura 13**: se muestran en la inicial página carga No productos ([haga clic aquí para ver la imagen a tamaño completo](master-detail-filtering-with-a-dropdownlist-vb/_static/image37.png))
 
 
-La razón no productos se muestran cuando porque se selecciona el elemento de lista ", elija una categoría:" es que su valor es `-1` y no hay productos en la base de datos con un `CategoryID` de `-1`. Si se trata el comportamiento que desee, a continuación, ha terminado en este momento. Si, sin embargo, en el que desea mostrar *todos los* de las categorías cuando se selecciona el elemento de lista ", elija una categoría:", se vuelve a la `ProductsBLL` clase y personalizar el `GetProductsByCategoryID(categoryID)` método por lo que TI, se invoca el `GetProducts()` método si el valor en  *`categoryID`*  parámetro es menor que cero:
+La razón no productos se muestran cuando porque se selecciona el elemento de lista ", elija una categoría:" es que su valor es `-1` y no hay productos en la base de datos con un `CategoryID` de `-1`. Si se trata el comportamiento que desee, a continuación, ha terminado en este momento. Si, sin embargo, en el que desea mostrar *todos los* de las categorías cuando se selecciona el elemento de lista ", elija una categoría:", se vuelve a la `ProductsBLL` clase y personalizar el `GetProductsByCategoryID(categoryID)` método por lo que TI, se invoca el `GetProducts()` método si el valor en *`categoryID`* parámetro es menor que cero:
 
 
 [!code-vb[Main](master-detail-filtering-with-a-dropdownlist-vb/samples/sample2.vb)]
 
-La técnica que se utiliza aquí es similar al enfoque se usa para mostrar todos los proveedores en el [parámetros declarativos](../basic-reporting/declarative-parameters-cs.md) tutorial, aunque en este ejemplo estamos usando un valor de `-1` para indicar que todos los registros deben estar recuperar en contraposición a `Nothing`. Esto es porque el  *`categoryID`*  parámetro de la `GetProductsByCategoryID(categoryID)` método espera que ha pasado un valor entero, mientras que en el tutorial de parámetros declarativos estábamos pasar en un parámetro de entrada de cadena.
+La técnica que se utiliza aquí es similar al enfoque se usa para mostrar todos los proveedores en el [parámetros declarativos](../basic-reporting/declarative-parameters-cs.md) tutorial, aunque en este ejemplo estamos usando un valor de `-1` para indicar que todos los registros deben estar recuperar en contraposición a `Nothing`. Esto es porque el *`categoryID`* parámetro de la `GetProductsByCategoryID(categoryID)` método espera que ha pasado un valor entero, mientras que en el tutorial de parámetros declarativos estábamos pasar en un parámetro de entrada de cadena.
 
 La figura 14 muestra una captura de pantalla de `FilterByDropDownList.aspx` cuando se selecciona la opción "--Elija una categoría--". En este caso, todos los productos se muestran de forma predeterminada, y el usuario puede restringir la visualización seleccionando una categoría específica.
 
@@ -171,8 +171,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)
-[Siguiente](master-detail-filtering-with-two-dropdownlists-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs.md)
+> [Siguiente](master-detail-filtering-with-two-dropdownlists-vb.md)

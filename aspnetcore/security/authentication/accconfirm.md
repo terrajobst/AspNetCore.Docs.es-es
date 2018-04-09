@@ -1,7 +1,7 @@
 ---
-title: "Confirmación de la cuenta y la recuperación de contraseña en el núcleo de ASP.NET"
+title: Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 author: rick-anderson
-description: "Obtener información sobre cómo compilar una aplicación de ASP.NET Core con el restablecimiento de confirmación y la contraseña de correo electrónico."
+description: Obtener información sobre cómo compilar una aplicación de ASP.NET Core con el restablecimiento de confirmación y la contraseña de correo electrónico.
 manager: wpickett
 ms.author: riande
 ms.date: 2/11/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: b236b4e5d3a4fa7212453f2aec209d145f5f5e32
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 8ad2a63ce007a68eac3b607db454c6b4fc834444
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 
@@ -30,7 +30,7 @@ Vea [este archivo PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/sec
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[.NET core 2.1.4 SDK](https://www.microsoft.com/net/core) o una versión posterior.
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="create-a-new-aspnet-core-project-with-the-net-core-cli"></a>Cree un nuevo proyecto de ASP.NET Core con la CLI de núcleo de .NET
 
@@ -138,16 +138,13 @@ El contenido de la *secrets.json* archivos no están cifrados. El *secrets.json*
 
 Agregar `AuthMessageSenderOptions` al contenedor de servicios al final de la `ConfigureServices` método en el *Startup.cs* archivo:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 [!code-csharp[](accconfirm/sample/WebPWrecover/Startup.cs?name=snippet2&highlight=28)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 [!code-csharp[](accconfirm/sample/WebApp1/Startup.cs?name=snippet1&highlight=26)]
 
----
-
+* * *
 ### <a name="configure-the-authmessagesender-class"></a>Configurar la clase de AuthMessageSender
 
 Este tutorial muestra cómo agregar notificaciones de correo electrónico a través de [SendGrid](https://sendgrid.com/), pero puede enviar correo electrónico mediante SMTP y otros mecanismos.
@@ -160,31 +157,28 @@ Instalar el `SendGrid` paquete NuGet:
 
 * Desde la consola de administrador de paquetes, escriba el siguiente comando:
 
- `Install-Package SendGrid`
+  `Install-Package SendGrid`
 
 Vea [empiece de forma gratuita con SendGrid](https://sendgrid.com/free/) para registrar una cuenta gratuita de SendGrid.
 
 #### <a name="configure-sendgrid"></a>Configurar SendGrid
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Para configurar SendGrid, agregue código similar al siguiente en *Services/EmailSender.cs*:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Services/EmailSender.cs)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 * Agregue código en *Services/MessageServices.cs* similar al siguiente para configurar SendGrid:
 
 [!code-csharp[](accconfirm/sample/WebApp1/Services/MessageServices.cs)]
 
----
-
+* * *
 ## <a name="enable-account-confirmation-and-password-recovery"></a>Habilitar la recuperación de confirmación y la contraseña de cuenta
 
 La plantilla tiene el código para la recuperación de confirmación y la contraseña de cuenta. Buscar el `OnPostAsync` método *Pages/Account/Register.cshtml.cs*.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Impedir que los usuarios recién registrados que se iniciará automáticamente la sesión como comentario la línea siguiente:
 
 ```csharp
@@ -195,8 +189,7 @@ El método completo se muestra con la línea cambiada resaltada:
 
 [!code-csharp[](accconfirm/sample/WebPWrecover/Pages/Account/Register.cshtml.cs?highlight=16&name=snippet_Register)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Para habilitar la confirmación de la cuenta, quite el código siguiente:
 
 [!code-csharp[](accconfirm/sample/WebApp1/Controllers/AccountController.cs?highlight=16-25&name=snippet_Register)]
@@ -215,15 +208,14 @@ Quite el elemento de formulario en *Views/Account/ForgotPassword.cshtml*. Desea 
 
 [!code-cshtml[](accconfirm/sample/WebApp1/Views/Account/ForgotPassword.cshtml?highlight=7-10,12,28)]
 
----
-
+* * *
 ## <a name="register-confirm-email-and-reset-password"></a>Registrar, confirma el correo electrónico y restablecer contraseña
 
 Ejecutar la aplicación web y probar la confirmación de la cuenta y el flujo de recuperación de contraseña.
 
 * Ejecutar la aplicación y registrar un nuevo usuario
 
- ![Vista de cuenta registrar la aplicación Web](accconfirm/_static/loginaccconfirm1.png)
+  ![Vista de cuenta registrar la aplicación Web](accconfirm/_static/loginaccconfirm1.png)
 
 * Compruebe su correo electrónico para el vínculo de confirmación de cuenta. Vea [depurar correo electrónico](#debug) si no recibe el correo electrónico.
 * Haga clic en el vínculo para confirmar tu correo electrónico.

@@ -1,5 +1,5 @@
 ---
-title: Uso de Bower en ASP.NET Core
+title: Administrar paquetes de cliente con Bower en ASP.NET Core
 author: rick-anderson
 description: Administrar paquetes de cliente con Bower.
 manager: wpickett
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bower
-ms.openlocfilehash: 67695843846cfaf1619db11a7bffcc65802e0f69
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 81244cfb71194876071c64899d627c296aad3802
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-client-side-packages-with-bower-in-aspnet-core"></a>Administrar paquetes de cliente con Bower en ASP.NET Core
 
@@ -39,7 +39,7 @@ En este tutorial, vamos a agregar compatibilidad para [fuente Maravilla](http://
 
 * En el **Bower: \<nombre del proyecto\>**  ventana, haga clic en la ficha "Examinar" y, a continuación, filtre la lista de paquetes especificando `font-awesome` en el cuadro de búsqueda:
 
- ![Administrar paquetes de bower](bower/_static/manage-bower-packages.png)
+  ![Administrar paquetes de bower](bower/_static/manage-bower-packages.png)
 
 * Confirme que la "guardar los cambios en *bower.json*" casilla de verificación está activada. Seleccione una versión de la lista desplegable y haga clic en el **instalar** botón. El **salida** ventana muestra los detalles de instalación.
 
@@ -100,9 +100,9 @@ Una vez que enumerar los paquetes en el *bower.json* archivo, Visual Studio, des
 
 * Guardar el *bower.json* archivo.
 
- Compruebe que el proyecto incluye la *arranque* y *jQuery* directorios en *wwwroot/lib*. Bower utiliza el *bowerrc* archivo para instalar los activos en *wwwroot/lib*.
+  Compruebe que el proyecto incluye la *arranque* y *jQuery* directorios en *wwwroot/lib*. Bower utiliza el *bowerrc* archivo para instalar los activos en *wwwroot/lib*.
 
- Nota: La interfaz de usuario "Administrar paquetes de Bower" proporciona una alternativa a modificar el archivo manualmente.
+  Nota: La interfaz de usuario "Administrar paquetes de Bower" proporciona una alternativa a modificar el archivo manualmente.
 
 ### <a name="enable-static-files"></a>Habilitar archivos estáticos
 
@@ -117,10 +117,10 @@ En esta sección, creará una página HTML para comprobar puede tener acceso a l
 
 * Agregar una nueva página HTML denominada *Index.html* a la *wwwroot* carpeta. Nota: Debe agregar el archivo HTML para la *wwwroot* carpeta. De forma predeterminada, no se pueda servir contenido estático fuera *wwwroot*. Vea [trabajar con archivos estáticos](xref:fundamentals/static-files) para obtener más información.
 
- Reemplace el contenido de *Index.html* con el siguiente marcado:
+  Reemplace el contenido de *Index.html* con el siguiente marcado:
 
 [!code-html[](bower/sample/Index.html)]
 
 * Ejecute la aplicación y vaya a `http://localhost:<port>/Index.html`. O bien, con *Index.html* abierto, presione `Ctrl+Shift+W`. Compruebe que se aplica el estilo jumbotron, el código de jQuery responde cuando se hace clic en el botón y que el botón de arranque cambia el estado.
 
- ![estilo de Jumbotron aplicado](bower/_static/jumbotron.png)
+  ![estilo de Jumbotron aplicado](bower/_static/jumbotron.png)

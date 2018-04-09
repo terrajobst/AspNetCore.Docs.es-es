@@ -1,7 +1,7 @@
 ---
-title: "Autorización basada en la vista de MVC de ASP.NET Core"
+title: Autorización basada en la vista de MVC de ASP.NET Core
 author: rick-anderson
-description: "Este documento muestra cómo insertar y utilizar el servicio de autorización dentro de una vista de ASP.NET Core Razor."
+description: Este documento muestra cómo insertar y utilizar el servicio de autorización dentro de una vista de ASP.NET Core Razor.
 manager: wpickett
 ms.author: riande
 ms.date: 10/30/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/views
-ms.openlocfilehash: 22754d07882cd704309a4e1a28ad0bf6f69432ea
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: dad59a297efb4648755436fbd07742f95af97fb2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="view-based-authorization"></a>Autorización basada en la vista
+# <a name="view-based-authorization-in-aspnet-core-mvc"></a>Autorización basada en la vista de MVC de ASP.NET Core
 
 A menudo, un programador desea mostrar, ocultar o modifique una interfaz de usuario en función de la identidad del usuario actual. Puede acceder al servicio de autorización en las vistas MVC a través de [inyección de dependencia](xref:fundamentals/dependency-injection#fundamentals-dependency-injection). Para insertar el servicio de autorización en una vista Razor, use la `@inject` directiva:
 
@@ -24,7 +24,7 @@ A menudo, un programador desea mostrar, ocultar o modifique una interfaz de usua
 @inject IAuthorizationService AuthorizationService
 ```
 
-Si desea que el servicio de autorización en cada vista, coloque el `@inject` la directiva en el *_ViewImports.cshtml* archivos de la *vistas* directory. Para obtener más información, consulte [inyección de dependencia en las vistas](xref:mvc/views/dependency-injection).
+Si desea que el servicio de autorización en cada vista, coloque el `@inject` la directiva en el *_ViewImports.cshtml* archivos de la *vistas* directory. Para más información, vea [Dependency injection into views](xref:mvc/views/dependency-injection) (Inserción de dependencias en vistas).
 
 Usar el servicio de autorización insertado para invocar `AuthorizeAsync` exactamente del mismo modo que se protegerían durante [autorización basada en recursos](xref:security/authorization/resourcebased#security-authorization-resource-based-imperative):
 

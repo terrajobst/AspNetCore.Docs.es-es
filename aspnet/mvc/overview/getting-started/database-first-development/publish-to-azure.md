@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/database-first-development/publish-to-azure
 title: Publicar sitio MVC Database First en Azure | Documentos de Microsoft
 author: tfitzmac
-description: "Con MVC, Entity Framework y Scaffolding de ASP.NET, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri..."
+description: Con MVC, Entity Framework y Scaffolding de ASP.NET, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/22/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: eadc0f2b08df29f80fe53d03cf88cd3cdcecfb12
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 839bbceba6f0e098303facd40dbb1496bd449ba3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Publicar sitio MVC Database First en Azure
 ====================
@@ -52,8 +52,7 @@ Crear un nombre único para la aplicación web. Podrá saber que el nombre es ú
 
 Los valores de conexión ahora están todos establecidos. Puede dejar estos valores sin cambios.
 
-![
-          connection](publish-to-azure/_static/image5.png)
+![connection](publish-to-azure/_static/image5.png)
 
 Haga clic en **Siguiente**.
 
@@ -153,7 +152,7 @@ Ahora, puede volver al portal de administración de la base de datos. Actualice 
 
 ![nuevas tablas](publish-to-azure/_static/image22.png)
 
-Ahora está listo para probar la aplicación web que se implementa en Azure. Navegue a la aplicación web en Azure (por ejemplo, http://contosositeexample.azurewebsites.net/). Haga clic en el vínculo de la lista de estudiantes y debería ver la vista de índice para estudiantes.
+Ahora está listo para probar la aplicación web que se implementa en Azure. Navegue a la aplicación web en Azure (como http://contosositeexample.azurewebsites.net/). Haga clic en el vínculo de la lista de estudiantes y debería ver la vista de índice para estudiantes.
 
 ![vista](publish-to-azure/_static/image23.png)
 
@@ -167,5 +166,5 @@ Para obtener un ejemplo de introducción de desarrollo Code First, vea [Introduc
 
 Para obtener un ejemplo más avanzado, vea [crear un modelo de datos de Entity Framework para una aplicación de ASP.NET MVC 4](../getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md). Tenga en cuenta que la API de DbContext que usas para trabajar con datos en base de datos en primer lugar es igual a la API que se utiliza para trabajar con datos de Code First. Incluso si piensa usar la primera base de datos, puede aprender a controlar los escenarios más complejos, como leer y actualizar datos relacionados, controlar los conflictos de simultaneidad, etc. de un tutorial de Code First. La única diferencia está en cómo se crean la base de datos, context (clase) y las clases de entidad.
 
->[!div class="step-by-step"]
-[Anterior](enhancing-data-validation.md)
+> [!div class="step-by-step"]
+> [Anterior](enhancing-data-validation.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-4
-title: "Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 4 | Documentos de Microsoft"
+title: Introducción a la base de datos de Entity Framework 4.0 en primer lugar y 4 de ASP.NET Web Forms - parte 4 | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 06d129384fc78db21ad1b9224781deab6a0e91a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6bea5f4faeb0a9c11a406a7e4e87c4929eda6a18
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-4"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 4
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET con el Entity Framework 4.0 y Visual Studio 2010. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -165,6 +165,6 @@ Seleccione un instructor que tiene un curso asignado y, a continuación, selecci
 
 Ya ha visto algunas maneras de trabajar con los datos relacionados. En el siguiente tutorial, obtendrá información sobre cómo agregar las relaciones entre las entidades existentes, cómo quitar relaciones y cómo agregar una nueva entidad que tiene una relación con una entidad existente.
 
->[!div class="step-by-step"]
-[Anterior](the-entity-framework-and-aspnet-getting-started-part-3.md)
-[Siguiente](the-entity-framework-and-aspnet-getting-started-part-5.md)
+> [!div class="step-by-step"]
+> [Anterior](the-entity-framework-and-aspnet-getting-started-part-3.md)
+> [Siguiente](the-entity-framework-and-aspnet-getting-started-part-5.md)

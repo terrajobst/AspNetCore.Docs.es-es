@@ -16,4 +16,4 @@ Instrucciones:
 1. Inicie sesión en el usuario a cualquiera de las tres aplicaciones. La cookie de autenticación se comparte entre las aplicaciones. Tenga en cuenta que el usuario ha iniciado automáticamente en las otras dos aplicaciones.
 1. Cierre la sesión del usuario desde cualquiera de las aplicaciones. Tenga en cuenta que el usuario ha iniciado automáticamente fuera de las otras dos aplicaciones.
 
-Este ejemplo muestra las características descritas en la [cookies entre aplicaciones de uso compartido](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) tema.
+Este ejemplo muestra las características descritas en la [compartir cookies entre aplicaciones](https://docs.microsoft.com/aspnet/core/security/cookie-sharing) tema.

@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 title: Novedades de Web Forms de ASP.NET 4.5 | Documentos de Microsoft
 author: rick-anderson
-description: "La nueva versión de formularios Web Forms de ASP.NET presenta a una serie de mejoras que se centra en la mejora la experiencia del usuario cuando se trabaja con datos. En versiones anteriores de..."
+description: La nueva versión de formularios Web Forms de ASP.NET presenta a una serie de mejoras que se centra en la mejora la experiencia del usuario cuando se trabaja con datos. En versiones anteriores de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: 560f949f79be8ba4936e4a6f8ee8ee32ef15acbf
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Novedades de formularios Web Forms de ASP.NET 4.5
 ====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
 > La nueva versión de formularios Web Forms de ASP.NET presenta a una serie de mejoras que se centra en la mejora la experiencia del usuario cuando se trabaja con datos.
 > 
@@ -42,7 +42,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > 
 > En el portal ASP.NET oficial encontrará más ejemplos de las nuevas características en ASP.NET WebForms 4.5: [What's New en ASP.NET 4.5 y Visual Studio 2012](../../../../whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012.md#_Toc318097385)
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [ https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409 ](https://go.microsoft.com/fwlink/?LinkID=248297&clcid=0x409).
 
 
 <a id="Objectives"></a>
@@ -103,12 +103,12 @@ En esta tarea, verá los nuevos fuertemente tipado enlaces disponibles en ASP.NE
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex1-ModelBinding/Begin/** carpeta.
 
-    1. Deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra la **Customers.aspx** página. Incluir una lista sin numerar en el control principal e incluir un control de repetidor dentro para enumerar a cada cliente. Establece el nombre del Repetidor en **customersRepeater** tal como se muestra en el código siguiente.
 
     En versiones anteriores de formularios Web Forms, cuando se usa el enlace de datos para emitir el valor de un miembro de un objeto está enlace de datos, usaría una expresión de enlace de datos, junto con una llamada al método Eval, pasando el nombre del miembro como una cadena.
@@ -341,12 +341,12 @@ En esta sección, podrá aplicar validación discreta en ASP.NET para comparar e
 
 1. Abra **Visual Studio 2012** y abra el **comenzar** soluciones se encuentran en la **Source\Ex2 Validation\Begin** carpeta de este laboratorio. Como alternativa, puede seguir trabajando en la solución existente en el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, en el Explorador de soluciones, haga clic en el **WebFormsLab** proyecto **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, en el Explorador de soluciones, haga clic en el **WebFormsLab** proyecto **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Presione **F5** para iniciar la aplicación web. Vaya a los clientes de página y haga clic en el **agregar un nuevo cliente** vínculo.
 3. Haga doble clic en la página del explorador y seleccione **ver código fuente** opción para abrir el código HTML generado por la aplicación.
 
@@ -535,12 +535,12 @@ En esta tarea, actualizará la página de detalles del producto para permitir al
 
 1. Abra **Visual Studio 2012** y cargar la **comenzar** soluciones se encuentran en **Source\Ex3 Async\Begin** de carpeta de este laboratorio. Como alternativa, puede seguir trabajando en la solución existente de los ejercicios anteriores.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, en el Explorador de soluciones, haga clic en el **WebFormsLab** de proyecto y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, en el Explorador de soluciones, haga clic en el **WebFormsLab** de proyecto y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra la **ProductDetails.aspx** página origen y agregue un campo en ItemTemplate de FormView para mostrar la imagen del producto.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample30.aspx)]
@@ -562,7 +562,7 @@ En esta tarea, actualizará la página de detalles del producto para permitir al
     (Código de fragmento de código: *Web Forms laboratorio - Ex03 - UpdateProductImage llamada*)
 
     [!code-csharp[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample34.cs)]
-7. Ejecute la aplicación e intente cargar una imagen para un producto. Por ejemplo, puede usar la siguiente dirección URL de imagen de Office Clip artes: [ [http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
+7. Ejecute la aplicación e intente cargar una imagen para un producto. Por ejemplo, puede usar la siguiente dirección URL de imagen de artes de Clip de Office: [[http://officeimg.vo.msecnd.net/images/MB900437099.jpg](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)](http://officeimg.vo.msecnd.net/images/MB900437099.jpg)
 
     ![Configuración de una imagen para un producto](whats-new-in-web-forms-in-aspnet-45/_static/image23.png "establecer una imagen de un producto")
 
@@ -580,7 +580,9 @@ Las operaciones que consumen muchos recursos en el sitio web son buenos candidat
 1. Abra la **ProductDetails.aspx** página. Agregar el **Async** de atributo en el **página** elemento y establézcalo en **true**. Este atributo indica a ASP.NET que implementa la interfaz IHttpAsyncHandler.
 
 
-    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
+[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
+~~~
 2. Agregar una etiqueta en la parte inferior de la página para mostrar los detalles de los subprocesos de ejecución de la página.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]
@@ -636,9 +638,9 @@ En este laboratorio práctico, abordar y muestra los conceptos siguientes:
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Apéndice A: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la  **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
-1. Vaya a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con Azure SDK*&quot;.
+1. Vaya a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con Azure SDK</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 
@@ -782,14 +784,14 @@ Si la aplicación realiza el uso de SQL Server debe crear un servidor de base de
     *Configuración de Web deploy*
 5. Configure la conexión de base de datos de la manera siguiente:
 
-    - En el **nombre del servidor** escriba la dirección URL de base de datos de SQL server mediante la *tcp:* prefijo.
-    - En **nombre de usuario** escriba el nombre de inicio de sesión del Administrador de servidor.
-    - En **contraseña** escriba la contraseña de inicio de sesión de administrador de servidor.
-    - Escriba un nuevo nombre de base de datos.
+   - En el **nombre del servidor** escriba la dirección URL de base de datos de SQL server mediante la *tcp:* prefijo.
+   - En **nombre de usuario** escriba el nombre de inicio de sesión del Administrador de servidor.
+   - En **contraseña** escriba la contraseña de inicio de sesión de administrador de servidor.
+   - Escriba un nuevo nombre de base de datos.
 
-    ![Configurar la cadena de conexión de destino](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "configurar la cadena de conexión de destino")
+     ![Configurar la cadena de conexión de destino](whats-new-in-web-forms-in-aspnet-45/_static/image46.png "configurar la cadena de conexión de destino")
 
-    *Configurar la cadena de conexión de destino*
+     *Configurar la cadena de conexión de destino*
 6. A continuación, haga clic en **Aceptar**. Cuando se le solicite para crear la base de datos, haga clic en **Sí**.
 
     ![Crear la base de datos](whats-new-in-web-forms-in-aspnet-45/_static/image47.png "crear la cadena de la base de datos")

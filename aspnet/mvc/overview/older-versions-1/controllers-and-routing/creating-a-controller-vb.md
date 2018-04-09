@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
-title: "Creación de un controlador (VB) | Documentos de Microsoft"
+title: Creación de un controlador (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "En este tutorial, Stephen Walther muestra cómo puede agregar un controlador a una aplicación de ASP.NET MVC."
+description: En este tutorial, Stephen Walther muestra cómo puede agregar un controlador a una aplicación de ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-controller-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d2caf7fe137b48c016ff3cd52db9e36e1e8001c0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e9a2bbcb09672f5247429064908cd4d2ef67f518
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-controller-vb"></a>Creación de un controlador (VB)
 ====================
@@ -92,10 +92,10 @@ El controlador en el listado 3 expone una acción denominada Index() que devuelv
 
 `http://localhost:40071/Person`
 
-> [!NOTE] 
+> [!NOTE]
 > 
 > El servidor de desarrollo de ASP.NET usa un número de puerto aleatorio (por ejemplo, 40071). Cuando escriba una dirección URL para invocar un controlador, debe proporcionar el número de puerto adecuado. Puede determinar el número de puerto desplazando el puntero del mouse sobre el icono para el servidor de desarrollo de ASP.NET en el área de notificación de Windows (parte inferior derecha de la pantalla).
-
->[!div class="step-by-step"]
-[Anterior](adding-dynamic-content-to-a-cached-page-vb.md)
-[Siguiente](creating-an-action-vb.md)
+> 
+> [!div class="step-by-step"]
+> [Anterior](adding-dynamic-content-to-a-cached-page-vb.md)
+> [Siguiente](creating-an-action-vb.md)

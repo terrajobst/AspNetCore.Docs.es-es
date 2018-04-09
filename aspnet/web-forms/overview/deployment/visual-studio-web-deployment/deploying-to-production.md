@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
-title: "Implementación de Web ASP.NET con Visual Studio: implementación de producción | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: implementación de producción | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/deploying-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: abd3f3f78dd9a9e6394e2f61aa9bd692810ca875
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: f3b3898bd003ace100ba05619f2c45ca808462df
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-to-production"></a>Implementación de Web ASP.NET con Visual Studio: implementación de producción
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -144,10 +144,10 @@ Ahora que ha creado una aplicación web y la base de datos para el entorno de en
 9. 1. Seleccione **Actualizar base de datos**.
 
         El **cadena de conexión remota** directamente debajo del cuadro **DefaultConnection** se rellena con la cadena de conexión desde el archivo .publishsettings. La cadena de conexión incluye credenciales de SQL Server, que se almacenan en texto sin formato en el *.pubxml* archivo. Si no desea almacenarlas de forma permanente no existe, puede quitarlos del perfil de publicación después de implementa la base de datos y almacenarlos en Azure. Para obtener más información, consulte [cómo mantener la base de datos ASP.NET las cadenas de conexión segura cuando se implementa en Azure desde origen](http://www.hanselman.com/blog/HowToKeepYourASPNETDatabaseConnectionStringsSecureWhenDeployingToAzureFromSource.aspx) en el blog de Scott Hanselman.
-    2. Haga clic en **configurar actualizaciones de base de datos**.
-    3. En el **configurar actualizaciones de base de datos** cuadro de diálogo, haga clic en **Agregar secuencia de comandos SQL**.
-    4. En el **Agregar secuencia de comandos SQL** , navegue hasta la *prod.sql de datos de aspnet* script que se guardó anteriormente en la carpeta de soluciones y, a continuación, haga clic en **abiertos**.
-    5. Cerrar la **configurar actualizaciones de base de datos** cuadro de diálogo.
+      2. Haga clic en **configurar actualizaciones de base de datos**.
+      3. En el **configurar actualizaciones de base de datos** cuadro de diálogo, haga clic en **Agregar secuencia de comandos SQL**.
+      4. En el **Agregar secuencia de comandos SQL** , navegue hasta la *prod.sql de datos de aspnet* script que se guardó anteriormente en la carpeta de soluciones y, a continuación, haga clic en **abiertos**.
+      5. Cerrar la **configurar actualizaciones de base de datos** cuadro de diálogo.
 10. En **SchoolContext** en el **bases de datos** sección, seleccione **ejecutar migraciones de Code First (se ejecuta al iniciarse la aplicación)**.
 
     Visual Studio muestra **ejecutar Code First Migrations** en lugar de **Actualizar base de datos** de `DbContext` clases. Si desea utilizar el proveedor dbDacFx en lugar de las migraciones para implementar una base de datos que tiene acceso mediante un `DbContext` de clases, consulte [cómo se puede implementar una base de datos Code First sin migraciones?](https://msdn.microsoft.com/library/ee942158.aspx#deploy_code_first_without_migrations) en las P+F de implementación Web para Visual Studio y ASP.NET en MSDN.
@@ -296,11 +296,11 @@ En el siguiente tutorial, podrá actualizar el código de la aplicación e imple
 
 > [!NOTE]
 > Mientras la aplicación está en uso en el entorno de producción debe implementar un plan de recuperación. Es decir, debe ser periódicamente copias de seguridad las bases de datos desde la aplicación de producción en una ubicación de almacenamiento seguro y debe mantener varias generaciones de estas copias de seguridad. Cuando se actualiza la base de datos, debe realizar una copia de seguridad de inmediatamente antes del cambio. A continuación, si comete un error y no detectar hasta después de haber implementado en producción, aún podrá recuperar la base de datos al estado que tenía antes de resultó dañado. Para obtener más información, consulte [copia de seguridad de base de datos de SQL de Azure y restauración](https://msdn.microsoft.com/library/windowsazure/jj650016.aspx).
-
-
+> 
+> 
 > [!NOTE]
 > En este tutorial, el servidor SQL Server edición que va a implementar en es la base de datos de SQL Azure. Mientras el proceso de implementación es similar a otras ediciones de SQL Server, una aplicación de producción real podría necesitar un código especial para la base de datos de SQL Azure en algunos escenarios. Para obtener más información, consulte [trabajar con la base de datos de SQL Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdb) y [elegir entre SQL Server y base de datos de SQL Azure](../../../../whitepapers/aspnet-data-access-content-map.md#ssdbchoosing).
-
->[!div class="step-by-step"]
-[Anterior](setting-folder-permissions.md)
-[Siguiente](deploying-a-code-update.md)
+> 
+> [!div class="step-by-step"]
+> [Anterior](setting-folder-permissions.md)
+> [Siguiente](deploying-a-code-update.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
-title: "Agregar validación para el modelo (C#) | Documentos de Microsoft"
+title: Agregar validación para el modelo (C#) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Creación de un controlador"
+description: Creación de un controlador
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 1e1235972d1e16153faee113af09edaa676d70d8
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: cdfe76f440e34ca7356af193186f90d2231b9db6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-to-the-model-c"></a>Agregar validación para el modelo (C#)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -127,6 +127,6 @@ Ejecute la aplicación y busque el `Movies` controlador.
 
 En la siguiente parte de la serie de tutoriales, revisaremos la aplicación y realizaremos algunas mejoras a los métodos `Details` y `Delete` generados automáticamente.
 
->[!div class="step-by-step"]
-[Anterior](adding-a-new-field.md)
-[Siguiente](improving-the-details-and-delete-methods.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-new-field.md)
+> [Siguiente](improving-the-details-and-delete-methods.md)

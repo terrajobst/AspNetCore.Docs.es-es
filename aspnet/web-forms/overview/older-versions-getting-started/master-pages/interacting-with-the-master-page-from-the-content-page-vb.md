@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
-title: "Interactuar con la página principal de la página de contenido (VB) | Documentos de Microsoft"
+title: Interactuar con la página principal de la página de contenido (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Examina cómo llamar a métodos, establecer propiedades, etc. de la página maestra desde el código en la página de contenido."
+description: Examina cómo llamar a métodos, establecer propiedades, etc. de la página maestra desde el código en la página de contenido.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/11/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-master-page-from-the-content-page-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a9020115e6348d30350f8fff493efe88bd0d4c37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7e92e7abbc69a0998d7563db0d5b206d7ba3d6be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="interacting-with-the-master-page-from-the-content-page-vb"></a>Interactuar con la página principal de la página de contenido (VB)
 ====================
@@ -261,18 +261,18 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 - [Obtener acceso y actualizar los datos en ASP.NET](http://aspnet.4guysfromrolla.com/articles/011106-1.aspx)
 - [Páginas maestras de ASP.NET: Sugerencias, trucos y capturas](http://www.odetocode.com/articles/450.aspx)
-- [`@MasterType`en ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
+- [`@MasterType` en ASP.NET 2.0](http://odetocode.com/Blogs/scott/archive/2005/07/16/1944.aspx)
 - [Pasar información entre el contenido y páginas maestras](http://aspnet.4guysfromrolla.com/articles/013107-1.aspx)
 - [Trabajar con datos en los tutoriales ASP.NET](../../data-access/index.md)
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 3.5 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672329972/4guysfromrollaco). Puede ponerse en contacto Scott [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4GuysFromRolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
-Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Zack Jones. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en[mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
+Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Zack Jones. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [mitchell@4GuysFromRolla.com](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](control-id-naming-in-content-pages-vb.md)
-[Siguiente](interacting-with-the-content-page-from-the-master-page-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](control-id-naming-in-content-pages-vb.md)
+> [Siguiente](interacting-with-the-content-page-from-the-master-page-vb.md)

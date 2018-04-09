@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
-title: "Crear una definición de compilación que admite la implementación | Documentos de Microsoft"
+title: Crear una definición de compilación que admite la implementación | Documentos de Microsoft
 author: jrjlee
-description: "Si desea realizar cualquier tipo de compilación de Team Foundation Server (TFS) 2010, debe crear una definición de compilación dentro de su proyecto de equipo. Des de este tema..."
+description: Si desea realizar cualquier tipo de compilación de Team Foundation Server (TFS) 2010, debe crear una definición de compilación dentro de su proyecto de equipo. Des de este tema...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-build-definition-that-supports-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: e5610753968328e5d0f1dba4cbbfed08480fd773
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5ea0bd9f01bb57b96abd349741f304c0093d887
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-build-definition-that-supports-deployment"></a>Crear una definición de compilación que admite la implementación
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > Si desea realizar cualquier tipo de compilación de Team Foundation Server (TFS) 2010, debe crear una definición de compilación dentro de su proyecto de equipo. En este tema se describe cómo crear una nueva definición de compilación en TFS y cómo controlar la implementación de web como parte del proceso de compilación de Team Build.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación e implementación se controla mediante dos archivos de proyecto & #x 2014; o ne que contiene las instrucciones de compilación que se aplican a cada entorno de destino y la otra contiene configuración específica del entorno de compilación e implementación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación e implementación se controla mediante dos archivos de proyecto&#x2014;uno que contiene las instrucciones de compilación que se aplican a cada entorno de destino y la otra contiene configuración específica del entorno de compilación e implementación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
@@ -62,7 +62,7 @@ El [póngase en contacto con el Administrador de](../web-deployment-in-the-enter
 La siguiente sección explica cómo implementar este proceso mediante la creación de una nueva definición de compilación.
 
 > [!NOTE]
-> Este procedimiento & #x 2014; en el que se genera un único proceso automatizado, pruebas e implementa una solución & #x 2014; es probable que sea más adecuado para la implementación en entornos de prueba. Para entornos de ensayo y producción está mucho más probable que desee distribuir el contenido desde una compilación anterior que ya haya verificado y validado en un entorno de prueba. Este enfoque se describe en el tema siguiente, [implementar una compilación concreta](deploying-a-specific-build.md).
+> Este procedimiento&#x2014;en que una sola automatizada proceso compilaciones, pruebas e implementa una solución&#x2014;es probable que sea más adecuado para la implementación en entornos de prueba. Para entornos de ensayo y producción está mucho más probable que desee distribuir el contenido desde una compilación anterior que ya haya verificado y validado en un entorno de prueba. Este enfoque se describe en el tema siguiente, [implementar una compilación concreta](deploying-a-specific-build.md).
 
 
 ### <a name="who-performs-this-procedure"></a>¿Que lleva a cabo este procedimiento?
@@ -133,7 +133,7 @@ Si ha configurado la definición de compilación para usar el elemento de config
 
     ![](creating-a-build-definition-that-supports-deployment/_static/image10.png)
 
-Para revisar el progreso y el resultado de una compilación & #x 2014; independientemente de si se activó de forma manual o automática & #x 2014; haga doble clic en la definición de compilación en el **Team Explorer** ventana. Se abrirá una **Explorador de compilaciones** ficha.
+Para revisar el progreso y el resultado de una compilación&#x2014;independientemente de si se activó de forma manual o automática&#x2014;haga doble clic en la definición de compilación en el **Team Explorer** ventana. Se abrirá una **Explorador de compilaciones** ficha.
 
 ![](creating-a-build-definition-that-supports-deployment/_static/image11.png)
 
@@ -161,6 +161,6 @@ En orden para una implementación automatizada se realice correctamente como par
 
 Para obtener más información acerca de cómo crear definiciones de compilación, consulte [crear una definición de compilación básica](https://msdn.microsoft.com/library/ms181716.aspx) y [definir el proceso de compilación](https://msdn.microsoft.com/library/ms181715.aspx). Para obtener más instrucciones en las compilaciones de puesta en cola, vea [poner en cola una compilación](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Anterior](configuring-a-tfs-build-server-for-web-deployment.md)
-[Siguiente](deploying-a-specific-build.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-a-tfs-build-server-for-web-deployment.md)
+> [Siguiente](deploying-a-specific-build.md)

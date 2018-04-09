@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 title: 'Parte 8: Carrito con las actualizaciones de Ajax | Documentos de Microsoft'
 author: jongalloway
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 8 cubre el carro de la compra con las actualizaciones de Ajax."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 8 cubre el carro de la compra con las actualizaciones de Ajax.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 75e1dff96f8b56d74c28ff9d522f4766fbad669f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 195c01ff0d71b2bfd0c00e71244d47a166330921
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-shopping-cart-with-ajax-updates"></a>Parte 8: Carro de la compra con las actualizaciones de Ajax
 ====================
@@ -161,6 +161,6 @@ Tras la carga de su carro de la compra, puede hacer clic en la quitar del víncu
 Hemos desarrollado una carro que permite a los usuarios no registrados agregar elementos a su carro de la compra y en funcionamiento. En la sección siguiente, permitimos que puedan registrar y realizar el proceso de pago.
 
 
->[!div class="step-by-step"]
-[Anterior](mvc-music-store-part-7.md)
-[Siguiente](mvc-music-store-part-9.md)
+> [!div class="step-by-step"]
+> [Anterior](mvc-music-store-part-7.md)
+> [Siguiente](mvc-music-store-part-9.md)

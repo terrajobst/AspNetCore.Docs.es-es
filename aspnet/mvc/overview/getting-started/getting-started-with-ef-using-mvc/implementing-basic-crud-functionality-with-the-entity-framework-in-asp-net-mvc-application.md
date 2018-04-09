@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
-title: "Implementar funcionalidad CRUD básicas con Entity Framework en la aplicación de ASP.NET MVC | Documentos de Microsoft"
+title: Implementar funcionalidad CRUD básicas con Entity Framework en la aplicación de ASP.NET MVC | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2015
@@ -12,25 +12,25 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: e3dbea51199722bfe50f201c4ddcc90aa081927d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 14f5143bb5086890d4a2f2fb3b98f1be88a549a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application"></a>Implementar funcionalidad CRUD básicas con Entity Framework en la aplicación de ASP.NET MVC
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [descarga de PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio 2013. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio 2013. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
 En el tutorial anterior creó una aplicación MVC que almacena y muestra los datos con Entity Framework y SQL Server LocalDB. En este tutorial le revise y personalice el CRUD (crear, leer, actualizar y eliminar) código que el scaffolding de MVC crea automáticamente para usted en controladores y vistas.
 
 > [!NOTE]
-> Es una práctica común para implementar el modelo de repositorio con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para mantener estos tutoriales sencilla y se centra en enseña a usar el marco de trabajo de entidad, no usan repositorios. Para obtener información sobre cómo implementar repositorios, consulte el [mapa de contenido de acceso de datos de ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
+> Es una práctica habitual implementar el modelo de repositorio con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para que estos tutoriales sean sencillos y se centren en enseñar a usar Entity Framework, no se usan repositorios. Para obtener información sobre cómo implementar repositorios, consulte el [mapa de contenido de acceso de datos de ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
 
 En este tutorial, creará las páginas web siguientes:
@@ -81,12 +81,12 @@ En el código siguiente, `courseID` no coincide con un parámetro en la ruta pre
 
     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample6.cshtml?highlight=8-29)]
 
-    Si no es correcta la sangría del código después de pegar el código, presione CTRL-K-D para corregirlo.
+    Si la sangría de código no es correcta después de pegar el código, presione CTRL-K-D para corregirlo.
 
-    Este código recorre las entidades en el `Enrollments` propiedad de navegación. Para cada `Enrollment` entidad en la propiedad, muestra el título del curso y el grado de. Se recupera el título del curso de la `Course` entidad que se almacena en la `Course` propiedad de navegación de la `Enrollments` entidad. Todos estos datos se recupera de la base de datos automáticamente, cuando sea necesario. (En otras palabras, que esté utilizando la carga diferida aquí. No se especificó *carga diligente* para el `Courses` propiedad de navegación, por lo que no se recuperaron las inscripciones en la misma consulta que se obtuvo de los alumnos. En su lugar, la primera vez que intenta obtener acceso a la `Enrollments` propiedad de navegación, una nueva consulta se envía a la base de datos para recuperar los datos. Puede leer más acerca de la carga diferida y carga diligente de la [datos relacionados de lectura](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) tutorial más adelante en esta serie.)
+    Este código recorre en bucle las entidades en la propiedad de navegación `Enrollments`. Para cada `Enrollment` entidad en la propiedad, muestra el título del curso y el grado de. Se recupera el título del curso de la `Course` entidad que se almacena en la `Course` propiedad de navegación de la `Enrollments` entidad. Todos estos datos se recupera de la base de datos automáticamente, cuando sea necesario. (En otras palabras, que esté utilizando la carga diferida aquí. No se especificó *carga diligente* para el `Courses` propiedad de navegación, por lo que no se recuperaron las inscripciones en la misma consulta que se obtuvo de los alumnos. En su lugar, la primera vez que intenta obtener acceso a la `Enrollments` propiedad de navegación, una nueva consulta se envía a la base de datos para recuperar los datos. Puede leer más acerca de la carga diferida y carga diligente de la [datos relacionados de lectura](reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application.md) tutorial más adelante en esta serie.)
 3. Ejecute la página seleccionando el **estudiantes** ficha y haga clic en un **detalles** vínculo de Alexander Carson. (Si presiona CTRL + F5 mientras está abierto el archivo Details.cshtml, obtendrá un error HTTP 400 porque Visual Studio intenta ejecutar la página de detalles, pero no se ha alcanzado desde un vínculo que especifica los estudiantes para mostrar. In that Case, simplemente quitar "Student/detalles" de la dirección URL y vuelva a intentarlo, o cierre el explorador, haga clic en el proyecto y haga clic en **vista**y, a continuación, haga clic en **ver en el explorador**.)
 
-    Ver la lista de cursos y sus notas para el alumno seleccionado:
+    Verá la lista de cursos y calificaciones para el alumno seleccionado:
 
     ![Student_Details_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image4.png)
 
@@ -108,19 +108,19 @@ En el código siguiente, `courseID` no coincide con un parámetro en la ruta pre
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample8.cs?highlight=7)]
 
-    Incluso si no tienes un `Secret` campo en la página web, un pirata informático podría utilizar una herramienta como [fiddler](http://fiddler2.com/home), o escribir código de JavaScript, para registrar un `Secret` formar el valor. Sin el [enlazar](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) atributo limitar los campos que el enlazador de modelos que se utiliza cuando crea un `Student` instancia*,* el enlazador de modelos seleccionará que `Secret` formato de valor y utilizarlo para crear el `Student` instancia de entidad. A continuación, cualquier valor el pirata especificado para el `Secret` campo de formulario se actualizarán en la base de datos. La siguiente imagen muestra la fiddler herramienta agregando el `Secret` campo (con el valor "OverPost") a los valores de formulario expuesto.
+    Incluso si no tienes un `Secret` campo en la página web, un pirata informático podría utilizar una herramienta como [fiddler](http://fiddler2.com/home), o escribir código de JavaScript, para registrar un `Secret` formar el valor. Sin el [enlazar](https://msdn.microsoft.com/library/system.web.mvc.bindattribute(v=vs.108).aspx) atributo limitar los campos que el enlazador de modelos que se utiliza cuando crea un `Student` instancia<em>,</em> el enlazador de modelos seleccionará que `Secret` formato de valor y utilizarlo para crear el `Student` instancia de entidad. Después, el valor que el hacker haya especificado para el campo de formulario `Secret` se actualizaría en la base de datos. La siguiente imagen muestra la fiddler herramienta agregando el `Secret` campo (con el valor "OverPost") a los valores de formulario expuesto.
 
     ![](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image5.png)  
 
-    El valor "OverPost", a continuación, se agregaría correctamente a la `Secret` propiedad de las filas insertadas de fila, aunque se habían previsto que la página web pueda establece esta propiedad.
+    Después, el valor "OverPost" se agregaría correctamente a la propiedad `Secret` de la fila insertada, aunque no hubiera previsto que la página web pudiera establecer esa propiedad.
 
     Es un procedimiento recomendado de seguridad para usar el `Include` parámetro con el `Bind` atribuir a *lista blanca de direcciones* campos. También es posible utilizar el `Exclude` parámetro *lista negra* campos que desee excluir. El motivo `Include` es más seguro es que cuando se agrega una nueva propiedad a la entidad, el nuevo campo no está automáticamente protegido por un `Exclude` lista.
 
     Puede evitar que overposting en escenarios de edición es leer primero la entidad desde la base de datos y, a continuación, llamando a `TryUpdateModel`, pasando una lista de propiedades permitidas explícita. Que es el método utilizado en estos tutoriales.
 
-    Es una manera alternativa para evitar que overposting que muchos desarrolladores prefieren usar modelos de vista en lugar de las clases de entidad con el enlace de modelos. Incluir solo las propiedades que desea actualizar en el modelo de vista. Una vez que haya finalizado el enlazador de modelos MVC, copie las propiedades del modelo de vista a la instancia de entidad, opcionalmente mediante una herramienta como [AutoMapper](http://automapper.org/). Usar base de datos. Entrada en la instancia de entidad para establecer su estado a sin cambios y, a continuación, Property("PropertyName"). IsModified en true en cada propiedad de entidad que se incluye en el modelo de vista. Este método da tanto en Editar y crear escenarios.
+    Es una manera alternativa para evitar que overposting que muchos desarrolladores prefieren usar modelos de vista en lugar de las clases de entidad con el enlace de modelos. Incluya en el modelo de vista solo las propiedades que quiera actualizar. Una vez que haya finalizado el enlazador de modelos MVC, copie las propiedades del modelo de vista a la instancia de entidad, opcionalmente mediante una herramienta como [AutoMapper](http://automapper.org/). Usar base de datos. Entrada en la instancia de entidad para establecer su estado a sin cambios y, a continuación, Property("PropertyName"). IsModified en true en cada propiedad de entidad que se incluye en el modelo de vista. Este método funciona tanto en escenarios de edición como de creación.
 
-    Distinto de la `Bind` atributo, el `try-catch` bloque es el único cambio que haya realizado en el código con scaffolding. Si una excepción que se deriva de [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) es detecta mientras se guardan los cambios, se muestra un mensaje de error genérico. [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) excepciones a veces se deben a algo externo a la aplicación en lugar de un error de programación, por lo que el usuario se recomienda que vuelva a intentarlo. Aunque no ha implementado en este ejemplo, una aplicación de calidad de producción debería registrar la excepción. Para obtener más información, consulte el **registro para obtener información** sección [supervisión y telemetría (creación reales en la nube de aplicaciones con Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log).
+    Distinto de la `Bind` atributo, el `try-catch` bloque es el único cambio que haya realizado en el código con scaffolding. Si una excepción que se deriva de [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) es detecta mientras se guardan los cambios, se muestra un mensaje de error genérico. [DataException](https://msdn.microsoft.com/library/system.data.dataexception.aspx) excepciones a veces se deben a algo externo a la aplicación en lugar de un error de programación, por lo que el usuario se recomienda que vuelva a intentarlo. Aunque no se ha implementado en este ejemplo, en una aplicación de producción de calidad se debería registrar la excepción. Para obtener más información, vea la sección **Registro para obtener información** de [Supervisión y telemetría (creación de aplicaciones de nube reales con Azure)](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log).
 
     El código en *Views\Student\Create.cshtml* es similar a lo que ha visto en *Details.cshtml*, salvo que `EditorFor` y `ValidationMessageFor` se usan aplicaciones auxiliares para cada campo en lugar de `DisplayFor`. Este es el código relevante:
 
@@ -134,10 +134,10 @@ En el código siguiente, `courseID` no coincide con un parámetro en la ruta pre
 
     ![Students_Create_page_error_message](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image6.png)
 
-    Se trata de validación del lado servidor que obtendrá de forma predeterminada; en un tutorial posterior verá cómo agregar atributos que se generarán código para la validación del lado cliente también. El siguiente código resaltado muestra la comprobación de validación del modelo en el **Create** método.
+    Es la validación del lado servidor que obtendrá de forma predeterminada; en un tutorial posterior verá cómo agregar atributos que también generan código para la validación del lado cliente. El siguiente código resaltado muestra la comprobación de validación del modelo en el **Create** método.
 
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample10.cs?highlight=1)]
-4. Cambie la fecha a un valor válido y haga clic en **crear** para ver el nuevo alumno aparecen en la **índice** página.
+4. Cambie la fecha por un valor válido y haga clic en **Crear** para ver el alumno nuevo en la página **Index**.
 
     ![Students_Index_page_with_new_student](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image7.png)
 
@@ -153,7 +153,7 @@ Estos cambios implementan un procedimiento recomendado de seguridad para evitar 
 
 El nuevo código lee la entidad existente y llama [TryUpdateModel](https://msdn.microsoft.com/library/system.web.mvc.controller.tryupdatemodel(v=vs.118).aspx) para actualizar los campos de entrada del usuario en los datos de formulario expuesto. Seguimiento de conjuntos de cambios automático de Entity Framework la [Modified](https://msdn.microsoft.com/library/system.data.entitystate.aspx) marca en la entidad. Cuando el [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) método se llama, el `Modified` marca hace que Entity Framework crear instrucciones SQL para actualizar la fila de la base de datos. [Conflictos de simultaneidad](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md) se omiten, y se actualizan todas las columnas de la fila de la base de datos, los que el usuario no ha cambiado incluidos. (Un tutorial posterior muestra cómo controlar los conflictos de simultaneidad, y si solo desea campos individuales que se actualizará en la base de datos, puede establecer la entidad en Unchanged y establecer individuales campos a Modified.)
 
-Como práctica recomendada para evitar overposting, los campos que desea que se pueda actualizar la página de edición están en la lista blanca de la `TryUpdateModel` parámetros. Actualmente no hay ningún campo adicional que va a proteger, pero mostrar los campos que desea que el enlazador de modelos para enlazar garantiza que si agrega campos para el modelo de datos en el futuro, que están automáticamente protegidos hasta que se agreguen de forma explícita aquí.
+Como práctica recomendada para evitar overposting, los campos que desea que se pueda actualizar la página de edición están en la lista blanca de la `TryUpdateModel` parámetros. Actualmente no se está protegiendo ningún campo adicional, pero enumerar los campos que quiere que el enlazador de modelos enlace garantiza que, si en el futuro agrega campos al modelo de datos, se protejan automáticamente hasta que los agregue aquí de forma explícita.
 
 Como resultado de estos cambios, la firma del método del método editar HttpPost es el mismo que el método de edición HttpGet; por lo tanto, ha cambiado el nombre del método EditPost.
 
@@ -161,17 +161,17 @@ Como resultado de estos cambios, la firma del método del método editar HttpPos
 > 
 > **Estados de entidad y las adjuntar y los métodos de SaveChanges**
 > 
-> El contexto de base de datos realiza un seguimiento de si las entidades en memoria están sincronizadas con sus filas correspondientes en la base de datos, y esta información determina lo que ocurre cuando se llama a la `SaveChanges` método. Por ejemplo, cuando se pasa una nueva entidad a la [agregar](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) método, que el estado de la entidad se establece en `Added`. A continuación, cuando se llama a la [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) método, el contexto de base de datos emite un SQL `INSERT` comando.
+> El contexto de la base de datos realiza el seguimiento de si las entidades en memoria están sincronizadas con sus filas correspondientes en la base de datos, y esta información determina lo que ocurre cuando se llama al método `SaveChanges`. Por ejemplo, cuando se pasa una nueva entidad a la [agregar](https://msdn.microsoft.com/library/system.data.entity.dbset.add(v=vs.103).aspx) método, que el estado de la entidad se establece en `Added`. A continuación, cuando se llama a la [SaveChanges](https://msdn.microsoft.com/library/system.data.entity.dbcontext.savechanges(v=VS.103).aspx) método, el contexto de base de datos emite un SQL `INSERT` comando.
 > 
 > Una entidad puede estar en uno de los[después estados](https://msdn.microsoft.com/library/system.data.entitystate.aspx):
 > 
 > - `Added`. La entidad no existe todavía en la base de datos. El `SaveChanges` método debe emitir una `INSERT` instrucción.
-> - `Unchanged`. Nada debe hacerse con esta entidad mediante el `SaveChanges` método. Al leer una entidad de la base de datos, la entidad empieza con este estado.
+> - `Unchanged`. No es necesario hacer nada con esta entidad mediante el método `SaveChanges`. Al leer una entidad de la base de datos, la entidad empieza con este estado.
 > - `Modified`. Se han modificado algunos o todos los valores de propiedad de la entidad. El `SaveChanges` método debe emitir una `UPDATE` instrucción.
 > - `Deleted`. La entidad se ha marcado para su eliminación. El `SaveChanges` método debe emitir un `DELETE` instrucción.
-> - `Detached`. La entidad no sometida a seguimiento por el contexto de base de datos.
+> - `Detached`. El contexto de base de datos no está realizando el seguimiento de la entidad.
 > 
-> En una aplicación de escritorio, normalmente se establecen automáticamente los cambios de estado. En un tipo de aplicación de escritorio leer una entidad y realizar cambios en algunas de sus valores de propiedad. Esto hace que su estado de entidad que se cambie automáticamente al `Modified`. A continuación, cuando se llama a `SaveChanges`, Entity Framework genera una instancia de SQL `UPDATE` instrucción que actualiza solo las propiedades reales que se cambió.
+> En una aplicación de escritorio, los cambios de estado normalmente se establecen de forma automática. En un tipo de aplicación de escritorio leer una entidad y realizar cambios en algunas de sus valores de propiedad. Esto hace que su estado de entidad cambie automáticamente a `Modified`. A continuación, cuando se llama a `SaveChanges`, Entity Framework genera una instancia de SQL `UPDATE` instrucción que actualiza solo las propiedades reales que se cambió.
 > 
 > La naturaleza desconectada de las aplicaciones web no permite para esta secuencia continua. El [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx) que lee una entidad se elimina una vez que se representa una página. Cuando el `HttpPost` `Edit` se llama al método de acción, se realiza una solicitud nueva y tiene una nueva instancia de la [DbContext](https://msdn.microsoft.com/library/system.data.entity.dbcontext(v=VS.103).aspx), por lo que tendrá que configurar manualmente el estado de la entidad `Modified.` , a continuación, cuando se llama a `SaveChanges`, Entity Framework actualiza todas las columnas de la fila de la base de datos, porque el contexto no tiene ninguna manera de saber qué propiedades ha cambiado.
 > 
@@ -184,15 +184,15 @@ Ejecute la página seleccionando el **estudiantes** ficha y, a continuación, ha
 
 ![Student_Edit_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image8.png)
 
-Cambiar algunos de los datos y haga clic en **guardar**. Vea los datos modificados en la página de índice.
+Cambie algunos de los datos y haga clic en **Guardar**. Vea los datos modificados en la página de índice.
 
 ![Students_Index_page_after_edit](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image9.png)
 
 ## <a name="updating-the-delete-page"></a>Actualizar la página de borrado
 
-En *Controllers\StudentController.cs*, el código de plantilla para la `HttpGet` `Delete` método usa la `Find` método para recuperar el seleccionado `Student` entidad, como se vio en el `Details` y `Edit` métodos. Sin embargo, para implementar un mensaje de error personalizado cuando la llamada a `SaveChanges` se produce un error, agregará algunas funciones a este método y su vista correspondiente.
+En *Controllers\StudentController.cs*, el código de plantilla para la `HttpGet` `Delete` método usa la `Find` método para recuperar el seleccionado `Student` entidad, como se vio en el `Details` y `Edit` métodos. Pero para implementar un mensaje de error personalizado cuando se produce un error en la llamada a `SaveChanges`, agregará funcionalidad a este método y su vista correspondiente.
 
-Como hemos visto de actualización y crea las operaciones, las operaciones de eliminación requieren dos métodos de acción. El método que se llama en respuesta a una solicitud GET muestra una vista que proporciona al usuario una oportunidad para aprobar o cancelar la operación de eliminación. Si el usuario lo aprueba, se crea una solicitud POST. Cuando esto ocurre, el `HttpPost` `Delete` se llama al método y, a continuación, este método realiza la operación de eliminación.
+Como se vio para las operaciones de actualización y creación, las operaciones de eliminación requieren dos métodos de acción. El método que se llama en respuesta a una solicitud GET muestra una vista que proporciona al usuario una oportunidad para aprobar o cancelar la operación de eliminación. Si el usuario la aprueba, se crea una solicitud POST. Cuando esto ocurre, el `HttpPost` `Delete` se llama al método y, a continuación, este método realiza la operación de eliminación.
 
 Agregará un `try-catch` bloquear a la `HttpPost` `Delete` método para controlar los errores que pueden producirse cuando se actualiza la base de datos. Si se produce un error, el `HttpPost` `Delete` llamadas al método el `HttpGet` `Delete` método, pasando un parámetro que indica que se ha producido un error. El `HttpGet Delete` método, a continuación, vuelve a mostrar la página de confirmación junto con el mensaje de error, dando al usuario la oportunidad de cancelar o vuelva a intentarlo.
 
@@ -201,27 +201,27 @@ Agregará un `try-catch` bloquear a la `HttpPost` `Delete` método para controla
     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample12.cs?highlight=1,7-10)]
 
     Este código acepta un [parámetro opcional](https://msdn.microsoft.com/library/dd264739.aspx) que indica si se llamó al método después de un error al guardar los cambios. Este parámetro es `false` cuando el `HttpGet` `Delete` método se llama sin un error anterior. Cuando se llama la `HttpPost` `Delete` método en respuesta a un error de actualización de base de datos, el parámetro es `true` y un mensaje de error se pasa a la vista.
-- Reemplace el `HttpPost` `Delete` método de acción (denominado `DeleteConfirmed`) con el código siguiente, que realiza la operación de eliminación real y captura los errores de actualización de base de datos.
+2. Reemplace el `HttpPost` `Delete` método de acción (denominado `DeleteConfirmed`) con el código siguiente, que realiza la operación de eliminación real y captura los errores de actualización de base de datos.
 
-    [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
+     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample13.cs)]
 
-    Este código recupera la entidad seleccionada, a continuación, llama el [quitar](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) método para establecer el estado de la entidad como `Deleted`. Cuando `SaveChanges` se llama, una instancia de SQL `DELETE` se genere un comando. También ha cambiado el nombre del método de acción de `DeleteConfirmed` a `Delete`. El código con scaffolding denominado el `HttpPost` `Delete` método `DeleteConfirmed` para dar el `HttpPost` método una firma única. (El CLR requiere métodos sobrecargados para que tenga parámetros de método diferente). Ahora que las firmas son únicas, puede pegar con la convención MVC y usar el mismo nombre para el `HttpPost` y `HttpGet` eliminar métodos.
+     Este código recupera la entidad seleccionada, a continuación, llama el [quitar](https://msdn.microsoft.com/library/system.data.entity.dbset.remove(v=vs.103).aspx) método para establecer el estado de la entidad como `Deleted`. Cuando `SaveChanges` se llama, una instancia de SQL `DELETE` se genere un comando. También ha cambiado el nombre del método de acción de `DeleteConfirmed` a `Delete`. El código con scaffolding denominado el `HttpPost` `Delete` método `DeleteConfirmed` para dar el `HttpPost` método una firma única. (El CLR requiere métodos sobrecargados para que tenga parámetros de método diferente). Ahora que las firmas son únicas, puede pegar con la convención MVC y usar el mismo nombre para el `HttpPost` y `HttpGet` eliminar métodos.
 
-    Si mejora el rendimiento en una aplicación de gran volumen es una prioridad, puede evitar una consulta SQL innecesaria para recuperar la fila reemplazando las líneas de código que llame a la `Find` y `Remove` métodos con el código siguiente:
+     Si mejora el rendimiento en una aplicación de gran volumen es una prioridad, puede evitar una consulta SQL innecesaria para recuperar la fila reemplazando las líneas de código que llame a la `Find` y `Remove` métodos con el código siguiente:
 
-    [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample14.cs)]
+     [!code-csharp[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample14.cs)]
 
-    Este código crea un `Student` entidad usando solo el valor de clave principal y, a continuación, Establece el estado de entidad en `Deleted`. Eso es todo lo que necesita de Entity Framework para eliminar la entidad.
+     Este código crea un `Student` entidad usando solo el valor de clave principal y, a continuación, Establece el estado de entidad en `Deleted`. Eso es todo lo que necesita Entity Framework para eliminar la entidad.
 
-    Como se indicó, el `HttpGet` `Delete` método no elimina los datos. Realizar una operación delete en respuesta a una operación GET de solicitud (o con este propósito, realizar cualquier operación de edición, cree la operación, o cualquier otra operación que cambia los datos) crea un riesgo de seguridad. Para obtener más información, consulte [ASP.NET MVC Sugerencia nº 46: no use eliminar vínculos porque crean vulnerabilidades de seguridad](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) en el blog de Stephen Walther.
-- En *Views\Student\Delete.cshtml*, agregar un mensaje de error entre la `h2` encabezado y el `h3` encabezado, tal como se muestra en el ejemplo siguiente:
+     Como se indicó, el `HttpGet` `Delete` método no elimina los datos. Realizar una operación delete en respuesta a una operación GET de solicitud (o con este propósito, realizar cualquier operación de edición, cree la operación, o cualquier otra operación que cambia los datos) crea un riesgo de seguridad. Para obtener más información, consulte [ASP.NET MVC Sugerencia nº 46: no use eliminar vínculos porque crean vulnerabilidades de seguridad](http://stephenwalther.com/blog/archive/2009/01/21/asp.net-mvc-tip-46-ndash-donrsquot-use-delete-links-because.aspx) en el blog de Stephen Walther.
+3. En *Views\Student\Delete.cshtml*, agregar un mensaje de error entre la `h2` encabezado y el `h3` encabezado, tal como se muestra en el ejemplo siguiente:
 
-    [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
+     [!code-cshtml[Main](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/samples/sample15.cshtml?highlight=2)]
 
-    Ejecute la página seleccionando el **estudiantes** ficha y haga clic en un **eliminar** hipervínculo:
+     Ejecute la página seleccionando el **estudiantes** ficha y haga clic en un **eliminar** hipervínculo:
 
-    ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
-- Haga clic en **eliminar**. Se abrirá la página de índice sin los estudiantes eliminado. (Verá un ejemplo del código de control de la acción de error del [tutorial de simultaneidad](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
+     ![Student_Delete_page](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application/_static/image10.png)
+4. Haga clic en **Eliminar**. Se mostrará la página de índice sin el estudiante eliminado. (Verá un ejemplo del código de control de la acción de error del [tutorial de simultaneidad](handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application.md).)
 
 ## <a name="closing-database-connections"></a>Cierre las conexiones de base de datos
 
@@ -232,9 +232,9 @@ Para cerrar las conexiones de base de datos y liberar los recursos que contienen
 La base de `Controller` ya la clase implementa la `IDisposable` interfaz, por lo que este código simplemente agrega una invalidación para el `Dispose(bool)` método para eliminar explícitamente la instancia de contexto.
 
 <a id="transactions"></a>
-## <a name="handling-transactions"></a>Controlar transacciones
+## <a name="handling-transactions"></a>Control de transacciones
 
-De forma predeterminada el Entity Framework implementa de manera implícita las transacciones. En escenarios donde realizar cambios en varias filas o tablas y, a continuación, llamar a `SaveChanges`, Entity Framework automáticamente se asegura que todos los cambios se realizan correctamente o producirá un error en todas. Si se realizan algunos cambios en primer lugar y, a continuación, se produce un error, los cambios se deshacen automáticamente. Para escenarios donde necesita más control, por ejemplo, si van a incluir operaciones realizadas fuera de Entity Framework en una transacción, consulte [trabajar con transacciones](https://msdn.microsoft.com/data/dn456843) en MSDN.
+De forma predeterminada, Entity Framework implementa las transacciones de manera implícita. En escenarios donde realizar cambios en varias filas o tablas y, a continuación, llamar a `SaveChanges`, Entity Framework automáticamente se asegura que todos los cambios se realizan correctamente o producirá un error en todas. Si primero se realizan algunos cambios y después se produce un error, los cambios se revierten automáticamente. Para escenarios donde necesita más control, por ejemplo, si van a incluir operaciones realizadas fuera de Entity Framework en una transacción, consulte [trabajar con transacciones](https://msdn.microsoft.com/data/dn456843) en MSDN.
 
 ## <a name="summary"></a>Resumen
 
@@ -246,6 +246,6 @@ Vota sobre cómo le gustó este tutorial y lo que podemos mejorar. También pued
 
 Vínculos a otros recursos de Entity Framework se pueden encontrar en [ASP.NET Data Access: recursos recomendados](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Anterior](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
-[Siguiente](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md)
+> [Siguiente](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application.md)

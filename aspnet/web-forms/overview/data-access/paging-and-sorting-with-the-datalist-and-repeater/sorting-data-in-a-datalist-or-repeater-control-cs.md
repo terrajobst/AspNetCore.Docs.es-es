@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 title: Ordenar datos en un Control de repetidor (C#) o de DataList | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial, examinaremos cómo incluir compatibilidad DataList y repetidor para ordenar, así como cómo construir un DataList o repetidor cuyos datos pueden..."
+description: En este tutorial, examinaremos cómo incluir compatibilidad DataList y repetidor para ordenar, así como cómo construir un DataList o repetidor cuyos datos pueden...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cfd0cdb0afe3bf71686715c0b1891adfbbd5019a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 2f31425a46408d6d544c6cdf2ce169b5547a2dd8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>Ordenar datos en un DataList o un Control de repetidor (C#)
 ====================
@@ -231,9 +231,9 @@ Al visitar primero la página, los datos se ordenan alfabéticamente por nombre 
 
 En el ejemplo de DataList examina en el paso 5 páginas a través de sus datos mediante la técnica de paginación predeterminada ineficaz. Al paginar a través de suficientemente grandes cantidades de datos, es imprescindible que se utiliza la paginación personalizada. En el [eficazmente paginar a través de grandes cantidades de datos](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) y [ordenar datos personalizados de bloque paginado](../paging-and-sorting/sorting-custom-paged-data-cs.md) tutoriales, se examinan las diferencias entre predeterminado y paginación personalizada y métodos creados en la capa BLL para utilización de paginación personalizada y ordenar datos paginados personalizados. En concreto, en estos dos tutoriales anteriores, agregamos los siguientes tres métodos para la `ProductsBLL` clase:
 
-- `GetProductsPaged(startRowIndex, maximumRows)`Devuelve un subconjunto específico de registros a partir de *startRowIndex* y no superar *maximumRows*.
-- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)`Devuelve un subconjunto determinado de registros ordenados según los valores especificados *sortExpression* parámetro de entrada.
-- `TotalNumberOfProducts()`proporciona el número total de registros en la `Products` tabla de base de datos.
+- `GetProductsPaged(startRowIndex, maximumRows)` Devuelve un subconjunto específico de registros a partir de *startRowIndex* y no superar *maximumRows*.
+- `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)` Devuelve un subconjunto determinado de registros ordenados según los valores especificados *sortExpression* parámetro de entrada.
+- `TotalNumberOfProducts()` proporciona el número total de registros en la `Products` tabla de base de datos.
 
 Estos métodos se pueden utilizar la página y ordenar los datos mediante un control DataList o repetidor eficazmente. Para ilustrar esto, permiten s empiece por crear un control de repetidor con compatibilidad con la paginación personalizada; a continuación, vamos a agregar capacidades de ordenación.
 
@@ -390,12 +390,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era David Suru. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
-[Siguiente](paging-report-data-in-a-datalist-or-repeater-control-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](paging-report-data-in-a-datalist-or-repeater-control-cs.md)
+> [Siguiente](paging-report-data-in-a-datalist-or-repeater-control-vb.md)

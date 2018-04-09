@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/data/5-working-with-data
-title: "Introducción a trabajar con una base de datos en ASP.NET Web Pages (Razor) sitios | Documentos de Microsoft"
+title: Introducción a trabajar con una base de datos en ASP.NET Web Pages (Razor) sitios | Documentos de Microsoft
 author: tfitzmac
-description: "En este capítulo se describe cómo tener acceso a datos desde una base de datos y mostrarlo mediante ASP.NET Web Pages."
+description: En este capítulo se describe cómo tener acceso a datos desde una base de datos y mostrarlo mediante ASP.NET Web Pages.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/5-working-with-data
 msc.type: authoredcontent
-ms.openlocfilehash: 460af471a1b0650f8d782d582ce6cd9a06664d5c
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 563074cf3e60717c2e6c336a2c282b4203f73b8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introduction-to-working-with-a-database-in-aspnet-web-pages-razor-sites"></a>Introducción a trabajar con una base de datos en ASP.NET Web Pages (Razor) sitios
 ====================
@@ -361,7 +361,7 @@ Esta sección muestra cómo permitir a los usuarios eliminar un producto de la *
 6. Haga clic en el **eliminar** vínculo de uno de los productos. El *DeleteProduct.cshtml* página se muestra para confirmar que desea eliminar este registro.
 7. Haga clic en el **eliminar** botón. Se elimina el registro del producto y la página se actualiza con una lista actualizada del producto.
 
-> [!TIP] 
+> [!TIP]
 > 
 > <a id="SB_ConnectingToADatabase"></a>
 > ### <a name="connecting-to-a-database"></a>Conectarse a una base de datos
@@ -370,7 +370,7 @@ Esta sección muestra cómo permitir a los usuarios eliminar un producto de la *
 > 
 > `var db = Database.Open("SmallBakery");`
 > 
-> El `Open` método supone que el. *sdf* archivo se encuentra en el sitio de Web *aplicación\_datos* carpeta. Esta carpeta está diseñada específicamente para almacenar datos. Por ejemplo, tiene los permisos adecuados para permitir que el sitio Web leer y escribir datos, y como medida de seguridad, WebMatrix no permite el acceso a los archivos de esta carpeta.
+> El `Open` método supone que el.* sdf* archivo se encuentra en el sitio de Web *aplicación\_datos* carpeta. Esta carpeta está diseñada específicamente para almacenar datos. Por ejemplo, tiene los permisos adecuados para permitir que el sitio Web leer y escribir datos, y como medida de seguridad, WebMatrix no permite el acceso a los archivos de esta carpeta.
 > 
 > La segunda manera es utilizar una cadena de conexión. Una cadena de conexión contiene información sobre cómo conectarse a una base de datos. Esto puede incluir una ruta de acceso de archivo, o puede incluir el nombre de una base de datos de SQL Server en un servidor local o remoto, junto con un nombre de usuario y una contraseña para conectarse a ese servidor. (Si conservar los datos en una versión de SQL Server administrada centralmente, como en el sitio de un proveedor de hospedaje, siempre utilizar una cadena de conexión para especificar la información de conexión de base de datos.)
 > 

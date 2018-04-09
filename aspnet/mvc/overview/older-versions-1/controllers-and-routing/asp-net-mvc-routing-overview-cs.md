@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
-title: "Información general de enrutamiento de ASP.NET MVC (C#) | Documentos de Microsoft"
+title: Información general de enrutamiento de ASP.NET MVC (C#) | Documentos de Microsoft
 author: StephenWalther
-description: "En este tutorial, Stephen Walther muestra cómo el marco de MVC de ASP.NET asigna las solicitudes del explorador a las acciones del controlador."
+description: En este tutorial, Stephen Walther muestra cómo el marco de MVC de ASP.NET asigna las solicitudes del explorador a las acciones del controlador.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-routing-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 714fd1939ffeba11b84a82e80193ecbbe4b12e09
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: fa565d2ef253539844f5224df00bdcdc047bb3f9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-routing-overview-c"></a>Información general de enrutamiento de ASP.NET MVC (C#)
 ====================
@@ -55,7 +55,7 @@ La ruta predeterminada asigna esta dirección URL a los siguientes parámetros:
 
 - acción = índice
 
-- Id. = 3
+- id = 3
 
 Cuando se solicita la dirección URL /Home/índice/3, se ejecuta el código siguiente:
 
@@ -109,5 +109,5 @@ Dirección URL /Home/índice/3, por otro lado, funciona bien con la acción de c
 
 El objetivo de este tutorial era para proporcionarle una breve introducción al enrutamiento de ASP.NET. Se examina la tabla de rutas predeterminadas que se obtiene con una nueva aplicación MVC de ASP.NET. Ha aprendido cómo la ruta predeterminada asigna las direcciones URL a las acciones del controlador.
 
->[!div class="step-by-step"]
-[Siguiente](understanding-action-filters-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](understanding-action-filters-cs.md)

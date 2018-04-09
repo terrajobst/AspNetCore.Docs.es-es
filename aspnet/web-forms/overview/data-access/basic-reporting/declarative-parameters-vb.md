@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
-title: "Parámetros declarativos (VB) | Documentos de Microsoft"
+title: Parámetros declarativos (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial, mostraremos cómo usar un parámetro establecido en un valor codificado de forma rígida para seleccionar los datos que se va a mostrar en un control DetailsView."
+description: En este tutorial, mostraremos cómo usar un parámetro establecido en un valor codificado de forma rígida para seleccionar los datos que se va a mostrar en un control DetailsView.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ea1aed2b76eb4196196f8a800c0bdb891bceda91
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 933b7276c6dac5cce0e278fd23ff010c5b4a6fdd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="declarative-parameters-vb"></a>Parámetros declarativos (VB)
 ====================
@@ -127,7 +127,7 @@ Una vez que el visitante entra en un país o región, sin embargo y hace clic en
 
 ## <a name="showing-all-suppliers-by-default"></a>Mostrar todos los proveedores de forma predeterminada
 
-En su lugar de mostrar: ninguno de los proveedores cuando se visualizan en primer lugar la página que podríamos desear mostrar *todos los* proveedores al principio, que permite al usuario reducir la lista, escriba un nombre de país en el cuadro de texto. Cuando el cuadro de texto está vacío, el `SuppliersBLL` la clase `GetSuppliersByCountry(country)` método se pasa en `Nothing` para su  *`country`*  parámetro de entrada. Esto `Nothing` valor, a continuación, se pasa hacia abajo en la capa de DAL `GetSupplierByCountry(country)` método, donde se traduce a una base de datos `NULL` valor para el `@Country` parámetro en la consulta siguiente:
+En su lugar de mostrar: ninguno de los proveedores cuando se visualizan en primer lugar la página que podríamos desear mostrar *todos los* proveedores al principio, que permite al usuario reducir la lista, escriba un nombre de país en el cuadro de texto. Cuando el cuadro de texto está vacío, el `SuppliersBLL` la clase `GetSuppliersByCountry(country)` método se pasa en `Nothing` para su *`country`* parámetro de entrada. Esto `Nothing` valor, a continuación, se pasa hacia abajo en la capa de DAL `GetSupplierByCountry(country)` método, donde se traduce a una base de datos `NULL` valor para el `@Country` parámetro en la consulta siguiente:
 
 [!code-sql[Main](declarative-parameters-vb/samples/sample3.sql)]
 
@@ -157,12 +157,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Hilton Giesenow. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](displaying-data-with-the-objectdatasource-vb.md)
-[Siguiente](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](displaying-data-with-the-objectdatasource-vb.md)
+> [Siguiente](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)

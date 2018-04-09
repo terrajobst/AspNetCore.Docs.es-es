@@ -1,7 +1,7 @@
 ---
-title: "Admite la directiva de todo el equipo de protección de datos en ASP.NET Core"
+title: Admite la directiva de todo el equipo de protección de datos en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información sobre la compatibilidad para configurar una directiva de todo el equipo de forma predeterminada para todas las aplicaciones que utilizan protección de datos de ASP.NET Core."
+description: Obtenga información sobre la compatibilidad para configurar una directiva de todo el equipo de forma predeterminada para todas las aplicaciones que utilizan protección de datos de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/machine-wide-policy
-ms.openlocfilehash: 53ded37e9fd5f1a2eaa37935d1c52efb1e9231ac
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2d5760cd18f4e3ecaf0261f36414c9298e3f4c5
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-machine-wide-policy-support-in-aspnet-core"></a>Admite la directiva de todo el equipo de protección de datos en ASP.NET Core
 
@@ -71,4 +71,4 @@ Si se administra EncryptionType, el sistema está configurado para utilizar un S
 Si EncryptionType tiene cualquier otro valor distinto de null o está vacío, el sistema de protección de datos produce una excepción durante el inicio.
 
 > [!WARNING]
-> Al configurar una configuración de directiva predeterminada que afecta a los nombres de tipo (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), los tipos deben ser disponibles para la aplicación. Esto significa que para aplicaciones que se ejecutan en CLR de escritorio, los ensamblados que contienen estos tipos deben estar presentes en la caché de ensamblados Global (GAC). Para aplicaciones de ASP.NET Core que se ejecutan [.NET Core](https://www.microsoft.com/net/core), se deben instalar los paquetes que contienen estos tipos.
+> Al configurar una configuración de directiva predeterminada que afecta a los nombres de tipo (EncryptionAlgorithmType, ValidationAlgorithmType, KeyEscrowSinks), los tipos deben ser disponibles para la aplicación. Esto significa que para aplicaciones que se ejecutan en CLR de escritorio, los ensamblados que contienen estos tipos deben estar presentes en la caché de ensamblados Global (GAC). Para aplicaciones de ASP.NET Core que se ejecutan en .NET Core, deben instalarse los paquetes que contienen estos tipos.

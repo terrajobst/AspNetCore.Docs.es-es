@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
-title: "Agregar una columna de GridView de casillas de verificación (VB) | Documentos de Microsoft"
+title: Agregar una columna de GridView de casillas de verificación (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial examina cómo agregar una columna de casillas de verificación a un control GridView para proporcionar al usuario de una forma intuitiva de la selección de varias filas de la G...."
+description: Este tutorial examina cómo agregar una columna de casillas de verificación a un control GridView para proporcionar al usuario de una forma intuitiva de la selección de varias filas de la G....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4468f7e0c142fa432e58d4c686dd79d3b38612ad
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: beb28de901805e07365f336192d20e914eeebb1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-gridview-column-of-checkboxes-vb"></a>Agregar una columna de GridView de casillas de verificación (VB)
 ====================
@@ -158,8 +158,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](adding-a-gridview-column-of-radio-buttons-vb.md)
-[Siguiente](inserting-a-new-record-from-the-gridview-s-footer-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-gridview-column-of-radio-buttons-vb.md)
+> [Siguiente](inserting-a-new-record-from-the-gridview-s-footer-vb.md)

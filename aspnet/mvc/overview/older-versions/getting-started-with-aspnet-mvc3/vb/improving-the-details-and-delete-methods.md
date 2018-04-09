@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
-title: "Mejorar los detalles y los métodos de eliminación (VB) | Documentos de Microsoft"
+title: Mejorar los detalles y los métodos de eliminación (VB) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: e057d9f106aaa8afbe521d8185a06dfbf48e46fb
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0c662510ce9a80e0e808af0eec2561ecdaa12c01
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-the-details-and-delete-methods-vb"></a>Mejorar los detalles y los métodos de eliminación (VB)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es una versión gratuita de Microsoft Visual Studio. Antes de empezar, asegúrese de que ha instalado los requisitos previos descritos a continuación. Puede instalar todas ellas haciendo clic en el siguiente vínculo: [instalador de plataforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Como alternativa, puede instalar por separado los requisitos previos mediante los siguientes vínculos:
 > 
@@ -57,7 +57,7 @@ El método `HttpPost` que elimina los datos se denomina `DeleteConfirmed` para p
 
 Common language runtime (CLR) requiere métodos sobrecargados para tener una firma única (mismo nombre, lista de parámetros diferentes). Sin embargo, aquí deberá dos métodos de eliminación: uno para GET--y otro para POST ambos requieren la misma firma. (ambos deben aceptar un número entero como parámetro).
 
-Para ordenar este comando, puede hacer un par de cosas. Una consiste en asignar nombres diferentes a los métodos. Eso es lo que hicimos en que el anterior ejemplo. Pero esto implica un pequeño problema: ASP.NET asigna segmentos de una dirección URL a los métodos de acción por nombre y, si cambia el nombre de un método, normalmente el enrutamiento no podría encontrar ese método. La solución es la que ve en el ejemplo, que consiste en agregar el atributo `ActionName("Delete")` al método `DeleteConfirmed`. Esto realiza eficazmente asignación para el sistema de enrutamiento para que una dirección URL que incluya */Delete/*para una entrada de blog solicitud encontrará el `DeleteConfirmed` método.
+Para ordenar este comando, puede hacer un par de cosas. Una consiste en asignar nombres diferentes a los métodos. Eso es lo que hicimos en que el anterior ejemplo. Pero esto implica un pequeño problema: ASP.NET asigna segmentos de una dirección URL a los métodos de acción por nombre y, si cambia el nombre de un método, normalmente el enrutamiento no podría encontrar ese método. La solución es la que ve en el ejemplo, que consiste en agregar el atributo `ActionName("Delete")` al método `DeleteConfirmed`. Esto realiza eficazmente asignación para el sistema de enrutamiento para que una dirección URL que incluya <em>/Delete/</em>para una entrada de blog solicitud encontrará el `DeleteConfirmed` método.
 
 Otra manera de evitar un problema con los métodos que tienen nombres idénticos y firmas es artificialmente cambiar la firma del método POST para incluir un parámetro sin usar. Por ejemplo, algunos desarrolladores agregar un tipo de parámetro `FormCollection` que se pasa al método POST y, a continuación, simplemente no usa el parámetro:
 
@@ -77,11 +77,11 @@ Si desea implementar la aplicación, es útil para la primera prueba la aplicaci
 - [Habilitar IIS 7.x](https://blogs.msdn.com/b/rickandy/archive/2011/03/14/enabling-iis-7-x-on-windows-7-vista-sp1-windows-2008-windows-2008-r2.aspx)
 - [Implementación de proyectos de aplicación Web](https://msdn.microsoft.com/library/dd394698.aspx)
 
-Ahora le animo a pasar a nuestro nivel intermedio [crear un modelo de datos de Entity Framework para una aplicación de MVC de ASP.NET](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) y [tienda de música de MVC](../../mvc-music-store/mvc-music-store-part-1.md) tutoriales para explorar el [ASP.NET artículos en MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)y para desproteger los vídeos y recursos en muchas [https://asp.net/mvc](https://asp.net/mvc) para más información sobre ASP.NET MVC. El [foros de ASP.NET MVC](https://forums.asp.net/1146.aspx) son un buen lugar para hacer preguntas.
+Ahora le animo a pasar a nuestro nivel intermedio [crear un modelo de datos de Entity Framework para una aplicación de MVC de ASP.NET](../../../getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md) y [tienda de música de MVC](../../mvc-music-store/mvc-music-store-part-1.md) tutoriales para explorar el [ASP.NET artículos en MSDN](https://msdn.microsoft.com/library/gg416514(VS.98).aspx)y para desproteger los vídeos y recursos en muchas [ https://asp.net/mvc ](https://asp.net/mvc) para más información sobre ASP.NET MVC. El [foros de ASP.NET MVC](https://forums.asp.net/1146.aspx) son un buen lugar para hacer preguntas.
 
 Disfrútelo.
 
-: Scott Hanselman ([http://hanselman.com](http://hanselman.com) y [ @shanselman ](http://twitter.com/shanselman) en Twitter) y Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
+: Scott Hanselman ([ http://hanselman.com ](http://hanselman.com) y [ @shanselman ](http://twitter.com/shanselman) en Twitter) y Rick Anderson [blogs.msdn.com/rickAndy](https://blogs.msdn.com/rickAndy)
 
->[!div class="step-by-step"]
-[Anterior](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-validation-to-the-model.md)

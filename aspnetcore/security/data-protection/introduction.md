@@ -1,7 +1,7 @@
 ---
-title: "Introducción a la protección de datos"
+title: Protección de datos de ASP.NET Core
 author: rick-anderson
-description: "Este documento presenta el concepto de protección de datos y describe los principios de diseño de la API de núcleo de ASP.NET asociadas."
+description: Obtenga información sobre el concepto de protección de datos y los principios de diseño de las API de protección de datos de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/introduction
-ms.openlocfilehash: acd38679390b92705703111b72816f1a5d3ba848
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 5526b517ba9f1ac4b041576156b2964217460726
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-data-protection"></a>Introducción a la protección de datos
+# <a name="aspnet-core-data-protection"></a>Protección de datos de ASP.NET Core
 
 Las aplicaciones Web a menudo se necesitan almacenar datos confidenciales de seguridad. Windows proporciona DPAPI para aplicaciones de escritorio, pero esto no es apropiada para las aplicaciones web. La pila de protección de datos de ASP.NET Core proporcionan una API cifrada sencilla y fácil de usar un programador puede utilizar para proteger los datos, incluida la rotación y la administración de claves.
 
@@ -45,7 +45,7 @@ Hemos iniciado mediante la identificación de problemas con la pila del existent
 
 * Las claves deben estar protegidas en reposo cuando sea posible. El sistema debe determinar un mecanismo de protección predeterminado adecuado y lo aplicará automáticamente.
 
-Con estos principios en cuenta que desarrollamos una sencilla [fácil de usar](using-data-protection.md) pila de protección de datos.
+Con estos principios en cuenta que desarrollamos una sencilla [fácil de usar](xref:security/data-protection/using-data-protection) pila de protección de datos.
 
 La API de protección de datos de ASP.NET Core no están pensados principalmente para la persistencia indefinido de cargas confidenciales. Otras tecnologías, como [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) y [Azure Rights Management](https://docs.microsoft.com/rights-management/) son más adecuados para el escenario de almacenamiento indefinido, y tienen capacidades de administración de claves seguro según corresponda. Es decir, no hay nada prohibir a un desarrollador usa las API de protección de datos de ASP.NET Core para la protección a largo plazo de información confidencial.
 
@@ -53,11 +53,11 @@ La API de protección de datos de ASP.NET Core no están pensados principalmente
 
 El sistema de protección de datos se divide en cinco paquetes principales. Destino de distintos aspectos de estas API tres audiencias principales;
 
-1. El [información general de las API de consumidor](consumer-apis/overview.md) a los desarrolladores de aplicaciones y un marco de destino.
+1. El [información general de las API de consumidor](xref:security/data-protection/consumer-apis/overview) a los desarrolladores de aplicaciones y un marco de destino.
 
    "No desea obtener información acerca de cómo funciona la pila o acerca de cómo esté configurada. Simplemente desea realizar alguna operación como simple forma como sea posible con una probabilidad alta de usar las API correctamente."
 
-2. El [API de configuración](configuration/overview.md) dirigidas a los desarrolladores de aplicaciones y los administradores del sistema.
+2. El [API de configuración](xref:security/data-protection/configuration/overview) dirigidas a los desarrolladores de aplicaciones y los administradores del sistema.
 
    "Necesito indicar que el sistema de protección de datos que mi entorno requiere configuración o las rutas de acceso no predeterminada".
 
@@ -75,6 +75,6 @@ La pila de protección de datos consta de cinco paquetes.
 
 * Microsoft.AspNetCore.DataProtection.Extensions contiene algunas API adicionales que los desarrolladores que resulte útiles, pero no en el paquete de núcleo que pertenecen. Por ejemplo, este paquete contiene una API sencilla "crear una instancia del sistema que señala a un directorio de almacenamiento de claves específico con ninguna instalación de inyección de dependencia" (más información). También contiene métodos de extensión para limitar la duración de cargas protegidos (más información).
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb puede instalarse en una aplicación existente de 4.x ASP.NET para redirigir su <machineKey> operaciones usar en su lugar la nueva pila de protección de datos. Vea [compatibilidad](compatibility/replacing-machinekey.md#compatibility-replacing-machinekey) para obtener más información.
+* Microsoft.AspNetCore.DataProtection.SystemWeb puede instalarse en una aplicación existente de 4.x ASP.NET para redirigir su <machineKey> operaciones usar en su lugar la nueva pila de protección de datos. Vea [compatibilidad](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) para obtener más información.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation proporciona una implementación de la contraseña PBKDF2 hash rutina y puede usarse en sistemas que necesitan para administrar las contraseñas de usuario de forma segura. Vea [hash de contraseña](consumer-apis/password-hashing.md) para obtener más información.
+* Microsoft.AspNetCore.Cryptography.KeyDerivation proporciona una implementación de la contraseña PBKDF2 hash rutina y puede usarse en sistemas que necesitan para administrar las contraseñas de usuario de forma segura. Vea [Hash a contraseñas](xref:security/data-protection/consumer-apis/password-hashing) para obtener más información.

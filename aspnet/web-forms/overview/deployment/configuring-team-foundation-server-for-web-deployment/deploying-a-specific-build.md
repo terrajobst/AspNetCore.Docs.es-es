@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
-title: "Implementar una compilación concreta | Documentos de Microsoft"
+title: Implementar una compilación concreta | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo implementar paquetes de web y scripts de base de datos desde una compilación anterior concreta a un nuevo destino, como un enviro de ensayo o de producción..."
+description: En este tema se describe cómo implementar paquetes de web y scripts de base de datos desde una compilación anterior concreta a un nuevo destino, como un enviro de ensayo o de producción...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: be1000f0cbc2f509f5014789c2bc47ce2b12fb2f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 271d084b3c69016df5be28ada032973bf7fd5a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-a-specific-build"></a>Implementar una compilación concreta
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > En este tema se describe cómo implementar paquetes de web y scripts de base de datos desde una compilación anterior concreta a un nuevo destino, como un entorno de ensayo o producción.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación e implementación se controla mediante dos archivos de proyecto & #x 2014; o ne que contiene las instrucciones de compilación que se aplican a cada entorno de destino y la otra contiene configuración específica del entorno de compilación e implementación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación e implementación se controla mediante dos archivos de proyecto&#x2014;uno que contiene las instrucciones de compilación que se aplican a cada entorno de destino y la otra contiene configuración específica del entorno de compilación e implementación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
@@ -54,13 +54,13 @@ En el [solución de ejemplo](../web-deployment-in-the-enterprise/the-contact-man
 [!code-xml[Main](deploying-a-specific-build/samples/sample1.xml)]
 
 
-Si desea que el archivo de proyecto para implementar paquetes de web y las secuencias de comandos de base de datos desde una ubicación diferente & #x 2014; como las salidas de una compilación de TFS & #x 2014; anterior simplemente necesita invalidar el **OutputRoot** propiedad. Debe establecer el valor de propiedad a la carpeta de compilación relevante en el servidor de Team Build. Si va a ejecutar MSBuild desde la línea de comandos, puede especificar un valor para **OutputRoot** como un argumento de línea de comandos:
+Si desea que el archivo de proyecto para implementar paquetes de web y las secuencias de comandos desde una ubicación diferente de la base de datos&#x2014;como los resultados de una compilación TFS anterior&#x2014;simplemente necesita invalidar el **OutputRoot** propiedad. Debe establecer el valor de propiedad a la carpeta de compilación relevante en el servidor de Team Build. Si va a ejecutar MSBuild desde la línea de comandos, puede especificar un valor para **OutputRoot** como un argumento de línea de comandos:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample2.cmd)]
 
 
-En la práctica, sin embargo, ¿también desea omitir la **generar** destino & #x 2014; no hay ningún punto de compilar la solución si no planea usar los resultados de compilación. Puede hacerlo mediante la especificación de los destinos que desea ejecutar desde la línea de comandos:
+En la práctica, sin embargo, ¿también desea omitir la **generar** destino&#x2014;hay ningún punto de compilar la solución si no planea usar los resultados de compilación. Puede hacerlo mediante la especificación de los destinos que desea ejecutar desde la línea de comandos:
 
 
 [!code-console[Main](deploying-a-specific-build/samples/sample3.cmd)]
@@ -72,7 +72,7 @@ Sin embargo, en la mayoría de los casos, deseará crear su lógica de implement
 
 El procedimiento siguiente describe cómo crear una definición de compilación que permite a los usuarios a las implementaciones de desencadenador en un entorno de ensayo con un solo comando.
 
-En este caso, no desea que la definición de compilación para compilar realmente nada & #x 2014; sólo desea que se ejecute la lógica de implementación en el archivo de proyecto personalizado. El *Publish.proj* archivo incluye una lógica condicional que omite el **generar** si está ejecutando el archivo en Team Build como destino. Esto consigue mediante la evaluación de los integrados **BuildingInTeamBuild** propiedad, que se establece automáticamente en **true** si ejecuta el archivo de proyecto en Team Build. Como resultado, puede omitir el proceso de compilación y simplemente ejecute el archivo de proyecto para implementar una compilación existente.
+En este caso, no desea que la definición de compilación para compilar realmente nada&#x2014;su intención es que se ejecute la lógica de implementación en el archivo de proyecto personalizado. El *Publish.proj* archivo incluye una lógica condicional que omite el **generar** si está ejecutando el archivo en Team Build como destino. Esto consigue mediante la evaluación de los integrados **BuildingInTeamBuild** propiedad, que se establece automáticamente en **true** si ejecuta el archivo de proyecto en Team Build. Como resultado, puede omitir el proceso de compilación y simplemente ejecute el archivo de proyecto para implementar una compilación existente.
 
 **Para crear una definición de compilación para desencadenar manualmente la implementación**
 
@@ -133,6 +133,6 @@ En este tema se describe cómo publicar los recursos de implementación, como pa
 
 Para obtener más información acerca de cómo crear definiciones de compilación, consulte [crear una definición de compilación básica](https://msdn.microsoft.com/library/ms181716.aspx) y [definir el proceso de compilación](https://msdn.microsoft.com/library/ms181715.aspx). Para obtener más instrucciones en las compilaciones de puesta en cola, vea [poner en cola una compilación](https://msdn.microsoft.com/library/ms181722.aspx).
 
->[!div class="step-by-step"]
-[Anterior](creating-a-build-definition-that-supports-deployment.md)
-[Siguiente](configuring-permissions-for-team-build-deployment.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-a-build-definition-that-supports-deployment.md)
+> [Siguiente](configuring-permissions-for-team-build-deployment.md)

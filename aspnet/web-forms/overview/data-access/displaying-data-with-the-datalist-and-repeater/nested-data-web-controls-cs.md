@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 title: Los datos anidados Web controles (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial que exploraremos cómo usar un repetidor anidado dentro de otro repetidor. Los ejemplos ilustran cómo rellenar el repetidor interno ambos d..."
+description: En este tutorial que exploraremos cómo usar un repetidor anidado dentro de otro repetidor. Los ejemplos ilustran cómo rellenar el repetidor interno ambos d...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 69fa0489ff8baed1423d29ee7bfaa3157d35a76b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4957f555691efaeaafa5bcf92141e0bef1cb1de9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="nested-data-web-controls-c"></a>Controles Web de datos anidadas (C#)
 ====================
@@ -93,14 +93,14 @@ Los datos que se va a enlazar al control de repetidor interno o bien pueden obte
 
 ## <a name="accessing-the-data-declaratively-with-an-objectdatasource-control-and-theitemdataboundevent-handler"></a>Acceso a los datos mediante declaración con un Control ObjectDataSource y`ItemDataBound`controlador de eventos
 
-Desde que se ha utilizado el ObjectDataSource ampliamente a lo largo de esta serie de tutoriales, la elección más natural para tener acceso a datos de este ejemplo es opte por ObjectDataSource. El `ProductsBLL` clase tiene un `GetProductsByCategoryID(categoryID)` método que devuelve información acerca de los productos que pertenecen a los especificados  *`categoryID`* . Por lo tanto, podemos agregar un ObjectDataSource a la `CategoryList` repetidor s `ItemTemplate` y configúrelo para tener acceso a sus datos desde este método de clase s.
+Desde que se ha utilizado el ObjectDataSource ampliamente a lo largo de esta serie de tutoriales, la elección más natural para tener acceso a datos de este ejemplo es opte por ObjectDataSource. El `ProductsBLL` clase tiene un `GetProductsByCategoryID(categoryID)` método que devuelve información acerca de los productos que pertenecen a los especificados *`categoryID`*. Por lo tanto, podemos agregar un ObjectDataSource a la `CategoryList` repetidor s `ItemTemplate` y configúrelo para tener acceso a sus datos desde este método de clase s.
 
 Desafortunadamente, el repetidor permitir sus plantillas para editarse a través de la vista de diseño, por lo que necesitamos agregar la sintaxis declarativa para este control ObjectDataSource a mano. La siguiente sintaxis se muestra la `CategoryList` repetidor s `ItemTemplate` después de agregar esta nueva ObjectDataSource (`ProductsByCategoryDataSource`):
 
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample3.aspx)]
 
-Cuando se usa el enfoque de ObjectDataSource es necesario establecer la `ProductsByCategoryList` repetidor s `DataSourceID` propiedad a la `ID` de ObjectDataSource (`ProductsByCategoryDataSource`). Además, tenga en cuenta que nuestro ObjectDataSource tiene un `<asp:Parameter>` elemento que especifica la  *`categoryID`*  valor que se pasará en el `GetProductsByCategoryID(categoryID)` método. Pero, ¿cómo se especifica este valor? Idealmente, d podremos basta con establecer la `DefaultValue` propiedad de la `<asp:Parameter>` elemento mediante sintaxis de enlace de datos, como:
+Cuando se usa el enfoque de ObjectDataSource es necesario establecer la `ProductsByCategoryList` repetidor s `DataSourceID` propiedad a la `ID` de ObjectDataSource (`ProductsByCategoryDataSource`). Además, tenga en cuenta que nuestro ObjectDataSource tiene un `<asp:Parameter>` elemento que especifica la *`categoryID`* valor que se pasará en el `GetProductsByCategoryID(categoryID)` método. Pero, ¿cómo se especifica este valor? Idealmente, d podremos basta con establecer la `DefaultValue` propiedad de la `<asp:Parameter>` elemento mediante sintaxis de enlace de datos, como:
 
 
 [!code-aspx[Main](nested-data-web-controls-cs/samples/sample4.aspx)]
@@ -133,7 +133,7 @@ En lugar de usar un ObjectDataSource para recuperar los productos de la categor�
 
 Repetidor s `DataSource` propiedad utiliza la sintaxis de enlace de datos para indicar que sus datos proceden de la `GetProductsInCategory(categoryID)` método. Puesto que `Eval("CategoryID")` devuelve un valor de tipo `Object`, se convierte el objeto a una `Integer` antes de pasarlo a la `GetProductsInCategory(categoryID)` método. Tenga en cuenta que la `CategoryID` a los que acceda a continuación mediante el enlace de datos de la sintaxis es la `CategoryID` en el *externa* repetidor (`CategoryList`), lo que s se enlazan a los registros de la `Categories` tabla. Por lo tanto, sabemos que `CategoryID` no puede ser una base de datos `NULL` valor, que es la razón por la que se puede convertir a ciegas los `Eval` método sin comprobar si se vuelve a tratar con un `DBNull`.
 
-Con este enfoque, se necesita crear el `GetProductsInCategory(categoryID)` método y recuperar el conjunto adecuado de productos dado proporcionado  *`categoryID`* . Podemos hacer esto al devolver simplemente la `ProductsDataTable` devuelto por la `ProductsBLL` clase s. `GetProductsByCategoryID(categoryID)` método. Permiten s crear el `GetProductsInCategory(categoryID)` método en la clase de código subyacente para nuestro `NestedControls.aspx` página. Lo hacen mediante el código siguiente:
+Con este enfoque, se necesita crear el `GetProductsInCategory(categoryID)` método y recuperar el conjunto adecuado de productos dado proporcionado *`categoryID`*. Podemos hacer esto al devolver simplemente la `ProductsDataTable` devuelto por la `ProductsBLL` clase s. `GetProductsByCategoryID(categoryID)` método. Permiten s crear el `GetProductsInCategory(categoryID)` método en la clase de código subyacente para nuestro `NestedControls.aspx` página. Lo hacen mediante el código siguiente:
 
 
 [!code-csharp[Main](nested-data-web-controls-cs/samples/sample7.cs)]
@@ -179,12 +179,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Zack Jones y Liz Shulok. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
-[Siguiente](displaying-data-with-the-datalist-and-repeater-controls-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
+> [Siguiente](displaying-data-with-the-datalist-and-repeater-controls-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
-title: "Informan de paginación y ordenar datos (VB) | Documentos de Microsoft"
+title: Informan de paginación y ordenar datos (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Paginación y la ordenación son dos características muy comunes para mostrar datos en una aplicación en línea. En este tutorial echaremos un primer vistazo a agregar ordenación y..."
+description: Paginación y la ordenación son dos características muy comunes para mostrar datos en una aplicación en línea. En este tutorial echaremos un primer vistazo a agregar ordenación y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 23dbd63110092b2e91b7f3f9f6b602ef917c5527
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c5e7e110d436caa7b7526eae105fde601367007a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Paginación y la ordenación de datos de informe (VB)
 ====================
@@ -115,13 +115,13 @@ Controles de la DetailsView y FormView mostrar solo un único registro por pági
 
 Esta interfaz de paginación GridView, DetailsView y FormView s se puede personalizar mediante las siguientes propiedades:
 
-- `PagerStyle`indica la información de estilo para la interfaz de paginación; puede especificar la configuración, como `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`, y así sucesivamente.
-- `PagerSettings`contiene un grupo de propiedades que puede personalizar la funcionalidad de la interfaz de paginación; `PageButtonCount` indica el número máximo de números de página numéricos mostrados en la interfaz de paginación (el valor predeterminado es 10); el [ `Mode` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) indica cómo la interfaz de paginación funciona y se puede establecer en: 
+- `PagerStyle` indica la información de estilo para la interfaz de paginación; puede especificar la configuración, como `BackColor`, `ForeColor`, `CssClass`, `HorizontalAlign`, y así sucesivamente.
+- `PagerSettings` contiene un grupo de propiedades que puede personalizar la funcionalidad de la interfaz de paginación; `PageButtonCount` indica el número máximo de números de página numéricos mostrados en la interfaz de paginación (el valor predeterminado es 10); el [ `Mode` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pagersettings.mode.aspx) indica cómo la interfaz de paginación funciona y se puede establecer en: 
 
-    - `NextPrevious`muestra un botones siguiente y anterior, que permite al usuario paso a paso avanzar o retroceder una página a la vez
-    - `NextPreviousFirstLast`Además de los botones siguiente y anterior, primero y último botones también se incluyen, que permite al usuario desplazarse rápidamente a la primera o última página de datos
-    - `Numeric`muestra una serie de números de página, que permite al usuario inmediatamente ir directamente a cualquier página
-    - `NumericFirstLast`Además de los números de página incluye botones de primera y última, que permite al usuario desplazarse rápidamente a la primera o última página de datos; solo se muestran los botones de primer o último si no caben todos los números de página numérica
+    - `NextPrevious` muestra un botones siguiente y anterior, que permite al usuario paso a paso avanzar o retroceder una página a la vez
+    - `NextPreviousFirstLast` Además de los botones siguiente y anterior, primero y último botones también se incluyen, que permite al usuario desplazarse rápidamente a la primera o última página de datos
+    - `Numeric` muestra una serie de números de página, que permite al usuario inmediatamente ir directamente a cualquier página
+    - `NumericFirstLast` Además de los números de página incluye botones de primera y última, que permite al usuario desplazarse rápidamente a la primera o última página de datos; solo se muestran los botones de primer o último si no caben todos los números de página numérica
 
 Además, el control GridView, DetailsView y FormView todas ofrecen la `PageIndex` y `PageCount` propiedades, lo que indica la página actual que se está visualizando y el número total de páginas de datos, respectivamente. El `PageIndex` propiedad se indiza empezando por 0, lo que significa que, al ver la primera página de datos `PageIndex` será igual a 0. `PageCount`, por otro lado, inicia recuento en 1, lo que significa que `PageIndex` está limitado a los valores entre 0 y `PageCount - 1`.
 
@@ -245,7 +245,7 @@ GridView todos los campos del BoundField, CampoCasillaVerificación, TemplateFie
 
 1. Las operaciones de asignación GridView [evento Sorting](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorting(VS.80).aspx) se activa
 2. Las operaciones de asignación GridView [ `SortExpression` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sortexpression.aspx) está establecido en el `SortExpression` del campo cuyo encabezado ordenación LinkButton se hizo clic
-3. ObjectDataSource volver a recupera todos los datos de la capa BLL y, a continuación, ordena los datos mediante las operaciones de asignación GridView`SortExpression`
+3. ObjectDataSource volver a recupera todos los datos de la capa BLL y, a continuación, ordena los datos mediante las operaciones de asignación GridView `SortExpression`
 4. Las operaciones de asignación GridView `PageIndex` propiedad se restablece a 0, lo que significa que al ordenar el usuario se devuelve a la primera página de datos (suponiendo que se ha implementado la compatibilidad con la paginación)
 5. Las operaciones de asignación GridView [ `Sorted` evento](https://msdn.microsoft.com/library/system.web.ui.webcontrols.gridview.sorted(VS.80).aspx) se activa
 
@@ -306,8 +306,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](creating-a-customized-sorting-user-interface-cs.md)
-[Siguiente](efficiently-paging-through-large-amounts-of-data-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-a-customized-sorting-user-interface-cs.md)
+> [Siguiente](efficiently-paging-through-large-amounts-of-data-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
-title: "Crear un modelo de datos de Entity Framework para una aplicación de ASP.NET MVC (1 de 10) | Documentos de Microsoft"
+title: Crear un modelo de datos de Entity Framework para una aplicación de ASP.NET MVC (1 de 10) | Documentos de Microsoft
 author: tdykstra
-description: "Una versión más reciente de esta serie de tutoriales está disponible, para Visual Studio 2013, Entity Framework 6 y 5 de MVC. El Alemania de aplicación web de ejemplo Contoso universidad..."
+description: Una versión más reciente de esta serie de tutoriales está disponible, para Visual Studio 2013, Entity Framework 6 y 5 de MVC. El Alemania de aplicación web de ejemplo Contoso universidad...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/30/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 8c9971ccc70cb4b966abb64086b1b5420fc6c72a
-ms.sourcegitcommit: 53ee14b9c8200f44705d8997c3619fa874192d45
+ms.openlocfilehash: a963f26b408f2a54bd9cd3e852bc1e368f86c41f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-entity-framework-data-model-for-an-aspnet-mvc-application-1-of-10"></a>Crear un modelo de datos de Entity Framework para una aplicación de ASP.NET MVC (1 de 10)
 ====================
@@ -311,29 +311,29 @@ El siguiente paso es crear un ASP.NET MVC controlador y vistas en la aplicación
 
 1. Para crear un `Student` controlador, haga clic en el **controladores** carpeta **el Explorador de soluciones**, seleccione **agregar**y, a continuación, haga clic en **controlador** . En el **Agregar controlador** diálogo cuadro, realice las selecciones siguientes y, a continuación, haga clic en **agregar**: 
 
-    - Nombre del controlador: **StudentController**.
-    - Plantilla: **controlador de MVC con acciones de lectura/escritura y vistas, mediante Entity Framework**.
-    - Clase de modelo: **estudiante (ContosoUniversity.Models)**. (Si no ve esta opción en la lista desplegable, compile el proyecto e inténtelo de nuevo.)
-    - Clase de contexto de datos: **SchoolContext (ContosoUniversity.Models)**.
-    - Vistas: **Razor (CSHTML)**. (El valor predeterminado.)
+   - Nombre del controlador: **StudentController**.
+   - Plantilla: **controlador de MVC con acciones de lectura/escritura y vistas, mediante Entity Framework**.
+   - Clase de modelo: **estudiante (ContosoUniversity.Models)**. (Si no ve esta opción en la lista desplegable, compile el proyecto e inténtelo de nuevo.)
+   - Clase de contexto de datos: **SchoolContext (ContosoUniversity.Models)**.
+   - Vistas: **Razor (CSHTML)**. (El valor predeterminado.)
 
-    ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
-- Visual Studio abre el *Controllers\StudentController.cs* archivo. Verá que se ha creado una variable de clase que crea una instancia de un objeto de contexto de base de datos:
+     ![Add_Controller_dialog_box_for_Student_controller](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image20.png)
+2. Visual Studio abre el *Controllers\StudentController.cs* archivo. Verá que se ha creado una variable de clase que crea una instancia de un objeto de contexto de base de datos:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample16.cs)]
 
-    El `Index` método de acción obtiene una lista de estudiantes desde el *estudiantes* conjunto mediante la lectura de entidades la `Students` propiedad de la instancia de contexto de base de datos:
+     El `Index` método de acción obtiene una lista de estudiantes desde el *estudiantes* conjunto mediante la lectura de entidades la `Students` propiedad de la instancia de contexto de base de datos:
 
-    [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
+     [!code-csharp[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample17.cs)]
 
-    El *Student\Index.cshtml* vista muestra esta lista en una tabla:
+     El *Student\Index.cshtml* vista muestra esta lista en una tabla:
 
-    [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
-- Presione CTRL+F5 para ejecutar el proyecto.
+     [!code-cshtml[Main](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/samples/sample18.cshtml)]
+3. Presione CTRL+F5 para ejecutar el proyecto.
 
-    Haga clic en el **estudiantes** pestaña para ver los datos de prueba que el `Seed` método insertado.
+     Haga clic en el **estudiantes** pestaña para ver los datos de prueba que el `Seed` método insertado.
 
-    ![Página de índice de estudiante](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
+     ![Página de índice de estudiante](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application/_static/image21.png)
 
 ## <a name="conventions"></a>Convenciones
 
@@ -351,5 +351,5 @@ Ahora ha creado una aplicación simple que usa Entity Framework y SQL Server Exp
 
 Vínculos a otros recursos de Entity Framework pueden encontrarse en el [mapa de contenido de acceso de datos de ASP.NET](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Siguiente](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Siguiente](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)

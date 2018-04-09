@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
-title: "Crear un valor numérico arriba/abajo Control con un back-end de Web Service (C#) | Documentos de Microsoft"
+title: Crear un valor numérico arriba/abajo Control con un back-end de Web Service (C#) | Documentos de Microsoft
 author: wenz
-description: "En lugar de permitir que un usuario escriba un valor en una casilla de verificación, numérico arriba/abajo control (que existe en Windows y otros sistemas operativos) podría resultar c como más..."
+description: En lugar de permitir que un usuario escriba un valor en una casilla de verificación, numérico arriba/abajo control (que existe en Windows y otros sistemas operativos) podría resultar c como más...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/numericupdown/creating-a-numeric-up-down-control-with-a-web-service-backend-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0cce9aa215c2b4480e845326f69cad4679ecf847
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 942902bdba93fe4fef8a9122403c6d5c62e6123c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-numeric-updown-control-with-a-web-service-backend-c"></a>Creación de un número hacia arriba o hacia abajo el Control con un back-end de Web Service (C#)
 ====================
@@ -45,10 +45,10 @@ En este ejemplo, el valor numérico arriba/abajo control solo debe permitir valo
 
 Finalmente, cree una nueva página ASP.NET. Como es habitual, necesita un `ScriptManager` (control), un `TextBox` control y un `NumericUpDownExtender` control. Por último, tendrá que proporcionar la información del servicio web:
 
-- `ServiceDownMethod`nombre de la profundidad método web o página (método)
-- `ServiceDownPath`ruta de acceso al servicio web con el método de servicio hacia abajo; Omitir si está utilizando un método de página
-- `ServiceUpMethod`nombre de la seguridad método web o página (método)
-- `ServiceUpPath`ruta de acceso al servicio web con el método de servicio arriba; Omitir si está utilizando un método de página
+- `ServiceDownMethod` nombre de la profundidad método web o página (método)
+- `ServiceDownPath` ruta de acceso al servicio web con el método de servicio hacia abajo; Omitir si está utilizando un método de página
+- `ServiceUpMethod` nombre de la seguridad método web o página (método)
+- `ServiceUpPath` ruta de acceso al servicio web con el método de servicio arriba; Omitir si está utilizando un método de página
 
 Este es el marcado completo para la página:
 
@@ -61,5 +61,5 @@ Si ejecuta la página, observe cómo el valor en el cuadro de texto siempre dupl
 
 Aparecen solo los números que son una potencia de 2 ([haga clic aquí para ver la imagen a tamaño completo](creating-a-numeric-up-down-control-with-a-web-service-backend-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](creating-a-numeric-up-down-control-with-a-web-service-backend-vb.md)

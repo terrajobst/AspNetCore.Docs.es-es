@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
-title: "Información general sobre el controlador de MVC de ASP.NET (VB) | Documentos de Microsoft"
+title: Información general sobre el controlador de MVC de ASP.NET (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "En este tutorial, Stephen Walther presenta controladores MVC de ASP.NET. Obtenga información acerca de cómo crear nuevos controladores y devolver tipos diferentes de res acción..."
+description: En este tutorial, Stephen Walther presenta controladores MVC de ASP.NET. Obtenga información acerca de cómo crear nuevos controladores y devolver tipos diferentes de res acción...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/asp-net-mvc-controller-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 452e2cf771e8b1f298ce9693ec2a707e7c1d4dd1
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 0a45630e8f2d5ae0548bb6b8496df08ca5877a40
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-controller-overview-vb"></a>Información general sobre el controlador de MVC de ASP.NET (VB)
 ====================
@@ -37,7 +37,7 @@ En este caso, se invoca un controlador denominado ProductController. El ProductC
 
 Lista 1 contiene un controlador simple denominado ProductController.
 
-**Listado de 1 - Controllers\ProductController.vb**
+**Listing1 - Controllers\ProductController.vb**
 
 [!code-vb[Main](asp-net-mvc-controller-overview-vb/samples/sample1.vb)]
 
@@ -103,8 +103,8 @@ El resultado de acción ContentResult es especial. Puede usar el resultado de ac
 **Listado 4 - Controllers\StatusController.vb**
 
 > StatusController
-
-
+> 
+> 
 > System.Web.Mvc.Controller
 
 
@@ -124,6 +124,6 @@ La acción de Index() en el listado 5 devuelve un objeto DateTime. El marco de M
 
 El objetivo de este tutorial era para presentarle los conceptos de controladores, las acciones de controlador y resultados de la acción de controlador de MVC de ASP.NET. En la primera sección, aprendió a agregar nuevos controladores a un proyecto de MVC de ASP.NET. A continuación, ha aprendido cómo públicos métodos de un controlador se exponen al universo como acciones del controlador. Por último, analizamos los diferentes tipos de resultados de la acción que se pueden devolver desde una acción de controlador. En concreto, se explicó cómo devolver un ViewResult, RedirectToActionResult y ContentResult desde una acción de controlador.
 
->[!div class="step-by-step"]
-[Anterior](creating-a-custom-route-constraint-cs.md)
-[Siguiente](creating-custom-routes-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-a-custom-route-constraint-cs.md)
+> [Siguiente](creating-custom-routes-vb.md)

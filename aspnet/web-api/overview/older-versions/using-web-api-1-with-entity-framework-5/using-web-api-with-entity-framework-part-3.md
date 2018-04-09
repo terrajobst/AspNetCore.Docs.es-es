@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
-title: "Parte 3: Crear un controlador de administración | Documentos de Microsoft"
+title: 'Parte 3: Crear un controlador de administración | Documentos de Microsoft'
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 6fadfb6e96ae287fc5f81516b7535e03853c7e6a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 588d9d1b5d27759692cd840faabf2c3549c309d6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-creating-an-admin-controller"></a>Parte 3: Crear un controlador de administración
 ====================
@@ -71,10 +71,10 @@ La `AdminController` clase define cinco métodos que implementan la funcionalida
 | Método de controlador | Descripción | Identificador URI | Método HTTP |
 | --- | --- | --- | --- |
 | GetProducts | Obtiene todos los productos. | API y productos | GET |
-| GetProduct | Busca un producto por identificador. | API/productos/*Id.* | GET |
-| PutProduct | Actualiza un producto. | API/productos/*Id.* | PUT |
+| GetProduct | Busca un producto por identificador. | api/products/*id* | GET |
+| PutProduct | Actualiza un producto. | api/products/*id* | PUT |
 | PostProduct | Crea un nuevo producto. | API y productos | EXPONER |
-| DeleteProduct | Elimina un producto. | API/productos/*Id.* | SUPRIMIR |
+| DeleteProduct | Elimina un producto. | api/products/*id* | SUPRIMIR |
 
 Cada método llama a `OrdersContext` para consultar la base de datos. Llamar los métodos que modifican la colección (PUT, POST y DELETE) `db.SaveChanges` para conservar los cambios a la base de datos. Los controladores se crean por cada solicitud HTTP y, a continuación, elimina, por lo que es necesario conservar los cambios antes de que un método devuelve.
 
@@ -102,6 +102,6 @@ Enviar una solicitud HTTP a "`http://localhost:*portnum*/api/admin`. La primera 
 
 [!code-console[Main](using-web-api-with-entity-framework-part-3/samples/sample6.cmd)]
 
->[!div class="step-by-step"]
-[Anterior](using-web-api-with-entity-framework-part-2.md)
-[Siguiente](using-web-api-with-entity-framework-part-4.md)
+> [!div class="step-by-step"]
+> [Anterior](using-web-api-with-entity-framework-part-2.md)
+> [Siguiente](using-web-api-with-entity-framework-part-4.md)

@@ -8,15 +8,15 @@ manager: wpickett
 ms.date: 02/09/2013
 ms.topic: article
 ms.assetid: 75af2e17-6ed3-4d24-8ea1-bc340027c318
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/hottowel-template
 msc.type: authoredcontent
-ms.openlocfilehash: bfc6e2c884c422f44e8be5f4f29554ae86f7ecb6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dbd037c2469d326a3d3248ca07492ed9eb93e225
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="hot-towel-template"></a>Plantilla de toallas activa
 ====================
@@ -29,8 +29,8 @@ por [Mads Kristensen](https://github.com/madskristensen)
 > [Plantilla MVC de toallas activa para Visual Studio 2012](https://visualstudiogallery.msdn.microsoft.com/1f68fbe8-b4e9-4968-9fd3-ddc7cbc52dca)
 > 
 > [Plantilla MVC de toallas activa para Visual Studio 2013](https://visualstudiogallery.msdn.microsoft.com/1eb8780d-d522-4dcf-bf56-56f0eab305c2)
-
-
+> 
+> 
 > Toallas activa: Dado que no desea ir a la aplicación SPA sin una!
 
 
@@ -95,7 +95,7 @@ Simplemente empiece a agregar el código.
 2. Agregar vistas para la `App/views` carpeta
 3. Agregar viewmodels a la `App/viewmodels` carpeta
 4. Agregar enlaces de datos HTML y Knockout a las vistas nuevas
-5. Actualizar las rutas de navegación de`shell.js`
+5. Actualizar las rutas de navegación de `shell.js`
 
 ## <a name="walkthrough-of-the-htmljavascript"></a>Tutorial de HTML/JavaScript
 
@@ -117,7 +117,7 @@ El `main.js` archivo define varios módulos del durandal para ayudar a la puesta
 
 Las vistas se encuentran en el `App/views` carpeta.
 
-### <a name="shellhtml"></a>Shell.HTML
+### <a name="shellhtml"></a>shell.html
 
 El `shell.html` contiene el diseño del patrón para el código HTML. Todas las demás vistas se compondrán en algún lugar en el lado de su `shell` vista. Toallas activa proporciona un `shell` con tres de estas regiones: un encabezado, un área de contenido y un pie de página. Cada una de estas regiones se ha cargado con contenido forma otras vistas cuando se solicita.
 
@@ -125,7 +125,7 @@ El `compose` enlaces para el encabezado y pie de página son difíciles de codif
 
 [!code-html[Main](hottowel-template/samples/sample4.html)]
 
-### <a name="navhtml"></a>NAV.HTML
+### <a name="navhtml"></a>nav.html
 
 El `nav.html` contiene los vínculos de navegación de la aplicación SPA. Esto es que la estructura de menú se puede colocar, por ejemplo. Con frecuencia, es datos enlazados (mediante Knockout) a la `router` módulo para mostrar el panel de navegación definida en el `shell.js`. Knockout busca el enlace de datos, atributos y enlaza los utilizados para la `shell` viewmodel para mostrar las rutas de navegación y para mostrar una barra de progreso (mediante arranque de Twitter) si el `router` módulo está en medio de navegar desde una vista a otra (consulte `router.isNavigating`).
 

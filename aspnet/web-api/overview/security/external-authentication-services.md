@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/external-authentication-services
-title: "Servicios de autenticación externo con ASP.NET Web API (C#) | Documentos de Microsoft"
+title: Servicios de autenticación externo con ASP.NET Web API (C#) | Documentos de Microsoft
 author: rmcmurray
-description: "Describe cómo utilizar los servicios de autenticación externos en ASP.NET Web API."
+description: Describe cómo utilizar los servicios de autenticación externos en ASP.NET Web API.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/external-authentication-services
 msc.type: authoredcontent
-ms.openlocfilehash: 744396cb0c95d1887f259b1e2e890bd06ef7d049
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 406a85db7055910cb7a4e15fec8ef68dff5a19dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="external-authentication-services-with-aspnet-web-api-c"></a>Servicios de autenticación externo con ASP.NET Web API (C#)
 ====================
@@ -119,7 +119,7 @@ En las siguientes secciones, obtendrá información sobre cómo habilitar cada u
 <a id="FACEBOOK"></a>
 ## <a name="enabling-facebook-authentication"></a>Habilitar la autenticación de Facebook
 
-Con Facebook autenticación requiere crear una cuenta de desarrollador de Facebook y el proyecto requerirá un Id. de aplicación y la clave secreta de Facebook para poder funcionar. Para obtener información sobre cómo crear una cuenta de desarrollador de Facebook y obtener el identificador de la aplicación y la clave secreta, vea [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Con Facebook autenticación requiere crear una cuenta de desarrollador de Facebook y el proyecto requerirá un Id. de aplicación y la clave secreta de Facebook para poder funcionar. Para obtener información sobre cómo crear una cuenta de desarrollador de Facebook y obtener el identificador de la aplicación y la clave secreta, vea [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Una vez ha obtenido el identificador de la aplicación y la clave secreta, siga estos pasos para habilitar la autenticación de Facebook para la aplicación web:
 
@@ -180,7 +180,7 @@ Para habilitar la autenticación de Google para la aplicación web, siga estos p
 <a id="MICROSOFT"></a>
 ## <a name="enabling-microsoft-authentication"></a>Habilitar la autenticación de Microsoft
 
-Autenticación de Microsoft, tendrá que crear una cuenta de desarrollador y requiere un Id. de cliente y el secreto del cliente para poder funcionar. Para obtener información sobre cómo crear una cuenta de desarrollador de Microsoft y obtener el Id. de cliente y el secreto de cliente, consulte [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070).
+Autenticación de Microsoft, tendrá que crear una cuenta de desarrollador y requiere un Id. de cliente y el secreto del cliente para poder funcionar. Para obtener información sobre cómo crear una cuenta de desarrollador de Microsoft y obtener el Id. de cliente y el secreto de cliente, consulte [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070).
 
 Una vez obtenida la clave de consumidor y el secreto del consumidor, siga estos pasos para habilitar la autenticación de Microsoft para la aplicación web:
 
@@ -212,7 +212,7 @@ Una vez obtenida la clave de consumidor y el secreto del consumidor, siga estos 
 <a id="TWITTER"></a>
 ## <a name="enabling-twitter-authentication"></a>Habilitar la autenticación de Twitter
 
-Twitter autenticación requiere crear una cuenta de desarrollador, y una clave de consumidor y el secreto de consumidor para poder funcionar. Para obtener información sobre cómo crear una cuenta de desarrollador de Twitter y obtener su clave de consumidor y el secreto del consumidor, consulte [https://go.microsoft.com/fwlink/?LinkID=252166](https://go.microsoft.com/fwlink/?LinkID=252166).
+Twitter autenticación requiere crear una cuenta de desarrollador, y una clave de consumidor y el secreto de consumidor para poder funcionar. Para obtener información sobre cómo crear una cuenta de desarrollador de Twitter y obtener su clave de consumidor y el secreto del consumidor, consulte [ https://go.microsoft.com/fwlink/?LinkID=252166 ](https://go.microsoft.com/fwlink/?LinkID=252166).
 
 Una vez obtenida la clave de consumidor y el secreto del consumidor, siga estos pasos para habilitar la autenticación de Twitter para la aplicación web:
 
@@ -260,19 +260,21 @@ Algunos proveedores de autenticación externa no admiten probar la aplicación c
 
 - Agregue un FQDN estático asignar el archivo de HOSTS:
 
-    1. Abra un símbolo del sistema con privilegios elevados en Windows.
-    2. Escriba el comando siguiente:
+  1. Abra un símbolo del sistema con privilegios elevados en Windows.
+  2. Escriba el comando siguiente:
 
-        <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
-    3. Agregue una entrada similar al siguiente al archivo de HOSTS:
+      <kbd>notepad %WinDir%\system32\drivers\etc\hosts</kbd>
+  3. Agregue una entrada similar al siguiente al archivo de HOSTS:
 
-        <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
-    4. Guarde y cierre el archivo de HOSTS.
+      <kbd>127.0.0.1 www.wingtiptoys.com</kbd>
+  4. Guarde y cierre el archivo de HOSTS.
+
 - Configurar el proyecto de Visual Studio para que usen el FQDN:
 
-    1. Cuando el proyecto está abierto en Visual Studio 2013, haga clic en el **proyecto** menú y, a continuación, seleccione las propiedades del proyecto. Por ejemplo, puede seleccionar **WebApplication1 propiedades**.
-    2. Seleccione el **Web** ficha.
-    3. Escriba el FQDN para el **dirección Url del proyecto**. Por ejemplo, escribiría <kbd>http://www.wingtiptoys.com</kbd> si ese era la asignación de FQDN que ha agregado al archivo de HOSTS.
+  1. Cuando el proyecto está abierto en Visual Studio 2013, haga clic en el **proyecto** menú y, a continuación, seleccione las propiedades del proyecto. Por ejemplo, puede seleccionar **WebApplication1 propiedades**.
+  2. Seleccione el **Web** ficha.
+  3. Escriba el FQDN para el <strong>dirección Url del proyecto</strong>. Por ejemplo, escribiría <kbd> <http://www.wingtiptoys.com> </kbd> si ese era la asignación de FQDN que ha agregado al archivo de HOSTS.
+
 - Configurar IIS Express para que usen el FQDN de la aplicación:
 
     1. Abra un símbolo del sistema con privilegios elevados en Windows.
@@ -283,14 +285,14 @@ Algunos proveedores de autenticación externa no admiten probar la aplicación c
 
         <kbd>establecer la configuración de appcmd.exe-section:system.applicationHost/sites /+&quot;[nombre='WebApplication1'].bindings.[protocolo='http',bindingInformation='*:80:www.wingtiptoys.com']&quot; /commit:apphost</kbd>
 
- Donde **WebApplication1** es el nombre del proyecto y **bindingInformation** contiene el número de puerto y FQDN que desea usar para las pruebas.
+  Donde **WebApplication1** es el nombre del proyecto y **bindingInformation** contiene el número de puerto y FQDN que desea usar para las pruebas.
 
 <a id="OBTAIN"></a>
 ### <a name="how-to-obtain-your-application-settings-for-microsoft-authentication"></a>Cómo obtener la configuración de la aplicación para la autenticación de Microsoft
 
 La vinculación de una aplicación para Windows Live de Microsoft Authentication es un proceso sencillo. Si no se ha vinculado ya una aplicación para Windows Live, puede usar los siguientes pasos:
 
-1. Vaya a [https://go.microsoft.com/fwlink/?LinkID=144070](https://go.microsoft.com/fwlink/?LinkID=144070) y escriba el nombre de la cuenta de Microsoft y la contraseña cuando se le solicite, a continuación, haga clic en **iniciar sesión en**:
+1. Vaya a [ https://go.microsoft.com/fwlink/?LinkID=144070 ](https://go.microsoft.com/fwlink/?LinkID=144070) y escriba el nombre de la cuenta de Microsoft y la contraseña cuando se le solicite, a continuación, haga clic en **iniciar sesión en**:
 
     [![](external-authentication-services/_static/image64.png "Haga clic para expandir la imagen")](external-authentication-services/_static/image63.png)
 2. Escriba el nombre y el idioma de la aplicación cuando se le pida y, a continuación, haga clic en **acepto**:

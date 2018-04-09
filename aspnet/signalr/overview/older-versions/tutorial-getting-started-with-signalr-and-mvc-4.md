@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
-title: "Tutorial: Introducción con SignalR 1.x y MVC 4 | Documentos de Microsoft"
+title: 'Tutorial: Introducción con SignalR 1.x y MVC 4 | Documentos de Microsoft'
 author: pfletcher
-description: "Usar ASP.NET SignalR y 4 de ASP.NET MVC para compilar una aplicación de chat en tiempo real."
+description: Usar ASP.NET SignalR y 4 de ASP.NET MVC para compilar una aplicación de chat en tiempo real.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/29/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/older-versions/tutorial-getting-started-with-signalr-and-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 632e6098a03eae02f2367c6dc1c293dbdb6b6170
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1ae330be5caf00c3cac7451f326398c0958538af
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="tutorial-getting-started-with-signalr-1x-and-mvc-4"></a>Tutorial: Introducción con SignalR 1.x y MVC 4
 ====================
@@ -63,17 +63,17 @@ Esta sección muestra cómo crear una aplicación de ASP.NET MVC 4, agregue la b
         > En VS 2010, seleccione **.NET Framework 4** en el control de lista desplegable de versión de Framework. Código de SignalR se ejecuta en las versiones de .NET Framework 4 y 4.5.
 
         ![Crear sitio web de mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image3.png)
-    2. Seleccione la plantilla de aplicación de Internet, desactive la opción de **crear un proyecto de prueba unitaria**y haga clic en Aceptar.
+      2. Seleccione la plantilla de aplicación de Internet, desactive la opción de **crear un proyecto de prueba unitaria**y haga clic en Aceptar.
 
-        ![Crear el sitio de internet de mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
-    3. Abra el **herramientas | Administrador de paquetes de biblioteca | Consola de administrador de paquetes** y ejecute el siguiente comando. Este paso agrega al proyecto un conjunto de archivos de script y las referencias de ensamblado que habilitar la funcionalidad de SignalR.
+         ![Crear el sitio de internet de mvc](tutorial-getting-started-with-signalr-and-mvc-4/_static/image4.png)
+      3. Abra el **herramientas | Administrador de paquetes de biblioteca | Consola de administrador de paquetes** y ejecute el siguiente comando. Este paso agrega al proyecto un conjunto de archivos de script y las referencias de ensamblado que habilitar la funcionalidad de SignalR.
 
-        `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
-    4. En **el Explorador de soluciones** expanda la carpeta Scripts. Tenga en cuenta que las bibliotecas de scripts para SignalR se han agregado al proyecto.
+         `install-package Microsoft.AspNet.SignalR -Version 1.1.3`
+      4. En **el Explorador de soluciones** expanda la carpeta Scripts. Tenga en cuenta que las bibliotecas de scripts para SignalR se han agregado al proyecto.
 
-        ![Referencias de biblioteca](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
-    5. En **el Explorador de soluciones**, haga clic en el proyecto, seleccione **agregar | Nueva carpeta**, y agrega una carpeta nueva denominada **concentradores**.
-    6. Haga clic en el **concentradores** carpeta, haga clic en **agregar | Clase**y cree una nueva clase de C# denominada **ChatHub.cs**. Usará esta clase como un concentrador de servidor de SignalR que envía mensajes a todos los clientes.
+         ![Referencias de biblioteca](tutorial-getting-started-with-signalr-and-mvc-4/_static/image6.png)
+      5. En **el Explorador de soluciones**, haga clic en el proyecto, seleccione **agregar | Nueva carpeta**, y agrega una carpeta nueva denominada **concentradores**.
+      6. Haga clic en el **concentradores** carpeta, haga clic en **agregar | Clase**y cree una nueva clase de C# denominada **ChatHub.cs**. Usará esta clase como un concentrador de servidor de SignalR que envía mensajes a todos los clientes.
 
 > [!NOTE]
 > Si usa Visual Studio 2012 y ha instalado el [actualización ASP.NET y Web Tools 2012.2](../../../visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw.md#_Installation), puede usar la nueva plantilla de elemento de SignalR para crear la clase de base de datos central. Para ello, haga clic en el **concentradores** carpeta, haga clic en **agregar | Nuevo elemento**, seleccione **clase de concentrador de SignalR (v1)**y el nombre de la clase **ChatHub.cs**.
@@ -117,7 +117,7 @@ Esta sección muestra cómo crear una aplicación de ASP.NET MVC 4, agregue la b
 6. La captura de pantalla siguiente muestra la aplicación de chat que se ejecuta en un explorador.
 
     ![Exploradores de chat](tutorial-getting-started-with-signalr-and-mvc-4/_static/image11.png)
-7. En **el Explorador de soluciones**, inspeccionar la **documentos de Script** nodo para la aplicación en ejecución. Este nodo está visible en modo de depuración si está usando Internet Explorer como explorador. Hay un archivo de script denominado **concentradores** que la biblioteca de SignalR genera dinámicamente en tiempo de ejecución. Este archivo administra la comunicación entre el código de servidor y los scripts de jQuery. Si utiliza un explorador que no sea Internet Explorer, también puede tener acceso a los dinámicos **concentradores** archivo desplazándose a él directamente, por ejemplo http://mywebsite/signalr/hubs.
+7. En **el Explorador de soluciones**, inspeccionar la **documentos de Script** nodo para la aplicación en ejecución. Este nodo está visible en modo de depuración si está usando Internet Explorer como explorador. Hay un archivo de script denominado **concentradores** que la biblioteca de SignalR genera dinámicamente en tiempo de ejecución. Este archivo administra la comunicación entre el código de servidor y los scripts de jQuery. Si utiliza un explorador que no sea Internet Explorer, también puede tener acceso a los dinámicos **concentradores** desplazándose hasta ella directamente, por ejemplo el archivo http://mywebsite/signalr/hubs.
 
     ![Script de concentrador generado](tutorial-getting-started-with-signalr-and-mvc-4/_static/image13.png)
 

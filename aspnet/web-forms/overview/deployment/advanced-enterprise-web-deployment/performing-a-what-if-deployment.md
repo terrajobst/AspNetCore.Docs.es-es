@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
-title: "Realizar el si implementación | Documentos de Microsoft"
+title: Realizar el si implementación | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se describe cómo realizar '¿qué ocurre si' (o de simulacro sino) implementaciones con la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy) y V..."
+description: En este tema se describe cómo realizar '¿qué ocurre si' (o de simulacro sino) implementaciones con la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy) y V...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: cea805c86f0764c7443ccc5c9f89248860a6a842
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c1a13f38c8e629bcd615190b00104109e25fb289
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="performing-a-what-if-deployment"></a>Realizar una implementación de "¿Qué ocurre si"
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > En este tema se describe cómo realizar "¿Qué ocurre si" (o de simulacro sino) implementaciones con la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy) y VSDBCMD. Esto le permite determinar los efectos de la lógica de implementación en un entorno de destino concreto antes de implementar realmente la aplicación.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación e implementación se controla mediante dos archivos de proyecto & #x 2014; o ne que contiene las instrucciones de compilación que se aplican a cada entorno de destino y la otra contiene configuración específica del entorno de compilación e implementación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación e implementación se controla mediante dos archivos de proyecto&#x2014;uno que contiene las instrucciones de compilación que se aplican a cada entorno de destino y la otra contiene configuración específica del entorno de compilación e implementación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="performing-a-what-if-deployment-for-web-packages"></a>Llevar a cabo una implementación de "¿Qué ocurre si" para paquetes de Web
 
@@ -41,7 +41,7 @@ Web Deploy incluye funcionalidad que le permite realizar implementaciones en "¿
 
 Dado que una implementación de "¿Qué ocurre si" realmente no cambia nada en el servidor de destino, lo que no se puede hacer siempre es predecir si una implementación se realizará correctamente.
 
-Como se describe en [implementar paquetes de Web](../web-deployment-in-the-enterprise/deploying-web-packages.md), puede implementar paquetes de web con Web Deploy en dos formas & #x 2014; mediante la utilidad de línea de comandos MSDeploy.exe directamente o mediante la ejecución de la *. deploy.cmd* archivo que genera el proceso de compilación.
+Como se describe en [implementar paquetes de Web](../web-deployment-in-the-enterprise/deploying-web-packages.md), puede implementar paquetes de web con Web Deploy de dos maneras&#x2014;mediante la utilidad de línea de comandos MSDeploy.exe directamente o mediante la ejecución de la *. deploy.cmd* archivo que genera el proceso de compilación.
 
 Si usa MSDeploy.exe directamente, puede ejecutar una implementación de "¿Qué ocurre si" agregando el **– whatif** marca al comando. Por ejemplo, para evaluar lo que sucedería si implementó el paquete de ContactManager.Mvc.zip en un entorno de ensayo, el comando MSDeploy debe ser similar a este:
 
@@ -122,7 +122,7 @@ La siguiente fase es parametrizar cualquier Web Deploy y VSDBCMD comandos para q
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample6.xml)]
 
 
-De forma similar, el destino siguiente utiliza la utilidad VSDBCMD para implementar una base de datos. De forma predeterminada, un **/dd** no se incluye el modificador. Esto significa que VSDBCMD generará un script de implementación, pero no implementará la base de datos & #x 2014; es decir, un "¿Qué ocurre si" escenario. Si el **WhatIf** propiedad no está establecida en **true**, **/dd** se agrega el conmutador y VSDBCMD implementará la base de datos.
+De forma similar, el destino siguiente utiliza la utilidad VSDBCMD para implementar una base de datos. De forma predeterminada, un **/dd** no se incluye el modificador. Esto significa que VSDBCMD generará un script de implementación, pero no implementará la base de datos&#x2014;en otras palabras, un "¿Qué ocurre si" escenario. Si el **WhatIf** propiedad no está establecida en **true**, **/dd** se agrega el conmutador y VSDBCMD implementará la base de datos.
 
 
 [!code-xml[Main](performing-a-what-if-deployment/samples/sample7.xml)]
@@ -144,6 +144,6 @@ En este tema se describe cómo ejecutar "¿Qué ocurre si" implementaciones medi
 
 Para obtener más información acerca de la sintaxis de línea de comandos de Web Deploy, vea [Web Deploy operación Settings](https://technet.microsoft.com/library/dd569089(WS.10).aspx). Para obtener información sobre las opciones de línea de comandos cuando se usa el *. deploy.cmd* de archivos, consulte [Cómo: instalar un paquete de implementación mediante el archivo deploy.cmd](https://msdn.microsoft.com/library/ff356104.aspx). Para obtener instrucciones acerca de la sintaxis de línea de comandos de VSDBCMD, consulte [referencia de línea de comandos de VSDBCMD. EXE (implementación e importación del esquema)](https://msdn.microsoft.com/library/dd193283.aspx).
 
->[!div class="step-by-step"]
-[Anterior](advanced-enterprise-web-deployment.md)
-[Siguiente](customizing-database-deployments-for-multiple-environments.md)
+> [!div class="step-by-step"]
+> [Anterior](advanced-enterprise-web-deployment.md)
+> [Siguiente](customizing-database-deployments-for-multiple-environments.md)

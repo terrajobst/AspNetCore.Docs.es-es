@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
-title: "Opciones de almacenamiento de datos (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Opciones de almacenamiento de datos (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: e51fcecb-cb33-4f9e-8428-6d2b3d0fe1bf
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/data-storage-options
 msc.type: authoredcontent
-ms.openlocfilehash: 88f57244bfbfdf33df3bb265d8aa2c93689b2f24
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: d638dca331cb24c340a4471e5964a00b75bb608a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="data-storage-options-building-real-world-cloud-apps-with-azure"></a>Opciones de almacenamiento de datos (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -250,7 +250,7 @@ Estas son algunas directrices sobre cómo elegir entre los dos modelos.
 | Base de datos SQL Azure (PaaS) | SQL Server en una máquina Virtual (IaaS) |
 | --- | --- |
 | **Los profesionales de TI** -no tiene que crear o administrar las máquinas virtuales, actualizar o revisión de SO o SQL; Azure hace automáticamente. -Alta disponibilidad integrada, con un SLA de nivel de base de datos. -Bajo costo total de propiedad (TCO) porque solo se paga por lo que se usa (no se necesita ninguna licencia). -Adecuado para administrar un gran número de bases de datos menores (&lt;= 500 GB). -Fáciles de crear dinámicamente nuevas bases de datos para habilitar el escalado horizontal. | ***Los profesionales de TI*** : característica compatible con el servidor local de SQL. -Puede implementar SQL Server [alta disponibilidad mediante AlwaysOn](https://www.microsoft.com/sqlserver/solutions-technologies/mission-critical-operations/high-availability.aspx) en 2 + máquinas virtuales, con el SLA de nivel de máquina virtual. -Tiene un control completo sobre la administración de SQL. -Puede reutilizar las licencias SQL que ya posea o paga por horas para una. -Muy útil para tratar menos pero más grandes (1 TB +) bases de datos. |
-| **Inconvenientes** -algunas características huecos en comparación con el servidor local de SQL (falta de [integración CLR](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [compatibilidad de compresión](https://technet.microsoft.com/library/cc280449.aspx), [SQL Servidor de Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), etc.)-límite de tamaño de base de datos de 500 GB. | ***Inconvenientes*** : las actualizaciones o revisiones (sistema operativo y SQL) son responsabilidad suya: creación y administración de bases de datos son responsabilidad suya - IOPS de disco (operaciones de entrada/salida por segundo) limitada a entre 8000 (a través de unidades de 16 datos). |
+| **Inconvenientes** -algunas características huecos en comparación con el servidor local de SQL (falta de [integración CLR](https://technet.microsoft.com/library/ms131102.aspx), [TDE](https://technet.microsoft.com/library/bb934049.aspx), [compatibilidad de compresión](https://technet.microsoft.com/library/cc280449.aspx), [SQL Server Reporting Services](https://technet.microsoft.com/library/ms159106.aspx), etc.)-límite de tamaño de base de datos de 500 GB. | ***Inconvenientes*** : las actualizaciones o revisiones (sistema operativo y SQL) son responsabilidad suya: creación y administración de bases de datos son responsabilidad suya - IOPS de disco (operaciones de entrada/salida por segundo) limitada a entre 8000 (a través de unidades de 16 datos). |
 
 Si desea usar SQL Server en una máquina virtual, puede usar su propia licencia de SQL Server, o puede pagar para uno por horas. Por ejemplo, en el portal o a través de la API de REST puede crear una nueva máquina virtual con una imagen de SQL Server.
 
@@ -301,6 +301,6 @@ HDInsight (Hadoop en Azure):
 - [Hadoop y HDInsight: Big Data en Azure](https://msdn.microsoft.com/magazine/dn385705.aspx). Artículo de MSDN Magazine Bruno Terkaly y Villalobos Ricardo, introducción a Hadoop en Azure.
 - [Microsoft patrones y prácticas - Guía de Azure](https://msdn.microsoft.com/library/dn568099.aspx). Vea MapReduce patrón.
 
->[!div class="step-by-step"]
-[Anterior](single-sign-on.md)
-[Siguiente](data-partitioning-strategies.md)
+> [!div class="step-by-step"]
+> [Anterior](single-sign-on.md)
+> [Siguiente](data-partitioning-strategies.md)

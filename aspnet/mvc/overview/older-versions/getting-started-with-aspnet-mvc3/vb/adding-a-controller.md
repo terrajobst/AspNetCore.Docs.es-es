@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
-title: "Cómo agregar un controlador (VB) | Documentos de Microsoft"
+title: Cómo agregar un controlador (VB) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 74113d76a74b1da27a7f9a33a13038a0c36ad036
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 9a433083c31c7929f7599e52800c887f301d7727
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller-vb"></a>Cómo agregar un controlador (VB)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es una versión gratuita de Microsoft Visual Studio. Antes de empezar, asegúrese de que ha instalado los requisitos previos descritos a continuación. Puede instalar todas ellas haciendo clic en el siguiente vínculo: [instalador de plataforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Como alternativa, puede instalar por separado los requisitos previos mediante los siguientes vínculos:
 > 
@@ -79,6 +79,6 @@ Ejecute la aplicación y vaya a `http://localhost:xxxx/HelloWorld/Welcome?name=S
 
 En estos ejemplos de ambos el controlador ha realizado la parte de VC de MVC, que es el trabajo de vista y controlador. El controlador devuelve HTML directamente. Normalmente no es aconsejable controladores devolver HTML directamente, desde que se vuelve muy complicada al código. En su lugar, vamos a usar normalmente un archivo de plantilla de vista independiente para ayudar a generar la respuesta HTML. Echemos un vistazo a cómo podemos hacer esto.
 
->[!div class="step-by-step"]
-[Anterior](intro-to-aspnet-mvc-3.md)
-[Siguiente](adding-a-view.md)
+> [!div class="step-by-step"]
+> [Anterior](intro-to-aspnet-mvc-3.md)
+> [Siguiente](adding-a-view.md)

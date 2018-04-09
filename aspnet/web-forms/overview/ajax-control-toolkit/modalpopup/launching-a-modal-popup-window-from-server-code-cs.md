@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
-title: "Inicie una ventana emergente Modal del código del servidor (C#) | Documentos de Microsoft"
+title: Inicie una ventana emergente Modal del código del servidor (C#) | Documentos de Microsoft
 author: wenz
 description: El control ModalPopup en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo, algunos escenarios requieren que t...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cc2ccf8153de4f2633cc46ebbee2da199ba9d06e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 04bb056ee29065a472a70d480568b897a789ae59
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="launching-a-modal-popup-window-from-server-code-c"></a>Inicie una ventana emergente Modal del código del servidor (C#)
 ====================
@@ -72,5 +72,5 @@ El `$find()` función busca un elemento con nombre en la página y espera el ide
 
 Aparece la ventana emergente modal cuando se hace clic en cualquiera de los botones ([haga clic aquí para ver la imagen a tamaño completo](launching-a-modal-popup-window-from-server-code-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Siguiente](using-modalpopup-with-a-repeater-control-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](using-modalpopup-with-a-repeater-control-cs.md)

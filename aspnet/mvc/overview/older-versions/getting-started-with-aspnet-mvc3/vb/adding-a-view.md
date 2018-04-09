@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 title: Agregar una vista (VB) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/adding-a-view
 msc.type: authoredcontent
-ms.openlocfilehash: 7e8564c743510780b93d56bc1215f4c5b1faeb43
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c9675eb7776116ecbe910d5515abfe9b4391df22
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-view-vb"></a>Agregar una vista (VB)
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es una versión gratuita de Microsoft Visual Studio. Antes de empezar, asegúrese de que ha instalado los requisitos previos descritos a continuación. Puede instalar todas ellas haciendo clic en el siguiente vínculo: [instalador de plataforma Web](https://www.microsoft.com/web/gallery/install.aspx?appid=VWD2010SP1Pack). Como alternativa, puede instalar por separado los requisitos previos mediante los siguientes vínculos:
 > 
@@ -65,7 +65,7 @@ Parece bastante bueno. Sin embargo, tenga en cuenta que la barra de título del 
 
 En primer lugar, vamos a cambiar el texto &quot;mi aplicación MVC.&quot; Que el texto se comparte y aparece en cada página. Aparece realmente en un único lugar en el proyecto, aunque se encuentre en todas las páginas en nuestra aplicación. Vaya a la */vistas/Shared* carpeta **el Explorador de soluciones** y abra el  *\_Layout.vbhtml* archivo. Este archivo se denomina una página de diseño y es el recurso compartido &quot;shell&quot; que usan todas las demás páginas.
 
-Tenga en cuenta la `@RenderBody()` línea de código en la parte inferior del archivo. `RenderBody`es un marcador de posición donde se muestran todas las páginas que cree, &quot;ajustado&quot; en la página de diseño. Cambiar el `<h1>` encabezado de  **&quot;**  mi aplicación MVC&quot; a &quot;aplicación de MVC película&quot;.
+Tenga en cuenta la `@RenderBody()` línea de código en la parte inferior del archivo. `RenderBody` es un marcador de posición donde se muestran todas las páginas que cree, &quot;ajustado&quot; en la página de diseño. Cambiar el `<h1>` encabezado de **&quot;** mi aplicación MVC&quot; a &quot;aplicación de MVC película&quot;.
 
 [!code-html[Main](adding-a-view/samples/sample3.html)]
 
@@ -79,7 +79,7 @@ Ahora, vamos a cambiar el título de la página de índice (vista).
 
 [!code-vbhtml[Main](adding-a-view/samples/sample5.vbhtml)]
 
-Abra *MvcMovie\Views\HelloWorld\Index.vbhtml*. Hay dos lugares para realizar un cambio: en primer lugar, el texto que aparece en el título del explorador y, a continuación, en el encabezado secundario (el `<h2>` elemento). Nos aseguraremos de hacer ellos ligeramente diferente para que pueda ver qué bit de código que cambia qué parte de la aplicación.
+Open *MvcMovie\Views\HelloWorld\Index.vbhtml*. Hay dos lugares para realizar un cambio: en primer lugar, el texto que aparece en el título del explorador y, a continuación, en el encabezado secundario (el `<h2>` elemento). Nos aseguraremos de hacer ellos ligeramente diferente para que pueda ver qué bit de código que cambia qué parte de la aplicación.
 
 Ejecute la aplicación y vaya a`http://localhost:xx/HelloWorld`. Tenga en cuenta que el título del explorador, el encabezado principal y los encabezados secundarios han cambiado. Es fácil realizar grandes cambios en la aplicación con pequeños cambios en una vista. (Si no ve los cambios en el explorador, es posible que esté viendo contenido almacenado en caché. Presione Ctrl+F5 en el explorador para forzar que se cargue la respuesta del servidor).
 
@@ -111,11 +111,11 @@ Esto es lo que su **agregar vista** cuadro de diálogo es similar.
 
 [![3AddWelcomeView](adding-a-view/_static/image12.png "3AddWelcomeView")](adding-a-view/_static/image11.png)
 
-Agregue el código siguiente bajo la `<h2>` elemento en el nuevo *bienvenida.* archivo VBHTML. Se podrá realizar un bucle y diga &quot;Hello&quot; tantas veces como el usuario indica que deberíamos!
+Agregue el código siguiente bajo la `<h2>` elemento en el nuevo <em>bienvenida.</em> archivo VBHTML. Se podrá realizar un bucle y diga &quot;Hello&quot; tantas veces como el usuario indica que deberíamos!
 
 [!code-vbhtml[Main](adding-a-view/samples/sample8.vbhtml)]
 
-Ejecute la aplicación y vaya a`http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
+Ejecute la aplicación y vaya a `http://localhost:xx/HelloWorld/Welcome?name=Scott&numtimes=4`
 
 Ahora los datos se toma de la dirección URL y pasa automáticamente al controlador de. El controlador empaqueta los datos en un `Model` objeto y pasa ese objeto a la vista. La vista que muestra los datos como HTML al usuario.
 
@@ -123,6 +123,6 @@ Ahora los datos se toma de la dirección URL y pasa automáticamente al controla
 
 Bueno, que era un tipo de un &quot;M&quot; para el modelo, pero no el tipo de base de datos. Vamos a aprovechar lo que hemos aprendido para crear una base de datos de películas.
 
->[!div class="step-by-step"]
-[Anterior](adding-a-controller.md)
-[Siguiente](adding-a-model.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-controller.md)
+> [Siguiente](adding-a-model.md)

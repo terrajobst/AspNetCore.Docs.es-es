@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
-title: "La solución póngase en contacto con el administrador | Documentos de Microsoft"
+title: La solución póngase en contacto con el administrador | Documentos de Microsoft
 author: jrjlee
-description: "Esta serie de tutoriales utiliza una solución de ejemplo & #x 2014; la solución póngase en contacto con el administrador & #x 2014; para representar una aplicación de escala empresarial con una redistribución realista..."
+description: Esta serie de tutoriales usa una solución de ejemplo&#x2014;la solución póngase en contacto con el administrador&#x2014;para representar una aplicación de escala empresarial con una redistribución realista...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/the-contact-manager-solution
 msc.type: authoredcontent
-ms.openlocfilehash: b7f691a1ee855788f6a57616aea35d960e4c85c7
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: d7034f800df98747d10401d7e2c7297fea0e46d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="the-contact-manager-solution"></a>La solución póngase en contacto con el administrador
 ====================
@@ -24,7 +24,7 @@ por [Jason Lee](https://github.com/jrjlee)
 
 [Descarga de PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
-> Esto [serie de tutoriales](web-deployment-in-the-enterprise.md) usa una solución de ejemplo & #x 2014; la solución póngase en contacto con el administrador & #x 2014; para representar una aplicación de escala empresarial con un nivel de complejidad realista. Este tema presenta la solución póngase en contacto con el administrador, describe los componentes claves de la solución e identifica los desafíos en la implementación de este tipo de aplicación en diferentes plataformas de destino en un entorno empresarial.
+> Esto [serie de tutoriales](web-deployment-in-the-enterprise.md) usa una solución de ejemplo&#x2014;la solución póngase en contacto con el administrador&#x2014;para representar una aplicación de escala empresarial con un nivel de complejidad realista. Este tema presenta la solución póngase en contacto con el administrador, describe los componentes claves de la solución e identifica los desafíos en la implementación de este tipo de aplicación en diferentes plataformas de destino en un entorno empresarial.
 > 
 > Cuando se trabaja a través de los temas en estos tutoriales, puede usar la solución póngase en contacto con el administrador como una implementación de referencia que se muestra cómo puede cumplir los desafíos específicos en escenarios de implementación de empresa. El siguiente tema, [configuración de la solución de póngase en contacto con el Administrador de](setting-up-the-contact-manager-solution.md), se describe cómo descargar y ejecutar la solución en la estación de trabajo de desarrollador.
 
@@ -67,6 +67,6 @@ En este tema se proporciona una descripción general de la solución póngase en
 
 El siguiente tema, [configuración de la solución de póngase en contacto con el Administrador de](setting-up-the-contact-manager-solution.md), se describe cómo descargar y ejecutar la solución en la estación de trabajo de desarrollador.
 
->[!div class="step-by-step"]
-[Anterior](web-deployment-in-the-enterprise.md)
-[Siguiente](setting-up-the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Anterior](web-deployment-in-the-enterprise.md)
+> [Siguiente](setting-up-the-contact-manager-solution.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
-title: "Agregar un nuevo campo al modelo de película y tabla | Documentos de Microsoft"
+title: Agregar un nuevo campo al modelo de película y tabla | Documentos de Microsoft
 author: Rick-Anderson
-description: "Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones..."
+description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/28/2012
@@ -12,15 +12,15 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-new-field-to-the-movie-model-and-table
 msc.type: authoredcontent
-ms.openlocfilehash: 9965c8a755857a8e8cb8ecbc6c467a6c856aa83d
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: d8a42e9acdce687ab6e9742071dd2949f244622f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-new-field-to-the-movie-model-and-table"></a>Agregar un nuevo campo en el modelo de película como una tabla
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
 > > Hay disponible una versión actualizada de este tutorial [aquí](../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
@@ -107,7 +107,7 @@ Genere la aplicación mediante el **generar** &gt; **crear películas** menú co
 
 Ahora que ha actualizado el `Model` (clase), también debe actualizar el *\Views\Movies\Index.cshtml* y *\Views\Movies\Create.cshtml* ver plantillas para mostrar el nuevo `Rating`propiedad en la vista del explorador.
 
-Abra la*\Views\Movies\Index.cshtml* de archivos y agregar un `<th>Rating</th>` justo después de encabezado de columna la **precio** columna. A continuación, agregue un `<td>` columna cerca del final de la plantilla para representar la `@item.Rating` valor. A continuación se muestra qué actualizado *Index.cshtml* plantilla de vista es similar:
+Abra la<em>\Views\Movies\Index.cshtml</em> de archivos y agregar un `<th>Rating</th>` justo después de encabezado de columna la <strong>precio</strong> columna. A continuación, agregue un `<td>` columna cerca del final de la plantilla para representar la `@item.Rating` valor. A continuación se muestra qué actualizado <em>Index.cshtml</em> plantilla de vista es similar:
 
 [!code-cshtml[Main](adding-a-new-field-to-the-movie-model-and-table/samples/sample5.cshtml?highlight=26-28,46-48)]
 
@@ -173,6 +173,6 @@ Puede escribir el comando "update-database" en la **Package Manager Console** vo
 
 En esta sección se ha visto cómo puede modificar objetos de modelo y mantenerlos sincronizados con los cambios de la base de datos. También aprendió una forma de rellenar una base de datos recién creada con datos de ejemplo para probar escenarios. A continuación, echemos un vistazo a cómo puede agregar una lógica de validación a las clases del modelo y habilitar algunas reglas de negocios que se aplicará.
 
->[!div class="step-by-step"]
-[Anterior](examining-the-edit-methods-and-edit-view.md)
-[Siguiente](adding-validation-to-the-model.md)
+> [!div class="step-by-step"]
+> [Anterior](examining-the-edit-methods-and-edit-view.md)
+> [Siguiente](adding-validation-to-the-model.md)

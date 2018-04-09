@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
-title: "Dar formato al DataList y repetidor basándose en datos (C#) | Documentos de Microsoft"
+title: Dar formato al DataList y repetidor basándose en datos (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial guiaremos a través de ejemplos de cómo se dar formato a la apariencia de los controles DataList y repetidor, ya sea mediante funciones de formato con..."
+description: En este tutorial guiaremos a través de ejemplos de cómo se dar formato a la apariencia de los controles DataList y repetidor, ya sea mediante funciones de formato con...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 604aa63919a881e828b6a3620360c3d1133c5830
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00dac460ad905d34632bca3249e019ddc626e440
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a>Dar formato al DataList y repetidor basándose en datos (C#)
 ====================
@@ -42,19 +42,19 @@ Ambas de estas técnicas de formato están disponibles con los controles DataLis
 
 Cuando los datos se enlazan a un control DataList, desde un control de origen de datos o mediante la asignación mediante programación los datos al control s `DataSource` propiedad y llamar a su `DataBind()` método, el control DataList s `DataBinding` evento activa, el origen de datos de tipo enumerado y cada registro de datos está enlazada al control DataList. Para cada registro del origen de datos, el control DataList crea un [ `DataListItem` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalistitem.aspx) objeto que es, a continuación, enlazar el registro actual. Durante este proceso, el control DataList genera dos eventos:
 
-- **`ItemCreated`**se activa tras la `DataListItem` se ha creado
-- **`ItemDataBound`**se desencadena después de que el registro actual se ha enlazado a la`DataListItem`
+- **`ItemCreated`** se activa tras la `DataListItem` se ha creado
+- **`ItemDataBound`** se desencadena después de que el registro actual se ha enlazado a la `DataListItem`
 
 Los siguientes pasos describen el proceso de enlace de datos para el control DataList.
 
 1. El control DataList s [ `DataBinding` evento](https://msdn.microsoft.com/library/system.web.ui.control.databinding.aspx) se activa
 2. Los datos se enlazan al control DataList  
   
- Para cada registro del origen de datos 
+   Para cada registro del origen de datos 
 
     1. Crear un `DataListItem` objeto
     2. Activar la [ `ItemCreated` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemcreated.aspx)
-    3. Enlazar el registro de la`DataListItem`
+    3. Enlazar el registro de la `DataListItem`
     4. Activar la [ `ItemDataBound` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.itemdatabound.aspx)
     5. Agregar el `DataListItem` a la `Items` colección
 
@@ -172,7 +172,7 @@ Con las funciones de formato que se agrega a la clase de código subyacente de l
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample5.aspx)]
 
-En el control DataList s `ItemTemplate` el `ProductNameLabel` control Web Label actualmente muestra el nombre del producto s mediante la asignación de su `Text` propiedad el resultado de `<%# Eval("ProductName") %>`. Para que aparezca en ella el nombre junto con el texto [DISCONTINUED], si es necesario, actualice la sintaxis declarativa para que asigna en su lugar el `Text` el valor de la propiedad de la `DisplayProductNameAndDiscontinuedStatus` método. Al hacer esto, debemos pasar en el nombre de producto s y los valores no incluidos con el `Eval("columnName")` sintaxis. `Eval`Devuelve un valor de tipo `Object`, pero la `DisplayProductNameAndDiscontinuedStatus` método espera parámetros de entrada de tipo `String` y `Boolean`; por lo tanto, nos debemos convierte los valores devueltos por la `Eval` método a los tipos de parámetro de entrada esperada, de este modo:
+En el control DataList s `ItemTemplate` el `ProductNameLabel` control Web Label actualmente muestra el nombre del producto s mediante la asignación de su `Text` propiedad el resultado de `<%# Eval("ProductName") %>`. Para que aparezca en ella el nombre junto con el texto [DISCONTINUED], si es necesario, actualice la sintaxis declarativa para que asigna en su lugar el `Text` el valor de la propiedad de la `DisplayProductNameAndDiscontinuedStatus` método. Al hacer esto, debemos pasar en el nombre de producto s y los valores no incluidos con el `Eval("columnName")` sintaxis. `Eval` Devuelve un valor de tipo `Object`, pero la `DisplayProductNameAndDiscontinuedStatus` método espera parámetros de entrada de tipo `String` y `Boolean`; por lo tanto, nos debemos convierte los valores devueltos por la `Eval` método a los tipos de parámetro de entrada esperada, de este modo:
 
 
 [!code-aspx[Main](formatting-the-datalist-and-repeater-based-upon-data-cs/samples/sample6.aspx)]
@@ -200,12 +200,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Yaakov Ellis, Randy Schmidt y Liz Shulok. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](displaying-data-with-the-datalist-and-repeater-controls-cs.md)
-[Siguiente](showing-multiple-records-per-row-with-the-datalist-control-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](displaying-data-with-the-datalist-and-repeater-controls-cs.md)
+> [Siguiente](showing-multiple-records-per-row-with-the-datalist-control-cs.md)

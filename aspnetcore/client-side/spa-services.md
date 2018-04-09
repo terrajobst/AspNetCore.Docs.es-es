@@ -1,7 +1,7 @@
 ---
-title: "Usar JavaScriptServices para crear aplicaciones de una página de ASP.NET Core"
+title: Usar JavaScriptServices para crear aplicaciones de una página de ASP.NET Core
 author: scottaddie
-description: "Obtenga información acerca de las ventajas de usar JavaScriptServices para crear una aplicación de página única (SPA) respaldado por ASP.NET Core."
+description: Obtenga información acerca de las ventajas de usar JavaScriptServices para crear una aplicación de página única (SPA) respaldado por ASP.NET Core.
 manager: wpickett
 ms.author: scaddie
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: c962fc160cf39ad1c69f4269616c993fde420035
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Usar JavaScriptServices para crear aplicaciones de una página de ASP.NET Core
 
@@ -62,7 +62,7 @@ Colectivamente, estos componentes de infraestructura mejoran el flujo de trabajo
 
 Para trabajar con SpaServices, instalar lo siguiente:
 * [Node.js](https://nodejs.org/) (versión 6 o posterior) con npm
-    * Para comprobar que estos componentes se instalan y se encuentra, ejecute lo siguiente desde la línea de comandos:
+  * Para comprobar que estos componentes se instalan y se encuentra, ejecute lo siguiente desde la línea de comandos:
 
     ```console
     node -v && npm -v
@@ -70,8 +70,9 @@ Para trabajar con SpaServices, instalar lo siguiente:
 
 Nota: Si va a implementar en un sitio web de Azure, no es necesario hacer nada aquí &mdash; Node.js está instalada y disponible en los entornos de servidor.
 
-* [.NET core SDK](https://www.microsoft.com/net/download/core) 1.0 (o posterior)
-    * Si está en Windows, esto se puede instalar mediante la selección de Visual Studio 2017 **.NET Core el desarrollo multiplataforma** carga de trabajo.
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+
+  * Si está en Windows con Visual Studio de 2017, está instalado el SDK seleccionando la **.NET Core el desarrollo multiplataforma** carga de trabajo.
 
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) paquete de NuGet
 
@@ -262,7 +263,7 @@ Existen dos modos de configuración en tiempo de ejecución principal:
     * Excluye los mapas de código fuente.
     * Optimiza el código de cliente a través de agrupación y minificación.
 
-ASP.NET Core utiliza una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Vea  **[establecer el entorno de](xref:fundamentals/environments#setting-the-environment)**  para obtener más información.
+ASP.NET Core utiliza una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Vea **[establecer el entorno de](xref:fundamentals/environments#setting-the-environment)** para obtener más información.
 
 ### <a name="running-with-net-core-cli"></a>Ejecutar con .NET Core CLI
 

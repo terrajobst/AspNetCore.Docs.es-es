@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/customizing-database-deployments-for-multiple-environments
 msc.type: authoredcontent
-ms.openlocfilehash: f3ca344c2466d9d538f55cd8ff0a5bf5b7bac808
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 06f22bc9a3068ee5621df62ee5ed1bea06d7e9e6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="customizing-database-deployments-for-multiple-environments"></a>Personalización de las implementaciones de la base de datos para varios entornos
 ====================
@@ -35,9 +35,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > En un proyecto de base de datos de Visual Studio 2010, configuración de implementación está dentro de un archivo de configuración (.sqldeployment) de la implementación. En este tema le mostrará cómo crear archivos de configuración de implementación específicas del entorno y especificar las restricciones que desea usar como un parámetro VSDBCMD.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
@@ -146,6 +146,6 @@ Estos artículos en MSDN proporcionan más información general sobre la impleme
 - [Compilar e implementar bases de datos en un entorno de desarrollo aislado](https://msdn.microsoft.com/library/dd193409.aspx)
 - [Compilar e implementar bases de datos en un entorno de producción o ensayo](https://msdn.microsoft.com/library/dd193413.aspx)
 
->[!div class="step-by-step"]
-[Anterior](performing-a-what-if-deployment.md)
-[Siguiente](deploying-database-role-memberships-to-test-environments.md)
+> [!div class="step-by-step"]
+> [Anterior](performing-a-what-if-deployment.md)
+> [Siguiente](deploying-database-role-memberships-to-test-environments.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
-title: "Ejecución de las animaciones mediante código del lado cliente (VB) | Documentos de Microsoft"
+title: Ejecución de las animaciones mediante código del lado cliente (VB) | Documentos de Microsoft
 author: wenz
-description: "El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. La ejecución de la animación..."
+description: El control de animación en el Kit de herramientas de Control de AJAX de ASP.NET no es simplemente un control sino un marco completo para agregar animaciones a un control. La ejecución de la animación...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/executing-animations-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c97ce87addd566ed1ba63ccdb81206c6449f49a2
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e2b8c499edaccc70d439a576feb80e91cb28c1c7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="executing-animations-using-client-side-code-vb"></a>Ejecución de las animaciones mediante código del lado cliente (VB)
 ====================
@@ -70,6 +70,6 @@ Este es el código de JavaScript completo de cliente que emula el haga clic en e
 
 La animación se ejecuta inmediatamente, sin un clic del mouse ([haga clic aquí para ver la imagen a tamaño completo](executing-animations-using-client-side-code-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](modifying-animations-from-the-server-side-vb.md)
-[Siguiente](changing-an-animation-using-client-side-code-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](modifying-animations-from-the-server-side-vb.md)
+> [Siguiente](changing-an-animation-using-client-side-code-vb.md)

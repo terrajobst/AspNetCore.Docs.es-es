@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
-title: "Información general de editar y eliminar datos en el control DataList (VB) | Documentos de Microsoft"
+title: Información general de editar y eliminar datos en el control DataList (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "Mientras el control DataList no tiene integrada editar y eliminar funciones, en este tutorial veremos cómo crear a un control DataList que admite Editar y eliminar o..."
+description: Mientras el control DataList no tiene integrada editar y eliminar funciones, en este tutorial veremos cómo crear a un control DataList que admite Editar y eliminar o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e08b55f763677a40a03503e54a23dc77a10a34f5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6956777e91184a92e189db7aa716a4bd7dbbfccd
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>Información general de editar y eliminar datos en el control DataList (VB)
 ====================
@@ -249,7 +249,7 @@ Al hacer clic en los botones de cancelación o actualización del producto edita
 
 Para que el control DataList representar todos sus elementos en el modo de solo lectura, es necesario:
 
-1. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1`es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
+1. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1` es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
 2. Volver a enlazar los datos al control DataList. Desde no `DataListItem` `ItemIndex` es corresponden al control DataList s `EditItemIndex`, DataList completo se representará en un modo de solo lectura.
 
 Estos pasos pueden realizarse con el siguiente código de controlador de eventos:
@@ -263,7 +263,7 @@ Es el último controlador de eventos es necesario para completar la `UpdateComma
 
 1. Obtener acceso mediante programación el nombre del producto introducidos por el usuario y el precio, así como el producto editado s `ProductID`.
 2. Iniciar el proceso de actualización mediante una llamada a la correspondiente `UpdateProduct` sobrecarga en el `ProductsBLL` clase.
-3. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1`es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
+3. Establecer el control DataList s [ `EditItemIndex` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.datalist.edititemindex.aspx) en el índice de un inexistente `DataListItem` índice. `-1` es una opción segura, ya que la `DataListItem` índices empiezan en `0`.
 4. Volver a enlazar los datos al control DataList. Desde no `DataListItem` `ItemIndex` es corresponden al control DataList s `EditItemIndex`, DataList completo se representará en un modo de solo lectura.
 
 Los pasos 1 y 2 son responsables de guardar al usuario los cambios de s; los pasos 3 y 4 devuelven DataList a su estado anterior edición después de que los cambios se guardaron y son idénticos a los pasos realizados en el `CancelCommand` controlador de eventos.
@@ -339,12 +339,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Zack Jones, Ken Pespisa y Randy Schmidt. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](customizing-the-datalist-s-editing-interface-cs.md)
-[Siguiente](performing-batch-updates-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](customizing-the-datalist-s-editing-interface-cs.md)
+> [Siguiente](performing-batch-updates-vb.md)

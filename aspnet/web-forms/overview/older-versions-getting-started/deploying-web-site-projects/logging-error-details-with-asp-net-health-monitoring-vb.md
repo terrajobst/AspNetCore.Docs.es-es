@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
-title: "El registro de detalles del Error (VB) de supervisión de estado de ASP.NET | Documentos de Microsoft"
+title: El registro de detalles del Error (VB) de supervisión de estado de ASP.NET | Documentos de Microsoft
 author: rick-anderson
-description: "Sistema de supervisión de estado de Microsoft proporciona una manera fácil y personalizable para registrar varios eventos de web, incluidas las excepciones no controladas. Este tutorial le guía acc..."
+description: Sistema de supervisión de estado de Microsoft proporciona una manera fácil y personalizable para registrar varios eventos de web, incluidas las excepciones no controladas. Este tutorial le guía acc...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/09/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 83f7504e3aeb02ed222712e7e51f612f7ffd5744
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0a457d4b8773f0f4ed343f5005c76f48a5cc178f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-vb"></a>Detalles de Error de registro con (VB) de supervisión de estado de ASP.NET
 ====================
@@ -154,6 +154,6 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Cómo: Usar la supervisión de estado en ASP.NET](https://msdn.microsoft.com/library/ms998306.aspx)
 - [Estado de supervisión en ASP.NET](http://aspnet.4guysfromrolla.com/articles/031407-1.aspx)
 
->[!div class="step-by-step"]
-[Anterior](processing-unhandled-exceptions-vb.md)
-[Siguiente](logging-error-details-with-elmah-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](processing-unhandled-exceptions-vb.md)
+> [Siguiente](logging-error-details-with-elmah-vb.md)

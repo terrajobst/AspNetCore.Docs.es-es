@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
-title: "Cómo agregar un controlador | Documentos de Microsoft"
+title: Cómo agregar un controlador | Documentos de Microsoft
 author: shanselman
-description: "Una versión actualizada, si este tutorial está disponible aquí con Visual Studio 2013. El nuevo tutorial usa ASP.NET MVC 5, que proporciona muchas mejoras con respecto a t..."
+description: Una versión actualizada, si este tutorial está disponible aquí con Visual Studio 2013. El nuevo tutorial usa ASP.NET MVC 5, que proporciona muchas mejoras con respecto a t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part2
 msc.type: authoredcontent
-ms.openlocfilehash: 93a362cf83d39b29fcba3f2dee0c28257805a89e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c6ecd1ffdd53a629d0079d57b85c7f6db2f316ce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-controller"></a>Agregar un controlador
 ====================
@@ -57,7 +57,7 @@ El controlador se denomina HelloWorldController y se llama al método nuevo índ
 
 ASP.NET MVC invoca distintas clases de controlador (y diferentes métodos de acción dentro de ellas) dependiendo de la dirección URL entrante. La lógica de asignación predeterminada usa ASP.NET MVC utiliza un formato similar al siguiente para controlar qué código se ejecuta:
 
-/ [Controller] / [ActionName] / [parámetros]
+/[Controller]/[ActionName]/[Parameters]
 
 La primera parte de la dirección URL determina la clase de controlador que se ejecutará. Por lo que /HelloWorld se asigna a la clase HelloWorldController. La segunda parte de la dirección URL determina el método de acción en la clase que se ejecutará. Por lo que /HelloWorld/Index provocaría que el método Index() de la clase HelloWorldcontroller que se ejecutará. Tenga en cuenta que solo se tenía visite /HelloWorld anterior y el método que índice estaba implícito. Esto es porque un método denominado "Índice" es el método predeterminado que se llamará en un controlador si no se especifica explícitamente.
 
@@ -77,6 +77,6 @@ Ejecute la aplicación y visite `http://localhost:xx/HelloWorld/Welcome?name=Sco
 
 En estos ejemplos de ambos el controlador ha sido realizar todo el trabajo y ha sido devolver HTML directamente. Normalmente no es aconsejable nuestro controladores devolver directamente - HTML desde que acabe siendo muy complicadas de código. En su lugar, vamos a usar normalmente un archivo de plantilla de vista independiente para ayudar a generar la respuesta HTML. Echemos un vistazo a cómo podemos hacer esto. Cierre el explorador y volver al IDE.
 
->[!div class="step-by-step"]
-[Anterior](getting-started-with-mvc-part1.md)
-[Siguiente](getting-started-with-mvc-part3.md)
+> [!div class="step-by-step"]
+> [Anterior](getting-started-with-mvc-part1.md)
+> [Siguiente](getting-started-with-mvc-part3.md)

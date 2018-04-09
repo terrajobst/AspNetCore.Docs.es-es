@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementación de SQL Server Compact bases de datos - 2 de 12 | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementación de SQL Server Compact bases de datos - 2 de 12 | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: 5296bc1ca3fd0b24123bd79a550a7e2cffc34a44
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7e2d430bd8e07ed7d97d11a00c61d90beeac005f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-sql-server-compact-databases---2-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementación de SQL Server Compact bases de datos - 2 de 12
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -190,7 +190,7 @@ Inicie sesión como "admin" con la contraseña "Pa$ w0rd" (tenga en cuenta el n�
 Cuando se implementa un sitio por primera vez, es común para excluir la mayoría o todas las cuentas de usuario creadas para las pruebas. En este caso, va a implementar una cuenta de administrador y no hay ninguna cuenta de usuario. En lugar de eliminar manualmente las cuentas de prueba, creará una nueva base de datos de pertenencia que tiene solo la cuenta de usuario de un administrador que necesite en producción.
 
 > [!NOTE]
-> La base de datos de pertenencia almacena un valor hash de las contraseñas de cuentas. Para implementar las cuentas de un equipo a otro, debe asegurarse de que las rutinas de hash no generan hash diferentes en el servidor de destino que lo hacen en el equipo de origen. Generará el mismo hash cuando se usan ASP.NET Universal Providers, siempre y cuando no cambie el algoritmo predeterminado. El algoritmo predeterminado es HMACSHA256 y se especifica en el **validación** atributo de la  **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)**  elemento en el archivo Web.config.
+> La base de datos de pertenencia almacena un valor hash de las contraseñas de cuentas. Para implementar las cuentas de un equipo a otro, debe asegurarse de que las rutinas de hash no generan hash diferentes en el servidor de destino que lo hacen en el equipo de origen. Generará el mismo hash cuando se usan ASP.NET Universal Providers, siempre y cuando no cambie el algoritmo predeterminado. El algoritmo predeterminado es HMACSHA256 y se especifica en el **validación** atributo de la **[machineKey](https://msdn.microsoft.com/library/w8h3skw9.aspx)** elemento en el archivo Web.config.
 
 
 Migraciones de Code First no mantiene la base de datos de pertenencia y no hay ningún inicializador automática que propaga la base de datos con las cuentas de prueba (como sucede con la base de datos School). Por lo tanto, para mantener los datos de prueba disponibles realizará una copia de la base de datos de prueba antes de crear uno nuevo.
@@ -245,6 +245,6 @@ El motor de base de datos de SQL Server Compact y ambas bases de datos están li
 
 Para obtener más información sobre NuGet, consulte [administrar bibliotecas de proyecto con NuGet](https://msdn.microsoft.com/magazine/hh547106.aspx) y [documentación de NuGet](http://docs.nuget.org/docs/start-here/overview). Si no desea usar NuGet, debe aprender cómo analizar un paquete de NuGet para determinar lo que hace cuando se instala. (Por ejemplo, puede configurar *Web.config* transformaciones, configurar secuencias de comandos de PowerShell para ejecutar en tiempo de compilación, etcetera.) Para más información acerca del funcionamiento de NuGet, consulte especialmente [crear y publicar un paquete](http://docs.nuget.org/docs/creating-packages/creating-and-publishing-a-package) y [archivo de configuración y las transformaciones de código de origen](http://docs.nuget.org/docs/creating-packages/configuration-file-and-source-code-transformations).
 
->[!div class="step-by-step"]
-[Anterior](deployment-to-a-hosting-provider-introduction-1-of-12.md)
-[Siguiente](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)
+> [!div class="step-by-step"]
+> [Anterior](deployment-to-a-hosting-provider-introduction-1-of-12.md)
+> [Siguiente](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12.md)

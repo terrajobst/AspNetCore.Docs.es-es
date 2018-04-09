@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
-title: "Crear un punto de conexión de OData v3 con Web API 2 | Documentos de Microsoft"
+title: Crear un punto de conexión de OData v3 con Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: "Open Data Protocol (OData) es un protocolo de acceso de datos para la web. OData proporciona un método uniforme de datos de estructura, consultar los datos y manipular los datos..."
+description: Open Data Protocol (OData) es un protocolo de acceso de datos para la web. OData proporciona un método uniforme de datos de estructura, consultar los datos y manipular los datos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 33fe4d764bf9bf64c852f1269255925b5cc42536
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 227faacd3f42731e08a4cd2b71075776309961b6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Crear un punto de conexión de OData v3 con Web API 2
 ====================
@@ -150,7 +150,7 @@ El **MapODataRoute** método agrega una ruta para el extremo de OData.
 
 [!code-csharp[Main](creating-an-odata-endpoint/samples/sample4.cs)]
 
-El primer parámetro es un nombre descriptivo para la ruta. Los clientes del servicio no ve este nombre. El segundo parámetro es el prefijo URI para el punto de conexión. Con este código, el URI para el conjunto de entidades de productos es http://*hostname*  /odata/productos. La aplicación puede tener más de un extremo de OData. Para cada punto de conexión, llame a **MapODataRoute** y proporcione un nombre de ruta único y un prefijo de identificador URI único.
+El primer parámetro es un nombre descriptivo para la ruta. Los clientes del servicio no ve este nombre. El segundo parámetro es el prefijo URI para el punto de conexión. Con este código, el URI para el conjunto de entidades de productos es http://<em>hostname</em>  /odata/productos. La aplicación puede tener más de un extremo de OData. Para cada punto de conexión, llame a <strong>MapODataRoute</strong> y proporcione un nombre de ruta único y un prefijo de identificador URI único.
 
 <a id="seed-db"></a>
 ## <a name="seed-the-database-optional"></a>Valor de inicialización de la base de datos (opcional)

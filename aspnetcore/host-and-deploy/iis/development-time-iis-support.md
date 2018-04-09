@@ -1,7 +1,7 @@
 ---
 title: Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 author: shirhatti
-description: "Descubrir compatibilidad para depurar aplicaciones de ASP.NET Core cuando se ejecuta detrás de IIS en Windows Server."
+description: Descubrir compatibilidad para depurar aplicaciones de ASP.NET Core cuando se ejecuta detrás de IIS en Windows Server.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,22 +10,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/development-time-iis-support
-ms.openlocfilehash: a8bdf4c0c0399c62666e6e61e70c0298a42c2c12
-ms.sourcegitcommit: 9f758b1550fcae88ab1eb284798a89e6320548a5
+ms.openlocfilehash: 218bb2653b92cd7b1cf2c6726b2d4bedbf307a62
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="development-time-iis-support-in-visual-studio-for-aspnet-core"></a>Compatibilidad de IIS de tiempo de desarrollo en Visual Studio para ASP.NET Core
 
-De: [Sourabh Shirhatti](https://twitter.com/sshirhatti)
+Por [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
 Este artículo se describen [Visual Studio](https://www.visualstudio.com/vs/) la compatibilidad para depurar aplicaciones de ASP.NET Core que se ejecutan detrás de IIS en Windows Server. Este tema le guía a través de habilitar esta característica y configurar un proyecto.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Visual Studio (2017, versión 15.3 o una posterior)
-* Carga de trabajo de desarrollo de ASP.NET y web *O BIEN* la carga de trabajo de desarrollo multiplataforma de .NET Core
+[!INCLUDE [](~/includes/net-core-prereqs-windows.md)]
 
 ## <a name="enable-iis"></a>Habilitar IIS
 
@@ -45,7 +44,7 @@ Inicie al instalador de Visual Studio. Seleccione el **IIS compatible con el tie
 
 Cree un nuevo perfil de inicio para agregar la compatibilidad con IIS en tiempo de desarrollo. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**. Seleccione la pestaña **Depurar**. Seleccione **IIS** en el menú desplegable **Iniciar**. Confirme que la característica **Iniciar explorador** esté habilitada con la URL correcta.
 
-![Ventana Propiedades del proyecto con la pestaña Depurar seleccionada. Los valores Perfil e Inicio están definidos en IIS. La característica Iniciar explorador está habilitada con una dirección de http://localhost/WebApplication2. La misma dirección también se proporciona en el campo Dirección URL de la aplicación de la sección Configuración del servidor web con la opción Habilitar autenticación anónima habilitada.](development-time-iis-support/_static/project_properties.png)
+![Ventana Propiedades del proyecto con la pestaña Depurar seleccionada. Los valores Perfil e Inicio están definidos en IIS. La característica del explorador de inicio está habilitada con la dirección http://localhost/WebApplication2. La misma dirección también se proporciona en el campo Dirección URL de la aplicación de la sección Configuración del servidor web con la opción Habilitar autenticación anónima habilitada.](development-time-iis-support/_static/project_properties.png)
 
 O bien, agregar manualmente un perfil de inicio para la [launchSettings.json](http://json.schemastore.org/launchsettings) archivo en la aplicación:
 

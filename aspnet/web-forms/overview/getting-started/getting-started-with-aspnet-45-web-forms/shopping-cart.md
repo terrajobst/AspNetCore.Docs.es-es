@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 title: Carro de la compra | Documentos de Microsoft
 author: Erikre
-description: "Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se..."
+description: Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/shopping-cart
 msc.type: authoredcontent
-ms.openlocfilehash: 9fe6f28685d6a423b03f9c7abe753283b89344e1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8e96da7737cdf649575711a464c4f7726cb6ded
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="shopping-cart"></a>Carro de la compra
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 [Descargar el proyecto de ejemplo de Wingtip Toys (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [descargar libros electrónicos (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -66,7 +66,7 @@ Anteriormente en esta serie de tutoriales, ha definido el esquema para los datos
     ![Carro de la compra - Agregar nuevo elemento de cuadro de diálogo](shopping-cart/_static/image2.png)
 3. Esta nueva clase el nombre *CartItem.cs*.
 4. Haga clic en **Agregar**.  
- El nuevo archivo de clase se muestra en el editor.
+   El nuevo archivo de clase se muestra en el editor.
 5. Reemplace el código predeterminado por el código siguiente:   
 
     [!code-csharp[Main](shopping-cart/samples/sample1.cs)]
@@ -136,7 +136,7 @@ Como se mencionó anteriormente, se creará una página de procesamiento denomin
 #### <a name="to-create-the-add-to-cart-functionality"></a>Para crear el complemento al carro funcionalidad:
 
 1. En **el Explorador de soluciones**, haga clic en el **WingtipToys**proyecto de equipo y haga clic en **agregar**  - &gt; **nuevo elemento**.  
- Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
+   Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
 2. Agregar una nueva página estándar (formulario Web Forms) a la aplicación denominada *AddToCart.aspx*. 
 
     ![Carro de la compra - Agregar formulario Web Forms](shopping-cart/_static/image4.png)
@@ -154,7 +154,7 @@ Como se mencionó anteriormente, un usuario `ID` se usa para identificar los pro
 El *ShoppingCart.aspx* página mostrará los productos que el usuario ha agregado a su carro de la compra. También ofrecerá la capacidad de agregar, quitar y actualizar los elementos en el carro de la compra.
 
 1. En **el Explorador de soluciones**, haga clic en **WingtipToys**, haga clic en **agregar**  - &gt; **nuevo elemento**.  
- Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
+   Se abrirá el cuadro de diálogo **Agregar nuevo elemento**.
 2. Agregue una nueva página (formulario Web Forms) que incluye una página maestra seleccionando **formulario Web con página maestra**. Nombre de la nueva página *ShoppingCart.aspx*.
 3. Seleccione **Site.Master** para adjuntar la página maestra a recién creado *.aspx* página.
 4. En el *ShoppingCart.aspx* página, reemplace el marcado existente con el marcado siguiente:   
@@ -323,6 +323,6 @@ Carro de la compra admite agregar, eliminar y actualizar los elementos que el us
 
 [Información general del estado de sesión de ASP.NET](https://msdn.microsoft.com/library/ms178581.aspx)
 
->[!div class="step-by-step"]
-[Anterior](display_data_items_and_details.md)
-[Siguiente](checkout-and-payment-with-paypal.md)
+> [!div class="step-by-step"]
+> [Anterior](display_data_items_and_details.md)
+> [Siguiente](checkout-and-payment-with-paypal.md)

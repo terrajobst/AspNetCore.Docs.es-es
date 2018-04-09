@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 title: 'Parte 3: Vistas y ViewModels | Documentos de Microsoft'
 author: jongalloway
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 3 cubre vistas y ViewModels."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET. Parte 3 cubre vistas y ViewModels.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/21/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 5b38f88283c5d2d93f0bab283dbd9451855d95e3
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 497c2898db2e03b0650982c3ad1e6b5ac5ca639d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-3-views-and-viewmodels"></a>Parte 3: Vistas y ViewModels
 ====================
@@ -262,6 +262,6 @@ El código HTML de la lista de género tiene el siguiente aspecto:
 [!code-html[Main](mvc-music-store-part-3/samples/sample22.html)]
 
 
->[!div class="step-by-step"]
-[Anterior](mvc-music-store-part-2.md)
-[Siguiente](mvc-music-store-part-4.md)
+> [!div class="step-by-step"]
+> [Anterior](mvc-music-store-part-2.md)
+> [Siguiente](mvc-music-store-part-4.md)

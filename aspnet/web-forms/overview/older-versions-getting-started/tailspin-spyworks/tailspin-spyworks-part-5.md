@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
-title: "-Parte 5: Lógica de negocios | Documentos de Microsoft"
+title: '-Parte 5: Lógica de negocios | Documentos de Microsoft'
 author: JoeStagner
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 5 agrega alguna lógica de negocios."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 5 agrega alguna lógica de negocios.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-5
 msc.type: authoredcontent
-ms.openlocfilehash: e205788e05a2ad94d86d4847c11c40898b1c3113
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e4342e634ef8c4bcf4e0085650a28f414ab23736
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-5-business-logic"></a>-Parte 5: Lógica de negocios
 ====================
@@ -27,7 +27,7 @@ por [Joe Stagner](https://github.com/JoeStagner)
 > Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 5 agrega alguna lógica de negocios.
 
 
-## <a id="_Toc260221671"></a>Agregar alguna lógica de negocios
+## <a id="_Toc260221671"></a>  Agregar alguna lógica de negocios
 
 Deseamos que nuestra experiencia compra esté disponible cada vez que alguien visite nuestro sitio web. Los visitantes podrán examinar y agregar elementos al carro de la compra, incluso si no están registrados o registrados en. Cuando estén listas desproteger se le dará la opción de autenticar y si no lo son todavía los miembros podrán crear una cuenta.
 
@@ -85,7 +85,7 @@ Suponiendo que no hay errores se encuentran el control pasa a la página de SHop
 
 Actualmente nos hemos no ha implementado un controlador de errores global para esta excepción quedarían no controlada por nuestra aplicación, pero se solucionará esto en breve.
 
-Tenga en cuenta también el uso de la instrucción Debug.Fail() (disponible a través de`using System.Diagnostics;)`
+Tenga en cuenta también el uso de la instrucción Debug.Fail() (disponible a través de `using System.Diagnostics;)`
 
 Es la aplicación se ejecuta en el depurador, este método mostrará un cuadro de diálogo detallado con información sobre el estado de las aplicaciones junto con el mensaje de error que se especifique.
 
@@ -187,6 +187,6 @@ En esta fase de desarrollo del proyecto ahora obtenemos está listos para implem
 
 Antes de que al hacerlo, vamos a usar Visual Studio para generar la base de datos de pertenencia y agregar un usuario en el repositorio de pertenencia.
 
->[!div class="step-by-step"]
-[Anterior](tailspin-spyworks-part-4.md)
-[Siguiente](tailspin-spyworks-part-6.md)
+> [!div class="step-by-step"]
+> [Anterior](tailspin-spyworks-part-4.md)
+> [Siguiente](tailspin-spyworks-part-6.md)

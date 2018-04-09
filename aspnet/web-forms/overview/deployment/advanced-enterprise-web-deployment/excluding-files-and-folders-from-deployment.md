@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
-title: "Excluir archivos y carpetas de implementación | Documentos de Microsoft"
+title: Excluir archivos y carpetas de implementación | Documentos de Microsoft
 author: jrjlee
-description: "Este tema describe cómo puede excluir archivos y carpetas de un paquete de implementación web cuando se compila y empaqueta un proyecto de aplicación web."
+description: Este tema describe cómo puede excluir archivos y carpetas de un paquete de implementación web cuando se compila y empaqueta un proyecto de aplicación web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 80810415bac473a58f60110fb9d08772e0627bd5
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c435448bf057bbef9127d66ffda24a07729f2322
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="excluding-files-and-folders-from-deployment"></a>Excluir archivos y carpetas de implementación
 ====================
@@ -27,9 +27,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > Este tema describe cómo puede excluir archivos y carpetas de un paquete de implementación web cuando se compila y empaqueta un proyecto de aplicación web.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](../web-deployment-in-the-enterprise/the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="overview"></a>Información general
 
@@ -74,7 +74,7 @@ Aunque podría manipular los archivos de proyecto para excluir determinados arch
 1. Cree un archivo de proyecto personalizado denominado *.wpp.targets [nombre del proyecto]* en la misma carpeta que el archivo de proyecto.
 
     > [!NOTE]
-    > El *. wpp.targets* archivo debe estar en la misma carpeta que el archivo de proyecto de aplicación web & #x 2014; por ejemplo, *ContactManager.Mvc.csproj*& #x 2014; en lugar de en la misma carpeta cualquiera archivos de proyecto personalizadas que se usan al control de la compilación y proceso de implementación.
+    > El *. wpp.targets* archivo debe estar en la misma carpeta que el archivo de proyecto de aplicación web&#x2014;por ejemplo, *ContactManager.Mvc.csproj*&#x2014;en lugar de en la misma carpeta que personalizada archivos de proyecto que se usan para controlar el proceso de compilación e implementación.
 2. En el *. wpp.targets* , agregue un **ItemGroup** elemento.
 3. En el **ItemGroup** elemento, agregar **ExcludeFromPackageFolders** y **ExcludeFromPackageFiles** elementos para excluir determinados archivos y carpetas según sea necesario.
 
@@ -106,16 +106,16 @@ El procedimiento siguiente muestra cómo agregar un *. wpp.targets* archivo para
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample2.xml)]
 6. Si desea excluir carpetas del paquete web, agregue un **ExcludeFromPackageFolders** elemento a la **ItemGroup** elemento:
 
-    1. En el **Include** atributo, proporcione una lista separada por comas de las carpetas que desea excluir.
-    2. En el **FromTarget** elemento de metadatos, proporcionar un valor significativo para indicar por qué se se excluyen las carpetas, como el nombre de la *. wpp.targets* archivo.
+   1. En el **Include** atributo, proporcione una lista separada por comas de las carpetas que desea excluir.
+   2. En el **FromTarget** elemento de metadatos, proporcionar un valor significativo para indicar por qué se se excluyen las carpetas, como el nombre de la *. wpp.targets* archivo.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample3.xml)]
 7. Si desea excluir archivos del paquete web, agregue un **ExcludeFromPackageFiles** elemento a la **ItemGroup** elemento:
 
-    1. En el **Include** atributo, proporcione una lista separada por comas de los archivos que desee excluir.
-    2. En el **FromTarget** elemento de metadatos, proporcionar un valor significativo para indicar por qué se se excluyen los archivos, como el nombre de la *. wpp.targets* archivo.
+   1. En el **Include** atributo, proporcione una lista separada por comas de los archivos que desee excluir.
+   2. En el **FromTarget** elemento de metadatos, proporcionar un valor significativo para indicar por qué se se excluyen los archivos, como el nombre de la *. wpp.targets* archivo.
 
-    [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
+      [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample4.xml)]
 8. El *.wpp.targets [nombre del proyecto]* archivo debe ser ahora similar esto:
 
     [!code-xml[Main](excluding-files-and-folders-from-deployment/samples/sample5.xml)]
@@ -131,6 +131,6 @@ En este tema se describe cómo excluir archivos y carpetas específicos cuando s
 
 Para obtener más información sobre el uso de archivos de proyecto personalizados de Microsoft Build Engine (MSBuild) para controlar el proceso de implementación, consulte [comprender el archivo de proyecto](../web-deployment-in-the-enterprise/understanding-the-project-file.md) y [descripción del proceso de compilación](../web-deployment-in-the-enterprise/understanding-the-build-process.md). Para obtener más información sobre el empaquetado y el proceso de implementación, consulte [edificio y proyectos de aplicación Web de empaquetado](../web-deployment-in-the-enterprise/building-and-packaging-web-application-projects.md), [configurar parámetros para la implementación de paquete de Web](../web-deployment-in-the-enterprise/configuring-parameters-for-web-package-deployment.md), y [ Implementar paquetes de Web](../web-deployment-in-the-enterprise/deploying-web-packages.md).
 
->[!div class="step-by-step"]
-[Anterior](deploying-membership-databases-to-enterprise-environments.md)
-[Siguiente](taking-web-applications-offline-with-web-deploy.md)
+> [!div class="step-by-step"]
+> [Anterior](deploying-membership-databases-to-enterprise-environments.md)
+> [Siguiente](taking-web-applications-offline-with-web-deploy.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/readme/overview
-title: "Archivo Léame de WebMatrix | Documentos de Microsoft"
+title: Archivo Léame de WebMatrix | Documentos de Microsoft
 author: rick-anderson
-description: "WebMatrix y ASP.NET Web Pages (Razor) versión 1.0 Léame"
+description: WebMatrix y ASP.NET Web Pages (Razor) versión 1.0 Léame
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/06/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: b8402aa3db1b2566878c4d56212facbbb2925eec
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="webmatrix-readme"></a>Archivo Léame de WebMatrix
 ====================
@@ -126,7 +126,7 @@ Esta sección del documento describe nuevas características, los cambios y los 
 - [Cambios](#Changes)
 - [Problemas](#Issues)
 
-#### <a id="NewFeatures"></a>Nuevas características
+#### <a id="NewFeatures"></a>  Nuevas características
 
 #### <a name="new-configuration-setting-added-to-disable-the-package-manager"></a>Nuevo: Agrega la opción de configuración para deshabilitar al administrador de paquetes
 
@@ -135,14 +135,14 @@ Esta sección del documento describe nuevas características, los cambios y los 
 > [!code-xml[Main](overview/samples/sample1.xml)]
 
 
-#### <a id="Changes"></a>Cambios
+#### <a id="Changes"></a>  Cambios
 
 #### <a name="change-webpagesadminfoldervirtualpath-key-renamed-to-aspadminfoldervirtualpath"></a>Cambiar: la clave de "webPages:AdminFolderVirtualPath" cambiada a "asp: AdminFolderVirtualPath"
 
 > El `webPages:AdminFolderVirtualPath` clave que puede agregarse a la *web.config* archivo para especificar la ubicación del Administrador de paquetes se cambió para usar el `asp:` espacio de nombres en lugar de la `webPages` espacio de nombres. Si ha usado este elemento, debe cambiar el nombre del archivo de configuración.
 
 
-#### <a id="Issues"></a>Problemas conocidos
+#### <a id="Issues"></a>  Problemas conocidos
 
 #### <a name="issue-passwords-for-membership-users-no-longer-recognized"></a>Problema: Contraseñas para los usuarios de pertenencia que ya no se reconoce
 
@@ -226,7 +226,7 @@ Esta sección del documento describe nuevas características, los cambios y los 
 > Si desinstala la versión 4 de .NET Framework y, a continuación, vuelva a instalarlo, se deshabilita ASP.NET Web Pages con sintaxis Razor. Páginas con la *.cshtml* extensión no se ejecutan correctamente. Las páginas Web ASP.NET registra un ensamblado en la raíz de la máquina *web.config* archivo y quitar .NET Framework se elimina el archivo. Volver a instalar .NET Framework instala una nueva versión del archivo de configuración, pero no agrega la referencia del ensamblado de ASP.NET Web Pages.
 > 
 > **Solución alternativa** después de reinstalar .NET Framework, vuelva a instalar ASP.NET Web Pages con sintaxis Razor. Esto agrega el siguiente elemento a la *web.config* archivo en la raíz de la máquina, que se encuentra normalmente en la siguiente ubicación:  
->   
+> 
 > `C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config (32-bit)`  
 > `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config (64-bit)`
 > 
@@ -236,9 +236,9 @@ Esta sección del documento describe nuevas características, los cambios y los 
 #### <a name="issue-extensionless-urls-do-not-find-cshtmlvbhtml-files-on-iis-7-or-iis-75"></a>Problema: Direcciones URL sin extensión no encuentran archivos.cshtml/.vbhtml en IIS 7 o IIS 7.5
 
 > En IIS 7 o IIS 7.5, las solicitudes con una dirección URL similar a la siguiente no están posible encontrar las páginas que tienen la *.cshtml* o *.vbhtml* extensión:  
->   
+> 
 > `http://www.example.com/ExampleSite/ExampleFile`  
->   
+> 
 > El problema se produce porque la reescritura de direcciones URL no está habilitada de forma predeterminada para IIS 7 o IIS 7.5. El escenario más probable es que no se ve el problema al probar localmente mediante IIS Express, pero experimenta al implementar el sitio Web en un sitio Web de hospedaje.
 > 
 > **Solución alternativa**
@@ -257,10 +257,11 @@ Esta sección del documento describe nuevas características, los cambios y los 
 > 
 > 1. Copie los ensamblados de motor de base de datos a la *Bin* carpeta (y sus subcarpetas) de la aplicación en el equipo de destino:  
 > 
->     - Copia *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
->         **to** *\Bin*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\*** a *** \Bin\x86*
->     - Copia *C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\****a *** \Bin\amd64*
+>    - Copia *C:\Program Files\Microsoft SQL Server Edition\v4.0\Desktop\System.Data.SqlServerCe.dll*   
+>        **to** *\Bin*
+>    - Copia <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\x86\\</em><strong><em>a</em></strong>\Bin\x86*
+>    - Copia <em>C:\Program Files\Microsoft SQL Server Compact Edition\v4.0\Private\amd64\\</em>* <strong>a</strong><em>\Bin\amd64</em>
+> 
 > 2. En la carpeta raíz del sitio Web, cree o abra un *web.config* archivo. (En WebMatrix 1.0, está disponible si hace clic en este tipo de archivo **todos los** en el **elegir un tipo de archivo** cuadro de diálogo.)
 > 3. Agregue el siguiente elemento como elemento secundario de la `<configuration>` elemento (no en el `<system.web>` elemento):
 > 
@@ -279,7 +280,7 @@ Esta sección del documento describe nuevas características, los cambios y los 
 
 #### <a name="issue-applicationpart-resources-are-externally-accessible"></a>Problema: "ApplicationPart" recursos son accesibles desde el exterior
 
-> Si un ensamblado contiene objetos que se deriva de la `ApplicationPart` de la clase, que se exponen los recursos del ensamblado por el `ResourceRouteHandler` clase. Por ejemplo, considere la siguiente dirección URL:  
+> Si un ensamblado contiene objetos que se deriva de la `ApplicationPart` de la clase, que se exponen los recursos del ensamblado por el `ResourceRouteHandler` clase. Pongamos como ejemplo esta URL:  
 >   
 > `~/r.ashx/System.Web.WebPages.Administration/Resources/AdminResources.resources`  
 >   
@@ -412,7 +413,7 @@ SQL Server Compact tiene su propio archivo Léame, que está disponible en la si
 
 Para obtener información acerca de los problemas que implican la instalación de SQL Server Compact como parte de WebMatrix, consulte [problemas de instalación de WebMatrix](#Known_Issues_Installation) anteriormente en este documento.
 
-### <a id="Known_Issues_Installing_Applications"></a>Instalación de aplicaciones
+### <a id="Known_Issues_Installing_Applications"></a>  Instalación de aplicaciones
 
 #### <a name="issue-installing-an-application-can-take-a-long-time-if-the-users-my-documents-folder-is-redirected-to-a-network-share"></a>Problema: Instalar una aplicación puede tardar mucho tiempo si se redirige la carpeta Mis documentos del usuario a un recurso compartido de red
 
@@ -420,7 +421,7 @@ Para obtener información acerca de los problemas que implican la instalación d
 > Ninguno. La aplicación puede tardar bastante tiempo en instalar, pero se instalará correctamente.
 
 
-### <a id="Known_Issues_Publishing_Applications"></a>Publicación de aplicaciones
+### <a id="Known_Issues_Publishing_Applications"></a>  Publicación de aplicaciones
 
 #### <a name="issue-required-permissions-cannot-be-acquired-error-when-publishing-a-sql-compact-database"></a>Problema: "requerido no se puede obtener permisos" error al publicar una base de datos de SQL Compact
 

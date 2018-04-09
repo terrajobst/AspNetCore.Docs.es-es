@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
-title: "Crear una restricción de ruta personalizada (C#) | Documentos de Microsoft"
+title: Crear una restricción de ruta personalizada (C#) | Documentos de Microsoft
 author: StephenWalther
-description: "Stephen Walther muestra cómo puede crear una restricción de ruta personalizados. Implementamos un sencillo personalizado restricción que impide que una ruta que se va a coincide w..."
+description: Stephen Walther muestra cómo puede crear una restricción de ruta personalizados. Implementamos un sencillo personalizado restricción que impide que una ruta que se va a coincide w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c31ba3382b9dbe22a6826b9f858944c223efdd9d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4c120a102b117433b6774f2ea7800f1c4a609f8b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-route-constraint-c"></a>Crear una restricción de ruta personalizada (C#)
 ====================
@@ -45,7 +45,7 @@ La restricción en la lista 1 aprovecha las ventajas de la propiedad IsLocal exp
 
 Usar una restricción personalizada dentro de una ruta definida en el archivo Global.asax. El archivo Global.asax en el listado 2 utiliza la restricción de Localhost para impedir que alguien solicita una página de administración a menos que realice la solicitud desde el servidor local. Por ejemplo, una solicitud para /Admin/DeleteAll se producirá un error cuando se realiza desde un servidor remoto.
 
-**La lista 2 - Global.asax**
+**Listing 2 - Global.asax**
 
 [!code-csharp[Main](creating-a-custom-route-constraint-cs/samples/sample3.cs)]
 
@@ -53,6 +53,6 @@ La restricción de host local se utiliza en la definición de la ruta de adminis
 
 Tenga en cuenta que la ruta predeterminada se convirtió en comentario en el archivo Global.asax en el listado 2. Si incluye la ruta predeterminada, la ruta predeterminada coincidiría con las solicitudes para el controlador de administración. En ese caso, los usuarios remotos todavía pudieron invocar acciones del controlador de administración, aunque sus solicitudes no coinciden con la ruta de administración.
 
->[!div class="step-by-step"]
-[Anterior](creating-a-route-constraint-cs.md)
-[Siguiente](asp-net-mvc-controller-overview-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-a-route-constraint-cs.md)
+> [Siguiente](asp-net-mvc-controller-overview-vb.md)

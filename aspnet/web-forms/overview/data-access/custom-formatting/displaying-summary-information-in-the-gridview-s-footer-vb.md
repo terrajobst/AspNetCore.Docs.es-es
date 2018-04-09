@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
-title: "Mostrar información de resumen en el pie de página de GridView (VB) | Documentos de Microsoft"
+title: Mostrar información de resumen en el pie de página de GridView (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "A menudo se muestra información de resumen en la parte inferior del informe en una fila de resumen. El control GridView puede incluir una fila de pie de página en cuyas celdas podemos pr..."
+description: A menudo se muestra información de resumen en la parte inferior del informe en una fila de resumen. El control GridView puede incluir una fila de pie de página en cuyas celdas podemos pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e5b7e39a44d43a857c62842ea3e1dddcacf05c9b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d9a1a3f3c680f367395f984254da6cdcdd3c08d4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-vb"></a>Mostrar información de resumen en el pie de página de GridView (VB)
 ====================
@@ -101,7 +101,7 @@ Puesto que la `GetProductsByCategoryID(categoryID)` método toma un parámetro d
 
 [![Obtener el valor del parámetro categoryID de la lista desplegable categorías seleccionadas](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image22.png)
 
-**Figura 8**: obtener el  *`categoryID`*  valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
+**Figura 8**: obtener el *`categoryID`* valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image24.png))
 
 
 Después de completar al Asistente GridView tendrá un BoundField para cada una de las propiedades del producto. Vamos a limpiar estos BoundFields para que solo el `ProductName`, `UnitPrice`, `UnitsInStock`, y `UnitsOnOrder` BoundFields se muestran. No dude en agregar cualquier configuración de nivel de campo a la BoundFields restantes (como el formato del `UnitPrice` como una moneda). Después de realizar estos cambios, el marcado declarativo de GridView debe ser similar al siguiente:
@@ -114,7 +114,7 @@ En este momento tenemos un informe principal-detalle totalmente operativa que mu
 
 [![Obtener el valor del parámetro categoryID de la lista desplegable categorías seleccionadas](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image25.png)
 
-**Figura 9**: obtener el  *`categoryID`*  valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
+**Figura 9**: obtener el *`categoryID`* valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-vb/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>Paso 2: Mostrar un pie de página en el control GridView
@@ -177,10 +177,10 @@ Crear un `RowDataBound` controlador de eventos del control GridView seleccionand
 
 Para mantener un total actualizado necesitamos definir variables fuera del ámbito del controlador de eventos. Crear las cuatro variables de nivel de página siguientes:
 
-- `_totalUnitPrice`, de tipo`Decimal`
-- `_totalNonNullUnitPriceCount`, de tipo`Integer`
-- `_totalUnitsInStock`, de tipo`Integer`
-- `_totalUnitsOnOrder`, de tipo`Integer`
+- `_totalUnitPrice`, de tipo `Decimal`
+- `_totalNonNullUnitPriceCount`, de tipo `Integer`
+- `_totalUnitsInStock`, de tipo `Integer`
+- `_totalUnitsOnOrder`, de tipo `Integer`
 
 A continuación, escribir el código para incrementar estos tres variables para cada fila de datos se encuentra en la `RowDataBound` controlador de eventos.
 
@@ -221,7 +221,7 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](using-the-formview-s-templates-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-formview-s-templates-vb.md)

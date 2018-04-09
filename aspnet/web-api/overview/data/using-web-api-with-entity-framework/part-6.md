@@ -2,7 +2,7 @@
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
 title: Crear el cliente de JavaScript | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/16/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
-ms.openlocfilehash: b397c5a413ae213c9b79da1c0e0626efe21c7e21
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 29d50e448e6d282c7db06b9d1946ac221347e1ea
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-javascript-client"></a>Crear al cliente de JavaScript
 ====================
@@ -58,8 +58,8 @@ Agregue un archivo JavaScript denominado app.js a la carpeta de Scripts. (En el 
 
 En Knockout, la `observable` clase habilita el enlace de datos. Cuando se cambia el contenido de un objeto observable, el observable notifica a todos los controles enlazados a datos, para que puedan actualizar por sí mismos. (El `observableArray` clase es la versión de la matriz de *observable*.) Para empezar con nuestro modelo de vista tiene dos objetos observables:
 
-- `books`contiene la lista de libros.
-- `error`contiene un mensaje de error si se produce un error en una llamada de AJAX.
+- `books` contiene la lista de libros.
+- `error` contiene un mensaje de error si se produce un error en una llamada de AJAX.
 
 El `getAllBooks` método realiza una llamada AJAX para obtener la lista de libros. A continuación, inserta el resultado en la `books` matriz.
 
@@ -73,6 +73,6 @@ Abra el archivo de aplicación\_Start/BundleConfig.cs. Agregue el código siguie
 
 [!code-csharp[Main](part-6/samples/sample3.cs)]
 
->[!div class="step-by-step"]
-[Anterior](part-5.md)
-[Siguiente](part-7.md)
+> [!div class="step-by-step"]
+> [Anterior](part-5.md)
+> [Siguiente](part-7.md)

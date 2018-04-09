@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/introduction/getting-started
-title: "Introducción a ASP.NET MVC 5 | Documentos de Microsoft"
+title: Introducción a ASP.NET MVC 5 | Documentos de Microsoft
 author: Rick-Anderson
-description: "Nota: Una versión actualizada de este tutorial está disponible aquí con Visual Studio 2015. El nuevo tutorial usa ASP.NET Core MVC 6, que proporciona muchas improvem..."
+description: 'Nota: Una versión actualizada de este tutorial está disponible aquí con Visual Studio 2015. El nuevo tutorial usa ASP.NET Core MVC 6, que proporciona muchas improvem...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,26 +12,25 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 1616b238612fa9f519418f583c40a46b9d81d8ce
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 0f1fd2026691d3bc0e81b20a9731879d7a6041bb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Introducción a ASP.NET MVC 5
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[consider RP](../../../../includes/razor.md)]
+[!INCLUDE [consider RP](../../../../includes/razor.md)]
 
- 
  Este tutorial le enseñará los aspectos básicos de la creación de una aplicación web de ASP.NET MVC 5 con [2017 de Visual Studio](https://www.visualstudio.com/). Origen final para el tutorial se encuentra en [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
- 
- 
+
+
  Este tutorial se escribió por [Scott Guthrie](https://weblogs.asp.net/scottgu/) (twitter[ @scottgu ](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](https://twitter.com/shanselman) ) , y [Rick Anderson](https://twitter.com/RickAndMSFT) ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
- 
+
  Necesita una cuenta de Azure para implementar esta aplicación en Azure:
- 
+
  - También puede [abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
  - También puede [activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
 
@@ -42,9 +41,9 @@ Empiece por instalar y ejecutar [2017 de Visual Studio](https://www.visualstudio
 
 Visual Studio es un entorno de desarrollo integrado o IDE. Al igual que usa Microsoft Word para escribir documentos, deberá usar un IDE para crear aplicaciones. En Visual Studio, hay una lista en la parte inferior muestra distintas opciones disponibles para usted. También hay un menú que proporciona otra manera de realizar las tareas en el IDE. (Por ejemplo, en lugar de seleccionar **nuevo proyecto** desde el **iniciar** página, puede usar el menú y seleccione **archivo** &gt; **denuevoproyecto**.)
 
-   
+
 ![](getting-started/_static/image1.png)  
- 
+
 
 ## <a name="creating-your-first-application"></a>Crear su primera aplicación
 
@@ -83,5 +82,5 @@ Necesita una cuenta de Azure para implementar esta solución en Azure. Si no dis
 - [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
 - [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
 
->[!div class="step-by-step"]
-[Siguiente](adding-a-controller.md)
+> [!div class="step-by-step"]
+> [Siguiente](adding-a-controller.md)

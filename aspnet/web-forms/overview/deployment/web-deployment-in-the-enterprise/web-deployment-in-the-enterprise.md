@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
-title: "Implementación de la empresa Web | Documentos de Microsoft"
+title: Implementación de la empresa Web | Documentos de Microsoft
 author: jrjlee
-description: "Este tutorial describe cómo satisfacer una gran cantidad de los desafíos que encontrará al administrar la implementación de aplicaciones web a escala empresarial para desarrollo..."
+description: Este tutorial describe cómo satisfacer una gran cantidad de los desafíos que encontrará al administrar la implementación de aplicaciones web a escala empresarial para desarrollo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/web-deployment-in-the-enterprise
 msc.type: authoredcontent
-ms.openlocfilehash: 6210d01f65bcadf8ae4209e372d5aac68861bd7a
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: fc463cb689f4f63a12788b80958c9fc8fe20119d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="web-deployment-in-the-enterprise"></a>Implementación de Web de la empresa
 ====================
@@ -66,7 +66,7 @@ Este tutorial, junto con los otros tutoriales de esta serie, usa este enfoque de
 
 Este tutorial incluye temas que se dividen en cuatro áreas principales.
 
-Estos temas presentan la solución de referencia & #x 2014; la solución póngase en contacto con el administrador & #x 2014; y describen cómo descargarlo y configurarlo en el equipo local:
+Estos temas presentan la solución de referencia&#x2014;la solución póngase en contacto con el administrador&#x2014;y describen cómo descargarlo y configurarlo en el equipo local:
 
 - [La solución Contact Manager](the-contact-manager-solution.md)
 - [Configurar la solución Contact Manager](setting-up-the-contact-manager-solution.md)
@@ -104,5 +104,5 @@ Esto forma parte de una serie de cinco tutoriales en la implementación de web d
 - [Configurar Team Foundation Server para la implementación Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Este tutorial describe cómo configurar TFS para admitir diferentes escenarios de implementación, incluida la implementación automatizada como parte de un proceso de integración continua y desencadena manualmente las implementaciones de compilaciones concretas.
 - [Avanzada de implementación Web de empresa](../advanced-enterprise-web-deployment/advanced-enterprise-web-deployment.md). Este tutorial describe cómo realizar diversas tareas de implementación más avanzadas, como la personalización de las implementaciones de la base de datos para varios entornos, excluir archivos y carpetas de implementación y dejar las aplicaciones de web sin conexión durante el proceso de implementación .
 
->[!div class="step-by-step"]
-[Siguiente](the-contact-manager-solution.md)
+> [!div class="step-by-step"]
+> [Siguiente](the-contact-manager-solution.md)

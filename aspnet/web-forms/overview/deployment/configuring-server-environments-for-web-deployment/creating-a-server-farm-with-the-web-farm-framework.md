@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 title: Crear una granja de servidores con el marco de trabajo de la granja de servidores Web | Documentos de Microsoft
 author: jrjlee
-description: "Este tema describe cómo usar Web Farm Framework (WFF) 2.0 para crear y configurar una granja de servidores web de una colección de servidores."
+description: Este tema describe cómo usar Web Farm Framework (WFF) 2.0 para crear y configurar una granja de servidores web de una colección de servidores.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/creating-a-server-farm-with-the-web-farm-framework
 msc.type: authoredcontent
-ms.openlocfilehash: c592ed78a7332834923ce2290af77919fb3c7576
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 53a91660953795f2c55edcd795b053641d308dfe
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-server-farm-with-the-web-farm-framework"></a>Crear una granja de servidores con el marco de trabajo de la granja de servidores Web
 ====================
@@ -27,7 +27,7 @@ por [Jason Lee](https://github.com/jrjlee)
 > Este tema describe cómo usar Web Farm Framework (WFF) 2.0 para crear y configurar una granja de servidores web de una colección de servidores.
 
 
-WFF le permite sincronizar componentes y productos de la plataforma web, aplicaciones web, sitios Web y opciones de configuración en varios servidores web con equilibrio de carga. En escenarios donde es necesario más de un servidor web, como entornos de ensayo y producción, esto puede simplificar enormemente el proceso de implementación y configuración. Puede implementar una aplicación web en un único servidor de & #x 2014; la *servidor principal*& #x 2014; y WFF que se replican automáticamente la aplicación web en todos los demás servidores de web de la granja de servidores.
+WFF le permite sincronizar componentes y productos de la plataforma web, aplicaciones web, sitios Web y opciones de configuración en varios servidores web con equilibrio de carga. En escenarios donde es necesario más de un servidor web, como entornos de ensayo y producción, esto puede simplificar enormemente el proceso de implementación y configuración. Puede implementar una aplicación web en un único servidor&#x2014;la *servidor principal*&#x2014;y WFF replicará automáticamente de esa aplicación web en todos los demás servidores de web de la granja de servidores.
 
 ## <a name="understanding-the-web-farm-framework"></a>Descripción del marco de granja de servidores Web
 
@@ -51,7 +51,7 @@ Antes de empezar a configurar los entornos de ensayo y producción, se recomiend
 
 ## <a name="task-overview"></a>Información general sobre tareas
 
-Para completar las tareas y los tutoriales de este tema, necesitará al menos tres servidores & #x 2014; un controlador WFF, servidor web principal uno para la granja de servidores y uno o más servidores web secundaria para la granja de servidores. Puede agregar más servidores secundarios a una granja de servidores WFF en cualquier momento. En un nivel alto, para crear y configurar una granja de servidores WFF para su entorno de ensayo o de producción que necesite:
+Para completar las tareas y los tutoriales de este tema, necesitará al menos tres servidores&#x2014;un controlador WFF, un servidor web principal para la granja de servidores y uno o más servidores web secundaria para la granja de servidores. Puede agregar más servidores secundarios a una granja de servidores WFF en cualquier momento. En un nivel alto, para crear y configurar una granja de servidores WFF para su entorno de ensayo o de producción que necesite:
 
 - Crear un servidor de controlador al instalar Internet Information Services (IIS) 7.5 y WFF 2.0.
 - Preparar servidores principales y secundarios mediante la creación de una cuenta de administrador común y configurar las excepciones del firewall.
@@ -78,7 +78,7 @@ Para crear un servidor de controlador WFF, debe instalar IIS 7 o posterior y WFF
 2. En la parte superior de la **instalador de plataforma Web 3.0** ventana, haga clic en **productos**.
 3. En el lado izquierdo de la ventana, en el panel de navegación, haga clic en **Server**.
 4. En el **configuración recomendada para IIS 7** la fila, haga clic en **agregar**.
-5. En el **2 de marco de granja de servidores Web. *** x* la fila, haga clic en **agregar**.
+5. En el <strong>Web Farm Framework 2.</strong> <em>x</em> la fila, haga clic en <strong>agregar</strong>.
 
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image2.png)
 6. Haga clic en **Instalar**. Observe que el instalador de plataforma Web ha agregado la herramienta de implementación Web, junto con diversas otras dependencias a la lista de instalación.
@@ -96,7 +96,7 @@ Antes de crear una granja de servidores WFF, debe completar algunas tareas de pr
 
 Para obtener más información sobre cómo configurar estas excepciones de firewall en Firewall de Windows, vea [requisitos del sistema y plataforma de Web Farm Framework 2.0 para IIS 7](https://go.microsoft.com/?linkid=9805128). Para otros sistemas de firewall, consulte la documentación del producto.
 
-Puede usar el procedimiento siguiente para agregar una cuenta de dominio al grupo de administradores local en Windows Server 2008 R2. Debe llevar a cabo este procedimiento en todos los servidores que desea agregar a la granja de servidores & #x 2014; es decir, agregar la misma cuenta de dominio al grupo de administradores locales en el servidor principal y en cada servidor secundario.
+Puede usar el procedimiento siguiente para agregar una cuenta de dominio al grupo de administradores local en Windows Server 2008 R2. Debe llevar a cabo este procedimiento en todos los servidores que desea agregar a la granja de servidores&#x2014;en otras palabras, agregar la misma cuenta de dominio al grupo de administradores locales en el servidor principal y en cada servidor secundario.
 
 **Para agregar una cuenta de dominio al grupo de administradores local**
 
@@ -111,7 +111,7 @@ Puede usar el procedimiento siguiente para agregar una cuenta de dominio al grup
     ![](creating-a-server-farm-with-the-web-farm-framework/_static/image5.png)
 6. En el **propiedades de administradores de** cuadro de diálogo, haga clic en **Aceptar**.
 
-Los servidores están preparados para agregarse a una granja de servidores. En el caso del servidor principal, puede configurar el servidor para satisfacer los requisitos de la aplicación antes o después de crear la granja de servidores & #x 2014; en ambos casos, el WFF sincronizará los servidores mediante la implementación de los mismos productos, componentes, o configuración de los servidores secundarios. Por simplicidad, este tutorial se supone que configurará el servidor principal cuando haya terminado de crear la granja de servidores.
+Los servidores están preparados para agregarse a una granja de servidores. En el caso del servidor principal, puede configurar el servidor para satisfacer los requisitos de la aplicación antes o después de crear la granja de servidores&#x2014;en ambos casos, el WFF sincronizará los servidores mediante la implementación de los mismos productos, componentes o configuración a los servidores secundarios. Por simplicidad, este tutorial se supone que configurará el servidor principal cuando haya terminado de crear la granja de servidores.
 
 ## <a name="create-the-wff-server-farm"></a>Crear la granja de servidores WFF
 
@@ -225,12 +225,12 @@ Puede supervisar el estado de la granja de servidores en cualquier momento media
 
 ## <a name="conclusion"></a>Conclusión
 
-La granja de servidores WFF ahora debe estar activados y ejecutándose. Puede configurar el servidor principal para admitir el enfoque de implementación que prefiera & #x 2014; vea la sección más información para obtener detalles & #x 2014; y la configuración se replicarán en cada servidor secundario en la granja de servidores.
+La granja de servidores WFF ahora debe estar activados y ejecutándose. Puede configurar el servidor principal para admitir el enfoque de implementación que prefiera&#x2014;consulte la sección de información adicional para obtener más información&#x2014;y su configuración se replicará en cada servidor secundario en la granja de servidores.
 
 ## <a name="further-reading"></a>Información adicional
 
 Para obtener más información sobre todos los aspectos de cómo configurar y usar el WFF, consulte el [Microsoft Web Farm Framework 2.0 para IIS 7](https://go.microsoft.com/?linkid=9805129) sitio Web.
 
->[!div class="step-by-step"]
-[Anterior](configuring-a-database-server-for-web-deploy-publishing.md)
-[Siguiente](configuring-deployment-properties-for-a-target-environment.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-a-database-server-for-web-deploy-publishing.md)
+> [Siguiente](configuring-deployment-properties-for-a-target-environment.md)

@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 title: Usar el extensor de Control de ColorPicker (VB) | Documentos de Microsoft
 author: microsoft
-description: "ColorPicker es un extensor de AJAX de ASP.NET que proporciona funcionalidad de selección de color del lado cliente con la interfaz de usuario en un control de menú emergente. Se puede adjuntar a cualquier ASP.NET..."
+description: ColorPicker es un extensor de AJAX de ASP.NET que proporciona funcionalidad de selección de color del lado cliente con la interfaz de usuario en un control de menú emergente. Se puede adjuntar a cualquier ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/colorpicker/using-the-colorpicker-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7453845909b2c0bd8d6b476b19d0fbc5050f7460
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3411119f85d7f5c26703b7df40cff24fdf30b81d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-the-colorpicker-control-extender-vb"></a>Usar el extensor de Control de ColorPicker (VB)
 ====================
@@ -58,7 +58,7 @@ Debe completar dos pasos para usar el extensor de control ColorPicker con el for
 
 Para poder usar el componente ColorPicker, debe agregar un ScriptManager a la página. Es un buen lugar para agregar el objeto ScriptManager justo debajo del servidor de apertura &lt;formulario&gt; etiqueta. Puede arrastrar el objeto ScriptManager a la página del cuadro de herramientas (el objeto ScriptManager se encuentra en la ficha Extensiones AJAX). Como alternativa, puede escribir la siguiente etiqueta en la vista del origen de debajo de la etiqueta de formulario de servidor de apertura:
 
-&lt;Id. de ASP: ScriptManager = "ScriptManager1" runat = "server" /&gt;
+&lt;asp:ScriptManager ID="ScriptManager1" runat="server" /&gt;
 
 Es la manera más fácil de agregar el extensor de control de ColorPicker a la página en la vista Diseño. Si se mantenga el mouse sobre el cuadro de texto txtCardColor, una opción de tarea inteligente aparece permite agregar un dispositivo extender (consulte la figura 3). Si elige esta opción, aparece el Asistente de Extender (consulte la figura 4).
 
@@ -114,5 +114,5 @@ La propiedad SampleControlID se utiliza para asociar un control que muestra el c
 
 En este tutorial, aprendió a utilizar el extensor de control de ColorPicker para mostrar un cuadro de diálogo de selector de colores emergente. En primer lugar, se examina cómo puede mostrar el cuadro de diálogo cuando se mueve el foco a un control de cuadro de texto. A continuación, aprendió a crear un botón que muestra el cuadro de diálogo de selector de color cuando se hace clic en el botón.
 
->[!div class="step-by-step"]
-[Anterior](using-the-colorpicker-control-extender-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-colorpicker-control-extender-cs.md)

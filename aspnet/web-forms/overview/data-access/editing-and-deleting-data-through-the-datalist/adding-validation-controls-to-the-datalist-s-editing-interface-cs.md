@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
-title: "Agregar controles de validación al control DataList de edición (interfaz) (C#) | Documentos de Microsoft"
+title: Agregar controles de validación al control DataList de edición (interfaz) (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos lo fácil que es agregar controles de validación al EditItemTemplate del control DataList con el fin de proporcionar un int de usuario de edición más infalible..."
+description: En este tutorial veremos lo fácil que es agregar controles de validación al EditItemTemplate del control DataList con el fin de proporcionar un int de usuario de edición más infalible...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/adding-validation-controls-to-the-datalist-s-editing-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b80b25933679d5c5b465af24cf6ff5d3b824b401
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 13582989aed60ec7949afcd683472546a91d171c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-c"></a>Agregar controles de validación a la interfaz de edición del control DataList (C#)
 ====================
@@ -189,12 +189,12 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisores para este tutorial fueron Liz Shulok, Dennis Patterson y Ken Pespisa. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](handling-bll-and-dal-level-exceptions-cs.md)
-[Siguiente](customizing-the-datalist-s-editing-interface-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](handling-bll-and-dal-level-exceptions-cs.md)
+> [Siguiente](customizing-the-datalist-s-editing-interface-cs.md)

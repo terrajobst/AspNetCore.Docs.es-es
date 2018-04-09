@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: "Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms | Documentos de Microsoft"
+title: Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms | Documentos de Microsoft
 author: tfitzmac
-description: "Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-..."
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: ca50690052cca73a718342a9725c8096a72f1187
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 25e887bdc316abf65c780bb6c8d075e938e85064
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms
 ====================
@@ -98,5 +98,5 @@ Ejecute la aplicación y observe que todas las páginas funcionen como que tení
 
 En este tutorial, volver a estructurados de su aplicación para que utilice una capa de acceso a datos y la capa de lógica empresarial. Especifica que los controles de datos utilizan un objeto que no es la página actual para las operaciones de datos.
 
->[!div class="step-by-step"]
-[Anterior](using-query-string-values-to-retrieve-data.md)
+> [!div class="step-by-step"]
+> [Anterior](using-query-string-values-to-retrieve-data.md)

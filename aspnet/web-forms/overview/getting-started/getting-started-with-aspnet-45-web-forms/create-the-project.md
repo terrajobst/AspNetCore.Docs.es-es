@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 title: Crear el proyecto | Documentos de Microsoft
 author: Erikre
-description: "Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se..."
+description: Esta serie de tutoriales le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms de ASP.NET mediante ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: 094733dcbe31486385dda2f8b44ba77a17486c82
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="create-the-project"></a>Crear el proyecto
 ====================
-Por [Erik Reitan](https://github.com/Erikre)
+por [Erik Reitan](https://github.com/Erikre)
 
 [Descargar el proyecto de ejemplo de Wingtip Toys (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [descargar libros electrónicos (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
@@ -195,6 +195,6 @@ En este tutorial ha creado, revisar y ejecutar la aplicación de formularios Web
 [Web Application Projects versus Web Site Projects](https://msdn.microsoft.com/library/dd547590.aspx)   
 [Información general de las páginas de ASP.NET Web Forms](https://msdn.microsoft.com/library/428509ah.aspx)
 
->[!div class="step-by-step"]
-[Anterior](introduction-and-overview.md)
-[Siguiente](create_the_data_access_layer.md)
+> [!div class="step-by-step"]
+> [Anterior](introduction-and-overview.md)
+> [Siguiente](create_the_data_access_layer.md)

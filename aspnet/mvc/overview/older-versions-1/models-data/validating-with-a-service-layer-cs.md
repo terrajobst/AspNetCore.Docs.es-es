@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 title: Validar los datos con un nivel de servicio (C#) | Documentos de Microsoft
 author: StephenWalther
-description: "Obtenga información acerca de cómo mover la lógica de validación de las acciones de controlador y almacenarla en una capa de servicio independiente. En este tutorial, Stephen Walther explica cómo se..."
+description: Obtenga información acerca de cómo mover la lógica de validación de las acciones de controlador y almacenarla en una capa de servicio independiente. En este tutorial, Stephen Walther explica cómo se...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/02/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/validating-with-a-service-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f36301aef4377c6c00cb4fc33dbc5c57b1c426a9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 06042ac197cc54da767a94a44c57eb09bb3db9fa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-with-a-service-layer-c"></a>Validar los datos con un nivel de servicio (C#)
 ====================
@@ -99,6 +99,6 @@ Mediante el IValidationDictionary interfaz y la clase ModelStateWrapper nos perm
 
 El objetivo de este tutorial era explicar un enfoque para realizar la validación en una aplicación ASP.NET MVC. En este tutorial, aprendió a todas las de la lógica de validación de los controladores y en una capa de servicio independiente mover. También aprendió a aislar su nivel de servicio de la capa de controlador mediante la creación de una clase ModelStateWrapper.
 
->[!div class="step-by-step"]
-[Anterior](validating-with-the-idataerrorinfo-interface-cs.md)
-[Siguiente](validation-with-the-data-annotation-validators-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](validating-with-the-idataerrorinfo-interface-cs.md)
+> [Siguiente](validation-with-the-data-annotation-validators-cs.md)

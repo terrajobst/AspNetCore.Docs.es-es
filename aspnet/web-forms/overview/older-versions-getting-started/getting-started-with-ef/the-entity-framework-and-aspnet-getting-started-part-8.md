@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
-title: "Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 formularios Web Forms - parte 8 | Documentos de Microsoft"
+title: Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 formularios Web Forms - parte 8 | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET mediante Entity Framework. Es la aplicación de ejemplo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/03/2010
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-started-with-ef/the-entity-framework-and-aspnet-getting-started-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 323ee44f43f6d4081bd9ba50791755696bc9128f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 035cce022d1b3697b825a96487529dbc9675d90e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="getting-started-with-entity-framework-40-database-first-and-aspnet-4-web-forms---part-8"></a>Introducción a la base de datos de Entity Framework 4.0 en primer lugar y ASP.NET 4 Web Forms - parte 8
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de formularios Web Forms de ASP.NET con el Entity Framework 4.0 y Visual Studio 2010. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](the-entity-framework-and-aspnet-getting-started-part-1.md)
 
@@ -91,7 +91,7 @@ Normalmente, desea personalizar la funcionalidad proporcionada por los datos din
 
 En **el Explorador de soluciones**, haga clic en el **ContosoUniversity** proyecto, seleccione **Agregar referencia**y agregue una referencia a `System.ComponentModel.DataAnnotations`.
 
-[![Image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
+[![image11](the-entity-framework-and-aspnet-getting-started-part-8/_static/image12.png)](the-entity-framework-and-aspnet-getting-started-part-8/_static/image11.png)
 
 En el *DAL* carpeta, cree un nuevo archivo de clase, asígnele el nombre *Student.cs*y reemplace el código de plantilla en ella con el código siguiente.
 
@@ -101,7 +101,7 @@ Este código crea una clase parcial para la `Student` entidad. El `MetadataType`
 
 Los atributos aplicados a las propiedades de la clase de metadatos especifican el formato, los mensajes de error, reglas y validación. Los atributos que se muestran aquí tendrá los siguientes resultados:
 
-- `EnrollmentDate`se mostrará como una fecha (sin una hora).
+- `EnrollmentDate` se mostrará como una fecha (sin una hora).
 - Los campos de nombre deben ser de 25 caracteres o menor en longitud y un mensaje de error personalizado se ha proporcionado.
 - Los campos de nombre son necesarios y se proporciona un mensaje de error personalizado.
 
@@ -132,5 +132,5 @@ Esto concluye la siguiente serie de tutoriales de introducción a Entity Framewo
 - [Foros de Entity Framework en MSDN](https://social.msdn.microsoft.com/forums/adodotnetentityframework/)
 - [Blog de Julie Lerman](http://thedatafarm.com/blog/)
 
->[!div class="step-by-step"]
-[Anterior](the-entity-framework-and-aspnet-getting-started-part-7.md)
+> [!div class="step-by-step"]
+> [Anterior](the-entity-framework-and-aspnet-getting-started-part-7.md)

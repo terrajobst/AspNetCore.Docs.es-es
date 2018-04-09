@@ -1,8 +1,8 @@
 ---
 uid: mvc/mvc5
-title: ASP.NET MVC 5 | Documentos de Microsoft
+title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
-description: "ASP.NET MVC 5 ASP.NET MVC 5 es un marco para crear aplicaciones web escalable, basada en estándares con hacia patrones de diseño y la eficacia de AS...."
+description: ASP.NET MVC 5 ASP.NET MVC 5 es un marco para crear aplicaciones web escalable, basada en estándares con hacia patrones de diseño y la eficacia de AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: e57163469ae4606df0fc17e3e054b7696782a084
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1b3f920b51a70757ec0e20e36fa8e7dc329e663d
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/22/2018
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================
@@ -38,15 +38,15 @@ La plantilla de proyecto MVC se ha actualizado para usar [arranque](http://getbo
 
 ### <a name="authentication-filters"></a>Filtros de autenticación
 
-[Filtros de autenticación](http://www.dotnetcurry.com/showarticle.aspx?ID=957) son un nuevo tipo de filtro de MVC de ASP.NET que se ejecute antes que los filtros de autorización en la canalización de ASP.NET MVC y le permiten especificar la lógica de los autenticación por cada acción, por controlador, o globalmente para todos los controladores. Los filtros de autenticación procesan las credenciales en la solicitud y proporcionan una entidad de seguridad correspondiente. Filtros de autenticación también pueden agregar los desafíos de autenticación en respuesta a solicitudes no autorizadas. Vea [filtros de autenticación de ASP.NET MVC 5](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [filtros de autenticación en ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/) y [finalmente el nuevo ASP.NET MVC 5 filtros de autenticación!](http://hackwebwith.net/finally-the-new-asp-net-mvc-5-authentication-filters/).
+[Filtros de autenticación](http://www.dotnetcurry.com/showarticle.aspx?ID=957) son un nuevo tipo de filtro de MVC de ASP.NET que se ejecute antes que los filtros de autorización en la canalización de ASP.NET MVC y le permiten especificar la lógica de los autenticación por cada acción, por controlador, o globalmente para todos los controladores. Los filtros de autenticación procesan las credenciales en la solicitud y proporcionan una entidad de seguridad correspondiente. Filtros de autenticación también pueden agregar los desafíos de autenticación en respuesta a solicitudes no autorizadas. Vea [filtros de autenticación de ASP.NET MVC 5](http://www.dotnetcurry.com/showarticle.aspx?ID=957), [filtros de autenticación en ASP.NET MVC 5](http://theshravan.net/blog/authentication-filters-in-asp-net-mvc-5/).
 
 ### <a name="filter-overrides"></a>Invalidaciones de filtro
 
 Ahora puede invalidar los filtros se aplican a un método de acción determinado o un controlador mediante la especificación de un [invalidar filtro](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5). Filtros de reemplazo especifican un conjunto de tipos de filtro que no se debe ejecutar para un ámbito determinado (acción o controlador). Esto le permite configurar los filtros que se aplican globalmente pero, a continuación, excluirán determinados filtros globales de la aplicación a acciones específicas o controladores. Vea [invalidaciones de filtro nueva característica de ASP.NET MVC 5 y ASP.NET Web API 2](https://weblogs.asp.net/imranbaloch/archive/2013/09/25/new-filter-overrides-in-asp-net-mvc-5-and-asp-net-web-api-2.aspx), [cómo usar la característica de invalidaciones de filtro de ASP.NET MVC 5](http://hackwebwith.net/how-to-use-the-asp-net-mvc-5-filter-overrides-feature/), y [filtro invalidaciones en ASP.NET MVC 5](http://www.davidhayden.me/blog/filter-overrides-in-asp-net-mvc-5)
 
-### <a name="attribute-routing"></a>Ruta de atributo
+### <a name="attribute-routing"></a>Enrutamiento mediante atributos
 
-ASP.NET MVC ahora admite [atributo enrutamiento](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), gracias a una contribución por Tim McCall, el autor de [http://attributerouting.net](http://attributerouting.net). Con el enrutamiento de atributo puede especificar sus rutas anotando las acciones y los controladores.
+ASP.NET MVC ahora admite [atributo enrutamiento](https://blogs.msdn.com/b/webdev/archive/2013/10/17/attribute-routing-in-asp-net-mvc-5.aspx), gracias a una contribución por Tim McCall, el autor de [ http://attributerouting.net ](http://attributerouting.net). Con el enrutamiento de atributo puede especificar sus rutas anotando las acciones y los controladores.
 
 ## <a name="new-web-project-experience"></a>Nueva experiencia de proyecto Web
 

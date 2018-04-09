@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
-title: "Iteración #1: crear la aplicación (VB) | Documentos de Microsoft"
+title: 'Iteración #1: crear la aplicación (VB) | Documentos de Microsoft'
 author: microsoft
-description: "En la primera iteración, se creará el póngase en contacto con el Administrador de la manera más sencilla posible. Se agrega compatibilidad para las operaciones de base de datos básicos: crear, leer, actualizar y D..."
+description: 'En la primera iteración, se creará el póngase en contacto con el Administrador de la manera más sencilla posible. Se agrega compatibilidad para las operaciones de base de datos básicos: crear, leer, actualizar y D...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-1-create-the-application-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 11d3d4f174207f5370849fdf4517f272b4b6bc6b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 52029816bd9f37c3d5c3321d3c5e60599314a33b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="iteration-1--create-the-application-vb"></a>Iteración #1: crear la aplicación (VB)
 ====================
@@ -43,7 +43,7 @@ Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora 
 
 - Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración &#6;: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
 
 - Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
 
@@ -67,7 +67,7 @@ En esta iteración se completarán los pasos siguientes:
 
 En las aplicaciones de ASP.NET MVC, debe tener Visual Studio 2008 o Visual Web Developer 2008 instalado en el equipo (Visual Web Developer es una versión gratuita de Visual Studio que no incluye todas las características avanzadas de Visual Studio). Puede descargar la versión de prueba de Visual Studio 2008 o Visual Web Developer desde la siguiente dirección:
 
-[https://www.ASP.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 > [!NOTE] 
 > 
@@ -76,15 +76,15 @@ En las aplicaciones de ASP.NET MVC, debe tener Visual Studio 2008 o Visual Web D
 
 Marco de ASP.NET MVC. Puede descargar el marco de MVC de ASP.NET desde la siguiente dirección:
 
-[https://www.ASP.NET/MVC](../../../index.md)
+[https://www.asp.net/mvc](../../../index.md)
 
 En este tutorial, usamos Microsoft Entity Framework para tener acceso a una base de datos. Entity Framework se incluye con .NET Framework 3.5 Service Pack 1. Puede descargar este service pack desde la siguiente ubicación:
 
-[https://www.Microsoft.com/downloads/details.aspx?FamilyID=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang = es](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
+[https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en](https://www.microsoft.com/downloads/details.aspx?familyid=ab99342f-5d1a-413d-8319-81da479ab0d7&amp;displaylang=en)
 
 Como alternativa a la realización de cada una de estas descargas uno por uno, puede aprovechar las ventajas del instalador de plataforma Web (Web PI). Puede descargar el instalador de plataforma Web desde la siguiente dirección:
 
-[https://www.ASP.NET/downloads/Essential/](https://www.asp.net/downloads/essential)
+[https://www.asp.net/downloads/essential/](https://www.asp.net/downloads/essential)
 
 ## <a name="aspnet-mvc-project"></a>Proyecto de ASP.NET MVC
 
@@ -172,10 +172,10 @@ Es preciso crear una tabla que contiene las columnas siguientes:
 | **Nombre de columna** | **Tipo de datos** | **Permitir valores null** |
 | --- | --- | --- |
 | Id. | int | False |
-| Nombre | nvarchar (50) | False |
-| LastName | nvarchar (50) | False |
-| Teléfono | nvarchar (50) | False |
-| Correo electrónico | nvarchar (255) | False |
+| Nombre | nvarchar(50) | False |
+| LastName | nvarchar(50) | False |
+| Teléfono | nvarchar(50) | False |
+| Correo electrónico | nvarchar(255) | False |
 
 
 La primera columna, la columna Id., es especial. Debe marcar la columna de identificador como una columna de identidad y una columna de clave principal. Indicar que una columna es una columna de identidad mediante la expansión de propiedades de columna (mire en la parte inferior de la figura 6) y desplazarse hacia abajo hasta la propiedad de la especificación de identidad. Establecer el **(identidad)** valor para la propiedad **Sí**.
@@ -472,7 +472,7 @@ Después de realizar este cambio, la aplicación ya no tendrá un controlador Ho
 
 Es necesario actualizar la ruta predeterminada en el archivo Global.asax para usar el controlador de contacto en lugar del controlador principal. Abra el archivo Global.asax y modifique el controlador predeterminado usado por la ruta predeterminada (consulte el listado 10).
 
-**Enumerar 10 - Global.asax.vb**
+**Listing 10 - Global.asax.vb**
 
 [!code-vb[Main](iteration-1-create-the-application-vb/samples/sample10.vb)]
 
@@ -490,6 +490,6 @@ En segundo lugar, no hemos implementado ninguna validación del formulario. Por 
 
 Por último y lo más importante, la iteración actual de la aplicación póngase en contacto con el administrador no puede modificar ni mantiene fácilmente. Por ejemplo, la lógica de acceso de la base de datos está preparada derecha en las acciones de controlador. Esto significa que no podemos modificar el código de acceso de datos sin modificar nuestro controladores. En las iteraciones posteriores, exploramos patrones de diseño de software que se puede implementar para hacer más resistente a cambiar el Administrador de contacto.
 
->[!div class="step-by-step"]
-[Anterior](iteration-7-add-ajax-functionality-cs.md)
-[Siguiente](iteration-2-make-the-application-look-nice-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](iteration-7-add-ajax-functionality-cs.md)
+> [Siguiente](iteration-2-make-the-application-look-nice-vb.md)

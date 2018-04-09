@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-title: "Ordenación, filtrado y paginación con Entity Framework en una aplicación ASP.NET MVC | Documentos de Microsoft"
+title: Ordenación, filtrado y paginación con Entity Framework en una aplicación ASP.NET MVC | Documentos de Microsoft
 author: tdykstra
-description: "La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio..."
+description: La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/01/2015
@@ -12,28 +12,28 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: d54c0e133bc2f6f2021821dc16cdf86cc23a5667
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 02b7d988202966dc0011eeed32cd632c6e0565b4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Ordenación, filtrado y paginación con Entity Framework en una aplicación ASP.NET MVC
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [descarga de PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
 
-> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio 2013. Para obtener información acerca de la serie de tutoriales, vea [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
+> La aplicación web de ejemplo de la Universidad de Contoso muestra cómo crear aplicaciones de ASP.NET MVC 5 con Code First de Entity Framework 6 y Visual Studio 2013. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 
-En el tutorial anterior implementa un conjunto de páginas web para las operaciones CRUD básicas para `Student` entidades. En este tutorial agregará la ordenación, el filtrado y la funcionalidad de paginación para la **estudiantes** página de índice. También podrá crear una página que realiza la agrupación sencilla.
+En el tutorial anterior implementa un conjunto de páginas web para las operaciones CRUD básicas para `Student` entidades. En este tutorial agregará la ordenación, el filtrado y la funcionalidad de paginación para la **estudiantes** página de índice. También crearemos una página que realice agrupaciones sencillas.
 
-En la siguiente ilustración muestra el aspecto de la página cuando haya terminado. Los encabezados de columna son vínculos que el usuario puede hacer clic para ordenar por esa columna. Al hacer clic en una columna por repetidamente alterna entre orden ascendente y orden descendente.
+En la siguiente ilustración se muestra el aspecto que tendrá la página cuando haya terminado. Los encabezados de columna son vínculos en los que el usuario puede hacer clic para ordenar las columnas correspondientes. Si se hace clic de forma consecutiva en el encabezado de una columna, el criterio de ordenación alterna entre ascendente y descendente.
 
 ![Students_Index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image1.png)
 
-## <a name="add-column-sort-links-to-the-students-index-page"></a>Agregar vínculos de ordenación de la columna a la página de índice de estudiantes
+## <a name="add-column-sort-links-to-the-students-index-page"></a>Agregar vínculos de ordenación de columnas en la página de índice de Students
 
 Para agregar ordenación, en la página de índice de estudiantes, cambiará la `Index` método de la `Student` controlador y agregar código a la `Student` indizar la vista.
 
@@ -43,24 +43,24 @@ En *Controllers\StudentController.cs*, reemplace el `Index` método por el códi
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample1.cs)]
 
-Este código recibe un `sortOrder` parámetro de la cadena de consulta en la dirección URL. El valor de cadena de consulta se proporciona mediante ASP.NET MVC como un parámetro al método de acción. El parámetro será una cadena que es "Name" o "Fecha", seguido opcionalmente por un guión bajo y la cadena "desc" para especificar el orden descendente. El criterio de ordenación predeterminado es el ascendente.
+Este código recibe un parámetro `sortOrder` de la cadena de consulta en la dirección URL. El valor de cadena de consulta se proporciona mediante ASP.NET MVC como un parámetro al método de acción. El parámetro es una cadena que puede ser "Name" o "Date", seguido (opcionalmente) por un guión bajo y la cadena "desc" para especificar el orden descendente. El criterio de ordenación predeterminado es el ascendente.
 
-La primera vez que se solicita la página de índice, no hay ninguna cadena de consulta. Los alumnos se muestran en orden ascendente por `LastName`, que es el valor predeterminado establecido por el caso paso explícito en el `switch` instrucción. Cuando el usuario hace clic en un hipervínculo de encabezado de columna, la correspondiente `sortOrder` valor se proporciona en la cadena de consulta.
+La primera vez que se solicita la página de índice, no hay ninguna cadena de consulta. Los alumnos se muestran en orden ascendente por `LastName`, que es el valor predeterminado establecido por el caso paso explícito en el `switch` instrucción. Cuando el usuario hace clic en un hipervínculo de encabezado de columna, se proporciona el valor `sortOrder` correspondiente en la cadena de consulta.
 
 Los dos `ViewBag` las variables se usan para que la vista puede configurar los hipervínculos del encabezado de columna con los valores de cadena de consulta adecuada:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample2.cs)]
 
-Estas son las instrucciones ternarias. La primera de ellas especifica que si el `sortOrder` parámetro es null o está vacío, `ViewBag.NameSortParm` debe establecerse en "nombre\_desc"; en caso contrario, se debe establecer en una cadena vacía. Estas dos instrucciones habilitar la vista establecer la columna hipervínculos de encabezado como sigue:
+Estas son las instrucciones ternarias. La primera de ellas especifica que si el `sortOrder` parámetro es null o está vacío, `ViewBag.NameSortParm` debe establecerse en "nombre\_desc"; en caso contrario, se debe establecer en una cadena vacía. Estas dos instrucciones habilitan la vista para establecer los hipervínculos de encabezado de columna de la forma siguiente:
 
-| Criterio de ordenación actual | Hipervínculo apellido | Hipervínculo de fecha |
+| Criterio de ordenación actual | Hipervínculo de apellido | Hipervínculo de fecha |
 | --- | --- | --- |
-| Último nombre ascendente | descending | ascending |
-| Último nombre descendente | ascending | ascending |
-| Fecha ascendente | ascending | descending |
-| Fecha descendente | ascending | ascending |
+| Apellido: ascendente | descending | ascending |
+| Apellido: descendente | ascending | ascending |
+| Fecha: ascendente | ascending | descending |
+| Fecha: descendente | ascending | ascending |
 
-El método usa [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) para especificar la columna para ordenar por. El código crea un [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) variable antes de la `switch` modifica la instrucción, en la `switch` instrucción y llamadas a la `ToList` método después el `switch` instrucción. Al crear y modificar `IQueryable` variables, no hay ninguna consulta se envía a la base de datos. La consulta no se ejecuta hasta que convierta el `IQueryable` objeto en una colección mediante una llamada a un método como `ToList`. Por lo tanto, este código produce una única consulta que no se ejecuta hasta que el `return View` instrucción.
+El método usa [LINQ to Entities](https://msdn.microsoft.com/library/bb386964.aspx) para especificar la columna para ordenar por. El código crea un [IQueryable](https://msdn.microsoft.com/library/bb351562.aspx) variable antes de la `switch` modifica la instrucción, en la `switch` instrucción y llamadas a la `ToList` método después el `switch` instrucción. Al crear y modificar variables `IQueryable`, no se envía ninguna consulta a la base de datos. La consulta no se ejecuta hasta que convierta el `IQueryable` objeto en una colección mediante una llamada a un método como `ToList`. Por lo tanto, este código produce una única consulta que no se ejecuta hasta que el `return View` instrucción.
 
 Como alternativa a escribir las instrucciones LINQ diferentes para cada criterio de ordenación, puede crear dinámicamente una instrucción LINQ. Para obtener información acerca de LINQ dinámica, consulte [LINQ dinámico](https://go.microsoft.com/fwlink/?LinkID=323957).
 
@@ -82,7 +82,7 @@ Tras hacer clic en el **Last Name** encabezado, los alumnos se muestran de forma
 
 ## <a name="add-a-search-box-to-the-students-index-page"></a>Agregue un cuadro de búsqueda a la página de índice de estudiantes
 
-Para agregar el filtrado a la página de índice de estudiantes, podrá agregar un cuadro de texto y un botón de envío a la vista y aplicar los cambios correspondientes en el `Index` método. El cuadro de texto le permitirá escribir una cadena que se busca en el nombre y los últimos campos de nombre.
+Para agregar filtrado a la página de índice de Students, agregue un cuadro de texto y un botón de envío a la vista y haga los cambios correspondientes en el método `Index`. El cuadro de texto le permite escribir la cadena que quiera buscar en los campos de nombre y apellido.
 
 ### <a name="add-filtering-functionality-to-the-index-method"></a>Agregar funcionalidad de filtrado para el método de índice
 
@@ -90,17 +90,17 @@ En *Controllers\StudentController.cs*, reemplace el `Index` método por el códi
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample4.cs?highlight=1,7-11)]
 
-Ha agregado un `searchString` parámetro para el `Index` método. El valor de cadena de búsqueda se recibe de un cuadro de texto que agregará a la vista de índice. También ha agregado a la instrucción LINQ un `where` cláusula que selecciona sólo los estudiantes cuyo apellido o apellidos contienen la cadena de búsqueda. La instrucción que agrega el [donde](https://msdn.microsoft.com/library/bb535040.aspx) cláusula se ejecuta sólo si hay un valor que se buscará.
+Ha agregado un parámetro `searchString` al método `Index`. El valor de la cadena de búsqueda se recibe desde un cuadro de texto que agregará a la vista de índice. También ha agregado a la instrucción LINQ un `where` cláusula que selecciona sólo los estudiantes cuyo apellido o apellidos contienen la cadena de búsqueda. La instrucción que agrega el [donde](https://msdn.microsoft.com/library/bb535040.aspx) cláusula se ejecuta sólo si hay un valor que se buscará.
 
 > [!NOTE]
 > En muchos casos puede llamar al mismo método en un conjunto de entidades de Entity Framework o como un método de extensión en una colección en memoria. Los resultados son normalmente los mismos pero en algunos casos pueden ser diferentes.
 > 
-> Por ejemplo, la implementación de .NET Framework de la `Contains` método devuelve todas las filas cuando se pasa una cadena vacía a él, pero el proveedor de Entity Framework para SQL Server Compact 4.0 devuelve cero filas para las cadenas vacías. Por lo tanto, el código del ejemplo (colocar el `Where` instrucción dentro de un `if` instrucción) se asegura de que obtendrá los mismos resultados para todas las versiones de SQL Server. Además, la implementación de .NET Framework de la `Contains` método realiza una comparación entre mayúsculas y minúsculas de forma predeterminada, pero los proveedores de Entity Framework SQL Server realizan comparaciones entre mayúsculas y minúsculas de forma predeterminada. Por lo tanto, al llamar a la `ToUpper` método para realizar la prueba explícitamente entre mayúsculas y minúsculas se asegura de que los resultados no cambian cuando cambia el código de una versión posterior para usar un repositorio, lo que devolverá una `IEnumerable` colección en lugar de un `IQueryable` objeto. (Cuando se llama a la `Contains` método en un `IEnumerable` colección, obtendrá la implementación en .NET Framework; cuando se llama en un `IQueryable` de objeto, obtendrá la implementación del proveedor de base de datos.)
+> Por ejemplo, la implementación de .NET Framework de la `Contains` método devuelve todas las filas cuando se pasa una cadena vacía a él, pero el proveedor de Entity Framework para SQL Server Compact 4.0 devuelve cero filas para las cadenas vacías. Por lo tanto, el código del ejemplo (colocar el `Where` instrucción dentro de un `if` instrucción) se asegura de que obtendrá los mismos resultados para todas las versiones de SQL Server. Además, la implementación de .NET Framework de la `Contains` método realiza una comparación entre mayúsculas y minúsculas de forma predeterminada, pero los proveedores de Entity Framework SQL Server realizan comparaciones entre mayúsculas y minúsculas de forma predeterminada. Por lo tanto, al llamar a la `ToUpper` método para realizar la prueba explícitamente entre mayúsculas y minúsculas se asegura de que los resultados no cambian cuando cambia el código de una versión posterior para usar un repositorio, lo que devolverá una `IEnumerable` colección en lugar de un `IQueryable` objeto. (Al hacer una llamada al método `Contains` en una colección `IEnumerable`, obtendrá la implementación de .NET Framework; al hacer una llamada a un objeto `IQueryable`, obtendrá la implementación del proveedor de base de datos).
 > 
 > Control de valores NULL también puede ser diferente para los proveedores de base de datos diferente o si usa un `IQueryable` objeto en comparación con cuando se usa un `IEnumerable` colección. Por ejemplo, en algunos escenarios un `Where` condición como `table.Column != 0` no se puede devolver columnas que tengan `null` como el valor. Para obtener más información, consulte [tratamiento incorrecto de las variables de null en la cláusula 'where'](https://data.uservoice.com/forums/72025-entity-framework-feature-suggestions/suggestions/1015361-incorrect-handling-of-null-variables-in-where-cl).
 
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Agregue un cuadro de búsqueda a la vista de índice de estudiante
+### <a name="add-a-search-box-to-the-student-index-view"></a>Agregar un cuadro de búsqueda a la vista de índice de Student
 
 En *Views\Student\Index.cshtml*, agregue el código resaltado inmediatamente antes de la apertura `table` etiqueta con el fin de crear un título, un cuadro de texto y un **búsqueda** botón.
 
@@ -146,13 +146,13 @@ Este código agrega un `page` parámetro, un parámetro de criterio de ordenaci�
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample8.cs)]
 
-La primera vez que se muestra la página, o si el usuario no ha hecho clic en una paginación u ordenación vínculo, todos los parámetros será nulos. Si se hace clic en un vínculo de paginación, el `page` variable contendrá el número de página para mostrar.
+La primera vez que se muestra la página, o si el usuario no ha hecho clic en un vínculo de ordenación o paginación, todos los parámetros son nulos. Si se hace clic en un vínculo de paginación, el `page` variable contendrá el número de página para mostrar.
 
 Un `ViewBag` propiedad proporciona la vista con el criterio de ordenación actual, porque esto debe estar incluida en los vínculos de paginación para mantener el criterio de ordenación de los mismos durante la paginación:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample9.cs)]
 
-Otra propiedad, `ViewBag.CurrentFilter`, proporciona la vista con la cadena de filtro actual. Este valor debe estar incluido en los vínculos de paginación para mantener la configuración del filtro durante la paginación y deben restaurarse en el cuadro de texto cuando se vuelve a mostrar la página. Si se cambia la cadena de búsqueda durante la paginación, la página debe restablecerse a 1, porque el nuevo filtro puede dar lugar a datos diferente para mostrar. Cuando se escribe un valor en el cuadro de texto y se presiona el botón Enviar, se cambia la cadena de búsqueda. En ese caso, el `searchString` parámetro no es null.
+Otra propiedad, `ViewBag.CurrentFilter`, proporciona la vista con la cadena de filtro actual. Este valor debe incluirse en los vínculos de paginación para mantener la configuración de filtrado durante la paginación y debe restaurarse en el cuadro de texto cuando se vuelve a mostrar la página. Si se cambia la cadena de búsqueda durante la paginación, la página debe restablecerse a 1, porque el nuevo filtro puede hacer que se muestren diferentes datos. Cuando se escribe un valor en el cuadro de texto y se presiona el botón Enviar, se cambia la cadena de búsqueda. En ese caso, el `searchString` parámetro no es null.
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample10.cs)]
 
@@ -160,7 +160,7 @@ Al final del método, el `ToPagedList` método de extensión en los alumnos `IQu
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample11.cs)]
 
-El `ToPagedList` método toma un número de página. Los dos signos de interrogación representan el [operador de uso combinado de null](https://msdn.microsoft.com/library/ms173224.aspx). El operador de uso combinado de null define un valor predeterminado para un tipo que acepta valores null; la expresión `(page ?? 1)` significa que devuelva el valor de `page` si tiene un valor, o devuelve 1 si `page` es null.
+El método `ToPagedList` toma un número de página. Los dos signos de interrogación representan el [operador de uso combinado de null](https://msdn.microsoft.com/library/ms173224.aspx). El operador de uso combinado de NULL define un valor predeterminado para un tipo que acepta valores NULL; la expresión `(page ?? 1)` devuelve el valor de `page` si tiene algún valor o devuelve 1 si `page` es NULL.
 
 ### <a name="add-paging-links-to-the-student-index-view"></a>Agregar vínculos de paginación a la vista de índice de estudiante
 
@@ -168,7 +168,7 @@ En *Views\Student\Index.cshtml*, reemplace el código existente por el código s
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample12.cshtml?highlight=1-3,6,9,14,17,24,30,55-56,58-59)]
 
-El `@model` instrucción en la parte superior de la página especifica que la vista obtiene ahora un `PagedList` en lugar del objeto un `List` objeto.
+La instrucción `@model` de la parte superior de la página especifica que ahora la vista obtiene un objeto `PagedList` en lugar de un objeto `List`.
 
 El `using` instrucción para `PagedList.Mvc` proporciona acceso a la aplicación auxiliar MVC para los botones de paginación.
 
@@ -176,13 +176,13 @@ El código usa una sobrecarga de [BeginForm](https://msdn.microsoft.com/library/
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample13.cshtml?highlight=1)]
 
-El valor predeterminado [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) envía datos del formulario con una entrada, lo que significa que se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como las cadenas de consulta de parámetros. Cuando se especifica HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta, lo que permite a los usuarios marcar la dirección URL. El [directrices de W3C para el uso de HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) recomienda que se debe utilizar GET cuando la acción no da como resultado una actualización.
+El valor predeterminado [BeginForm](https://msdn.microsoft.com/library/system.web.mvc.html.formextensions.beginform(v=vs.108).aspx) envía datos del formulario con una entrada, lo que significa que se pasan en el cuerpo del mensaje HTTP y no en la dirección URL como las cadenas de consulta de parámetros. Al especificar HTTP GET, los datos de formulario se pasan en la dirección URL como cadenas de consulta, lo que permite que los usuarios marquen la dirección URL. El [directrices de W3C para el uso de HTTP GET](http://www.w3.org/2001/tag/doc/whenToUseGet.html) recomienda que se debe utilizar GET cuando la acción no da como resultado una actualización.
 
 El cuadro de texto se inicializa con la cadena de búsqueda actual para que al hacer clic en una nueva página que pueda ver la cadena de búsqueda actual.
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample14.cshtml?highlight=1)]
 
-Los vínculos de encabezado de columna use la cadena de consulta para pasar la cadena de búsqueda actual al controlador de modo que el usuario puede ordenar en los resultados del filtro:
+Los vínculos del encabezado de la columna usan la cadena de consulta para pasar la cadena de búsqueda actual al controlador, de modo que el usuario pueda ordenar los resultados del filtro:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample15.cshtml?highlight=1)]
 
@@ -202,15 +202,15 @@ Ejecute la página.
 
 ![Students_index_page_with_paging](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image7.png)
 
-Haga clic en los vínculos de paginación en distintos criterios de ordenación para comprobar que funciona de paginación. A continuación, escriba una cadena de búsqueda e inténtelo de paginación nuevo para comprobar que la paginación también la funciona correctamente con el filtrado y ordenación.
+Haga clic en los vínculos de paginación en distintos criterios de ordenación para comprobar que la paginación funciona correctamente. A continuación, escriba una cadena de búsqueda e intente llevar a cabo la paginación de nuevo, para comprobar que la paginación también funciona correctamente con filtrado y ordenación.
 
 ![](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image8.png)
 
 ## <a name="create-an-about-page-that-shows-student-statistics"></a>Crear un sobre la página que muestra estadísticas de estudiante
 
-Para la Universidad de Contoso del sitio Web acerca de la página, mostrará los alumnos cuántos han inscrito para cada fecha de inscripción. Esto requiere cálculos de agrupación y simples en los grupos. Para ello, deberá llevar a cabo lo siguiente:
+Para la Universidad de Contoso del sitio Web acerca de la página, mostrará los alumnos cuántos han inscrito para cada fecha de inscripción. Esto requiere realizar agrupaciones y cálculos sencillos en los grupos. Para conseguirlo, haga lo siguiente:
 
-- Cree una clase de modelo de vista para los datos que necesita para pasar a la vista.
+- Cree una clase de modelo de vista para los datos que necesita pasar a la vista.
 - Modificar el `About` método en el `Home` controlador.
 - Modificar el `About` vista.
 
@@ -220,7 +220,7 @@ Crear un *ViewModels* en la carpeta de proyecto. En esa carpeta, agregue un arch
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample18.cs)]
 
-### <a name="modify-the-home-controller"></a>Modifique el controlador Home
+### <a name="modify-the-home-controller"></a>Modificación del controlador Home
 
 En *HomeController.cs*, agregue las siguientes `using` las instrucciones en la parte superior del archivo:
 
@@ -234,19 +234,19 @@ Reemplace el método `About` con el código siguiente:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample21.cs)]
 
-La instrucción LINQ agrupa las entidades de alumnos por fecha de inscripción, calcula el número de entidades en cada grupo y almacena los resultados en una colección de `EnrollmentDateGroup` ver objetos del modelo.
+La instrucción LINQ agrupa las entidades de alumnos por fecha de inscripción, calcula la cantidad de entidades que se incluyen en cada grupo y almacena los resultados en una colección de objetos de modelo de la vista `EnrollmentDateGroup`.
 
 Agregar un `Dispose` método:
 
 [!code-csharp[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample22.cs)]
 
-### <a name="modify-the-about-view"></a>Modificar la vista
+### <a name="modify-the-about-view"></a>Modificación de la vista About
 
 Reemplace el código de la *Views\Home\About.cshtml* archivo con el código siguiente:
 
 [!code-cshtml[Main](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/samples/sample23.cshtml)]
 
-Ejecutar la aplicación y haga clic en el **sobre** vínculo. El número de alumnos para cada fecha de inscripción se muestra en una tabla.
+Ejecutar la aplicación y haga clic en el **sobre** vínculo. En una tabla se muestra el número de alumnos para cada fecha de inscripción.
 
 ![About_page](sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application/_static/image9.png)
 
@@ -258,6 +258,6 @@ Vota sobre cómo le gustó este tutorial y lo que podemos mejorar. También pued
 
 Vínculos a otros recursos de Entity Framework se pueden encontrar en [ASP.NET Data Access: recursos recomendados](../../../../whitepapers/aspnet-data-access-content-map.md).
 
->[!div class="step-by-step"]
-[Anterior](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
-[Siguiente](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)
+> [!div class="step-by-step"]
+> [Anterior](implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application.md)
+> [Siguiente](connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application.md)

@@ -1,22 +1,22 @@
 ---
 uid: identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
-title: "Información general sobre proveedores de almacenamiento personalizado para identidades de ASP.NET | Documentos de Microsoft"
+title: Información general sobre proveedores de almacenamiento personalizado para identidades de ASP.NET | Documentos de Microsoft
 author: tfitzmac
-description: "Identidad de ASP.NET es un sistema extensible que permite crear su propio proveedor de almacenamiento y conectarlo a la aplicación sin necesidad de volver a trabajar el fac..."
+description: Identidad de ASP.NET es un sistema extensible que permite crear su propio proveedor de almacenamiento y conectarlo a la aplicación sin necesidad de volver a trabajar el fac...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/13/2014
 ms.topic: article
 ms.assetid: 681a9204-462e-4260-9a0b-19f0644d6ad7
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: bbc1f6ef291eddd7488531943b146bb67ae7ee02
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: 06e3ad3b74bf94806f56da9f579255bf2917bc48
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="overview-of-custom-storage-providers-for-aspnet-identity"></a>Información general sobre proveedores de almacenamiento personalizado para identidades de ASP.NET
 ====================
@@ -153,29 +153,29 @@ La siguiente imagen muestra más detalles sobre la funcionalidad definida en cad
 ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image4.png)
 
 - **IUserStore**  
- El [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) interfaz es la única interfaz que debe implementar en el almacén de usuario. Define métodos para crear, actualizar, eliminar y recuperar los usuarios.
+  El [IUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613278(v=vs.108).aspx) interfaz es la única interfaz que debe implementar en el almacén de usuario. Define métodos para crear, actualizar, eliminar y recuperar los usuarios.
 - **IUserClaimStore**  
- El [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) interfaz define los métodos debe implementar en el almacén de usuario para habilitar notificaciones de usuario. Contiene métodos o adición, eliminación y recuperación de notificaciones de usuario.
+  El [IUserClaimStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613265(v=vs.108).aspx) interfaz define los métodos debe implementar en el almacén de usuario para habilitar notificaciones de usuario. Contiene métodos o adición, eliminación y recuperación de notificaciones de usuario.
 - **IUserLoginStore**  
- El [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) define los métodos debe implementar en el almacén de usuario para permitir a los proveedores de autenticación externo. Contiene métodos para agregar, quitar y recuperar los inicios de sesión de usuario y un método para recuperar un usuario basándose en la información de inicio de sesión.
+  El [IUserLoginStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613272(v=vs.108).aspx) define los métodos debe implementar en el almacén de usuario para permitir a los proveedores de autenticación externo. Contiene métodos para agregar, quitar y recuperar los inicios de sesión de usuario y un método para recuperar un usuario basándose en la información de inicio de sesión.
 - **IUserRoleStore**  
- El [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) interfaz define los métodos debe implementar en el almacén de usuario para asignar un usuario a un rol. Contiene métodos para agregar, quitar y recuperar los roles de usuario y un método para comprobar si un usuario está asignado a un rol.
+  El [IUserRoleStore&lt;TKey, TUser&gt; ](https://msdn.microsoft.com/library/dn613276(v=vs.108).aspx) interfaz define los métodos debe implementar en el almacén de usuario para asignar un usuario a un rol. Contiene métodos para agregar, quitar y recuperar los roles de usuario y un método para comprobar si un usuario está asignado a un rol.
 - **IUserPasswordStore**  
- El [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) interfaz define los métodos que debe implementar en el almacén de usuario para almacenar contraseñas con algoritmo hash. Contiene métodos para obtener y establecer la contraseña con hash y un método que indica si el usuario ha establecido una contraseña.
+  El [IUserPasswordStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613273(v=vs.108).aspx) interfaz define los métodos que debe implementar en el almacén de usuario para almacenar contraseñas con algoritmo hash. Contiene métodos para obtener y establecer la contraseña con hash y un método que indica si el usuario ha establecido una contraseña.
 - **IUserSecurityStampStore**  
- El [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) interfaz define los métodos que debe implementar en el almacén de usuario en una marca de seguridad que indica si ha cambiado la información de la cuenta del usuario . Esta marca se actualiza cuando un usuario cambia la contraseña, o agregue o quite inicios de sesión. Contiene métodos para obtener y establecer la marca de seguridad.
+  El [IUserSecurityStampStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613277(v=vs.108).aspx) interfaz define los métodos que debe implementar en el almacén de usuario en una marca de seguridad que indica si ha cambiado la información de la cuenta del usuario . Esta marca se actualiza cuando un usuario cambia la contraseña, o agregue o quite inicios de sesión. Contiene métodos para obtener y establecer la marca de seguridad.
 - **IUserTwoFactorStore**  
- El [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) interfaz define los métodos que debe implementar para implementar autenticación en dos fases. Contiene métodos para obtener y establecer si está habilitada la autenticación en dos fases para un usuario.
+  El [IUserTwoFactorStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613279(v=vs.108).aspx) interfaz define los métodos que debe implementar para implementar autenticación en dos fases. Contiene métodos para obtener y establecer si está habilitada la autenticación en dos fases para un usuario.
 - **IUserPhoneNumberStore**  
- El [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) interfaz define los métodos que debe implementar para almacenar números de teléfono del usuario. Contiene métodos para obtener y establecer el número de teléfono y si se ha confirmado el número de teléfono.
+  El [IUserPhoneNumberStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613275(v=vs.108).aspx) interfaz define los métodos que debe implementar para almacenar números de teléfono del usuario. Contiene métodos para obtener y establecer el número de teléfono y si se ha confirmado el número de teléfono.
 - **IUserEmailStore**  
- El [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) interfaz define los métodos que debe implementar para almacenar direcciones de correo electrónico del usuario. Contiene métodos para obtener y establecer la dirección de correo electrónico y si se ha confirmado el correo electrónico.
+  El [IUserEmailStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613143(v=vs.108).aspx) interfaz define los métodos que debe implementar para almacenar direcciones de correo electrónico del usuario. Contiene métodos para obtener y establecer la dirección de correo electrónico y si se ha confirmado el correo electrónico.
 - **IUserLockoutStore**  
- El [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) interfaz define los métodos que debe implementar para almacenar información acerca de los bloqueos de una cuenta. Contiene métodos para obtener el número actual de intentos de acceso erróneos, obtener y establecer si se puede bloquear la cuenta, obtener y establecer la fecha de finalización de bloqueo, incrementar el número de intentos erróneos y restablecer el número de intentos fallidos.
+  El [IUserLockoutStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613271(v=vs.108).aspx) interfaz define los métodos que debe implementar para almacenar información acerca de los bloqueos de una cuenta. Contiene métodos para obtener el número actual de intentos de acceso erróneos, obtener y establecer si se puede bloquear la cuenta, obtener y establecer la fecha de finalización de bloqueo, incrementar el número de intentos erróneos y restablecer el número de intentos fallidos.
 - **IQueryableUserStore**  
- El [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) interfaz define los miembros que se debe implementar para proporcionar un almacén de usuarios consultable. Contiene una propiedad que contiene los usuarios consultables.
+  El [IQueryableUserStore&lt;TUser, TKey&gt; ](https://msdn.microsoft.com/library/dn613267(v=vs.108).aspx) interfaz define los miembros que se debe implementar para proporcionar un almacén de usuarios consultable. Contiene una propiedad que contiene los usuarios consultables.
 
- Implementar las interfaces que son necesarios en la aplicación; como el IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore y IUserSecurityStampStore interfaces tal y como se muestra a continuación. 
+  Implementar las interfaces que son necesarios en la aplicación; como el IUserClaimStore, IUserLoginStore, IUserRoleStore, IUserPasswordStore y IUserSecurityStampStore interfaces tal y como se muestra a continuación. 
 
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample5.cs)]
 
@@ -218,11 +218,11 @@ En el ejemplo siguiente se muestra una clase de almacén de rol. El parámetro g
 [!code-csharp[Main](overview-of-custom-storage-providers-for-aspnet-identity/samples/sample8.cs)]
 
 - **IRoleStore&lt;TRole&gt;**  
- El [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfaz define los métodos que se implementan en la clase de almacén de rol. Contiene métodos para crear, actualizar, eliminar y recuperar roles.
+  El [IRoleStore](https://msdn.microsoft.com/library/dn468195.aspx) interfaz define los métodos que se implementan en la clase de almacén de rol. Contiene métodos para crear, actualizar, eliminar y recuperar roles.
 - **RoleStore&lt;TRole&gt;**  
- Para personalizar RoleStore, cree una clase que implementa la interfaz IRoleStore. Solo tiene que implementar esta clase si desea utilizar las funciones del sistema. El constructor que toma un parámetro denominado *base de datos* de tipo ExampleDatabase es sólo una ilustración de cómo pasar de la clase de acceso a datos. Por ejemplo, en la implementación de MySQL, este constructor toma un parámetro de tipo MySQLDatabase.  
+  Para personalizar RoleStore, cree una clase que implementa la interfaz IRoleStore. Solo tiene que implementar esta clase si desea utilizar las funciones del sistema. El constructor que toma un parámetro denominado *base de datos* de tipo ExampleDatabase es sólo una ilustración de cómo pasar de la clase de acceso a datos. Por ejemplo, en la implementación de MySQL, este constructor toma un parámetro de tipo MySQLDatabase.  
   
- Para una implementación completa, consulte [RoleStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
+  Para una implementación completa, consulte [RoleStore (MySQL)](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/AspNet.Identity.MySQL/RoleStore.cs) .
 
 <a id="reconfigure"></a>
 ## <a name="reconfigure-application-to-use-new-storage-provider"></a>Volver a configurar la aplicación para que use el nuevo proveedor de almacenamiento
@@ -232,7 +232,7 @@ Ha implementado el nuevo proveedor de almacenamiento. Ahora, debe configurar la 
 ### <a name="replace-default-storage-provider-in-mvc-project"></a>Reemplace el proveedor de almacenamiento de forma predeterminada en el proyecto de MVC
 
 1. En el **administrar paquetes de NuGet** ventana, desinstale el **Microsoft ASP.NET Identity EntityFramework** paquete. Puede encontrar este paquete buscando Identity.EntityFramework en los paquetes instalados.  
-    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png)Se le pedirá si también desea desinstalar Entity Framework. Si no se necesita en otras partes de la aplicación, puede desinstalarlo.
+    ![](overview-of-custom-storage-providers-for-aspnet-identity/_static/image7.png) Se le pedirá si también desea desinstalar Entity Framework. Si no se necesita en otras partes de la aplicación, puede desinstalarlo.
 2. En el archivo IdentityModels.cs en la carpeta Models, elimine o marque como comentario el **ApplicationUser** y **ApplicationDbContext** clases. En una aplicación MVC, puede eliminar todo el archivo IdentityModels.cs. En una aplicación de formularios Web Forms, eliminar las dos clases, pero debe asegurarse de que mantener la clase auxiliar que también se encuentra en el archivo IdentityModels.cs.
 3. Si su proveedor de almacenamiento reside en un proyecto independiente, agregue una referencia a él en la aplicación web.
 4. Reemplace todas las referencias a `using Microsoft.AspNet.Identity.EntityFramework;` con el uso de una instrucción para el espacio de nombres del proveedor de almacenamiento.

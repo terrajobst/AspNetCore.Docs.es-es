@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
-title: "Agregar dinámicamente un panel acordeón (C#) | Documentos de Microsoft"
+title: Agregar dinámicamente un panel acordeón (C#) | Documentos de Microsoft
 author: wenz
 description: El control Accordion en el Kit de herramientas de Control de AJAX proporciona varios paneles y permite al usuario mostrar uno de ellos al mismo tiempo. Paneles normalmente se declaran w...
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1c6af79186ca21082647beec500c47974a47c35a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ad2fc6ea3d527215c0226f3f594d781163d538b5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="dynamically-adding-an-accordion-pane-c"></a>Agregar dinámicamente un panel acordeón (C#)
 ====================
@@ -62,6 +62,6 @@ Para terminar el ejemplo, las dos clases CSS que se hace referencia en el contro
 
 Los datos de la accordion dinámicamente se agregan mediante código del lado servidor ([haga clic aquí para ver la imagen a tamaño completo](dynamically-adding-an-accordion-pane-cs/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](databinding-to-an-accordion-cs.md)
-[Siguiente](databinding-to-an-accordion-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](databinding-to-an-accordion-cs.md)
+> [Siguiente](databinding-to-an-accordion-vb.md)

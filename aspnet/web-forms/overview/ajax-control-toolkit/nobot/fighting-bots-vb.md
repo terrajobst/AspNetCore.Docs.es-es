@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 title: Luchar contra Bots (VB) | Documentos de Microsoft
 author: wenz
-description: "Bots automatizados pegar blogs y otros sitios Web con spam, envío de formularios de comentario sin ninguna interacción del usuario. El control de NoBot en el timo de AJAX de ASP.NET..."
+description: Bots automatizados pegar blogs y otros sitios Web con spam, envío de formularios de comentario sin ninguna interacción del usuario. El control de NoBot en el timo de AJAX de ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3b786fd8605c7521a4aae8e49ca236363a71b572
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 35d5984ac7ff3422bab07a759c93fef3914a22f7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="fighting-bots-vb"></a>Luchar contra Bots (VB)
 ====================
@@ -37,7 +37,7 @@ Un método común para anular bots es usar pruebas CAPTCHAs completamente automa
 
 Hay varias ventajas y desventajas de este enfoque, pero una descripción de este está fuera del ámbito de este tutorial. Sin embargo hay un control en el Kit de herramientas de Control de AJAX de ASP.NET que proporciona un enfoque similar: `NoBot`. Es más fácil de evitar que un CAPTCHA, pero es muy fácil de usar y se rechaza, tarifas muy bien en sitios Web como blogs donde se considera correcta si la mayoría de los intentos de correo no deseado que el `NoBot` control puede hacer.
 
-`NoBot`intercepta la devolución de datos del formulario web ASP.NET actual si se cumple al menos una de estas condiciones:
+`NoBot` intercepta la devolución de datos del formulario web ASP.NET actual si se cumple al menos una de estas condiciones:
 
 - Se produce un error en el explorador resolver un rompecabezas de JavaScript (por ejemplo si JavaScript está desactivada)
 - El usuario envía el formulario para rápido
@@ -45,9 +45,9 @@ Hay varias ventajas y desventajas de este enfoque, pero una descripción de este
 
 Para comprobar estas condiciones, el `NoBot` control requiere estos atributos (todos ellos opcionales):
 
-- `ResponseMinimumDelaySeconds`cantidad mínima de segundos entre las devoluciones de datos
-- `CutoffWindowSeconds`longitud del intervalo de tiempo en el que las devoluciones de datos de una IP son medidas
-- `CutoffMaximumInstances`cantidad máxima de segundos por intervalo de tiempo
+- `ResponseMinimumDelaySeconds` cantidad mínima de segundos entre las devoluciones de datos
+- `CutoffWindowSeconds` longitud del intervalo de tiempo en el que las devoluciones de datos de una IP son medidas
+- `CutoffMaximumInstances` cantidad máxima de segundos por intervalo de tiempo
 
 Las demandas de marcado que al menos dos segundos siguientes transcurran entre las devoluciones de datos y que hay postbacks solo cinco o menos dentro de un intervalo de 30 segundos:
 
@@ -72,5 +72,5 @@ Al ejecutar este script y desactivar JavaScript o enviar el formulario dentro de
 
 Este mensaje de error puede deberse a un bot ([haga clic aquí para ver la imagen a tamaño completo](fighting-bots-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](fighting-bots-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](fighting-bots-cs.md)

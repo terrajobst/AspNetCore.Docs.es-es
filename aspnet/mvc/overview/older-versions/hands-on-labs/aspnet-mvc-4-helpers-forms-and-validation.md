@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
-title: "Aplicaciones auxiliares de MVC de ASP.NET 4, formularios y la validación | Documentos de Microsoft"
+title: Aplicaciones auxiliares de MVC de ASP.NET 4, formularios y la validación | Documentos de Microsoft
 author: rick-anderson
-description: "En ASP.NET MVC 4 modelos y los laboratorios de prácticas de acceso de datos, se han cargar y mostrar los datos de la base de datos. En este laboratorio práctico, va a agregar a la..."
+description: En ASP.NET MVC 4 modelos y los laboratorios de prácticas de acceso de datos, se han cargar y mostrar los datos de la base de datos. En este laboratorio práctico, va a agregar a la...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
-ms.openlocfilehash: 243db3708ac4311d423c4c137f503f072f5553e6
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Validación, formularios y aplicaciones auxiliares de ASP.NET MVC 4
 
@@ -112,12 +112,12 @@ En esta tarea, creará un nuevo controlador denominado **StoreManagerController*
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex1-CreatingTheStoreManagerController/Begin/** carpeta.
 
-    1. Deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Agrega un nuevo controlador. Para ello, haga clic en el **controladores** carpeta en el Explorador de soluciones, seleccione **agregar** y, a continuación, el **controlador** comando. Cambiar el **controlador** **nombre** a **StoreManagerController** y asegúrese de que la opción **controlador de MVC con acciones de lectura/escritura vacías**está seleccionada. Haga clic en **Agregar**.
 
     ![Cuadro de diálogo Agregar controlador](aspnet-mvc-4-helpers-forms-and-validation/_static/image1.png "cuadro de diálogo Agregar controlador")
@@ -184,7 +184,7 @@ En esta tarea, se ajustará la plantilla de la vista simple creada con la caract
 1. Revise el código creado. La lista de campos generada va a formar parte de los siguientes valores de tabla HTML que **Scaffolding** usa para mostrar datos tabulares.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample4.cshtml)]
-2. Reemplace el  **&lt;tabla&gt;**  código con el código siguiente para mostrar solamente la **género**, **intérprete**, **título del álbum**, y **precio** campos. Esto elimina la **AlbumId** y **dirección URL de carátulas de álbum** columnas. Además, cambia las columnas GenreId y ArtistId para mostrar sus propiedades de clase vinculados de **Artist.Name** y **Genre.Name**y quita la **detalles** vínculo.
+2. Reemplace el **&lt;tabla&gt;** código con el código siguiente para mostrar solamente la **género**, **intérprete**, **título del álbum**, y **precio** campos. Esto elimina la **AlbumId** y **dirección URL de carátulas de álbum** columnas. Además, cambia las columnas GenreId y ArtistId para mostrar sus propiedades de clase vinculados de **Artist.Name** y **Genre.Name**y quita la **detalles** vínculo.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample5.cshtml)]
 3. Cambie las siguientes descripciones.
@@ -231,14 +231,14 @@ En esta tarea, agregará un nuevo método **Truncate** a la **HTML** objeto expu
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex2-AddingAnHTMLHelper/Begin/** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra la vista de índice del StoreManager. Para ello, en el Explorador de soluciones, expanda la **vistas** carpeta, la **StoreManager** y abra el **Index.cshtml** archivo.
-3. Agregue el código siguiente la  **@model**  directiva para definir la **Truncate** método auxiliar.
+3. Agregue el código siguiente la <strong>@model</strong> directiva para definir la <strong>Truncate</strong> método auxiliar.
 
     [!code-cshtml[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample7.cshtml)]
 
@@ -275,7 +275,7 @@ En esta tarea, realizará las pruebas que el **StoreManager** **índice** planti
 
 En este ejercicio, obtendrá información sobre cómo crear un formulario para permitir que los jefes de almacén editar un álbum. Examinará el **/StoreManager/Edit/id** dirección URL (**Id. de** que el identificador único del álbum que desea editar), lo que hace que una llamada HTTP-GET en el servidor.
 
-El método de acción de controlador Edit van a recuperar el álbum adecuado de la base de datos, cree un **StoreManagerViewModel** objeto va a encapsular (junto con una lista de intérpretes, géneros) y, a continuación, pasar a una plantilla de vista para presentar la página HTML al usuario. Esta página contendrá una  **&lt;formulario&gt;**  elemento con cuadros de texto y listas desplegables para editar las propiedades de álbum.
+El método de acción de controlador Edit van a recuperar el álbum adecuado de la base de datos, cree un **StoreManagerViewModel** objeto va a encapsular (junto con una lista de intérpretes, géneros) y, a continuación, pasar a una plantilla de vista para presentar la página HTML al usuario. Esta página contendrá una **&lt;formulario&gt;** elemento con cuadros de texto y listas desplegables para editar las propiedades de álbum.
 
 Una vez que el usuario actualiza los valores de formulario de álbum y hace clic en el **guardar** botón, los cambios se envían a través de devolución de llamada una solicitud HTTP POST a **/StoreManager/Edit/id**. Aunque la dirección URL sigue siendo el mismo que en la última llamada, ASP.NET MVC que identifica este tiempo es una solicitud HTTP-POST y, por tanto, se ejecuta un método de acción de edición diferente (uno decorada con **[HttpPost]**).
 
@@ -288,12 +288,12 @@ En esta tarea, implementará la versión de HTTP-GET del método de acción de e
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex3-CreatingTheEditView/Begin/** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra la **StoreManagerController** clase. Para ello, expanda el **controladores** carpeta y haga doble clic en **StoreManagerController.cs**.
 3. Reemplace el **HTTP-GET editar** método de acción con el código siguiente para recuperar la correspondiente **álbum** , así como la **géneros** y **intérpretes**se enumeran.
 
@@ -425,12 +425,12 @@ En esta tarea, implementará la versión de HTTP-GET del método de acción Crea
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex4-AddingACreateView/Begin/** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra **StoreManagerController** clase. Para ello, expanda el **controladores** carpeta y haga doble clic en **StoreManagerController.cs**.
 3. Reemplace el **crear** código del método de acción con lo siguiente:
 
@@ -524,12 +524,12 @@ En esta tarea, implementará la versión de HTTP-GET del método de acción Dele
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex5-HandlingDeletion/Begin/** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra **StoreManagerController** clase. Para ello, expanda el **controladores** carpeta y haga doble clic en **StoreManagerController.cs**.
 3. La acción de controlador de eliminación es exactamente igual que la acción de controlador de detalles del almacén anterior: consulta el **álbum** objeto de la base de datos, utilizando la **Id. de** proporcionado en la dirección URL y devuelve la adecuado **vista**. Para ello, reemplace el HTTP-GET **eliminar** código del método de acción con lo siguiente:
 
@@ -613,12 +613,12 @@ Esto es un poco más complejo en casos como este aplicación donde se genera el 
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex6-AddingValidation/Begin/** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Abra la **Album.cs** desde el **modelos** carpeta.
 3. Reemplace **Album.cs** de contenido con el código resaltado, por lo que tenga un aspecto similar al siguiente:
 
@@ -657,7 +657,7 @@ En esta tarea, probará que validan campos, en la creación y edición de págin
 
     ![Campos validados en la página Editar](aspnet-mvc-4-helpers-forms-and-validation/_static/image19.png)
 
-    Campos validados en la página Editar
+    *Campos validados en la página Editar*
 
 <a id="Exercise7"></a>
 
@@ -679,12 +679,12 @@ En esta tarea, se ejecutará la aplicación antes de incluir jQuery para compara
 
 1. Abra la **comenzar** solución ubicado en **origen/Ex7-UnobtrusivejQueryValidation/Begin/** carpeta. En caso contrario, puede seguir usando el **final** solución obtenido siguiendo el ejercicio anterior.
 
-    1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
-    2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
-    3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
+   1. Si abrió proporcionado **comenzar** solución, deberá descargar algunos paquetes de NuGet que faltan antes de continuar. Para ello, haga clic en el **proyecto** menú y seleccione **administrar paquetes de NuGet**.
+   2. En el **administrar paquetes de NuGet** cuadro de diálogo, haga clic en **restaurar** para descargar los paquetes que falten.
+   3. Por último, compile la solución haciendo clic en **generar** | **generar solución**.
 
-    > [!NOTE]
-    > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
+      > [!NOTE]
+      > Una de las ventajas del uso de NuGet es que no tiene que enviar todas las bibliotecas en el proyecto, lo que reduce el tamaño del proyecto. Con NuGet Power Tools, mediante la especificación de las versiones del paquete en el archivo Packages.config, podrá descargar la primera vez que ejecute el proyecto de todas las bibliotecas necesarias. Este es el motivo por el que se deben ejecutar estos pasos después de abrir una solución existente de este laboratorio.
 2. Presione **F5** para ejecutar la aplicación.
 3. El proyecto se inicia en la página principal. Examinar **/StoreManager/crear** y haga clic en **crear** sin rellenar el formulario para comprobar que aparece un mensaje de validación:
 
@@ -739,24 +739,24 @@ En esta tarea, realizará las pruebas que el **StoreManager** Crear vista planti
 
     [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample23.html)]
 
-    > [!NOTE]
-    > Para cada regla de validación de cliente, jQuery discreta agrega un atributo con datos-val -*rulename*=&quot;*mensaje*&quot;. A continuación se muestra una lista de etiquetas que discreta jQuery se inserta en el campo de entrada html para realizar la validación de cliente:
-    > 
-    > - Datos val
-    > - Número de val de datos
-    > - Intervalo de datos val
-    > - Datos val intervalo mínima / datos val intervalo máxima
-    > - Datos requeridos para val
-    > - Longitud de datos de val
-    > - Datos val longitud máxima / datos val longitud mínima
-    > 
-    > Todos los valores de datos se rellenan con modelo **anotación de datos**. A continuación, toda la lógica que trabaje en el lado del servidor se puede ejecutar en el cliente. Por ejemplo, el atributo precio tiene la siguiente anotación de datos en el modelo:
-    > 
-    > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
-    > 
-    > Después de usar jQuery discreta, el código generado es:
-    >  
-    > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
+   > [!NOTE]
+   > Para cada regla de validación de cliente, jQuery discreta agrega un atributo con datos-val -*rulename*=&quot;*mensaje*&quot;. A continuación se muestra una lista de etiquetas que discreta jQuery se inserta en el campo de entrada html para realizar la validación de cliente:
+   > 
+   > - Datos val
+   > - Número de val de datos
+   > - Intervalo de datos val
+   > - Datos val intervalo mínima / datos val intervalo máxima
+   > - Datos requeridos para val
+   > - Longitud de datos de val
+   > - Datos val longitud máxima / datos val longitud mínima
+   > 
+   > Todos los valores de datos se rellenan con modelo **anotación de datos**. A continuación, toda la lógica que trabaje en el lado del servidor se puede ejecutar en el cliente. Por ejemplo, el atributo precio tiene la siguiente anotación de datos en el modelo:
+   > 
+   > [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample24.cs)]
+   > 
+   > Después de usar jQuery discreta, el código generado es:
+   > 
+   > [!code-html[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample25.html)]
 
 * * *
 
@@ -781,9 +781,9 @@ Al completar este laboratorio práctico ha aprendido cómo permitir a los usuari
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Apéndice A: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la  **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)** . Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
-1. Vaya a [ [https://go.microsoft.com/?linkid=9810169](https://go.microsoft.com/?linkid=9810169)](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; *Visual Studio Express 2012 for Web con SDK de Windows Azure*&quot;.
+1. Vaya a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con SDK de Windows Azure</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.
 3. Una vez **instalador de plataforma Web** está abierto, haga clic en **instalar** para iniciar el programa de instalación.
 

@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
-title: "Diseño de supervivencia de errores (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: Diseño de supervivencia de errores (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 364ce84e-5af8-4e08-afc9-75a512b01f84
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/design-to-survive-failures
 msc.type: authoredcontent
-ms.openlocfilehash: 62a16e9a99cd1298b0db5f8099092212f9f6850b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 01883cb0be3e7c7b5dc8d32b784ccb3a28652f1e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="design-to-survive-failures-building-real-world-cloud-apps-with-azure"></a>Diseñar para sobreviven a errores (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -131,6 +131,6 @@ Vídeos:
 - [FailSafe: Creación de servicios en la nube escalables y resistentes](https://channel9.msdn.com/Series/FailSafe). Serie de nueve partes por Ulrich Homann y Marc Mercuri, Mark Simms. Presenta los conceptos y principios de la arquitectura de una manera muy interesante y accesible, con casos extraídos de la experiencia del equipo de asesoramiento al cliente (CAT) de Microsoft con clientes reales. Episodios 1 y 8 profundizan en los motivos para diseñar aplicaciones de nube que sobreviven a errores. Vea también el análisis de seguimiento de la limitación en episodio 2 a partir de 49:57, la explicación de los puntos de error y modos de error episodio 2 empieza en 56:05 y la explicación de los disyuntores episodio 3 empieza en 40:55.
 - [Creación Big: Lecciones aprendidas de clientes de Azure, parte II](https://channel9.msdn.com/Events/Build/2012/3-030). Mark Simms habla sobre el diseño de error y la instrumentación de todo el contenido. Similar a la serie Failsafe pero queda procedimientos con mayor detalle.
 
->[!div class="step-by-step"]
-[Anterior](unstructured-blob-storage.md)
-[Siguiente](monitoring-and-telemetry.md)
+> [!div class="step-by-step"]
+> [Anterior](unstructured-blob-storage.md)
+> [Siguiente](monitoring-and-telemetry.md)

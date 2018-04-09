@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 title: Implementar paquetes de Web | Documentos de Microsoft
 author: jrjlee
-description: "Este tema describe cómo publicar paquetes de implementación web a un servidor remoto mediante la herramienta de implementación Web de Internet Information Services (IIS) (Web..."
+description: Este tema describe cómo publicar paquetes de implementación web a un servidor remoto mediante la herramienta de implementación Web de Internet Information Services (IIS) (Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: cd2bfa07262155b68ac4605fc7e9748d276d3193
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 5d3af0fdcc6e7ae20194ba658e0cf72ad22c1234
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-packages"></a>Implementar paquetes de Web
 ====================
@@ -43,10 +43,10 @@ por [Jason Lee](https://github.com/jrjlee)
 
 Ejecuta el [*nombre del proyecto*]*. deploy.cmd* archivo es la manera más sencilla de implementar un paquete de web. En particular, mediante la *. deploy.cmd* archivo ofrece las siguientes ventajas con respecto a MSDeploy.exe directamente:
 
-- No es necesario especificar la ubicación del paquete de implementación web & #x 2014; la *. deploy.cmd* archivo ya sabe que resulta.
-- No es necesario especificar la ubicación de la *SetParameters.xml* archivo & #x 2014; la *. deploy.cmd* archivo ya sabe que resulta.
-- No es necesario especificar origen y los proveedores de destino MSDeploy & #x 2014; la *. deploy.cmd* archivo ya sabe qué valores para su uso.
-- No es necesario especificar la configuración de la operación de MSDeploy & #x 2014; la *. deploy.cmd* archivo agrega automáticamente los valores requieren con frecuencia para el comando MSDeploy.exe.
+- No es necesario especificar la ubicación del paquete de implementación web&#x2014;los *. deploy.cmd* archivo ya sabe que resulta.
+- No es necesario especificar la ubicación de la *SetParameters.xml* archivo&#x2014;la *. deploy.cmd* archivo ya sabe que resulta.
+- No es necesario especificar origen y destino de los proveedores de MSDeploy&#x2014;la *. deploy.cmd* archivo ya sabe qué valores para su uso.
+- No es necesario especificar la configuración de la operación de MSDeploy&#x2014;la *. deploy.cmd* archivo agrega automáticamente los valores requieren con frecuencia para el comando MSDeploy.exe.
 
 Antes de usar el *. deploy.cmd* archivo para implementar un paquete web, debe asegurarse de que:
 
@@ -92,7 +92,7 @@ Imagine que desea implementar el proyecto de aplicación web de ContactManager.M
 En este ejemplo:
 
 - El **/Y** marca indica que desea implementar realmente el paquete, en lugar de realizar una prueba a ejecutar.
-- El **/M** marca indica que desea implementar el paquete en el servidor denominado TESTWEB1. De este valor, intentará MSDeploy.exe implementar el paquete en el servicio del agente remoto de Web implementar en http://TESTWEB1/MSDeployAgentService.
+- El **/M** marca indica que desea implementar el paquete en el servidor denominado TESTWEB1. De este valor, se tratará MSDeploy.exe implementar el paquete con el servicio del agente remoto de Web implementar en http://TESTWEB1/MSDeployAgentService.
 - El **/A** marca indica que desea utilizar la autenticación NTLM. Por lo tanto, no es necesario especificar un nombre de usuario y una contraseña.
 
 Para ilustrar cómo usar el *. deploy.cmd* archivo simplifica el proceso de implementación, eche un vistazo en la línea de comandos MSDeploy.exe que obtiene generan y se ejecuta cuando se ejecuta *ContactManager.Mvc.deploy.cmd* uso de las opciones mostradas anteriormente.
@@ -117,7 +117,7 @@ Cuando se usa MSDeploy.exe, debe proporcionar tres fragmentos de información cl
 - A **– dest** parámetro que indica que los datos se van a.
 - A **: verbo** parámetro que indica la [operación](https://technet.microsoft.com/library/dd568989(WS.10).aspx) que desea realizar.
 
-MSDeploy.exe se basa en [proveedores de Web Deploy](https://technet.microsoft.com/library/dd569040(WS.10).aspx) para procesar los datos de origen y de destino. Web Deploy incluye una gran cantidad de proveedores que representan el intervalo de las aplicaciones y orígenes de datos puede funcionar con & #x 2014; por ejemplo, no hay proveedores de bases de datos de SQL Server, servidores web de IIS, certificados, ensamblados de ensamblado global (GAC) de la caché, varios archivos de configuración diferente y muchos otros tipos de datos. Tanto el **: origen** parámetro y el **– dest** parámetro debe especificar un proveedor, en el formulario **: origen**: [*providerName*] = [*ubicación*]. Si va a implementar un paquete de web a un sitio Web IIS, debe usar estos valores:
+MSDeploy.exe se basa en [proveedores de Web Deploy](https://technet.microsoft.com/library/dd569040(WS.10).aspx) para procesar los datos de origen y de destino. Web Deploy incluye una gran cantidad de proveedores que representan el intervalo de las aplicaciones y orígenes de datos puede funcionar con&#x2014;por ejemplo, hay proveedores para las bases de datos de SQL Server, servidores web de IIS, certificados, ensamblados de ensamblado global (GAC) de la caché, varios archivos de configuración diferente y muchos otros tipos de datos. Tanto el **: origen** parámetro y el **– dest** parámetro debe especificar un proveedor, en el formulario **: origen**: [*providerName*] = [*ubicación*]. Si va a implementar un paquete de web a un sitio Web IIS, debe usar estos valores:
 
 - El **: origen** proveedor es siempre [paquete](https://technet.microsoft.com/library/dd569019(WS.10).aspx). Por ejemplo:
 
@@ -213,6 +213,6 @@ En este tema se describe cómo puede implementar un paquete de web ya sea ejecut
 
 Para obtener instrucciones sobre cómo crear y parametrizar un paquete de implementación web, consulte [edificio y proyectos de aplicación Web de empaquetado](building-and-packaging-web-application-projects.md) y [configurar parámetros para la implementación de paquete de Web](configuring-parameters-for-web-package-deployment.md). Para obtener instrucciones sobre cómo crear e implementar paquetes de web desde una instancia de Team Foundation Server (TFS), consulte [configurar Team Foundation Server para automatizar la implementación Web](../configuring-team-foundation-server-for-web-deployment/configuring-team-foundation-server-for-web-deployment.md). Para obtener información sobre cómo personalizar y solucionar problemas del proceso de implementación, consulte [excluir archivos y carpetas de implementación](../advanced-enterprise-web-deployment/excluding-files-and-folders-from-deployment.md).
 
->[!div class="step-by-step"]
-[Anterior](configuring-parameters-for-web-package-deployment.md)
-[Siguiente](deploying-database-projects.md)
+> [!div class="step-by-step"]
+> [Anterior](configuring-parameters-for-web-package-deployment.md)
+> [Siguiente](deploying-database-projects.md)

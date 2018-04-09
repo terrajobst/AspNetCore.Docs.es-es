@@ -1,7 +1,7 @@
 ---
-title: "Introducción a la autorización"
+title: Introducción a la autorización en ASP.NET Core
 author: rick-anderson
-description: "Este documento proporciona una explicación básica de autorización y explica cómo se relaciona la autorización para ASP.NET Core."
+description: Obtenga información acerca de los conceptos básicos de autorización y cómo funciona la autorización en aplicaciones de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/introduction
-ms.openlocfilehash: 3fef6d38672af8871c04b65834789a39a7df8487
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: 7ba1966dcaf1ce0510f489cfe0ff11501faffa56
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction"></a>Introducción
+# <a name="introduction-to-authorization-in-aspnet-core"></a>Introducción a la autorización en ASP.NET Core
 
 <a name="security-authorization-introduction"></a>
 
@@ -25,7 +25,7 @@ La autorización es ortogonal y es independiente de la autenticación, que es el
 
 ## <a name="authorization-types"></a>Tipos de autorización
 
-Autorización de ASP.NET Core proporcionan una forma simple, declarativa [rol](roles.md) y un variado [basada en directivas](policies.md) modelo. Autorización se expresa en los requisitos y controladores evaluación notificaciones de usuario con los requisitos. Las comprobaciones imperativas pueden basarse en directivas simples ni que evaluar la identidad del usuario y propiedades del recurso al que el usuario está intentando tener acceso.
+Autorización de ASP.NET Core proporcionan una forma simple, declarativa [rol](xref:security/authorization/roles) y un variado [basada en directivas](xref:security/authorization/policies) modelo. Autorización se expresa en los requisitos y controladores evaluación notificaciones de usuario con los requisitos. Las comprobaciones imperativas pueden basarse en directivas simples ni que evaluar la identidad del usuario y propiedades del recurso al que el usuario está intentando tener acceso.
 
 ## <a name="namespaces"></a>Espacios de nombres
 

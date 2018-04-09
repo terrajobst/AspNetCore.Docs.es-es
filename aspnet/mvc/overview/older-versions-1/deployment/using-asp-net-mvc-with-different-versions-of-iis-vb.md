@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 title: Usar ASP.NET MVC con distintas versiones de IIS (VB) | Documentos de Microsoft
 author: microsoft
-description: "En este tutorial, aprenderá a usar ASP.NET MVC y enrutamiento de direcciones URL, con distintas versiones de Internet Information Services. Obtenga información acerca de diferentes estrategias..."
+description: En este tutorial, aprenderá a usar ASP.NET MVC y enrutamiento de direcciones URL, con distintas versiones de Internet Information Services. Obtenga información acerca de diferentes estrategias...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6c9c3bf004b13677728c7c6bf2f5adf6a264dc49
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a131d5ae540356251e8d05178f8eef95be0ace39
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Usar ASP.NET MVC con distintas versiones de IIS (VB)
 ====================
@@ -33,7 +33,7 @@ Este es un resumen de las distintas versiones de IIS:
 - IIS 7.0 (modo clásico): debe realizar una configuración especial para usar el enrutamiento de ASP.NET.
 - IIS 6.0 o a continuación - debe realizar una configuración especial para usar el enrutamiento de ASP.NET.
 
-La versión más reciente de IIS es la versión 7.5 (en Win7). IIS 7 de IIS se incluye con Windows Server 2008 y VISTA SP1 y superior. También puede instalar IIS 7.0 en cualquier versión del sistema operativo Vista excepto Home Basic (consulte [https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
+La versión más reciente de IIS es la versión 7.5 (en Win7). IIS 7 de IIS se incluye con Windows Server 2008 y VISTA SP1 y superior. También puede instalar IIS 7.0 en cualquier versión del sistema operativo Vista excepto Home Basic (consulte [ https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx ](https://technet.microsoft.com/library/cc731179%28WS.10%29.aspx)).
 
 IIS 7.0 admite dos modos de procesamiento de solicitudes. Puede usar el modo integrado o en modo clásico. No es necesario realizar los pasos de configuración especiales al utilizar IIS 7.0 en modo integrado. Sin embargo, es necesario realizar una configuración adicional cuando se usa IIS 7.0 en modo clásico.
 
@@ -109,7 +109,7 @@ Versiones anteriores de IIS asignan solo algunas solicitudes para el marco de tr
 
 Por lo tanto, para obtener el enrutamiento de ASP.NET para que funcione, debemos modificamos la ruta predeterminada para que incluya una extensión de archivo que se asigna para el marco de trabajo ASP.NET.
 
-Esto se realiza mediante un script denominado `registermvc.wsf`. Se incluye con la versión 1 de MVC de ASP.NET en `C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`, pero a partir del 2 de ASP.NET este script se ha movido a ASP.NET Futures, disponible en [http://aspnet.codeplex.com/releases/view/39978](http://aspnet.codeplex.com/releases/view/39978).
+Esto se realiza mediante un script denominado `registermvc.wsf`. Se incluye con la versión 1 de MVC de ASP.NET en `C:\Program Files\Microsoft ASP.NET\ASP.NET MVC\Scripts`, pero a partir del 2 de ASP.NET este script se ha movido a ASP.NET Futures, disponible en [ http://aspnet.codeplex.com/releases/view/39978 ](http://aspnet.codeplex.com/releases/view/39978).
 
 Ejecutar este script, registra una nueva extensión de .mvc con IIS. Después de registrar la extensión .mvc, puede modificar las rutas en el archivo Global.asax para que las rutas de utilizan la extensión .mvc.
 
@@ -228,5 +228,5 @@ La primera opción tendrá que modificar las direcciones URL usadas en la aplica
 
 La segunda opción es crear una asignación de script comodín. La ventaja de esta segunda opción es que no es necesario modificar las direcciones URL. La desventaja de esta segunda opción es que puede afectar al rendimiento de la aplicación de ASP.NET MVC.
 
->[!div class="step-by-step"]
-[Anterior](using-asp-net-mvc-with-different-versions-of-iis-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](using-asp-net-mvc-with-different-versions-of-iis-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
-title: "Archivo Léame de ASP.NET Web 2 páginas Developer Preview | Documentos de Microsoft"
+title: Archivo Léame de ASP.NET Web 2 páginas Developer Preview | Documentos de Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/14/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
 msc.type: authoredcontent
-ms.openlocfilehash: 119265c62abb3f3110cdc7f0b94a7c9b16b4251c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 1a43b2b12af9cd223d8a3622239743f7c431f617
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-pages-2-developer-preview-readme"></a>Léame de vista previa de desarrollador 2 de ASP.NET Web Pages
 ====================
@@ -28,7 +28,7 @@ por [Microsoft](https://github.com/microsoft)
 
 ### <a name="contents"></a>Contenido
 
-#### <a id="_Toc303701284"></a>Notas sobre la instalación
+#### <a id="_Toc303701284"></a>  Notas sobre la instalación
 
 Para instalar Web Pages 2 Developer Preview, tienes estas opciones:
 
@@ -38,15 +38,15 @@ Para instalar Web Pages 2 Developer Preview, tienes estas opciones:
 
 ASP.NET Web Pages 2 Developer Preview puede instalarse y se puede ejecutar en paralelo con ASP.NET Web Pages 1. <a id="a"></a>Para obtener más información, vea la sección "Ejecutar páginas Web aplicaciones Side-by-Side" en [características de la parte superior en páginas Web 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
 
-#### <a id="_Toc303701285"></a>Documentación
+#### <a id="_Toc303701285"></a>  Documentación
 
 Tutoriales y otra información sobre ASP.NET Web Pages están disponibles en la página de las páginas Web del sitio Web ASP.NET ([https://www.asp.net/web-pages/](../../index.md)). Para obtener información acerca de nuevas características y mejoras realizadas en páginas Web 2, vea [características de la parte superior en páginas Web 2 Developer Preview](https://go.microsoft.com/fwlink/?LinkID=227824).
 
-#### <a id="_Toc303701286"></a>Soporte técnico
+#### <a id="_Toc303701286"></a>  Soporte técnico
 
-<a id="_Toc209852135"></a><a id="_Toc255833657"></a>Esto es una versión preliminar y no se admite oficialmente. Si tiene alguna pregunta sobre cómo trabajar con esta versión, registrarlas en el foro de ASP.NET Web Pages ([https://forums.asp.net/1224.aspx/1?WebMatrix](https://forums.asp.net/1224.aspx/1?WebMatrix) ), donde los miembros de la Comunidad de ASP.NET son normalmente pueden ofrecer soporte técnico informal.
+<a id="_Toc209852135"></a><a id="_Toc255833657"></a> Esto es una versión preliminar y no se admite oficialmente. Si tiene alguna pregunta sobre cómo trabajar con esta versión, registrarlas en el foro de ASP.NET Web Pages ([ https://forums.asp.net/1224.aspx/1?WebMatrix ](https://forums.asp.net/1224.aspx/1?WebMatrix) ), donde los miembros de la Comunidad de ASP.NET son normalmente pueden ofrecer soporte técnico informal.
 
-#### <a id="_Toc303701287"></a>Requisitos de software
+#### <a id="_Toc303701287"></a>  Requisitos de software
 
 ASP.NET Web Pages 2 requiere .NET Framework 4. También funciona con la versión de vista previa de desarrollador de .NET Framework 4.5.
 
@@ -67,11 +67,11 @@ ASP.NET Web Pages 2 requiere .NET Framework 4. También funciona con la versión
 
     [!code-csharp[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample2.cs)]
 
- Sin embargo, se recomienda que si usa los nuevos métodos de validación de entrada, no use *ModelState.IsValid*. En su lugar, estructurar el código similar al siguiente: 
+  Sin embargo, se recomienda que si usa los nuevos métodos de validación de entrada, no use *ModelState.IsValid*. En su lugar, estructurar el código similar al siguiente: 
 
     [!code-csharp[Main](aspnet-web-pages-2-developer-preview-readme/samples/sample3.cs)]
 - **En Internet Explorer 7 y Internet Explorer 8, no funciona la validación del lado cliente**. Validación del lado cliente no funciona debido a incompatibilidades con jQuery 1.6.2, que se incluye con la plantilla de proyecto predeterminada. (Validación del lado servidor funciona.).
 
-#### <a id="_Toc303701289"></a>Declinación de responsabilidades
+#### <a id="_Toc303701289"></a>  Declinación de responsabilidades
 
 © 2011 Microsoft Corporation. Todos los derechos reservados. Este documento se proporciona "como-es." Información y opiniones expresadas en este documento, incluidas direcciones URL y otras referencias a sitios Web de Internet, pueden cambiar sin previo aviso. Usted asume el riesgo de utilizarla.

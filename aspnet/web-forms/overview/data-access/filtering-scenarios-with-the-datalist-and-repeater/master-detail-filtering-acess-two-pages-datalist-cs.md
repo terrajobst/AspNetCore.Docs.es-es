@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
-title: "Principal-detalle filtrado a través de dos páginas (C#) | Documentos de Microsoft"
+title: Principal-detalle filtrado a través de dos páginas (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial veremos cómo separar un informe maestro y detalles a través de dos páginas. En la página 'maestra', se utiliza un control de repetidor para presentar una lista de categoría..."
+description: En este tutorial veremos cómo separar un informe maestro y detalles a través de dos páginas. En la página 'maestra', se utiliza un control de repetidor para presentar una lista de categoría...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/30/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bb86db509ca26dde0c24341dee402e7af4355507
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 6a3783175218438f2a9f735c3861c56e039a248e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a>Principal-detalle filtrado a través de dos páginas (C#)
 ====================
@@ -59,7 +59,7 @@ Con este marcado completa, tómese un momento para ver el progreso a través de 
 
 ## <a name="step-2-turning-the-category-name-into-a-link-to-the-details-page"></a>Paso 2: Activar el nombre de categoría en un vínculo a la página de detalles
 
-Para permitir que un usuario mostrar la información de "Detalles" para una categoría determinada, tenemos que agregar un vínculo a cada lista con viñetas de elemento que, al hacer clic en, se guiará al usuario a la segunda página (`ProductsForCategoryDetails.aspx`). Esta segunda página, a continuación, mostrará los productos de la categoría seleccionada con un control DataList. Para determinar la categoría cuyo vínculo se hizo clic, es necesario pasar la categoría donde ha hecho clic `CategoryID` a la segunda página a través de algún mecanismo. La forma más sencilla y más sencilla para transferir datos escalar de una página a otra es a través de la cadena de consulta, que es la opción que se usará en este tutorial. En concreto, el `ProductsForCategoryDetails.aspx` página esperará seleccionado  *`categoryID`*  valor que se pasará a través de un campo de cadena de consulta denominado `CategoryID`. Por ejemplo, para ver los productos de la categoría Bebidas, que tiene un `CategoryID` de 1, un usuario debe visitar `ProductsForCategoryDetails.aspx?CategoryID=1`.
+Para permitir que un usuario mostrar la información de "Detalles" para una categoría determinada, tenemos que agregar un vínculo a cada lista con viñetas de elemento que, al hacer clic en, se guiará al usuario a la segunda página (`ProductsForCategoryDetails.aspx`). Esta segunda página, a continuación, mostrará los productos de la categoría seleccionada con un control DataList. Para determinar la categoría cuyo vínculo se hizo clic, es necesario pasar la categoría donde ha hecho clic `CategoryID` a la segunda página a través de algún mecanismo. La forma más sencilla y más sencilla para transferir datos escalar de una página a otra es a través de la cadena de consulta, que es la opción que se usará en este tutorial. En concreto, el `ProductsForCategoryDetails.aspx` página esperará seleccionado *`categoryID`* valor que se pasará a través de un campo de cadena de consulta denominado `CategoryID`. Por ejemplo, para ver los productos de la categoría Bebidas, que tiene un `CategoryID` de 1, un usuario debe visitar `ProductsForCategoryDetails.aspx?CategoryID=1`.
 
 Para crear un hipervínculo para cada elemento de lista con viñetas del repetidor que necesitamos agregar un control HyperLink Web o un elemento delimitador HTML (`<a>`) a la `ItemTemplate`. En escenarios donde el hipervínculo muestran el mismo para cada fila, bastará con cualquiera de los enfoques. Para repetidores, prefiero usar el elemento delimitador. Para usar el elemento delimitador, actualice ItemTemplate del repetidor para:
 
@@ -170,18 +170,18 @@ Después de actualizar la base de datos según corresponda, volver a la `Categor
 
 Mientras los informes de maestro y detalles pueden mostrar registros maestros y de detalle en una sola página, en muchos sitios Web se dividen en dos páginas web. En este tutorial explicamos cómo implementar estos informes principal-detalle manteniendo las categorías que figuran en una lista con viñetas utilizando un repetidor en la página web "maestra" y los productos asociados que aparecen en la página "Detalles". Cada elemento de lista en la página web principal incluye un vínculo a la página de detalles que se pasa a lo largo de la fila `CategoryID` valor.
 
-En la página de detalles se logró la recuperación de los productos para el proveedor especificado a través de la `ProductsBLL` la clase `GetProductsByCategoryID(categoryID)` método. El  *`categoryID`*  el valor del parámetro se especifica mediante declaración con el `CategoryID` valor de cadena de consulta como origen del parámetro. También explicamos cómo mostrar detalles de la categoría en la página de detalles mediante un FormView y cómo mostrar un mensaje si no hubiera ningún productos que pertenecen a la categoría seleccionada.
+En la página de detalles se logró la recuperación de los productos para el proveedor especificado a través de la `ProductsBLL` la clase `GetProductsByCategoryID(categoryID)` método. El *`categoryID`* el valor del parámetro se especifica mediante declaración con el `CategoryID` valor de cadena de consulta como origen del parámetro. También explicamos cómo mostrar detalles de la categoría en la página de detalles mediante un FormView y cómo mostrar un mensaje si no hubiera ningún productos que pertenecen a la categoría seleccionada.
 
 Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a...
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Zack Jones y Liz Shulok. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
-[Siguiente](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](master-detail-filtering-with-a-dropdownlist-datalist-cs.md)
+> [Siguiente](master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-cs.md)

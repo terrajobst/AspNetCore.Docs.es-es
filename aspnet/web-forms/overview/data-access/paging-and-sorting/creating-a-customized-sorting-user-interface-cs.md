@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
-title: "Crear una interfaz de usuario personalizadas de ordenación (C#) | Documentos de Microsoft"
+title: Crear una interfaz de usuario personalizadas de ordenación (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Al mostrar una lista larga de datos ordenados, puede resultar muy útil para agrupar los datos relacionados mediante la introducción de filas de separador. En este tutorial veremos cómo cre..."
+description: Al mostrar una lista larga de datos ordenados, puede resultar muy útil para agrupar los datos relacionados mediante la introducción de filas de separador. En este tutorial veremos cómo cre...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: dbd2f6c8f1e21529da8a0fbffab212a29f615cc1
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: c2680f5e47883c9d5fa874a36eb666270c5e406a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-customized-sorting-user-interface-c"></a>Crear una interfaz de usuario personalizadas de ordenación (C#)
 ====================
@@ -141,7 +141,7 @@ Con el índice de la columna por la que se ordenan los datos, el paso final es e
 
 [!code-csharp[Main](creating-a-customized-sorting-user-interface-cs/samples/sample4.cs)]
 
-Este código se inicia mediante programación que hacen referencia a la `Table` objeto encontrado en la raíz de la jerarquía de control GridView s y la creación de una variable de cadena denominada `lastValue`. `lastValue`se utiliza para comparar el valor de columna s ordenados de fila actual con el valor de fila s anterior. Siguiente, la s GridView `Rows` se enumera la colección y para cada fila se almacena el valor de la columna ordenada en la `currentValue` variable.
+Este código se inicia mediante programación que hacen referencia a la `Table` objeto encontrado en la raíz de la jerarquía de control GridView s y la creación de una variable de cadena denominada `lastValue`. `lastValue` se utiliza para comparar el valor de columna s ordenados de fila actual con el valor de fila s anterior. Siguiente, la s GridView `Rows` se enumera la colección y para cada fila se almacena el valor de la columna ordenada en la `currentValue` variable.
 
 > [!NOTE]
 > Para determinar el valor de la columna de s ordenados de fila determinado utilizar la celda s `Text` propiedad. Esto funciona bien para BoundFields, pero no se funcionan según sea necesario para TemplateFields, CheckBoxFields y así sucesivamente. Analizaremos cómo para tener en cuenta los campos de GridView alternativos en breve.
@@ -198,8 +198,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](sorting-custom-paged-data-cs.md)
-[Siguiente](paging-and-sorting-report-data-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](sorting-custom-paged-data-cs.md)
+> [Siguiente](paging-and-sorting-report-data-vb.md)

@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
-title: "Autenticar a los usuarios con la autenticación (C#) de formularios | Documentos de Microsoft"
+title: Autenticar a los usuarios con la autenticación (C#) de formularios | Documentos de Microsoft
 author: microsoft
-description: "Obtenga información acerca de cómo utilizar el atributo [Authorize] para proteger por contraseña páginas específicas de la aplicación de MVC. Obtenga información acerca de cómo usar el sitio Web de administración demasiado..."
+description: Obtenga información acerca de cómo utilizar el atributo [Authorize] para proteger por contraseña páginas específicas de la aplicación de MVC. Obtenga información acerca de cómo usar el sitio Web de administración demasiado...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 17bcf02e1351587d64b72ee2b40393e0f748f23e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: e1def84bbf48847339e89b239b026d053640b935
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authenticating-users-with-forms-authentication-c"></a>Autenticar a los usuarios con autenticación de formularios (C#)
 ====================
@@ -107,7 +107,7 @@ Uso de la base de datos de SQL Express de forma predeterminada es correcto al de
 
 El primer paso es agregar todos los objetos de base de datos necesarios (tablas y procedimientos almacenados) a la base de datos de producción. La manera más fácil de agregar estos objetos a una base de datos consiste en aprovechar el Asistente para la instalación de ASP.NET SQL Server (consulte la figura 8). Puede iniciar esta herramienta, abra el símbolo del sistema de Visual Studio 2008 desde el grupo de programas de Microsoft Visual Studio 2008 y ejecutar el comando siguiente desde el símbolo del sistema:
 
-ASPNET\_regsql
+aspnet\_regsql
 
 **Figura 8: el Asistente para la instalación del servidor de SQL de ASP.NET**
 
@@ -152,5 +152,5 @@ Después de crear el inicio de sesión necesario, debe asignar el inicio de sesi
 
 En este tutorial, aprendió a utilizar la autenticación de formularios al crear una aplicación ASP.NET MVC. En primer lugar, aprendió a crear nuevos usuarios y roles aprovechando las ventajas de la herramienta de administración de sitios Web. A continuación, aprendió a utilizar el atributo [Authorize] para evitar que usuarios no autorizados de invocar acciones del controlador. Por último, aprendió a configurar la aplicación de MVC para almacenar información de usuarios y roles en una base de datos de producción.
 
->[!div class="step-by-step"]
-[Siguiente](authenticating-users-with-windows-authentication-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](authenticating-users-with-windows-authentication-cs.md)

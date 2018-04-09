@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 title: 'Parte 1: Archivo -> Nuevo proyecto | Documentos de Microsoft'
 author: JoeStagner
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 1 cubre información general y archivo/nuevo proyecto."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 1 cubre información general y archivo/nuevo proyecto.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: bd840f9f3f5d723e6bc1bb35955a7770634e9483
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a1b9681516e626b6a0eec420b168a74e05d88afb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-1-file--new-project"></a>Parte 1: Archivo -> Nuevo proyecto
 ====================
@@ -27,7 +27,7 @@ por [Joe Stagner](https://github.com/JoeStagner)
 > Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 1 cubre información general y archivo/nuevo proyecto.
 
 
-## <a id="_Toc260221666"></a>Información general
+## <a id="_Toc260221666"></a>  Información general
 
 Este tutorial es una introducción a los formularios Web Forms de ASP.NET. Se comenzará lentamente, por lo que la experiencia de desarrollo de nivel web principiantes es correcto.
 
@@ -63,9 +63,9 @@ Comenzaremos por crear un nuevo proyecto de formularios Web Forms de ASP.NET en 
 
 Puede seguir a lo largo de paso a paso, o bien puede descargar la aplicación completa de [http://tailspinspyworks.codeplex.com/](http://tailspinspyworks.codeplex.com/)
 
-Puede usar Visual Studio 2010 o el libre Visual Web Developer 2010 desde [https://www.microsoft.com/express/Web/](https://www.microsoft.com/express/Web/). Para compilar la aplicación, puede usar SQL Server o la libre SQL Server Express al host de la base de datos.
+Puede usar Visual Studio 2010 o el libre Visual Web Developer 2010 desde [ https://www.microsoft.com/express/Web/ ](https://www.microsoft.com/express/Web/). Para compilar la aplicación, puede usar SQL Server o la libre SQL Server Express al host de la base de datos.
 
-## <a id="_Toc260221667"></a>Archivo / nuevo proyecto
+## <a id="_Toc260221667"></a>  Archivo / nuevo proyecto
 
 Comenzaremos seleccionando el nuevo proyecto en el menú archivo en Visual Studio. Se abrirá el cuadro de diálogo nuevo proyecto.
 
@@ -105,5 +105,5 @@ También vamos a cambiar la ubicación de la página maestra en el directorio de
 
 Una vez hecho esto que será necesario cambiar la página maestra referencias en todos los archivos .aspx generan por el valor predeterminado páginas de formularios Web Forms de ASP.NET.
 
->[!div class="step-by-step"]
-[Siguiente](tailspin-spyworks-part-2.md)
+> [!div class="step-by-step"]
+> [Siguiente](tailspin-spyworks-part-2.md)

@@ -1,7 +1,7 @@
 ---
-title: "Programa de instalación de Microsoft Account inicio de sesión externo"
+title: Programa de instalación de Microsoft Account inicio de sesión externo con ASP.NET Core
 author: rick-anderson
-description: "Este tutorial muestra la integración de autenticación de usuario de cuenta de Microsoft en una aplicación existente de ASP.NET Core."
+description: Este tutorial muestra la integración de autenticación de usuario de cuenta de Microsoft en una aplicación existente de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 08/24/2017
@@ -9,21 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: d57647da978f7edaaddedba7c9f4c1de8dc07405
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: aabbbe66aee8c8b93140bcc4181b432017cec1d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="configuring-microsoft-account-authentication"></a>Configurar la autenticación de Microsoft Account
+# <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Programa de instalación de Microsoft Account inicio de sesión externo con ASP.NET Core
 
 Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuenta de Microsoft mediante un proyecto de ASP.NET Core 2.0 de ejemplo creado en el [página anterior](index.md).
+Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuenta de Microsoft mediante un proyecto de ASP.NET Core 2.0 de ejemplo creado en el [página anterior](xref:security/authentication/social/index).
 
 ## <a name="create-the-app-in-microsoft-developer-portal"></a>Crear la aplicación en el Portal para desarrolladores de Microsoft
 
-* Vaya a [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com) y crear o iniciar sesión en una cuenta de Microsoft:
+* Vaya a [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com) y crear o iniciar sesión en una cuenta de Microsoft:
 
 ![Inicie sesión en el cuadro de diálogo](index/_static/MicrosoftDevLogin.png)
 
@@ -63,7 +63,7 @@ Si ya no tiene una cuenta de Microsoft, pulse  **[crear uno.](https://signup.liv
 
 ![Cuadro de diálogo nueva contraseña generada](index/_static/MicrosoftDevPassword.png)
 
-Vincular valores confidenciales como Microsoft `Application ID` y `Password` a su configuración de aplicación con el [secreto Manager](../../app-secrets.md). Para los fines de este tutorial, nombre de los tokens `Authentication:Microsoft:ApplicationId` y `Authentication:Microsoft:Password`.
+Vincular valores confidenciales como Microsoft `Application ID` y `Password` a su configuración de aplicación con el [secreto Manager](xref:security/app-secrets). Para los fines de este tutorial, nombre de los tokens `Authentication:Microsoft:ApplicationId` y `Authentication:Microsoft:Password`.
 
 ## <a name="configure-microsoft-account-authentication"></a>Configurar la autenticación de cuenta de Microsoft
 
@@ -74,8 +74,7 @@ La plantilla de proyecto que se usan en este tutorial asegura de que [Microsoft.
 
    `dotnet add package Microsoft.AspNetCore.Authentication.MicrosoftAccount`
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Agregue el servicio de Microsoft Account en el `ConfigureServices` método *Startup.cs* archivo:
 
 ```csharp
@@ -90,10 +89,9 @@ services.AddAuthentication().AddMicrosoftAccount(microsoftOptions =>
 });
 ```
 
-[!INCLUDE[default settings configuration](includes/default-settings.md)]
+[!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Agregar el middleware de Microsoft Account en el `Configure` método *Startup.cs* archivo:
 
 ```csharp
@@ -104,8 +102,7 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 });
 ```
 
----
-
+* * *
 Aunque la terminología utilizada en el Portal para desarrolladores de Microsoft nombres estos tokens `ApplicationId` y `Password`, se halle expuestos como `ClientId` y `ClientSecret` a la API de configuración.
 
 Consulte la [MicrosoftAccountOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.microsoftaccountoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con autenticación de Microsoft Account. Esto se puede usar para solicitar información diferente sobre el usuario.
@@ -136,7 +133,7 @@ Ahora que haya iniciado sesión con sus credenciales de Microsoft:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* En este artículo se ha explicado cómo puede autenticar con Microsoft. Puede seguir un enfoque similar para autenticar con otros proveedores que se enumeran en la [página anterior](index.md).
+* En este artículo se ha explicado cómo puede autenticar con Microsoft. Puede seguir un enfoque similar para autenticar con otros proveedores que se enumeran en la [página anterior](xref:security/authentication/social/index).
 
 * Una vez que se publica un sitio web a la aplicación web de Azure, debe crear un nuevo `Password` en el Portal para desarrolladores de Microsoft.
 

@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/security/hub-authorization
-title: "Autenticación y autorización para los concentradores SignalR | Documentos de Microsoft"
+title: Autenticación y autorización para los concentradores SignalR | Documentos de Microsoft
 author: pfletcher
-description: "En este tema se describe cómo restringir qué usuarios o roles pueden tener acceso a métodos de concentrador. Versiones de software usan en este tema ha de Visual Studio 2013 .NET 4.5 SignalR..."
+description: En este tema se describe cómo restringir qué usuarios o roles pueden tener acceso a métodos de concentrador. Versiones de software usan en este tema ha de Visual Studio 2013 .NET 4.5 SignalR...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/05/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/security/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: cb0f06a3ca2b39a4a952c33cea70136c7c5af7a8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8e3bc8889efb1be80c57084fb04dc8030b386601
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a>Autenticación y autorización para los concentradores de SignalR
 ====================
@@ -73,10 +73,10 @@ O bien, puede especificar que un concentrador contiene un método que está disp
 
 Los siguientes ejemplos referentes a los escenarios de autorización diferentes:
 
-- `[Authorize]`: solo los usuarios autenticados
-- `[Authorize(Roles = "Admin,Manager")]`: solo autenticados los usuarios de los roles especificados
-- `[Authorize(Users = "user1,user2")]`: solo autenticados los usuarios con los nombres de usuario especificado
-- `[Authorize(RequireOutgoing=false)]`: solo los usuarios autenticados pueden invocar el concentrador, pero las llamadas desde el servidor a los clientes no están limitadas por la autorización, como por ejemplo, cuando solo ciertos usuarios pueden enviar un mensaje, pero todas las demás pueden recibir el mensaje. La propiedad RequireOutgoing solo puede aplicarse al concentrador completo, no en los métodos de usuarios en el concentrador. Cuando RequireOutgoing no está establecido en false, solo los usuarios que cumplan los requisitos de autorización se llaman desde el servidor.
+- `[Authorize]` : solo los usuarios autenticados
+- `[Authorize(Roles = "Admin,Manager")]` : solo autenticados los usuarios de los roles especificados
+- `[Authorize(Users = "user1,user2")]` : solo autenticados los usuarios con los nombres de usuario especificado
+- `[Authorize(RequireOutgoing=false)]` : solo los usuarios autenticados pueden invocar el concentrador, pero las llamadas desde el servidor a los clientes no están limitadas por la autorización, como por ejemplo, cuando solo ciertos usuarios pueden enviar un mensaje, pero todas las demás pueden recibir el mensaje. La propiedad RequireOutgoing solo puede aplicarse al concentrador completo, no en los métodos de usuarios en el concentrador. Cuando RequireOutgoing no está establecido en false, solo los usuarios que cumplan los requisitos de autorización se llaman desde el servidor.
 
 <a id="requireauth"></a>
 
@@ -126,7 +126,7 @@ Cuando el cliente .NET interactúa con un concentrador que utiliza la autenticac
 
 [!code-csharp[Main](hub-authorization/samples/sample7.cs)]
 
-La aplicación de consola envía las credenciales para **www.contoso.com/RemoteLogin** que podría hacer referencia a una página vacía que contiene el siguiente archivo de código subyacente.
+La aplicación de consola envía las credenciales para <strong>www.contoso.com/RemoteLogin</strong> que podría hacer referencia a una página vacía que contiene el siguiente archivo de código subyacente.
 
 [!code-csharp[Main](hub-authorization/samples/sample8.cs)]
 

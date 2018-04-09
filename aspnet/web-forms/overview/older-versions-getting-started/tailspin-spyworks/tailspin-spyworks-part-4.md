@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 title: 'Parte 4: Lista de productos | Documentos de Microsoft'
 author: JoeStagner
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 4 portadas de lista de productos con el contrat GridView...."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 4 portadas de lista de productos con el contrat GridView....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 420cdbcc002bcbfff619d399a7a374009999d754
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 69b26344e6dcdbf27e94da90ad5d6cd79f27ccd3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-4-listing-products"></a>Parte 4: Lista de productos
 ====================
@@ -27,7 +27,7 @@ por [Joe Stagner](https://github.com/JoeStagner)
 > Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 4 cubre la lista de productos con el control GridView.
 
 
-## <a id="_Toc260221670"></a>Lista de productos con el Control GridView
+## <a id="_Toc260221670"></a>  Lista de productos con el Control GridView
 
 Vamos a empezar a implementar nuestra página ProductsList.aspx "Haciendo clic" en nuestra solución y seleccione "Agregar" y "Nuevo elemento".
 
@@ -100,6 +100,6 @@ Nuestra base de datos contiene una tabla denominada "ShoppingCart". Cuando se ge
 
 También es necesario tener en cuenta que se va a crear un carro de la compra simple e incrustar la lógica de carro de la compra con la presentación de carro de la compra. También nos tengamos que optar por implementar nuestro carro de compra en una capa de negocio completamente independiente.
 
->[!div class="step-by-step"]
-[Anterior](tailspin-spyworks-part-3.md)
-[Siguiente](tailspin-spyworks-part-5.md)
+> [!div class="step-by-step"]
+> [Anterior](tailspin-spyworks-part-3.md)
+> [Siguiente](tailspin-spyworks-part-5.md)
