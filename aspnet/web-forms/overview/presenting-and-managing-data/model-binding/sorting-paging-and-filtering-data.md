@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
-title: "Ordenación, paginación y filtrado de datos con el enlace de modelos y formularios web forms | Documentos de Microsoft"
+title: Ordenación, paginación y filtrado de datos con el enlace de modelos y formularios web forms | Documentos de Microsoft
 author: tfitzmac
-description: "Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-..."
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/sorting-paging-and-filtering-data
 msc.type: authoredcontent
-ms.openlocfilehash: 94fc84533be5fcbcf0612fcdcabea7dee738d89b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: d63ebecadd392877e4cb1d1dffe9db2d1d231190
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="sorting-paging-and-filtering-data-with-model-binding-and-web-forms"></a>Ordenación, paginación y filtrado de datos con el enlace de modelos y formularios web forms
 ====================
@@ -72,7 +72,7 @@ Enlace del modelo agrega varios atributos que permiten designar cómo establecer
 - RouteData
 - Sesión
 - Perfil de usuario
-- Estado de vista
+- ViewState
 
 En este tutorial, usará el valor de un control para filtrar qué registros se muestran en el control GridView. Agregará el **Control** atributo al método de consulta que había creado anteriormente. En un [más adelante](using-query-string-values-to-retrieve-data.md) tutorial, aprenderá a aplicar la **QueryString** atributo a un parámetro para especificar que el valor del parámetro procede de un valor de cadena de consulta.
 
@@ -100,6 +100,6 @@ En este tutorial, se habilitó la ordenación y la paginación de los datos. Tam
 
 En la siguiente [tutorial](integrating-jquery-ui.md) mejorará la interfaz de usuario mediante la integración de un widget de JQuery UI en la plantilla de datos dinámicos.
 
->[!div class="step-by-step"]
-[Anterior](updating-deleting-and-creating-data.md)
-[Siguiente](integrating-jquery-ui.md)
+> [!div class="step-by-step"]
+> [Anterior](updating-deleting-and-creating-data.md)
+> [Siguiente](integrating-jquery-ui.md)

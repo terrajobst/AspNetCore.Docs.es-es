@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 title: Con las devoluciones de datos ReorderList (VB) | Documentos de Microsoft
 author: wenz
-description: "El control de ReorderList en el Kit de herramientas de Control de AJAX proporciona una lista que se puede ordenar por el usuario a través de arrastrar y colocar. Cada vez que se reordena la lista, un pedido de compra..."
+description: El control de ReorderList en el Kit de herramientas de Control de AJAX proporciona una lista que se puede ordenar por el usuario a través de arrastrar y colocar. Cada vez que se reordena la lista, un pedido de compra...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/reorderlist/using-postbacks-with-reorderlist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 971d060f2ee69e82ec574392a308754e015b0fd0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: ef43471f7d8cc94c1a82a368e27acef05f474f81
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-postbacks-with-reorderlist-vb"></a>Uso de las devoluciones de datos con ReorderList (VB)
 ====================
@@ -69,6 +69,6 @@ Por último, con el fin de activar la funcionalidad de AJAX de ASP.NET y el Kit 
 
 Cada organización desencadena una devolución de datos ([haga clic aquí para ver la imagen a tamaño completo](using-postbacks-with-reorderlist-vb/_static/image3.png))
 
->[!div class="step-by-step"]
-[Anterior](drag-and-drop-via-reorderlist-cs.md)
-[Siguiente](drag-and-drop-via-reorderlist-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](drag-and-drop-via-reorderlist-cs.md)
+> [Siguiente](drag-and-drop-via-reorderlist-vb.md)

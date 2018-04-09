@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
-title: "¿Cómo se puede utilizar el Editor HTML Control? (VB) | Documentos de Microsoft"
+title: ¿Cómo se puede utilizar el Editor HTML Control? (VB) | Microsoft Docs
 author: microsoft
-description: "HTMLEditor es un Control de AJAX de ASP.NET que permite crear y editar con facilidad contenido HTML a través de los botones en una barra de herramientas."
+description: HTMLEditor es un Control de AJAX de ASP.NET que permite crear y editar con facilidad contenido HTML a través de los botones en una barra de herramientas.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/htmleditor/how-do-i-use-the-html-editor-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a34b3dd53f031856906eca923b6ad6f43a0aaecc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 4833949a54fa9ae12eaf7b596a5fe1ddfd1f7b7a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-html-editor-control-vb"></a>¿Cómo se puede utilizar el Editor HTML Control? (VB)
 ====================
@@ -111,5 +111,5 @@ Por ejemplo, imagine que está creando una aplicación de blog. En esta situaci�
 
 En este tutorial, se proporciona una breve descripción general del control de Editor HTML incluido en el Kit de herramientas de Control de AJAX. Aprendió a utilizar el Editor HTML para aceptar contenido enriquecido de un usuario y enviar el contenido en el servidor. También explicamos cómo personalizar los botones de barra de herramientas que se muestran con el Editor HTML. Por último, aprendió a evitar los ataques de Scripting entre sitios al usar el Editor HTML para aceptar datos potencialmente dañinos.
 
->[!div class="step-by-step"]
-[Anterior](how-do-i-use-the-html-editor-control-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](how-do-i-use-the-html-editor-control-cs.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
-title: "Descripción del proceso de compilación | Documentos de Microsoft"
+title: Descripción del proceso de compilación | Documentos de Microsoft
 author: jrjlee
-description: "En este tema se ofrece un tutorial de un proceso de compilación e implementación de escala empresarial. El enfoque descrito en este tema usa Engin personalizados de compilación de Microsoft..."
+description: En este tema se ofrece un tutorial de un proceso de compilación e implementación de escala empresarial. El enfoque descrito en este tema usa Engin personalizados de compilación de Microsoft...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/04/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 3efcefc40dc135ff42f55911036f8b38b5aa13b1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 4544a5e6212ea9b1247062dc35edc135ff7ca354
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-the-build-process"></a>Descripción del proceso de compilación
 ====================
@@ -30,9 +30,9 @@ por [Jason Lee](https://github.com/jrjlee)
 > > El tema anterior, [comprender el archivo de proyecto](understanding-the-project-file.md), se describen los componentes clave de un archivo de proyecto de MSBuild e introdujo el concepto de división de archivos de proyecto para admitir la implementación en varios entornos de destino. Si no ya está familiarizado con estos conceptos, debe revisar [comprender el archivo de proyecto](understanding-the-project-file.md) antes de que funcione a través de este tema.
 
 
-Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales que utiliza una solución de ejemplo & #x 2014; la [póngase en contacto con el administrador solución](the-contact-manager-solution.md)& #x 2014; para representar una aplicación web con un nivel de complejidad, incluso una aplicación de ASP.NET MVC 3, Windows realista Servicio de Communication Foundation (WCF) y un proyecto de base de datos.
+Este tema forma parte de una serie de tutoriales que se basa en los requisitos de implementación de empresa de una compañía ficticia denominada Fabrikam, Inc. Esta serie de tutoriales usa una solución de ejemplo&#x2014;la [póngase en contacto con el administrador solución](the-contact-manager-solution.md)&#x2014;para representar una aplicación web con un nivel realista de complejidad, incluso una aplicación de ASP.NET MVC 3, una comunicación de Windows Servicio Foundation (WCF) y un proyecto de base de datos.
 
-El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos proyectos, archivos de & #x 2014; uno que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
+El método de implementación en el centro de estos tutoriales se basa en el enfoque de archivo de proyecto de división descrito en [comprender el archivo de proyecto](understanding-the-project-file.md), en que el proceso de compilación se controla mediante dos archivos de proyecto&#x2014;que contiene instrucciones que se aplican a cada entorno de destino y que contiene la configuración de compilación e implementación específica del entorno de compilación. En tiempo de compilación, se combina el archivo de proyecto específicas del entorno en el archivo de proyecto independiente del entorno para formar un conjunto completo de las instrucciones de compilación.
 
 ## <a name="build-and-deployment-overview"></a>Información general de implementación y compilación
 
@@ -50,16 +50,16 @@ Antes de examinar estos archivos con más detalle, echemos un vistazo a cómo el
 
 ![](understanding-the-build-process/_static/image2.png)
 
-Lo primero que ocurre es que los dos proyectos, archivos de & #x 2014; uno que contenga universal instrucciones de implementación y la compilación uno que contiene configuración específica del entorno & #x 2014; se combinan en un único archivo de proyecto. MSBuild, a continuación, funciona a través de las instrucciones que aparecen en el archivo de proyecto. Se crea cada uno de los proyectos de la solución, utilizando el archivo de proyecto para cada proyecto. A continuación, llama a otras herramientas, como Web Deploy (MSDeploy.exe) y la utilidad VSDBCMD para implementar el contenido web y bases de datos en el entorno de destino.
+Lo primero que ocurre es que los dos archivos de proyecto&#x2014;uno que contiene instrucciones de compilación e implementación universales y otro que contiene configuración específica del entorno&#x2014;se combinan en un único archivo de proyecto. MSBuild, a continuación, funciona a través de las instrucciones que aparecen en el archivo de proyecto. Se crea cada uno de los proyectos de la solución, utilizando el archivo de proyecto para cada proyecto. A continuación, llama a otras herramientas, como Web Deploy (MSDeploy.exe) y la utilidad VSDBCMD para implementar el contenido web y bases de datos en el entorno de destino.
 
 De principio a fin, el proceso de compilación e implementación realiza estas tareas:
 
 1. Elimina el contenido del directorio de salida, como preparación para una nueva compilación.
 2. Crea cada proyecto de la solución:
 
-    1. Para proyectos web & #x 2014; en este caso, una aplicación web de MVC de ASP.NET y WCF web service & #x 2014; el proceso de compilación crea un paquete de implementación web para cada proyecto.
+    1. Para los proyectos web&#x2014;en este caso, una aplicación web de MVC de ASP.NET y WCF servicio web&#x2014;el proceso de compilación crea un paquete de implementación web para cada proyecto.
     2. Para los proyectos de base de datos, el proceso de compilación crea un manifiesto de implementación (archivo .deploymanifest) para cada proyecto.
-3. Usa la utilidad VSDBCMD.exe para implementar cada proyecto de base de datos en la solución, con distintas propiedades de los archivos de proyecto & #x 2014; una cadena de conexión de destino y un nombre de base de datos & #x 2014; junto con el archivo .deploymanifest.
+3. Usa la utilidad VSDBCMD.exe para implementar cada proyecto de base de datos en la solución, con distintas propiedades de los archivos de proyecto&#x2014;una cadena de conexión de destino y un nombre de base de datos&#x2014;junto con el archivo .deploymanifest.
 4. Usa la utilidad MSDeploy.exe para implementar cada proyecto web en la solución, con distintas propiedades de los archivos de proyecto para controlar el proceso de implementación.
 
 Puede usar la solución de ejemplo para realizar el seguimiento de este proceso con más detalle.
@@ -102,9 +102,9 @@ El siguiente elemento que se encuentra en MSBuild es un grupo de elementos únic
 [!code-xml[Main](understanding-the-build-process/samples/sample4.xml)]
 
 
-MSBuild procesa esta instrucción mediante la creación de una lista de elementos con el nombre **ProjectsToBuild**. En este caso, la lista de elementos contiene un único valor & #x 2014; la ruta de acceso y el nombre del archivo de solución.
+MSBuild procesa esta instrucción mediante la creación de una lista de elementos con el nombre **ProjectsToBuild**. En este caso, la lista de elementos contiene un único valor&#x2014;la ruta de acceso y el nombre del archivo de solución.
 
-En este momento, los elementos restantes son objetivos. Destinos se procesan de forma diferente de propiedades y elementos & #x 2014; básicamente, los destinos no se procesan a menos que están ya sea explícitamente especificados por el usuario o invocados por otra construcción dentro del archivo de proyecto. Recuerde que la apertura **proyecto** etiqueta incluye un **DefaultTargets** atributo.
+En este momento, los elementos restantes son objetivos. Destinos se procesan de forma diferente de propiedades y los elementos&#x2014;destinos en esencia, no se procesan a menos que están ya sea explícitamente especificados por el usuario o invocados por otra construcción dentro del archivo de proyecto. Recuerde que la apertura **proyecto** etiqueta incluye un **DefaultTargets** atributo.
 
 
 [!code-xml[Main](understanding-the-build-process/samples/sample5.xml)]
@@ -173,7 +173,7 @@ Si analiza el **GatherPackagesForPublishing** destino, observará que realmente 
 
 Estos elementos hacen referencia a los paquetes de implementación que se crearon cuando la **BuildProjects** se ha ejecutado el destino. No se pudo definir estos elementos de estáticamente en el archivo de proyecto, dado que no existen los archivos al que hacen referencia los elementos hasta que el **BuildProjects** se ejecuta el destino. En su lugar, los elementos deben definirse dinámicamente dentro de un destino que no se invoca hasta después de la **BuildProjects** se ejecuta el destino.
 
-No se usan los elementos dentro de este destino & #x 2014; este destino simplemente genera los elementos y los metadatos asociados a cada valor de elemento. Una vez que se procesan estos elementos, el **PublishPackages** elemento contendrá dos valores, la ruta de acceso a la *ContactManager.Mvc.deploy.cmd* archivo y la ruta de acceso a la  *ContactManager.Service.deploy.cmd* archivo. Web Deploy crea estos archivos como parte del paquete para cada proyecto web, y éstos son los archivos que se deben invocar en el servidor de destino con el fin de implementar los paquetes. Si abre uno de estos archivos, básicamente verá un comando MSDeploy.exe con distintos valores de parámetros específicos de la compilación.
+No se usan los elementos dentro de este destino&#x2014;este destino simplemente genera los elementos y los metadatos asociados a cada valor de elemento. Una vez que se procesan estos elementos, el **PublishPackages** elemento contendrá dos valores, la ruta de acceso a la *ContactManager.Mvc.deploy.cmd* archivo y la ruta de acceso a la  *ContactManager.Service.deploy.cmd* archivo. Web Deploy crea estos archivos como parte del paquete para cada proyecto web, y éstos son los archivos que se deben invocar en el servidor de destino con el fin de implementar los paquetes. Si abre uno de estos archivos, básicamente verá un comando MSDeploy.exe con distintos valores de parámetros específicos de la compilación.
 
 El **DbPublishPackages** elemento contendrá un valor único, la ruta de acceso a la *ContactManager.Database.deploymanifest* archivo.
 
@@ -199,7 +199,7 @@ Este es un ejemplo de *el procesamiento por lotes de destino*. En los archivos d
 - Ejecute el destino una vez por lote.
 
 > [!NOTE]
-> **Identidad** es uno de los [valores de metadatos integradas](https://msdn.microsoft.com/library/ms164313.aspx) que se asigna a cada elemento durante la creación. Hace referencia al valor de la **Include** de atributo en el **elemento** elemento & #x 2014; es decir, la ruta de acceso y el nombre del elemento.
+> **Identidad** es uno de los [valores de metadatos integradas](https://msdn.microsoft.com/library/ms164313.aspx) que se asigna a cada elemento durante la creación. Hace referencia al valor de la **Include** de atributo en el **elemento** elemento&#x2014;en otras palabras, la ruta de acceso y el nombre del elemento.
 
 
 En este caso, dado que nunca debería haber más de un elemento con la misma ruta de acceso y nombre de archivo, básicamente estamos trabajando con tamaños de lote de uno. El destino se ejecuta una vez por cada paquete de la base de datos.
@@ -251,6 +251,6 @@ En este tema se proporciona un tutorial sobre cómo se utilizan los archivos de 
 
 Para obtener una introducción más detallada a los archivos de proyecto y el WPP, consulte [dentro de la Microsoft Build Engine: usar MSBuild y Team Foundation Build](http://amzn.com/0735645248) Sayed Ibrahim Hashimi y William Bartholomew, ISBN: 978-0-7356-4524-0.
 
->[!div class="step-by-step"]
-[Anterior](understanding-the-project-file.md)
-[Siguiente](building-and-packaging-web-application-projects.md)
+> [!div class="step-by-step"]
+> [Anterior](understanding-the-project-file.md)
+> [Siguiente](building-and-packaging-web-application-projects.md)

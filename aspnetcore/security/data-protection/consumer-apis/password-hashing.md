@@ -1,7 +1,7 @@
 ---
-title: "Hash de contraseña"
+title: Contraseñas de hash en ASP.NET Core
 author: rick-anderson
-description: "Este documento explica cómo realizar un hash de contraseñas mediante el uso de la API de protección de datos de ASP.NET Core."
+description: Obtenga información acerca de cómo realizar un hash de contraseñas mediante el uso de las API de protección de datos de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/password-hashing
-ms.openlocfilehash: 8e2796108be14ef382f46e6deb3d584517120d27
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 63348da144e84d614f274b5d816cbecb020dcab4
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="password-hashing"></a>Hash de contraseña
+# <a name="hash-passwords-in-aspnet-core"></a>Contraseñas de hash en ASP.NET Core
 
 La base de código de protección de datos incluye un paquete *Microsoft.AspNetCore.Cryptography.KeyDerivation* que contiene funciones de derivación de claves criptográficas. Este paquete es un componente independiente y no tiene ninguna dependencia en el resto del sistema de protección de datos. Se puede utilizar completamente por separado. El origen coexista con el código de protección de datos base para su comodidad.
 

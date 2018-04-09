@@ -2,7 +2,7 @@
 uid: mvc/overview/getting-started/introduction/adding-a-model
 title: Agregar un modelo | Documentos de Microsoft
 author: Rick-Anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 79f136257119a8600a65e8d7c5f6e99cb9abceae
-ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
+ms.openlocfilehash: b3ef871c4d7627a03c8f0fd8cce9d3e97fc1a4ba
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="adding-a-model"></a>Agregar un modelo
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
-[!INCLUDE[Tutorial Note](sample/code-location.md)]
+[!INCLUDE [Tutorial Note](sample/code-location.md)]
 
 En esta sección agregará algunas clases para la administración de películas en una base de datos. Estas clases será la &quot;modelo&quot; forma parte de la aplicación de ASP.NET MVC.
 
@@ -54,7 +54,7 @@ Para poder hacer referencia a `DbContext` y `DbSet`, debe agregar la siguiente `
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-Puede hacerlo agregando manualmente el uso de la instrucción, o se puede mantener el mouse sobre las líneas onduladas rojas, haga clic en `Show potential fixes` y haga clic en`using System.Data.Entity;`
+Puede hacerlo agregando manualmente el uso de la instrucción, o se puede mantener el mouse sobre las líneas onduladas rojas, haga clic en `Show potential fixes` y haga clic en `using System.Data.Entity;`
 
 ![](adding-a-model/_static/image2.png)
 
@@ -64,6 +64,6 @@ Nota: Algunos sin usar `using` instrucciones se han quitado. Visual Studio mostr
 
 Por último, hemos agregado un modelo (M en MVC). En la siguiente sección, trabajará con la cadena de conexión de base de datos.
 
->[!div class="step-by-step"]
-[Anterior](adding-a-view.md)
-[Siguiente](creating-a-connection-string.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-a-view.md)
+> [Siguiente](creating-a-connection-string.md)

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs
-title: "Mostrar información de resumen en el pie de página de GridView (C#) | Documentos de Microsoft"
+title: Mostrar información de resumen en el pie de página de GridView (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "A menudo se muestra información de resumen en la parte inferior del informe en una fila de resumen. El control GridView puede incluir una fila de pie de página en cuyas celdas podemos pr..."
+description: A menudo se muestra información de resumen en la parte inferior del informe en una fila de resumen. El control GridView puede incluir una fila de pie de página en cuyas celdas podemos pr...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/31/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/displaying-summary-information-in-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0d3df976181a4641dbfffe77875989c77ece059d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 3bb00a41bee86090f71d6315d73037cd41b2c621
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="displaying-summary-information-in-the-gridviews-footer-c"></a>Mostrar información de resumen en el pie de página de GridView (C#)
 ====================
@@ -101,7 +101,7 @@ Puesto que la `GetProductsByCategoryID(categoryID)` método toma un parámetro d
 
 [![Obtener el valor del parámetro categoryID de la lista desplegable categorías seleccionadas](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image23.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image22.png)
 
-**Figura 8**: obtener el  *`categoryID`*  valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image24.png))
+**Figura 8**: obtener el *`categoryID`* valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image24.png))
 
 
 Después de completar al Asistente GridView tendrá un BoundField para cada una de las propiedades del producto. Vamos a limpiar estos BoundFields para que solo el `ProductName`, `UnitPrice`, `UnitsInStock`, y `UnitsOnOrder` BoundFields se muestran. No dude en agregar cualquier configuración de nivel de campo a la BoundFields restantes (como el formato del `UnitPrice` como una moneda). Después de realizar estos cambios, el marcado declarativo de GridView debe ser similar al siguiente:
@@ -114,7 +114,7 @@ En este momento tenemos un informe principal-detalle totalmente operativa que mu
 
 [![Obtener el valor del parámetro categoryID de la lista desplegable categorías seleccionadas](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image26.png)](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image25.png)
 
-**Figura 9**: obtener el  *`categoryID`*  valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image27.png))
+**Figura 9**: obtener el *`categoryID`* valor del parámetro de la lista desplegable categorías seleccionadas ([haga clic aquí para ver la imagen a tamaño completo](displaying-summary-information-in-the-gridview-s-footer-cs/_static/image27.png))
 
 
 ## <a name="step-2-displaying-a-footer-in-the-gridview"></a>Paso 2: Mostrar un pie de página en el control GridView
@@ -177,10 +177,10 @@ Crear un `RowDataBound` controlador de eventos del control GridView seleccionand
 
 Para mantener un total actualizado necesitamos definir variables fuera del ámbito del controlador de eventos. Crear las cuatro variables de nivel de página siguientes:
 
-- `_totalUnitPrice`, de tipo`decimal`
-- `_totalNonNullUnitPriceCount`, de tipo`int`
-- `_totalUnitsInStock`, de tipo`int`
-- `_totalUnitsOnOrder`, de tipo`int`
+- `_totalUnitPrice`, de tipo `decimal`
+- `_totalNonNullUnitPriceCount`, de tipo `int`
+- `_totalUnitsInStock`, de tipo `int`
+- `_totalUnitsOnOrder`, de tipo `int`
 
 A continuación, escribir el código para incrementar estos tres variables para cada fila de datos se encuentra en la `RowDataBound` controlador de eventos.
 
@@ -221,8 +221,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [ *SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](using-the-formview-s-templates-cs.md)
-[Siguiente](custom-formatting-based-upon-data-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-the-formview-s-templates-cs.md)
+> [Siguiente](custom-formatting-based-upon-data-vb.md)

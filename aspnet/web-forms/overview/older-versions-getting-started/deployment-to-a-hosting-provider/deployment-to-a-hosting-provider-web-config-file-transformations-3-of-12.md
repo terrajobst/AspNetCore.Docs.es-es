@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
-title: "Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: transformaciones del archivo Web.Config - 3 de 12 | Documentos de Microsoft"
+title: 'Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: transformaciones del archivo Web.Config - 3 de 12 | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) ASP.NET proyecto de aplicación web que incluye una base de datos de SQL Server Compact usando Visual Stu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/17/2011
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12
 msc.type: authoredcontent
-ms.openlocfilehash: ed78b55d2b0315cf428f137c56ad85b29a95e1c5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 86eb74ca35e8804978127412e2276eeee9d615dc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-webconfig-file-transformations---3-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: transformaciones del archivo Web.Config - 3 de 12
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://code.msdn.microsoft.com/Deploying-an-ASPNET-Web-4e31366b)
 
@@ -136,7 +136,7 @@ Esta transformación mismo es de prueba y producción archivos de transformació
 
 ## <a name="setting-connection-strings"></a>Configuración de las cadenas de conexión
 
-En la mayoría de los casos no es necesario configurar transformaciones de cadena de conexión, ya que puede especificar las cadenas de conexión en el perfil de publicación. Pero hay una excepción cuando se va a implementar una base de datos de SQL Server Compact y está usando migraciones de Entity Framework Code First para actualizar la base de datos del servidor de destino. En este escenario, tendrá que especificar una cadena de conexión adicionales que se usará en el servidor para actualizar el esquema de base de datos. Para configurar esta transformación, agregue un  **&lt;connectionStrings&gt;**  elemento inmediatamente después de la apertura  **&lt;configuración&gt;**  etiqueta tanto en el *Web.Test.config* y *Web.Production.config* transformar los archivos:
+En la mayoría de los casos no es necesario configurar transformaciones de cadena de conexión, ya que puede especificar las cadenas de conexión en el perfil de publicación. Pero hay una excepción cuando se va a implementar una base de datos de SQL Server Compact y está usando migraciones de Entity Framework Code First para actualizar la base de datos del servidor de destino. En este escenario, tendrá que especificar una cadena de conexión adicionales que se usará en el servidor para actualizar el esquema de base de datos. Para configurar esta transformación, agregue un **&lt;connectionStrings&gt;** elemento inmediatamente después de la apertura **&lt;configuración&gt;** etiqueta tanto en el *Web.Test.config* y *Web.Production.config* transformar los archivos:
 
 [!code-xml[Main](deployment-to-a-hosting-provider-web-config-file-transformations-3-of-12/samples/sample7.xml)]
 
@@ -148,6 +148,6 @@ Ahora ha especificado todas las *Web.config* transformaciones que necesita para 
 
 Para obtener más información acerca de los temas tratados en este tutorial, consulte el escenario de transformación de Web.config en [mapa de contenido de implementación de ASP.NET](https://msdn.microsoft.com/library/bb386521.aspx).
 
->[!div class="step-by-step"]
-[Anterior](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
-[Siguiente](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)
+> [!div class="step-by-step"]
+> [Anterior](deployment-to-a-hosting-provider-deploying-sql-server-compact-databases-2-of-12.md)
+> [Siguiente](deployment-to-a-hosting-provider-configuring-project-properties-4-of-12.md)

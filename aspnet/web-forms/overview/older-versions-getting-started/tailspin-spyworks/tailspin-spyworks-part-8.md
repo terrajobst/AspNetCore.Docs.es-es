@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
-title: "Parte 8: Páginas finales, control de excepciones y conclusión | Documentos de Microsoft"
+title: 'Parte 8: Páginas finales, control de excepciones y conclusión | Documentos de Microsoft'
 author: JoeStagner
-description: "Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 8 agrega una página de contacto, acerca de la página y la excepción..."
+description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 8 agrega una página de contacto, acerca de la página y la excepción...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/21/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: fce1a20f9d1093b6c60542d8a786ddf54fdc922c
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: f82294aab0616012393cf3e10f932f6d1ad0cdb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Parte 8: Páginas finales, control de excepciones y conclusión
 ====================
@@ -27,7 +27,7 @@ por [Joe Stagner](https://github.com/JoeStagner)
 > Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Tailspin Spyworks. Parte 8 agrega una página de contacto, acerca de la página y el control de excepciones. Ésta es la conclusión de la serie.
 
 
-## <a id="_Toc260221680"></a>Póngase en contacto con la página (envío de correo electrónico de ASP.NET)
+## <a id="_Toc260221680"></a>  Póngase en contacto con la página (envío de correo electrónico de ASP.NET)
 
 Crear una nueva página denominada ContactUs.aspx
 
@@ -43,11 +43,11 @@ Este código requiere que el archivo web.config contiene una entrada en la secci
 
 [!code-xml[Main](tailspin-spyworks-part-8/samples/sample2.xml)]
 
-## <a id="_Toc260221681"></a>Acerca de la página
+## <a id="_Toc260221681"></a>  Acerca de la página
 
 Cree una página denominada AboutUs.aspx y agregue cualquier contenido que desee.
 
-## <a id="_Toc260221682"></a>Controlador de excepciones global
+## <a id="_Toc260221682"></a>  Controlador de excepciones global
 
 Por último, a lo largo de la aplicación hemos produce excepciones y circunstancias imprevistas inactivos que también hay excepciones no controlada de causa en nuestra aplicación web.
 
@@ -75,11 +75,11 @@ Ahora, en la página\_extracción de controlador de eventos mensajes de error de
 
 [!code-csharp[Main](tailspin-spyworks-part-8/samples/sample6.cs)]
 
-## <a id="_Toc260221683"></a>Conclusión
+## <a id="_Toc260221683"></a>  Conclusión
 
 Hemos visto que ASP.NET WebForms facilita el proceso para crear un sitio Web sofisticado con acceso de base de datos de pertenencia, AJAX, etcetera. muy rápidamente.
 
 Espero que este tutorial le ha concedido las herramientas que necesita para empezar a compilar sus propios formularios Web Forms de ASP.NET en las aplicaciones.
 
->[!div class="step-by-step"]
-[Anterior](tailspin-spyworks-part-7.md)
+> [!div class="step-by-step"]
+> [Anterior](tailspin-spyworks-part-7.md)

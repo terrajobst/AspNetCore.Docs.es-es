@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
-title: "Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTML | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTML | Documentos de Microsoft'
 author: tfitzmac
-description: "Este tutorial muestra los conceptos básicos de cómo crear un formulario de entrada y cómo controlar la entrada del usuario cuando se usa ASP.NET Web Pages (Razor). Y ahora que..."
+description: Este tutorial muestra los conceptos básicos de cómo crear un formulario de entrada y cómo controlar la entrada del usuario cuando se usa ASP.NET Web Pages (Razor). Y ahora que...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: 68056759b2e80230e5fd2c0f9b2d2a89b549cf37
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTML
 ====================
@@ -88,11 +88,11 @@ El `<form>` elemento incluye elementos HTML que se va a enviar. (Un error habitu
 
 Elementos de entrada de usuario mayoría son HTML `<input>` elementos. Quedarán `<input type="type" name="name">,` donde *tipo* indica el tipo de control de entrada de usuario que desee. Estos elementos son las más comunes:
 
-- Cuadro de texto:`<input type="text">`
-- Casilla de verificación:`<input type="check">`
-- Botón de opción:`<input type="radio">`
-- Botón:`<input type="button">`
-- Botón de envío:`<input type="submit">`
+- Cuadro de texto: `<input type="text">`
+- Casilla de verificación: `<input type="check">`
+- Botón de opción: `<input type="radio">`
+- botón: `<input type="button">`
+- Botón de envío: `<input type="submit">`
 
 También puede usar el `<textarea>` elemento para crear un cuadro de texto multilínea y `<select>` elemento para crear una lista desplegable o una lista desplazable. (Para más información sobre HTML los elementos del formulario, consulte [formularios HTML y entrada](http://www.w3schools.com/html/html_forms.asp) en el sitio W3Schools.)
 
@@ -169,9 +169,9 @@ Este bloque establece la etapa para crear una consulta que utiliza el término d
 > 
 > La `Request` objeto realmente expone varios subconjuntos. Por ejemplo:
 > 
-> - `Request.Form`Proporciona valores de elementos dentro de la enviada `<form>` elemento si la solicitud es un `POST` solicitud.
-> - `Request.QueryString`permite solo los valores de cadena de consulta de las direcciones URL. (En una dirección URL como `http://mysite/myapp/page?searchGenre=action&page=2`, la `?searchGenre=action&page=2` sección de la dirección URL es la cadena de consulta.)
-> - `Request.Cookies`colección le da acceso a las cookies que ha enviado el explorador.
+> - `Request.Form` Proporciona valores de elementos dentro de la enviada `<form>` elemento si la solicitud es un `POST` solicitud.
+> - `Request.QueryString` permite solo los valores de cadena de consulta de las direcciones URL. (En una dirección URL como `http://mysite/myapp/page?searchGenre=action&page=2`, la `?searchGenre=action&page=2` sección de la dirección URL es la cadena de consulta.)
+> - `Request.Cookies` colección le da acceso a las cookies que ha enviado el explorador.
 > 
 > Para obtener un valor que sepa que está en el formulario enviado, puede usar `Request["name"]`. Como alternativa, puede usar las versiones más específicas `Request.Form["name"]` (para `POST` solicitudes) o `Request.QueryString["name"]` (para `GET` solicitudes). Por supuesto, *nombre* es el nombre del elemento que se va a obtener.
 > 
@@ -218,7 +218,7 @@ Si reunir todos estos elementos, obtendrá el siguiente código:
 
 > [!NOTE] 
 > 
-> **Importante:** Con los marcadores de posición (como `@0`) pasar valores a un comando SQL es *importantísimo* para la seguridad. La manera que ve aquí, con marcadores de posición para los datos de la variable, es la única manera debe construir comandos SQL.
+> **¡Importante!** Con los marcadores de posición (como `@0`) pasar valores a un comando SQL es *importantísimo* para la seguridad. La manera que ve aquí, con marcadores de posición para los datos de la variable, es la única manera debe construir comandos SQL.
 > 
 > Nunca construir una instrucción SQL que reúnan los valores que obtener del usuario y texto literal (concatenar). Concatenar proporcionados por el usuario en una instrucción SQL abre el sitio a un *ataque de inyección de SQL* donde un usuario malintencionado envía los valores a la página que hack la base de datos. (Puede obtener en el artículo [inyección de código SQL](https://msdn.microsoft.com/library/ms161953.aspx) el sitio Web de MSDN.)
 
@@ -363,6 +363,6 @@ En el siguiente tutorial, creará una página que usa un formulario para permiti
 - [Cláusula WHERE de SQL](http://www.w3schools.com/sql/sql_where.asp) en el sitio W3Schools
 - [Definiciones de método](http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) artículo en el sitio de W3C
 
->[!div class="step-by-step"]
-[Anterior](displaying-data.md)
-[Siguiente](entering-data.md)
+> [!div class="step-by-step"]
+> [Anterior](displaying-data.md)
+> [Siguiente](entering-data.md)

@@ -2,21 +2,21 @@
 uid: whitepapers/mvc4-beta-release-notes
 title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: "Este documento describe la versión de ASP.NET MVC 4 Beta para Visual Studio 2010."
+description: Este documento describe la versión de ASP.NET MVC 4 Beta para Visual Studio 2010.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/09/2011
 ms.topic: article
 ms.assetid: 666407bb-81de-4319-89ba-0302c382a208
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/mvc4-beta-release-notes
 msc.type: content
-ms.openlocfilehash: d6797d1dbacff7503f74782d325ff5a9598970c0
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
+ms.openlocfilehash: d29f09d726e835c1eb1fc38e643a4bfe7f00f61c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
@@ -139,7 +139,7 @@ ASP.NET Web API incluye compatibilidad para las siguientes características:
 - **Configuración basada en código:** configuración de Web API se realiza únicamente a través de código, dejando la configuración de limpieza de archivos.
 - **Autohospedaje:** las API Web se pueden hospedar en su propio proceso además de IIS mientras se sigue usando toda la funcionalidad de rutas y otras características de API Web.
 
-Para obtener más detalles sobre la API Web de ASP.NET, visitan [https://www.asp.net/web-api](../web-api/index.md).
+Para obtener más detalles sobre la API Web de ASP.NET, visitan [ https://www.asp.net/web-api ](../web-api/index.md).
 
 <a id="_Toc317096198"></a>
 ### <a name="aspnet-single-page-application"></a>Aplicación de una página ASP.NET sencilla
@@ -150,7 +150,7 @@ ASP.NET MVC 4 incluye ahora un anticipo de la experiencia para compilar aplicaci
 - Otros componentes de API Web de unidad de trabajo y soporte técnico DAL
 - Una plantilla de proyecto MVC con scaffolding para empezar a trabajar rápidamente
 
-Para obtener más detalles sobre la aplicación de una página solo se admiten en ASP.NET MVC 4, visite [https://www.asp.net/single-page-application](../single-page-application/index.md).
+Para obtener más detalles sobre la aplicación de una página solo se admiten en ASP.NET MVC 4, visite [ https://www.asp.net/single-page-application ](../single-page-application/index.md).
 
 <a id="_Toc303253808"></a>
 ### <a name="enhancements-to-default-project-templates"></a>Mejoras en las plantillas de proyecto predeterminadas
@@ -219,7 +219,7 @@ Es una convención para las páginas de web móvil optimizada agregar un víncul
 
 Si los visitantes, haga clic en el vínculo, está cambiados a la versión de escritorio de la misma página.
 
-Dado que el diseño del escritorio no incluye a un modificador de vista de forma predeterminada, los visitantes no tendrán una forma de acceder a modo de móvil. Para habilitar esta opción, agregue la siguiente referencia a  *\_ViewSwitcher* al diseño del escritorio, just dentro de la  *&lt;cuerpo&gt;*  elemento:
+Dado que el diseño del escritorio no incluye a un modificador de vista de forma predeterminada, los visitantes no tendrán una forma de acceder a modo de móvil. Para habilitar esta opción, agregue la siguiente referencia a  *\_ViewSwitcher* al diseño del escritorio, just dentro de la *&lt;cuerpo&gt;* elemento:
 
 [!code-cshtml[Main](mvc4-beta-release-notes/samples/sample7.cshtml)]
 
@@ -280,9 +280,9 @@ Versión Beta de ASP.NET MVC 4 es compatible con la versión 1.5 de septiembre d
     El elemento de enlace de ensamblado en el archivo web.config modificado debería aparecer como sigue:
 
     [!code-xml[Main](mvc4-beta-release-notes/samples/sample12.xml)]
-- **La plantilla de elemento de "Agregar controlador" en proyectos de Visual Basic genera un espacio de nombres incorrecto cuando se invoca *** desde dentro de un área.** Cuando se agrega un controlador a un área en un proyecto de MVC de ASP.NET que utiliza Visual Basic, la plantilla de elemento inserta el espacio de nombres incorrecto en el controlador. El resultado es un error de "archivo no encontrado" al navegar a cualquier acción en el controlador.  
+- <strong>La plantilla de elemento de "Agregar controlador" en proyectos de Visual Basic genera un espacio de nombres incorrecto cuando se invoca</strong><strong>desde dentro de un área.</strong> Cuando se agrega un controlador a un área en un proyecto de MVC de ASP.NET que utiliza Visual Basic, la plantilla de elemento inserta el espacio de nombres incorrecto en el controlador. El resultado es un error de "archivo no encontrado" al navegar a cualquier acción en el controlador.  
   
- El espacio de nombres generado omite todo el contenido después de espacio de nombres raíz. Por ejemplo, el espacio de nombres generado es *RootNamespace* pero debe ser *RootNamespace.Areas.AreaName.Controllers* .
+  El espacio de nombres generado omite todo el contenido después de espacio de nombres raíz. Por ejemplo, el espacio de nombres generado es *RootNamespace* pero debe ser *RootNamespace.Areas.AreaName.Controllers* .
 - **Cambios importantes en el motor de vista Razor.** Como parte de una reescritura del analizador Razor, se quitaron los siguientes tipos de *System.Web.Mvc.Razor*: 
 
     - *ModelSpan*
@@ -290,7 +290,7 @@ Versión Beta de ASP.NET MVC 4 es compatible con la versión 1.5 de septiembre d
     - *MvcCSharpRazorCodeGenerator*
     - *MvcVBRazorCodeParser*
 
- También se han quitado los siguientes métodos: 
+  También se han quitado los siguientes métodos: 
 
     - *MvcCSharpRazorCodeParser.ParseInheritsStatement(System.Web.Razor.Parser.CodeBlockInfo)*
     - *MvcWebPageRazorHost.DecorateCodeGenerator(System.Web.Razor.Generator.RazorCodeGenerator)*
@@ -305,15 +305,15 @@ Versión Beta de ASP.NET MVC 4 es compatible con la versión 1.5 de septiembre d
 
     **Actualizaciones necesarias**
 
-    1. En el archivo raíz Web.config, agregue un nuevo  *&lt;appSettings&gt;*  entrada con la clave *webPages:Version* y el valor *1.0.0.0*.
+  1. En el archivo raíz Web.config, agregue un nuevo *&lt;appSettings&gt;* entrada con la clave *webPages:Version* y el valor *1.0.0.0*.
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
-    2. En el Explorador de soluciones, haga clic en el nombre del proyecto y, a continuación, seleccione Descargar proyecto. A continuación, haga clic en el nombre nuevo y seleccione Editar *ProjectName*.csproj.
-    3. Busque las siguientes referencias de ensamblado: 
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample14.xml)]
+  2. En el Explorador de soluciones, haga clic en el nombre del proyecto y, a continuación, seleccione Descargar proyecto. A continuación, haga clic en el nombre nuevo y seleccione Editar *ProjectName*.csproj.
+  3. Busque las siguientes referencias de ensamblado: 
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample15.xml)]
 
-        Reemplácelas con lo siguiente:
+      Reemplácelas con lo siguiente:
 
-        [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
-    4. Guardar los cambios, cierre el archivo de proyecto (.csproj) estaba editando y, a continuación, haga clic en el proyecto y seleccione volver a cargar.
+      [!code-xml[Main](mvc4-beta-release-notes/samples/sample16.xml)]
+  4. Guardar los cambios, cierre el archivo de proyecto (.csproj) estaba editando y, a continuación, haga clic en el proyecto y seleccione volver a cargar.

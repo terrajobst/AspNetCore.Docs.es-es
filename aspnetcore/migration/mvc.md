@@ -1,7 +1,7 @@
 ---
-title: "Migración de MVC de ASP.NET a núcleo de ASP.NET MVC"
+title: Migrar de MVC de ASP.NET a ASP.NET Core MVC
 author: ardalis
-description: "Obtenga información acerca de cómo empezar a migrar un proyecto de MVC de ASP.NET a ASP.NET MVC de núcleo."
+description: Obtenga información acerca de cómo empezar a migrar un proyecto de MVC de ASP.NET a ASP.NET MVC de núcleo.
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: c9c9f63cd635f364d9b2e081dc051a46a44d3e4f
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: e249be06726b307a1c41a525a132f7e0ab8b50ee
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="migrating-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migración de MVC de ASP.NET a núcleo de ASP.NET MVC
+# <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrar de MVC de ASP.NET a ASP.NET Core MVC
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Daniel Roth](https://github.com/danroth27), [Steve Smith](https://ardalis.com/), y [Scott Addie](https://scottaddie.com)
 
@@ -220,7 +220,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 }
 ```
 
-Vea **mediante la página de excepción para desarrolladores** en [control de errores](../fundamentals/error-handling.md) para obtener más información.
+Vea **mediante la página de excepción para desarrolladores** en [controlar los errores](../fundamentals/error-handling.md) para obtener más información.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

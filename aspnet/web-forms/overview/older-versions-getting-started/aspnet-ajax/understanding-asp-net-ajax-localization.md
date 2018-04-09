@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
-title: "Descripción de localización de AJAX de ASP.NET | Documentos de Microsoft"
+title: Descripción de localización de AJAX de ASP.NET | Documentos de Microsoft
 author: scottcate
-description: "Localización es el proceso de diseño y la integración del soporte para un idioma específico y la referencia cultural en una aplicación o un componente de aplicación. La Mic..."
+description: Localización es el proceso de diseño y la integración del soporte para un idioma específico y la referencia cultural en una aplicación o un componente de aplicación. La Mic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: 5b801586ea77af78284f780fe47fe09cafb984af
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Descripción de localización de AJAX de ASP.NET
 ====================
@@ -64,9 +64,9 @@ En la tabla siguiente se resume las con ejemplos de las convenciones de nomencla
 | Filename | Significado |
 | --- | --- |
 | Script.js | Una secuencia de comandos de la referencia cultural neutra de versión de lanzamiento. |
-| Script.Debug.js | Una secuencia de comandos de la referencia cultural neutra de versión de depuración. |
+| Script.debug.js | Una secuencia de comandos de la referencia cultural neutra de versión de depuración. |
 | Script.en US.js | Un versión, inglés de Estados Unidos script de la versión. |
-| Script.Debug.es CO.js | Un script de Columbia español, versión de depuración. |
+| Script.debug.es-CO.js | Un script de Columbia español, versión de depuración. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Tutorial: Crear un Script incrustado, localizado
 
@@ -149,10 +149,10 @@ Como las aplicaciones web crecen hasta llegar a una audiencia mayor, la necesida
 
 .NET Framework admite intrínsecamente un marco de trabajo de localización enriquecida, utilizando ensamblados satélite y archivos de recursos (.resx) XML para presentar de manera uniforme para buscar imágenes y cadenas de recursos. Las extensiones de AJAX de ASP.NET, incluido el marco de AJAX de Microsoft y la biblioteca de scripts de AJAX de Microsoft, proporcionan compatibilidad para este modelo de programación en código del lado cliente, lo que permite realizar búsquedas de cadena de recursos fácil. Ensamblados satélite admiten la inclusión automática de recursos de script (archivos .js real) a través de ScriptResource.axd siempre y cuando los nombres de archivo siguen un esquema de nomenclatura determinado. Con esta compatibilidad, las extensiones de AJAX de ASP.NET simplifican la localización de scripts y la globalización de las aplicaciones.
 
-## <a name="bio"></a>*Biografía del*
+## <a name="bio"></a>*Bio*
 
 Scott categoría ha estado trabajando con las tecnologías Web de Microsoft desde 1997 y es el director general de myKB.com ([www.myKB.com](http://www.myKB.com)) donde está especializado en la escritura de ASP.NET en función de las aplicaciones que se centra en las soluciones de Software de Base de conocimiento. Scott se puede contactar a través de correo electrónico en [ scott.cate@myKB.com ](mailto:scott.cate@myKB.com) o su blog en [ScottCate.com](http://ScottCate.com)
 
->[!div class="step-by-step"]
-[Anterior](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
-[Siguiente](understanding-asp-net-ajax-web-services.md)
+> [!div class="step-by-step"]
+> [Anterior](understanding-asp-net-ajax-authentication-and-profile-application-services.md)
+> [Siguiente](understanding-asp-net-ajax-web-services.md)

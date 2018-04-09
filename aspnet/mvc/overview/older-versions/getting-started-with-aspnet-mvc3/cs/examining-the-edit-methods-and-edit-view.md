@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
-title: "Examen de los métodos de edición y la vista de edición (C#) | Documentos de Microsoft"
+title: Examen de los métodos de edición y la vista de edición (C#) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es..."
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/12/2011
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 137254be69344f31e65e1b4d1318a107ff9d6d47
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 581138bb25b95ef9002a2bd97d1fa28797d96bfa
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="examining-the-edit-methods-and-edit-view-c"></a>Examen de los métodos de edición y la vista de edición (C#)
 ====================
@@ -220,6 +220,6 @@ Ejecute la aplicación y vaya a */películas/SearchIndex*. Intenta una búsqueda
 
 En esta sección se examinan los métodos de acción CRUD y las vistas generadas por el marco de trabajo. Crea un método de acción de búsqueda y una vista que los usuarios pueden buscar por título de la película y el género. En la siguiente sección, examinará cómo agregar una propiedad a la `Movie` modelo y cómo agregar un inicializador que creará automáticamente una base de datos de prueba.
 
->[!div class="step-by-step"]
-[Anterior](accessing-your-models-data-from-a-controller.md)
-[Siguiente](adding-a-new-field.md)
+> [!div class="step-by-step"]
+> [Anterior](accessing-your-models-data-from-a-controller.md)
+> [Siguiente](adding-a-new-field.md)

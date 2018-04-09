@@ -1,7 +1,7 @@
 ---
-title: "Autorizar a un esquema específico - ASP.NET Core"
+title: Autorizar con un esquema específico de ASP.NET Core
 author: rick-anderson
-description: "Este artículo explica cómo limitar la identidad a un esquema específico cuando se trabaja con varios métodos de autenticación."
+description: Este artículo explica cómo limitar la identidad a un esquema específico cuando se trabaja con varios métodos de autenticación.
 manager: wpickett
 ms.author: riande
 ms.date: 10/12/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/limitingidentitybyscheme
-ms.openlocfilehash: dd044a0829382f9f7f0c3256c6e669340f2d5240
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 81a01d7de8221fcb3bf90a108d9df6633ca2b696
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="authorize-with-a-specific-scheme"></a>Autorizar con un esquema específico
+# <a name="authorize-with-a-specific-scheme-in-aspnet-core"></a>Autorizar con un esquema específico de ASP.NET Core
 
 En algunos escenarios, como aplicaciones de una única página (SPAs), es habitual usar varios métodos de autenticación. Por ejemplo, la aplicación puede usar la autenticación basada en cookies para iniciar sesión y autenticación de portador JWT para las solicitudes de JavaScript. En algunos casos, la aplicación puede tener varias instancias de un controlador de autenticación. Por ejemplo, dos controladores de la cookie donde uno contiene una identidad básica y el otro se crea cuando se ha desencadenado una autenticación multifactor (MFA). MFA se puede desencadenar porque el usuario solicitó una operación que requiere seguridad adicional.
 

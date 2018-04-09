@@ -1,22 +1,22 @@
 ---
 uid: aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
-title: "Apéndice: La solución aplicación de ejemplo (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft"
+title: 'Apéndice: La solución aplicación de ejemplo (creación de aplicaciones de nube reales con Azure) | Documentos de Microsoft'
 author: MikeWasson
-description: "Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede..."
+description: Las aplicaciones de nube de creación Real World con libros electrónicos Azure se basa en una presentación desarrollada por Scott Guthrie. Se explican 13 patrones y prácticas recomendadas que puede...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/12/2014
 ms.topic: article
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: c98e79bf8e9a1fe0899ed6d952c3e411ca472f7e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 9a1fa36b34c4783b101bb27bc6931241e9251e10
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Apéndice: La solución aplicación de ejemplo (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -245,18 +245,18 @@ Hay dos maneras de ejecutar la aplicación repararlo:
 
     Con Visual Studio 2013:
 
-    1. Presione F5 para ejecutar el proyecto FixIt.
-    2. En **el Explorador de soluciones**, haga clic en el proyecto MyFixItCloudService y, a continuación, haga clic en **depurar** -- **Iniciar nueva instancia**.
+   1. Presione F5 para ejecutar el proyecto FixIt.
+   2. En **el Explorador de soluciones**, haga clic en el proyecto MyFixItCloudService y, a continuación, haga clic en **depurar** -- **Iniciar nueva instancia**.
 
-    Uso de Visual Studio 2013 Express for Web:
+      Uso de Visual Studio 2013 Express for Web:
 
-    1. En el Explorador de soluciones, haga clic en la solución de FixIt y seleccione **propiedades**.
-    2. Seleccione **proyectos de inicio múltiples**...
-    3. En el **acción** seleccione de la lista desplegable de MyFixIt y MyFixItCloudService, **iniciar**.
-    4. Haga clic en **Aceptar**.
-    5. Presione F5 para ejecutar ambos proyectos.
+   3. En el Explorador de soluciones, haga clic en la solución de FixIt y seleccione **propiedades**.
+   4. Seleccione **proyectos de inicio múltiples**...
+   5. En el **acción** seleccione de la lista desplegable de MyFixIt y MyFixItCloudService, **iniciar**.
+   6. Haga clic en **Aceptar**.
+   7. Presione F5 para ejecutar ambos proyectos.
 
-    Al ejecutar el proyecto MyFixItCloudService, Visual Studio inicia el emulador de proceso de Azure. Dependiendo de la configuración del firewall, deberá permitir que el emulador a través del firewall.
+      Al ejecutar el proyecto MyFixItCloudService, Visual Studio inicia el emulador de proceso de Azure. Dependiendo de la configuración del firewall, deberá permitir que el emulador a través del firewall.
 
 <a id="deploybase"></a>
 ## <a name="how-to-deploy-the-base-app-to-azure-app-service-web-apps-by-using-the-windows-powershell-scripts"></a>Cómo implementar la aplicación de base para las aplicaciones de Web de servicio de aplicación de Azure mediante el uso de las secuencias de comandos de Windows PowerShell
@@ -285,7 +285,7 @@ Estas instrucciones se supone ya ha descargado y ejecuta la solución repararlo 
     Estas credenciales expiren tras un período de tiempo y tiene que volver a ejecutar la `Add-AzureAccount` cmdlet. Como este libro electrónico se está escribiendo, el límite de tiempo antes de que caduquen las credenciales es de 12 horas.
 5. Si tiene varias suscripciones, use el cmdlet Select-AzureSubscription para especificar la suscripción que desea crear el entorno de prueba en.
 6. Importar un certificado de administración para la misma suscripción de Azure mediante el `Get-AzurePublishSettingsFile` y `Import-AzurePublishSettingsFile` cmdlets. El primero de estos cmdlets descarga un archivo de certificado y, en la segunda se especifique la ubicación del archivo para importarlo. > [!IMPORTANT]
- > Guarde el archivo descargado en una ubicación segura o elimínelo cuando haya terminado con él, porque contiene un certificado que puede usarse para administrar los servicios de Azure.
+   > Guarde el archivo descargado en una ubicación segura o elimínelo cuando haya terminado con él, porque contiene un certificado que puede usarse para administrar los servicios de Azure.
 
     [!code-console[Main](the-fix-it-sample-application/samples/sample22.cmd)]
 
@@ -399,5 +399,5 @@ En MyFixItCloudService\ServiceConfiguration.Cloud.cscfg, reemplace los mismos va
 
 Ahora está listo para implementar el servicio de nube. En el Explorador de soluciones, haga clic en el proyecto MyFixItCloudService y seleccione **publicar**. Para obtener más información, vea "[implementar la aplicación en Azure](https://www.windowsazure.com/develop/net/tutorials/multi-tier-web-site/2-download-and-run/#deployAz)", que se encuentra en la parte 2 de [este tutorial](https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36).
 
->[!div class="step-by-step"]
-[Anterior](more-patterns-and-guidance.md)
+> [!div class="step-by-step"]
+> [Anterior](more-patterns-and-guidance.md)

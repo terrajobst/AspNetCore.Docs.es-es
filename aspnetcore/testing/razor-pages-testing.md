@@ -1,7 +1,7 @@
 ---
-title: "Unidad de páginas de Razor y pruebas de integración en ASP.NET Core"
+title: Pruebas de unidades y de integración de páginas de Razor en ASP.NET Core
 author: guardrex
-description: "Obtenga información acerca de cómo crear pruebas de unidades y de integración de aplicaciones de las páginas de Razor."
+description: Obtenga información acerca de cómo crear pruebas de unidades y de integración de aplicaciones de las páginas de Razor.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/razor-pages-testing
-ms.openlocfilehash: e4f87a8151e378717aa9198e4629711c4ea6ef77
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: dc5e8651f873b8e86aaa8fdf2527e461bb065424
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="razor-pages-unit-and-integration-testing-in-aspnet-core"></a>Unidad de páginas de Razor y pruebas de integración en ASP.NET Core
+# <a name="razor-pages-unit-and-integration-tests-in-aspnet-core"></a>Pruebas de unidades y de integración de páginas de Razor en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
@@ -59,9 +59,9 @@ La aplicación de mensaje es un sistema de mensajes de las páginas de Razor sim
 * La aplicación contiene una capa de acceso a datos (DAL) en su clase de contexto de base de datos, `AppDbContext` (*Data/AppDbContext.cs*). Los métodos de la capa DAL se marcan `virtual`, lo que permite a los métodos para su uso en las pruebas de simulación.
 * Si la base de datos está vacía en el inicio de la aplicación, el almacén de mensajes se inicializa con tres mensajes. Estos *propagado mensajes* también se utilizan en las pruebas.
 
-&#8224;El tema EF [pruebas con InMemory](/ef/core/miscellaneous/testing/in-memory), explica cómo utilizar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Pruebas de conceptos y las implementaciones de prueba a través de diferentes marcos de pruebas son similares pero no idénticos.
+&#8224;El tema EF [prueba con InMemory](/ef/core/miscellaneous/testing/in-memory), explica cómo utilizar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Pruebas de conceptos y las implementaciones de prueba a través de diferentes marcos de pruebas son similares pero no idénticos.
 
-Aunque la aplicación no usa el [modelo de repositorio](http://martinfowler.com/eaaCatalog/repository.html) y no es un ejemplo efectivo de la [patrón de la unidad de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), las páginas de Razor admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementación del repositorio y patrones de unidad de trabajo en una aplicación de MVC de ASP.NET](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), y [pruebas lógica de controlador](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
+Aunque la aplicación no usa el [modelo de repositorio](http://martinfowler.com/eaaCatalog/repository.html) y no es un ejemplo efectivo de la [patrón de la unidad de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), las páginas de Razor admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementación del repositorio y patrones de unidad de trabajo en una aplicación de MVC de ASP.NET](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), y [controlador de pruebas lógica de](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
 
 ## <a name="test-app-organization"></a>Organización de la aplicación de prueba
 
@@ -232,7 +232,7 @@ El `Post_AddMessageHandler_ReturnsSuccess_WhenMessageTextTooLong` probar `Messag
 
 * [Pruebas unitarias de C# en .NET Core con xUnit y prueba de dotnet.](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 * [Pruebas de integración](xref:testing/integration-testing)
-* [Pruebas de controladores](xref:mvc/controllers/testing)
+* [Controladores de pruebas](xref:mvc/controllers/testing)
 * [El código de prueba unitaria](/visualstudio/test/unit-test-your-code) (Visual Studio)
 * [xUnit.net](https://xunit.github.io/)
 * [Introducción a xUnit.net (.NET Core/ASP.NET Core)](https://xunit.github.io/docs/getting-started-dotnet-core)

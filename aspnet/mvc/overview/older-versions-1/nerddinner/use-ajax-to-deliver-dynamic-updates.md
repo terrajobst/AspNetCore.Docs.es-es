@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
-title: "Usar AJAX para entregar las actualizaciones dinámicas | Documentos de Microsoft"
+title: Usar AJAX para entregar las actualizaciones dinámicas | Documentos de Microsoft
 author: microsoft
-description: "Paso 10 implementa la compatibilidad con los usuarios conectados a RSVP su interés en asiste a una cena, mediante un enfoque basado en Ajax integrado dentro de los detalles de la cena..."
+description: Paso 10 implementa la compatibilidad con los usuarios conectados a RSVP su interés en asiste a una cena, mediante un enfoque basado en Ajax integrado dentro de los detalles de la cena...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 7b75f8c6cf08112eb77d1a9a40222ed1425ef3a7
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7cea3ee2ec52261521941efac484e91a53f6310b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Usar AJAX para entregar las actualizaciones dinámicas
 ====================
@@ -115,9 +115,9 @@ Para usar jQuery vamos a agregar una referencia de script a él. Dado que vamos 
 
 [!code-html[Main](use-ajax-to-deliver-dynamic-updates/samples/sample9.html)]
 
-*Sugerencia: asegúrese de que ha instalado la revisión de intellisense de JavaScript para VS 2008 SP1 que permite una compatibilidad de intellisense para los archivos JavaScript (incluidos jQuery). Puede descargarlo desde: http://tinyurl.com/vs2008javascripthotfix*
+*Sugerencia: asegúrese de que ha instalado la revisión de intellisense de JavaScript para VS 2008 SP1 que permite una compatibilidad de intellisense para los archivos JavaScript (incluidos jQuery). Puede descargar desde: http://tinyurl.com/vs2008javascripthotfix*
 
-El código escrito mediante JQuery a menudo utiliza un "$ ()" global método JavaScript que recupera uno o varios elementos HTML mediante un selector CSS. Por ejemplo, *$("#rsvpmsg")* selecciona cualquier elemento HTML con el Id. de rsvpmsg, mientras que *$(".something")* seleccionaría todos los elementos con el "elemento" CSS nombre de clase. También puede escribir consultas más avanzadas, como "se deben devolver todos los botones de radio comprobado" mediante una consulta de selector como: *$("entrada [@type= radio] [@checked]")*.
+El código escrito mediante JQuery a menudo utiliza un "$ ()" global método JavaScript que recupera uno o varios elementos HTML mediante un selector CSS. Por ejemplo, <em>$("#rsvpmsg")</em> selecciona cualquier elemento HTML con el Id. de rsvpmsg, mientras que <em>$(".something")</em> seleccionaría todos los elementos con el "elemento" CSS nombre de clase. También puede escribir consultas más avanzadas, como "se deben devolver todos los botones de radio comprobado" mediante una consulta de selector como: <em>$("entrada [@type= radio] [@checked]")</em>.
 
 Una vez que haya seleccionado los elementos, puede llamar a métodos en ellas para actuar como ocultarlas: *$("#rsvpmsg").hide();*
 
@@ -153,6 +153,6 @@ Esto hace que el código más limpia de leer y mantener.
 
 Ahora veamos cómo podemos usar AJAX aún más y agregar compatibilidad con la asignación interactivo a nuestra aplicación.
 
->[!div class="step-by-step"]
-[Anterior](secure-applications-using-authentication-and-authorization.md)
-[Siguiente](use-ajax-to-implement-mapping-scenarios.md)
+> [!div class="step-by-step"]
+> [Anterior](secure-applications-using-authentication-and-authorization.md)
+> [Siguiente](use-ajax-to-implement-mapping-scenarios.md)

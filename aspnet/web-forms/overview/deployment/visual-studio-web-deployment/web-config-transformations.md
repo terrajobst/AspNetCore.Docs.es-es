@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
-title: "Implementación de Web ASP.NET con Visual Studio: transformaciones del archivo Web.config | Documentos de Microsoft"
+title: 'Implementación de Web ASP.NET con Visual Studio: transformaciones del archivo Web.config | Documentos de Microsoft'
 author: tdykstra
-description: "Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa..."
+description: Esta serie de tutoriales muestra cómo implementar (publicar) un ASP.NET web aplicación para aplicaciones de Web del servicio de aplicación de Azure o en un proveedor de hospedaje de terceros, usa...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/15/2013
@@ -12,15 +12,15 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/visual-studio-web-deployment/web-config-transformations
 msc.type: authoredcontent
-ms.openlocfilehash: a526275d76618c325a6b00f33cc550f28ab0cc00
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 77ed0d8b2fe85adb009a3f4759030b7fba8fb9d7
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-web-deployment-using-visual-studio-webconfig-file-transformations"></a>Implementación de Web ASP.NET con Visual Studio: transformaciones del archivo Web.config
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 [Descargar proyecto de inicio](http://go.microsoft.com/fwlink/p/?LinkId=282627)
 
@@ -152,6 +152,6 @@ En el siguiente tutorial, también deberá tener cuidado de las tareas de config
 
 Para obtener más información acerca de los temas tratados en este tutorial, vea [Web.config utilizando transformaciones para cambiar la configuración en el archivo Web.config de destino o el archivo app.config durante la implementación](https://go.microsoft.com/fwlink/p/?LinkId=282413#transforms) en el mapa de contenido de implementación Web de Visual Studio y ASP.NET.
 
->[!div class="step-by-step"]
-[Anterior](preparing-databases.md)
-[Siguiente](project-properties.md)
+> [!div class="step-by-step"]
+> [Anterior](preparing-databases.md)
+> [Siguiente](project-properties.md)

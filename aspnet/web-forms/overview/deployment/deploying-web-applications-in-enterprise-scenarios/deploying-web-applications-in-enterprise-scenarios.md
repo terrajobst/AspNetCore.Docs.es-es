@@ -2,7 +2,7 @@
 uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 title: Implementar aplicaciones Web en escenarios empresariales mediante Visual Studio 2010 | Documentos de Microsoft
 author: jrjlee
-description: "Este conjunto de tutoriales describe herramientas y técnicas que puede usar para implementar aplicaciones web en distintos escenarios de empresa. Se explica cómo realizar un mejor uso..."
+description: Este conjunto de tutoriales describe herramientas y técnicas que puede usar para implementar aplicaciones web en distintos escenarios de empresa. Se explica cómo realizar un mejor uso...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/03/2012
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/deploying-web-applications-in-enterprise-scenarios
 msc.type: authoredcontent
-ms.openlocfilehash: 99bab371dd34b30f3554843e49bbec7f57c3f96c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 921b1ccd8a1f2109a51f3f75149588422fefb91d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="deploying-web-applications-in-enterprise-scenarios-using-visual-studio-2010"></a>Implementar aplicaciones Web en escenarios empresariales mediante Visual Studio 2010
 ====================
@@ -36,7 +36,7 @@ por [Jason Lee](https://github.com/jrjlee)
 > > Mientras estos tutoriales describen el uso de TFS como un servidor de integración continua, las instrucciones se adaptación fácilmente a cualquier servidor de integración continua. No es necesario un conocimiento detallado de TFS para entender y aprovechar los tutoriales.
 > 
 > 
-> Para una traducción de italiano de estos tutoriales, visite [http://www.lucamorelli.it](http://www.lucamorelli.it).
+> Para una traducción de italiano de estos tutoriales, visite [ http://www.lucamorelli.it ](http://www.lucamorelli.it).
 
 
 ## <a name="about-the-authors"></a>Acerca de los autores
@@ -80,5 +80,5 @@ La serie incluye cuatro conjuntos de tutorial. Cada uno de ellos se centra en di
 
 Este conjunto de tutoriales utiliza una solución de ejemplo con un nivel de complejidad, junto con un escenario de implementación de la empresa ficticia, realista para proporcionar una implementación de referencia y para proporcionar a las tareas y los tutoriales comparten un contexto común. El siguiente tema, [implementación Web de empresa: información general del escenario](enterprise-web-deployment-scenario-overview.md), presenta el escenario y la solución de ejemplo. Desde allí, puede trabajar con los tutoriales y los temas que mejor coincida con sus necesidades.
 
->[!div class="step-by-step"]
-[Siguiente](enterprise-web-deployment-scenario-overview.md)
+> [!div class="step-by-step"]
+> [Siguiente](enterprise-web-deployment-scenario-overview.md)

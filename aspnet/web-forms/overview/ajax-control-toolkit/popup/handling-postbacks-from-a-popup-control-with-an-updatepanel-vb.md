@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 title: Controla las devoluciones de datos de un Control de elemento emergente con un UpdatePanel (VB) | Documentos de Microsoft
 author: wenz
-description: "El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. Debe tenerse especial cuidado..."
+description: El extensor de PopupControl en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de desencadenar un menú emergente cuando se activa cualquier otro control. Debe tenerse especial cuidado...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4445437f25925429d240b7fe2d019855afc52fe0
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 312927e01911ea705d0614eac462cd034820c7b4
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-vb"></a>Controla las devoluciones de datos de un Control de elemento emergente con un UpdatePanel (VB)
 ====================
@@ -61,6 +61,6 @@ El calendario aparece cuando el usuario hace clic en el cuadro de texto ([haga c
 
 Al hacer clic en una fecha, coloca en el cuadro de texto ([haga clic aquí para ver la imagen a tamaño completo](handling-postbacks-from-a-popup-control-with-an-updatepanel-vb/_static/image6.png))
 
->[!div class="step-by-step"]
-[Anterior](using-multiple-popup-controls-vb.md)
-[Siguiente](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-multiple-popup-controls-vb.md)
+> [Siguiente](handling-postbacks-from-a-popup-control-without-an-updatepanel-vb.md)

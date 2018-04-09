@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
-title: "Introducción a ASP.NET Web Pages: publicar un sitio mediante el uso de WebMatrix | Documentos de Microsoft"
+title: 'Introducción a ASP.NET Web Pages: publicar un sitio mediante el uso de WebMatrix | Documentos de Microsoft'
 author: tfitzmac
-description: "Este tutorial es la última entrega en el conjunto de tutorial que presenta ASP.NET Web Pages y WebMatrix de Microsoft. Describe cómo publicar su sitio t..."
+description: Este tutorial es la última entrega en el conjunto de tutorial que presenta ASP.NET Web Pages y WebMatrix de Microsoft. Describe cómo publicar su sitio t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 1e718c92a2f94df50fcf7af6859917746a4982ac
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 7b9bffac5cc72e1bea3f1b211cc03be2ccb8e499
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="introducing-aspnet-web-pages---publishing-a-site-by-using-webmatrix"></a>Introducción a ASP.NET Web Pages: publicar un sitio mediante el uso de WebMatrix
 ====================
@@ -32,7 +32,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 
 ## <a name="about-publishing-your-site"></a>Acerca de cómo publicar su sitio
 
-Hecho hasta ahora, todo el trabajo en un equipo local, incluidas las pruebas de las páginas. Para ejecutar el*.cshtml* páginas, ha utilizado el servidor web que está integrado en WebMatrix, es decir, IIS Express. Pero, por supuesto nadie puede ver el sitio que salvo que se ha creado. Para permitir que otras personas a trabajar con su sitio, tiene que publicar en Internet.
+Hecho hasta ahora, todo el trabajo en un equipo local, incluidas las pruebas de las páginas. Para ejecutar el<em>.cshtml</em> páginas, ha utilizado el servidor web que está integrado en WebMatrix, es decir, IIS Express. Pero, por supuesto nadie puede ver el sitio que salvo que se ha creado. Para permitir que otras personas a trabajar con su sitio, tiene que publicar en Internet.
 
 A menos que tenga acceso a un servidor web público ya, publicación significa que debe tener una cuenta con un *plataforma de nube* o un *proveedor de hospedaje*. Una plataforma de nube, como Microsoft Azure proporciona la infraestructura de petición para sus aplicaciones. Un proveedor de hospedaje es una compañía que posee servidores web accesible públicamente y que alquilan, espacio para su sitio. Hospedaje de planes de ejecución de unos pocos dólares al mes (o incluso libres) para sitios pequeños a muchos cientos de dólares al mes para los sitios Web comerciales de gran volumen.
 
@@ -53,7 +53,7 @@ Este tutorial contiene cuatro secciones:
 <a id="defaultpage"></a>
 ## <a name="setting-up-the-default-page"></a>Configuración de la página predeterminada
 
-Cuando un usuario navega a la dirección base para el sitio web, la página predeterminada para el sitio se muestra al usuario. Por ejemplo, cuando Default.htm se establece como la página predeterminada para el sitio en www.contoso.com, a continuación, vaya a **www.contoso.com** es el mismo que navegar a **www.contoso.com/Default.htm**.
+Cuando un usuario navega a la dirección base para el sitio web, la página predeterminada para el sitio se muestra al usuario. Por ejemplo, cuando Default.htm se establece como la página predeterminada para el sitio en www.contoso.com, a continuación, vaya a <strong>www.contoso.com</strong> es el mismo que navegar a <strong>www.contoso.com/Default.htm</strong>.
 
 Actualmente, el sitio utiliza **Default.cshtml** como la página predeterminada. Esta página es un problema para la página predeterminada, pero en este tutorial no ha agregado ningún contenido a la página por lo que mostraría una página en blanco. Abra Default.cshtml y reemplace el contenido con el código siguiente.
 
@@ -219,5 +219,5 @@ Vaya al sitio en vivo (puede hacer clic en el vínculo en el mensaje de confirma
 
 - [Foro ASP.NET WebMatrix ASP.NET Web Pages](https://forums.asp.net/1224.aspx/1?WebMatrix+and+ASP+NET+Web+Pages), un buen lugar para exponer preguntas y obtener respuestas.
 
->[!div class="step-by-step"]
-[Anterior](layouts.md)
+> [!div class="step-by-step"]
+> [Anterior](layouts.md)

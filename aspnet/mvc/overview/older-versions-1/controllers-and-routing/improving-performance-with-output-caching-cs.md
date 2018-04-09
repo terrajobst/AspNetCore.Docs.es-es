@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
-title: "Salida de mejorar el rendimiento con almacenamiento en caché (C#) | Documentos de Microsoft"
+title: Salida de mejorar el rendimiento con almacenamiento en caché (C#) | Documentos de Microsoft
 author: microsoft
-description: "En este tutorial, aprenderá cómo puede mejorar drásticamente el rendimiento de las aplicaciones web de ASP.NET MVC aprovechando las ventajas del almacenamiento en caché de salida. El programador..."
+description: En este tutorial, aprenderá cómo puede mejorar drásticamente el rendimiento de las aplicaciones web de ASP.NET MVC aprovechando las ventajas del almacenamiento en caché de salida. El programador...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/27/2009
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/improving-performance-with-output-caching-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 47f0aa976c5876991ccc2406fb8f7402e59ec556
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 8958caa5a0ccad669ca861bed261102625be5cb6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="improving-performance-with-output-caching-c"></a>Mejorar el rendimiento con salida de almacenamiento en caché (C#)
 ====================
@@ -39,7 +39,7 @@ Habilitar caché de resultados mediante la adición de un atributo [OutputCache]
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample1.cs)]
 
-En las versiones Beta de ASP.NET MVC, almacenamiento en caché de salida no funciona para una dirección URL como [http://www.MySite.com/](http://www.mysite.com/). En su lugar, debe especificar una dirección URL como [http://www.MySite.com/Home/Index](http://www.mysite.com/Home/Index). 
+En las versiones Beta de ASP.NET MVC, almacenamiento en caché de salida no funciona para una dirección URL como [ http://www.MySite.com/ ](http://www.mysite.com/). En su lugar, debe especificar una dirección URL como [ http://www.MySite.com/Home/Index ](http://www.mysite.com/Home/Index). 
 
 En la lista 1, se almacena en caché el resultado de la acción de Index() durante 10 segundos. Si lo prefiere, puede especificar una duración mucho mayor de memoria caché. Por ejemplo, si desea almacenar en caché el resultado de una acción del controlador durante un día, a continuación, puede especificar una duración de caché de 86400 segundos (60 segundos \* 60 minutos \* 24 horas).
 
@@ -86,7 +86,7 @@ De forma predeterminada, la propiedad Location tiene el valor de cualquier. Sin 
 
 Por ejemplo, el controlador en el listado 3 expone una acción denominada GetName() que devuelve el nombre de usuario actual. Si inicia sesión en el sitio Web de conector e invoca la acción GetName(), a continuación, la acción devuelve la cadena "Hi conector". Si, posteriormente, Jill inicia sesión en el sitio Web e invoca la acción GetName(), a continuación, también obtendrá la cadena "Hi conector". La cadena se almacena en caché en el servidor web para todos los usuarios después de conector inicialmente, se invoca la acción del controlador.
 
-**El listado 3 – Controllers\BadUserController.cs**
+**Listing 3 – Controllers\BadUserController.cs**
 
 [!code-csharp[Main](improving-performance-with-output-caching-cs/samples/sample3.cs)]
 
@@ -132,7 +132,7 @@ Es importante entender que utilizando los resultados de la propiedad VaryByParam
 
 Puede establecer la propiedad VaryByParam en los siguientes valores:
 
-> \*= Crear una versión en caché diferente cada vez que varía de un parámetro de cadena de consulta o formulario.
+> \* = Crear una versión en caché diferente cada vez que varía de un parámetro de cadena de consulta o formulario.
 > 
 > None = nunca crear distintas versiones en caché
 > 
@@ -165,6 +165,6 @@ Si se invoca la acción de Index() expuesta por el controlador en la lista 7 se 
 
 Caché de resultados, proporciona un método muy fácil de mejorar drásticamente el rendimiento de las aplicaciones de ASP.NET MVC. En este tutorial, aprendió a utilizar el atributo [OutputCache] para almacenar en caché el resultado de las acciones de controlador. También ha aprendido cómo modificar las propiedades del atributo [OutputCache] como las propiedades Duration y VaryByParam para modificar cómo se almacena en caché de contenido. Por último, aprendió cómo definir perfiles de memoria caché en el archivo de configuración web.
 
->[!div class="step-by-step"]
-[Anterior](understanding-action-filters-cs.md)
-[Siguiente](adding-dynamic-content-to-a-cached-page-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](understanding-action-filters-cs.md)
+> [Siguiente](adding-dynamic-content-to-a-cached-page-cs.md)
