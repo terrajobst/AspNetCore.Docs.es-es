@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005
-title: "[¿Cómo I:] ¿Depurar aplicaciones de AJAX de ASP.NET mediante Visual Studio 2005? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Depurar aplicaciones de AJAX de ASP.NET mediante Visual Studio 2005? | Microsoft Docs'
 author: scottgolightly
-description: "En este vídeo se obtenga información acerca de cómo usar Visual Studio 2005 para depurar aplicaciones de AJAX de ASP.NET. Nos muestra cómo se utiliza el objeto ScriptManager para tener acceso el código JavaScript..."
+description: En este vídeo se obtenga información acerca de cómo usar Visual Studio 2005 para depurar aplicaciones de AJAX de ASP.NET. Nos muestra cómo se utiliza el objeto ScriptManager para tener acceso el código JavaScript...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2007
@@ -12,21 +12,21 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005
 msc.type: video
-ms.openlocfilehash: f55acfcf2c0970d2729987265c579283eb9d2dfc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: c874f046576bdb9233e0f3666951fa5aeeb065bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
-<a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a><span data-ttu-id="ec665-105">[¿Cómo I:] ¿Depurar aplicaciones de AJAX de ASP.NET mediante Visual Studio 2005?</span><span class="sxs-lookup"><span data-stu-id="ec665-105">[How Do I:] Debug ASP.NET AJAX Applications Using Visual Studio 2005?</span></span>
+<a name="how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005"></a><span data-ttu-id="92da2-105">[¿Cómo I:] ¿Depurar aplicaciones de AJAX de ASP.NET mediante Visual Studio 2005?</span><span class="sxs-lookup"><span data-stu-id="92da2-105">[How Do I:] Debug ASP.NET AJAX Applications Using Visual Studio 2005?</span></span>
 ====================
-<span data-ttu-id="ec665-106">por [Scott Golightly](https://github.com/scottgolightly)</span><span class="sxs-lookup"><span data-stu-id="ec665-106">by [Scott Golightly](https://github.com/scottgolightly)</span></span>
+<span data-ttu-id="92da2-106">por [Scott Golightly](https://github.com/scottgolightly)</span><span class="sxs-lookup"><span data-stu-id="92da2-106">by [Scott Golightly](https://github.com/scottgolightly)</span></span>
 
-<span data-ttu-id="ec665-107">En este vídeo se obtenga información acerca de cómo usar Visual Studio 2005 para depurar aplicaciones de AJAX de ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="ec665-107">In this video we learn how to use Visual Studio 2005 to debug ASP.NET AJAX applications.</span></span> <span data-ttu-id="ec665-108">Nos muestra cómo se utiliza el objeto ScriptManager para tener acceso a los creados por los controles de servidor de AJAX de ASP.NET de JavaScript, y también se muestra cómo utilizar la clase Sys.Debug para insertar un mensaje de seguimiento y un punto de interrupción.</span><span class="sxs-lookup"><span data-stu-id="ec665-108">We are shown how the ScriptManager is used to access the JavaScript created by the ASP.NET AJAX server controls, and we also see how to use the Sys.Debug class to insert a trace message and a breakpoint.</span></span>
+<span data-ttu-id="92da2-107">En este vídeo se obtenga información acerca de cómo usar Visual Studio 2005 para depurar aplicaciones de AJAX de ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="92da2-107">In this video we learn how to use Visual Studio 2005 to debug ASP.NET AJAX applications.</span></span> <span data-ttu-id="92da2-108">Nos muestra cómo se utiliza el objeto ScriptManager para tener acceso a los creados por los controles de servidor de AJAX de ASP.NET de JavaScript, y también se muestra cómo utilizar la clase Sys.Debug para insertar un mensaje de seguimiento y un punto de interrupción.</span><span class="sxs-lookup"><span data-stu-id="92da2-108">We are shown how the ScriptManager is used to access the JavaScript created by the ASP.NET AJAX server controls, and we also see how to use the Sys.Debug class to insert a trace message and a breakpoint.</span></span>
 
-[<span data-ttu-id="ec665-109">&#9654; Vea el vídeo (8 minutos)</span><span class="sxs-lookup"><span data-stu-id="ec665-109">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005)
+[<span data-ttu-id="92da2-109">&#9654;Vea el vídeo (8 minutos)</span><span class="sxs-lookup"><span data-stu-id="92da2-109">&#9654; Watch video (8 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-debug-aspnet-ajax-applications-using-visual-studio-2005)
 
->[!div class="step-by-step"]
-<span data-ttu-id="ec665-110">[Anterior](how-do-i-use-the-aspnet-ajax-profile-services.md)
-[Siguiente](how-do-i-build-a-custom-aspnet-ajax-server-control.md)</span><span class="sxs-lookup"><span data-stu-id="ec665-110">[Previous](how-do-i-use-the-aspnet-ajax-profile-services.md)
+> [!div class="step-by-step"]
+> <span data-ttu-id="92da2-110">[Anterior](how-do-i-use-the-aspnet-ajax-profile-services.md)
+> [Siguiente](how-do-i-build-a-custom-aspnet-ajax-server-control.md)</span><span class="sxs-lookup"><span data-stu-id="92da2-110">[Previous](how-do-i-use-the-aspnet-ajax-profile-services.md)
 [Next](how-do-i-build-a-custom-aspnet-ajax-server-control.md)</span></span>
