@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
-title: "Vistas de MVC de ASP.NET información general (VB) | Documentos de Microsoft"
+title: Vistas de MVC de ASP.NET información general (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "¿Qué es una vista de MVC de ASP.NET y cómo se diferencia de una página HTML? En este tutorial, Stephen Walther presenta vistas y se muestra cómo puede t..."
+description: ¿Qué es una vista de MVC de ASP.NET y cómo se diferencia de una página HTML? En este tutorial, Stephen Walther presenta vistas y se muestra cómo puede t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c85b969aa4457d0326b4a16da218db9e11d01e10
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: a64c70851d13b923964dfd1cf3bad55612ae0d0f
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="aspnet-mvc-views-overview-vb"></a>Información general (VB) de vistas de MVC de ASP.NET
 ====================
@@ -152,6 +152,6 @@ También tiene la opción de pasar los datos de la vista fuertemente tipada de u
 
 Este tutorial proporciona una breve introducción a las vistas de MVC de ASP.NET, ver los datos y aplicaciones auxiliares HTML. En la primera sección, aprendió a agregar nuevas vistas al proyecto. Ha aprendido que debe agregar una vista a la carpeta correcta para llamarlo desde un controlador determinado. A continuación, analizamos el tema de las aplicaciones auxiliares HTML. Ha aprendido cómo las aplicaciones auxiliares HTML le permiten generar fácilmente contenido HTML estándar. Por último, aprendió a aprovechar las ventajas de los datos de vista para pasar datos de un controlador a una vista.
 
->[!div class="step-by-step"]
-[Anterior](passing-data-to-view-master-pages-cs.md)
-[Siguiente](creating-custom-html-helpers-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](passing-data-to-view-master-pages-cs.md)
+> [Siguiente](creating-custom-html-helpers-vb.md)

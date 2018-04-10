@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
-title: "Eficazmente paginar a través de grandes cantidades de datos (VB) | Documentos de Microsoft"
+title: Eficazmente paginar a través de grandes cantidades de datos (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "La opción de paginación predeterminada de un control de presentación de datos no es apropiada cuando se trabaja con grandes cantidades de datos, como su retriev de control de origen de datos subyacente..."
+description: La opción de paginación predeterminada de un control de presentación de datos no es apropiada cuando se trabaja con grandes cantidades de datos, como su retriev de control de origen de datos subyacente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2006
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9a1b7fbb1e60c9f1bc6a26ccaeb7d14b4c95219d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 00057f9bfd9b1c479e500ac591db694388a5d358
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Eficazmente paginar a través de grandes cantidades de datos (VB)
 ====================
@@ -122,9 +122,9 @@ Hay dos técnicas generales que permiten asociar eficazmente un índice de fila 
 - **Con SQL Server 2005 s `ROW_NUMBER()` palabra clave** familiarizado con SQL Server 2005, la `ROW_NUMBER()` palabra clave asocia una clasificación de cada registro devuelto basándose en el orden de algunos. Esta clasificación se puede usar como un índice de fila para cada fila.
 - **Usar una Variable de tabla y `SET ROWCOUNT`**  s de SQL Server [ `SET ROWCOUNT` instrucción](https://msdn.microsoft.com/library/ms188774.aspx) puede utilizarse para especificar el número total de registros debe procesar una consulta antes de terminar; [las variables de tabla](http://www.sqlteam.com/item.asp?ItemID=9454) son variables locales de T-SQL que pueden contener datos tabulares, akin a [tablas temporales](http://www.sqlteam.com/item.asp?ItemID=2029). Este enfoque funciona igualmente bien con Microsoft SQL Server 2005 y SQL Server 2000 (mientras que el `ROW_NUMBER()` enfoque sólo funciona con SQL Server 2005).  
   
- La idea es crear una variable de tabla que tiene un `IDENTITY` y columnas para las claves principales de la tabla cuyos datos se envía un mensaje a través de. A continuación, se vuelca el contenido de la tabla cuyos datos se envía un mensaje a través de en la variable de tabla, con lo que se asocia un índice de fila secuenciales (a través de la `IDENTITY` columna) para cada registro en la tabla. Una vez que se ha rellenado la variable de tabla, un `SELECT` instrucción en la variable de tabla, se combina con la tabla subyacente, se puede ejecutar para extraer los registros determinados. El `SET ROWCOUNT` instrucción se utiliza para limitar el número de registros que necesita para realizar el volcado en la variable de tabla de forma inteligente.  
+  La idea es crear una variable de tabla que tiene un `IDENTITY` y columnas para las claves principales de la tabla cuyos datos se envía un mensaje a través de. A continuación, se vuelca el contenido de la tabla cuyos datos se envía un mensaje a través de en la variable de tabla, con lo que se asocia un índice de fila secuenciales (a través de la `IDENTITY` columna) para cada registro en la tabla. Una vez que se ha rellenado la variable de tabla, un `SELECT` instrucción en la variable de tabla, se combina con la tabla subyacente, se puede ejecutar para extraer los registros determinados. El `SET ROWCOUNT` instrucción se utiliza para limitar el número de registros que necesita para realizar el volcado en la variable de tabla de forma inteligente.  
   
- Esta eficacia enfoque s se basa en el número de página que se solicita, como la `SET ROWCOUNT` valor se asigna el valor de índice de fila inicial más el número máximo de filas. Al paginar a través de páginas impares baja como la primera pocas páginas de datos de este enfoque es muy eficaz. Sin embargo, exhibe performance de paginación de forma predeterminada cuando se recuperan de una página cuando se acerque el final.
+  Esta eficacia enfoque s se basa en el número de página que se solicita, como la `SET ROWCOUNT` valor se asigna el valor de índice de fila inicial más el número máximo de filas. Al paginar a través de páginas impares baja como la primera pocas páginas de datos de este enfoque es muy eficaz. Sin embargo, exhibe performance de paginación de forma predeterminada cuando se recuperan de una página cuando se acerque el final.
 
 Este tutorial implementa la paginación personalizado con el `ROW_NUMBER()` palabra clave. Para obtener más información sobre el uso de la variable de tabla y `SET ROWCOUNT` técnica, consulte [A varios eficaz métodos para paginar a través de grandes conjuntos de resultados](http://www.4guysfromrolla.com/webtech/042606-1.shtml).
 
@@ -133,7 +133,7 @@ El `ROW_NUMBER()` palabra clave asociada a una categoría cada registro devuelto
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample3.sql)]
 
-`ROW_NUMBER()`Devuelve un valor numérico que especifica el rango de cada registro con respecto a que el orden indicado. Por ejemplo, para ver el rango de cada producto, ordenada de mayor cara a la menor, podríamos usar la siguiente consulta:
+`ROW_NUMBER()` Devuelve un valor numérico que especifica el rango de cada registro con respecto a que el orden indicado. Por ejemplo, para ver el rango de cada producto, ordenada de mayor cara a la menor, podríamos usar la siguiente consulta:
 
 
 [!code-sql[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample4.sql)]
@@ -147,7 +147,7 @@ Figura 5 se muestra esta consulta resultados de s cuando se ejecuta a través de
 
 
 > [!NOTE]
-> `ROW_NUMBER()`es simplemente una de las muchas nuevas funciones de clasificación disponibles en SQL Server 2005. Para obtener una explicación más exhaustiva de `ROW_NUMBER()`, junto con las demás funciones de clasificación, leer [devolver resultados clasificados con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
+> `ROW_NUMBER()` es simplemente una de las muchas nuevas funciones de clasificación disponibles en SQL Server 2005. Para obtener una explicación más exhaustiva de `ROW_NUMBER()`, junto con las demás funciones de clasificación, leer [devolver resultados clasificados con Microsoft SQL Server 2005](http://www.4guysfromrolla.com/webtech/010406-1.shtml).
 
 
 Cuando los resultados de clasificación según los valores especificados `ORDER BY` columna en el `OVER` cláusula (`UnitPrice`, en el ejemplo anterior), SQL Server debe ordenar los resultados. Esto es una operación rápida si hay un índice clúster sobre las columnas que se va a se ordenan los resultados por, o si hay una cobertura de índice, pero puede ser más costoso en caso contrario. Con el fin de mejorar el rendimiento de las consultas lo suficientemente grandes, considere la posibilidad de agregar un índice no agrupado de la columna por la que los resultados se ordenan por. Vea [funciones de categoría y el rendimiento en SQL Server 2005](http://www.sql-server-performance.com/ak_ranking_functions.asp) para obtener una visión más detallada en las consideraciones de rendimiento.
@@ -163,7 +163,7 @@ Extender un poco más este concepto, podemos utilizar este enfoque para recupera
 [!code-html[Main](efficiently-paging-through-large-amounts-of-data-vb/samples/sample6.html)]
 
 > [!NOTE]
-> Como veremos más adelante en este tutorial, el  *`StartRowIndex`*  proporcionado por el ObjectDataSource se indiza empezando por cero, mientras que la `ROW_NUMBER()` valor devuelto por SQL Server 2005 se indiza empezando por 1. Por lo tanto, la `WHERE` cláusula devuelve los registros donde `PriceRank` es estrictamente mayor que  *`StartRowIndex`*  y menor o igual que  *`StartRowIndex`*   +  *`MaximumRows`*.
+> Como veremos más adelante en este tutorial, el *`StartRowIndex`* proporcionado por el ObjectDataSource se indiza empezando por cero, mientras que la `ROW_NUMBER()` valor devuelto por SQL Server 2005 se indiza empezando por 1. Por lo tanto, la `WHERE` cláusula devuelve los registros donde `PriceRank` es estrictamente mayor que *`StartRowIndex`* y menor o igual que *`StartRowIndex`*  +  *`MaximumRows`*.
 
 
 Ahora que nos ha explica cómo `ROW_NUMBER()` puede ser utilizado para recuperar una página determinada de dados los valores de índice de fila inicial y el número máximo de filas de datos, ahora debemos implementar esta lógica como métodos en la capa DAL y BLL.
@@ -188,7 +188,7 @@ Después de crear el procedimiento almacenado, tómese un momento para probarlo.
 
 ![Escriba un valor para el @startRowIndex y @maximumRows parámetros](efficiently-paging-through-large-amounts-of-data-vb/_static/image7.png)
 
-**Figura 7**: escriba un valor para el @startRowIndex y @maximumRows parámetros
+<strong>Figura 7</strong>: escriba un valor para el @startRowIndex y @maximumRows parámetros
 
 
 Después de elegir estos valores de parámetros de entrada, la ventana de salida muestra los resultados. La figura 8 muestra los resultados cuando se pasan en 10 tanto para el `@startRowIndex` y `@maximumRows` parámetros.
@@ -276,9 +276,9 @@ GridView es falta porque el ObjectDataSource está utilizando actualmente 0 como
 Para solucionar esto, es necesario configurar el ObjectDataSource para utilizar la paginación personalizada. Esto puede realizarse en los pasos siguientes:
 
 1. **Establecer la s ObjectDataSource `EnablePaging` propiedad `true`**  esto indica a ObjectDataSource que debe pasar a la `SelectMethod` dos parámetros adicionales: uno para especificar el índice de fila inicial ([ `StartRowIndexParameterName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.startrowindexparametername.aspx)) y otra para especificar el número máximo de filas ([`MaximumRowsParameterName`](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.maximumrowsparametername.aspx)).
-2. **Establecer la s ObjectDataSource `StartRowIndexParameterName` y `MaximumRowsParameterName` propiedades según corresponda** el `StartRowIndexParameterName` y `MaximumRowsParameterName` propiedades indican los nombres de los parámetros de entrada que pasan a la `SelectMethod` para fines de paginación personalizada . De forma predeterminada, estos nombres de parámetro son `startIndexRow` y `maximumRows`, que es por este motivo, al crear el `GetProductsPaged` método en el BLL, usé estos valores para los parámetros de entrada. Si decide utilizar nombres de parámetro diferente para las operaciones de asignación BLL `GetProductsPaged` método como `startIndex` y `maxRows`, por ejemplo tendría que establecer la s ObjectDataSource `StartRowIndexParameterName` y `MaximumRowsParameterName` propiedades según corresponda (por ejemplo, startIndex para `StartRowIndexParameterName` y maxRows para `MaximumRowsParameterName`).
+2. **Establecer la s ObjectDataSource `StartRowIndexParameterName` y `MaximumRowsParameterName` propiedades según corresponda** el `StartRowIndexParameterName` y `MaximumRowsParameterName` propiedades indican los nombres de los parámetros de entrada que pasan a la `SelectMethod` para fines de paginación personalizada. De forma predeterminada, estos nombres de parámetro son `startIndexRow` y `maximumRows`, que es por este motivo, al crear el `GetProductsPaged` método en el BLL, usé estos valores para los parámetros de entrada. Si decide utilizar nombres de parámetro diferente para las operaciones de asignación BLL `GetProductsPaged` método como `startIndex` y `maxRows`, por ejemplo tendría que establecer la s ObjectDataSource `StartRowIndexParameterName` y `MaximumRowsParameterName` propiedades según corresponda (por ejemplo, startIndex para `StartRowIndexParameterName` y maxRows para `MaximumRowsParameterName`).
 3. **Establecer la s ObjectDataSource [ `SelectCountMethod` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.objectdatasource.selectcountmethod(VS.80).aspx) en el nombre del método que devuelve el Total número de registros que se va a paginar a través de (`TotalNumberOfProducts`)** Recuerde que la `ProductsBLL` clase s `TotalNumberOfProducts`método devuelve el número total de registros que se va a paginar a través de un método de la capa DAL que ejecuta un `SELECT COUNT(*) FROM Products` consulta. Esta información es necesaria por el ObjectDataSource para representar correctamente la interfaz de paginación.
-4. **Quitar el `startRowIndex` y `maximumRows` `<asp:Parameter>` elementos desde el marcado declarativo de ObjectDataSource s** al configurar el ObjectDataSource a través del asistente, Visual Studio agrega automáticamente dos `<asp:Parameter>` elementos de la `GetProductsPaged` método s parámetros de entrada. Estableciendo `EnablePaging` a `true`, estos parámetros se pasará automáticamente; si también aparecen en la sintaxis declarativa, ObjectDataSource intentar pasar *cuatro* parámetros para el `GetProductsPaged` (método) y dos parámetros para el `TotalNumberOfProducts` método. Si se olvida de quitar estos `<asp:Parameter>` elementos, al visitar la página a través de un explorador que se obtendrá un mensaje de error como: *ObjectDataSource 'ObjectDataSource1' no encontró un método no genérico 'TotalNumberOfProducts' que tiene parámetros: startRowIndex, maximumRows*.
+4. **Quitar el `startRowIndex` y `maximumRows` `<asp:Parameter>` elementos desde el marcado declarativo de ObjectDataSource s** al configurar el ObjectDataSource a través del asistente, Visual Studio agrega automáticamente dos `<asp:Parameter>` elementos para el `GetProductsPaged` método s parámetros de entrada. Estableciendo `EnablePaging` a `true`, estos parámetros se pasará automáticamente; si también aparecen en la sintaxis declarativa, ObjectDataSource intentar pasar *cuatro* parámetros para el `GetProductsPaged` (método) y dos parámetros para el `TotalNumberOfProducts` método. Si se olvida de quitar estos `<asp:Parameter>` elementos, al visitar la página a través de un explorador que se obtendrá un mensaje de error como: *ObjectDataSource 'ObjectDataSource1' no encontró un método no genérico 'TotalNumberOfProducts' que tiene parámetros: startRowIndex, maximumRows*.
 
 Después de realizar estos cambios, la sintaxis declarativa de ObjectDataSource s debería ser similar al siguiente:
 
@@ -326,7 +326,7 @@ Si es habilitar la funcionalidad de eliminación en un control GridView cuyos da
 Cuando se elimina el último producto, GridView *debe* ir automáticamente a la página octava y esta funcionalidad se logran con paginación predeterminada. Con la paginación personalizada, sin embargo, después de eliminar ese producto en la última página, última GridView simplemente desaparece de la pantalla por completo. El motivo exacto *¿por qué* esto sucede es un poco más allá del ámbito de este tutorial, consulte [eliminar el último registro de la última página de un control GridView con paginación personalizada](http://scottonwriting.net/sowblog/posts/7326.aspx) para obtener los detalles de bajo nivel en cuanto a la fuente de Este problema. En resumen, s debido a la siguiente secuencia de pasos que se realizan mediante el control GridView cuando se hace clic en el botón Eliminar:
 
 1. Eliminar el registro
-2. Obtener los registros adecuados para mostrar para el elemento especificado `PageIndex` y`PageSize`
+2. Obtener los registros adecuados para mostrar para el elemento especificado `PageIndex` y `PageSize`
 3. Asegúrese de que el `PageIndex` no supera el número de páginas de datos en el origen de datos; si lo automáticamente, disminuir la s GridView `PageIndex` propiedad
 4. Enlazar la página apropiada de los datos en GridView con los registros obtenidos en el paso 2
 
@@ -377,8 +377,8 @@ Feliz programación.
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
->[!div class="step-by-step"]
-[Anterior](paging-and-sorting-report-data-vb.md)
-[Siguiente](sorting-custom-paged-data-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](paging-and-sorting-report-data-vb.md)
+> [Siguiente](sorting-custom-paged-data-vb.md)

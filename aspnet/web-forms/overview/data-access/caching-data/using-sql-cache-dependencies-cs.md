@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
-title: "Con las dependencias de caché SQL (C#) | Documentos de Microsoft"
+title: Con las dependencias de caché SQL (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "La estrategia de almacenamiento en caché más sencilla consiste en permitir que los datos almacenados en caché expire después de un período de tiempo especificado. Pero este enfoque simple significa que los datos almacenados en caché maintai..."
+description: La estrategia de almacenamiento en caché más sencilla consiste en permitir que los datos almacenados en caché expire después de un período de tiempo especificado. Pero este enfoque simple significa que los datos almacenados en caché maintai...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/30/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a29c77688b0179730ccb1b48e62ae28a0148f94d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 8660fd979b5f18ed0182c8ae1e671f362f5dec7e
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="using-sql-cache-dependencies-c"></a>Uso de las dependencias de caché SQL (C#)
 ====================
@@ -309,16 +309,16 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [Crear una notificación de consulta](https://msdn.microsoft.com/library/ms188669.aspx)
 - [Almacenamiento en caché de ASP.NET con la `SqlCacheDependency` (clase)](https://msdn.microsoft.com/library/ms178604(VS.80).aspx)
 - [Herramienta de registro de servidor de SQL de ASP.NET (`aspnet_regsql.exe`)](https://msdn.microsoft.com/library/ms229862(vs.80).aspx)
-- [Información general de`SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
+- [Información general de `SqlCacheDependency`](http://www.aspnetresources.com/blog/sql_cache_depedency_overview.aspx)
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial eran Marko Rangel, Teresa Murphy y Hilton Giesenow. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](caching-data-at-application-startup-cs.md)
-[Siguiente](caching-data-with-the-objectdatasource-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](caching-data-at-application-startup-cs.md)
+> [Siguiente](caching-data-with-the-objectdatasource-vb.md)

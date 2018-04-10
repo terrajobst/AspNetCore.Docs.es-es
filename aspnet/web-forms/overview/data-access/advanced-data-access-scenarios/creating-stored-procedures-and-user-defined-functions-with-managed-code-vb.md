@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
-title: "Crear procedimientos almacenados y funciones definidas por el usuario con código (VB) administrado | Documentos de Microsoft"
+title: Crear procedimientos almacenados y funciones definidas por el usuario con código (VB) administrado | Documentos de Microsoft
 author: rick-anderson
-description: "Microsoft SQL Server 2005 se integra con .NET Common Language Runtime para permitir a los desarrolladores crear objetos de base de datos a través de código administrado. Este tutorial..."
+description: Microsoft SQL Server 2005 se integra con .NET Common Language Runtime para permitir a los desarrolladores crear objetos de base de datos a través de código administrado. Este tutorial...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/03/2007
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e30df9ddc094d0390d9e5985ec676713b57feaf4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: cb676313b04fab9c7cf9c6d08d08d07852ee1fcb
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Crear procedimientos almacenados y funciones definidas por el usuario con código administrado (VB)
 ====================
@@ -31,7 +31,7 @@ por [Scott Mitchell](https://twitter.com/ScottOnWriting)
 
 Usar bases de datos como s de Microsoft SQL Server 2005 la [Transact-Structured Query Language (T-SQL)](http://en.wikipedia.org/wiki/Transact-SQL) para insertar, modificar y recuperar datos. La mayoría de los sistemas de base de datos incluyen construcciones para agrupar una serie de instrucciones SQL que, a continuación, se pueden ejecutar como una sola unidad reutilizable. Los procedimientos almacenados son un ejemplo. Otra razón es *User-Defined Functions*(UDF), una construcción que se examinará con más detalle en el paso 9.
 
-En esencia, SQL está diseñado para trabajar con conjuntos de datos. El `SELECT`, `UPDATE`, y `DELETE` instrucciones inherentemente se aplican a todos los registros de la tabla correspondiente y sólo están limitadas por sus `WHERE` cláusulas. Aún hay muchas características de lenguaje que se ha diseñado para trabajar con un registro a la vez así como para la manipulación de datos escalar. [`CURSOR`s](http://www.sqlteam.com/item.asp?ItemID=553) deje un conjunto de registros para realizar un bucle a través de uno en uno. Al igual que las funciones de manipulación de cadenas `LEFT`, `CHARINDEX`, y `PATINDEX` funcionan con datos escalares. SQL también incluye instrucciones de flujo de control como `IF` y `WHILE`.
+En esencia, SQL está diseñado para trabajar con conjuntos de datos. El `SELECT`, `UPDATE`, y `DELETE` instrucciones inherentemente se aplican a todos los registros de la tabla correspondiente y sólo están limitadas por sus `WHERE` cláusulas. Aún hay muchas características de lenguaje que se ha diseñado para trabajar con un registro a la vez así como para la manipulación de datos escalar. [`CURSOR` s](http://www.sqlteam.com/item.asp?ItemID=553) deje un conjunto de registros para realizar un bucle a través de uno en uno. Al igual que las funciones de manipulación de cadenas `LEFT`, `CHARINDEX`, y `PATINDEX` funcionan con datos escalares. SQL también incluye instrucciones de flujo de control como `IF` y `WHILE`.
 
 Antes de Microsoft SQL Server 2005, procedimientos almacenados y UDF solo se pudieron definir como una colección de instrucciones de T-SQL. Sin embargo, SQL Server 2005, se diseñó para proporcionar una integración con la [Common Language Runtime (CLR)](https://msdn.microsoft.com/netframework/aa497266.aspx), que es el tiempo de ejecución utilizado por todos los ensamblados. NET. Por lo tanto, los procedimientos almacenados y UDF en una base de datos de SQL Server 2005 pueden crearse con código administrado. Es decir, puede crear un procedimiento almacenado o UDF como un método en una clase de Visual Basic. Esto permite que estos procedimientos almacenados y UDF para utilizar la funcionalidad de .NET Framework y de sus propias clases personalizadas.
 
@@ -424,8 +424,8 @@ Ahora que se ha creado la UDF administrada, estamos preparados para implementar 
 
 Una vez que haya implementado el proyecto, vuelva a SQL Server Management Studio y actualice la carpeta funciones con valores escalares. Ahora debería ver dos entradas:
 
-- `dbo.udf_ComputeInventoryValue`-la UDF T-SQL creado en el paso 9, y
-- `dbo.udf ComputeInventoryValue_Managed`-la UDF administrada creado en el paso 10 que acaba de implementar.
+- `dbo.udf_ComputeInventoryValue` -la UDF T-SQL creado en el paso 9, y
+- `dbo.udf ComputeInventoryValue_Managed` -la UDF administrada creado en el paso 10 que acaba de implementar.
 
 Para probar esta UDF administrada, ejecute la siguiente consulta de Management Studio:
 
@@ -569,11 +569,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ## <a name="about-the-author"></a>Acerca del autor
 
-[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [http://ScottOnWriting.NET](http://ScottOnWriting.NET).
+[Scott Mitchell](http://www.4guysfromrolla.com/ScottMitchell.shtml), autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](http://www.4guysfromrolla.com), ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es [*SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas*](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco). Puede ponerse en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com) o a través de su blog, que se pueden encontrar en [ http://ScottOnWriting.NET ](http://ScottOnWriting.NET).
 
 ## <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era S ren Jacob Lauritsen. Además de revisar este artículo, S ren también crea el proyecto de Visual C# Express Edition incluido en esta descarga artículo s para compilar manualmente los objetos de base de datos administrados. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com.](mailto:mitchell@4GuysFromRolla.com)
 
->[!div class="step-by-step"]
-[Anterior](debugging-stored-procedures-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](debugging-stored-procedures-vb.md)

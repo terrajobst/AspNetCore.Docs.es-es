@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 3e8fceb3c7570aa1bf085c8e1037736254e74ef9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 06950770bf788fff4a03e9d41fd448ea675a8bce
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Creación de un extensor de Control del Kit de herramientas de Control de AJAX personalizado (VB)
 ====================
@@ -198,7 +198,7 @@ A continuación, necesitamos crear una nueva página ASP.NET. Siga estos pasos:
 2. Arrastre un ScriptManager a la página.
 3. Arrastre un control de cuadro de texto a la página.
 4. Arrastre un control de botón a la página.
-5. En la ventana Propiedades, cambie la propiedad de Id. de botón en el valor *btnSave* y la propiedad de texto en el valor *guardar\**.
+5. En la ventana Propiedades, cambie la propiedad de Id. de botón en el valor <em>btnSave</em> y la propiedad de texto en el valor *guardar\**.
   
 
 Se crea una página con un control de cuadro de texto de ASP.NET y botón estándar.
@@ -238,5 +238,5 @@ Cuando ejecute la página (presionando F5), el control de botón está inicialme
 
 El objetivo de este tutorial era explicar cómo puede ampliar el Kit de herramientas de Control de AJAX con controles extensores personalizados. En este tutorial, creamos un extensor de control DisabledButton simple. Implementamos este extensor mediante la creación de una clase DisabledButtonExtender, un comportamiento DisabledButtonBehavior JavaScript y una clase DisabledButtonDesigner. Siga un conjunto similar de pasos cada vez que cree un extensor de control personalizado.
 
->[!div class="step-by-step"]
-[Anterior](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)

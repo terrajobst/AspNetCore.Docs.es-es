@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
-title: "¿Cómo se puede utilizar el ComboBox Control? (C#) | Documentos de Microsoft"
+title: ¿Cómo se puede utilizar el ComboBox Control? (C#) | Microsoft Docs
 author: microsoft
 description: Cuadro combinado es un control AJAX de ASP.NET que combina la flexibilidad de un cuadro de texto con una lista de opciones desde el que los usuarios pueden elegir.
 ms.author: aspnetcontent
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7913affb73c1c314944782ff80cf6c5558502ee9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 20afd7334437a021f6f68216f84406eef5ea65c6
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-do-i-use-the-combobox-control-c"></a>¿Cómo se puede utilizar el ComboBox Control? (C#)
 ====================
@@ -172,5 +172,5 @@ Utilice la propiedad ComboBox AutoCompleteMode para especificar lo que sucede cu
 
 En este tutorial, aprendió a utilizar el control ComboBox para mostrar un conjunto fijo de elementos. Se enlaza el control ComboBox tanto a una conjunto de elementos de estática a una tabla de base de datos. Por último, aprendió a modificar el comportamiento del control ComboBox estableciendo sus propiedades DropDownStyle y AutoCompleteMode.
 
->[!div class="step-by-step"]
-[Siguiente](how-do-i-use-the-combobox-control-vb.md)
+> [!div class="step-by-step"]
+> [Siguiente](how-do-i-use-the-combobox-control-vb.md)

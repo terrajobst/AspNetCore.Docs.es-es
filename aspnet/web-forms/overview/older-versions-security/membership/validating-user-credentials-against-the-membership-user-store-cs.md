@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
-title: "Validando las credenciales de usuario en el almacén de usuario de pertenencia (C#) | Documentos de Microsoft"
+title: Validando las credenciales de usuario en el almacén de usuario de pertenencia (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial, examinaremos cómo validar las credenciales del usuario en el almacén de usuario de pertenencia mediante medios mediante programación y el control de inicio de sesión..."
+description: En este tutorial, examinaremos cómo validar las credenciales del usuario en el almacén de usuario de pertenencia mediante medios mediante programación y el control de inicio de sesión...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8f8f4db63ba8c1f1c1df7c1c5c1f92184bf6841d
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 484a0f16265ee2d887ee08f6ae7ada47047f1f04
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-c"></a>Validando las credenciales de usuario en el almacén de usuario de pertenencia (C#)
 ====================
@@ -39,9 +39,9 @@ En este tutorial, examinaremos cómo validar las credenciales del usuario en el 
 
 Para los sitios web que utilizan la autenticación de formularios, un usuario inicia sesión el sitio Web al visitar una página de inicio de sesión y especificar sus credenciales. Estas credenciales, a continuación, se comparan con el almacén del usuario. Si son válidos, se concede al usuario un vale de autenticación de formularios, que es un token de seguridad que indica la identidad y la autenticidad del visitante.
 
-Para validar un usuario con el marco de trabajo de pertenencia, utilice el `Membership` la clase [ `ValidateUser` método](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). El `ValidateUser` método toma dos parámetros de entrada -  *`username`*  y  *`password`*  - y devuelve un valor booleano que indica si las credenciales son válidas. Al igual que con la `CreateUser` método se examina en el tutorial anterior, el `ValidateUser` método delega la validación real al proveedor de pertenencia configurado.
+Para validar un usuario con el marco de trabajo de pertenencia, utilice el `Membership` la clase [ `ValidateUser` método](https://msdn.microsoft.com/library/system.web.security.membership.validateuser.aspx). El `ValidateUser` método toma dos parámetros de entrada - *`username`* y *`password`* - y devuelve un valor booleano que indica si las credenciales son válidas. Al igual que con la `CreateUser` método se examina en el tutorial anterior, el `ValidateUser` método delega la validación real al proveedor de pertenencia configurado.
 
-El `SqlMembershipProvider` valida las credenciales proporcionadas al obtener la contraseña del usuario especificado a través de la `aspnet_Membership_GetPasswordWithFormat` procedimiento almacenado. Recuerde que el `SqlMembershipProvider` almacena las contraseñas de los usuarios mediante uno de estos tres formatos: borrar, cifrado, o aplicar un algoritmo hash. El `aspnet_Membership_GetPasswordWithFormat` procedimiento almacenado devuelve la contraseña en su formato sin procesar. Para las contraseñas cifradas o algoritmo hash, el `SqlMembershipProvider` transforma el  *`password`*  valor pasado en el `ValidateUser` método en su equivalente cifrados o aplica un algoritmo hash de estado y, a continuación, se compara con lo que se devuelve desde el base de datos. Si la contraseña almacenada en la base de datos coincide con la contraseña con formato especificada por el usuario, las credenciales son válidas.
+El `SqlMembershipProvider` valida las credenciales proporcionadas al obtener la contraseña del usuario especificado a través de la `aspnet_Membership_GetPasswordWithFormat` procedimiento almacenado. Recuerde que el `SqlMembershipProvider` almacena las contraseñas de los usuarios mediante uno de estos tres formatos: borrar, cifrado, o aplicar un algoritmo hash. El `aspnet_Membership_GetPasswordWithFormat` procedimiento almacenado devuelve la contraseña en su formato sin procesar. Para las contraseñas cifradas o algoritmo hash, el `SqlMembershipProvider` transforma el *`password`* valor pasado en el `ValidateUser` método en su equivalente cifrados o aplica un algoritmo hash de estado y, a continuación, se compara con lo que se devuelve desde el base de datos. Si la contraseña almacenada en la base de datos coincide con la contraseña con formato especificada por el usuario, las credenciales son válidas.
 
 Vamos a actualizar nuestra página de inicio de sesión (~ /`Login.aspx`) para que valida las credenciales proporcionadas en el almacén de usuario de pertenencia al marco de trabajo. Hemos creado esta página de inicio de sesión en la <a id="Tutorial02"> </a> [ *una visión general de autenticación mediante formularios* ](../introduction/an-overview-of-forms-authentication-cs.md) tutorial, crear una interfaz con dos cuadros de texto para el nombre de usuario y la contraseña, una Recordarme casilla de verificación y un botón de inicio de sesión (consulte la figura 1). El código valida las credenciales introducidas en una lista codificada de forma rígida de pares de nombre de usuario y contraseña (Scott/contraseña, Jisun/contraseña y Sam/contraseña). En el <a id="Tutorial03"> </a> [ *configuración de autenticación de formularios y temas avanzados* ](../introduction/forms-authentication-configuration-and-advanced-topics-cs.md) tutorial actualizamos código de la página de inicio de sesión para almacenar información adicional en los formularios vale de autenticación `UserData` propiedad.
 
@@ -71,8 +71,8 @@ Cuando un visitante llega a la página de inicio de sesión y envía sus credenc
 
 Para evitar estos ataques por fuerza bruta, el marco de trabajo de pertenencia se bloquea un usuario si hay un determinado número de intentos de inicio de sesión incorrecto en un período de tiempo determinado. Los parámetros exactos que son configurables a través de los dos valores de configuración de proveedor de pertenencia:
 
-- `maxInvalidPasswordAttempts`-Especifica cuántas contraseñas no válidas se permiten los intentos del usuario dentro del período de tiempo antes de que la cuenta está bloqueada. El valor predeterminado es 5.
-- `passwordAttemptWindow`-indica el período de tiempo en minutos durante los que el número especificado de intentos de inicio de sesión no válido hará que la cuenta que se bloquee. El valor predeterminado es 10.
+- `maxInvalidPasswordAttempts` -Especifica cuántas contraseñas no válidas se permiten los intentos del usuario dentro del período de tiempo antes de que la cuenta está bloqueada. El valor predeterminado es 5.
+- `passwordAttemptWindow` -indica el período de tiempo en minutos durante los que el número especificado de intentos de inicio de sesión no válido hará que la cuenta que se bloquee. El valor predeterminado es 10.
 
 Si un usuario se ha bloqueado, no puede iniciar sesión hasta que un administrador desbloquee su cuenta de usuario. Cuando un usuario está bloqueado, el `ValidateUser` método *siempre* devolver `false`, incluso si se han proporcionado credenciales válidas. Aunque este comportamiento reduce la probabilidad de que un hacker se interrumpirá en el sitio a través de métodos de fuerza bruta, puede acabar bloquear un usuario válido que simplemente se ha olvidado su contraseña o accidentalmente tiene las teclas BLOQ MAYÚS o es tener un mal día de escritura.
 
@@ -110,10 +110,10 @@ Y acabamos! Cuando se hace clic en el botón Iniciar sesión del control de inic
 
 El control de inicio de sesión utiliza cuatro factores para determinar la página correspondiente para redirigir al usuario cuando inician una sesión correctamente:
 
-- Si el control de inicio de sesión está en la página de inicio de sesión definido por `loginUrl` en la configuración de autenticación de formularios; este valor de configuración predeterminado es`Login.aspx`
+- Si el control de inicio de sesión está en la página de inicio de sesión definido por `loginUrl` en la configuración de autenticación de formularios; este valor de configuración predeterminado es `Login.aspx`
 - La presencia de un `ReturnUrl` parámetro querystring
 - El valor del control de inicio de sesión [ `DestinationUrl` propiedad](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.destinationpageurl.aspx)
-- El `defaultUrl` valor especificado en los formularios de los valores de configuración de autenticación; este valor de configuración predeterminado es`Default.aspx`
+- El `defaultUrl` valor especificado en los formularios de los valores de configuración de autenticación; este valor de configuración predeterminado es `Default.aspx`
 
 Figura 4 muestra cómo el control de inicio de sesión utiliza estos cuatro parámetros para llegar a su decisión de página correspondiente.
 
@@ -230,7 +230,7 @@ Como puede ver, el `Authenticate` controlador de eventos se pasa un objeto de ti
 
 ### <a name="determining-and-validating-the-supplied-credentials"></a>Determinar y validar las credenciales proporcionadas
 
-Utilice el control de inicio de sesión [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) y [ `Password` propiedades](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) para determinar las credenciales de nombre de usuario y una contraseña escritas por el usuario. Para determinar los valores especificados en los controles Web adicionales (como el `Email` cuadro de texto se agregó en el paso anterior), utilice  *`LoginControlID`*  `.FindControl`(" *`controlID`* ") para obtener una programación referencia al control Web en la plantilla cuya `ID` propiedad es igual a  *`controlID`* . Por ejemplo, para obtener una referencia a la `Email` cuadro de texto, utilice el código siguiente:
+Utilice el control de inicio de sesión [ `UserName` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.username.aspx) y [ `Password` propiedades](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.password.aspx) para determinar las credenciales de nombre de usuario y una contraseña escritas por el usuario. Para determinar los valores especificados en los controles Web adicionales (como el `Email` cuadro de texto se agregó en el paso anterior), utilice *`LoginControlID`* `.FindControl`("*`controlID`*") para obtener una programación referencia al control Web en la plantilla cuya `ID` propiedad es igual a *`controlID`*. Por ejemplo, para obtener una referencia a la `Email` cuadro de texto, utilice el código siguiente:
 
 `TextBox EmailTextBox = myLogin.FindControl("Email") as TextBox;`
 
@@ -310,12 +310,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Los revisores iniciales para este tutorial fueron Teresa Murphy y Michael Olivero. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Anterior](creating-user-accounts-cs.md)
-[Siguiente](user-based-authorization-cs.md)
+> [!div class="step-by-step"]
+> [Anterior](creating-user-accounts-cs.md)
+> [Siguiente](user-based-authorization-cs.md)

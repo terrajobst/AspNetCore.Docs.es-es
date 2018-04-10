@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
-title: "Creación de una interfaz para seleccionar una cuenta de usuario de muchos (VB) | Documentos de Microsoft"
+title: Creación de una interfaz para seleccionar una cuenta de usuario de muchos (VB) | Documentos de Microsoft
 author: rick-anderson
-description: "En este tutorial crearemos una interfaz de usuario con una cuadrícula paginada, se puede filtrar. En concreto, la interfaz de usuario constará de una serie de LinkButton para..."
+description: En este tutorial crearemos una interfaz de usuario con una cuadrícula paginada, se puede filtrar. En concreto, la interfaz de usuario constará de una serie de LinkButton para...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-vb
 msc.type: authoredcontent
-ms.openlocfilehash: f0339578291c536a474f1c7314b28668a6519c8c
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 56f4d72993bfcb9629d6b4cd08efe0da6dea2486
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Creación de una interfaz para seleccionar una cuenta de usuario de muchos (VB)
 ====================
@@ -148,7 +148,7 @@ A continuación, actualice el `BindUserAccounts` método para que en lugar de ll
 
 Para mostrar únicamente los usuarios cuyo nombre de usuario comienza con la letra A, establezca el `UsernameToMatch` propiedad a una y, a continuación, llame a `BindUserAccounts` eso resultaría en una llamada a `Membership.FindUsersByName("A%")`, lo que devolverá todos los usuarios cuyo nombre de usuario comienza por A. Asimismo, para devolver *todos los* a los usuarios, asigne una cadena vacía para el `UsernameToMatch` propiedad para que la `BindUserAccounts` método llamará a `Membership.FindUsersByName("%")`, con lo que se devuelve todas las cuentas de usuario.
 
-Crear un controlador de eventos para el repetidor `ItemCommand` eventos. Este evento se desencadena cuando se hace clic en uno de los filtros LinkButton; se pasa el control LinkButton donde ha hecho clic `CommandName` valor a través de la `RepeaterCommandEventArgs` objeto. Es necesario asignar el valor apropiado para la `UsernameToMatch` propiedad y, después, llame el `BindUserAccounts` método. Si el `CommandName` es, asigne una cadena vacía para `UsernameToMatch` para que se muestren todas las cuentas de usuario. De lo contrario, asigne el `CommandName` valor`UsernameToMatch`
+Crear un controlador de eventos para el repetidor `ItemCommand` eventos. Este evento se desencadena cuando se hace clic en uno de los filtros LinkButton; se pasa el control LinkButton donde ha hecho clic `CommandName` valor a través de la `RepeaterCommandEventArgs` objeto. Es necesario asignar el valor apropiado para la `UsernameToMatch` propiedad y, después, llame el `BindUserAccounts` método. Si el `CommandName` es, asigne una cadena vacía para `UsernameToMatch` para que se muestren todas las cuentas de usuario. De lo contrario, asigne el `CommandName` valor `UsernameToMatch`
 
 [!code-vb[Main](building-an-interface-to-select-one-user-account-from-many-vb/samples/sample10.vb)]
 
@@ -256,12 +256,12 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Alicja Maziarz. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en
 
->[!div class="step-by-step"]
-[Anterior](unlocking-and-approving-user-accounts-cs.md)
-[Siguiente](recovering-and-changing-passwords-vb.md)
+> [!div class="step-by-step"]
+> [Anterior](unlocking-and-approving-user-accounts-cs.md)
+> [Siguiente](recovering-and-changing-passwords-vb.md)

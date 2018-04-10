@@ -2,7 +2,7 @@
 uid: web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 title: Crear el esquema de pertenencia en SQL Server (C#) | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial se inicia mediante el examen de técnicas para agregar el esquema necesario para la base de datos para poder usar SqlMembershipProvider. A continuación, se wi..."
+description: Este tutorial se inicia mediante el examen de técnicas para agregar el esquema necesario para la base de datos para poder usar SqlMembershipProvider. A continuación, se wi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/18/2008
@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/creating-the-membership-schema-in-sql-server-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 38fc60b79a348ab198069a9a80a085e0dc4bcb88
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 4fa0476ca8336b56340dd177f9816acbe015ef7d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>Crear el esquema de pertenencia en SQL Server (C#)
 ====================
@@ -158,9 +158,9 @@ El segundo paso en el Asistente para nosotros le pregunta si desea quitar o agre
 
 El tercer paso solicita la información de la base de datos: el nombre del servidor, información de autenticación y el nombre de la base de datos. Si después de este tutorial y ha agregado el `SecurityTutorials.mdf` a la base de datos `App_Data`, adjunta a `localhost\InstanceName`y cambia su nombre a `SecurityTutorialsDatabase`, a continuación, utilice los siguientes valores:
 
-- Servidor:`localhost\InstanceName`
+- Servidor: `localhost\InstanceName`
 - Autenticación de Windows
-- Base de datos:`SecurityTutorialsDatabase`
+- Base de datos: `SecurityTutorialsDatabase`
 
 
 [![Escriba la información de la base de datos](creating-the-membership-schema-in-sql-server-cs/_static/image26.png)](creating-the-membership-schema-in-sql-server-cs/_static/image25.png)
@@ -204,7 +204,7 @@ Los marcos de pertenencia y los Roles se diseñan de forma que un único almacé
 **Figura 11**: cuentas pueden ser particiones a través de varias aplicaciones de usuario ([haga clic aquí para ver la imagen a tamaño completo](creating-the-membership-schema-in-sql-server-cs/_static/image33.png))
 
 
-El `aspnet_Applications` tabla es lo que define estas particiones. Cada aplicación que utiliza la base de datos para almacenar información de la cuenta de usuario está representado por una fila en esta tabla. El `aspnet_Applications` tabla tiene cuatro columnas: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, y `Description`. `ApplicationId`es de tipo [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) y es la clave principal de la tabla; `ApplicationName` proporciona un nombre fácil de usar único para cada aplicación.
+El `aspnet_Applications` tabla es lo que define estas particiones. Cada aplicación que utiliza la base de datos para almacenar información de la cuenta de usuario está representado por una fila en esta tabla. El `aspnet_Applications` tabla tiene cuatro columnas: `ApplicationId`, `ApplicationName`, `LoweredApplicationName`, y `Description`. `ApplicationId` es de tipo [ `uniqueidentifier` ](https://msdn.microsoft.com/library/ms187942.aspx) y es la clave principal de la tabla; `ApplicationName` proporciona un nombre fácil de usar único para cada aplicación.
 
 Vinculan las tablas relacionadas con el rol y la pertenencia a la `ApplicationId` campo `aspnet_Applications`. Por ejemplo, el `aspnet_Users` tabla, que contiene un registro para cada cuenta de usuario, tiene un `ApplicationId` campo de clave externa; ditto para el `aspnet_Roles` tabla. El `ApplicationId` campo en estas tablas especifica la partición de aplicación de la cuenta de usuario o rol al que pertenece.
 
@@ -216,7 +216,7 @@ Información de la cuenta de usuario se aloja en dos tablas: `aspnet_Users` y `a
 - `UserName`
 - `ApplicationId`
 
-`UserId`es la clave principal (y del tipo `uniqueidentifier`). `UserName`es de tipo `nvarchar(256)` y, junto con la contraseña constituye las credenciales del usuario. (Contraseña de un usuario se almacena en la `aspnet_Membership` tabla.) `ApplicationId` la cuenta de usuario se vincula a una aplicación determinada en `aspnet_Applications`. Hay un compuesto [ `UNIQUE` restricción](https://msdn.microsoft.com/library/ms191166.aspx) en el `UserName` y `ApplicationId` columnas. Esto garantiza que en una aplicación determinada, cada nombre de usuario es único, aunque permite para el mismo `UserName` para su uso en aplicaciones diferentes.
+`UserId` es la clave principal (y del tipo `uniqueidentifier`). `UserName` es de tipo `nvarchar(256)` y, junto con la contraseña constituye las credenciales del usuario. (Contraseña de un usuario se almacena en la `aspnet_Membership` tabla.) `ApplicationId` la cuenta de usuario se vincula a una aplicación determinada en `aspnet_Applications`. Hay un compuesto [ `UNIQUE` restricción](https://msdn.microsoft.com/library/ms191166.aspx) en el `UserName` y `ApplicationId` columnas. Esto garantiza que en una aplicación determinada, cada nombre de usuario es único, aunque permite para el mismo `UserName` para su uso en aplicaciones diferentes.
 
 El `aspnet_Membership` tabla incluye información de la cuenta de usuario adicionales, como la contraseña del usuario, dirección de correo electrónico, la última fecha de inicio de sesión y tiempo y así sucesivamente. Hay una correspondencia exacta entre los registros de la `aspnet_Users` y `aspnet_Membership` tablas. Esta relación se garantiza mediante la `UserId` campo `aspnet_Membership`, que actúa como clave principal de la tabla. Al igual que el `aspnet_Users` tabla, `aspnet_Membership` incluye un `ApplicationId` campo que une esta información a una partición de aplicación en particular.
 
@@ -230,7 +230,7 @@ Información de contraseña se almacena en la `aspnet_Membership` tabla. El `Sql
 
 En función de la técnica de almacenamiento de la contraseña utilizada en el `SqlMembershipProvider` configuración especificada en `Web.config`. Examinaremos personalizar el `SqlMembershipProvider` configuración en el paso 4. El comportamiento predeterminado consiste en almacenar el hash de la contraseña.
 
-Las columnas responsables de almacenar la contraseña son `Password`, `PasswordFormat`, y `PasswordSalt`. `PasswordFormat`es un campo de tipo `int` cuyo valor indica la técnica que se utiliza para almacenar la contraseña: 0 para borrar; 1 para Hashed; 2 para el cifrado. `PasswordSalt`se asigna una cadena generada de forma aleatoria, independientemente de la técnica de almacenamiento de la contraseña utilizada; el valor de `PasswordSalt` solo se usa al calcular el hash de la contraseña. Por último, la `Password` columna contiene los datos de la contraseña real, ya sea la contraseña de texto sin formato, el hash de la contraseña o la contraseña cifrada.
+Las columnas responsables de almacenar la contraseña son `Password`, `PasswordFormat`, y `PasswordSalt`. `PasswordFormat` es un campo de tipo `int` cuyo valor indica la técnica que se utiliza para almacenar la contraseña: 0 para borrar; 1 para Hashed; 2 para el cifrado. `PasswordSalt` se asigna una cadena generada de forma aleatoria, independientemente de la técnica de almacenamiento de la contraseña utilizada; el valor de `PasswordSalt` solo se usa al calcular el hash de la contraseña. Por último, la `Password` columna contiene los datos de la contraseña real, ya sea la contraseña de texto sin formato, el hash de la contraseña o la contraseña cifrada.
 
 Tabla 1 se muestran estas tres columnas quedará para las distintas técnicas de almacenamiento al almacenar la contraseña MiSecreto! .
 
@@ -254,7 +254,7 @@ El marco de trabajo de Roles permite a los desarrolladores definir un conjunto d
 - `RoleName`
 - `ApplicationId`
 
-`RoleId`es la clave principal (y del tipo `uniqueidentifier`). `RoleName` es de tipo `nvarchar(256)`. Y `ApplicationId` la cuenta de usuario se vincula a una aplicación determinada en `aspnet_Applications`. Hay un compuesto `UNIQUE` restricción en la `RoleName` y `ApplicationId` columnas, asegurándose de que en una aplicación determinada cada nombre de rol es único.
+`RoleId` es la clave principal (y del tipo `uniqueidentifier`). `RoleName` es de tipo `nvarchar(256)`. Y `ApplicationId` la cuenta de usuario se vincula a una aplicación determinada en `aspnet_Applications`. Hay un compuesto `UNIQUE` restricción en la `RoleName` y `ApplicationId` columnas, asegurándose de que en una aplicación determinada cada nombre de rol es único.
 
 El `aspnet_UsersInRoles` tabla actúa como una asignación entre usuarios y roles. Hay solo dos columnas - `UserId` y `RoleId` - y juntas constituyen una clave principal compuesta.
 
@@ -313,8 +313,8 @@ Como puede ver, esta cadena de conexión define una base de datos se encuentra e
 
 Si no ha especificado ninguna información de proveedor de pertenencia en nuestra aplicación `Web.config` archivo, la aplicación utiliza el proveedor de pertenencia predeterminado registrado, `AspNetSqlMembershipProvider`. Si el `~/App_Data/aspnet.mdf` base de datos no existe, el tiempo de ejecución ASP.NET creará automáticamente y agregue el esquema de servicios de aplicación. Sin embargo, no queremos usar el `aspnet.mdf` base de datos; en su lugar, desea usar el `SecurityTutorials.mdf` base de datos se creó en el paso 2. Esta modificación puede realizarse de dos maneras:
 
-- **Especifique un valor para el****`LocalSqlServer`****nombre de cadena de conexión en****`Web.config`****.** Sobrescribiendo el `LocalSqlServer` valor de nombre de la cadena de conexión en `Web.config`, podemos utilizar el proveedor de pertenencia predeterminado registrado (`AspNetSqlMembershipProvider`) y hacer que funcione correctamente con el `SecurityTutorials.mdf` base de datos. Este enfoque es adecuado si el contenido con los valores de configuración especificados por `AspNetSqlMembershipProvider`. Para obtener más información sobre esta técnica, consulte [Scott Guthrie](https://weblogs.asp.net/scottgu/)de entrada de blog, [configurar servicios de aplicación de ASP.NET 2.0 para utilizar SQL Server 2000 o SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
-- **Agregar un nuevo proveedor registrado del tipo****`SqlMembershipProvider`****y configurar su****`connectionStringName`****configuración para que apunte a la****`SecurityTutorials.mdf`****base de datos.** Este enfoque es útil en escenarios donde desea personalizar otras propiedades de configuración además de la cadena de conexión de base de datos. En Mis propio proyectos siempre use este enfoque debido a su flexibilidad y mejorar la legibilidad.
+- <strong>Especifique un valor para el</strong><strong>`LocalSqlServer`</strong><strong>nombre de la cadena de conexión en</strong><strong>`Web.config`</strong><strong>.</strong> Sobrescribiendo el `LocalSqlServer` valor de nombre de la cadena de conexión en `Web.config`, podemos utilizar el proveedor de pertenencia predeterminado registrado (`AspNetSqlMembershipProvider`) y hacer que funcione correctamente con el `SecurityTutorials.mdf` base de datos. Este enfoque es adecuado si el contenido con los valores de configuración especificados por `AspNetSqlMembershipProvider`. Para obtener más información sobre esta técnica, consulte [Scott Guthrie](https://weblogs.asp.net/scottgu/)de entrada de blog, [configurar servicios de aplicación de ASP.NET 2.0 para utilizar SQL Server 2000 o SQL Server 2005](https://weblogs.asp.net/scottgu/archive/2005/08/25/423703.aspx).
+- <strong>Agregar un nuevo proveedor registrado del tipo</strong><strong>`SqlMembershipProvider`</strong><strong>y configurar su</strong><strong>`connectionStringName`</strong><strong>configuración para que apunte a la</strong> <strong>`SecurityTutorials.mdf`</strong> <strong>base de datos.</strong> Este enfoque es útil en escenarios donde desea personalizar otras propiedades de configuración además de la cadena de conexión de base de datos. En Mis propio proyectos siempre use este enfoque debido a su flexibilidad y mejorar la legibilidad.
 
 Antes de que podemos agregar un nuevo proveedor registrado que hace referencia a la `SecurityTutorials.mdf` base de datos, primero tenemos que agregar un valor de cadena de conexión adecuada en la `<connectionStrings>` sección `Web.config`. El marcado siguiente agrega una nueva cadena de conexión denominada `SecurityTutorialsConnectionString` que hace referencia a SQL Server 2005 Express Edition `SecurityTutorials.mdf` en la base de datos la `App_Data` carpeta.
 
@@ -357,7 +357,7 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 - [El `<membership>` elemento](https://msdn.microsoft.com/library/1b9hw62f.aspx)
 - [El `<providers>` , elemento de pertenencia](https://msdn.microsoft.com/library/6d4936ht.aspx)
 - [Usar `<clear />` cuando se agrega proveedores](https://weblogs.asp.net/scottgu/archive/2006/11/20/common-gotcha-don-t-forget-to-clear-when-adding-providers.aspx)
-- [Trabajar directamente con el`SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
+- [Trabajar directamente con el `SqlMembershipProvider`](http://aspnet.4guysfromrolla.com/articles/091207-1.aspx)
 
 ### <a name="video-training-on-topics-contained-in-this-tutorial"></a>Aprendizaje mediante vídeo sobre los temas incluidos en este Tutorial
 
@@ -367,11 +367,11 @@ Para obtener más información sobre los temas tratados en este tutorial, consul
 
 ### <a name="about-the-author"></a>Acerca del autor
 
-Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [http://ScottOnWriting.NET](http://scottonwriting.net/).
+Scott Mitchell, autor de varios libros sobre ASP/ASP.NET y fundador de 4GuysFromRolla.com, ha trabajado con las tecnologías Web de Microsoft desde 1998. Scott funciona como un consultor independiente, instructor y escritor. Su último libro es *[SAM enseñar a usted mismo ASP.NET 2.0 en 24 horas](https://www.amazon.com/exec/obidos/ASIN/0672327384/4guysfromrollaco)*. Puede ponerse en contacto Scott [ mitchell@4guysfromrolla.com ](mailto:mitchell@4guysfromrolla.com) o a través de su blog en [ http://ScottOnWriting.NET ](http://scottonwriting.net/).
 
 ### <a name="special-thanks-to"></a>Agradecimientos especiales a
 
 Esta serie de tutoriales se revisó por varios revisores útiles. Revisor inicial para este tutorial era Alicja Maziarz. ¿Está interesado en revisar mi próximos artículos MSDN? Si es así, me quitar una línea en [ mitchell@4GuysFromRolla.com ](mailto:mitchell@4guysfromrolla.com).
 
->[!div class="step-by-step"]
-[Siguiente](creating-user-accounts-cs.md)
+> [!div class="step-by-step"]
+> [Siguiente](creating-user-accounts-cs.md)
