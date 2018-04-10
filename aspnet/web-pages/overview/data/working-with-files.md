@@ -2,7 +2,7 @@
 uid: web-pages/overview/data/working-with-files
 title: Trabajar con archivos en un sitio ASP.NET Web Pages (Razor) | Documentos de Microsoft
 author: tfitzmac
-description: "En este capítulo se explica cómo leer, escribir, anexar, eliminar y cargar archivos."
+description: En este capítulo se explica cómo leer, escribir, anexar, eliminar y cargar archivos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
 ms.openlocfilehash: 0f119f8fb4873e55292203f21a2efd8f26793ae4
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Trabajar con archivos en un sitio de ASP.NET Web Pages (Razor)
 ====================
@@ -135,7 +135,7 @@ Este procedimiento muestra cómo leer y mostrar los datos que creó en el ejempl
 
     El cuerpo de la página contiene dos `foreach` bucles, uno anidado dentro del otro. El exterior `foreach` bucle Obtiene una línea a la vez desde el archivo de datos. En este caso, las líneas se definen mediante saltos de línea en el archivo &#8212; es decir, cada elemento de datos en su propia línea. El bucle exterior crea un nuevo elemento (`<li>` elemento) dentro de una lista ordenada (`<ol>` elemento).
 
-    El bucle interno divide cada línea de datos en elementos (campos) mediante una coma como delimitador. (Según el ejemplo anterior, esto significa que cada línea contiene tres campos &#8212; el nombre, apellido y dirección de correo electrónico, separan por punto y coma). El bucle interno también crea un `<ul>` de elementos de lista y muestra una lista de todos los campos de la línea de datos.
+    El bucle interno divide cada línea de datos en elementos (campos) mediante una coma como delimitador. (Según el ejemplo anterior, esto significa que cada línea contiene tres campos &#8212; el nombre, apellido y dirección de correo electrónico, separados por una coma.) El bucle interno también crea un `<ul>` de elementos de lista y muestra una lista de todos los campos de la línea de datos.
 
     El código muestra cómo utilizar dos tipos de datos, una matriz y el `char` tipo de datos. La matriz es necesaria porque el `File.ReadAllLines` método devuelve los datos como una matriz. El `char` tipo de datos es necesario porque el `Split` método devuelve un `array` en el que cada elemento es del tipo `char`. (Para obtener información acerca de las matrices, vea [Introducción a ASP.NET Web programación mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkId=202890#ID_CollectionsAndObjects).)
 3. Ejecute la página en un explorador. Se muestran los datos especificados para los ejemplos anteriores. 
@@ -194,7 +194,7 @@ El `FileUpload` auxiliar permite a los usuarios cargar archivos en su sitio Web.
 
     Las propiedades configuradas para la `FileUpload` auxiliar especificar que desea que una única caja cargar el archivo y que desea que el botón Enviar para leer **cargar**. (Podrá agregar más cuadros más adelante en el artículo).
 
-    Cuando el usuario hace clic en **cargar**, el código en la parte superior de la página recibe el archivo y lo guarda. El `Request` objeto que se utiliza normalmente para obtener valores de campos de formulario también tiene un `Files` matriz que contiene el archivo (o archivos) que se han cargado. Puede obtener los archivos individuales de posiciones concretas en la matriz &#8212; Por ejemplo, para obtener el primer archivo cargado, obtendrá `Request.Files[0]`, para obtener el segundo archivo, obtendrá `Request.Files[1]`, y así sucesivamente. (Recuerde que en la programación, contando normalmente comienza en cero).
+    Cuando el usuario hace clic en **cargar**, el código en la parte superior de la página recibe el archivo y lo guarda. El `Request` objeto que se utiliza normalmente para obtener valores de campos de formulario también tiene un `Files` matriz que contiene el archivo (o archivos) que se han cargado. Puede obtener archivos individuales de puestos específicos de la matriz &#8212; por ejemplo, para obtener el primer archivo cargado, obtendrá `Request.Files[0]`, para obtener el segundo archivo, obtendrá `Request.Files[1]`, y así sucesivamente. (Recuerde que en la programación, contando normalmente comienza en cero).
 
     Al capturar un archivo cargado, se coloca en una variable (en este caso, `uploadedFile`) para que pueda procesarlos. Para determinar el nombre del archivo cargado, obtendrá simplemente su `FileName` propiedad. Sin embargo, cuando el usuario carga un archivo, `FileName` contiene el nombre del usuario original, que incluye la ruta de acceso completa. Podría ser similar al siguiente:
 
@@ -238,7 +238,7 @@ En el ejemplo anterior, permiten a los usuarios cargar un archivo. Pero puede us
 
     ![[image]](working-with-files/_static/image11.jpg)
 
-    Para procesar los archivos que el usuario carga, el código utiliza la misma técnica básica que utilizó en el ejemplo anterior &#8212; obtener un archivo de `Request.Files` y, a continuación, guárdelo. (Incluidos los varios elementos debe hacer para obtener el nombre de archivo correcto y la ruta.) La innovación este tiempo es que el usuario puede cargar varios archivos y no sé muchos. Para obtener información, puede obtener `Request.Files.Count`.
+    Para procesar los archivos que el usuario carga, el código utiliza la misma técnica básica que utiliza en el ejemplo anterior &#8212; obtener un archivo de `Request.Files` y, a continuación, guárdelo. (Incluidos los varios elementos debe hacer para obtener el nombre de archivo correcto y la ruta.) La innovación este tiempo es que el usuario puede cargar varios archivos y no sé muchos. Para obtener información, puede obtener `Request.Files.Count`.
 
     Con este número de la mano, puede recorrer `Request.Files`, capture a su vez cada archivo y guárdelo. Si desea crear un bucle un número determinado de veces a través de una colección, puede usar un `for` bucles, similar al siguiente:
 

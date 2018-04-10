@@ -16,7 +16,7 @@ ms.openlocfilehash: 565b0294f57b784bc592b286b3d8b28504110415
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Descripción de localización de AJAX de ASP.NET
 ====================
@@ -65,7 +65,7 @@ En la tabla siguiente se resume las con ejemplos de las convenciones de nomencla
 | --- | --- |
 | Script.js | Una secuencia de comandos de la referencia cultural neutra de versión de lanzamiento. |
 | Script.debug.js | Una secuencia de comandos de la referencia cultural neutra de versión de depuración. |
-| Script.en US.js | Un versión, inglés de Estados Unidos script de la versión. |
+| Script.en-US.js | Un versión, inglés de Estados Unidos script de la versión. |
 | Script.debug.es-CO.js | Un script de Columbia español, versión de depuración. |
 
 ## <a name="walkthrough-create-an-localized-embedded-script"></a>Tutorial: Crear un Script incrustado, localizado

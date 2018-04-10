@@ -16,7 +16,7 @@ ms.openlocfilehash: 9b273f6827cad2078b581d6da7b127198dfddaa5
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Crear un MVC 3 aplicaciones con JavaScript Razor y discreto
 ====================
@@ -54,7 +54,7 @@ En este tutorial no usará el proveedor de pertenencia ASP.NET, por lo que puede
 
 ![Soln Exp](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/_static/image5.png)
 
-Editar la  <em>\_Layout.cshtml</em> archivo y reemplace el marcado dentro de la `<div>` elemento denominado `logindisplay` con el mensaje <em>&quot;</em>inicio de sesión deshabilitado&quot;. En el ejemplo siguiente se muestra el marcado nuevo:
+Editar la <em> \_Layout.cshtml</em> archivo y reemplace el marcado dentro de la `<div>` elemento denominado `logindisplay` con el mensaje <em> &quot; </em>inicio de sesión deshabilitado&quot;. En el ejemplo siguiente se muestra el marcado nuevo:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample1.cshtml)]
 
@@ -166,7 +166,7 @@ Establecer `ClientValidationEnabled` a true habilita la validación del lado cli
 
 [!code-csharp[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample13.cs)]
 
-También deberá incluir varios archivos de JavaScript en la vista representada. Es una manera fácil de incluir el código JavaScript en todas las vistas agregarlos a la *Views\Shared\\_Layout.cshtml* archivo. Reemplace el `<head>` elemento de la  *\_Layout.cshtml* archivo con el código siguiente:
+También deberá incluir varios archivos de JavaScript en la vista representada. Es una manera fácil de incluir el código JavaScript en todas las vistas agregarlos a la *Views\Shared\\_Layout.cshtml* archivo. Reemplace el `<head>` elemento de la * \_Layout.cshtml* archivo con el código siguiente:
 
 [!code-cshtml[Main](creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript/samples/sample14.cshtml)]
 

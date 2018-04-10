@@ -16,7 +16,7 @@ ms.openlocfilehash: c65ee58b8c13b0b4acb6e7c9b631c8235e791506
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="webmatrix-readme"></a>Archivo Léame de WebMatrix
 ====================

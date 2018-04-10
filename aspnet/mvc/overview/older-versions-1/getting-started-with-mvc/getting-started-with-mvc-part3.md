@@ -16,11 +16,11 @@ ms.openlocfilehash: 978d7980274c072ed559b54ed69ab86245b6c5a7
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-view"></a>Agregar una vista
 ====================
-por [Scott Hanselman](https://github.com/shanselman)
+by [Scott Hanselman](https://github.com/shanselman)
 
 > Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Se creará una aplicación web simple que lee y escribe desde una base de datos. Visite la [centro de aprendizaje de ASP.NET MVC](../../../index.md) para buscar otros ASP.NET MVC, tutoriales y ejemplos.
 
@@ -77,7 +77,7 @@ Este es el Site.Master en su totalidad con nuestro ha cambiado el título:
 
 Ahora, vamos a cambiar el título de la página de índice.
 
-Open /HelloWorld/Index.aspx. Hay dos que se van a cambiar. En primer lugar, el título que aparece en el título del explorador, el encabezado secundario - que también es H2. Pondré ellos cada cambia ligeramente diferente para que pueda ver qué cantidad de código que parte de la aplicación.
+Abra /HelloWorld/Index.aspx. Hay dos que se van a cambiar. En primer lugar, el título que aparece en el título del explorador, el encabezado secundario - que también es H2. Pondré ellos cada cambia ligeramente diferente para que pueda ver qué cantidad de código que parte de la aplicación.
 
 [!code-aspx[Main](getting-started-with-mvc-part3/samples/sample7.aspx)]
 

@@ -16,11 +16,11 @@ ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="adding-a-create-method-and-create-view"></a>Agregar un método de creación y crear vista
 ====================
-por [Scott Hanselman](https://github.com/shanselman)
+by [Scott Hanselman](https://github.com/shanselman)
 
 > Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Se creará una aplicación web simple que lee y escribe desde una base de datos. Visite la [centro de aprendizaje de ASP.NET MVC](../../../index.md) para buscar otros ASP.NET MVC, tutoriales y ejemplos.
 

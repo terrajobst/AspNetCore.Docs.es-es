@@ -16,7 +16,7 @@ ms.openlocfilehash: 001ebf89cda66a50cddcd7e4944f27b9396d4450
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="bundling-and-minification"></a>Agrupar y Minificar
 ====================
@@ -55,7 +55,7 @@ Después de la reducción, la función se reduce a lo siguiente:
 
 Además de quitar los comentarios y espacios en blanco innecesarios, los siguientes parámetros y nombres de variables se cambió el nombre (abreviar) como se indica a continuación:
 
-| **Original** | **Renamed** |
+| **Original** | **Cambiar el nombre** |
 | --- | --- |
 | imageTagAndImageID | n |
 | imageContext | m |
@@ -65,7 +65,7 @@ Además de quitar los comentarios y espacios en blanco innecesarios, los siguien
 
 En la tabla siguiente muestra algunas diferencias importantes entre enumerar todos los activos de forma individual y el uso de agrupación y minificación (B/M) en el programa de ejemplo.
 
-|  | **Uso de B/M** | **Sin B/M** | **Cambio** |
+|  | **Uso de B/M** | **Sin B/M** | **Change** |
 | --- | --- | --- | --- |
 | **Solicitudes de archivos** | 9 | 34 | 256% |
 | **KB enviado** | 3.26 | 11.92 | 266% |
@@ -114,7 +114,7 @@ Abra la *aplicación\_Start\BundleConfig.cs* de archivo y examine la `RegisterBu
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
-El código anterior crea un nuevo paquete de JavaScript denominado *~/bundles/jquery* que incluye todos los controles (que es debug o reducido pero no. *vsdoc*) archivos en el *Scripts* carpeta que coincide con la cadena de carácter comodín "{versión} ~/Scripts/jquery-.js". En ASP.NET MVC 4, esto significa que con una configuración de depuración, el archivo *1.7.1.js jquery* se agregará a la agrupación. En una configuración de lanzamiento, *1.7.1.min.js jquery* se agregará. El marco de agrupación sigue varias convenciones comunes como:
+El código anterior crea un nuevo paquete de JavaScript denominado *~/bundles/jquery* que incluye todos los controles (que es debug o reducido pero no.* vsdoc*) archivos en el *Scripts* carpeta que coincide con la cadena de carácter comodín "{versión} ~/Scripts/jquery-.js". En ASP.NET MVC 4, esto significa que con una configuración de depuración, el archivo *1.7.1.js jquery* se agregará a la agrupación. En una configuración de lanzamiento, *1.7.1.min.js jquery* se agregará. El marco de agrupación sigue varias convenciones comunes como:
 
 - Seleccionar archivo de ".min" para la versión cuando existen "FileX.min.js" y "FileX.js".
 - Seleccione la versión no es ".min" para la depuración.
@@ -175,7 +175,7 @@ La siguiente tabla muestra los archivos agregados a una agrupación mediante el 
 | Include("~/Scripts/Common/\*og.\*") | Excepción de patrón no válida. Se permite sólo un carácter comodín. |
 | "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
 | "Include("~/Scripts/Common/\*") | Excepción de patrón no válida. Un segmento de carácter comodín pura no es válido. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
+| IncludeDirectory("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
 | IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
 
 Agregar explícitamente cada archivo a una agrupación es generalmente el preferido sobre comodín carga de archivos por los motivos siguientes:

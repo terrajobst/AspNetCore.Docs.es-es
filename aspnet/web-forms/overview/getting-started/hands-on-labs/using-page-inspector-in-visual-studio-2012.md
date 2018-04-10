@@ -16,7 +16,7 @@ ms.openlocfilehash: 052d29dba170d403c2b1c1667c55fc2c34045615
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a>Con el Inspector de página en Visual Studio 2012
 ====================
@@ -128,7 +128,7 @@ En esta tarea, aprenderá cómo utilizar el Inspector de página en el contexto 
 
     Esta herramienta le permitirá seleccionar cualquier elemento de la página y ver el código HTML y Razor.
 
-    ![Toggle-Inspection-Mode-button](using-page-inspector-in-visual-studio-2012/_static/image4.png)
+    ![Inspección-modo-botón de alternancia](using-page-inspector-in-visual-studio-2012/_static/image4.png)
 
     *Botón de alternancia modo de inspección*
 6. En el Explorador de Inspector de página, mueva el puntero del mouse sobre los elementos de la página. Mientras se mueve el puntero del mouse sobre alguna parte de la página presentada, se muestra el tipo de elemento y el marcado del código fuente o el código correspondiente se resalta en el editor de Visual Studio.
@@ -220,8 +220,8 @@ En esta tarea, utilizará el inspector de página y corregir algunos problemas d
     *Buscar el registro y el registro de vínculos*
 2. Con pasar al modo de inspección seleccionado, haga clic en Cerrar para, pero no en el vínculo de registro para abrir su código.
 
-    Tenga en cuenta que el código fuente de los vínculos se encuentra en la ** \_LoginPartial.cshtml** de archivos, no el Index.cshtml ni \_Layout.cshtml, que son los lugares podría ser en primer lugar. Han colocado directamente en el archivo de código fuente correcto.
-3. En el **estilos** ficha, busque y haga clic en el ** <section> #login</section> ** elemento, que es el contenedor HTML para que estos vínculos.
+    Tenga en cuenta que el código fuente de los vínculos se encuentra en la  **\_LoginPartial.cshtml** de archivos, no el Index.cshtml ni \_Layout.cshtml, que son los lugares podría ser en primer lugar. Han colocado directamente en el archivo de código fuente correcto.
+3. En el **estilos** ficha, busque y haga clic en el **<section> #login</section>** elemento, que es el contenedor HTML para que estos vínculos.
 
     Tenga en cuenta que la **#login** estilo automáticamente se encuentra en **Site.css** tras hacer clic en. Además, ahora se resalta el código.
 
@@ -242,7 +242,7 @@ En esta tarea, utilizará el inspector de página y corregir algunos problemas d
     ![Página actualizada](using-page-inspector-in-visual-studio-2012/_static/image18.png)
 
     *Página actualizada*
-6. Con el modo de inspección, seleccione cualquiera de los ** &lt;li&gt; ** elementos que contienen el &quot;registrar&quot; y &quot;iniciar sesión&quot; vínculos. A continuación, haga clic en el ** &lt;sección&gt; #login** de elemento para tener acceso a **Styles.css** código.
+6. Con el modo de inspección, seleccione cualquiera de los **&lt;li&gt;** elementos que contienen el &quot;registrar&quot; y &quot;iniciar sesión&quot; vínculos. A continuación, haga clic en el  **&lt;sección&gt; #login** de elemento para tener acceso a **Styles.css** código.
 
     ![Buscar el estilo](using-page-inspector-in-visual-studio-2012/_static/image19.png "buscar el estilo")
 
@@ -258,7 +258,7 @@ En esta tarea, utilizará el inspector de página y corregir algunos problemas d
 
     *Vínculos alineado a la derecha*
 9. Por último, cambiará el título de encabezado. Haga clic con el modo de inspección **su logotipo aquí** texto y get en el código fuente que lo genera.
-10. Ahora está en ** \_Layout.cshtml**, reemplace '**su logotipo aquí**'text con'**Galería fotográfica**'. Guarde y actualice el Explorador de Inspector de página.
+10. Ahora está en  **\_Layout.cshtml**, reemplace '**su logotipo aquí**'text con'**Galería fotográfica**'. Guarde y actualice el Explorador de Inspector de página.
 
     ![Asignar un nuevo título](using-page-inspector-in-visual-studio-2012/_static/image22.png "asignar un nuevo título")
 
@@ -412,7 +412,7 @@ En esta tarea, utilizará el inspector de página para solucionar algunos proble
 2. Con el modo de inspección de alternancia seleccionado, seleccione el vínculo de inicio de sesión para abrir su código.
 
     Tenga en cuenta que el código de origen del vínculo se encuentra en la **Site.Master** archivos, no en la página Default.aspx que es el lugar donde puede buscar en primer lugar; se han colocado directamente en el archivo de código fuente correcto.
-3. En el **estilos** ficha, busque y haga clic en el ** &lt;sección&gt; #login** elemento, que es el contenedor HTML para que estos vínculos.
+3. En el **estilos** ficha, busque y haga clic en el  **&lt;sección&gt; #login** elemento, que es el contenedor HTML para que estos vínculos.
 
     Tenga en cuenta que la **#login** estilo automáticamente se encuentra en **Site.css** tras hacer clic en. Además, ahora se resalta el código.
 
@@ -433,7 +433,7 @@ En esta tarea, utilizará el inspector de página para solucionar algunos proble
     ![Página actualizada](using-page-inspector-in-visual-studio-2012/_static/image41.png)
 
     *Página actualizada*
-6. Con el modo de inspección, seleccione cualquiera de los ** &lt;li&gt; ** elementos que contienen el &quot;registrar&quot; y &quot;iniciar sesión&quot; vínculos. A continuación, haga clic en el ** &lt;sección&gt; #login** de elemento para tener acceso a **Styles.css** código.
+6. Con el modo de inspección, seleccione cualquiera de los **&lt;li&gt;** elementos que contienen el &quot;registrar&quot; y &quot;iniciar sesión&quot; vínculos. A continuación, haga clic en el  **&lt;sección&gt; #login** de elemento para tener acceso a **Styles.css** código.
 
     ![Buscar el estilo](using-page-inspector-in-visual-studio-2012/_static/image42.png "buscar el estilo")
 
@@ -474,7 +474,7 @@ Tras completar este laboratorio práctico, que aprendió cómo usar Inspector de
 <a id="Appendix_A_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-a-installing-visual-studio-express-2012-for-web"></a>Apéndice A: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la ** [instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx) **. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
 1. Vaya a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con SDK de Windows Azure</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.

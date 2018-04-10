@@ -2,7 +2,7 @@
 uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: Trabajar con formularios HTML en los sitios de ASP.NET Web Pages (Razor) | Documentos de Microsoft
 author: tfitzmac
-description: "Un formulario es una sección de un documento HTML en la que colocar los controles de entrada del usuario, como cuadros de texto, casillas de verificación, botones de opción y listas desplegables. Utilizar formularios qu..."
+description: Un formulario es una sección de un documento HTML en la que colocar los controles de entrada del usuario, como cuadros de texto, casillas de verificación, botones de opción y listas desplegables. Utilizar formularios qu...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2014
@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
 ms.openlocfilehash: 8579c444fd19d1a366349cc09f9f768de23055f8
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Trabajar con formularios HTML en sitios de ASP.NET Web Pages (Razor)
 ====================
@@ -73,7 +73,7 @@ Para procesar el formulario, agregue código que lee los valores de campo enviad
 
     ![Captura de pantalla que muestra los valores que ha escrito aparece en la página.](4-working-with-forms/_static/image2.jpg)
 
-    Examine el código de la página. Realice primero la `IsPost` método para determinar si se está publicando la página &#8212; es decir, si un usuario hace clic en el **enviar** botón. Si se trata de una publicación, `IsPost` devuelve true. Esta es la manera estándar en ASP.NET Web Pages para determinar si está trabajando con una solicitud inicial (una solicitud GET) o una devolución de datos (una solicitud POST). (Para obtener más información acerca de GET y POST, consulte la barra lateral "HTTP GET y POST y la IsPost propiedad" en [Introducción a ASP.NET Web Pages de programación mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
+    Examine el código de la página. Realice primero la `IsPost` método para determinar si la página se está publicando &#8212; es decir, si un usuario hace clic en el **enviar** botón. Si se trata de una publicación, `IsPost` devuelve true. Esta es la manera estándar en ASP.NET Web Pages para determinar si está trabajando con una solicitud inicial (una solicitud GET) o una devolución de datos (una solicitud POST). (Para obtener más información acerca de GET y POST, consulte la barra lateral "HTTP GET y POST y la IsPost propiedad" en [Introducción a ASP.NET Web Pages de programación mediante la sintaxis Razor](https://go.microsoft.com/fwlink/?LinkId=202890#SB_HttpGetPost).)
 
     A continuación, se obtienen los valores que el usuario rellena a partir de la `Request.Form` objeto y se coloca en variables para más tarde. La `Request.Form` objeto contiene todos los valores que se enviaron con la página, cada uno de ellos se identifican mediante una clave. La clave es el equivalente a la `name` atributo del campo de formulario que desea leer. Por ejemplo, para leer el `companyname` campo (cuadro de texto), se utiliza `Request.Form["companyname"]`.
 
@@ -89,7 +89,7 @@ Para procesar el formulario, agregue código que lee los valores de campo enviad
 > 
 > Codificación HTML, estos caracteres reservados reemplaza con un código que exploradores interpretan como el símbolo correcto. Por ejemplo, el `<` carácter se sustituye por `&lt;` y `>` carácter se sustituye por `&gt;`. El explorador presenta estas cadenas de reemplazo como los caracteres que desea ver.
 > 
-> Es una buena idea usar siempre que se muestran las cadenas de codificación HTML (entrada) que se obtuvo de un usuario. Si no lo hace, un usuario puede intentar obtener la página web para ejecutar un script malintencionado o hacer algo más que pone en peligro la seguridad del sitio o que simplemente no es lo que deseado. (Esto es especialmente importante si toma proporcionados por el usuario, almacenar un lugar y, a continuación, mostrar más tarde &#8212; por ejemplo, como un comentario de blog, usuario consulte, o un resultado similar que).
+> Es una buena idea usar siempre que se muestran las cadenas de codificación HTML (entrada) que se obtuvo de un usuario. Si no lo hace, un usuario puede intentar obtener la página web para ejecutar un script malintencionado o hacer algo más que pone en peligro la seguridad del sitio o que simplemente no es lo que deseado. (Esto es especialmente importante si ninguna entrada del usuario, almacenar un lugar y, a continuación, mostrar más tarde &#8212; por ejemplo, como un comentario de blog, revisión de usuario o algo similar a.)
 > 
 > Para ayudar a evitar estos problemas, ASP.NET Web Pages automáticamente codifica en HTML cualquier texto de contenido que usted desde el código de salida. Por ejemplo, al mostrar el contenido de una variable o una expresión mediante código como `@MyVar`, ASP.NET Web Pages codifica automáticamente la salida.
 

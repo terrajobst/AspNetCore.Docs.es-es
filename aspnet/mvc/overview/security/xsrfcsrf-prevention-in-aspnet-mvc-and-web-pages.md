@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
-title: "Prevención de XSRF/CSRF en MVC de ASP.NET y páginas Web | Documentos de Microsoft"
+title: Prevención de XSRF/CSRF en MVC de ASP.NET y páginas Web | Documentos de Microsoft
 author: Rick-Anderson
-description: "Falsificación de solicitud entre sitios (también conocido como XSRF o CSRF) es un ataque contra las aplicaciones hospedadas en web mediante el cual un sitio web malintencionado puede influir en el interactivo..."
+description: Falsificación de solicitud entre sitios (también conocido como XSRF o CSRF) es un ataque contra las aplicaciones hospedadas en web mediante el cual un sitio web malintencionado puede influir en el interactivo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2013
@@ -13,14 +13,14 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 6cf30daa7ed966b11405cec715c5bc803b567249
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages"></a>Prevención de XSRF/CSRF en MVC de ASP.NET y páginas Web
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Solicitud entre sitios falsificación (también conocido como XSRF o CSRF) es un ataque contra las aplicaciones hospedadas en web mediante el cual un sitio web malintencionado puede influir en la interacción entre un explorador del cliente y un sitio web de confianza para ese explorador. Estos ataques se realizan porque los exploradores web enviará los tokens de autenticación automáticamente con cada solicitud a un sitio web. El ejemplo canónico es una cookie de autenticación, como ASP. Vale de autenticación de formularios de NET. Sin embargo, los sitios web que use cualquier mecanismo de autenticación persistente (por ejemplo, la autenticación de Windows, Basic etc.) puede tener como destino estos ataques.
 > 
@@ -86,7 +86,7 @@ Las cargas de los tokens de anti-XSRF se cifrarán y firmarán, por lo que no se
 Para generar los tokens de anti-XSRF, llame a la [ @Html.AntiForgeryToken ](https://msdn.microsoft.com/library/dd470175.aspx) método desde una vista de MVC o @AntiForgery.GetHtml() desde una página de Razor. El tiempo de ejecución, a continuación, realizará los siguientes pasos:
 
 1. Si la solicitud HTTP actual ya contiene un token de sesión anti-XSRF (la cookie anti-XSRF \_ \_RequestVerificationToken), se extrae el token de seguridad de ella. Si la solicitud HTTP no contiene un token de sesión anti-XSRF o si se produce un error en la extracción del token de seguridad, se generará un nuevo token anti-XSRF aleatorio.
-2. Se genera un token de campo anti-XSRF con el token de seguridad de paso (1) anterior y la identidad del usuario ha iniciado la sesión actual. (Para obtener más información acerca de cómo determinar la identidad del usuario, consulte la  **[escenarios con compatibilidad especial](#_Scenarios_with_special)**  sección más adelante.) Además, si un [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) está configurado, el tiempo de ejecución llamará a su [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) método e incluir la cadena devuelta en el token de campo. (Consulte la  **[configuración y extensibilidad](#_Configuration_and_extensibility)**  sección para obtener más información.)
+2. Se genera un token de campo anti-XSRF con el token de seguridad de paso (1) anterior y la identidad del usuario ha iniciado la sesión actual. (Para obtener más información acerca de cómo determinar la identidad del usuario, consulte la ** [escenarios con compatibilidad especial](#_Scenarios_with_special) ** sección más adelante.) Además, si un [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/jj158328(v=vs.111).aspx) está configurado, el tiempo de ejecución llamará a su [GetAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.getadditionaldata(v=vs.111).aspx) método e incluir la cadena devuelta en el token de campo. (Consulte la ** [configuración y extensibilidad](#_Configuration_and_extensibility) ** sección para obtener más información.)
 3. Si se generó un nuevo token anti-XSRF en el paso (1), un token de nueva sesión que lo contiene, se creará y se agregará a la colección de cookies HTTP saliente. El token de campo del paso (2) se encapsulará en una `<input type="hidden" />` elemento y este marcado HTML será el valor devuelto de `Html.AntiForgeryToken()` o `AntiForgery.GetHtml()`.
 
 ## <a name="validating-the-tokens"></a>Validando los tokens
@@ -108,9 +108,9 @@ Empezando por el Runtime de pila Web de ASP.NET v2, cualquier *HttpAntiForgeryEx
 - El token de sesión y el token de campo se cambiaron.
 - El token de sesión y el token de campo contengan los tokens de seguridad no coinciden.
 - El nombre de usuario incrustado en el símbolo (token) de campo no coincide con el nombre de usuario ha iniciado la sesión del usuario actual.
-- El  *[IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx)*  el método devolvió *false*.
+- El * [IAntiForgeryAdditionalDataProvider.ValidateAdditionalData](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider.validateadditionaldata(v=vs.111).aspx) * el método devolvió *false*.
 
-Las funciones de anti-XSRF también pueden realizar una comprobación adicional durante la validación o la generación de tokens y errores durante estas comprobaciones pueden producir excepciones que se producen. Consulte la [WIF / ACS / basada en notificaciones autenticación](#_WIF_ACS) y  **[configuración y extensibilidad](#_Configuration_and_extensibility)**  secciones para obtener más información.
+Las funciones de anti-XSRF también pueden realizar una comprobación adicional durante la validación o la generación de tokens y errores durante estas comprobaciones pueden producir excepciones que se producen. Consulte la [WIF / ACS / basada en notificaciones autenticación](#_WIF_ACS) y ** [configuración y extensibilidad](#_Configuration_and_extensibility) ** secciones para obtener más información.
 
 <a id="_Scenarios_with_special"></a>
 
@@ -139,10 +139,10 @@ Muchas de las implementaciones que utilizan autenticación basada en notificacio
 
 Al generar o validar un token, el tiempo de ejecución de ASP.NET Web pila en tiempo de ejecución intentará enlace a los tipos:
 
-- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35`(Para el SDK de WIF.)
-- `System.Security.Claims.ClaimsIdentity`(Para .NET 4.5).
+- `Microsoft.IdentityModel.Claims.IClaimsIdentity, Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35` (Para el SDK de WIF.)
+- `System.Security.Claims.ClaimsIdentity` (Para .NET 4.5).
 
-Si existen estos tipos y si el usuario actual *IIIIdentity* implementa o subclases de uno de estos tipos, usará la utilidad anti-XSRF (proveedor de identidad, identificador de nombre) tupla en lugar del nombre de usuario al generar y Validando los tokens. Si no hay ninguna tupla este tipo, se producirá un error en la solicitud con un error que describe al programador cómo configurar el sistema anti-XSRF para conocer el mecanismo de autenticación basada en notificaciones concreto en uso. Consulte la  **[configuración y extensibilidad](#_Configuration_and_extensibility)**  sección para obtener más información.
+Si existen estos tipos y si el usuario actual *IIIIdentity* implementa o subclases de uno de estos tipos, usará la utilidad anti-XSRF (proveedor de identidad, identificador de nombre) tupla en lugar del nombre de usuario al generar y Validando los tokens. Si no hay ninguna tupla este tipo, se producirá un error en la solicitud con un error que describe al programador cómo configurar el sistema anti-XSRF para conocer el mecanismo de autenticación basada en notificaciones concreto en uso. Consulte la ** [configuración y extensibilidad](#_Configuration_and_extensibility) ** sección para obtener más información.
 
 ### <a name="oauth--openid-authentication"></a>OAuth / OpenID autenticación
 
@@ -175,7 +175,7 @@ El desarrollador puede configurar el sistema anti-XSRF de aplicación\_iniciar. 
 
 ### <a name="iantiforgeryadditionaldataprovider"></a>IAntiForgeryAdditionalDataProvider
 
-El  *[IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx)*  tipo permite a los desarrolladores extender el comportamiento del sistema anti-XSRF por los datos adicionales de ida y vuelta de cada token. El *GetAdditionalData* método se llama cada vez que se genera un token de campo y el valor devuelto está incrustado en el token generado. Un implementador podría devolver una marca de tiempo, un nonce o cualquier otro valor que desea desde este método.
+El * [IAntiForgeryAdditionalDataProvider](https://msdn.microsoft.com/library/system.web.helpers.iantiforgeryadditionaldataprovider(v=vs.111).aspx) * tipo permite a los desarrolladores extender el comportamiento del sistema anti-XSRF por los datos adicionales de ida y vuelta de cada token. El *GetAdditionalData* método se llama cada vez que se genera un token de campo y el valor devuelto está incrustado en el token generado. Un implementador podría devolver una marca de tiempo, un nonce o cualquier otro valor que desea desde este método.
 
 De forma similar, el *ValidateAdditionalData* método se llama cada vez que se valida un token de campo y la cadena de "datos adicionales" que estaba incrustada en el token se pasa al método. La rutina de validación podría implementar un tiempo de espera (activando la hora actual en el momento en que se almacenó cuando se creó el token), un nonce comprobación rutina o cualquier otro había deseado lógica.
 
@@ -183,7 +183,7 @@ De forma similar, el *ValidateAdditionalData* método se llama cada vez que se v
 
 El token de seguridad que vincula los tokens de sesión y el campo técnicamente solo es necesario al intentar proteger a los usuarios anónimos / sin autenticar frente a ataques XSRF. Cuando el usuario se autentica, el token de autenticación propio (presumiblemente enviada en forma de una cookie) podría usarse como una mitad de sincronizador de un par de tokens. Sin embargo, hay escenarios válidos para la protección de páginas de inicio de sesión de aciertos por los usuarios no autenticados y la lógica de anti-XSRF se realizó más sencilla siempre generar y validar el token de seguridad, incluso para los usuarios autenticados. También proporcionan algunos protección adicional en caso de que un atacante, como establecer o adivinar que el token de sesión podría ser otro obstáculo para superar el atacante pone en peligro alguna vez un token de campo.
 
-Los desarrolladores deben tener cuidado cuando varias aplicaciones se hospedan en un único dominio. Por ejemplo, aunque *example1.cloudapp.net* y *example2.cloudapp.net* son diferentes de los hosts, hay una relación de confianza implícita entre todos los hosts bajo la  *\*. cloudapp.net* dominio. Esta relación de confianza implícita [permite a los hosts no sea de confianza influir en sus respectivas cookies](http://stackoverflow.com/questions/9636857/how-can-asp-net-or-asp-net-mvc-be-protected-from-related-domain-cookie-attacks) (las directivas de mismo origen que rigen las solicitudes AJAX no necesariamente se aplican a las cookies HTTP). El tiempo de ejecución de ASP.NET Web pila proporciona algunos mitigación en que el nombre de usuario se incrusta en el símbolo (token) de campo, por lo que incluso si un subdominio malintencionado puede sobrescribir un token de sesión no podrá generar un token de campo válido para el usuario. Sin embargo, cuando se hospeda en un entorno de este tipo las rutinas de anti-XSRF integrados todavía no ofrece protección frente secuestro de sesión o inicio de sesión XSRF.
+Los desarrolladores deben tener cuidado cuando varias aplicaciones se hospedan en un único dominio. Por ejemplo, aunque *example1.cloudapp.net* y *example2.cloudapp.net* son diferentes de los hosts, hay una relación de confianza implícita entre todos los hosts bajo la * \*. cloudapp.net* dominio. Esta relación de confianza implícita [permite a los hosts no sea de confianza influir en sus respectivas cookies](http://stackoverflow.com/questions/9636857/how-can-asp-net-or-asp-net-mvc-be-protected-from-related-domain-cookie-attacks) (las directivas de mismo origen que rigen las solicitudes AJAX no necesariamente se aplican a las cookies HTTP). El tiempo de ejecución de ASP.NET Web pila proporciona algunos mitigación en que el nombre de usuario se incrusta en el símbolo (token) de campo, por lo que incluso si un subdominio malintencionado puede sobrescribir un token de sesión no podrá generar un token de campo válido para el usuario. Sin embargo, cuando se hospeda en un entorno de este tipo las rutinas de anti-XSRF integrados todavía no ofrece protección frente secuestro de sesión o inicio de sesión XSRF.
 
 Las rutinas de anti-XSRF actualmente no defenderse contra [clickjacking](https://www.owasp.org/index.php/Clickjacking). Las aplicaciones que se va a defenderse contra clickjacking pueden hacer fácilmente mediante el envío de X-Frame-Options: encabezado SAMEORIGIN con cada respuesta. Este encabezado es compatible con todos los exploradores modernos. Para obtener más información, consulte el [blog de IE](https://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx), [blog SDL](https://blogs.msdn.com/b/sdl/archive/2009/02/05/clickjacking-defense-in-ie8.aspx), y [OWASP](https://www.owasp.org/index.php/Clickjacking). El tiempo de ejecución de ASP.NET Web pila posible en algunos Asegúrese de futuras versiones MVC y aplicaciones auxiliares de páginas Web anti-XSRF establecen automáticamente este encabezado para que las aplicaciones estén protegidas automáticamente frente a este ataque.
 

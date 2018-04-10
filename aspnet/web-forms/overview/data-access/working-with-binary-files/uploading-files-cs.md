@@ -16,7 +16,7 @@ ms.openlocfilehash: 3c758e94311817d01b17d27083733f805caf600f
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="uploading-files-c"></a>Carga de archivos (C#)
 ====================

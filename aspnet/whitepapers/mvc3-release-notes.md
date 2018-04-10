@@ -16,7 +16,7 @@ ms.openlocfilehash: 0bfe9cdc215226457ccfafff2b85ace87325b91b
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -24,7 +24,7 @@ ms.lasthandoff: 04/06/2018
 - [Notas sobre la instalación](#installation-notes)
 - [Requisitos de software](#software-requirements)
 - [Documentación](#documentation)
-- [Support](#support)
+- [Soporte técnico](#support)
 - [Actualizar un proyecto de ASP.NET MVC 2 a ASP.NET MVC 3 Tools Update](#upgrading)
 - [ASP.NET MVC 3 Tools Update (12 de abril de 2011)](#tu-changes)
 
@@ -91,7 +91,7 @@ ms.lasthandoff: 04/06/2018
     - [Correcciones de errores](#0.1__Toc274034228)
     - [Cambios importantes](#0.1__Toc274034229)
     - [Problemas conocidos](#0.1__Toc274034230)
-- [Disclaimer](#0.1__Toc274034231)
+- [Declinación de responsabilidades](#0.1__Toc274034231)
 
 <a id="overview"></a>
 ## <a name="overview"></a>Información general
@@ -219,7 +219,7 @@ Esta plantilla genera un archivo de controlador que tiene todos los métodos de 
 Esta plantilla le permite crear rápidamente una interfaz de usuario de la entrada de datos de trabajo. Genera código que controla una variedad de comunes requisitos y escenarios, como los siguientes:
 
 - *Acceso a datos*. El código generado lee y escribe entidades en una base de datos. Funciona con el enfoque de Entity Framework Code First si elige una clase de contexto de datos existente o si permite que la plantilla de generar un nuevo *DbContext* clase. También funciona con el enfoque de la base de datos de Entity Framework First o Model First si elige otra *ObjectContext* clase.
-- *Validation*. El código generado utiliza el enlace del modelo de ASP.NET MVC y funciones de metadatos para que los envíos de formularios se validan según las reglas declaradas en la clase de modelo. Esto incluye reglas de validación integradas, como el *requiere* y *StringLength* atributos y reglas de validación personalizadas.
+- *Validación*. El código generado utiliza el enlace del modelo de ASP.NET MVC y funciones de metadatos para que los envíos de formularios se validan según las reglas declaradas en la clase de modelo. Esto incluye reglas de validación integradas, como el *requiere* y *StringLength* atributos y reglas de validación personalizadas.
 - *Relaciones uno a varios*. Si define relaciones de clave externa de uno a varios entre las clases de modelo, el código generado producirá listas desplegables para seleccionar las entidades relacionadas. Por ejemplo, puede definir las siguientes clases de modelo según las directrices de Entity Framework Code First: 
 
     [!code-csharp[Main](mvc3-release-notes/samples/sample5.cs)]
@@ -675,7 +675,7 @@ La nueva tecnología de ASP.NET Web Pages incluye un conjunto de métodos auxili
 | Clave criptográfica | Utiliza algoritmos para crear correctamente hash salt y el valor hash de contraseñas. |
 | WebGrid | Representa una colección de objetos (normalmente, los datos de una base de datos) como una cuadrícula. Admite la paginación y la ordenación. |
 | WebImage | Representa una imagen. |
-| Mensaje de correo | Envía un mensaje de correo electrónico. |
+| WebMail | Envía un mensaje de correo electrónico. |
 
 Un tema de referencia rápida que enumera las aplicaciones auxiliares y la sintaxis básica está disponible como parte de la documentación de la sintaxis de ASP.NET Razor en la siguiente URL:
 
@@ -761,7 +761,7 @@ Esto requiere que la propiedad de ViewContext.UnobtrusiveJavaScriptEnabled está
 Además, asegúrese de que se hace referencia a los siguientes archivos JavaScript.
 
 - jquery-1.4.1.js
-- jQuery.Validate.js
+- jquery.validate.js
 - jquery.validate.unobtrusive.js
 
 Esta característica está habilitada de forma predeterminada en el archivo Web.config en las plantillas de proyecto nuevo de ASP.NET MVC 3, pero está deshabilitada de forma predeterminada para los proyectos existentes. Para obtener más información, consulte [nuevos indicadores de toda la aplicación para la validación de cliente y JavaScript discreto](#0.1_AddedApplicationWideFlagsForClientValida) más adelante en este documento.

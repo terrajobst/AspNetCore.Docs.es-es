@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn
 msc.type: content
 ms.openlocfilehash: bc5f40746ad6b1ed8a74bcb75def9ff8f08fb789
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Red de entrega de contenido de Microsoft Ajax
 ====================
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/03/2018
 ## <a name="table-of-contents"></a>Tabla de contenido
 
 **[AJAX.Microsoft.com ha cambiado a ajax.aspnetcdn.com](#ajaxmicrosoftcom_renamed_to_ajaxaspnetcdncom_18)**  
-**[Visual Studio .vsdoc Support](#Visual_Studio_vsdoc_Support_19)**  
+**[Compatibilidad de Visual Studio .vsdoc](#Visual_Studio_vsdoc_Support_19)**  
 **[Uso de Ajax de ASP.NET de la red CDN](#Using_ASPNET_Ajax_from_the_CDN_20)**  
 **[Mediante jQuery desde la red CDN](#Using_jQuery_from_the_CDN_21)**  
 **[Mediante jQuery UI de la red CDN](#Using_jQuery_UI_from_the_CDN_22)**  
@@ -68,7 +68,7 @@ La red CDN hospeda las siguientes bibliotecas de scripts de terceros que se han 
 - jQuery UI (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
 - jQuery validación (www.jquery.com)
-- jQuery ciclo (www.malsup.com/jquery/cycle/)
+- jQuery Cycle (www.malsup.com/jquery/cycle/)
 - jQuery (DataTableshttp://datatables.net/)
 
 La CDN de Microsoft Ajax también incluye las siguientes bibliotecas que se han cargado por Microsoft:
@@ -92,7 +92,7 @@ La red CDN permite usar el nombre de dominio microsoft.com y se ha cambiado para
 
 <a id="Visual_Studio_vsdoc_Support_19"></a>
 
-## <a name="visual-studio-vsdoc-support"></a>Visual Studio .vsdoc Support
+## <a name="visual-studio-vsdoc-support"></a>Compatibilidad de Visual Studio .vsdoc
 
 Para utilizar correctamente los archivos de .vsdoc con Visual Studio 2008 debe asegurarse de que dispone de VS 2008 SP1 instalado, y la revisión para archivos de vsdoc instalada. Puede obtener desde aquí:
 
@@ -606,23 +606,23 @@ Las siguientes versiones de la biblioteca de interfaz de usuario de jQuery se ho
 
 Las siguientes versiones de la biblioteca de validación de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
-- [jQuery validar 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery validación 1.17.0")
-- [jQuery validar 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery validación 1.16.0")
+- [jQuery Validate 1.17.0](jquery-validate/cdnjqueryvalidate1170.md "jQuery Validation 1.17.0")
+- [jQuery Validate 1.16.0](jquery-validate/cdnjqueryvalidate1160.md "jQuery Validation 1.16.0")
 - [jQuery validar 1.15.1](jquery-validate/cdnjqueryvalidate1151.md "jQuery validación 1.15.1")
 - [jQuery validar 1.15.0](jquery-validate/cdnjqueryvalidate1150.md "jQuery validación 1.15.0")
 - [jQuery validar 1.14.0](jquery-validate/cdnjqueryvalidate1140.md "jQuery validación 1.14.0")
-- [jQuery validar 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery validación 1.13.1")
-- [jQuery validar 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery validación 1.13.0")
-- [jQuery validar 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery validación 1.12.0")
-- [jQuery validar 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery validación 1.11.1")
-- [jQuery validar 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery validación 1.11.0")
+- [jQuery Validate 1.13.1](jquery-validate/cdnjqueryvalidate1131.md "jQuery Validation 1.13.1")
+- [jQuery Validate 1.13.0](jquery-validate/cdnjqueryvalidate1130.md "jQuery Validation 1.13.0")
+- [jQuery Validate 1.12.0](jquery-validate/cdnjqueryvalidate1120.md "jQuery Validation 1.12.0")
+- [jQuery Validate 1.11.1](jquery-validate/cdnjqueryvalidate1111.md "jQuery Validation 1.11.1")
+- [jQuery Validate 1.11.0](jquery-validate/cdnjqueryvalidate111.md "jQuery Validation 1.11.0")
 - [jQuery validar 1.10.0](jquery-validate/cdnjqueryvalidate110.md "jQuery validación 1.10.0")
 - [jQuery validar 1.9](jquery-validate/cdnjqueryvalidate19.md "jquery.validate versión 1.9")
 - [jQuery validar 1.8.1](jquery-validate/cdnjqueryvalidate181.md "jquery.validate versión 1.8.1")
 - [jQuery validar 1.8](jquery-validate/cdnjqueryvalidate18.md "jquery.validate versión 1.8")
 - [jQuery validar 1.7](jquery-validate/cdnjqueryvalidate17.md "jquery.validate versión 1.7")
-- [jQuery validar 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery validar 1.6")
-- [jQuery validar 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery validar 1.5.5")
+- [jQuery Validate 1.6](jquery-validate/cdnjqueryvalidate16.md "jQuery Validate 1.6")
+- [jQuery Validate 1.5.5](jquery-validate/cdnjqueryvalidate155.md "jQuery Validate 1.5.5")
 
 <a id="jQuery_Mobile_Releases_on_the_CDN_4"></a>
 
@@ -654,7 +654,7 @@ Las siguientes versiones de la biblioteca de jQuery móvil se hospedan en esta r
 
 Las siguientes versiones del complemento de plantillas de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
-- [jQuery plantillas Beta 1](jquery-templates/cdnjquerytemplatesbeta1.md "jQuery plantillas Beta 1")
+- [jQuery Templates Beta 1](jquery-templates/cdnjquerytemplatesbeta1.md "jQuery Templates Beta 1")
 
 <a id="jQuery_Cycle_Releases_on_the_CDN_6"></a>
 
@@ -662,9 +662,9 @@ Las siguientes versiones del complemento de plantillas de jQuery se hospedan en 
 
 Las siguientes versiones del complemento de ciclo de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
-- [jQuery ciclo 2,99](jquery-cycle/cdnjquerycycle299.md "jQuery 2,99 ciclo")
-- [jQuery ciclo 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery ciclo 2.94")
-- [jQuery ciclo 2,88](jquery-cycle/cdnjquerycycle288.md "jQuery 2,88 ciclo")
+- [jQuery Cycle 2.99](jquery-cycle/cdnjquerycycle299.md "jQuery Cycle 2.99")
+- [jQuery Cycle 2.94](jquery-cycle/cdnjquerycycle294.md "jQuery Cycle 2.94")
+- [jQuery Cycle 2.88](jquery-cycle/cdnjquerycycle288.md "jQuery Cycle 2.88")
 
 <a id="jQuery_DataTables_Releases_on_the_CDN_7"></a>
 

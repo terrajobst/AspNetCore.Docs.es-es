@@ -16,7 +16,7 @@ ms.openlocfilehash: 7b3130ca7d36ffec457e1871fa62c1077b5e3174
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="configuring-a-tfs-build-server-for-web-deployment"></a>Configurar un servidor de compilación TFS para la implementación Web
 ====================
@@ -36,7 +36,7 @@ El método de implementación en el centro de estos tutoriales se basa en el enf
 Para preparar un servidor de compilación para compilar e implementar sus soluciones, necesitará:
 
 - Instalar y configurar el servicio de compilación TFS.
-- Install Visual Studio 2010.
+- Instalar Visual Studio 2010.
 - Instale los productos o componentes que son necesarias para compilar la solución, como en las versiones de .NET Framework o ASP.NET MVC.
 - Instalar Web Deploy 2.0 o posterior.
 
@@ -72,13 +72,13 @@ Para habilitar el servidor de compilación compilar las soluciones, debe instala
 
 La mejor manera de instalar los componentes de plataforma web común es usar el [instalador de plataforma Web](https://go.microsoft.com/?linkid=9805118). Esto garantiza que se va a instalar la versión más reciente de cada producto, y detecta e instala los requisitos previos para cada producto también automáticamente. En el caso de los [póngase en contacto con el Administrador de](../web-deployment-in-the-enterprise/the-contact-manager-solution.md) solución, debe usar el instalador de plataforma Web para instalar estos productos y componentes:
 
-- **.NET framework 4.0**. Esto es necesario para ejecutar aplicaciones que se han generado en esta versión de .NET Framework.
+- **.NET Framework 4.0**. Esto es necesario para ejecutar aplicaciones que se han generado en esta versión de .NET Framework.
 - **Herramienta de implementación 2.1 o posterior de Web**. Esto instala Web Deploy (y el archivo ejecutable subyacente, MSDeploy.exe) en el servidor. Como parte de este proceso, instala y se inicia el servicio del agente de implementación Web. Este servicio le permite implementar paquetes de web desde un equipo remoto.
 - **ASP.NET MVC 3**. Esto instala a los ensamblados que necesita para ejecutar aplicaciones de ASP.NET MVC 3.
 
 **Para instalar los componentes y productos necesarios**
 
-1. Install Visual Studio 2010. Cuando se le pida seleccionar características para instalar, debe incluir:
+1. Instalar Visual Studio 2010. Cuando se le pida seleccionar características para instalar, debe incluir:
 
     1. Los lenguajes de programación que se debe compilar.
     2. Visual Web Developer. Esto garantiza que los destinos WPP se agregan a su servidor de compilación.

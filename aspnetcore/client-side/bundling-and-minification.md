@@ -15,7 +15,7 @@ ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Agrupación y minifiy activos estáticos en ASP.NET Core
 
@@ -82,10 +82,10 @@ Opciones de configuración incluyen:
 * `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado: `minify: { enabled: true }`*
   * Opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
-    * [JavaScript Minifier](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
+    * [Minificador de JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Minificador de HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto. **opcional**, *predeterminado: false*
-* `sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado. **opcional**, *predeterminado: false*
+* `includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto. **optional**, *default - false*
+* `sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado. **optional**, *default - false*
 * `sourceMapRootPath`: La ruta de acceso raíz para almacenar el archivo de mapa de código fuente generado.
 
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Ejecución en tiempo de compilación de agrupar y minificar

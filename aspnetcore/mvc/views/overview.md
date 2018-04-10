@@ -1,7 +1,7 @@
 ---
 title: Vistas de ASP.NET Core MVC
 author: ardalis
-description: "Obtenga información sobre la forma en que las vistas controlan la presentación de datos de la aplicación y la interacción del usuario en ASP.NET Core MVC."
+description: Obtenga información sobre la forma en que las vistas controlan la presentación de datos de la aplicación y la interacción del usuario en ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: bab08e75652c75b371438581d6e9f56541844a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -48,7 +48,7 @@ Las vistas separan el marcado de la interfaz de usuario de otras partes de la ap
 
 Las vistas que son específicas de un controlador se crean en la carpeta *Views/[nombreDelControlador]*. Las vistas compartidas entre controladores se colocan en la carpeta *Views/Shared*. Para crear una vista, agregue un archivo nuevo y asígnele el mismo nombre que a la acción del controlador asociada con la extensión de archivo *.cshtml*. Para crear una vista que se corresponda con la acción *About* del controlador *Home*, cree un archivo *About.cshtml* en la carpeta *Views/Home*:
 
-[!code-cshtml[Main](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
+[!code-cshtml[](../../common/samples/WebApplication1/Views/Home/About.cshtml)]
 
 El marcado de *Razor* comienza con el símbolo `@`. Ejecute instrucciones de C# mediante la colocación de código C# en los [bloques de código Razor](xref:mvc/views/razor#razor-code-blocks) activados por llaves (`{ ... }`). Por ejemplo, vea la asignación de "About" en `ViewData["Title"]` mostrada anteriormente. Para mostrar valores en HTML, simplemente haga referencia al valor con el símbolo `@`. Ver el contenido de los elementos `<h2>` y `<h3>` anteriores.
 
@@ -60,7 +60,7 @@ Las vistas normalmente las devuelven acciones como [ViewResult](/aspnet/core/api
 
 *HomeController.cs*
 
-[!code-csharp[Main](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
+[!code-csharp[](../../common/samples/WebApplication1/Controllers/HomeController.cs?highlight=5&range=16-21)]
 
 Cuando esta acción devuelve un resultado, la vista *About.cshtml* mostrada en la última sección se representa como la página web siguiente:
 
@@ -92,7 +92,7 @@ El comportamiento predeterminado del método `View` (`return View();`) es devolv
 
 Da igual si se devuelve implícitamente `ViewResult` con `return View();` o si se pasa explícitamente el nombre de la vista al método `View` con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
-   1. *Views/\[nombreDeControlador]\[nombreDeVista].cshtml*
+   1. *Views/\[ControllerName]/\[ViewName].cshtml*
    1. *Views/Shared/\[nombreDeVista].cshtml*
 
 En lugar del nombre de una vista, se puede proporcionar la ruta de acceso del archivo de vista. Si se utiliza una ruta de acceso absoluta que comience en la raíz de la aplicación (también puede empezar con "/" o "~/"), debe especificarse la extensión *.cshtml*:

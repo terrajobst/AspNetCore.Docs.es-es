@@ -16,7 +16,7 @@ ms.openlocfilehash: 6ce52c387ff835eda46bc1882b8b974889e2d4af
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 y Visual Studio 2010 Introducción al desarrollo Web
 ====================
@@ -87,7 +87,7 @@ ms.lasthandoff: 04/06/2018
 
 **[Implementación de aplicaciones con Visual Studio 2010 Web](#0.2__Toc253429292 "_Toc253429292")**  
 [Web empaquetado](#0.2__Toc253429293 "_Toc253429293")  
-[Web.config Transformation](#0.2__Toc253429294 "_Toc253429294")  
+[Transformación de Web.config](#0.2__Toc253429294 "_Toc253429294")  
 [Implementación de la base de datos](#0.2__Toc253429295 "_Toc253429295")  
 [Publicación de un solo clic para las aplicaciones Web](#0.2__Toc253429296 "_Toc253429296")  
 [Resources](#0.2__Toc253429297 "_Toc253429297")
@@ -579,7 +579,7 @@ El código en el ejemplo asigna la ruta a una página física (en la primera rut
 
 El *MapPageRoute* método es compatible con las sobrecargas del método siguiente:
 
-- *MapPageRoute (cadena routeName, routeUrl de cadena, cadena physicalFile, bool checkPhysicalUrlAccess)*
+- *MapPageRoute(string routeName, string routeUrl, string physicalFile, bool checkPhysicalUrlAccess)*
 - *MapPageRoute (cadena routeName, routeUrl de cadena, cadena physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary los valores predeterminados)*
 - *MapPageRoute (cadena routeName, routeUrl de cadena, cadena physicalFile, bool checkPhysicalUrlAccess, RouteValueDictionary los valores predeterminados, restricciones de RouteValueDictionary)*
 
@@ -988,7 +988,7 @@ De forma predeterminada, los siguientes controles de servidor Web de ASP.NET que
 - *Inicio de sesión*
 - *PasswordRecovery*
 - *ChangePassword*
-- *Wizard*
+- *Asistente para*
 - *CreateUserWizard*
 
 Una nueva propiedad denominada *RenderOuterTable* se agregó a estos controles que permite que la tabla externa que se quitará de la marca. Por ejemplo, considere el siguiente ejemplo de un *FormView* control:
@@ -1032,7 +1032,7 @@ En ASP.NET 4, el *ListView* control no requiere una plantilla de diseño. El mar
 
 En ASP.NET 3.5, puede especificar el diseño de la *CheckBoxList* y *RadioButtonList* mediante las dos opciones siguientes:
 
-- *Flow*. Representa el control *abarcan* elementos para que contenga su contenido.
+- *Flujo de*. Representa el control *abarcan* elementos para que contenga su contenido.
 - *Tabla*. El control representa un *tabla* elemento para que contenga su contenido.
 
 En el ejemplo siguiente se muestra el marcado para cada uno de estos controles.

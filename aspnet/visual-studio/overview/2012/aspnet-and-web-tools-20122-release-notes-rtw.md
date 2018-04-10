@@ -1,22 +1,22 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
-title: "2012.2 notas de la versión de las herramientas de ASP.NET y Web | Documentos de Microsoft"
+title: 2012.2 notas de la versión de las herramientas de ASP.NET y Web | Documentos de Microsoft
 author: rick-anderson
-description: "Notas de la versión de ASP.NET y 2012.2 de herramientas Web."
+description: Notas de la versión de ASP.NET y 2012.2 de herramientas Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2013
 ms.topic: article
 ms.assetid: 9534e58b-1d15-4f1d-b04c-10c79b9d8227
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
 ms.openlocfilehash: ab1642f1a3de298919aa9c6c1ddbd6bbb0cb99b5
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>ASP.NET y herramientas Web 2012.2 notas de la versión
 ====================
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/24/2018
 
 - [Notas sobre la instalación](#_Installation)
 - [Documentación](#_Documentation)
-- [Support](#_Support)
+- [Soporte técnico](#_Support)
 - [Requisitos de software](#_Software_Requirements)
 - [Nuevas características de ASP.NET y herramientas Web 2012.2](#_New_Features_in)
 
@@ -53,12 +53,12 @@ También puede instalar ASP.NET y Web Tools 2012.2 manualmente. Debe tener Visua
 5. Cuando se ejecuta solicitadas haga clic en. También puede guardar el archivo para ejecutarlo más tarde.
 
 > [!NOTE]
-> Versión ASP.NET y 2012.2 de herramientas Web no incluye las herramientas de datos de SQL Server. SQL Server y bases de datos de SQL de Windows Azure proporciona un variado conjunto de herramientas incluidos desarrollo basado en el proyecto sin conexión, comparación de esquemas y capacidades de la implementación de base de datos mejorada de la base de datos. Para obtener más información o para instalar las herramientas de datos de SQL Server, visite [https://go.microsoft.com/fwlink/?LinkID=237127](https://go.microsoft.com/fwlink/?LinkID=237127).
+> Versión ASP.NET y 2012.2 de herramientas Web no incluye las herramientas de datos de SQL Server. SQL Server y bases de datos de SQL de Windows Azure proporciona un variado conjunto de herramientas incluidos desarrollo basado en el proyecto sin conexión, comparación de esquemas y capacidades de la implementación de base de datos mejorada de la base de datos. Para obtener más información o para instalar las herramientas de datos de SQL Server, visite [ https://go.microsoft.com/fwlink/?LinkID=237127 ](https://go.microsoft.com/fwlink/?LinkID=237127).
 
 <a id="_Documentation"></a>
 ## <a name="documentation"></a>Documentación
 
-Tutoriales y otra información sobre ASP.NET y 2012.2 de herramientas Web están disponibles desde el sitio web ASP.NET (https://www.asp.net).
+Tutoriales y otra información sobre ASP.NET y Web Tools 2012.2 están disponibles en el sitio web de ASP.NET ( https://www.asp.net).
 
 <a id="_Support"></a>
 ## <a name="support"></a>Compatibilidad
@@ -95,7 +95,7 @@ Esta sección describen las características que se han introducido en la versi�
 ### <a name="web-publishing"></a>Publicación en Web
 
 - Proyectos de sitios Web ahora tienen la misma experiencia de publicación como proyectos de aplicación Web, incluida la publicación en sitios Web de Windows Azure.
-- Publicación selectiva &#8211; para que uno o más archivos puede realizar las siguientes acciones (después de publicarlo en un extremo de Web Deploy): 
+- Publicación selectiva &#8211; para uno o más archivos puede realizar las siguientes acciones (después de publicarlo en un extremo de Web Deploy): 
 
     - Publicar archivos seleccionados.
     - Ver la diferencia entre un archivo local y un archivo remoto.
@@ -104,10 +104,10 @@ Esta sección describen las características que se han introducido en la versi�
 <a id="_Templates"></a>
 ### <a name="aspnet-mvc-templates"></a>Plantillas de MVC de ASP.NET
 
-- La nueva plantilla de aplicación de Facebook facilita la escritura de aplicaciones fácil de Canvas de Facebook. En unos pocos pasos sencillos, puede crear una aplicación de Facebook que obtiene datos de un usuario ha iniciado sesión y se integra con sus amigos. La plantilla incluye una nueva biblioteca para encargarse de la mecánica implicada en la creación de una aplicación de Facebook, incluida la autenticación, permisos, acceso a datos de Facebook y mucho más. Para obtener más información sobre el uso de la plantilla de aplicación de Facebook vea [https://go.microsoft.com/fwlink/?LinkID=269921](https://go.microsoft.com/fwlink/?LinkID=269921).
-- Una nueva plantilla de MVC de aplicación de página única permite a los desarrolladores crear aplicaciones web de cliente interactivas mediante HTML 5, CSS 3 y el popular Knockout y jQuery bibliotecas de JavaScript, encima de ASP.NET Web API. La plantilla incluye una aplicación de la lista de "todo" que demuestra prácticas comunes para la creación de una aplicación JavaScript HTML5 que usa una API de servidor RESTful. Puede leer más en [https://www.asp.net/single-page-application](../../../single-page-application/index.md).
-- Ahora puede crear un VSIX que agrega nuevas plantillas al cuadro de diálogo nuevo proyecto de MVC de ASP.NET. Obtenga información acerca de cómo hacerlo aquí: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
-- Paquete de FixedDisplayModes &#8211; Plantillas de proyecto MVC se ha actualizado para incluir el nuevo paquete de NuGet 'FixedDisplayModes', que contiene una solución alternativa para un error en MVC 4. Para obtener más información sobre la solución contenida en el paquete, consulte esta entrada de blog ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) desde el equipo MVC.
+- La nueva plantilla de aplicación de Facebook facilita la escritura de aplicaciones fácil de Canvas de Facebook. En unos pocos pasos sencillos, puede crear una aplicación de Facebook que obtiene datos de un usuario ha iniciado sesión y se integra con sus amigos. La plantilla incluye una nueva biblioteca para encargarse de la mecánica implicada en la creación de una aplicación de Facebook, incluida la autenticación, permisos, acceso a datos de Facebook y mucho más. Para obtener más información sobre el uso de la plantilla de aplicación de Facebook vea [ https://go.microsoft.com/fwlink/?LinkID=269921 ](https://go.microsoft.com/fwlink/?LinkID=269921).
+- Una nueva plantilla de MVC de aplicación de página única permite a los desarrolladores crear aplicaciones web de cliente interactivas mediante HTML 5, CSS 3 y el popular Knockout y jQuery bibliotecas de JavaScript, encima de ASP.NET Web API. La plantilla incluye una aplicación de la lista de "todo" que demuestra prácticas comunes para la creación de una aplicación JavaScript HTML5 que usa una API de servidor RESTful. Puede leer más en [ https://www.asp.net/single-page-application ](../../../single-page-application/index.md).
+- Ahora puede crear un VSIX que agrega nuevas plantillas al cuadro de diálogo nuevo proyecto de MVC de ASP.NET. Descubra cómo hacerlo aquí: [https://go.microsoft.com/fwlink/?LinkId=275019](https://go.microsoft.com/fwlink/?LinkId=275019)
+- Paquete de FixedDisplayModes &#8211; plantillas de proyecto MVC se han actualizado para incluir el nuevo paquete de NuGet 'FixedDisplayModes', que contiene una solución alternativa para un error en MVC 4. Para obtener más información sobre la solución contenida en el paquete, consulte esta entrada de blog ([https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx](https://blogs.msdn.com/b/rickandy/archive/2012/09/17/asp-net-mvc-4-mobile-caching-bug-fixed.aspx)) desde el equipo MVC.
 
 <a id="_ASP.NET_Web_API"></a>
 ### <a name="aspnet-web-api"></a>ASP.NET Web API
@@ -148,33 +148,33 @@ ASP.NET Web API OData actualmente admite las siguientes características:
 - Acciones de OData.
 - Compila en la misma base que WCF Data Services, es decir, ODataLib ([http://www.nuget.org/packages/microsoft.data.odata](http://www.nuget.org/packages/microsoft.data.odata)).
 
-Para obtener más información sobre ASP.NET Web API OData vea [https://go.microsoft.com/fwlink/?LinkId=271141](https://go.microsoft.com/fwlink/?LinkId=271141).
+Para obtener más información sobre ASP.NET Web API OData vea [ https://go.microsoft.com/fwlink/?LinkId=271141 ](https://go.microsoft.com/fwlink/?LinkId=271141).
 
 #### <a name="aspnet-web-api-tracing"></a>Seguimiento de ASP.NET Web API
 
 ASP.NET Web API Tracing integra datos de seguimiento de la API de web con el seguimiento. NET. Ahora se habilita de forma predeterminada en la plantilla de proyecto de API Web. Seguimiento de datos para el sitio web API se envían a la ventana de salida y se pone a disposición a través de IntelliTrace. ASP.NET Web API Tracing le permite obtener información de seguimiento sobre la API Web cuando se hospeda en Windows Azure mediante la integración con [diagnósticos de Windows Azure](https://msdn.microsoft.com/library/windowsazure/hh411529.aspx). También puede instalar y habilitar el seguimiento de ASP.NET Web API en las aplicaciones que utilizan el paquete NuGet de traza de ASP.NET Web API ([http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing](http://www.nuget.org/packages/microsoft.aspnet.webapi.tracing)).
 
-Para obtener más información sobre cómo configurar y usar ASP.NET Web API Tracing vea [https://go.microsoft.com/fwlink/?LinkID=269874](https://go.microsoft.com/fwlink/?LinkID=269874).
+Para obtener más información sobre cómo configurar y usar ASP.NET Web API Tracing vea [ https://go.microsoft.com/fwlink/?LinkID=269874 ](https://go.microsoft.com/fwlink/?LinkID=269874).
 
 #### <a name="aspnet-web-api-help-page"></a>Página de Ayuda de ASP.NET Web API
 
 La página de Ayuda de ASP.NET Web API ahora se incluye de forma predeterminada en la plantilla de proyecto de API Web. La página de Ayuda de ASP.NET Web API genera automáticamente la documentación sobre las siguientes API entre los extremos HTTP, los métodos HTTP admitidos, parámetros y cargas de mensajes de solicitud y respuesta de ejemplo. Documentación automáticamente se extrae de comentarios en el código. También puede agregar la página de Ayuda de API Web de ASP.NET a las aplicaciones que utilizan el paquete de NuGet para ASP.NET Web API ayuda Page ([http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage](http://www.nuget.org/packages/microsoft.aspnet.webapi.helppage)).
 
-Para obtener más información sobre cómo configurar y personalizar; vea la página de Ayuda de ASP.NET Web API [https://go.microsoft.com/fwlink/?LinkId=271140](https://go.microsoft.com/fwlink/?LinkId=271140).
+Para obtener más información sobre cómo configurar y personalizar; vea la página de Ayuda de ASP.NET Web API [ https://go.microsoft.com/fwlink/?LinkId=271140 ](https://go.microsoft.com/fwlink/?LinkId=271140).
 
 <a id="_ASP.NET_SignalR"></a>
 ### <a name="aspnet-signalr"></a>ASP.NET SignalR
 
 ASP.NET SignalR facilita agregar capacidades de web en tiempo real a la aplicación de ASP.NET, usando WebSockets si está disponible y automáticamente recurra a otras técnicas cuando no lo está.
 
-Para obtener más información sobre el uso de ASP.NET SignalR vea [https://go.microsoft.com/fwlink/?LinkId=271271](https://go.microsoft.com/fwlink/?LinkId=271271).
+Para obtener más información sobre el uso de ASP.NET SignalR vea [ https://go.microsoft.com/fwlink/?LinkId=271271 ](https://go.microsoft.com/fwlink/?LinkId=271271).
 
 <a id="_ASP.NET_Friendly_URLs"></a>
 ### <a name="aspnet-friendly-urls"></a>ASP.NET Friendly URLs
 
 ASP.NET FriendlyURLs facilita que los desarrolladores de formularios web generar el limpiador busca las direcciones URL (sin la extensión .aspx). No requiere poca o ninguna configuración y puede utilizarse con las aplicaciones ASP.NET v4.0 existentes. La característica FriendlyURLs también facilita a los desarrolladores agregar compatibilidad con dispositivos móvil a sus aplicaciones, ya que admite la conmutación entre las vistas de escritorio y móviles.
 
-Para obtener más información sobre cómo instalar y usar ASP.NET Friendly URLs vea [http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
+Para obtener más información sobre cómo instalar y usar ASP.NET Friendly URLs vea [ http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx ](http://www.hanselman.com/blog/IntroducingASPNETFriendlyUrlsCleanerURLsEasierRoutingAndMobileViewsForASPNETWebForms.aspx).
 
 <a id="_Known_Issues_and"></a>
 ## <a name="known-issues-and-breaking-changes"></a>Problemas conocidos y los cambios recientes
@@ -226,7 +226,7 @@ ASP.NET y Web Tools 2012.2 NuGet 2.1 se distribuye y se actualizará la extensi�
 3. Cierre Visual Studio.
 4. Navegue hasta la carpeta de instalación de ASP.NET y 2012.2 de herramientas Web:
 
-    1. For Visual Studio 2012: **Program Files\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
+    1. Para Visual Studio 2012: **archivos de programa\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio 2012**
     2. Para Visual Studio 2012 Express for Web: **archivos de programa\Microsoft ASP.NET\ASP.NET Web Stack\Visual Studio Express 2012 para Web**
 5. Haga doble clic en el NuGet.Tools.vsix para volver a instalar NuGet
 
@@ -247,7 +247,7 @@ Si los usuarios tienen distinguen mayúsculas de minúsculas en javascript del l
 
 #### <a name="default-odata-routing-conventions-doesnt-support-postput-on-navigation-property"></a>Convenciones de enrutamiento de OData de predeterminado no es compatible con POST o PUT en la propiedad de navegación.
 
-Convenciones de enrutamiento de OData de predeterminado no es compatible con POST o PUT en la propiedad de navegación. Vea el elemento de trabajo [http://aspnetwebstack.codeplex.com/workitem/366](http://aspnetwebstack.codeplex.com/workitem/366). No se encuentra esta convención utilizada en convenciones predeterminadas.
+Convenciones de enrutamiento de OData de predeterminado no es compatible con POST o PUT en la propiedad de navegación. Vea el elemento de trabajo [ http://aspnetwebstack.codeplex.com/workitem/366 ](http://aspnetwebstack.codeplex.com/workitem/366). No se encuentra esta convención utilizada en convenciones predeterminadas.
 
 Para solucionar esto, los usuarios necesitan ampliar la nueva convención de enrutamiento para admitirlo.
 
@@ -275,7 +275,7 @@ No se puede usar la característica Inspector de página en Visual Studio 2012 m
 
 Con JQuery 1.9/Knockout 2.2.1 la actualización, cuando se ejecuta el proyecto de MVC SPA predeterminado, nueva edición de elemento de lista de tareas escriba ya no foco hacia el cuadro de edición de elemento de lista de tareas nueva después de escribir el nuevo elemento de lista de tareas en la lista de tareas.
 
-Referencia de la solución [http://knockoutjs.com/documentation/hasfocus-binding.html](http://knockoutjs.com/documentation/hasfocus-binding.html)y asegúrese de corrección similar al código de ejemplo siguiente:
+Referencia de la solución [ http://knockoutjs.com/documentation/hasfocus-binding.html ](http://knockoutjs.com/documentation/hasfocus-binding.html)y asegúrese de corrección similar al código de ejemplo siguiente:
 
 Archivo todo.model.js  
  función todolist(data), agregue siguientes:  
@@ -287,5 +287,5 @@ función todoList.prototype.addTodo, agregue el siguiente texto blacked:
 
 Archivo index.cshtml, agregue el siguiente texto blacked:  
  &lt;enlace de datos de formulario =&quot;enviar: addTodo&quot;&gt;  
- &lt;clase de entrada =&quot;addTodo&quot; tipo =&quot;texto&quot; enlace de datos =&quot;valor: newTodoTitle, marcador de posición: 'Tipo aquí para agregar', blurOnEnter: true, **hasfocus: isSelected**, evento: {Desenfoque: addTodo}&quot; /&gt;  
+ &lt;input class=&quot;addTodo&quot; type=&quot;text&quot; data-bind=&quot;value: newTodoTitle, placeholder: 'Type here to add', blurOnEnter: true, **hasfocus: isSelected**, event: { blur: addTodo }&quot; /&gt;  
  &lt;/form&gt;

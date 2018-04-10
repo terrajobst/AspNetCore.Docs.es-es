@@ -16,11 +16,11 @@ ms.openlocfilehash: 476d832e389b9b5a26fe2d552ca648c79b100056
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="intro-to-aspnet-mvc"></a>Introducción a ASP.NET MVC
 ====================
-por [Scott Hanselman](https://github.com/shanselman)
+by [Scott Hanselman](https://github.com/shanselman)
 
 > > [!NOTE]
 > > Una versión actualizada, si está disponible en este tutorial [aquí](../../getting-started/introduction/getting-started.md) con [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads). El nuevo tutorial usa ASP.NET MVC 5, que proporciona muchas mejoras con respecto a este tutorial.

@@ -16,7 +16,7 @@ ms.openlocfilehash: 9a8673e764ae94b12fbc01f81ef12ea4c133b7d5
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="storing-additional-user-information-vb"></a>Almacenar información de usuario adicional (VB)
 ====================

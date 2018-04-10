@@ -16,7 +16,7 @@ ms.openlocfilehash: a4ea7e76e023cd436d1d8ac52307a3ac17267fef
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-and-managing-roles-c"></a>Crear y administrar Roles (C#)
 ====================

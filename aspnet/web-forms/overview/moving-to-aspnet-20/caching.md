@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/moving-to-aspnet-20/caching
-title: Almacenamiento en caché | Documentos de Microsoft
+title: Caching | Microsoft Docs
 author: microsoft
 description: Una descripción del almacenamiento en caché es importante para una aplicación ASP.NET rendimiento satisfactorio. ASP.NET 1.x que ofrece tres opciones distintas para el almacenamiento en caché; almacenamiento en caché, de salida...
 ms.author: aspnetcontent
@@ -16,7 +16,7 @@ ms.openlocfilehash: 90faaae75cc85585efa05e6e50eabe8c990d076e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="caching"></a>Almacenamiento en memoria caché
 ====================
@@ -75,14 +75,14 @@ La siguiente línea de comandos registra la tabla Products de la base de datos N
 
 La siguiente es una explicación de los modificadores de línea de comandos utilizados en el comando anterior:
 
-| **Modificador de línea de comandos** | **Purpose** |
+| **Modificador de línea de comandos** | **Propósito** |
 | --- | --- |
 | -S *server* | Especifica el nombre del servidor. |
 | -ed | Especifica que la base de datos debe estar habilitada para la dependencia de caché SQL. |
-| -d *base de datos\_nombre* | Especifica el nombre de base de datos que debería estar habilitado para la dependencia de caché SQL. |
+| -d *database\_name* | Especifica el nombre de base de datos que debería estar habilitado para la dependencia de caché SQL. |
 | -E | Especifica que aspnet\_regsql debe utilizar la autenticación de Windows al conectarse a la base de datos. |
 | -et | Especifica que nos estamos habilita una tabla de base de datos para la dependencia de caché SQL. |
-| -t *tabla\_nombre* | Especifica el nombre de la tabla de base de datos para habilitar la dependencia de la memoria caché SQL. |
+| -t *table\_name* | Especifica el nombre de la tabla de base de datos para habilitar la dependencia de la memoria caché SQL. |
 
 > [!NOTE]
 > Hay otros modificadores disponibles para aspnet\_regsql.exe. ¿Para obtener una lista completa, ejecute aspnet\_regsql.exe-? desde una línea de comandos.

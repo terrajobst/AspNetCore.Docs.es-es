@@ -16,7 +16,7 @@ ms.openlocfilehash: 0dba613594686a28b82bc6d7701cda6e24b82e2e
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="checkout-and-payment-with-paypal"></a>Desprotección y pago con PayPal
 ====================
@@ -389,7 +389,7 @@ El **DetailsView** control se usa para mostrar los detalles del pedido que se ha
 
 > [!NOTE] 
 > 
-> **Tip**
+> **Sugerencia**
 > 
 > En el marcado de la *CheckoutReview.aspx* página, tenga en cuenta que la `<ItemStyle>` etiqueta se utiliza para cambiar el estilo de los elementos dentro de la **DetailsView** control cerca de la parte inferior de la página. Viendo la página en **la vista Diseño** (seleccionando **diseño** en la esquina inferior izquierda de Visual Studio), a continuación, seleccione la **DetailsView** controlan y seleccionar el  **Etiqueta inteligente** (el icono de flecha en la parte superior derecha del control), podrá ver el **DetailsView tareas**.
 > 

@@ -1,7 +1,7 @@
 ---
-title: "Información general de ASP.NET Core MVC"
+title: Información general de ASP.NET Core MVC
 author: ardalis
-description: "Conozca ASP.NET Core MVC, un marco completo para crear aplicaciones web y varias API mediante el patrón de diseño del controlador de vista de modelos."
+description: Conozca ASP.NET Core MVC, un marco completo para crear aplicaciones web y varias API mediante el patrón de diseño del controlador de vista de modelos.
 manager: wpickett
 ms.author: riande
 ms.date: 01/08/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 16fd1b5e71cde4364f02640f504d42218ed680df
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: HT
+ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/10/2018
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -179,19 +179,19 @@ Los [filtros](controllers/filters.md) ayudan a los desarrolladores a encapsular 
 
 ### <a name="areas"></a>Áreas
 
-Las [áreas](controllers/areas.md) ofrecen una manera de dividir una aplicación web ASP.NET Core MVC de gran tamaño en agrupaciones funcionales más pequeñas. Un área es una estructura de MVC dentro de una aplicación. En un proyecto de MVC, los componentes lógicos como el modelo, el controlador y la vista se guardan en carpetas diferentes, y MVC usa las convenciones de nomenclatura para crear la relación entre estos componentes. Para una aplicación grande, puede ser conveniente dividir la aplicación en distintas áreas de funciones de alto nivel. Por ejemplo, una aplicación de comercio electrónico con varias unidades de negocio, como la finalización de la compra, la facturación, la búsqueda, etcétera. Cada una de estas unidades tienen sus propias vistas de componente lógico, controladores y modelos.
+Las [áreas](controllers/areas.md) ofrecen una manera de dividir una aplicación web ASP.NET Core MVC de gran tamaño en agrupaciones funcionales más pequeñas. Un área es una estructura de MVC dentro de una aplicación. En un proyecto de MVC, los componentes lógicos como el modelo, el controlador y la vista se guardan en carpetas diferentes, y MVC usa las convenciones de nomenclatura para crear la relación entre estos componentes. Para una aplicación grande, puede ser conveniente dividir la aplicación en distintas áreas de funciones de alto nivel. Por ejemplo, una aplicación de comercio electrónico con varias unidades de negocio, como la finalización de la compra, la facturación, la búsqueda, etcétera. Cada una de estas unidades tiene sus propias vistas, controladores y modelos de componentes lógicos.
 
 ### <a name="web-apis"></a>API web
 
 Además de ser una plataforma excelente para crear sitios web, ASP.NET Core MVC es muy compatible con la creación de las API web. Puede crear servicios que lleguen con facilidad a una amplia gama de clientes, incluidos exploradores y dispositivos móviles.
 
-El marco incluye compatibilidad con la negociación de contenido HTTP y compatibilidad integrada para [aplicar formato a datos](models/formatting.md) como JSON o XML. Escriba [formateadores personalizados](advanced/custom-formatters.md) para agregar compatibilidad con sus propios formatos.
+El marco de trabajo incluye compatibilidad para la negociación de contenido HTTP con la compatibilidad integrada para [dar formato a datos](xref:web-api/advanced/formatting) como JSON o XML. Escriba [formateadores personalizados](xref:web-api/advanced/custom-formatters) para agregar compatibilidad con sus propios formatos.
 
 Use la generación de vínculos para habilitar la compatibilidad con hipermedios. Habilite fácilmente la compatibilidad con el [uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para que las API web se pueden compartir entre varias aplicaciones web.
 
 ### <a name="testability"></a>Capacidad de prueba
 
-Al usar interfaces e inserción de dependencias, el marco es adecuado para realizar pruebas unitarias. También incluye características (por ejemplo, un proveedor TestHost e InMemory para Entity Framework) con las que resulta muy fácil y rápido realizar [pruebas de integración](../testing/integration-testing.md). Obtenga más información sobre [probar la lógica del controlador](controllers/testing.md).
+Uso del marco de trabajo de inserción de dependencias e interfaces hacer adecuadas a las pruebas unitarias y el marco de trabajo incluye características (por ejemplo, un proveedor TestHost y InMemory para Entity Framework) que hacen [pruebas de integración](../testing/integration-testing.md) rápido y fácil así. Obtenga más información sobre [cómo probar la lógica del controlador](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Motor de vistas de Razor
 
