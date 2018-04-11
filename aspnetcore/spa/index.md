@@ -1,7 +1,7 @@
 ---
-title: "Uso de las plantillas de aplicación de una sola página"
+title: Uso de las plantillas de aplicación de una sola página con ASP.NET Core
 author: SteveSandersonMS
-description: "Obtenga información sobre cómo instalar y comenzar a usar las plantillas de proyecto de aplicación de una sola página (SPA) de ASP.NET Core."
+description: Obtenga información sobre cómo instalar y comenzar a usar las plantillas de proyecto de aplicación de una sola página (SPA) de ASP.NET Core.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
@@ -11,32 +11,32 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/index
-ms.openlocfilehash: 63b56de101199e9ea0d66d89d2dd7288e47902f6
-ms.sourcegitcommit: 49fb3b7669b504d35edad34db8285e56b958a9fc
+ms.openlocfilehash: eda4817de007f3c3184b2ba6ed6c97989ff17da5
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-the-single-page-application-templates"></a><span data-ttu-id="49142-103">Uso de las plantillas de aplicación de una sola página</span><span class="sxs-lookup"><span data-stu-id="49142-103">Use the Single Page Application templates</span></span>
+# <a name="use-the-single-page-application-templates-with-aspnet-core"></a><span data-ttu-id="0c0fe-103">Uso de las plantillas de aplicación de una sola página con ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="0c0fe-103">Use the Single Page Application templates with ASP.NET Core</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="49142-104">El SDK de .NET Core 2.0.x publicado incluye plantillas de proyecto anteriores para Angular, React y React con Redux.</span><span class="sxs-lookup"><span data-stu-id="49142-104">The released .NET Core 2.0.x SDK includes older project templates for Angular, React, and React with Redux.</span></span> <span data-ttu-id="49142-105">En esta documentación no se tratan las plantillas de proyecto antiguas.</span><span class="sxs-lookup"><span data-stu-id="49142-105">This documentation isn't about those older project templates.</span></span> <span data-ttu-id="49142-106">En esta documentación se tratan las últimas plantillas para Angular, React y React con Redux, que se pueden instalar manualmente en ASP.NET Core 2.0.</span><span class="sxs-lookup"><span data-stu-id="49142-106">This documentation is for the latest Angular, React, and React with Redux templates, which can be installed manually into ASP.NET Core 2.0.</span></span> <span data-ttu-id="49142-107">Las plantillas se incluyen de forma predeterminada con ASP.NET Core 2.1.</span><span class="sxs-lookup"><span data-stu-id="49142-107">The templates are included by default with ASP.NET Core 2.1.</span></span>
+> <span data-ttu-id="0c0fe-104">El SDK de .NET Core 2.0.x publicado incluye plantillas de proyecto anteriores para Angular, React y React con Redux.</span><span class="sxs-lookup"><span data-stu-id="0c0fe-104">The released .NET Core 2.0.x SDK includes older project templates for Angular, React, and React with Redux.</span></span> <span data-ttu-id="0c0fe-105">En esta documentación no se tratan las plantillas de proyecto antiguas.</span><span class="sxs-lookup"><span data-stu-id="0c0fe-105">This documentation isn't about those older project templates.</span></span> <span data-ttu-id="0c0fe-106">En esta documentación se tratan las últimas plantillas para Angular, React y React con Redux, que se pueden instalar manualmente en ASP.NET Core 2.0.</span><span class="sxs-lookup"><span data-stu-id="0c0fe-106">This documentation is for the latest Angular, React, and React with Redux templates, which can be installed manually into ASP.NET Core 2.0.</span></span> <span data-ttu-id="0c0fe-107">Las plantillas se incluyen de forma predeterminada con ASP.NET Core 2.1.</span><span class="sxs-lookup"><span data-stu-id="0c0fe-107">The templates are included by default with ASP.NET Core 2.1.</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="49142-108">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="49142-108">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="0c0fe-108">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="0c0fe-108">Prerequisites</span></span>
 
-* <span data-ttu-id="49142-109">[SDK de .NET Core](https://www.microsoft.com/net/download), versión 2.0.0 o posterior</span><span class="sxs-lookup"><span data-stu-id="49142-109">[.NET Core SDK](https://www.microsoft.com/net/download), version 2.0.0 or later</span></span>
-* <span data-ttu-id="49142-110">[Node.js](https://nodejs.org), versión 6 o posterior</span><span class="sxs-lookup"><span data-stu-id="49142-110">[Node.js](https://nodejs.org), version 6 or later</span></span>
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
+* <span data-ttu-id="0c0fe-109">[Node.js](https://nodejs.org), versión 6 o posterior</span><span class="sxs-lookup"><span data-stu-id="0c0fe-109">[Node.js](https://nodejs.org), version 6 or later</span></span>
 
-## <a name="installation"></a><span data-ttu-id="49142-111">Instalación</span><span class="sxs-lookup"><span data-stu-id="49142-111">Installation</span></span>
+## <a name="installation"></a><span data-ttu-id="0c0fe-110">Instalación</span><span class="sxs-lookup"><span data-stu-id="0c0fe-110">Installation</span></span>
 
-<span data-ttu-id="49142-112">Si tiene ASP.NET Core 2.0, ejecute el comando siguiente para instalar las plantillas actualizadas de ASP.NET Core para Angular, React y React con Redux:</span><span class="sxs-lookup"><span data-stu-id="49142-112">If you have ASP.NET Core 2.0, run the following command to install the updated ASP.NET Core templates for Angular, React, and React with Redux:</span></span>
+<span data-ttu-id="0c0fe-111">Si tiene ASP.NET Core 2.0, ejecute el comando siguiente para instalar las plantillas actualizadas de ASP.NET Core para Angular, React y React con Redux:</span><span class="sxs-lookup"><span data-stu-id="0c0fe-111">If you have ASP.NET Core 2.0, run the following command to install the updated ASP.NET Core templates for Angular, React, and React with Redux:</span></span>
 
 ```console
 dotnet new --install Microsoft.DotNet.Web.Spa.ProjectTemplates::2.0.0
 ```
 
-## <a name="use-the-templates"></a><span data-ttu-id="49142-113">Uso de las plantillas</span><span class="sxs-lookup"><span data-stu-id="49142-113">Use the templates</span></span>
+## <a name="use-the-templates"></a><span data-ttu-id="0c0fe-112">Uso de las plantillas</span><span class="sxs-lookup"><span data-stu-id="0c0fe-112">Use the templates</span></span>
 
-- [<span data-ttu-id="49142-114">Uso de la plantilla de proyecto Angular</span><span class="sxs-lookup"><span data-stu-id="49142-114">Use the Angular project template</span></span>](xref:spa/angular)
-- [<span data-ttu-id="49142-115">Uso de la plantilla de proyecto React</span><span class="sxs-lookup"><span data-stu-id="49142-115">Use the React project template</span></span>](xref:spa/react)
-- [<span data-ttu-id="49142-116">Uso de la plantilla de proyecto React con Redux</span><span class="sxs-lookup"><span data-stu-id="49142-116">Use the React with Redux project template</span></span>](xref:spa/react-with-redux)
+- [<span data-ttu-id="0c0fe-113">Uso de la plantilla de proyecto Angular</span><span class="sxs-lookup"><span data-stu-id="0c0fe-113">Use the Angular project template</span></span>](xref:spa/angular)
+- [<span data-ttu-id="0c0fe-114">Uso de la plantilla de proyecto React</span><span class="sxs-lookup"><span data-stu-id="0c0fe-114">Use the React project template</span></span>](xref:spa/react)
+- [<span data-ttu-id="0c0fe-115">Uso de la plantilla de proyecto React con Redux</span><span class="sxs-lookup"><span data-stu-id="0c0fe-115">Use the React with Redux project template</span></span>](xref:spa/react-with-redux)

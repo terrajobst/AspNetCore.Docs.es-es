@@ -1,7 +1,7 @@
 ---
-title: API de consumidor
+title: API de consumidor para ASP.NET Core
 author: rick-anderson
-description: "Este documento sirve como tabla de contenido para los distintos temas de protección de datos de la API de consumidor de ASP.NET Core."
+description: Obtenga información sobre los distintos temas sobre la protección de datos de API de consumidor de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,22 +9,22 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/consumer-apis/index
-ms.openlocfilehash: a36dbaa7c34ed0cd99bfb2b27a9d59b81ffccbcf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: d7ca1104b0a14a330df8d13be58425b3371bff73
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="consumer-apis"></a><span data-ttu-id="fd1cd-103">API de consumidor</span><span class="sxs-lookup"><span data-stu-id="fd1cd-103">Consumer APIs</span></span>
+# <a name="consumer-apis-for-aspnet-core"></a><span data-ttu-id="349b4-103">API de consumidor para ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="349b4-103">Consumer APIs for ASP.NET Core</span></span>
 
-* [<span data-ttu-id="fd1cd-104">Información general sobre las API de consumidor</span><span class="sxs-lookup"><span data-stu-id="fd1cd-104">Consumer APIs Overview</span></span>](overview.md)
+* [<span data-ttu-id="349b4-104">Información general sobre las API de consumidor</span><span class="sxs-lookup"><span data-stu-id="349b4-104">Consumer APIs Overview</span></span>](xref:security/data-protection/consumer-apis/overview)
 
-* [<span data-ttu-id="fd1cd-105">Cadenas de propósito</span><span class="sxs-lookup"><span data-stu-id="fd1cd-105">Purpose Strings</span></span>](purpose-strings.md)
+* [<span data-ttu-id="349b4-105">Cadenas de propósito</span><span class="sxs-lookup"><span data-stu-id="349b4-105">Purpose Strings</span></span>](xref:security/data-protection/consumer-apis/purpose-strings)
 
-* [<span data-ttu-id="fd1cd-106">Jerarquía de propósito y configuración multiempresa</span><span class="sxs-lookup"><span data-stu-id="fd1cd-106">Purpose hierarchy and multi-tenancy</span></span>](purpose-strings-multitenancy.md)
+* [<span data-ttu-id="349b4-106">Jerarquía de propósito y configuración multiempresa</span><span class="sxs-lookup"><span data-stu-id="349b4-106">Purpose hierarchy and multi-tenancy</span></span>](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-* [<span data-ttu-id="fd1cd-107">Hash de contraseña</span><span class="sxs-lookup"><span data-stu-id="fd1cd-107">Password Hashing</span></span>](password-hashing.md)
+* [<span data-ttu-id="349b4-107">Aplicar un algoritmo hash a las contraseñas</span><span class="sxs-lookup"><span data-stu-id="349b4-107">Hash passwords</span></span>](xref:security/data-protection/consumer-apis/password-hashing)
 
-* [<span data-ttu-id="fd1cd-108">Limitación de la duración de cargas protegidas</span><span class="sxs-lookup"><span data-stu-id="fd1cd-108">Limiting the lifetime of protected payloads</span></span>](limited-lifetime-payloads.md)
+* [<span data-ttu-id="349b4-108">Limitación de la duración de cargas protegidas</span><span class="sxs-lookup"><span data-stu-id="349b4-108">Limit the lifetime of protected payloads</span></span>](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-* [<span data-ttu-id="fd1cd-109">Desprotección de cargas cuyas claves se han revocado</span><span class="sxs-lookup"><span data-stu-id="fd1cd-109">Unprotecting payloads whose keys have been revoked</span></span>](dangerous-unprotect.md)
+* [<span data-ttu-id="349b4-109">Desprotección de cargas cuyas claves se han revocado</span><span class="sxs-lookup"><span data-stu-id="349b4-109">Unprotect payloads whose keys have been revoked</span></span>](xref:security/data-protection/consumer-apis/dangerous-unprotect)
