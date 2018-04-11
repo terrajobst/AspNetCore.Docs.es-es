@@ -1,7 +1,7 @@
 ---
-title: "Autenticación con Facebook, Google y proveedores externos en ASP.NET Core"
+title: Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 author: rick-anderson
-description: "En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x mediante OAuth 2.0 con proveedores de autenticación externos."
+description: En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x mediante OAuth 2.0 con proveedores de autenticación externos.
 manager: wpickett
 ms.author: riande
 ms.date: 11/01/2016
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 76433f814d6850a449434c29eb0bd27570ce193a
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 
@@ -23,7 +23,7 @@ Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://t
 
 En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x que permita a los usuarios iniciar sesión mediante OAuth 2.0 con credenciales de proveedores de autenticación externos.
 
-En las siguientes secciones se tratan los proveedores [Facebook](facebook-logins.md), [Twitter](twitter-logins.md), [Google](google-logins.md) y [Microsoft](microsoft-logins.md). Hay disponibles otros proveedores en paquetes de terceros como [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) y [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
+En las siguientes secciones se tratan los proveedores [Facebook](xref:security/authentication/facebook-logins), [Twitter](xref:security/authentication/twitter-logins), [Google](xref:security/authentication/google-logins) y [Microsoft](xref:security/authentication/microsoft-logins). Hay disponibles otros proveedores en paquetes de terceros como [AspNet.Security.OAuth.Providers](https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers) y [AspNet.Security.OpenId.Providers](https://github.com/aspnet-contrib/AspNet.Security.OpenId.Providers).
 
 ![Iconos de redes sociales para Facebook, Twitter, Google Plus y Windows](index/_static/social.png)
 
@@ -58,7 +58,7 @@ OAuth 2.0 requiere el uso de SSL para la autenticación mediante el protocolo HT
 
 Nota: Los proyectos creados con plantillas de proyecto de **aplicación web** o **API Web** de ASP.NET Core 2.x se configuran automáticamente para habilitar SSL e iniciarse con una dirección URL https si la opción **Cuentas de usuario individuales** estaba seleccionada en el cuadro de diálogo **Cambiar autenticación** del asistente de proyectos, como se muestra arriba.
 
-* Establezca que SSL sea obligatorio en el sitio siguiendo los pasos descritos en el tema [Exigir SSL en una aplicación ASP.NET básica](xref:security/enforcing-ssl).
+* Establezca que SSL sea obligatorio en el sitio con los pasos descritos en el tema [Exigir SSL en una aplicación ASP.NET Core](xref:security/enforcing-ssl).
 
 ## <a name="use-secretmanager-to-store-tokens-assigned-by-login-providers"></a>Uso de SecretManager para almacenar los tokens asignados por los proveedores de inicio de sesión
 
@@ -66,17 +66,17 @@ Los proveedores de inicio de sesión de las redes sociales asignan tokens de **I
 
 Estos valores son el *nombre de usuario* y la *contraseña* que usa la aplicación para obtener acceso a la API. Conforman los "secretos" que se pueden vincular a la configuración de la aplicación con la ayuda del **Administrador de secretos**, en vez de almacenarlos directamente en archivos de configuración o de codificarlos de forma rígida.
 
-Siga los pasos descritos en el tema [Safe storage of app secrets during development in ASP.NET Core](xref:security/app-secrets) (Almacenamiento seguro de secretos de aplicación durante el desarrollo en ASP.NET Core) para poder almacenar los tokens asignados por cada uno de los siguientes proveedores de inicio de sesión.
+Siga los pasos descritos en el tema [Ubicación de almacenamiento segura de secretos de la aplicación en el desarrollo de ASP.NET Core](xref:security/app-secrets) para poder almacenar los tokens asignados por cada uno de los siguientes proveedores de inicio de sesión.
 
 ## <a name="setup-login-providers-required-by-your-application"></a>Configuración de los proveedores de inicio de sesión requeridos por la aplicación
 
 En los temas siguientes encontrará información para configurar la aplicación a fin de usar los proveedores correspondientes:
 
-* Instrucciones para [Facebook](facebook-logins.md)
-* Instrucciones para [Twitter](twitter-logins.md)
-* Instrucciones para [Google](google-logins.md)
-* Instrucciones para [Microsoft](microsoft-logins.md)
-* Instrucciones para [otros proveedores](other-logins.md)
+* Instrucciones para [Facebook](xref:security/authentication/facebook-logins)
+* Instrucciones para [Twitter](xref:security/authentication/twitter-logins)
+* Instrucciones para [Google](xref:security/authentication/google-logins)
+* Instrucciones para [Microsoft](xref:security/authentication/microsoft-logins)
+* Instrucciones para [otros proveedores](xref:security/authentication/otherlogins)
 
 ## <a name="optionally-set-password"></a>Establecimiento opcional de contraseña
 

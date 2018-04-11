@@ -1,7 +1,7 @@
 ---
-title: "Protección de datos en ASP.NET Core"
+title: Protección de datos en ASP.NET Core
 author: rick-anderson
-description: "Este documento sirve como tabla de contenido para los distintos temas de protección de datos de ASP.NET Core."
+description: Este documento sirve como tabla de contenido para los distintos temas de protección de datos de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,70 +9,70 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/index
-ms.openlocfilehash: e08dea63f012c4a758f2e5561c4930d09cfee0ac
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 83b5bb1e6a4942a4d3e5ec0d445fa6e5a21fb533
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="data-protection-in-aspnet-core-consumer-apis-configuration-extensibility-apis-and-implementation"></a>Protección de datos en ASP.NET Core: API de consumidor, configuración, API de extensibilidad e implementación
+# <a name="data-protection-in-aspnet-core"></a>Protección de datos en ASP.NET Core
 
-* [Introducción a la protección de datos](introduction.md)
+* [Introducción a la protección de datos](xref:security/data-protection/introduction)
 
-* [Introducción a las API de protección de datos](using-data-protection.md)
+* [Introducción a las API de protección de datos](xref:security/data-protection/using-data-protection)
 
-* [API de consumidor](consumer-apis/index.md)
+* [API de consumidor](xref:security/data-protection/consumer-apis/index)
 
-  * [Información general sobre las API de consumidor](consumer-apis/overview.md)
+  * [Información general sobre las API de consumidor](xref:security/data-protection/consumer-apis/overview)
 
-  * [Cadenas de propósito](consumer-apis/purpose-strings.md)
+  * [Cadenas de propósito](xref:security/data-protection/consumer-apis/purpose-strings)
 
-  * [Jerarquía de propósito y configuración multiempresa](consumer-apis/purpose-strings-multitenancy.md)
+  * [Jerarquía de propósito y configuración multiempresa](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)
 
-  * [Hash de contraseña](consumer-apis/password-hashing.md)
+  * [Aplicar un algoritmo hash a las contraseñas](xref:security/data-protection/consumer-apis/password-hashing)
 
-  * [Limitación de la duración de cargas protegidas](consumer-apis/limited-lifetime-payloads.md)
+  * [Limitación de la duración de cargas protegidas](xref:security/data-protection/consumer-apis/limited-lifetime-payloads)
 
-  * [Desprotección de cargas cuyas claves se han revocado](consumer-apis/dangerous-unprotect.md)
+  * [Desprotección de cargas cuyas claves se han revocado](xref:security/data-protection/consumer-apis/dangerous-unprotect)
 
-* [Configuración](configuration/index.md)
+* [Configuración](xref:security/data-protection/configuration/index)
 
-  * [Configuración de la protección de datos](configuration/overview.md)
+  * [Configurar la protección de datos en ASP.NET Core](xref:security/data-protection/configuration/overview)
 
-  * [Configuración predeterminada](configuration/default-settings.md)
+  * [Configuración predeterminada](xref:security/data-protection/configuration/default-settings)
 
-  * [Directiva de todo el equipo](configuration/machine-wide-policy.md)
+  * [Directiva de todo el equipo](xref:security/data-protection/configuration/machine-wide-policy)
 
-  * [Escenarios no compatibles con DI](configuration/non-di-scenarios.md)
+  * [Escenarios no compatibles con DI](xref:security/data-protection/configuration/non-di-scenarios)
 
-* [API de extensibilidad](extensibility/index.md)
+* [API de extensibilidad](xref:security/data-protection/extensibility/index)
 
-  * [Extensibilidad de criptografía de núcleo](extensibility/core-crypto.md)
+  * [Extensibilidad de criptografía de núcleo](xref:security/data-protection/extensibility/core-crypto)
 
-  * [Extensibilidad de administración de claves](extensibility/key-management.md)
+  * [Extensibilidad de administración de claves](xref:security/data-protection/extensibility/key-management)
 
-  * [Otras API](extensibility/misc-apis.md)
+  * [Otras API](xref:security/data-protection/extensibility/misc-apis)
 
-* [Implementación](implementation/index.md)
+* [Implementación](xref:security/data-protection/implementation/index)
 
-  * [Detalles de cifrado autenticado](implementation/authenticated-encryption-details.md)
+  * [Detalles de cifrado autenticado](xref:security/data-protection/implementation/authenticated-encryption-details)
 
-  * [Derivación de subclave y cifrado autenticado](implementation/subkeyderivation.md)
+  * [Derivación de subclave y cifrado autenticado](xref:security/data-protection/implementation/subkeyderivation)
 
-  * [Encabezados de contexto](implementation/context-headers.md)
+  * [Encabezados de contexto](xref:security/data-protection/implementation/context-headers)
 
-  * [Administración de claves](implementation/key-management.md)
+  * [Administración de claves](xref:security/data-protection/implementation/key-management)
 
-  * [Proveedores de almacenamiento de claves](implementation/key-storage-providers.md)
+  * [Proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers)
 
-  * [Cifrado de claves en reposo](implementation/key-encryption-at-rest.md)
+  * [Cifrado de claves en reposo](xref:security/data-protection/implementation/key-encryption-at-rest)
 
-  * [Inmutabilidad de claves y cambio de configuración](implementation/key-immutability.md)
+  * [Inmutabilidad de claves y configuración](xref:security/data-protection/implementation/key-immutability)
 
-  * [Formato de almacenamiento de claves](implementation/key-storage-format.md)
+  * [Formato de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-format)
 
-  * [Proveedores de protección de datos efímeros](implementation/key-storage-ephemeral.md)
+  * [Proveedores de protección de datos efímeros](xref:security/data-protection/implementation/key-storage-ephemeral)
 
-* [Compatibilidad](compatibility/index.md)
+* [Compatibilidad](xref:security/data-protection/compatibility/index)
 
-  * [Reemplazar <machineKey> en ASP.NET](xref:security/data-protection/compatibility/replacing-machinekey)
+  * [Reemplazar <machineKey> de ASP.NET en ASP.NET Core](xref:security/data-protection/compatibility/replacing-machinekey)

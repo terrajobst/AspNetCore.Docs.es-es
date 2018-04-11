@@ -1,7 +1,7 @@
 ---
-title: "Hospedaje e implementación de ASP.NET Core"
+title: Hospedaje e implementación de ASP.NET Core
 author: tdykstra
-description: "Obtenga información sobre cómo configurar entornos de hospedaje e implementar aplicaciones de ASP.NET Core."
+description: Obtenga información sobre cómo configurar entornos de hospedaje e implementar aplicaciones de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/index
-ms.openlocfilehash: baa77eba837ff8b86ad543a74ebeee51ace4c25d
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 515589e38a1ba121d365427b5fddac1b0e845b1f
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 
@@ -58,6 +58,10 @@ Si la aplicación usa el servidor web [Kestrel](xref:fundamentals/servers/kestre
 Si la aplicación usa el servidor web [Kestrel](xref:fundamentals/servers/kestrel) y se verá expuesto a Internet, debe usar [Nginx](xref:host-and-deploy/linux-nginx), [Apache](xref:host-and-deploy/linux-apache) o [IIS](xref:host-and-deploy/iis/index) como servidor proxy inverso. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y las reenvía a Kestrel después de un control preliminar. La razón principal por la que debe usar un proxy inverso es la seguridad. Para más información, vea [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel?tabs=aspnetcore1x#when-to-use-kestrel-with-a-reverse-proxy) (Cuándo se debe usar Kestrel con un proxy inverso).
 
 ---
+
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
+
+Podría ser necesario realizar una configuración adicional para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga. Sin una configuración adicional, una aplicación podría no tener acceso al esquema (HTTP/HTTPS) y la dirección IP remota donde se originó una solicitud. Para más información, vea [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
 
 ## <a name="using-visual-studio-and-msbuild-to-automate-deployment"></a>Usar Visual Studio y MSBuild para automatizar la implementación
 

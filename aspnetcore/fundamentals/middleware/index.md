@@ -1,7 +1,7 @@
 ---
 title: Middleware de ASP.NET Core
 author: rick-anderson
-description: "Obtenga información sobre el middleware de ASP.NET Core y la canalización de solicitudes."
+description: Obtenga información sobre el middleware de ASP.NET Core y la canalización de solicitudes.
 manager: wpickett
 ms.author: riande
 ms.date: 01/22/2018
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 186faa4c02275ae1f4be53f4a2dd4f8325397bd2
-ms.sourcegitcommit: c5ecda3c5b1674b62294cfddcb104e7f0b9ce465
+ms.openlocfilehash: 3312b27f936340a73243224c1a716fe421f178bc
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -32,7 +32,7 @@ Los delegados de solicitudes se usan para crear la canalización de solicitudes.
 
 Los delegados de solicitudes se configuran con los métodos de extensión [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions), [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) y [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). Un delegado de solicitudes se puede especificar en línea como un método anónimo (denominado middleware en línea) o se puede definir en una clase reutilizable. Estas clases reutilizables y métodos anónimos en línea son *middleware* o *componentes de middleware*. Cada componente de middleware de la canalización de solicitudes es responsable de invocar al siguiente componente de la canalización o de cortocircuitar la cadena en caso de ser necesario.
 
-En [Migrating HTTP Modules to Middleware](xref:migration/http-modules) (Migración de módulos HTTP a middleware) se explica la diferencia entre las canalizaciones de solicitudes en ASP.NET Core y ASP.NET 4.x y se proporcionan más ejemplos de middleware.
+En [Migración de módulos HTTP a middleware](xref:migration/http-modules) se explica la diferencia entre las canalizaciones de solicitudes en ASP.NET Core y ASP.NET 4.x y se proporcionan más ejemplos de middleware.
 
 ## <a name="creating-a-middleware-pipeline-with-iapplicationbuilder"></a>Creación de una canalización de middleware con IApplicationBuilder
 
@@ -109,7 +109,7 @@ public void Configure(IApplicationBuilder app)
 
 En el código anterior, `UseExceptionHandler` es el primer componente de middleware que se agrega a la canalización. Por tanto, captura todas las excepciones que se puedan producir en las llamadas posteriores.
 
-El middleware de archivos estáticos se llama al principio de la canalización para que pueda controlar solicitudes y realizar cortocircuitos sin pasar por los componentes restantes. Este middleware **no** proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los de *wwwroot*, están disponibles de forma pública. Vea [Working with static files](xref:fundamentals/static-files) (Trabajo con archivos estáticos) para obtener información sobre cómo proteger archivos estáticos.
+El middleware de archivos estáticos se llama al principio de la canalización para que pueda controlar solicitudes y realizar cortocircuitos sin pasar por los componentes restantes. Este middleware **no** proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los de *wwwroot*, están disponibles de forma pública. Vea [Trabajar con archivos estáticos ](xref:fundamentals/static-files) para obtener información sobre cómo proteger archivos estáticos.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

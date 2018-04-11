@@ -1,22 +1,22 @@
 ---
 uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
-title: "Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación MVC | Documentos de Microsoft"
+title: 'Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación MVC | Documentos de Microsoft'
 author: rick-anderson
-description: "Este procedimiento se describe varias maneras de servir páginas optimizadas para dispositivos móviles desde los formularios Web Forms de ASP.NET / aplicación de MVC y sugiere arquitectónicos y..."
+description: Este procedimiento se describe varias maneras de servir páginas optimizadas para dispositivos móviles desde los formularios Web Forms de ASP.NET / aplicación de MVC y sugiere arquitectónicos y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2011
 ms.topic: article
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: aac359b26c508784793a67260dc2e65c30db687a
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación de MVC
 ====================
@@ -185,7 +185,7 @@ Tenga en cuenta que la autenticación de formularios hace ciertas suposiciones s
 
     [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample4.cs)]
   
- Este código supone que la página tiene un control de servidor de inicio de sesión llamado LoginUser, como se muestra en la plantilla de proyecto de forma predeterminada.
+  Este código supone que la página tiene un control de servidor de inicio de sesión llamado LoginUser, como se muestra en la plantilla de proyecto de forma predeterminada.
 
 ### <a name="working-with-output-caching"></a>Trabajar con la caché de resultados
 
@@ -243,7 +243,7 @@ A continuación, tenga en cuenta que al agregar un segundo HomeController a su a
 
 [!code-csharp[Main](add-mobile-pages-to-your-aspnet-web-forms-mvc-application/samples/sample9.cs)]
 
-Ahora el error irá ubicación y la dirección URL http://*su sitio*/ llegará a la página principal de escritorio y http://*su sitio*/mobile/ llegará a la página principal de mobile.
+Ahora el error irá ubicación y la dirección URL http://<em>su sitio</em>/ llegará a la página principal de escritorio y http://<em>su sitio</em>/mobile/ llegará a la página principal de mobile.
 
 ### <a name="redirecting-mobile-visitors-to-your-mobile-area"></a>Redireccionar a los visitantes móviles a su área móvil
 

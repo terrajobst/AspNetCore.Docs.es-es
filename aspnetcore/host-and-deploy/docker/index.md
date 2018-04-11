@@ -1,7 +1,7 @@
 ---
 title: Hospedar ASP.NET Core en contenedores de Docker
 author: rick-anderson
-description: "Descubra vínculos a recursos para aprender a hospedar aplicaciones de ASP.NET Core en contenedores de Docker."
+description: Descubra vínculos a recursos para aprender a hospedar aplicaciones de ASP.NET Core en contenedores de Docker.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/docker/index
-ms.openlocfilehash: f6646a92e75b79d2193e9cbca7fa8ac8e26dc429
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 12a179287ec302994380e0faf4b843596f8c2f4e
+ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="host-aspnet-core-in-docker-containers"></a>Hospedar ASP.NET Core en contenedores de Docker
 
@@ -40,3 +40,6 @@ Descubra la manera en que Visual Studio 2017 admite la compilación, la depuraci
 
 [Publicación en una imagen de Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)  
 Obtenga información sobre cómo usar la extensión de Visual Studio Tools para Docker para implementar una aplicación de ASP.NET Core en un host de Docker en Azure mediante PowerShell.
+
+[Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer)  
+Podría ser necesario realizar una configuración adicional para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga. El proceso de pasar solicitudes a través de un proxy suele ocultar información de la solicitud original, como la dirección IP de cliente y el esquema. Podría ser necesario reenviar manualmente a la aplicación cierta información de la solicitud.

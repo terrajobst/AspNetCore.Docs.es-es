@@ -1,7 +1,7 @@
 ---
-title: "Configuración de la protección de datos en ASP.NET Core"
+title: Configuración de la protección de datos en ASP.NET Core
 author: rick-anderson
-description: "Explore los temas en los que se explica cómo configurar la protección de datos en ASP.NET Core."
+description: Explore los temas en los que se explica cómo configurar la protección de datos en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/12/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/index
-ms.openlocfilehash: 9e08452e13c0ffadde1aeb8fe6e64d5d4eb4d306
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 74fb5de465a740303872cbbc79ed2d3fafb1eea0
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
 # <a name="data-protection-configuration-in-aspnet-core"></a>Configuración de la protección de datos en ASP.NET Core
 
 Consulte estos temas para obtener información sobre la configuración de la protección de datos en ASP.NET Core:
 
-* [Configuración de la protección de datos](xref:security/data-protection/configuration/overview)  
+* [Configurar la protección de datos en ASP.NET Core](xref:security/data-protection/configuration/overview)  
   Una introducción a la configuración de la protección de datos de ASP.NET Core.
 
 * [Administración y duración de las claves de protección de datos](xref:security/data-protection/configuration/default-settings)  

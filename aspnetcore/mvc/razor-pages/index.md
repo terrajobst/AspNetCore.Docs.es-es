@@ -1,7 +1,7 @@
 ---
-title: "Introducción a las páginas de Razor en ASP.NET Core"
+title: Introducción a las páginas de Razor en ASP.NET Core
 author: Rick-Anderson
-description: "Obtenga información sobre cómo las páginas de Razor de ASP.NET Core facilitan la programación de escenarios centrados en páginas y hacen que resulte más productiva que con MVC."
+description: Obtenga información sobre cómo las páginas de Razor de ASP.NET Core facilitan la programación de escenarios centrados en páginas y hacen que resulte más productiva que con MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 09/12/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: cb80c38fd0284d5153aebfe7bb515722623a4a34
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 532799d013f26869da03fe1062072f55dcce35f8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -25,16 +25,9 @@ Si busca un tutorial que use el enfoque Model-View-Controller, consulte [Introdu
 
 En este documento se proporciona una introducción a las páginas de Razor. No es un tutorial paso a paso. Si encuentra que alguna sección es demasiado avanzada, consulte [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start). Para obtener información general de ASP.NET Core, vea [Introducción a ASP.NET Core](xref:index).
 
-<a name="prerequisites"></a>
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="aspnet-core-20-prerequisites"></a>Requisitos previos de ASP.NET Core 2.0
-
-Instale [.NET Core](https://www.microsoft.com/net/core) 2.0.0 o una versión posterior.
-
-Si usa Visual Studio, instale [Visual Studio](https://www.visualstudio.com/vs/) 2017 versión 15.3, o una versión posterior con las cargas de trabajo siguientes:
-
-* **Desarrollo de ASP.NET y web**
-* **Desarrollo multiplataforma de .NET Core**
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 <a name="rpvs17"></a>
 
@@ -44,7 +37,7 @@ Si usa Visual Studio, instale [Visual Studio](https://www.visualstudio.com/vs/) 
 
 Vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start) para obtener instrucciones detalladas sobre cómo crear un proyecto de páginas de Razor con Visual Studio.
 
-#   <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 Ejecute `dotnet new razor` desde la línea de comandos.
 
@@ -54,7 +47,7 @@ Abra el archivo *.csproj* generado desde Visual Studio para Mac.
 
 Ejecute `dotnet new razor` desde la línea de comandos.
 
-#   <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
 
 Ejecute `dotnet new razor` desde la línea de comandos.
 
@@ -175,7 +168,11 @@ El archivo *Pages/Edit.cshtml*:
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Edit.cshtml?highlight=1)]
 
-La primera línea contiene la directiva `@page "{id:int}"`. La restricción de enrutamiento `"{id:int}"` indica a la página que acepte las solicitudes a la página que contienen datos de ruta `int`. Si una solicitud a la página no contiene datos de ruta que se puedan convertir en `int`, el tiempo de ejecución devuelve un error HTTP 404 (no encontrado).
+La primera línea contiene la directiva `@page "{id:int}"`. La restricción de enrutamiento `"{id:int}"` indica a la página que acepte las solicitudes a la página que contienen datos de ruta `int`. Si una solicitud a la página no contiene datos de ruta que se puedan convertir en `int`, el tiempo de ejecución devuelve un error HTTP 404 (no encontrado). Para que el identificador sea opcional, anexe `?` a la restricción de ruta:
+
+ ```cshtml
+@page "{id:int?}"
+```
 
 El archivo *Pages/Edit.cshtml.cs*:
 
@@ -317,7 +314,7 @@ La generación de direcciones URL para las páginas admite nombres relativos. En
 | RedirectToPage("../Index") | *Pages/Index* |
 | RedirectToPage("Index")  | *Pages/Customers/Index* |
 
-`RedirectToPage("Index")`, `RedirectToPage("./Index")` y `RedirectToPage("../Index")` son *nombres relativos*. El parámetro `RedirectToPage` se *combina* con la ruta de acceso de la página actual para calcular el nombre de la página de destino.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
+`RedirectToPage("Index")`, `RedirectToPage("./Index")` y `RedirectToPage("../Index")` son <em>nombres relativos</em>. El parámetro `RedirectToPage` se <em>combina</em> con la ruta de acceso de la página actual para calcular el nombre de la página de destino.  <!-- Review: Original had The provided string is combined with the page name of the current page to compute the name of the destination page. -- page name, not page path -->
 
 Vincular el nombre relativo es útil al crear sitios con una estructura compleja. Si usa nombres relativos para vincular entre páginas en una carpeta, puede cambiar el nombre de esa carpeta. Todos los vínculos seguirán funcionando (porque no incluyen el nombre de carpeta).
 

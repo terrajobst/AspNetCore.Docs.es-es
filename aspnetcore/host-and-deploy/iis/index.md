@@ -1,7 +1,7 @@
 ---
 title: Hospedaje de ASP.NET Core en Windows con IIS
 author: guardrex
-description: "Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS)."
+description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: fa9e60c52f143b20dbf179679fc4932e838a9137
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 64eb85f75a6c2e10bf8c39f32eeda5311744f2a2
+ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -85,6 +85,10 @@ services.Configure<IISOptions>(options =>
 | `AuthenticationDisplayName`    | `null`  | Establece el nombre para mostrar que se muestra a los usuarios en las páginas de inicio de sesión. |
 | `ForwardClientCertificate`     | `true`  | Si `HttpContext.Connection.ClientCertificate` y el encabezado de solicitud `true` está presente, se rellena `MS-ASPNETCORE-CLIENTCERT`. |
 
+### <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
+
+El software intermedio de integración con IIS, que configura el software intermedio de encabezados reenviados, y el módulo de ASP.NET Core están configurados para reenviar el esquema (HTTP/HTTPS) y la dirección IP remota donde se originó la solicitud. Podría ser necesario realizar una configuración adicional para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga adicionales. Para más información, vea [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
+
 ### <a name="webconfig-file"></a>Archivo web.config
 
 El archivo *web.config* configura el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). La creación, transformación y publicación de *web.config* se controlan con el SDK web de .NET Core (`Microsoft.NET.Sdk.Web`). El SDK se establece en la parte superior del archivo del proyecto:
@@ -97,7 +101,7 @@ Si el proyecto no incluye un archivo *web.config*, el archivo se crea con los el
 
 Si el proyecto incluye un archivo *web.config*, el archivo se transforma con los elementos *processPath* y *arguments* correctos para configurar el módulo ASP.NET Core y se mueve a la salida publicada. La transformación no modifica los valores de configuración de IIS del archivo.
 
-El archivo *web.config* puede proporcionar valores de configuración de IIS adicionales que controlan los módulos activos de IIS. Para información sobre los módulos de IIS que son capaces de procesar las solicitudes con aplicaciones ASP.NET Core, vea el tema [Uso de módulos IIS con ASP.NET Core](xref:host-and-deploy/iis/modules).
+El archivo *web.config* puede proporcionar valores de configuración de IIS adicionales que controlan los módulos activos de IIS. Para información sobre los módulos de IIS que son capaces de procesar las solicitudes con aplicaciones ASP.NET Core, vea el tema [Módulos IIS](xref:host-and-deploy/iis/modules).
 
 Para evitar que el SDK web transforme el archivo *web.config*, use la propiedad **\<IsTransformWebConfigDisabled>** en el archivo del proyecto:
 
@@ -167,7 +171,11 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
 
 ## <a name="install-the-net-core-windows-server-hosting-bundle"></a>Instalación del lote de hospedaje .NET Core Windows Server
 
-1. Instale el [lote de hospedaje .NET Core Windows Server](https://aka.ms/dotnetcore-2-windowshosting) en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el lote de hospedaje .NET Core Windows Server.
+1. Instale el *lote de hospedaje .NET Core Windows Server* en el sistema host. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el lote de hospedaje .NET Core Windows Server.
+
+   1. Vaya a la [página de todas las descargas de .NET](https://www.microsoft.com/net/download/all).
+   1. Seleccione el tiempo de ejecución de .NET Core que no sea versión preliminar más reciente de la lista (**.NET Core** > **Tiempo de ejecución** > **Tiempo de ejecución de .NET Core x.y.z**). A menos que vaya a trabajar con software de versión preliminar, evite los tiempos de ejecución que incluyan la palabra "preview" (versión preliminar) en el texto del vínculo.
+   1. En la página de descarga de tiempos de ejecución de .NET Core, en **Windows**, haga clic en el vínculo del **instalador del hospedaje de servidor** para descargar la *agrupación de hospedaje de .NET Core Windows Server*.
 
    **¡Importante!** Si el lote de hospedaje se instala antes que IIS, se debe reparar la instalación de dicho paquete. Ejecute el instalador del lote de hospedaje de nuevo después de instalar IIS.
    
@@ -278,7 +286,7 @@ Si el conjunto de claves se almacena en memoria cuando se reinicia la aplicació
 
 * Todos los tokens de autenticación basados en cookies se invalidan. 
 * Los usuarios tienen que iniciar sesión de nuevo en la siguiente solicitud. 
-* Ya no se pueden descifrar los datos protegidos con el conjunto de claves. Esto puede incluir [tokens CSRF](xref:security/anti-request-forgery#how-does-aspnet-core-mvc-address-csrf) y [cookies de tempdata para ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
+* Ya no se pueden descifrar los datos protegidos con el conjunto de claves. Esto puede incluir [tokens CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) y [cookies de TempData de ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
 
 Para configurar la protección de datos en IIS para conservar el conjunto de claves, use **uno** de los enfoques siguientes:
 
@@ -288,7 +296,7 @@ Para configurar la protección de datos en IIS para conservar el conjunto de cla
 
   En las instalaciones independientes de IIS que no son de granja de servidores web, puede usar el [script de PowerShell Provision-AutoGenKeys.ps1 de protección de datos](https://github.com/aspnet/DataProtection/blob/dev/Provision-AutoGenKeys.ps1) para cada grupo de aplicaciones usado con una aplicación de ASP.NET Core. Este script crea una clave del Registro en el registro HKLM que solo es accesible a la cuenta de proceso de trabajo del grupo de aplicaciones de la aplicación. Las claves se cifran en reposo mediante DPAPI con una clave de equipo.
 
-  En escenarios de granja de servidores web, una aplicación puede configurarse para usar una ruta de acceso UNC para almacenar su conjunto de claves de protección de datos. De forma predeterminada, las claves de protección de datos no se cifran. Asegúrese de que los permisos de archivo de un recurso compartido de red se limitan a la cuenta de Windows bajo la que se ejecuta la aplicación. Puede usar un certificado X509 para proteger las claves en reposo. Considere un mecanismo que permita a los usuarios cargar certificados: coloque los certificados en el almacén de certificados de confianza del usuario y asegúrese de que están disponibles en todos los equipos en los que se ejecuta la aplicación del usuario. Vea [Configuración de la protección de datos](xref:security/data-protection/configuration/overview) para obtener detalles.
+  En escenarios de granja de servidores web, una aplicación puede configurarse para usar una ruta de acceso UNC para almacenar su conjunto de claves de protección de datos. De forma predeterminada, las claves de protección de datos no se cifran. Asegúrese de que los permisos de archivo de un recurso compartido de red se limitan a la cuenta de Windows bajo la que se ejecuta la aplicación. Puede usar un certificado X509 para proteger las claves en reposo. Considere un mecanismo que permita a los usuarios cargar certificados: coloque los certificados en el almacén de certificados de confianza del usuario y asegúrese de que están disponibles en todos los equipos en los que se ejecuta la aplicación del usuario. Vea [Configurar la protección de datos en ASP.NET Core](xref:security/data-protection/configuration/overview) para más información.
 
 * **Configurar el grupo de aplicaciones de IIS para cargar el perfil de usuario**
 
@@ -348,7 +356,7 @@ Para más información sobre la configuración del módulo de ASP.NET Core, vea 
 
 La configuración de IIS aún se ve afectada por la sección **\<system.webServer>** de *web.config* en las características de IIS que se aplican a una configuración de proxy inverso. Si IIS está configurado en el nivel de servidor para usar compresión dinámica, el elemento **\<urlCompression>** del archivo *web.config* de la aplicación puede deshabilitarla.
 
-Para más información, vea la [referencia de configuración para \<system.webServer>](/iis/configuration/system.webServer/), [ASP.NET Core Module Configuration Reference](xref:host-and-deploy/aspnet-core-module) (Referencia de configuración del módulo de ASP.NET Core) y [Using IIS Modules with ASP.NET Core](xref:host-and-deploy/iis/modules) (Uso de módulos de IIS con ASP.NET Core). Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite para IIS 10.0 o posterior), vea la sección *AppCmd.exe command* (Comando AppCmd.exe) del tema [Environment Variables \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) (Variables de entorno <environmentVariables>) de la documentación de referencia de IIS.
+Para más información, vea la [referencia de configuración para \<system.webServer>](/iis/configuration/system.webServer/), [Referencia de configuración del módulo de ASP.NET Core](xref:host-and-deploy/aspnet-core-module) y [Módulos IIS con ASP.NET Core](xref:host-and-deploy/iis/modules). Para establecer variables de entorno para aplicaciones individuales que se ejecutan en grupos de aplicaciones aislados (se admite para IIS 10.0 o posterior), vea la sección *AppCmd.exe command* (Comando AppCmd.exe) del tema [Environment Variables \<environmentVariables>](/iis/configuration/system.applicationHost/applicationPools/add/environmentVariables/#appcmdexe) (Variables de entorno <environmentVariables>) de la documentación de referencia de IIS.
 
 ## <a name="configuration-sections-of-webconfig"></a>Secciones de configuración de web.config
 
@@ -407,7 +415,7 @@ Para más información, consulte el tema [icacls](/windows-server/administration
 * [Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
 * [Introducción al módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 * [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Uso de módulos de IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
+* [Módulos de IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Introducción a ASP.NET Core](../index.md)
 * [Sitio oficial de Microsoft IIS](https://www.iis.net/)
 * [Biblioteca de TechNet de Microsoft: Windows Server](/windows-server/windows-server-versions)

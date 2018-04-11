@@ -1,7 +1,7 @@
 ---
 title: Hospedaje de ASP.NET Core en Azure App Service
 author: guardrex
-description: "Descubra cómo hospedar aplicaciones de ASP.NET Core en Azure App Service con vínculos a recursos útiles."
+description: Descubra cómo hospedar aplicaciones de ASP.NET Core en Azure App Service con vínculos a recursos útiles.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: cefbc27c8091a2ed1441663e3779d67aae2c64dd
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) es un [servicio de plataforma de informática en la nube de Microsoft](https://azure.microsoft.com/) que sirve para hospedar aplicaciones web, como ASP.NET Core.
-
-[!INCLUDE[Azure App Service Preview Notice](../../includes/azure-apps-preview-notice.md)]
 
 ## <a name="useful-resources"></a>Recursos útiles
 
@@ -57,6 +55,10 @@ En ASP.NET Core 2.0 y versiones posteriores, tres paquetes del [metapaquete Micr
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) ejecuta [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) para agregar a Azure App Service proveedores de registro de diagnósticos en el paquete `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) proporciona implementaciones de registrador para admitir registros de diagnósticos de Azure App Service y características de transmisión en secuencias de registro.
 
+## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
+
+El software intermedio de integración con IIS, que configura el software intermedio de encabezados reenviados, y el módulo de ASP.NET Core están configurados para reenviar el esquema (HTTP/HTTPS) y la dirección IP remota donde se originó la solicitud. Podría ser necesario realizar una configuración adicional para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga adicionales. Para más información, vea [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
+
 ## <a name="monitoring-and-logging"></a>Supervisión y registro
 
 Para obtener información sobre supervisión, registro y solución de problemas, consulte los artículos siguientes:
@@ -89,6 +91,62 @@ Al realizar un intercambio entre ranuras de implementación, cualquier sistema q
 
 Para obtener más información, consulte [Proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers).
 
+## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Implementar una versión preliminar de ASP.NET Core en Azure App Service
+
+Las aplicaciones de versión preliminar de ASP.NET Core se pueden implementar en Azure App Service con los procedimientos siguientes:
+
+* [Instalar la extensión de sitio de versión preliminar](#site-x)
+* [Implementar la aplicación independiente](#self)
+* [Usar Docker con Web Apps para contenedores](#docker)
+
+Si tiene un problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+
+<a name="site-x"></a>
+### <a name="install-the-preview-site-extention"></a>Instalar la extensión de sitio de versión preliminar
+
+* En Azure Portal, vaya a la hoja de App Service.
+* Escriba "ex" en el cuadro de búsqueda.
+* Seleccione **Extensiones**.
+* Seleccione "Agregar".
+
+![Hoja de Azure App con los pasos anteriores](index/_static/x1.png)
+
+* Seleccione **ASP.NET Core Runtime Extensions** (Extensiones de tiempo de ejecución de ASP.NET Core).
+* Seleccione **Aceptar** > **Aceptar**.
+
+Cuando se completa la operación de adición, se instala la versión preliminar de .NET Core 2.1. Para comprobar la instalación, ejecute `dotnet --info` en la consola. En la hoja de App Service:
+
+* Escriba "con" en el cuadro de búsqueda.
+* Seleccione **Consola**.
+* Escriba `dotnet --info` en la consola.
+
+![Hoja de Azure App con los pasos anteriores](index/_static/cons.png)
+
+La imagen anterior se capturó en el momento en que se escribía esto. Podría ver una versión diferente.
+
+`dotnet --info` muestra la ruta de acceso a la extensión de sitio en la que se ha instalado la versión preliminar. Muestra que la aplicación se está ejecutando desde la extensión de sitio, en lugar de desde la ubicación predeterminada *ProgramFiles*. Si ve *ProgramFiles*, reinicie el sitio y ejecute `dotnet --info`.
+
+#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Usar la extensión de sitio de versión preliminar con una plantilla de ARM
+
+Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo:
+
+[!code-json[Main](index/sample/arm.json?highlight=2)]
+
+<a name="self"></a>
+### <a name="deploy-the-app-self-contained"></a>Implementar la aplicación independiente
+
+Puede implementar una [aplicación independiente](/dotnet/core/deploying/#self-contained-deployments-scd) que incluye el tiempo de ejecución de versión preliminar al implementarse. Al implementar una aplicación independiente:
+
+* No es necesario preparar el sitio.
+* Debe publicar la aplicación de manera diferente a como lo haría al implementar una aplicación una vez que el SDK está instalado en el servidor.
+
+Las aplicaciones independientes son una opción válida para todas las aplicaciones de .NET Core.
+
+<a name="docker"></a>
+### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
+
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar 2.1 más recientes. Puede usarlas como imagen base e implementarlas en Web Apps para contenedores como lo haría normalmente.
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Introducción a Web Apps (vídeo de introducción de 5 minutos)](/azure/app-service/app-service-web-overview)
@@ -101,5 +159,5 @@ Azure App Service en Windows Server utiliza [Internet Information Services (IIS)
 * [Hospedaje de ASP.NET Core en Windows con IIS](xref:host-and-deploy/iis/index)
 * [Introducción al módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 * [Referencia de configuración del módulo ASP.NET Core](xref:host-and-deploy/aspnet-core-module)
-* [Uso de módulos de IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
+* [Módulos de IIS con ASP.NET Core](xref:host-and-deploy/iis/modules)
 * [Biblioteca de TechNet de Microsoft: Windows Server](/windows-server/windows-server-versions)
