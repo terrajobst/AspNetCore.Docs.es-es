@@ -16,7 +16,7 @@ ms.openlocfilehash: 4fa0476ca8336b56340dd177f9816acbe015ef7d
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="creating-the-membership-schema-in-sql-server-c"></a>Crear el esquema de pertenencia en SQL Server (C#)
 ====================
@@ -234,7 +234,7 @@ Las columnas responsables de almacenar la contraseña son `Password`, `PasswordF
 
 Tabla 1 se muestran estas tres columnas quedará para las distintas técnicas de almacenamiento al almacenar la contraseña MiSecreto! .
 
-| **Técnica de almacenamiento&lt;\_o3a\_p /&gt;** | **Password&lt;\_o3a\_p /&gt;** | **PasswordFormat&lt;\_o3a\_p /&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
+| **Técnica de almacenamiento&lt;\_o3a\_p /&gt;** | **Contraseña&lt;\_o3a\_p /&gt;** | **PasswordFormat&lt;\_o3a\_p /&gt;** | **PasswordSalt&lt;\_o3a\_p /&gt;** |
 | --- | --- | --- | --- |
 | Clear | ¡MiSecreto! | 0 | tTnkPlesqissc2y2SMEygA== |
 | Aplica un algoritmo hash | 2oXm6sZHWbTHFgjgkGQsc2Ec9ZM= | 1 | wFgjUfhdUFOCKQiI61vtiQ== |

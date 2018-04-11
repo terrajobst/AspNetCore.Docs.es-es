@@ -16,7 +16,7 @@ ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/10/2018
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación de MVC
 ====================
@@ -104,7 +104,7 @@ El requisito previo de clave para todas las técnicas de servidor para admitir d
 - Método de entrada (mouse, teclado, táctil, teclado, joystick,...)
 - Tamaño de la pantalla (físicamente y en píxeles)
 - Formatos admitidos de medios y los datos
-- Etcetera.
+- Etc.
 
 Es mejor tomar decisiones basadas en características que el número de modelo, ya que, a continuación, estará mejor preparado para controlar futuros dispositivos.
 
@@ -116,7 +116,7 @@ Los desarrolladores de formularios Web Forms ASP.NET y MVC inmediatamente pueden
 - Request.Browser.MobileDeviceManufacturer, Request.Browser.MobileDeviceModel
 - Request.Browser.ScreenPixelsWidth
 - Request.Browser.SupportsXmlHttp
-- .. .y muchos otros
+- ...y muchos otros
 
 En segundo plano, la plataforma ASP.NET coincide con la entrada *User-Agent* encabezado HTTP (UAC) con expresiones regulares en un conjunto de archivos XML de definición de explorador. De forma predeterminada, la plataforma incluye definiciones para varios dispositivos móviles comunes, y puede agregar archivos de definición de explorador personalizados para que otros usuarios que se va a reconocer. Para obtener más información, vea la página MSDN [controles de servidor Web de ASP.NET y las funciones del explorador](https://msdn.microsoft.com/library/x3k2ssx2.aspx).
 
