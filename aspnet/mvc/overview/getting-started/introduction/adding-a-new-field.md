@@ -115,7 +115,7 @@ La sección completa `Movie` clase ahora parece similar al código siguiente:
 
 Compilar la aplicación (Ctrl + Mayús + B).
 
-Dado que ha agregado un nuevo campo a la `Movie` (clase), también debe actualizar el enlace *lista blanca* por lo que se incluirá esta nueva propiedad. Actualización de la `bind` atributo `Create` y `Edit` métodos de acción para incluir la `Rating` propiedad:
+Dado que ha agregado un nuevo campo a la `Movie` (clase), también debe actualizar el enlace *lista de permitidos* por lo que se incluirá esta nueva propiedad. Actualización de la `bind` atributo `Create` y `Edit` métodos de acción para incluir la `Rating` propiedad:
 
 [!code-csharp[Main](adding-a-new-field/samples/sample7.cs?highlight=1)]
 

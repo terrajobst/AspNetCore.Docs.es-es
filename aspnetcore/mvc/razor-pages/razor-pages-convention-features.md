@@ -1,7 +1,7 @@
 ---
-title: "Características de convención de aplicación y de ruta de páginas de Razor en ASP.NET Core"
+title: Características de convención de aplicación y de ruta de páginas de Razor en ASP.NET Core
 author: guardrex
-description: "Vea cómo las características de convención de proveedor de modelos de aplicación y de ruta sirven para controlar el enrutamiento, la detección y el procesamiento de páginas."
+description: Vea cómo las características de convención de proveedor de modelos de aplicación y de ruta sirven para controlar el enrutamiento, la detección y el procesamiento de páginas.
 manager: wpickett
 ms.author: riande
 ms.date: 10/23/2017
@@ -127,7 +127,7 @@ Observe que la dirección URL generada para el vínculo **Contact** en la págin
 
 Visite la página Contact a través de su ruta normal, `/Contact`, o de la ruta personalizada, `/TheContactPage`. Si se proporciona un segmento de ruta `text` adicional, la página muestra el segmento codificado en HTML que se ha proporcionado:
 
-![Ejemplo del explorador Edge en el que se proporciona un segmento de ruta opcional "text" de "TextValue" en la dirección URL La página presentada muestra el valor del segmento "text".](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
+![Ejemplo del explorador Microsoft Edge en el que se proporciona un segmento de ruta opcional "text" de "TextValue" en la dirección URL La página presentada muestra el valor del segmento "text".](razor-pages-convention-features/_static/route-segment-with-custom-route.png)
 
 ## <a name="page-model-action-conventions"></a>Convenciones de acción del modelo de página
 

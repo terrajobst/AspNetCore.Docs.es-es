@@ -11,7 +11,7 @@ ms.topic: article
 uid: mvc/views/overview
 ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
 ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
 ---
@@ -64,7 +64,7 @@ Las vistas normalmente las devuelven acciones como [ViewResult](/aspnet/core/api
 
 Cuando esta acción devuelve un resultado, la vista *About.cshtml* mostrada en la última sección se representa como la página web siguiente:
 
-![Página Acerca de representada en el explorador Edge](overview/_static/about-page.png)
+![Página Acerca de representada en el explorador Microsoft Edge](overview/_static/about-page.png)
 
 El método auxiliar `View` tiene varias sobrecargas. También puede especificar:
 

@@ -166,7 +166,7 @@ Tenga en cuenta que la segunda acción Add() se decora con el atributo AcceptVer
 La segunda acción Add() crea una nueva instancia de la clase de Entity Framework película con la Ayuda del método TryUpdateModel() de MVC de ASP.NET. El método TryUpdateModel() toma los campos en el ColecciónFormulario pasado al método Add() y asigna los valores de estos campos de formulario HTML a la clase de la película.
 
 
-Al utilizar Entity Framework, debe proporcionar una "lista blanca" de propiedades cuando se usan métodos TryUpdateModel o UpdateModel para actualizar las propiedades de una clase de entidad.
+Al utilizar Entity Framework, debe proporcionar una "lista de permitidos" de propiedades cuando se usan métodos TryUpdateModel o UpdateModel para actualizar las propiedades de una clase de entidad.
 
 
 A continuación, la acción Add() realiza alguna validación de forma sencilla. La acción comprueba que el título y el Director de propiedades tienen valores. Si se produce un error de validación, se agrega un mensaje de error de validación para ModelState.
@@ -193,7 +193,7 @@ La segunda acción Edit() se inicia si se recupera el registro de la película d
 
 [!code-csharp[Main](creating-model-classes-with-the-entity-framework-cs/samples/sample7.cs)]
 
-A continuación, el método TryUpdateModel() se utiliza para asignar los valores de los campos de formulario HTML a las propiedades de la entidad de la película. Tenga en cuenta que se proporciona una lista blanca para especificar las propiedades exactas para actualizar.
+A continuación, el método TryUpdateModel() se utiliza para asignar los valores de los campos de formulario HTML a las propiedades de la entidad de la película. Tenga en cuenta que se proporciona una lista de permitidos para especificar las propiedades exactas para actualizar.
 
 A continuación, se realiza alguna validación simple para comprobar que el título de la película y el Director propiedades tienen valores. Si falta un valor de propiedad, a continuación, se agrega un mensaje de error de validación para ModelState y ModelState.IsValid devuelve el valor false.
 

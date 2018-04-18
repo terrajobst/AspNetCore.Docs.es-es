@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/enabling-cross-origin-requests-in-web-api
-title: "Habilitar las solicitudes entre orígenes en ASP.NET Web API 2 | Documentos de Microsoft"
+title: Habilitar las solicitudes entre orígenes en ASP.NET Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: "Muestra cómo admitir el uso compartido de recursos entre orígenes (CORS) en ASP.NET Web API."
+description: Muestra cómo admitir el uso compartido de recursos entre orígenes (CORS) en ASP.NET Web API.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/15/2014
@@ -227,7 +227,7 @@ El *métodos* parámetro de la **[EnableCors]** atributo especifica qué método
 <a id="allowed-request-headers"></a>
 ## <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitido
 
-Anteriormente describe cómo una solicitud preparatoria podría incluir un encabezado de acceso-Access-Control-Request-Headers, enumerar los encabezados HTTP establecidos por la aplicación (la "crear encabezados de solicitud"). El *encabezados* parámetro de la **[EnableCors]** atributo especifica que se permiten los encabezados de solicitud de autor. Para permitir que los encabezados, establezca *encabezados* a "\*". A encabezados específicos de la lista blanca, establezca *encabezados* a una lista separada por comas de los encabezados permitidos:
+Anteriormente describe cómo una solicitud preparatoria podría incluir un encabezado de acceso-Access-Control-Request-Headers, enumerar los encabezados HTTP establecidos por la aplicación (la "crear encabezados de solicitud"). El *encabezados* parámetro de la **[EnableCors]** atributo especifica que se permiten los encabezados de solicitud de autor. Para permitir que los encabezados, establezca *encabezados* a "\*". A encabezados específicos de la lista de permitidos, establezca *encabezados* a una lista separada por comas de los encabezados permitidos:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample16.cs)]
 
