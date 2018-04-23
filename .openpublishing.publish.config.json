@@ -64,7 +64,7 @@
       }
     }
   ],
-  "need_generate_pdf_url_template": false,
+  "need_generate_pdf_url_template": true,
 "branch_target_mapping": {
      "live-sxs": [
            "Publish",
