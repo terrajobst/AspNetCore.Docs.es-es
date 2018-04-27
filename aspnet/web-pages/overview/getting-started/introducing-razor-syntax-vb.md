@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 715e52715fb22b92f94d3d602ec58c29a913426c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aad951a0e4344dbaafbdcc3b3980307a26fa75fc
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-visual-basic"></a>Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (Visual Basic)
 ====================
@@ -58,7 +58,7 @@ El `@` carácter asociado empiece a expresiones en línea, bloques de instrucci�
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img1](introducing-razor-syntax-vb/_static/image1.jpg)
+![Img1 Razor](introducing-razor-syntax-vb/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ Un bloque de código incluye una o varias instrucciones de código y se incluye 
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img2](introducing-razor-syntax-vb/_static/image2.jpg)
+![Img2 de Razor](introducing-razor-syntax-vb/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-line-break"></a>3. Dentro de un bloque, finalizar cada instrucción de código con un salto de línea
 
@@ -95,7 +95,7 @@ Puede almacenar valores en una *variable*, incluidas las cadenas, números y fec
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img3](introducing-razor-syntax-vb/_static/image3.jpg)
+![Img3 de Razor](introducing-razor-syntax-vb/_static/image3.jpg)
 
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Incluir valores de cadena literal de comillas dobles
 
@@ -109,7 +109,7 @@ Para incrustar comillas dobles dentro de un valor de cadena, inserte dos caracte
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img4](introducing-razor-syntax-vb/_static/image4.jpg)
+![Img4 de Razor](introducing-razor-syntax-vb/_static/image4.jpg)
 
 ### <a name="6-visual-basic-code-is-not-case-sensitive"></a>6. Código de Visual Basic no distingue mayúsculas de minúsculas
 
@@ -121,7 +121,7 @@ Las siguientes líneas de código asigna un valor a la variable `lastname` con u
 
 El resultado que se muestra en un explorador:
 
-![vb-syntax-5](introducing-razor-syntax-vb/_static/image5.jpg)
+![5 de sintaxis de VB](introducing-razor-syntax-vb/_static/image5.jpg)
 
 ### <a name="7-much-of-your-coding-involves-working-with-objects"></a>7. Gran parte de la codificación implica trabajar con objetos
 
@@ -133,7 +133,7 @@ A menudo trabajará con la `Request` campos de objeto, que proporciona informaci
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img5](introducing-razor-syntax-vb/_static/image6.jpg)
+![Img5 de Razor](introducing-razor-syntax-vb/_static/image6.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Puede escribir código que toma decisiones
 
@@ -145,7 +145,7 @@ La instrucción `If IsPost` es una forma abreviada de escritura `If IsPost = Tru
 
 El resultado mostrado en un explorador (después de hacer clic **enviar**):
 
-![Razor-Img6](introducing-razor-syntax-vb/_static/image7.jpg)
+![Img6 de Razor](introducing-razor-syntax-vb/_static/image7.jpg)
 
 > [!TIP] 
 > 
@@ -176,7 +176,7 @@ Este procedimiento muestra cómo crear una página que muestra las técnicas de 
     - El `<form>` etiqueta incluye un `method="post"` atributo. Esto especifica que cuando el usuario hace clic en **agregar**, la página se enviará al servidor mediante el método HTTP POST. Cuando se envía la página, el código `If IsPost` se evalúa como true y la directiva de ejecución, mostrar el resultado de sumar los números del código.
 3. Guarde la página y ejecútelo en un explorador. (Asegúrese de que la página está seleccionada en el **archivos** área de trabajo antes de ejecutarlo.) Escriba dos números enteros y, a continuación, haga clic en el **agregar** botón.
 
-    ![Razor-Img7](introducing-razor-syntax-vb/_static/image8.jpg)
+    ![Img7 de Razor](introducing-razor-syntax-vb/_static/image8.jpg)
 
 ## <a name="visual-basic-language-and-syntax"></a>Sintaxis y el lenguaje Visual Basic
 
@@ -257,7 +257,7 @@ El ejemplo siguiente muestra algunas expresiones en línea que utilizan las vari
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img9](introducing-razor-syntax-vb/_static/image9.jpg)
+![Img9 de Razor](introducing-razor-syntax-vb/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>Convertir y tipos de datos de pruebas
 
@@ -276,32 +276,78 @@ Para convertir los valores enteros, se llama a la `AsInt` método. Si la convers
 En la tabla siguiente se enumera algunos métodos de conversión y prueba comunes para las variables.
 
 
-|   <strong>Método</strong>    |                                                                              <strong>Descripción</strong>                                                                              |                     <strong>Ejemplo</strong>                      |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------|
-|      `AsInt(), IsInt()`      |                                                 Convierte una cadena que representa un número entero (como &quot;593&quot;) en un entero.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)] |
-|     `AsBool(), IsBool()`     |                                                    Convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.                                                     | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)] |
-|    `AsFloat(), IsFloat()`    |                                    Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.                                    | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)] |
-|  `AsDecimal(), IsDecimal()`  | Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante.) | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)] |
-| `AsDateTime(), IsDateTime()` |                                                Convierte una cadena que representa un valor de fecha y hora para ASP.NET `DateTime` tipo.                                                 | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)] |
-|         `ToString()`         |                                                                       Cualquier otro tipo de datos se convierte en una cadena.                                                                        | [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)] |
+::: fila:::::: columna::: <strong>método</strong> ::: final de la columna:::::: columna::: <strong>descripción</strong> ::: final de la columna:::::: columna::: <strong>ejemplo</strong> ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsInt(), IsInt()` ::: final de la columna:::::: columna::: convierte una cadena que representa un número entero (como &quot;593&quot;) en un entero.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample23.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsBool(), IsBool()` ::: final de la columna:::::: columna::: convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample24.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsFloat(), IsFloat()` ::: final de la columna:::::: columna::: convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample25.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsDecimal(), IsDecimal()` ::: final de la columna:::::: columna::: convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante.) ::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample26.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsDateTime(), IsDateTime()` ::: final de la columna:::::: columna::: convierte una cadena que representa un valor de fecha y hora para ASP.NET `DateTime` tipo.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample27.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `ToString()` ::: final de la columna:::::: columna::: convierte cualquier otro tipo de datos en una cadena.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample28.vb)]
+    ::: final de la columna:::::: fin de la fila:
+
 
 ## <a name="operators"></a>Operadores
 
 Un operador es una palabra clave o un carácter que indica qué tipo de comando que se ejecuta en una expresión de ASP.NET. Visual Basic admite muchos de los operadores, pero solo debe reconocer algunos a empezar a desarrollar páginas web de ASP.NET. En la tabla siguiente se resume los operadores más comunes.
 
 
-| <strong>Operator</strong> |                                                                        <strong>Descripción</strong>                                                                         |                         <strong>Ejemplos</strong>                         |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
-|         `+ - * /`         |                                                                Operadores matemáticos usados en expresiones numéricas.                                                                |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]     |
-|            `=`            | Asignación y comparaciones de igualdad. Según el contexto, asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo o comprueba los valores para la igualdad. |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]     |
-|           `<>`            |                                                           Desigualdad. Devuelve `True` si los valores no son iguales.                                                           |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]     |
-|        `< > <= >=`        |                                                   Menor que, mayor que, menor que o igual a y mayor que o igual.                                                   |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]     |
-|            `&`            |                                                                Concatenación, que se usa para combinar cadenas.                                                                | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)] |
-|          `+= -=`          |                                       Los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]     |
-|            `.`            |                                                     Punto. Se utiliza para distinguir objetos y sus propiedades y métodos.                                                      |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]     |
-|           `()`            |                           Paréntesis. Se usa en expresiones de grupo, para pasar parámetros a métodos y acceder a los miembros de matrices y colecciones.                           | [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)] |
-|           `Not`           |                    No. Invierte un valor true a false y viceversa. Se utiliza normalmente como una manera abreviada para comprobar la `False` (es decir, para no `True`).                     |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]     |
-|     `AndAlso OrElse`      |                                                       Operador lógico AND y OR, que se usan para vincular condiciones.                                                       |     [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]     |
+::: fila:::::: columna::: <strong>operador</strong> ::: final de la columna:::::: columna::: <strong>descripción</strong> ::: final de la columna:::::: columna::: <strong>ejemplos</strong> ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `+ - * /` ::: final de la columna:::::: columna::: operadores matemáticos usados en expresiones numéricas.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample29.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `=` ::: final de la columna:::::: columna::: asignación y comparaciones de igualdad. Según el contexto, asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo o comprueba los valores para la igualdad.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample30.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `<>` ::: final de la columna:::::: columna::: desigualdad. Devuelve `True` si los valores no son iguales.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample31.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `< > <= >=` ::: final de la columna:::::: columna::: menor que, mayor que, menor que o igual a y mayor que o igual.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample32.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `&` ::: final de la columna:::::: columna::: concatenación, que se usa para combinar cadenas.
+::: final de la columna:::::: columna: [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample33.vbhtml)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `+= -=` ::: final de la columna:::::: columna::: los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample34.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `.` ::: final de la columna:::::: columna::: punto. Se utiliza para distinguir objetos y sus propiedades y métodos.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample35.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `()` ::: final de la columna:::::: columna::: paréntesis. Se usa en expresiones de grupo, para pasar parámetros a métodos y acceder a los miembros de matrices y colecciones.
+::: final de la columna:::::: columna: [!code-vbhtml[Main](introducing-razor-syntax-vb/samples/sample36.vbhtml)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `Not` ::: final de la columna:::::: columna::: no. Invierte un valor true a false y viceversa. Se utiliza normalmente como una manera abreviada para comprobar la `False` (es decir, para no `True`).
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample37.vb)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AndAlso OrElse` ::: final de la columna:::::: columna::: lógicos y y, que se usan para vincular condiciones o juntos.
+::: final de la columna:::::: columna: [!code-vb[Main](introducing-razor-syntax-vb/samples/sample38.vb)]
+    ::: final de la columna:::::: fin de la fila:
 
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Trabajar con archivos y rutas de acceso de carpeta en el código
 
@@ -320,7 +366,7 @@ Este es un ejemplo para ayudarle a entender las diferencias:
 | Dirección URL completa | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nombre del servidor | *mycompanyserver* |
-| Ruta de acceso virtual | */humanresources/CompanyPolicy.htm* |
+| Ruta de acceso virtual | */HumanResources/CompanyPolicy.htm* |
 | Ruta de acceso física | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Es la raíz virtual /, al igual que la raíz de la unidad C: unidad es \. (Las rutas de acceso de la carpeta virtual siempre usan barras diagonales). La ruta de acceso virtual de una carpeta no tiene que tener el mismo nombre que la carpeta física; puede ser un alias. (En los servidores de producción, la ruta de acceso virtual rara vez coincide con una ruta de acceso física exacta.)
@@ -402,7 +448,7 @@ El bucle comienza con la `For` (palabra clave), seguido de tres elementos:
 
 La línea de código entre la `For` y `Next` líneas contiene el código que se ejecuta para cada iteración del bucle. El marcado crea un nuevo párrafo (`<p>` elemento) cada vez y se agrega una línea a la salida, mostrar el valor de i (el contador). Cuando se ejecuta esta página, en el ejemplo se crea 11 líneas mostrar el resultado, con el texto de cada línea que indica el número del elemento.
 
-![Razor-Img11](introducing-razor-syntax-vb/_static/image11.jpg)
+![Img11 de Razor](introducing-razor-syntax-vb/_static/image11.jpg)
 
 Si está trabajando con una colección o matriz, utiliza a menudo un `For Each` bucle. Una colección es un grupo de objetos similares y el `For Each` bucle permite efectuar una tarea en cada elemento de la colección. Este tipo de bucle es conveniente para las colecciones, ya que a diferencia de un `For` bucles, no tendrá que incrementar el contador o establecer un límite. En su lugar, la `For Each` código del bucle simplemente pasa a través de la colección hasta que haya terminado.
 
@@ -412,7 +458,7 @@ Este ejemplo devuelve los elementos de la `Request.ServerVariables` colección (
 
 El `For Each` palabra clave va seguida de una variable que representa un elemento único en la colección (en el ejemplo, `myItem`), seguido por el `In` (palabra clave), seguido de la colección que desee para recorrer en bucle. En el cuerpo de la `For Each` bucle, puede obtener acceso al elemento actual usando la variable que declaró anteriormente.
 
-![Razor-Img12](introducing-razor-syntax-vb/_static/image12.jpg)
+![Img12 de Razor](introducing-razor-syntax-vb/_static/image12.jpg)
 
 Para crear un bucle más general, utilice el `Do While` instrucción:
 
@@ -502,7 +548,7 @@ A menudo, tendrá las instrucciones en el código que puede producir un error po
 
 En términos de programación, se llaman a estas situaciones *excepciones*. Si el código encuentra una excepción, genera (produce) un mensaje de error es decir, en el mejor, molestar a los usuarios.
 
-![Razor-Img14](introducing-razor-syntax-vb/_static/image14.jpg)
+![Img14 de Razor](introducing-razor-syntax-vb/_static/image14.jpg)
 
 En situaciones donde el código puede encontrar las excepciones y para evitar mensajes de error de este tipo, puede usar `Try/Catch` instrucciones. En el `Try` instrucción, se ejecuta el código que está protegiendo. En uno o varios `Catch` instrucciones, puede buscar de determinados errores (tipos específicos de excepciones) que pudieran haberse producido. Puede incluir tantos `Catch` instrucciones que necesitan buscar errores que está anticipación.
 

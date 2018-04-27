@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 430033c06df74cc3661c40ca7f7bd9244cd257c9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 48f49f40a6fc0c6a0c664873879f9f61080132ea
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#)
 ====================
@@ -58,7 +58,7 @@ El `@` carácter asociado empiece a expresiones en línea, bloques de instrucci�
 
 Este es el aspecto de estas instrucciones cuando la página se ejecuta en un explorador:
 
-![Razor-Img1](introducing-razor-syntax-c/_static/image1.jpg)
+![Img1 Razor](introducing-razor-syntax-c/_static/image1.jpg)
 
 > [!TIP] 
 > 
@@ -79,7 +79,7 @@ A *bloque de código* incluye una o varias instrucciones de código y aparece en
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img2](introducing-razor-syntax-c/_static/image2.jpg)
+![Img2 de Razor](introducing-razor-syntax-c/_static/image2.jpg)
 
 ### <a name="3-inside-a-block-you-end-each-code-statement-with-a-semicolon"></a>3. Dentro de un bloque, finalizar cada instrucción de código con un punto y coma
 
@@ -95,7 +95,7 @@ Puede almacenar valores en una *variable*, incluidas las cadenas, números y fec
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img3](introducing-razor-syntax-c/_static/image3.jpg)
+![Img3 de Razor](introducing-razor-syntax-c/_static/image3.jpg)
 
 <a id="ID_StringLiterals"></a>
 ### <a name="5-you-enclose-literal-string-values-in-double-quotation-marks"></a>5. Incluir valores de cadena literal de comillas dobles
@@ -114,7 +114,7 @@ Para incrustar las comillas dobles, use un literal de cadena textual y repita la
 
 Este es el resultado del uso de estos ejemplos de ambos en una página:
 
-![Razor-Img4](introducing-razor-syntax-c/_static/image4.jpg)
+![Img4 de Razor](introducing-razor-syntax-c/_static/image4.jpg)
 
 > [!NOTE]
 > Tenga en cuenta que el `@` carácter se usa para marcar los literales de cadenas literales en C# y que marca el código en las páginas ASP.NET.
@@ -142,7 +142,7 @@ A menudo trabajará con la `Request` objeto, que proporciona información como l
 
 El resultado que se muestra en un explorador:
 
-![Razor-Img5](introducing-razor-syntax-c/_static/image5.jpg)
+![Img5 de Razor](introducing-razor-syntax-c/_static/image5.jpg)
 
 ### <a name="8-you-can-write-code-that-makes-decisions"></a>8. Puede escribir código que toma decisiones
 
@@ -154,7 +154,7 @@ La instrucción `if(IsPost)` es una forma abreviada de escritura `if(IsPost == t
 
 El resultado mostrado en un explorador (después de hacer clic **enviar**):
 
-![Razor-Img6](introducing-razor-syntax-c/_static/image6.jpg)
+![Img6 de Razor](introducing-razor-syntax-c/_static/image6.jpg)
 
 > [!TIP] 
 > 
@@ -187,7 +187,7 @@ Este procedimiento muestra cómo crear una página que muestra las técnicas de 
     - El `<form>` etiqueta incluye un `method="post"` atributo. Esto especifica que cuando el usuario hace clic en **agregar**, la página se enviará al servidor mediante el método HTTP POST. Cuando se envía la página, el `if(IsPost)` prueba se evalúa como true y la directiva de ejecución, mostrar el resultado de sumar los números del código.
 3. Guarde la página y ejecútelo en un explorador. (Asegúrese de que la página está seleccionada en el **archivos** área de trabajo antes de ejecutarlo.) Escriba dos números enteros y, a continuación, haga clic en el **agregar** botón. 
 
-    ![Razor-Img7](introducing-razor-syntax-c/_static/image7.jpg)
+    ![Img7 de Razor](introducing-razor-syntax-c/_static/image7.jpg)
 
 ## <a name="basic-programming-concepts"></a>Conceptos básicos de programación
 
@@ -209,7 +209,7 @@ Sintaxis de Razor se basa en una tecnología de Microsoft denominada ASP.NET, qu
 
 La sintaxis de Razor le ofrece toda la potencia de ASP.NET, pero con una sintaxis simplificada que es más fácil de obtener información sobre si es principiante y que mejora su productividad si es un experto. Aunque esta sintaxis es fácil de usar, su relación familia con ASP.NET y .NET Framework significa que sus sitios Web se vuelven más sofisticadas, tiene la capacidad de los marcos más grandes disponibles.
 
-![Razor-Img8](introducing-razor-syntax-c/_static/image8.jpg)
+![Img8 de Razor](introducing-razor-syntax-c/_static/image8.jpg)
 
 > [!TIP] 
 > 
@@ -325,7 +325,7 @@ En el ejemplo siguiente se muestra los usos típicos de las variables en una pá
 
 Si se combinan los ejemplos anteriores de una página, verá lo siguiente muestra en un explorador:
 
-![Razor-Img9](introducing-razor-syntax-c/_static/image9.jpg)
+![Img9 de Razor](introducing-razor-syntax-c/_static/image9.jpg)
 
 ### <a name="converting-and-testing-data-types"></a>Convertir y tipos de datos de pruebas
 
@@ -343,35 +343,84 @@ Para convertir los valores enteros, se llama a la `AsInt` método. Si la convers
 
 En la tabla siguiente se enumera algunos métodos de conversión y prueba comunes para las variables.
 
-
-|   <strong>Método</strong>    |                                                                              <strong>Descripción</strong>                                                                              |                         <strong>Ejemplo</strong>                         |
-|------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|      `AsInt(), IsInt()`      |                                                      Convierte una cadena que representa un número entero (por ejemplo, "593") en un entero.                                                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]   |
-|     `AsBool(), IsBool()`     |                                                    Convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]   |
-|    `AsFloat(), IsFloat()`    |                                    Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]   |
-|  `AsDecimal(), IsDecimal()`  | Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante.) |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]   |
-| `AsDateTime(), IsDateTime()` |                                                Convierte una cadena que representa un valor de fecha y hora para ASP.NET `DateTime` tipo.                                                 |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]   |
-|         `ToString()`         |                                                                       Cualquier otro tipo de datos se convierte en una cadena.                                                                        | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)] |
+::: fila:::::: columna::: <strong>método</strong> ::: final de la columna:::::: columna::: <strong>descripción</strong> ::: final de la columna:::::: columna::: <strong>ejemplo</strong> ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsInt(), IsInt()` ::: final de la columna:::::: columna::: convierte una cadena que representa un número entero (por ejemplo, "593") en un entero.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsBool(), IsBool()` ::: final de la columna:::::: columna::: convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsFloat(), IsFloat()` ::: final de la columna:::::: columna::: convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsDecimal(), IsDecimal()` ::: final de la columna:::::: columna::: convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante.) ::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `AsDateTime(), IsDateTime()` ::: final de la columna:::::: columna::: convierte una cadena que representa un valor de fecha y hora para ASP.NET `DateTime` tipo.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `ToString()` ::: final de la columna:::::: columna::: convierte cualquier otro tipo de datos en una cadena.
+::: final de la columna:::::: columna: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    ::: final de la columna:::::: fin de la fila:
 
 ## <a name="operators"></a>Operadores
 
 Un operador es una palabra clave o un carácter que indica qué tipo de comando que se ejecuta en una expresión de ASP.NET. El lenguaje C# (y la sintaxis de Razor que se basan en ellos) admiten muchos de los operadores, pero solo debe reconocer algunos para empezar a trabajar. En la tabla siguiente se resume los operadores más comunes.
 
 
-|   <strong>Operator</strong>    |                                                                     <strong>Descripción</strong>                                                                     |                        <strong>Ejemplos</strong>                         |
-|--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------|
-|        `+` `-` `*` `/`         |                                                            Operadores matemáticos usados en expresiones numéricas.                                                             |    [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]    |
-|              `=`               |                                    Asignación. Asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]   |
-|              `==`              |                      Igualdad. Devuelve `true` si los valores son iguales. (Tenga en cuenta la distinción entre el `=` operador y el `==` operador.)                      |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]   |
-|              `!=`              |                                                       Desigualdad. Devuelve `true` si los valores no son iguales.                                                        |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]   |
-|          `< > <= >=`           |                                               Menor-que, mayor-que, menor o igual que y mayor o igual.                                                |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]   |
-|              `+`               | Concatenación, que se usa para combinar cadenas. ASP.NET se conoce la diferencia entre este operador y el operador de suma según el tipo de datos de la expresión. |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]   |
-|           `+=` `-=`            |                                   Los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]   |
-|              `.`               |                                                  Punto. Se utiliza para distinguir objetos y sus propiedades y métodos.                                                  |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]   |
-|              `()`              |                                              Paréntesis. Se utiliza para las expresiones de grupo y para pasar parámetros a métodos.                                               | [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)] |
-|              `[]`              |                                                    Corchetes. Se utiliza para tener acceso a los valores de las matrices o colecciones.                                                     |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]   |
-|              `!`               |               No. Invierte un `true` valor `false` y viceversa. Se utiliza normalmente como una manera abreviada para comprobar la `false` (es decir, para no `true`).               |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]   |
-| `&&` <code>&#124;&#124;</code> |                                                   Operador lógico AND y OR, que se usan para vincular condiciones.                                                    |   [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]   |
+::: fila:::::: columna::: <strong>operador</strong> ::: final de la columna:::::: columna::: <strong>descripción</strong> ::: final de la columna:::::: columna::: <strong>ejemplos</strong> ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `+` `-` `*` `/` ::: final de la columna:::::: columna::: operadores matemáticos usados en expresiones numéricas.
+::: final de la columna:::::: columna: [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `=` ::: final de la columna:::::: columna::: asignación. Asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `==` ::: final de la columna:::::: columna::: igualdad. Devuelve `true` si los valores son iguales. (Tenga en cuenta la distinción entre el `=` operador y el `==` operador.)::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `!=` ::: final de la columna:::::: columna::: desigualdad. Devuelve `true` si los valores no son iguales.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `< > <= >=` ::: final de la columna:::::: columna::: menor-que, mayor-que, menor o igual que y mayor o igual.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `+` ::: final de la columna:::::: columna::: concatenación, que se usa para combinar cadenas. ASP.NET se conoce la diferencia entre este operador y el operador de suma según el tipo de datos de la expresión.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `+=` `-=` ::: final de la columna:::::: columna::: los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `.` ::: final de la columna:::::: columna::: punto. Se utiliza para distinguir objetos y sus propiedades y métodos.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `()` ::: final de la columna:::::: columna::: paréntesis. Se utiliza para las expresiones de grupo y para pasar parámetros a métodos.
+::: final de la columna:::::: columna: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `[]` ::: final de la columna:::::: columna::: corchetes. Se utiliza para tener acceso a los valores de las matrices o colecciones.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `!` ::: final de la columna:::::: columna::: no. Invierte un `true` valor `false` y viceversa. Se utiliza normalmente como una manera abreviada para comprobar la `false` (es decir, para no `true`).
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    ::: final de la columna:::::: fin de la fila:
+* * *
+::: fila:::::: columna::: `&&` <code>&#124;&#124;</code> ::: final de la columna:::::: columna::: lógicos y y, que se usan para vincular condiciones o juntos.
+::: final de la columna:::::: columna: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    ::: final de la columna:::::: fin de la fila:
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Trabajar con archivos y rutas de acceso de carpeta en el código
@@ -391,7 +440,7 @@ Este es un ejemplo para ayudarle a entender las diferencias:
 | Dirección URL completa | `http://mycompanyserver/humanresources/CompanyPolicy.htm` |
 | --- | --- |
 | Nombre del servidor | *mycompanyserver* |
-| Ruta de acceso virtual | */humanresources/CompanyPolicy.htm* |
+| Ruta de acceso virtual | */HumanResources/CompanyPolicy.htm* |
 | Ruta de acceso física | *C:\mywebsites\humanresources\CompanyPolicy.htm* |
 
 Es la raíz virtual /, al igual que la raíz de la unidad C: unidad es \. (Las rutas de acceso de la carpeta virtual siempre usan barras diagonales). La ruta de acceso virtual de una carpeta no tiene que tener el mismo nombre que la carpeta física; puede ser un alias. (En los servidores de producción, la ruta de acceso virtual rara vez coincide con una ruta de acceso física exacta.)
@@ -469,7 +518,7 @@ El bucle comienza con la `for` (palabra clave), seguido de tres instrucciones en
 
 Dentro de las llaves es el código que se ejecutará en cada iteración del bucle. El marcado crea un nuevo párrafo (`<p>` elemento) cada vez y se agrega una línea a la salida, mostrar el valor de `i` (el contador). Cuando se ejecuta esta página, en el ejemplo se crea 11 líneas mostrar el resultado, con el texto de cada línea que indica el número del elemento.
 
-![Razor-Img11](introducing-razor-syntax-c/_static/image11.jpg)
+![Img11 de Razor](introducing-razor-syntax-c/_static/image11.jpg)
 
 Si está trabajando con una colección o matriz, utiliza a menudo un `foreach` bucle. Una colección es un grupo de objetos similares y el `foreach` bucle permite efectuar una tarea en cada elemento de la colección. Este tipo de bucle es conveniente para las colecciones, ya que a diferencia de un `for` bucles, no tendrá que incrementar el contador o establecer un límite. En su lugar, la `foreach` código del bucle simplemente pasa a través de la colección hasta que haya terminado.
 
@@ -479,7 +528,7 @@ Por ejemplo, el código siguiente devuelve los elementos de la `Request.ServerVa
 
 El `foreach` palabra clave está seguido de paréntesis donde se declara una variable que representa un elemento único en la colección (en el ejemplo, `var item`), seguido por el `in` (palabra clave), seguido de la colección que desee para recorrer en bucle. En el cuerpo de la `foreach` bucle, puede obtener acceso al elemento actual usando la variable que declaró anteriormente.
 
-![Razor-Img12](introducing-razor-syntax-c/_static/image12.jpg)
+![Img12 de Razor](introducing-razor-syntax-c/_static/image12.jpg)
 
 Para crear un bucle más general, utilice el `while` instrucción:
 
@@ -577,7 +626,7 @@ A menudo, tendrá las instrucciones en el código que puede producir un error po
 
 En términos de programación, se llaman a estas situaciones *excepciones*. Si el código encuentra una excepción, genera (produce) un mensaje de error del que, en el mejor, molestar a los usuarios:
 
-![Razor-Img14](introducing-razor-syntax-c/_static/image14.jpg)
+![Img14 de Razor](introducing-razor-syntax-c/_static/image14.jpg)
 
 En situaciones donde el código puede encontrar las excepciones y para evitar mensajes de error de este tipo, puede usar `try/catch` instrucciones. En el `try` instrucción, se ejecuta el código que está protegiendo. En uno o varios `catch` instrucciones, puede buscar de determinados errores (tipos específicos de excepciones) que pudieran haberse producido. Puede incluir tantos `catch` instrucciones que necesitan buscar los errores que se anticipación.
 

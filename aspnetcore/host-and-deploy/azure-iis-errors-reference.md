@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-iis-errors-reference
-ms.openlocfilehash: fb833ef8797ea7851cbaf53bb5681df248d07a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1500f026c245f80de4120d6db4901cb117552966
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="common-errors-reference-for-azure-app-service-and-iis-with-aspnet-core"></a>Referencia de errores comunes de IIS con ASP.NET Core y de servicio de aplicaciones de Azure
 
@@ -42,7 +42,7 @@ Compare la información con los siguientes errores comunes. Si se encuentra una 
 
 Solución del problema:
 
-* Si el sistema no tiene acceso a Internet al instalar el lote de hospedaje del servidor, se produce esta excepción cuando se evita que el instalador obtenga *Microsoft Visual C++ 2015 Redistributable*. Obtener un instalador de la [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Si se produce un error en el programa de instalación, es posible que el servidor no reciba el tiempo de ejecución de .NET Core necesaria para hospedar una implementación de framework dependiente (FDD). Si hospeda un FDD, confirme que está instalado el tiempo de ejecución en programas &amp; características. Si es necesario, obtenga un instalador en tiempo de ejecución de [todas las descargas de .NET](https://www.microsoft.com/net/download/all). Después de instalar el runtime, reinicie el sistema o IIS al ejecutar **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
+* Si el sistema no tiene acceso a Internet durante la instalación de la agrupación de hospedaje, esta excepción se produce cuando el programa de instalación no puede obtener el *Microsoft Visual C++ 2015 Redistributable*. Obtener un instalador de la [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840). Si se produce un error en el programa de instalación, es posible que el servidor no reciba el tiempo de ejecución de .NET Core necesaria para hospedar una implementación de framework dependiente (FDD). Si hospeda un FDD, confirme que está instalado el tiempo de ejecución en programas &amp; características. Si es necesario, obtenga un instalador en tiempo de ejecución de [todas las descargas de .NET](https://www.microsoft.com/net/download/all). Después de instalar el runtime, reinicie el sistema o IIS al ejecutar **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
 
 ## <a name="os-upgrade-removed-the-32-bit-aspnet-core-module"></a>La actualización del sistema operativo ha quitado el módulo ASP.NET Core de 32 bits
 
@@ -50,7 +50,7 @@ Solución del problema:
 
 Solución del problema:
 
-* Los archivos que no son de SO del directorio **C:\Windows\SysWOW64\inetsrv** no se conservan durante una actualización del sistema operativo. Si está instalado el módulo de núcleo de ASP.NET anterior a una actualización del sistema operativo y, a continuación, en cualquier grupo de aplicaciones se ejecuta en modo de 32 bits después de actualizar el sistema operativo, donde se produzca este problema. Después de actualizar el sistema operativo, repare el módulo ASP.NET Core. Vea [Instalación del lote de hospedaje .NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Seleccione **reparación** cuando se ejecuta el programa de instalación.
+* Los archivos que no son de SO del directorio **C:\Windows\SysWOW64\inetsrv** no se conservan durante una actualización del sistema operativo. Si está instalado el módulo de núcleo de ASP.NET anterior a una actualización del sistema operativo y, a continuación, en cualquier grupo de aplicaciones se ejecuta en modo de 32 bits después de actualizar el sistema operativo, donde se produzca este problema. Después de actualizar el sistema operativo, repare el módulo ASP.NET Core. Vea [instala la agrupación de hospedaje de .NET Core](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Seleccione **reparación** cuando se ejecuta el programa de instalación.
 
 ## <a name="platform-conflicts-with-rid"></a>Conflictos de plataforma con RID
 
@@ -114,11 +114,11 @@ Solución del problema:
 
 * Confirme que está habilitada la función adecuada. Vea [Configuración de IIS](xref:host-and-deploy/iis/index#iis-configuration).
 
-* Compruebe **Programas &amp; Características** y confirme que el **módulo Microsoft ASP.NET Core** se ha instalado. Si el **módulo Microsoft ASP.NET Core** no aparece en la lista de programas instalados, instálelo. Vea [Instalación del lote de hospedaje .NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle).
+* Compruebe **Programas &amp; Características** y confirme que el **módulo Microsoft ASP.NET Core** se ha instalado. Si el **módulo Microsoft ASP.NET Core** no aparece en la lista de programas instalados, instálelo. Vea [instalar el núcleo de .NET hospedaje agrupación](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle).
 
 * Asegúrese de que el **grupo de aplicaciones** > **modelo de proceso** > **identidad** está establecido en **ApplicationPoolIdentity** o la identidad personalizada tiene los permisos correctos para tener acceso a la carpeta de implementación de la aplicación.
 
-## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>Elemento processPath incorrecto, variable PATH que falta, lote de hospedaje no instalado, sistema o IIS no reiniciado, VC++ Redistributable no instalado o infracción de acceso de dotnet.exe
+## <a name="incorrect-processpath-missing-path-variable-hosting-bundle-not-installed-systemiis-not-restarted-vc-redistributable-not-installed-or-dotnetexe-access-violation"></a>ProcessPath incorrecto, variable de ruta de acceso que falta, agrupación de hospedaje no instalado, no reiniciado sistema/IIS, VC ++ Redistributable no está instalado o infracción de acceso de dotnet.exe
 
 * **Explorador:** Error HTTP 502.5 - Error en el proceso
 
@@ -138,7 +138,7 @@ Solución del problema:
 
 * Se han implementado un FDD y .NET Core instalado sin necesidad de reiniciar IIS. Ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema para reiniciar el servidor o IIS.
 
-* Puede haberse implementado un FDD sin necesidad de instalar el runtime de .NET Core en el sistema host. Si no se instaló el runtime de .NET Core, ejecute el **instalador del paquete de hospedaje de .NET Core Windows Server** en el sistema. Vea [Instalación del lote de hospedaje .NET Core Windows Server](xref:host-and-deploy/iis/index#install-the-net-core-windows-server-hosting-bundle). Si intenta instalar el runtime de .NET Core en un sistema sin una conexión a Internet, obtener el tiempo de ejecución de [todas las descargas de .NET](https://www.microsoft.com/net/download/all) y ejecute el instalador de paquete de hospedaje para instalar el módulo de núcleo de ASP.NET. Para completar la instalación, reinicie el sistema o IIS mediante la ejecución de **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
+* Puede haberse implementado un FDD sin necesidad de instalar el runtime de .NET Core en el sistema host. Si no se instaló el runtime de .NET Core, ejecute el **instalador de paquete de hospedaje de .NET Core** en el sistema. Vea [instalar el núcleo de .NET hospedaje agrupación](xref:host-and-deploy/iis/index#install-the-net-core-hosting-bundle). Si intenta instalar el runtime de .NET Core en un sistema sin una conexión a Internet, obtener el tiempo de ejecución de [todas las descargas de .NET](https://www.microsoft.com/net/download/all) y ejecute el instalador de hospedaje de paquete para instalar el módulo de núcleo de ASP.NET. Para completar la instalación, reinicie el sistema o IIS mediante la ejecución de **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema.
 
 * Se han implementado un FDD y *Microsoft Visual C++ 2015 Redistributable (x64)* no está instalado en el sistema. Obtener un instalador de la [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53840).
 
@@ -216,7 +216,7 @@ Solución de problemas
 
 * **Explorador:** la aplicación responde normalmente.
 
-* **Application Log:** Warning: Could not create stdoutLogFile \\?\C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, ErrorCode = -2147024893.
+* **Registro de aplicación:** advertencia: no se pudo crear el stdoutLogFile \\? \C:\_apps\app_folder\bin\Release\netcoreapp2.0\win10-x64\publish\logs\path_doesnt_exist\stdout_8748_201831835937.log, ErrorCode = - 2147024893.
 
 * **Registro del módulo ASP.NET Core:** Archivo de registro no creado
 

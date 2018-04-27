@@ -9,19 +9,27 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: 3a19cec2ce4387ca44ca120f031a072269b93454
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 300feb42dff7f1bb86bab6fedf3f657273ced8be
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurar la protección de datos de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Cuando se inicializa el sistema de protección de datos, se aplica [configuración predeterminada](xref:security/data-protection/configuration/default-settings) basado en el entorno operativo. Esta configuración es suelen ser adecuada para aplicaciones que se ejecutan en un único equipo. Hay casos donde un desarrollador puede cambiar la configuración predeterminada, es posible porque la aplicación se distribuye entre varias máquinas o por motivos de cumplimiento. En estos casos, el sistema de protección de datos ofrece una API enriquecida de configuración.
+Cuando se inicializa el sistema de protección de datos, se aplica [configuración predeterminada](xref:security/data-protection/configuration/default-settings) basado en el entorno operativo. Esta configuración es suelen ser adecuada para aplicaciones que se ejecutan en un único equipo. Hay casos donde un desarrollador puede cambiar la configuración predeterminada:
 
-Hay un método de extensión [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) que devuelve un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de opciones.
+* La aplicación se reparte entre varias máquinas.
+* Por motivos de cumplimiento.
+
+En estos casos, el sistema de protección de datos ofrece una API enriquecida de configuración.
+
+> [!WARNING]
+> De forma similar a los archivos de configuración, el anillo de clave de protección de datos deben protegerse utilizando los permisos adecuados. Puede elegir cifrar las claves en reposo, pero esto no evita que los atacantes de crear nuevas claves. Por lo tanto, la seguridad de la aplicación se ve afectado. La ubicación de almacenamiento configurada con protección de datos debe tener su acceso limitado a la propia aplicación similar a la manera en que protege a los archivos de configuración. Por ejemplo, si decide almacenar el anillo de clave en el disco, utilice permisos del sistema de archivos. Asegurar solo la identidad en que se ejecuta la aplicación web se lectura, escritura y crear el acceso a ese directorio. Si utiliza almacenamiento de tabla de Azure, solo la aplicación web debe tener la capacidad de leer, escribir o crear nuevas entradas en el almacén de tablas, etcetera.
+>
+> El método de extensión [AddDataProtection](/dotnet/api/microsoft.extensions.dependencyinjection.dataprotectionservicecollectionextensions.adddataprotection) devuelve un [IDataProtectionBuilder](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotectionbuilder). `IDataProtectionBuilder` expone métodos de extensión que se pueden encadenar juntos para configurar la protección de datos de opciones.
 
 ## <a name="persistkeystofilesystem"></a>PersistKeysToFileSystem
 

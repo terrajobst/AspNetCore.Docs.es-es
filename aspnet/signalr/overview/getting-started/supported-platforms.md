@@ -2,21 +2,21 @@
 uid: signalr/overview/getting-started/supported-platforms
 title: Plataformas compatibles | Documentos de Microsoft
 author: pfletcher
-description: "Este artículo describe qué clientes y servidores son compatibles con SignalR."
+description: Este artículo describe qué clientes y servidores son compatibles con SignalR.
 ms.author: aspnetcontent
 manager: wpickett
-ms.date: 06/10/2014
+ms.date: 04/18/2018
 ms.topic: article
 ms.assetid: eac31beb-0f46-4afa-9def-e80904dea4f0
 ms.technology: dotnet-signalr
 ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/getting-started/supported-platforms
 msc.type: authoredcontent
-ms.openlocfilehash: 1379b9fb638f67896d88d7aa4312d95280ef7318
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4d3dc028ff67d0a9cfa03627b5f98f6541ecfff8
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/19/2018
 ---
 <a name="supported-platforms"></a>Plataformas compatibles
 ====================
@@ -37,8 +37,9 @@ El componente de servidor de SignalR se puede hospedar en una variedad de config
 
 ### <a name="supported-server-operating-systems"></a>Sistemas operativos de servidor admitidos
 
-El componente de servidor de SignalR se puede hospedar en los siguientes sistemas operativos de servidor o cliente. Tenga en cuenta que para que SignalR usar WebSockets, Windows Server 2012 o Windows 8 (WebSocket puede utilizarse en sitios Web de Windows Azure, siempre que se establezca la versión de .NET framework del sitio en 4.5 y Sockets Web está habilitado en la página de configuración del sitio).
+El componente de servidor de SignalR se puede hospedar en los siguientes sistemas operativos de servidor o cliente. Tenga en cuenta que para que SignalR usar WebSockets, Windows Server 2012, Windows Server 2016 o Windows 8 (WebSocket puede utilizarse en sitios Web de Windows Azure, siempre que se establezca la versión de .NET framework del sitio en 4.5 y Sockets Web está habilitado en el sitio Página de configuración).
 
+- Windows Server 2016
 - Windows Server 2012
 - Windows Server 2008 r2
 - Windows 10
@@ -114,8 +115,8 @@ Además de sistema operativo y requisitos de .NET framework, los transportes dis
 | --- | --- | --- |
 | Web Sockets | Windows 8 + y .NET Framework 4.5 + | N/D |
 | Marco indefinidamente | N/D | N/D |
-| Eventos enviados por el servidor | .NET 4+ | 5+ |
-| Sondeo prolongado | .NET 4+ | 5+ |
+| Eventos enviados por el servidor | .NET 4 + | 5+ |
+| Sondeo prolongado | .NET 4 + | 5+ |
 
 <a id="android"></a>
 
@@ -127,10 +128,10 @@ SignalR puede utilizarse en aplicaciones de la tienda de Windows y aplicaciones 
 
 | Transporte | Tienda Windows y .NET | Tienda Windows / JavaScript | Windows Phone / IE | Windows Phone / .NET |
 | --- | --- | --- | --- | --- |
-| WebSockets | N/D | Win8+ | 8+ | N/D |
-| Marco indefinidamente | N/D | Win8+ | 7.5+ | N/D |
-| Eventos enviados por el servidor | Win8+ | N/D | N/D | 8+ |
-| Sondeo prolongado | Win8+ | Win8+ | 7.5+ | 8+ |
+| WebSockets | N/D | Win8 + | 8+ | N/D |
+| Marco indefinidamente | N/D | Win8 + | 7.5+ | N/D |
+| Eventos enviados por el servidor | Win8 + | N/D | N/D | 8+ |
+| Sondeo prolongado | Win8 + | Win8 + | 7.5+ | 8+ |
 
 <a id="updates"></a>
 

@@ -1,7 +1,7 @@
 ---
-title: "Referencia de configuración del módulo principal ASP.NET"
+title: Referencia de configuración del módulo principal ASP.NET
 author: guardrex
-description: "Obtenga información acerca de cómo configurar el módulo principal de ASP.NET para hospedar aplicaciones ASP.NET Core."
+description: Obtenga información acerca de cómo configurar el módulo principal de ASP.NET para hospedar aplicaciones ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 5aac5cf2b8fd4bc53ba7201645b9bb02a5d1ecae
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 954841a1b1465c80e60d5745ad9e22294a88fdf4
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo principal ASP.NET
 
@@ -65,6 +65,7 @@ Vea [configuración de la Sub-aplicación](xref:host-and-deploy/iis/index#sub-ap
 
 ### <a name="attributes-of-the-aspnetcore-element"></a>Atributos del elemento aspNetCore
 
+::: moniker range="<= aspnetcore-2.0"
 | Atributo | Descripción | Default |
 | --------- | ----------- | :-----: |
 | `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el ejecutable especificado en **processPath**.</p>| |
@@ -72,11 +73,26 @@ Vea [configuración de la Sub-aplicación](xref:host-and-deploy/iis/index#sub-ap
 | `forwardWindowsAuthToken` | true o false</p><p>Si es true, el token se reenvía al proceso secundario escucha en % ASPNETCORE_PORT % como un encabezado 'MS-ASPNETCORE-WINAUTHTOKEN' por solicitud. Es responsabilidad de dicho proceso para llamar a CloseHandle en este token por solicitud.</p> | `true` |
 | `processPath` | <p>Atributo de cadena necesario.</p><p>Ruta de acceso al archivo ejecutable que se inicia un proceso de escucha las solicitudes HTTP. Se admiten rutas de acceso relativas. Si la ruta de acceso comienza con `.`, la ruta de acceso se considera que son relativas a la raíz del sitio.</p> | |
 | `rapidFailsPerMinute` | <p>Atributo de entero opcional.</p><p>Especifica el número de veces especificado por el proceso de **processPath** se permite el bloqueo por minuto. Si se supera este límite, el módulo deja de iniciar el proceso durante el resto del minuto.</p> | `10` |
-| `requestTimeout` | <p>Atributo timespan opcional.</p><p>Especifica la duración para la que el módulo principal de ASP.NET espera una respuesta desde el proceso de escucha en % ASPNETCORE_PORT %.</p><p>El `requestTimeout` debe especificarse en minutos enteros, en caso contrario, el valor predeterminado es 2 minutos.</p> | `00:02:00` |
+| `requestTimeout` | <p>Atributo timespan opcional.</p><p>Especifica la duración para la que el módulo principal de ASP.NET espera una respuesta desde el proceso de escucha en % ASPNETCORE_PORT %.</p><p>En las versiones del módulo de núcleo de ASP.NET que se incluye con la versión de ASP.NET Core 2.0 o versiones anteriores, el `requestTimeout` debe especificarse en minutos enteros, en caso contrario, el valor predeterminado es 2 minutos.</p> | `00:02:00` |
 | `shutdownTimeLimit` | <p>Atributo de entero opcional.</p><p>Duración en segundos que espera a que el módulo de archivo ejecutable que desea apagar normalmente cuando la *app_offline.htm* se detecta que el archivo.</p> | `10` |
 | `startupTimeLimit` | <p>Atributo de entero opcional.</p><p>Duración en segundos que espera a que el módulo para que el ejecutable iniciar un proceso escuchando en el puerto. Si se supera este límite de tiempo, el módulo elimina el proceso. El módulo intenta reiniciar el proceso cuando se recibe una solicitud nueva y sigue intentando reiniciar el proceso en las posteriores solicitudes entrantes a menos que la aplicación no se puede iniciar **rapidFailsPerMinute** número de veces en los últimos minuto gradual.</p> | `120` |
 | `stdoutLogEnabled` | <p>Atributo Boolean opcional.</p><p>Si es true, **stdout** y **stderr** para el proceso especificado en **processPath** se redirigen al archivo especificado en **stdoutLogFile**.</p> | `false` |
 | `stdoutLogFile` | <p>Atributo de cadena opcional.</p><p>Especifica la ruta de acceso relativa o absoluta para el que **stdout** y **stderr** desde el proceso especificado en **processPath** se registran. Rutas de acceso relativas son relativas a la raíz del sitio. Cualquier ruta de acceso a partir de `.` son relativa al sitio raíz y todas las demás rutas de acceso se tratan como rutas de acceso absolutas. Las carpetas que se proporcionan en la ruta de acceso deben existir en orden para el módulo crear el archivo de registro. Usar delimitadores de carácter de subrayado, una marca de tiempo, Id. de proceso y extensión de archivo (*.log*) se agregan al último segmento de la **stdoutLogFile** ruta de acceso. Si `.\logs\stdout` se proporciona como un valor, se guarda un registro de ejemplo stdout como *stdout_20180205194132_1934.log* en el *registros* carpeta, cuando se guardan en 2/5/2018 a 19:41:32 con un identificador de proceso de 1934.</p> | `aspnetcore-stdout` |
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+| Atributo | Descripción | Default |
+| --------- | ----------- | :-----: |
+| `arguments` | <p>Atributo de cadena opcional.</p><p>Argumentos para el ejecutable especificado en **processPath**.</p>| |
+| `disableStartUpErrorPage` | true o false</p><p>Si es true, el **502.5 - Error de proceso** se suprime la página y la página de códigos de 502 estado configurado en el *web.config* tiene prioridad.</p> | `false` |
+| `forwardWindowsAuthToken` | true o false</p><p>Si es true, el token se reenvía al proceso secundario escucha en % ASPNETCORE_PORT % como un encabezado 'MS-ASPNETCORE-WINAUTHTOKEN' por solicitud. Es responsabilidad de dicho proceso para llamar a CloseHandle en este token por solicitud.</p> | `true` |
+| `processPath` | <p>Atributo de cadena necesario.</p><p>Ruta de acceso al archivo ejecutable que se inicia un proceso de escucha las solicitudes HTTP. Se admiten rutas de acceso relativas. Si la ruta de acceso comienza con `.`, la ruta de acceso se considera que son relativas a la raíz del sitio.</p> | |
+| `rapidFailsPerMinute` | <p>Atributo de entero opcional.</p><p>Especifica el número de veces especificado por el proceso de **processPath** se permite el bloqueo por minuto. Si se supera este límite, el módulo deja de iniciar el proceso durante el resto del minuto.</p> | `10` |
+| `requestTimeout` | <p>Atributo timespan opcional.</p><p>Especifica la duración para la que el módulo principal de ASP.NET espera una respuesta desde el proceso de escucha en % ASPNETCORE_PORT %.</p><p>En las versiones del módulo de núcleo de ASP.NET que se incluye con la versión de ASP.NET Core 2.1 o posterior, el `requestTimeout` se especifica en horas, minutos y segundos.</p> | `00:02:00` |
+| `shutdownTimeLimit` | <p>Atributo de entero opcional.</p><p>Duración en segundos que espera a que el módulo de archivo ejecutable que desea apagar normalmente cuando la *app_offline.htm* se detecta que el archivo.</p> | `10` |
+| `startupTimeLimit` | <p>Atributo de entero opcional.</p><p>Duración en segundos que espera a que el módulo para que el ejecutable iniciar un proceso escuchando en el puerto. Si se supera este límite de tiempo, el módulo elimina el proceso. El módulo intenta reiniciar el proceso cuando se recibe una solicitud nueva y sigue intentando reiniciar el proceso en las posteriores solicitudes entrantes a menos que la aplicación no se puede iniciar **rapidFailsPerMinute** número de veces en los últimos minuto gradual.</p> | `120` |
+| `stdoutLogEnabled` | <p>Atributo Boolean opcional.</p><p>Si es true, **stdout** y **stderr** para el proceso especificado en **processPath** se redirigen al archivo especificado en **stdoutLogFile**.</p> | `false` |
+| `stdoutLogFile` | <p>Atributo de cadena opcional.</p><p>Especifica la ruta de acceso relativa o absoluta para el que **stdout** y **stderr** desde el proceso especificado en **processPath** se registran. Rutas de acceso relativas son relativas a la raíz del sitio. Cualquier ruta de acceso a partir de `.` son relativa al sitio raíz y todas las demás rutas de acceso se tratan como rutas de acceso absolutas. Las carpetas que se proporcionan en la ruta de acceso deben existir en orden para el módulo crear el archivo de registro. Usar delimitadores de carácter de subrayado, una marca de tiempo, Id. de proceso y extensión de archivo (*.log*) se agregan al último segmento de la **stdoutLogFile** ruta de acceso. Si `.\logs\stdout` se proporciona como un valor, se guarda un registro de ejemplo stdout como *stdout_20180205194132_1934.log* en el *registros* carpeta, cuando se guardan en 2/5/2018 a 19:41:32 con un identificador de proceso de 1934.</p> | `aspnetcore-stdout` |
+::: moniker-end
 
 ### <a name="setting-environment-variables"></a>Establecer variables de entorno
 
@@ -99,7 +115,7 @@ En el ejemplo siguiente se establece dos variables de entorno. `ASPNETCORE_ENVIR
 > [!WARNING]
 > Solo establecer la `ASPNETCORE_ENVIRONMENT` envirnonment variable `Development` en probar y ensayar los servidores que no son accesibles a redes de confianza, como Internet.
 
-## <a name="appofflinehtm"></a>app_offline.htm
+## <a name="appofflinehtm"></a>App_offline.htm
 
 Si un archivo con el nombre *app_offline.htm* se detecta en el directorio raíz de una aplicación, el módulo principal de ASP.NET intenta correctamente, cierre la aplicación y detener el procesamiento de las solicitudes entrantes. Si la aplicación se está ejecutando después del número de segundos que se definen en `shutdownTimeLimit`, el módulo principal de ASP.NET elimina el proceso en ejecución.
 
@@ -113,11 +129,15 @@ Si se produce un error en el módulo principal de ASP.NET iniciar el proceso de 
 
 ## <a name="log-creation-and-redirection"></a>Creación de registro y de redirección
 
-El módulo principal de ASP.NET redirige `stdout` y `stderr` registros en el disco si la `stdoutLogEnabled` y `stdoutLogFile` atributos de la `aspNetCore` se establecen el elemento. Las carpetas en el `stdoutLogFile` ruta debe existir en orden para el módulo crear el archivo de registro. Una marca de tiempo y extensión de archivo se agregan automáticamente cuando se crea el archivo de registro. Los registros no estén girado, salvo que se produzca el reinicio/reciclaje del proceso. Es responsabilidad del proveedor de hospedaje para limitar los registros de consumen el espacio en disco. Mediante el `stdout` registro sólo se recomienda para solucionar problemas de inicio de la aplicación. No use el registro de stdout para fines de registro de aplicación general. Para registrar la rutina en una aplicación de ASP.NET Core, utiliza una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
+El módulo principal de ASP.NET redirige stdout y stderr registros en el disco si la `stdoutLogEnabled` y `stdoutLogFile` atributos de la `aspNetCore` se establecen el elemento. Las carpetas en el `stdoutLogFile` ruta debe existir en orden para el módulo crear el archivo de registro. El grupo de aplicaciones debe tener acceso de escritura a la ubicación donde se escriben los registros (usar `IIS AppPool\<app_pool_name>` para proporcionar permiso de escritura).
 
-El nombre de archivo de registro se crea anexando la marca de tiempo, el Id. de proceso y la extensión de archivo (*.log*) para el último segmento de la `stdoutLogFile` ruta de acceso (normalmente *stdout*) delimitados por caracteres de subrayado. Si el `stdoutLogFile` ruta de acceso finaliza con *stdout*, un registro de una aplicación con un PID de 1934 creado en 2/5/2018 a 19:42:32 tiene el nombre de archivo *stdout_20180205194132_1934.log*.
+Los registros no estén girado, salvo que se produzca el reinicio/reciclaje del proceso. Es responsabilidad del proveedor de hospedaje para limitar los registros de consumen el espacio en disco.
 
-El ejemplo siguiente `aspNetCore` elemento configura `stdout` el registro para una aplicación hospedada en el servicio de aplicación de Azure. Una ruta de acceso local o una ruta de acceso de recurso compartido de red es aceptable para el registro local. Confirme que la identidad del usuario AppPool tiene permiso para escribir en la ruta de acceso proporcionada.
+Solo se recomienda usar el registro de stdout para solucionar problemas de inicio de la aplicación. No use el registro de stdout para fines de registro de aplicación general. Para registrar la rutina en una aplicación de ASP.NET Core, utiliza una biblioteca de registro que limita el tamaño del archivo de registro y gira registros. Para obtener más información, consulte [proveedores de registro de aplicaciones de terceros](xref:fundamentals/logging/index#third-party-logging-providers).
+
+Una marca de tiempo y extensión de archivo se agregan automáticamente cuando se crea el archivo de registro. El nombre de archivo de registro se crea anexando la marca de tiempo, el Id. de proceso y la extensión de archivo (*.log*) para el último segmento de la `stdoutLogFile` ruta de acceso (normalmente *stdout*) delimitados por caracteres de subrayado. Si el `stdoutLogFile` ruta de acceso finaliza con *stdout*, un registro de una aplicación con un PID de 1934 creado en 2/5/2018 a 19:42:32 tiene el nombre de archivo *stdout_20180205194132_1934.log*.
+
+El ejemplo siguiente `aspNetCore` elemento configura stdout como registro de una aplicación hospedada en el servicio de aplicación de Azure. Una ruta de acceso local o una ruta de acceso de recurso compartido de red es aceptable para el registro local. Confirme que la identidad del usuario AppPool tiene permiso para escribir en la ruta de acceso proporcionada.
 
 ```xml
 <aspNetCore processPath="dotnet"
@@ -144,7 +164,7 @@ El instalador del módulo de núcleo de ASP.NET se ejecuta con los privilegios d
 1. Exportar actualizado *applicationHost.config* archivos al recurso compartido.
 1. Volver a habilitar la configuración de IIS compartido.
 
-## <a name="module-version-and-hosting-bundle-installer-logs"></a>Versión del módulo y el hospedaje de registros del instalador de paquete
+## <a name="module-version-and-hosting-bundle-installer-logs"></a>Versión del módulo y los registros del instalador de paquete de hospedaje
 
 Para determinar la versión del módulo de núcleo de ASP.NET instaladas:
 
@@ -153,7 +173,7 @@ Para determinar la versión del módulo de núcleo de ASP.NET instaladas:
 1. Haga clic en el archivo y seleccione **propiedades** en el menú contextual.
 1. Seleccione el **detalles** ficha. El **versión del archivo** y **versión del producto** representan la versión instalada del módulo.
 
-Los registros de instalador de agrupación de hospedaje de Windows Server para el módulo se encuentran en *C:\\usuarios\\% UserName %\\AppData\\Local\\Temp*. The file is named *dd_DotNetCoreWinSvrHosting__\<timestamp>_000_AspNetCoreModule_x64.log*.
+Los registros de instalador de hospedaje de agrupación para el módulo se encuentran en *C:\\usuarios\\% UserName %\\AppData\\Local\\Temp*. El archivo se denomina *dd_DotNetCoreWinSvrHosting__\<timestamp > _000_AspNetCoreModule_x64.log*.
 
 ## <a name="module-schema-and-configuration-file-locations"></a>Ubicaciones de archivo de módulo, esquema y configuración
 
@@ -169,7 +189,7 @@ Los registros de instalador de agrupación de hospedaje de Windows Server para e
 
    * %ProgramFiles%\IIS Express\aspnetcore.dll
 
-   * %ProgramFiles(x86)%\IIS Express\aspnetcore.dll
+   * % ProgramFiles (x86) %\IIS Express\aspnetcore.dll
 
 ### <a name="schema"></a>Schema
 

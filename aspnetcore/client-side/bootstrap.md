@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bootstrap
-ms.openlocfilehash: 142a997fa46f37545ea04971ab6593bff053b1ef
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: a11ed13c709830795ebfd0e658d3f2fd2fd5a458
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-beautiful-responsive-sites-with-bootstrap-and-aspnet-core"></a>Crear sitios maravillosas y capacidad de respuesta con el arranque y ASP.NET Core
 
@@ -81,7 +81,7 @@ La plantilla predeterminada utiliza un conjunto de `<div>` elementos que se repr
 </button>
 ```
 
-También incluye el nombre de la aplicación, que aparece en la esquina superior izquierda. El menú de navegación principal se representa por la `<ul>` elemento dentro del segundo elemento div e incluye vínculos a casa, aproximadamente y póngase en contacto con. Vínculos adicionales para registrar y el inicio de sesión se agregan mediante la línea de _LoginPartial en línea 29. A continuación el panel de navegación, el cuerpo principal de cada página se representa en otra `<div>`, marcada con las clases "contenedor" y "contenido del cuerpo". En el archivo de _Layout predeterminado simple se muestra aquí, el contenido de la página se representa mediante la vista específica asociada a la página y, a continuación, una sencilla `<footer>` se agrega al final de la `<div>` elemento. Puede ver cómo integrado acerca de la página aparece con esta plantilla:
+También incluye el nombre de la aplicación, que aparece en la esquina superior izquierda. El menú de navegación principal se representa por la `<ul>` elemento dentro del segundo elemento div e incluye vínculos a casa, aproximadamente y póngase en contacto con. A continuación el panel de navegación, el cuerpo principal de cada página se representa en otra `<div>`, marcada con las clases "contenedor" y "contenido del cuerpo". En el archivo de _Layout predeterminado simple se muestra aquí, el contenido de la página se representa mediante la vista específica asociada a la página y, a continuación, una sencilla `<footer>` se agrega al final de la `<div>` elemento. Puede ver cómo integrado acerca de la página aparece con esta plantilla:
 
 ![Acerca de la página](bootstrap/_static/about-page-wide.png)
 
@@ -116,8 +116,8 @@ A continuación, agregar más `<div>` elementos para cada columna y especifique 
 Prefijo de la clase CSS | Nivel de dispositivo | Ancho
 :---: | :---: | :---:
 col-xs: | Teléfonos | < 768px
-col-sm- | Tabletas | >= 768px
-col-md- | Equipos de escritorio | >= 992px
+col-sm - | Tabletas | > = 768px
+col-md - | Equipos de escritorio | > = 992px
 col-lg: | Pantallas de escritorio más grandes | > = 1200 px
 
 Al especificar dos columnas con "col-md-6" el diseño resultante será dos columnas en las soluciones de escritorio, pero estas dos columnas se apilan verticalmente cuando se representa en dispositivos más pequeños (o una ventana del explorador más restringida en un equipo de escritorio), lo que permite a los usuarios ver fácilmente contenido sin necesidad de desplazarse horizontalmente.
@@ -146,7 +146,7 @@ En la ilustración siguiente se muestran las clases del botón predeterminado y 
 
 ### <a name="badges"></a>Distintivos
 
-Distintivos hacen referencia a las llamadas pequeño, normalmente numéricos junto a un elemento de navegación. Puede indicar un número de mensajes o notificaciones en espera, o a la presencia de actualizaciones. Especificar tales notificaciones es tan sencillo como agregar una <span> que contiene el texto, con una clase de "tarjeta":
+Distintivos hacen referencia a las llamadas pequeño, normalmente numéricos junto a un elemento de navegación. Puede indicar un número de mensajes o notificaciones en espera, o a la presencia de actualizaciones. Especificar tales notificaciones es tan sencillo como agregar una `<span>` que contiene el texto, con una clase de "tarjeta":
 
 ![distintivos con temas](bootstrap/_static/theme-badges.png)
 
@@ -158,7 +158,7 @@ Puede que necesite mostrar algún tipo de notificación, la alerta o el mensaje 
 
 ### <a name="navbars-and-menus"></a>Menús y barras de exploración
 
-Nuestro diseño ya incluye una barra de navegación estándar, pero el tema de arranque es compatible con opciones de estilo adicionales. Podemos realizar fácilmente decidimos para mostrar la barra de navegación verticalmente en lugar de horizontalmente si lo que se prefiere, así como agregar navegación secundaria elementos en los menús desplegables. Los menús de navegación sencillo, como bandas de ficha, se generan en la parte superior de <ul> elementos. Estos pueden crearse muy basta con que se proporcionen con las clases CSS "nav" y "nav pestañas":
+Nuestro diseño ya incluye una barra de navegación estándar, pero el tema de arranque es compatible con opciones de estilo adicionales. Podemos realizar fácilmente decidimos para mostrar la barra de navegación verticalmente en lugar de horizontalmente si lo que se prefiere, así como agregar navegación secundaria elementos en los menús desplegables. Los menús de navegación sencillo, como bandas de ficha, se generan en la parte superior de `<ul>` elementos. Estos pueden crearse muy basta con que se proporcionen con las clases CSS "nav" y "nav pestañas":
 
 ![orientado con temas](bootstrap/_static/theme-tabstrips.png)
 

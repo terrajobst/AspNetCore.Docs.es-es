@@ -12,11 +12,11 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 320409cd395384a608a07307a56d18105d45de14
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ded549109ca6e7ad806f1c3f53387766527e5a94
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Compilar API RESTful con ASP.NET Web API
 ====================
@@ -25,7 +25,7 @@ Por [Web colonias equipo](https://twitter.com/webcamps)
 > En los últimos años, se ha convertido en claro que HTTP no es solo para servir páginas HTML. También es una herramienta eficaz para la creación de las API Web, con unos cuantos verbos (GET, POST etc.) junto con algunos conceptos simples como *URI* y *encabezados*. ASP.NET Web API es un conjunto de componentes que simplifican la programación de HTTP. Dado que se basa en el tiempo de ejecución de ASP.NET MVC, Web API controla automáticamente los detalles de bajo nivel de transporte de HTTP. Al mismo tiempo, API Web de forma natural expone el modelo de programación HTTP. De hecho, es un objetivo de API Web *no* condensan y eliminan la realidad de HTTP. Como resultado, la API Web es flexible y fácil de extender. En este laboratorio práctico, utilizará la API Web para crear una API de REST simple para una aplicación de administrador de contactos. También generará un cliente para utilizar la API. El estilo arquitectónico REST ha demostrado para ser una manera eficaz de aprovechar HTTP - aunque ciertamente no es el enfoque solo es válido para HTTP. El Administrador de contactos expondrá la RESTful para enumerar, agregar y quitar contactos, entre otros. Esta práctica requiere conocimientos básicos de HTTP, REST y se supone que tiene conocimientos prácticos básicos de HTML, JavaScript y jQuery.
 > 
 > > [!NOTE]
-> > El sitio Web de ASP.NET tiene un área dedicada para el marco de ASP.NET Web API en [ [ https://asp.net/web-api ](https://asp.net/web-api) ](https://asp.net/web-api). Este sitio continuará proporcionando información de última hora, ejemplos y noticias relacionadas con la API Web, por lo que protegerlo con frecuencia si le gustaría profundizar en el arte de crear API personalizadas de Web disponible para prácticamente cualquier marco de desarrollo o dispositivo.
+> > El sitio Web de ASP.NET tiene un área dedicada para el marco de ASP.NET Web API en [ https://asp.net/web-api ](https://asp.net/web-api). Este sitio continuará proporcionando información de última hora, ejemplos y noticias relacionadas con la API Web, por lo que protegerlo con frecuencia si le gustaría profundizar en el arte de crear API personalizadas de Web disponible para prácticamente cualquier marco de desarrollo o dispositivo.
 > > 
 > > ASP.NET Web API, similar a ASP.NET MVC 4, tiene gran flexibilidad en cuanto a separar la capa de servicio desde los controladores de lo que le permite usar varios de los marcos de inyección de dependencia disponibles bastante fácil. Hay un buen ejemplo en MSDN que muestra cómo utilizar Ninject para la inyección de dependencia en un proyecto de ASP.NET Web API que puede descargar desde [aquí](https://code.msdn.microsoft.com/ASPNET-Web-API-JavaScript-d0d64dd7).
 > 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/spa-services
-ms.openlocfilehash: 05b0d7f31e167e620f2d168109ffd907ba120a49
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fd893b7c62f38442bf5633a956786983763e6f9f
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Usar JavaScriptServices para crear aplicaciones de una página de ASP.NET Core
 
@@ -166,7 +166,7 @@ El *webpack.config.js* del archivo `output.publicPath` propiedad indica el middl
 
 ## <a name="hot-module-replacement"></a>Sustitución del módulo de acceso rápido
 
-Piense del Webpack [activa sustitución del módulo](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html) característica (HMR) como una evolución del [Webpack Dev Middleware](#webpack-dev-middleware). HMR incorpora las mismas ventajas, pero optimiza aún más el flujo de trabajo de desarrollo al actualizar automáticamente el contenido de página después de compilar los cambios. No se debe confundir con una actualización del explorador, lo que interferiría con el estado actual de en memoria y la sesión de depuración de la aplicación SPA. Hay un vínculo directo entre el servicio de Middleware de desarrollo de Webpack y el explorador, lo que significa que los cambios se insertan en el explorador.
+Piense del Webpack [activa sustitución del módulo](https://webpack.js.org/concepts/hot-module-replacement/) característica (HMR) como una evolución del [Webpack Dev Middleware](#webpack-dev-middleware). HMR incorpora las mismas ventajas, pero optimiza aún más el flujo de trabajo de desarrollo al actualizar automáticamente el contenido de página después de compilar los cambios. No se debe confundir con una actualización del explorador, lo que interferiría con el estado actual de en memoria y la sesión de depuración de la aplicación SPA. Hay un vínculo directo entre el servicio de Middleware de desarrollo de Webpack y el explorador, lo que significa que los cambios se insertan en el explorador.
 
 ### <a name="prerequisites"></a>Requisitos previos
 
@@ -226,7 +226,7 @@ Sugerencia: Las rutas se evalúan en el orden en el que está configurados. Por 
 
 ## <a name="creating-a-new-project"></a>Crear un nuevo proyecto
 
-JavaScriptServices proporciona plantillas de aplicaciones configuradas previamente. SpaServices se utiliza en estas plantillas, junto con una diversidad de marcos y bibliotecas como Angular, Aurelia, Knockout, reaccionar y objeto.
+JavaScriptServices proporciona plantillas de aplicaciones configuradas previamente. SpaServices se utiliza en estas plantillas, junto con una diversidad de marcos y bibliotecas como Angular, reaccionar y Redux.
 
 Estas plantillas se pueden instalar a través de la CLI de núcleo de .NET con el comando siguiente:
 
@@ -238,12 +238,9 @@ Se muestra una lista de plantillas SPA disponibles:
 
 | Plantillas                                 | Nombre corto | Lenguaje | Etiquetas        |
 |:------------------------------------------|:-----------|:---------|:------------|
-| Núcleo de ASP.NET de MVC con Angular             | angular    | [C#]     | Web/MVC/SPA |
-| Núcleo de ASP.NET de MVC con Aurelia             | aurelia    | [C#]     | Web/MVC/SPA |
-| Núcleo de ASP.NET de MVC con Knockout.js         | knockout   | [C#]     | Web/MVC/SPA |
-| Núcleo de ASP.NET de MVC con React.js            | react      | [C#]     | Web/MVC/SPA |
-| Núcleo de ASP.NET MVC con React.js y reducción  | reactredux | [C#]     | Web/MVC/SPA |
-| Núcleo de ASP.NET de MVC con Vue.js              | vue        | [C#]     | Web/MVC/SPA | 
+| Núcleo de ASP.NET de MVC con Angular             | angular    | [C#]     | MVC/Web/SPA |
+| Núcleo de ASP.NET de MVC con React.js            | react      | [C#]     | MVC/Web/SPA |
+| Núcleo de ASP.NET MVC con React.js y reducción  | reactredux | [C#]     | MVC/Web/SPA |
 
 Para crear un nuevo proyecto con una de las plantillas SPA, incluya el **nombre corto** de la plantilla en el [dotnet nueva](/dotnet/core/tools/dotnet-new) comando. El siguiente comando crea una aplicación Angular con ASP.NET MVC de núcleo configurado para el lado del servidor:
 
@@ -295,7 +292,7 @@ Usar la aplicación Angular como ejemplo, dos casos de prueba criterio Comidos y
 
 [!code-typescript[](../client-side/spa-services/sample/SpaServicesSampleApp/ClientApp/app/components/counter/counter.component.spec.ts?range=15-28)]
 
-Abra el símbolo del sistema en la raíz del proyecto y ejecute el siguiente comando:
+Abra el símbolo del sistema en el *ClientApp* directory. Ejecute el siguiente comando:
 
 ```console
 npm test
