@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 572b263a5f968b473457771a1dd4075910218c01
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a3527b54d1936bc14e32a1828ac3a2be625107ba
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013
 ====================
@@ -179,7 +179,7 @@ Después de instalar los requisitos previos, está listo para empezar a crear el
 
 La descarga es un <em>.zip</em> archivo. Para ver el proyecto completado que crea esta serie de tutoriales, busque y seleccione el <em>C#</em>carpeta en el <em>.zip</em> archivo. Guardar el <em>C#</em> carpeta a la carpeta usada para trabajar con proyectos de Visual Studio 2013. De forma predeterminada, la carpeta de proyectos de Visual Studio 2013 es la siguiente:
 
-<strong>C:\Users\</ strong ><strong><em>&lt;nombre de usuario&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
+<strong>C:\Users&#92;</strong><strong><em>&lt;nombre de usuario&gt;</em></strong><strong>\Documents\Visual Studio 2013\Projects</strong>
 
 Cambiar el nombre de la ***C#*** carpeta ***WingtipToys***.
 

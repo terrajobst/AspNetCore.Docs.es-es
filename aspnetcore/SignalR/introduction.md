@@ -1,21 +1,21 @@
 ---
 title: Introducción a ASP.NET Core SignalR
 author: rachelappel
-description: Obtenga información acerca de cómo la biblioteca ASP.NET Core SignalR simplifica agregar funcionalidad web en tiempo real a las aplicaciones.
+description: Obtenga información acerca de cómo la biblioteca ASP.NET Core SignalR simplifica la adición de funcionalidad en tiempo real a las aplicaciones.
 manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/07/2018
+ms.date: 04/25/2018
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/introduction
-ms.openlocfilehash: fa9b10201b5dc0e67bcd6d1321a3737e2025fda4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 190dfe9eac95be646b458870ac4ee95f681f45d7
+ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-aspnet-core-signalr"></a>Introducción a ASP.NET Core SignalR
 
@@ -51,20 +51,17 @@ La conexión entre el cliente y el servidor es persistente, a diferencia de una 
 
 Resúmenes de SignalR a través de una serie de técnicas para crear aplicaciones web en tiempo real. [WebSockets](https://tools.ietf.org/html/rfc7118) es el transporte óptimo, pero se pueden usar otras técnicas como eventos de Server-Sent y sondeo largo cuando los que no están disponibles. SignalR detectará automáticamente e inicializar el transporte adecuado en función de las características admitidas en el servidor y el cliente.
 
-## <a name="hubs-and-endpoints"></a>Los concentradores y los puntos de conexión
+## <a name="hubs"></a>Concentradores
 
-SignalR usa los concentradores y los puntos de conexión para la comunicación entre clientes y servidores. La API de concentradores cubre la mayoría de los escenarios.
+SignalR usa centros para la comunicación entre clientes y servidores.
 
-Un concentrador es una canalización de alto nivel que se basa la API de punto de conexión que permite que el cliente y servidor para llamar a métodos en entre sí. SignalR administra el envío a través de los límites del equipo automáticamente, permitiendo a los clientes llamar a métodos en el servidor como fácilmente como métodos locales y viceversa. Los concentradores permiten pasar parámetros fuertemente tipados a métodos, lo que permite el enlace de modelos. SignalR proporciona dos protocolos de concentrador integrada: un protocolo de texto en función de JSON y un protocolo binario basado en [MessagePack](https://msgpack.org/).  Por lo general, MessagePack crea mensajes más pequeños que cuando se usan JSON. Deben ser compatible con los exploradores más antiguos [nivel XHR 2](https://caniuse.com/#feat=xhr2) para proporcionar compatibilidad con el protocolo MessagePack.
+Un concentrador es una canalización de alto nivel que permite que el cliente y servidor para llamar a métodos en entre sí. SignalR administra el envío a través de los límites del equipo automáticamente, permitiendo a los clientes llamar a métodos en el servidor como fácilmente como métodos locales y viceversa. Los concentradores permiten pasar parámetros fuertemente tipados a métodos, lo que permite el enlace de modelos. SignalR proporciona dos protocolos de concentrador integrada: un protocolo de texto en función de JSON y un protocolo binario basado en [MessagePack](https://msgpack.org/).  Por lo general, MessagePack crea mensajes más pequeños que cuando se usan JSON. Deben ser compatible con los exploradores más antiguos [nivel XHR 2](https://caniuse.com/#feat=xhr2) para proporcionar compatibilidad con el protocolo MessagePack.
 
 Los centros de llamar a código de cliente mediante el envío de mensajes mediante el transporte activo. Los mensajes contienen el nombre y los parámetros del método de cliente. Objetos que se envíen como parámetros de método se deserializan mediante el protocolo configurado. El cliente intenta hacer coincidir el nombre a un método en el código de cliente. Cuando se produce una coincidencia, el método de cliente se ejecuta con los datos del parámetro deserializado.
 
-Los extremos proporcionan una API similar a socket sin procesar, les permite leer y escribir desde el cliente lo que. Es al programador para controlar la agrupación, difusión y otras funciones. La API de concentradores se basa en la capa de puntos de conexión.
+## <a name="additional-resources"></a>Recursos adicionales
 
-El siguiente diagrama muestra la relación entre los concentradores, los puntos de conexión y los clientes.
-
-![Mapa de SignalR](introduction/_static/signalr-core-architecture.png)
-
-## <a name="related-resources"></a>Recursos relacionados
-
-[Empezar a trabajar con SignalR para ASP.NET Core](xref:signalr/get-started)
+* [Empezar a trabajar con SignalR para ASP.NET Core](xref:signalr/get-started)
+* [Plataformas compatibles](xref:signalr/supported-platforms)
+* [Concentradores](xref:signalr/hubs)
+* [Cliente de JavaScript](xref:signalr/javascript-client)
