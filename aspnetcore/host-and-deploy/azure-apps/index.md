@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: c2675f73880a41ee75f6ec13155419945387e109
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f53f77d342cc59094a80e8667db6ef345a6e8305
+ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
@@ -95,14 +95,13 @@ Para obtener más información, consulte [Proveedores de almacenamiento de clave
 
 Las aplicaciones de versión preliminar de ASP.NET Core se pueden implementar en Azure App Service con los procedimientos siguientes:
 
-* [Instalar la extensión de sitio de versión preliminar](#site-x)
-* [Implementar la aplicación independiente](#self)
-* [Usar Docker con Web Apps para contenedores](#docker)
+* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension)
+* [Implementación de la aplicación independiente](#deploy-the-app-self-contained)
+* [Uso de Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers)
 
-Si tiene un problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
+Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
-<a name="site-x"></a>
-### <a name="install-the-preview-site-extention"></a>Instalar la extensión de sitio de versión preliminar
+### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
 
 * En Azure Portal, vaya a la hoja de App Service.
 * Escriba "ex" en el cuadro de búsqueda.
@@ -111,10 +110,10 @@ Si tiene un problema al usar la extensión de sitio de versión preliminar, abra
 
 ![Hoja de Azure App con los pasos anteriores](index/_static/x1.png)
 
-* Seleccione **ASP.NET Core Runtime Extensions** (Extensiones de tiempo de ejecución de ASP.NET Core).
-* Seleccione **Aceptar** > **Aceptar**.
+* Seleccione **ASP.NET Core 2.1 (x86) Runtime** o **ASP.NET Core 2.1 (x64) Runtime**.
+* Seleccione **Aceptar**. Vuelva a seleccionar **Aceptar**.
 
-Cuando se completa la operación de adición, se instala la versión preliminar de .NET Core 2.1. Para comprobar la instalación, ejecute `dotnet --info` en la consola. En la hoja de App Service:
+Cuando se complete la operación de adición, se instalará la versión preliminar de .NET Core 2.1. Para comprobar la instalación, ejecute `dotnet --info` en la consola. En la hoja de **App Service**:
 
 * Escriba "con" en el cuadro de búsqueda.
 * Seleccione **Consola**.
@@ -126,26 +125,24 @@ La imagen anterior se capturó en el momento en que se escribía esto. Podría v
 
 `dotnet --info` muestra la ruta de acceso a la extensión de sitio en la que se ha instalado la versión preliminar. Muestra que la aplicación se está ejecutando desde la extensión de sitio, en lugar de desde la ubicación predeterminada *ProgramFiles*. Si ve *ProgramFiles*, reinicie el sitio y ejecute `dotnet --info`.
 
-#### <a name="use-the-preview-site-extention-with-an-arm-template"></a>Usar la extensión de sitio de versión preliminar con una plantilla de ARM
+**Uso de la extensión de sitio de versión preliminar con una plantilla de ARM**
 
 Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo:
 
 [!code-json[Main](index/sample/arm.json?highlight=2)]
 
-<a name="self"></a>
-### <a name="deploy-the-app-self-contained"></a>Implementar la aplicación independiente
+### <a name="deploy-the-app-self-contained"></a>Implementación de la aplicación independiente
 
-Puede implementar una [aplicación independiente](/dotnet/core/deploying/#self-contained-deployments-scd) que incluye el tiempo de ejecución de versión preliminar al implementarse. Al implementar una aplicación independiente:
+Puede implementar una [aplicación independiente](/dotnet/core/deploying/#self-contained-deployments-scd) que contenga la versión preliminar del entorno de ejecución. Al implementar una aplicación independiente:
 
-* No es necesario preparar el sitio.
-* Debe publicar la aplicación de manera diferente a como lo haría al implementar una aplicación una vez que el SDK está instalado en el servidor.
+* No es necesario que el sitio esté preparado.
+* La aplicación se debe publicar de forma diferente en relación con una implementación que dependa de un marco, con un entorno de ejecución compartido y el servidor como host.
 
-Las aplicaciones independientes son una opción válida para todas las aplicaciones de .NET Core.
+Las aplicaciones independientes son una opción válida para todas las aplicaciones ASP.NET Core.
 
-<a name="docker"></a>
-### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
+### <a name="use-docker-with-web-apps-for-containers"></a>Uso de Docker con Web Apps para contenedores
 
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar 2.1 más recientes. Puede usarlas como imagen base e implementarlas en Web Apps para contenedores como lo haría normalmente.
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar 2.1 más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
