@@ -3,19 +3,20 @@ title: Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.x y versiones po
 author: Rick-Anderson
 description: El metapaquete Microsoft.AspNetCore.All incluye todos los paquetes de ASP.NET Core y Entity Framework Core, junto con sus dependencias.
 manager: wpickett
+monikerRange: = aspnetcore-2.0
 ms.author: riande
 ms.date: 09/20/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/metapackage
-ms.openlocfilehash: 07220fdae299723088fa85e452cedff5e5685bd7
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4c11f15e659565325bfe8b8d91188b62177b251d
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-#<a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.x
+# <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-2x"></a>Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.x
 
 Esta característica requiere ASP.NET Core 2.x con .NET Core 2.x como destino.
 
@@ -25,7 +26,7 @@ El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microso
 * Todos los paquetes admitidos por Entity Framework Core. 
 * Dependencias internas y de terceros usadas por ASP.NET Core y Entity Framework Core. 
 
-Todas las características de ASP.NET Core 2.x y Entity Framework Core 2.x están incluidas en el paquete `Microsoft.AspNetCore.All`. Las plantillas de proyecto predeterminadas usan este paquete.
+Todas las características de ASP.NET Core 2.x y Entity Framework Core 2.x están incluidas en el paquete `Microsoft.AspNetCore.All`. Las plantillas de proyecto predeterminada destinadas a ASP.NET 2.0 usan este paquete.
 
 El número de versión del metapaquete `Microsoft.AspNetCore.All` representa la versión de ASP.NET Core y la versión de Entity Framework Core (alineado con la versión de .NET Core).
 
@@ -35,4 +36,4 @@ Puede usar el proceso de recorte de paquetes para quitar los paquetes que no se 
 
 El siguiente archivo *.csproj* hace referencia al metapaquete `Microsoft.AspNetCore.All` de ASP.NET Core:
 
-[!code-xml[Main](..\mvc\views\view-compilation\sample\MvcRazorCompileOnPublish2.csproj?highlight=9)]
+[!code-xml[](../mvc/views/view-compilation/sample/MvcRazorCompileOnPublish2.csproj?highlight=9)]
