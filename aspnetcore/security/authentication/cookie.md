@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: 26101d46557c64047f3d121083fe34ad34ff99ea
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b251aa3ff0b4d0c08f9885cd73a111b7c2008766
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usar autenticación con cookies sin ASP.NET Core Identity
 
@@ -65,7 +65,7 @@ El [CookieAuthenticationOptions](/dotnet/api/microsoft.aspnetcore.authentication
 | [SessionStore](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.sessionstore?view=aspnetcore-2.0) | Contenedor opcional que se utiliza para almacenar la identidad todas las solicitudes. Cuando se utiliza, solo un identificador de sesión se envía al cliente. `SessionStore` puede utilizarse para mitigar los posibles problemas con identidades grandes. |
 | [slidingExpiration](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.slidingexpiration?view=aspnetcore-2.0) | Una marca que indica si se debe emitir una nueva cookie con una fecha de caducidad actualizada dinámicamente. Esto puede suceder en cualquier solicitud que el período de expiración de cookie actual es más del 50% expira. La nueva fecha de expiración se mueve hacia delante como la fecha actual más el `ExpireTimespan`. Un [tiempo de expiración de cookie absoluta](xref:security/authentication/cookie#absolute-cookie-expiration) puede establecerse mediante el `AuthenticationProperties` al llamar a la clase `SignInAsync`. Una hora de expiración absoluta puede mejorar la seguridad de la aplicación mediante la limitación de la cantidad de tiempo que la cookie de autenticación es válida. El valor predeterminado es `true`. |
 | [TicketDataFormat](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.ticketdataformat?view=aspnetcore-2.0) | El `TicketDataFormat` se usa para proteger y desproteger la identidad y otras propiedades que se almacenan en el valor de cookie. Si no se proporciona un `TicketDataFormat` se crea utilizando el [DataProtectionProvider](/dotnet/api/microsoft.aspnetcore.authentication.cookies.cookieauthenticationoptions.dataprotectionprovider?view=aspnetcore-2.0). |
-| [Validate](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate?view=aspnetcore-2.0) | Método que compruebe que las opciones son válidas. |
+| [Validar](/dotnet/api/microsoft.aspnetcore.authentication.authenticationschemeoptions.validate?view=aspnetcore-2.0) | Método que compruebe que las opciones son válidas. |
 
 Establecer `CookieAuthenticationOptions` en la configuración del servicio para la autenticación en el `ConfigureServices` método:
 
@@ -162,7 +162,7 @@ La configuración de directiva Middleware de cookies para `MinimumSameSitePolicy
 
 ## <a name="creating-an-authentication-cookie"></a>Crear una cookie de autenticación
 
-Para crear una cookie que contiene información de usuario, debe construir un [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). La información de usuario se serializa y se almacena en la cookie. 
+Para crear una cookie que contiene información de usuario, debe construir un [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). La información de usuario se serializa y se almacena en la cookie. 
 
 #### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Crear un [ClaimsIdentity](/dotnet/api/system.security.claims.claimsidentity) con cualquier necesario [notificación](/dotnet/api/system.security.claims.claim)s y llame al método [SignInAsync](/dotnet/api/microsoft.aspnetcore.authentication.authenticationhttpcontextextensions.signinasync?view=aspnetcore-2.0) para iniciar sesión en el usuario:

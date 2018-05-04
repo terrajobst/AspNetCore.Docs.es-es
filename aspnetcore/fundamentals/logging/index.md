@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: aab1190467c13ae121625c377d0908eac2fe8d95
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 78dcee05799965c72f878662df61034018a23021
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -586,8 +586,6 @@ Estos son algunas plataformas de registro de terceros que funcionan con ASP.NET 
 Algunas plataformas de terceros pueden realizar el [registro semántico, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
 El uso de una plataforma de terceros es similar al de uno de los proveedores integrados: se agrega un paquete NuGet al proyecto y se llama a un método de extensión de `ILoggerFactory`. Para más información, vea la documentación de cada plataforma.
-
-También puede crear sus propios proveedores personalizados, para admitir otras plataformas de registro o sus propios requisitos de registro.
 
 ## <a name="azure-log-streaming"></a>Secuencias de registro de Azure
 

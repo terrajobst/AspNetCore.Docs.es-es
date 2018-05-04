@@ -9,11 +9,11 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: ff92b032fe8bbbcb7bc26a34fdfbc56a0fcc0e2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -33,7 +33,7 @@ En `ConfigureServices`, agregue el middleware a la colección de servicio.
 
 [!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
 
-Configurar la aplicación para usar el middleware con el `UseResponseCaching` método de extensión, que agrega el middleware a la canalización de procesamiento de la solicitud. La aplicación de ejemplo agrega un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) encabezado a la respuesta que se almacena en caché las respuestas almacenable en caché durante 10 segundos. El ejemplo envía una [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) encabezado para configurar el middleware para dar servicio a un respuesta almacenada en caché solo si la [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) coincide con el encabezado de las solicitudes posteriores de la solicitud original.
+Configurar la aplicación para usar el middleware con el `UseResponseCaching` método de extensión, que agrega el middleware a la canalización de procesamiento de la solicitud. La aplicación de ejemplo agrega un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) encabezado a la respuesta que se almacena en caché las respuestas almacenable en caché durante 10 segundos. El ejemplo envía una [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) encabezado para configurar el middleware para dar servicio a un respuesta almacenada en caché solo si la [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) coincide con el encabezado de las solicitudes posteriores de la solicitud original. En el ejemplo de código siguiente, [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) y [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) requieren un `using` instrucción para el [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) espacio de nombres.
 
 [!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
 
@@ -88,9 +88,9 @@ Las respuestas en caché el middleware se configura mediante encabezados HTTP.
 | Header | Detalles |
 | ------ | ------- |
 | Autorización | La respuesta no está almacenado en memoria caché si el encabezado no existe. |
-| Cache-Control | El middleware solamente tiene en cuenta el almacenamiento en caché las respuestas que se marca con el `public` directiva de caché. Controlar el almacenamiento en caché con los parámetros siguientes:<ul><li>max-age</li><li>max-stale&#8224;</li><li>min-nuevo</li><li>Directiva must-revalidate</li><li>sin caché</li><li>ningún almacén</li><li>solo if-almacenamiento en caché</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Si no se especifica ningún límite para `max-stale`, el middleware no realiza ninguna acción.<br>&#8225;`proxy-revalidate`tiene el mismo efecto que `must-revalidate`.<br><br>Para obtener más información, consulte [RFC 7231: solicitar directivas de Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
+| Control de caché | El middleware solamente tiene en cuenta el almacenamiento en caché las respuestas que se marca con el `public` directiva de caché. Controlar el almacenamiento en caché con los parámetros siguientes:<ul><li>max-age</li><li>Max obsoleta&#8224;</li><li>min-nuevo</li><li>Directiva must-revalidate</li><li>sin caché</li><li>ningún almacén</li><li>solo if-almacenamiento en caché</li><li>private</li><li>public</li><li>s-maxage</li><li>proxy-revalidate&#8225;</li></ul>&#8224;Si no se especifica ningún límite para `max-stale`, el middleware no realiza ninguna acción.<br>&#8225;`proxy-revalidate`tiene el mismo efecto que `must-revalidate`.<br><br>Para obtener más información, consulte [RFC 7231: solicitar directivas de Cache-Control](https://tools.ietf.org/html/rfc7234#section-5.2.1). |
 | Pragma | A `Pragma: no-cache` encabezado en la solicitud produce el mismo efecto que `Cache-Control: no-cache`. Este encabezado se haya reemplazado por las directivas correspondientes en el `Cache-Control` encabezado, si está presente. Cuenta para mantener la compatibilidad con HTTP/1.0. |
-| Set-Cookie | La respuesta no está almacenado en memoria caché si el encabezado no existe. |
+| Set-Cookie | La respuesta no está almacenado en memoria caché si el encabezado no existe. Cualquier middleware en la canalización de procesamiento de la solicitud que establece una o más cookies impide que el Middleware de almacenamiento en caché de respuesta de almacenamiento en caché la respuesta (por ejemplo, el [basado en cookies proveedor TempData](xref:fundamentals/app-state#tempdata)).  |
 | Variar | El `Vary` encabezado se utiliza para modificar la respuesta almacenada en caché por otro encabezado. Por ejemplo, almacenar en caché las respuestas mediante la codificación mediante la inclusión de la `Vary: Accept-Encoding` encabezado, que se almacena en caché las respuestas para las solicitudes con encabezados `Accept-Encoding: gzip` y `Accept-Encoding: text/plain` por separado. Una respuesta con un valor de encabezado de `*` nunca se almacena. |
 | Expira | Una respuesta considera obsoleta por este encabezado no almacenan o recuperan a menos que se reemplaza por otro `Cache-Control` encabezados. |
 | If-None-Match | La respuesta completa se sirve desde la memoria caché si el valor no es `*` y `ETag` de la respuesta no coincide con ninguno de los valores proporcionados. En caso contrario, se otorga una respuesta 304 (no modificado). |
@@ -105,7 +105,7 @@ El middleware respeta las reglas de la [especificación HTTP 1.1 Caching](https:
 
 Para tener más control sobre el almacenamiento en caché de comportamiento, explore otras características de almacenamiento en caché de ASP.NET Core. Consulte los temas siguientes:
 
-* [En la memoria de caché](xref:performance/caching/memory)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Almacenar en caché auxiliar de etiqueta en el núcleo de ASP.NET MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
 * [Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
@@ -130,19 +130,19 @@ Al probar y solucionar problemas de comportamiento de almacenamiento en caché, 
 * El `Set-Cookie` encabezado no debe estar presente.
 * `Vary` parámetros del encabezado deben ser válida y no es igual a `*`.
 * La `Content-Length` valor de encabezado (si establece) debe coincidir con el tamaño del cuerpo de respuesta.
-* El [IHttpSendFileFeature](/aspnet/core/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) no se utiliza.
+* El [IHttpSendFileFeature](/dotnet/api/microsoft.aspnetcore.http.features.ihttpsendfilefeature) no se utiliza.
 * La respuesta no debe ser obsoleta según lo especificado por el `Expires` encabezado y el `max-age` y `s-maxage` directivas de caché.
 * Búfer de respuesta debe ser correcta, y el tamaño de la respuesta debe ser menor que el configurado o default `SizeLimit`.
 * La respuesta debe ser almacenable en caché según el [RFC 7234](https://tools.ietf.org/html/rfc7234) especificaciones. Por ejemplo, el `no-store` directiva no debe existir en los campos de encabezado de solicitud o respuesta. Vea *sección 3: almacenar respuestas en las cachés* de [RFC 7234](https://tools.ietf.org/html/rfc7234) para obtener más información.
 
 > [!NOTE]
-> El sistema Antiforgery para generar tokens seguros para evitar la falsificación de solicitud entre sitios (CSRF) ataques conjuntos el `Cache-Control` y `Pragma` encabezados a `no-cache` para que no se almacenan en caché las respuestas.
+> El sistema Antiforgery para generar tokens seguros para evitar la falsificación de solicitud entre sitios (CSRF) ataques conjuntos el `Cache-Control` y `Pragma` encabezados a `no-cache` para que no se almacenan en caché las respuestas. Para obtener información acerca de cómo deshabilitar antiforgery tokens para los elementos de formulario HTML, vea [antiforgery configuración de ASP.NET Core](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Middleware](xref:fundamentals/middleware/index)
-* [En la memoria de caché](xref:performance/caching/memory)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)

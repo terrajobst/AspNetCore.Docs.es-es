@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-primary-key-configuration
-ms.openlocfilehash: db47055aecc5252dbb3991f29a8255b946deaeb7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ce654492dc7bab6c031c9f82555f877f642171ce
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="configure-identity-primary-key-data-type-in-aspnet-core"></a>Configurar el tipo de datos de clave principal de identidad en ASP.NET Core
 
@@ -21,11 +21,11 @@ Identidad de ASP.NET Core le permite configurar el tipo de datos que se utiliza 
 
 ## <a name="customize-the-primary-key-data-type"></a>Personalizar el tipo de datos de clave principal
 
-1. Crear una implementación personalizada de la [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuser-1) clase. Representa el tipo que se usará para crear objetos de usuario. En el ejemplo siguiente, el valor predeterminado `string` tipo se reemplaza con `Guid`.
+1. Crear una implementación personalizada de la [IdentityUser](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuser-1) clase. Representa el tipo que se usará para crear objetos de usuario. En el ejemplo siguiente, el valor predeterminado `string` tipo se reemplaza con `Guid`.
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationUser.cs?highlight=4&range=7-13)]
 
-2. Crear una implementación personalizada de la [IdentityRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1) clase. Representa el tipo que se usará para crear objetos de rol. En el ejemplo siguiente, el valor predeterminado `string` tipo se reemplaza con `Guid`.
+2. Crear una implementación personalizada de la [IdentityRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityrole-1) clase. Representa el tipo que se usará para crear objetos de rol. En el ejemplo siguiente, el valor predeterminado `string` tipo se reemplaza con `Guid`.
 
     [!code-csharp[](identity/sample/src/ASPNET-IdentityDemo-PrimaryKeysConfig/Models/ApplicationRole.cs?highlight=3&range=7-12)]
 

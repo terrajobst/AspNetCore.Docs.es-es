@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: a410d686b6140a487efb9962e94f64cfbec245f2
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 4c44063fb3385fc625c35c8a3cf06a35b5b0afb7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -30,7 +30,7 @@ El middleware es un software que se ensambla a una canalización de una aplicaci
 
 Los delegados de solicitudes se usan para crear la canalización de solicitudes. Estos también controlan las solicitudes HTTP.
 
-Los delegados de solicitudes se configuran con los métodos de extensión [Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions), [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) y [Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). Un delegado de solicitudes se puede especificar en línea como un método anónimo (denominado middleware en línea) o se puede definir en una clase reutilizable. Estas clases reutilizables y métodos anónimos en línea son *middleware* o *componentes de middleware*. Cada componente de middleware de la canalización de solicitudes es responsable de invocar al siguiente componente de la canalización o de cortocircuitar la cadena en caso de ser necesario.
+Los delegados de solicitudes se configuran con los métodos de extensión [Run](/dotnet/api/microsoft.aspnetcore.builder.runextensions), [Map](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) y [Use](/dotnet/api/microsoft.aspnetcore.builder.useextensions). Un delegado de solicitudes se puede especificar en línea como un método anónimo (denominado middleware en línea) o se puede definir en una clase reutilizable. Estas clases reutilizables y métodos anónimos en línea son *middleware* o *componentes de middleware*. Cada componente de middleware de la canalización de solicitudes es responsable de invocar al siguiente componente de la canalización o de cortocircuitar la cadena en caso de ser necesario.
 
 En [Migración de módulos HTTP a middleware](xref:migration/http-modules) se explica la diferencia entre las canalizaciones de solicitudes en ASP.NET Core y ASP.NET 4.x y se proporcionan más ejemplos de middleware.
 
@@ -46,9 +46,9 @@ La aplicación ASP.NET Core más sencilla posible configura un solo delegado de 
 
 [!code-csharp[](index/sample/Middleware/Startup.cs)]
 
-El primer delegado [app.Run](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.runextensions) finaliza la canalización.
+El primer delegado [app.Run](/dotnet/api/microsoft.aspnetcore.builder.runextensions) finaliza la canalización.
 
-Puede encadenar varios delegados de solicitudes con [app.Use](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.useextensions). El parámetro `next` representa el siguiente delegado de la canalización. Recuerde que puede cortocircuitar la canalización si *no* llama al *siguiente* parámetro. Normalmente puede realizar acciones antes y después del siguiente delegado, tal y como se muestra en este ejemplo:
+Puede encadenar varios delegados de solicitudes con [app.Use](/dotnet/api/microsoft.aspnetcore.builder.useextensions). El parámetro `next` representa el siguiente delegado de la canalización. Recuerde que puede cortocircuitar la canalización si *no* llama al *siguiente* parámetro. Normalmente puede realizar acciones antes y después del siguiente delegado, tal y como se muestra en este ejemplo:
 
 [!code-csharp[](index/sample/Chain/Startup.cs?name=snippet1)]
 
@@ -57,7 +57,7 @@ Puede encadenar varios delegados de solicitudes con [app.Use](https://docs.micro
 > - Puede provocar una infracción del protocolo. Por ejemplo, si escribe más de la longitud `content-length` establecida.
 > - Puede dañar el formato del cuerpo. Por ejemplo, si escribe un pie de página en HTML en un archivo CSS.
 >
-> [HttpResponse.HasStarted](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) es una sugerencia útil para indicar si se han enviado los encabezados o si se han realizado escrituras en el cuerpo.
+> [HttpResponse.HasStarted](/dotnet/api/microsoft.aspnetcore.http.features.httpresponsefeature#Microsoft_AspNetCore_Http_Features_HttpResponseFeature_HasStarted) es una sugerencia útil para indicar si se han enviado los encabezados o si se han realizado escrituras en el cuerpo.
 
 ## <a name="ordering"></a>Ordenación
 
@@ -122,7 +122,7 @@ Si el middleware de archivos estáticos no controla la solicitud, se pasa al mid
 
 -----------
 
-En el ejemplo siguiente se muestra un orden de middleware en el que el middleware de archivos estáticos controla las solicitudes de archivos estáticos antes del middleware de compresión de respuestas. Los archivos estáticos no se comprimen con este orden de middleware. Las respuestas MVC de [UseMvcWithDefaultRoute](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) se pueden comprimir.
+En el ejemplo siguiente se muestra un orden de middleware en el que el middleware de archivos estáticos controla las solicitudes de archivos estáticos antes del middleware de compresión de respuestas. Los archivos estáticos no se comprimen con este orden de middleware. Las respuestas MVC de [UseMvcWithDefaultRoute](/dotnet/api/microsoft.aspnetcore.builder.mvcapplicationbuilderextensions#Microsoft_AspNetCore_Builder_MvcApplicationBuilderExtensions_UseMvcWithDefaultRoute_Microsoft_AspNetCore_Builder_IApplicationBuilder_) se pueden comprimir.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -140,7 +140,7 @@ public void Configure(IApplicationBuilder app)
 
 Puede configurar la canalización HTTP con `Use`, `Run` y `Map`. El método `Use` puede cortocircuitar la canalización (solo si no llama a un delegado de solicitudes `next`). `Run` es una convención y es posible que algunos componentes de middleware expongan métodos `Run[Middleware]` que se ejecutan al final de la canalización.
 
-Las extensiones `Map*` se usan como convenciones para la creación de ramas en la canalización. [Map](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapextensions) crea una rama de la canalización de solicitudes según las coincidencias de la ruta de solicitud proporcionada. Si la ruta de solicitud comienza con la ruta proporcionada, se ejecuta la creación de la rama.
+Las extensiones `Map*` se usan como convenciones para la creación de ramas en la canalización. [Map](/dotnet/api/microsoft.aspnetcore.builder.mapextensions) crea una rama de la canalización de solicitudes según las coincidencias de la ruta de solicitud proporcionada. Si la ruta de solicitud comienza con la ruta proporcionada, se ejecuta la creación de la rama.
 
 [!code-csharp[](index/sample/Chain/StartupMap.cs?name=snippet1)]
 
@@ -155,7 +155,7 @@ En la siguiente tabla se muestran las solicitudes y las respuestas de `http://lo
 
 Cuando se usa `Map`, los segmentos de ruta que coincidan se eliminan de `HttpRequest.Path` y se anexan a `HttpRequest.PathBase` por cada solicitud.
 
-[MapWhen](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.mapwhenextensions) crea una rama de la canalización de solicitudes según el resultado del predicado proporcionado. Se puede usar cualquier predicado de tipo `Func<HttpContext, bool>` para asignar solicitudes a nuevas ramas de la canalización. En el ejemplo siguiente se usa un predicado para detectar la presencia de una `branch` variable de cadena de consulta:
+[MapWhen](/dotnet/api/microsoft.aspnetcore.builder.mapwhenextensions) crea una rama de la canalización de solicitudes según el resultado del predicado proporcionado. Se puede usar cualquier predicado de tipo `Func<HttpContext, bool>` para asignar solicitudes a nuevas ramas de la canalización. En el ejemplo siguiente se usa un predicado para detectar la presencia de una `branch` variable de cadena de consulta:
 
 [!code-csharp[](index/sample/Chain/StartupMapWhen.cs?name=snippet1)]
 
@@ -225,7 +225,7 @@ El código siguiente mueve el delegado de middleware a una clase:
 > [!NOTE]
 > En ASP.NET Core 1.x, el nombre del método del middleware `Task` debe ser `Invoke`. En ASP.NET Core 2.0 o posterior, el nombre puede ser `Invoke` o `InvokeAsync`.
 
-El método de extensión siguiente expone el middleware mediante [IApplicationBuilder](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.iapplicationbuilder):
+El método de extensión siguiente expone el middleware mediante [IApplicationBuilder](/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder):
 
 [!code-csharp[](index/sample/Culture/RequestCultureMiddlewareExtensions.cs)]
 
@@ -235,7 +235,7 @@ El código siguiente llama al middleware desde `Configure`:
 
 El middleware debería seguir el [principio de dependencias explicitas](http://deviq.com/explicit-dependencies-principle/) mediante la exposición de sus dependencias en el constructor. El middleware se construye una vez por *duración de la aplicación*. Vea *Dependencias bajo solicitud* a continuación si necesita compartir servicios con middleware en una solicitud.
 
-Los componentes de middleware pueden resolver las dependencias de una inserción de dependencias mediante parámetros del constructor. [`UseMiddleware<T>`](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) también puede aceptar parámetros adicionales directamente.
+Los componentes de middleware pueden resolver las dependencias de una inserción de dependencias mediante parámetros del constructor. [`UseMiddleware<T>`](/dotnet/api/microsoft.aspnetcore.builder.usemiddlewareextensions#methods_summary) también puede aceptar parámetros adicionales directamente.
 
 ### <a name="per-request-dependencies"></a>Dependencias bajo solicitud
 

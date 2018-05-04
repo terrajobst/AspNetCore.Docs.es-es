@@ -1,8 +1,9 @@
 ---
-title: Agregar características de la aplicación con una configuración específica de la plataforma de ASP.NET Core
+title: Agregar características de la aplicación con una configuración específica de la plataforma de ASP.NET Core con IHostingStartup
 author: guardrex
 description: Descubra cómo agregar características a una aplicación de ASP.NET Core desde un ensamblado externo con una implementación de IHostingStartup.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 12/07/2017
@@ -10,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/platform-specific-configuration
-ms.openlocfilehash: 9dd7774a1885a9c6c702b5b46fa1f88c86f7f7ac
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 1b899e3d510be83cbd4c03368e5c2d6226706a66
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="add-app-features-with-a-platform-specific-configuration-in-aspnet-core"></a>Agregar características de la aplicación con una configuración específica de la plataforma de ASP.NET Core
 

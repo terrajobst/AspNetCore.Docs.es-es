@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create-the-project
 msc.type: authoredcontent
-ms.openlocfilehash: b42e62b560e01d592c9f4cb61ea6199a15dc8bb6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7cfceb38204b6cfd3589a082761273e54ac122ca
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 <a name="create-the-project"></a>Crear el proyecto
 ====================
@@ -52,7 +52,10 @@ En este tutorial se crea, revisar y ejecutar el proyecto de forma predeterminada
 
     > [!NOTE]
     > Es el nombre del proyecto en esta serie de tutoriales **WingtipToys**. Se recomienda que use esta *exacta* nombre del proyecto para que el código que proporciona a lo largo de la serie de tutoriales funciones según lo previsto.
-6. A continuación, seleccione la **formularios Web Forms** plantilla y elija la **crear proyecto** botón.  
+
+6. Haga clic en el **Cambiar autenticación** botón. Seleccione **cuentas de usuario individuales** y haga clic en el **Aceptar** botón.
+
+7. Seleccione el **formularios Web Forms** plantilla y haga clic en el **Aceptar** botón.
 
     ![Crear el proyecto - nueva plantilla de proyecto](create-the-project/_static/image3.png)
 
@@ -93,9 +96,9 @@ En Visual Studio, el **el Explorador de soluciones** ventana le permite administ
 
 Visual Studio crea algunos iniciales carpetas y archivos para el proyecto. Los primeros archivos que va a trabajar con más adelante en este tutorial son los siguientes:
 
-| **Archivo** | **Purpose** |
+| **Archivo** | **Propósito** |
 | --- | --- |
-| *Default.aspx* | Normalmente la primera página que aparece cuando se ejecuta la aplicación en un explorador. |
+| *default.aspx* | Normalmente la primera página que aparece cuando se ejecuta la aplicación en un explorador. |
 | *Site.Master* | Una página que le permite crear un diseño y el uso estándar un comportamiento coherente para las páginas en la aplicación. |
 | *Global.asax* | Un archivo opcional que contiene código para responder a eventos de nivel de aplicación y de nivel de sesión provocados por ASP.NET o por módulos HTTP. |
 | *Web.config* | Los datos de configuración para una aplicación. |
@@ -150,7 +153,7 @@ Cuando un servidor Web recibe una solicitud para una página, encuentra la pági
 > 
 > Para los exploradores que no son compatibles con HTML5, puede usar [Modernizr](http://www.modernizr.com/). Modernizr es una biblioteca de JavaScript de código abierto que puede detectar si un explorador es compatible con características de HTML5 y habilitarlas si no es así. En la plantilla de aplicación de ASP.NET Web Forms, Modernizr se instala como un paquete de NuGet.
 > 
-> **Bootstrap**
+> **bootstrap**
 > 
 > Usan las plantillas de proyecto de Visual Studio 2013 [arranque](http://getbootstrap.com/), un marco de trabajo de diseño y creación de temas creado por Twitter. Bootstrap usa CSS3 para proporcionar un diseño dinámico, lo que significa diseños dinámicamente pueden adaptarse a los tamaños de ventana de explorador diferente. También puede utilizar la característica de temas del arranque para llevar a cabo fácilmente un cambio en la apariencia y funcionamiento de la aplicación. De forma predeterminada, la plantilla de aplicación Web ASP.NET en Visual Studio 2013 incluye Bootstrap como un paquete de NuGet.
 > 

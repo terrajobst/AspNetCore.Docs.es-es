@@ -1,7 +1,7 @@
 ---
 title: Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 author: ardalis
-description: "Obtenga información acerca de cómo configurar los proveedores de almacenamiento personalizados de ASP.NET Core Identity."
+description: Obtenga información acerca de cómo configurar los proveedores de almacenamiento personalizados de ASP.NET Core Identity.
 manager: wpickett
 ms.author: riande
 ms.date: 05/24/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 559c5c58b416912b1caef1964ff8d7532bd98439
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: bd5e5219765dfea0305fa02e79e5423266ce4df2
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -62,19 +62,19 @@ Cuando se crea una nueva instancia de `UserManager` o `RoleManager` proporciona 
 
 ### <a name="users"></a>Usuarios
 
-Usuarios registrados de su sitio web. El [IdentityUser](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) tipo puede ampliada o se utiliza como ejemplo para su propio tipo personalizado. No es necesario heredar de un tipo determinado para implementar su propia solución de almacenamiento de información de identidad personalizada.
+Usuarios registrados de su sitio web. El [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) tipo puede ampliada o se utiliza como ejemplo para su propio tipo personalizado. No es necesario heredar de un tipo determinado para implementar su propia solución de almacenamiento de información de identidad personalizada.
 
 ### <a name="user-claims"></a>Notificaciones de usuario
 
-Un conjunto de instrucciones (o [notificaciones](https://docs.microsoft.com//dotnet/api/system.security.claims.claim)) acerca del usuario que representan la identidad del usuario. Puede habilitar la expresión mayor de la identidad del usuario que se puede lograr a través de roles.
+Un conjunto de instrucciones (o [notificaciones](/dotnet/api/system.security.claims.claim)) acerca del usuario que representan la identidad del usuario. Puede habilitar la expresión mayor de la identidad del usuario que se puede lograr a través de roles.
 
 ### <a name="user-logins"></a>Inicios de sesión de usuario
 
-Información sobre el proveedor de autenticación externo (por ejemplo, Facebook o una cuenta de Microsoft) que se usará cuando un usuario de inicio de sesión. [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+Información sobre el proveedor de autenticación externo (por ejemplo, Facebook o una cuenta de Microsoft) que se usará cuando un usuario de inicio de sesión. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>Roles
 
-Grupos de autorización para el sitio. Incluye el nombre de identificador y el rol del rol (por ejemplo, "Admin" o "Employee"). [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+Grupos de autorización para el sitio. Incluye el nombre de identificador y el rol del rol (por ejemplo, "Admin" o "Employee"). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>La capa de acceso a datos
 
@@ -86,27 +86,27 @@ La capa de acceso a datos proporciona la lógica para guardar los datos de ident
 
 ### <a name="context-class"></a>Context (clase)
 
-Encapsula la información para conectarse a su mecanismo de persistencia y ejecutar consultas. Varias clases de datos requieren una instancia de esta clase, por lo general se proporcionan a través de inserción de dependencias. [En el ejemplo se](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
+Encapsula la información para conectarse a su mecanismo de persistencia y ejecutar consultas. Varias clases de datos requieren una instancia de esta clase, por lo general se proporcionan a través de inserción de dependencias. [En el ejemplo se](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
 
 ### <a name="user-storage"></a>Almacenamiento de información de usuario
 
-Almacena y recupera información de usuario (por ejemplo, el hash de nombre y la contraseña de usuario). [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de usuario (por ejemplo, el hash de nombre y la contraseña de usuario). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>Almacenamiento de rol
 
-Almacena y recupera información de funciones (por ejemplo, el nombre de rol). [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
+Almacena y recupera información de funciones (por ejemplo, el nombre de rol). [Ejemplo](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1)
 
 ### <a name="userclaims-storage"></a>Almacenamiento de UserClaims
 
-Almacena y recupera información de notificaciones de usuario (por ejemplo, el tipo de notificación y el valor). [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de notificaciones de usuario (por ejemplo, el tipo de notificación y el valor). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>Almacenamiento de UserLogins
 
-Almacena y recupera información de inicio de sesión de usuario (por ejemplo, un proveedor de autenticación externo). [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de inicio de sesión de usuario (por ejemplo, un proveedor de autenticación externo). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>Almacenamiento de UserRole
 
-Almacena y recupera los roles asignados a los usuarios. [Ejemplo](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera los roles asignados a los usuarios. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 **Sugerencia:** implementar solo las clases que va a usar en la aplicación.
 
@@ -118,7 +118,7 @@ La lógica de implementación para crear el usuario está en el ``_usersTable.Cr
 
 ## <a name="customize-the-user-class"></a>Personalizar la clase de usuario
 
-Al implementar un proveedor de almacenamiento, cree una clase de usuario que es equivalente a la [ `IdentityUser` clase](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser).
+Al implementar un proveedor de almacenamiento, cree una clase de usuario que es equivalente a la [ `IdentityUser` clase](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser).
 
 Como mínimo, debe incluir la clase de usuario una `Id` y un `UserName` propiedad.
 
@@ -126,13 +126,13 @@ El `IdentityUser` clase define las propiedades que el ``UserManager`` llamadas a
 
 ## <a name="customize-the-user-store"></a>Personalizar el almacén del usuario
 
-Crear un `UserStore` clase que proporciona los métodos para todas las operaciones de datos en el usuario. Esta clase es equivalente a la [UserStore<TUser> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) clase. En su `UserStore` clase, implemente `IUserStore<TUser>` y las interfaces opcionales requeridas. Seleccione qué interfaces opcionales que se implementarán en función de la funcionalidad de la aplicación.
+Crear un `UserStore` clase que proporciona los métodos para todas las operaciones de datos en el usuario. Esta clase es equivalente a la [UserStore<TUser> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.userstore-1) clase. En su `UserStore` clase, implemente `IUserStore<TUser>` y las interfaces opcionales requeridas. Seleccione qué interfaces opcionales que se implementarán en función de la funcionalidad de la aplicación.
 
 ### <a name="optional-interfaces"></a>Interfaces opcionales
 
-- IUserRoleStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1
-- IUserClaimStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1
-- IUserPasswordStore https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1
+- IUserRoleStore /dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1
+- IUserClaimStore /dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1
+- /Dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1 iuserpasswordstore.
 - IUserSecurityStampStore <!-- make these all links and remove / -->
 - IUserEmailStore
 - IPhoneNumberStore
@@ -150,27 +150,27 @@ Dentro de la `UserStore` (clase), se utilizan las clases de acceso de datos que 
 ### <a name="interfaces-to-implement-when-customizing-user-store"></a>Interfaces para implementar al personalizar el almacén de usuario
 
 - **IUserStore**  
- El [IUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserstore-1) interfaz es la única interfaz que debe implementar en el almacén del usuario. Define métodos para crear, actualizar, eliminar y recuperar los usuarios.
+ El [IUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserstore-1) interfaz es la única interfaz que debe implementar en el almacén del usuario. Define métodos para crear, actualizar, eliminar y recuperar los usuarios.
 - **IUserClaimStore**  
- El [IUserClaimStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserclaimstore-1) interfaz define los métodos que se implementan para habilitar notificaciones de usuario. Contiene métodos para agregar, quitar y recuperar notificaciones de usuario.
+ El [IUserClaimStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserclaimstore-1) interfaz define los métodos que se implementan para habilitar notificaciones de usuario. Contiene métodos para agregar, quitar y recuperar notificaciones de usuario.
 - **IUserLoginStore**  
- El [IUserLoginStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserloginstore-1) define los métodos que se implementan para permitir a los proveedores de autenticación externo. Contiene métodos para agregar, quitar y recuperar los inicios de sesión de usuario y un método para recuperar un usuario basándose en la información de inicio de sesión.
+ El [IUserLoginStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserloginstore-1) define los métodos que se implementan para permitir a los proveedores de autenticación externo. Contiene métodos para agregar, quitar y recuperar los inicios de sesión de usuario y un método para recuperar un usuario basándose en la información de inicio de sesión.
 - **IUserRoleStore**  
- El [IUserRoleStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserrolestore-1) interfaz define los métodos que se implementan para asignar un usuario a un rol. Contiene métodos para agregar, quitar y recuperar los roles de usuario y un método para comprobar si un usuario está asignado a un rol.
-- **IUserPasswordStore**  
- El [IUserPasswordStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) interfaz define los métodos que se implementan para almacenar contraseñas con algoritmo hash. Contiene métodos para obtener y establecer la contraseña con hash y un método que indica si el usuario ha establecido una contraseña.
+ El [IUserRoleStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserrolestore-1) interfaz define los métodos que se implementan para asignar un usuario a un rol. Contiene métodos para agregar, quitar y recuperar los roles de usuario y un método para comprobar si un usuario está asignado a un rol.
+- **Iuserpasswordstore.**  
+ El [IUserPasswordStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserpasswordstore-1) interfaz define los métodos que se implementan para almacenar contraseñas con algoritmo hash. Contiene métodos para obtener y establecer la contraseña con hash y un método que indica si el usuario ha establecido una contraseña.
 - **IUserSecurityStampStore**  
- El [IUserSecurityStampStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) interfaz define los métodos que se implementan para usar una marca de seguridad para que indica si ha cambiado la información de la cuenta del usuario. Esta marca se actualiza cuando un usuario cambia la contraseña, o agregue o quite inicios de sesión. Contiene métodos para obtener y establecer la marca de seguridad.
+ El [IUserSecurityStampStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusersecuritystampstore-1) interfaz define los métodos que se implementan para usar una marca de seguridad para que indica si ha cambiado la información de la cuenta del usuario. Esta marca se actualiza cuando un usuario cambia la contraseña, o agregue o quite inicios de sesión. Contiene métodos para obtener y establecer la marca de seguridad.
 - **IUserTwoFactorStore**  
- El [IUserTwoFactorStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) interfaz define los métodos que se implementan para admitir la autenticación en dos fases. Contiene métodos para obtener y establecer si está habilitada la autenticación en dos fases para un usuario.
+ El [IUserTwoFactorStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iusertwofactorstore-1) interfaz define los métodos que se implementan para admitir la autenticación en dos fases. Contiene métodos para obtener y establecer si está habilitada la autenticación en dos fases para un usuario.
 - **IUserPhoneNumberStore**  
- El [IUserPhoneNumberStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) interfaz define los métodos que implementa para almacenar números de teléfono del usuario. Contiene métodos para obtener y establecer el número de teléfono y si se ha confirmado el número de teléfono.
+ El [IUserPhoneNumberStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserphonenumberstore-1) interfaz define los métodos que implementa para almacenar números de teléfono del usuario. Contiene métodos para obtener y establecer el número de teléfono y si se ha confirmado el número de teléfono.
 - **IUserEmailStore**  
- El [IUserEmailStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuseremailstore-1) interfaz define los métodos que implementa para almacenar direcciones de correo electrónico del usuario. Contiene métodos para obtener y establecer la dirección de correo electrónico y si se ha confirmado el correo electrónico.
+ El [IUserEmailStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuseremailstore-1) interfaz define los métodos que implementa para almacenar direcciones de correo electrónico del usuario. Contiene métodos para obtener y establecer la dirección de correo electrónico y si se ha confirmado el correo electrónico.
 - **IUserLockoutStore**  
- El [IUserLockoutStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) interfaz define los métodos que se implementan para almacenar información acerca de los bloqueos de una cuenta. Contiene métodos para realizar el seguimiento de intentos de acceso erróneos y bloqueos.
+ El [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) interfaz define los métodos que se implementan para almacenar información acerca de los bloqueos de una cuenta. Contiene métodos para realizar el seguimiento de intentos de acceso erróneos y bloqueos.
 - **IQueryableUserStore**  
- El [IQueryableUserStore&lt;TUser&gt; ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfaz define el implementan miembros para proporcionar un almacén de usuarios consultable.
+ El [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfaz define el implementan miembros para proporcionar un almacén de usuarios consultable.
 
 Implementar sólo las interfaces que son necesarios en la aplicación. Por ejemplo:
 
@@ -188,7 +188,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim, IdentityUserLogin y IdentityUserRole
 
-El ``Microsoft.AspNet.Identity.EntityFramework`` espacio de nombres contiene las implementaciones de la [IdentityUserClaim](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), y [IdentityUserRole](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) clases. Si está usando estas características, puede crear sus propias versiones de estas clases y definir las propiedades de la aplicación. Sin embargo, a veces resulta más eficaz para no cargar estas entidades en memoria al realizar operaciones básicas (como agregar o quitar la notificación del usuario). En su lugar, las clases de almacenamiento back-end pueden ejecutar estas operaciones directamente en el origen de datos. Por ejemplo, el ``UserStore.GetClaimsAsync`` método puede llamar a la ``userClaimTable.FindByUserId(user.Id)`` método para ejecutar una consulta en que la tabla directamente y devolver una lista de notificaciones.
+El ``Microsoft.AspNet.Identity.EntityFramework`` espacio de nombres contiene las implementaciones de la [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin), y [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) clases. Si está usando estas características, puede crear sus propias versiones de estas clases y definir las propiedades de la aplicación. Sin embargo, a veces resulta más eficaz para no cargar estas entidades en memoria al realizar operaciones básicas (como agregar o quitar la notificación del usuario). En su lugar, las clases de almacenamiento back-end pueden ejecutar estas operaciones directamente en el origen de datos. Por ejemplo, el ``UserStore.GetClaimsAsync`` método puede llamar a la ``userClaimTable.FindByUserId(user.Id)`` método para ejecutar una consulta en que la tabla directamente y devolver una lista de notificaciones.
 
 ## <a name="customize-the-role-class"></a>Personalizar el role (clase)
 
@@ -200,10 +200,10 @@ La siguiente es una clase de rol de ejemplo:
 
 ## <a name="customize-the-role-store"></a>Personalizar el almacén de roles
 
-Puede crear un ``RoleStore`` clase que proporciona los métodos para todas las operaciones de datos en los roles. Esta clase es equivalente a la [RoleStore<TRole> ](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) clase. En el `RoleStore` (clase), implementar la ``IRoleStore<TRole>`` y, opcionalmente, la ``IQueryableRoleStore<TRole>`` interfaz.
+Puede crear un ``RoleStore`` clase que proporciona los métodos para todas las operaciones de datos en los roles. Esta clase es equivalente a la [RoleStore<TRole> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) clase. En el `RoleStore` (clase), implementar la ``IRoleStore<TRole>`` y, opcionalmente, la ``IQueryableRoleStore<TRole>`` interfaz.
 
 - **IRoleStore&lt;TRole&gt;**  
- El [IRoleStore](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.identity.irolestore-1) interfaz define los métodos que se implementan en la clase de almacén de rol. Contiene métodos para crear, actualizar, eliminar y recuperar roles.
+ El [IRoleStore](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) interfaz define los métodos que se implementan en la clase de almacén de rol. Contiene métodos para crear, actualizar, eliminar y recuperar roles.
 - **RoleStore&lt;TRole&gt;**  
  Personalizar `RoleStore`, cree una clase que implementa el `IRoleStore` interfaz. 
 

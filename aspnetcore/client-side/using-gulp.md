@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-gulp
-ms.openlocfilehash: f776b2025b6ebfeff28d3903aaeac4d7d89665b3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7a3d7807484b76e40e9728e0c750fa1383cc271f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="use-gulp-in-aspnet-core"></a>Usar Gulp en ASP.NET Core
 
@@ -267,7 +267,7 @@ IntelliSense proporciona la finalización de código, descripciones de parámetr
 
 ![gulp IntelliSense](using-gulp/_static/08-IntelliSense.png)
 
-Para obtener más información acerca de IntelliSense, vea [IntelliSense para JavaScript](https://docs.microsoft.com/visualstudio/ide/javascript-intellisense).
+Para obtener más información acerca de IntelliSense, vea [IntelliSense para JavaScript](/visualstudio/ide/javascript-intellisense).
 
 ## <a name="development-staging-and-production-environments"></a>Entornos de desarrollo, ensayo y producción
 

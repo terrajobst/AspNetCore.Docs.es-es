@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: aabbbe66aee8c8b93140bcc4181b432017cec1d7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 484cee3565fc5b72c19559f3fb907070d8178f9d
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Programa de instalación de Microsoft Account inicio de sesión externo con ASP.NET Core
 
@@ -105,7 +105,7 @@ app.UseMicrosoftAccountAuthentication(new MicrosoftAccountOptions()
 * * *
 Aunque la terminología utilizada en el Portal para desarrolladores de Microsoft nombres estos tokens `ApplicationId` y `Password`, se halle expuestos como `ClientId` y `ClientSecret` a la API de configuración.
 
-Consulte la [MicrosoftAccountOptions](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.builder.microsoftaccountoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con autenticación de Microsoft Account. Esto se puede usar para solicitar información diferente sobre el usuario.
+Consulte la [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.builder.microsoftaccountoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con autenticación de Microsoft Account. Esto se puede usar para solicitar información diferente sobre el usuario.
 
 ## <a name="sign-in-with-microsoft-account"></a>Inicie sesión con la cuenta de Microsoft
 
