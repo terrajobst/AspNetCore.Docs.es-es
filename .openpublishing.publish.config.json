@@ -21,7 +21,7 @@
       "build_source_folder": "aspnetcore",
       "build_output_subfolder": "aspnetcore",
       "locale": "es-es",
-      "open_to_public_contributors": false,
+      "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
         "ManagedReference": "Content",
