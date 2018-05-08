@@ -1,7 +1,7 @@
 ---
-title: "Agregar una búsqueda"
+title: Agregar una búsqueda
 author: rick-anderson
-description: "Se muestra cómo agregar la búsqueda a una aplicación sencilla de ASP.NET Core MVC"
+description: Se muestra cómo agregar la búsqueda a una aplicación sencilla de ASP.NET Core MVC
 manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 3ab9086275ec4c3651383c4c845e40db55f67f4c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 772409f11a43e1d130265d8bba3bad1da5a41b86
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/search1.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
 
 Puede cambiar fácilmente el nombre del parámetro `searchString` por `id` con el comando **rename**. Haga clic con el botón derecho en `searchString` **> Cambiar nombre**.
 
@@ -29,7 +29,7 @@ Cambie el parámetro por `id` y todas las apariciones de `searchString` se modif
 
 ![Editor de código que muestra que la variable se ha modificado por id](search/_static/rename3.png)
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/search2.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/search2.md)]
 
 Observe cómo IntelliSense le ayuda a actualizar el marcado.
 
@@ -41,8 +41,8 @@ Observe que la fuente es diferente en la etiqueta `<form>`. Esta fuente distinta
 
 ![etiqueta form con el texto de color morado](search/_static/th_font.png)
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/search3.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/search3.md)]
 
->[!div class="step-by-step"]
-[Anterior](controller-methods-views.md)
-[Siguiente](new-field.md)  
+> [!div class="step-by-step"]
+> [Anterior](controller-methods-views.md)
+> [Siguiente](new-field.md)  

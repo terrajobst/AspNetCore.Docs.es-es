@@ -1,6 +1,6 @@
 Reemplace el contenido de *Controllers/HelloWorldController.cs* con lo siguiente:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_1)]
 
 Cada método `public` en un controlador puede ser invocado como un punto de conexión HTTP. En el ejemplo anterior, ambos métodos devuelven una cadena.  Observe los comentarios delante de cada método.
 
@@ -12,13 +12,13 @@ Ejecute la aplicación en modo de no depuración y anexione "HelloWorld" a la ru
 
 ![Ventana del explorador que muestra una respuesta de la aplicación a "This is my default action" (Esta es mi acción predeterminada)](../../tutorials/first-mvc-app/adding-controller/_static/hell1.png)
 
-MVC invoca las clases del controlador (y los métodos de acción que contienen) en función de la URL entrante. La [lógica de enrutamiento de URL](../../mvc/controllers/routing.md) predeterminada que usa MVC emplea un formato similar al siguiente para determinar qué código se debe invocar:
+MVC invoca las clases del controlador (y los métodos de acción que contienen) en función de la URL entrante. La [lógica de enrutamiento de URL](xref:mvc/controllers/routing) predeterminada que usa MVC emplea un formato similar al siguiente para determinar qué código se debe invocar:
 
 `/[Controller]/[ActionName]/[Parameters]`
 
 El formato para el enrutamiento se establece en el método `Configure` en *Startup.cs*.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 Cuando se ejecuta la aplicación y no se suministra ningún segmento de dirección URL, de manera predeterminada se usa el controlador "Home" y el método "Index" especificados en la línea de plantilla resaltada arriba.
 
@@ -30,19 +30,19 @@ Vaya a `http://localhost:xxxx/HelloWorld/Welcome`. El método `Welcome` se ejecu
 
 Modifique el código para pasar cierta información del parámetro desde la dirección URL al controlador. Por ejemplo: `/HelloWorld/Welcome?name=Rick&numtimes=4`. Cambie el método `Welcome` para que incluya dos parámetros, como se muestra en el código siguiente. 
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_2)]
 
 El código anterior:
 
 * Usa la característica de parámetro opcional de C# para indicar que el parámetro `numTimes` tiene el valor predeterminado 1 si no se pasa ningún valor para ese parámetro.
 * Usa `HtmlEncoder.Default.Encode` para proteger la aplicación de entradas malintencionadas (es decir, JavaScript). 
-* Usa [cadenas interpoladas](https://docs.microsoft.com/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).
+* Usa [cadenas interpoladas](/dotnet/articles/csharp/language-reference/keywords/interpolated-strings).
 
 Ejecute la aplicación y navegue a:
 
    `http://localhost:xxxx/HelloWorld/Welcome?name=Rick&numtimes=4`
 
-(Reemplace xxxx con el número de puerto). Puede probar valores diferentes para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](../../mvc/models/model-binding.md) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de dirección a los parámetros del método. Vea [Model Binding](../../mvc/models/model-binding.md) (Enlace de modelos) para más información.
+(Reemplace xxxx con el número de puerto). Puede probar valores diferentes para `name` y `numtimes` en la dirección URL. El sistema de [enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre de la cadena de consulta en la barra de dirección a los parámetros del método. Vea [Model Binding](xref:mvc/models/model-binding) (Enlace de modelos) para más información.
 
 ![Ventana del explorador que muestra una respuesta de la aplicación a "Hello Rick, NumTimes is: 4" (Hola Rick, NumTimes es: 4)](../../tutorials/first-mvc-app/adding-controller/_static/rick4.png)
 
@@ -50,7 +50,7 @@ En la ilustración anterior, el segmento de dirección URL (`Parameters`) no se 
 
 Reemplace el método `Welcome` con el código siguiente:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_3)]
 
 Ejecute la aplicación y escriba la dirección URL siguiente: `http://localhost:xxx/HelloWorld/Welcome/3?name=Rick`
 
@@ -58,6 +58,6 @@ Ejecute la aplicación y escriba la dirección URL siguiente: `http://localhost:
 
 Esta vez el tercer segmento de dirección URL coincide con el parámetro de ruta `id`. El método `Welcome` contiene un parámetro `id` que coincide con la plantilla de dirección URL en el método `MapRoute`. El `?` del final (en `id?`) indica que el parámetro `id` es opcional.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=snippet_1&highlight=5)]
 
 En estos ejemplos, el controlador ha realizado la parte "VC" de MVC, es decir, el trabajo de vista y de controlador. El controlador devuelve HTML directamente. Por lo general, no es aconsejable que los controles devuelvan HTML directamente, porque resulta muy complicado de programar y mantener. En su lugar, se suele usar un archivo de plantilla de vista de Razor independiente para ayudar a generar la respuesta HTML. Haremos esto en el siguiente tutorial.

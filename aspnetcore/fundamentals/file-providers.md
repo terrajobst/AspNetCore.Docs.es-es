@@ -1,7 +1,7 @@
 ---
 title: Proveedores de archivo en ASP.NET Core
 author: ardalis
-description: "Obtenga información sobre cómo ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos."
+description: Obtenga información sobre cómo ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos.
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/file-providers
-ms.openlocfilehash: 06197f967e111d75531e9c3bcbcbdb971cb9f99b
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cdbffdadd9616fe941809d67dc2c0bbd52149561
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -50,15 +50,15 @@ Para recorrer en iteración el contenido del directorio u obtener información d
 
 Para solicitar un proveedor de un controlador, especifíquelo en el constructor del controlador y asígnelo a un campo local. Utilice la instancia local de los métodos de acción:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Controllers/HomeController.cs?highlight=5,7,12&range=6-19)]
 
 A continuación, cree el proveedor en la clase `Startup` de la aplicación:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=35,40&range=1-43)]
 
 En la vista *Index.cshtml*, recorrer en iteración el `IDirectoryContents` proporcionado:
 
-[!code-html[Main](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
+[!code-html[](file-providers/sample/src/FileProviderSample/Views/Home/Index.cshtml?highlight=2,7,9,11,15)]
 
 Resultado:
 
@@ -68,7 +68,7 @@ Resultado:
 
 `EmbeddedFileProvider` se utiliza para tener acceso a archivos insertados en ensamblados. En .NET Core, se insertan archivos en un ensamblado con el elemento `<EmbeddedResource>` en el archivo *.csproj*:
 
-[!code-json[Main](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
+[!code-json[](file-providers/sample/src/FileProviderSample/FileProviderSample.csproj?range=13-18)]
 
 Puede usar [patrones de comodines](#globbing-patterns) para especificar archivos que se insertarán en el ensamblado. Estos patrones se pueden usar para que coincidan con uno o más archivos.
 
@@ -97,7 +97,7 @@ La actualización de la aplicación de ejemplo para usar `EmbeddedFileProvider` 
 
 `CompositeFileProvider` combina instancias de `IFileProvider`, y expone una única interfaz para trabajar con archivos de varios proveedores. Al crear `CompositeFileProvider`, se pasan una o varias instancias de `IFileProvider` a su constructor:
 
-[!code-csharp[Main](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
+[!code-csharp[](file-providers/sample/src/FileProviderSample/Startup.cs?highlight=3&range=35-37)]
 
 Actualizar la aplicación de ejemplo para que use un proveedor `CompositeFileProvider` que incluya los proveedores físicos y los insertados que se configuraron anteriormente, produce la siguiente salida:
 
@@ -109,7 +109,7 @@ El método `IFileProvider` `Watch` proporciona una manera de ver uno o más arch
 
 En el ejemplo de este artículo, se configura una aplicación de consola para mostrar un mensaje cada vez que se modifica un archivo de texto:
 
-[!code-csharp[Main](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
+[!code-csharp[](file-providers/sample/src/WatchConsole/Program.cs?name=snippet1&highlight=1-2,16,19-20)]
 
 El resultado, después de guardar el archivo varias veces:
 

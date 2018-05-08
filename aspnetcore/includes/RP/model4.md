@@ -1,6 +1,6 @@
 En la tabla siguiente se incluyen los detalles de los parámetros de los generadores de código de ASP.NET Core:
 
-| Parámetro               | Descripción|
+| Parámetro               | Description|
 | ----------------- | ------------ |
 | -m  | Nombre del modelo |
 | -dc  | Contexto de datos |
@@ -19,7 +19,7 @@ dotnet aspnet-codegenerator razorpage -h
 * Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador (`http://localhost:port/movies`).
 * Pruebe el vínculo **Crear**.
 
- ![Página Crear](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Página Crear](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 

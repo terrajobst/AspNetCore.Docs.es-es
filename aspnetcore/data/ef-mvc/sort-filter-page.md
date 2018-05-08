@@ -1,20 +1,20 @@
 ---
-title: "ASP.NET Core MVC con EF Core: ordenación, filtrado y paginación (3 de 10)"
+title: 'ASP.NET Core MVC con EF Core: ordenación, filtrado y paginación (3 de 10)'
 author: tdykstra
-description: "En este tutorial agregará la funcionalidad de ordenación, filtrado y paginación a la página usando ASP.NET Core y Entity Framework Core."
+description: En este tutorial agregará la funcionalidad de ordenación, filtrado y paginación a la página usando ASP.NET Core y Entity Framework Core.
 ms.author: tdykstra
 ms.date: 03/15/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: feb4a50c9e5602064e7d493b6991485949903f47
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: d4fe6386318210a751d1248c87299d414ab563a3
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-aspnet-core-mvc-tutorial-3-of-10"></a>Ordenación, filtrado, paginación y agrupación: tutorial de EF Core con ASP.NET Core MVC (3 de 10)
+# <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC con EF Core: ordenación, filtrado y paginación (3 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -34,7 +34,7 @@ Para agregar ordenación a la página de índice de Student, deberá cambiar el 
 
 En *StudentsController.cs*, reemplace el método `Index` por el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly)]
 
 Este código recibe un parámetro `sortOrder` de la cadena de consulta en la dirección URL. ASP.NET Core MVC proporciona el valor de la cadena de consulta como un parámetro al método de acción. El parámetro es una cadena que puede ser "Name" o "Date", seguido (opcionalmente) por un guión bajo y la cadena "desc" para especificar el orden descendente. El criterio de ordenación predeterminado es el ascendente.
 
@@ -42,7 +42,7 @@ La primera vez que se solicita la página de índice, no hay ninguna cadena de c
 
 La vista usa los dos elementos `ViewData` (NameSortParm y DateSortParm) para configurar los hipervínculos del encabezado de columna con los valores de cadena de consulta adecuados.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortOnly&highlight=3-4)]
 
 Estas son las instrucciones ternarias. La primera de ellas especifica que, si el parámetro `sortOrder` es NULL o está vacío, NameSortParm debe establecerse en "name_desc"; en caso contrario, se debe establecer en una cadena vacía. Estas dos instrucciones habilitan la vista para establecer los hipervínculos de encabezado de columna de la forma siguiente:
 
@@ -77,7 +77,7 @@ Para agregar filtrado a la página de índice de Students, agregue un cuadro de 
 
 En *StudentsController.cs*, reemplace el método `Index` por el código siguiente (los cambios se resaltan).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 Ha agregado un parámetro `searchString` al método `Index`. El valor de la cadena de búsqueda se recibe desde un cuadro de texto que agregará a la vista de índice. También ha agregado a la instrucción LINQ una cláusula where que solo selecciona los alumnos cuyo nombre o apellido contienen la cadena de búsqueda. La instrucción que agrega la cláusula where solo se ejecuta si hay un valor que se tiene que buscar.
 
@@ -116,7 +116,7 @@ Para agregar paginación a la página de índice de Students, tendrá que crear 
 
 En la carpeta del proyecto, cree `PaginatedList.cs` y después reemplace el código de plantilla por el código siguiente.
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 El método `CreateAsync` en este código toma el tamaño y el número de la página y aplica las instrucciones `Skip` y `Take` correspondientes a `IQueryable`. Cuando se llama a `ToListAsync` en `IQueryable`, devuelve una lista que solo contiene la página solicitada. Las propiedades `HasPreviousPage` y `HasNextPage` se pueden usar para habilitar o deshabilitar los botones de página **Previous** y **Next**.
 
@@ -126,7 +126,7 @@ Para crear el objeto `PaginatedList<T>`, se usa un método `CreateAsync` en vez 
 
 En *StudentsController.cs*, reemplace el método `Index` por el código siguiente.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_SortFilterPage&highlight=1-5,7,11-18,45-46)]
 
 Este código agrega un parámetro de número de página, un parámetro de criterio de ordenación actual y un parámetro de filtro actual a la firma del método.
 
@@ -213,21 +213,21 @@ Cree una carpeta *SchoolViewModels* en la carpeta *Models*.
 
 En la nueva carpeta, agregue un archivo de clase *EnrollmentDateGroup.cs* y reemplace el código de plantilla con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="modify-the-home-controller"></a>Modificación del controlador Home
 
 En *HomeController.cs*, agregue lo siguiente mediante instrucciones en la parte superior del archivo:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings1)]
 
 Agregue una variable de clase para el contexto de base de datos inmediatamente después de la llave de apertura para la clase y obtenga una instancia del contexto de ASP.NET Core DI:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_AddContext&highlight=3,5,7)]
 
 Reemplace el método `About` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 La instrucción LINQ agrupa las entidades de alumnos por fecha de inscripción, calcula la cantidad de entidades que se incluyen en cada grupo y almacena los resultados en una colección de objetos de modelo de la vista `EnrollmentDateGroup`.
 > [!NOTE] 
@@ -247,6 +247,6 @@ Ejecute la aplicación y vaya a la página About. En una tabla se muestra el nú
 
 En este tutorial, ha visto cómo realizar la ordenación, el filtrado, la paginación y la agrupación. En el siguiente tutorial, aprenderá a controlar los cambios en el modelo de datos mediante migraciones.
 
->[!div class="step-by-step"]
-[Anterior](crud.md)
-[Siguiente](migrations.md)  
+> [!div class="step-by-step"]
+> [Anterior](crud.md)
+> [Siguiente](migrations.md)  

@@ -1,7 +1,7 @@
 ---
 title: Cargas de archivos en ASP.NET Core
 author: ardalis
-description: "Cómo usar el enlace de modelos y el streaming para cargar archivos en ASP.NET Core MVC."
+description: Cómo usar el enlace de modelos y el streaming para cargar archivos en ASP.NET Core MVC.
 manager: wpickett
 ms.author: riande
 ms.date: 07/05/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/file-uploads
-ms.openlocfilehash: 314d585c7bf7f8c95f763babe6cdf93e514ff656
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7ba4f6d9e3901c310fe9fa7a70382d9243d8b347
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="file-uploads-in-aspnet-core"></a>Cargas de archivos en ASP.NET Core
 
@@ -47,7 +47,7 @@ Para admitir las cargas de archivos, los formularios HTML deben especificar un t
 
 ![Formulario de carga de archivos](file-uploads/_static/upload-form.png)
 
-Se puede tener acceso a los archivos individuales cargados en el servidor a través del [enlace de modelos](xref:mvc/models/model-binding), por medio de la interfaz [IFormFile](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.iformfile). `IFormFile` tiene la siguiente estructura:
+Se puede tener acceso a los archivos individuales cargados en el servidor a través del [enlace de modelos](xref:mvc/models/model-binding), por medio de la interfaz [IFormFile](/dotnet/api/microsoft.aspnetcore.http.iformfile). `IFormFile` tiene la siguiente estructura:
 
 ```csharp
 public interface IFormFile
@@ -71,7 +71,7 @@ Al cargar archivos por medio del enlace de modelos y la interfaz `IFormFile`, el
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/UploadFilesController.cs?name=snippet1)]
 
 Los archivos que se cargan usando la técnica `IFormFile` se almacenan en búfer en memoria o en disco en el servidor web antes de procesarse. Dentro del método de acción, se puede tener acceso al contenido de `IFormFile` como una secuencia. Aparte de al sistema de archivos local, los archivos se pueden transmitir por streaming también a [Azure Blob Storage](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/) o a [Entity Framework](https://docs.microsoft.com/ef/core/index).
 
@@ -151,15 +151,15 @@ public IActionResult Index()
 
 El atributo usa la compatibilidad de [antifalsificación](xref:security/anti-request-forgery) integrada de ASP.NET Core para establecer una cookie con un token de solicitud:
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/GenerateAntiforgeryTokenCookieForAjaxAttribute.cs?name=snippet1)]
 
 Angular pasa automáticamente un token de antifalsificación en un encabezado de solicitud denominado `X-XSRF-TOKEN`. La aplicación ASP.NET Core MVC está definida para hacer referencia a este encabezado en su configuración en *Startup.cs*:
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Startup.cs?name=snippet1)]
 
 El atributo `DisableFormValueModelBinding`, mostrado abajo, se usa para deshabilitar el enlace de modelos en el método de acción `Upload`.
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Filters/DisableFormValueModelBindingAttribute.cs?name=snippet1)]
 
 Como el enlace de modelos está deshabilitado, el método de acción `Upload` no acepta parámetros. Funciona directamente con la propiedad `Request` de `ControllerBase`. Se usa un elemento `MultipartReader` para leer cada sección. El archivo se guarda con un nombre de archivo GUID y los datos de clave/valor se almacenan en un `KeyValueAccumulator`. Una vez que todas las secciones se han leído, el contenido de `KeyValueAccumulator` se usa para enlazar los datos del formulario a un tipo de modelo.
 
@@ -167,7 +167,7 @@ Abajo mostramos el método `Upload` completo:
 
 [!INCLUDE [GetTempFileName](../../includes/GetTempFileName.md)]
 
-[!code-csharp[Main](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
+[!code-csharp[](file-uploads/sample/FileUploadSample/Controllers/StreamingController.cs?name=snippet1)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -195,7 +195,7 @@ El valor predeterminado es `30000000`, que son alrededor de 28,6 MB. Este valor 
 </system.webServer>
 ```
 
-Esto solo ocurre en IIS; este comportamiento no sucede de forma predeterminada cuando los archivos se hospedan en Kestrel. Para más información, vea [Request Limits \<requestLimits\>](https://docs.microsoft.com/iis/configuration/system.webServer/security/requestFiltering/requestLimits/) (Límites de solicitudes).
+Esto solo ocurre en IIS; este comportamiento no sucede de forma predeterminada cuando los archivos se hospedan en Kestrel. Para más información, vea [Request Limits \<requestLimits\>](/iis/configuration/system.webServer/security/requestFiltering/requestLimits/) (Límites de solicitudes).
 
 ### <a name="null-reference-exception-with-iformfile"></a>Excepción de referencia nula con IFormFile
 

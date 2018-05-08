@@ -1,6 +1,6 @@
 Reemplace el contenido del archivo de vista de Razor *Views/HelloWorld/Index.cshtml* con lo siguiente:
 
-[!code-HTML[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Navegue a `http://localhost:xxxx/HelloWorld`. El método `Index` en `HelloWorldController` no hizo mucho; ejecutó la instrucción `return View();`, que especificaba que el método debe usar un archivo de plantilla de vista para representar una respuesta al explorador. Como no especificó expresamente el nombre del archivo de plantilla de vista, MVC usó de manera predeterminada el archivo de vista *Index.cshtml* de la carpeta */Views/HelloWorld*. La imagen siguiente muestra la cadena "Hello from our View Template!" (Hola desde nuestra plantilla de vista) codificada de forma rígida en la vista.
 
@@ -18,11 +18,11 @@ Las plantillas de [diseño](xref:mvc/views/layout) permiten especificar el dise�
 
 ## <a name="change-the-title-and-menu-link-in-the-layout-file"></a>Cambiar el título y el vínculo del menú en el archivo de diseño
 
-En el elemento de título, cambie `MvcMovie` por `Movie App`. Cambie el texto del delimitador en la plantilla de diseño de `MvcMovie` a `Mvc Movie` y el controlador de `Home` a `Movies` como se resalta aquí:
+En el elemento de título, cambie `MvcMovie` por `Movie App`. Cambie el texto del delimitador en la plantilla de diseño de `MvcMovie` a `Movie App` y el controlador de `Home` a `Movies` como se resalta aquí:
 
 Nota: La versión ASP.NET Core 2.0 es algo diferente. No contiene `@inject ApplicationInsights` ni `@Html.Raw(JavaScriptSnippet.FullScript)`.
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 >[!WARNING]
 > Aún no hemos implementado el controlador `Movies`, por lo que si hace clic en ese vínculo, obtendrá un error 404 (no encontrado).
@@ -73,7 +73,7 @@ En el código anterior, `ViewData["Title"] = "Movie List";` establece la propied
 
 Guarde el cambio y navegue a `http://localhost:xxxx/HelloWorld`. Tenga en cuenta que el título del explorador, el encabezado principal y los encabezados secundarios han cambiado. (Si no ve los cambios en el explorador, es posible que esté viendo contenido almacenado en caché. Presione Ctrl+F5 en el explorador para forzar que se cargue la respuesta del servidor). El título del explorador se crea con `ViewData["Title"]`, que se definió en la plantilla de vista *Index.cshtml* y el texto "- Movie App" (-Aplicación de película) que se agregó en el archivo de diseño.
 
-Observe también cómo el contenido de la plantilla de vista *Index.cshtml* se fusionó con la plantilla de vista *Views/Shared/_Layout.cshtml* y se envió una única respuesta HTML al explorador. Con las plantillas de diseño es realmente fácil hacer cambios para que se apliquen en todas las páginas de la aplicación. Para saber más, vea [Layout](../../mvc/views/layout.md) (Diseño).
+Observe también cómo el contenido de la plantilla de vista *Index.cshtml* se fusionó con la plantilla de vista *Views/Shared/_Layout.cshtml* y se envió una única respuesta HTML al explorador. Con las plantillas de diseño es realmente fácil hacer cambios para que se apliquen en todas las páginas de la aplicación. Para saber más, vea [Layout](xref:mvc/views/layout) (Diseño).
 
 ![Vista de lista de películas](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
@@ -89,7 +89,7 @@ Actualmente, el método `Welcome` de la clase `HelloWorldController` toma un par
 
 Vuelva al archivo *HelloWorldController.cs* y cambie el método `Welcome` para agregar un valor `Message` y `NumTimes` al diccionario `ViewData`. El diccionario `ViewData` es un objeto dinámico, lo que significa que puede colocar en él todo lo que quiera; el objeto `ViewData` no tiene ninguna propiedad definida hasta que coloca algo dentro de él. El [sistema de enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre (`name` y `numTimes`) de la cadena de consulta en la barra de dirección a los parámetros del método. El archivo *HelloWorldController.cs* completo tiene este aspecto:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 El objeto de diccionario `ViewData` contiene datos que se pasarán a la vista. 
 
@@ -97,7 +97,7 @@ Cree una plantilla de vista principal denominada *Views/HelloWorld/Welcome.cshtm
 
 Se creará un bucle en la vista *Welcome.cshtml* que muestra "Hello" (Hola) `NumTimes`. Reemplace el contenido de *Views/HelloWorld/Welcome.cshtml* con lo siguiente:
 
-[!code-html[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Guarde los cambios y vaya a esta dirección URL:
 

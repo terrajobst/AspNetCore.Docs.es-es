@@ -1,5 +1,5 @@
 
-## <a name="test-the-app"></a>Probar la aplicación
+## <a name="test-the-app"></a>Prueba de la aplicación
 
 * Ejecute la aplicación y pulse en el vínculo **Mvc Movie** (Película Mvc).
 * Pulse **Create New** (Crear nueva) y cree una película.
@@ -12,7 +12,7 @@
 
 * En algunas configuraciones regionales debe especificar el formato de fecha. Vea el código que aparece resaltado a continuación.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDateFormat.cs?name=snippet_1&highlight=2,10)]
 
 Hablaremos sobre `DataAnnotations` más adelante en el tutorial.
 

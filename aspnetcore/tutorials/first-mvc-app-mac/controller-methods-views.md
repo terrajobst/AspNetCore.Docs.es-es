@@ -1,7 +1,7 @@
 ---
-title: "Vistas y métodos de controlador en una aplicación de ASP.NET Core MVC"
+title: Vistas y métodos de controlador en una aplicación de ASP.NET Core MVC
 author: rick-anderson
-description: "Trabajar con los métodos de controlador, vistas y DataAnnotations"
+description: Trabajar con los métodos de controlador, vistas y DataAnnotations
 manager: wpickett
 ms.author: riande
 ms.date: 04/07/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-mac/controller-methods-views
-ms.openlocfilehash: 01c20e505bd9d1591e1921701f94d102822231c8
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 7a6a965d99742e7e06e6da82999dc60264cac6c8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="controller-methods-and-views-in-an-aspnet-core-mvc-app"></a>Vistas y métodos de controlador en una aplicación de ASP.NET Core MVC
 
@@ -25,7 +25,7 @@ La aplicación de películas pinta bien, pero la presentación no es ideal. No q
 
 Abra el archivo *Models/Movie.cs* y agregue las líneas resaltadas que se muestran a continuación:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1&highlight=2,11-12)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1&highlight=2,11-12)]
 
 Compile y ejecute la aplicación.
 
@@ -34,8 +34,8 @@ Compile y ejecute la aplicación.
 
  -->
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
 
->[!div class="step-by-step"]
-[Anterior: Trabajar con SQLite](working-with-sql.md)
-[Siguiente: Agregar búsqueda](search.md)
+> [!div class="step-by-step"]
+> [Anterior: Trabajar con SQLite](working-with-sql.md)
+> [Siguiente: Agregar búsqueda](search.md)

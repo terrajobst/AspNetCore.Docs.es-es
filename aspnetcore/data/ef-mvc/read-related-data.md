@@ -1,7 +1,7 @@
 ---
 title: 'ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)'
 author: tdykstra
-description: "En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación."
+description: En este tutorial podrá leer y mostrar datos relacionados, es decir, los datos que Entity Framework carga en propiedades de navegación.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 58b05587458aacad1a633a04f0359a4d2a3605a3
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 6ee4b0db5bf4d1781ce44f1aff8331680ca8686c
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="reading-related-data---ef-core-with-aspnet-core-mvc-tutorial-6-of-10"></a>Lectura de datos relacionados: tutorial de EF Core con ASP.NET Core MVC (6 de 10)
+# <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -65,7 +65,7 @@ Abra *CoursesController.cs* y examine el método `Index`. El scaffolding automá
 
 Reemplace el método `Index` con el siguiente código, en el que se usa un nombre más adecuado para la `IQueryable` que devuelve las entidades Course (`courses` en lugar de `schoolContext`):
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_RevisedIndexMethod)]
 
 Abra *Views/Courses/Index.cshtml* y reemplace el código de plantilla con el código siguiente. Se resaltan los cambios:
 
@@ -107,7 +107,7 @@ En la página Instructors se muestran datos de tres tablas diferentes. Por tanto
 
 En la carpeta *SchoolViewModels*, cree *InstructorIndexData.cs* y reemplace el código existente con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="create-the-instructor-controller-and-views"></a>Crear el controlador y las vistas de Instructor
 
@@ -117,31 +117,31 @@ Cree un controlador Instructors con acciones de lectura y escritura de EF como s
 
 Abra *InstructorsController.cs* y agregue una instrucción using para el espacio de nombres ViewModels:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_Using)]
 
 Reemplace el método Index con el código siguiente para realizar la carga diligente de los datos relacionados y colocarlos en el modelo de vista.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_EagerLoading)]
 
 El método acepta datos de ruta opcionales (`id`) y un parámetro de cadena de consulta (`courseID`) que proporcionan los valores ID del instructor y el curso seleccionados. Los parámetros se proporcionan mediante los hipervínculos **Select** de la página.
 
 El código comienza creando una instancia del modelo de vista y coloca en ella la lista de instructores. El código especifica la carga diligente para `Instructor.OfficeAssignment` y las propiedades de navegación de `Instructor.CourseAssignments`. Dentro de la propiedad `CourseAssignments` se carga la propiedad `Course` y dentro de esta se cargan las propiedades `Enrollments` y `Department`, y dentro de cada entidad `Enrollment` se carga la propiedad `Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude)]
 
 Como la vista siempre requiere la entidad OfficeAssignment, resulta más eficaz capturarla en la misma consulta. Las entidades Course son necesarias cuando se selecciona un instructor en la página web, por lo que una sola consulta es más adecuada que varias solo si la página se muestra con más frecuencia con un curso seleccionado que sin él.
 
 El código repite `CourseAssignments` y `Course` porque se necesitan dos propiedades de `Course`. En la primera cadena de llamadas `ThenInclude` se obtiene `CourseAssignment.Course`, `Course.Enrollments` y `Enrollment.Student`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=3-6)]
 
 En ese punto del código, otro elemento `ThenInclude` sería para las propiedades de navegación de `Student`, lo que no es necesario. Pero la llamada a `Include` se inicia con las propiedades de `Instructor`, por lo que tendrá que volver a pasar por la cadena, especificando esta vez `Course.Department` en lugar de `Course.Enrollments`.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ThenInclude&highlight=7-9)]
 
 El código siguiente se ejecuta cuando se ha seleccionado un instructor. El instructor seleccionado se recupera de la lista de instructores del modelo de vista. Después, se carga la propiedad `Courses` del modelo de vista con las entidades Course de la propiedad de navegación `CourseAssignments` de ese instructor.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=56-62)]
 
 El método `Where` devuelve una colección, pero en este caso los criterios que se pasan a ese método dan como resultado que solo se devuelva una entidad Instructor. El método `Single` convierte la colección en una única entidad Instructor, que proporciona acceso a la propiedad `CourseAssignments` de esa entidad. La propiedad `CourseAssignments` contiene entidades `CourseAssignment`, de las que solo quiere las entidades `Course` relacionadas.
 
@@ -159,7 +159,7 @@ En lugar de:
 
 A continuación, si se ha seleccionado un curso, se recupera de la lista de cursos en el modelo de vista. Después, se carga la propiedad `Enrollments` del modelo de vista con las entidades Enrollment de la propiedad de navegación `Enrollments` de ese curso.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?range=64-69)]
 
 ### <a name="modify-the-instructor-index-view"></a>Modificar la vista de índice de instructores
 
@@ -231,7 +231,7 @@ Cuando se recuperó la lista de instructores en *InstructorsController.cs*, se e
 
 Suponga que esperaba que los usuarios rara vez quisieran ver las inscripciones en un instructor y curso seleccionados. En ese caso, es posible que quiera cargar los datos de inscripción solo si se solicitan. Para ver un ejemplo de cómo realizar la carga explícita, reemplace el método `Index` con el código siguiente, que quita la carga diligente de Enrollments y carga explícitamente esa propiedad. Los cambios de código aparecen resaltados.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
+[!code-csharp[](intro/samples/cu/Controllers/InstructorsController.cs?name=snippet_ExplicitLoading&highlight=23-29)]
 
 El nuevo código quita las llamadas al método *ThenInclude* para los datos de inscripción del código que recupera las entidades Instructor. Si se seleccionan un instructor y un curso, el código resaltado recupera las entidades Enrollment para el curso seleccionado y las entidades Student de cada inscripción.
 

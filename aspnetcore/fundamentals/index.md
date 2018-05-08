@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: b74870c93ea0120e43931bb75f47bab19a6de201
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d5b74e213828d1a1f7e09810e5cc72773a821dab
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -98,6 +98,10 @@ ASP.NET Core incluye un amplio conjunto de middleware integrado:
 El software intermedio basado en [OWIN](http://owin.org) está disponible para aplicaciones ASP.NET Core y puede escribir su propio software intermedio personalizado.
 
 Para obtener más información, consulte [Middleware](xref:fundamentals/middleware/index) (Software intermedio) y [Open Web Interface for .NET (OWIN)](xref:fundamentals/owin) [Interfaz web abierta para .NET (OWIN)].
+
+## <a name="initiate-http-requests"></a>Inicio de solicitudes HTTP
+
+Para obtener información sobre el uso de `IHttpClientFactory` para acceder a instancias `HttpClient` a fin de realizar solicitudes HTTP, vea [Inicio de solicitudes HTTP](xref:fundamentals/http-requests).
 
 ## <a name="environments"></a>Entornos
 

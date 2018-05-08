@@ -1,7 +1,7 @@
 ---
 title: 'ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)'
 author: tdykstra
-description: "Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo."
+description: Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: c271488d4da72ba340f3617ac20c7b6da2574c69
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 99c4872719a4e46aa27eb7138eb914dc5954c219
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="handling-concurrency-conflicts---ef-core-with-aspnet-core-mvc-tutorial-8-of-10"></a>Controlar los conflictos de simultaneidad: tutorial de EF Core con ASP.NET Core MVC (8 de 10)
+# <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -89,7 +89,7 @@ En el resto de este tutorial agregará una propiedad de seguimiento `rowversion`
 
 En *Models/Department.cs*, agregue una propiedad de seguimiento denominada RowVersion:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
 El atributo `Timestamp` especifica que esta columna se incluirá en la cláusula Where de los comandos Update y Delete enviados a la base de datos. El atributo se denomina `Timestamp` porque las versiones anteriores de SQL Server usaban un tipo de datos `timestamp` antes de que la `rowversion` de SQL lo sustituyera por otro. El tipo .NET de `rowversion` es una matriz de bytes.
 
@@ -120,7 +120,7 @@ Aplique la técnica scaffolding a un controlador y vistas de Departments como lo
 
 En el archivo *DepartmentsController.cs*, cambie las cuatro repeticiones de "FirstMidName" a "FullName" para que las listas desplegables del administrador del departamento contengan el nombre completo del instructor en lugar de simplemente el apellido.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_Dropdown)]
 
 ## <a name="update-the-departments-index-view"></a>Actualizar la vista de índice de Departments
 
@@ -128,7 +128,7 @@ El motor de scaffolding creó una columna RowVersion en la vista Index, pero ese
 
 Reemplace el código de *Views/Departments/Index.cshtml* con el código siguiente.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
+[!code-html[](intro/samples/cu/Views/Departments/Index.cshtml?highlight=4,7,44)]
 
 Esto cambia el encabezado por "Departments", elimina la columna RowVersion y muestra el nombre completo en lugar del nombre del administrador.
 
@@ -136,11 +136,11 @@ Esto cambia el encabezado por "Departments", elimina la columna RowVersion y mue
 
 En el método `Edit` de HttpGet y el método `Details`, agregue `AsNoTracking`. En el método `Edit` de HttpGet, agregue carga diligente para el administrador.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EagerLoading&highlight=2,3)]
 
 Sustituya el código existente para el método `Edit` de HttpPost por el siguiente código:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_EditPost)]
 
 El código comienza por intentar leer el departamento que se va a actualizar. Si el método `SingleOrDefaultAsync` devuelve NULL, otro usuario eliminó el departamento. En ese caso, el código usa los valores del formulario expuesto para crear una entidad Department, por lo que puede volver a mostrarse la página Edit con un mensaje de error. Como alternativa, no tendrá que volver a crear la entidad Department si solo muestra un mensaje de error sin volver a mostrar los campos del departamento.
 
@@ -154,19 +154,19 @@ Cuando Entity Framework crea un comando UPDATE de SQL, ese comando incluirá una
 
 El código del bloque catch de esa excepción obtiene la entidad Department afectada que tiene los valores actualizados de la propiedad `Entries` del objeto de excepción.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=164)]
 
 La colección `Entries` contará con un solo objeto `EntityEntry`.  Puede usar dicho objeto para obtener los nuevos valores especificados por el usuario y los valores actuales de la base de datos.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=165-166)]
 
 El código agrega un mensaje de error personalizado para cada columna que tenga valores de base de datos diferentes de lo que el usuario especificó en la página Edit (aquí solo se muestra un campo por razones de brevedad).
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=174-178)]
 
 Por último, el código establece el valor `RowVersion` de `departmentToUpdate` para el nuevo valor recuperado de la base de datos. Este nuevo valor `RowVersion` se almacenará en el campo oculto cuando se vuelva a mostrar la página Edit y, la próxima vez que el usuario haga clic en **Save**, solo se detectarán los errores de simultaneidad que se produzcan desde que se vuelva a mostrar la página Edit.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?range=199-200)]
 
 La instrucción `ModelState.Remove` es necesaria porque `ModelState` tiene el valor `RowVersion` antiguo. En la vista, el valor `ModelState` de un campo tiene prioridad sobre los valores de propiedad de modelo cuando ambos están presentes.
 
@@ -178,7 +178,7 @@ En *Views/Departments/Edit.cshtml*, realice los cambios siguientes:
 
 * Agregue una opción "Select Administrator" a la lista desplegable.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
+[!code-html[](intro/samples/cu/Views/Departments/Edit.cshtml?highlight=16,34-36)]
 
 ## <a name="test-concurrency-conflicts-in-the-edit-page"></a>Comprobar los conflictos de simultaneidad en la página Edit
 
@@ -208,13 +208,13 @@ Para la página Delete, Entity Framework detecta los conflictos de simultaneidad
 
 En *DepartmentsController.cs*, reemplace el método `Delete` de HttpGet por el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeleteGet&highlight=1,10,14-17,21-29)]
 
 El método acepta un parámetro opcional que indica si la página volverá a aparecer después de un error de simultaneidad. Si esta marca es true y el departamento especificado ya no existe, significa que otro usuario lo eliminó. En ese caso, el código redirige a la página de índice.  Si esta marca es true y el departamento existe, significa que otro usuario lo modificó. En ese caso, el código envía un mensaje de error a la vista mediante `ViewData`.  
 
 Reemplace el código en el método `Delete` de HttpPost (denominado `DeleteConfirmed`) con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_DeletePost&highlight=1,3,5-8,11-18)]
 
 En el código al que se aplicó la técnica scaffolding que acaba de reemplazar, este método solo acepta un identificador de registro:
 
@@ -239,7 +239,7 @@ Si se detecta un error de simultaneidad, el código vuelve a mostrar la página 
 
 En *Views/Departments/Delete.cshtml*, reemplace el código al que se aplicó la técnica scaffolding con el siguiente código, que agrega un campo de mensaje de error y campos ocultos para las propiedades DepartmentID y RowVersion. Los cambios aparecen resaltados.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
+[!code-html[](intro/samples/cu/Views/Departments/Delete.cshtml?highlight=9,38,44,45,48)]
 
 Esto realiza los cambios siguientes:
 
@@ -269,16 +269,16 @@ Si quiere, puede limpiar el código al que se ha aplicado la técnica scaffoldin
 
 Reemplace el código de *Views/Departments/Details.cshtml* para eliminar la columna RowVersion y mostrar el nombre completo del administrador.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
+[!code-html[](intro/samples/cu/Views/Departments/Details.cshtml?highlight=35)]
 
 Reemplace el código de *Views/Departments/Create.cshtml* para agregar una opción Select en la lista desplegable.
 
-[!code-html[Main](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
+[!code-html[](intro/samples/cu/Views/Departments/Create.cshtml?highlight=32-34)]
 
 ## <a name="summary"></a>Resumen
 
 Con esto finaliza la introducción para el control de los conflictos de simultaneidad. Para obtener más información sobre cómo administrar la simultaneidad en EF Core, vea [Concurrency conflicts](https://docs.microsoft.com/ef/core/saving/concurrency) (Conflictos de simultaneidad). El siguiente tutorial muestra cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
 
->[!div class="step-by-step"]
-[Anterior](update-related-data.md)
-[Siguiente](inheritance.md)  
+> [!div class="step-by-step"]
+> [Anterior](update-related-data.md)
+> [Siguiente](inheritance.md)  

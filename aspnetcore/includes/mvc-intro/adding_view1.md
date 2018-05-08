@@ -8,6 +8,6 @@ Para crear un archivo de plantilla de vista se usa Razor. Las plantillas de vist
 
 Actualmente, el método `Index` devuelve una cadena con un mensaje que está codificado de forma rígida en la clase de controlador. En la clase `HelloWorldController`, reemplace el método `Index` por el siguiente código:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_4)]
 
-El código anterior devuelve un objeto `View`. Usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocidos como métodos de acción), como el método `Index` anterior, suelen devolver [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult) o una clase derivada de `ActionResult`, en lugar de un tipo como una cadena.
+El código anterior devuelve un objeto `View`. Usa una plantilla de vista para generar una respuesta HTML al explorador. Los métodos de controlador (también conocidos como métodos de acción), como el método `Index` anterior, suelen devolver [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult) o una clase derivada de `ActionResult`, en lugar de un tipo como una cadena.

@@ -1,7 +1,7 @@
 ---
-title: "Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC"
+title: Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
 author: pkellner
-description: "Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché"
+description: Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché
 manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 51811ee1669a24a0fc4ce9bc67e782b61bff655c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 6f19a989c9bdfddea7609c5571cdd49de29e036b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
 
@@ -60,10 +60,9 @@ Ejemplo:
 
 ### <a name="expires-on"></a>expires-on 
 
-| Tipo de atributo    | Valor de ejemplo     |
-|----------------   |----------------   |
-| DateTimeOffset    | "@new DateTime(2025,1,29,17,02,0)"    |
-
+| Tipo de atributo |           Valor de ejemplo            |
+|----------------|------------------------------------|
+| DateTimeOffset | "@new DateTime(2025,1,29,17,02,0)" |
 
 Establece una fecha de expiración absoluta. En el ejemplo siguiente, se almacenará en memoria caché el contenido de la aplicación auxiliar de etiqueta de caché hasta las 17:02 del 29 de enero de 2025.
 
@@ -79,10 +78,9 @@ Ejemplo:
 
 ### <a name="expires-after"></a>expires-after
 
-| Tipo de atributo    | Valor de ejemplo     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(120)"    |
-
+| Tipo de atributo |        Valor de ejemplo         |
+|----------------|------------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(120)" |
 
 Establece el período de tiempo desde la primera solicitud para almacenar en caché el contenido. 
 
@@ -98,10 +96,9 @@ Ejemplo:
 
 ### <a name="expires-sliding"></a>expires-sliding
 
-| Tipo de atributo    | Valor de ejemplo     |
-|----------------   |----------------   |
-| TimeSpan    | "@TimeSpan.FromSeconds(60)"     |
-
+| Tipo de atributo |        Valor de ejemplo        |
+|----------------|-----------------------------|
+|    TimeSpan    | "@TimeSpan.FromSeconds(60)" |
 
 Establece el tiempo en que se debe expulsar una entrada de caché si no se ha accedido a ella.
 
@@ -169,7 +166,7 @@ routes.MapRoute(
     name: "default",
     template: "{controller=Home}/{action=Index}/{Make?}/{Model?}");
 ```
-  
+
 *Index.cshtml*
 
 ```cshtml
@@ -224,10 +221,9 @@ Con este atributo, se mantiene el contenido en caché a través de un ciclo de i
 
 ### <a name="vary-by"></a>vary-by
 
-| Tipo de atributo    | Valores de ejemplo                |
-|----------------   |----------------               |
-| String             | "@Model"                 |
-
+| Tipo de atributo | Valores de ejemplo |
+|----------------|----------------|
+|     String     |    "@Model"    |
 
 Permite la personalización de los datos que se almacenan en caché. Cuando el objeto al que hace referencia el valor de cadena del atributo cambia, el contenido de la aplicación auxiliar de etiqueta de caché se actualiza. A menudo se asignan a este atributo una concatenación de cadenas de valores del modelo.  De hecho, eso significa que una actualización de cualquiera de los valores concatenados invalida la memoria caché.
 
@@ -283,5 +279,5 @@ La aplicación auxiliar de etiqueta de caché es dependiente del [servicio de ca
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Almacenamiento caché en memoria](xref:performance/caching/memory)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Introducción a Identity](xref:security/authentication/identity)

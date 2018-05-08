@@ -10,4 +10,4 @@ La aplicación de películas pinta bien, pero la presentación no es ideal. No q
 
 Abra el archivo *Models/Movie.cs* y agregue las líneas resaltadas mostradas en el código siguiente:
 
-[!code-csharp[Main](code/Models/Movie.cs?highlight=2,11-12)]
+[!code-csharp[](code/Models/Movie.cs?highlight=2,11-12)]

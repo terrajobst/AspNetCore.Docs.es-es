@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/url-rewriting
-ms.openlocfilehash: ca1f2f366bcf12cd3df83c3cdefa460cb9a68e2a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: b6465aa7b56450f43be64da19f2e2228a5d68f50
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="url-rewriting-middleware-in-aspnet-core"></a>Middleware de reescritura de URL en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex) y [Mikael Mengistu](https://github.com/mikaelm12)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 La reescritura de URL consiste en modificar varias URL de solicitud basadas en una o varias reglas predefinidas. La reescritura de URL crea una abstracción entre las ubicaciones de recursos y sus direcciones para que las ubicaciones y direcciones no estén estrechamente vinculadas. Hay varias situaciones en las que la reescritura de URL es útil:
 * Mover o reemplazar recursos del servidor de forma temporal o permanente a la vez que se mantienen estables los localizadores para esos recursos
@@ -51,7 +51,7 @@ La *reescritura de URL* es una operación del lado servidor que proporciona un r
 ![Se cambió un punto de conexión del servicio WebAPI de la versión 1 (v1) a la versión 2 (v2) en el servidor. Un cliente realiza una solicitud al servicio en la ruta de acceso de la versión 1 /v1/api. La URL de la solicitud se reescribe para acceder al servicio en la ruta de acceso de la versión 2 /v2/api. El servicio responde al cliente con un código de estado 200 (Correcto).](url-rewriting/_static/url_rewrite.png)
 
 ## <a name="url-rewriting-sample-app"></a>Aplicación de ejemplo de reescritura de URL
-Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo de reescritura de URL](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/). Esta aplicación aplica reglas de reescritura y redirección, además de mostrar la URL redirigida o reescrita.
+Puede explorar las características del middleware de reescritura de URL con la [aplicación de ejemplo de reescritura de URL](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/sample/). Esta aplicación aplica reglas de reescritura y redirección, además de mostrar la URL redirigida o reescrita.
 
 ## <a name="when-to-use-url-rewriting-middleware"></a>Cuándo usar el middleware de reescritura de URL
 Use el middleware de reescritura de URL cuando no pueda usar el [módulo de reescritura de URL](https://www.iis.net/downloads/microsoft/url-rewrite) con IIS en Windows Server, el [módulo mod_rewrite de Apache](https://httpd.apache.org/docs/2.4/rewrite/) en el servidor Apache, la [reescritura de URL en Nginx](https://www.nginx.com/blog/creating-nginx-rewrite-rules/) o cuando la aplicación esté hospedada en el [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (antes denominado [WebListener](xref:fundamentals/servers/weblistener)). Las principales razones para usar las tecnologías de reescritura de URL basadas en servidor en IIS, Apache o Nginx son que el middleware no es compatible con todas las características de estos módulos y el rendimiento del middleware probablemente no coincida con el de los módulos. Pero algunas características de los módulos de servidor no funcionan con proyectos de ASP.NET Core, como las restricciones `IsFile` y `IsDirectory` del módulo de reescritura de IIS. En estos casos, es mejor usar el middleware.
@@ -62,29 +62,46 @@ Para incluir el middleware en el proyecto, agregue una referencia al paquete [`M
 ## <a name="extension-and-options"></a>Extensión y opciones
 Establezca las reglas de reescritura y redirección de URL mediante la creación de una instancia de la clase `RewriteOptions` con métodos de extensión para cada una de las reglas. Encadene varias reglas en el orden que quiera procesarlas. Las `RewriteOptions` se pasan al middleware de reescritura de URL cuando se agregan a la canalización de solicitudes con `app.UseRewriter(options);`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1)]
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1)]
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var options = new RewriteOptions()
+        .AddRedirect("redirect-rule/(.*)", "redirected/$1")
+        .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", 
+            skipRemainingRules: true)
+        .AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")
+        .AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")
+        .Add(RedirectXMLRequests)
+        .Add(new RedirectImageRequests(".png", "/png-images"))
+        .Add(new RedirectImageRequests(".jpg", "/jpg-images"));
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    app.UseRewriter(options);
+}
+```
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1)]
-
----
-
+* * *
 ### <a name="url-redirect"></a>Redirección de URL
 Use `AddRedirect` para redirigir las solicitudes. El primer parámetro contiene la expresión regular para hacer coincidir la ruta de acceso de la URL entrante. El segundo parámetro es la cadena de reemplazo. El tercer parámetro, si está presente, especifica el código de estado. Si no se especifica el código de estado, el valor predeterminado es 302 (Encontrado), lo que indica que el recurso se ha movido o reemplazado temporalmente.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=9)]
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=5)]
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    var options = new RewriteOptions()
+        .AddRedirect("redirect-rule/(.*)", "redirected/$1");
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    app.UseRewriter(options);
+}
+```
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=2)]
-
----
-
+* * *
 En un explorador con herramientas de desarrollo habilitadas, realice una solicitud a la aplicación de ejemplo con la ruta de acceso `/redirect-rule/1234/5678`. La expresión regular coincide con la ruta de acceso de la solicitud en `redirect-rule/(.*)` y la ruta de acceso se reemplaza con `/redirected/1234/5678`. La URL de redireccionamiento se devuelve al cliente con un código de estado 302 (Encontrado). El explorador realiza una solicitud nueva en la URL de redireccionamiento, que aparece en la barra de direcciones del explorador. Puesto que no hay ninguna regla en la aplicación de ejemplo que coincida con la URL de redireccionamiento, la segunda solicitud recibe una respuesta 200 (Correcto) de la aplicación y el cuerpo de la respuesta muestra la URL de redireccionamiento. Se realiza un recorrido de ida y vuelta al servidor cuando se *redirige* una URL.
 
 > [!WARNING]
@@ -101,13 +118,28 @@ En la cadena de reemplazo, se insertan los grupos capturados en la cadena con el
 <a name="url-redirect-to-secure-endpoint"></a>
 ### <a name="url-redirect-to-a-secure-endpoint"></a>Redirección de URL a un punto de conexión segura
 Use `AddRedirectToHttps` para redirigir solicitudes HTTP al mismo host y ruta con HTTPS (`https://`). Si no se proporciona el código de estado, el middleware muestra de forma predeterminada 302 (Encontrado). Si no se proporciona el puerto, el middleware muestra de forma predeterminada `null`, lo que significa que el protocolo cambia a `https://` y el cliente accede al recurso en el puerto 443. En el ejemplo se muestra cómo establecer el código de estado en 301 (Movido definitivamente) y cambiar el puerto a 5001.
-```csharp
-var options = new RewriteOptions()
-    .AddRedirectToHttps(301, 5001);
 
-app.UseRewriter(options);
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    var options = new RewriteOptions()
+        .AddRedirectToHttps(301, 5001);
+
+    app.UseRewriter(options);
+}
 ```
+
 Use `AddRedirectToHttpsPermanent` para redirigir las solicitudes poco seguras al mismo host y ruta de acceso mediante el protocolo HTTPS seguro (`https://` en el puerto 443). El middleware establece el código de estado en 301 (Movido definitivamente).
+
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    var options = new RewriteOptions()
+        .AddRedirectToHttpsPermanent();
+
+    app.UseRewriter(options);
+}
+```
 
 La aplicación de ejemplo es capaz de mostrar cómo usar `AddRedirectToHttps` o `AddRedirectToHttpsPermanent`. Agregue el método de extensión a `RewriteOptions`. Realice una solicitud poco segura a la aplicación en cualquier URL. Descarte la advertencia de seguridad del explorador que indica que el certificado autofirmado no es de confianza.
 
@@ -122,16 +154,22 @@ Solicitud original mediante `AddRedirectToHttpsPermanent`: `/secure`
 ### <a name="url-rewrite"></a>Reescritura de URL
 Use `AddRewrite` para crear una regla para reescribir URL. El primer parámetro contiene la expresión regular para buscar coincidencias en la ruta de dirección de URL entrante. El segundo parámetro es la cadena de reemplazo. El tercer parámetro, `skipRemainingRules: {true|false}`, indica al middleware si al aplicar la regla actual tiene que omitir o no alguna regla de redirección adicional.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=10-11)]
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=6)]
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    var options = new RewriteOptions()
+        .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", 
+            skipRemainingRules: true);
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    app.UseRewriter(options);
+}
+```
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=3)]
-
----
-
+* * *
 Solicitud original: `/rewrite-rule/1234/5678`
 
 ![Ventana del explorador con herramientas de desarrollo realizando un seguimiento de las solicitudes y las respuestas](url-rewriting/_static/add_rewrite.png)
@@ -166,23 +204,28 @@ No hay ningún recorrido de ida y vuelta al servidor para obtener el recurso. Si
 ### <a name="apache-modrewrite"></a>mod_rewrite de Apache
 Aplique reglas mod_rewrite de Apache con `AddApacheModRewrite`. Asegúrese de que el archivo de reglas se implementa con la aplicación. Para obtener más información y ejemplos de reglas mod_rewrite, vea [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/) (mod_rewrite de Apache).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Se usa `StreamReader` para leer las reglas del archivo de reglas *ApacheModRewrite.txt*.
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=1,7)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=3-4,12)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 El primer parámetro toma un `IFileProvider`, que se proporciona mediante una [inserción de dependencias](dependency-injection.md). Se inserta `IHostingEnvironment` para proporcionar `ContentRootFileProvider`. El segundo parámetro es la ruta de acceso al archivo de reglas, que es *ApacheModRewrite.txt* en la aplicación de ejemplo.
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=4)]
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var options = new RewriteOptions()
+        .AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt");
 
----
+    app.UseRewriter(options);
+}
+```
 
+* * *
 La aplicación de ejemplo redirige las solicitudes de `/apache-mod-rules-redirect/(.\*)` a `/redirected?id=$1`. El código de estado de la respuesta es 302 (Encontrado).
 
-[!code[Main](url-rewriting/samples/2.x/ApacheModRewrite.txt)]
+[!code[](url-rewriting/sample/ApacheModRewrite.txt)]
 
 Solicitud original: `/apache-mod-rules-redirect/1234`
 
@@ -221,25 +264,30 @@ El middleware admite las siguientes variables de servidor mod_rewrite de Apache:
 * TIME_YEAR
 
 ### <a name="iis-url-rewrite-module-rules"></a>Reglas del Módulo URL Rewrite para IIS
-Para usar reglas que se apliquen al Módulo URL Rewrite para IIS, use `AddIISUrlRewrite`. Asegúrese de que el archivo de reglas se implementa con la aplicación. No dirija el middleware para que use el archivo *web.config* cuando se ejecute en Windows Server IIS. Con IIS, estas reglas deben almacenarse fuera de *web.config* para evitar conflictos con el Módulo URL Rewrite para IIS. Para obtener más información y ejemplos de reglas del Módulo URL Rewrite para IIS, vea [Using Url Rewrite Module 2.0](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) (Uso del Módulo URL Rewrite 2.0) y [URL Rewrite Module Configuration Reference](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Referencia de configuración del Módulo URL Rewrite).
+Para usar reglas que se apliquen al Módulo URL Rewrite para IIS, use `AddIISUrlRewrite`. Asegúrese de que el archivo de reglas se implementa con la aplicación. No dirija el middleware para que use el archivo *web.config* cuando se ejecute en Windows Server IIS. Con IIS, estas reglas deben almacenarse fuera de *web.config* para evitar conflictos con el Módulo URL Rewrite para IIS. Para obtener más información y ejemplos de reglas del Módulo URL Rewrite para IIS, vea [Using Url Rewrite Module 2.0](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) (Uso del Módulo URL Rewrite 2.0) y [URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Referencia de configuración del Módulo URL Rewrite).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 Se usa `StreamReader` para leer las reglas del archivo de reglas *IISUrlRewrite.xml*.
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=2,8)]
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=5-6,13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 El primer parámetro toma `IFileProvider`, mientras que el segundo parámetro es la ruta de acceso al archivo de reglas XML, que en la aplicación de ejemplo es *IISUrlRewrite.xml*.
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=5)]
+```csharp
+public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+{
+    var options = new RewriteOptions()
+        .AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml");
 
----
+    app.UseRewriter(options);
+}
+```
 
+* * *
 La aplicación de ejemplo reescribe las solicitudes de `/iis-rules-rewrite/(.*)` a `/rewritten?id=$1`. La respuesta se envía al cliente con un código de estado 200 (Correcto).
 
-[!code-xml[Main](url-rewriting/samples/2.x/IISUrlRewrite.xml)]
+[!code-xml[](url-rewriting/sample/IISUrlRewrite.xml)]
 
 Solicitud original: `/iis-rules-rewrite/1234`
 
@@ -305,27 +353,24 @@ Use `Add(Action<RewriteContext> applyRule)` para implementar su propia lógica d
 | `RuleResult.EndResponse`             | Dejar de aplicar reglas y enviar la respuesta                       |
 | `RuleResult.SkipRemainingRules`      | Dejar de aplicar reglas y enviar el contexto al siguiente middleware |
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=14)]
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=9)]
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    var options = new RewriteOptions()
+        .Add(RedirectXMLRequests);
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    app.UseRewriter(options);
+}
+```
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=6)]
-
----
-
+* * *
 La aplicación de ejemplo muestra un método que redirige las solicitudes para las rutas de acceso que terminen con *.xml*. Si realiza una solicitud para `/file.xml`, se redirige a `/xmlfiles/file.xml`. El código de estado se establece en 301 (Movido definitivamente). Para una redirección, debe establecer explícitamente el código de estado de la respuesta; en caso contrario, se devuelve un código de estado 200 (Correcto) y no se produce la redirección en el cliente.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-[!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet1)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet2)]
-
----
+[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet1)]
 
 Solicitud original: `/file.xml`
 
@@ -334,27 +379,25 @@ Solicitud original: `/file.xml`
 ### <a name="irule-based-rule"></a>Regla basada en IRule
 Use `Add(IRule)` para implementar su propia lógica de la regla en una clase que deriva de `IRule`. Al usar `IRule`, se logra mayor flexibilidad que si se usa el enfoque de reglas basadas en métodos. La clase derivada puede incluir un constructor, donde puede pasar parámetros para el método `ApplyRule`.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!code-csharp[](url-rewriting/sample/Startup.cs?name=snippet1&highlight=15-16)]
 
-[!code-csharp[Main](url-rewriting/samples/2.x/Program.cs?name=snippet1&highlight=10-11)]
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+```csharp
+public void Configure(IApplicationBuilder app)
+{
+    var options = new RewriteOptions()
+        .Add(new RedirectImageRequests(".png", "/png-images"))
+        .Add(new RedirectImageRequests(".jpg", "/jpg-images"));
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+    app.UseRewriter(options);
+}
+```
 
-[!code-csharp[Main](url-rewriting/samples/1.x/Startup.cs?name=snippet1&highlight=7-8)]
-
----
-
+* * *
 Se comprueba que los valores de los parámetros en la aplicación de ejemplo para `extension` y `newPath` cumplen ciertas condiciones. `extension` debe contener un valor, que debe ser *.png*, *.jpg* o *.gif*. Si `newPath` no es válido, se genera `ArgumentException` . Si se realiza una solicitud para *image.png*, se redirige a `/png-images/image.png`. Si se realiza una solicitud para *image.jpg*, se redirige a `/jpg-images/image.jpg`. El código de estado se establece en 301 (Movido definitivamente) y se establece `context.Result` para detener el procesamiento de reglas y enviar la respuesta.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
-[!code-csharp[Main](url-rewriting/samples/2.x/RewriteRules.cs?name=snippet2)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
-[!code-csharp[Main](url-rewriting/samples/1.x/RewriteRule.cs?name=snippet1)]
-
----
+[!code-csharp[](url-rewriting/sample/RewriteRules.cs?name=snippet2)]
 
 Solicitud original: `/image.png`
 
@@ -381,8 +424,8 @@ Solicitud original: `/image.jpg`
 * [Expresiones regulares en .NET](/dotnet/articles/standard/base-types/regular-expressions)
 * [Lenguaje de expresiones regulares: referencia rápida](/dotnet/articles/standard/base-types/quick-ref)
 * [Apache mod_rewrite](https://httpd.apache.org/docs/2.4/rewrite/) (mod_rewrite de Apache)
-* [Using Url Rewrite Module 2.0 (for IIS)](https://docs.microsoft.com/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) (Uso del Módulo URL Rewrite 2.0 para IIS)
-* [URL Rewrite Module Configuration Reference](https://docs.microsoft.com/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Referencia de configuración del Módulo URL Rewrite)
+* [Using Url Rewrite Module 2.0 (for IIS)](/iis/extensions/url-rewrite-module/using-url-rewrite-module-20) (Uso del Módulo URL Rewrite 2.0 para IIS)
+* [URL Rewrite Module Configuration Reference](/iis/extensions/url-rewrite-module/url-rewrite-module-configuration-reference) (Referencia de configuración del Módulo URL Rewrite)
 * [IIS URL Rewrite Module Forum](https://forums.iis.net/1152.aspx) (Foro del Módulo URL Rewrite para IIS)
 * [Cómo simplificar la estructura de direcciones URL](https://support.google.com/webmasters/answer/76329?hl=en)
 * [10 URL Rewriting Tips and Tricks](http://ruslany.net/2009/04/10-url-rewriting-tips-and-tricks/) (10 trucos y consejos para reescritura de URL)
