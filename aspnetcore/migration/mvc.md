@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/mvc
-ms.openlocfilehash: e249be06726b307a1c41a525a132f7e0ab8b50ee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: b8c913c0a6f47a1c993d508f9baae54981327957
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-from-aspnet-mvc-to-aspnet-core-mvc"></a>Migrar de MVC de ASP.NET a ASP.NET Core MVC
 
@@ -26,13 +26,13 @@ Este artículo muestra cómo empezar a migrar un proyecto de MVC de ASP.NET a [M
 
 ## <a name="create-the-starter-aspnet-mvc-project"></a>Crear el proyecto de MVC de ASP.NET de inicio
 
-Para demostrar la actualización, comenzaremos mediante la creación de una aplicación de ASP.NET MVC. Crear con el nombre *WebApp1* para el espacio de nombres coincidirá con el proyecto de ASP.NET Core que creamos en el paso siguiente.
+Para demostrar la actualización, comenzaremos mediante la creación de una aplicación de ASP.NET MVC. Crear con el nombre *WebApp1* para el espacio de nombres coincida con el proyecto de ASP.NET Core que creamos en el paso siguiente.
 
 ![El cuadro de diálogo de Visual Studio nuevo proyecto](mvc/_static/new-project.png)
 
 ![Cuadro de diálogo nueva aplicación Web: plantilla de proyecto MVC seleccionado en el panel de plantillas ASP.NET](mvc/_static/new-project-select-mvc-template.png)
 
-*Opcional:* cambiar el nombre de la solución de *WebApp1* a *Mvc5*. Visual Studio mostrará el nuevo nombre de la solución (*Mvc5*), que resultará más fácil indicar a este proyecto desde el proyecto siguiente.
+*Opcional:* cambiar el nombre de la solución de *WebApp1* a *Mvc5*. Visual Studio muestra el nuevo nombre de la solución (*Mvc5*), lo que facilita indicar este proyecto desde el proyecto siguiente.
 
 ## <a name="create-the-aspnet-core-project"></a>Crear el proyecto de ASP.NET Core
 
@@ -42,25 +42,19 @@ Crear un nuevo *vacía* aplicación web de ASP.NET Core con el mismo nombre que 
 
 ![Cuadro de diálogo nueva aplicación Web de ASP.NET: plantilla de proyecto vacía seleccionada en el panel de plantillas de núcleo de ASP.NET](mvc/_static/new-project-select-empty-aspnet5-template.png)
 
-* *Opcional:* crear una nueva aplicación ASP.NET Core usando la *aplicación Web* plantilla de proyecto. Denomine el proyecto *WebApp1*y seleccione una opción de autenticación de **cuentas de usuario individuales**. Cambiar el nombre de esta aplicación *FullAspNetCore*. Creación de este proyecto, ahorrará tiempo en la conversión. También puede buscar en el código generado de plantilla para ver el resultado final o copiar el código al proyecto de conversión. También es útil cuando bloquea en un paso de la conversión que se compara con el proyecto de plantilla generado.
+* *Opcional:* crear una nueva aplicación ASP.NET Core usando la *aplicación Web* plantilla de proyecto. Denomine el proyecto *WebApp1*y seleccione una opción de autenticación de **cuentas de usuario individuales**. Cambiar el nombre de esta aplicación *FullAspNetCore*. Creación de este proyecto le permite ahorrar tiempo en la conversión. También puede buscar en el código generado de plantilla para ver el resultado final o copiar el código al proyecto de conversión. También es útil cuando bloquea en un paso de la conversión que se compara con el proyecto de plantilla generado.
 
 ## <a name="configure-the-site-to-use-mvc"></a>Configurar el sitio para usar MVC
 
-* Instalar el `Microsoft.AspNetCore.Mvc` y `Microsoft.AspNetCore.StaticFiles` paquetes de NuGet.
+* Cuando el destino es .NET Core, el metapackage de ASP.NET Core se agrega al proyecto, denominado `Microsoft.AspNetCore.All` de forma predeterminada. Este paquete contiene paquetes como `Microsoft.AspNetCore.Mvc` y `Microsoft.AspNetCore.StaticFiles`. Si el destino es .NET Framework, las referencias del paquete tiene que mostrar individualmente en el archivo *.csproj.
 
-  `Microsoft.AspNetCore.Mvc` es el marco de MVC de ASP.NET Core. `Microsoft.AspNetCore.StaticFiles` es el controlador de archivos estáticos. El tiempo de ejecución ASP.NET es modular y explícitamente debe participar en servir archivos estáticos (vea [trabajar con archivos estáticos](../fundamentals/static-files.md)).
-
-* Abra la *.csproj* archivo (haga clic en el proyecto en **el Explorador de soluciones** y seleccione **editar WebApp1.csproj**) y agregue un `PrepareForPublish` destino:
-
-  [!code-xml[](mvc/sample/WebApp1.csproj?range=21-23)]
-
-  El `PrepareForPublish` destino es necesario para adquirir las bibliotecas de cliente a través de Bower. Hablaremos sobre el más adelante.
+`Microsoft.AspNetCore.Mvc` es el marco de MVC de ASP.NET Core. `Microsoft.AspNetCore.StaticFiles` es el controlador de archivos estáticos. El tiempo de ejecución de ASP.NET Core es modular y explícitamente debe participar en servir archivos estáticos (vea [archivos estáticos](xref:fundamentals/static-files)).
 
 * Abra la *Startup.cs* y cambie el código para que coincida con lo siguiente:
 
-  [!code-csharp[](mvc/sample/Startup.cs?highlight=14,27-34)]
+  [!code-csharp[](mvc/sample/Startup.cs?highlight=13,26-31)]
 
-  El `UseStaticFiles` método de extensión agrega el controlador de archivos estáticos. Como se mencionó anteriormente, el tiempo de ejecución ASP.NET es modular y explícitamente debe participar en servir archivos estáticos. El `UseMvc` método de extensión agrega enrutamiento. Para obtener más información, consulte [inicio de la aplicación](../fundamentals/startup.md) y [enrutamiento](../fundamentals/routing.md).
+El `UseStaticFiles` método de extensión agrega el controlador de archivos estáticos. Como se mencionó anteriormente, el tiempo de ejecución ASP.NET es modular y explícitamente debe participar en servir archivos estáticos. El `UseMvc` método de extensión agrega enrutamiento. Para obtener más información, consulte [inicio de la aplicación](xref:fundamentals/startup) y [enrutamiento](xref:fundamentals/routing).
 
 ## <a name="add-a-controller-and-view"></a>Agregar un controlador y una vista
 
@@ -68,7 +62,7 @@ En esta sección, agregará un controlador mínima y la vista para que actúe co
 
 * Agregar un *controladores* carpeta.
 
-* Agregar un **clase de controlador MVC** con el nombre *HomeController.cs* a la *controladores* carpeta.
+* Agregar un **clase de controlador** denominado *HomeController.cs* a la *controladores* carpeta.
 
 ![Cuadro de diálogo Agregar nuevo elemento](mvc/_static/add_mvc_ctl.png)
 
@@ -76,7 +70,7 @@ En esta sección, agregará un controlador mínima y la vista para que actúe co
 
 * Agregar un *vistas/inicio* carpeta.
 
-* Agregar un *Index.cshtml* página de vista de MVC a la *vistas/inicio* carpeta.
+* Agregar un **vista Razor** denominado *Index.cshtml* a la *vistas/inicio* carpeta.
 
 ![Cuadro de diálogo Agregar nuevo elemento](mvc/_static/view.png)
 
@@ -96,7 +90,7 @@ Ejecute la aplicación.
 
 Vea [controladores](xref:mvc/controllers/actions) y [vistas](xref:mvc/views/overview) para obtener más información.
 
-Ahora que tenemos un proyecto ASP.NET Core trabajo mínimo, se podemos empezar a migrar la funcionalidad desde el proyecto de MVC de ASP.NET. Tendrá que mover lo siguiente:
+Ahora que tenemos un proyecto ASP.NET Core trabajo mínimo, se podemos empezar a migrar la funcionalidad desde el proyecto de MVC de ASP.NET. Es preciso mover lo siguiente:
 
 * contenido del lado cliente (CSS, fuentes y secuencias de comandos)
 
@@ -110,7 +104,7 @@ Ahora que tenemos un proyecto ASP.NET Core trabajo mínimo, se podemos empezar a
 
 * filtros
 
-* Registro de entrada/salida, la identidad (Esto se hace en el tutorial siguiente).
+* Registro de entrada/salida, la identidad (Esto se hace en el siguiente tutorial.)
 
 ## <a name="controllers-and-views"></a>Controladores y vistas
 
@@ -118,7 +112,7 @@ Ahora que tenemos un proyecto ASP.NET Core trabajo mínimo, se podemos empezar a
 
 * Copia la *About.cshtml*, *Contact.cshtml*, y *Index.cshtml* archivos de vista Razor desde el proyecto de MVC de ASP.NET para el proyecto de ASP.NET Core.
 
-* Ejecutar la aplicación de ASP.NET Core y cada método de prueba. No hemos migramos los estilos o el archivo de diseño, por lo que las vistas representadas solo contendrá el contenido de los archivos de vista. No tendrá los vínculos de archivo generado de diseño para la `About` y `Contact` vistas, por lo que tendrá que invocar a los mismos desde el explorador (reemplace **4492** con el número de puerto utilizado en el proyecto).
+* Ejecutar la aplicación de ASP.NET Core y cada método de prueba. No hemos migramos los estilos o el archivo de diseño, por lo que las vistas representadas solo contienen el contenido de los archivos de vista. No tendrá los vínculos de archivo generado de diseño para la `About` y `Contact` vistas, por lo que tendrá que invocar a los mismos desde el explorador (reemplace **4492** con el número de puerto utilizado en el proyecto).
 
   * `http://localhost:4492/home/about`
 
@@ -134,21 +128,7 @@ En versiones anteriores de ASP.NET MVC, contenido estático se alojó desde la r
 
 * Copia la *favicon.ico* archivo desde el proyecto MVC anterior a la *wwwroot* carpeta del proyecto de ASP.NET Core.
 
-La antigua ASP.NET MVC project utiliza [Bootstrap](http://getbootstrap.com/) para su aplicación de estilos y almacena el arranque de los archivos del *contenido* y *Scripts* carpetas. Hace referencia a la plantilla, que genera el proyecto de MVC de ASP.NET anterior, arranque en el archivo de diseño (*Views/Shared/_Layout.cshtml*). Podría copiar el *bootstrap.js* y *bootstrap.css* proyecto de archivos de ASP.NET MVC a la *wwwroot* carpeta en el nuevo proyecto, pero ese método no usa el mecanismo mejorado para administrar las dependencias del lado cliente en ASP.NET Core.
-
-En el nuevo proyecto, vamos a agregar compatibilidad con arranque (y otras bibliotecas de cliente) con [Bower](https://bower.io/):
-
-* Agregar un [Bower](https://bower.io/) archivo de configuración denominado *bower.json* a la raíz del proyecto (haga doble clic en el proyecto y, a continuación, **Agregar > nuevo elemento > archivo de configuración de Bower**). Agregar [arranque](http://getbootstrap.com/) y [jQuery](https://jquery.com/) al archivo (vea las líneas resaltadas a continuación).
-
-  [!code-json[](mvc/sample/bower.json?highlight=5-6)]
-
-Al guardar el archivo, Bower descargará automáticamente las dependencias para el *wwwroot/lib* carpeta. Puede usar el **el Explorador de soluciones de búsqueda** cuadro para buscar la ruta de acceso de los activos:
-
-![activos de jQuery que se muestra en los resultados de búsqueda del explorador de soluciones](mvc/_static/search.png)
-
-Vea [administrar paquetes de cliente con Bower](../client-side/bower.md) para obtener más información.
-
-<a name="migrate-layout-file"></a>
+La antigua ASP.NET MVC project utiliza [Bootstrap](https://getbootstrap.com/) para su aplicación de estilos y almacena el arranque de los archivos del *contenido* y *Scripts* carpetas. Hace referencia a la plantilla, que genera el proyecto de MVC de ASP.NET anterior, arranque en el archivo de diseño (*Views/Shared/_Layout.cshtml*). Podría copiar el *bootstrap.js* y *bootstrap.css* proyecto de archivos de ASP.NET MVC a la *wwwroot* carpeta en el nuevo proyecto. En su lugar, vamos a agregar compatibilidad para el arranque (y otras bibliotecas de cliente) con CDN en la sección siguiente.
 
 ## <a name="migrate-the-layout-file"></a>Migrar el archivo de diseño
 
@@ -162,32 +142,36 @@ Vea [administrar paquetes de cliente con Bower](../client-side/bower.md) para ob
 
 Abra *_Layout.cshtml* de archivos y realice los cambios siguientes (el código completo se muestra a continuación):
 
-   * Reemplace `@Styles.Render("~/Content/css")` con un `<link>` elemento que se va a cargar *bootstrap.css* (ver abajo).
+* Reemplace `@Styles.Render("~/Content/css")` con un `<link>` elemento que se va a cargar *bootstrap.css* (ver abajo).
 
-   * Quite `@Scripts.Render("~/bundles/modernizr")`.
+* Quite `@Scripts.Render("~/bundles/modernizr")`.
 
-   * Convierta en comentario la `@Html.Partial("_LoginPartial")` línea (incluya la línea con `@*...*@`). Se tendrá que volver a él en un tutorial posterior.
+* Convierta en comentario la `@Html.Partial("_LoginPartial")` línea (incluya la línea con `@*...*@`). Se tendrá que volver a él en un tutorial posterior.
 
-   * Reemplace `@Scripts.Render("~/bundles/jquery")` con un `<script>` elemento (ver abajo).
+* Reemplace `@Scripts.Render("~/bundles/jquery")` con un `<script>` elemento (ver abajo).
 
-   * Reemplace `@Scripts.Render("~/bundles/bootstrap")` con un `<script>` elemento (ver abajo)...
+* Reemplace `@Scripts.Render("~/bundles/bootstrap")` con un `<script>` elemento (ver abajo).
 
-El vínculo CSS de reemplazo:
+El marcado de reemplazo para la inclusión de CSS de arranque:
 
 ```html
-<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
 ```
 
-Las etiquetas de script de reemplazo:
+El marcado de reemplazo de jQuery y la inclusión de JavaScript de arranque:
 
 ```html
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 ```
 
 La actualización *_Layout.cshtml* archivo se muestra a continuación:
 
-[!code-html[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7,27,39-40)]
+[!code-cshtml[](mvc/sample/Views/Shared/_Layout.cshtml?highlight=7-10,29,41-44)]
 
 Ver el sitio en el explorador. Ahora deberían cargarse correctamente, con los estilos esperados en su lugar.
 
@@ -197,32 +181,15 @@ Ver el sitio en el explorador. Ahora deberían cargarse correctamente, con los e
 
 Para obtener información sobre cómo configurar la agrupación y minificación, consulte [unión y Minificación](../client-side/bundling-and-minification.md).
 
-## <a name="solving-http-500-errors"></a>Para resolver errores de HTTP 500
+## <a name="solve-http-500-errors"></a>Solucionar errores de HTTP 500
 
-Hay muchos problemas que pueden provocar un mensaje de error HTTP 500 que no contienen ninguna información en el origen del problema. Por ejemplo, si la *Views/_ViewImports.cshtml* archivo contiene un espacio de nombres que no existe en el proyecto, obtendrá un error HTTP 500. Para obtener un mensaje de error detallado, agregue el código siguiente:
+Hay muchos problemas que pueden provocar un mensaje de error HTTP 500 que no contienen ninguna información en el origen del problema. Por ejemplo, si la *Views/_ViewImports.cshtml* archivo contiene un espacio de nombres que no existe en el proyecto, obtendrá un error HTTP 500. De forma predeterminada en las aplicaciones ASP.NET Core, el `UseDeveloperExceptionPage` extensión se agrega a la `IApplicationBuilder` y se ejecuta cuando la configuración es *desarrollo*. Esto se detalla en el código siguiente:
 
-```csharp
-public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-{
-    if (env.IsDevelopment())
-    {
-         app.UseDeveloperExceptionPage();
-    }
+[!code-csharp[](mvc/sample/Startup.cs?highlight=19-22)]
 
-    app.UseStaticFiles();
-
-    app.UseMvc(routes =>
-    {
-        routes.MapRoute(
-            name: "default",
-            template: "{controller=Home}/{action=Index}/{id?}");
-    });
-}
-```
-
-Vea **mediante la página de excepción para desarrolladores** en [controlar los errores](../fundamentals/error-handling.md) para obtener más información.
+ASP.NET Core convierte las excepciones no controladas en una aplicación web en las respuestas de error HTTP 500. Normalmente, los detalles del error no se incluyen en estas respuestas para evitar la divulgación de información potencialmente confidencial acerca del servidor. Vea **mediante la página de excepción para desarrolladores** en [controlar los errores](../fundamentals/error-handling.md) para obtener más información.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Desarrollo en el cliente](xref:client-side/index)
+* [Desarrollo del lado cliente](xref:client-side/index)
 * [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)

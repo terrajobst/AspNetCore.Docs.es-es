@@ -1,7 +1,7 @@
 ---
-title: "Convenciones de autorización de páginas de Razor en ASP.NET Core"
+title: Convenciones de autorización de páginas de Razor en ASP.NET Core
 author: guardrex
-description: "Obtener información sobre cómo controlar el acceso a las páginas con las convenciones que autorizan a los usuarios y permitir que los usuarios anónimos pueden tener acceso a páginas o carpetas de páginas."
+description: Obtener información sobre cómo controlar el acceso a las páginas con las convenciones que autorizan a los usuarios y permitir que los usuarios anónimos pueden tener acceso a páginas o carpetas de páginas.
 manager: wpickett
 ms.author: riande
 ms.date: 10/27/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/razor-pages-authorization
-ms.openlocfilehash: bbef653c6cf968527e753df9c853f5972640cc03
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 2fd8cd444b1d774c387dc6426af5914bde9b8ae7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="razor-pages-authorization-conventions-in-aspnet-core"></a>Convenciones de autorización de páginas de Razor en ASP.NET Core
 
@@ -79,5 +79,5 @@ Que requieren la autorización en la página privada no funcionará porque cuand
 
 ## <a name="see-also"></a>Vea también
 
-* [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-conventions)
 * [PageConventionCollection](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection) (clase)

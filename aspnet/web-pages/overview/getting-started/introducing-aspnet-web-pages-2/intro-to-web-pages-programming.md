@@ -12,11 +12,11 @@ ms.technology: dotnet-webpages
 ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 3e2c990a6451c13e03baafa343df156b2d46d219
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 60115dd06a27bf856427953de29e993194afb991
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Introducción a ASP.NET Web Pages: conceptos básicos de programación
 ====================
@@ -207,7 +207,7 @@ Ejecute la página y haga clic en **enviar**. Esta vez no solo verá un mensaje 
 
 ### <a name="testing-the-value-of-a-query-string"></a>Probar el valor de una cadena de consulta
 
-Una prueba más. En este momento, podrá agregar un campo si el bloque que prueba un valor denominado show que podría pasarse en la cadena de consulta. (Similar a éste: "http://localhost:43097/TestRazorPart2.cshtml`?show=true`) va a cambiar la página para que el mensaje ha sido mostrar ("Esto es la primera vez...", etc.) aparece únicamente si el valor de presentación es true.
+Una prueba más. En este momento, podrá agregar un campo si el bloque que prueba un valor denominado show que podría pasarse en la cadena de consulta. (Similar a éste: `http://localhost:43097/TestRazorPart2.cshtml?show=true`) va a cambiar la página para que el mensaje ha sido mostrar ("Esto es la primera vez...", etc.) aparece únicamente si el valor de presentación es true.
 
 En la parte inferior (pero interior) el bloque de código en la parte superior de la página, agregue lo siguiente:
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: bd5e5219765dfea0305fa02e79e5423266ce4df2
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a50069586c702152e81961773114ea75901ab23d
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -62,7 +62,7 @@ Cuando se crea una nueva instancia de `UserManager` o `RoleManager` proporciona 
 
 ### <a name="users"></a>Usuarios
 
-Usuarios registrados de su sitio web. El [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) tipo puede ampliada o se utiliza como ejemplo para su propio tipo personalizado. No es necesario heredar de un tipo determinado para implementar su propia solución de almacenamiento de información de identidad personalizada.
+Usuarios registrados de su sitio web. El [IdentityUser](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) tipo puede ampliada o se utiliza como ejemplo para su propio tipo personalizado. No es necesario heredar de un tipo determinado para implementar su propia solución de almacenamiento de información de identidad personalizada.
 
 ### <a name="user-claims"></a>Notificaciones de usuario
 
@@ -70,11 +70,11 @@ Un conjunto de instrucciones (o [notificaciones](/dotnet/api/system.security.cla
 
 ### <a name="user-logins"></a>Inicios de sesión de usuario
 
-Información sobre el proveedor de autenticación externo (por ejemplo, Facebook o una cuenta de Microsoft) que se usará cuando un usuario de inicio de sesión. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+Información sobre el proveedor de autenticación externo (por ejemplo, Facebook o una cuenta de Microsoft) que se usará cuando un usuario de inicio de sesión. [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>Roles
 
-Grupos de autorización para el sitio. Incluye el nombre de identificador y el rol del rol (por ejemplo, "Admin" o "Employee"). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
+Grupos de autorización para el sitio. Incluye el nombre de identificador y el rol del rol (por ejemplo, "Admin" o "Employee"). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>La capa de acceso a datos
 
@@ -86,11 +86,11 @@ La capa de acceso a datos proporciona la lógica para guardar los datos de ident
 
 ### <a name="context-class"></a>Context (clase)
 
-Encapsula la información para conectarse a su mecanismo de persistencia y ejecutar consultas. Varias clases de datos requieren una instancia de esta clase, por lo general se proporcionan a través de inserción de dependencias. [En el ejemplo se](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
+Encapsula la información para conectarse a su mecanismo de persistencia y ejecutar consultas. Varias clases de datos requieren una instancia de esta clase, por lo general se proporcionan a través de inserción de dependencias. [En el ejemplo se](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
 
 ### <a name="user-storage"></a>Almacenamiento de información de usuario
 
-Almacena y recupera información de usuario (por ejemplo, el hash de nombre y la contraseña de usuario). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de usuario (por ejemplo, el hash de nombre y la contraseña de usuario). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>Almacenamiento de rol
 
@@ -98,15 +98,15 @@ Almacena y recupera información de funciones (por ejemplo, el nombre de rol). [
 
 ### <a name="userclaims-storage"></a>Almacenamiento de UserClaims
 
-Almacena y recupera información de notificaciones de usuario (por ejemplo, el tipo de notificación y el valor). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de notificaciones de usuario (por ejemplo, el tipo de notificación y el valor). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>Almacenamiento de UserLogins
 
-Almacena y recupera información de inicio de sesión de usuario (por ejemplo, un proveedor de autenticación externo). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de inicio de sesión de usuario (por ejemplo, un proveedor de autenticación externo). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>Almacenamiento de UserRole
 
-Almacena y recupera los roles asignados a los usuarios. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera los roles asignados a los usuarios. [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 **Sugerencia:** implementar solo las clases que va a usar en la aplicación.
 
@@ -114,15 +114,15 @@ En las clases de acceso a datos, proporcionar código para realizar operaciones 
 
 [!code-csharp[](identity-custom-storage-providers/sample/CustomIdentityProviderSample/CustomProvider/CustomUserStore.cs?name=createuser&highlight=7)]
 
-La lógica de implementación para crear el usuario está en el ``_usersTable.CreateAsync`` método, se muestra a continuación.
+La lógica de implementación para crear el usuario está en el `_usersTable.CreateAsync` método, se muestra a continuación.
 
 ## <a name="customize-the-user-class"></a>Personalizar la clase de usuario
 
-Al implementar un proveedor de almacenamiento, cree una clase de usuario que es equivalente a la [ `IdentityUser` clase](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser).
+Al implementar un proveedor de almacenamiento, cree una clase de usuario que es equivalente a la [ `IdentityUser` clase](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser).
 
 Como mínimo, debe incluir la clase de usuario una `Id` y un `UserName` propiedad.
 
-El `IdentityUser` clase define las propiedades que el ``UserManager`` llamadas al realizar operaciones solicitadas. El tipo predeterminado de la `Id` propiedad es una cadena, pero se puede heredar de `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` y especifique un tipo diferente. El marco de trabajo espera que la implementación de almacenamiento para controlar las conversiones de tipo de datos.
+El `IdentityUser` clase define las propiedades que el `UserManager` llamadas al realizar operaciones solicitadas. El tipo predeterminado de la `Id` propiedad es una cadena, pero se puede heredar de `IdentityUser<TKey, TUserClaim, TUserRole, TUserLogin, TUserToken>` y especifique un tipo diferente. El marco de trabajo espera que la implementación de almacenamiento para controlar las conversiones de tipo de datos.
 
 ## <a name="customize-the-user-store"></a>Personalizar el almacén del usuario
 
@@ -188,7 +188,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim, IdentityUserLogin y IdentityUserRole
 
-El ``Microsoft.AspNet.Identity.EntityFramework`` espacio de nombres contiene las implementaciones de la [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin), y [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) clases. Si está usando estas características, puede crear sus propias versiones de estas clases y definir las propiedades de la aplicación. Sin embargo, a veces resulta más eficaz para no cargar estas entidades en memoria al realizar operaciones básicas (como agregar o quitar la notificación del usuario). En su lugar, las clases de almacenamiento back-end pueden ejecutar estas operaciones directamente en el origen de datos. Por ejemplo, el ``UserStore.GetClaimsAsync`` método puede llamar a la ``userClaimTable.FindByUserId(user.Id)`` método para ejecutar una consulta en que la tabla directamente y devolver una lista de notificaciones.
+El `Microsoft.AspNet.Identity.EntityFramework` espacio de nombres contiene las implementaciones de la [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), y [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) clases. Si está usando estas características, puede crear sus propias versiones de estas clases y definir las propiedades de la aplicación. Sin embargo, a veces resulta más eficaz para no cargar estas entidades en memoria al realizar operaciones básicas (como agregar o quitar la notificación del usuario). En su lugar, las clases de almacenamiento back-end pueden ejecutar estas operaciones directamente en el origen de datos. Por ejemplo, el `UserStore.GetClaimsAsync` método puede llamar a la `userClaimTable.FindByUserId(user.Id)` método para ejecutar una consulta en que la tabla directamente y devolver una lista de notificaciones.
 
 ## <a name="customize-the-role-class"></a>Personalizar el role (clase)
 
@@ -200,7 +200,7 @@ La siguiente es una clase de rol de ejemplo:
 
 ## <a name="customize-the-role-store"></a>Personalizar el almacén de roles
 
-Puede crear un ``RoleStore`` clase que proporciona los métodos para todas las operaciones de datos en los roles. Esta clase es equivalente a la [RoleStore<TRole> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) clase. En el `RoleStore` (clase), implementar la ``IRoleStore<TRole>`` y, opcionalmente, la ``IQueryableRoleStore<TRole>`` interfaz.
+Puede crear un `RoleStore` clase que proporciona los métodos para todas las operaciones de datos en los roles. Esta clase es equivalente a la [RoleStore<TRole> ](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.rolestore-1) clase. En el `RoleStore` (clase), implementar la `IRoleStore<TRole>` y, opcionalmente, la `IQueryableRoleStore<TRole>` interfaz.
 
 - **IRoleStore&lt;TRole&gt;**  
  El [IRoleStore](/dotnet/api/microsoft.aspnetcore.identity.irolestore-1) interfaz define los métodos que se implementan en la clase de almacén de rol. Contiene métodos para crear, actualizar, eliminar y recuperar roles.
@@ -214,7 +214,7 @@ Una vez que ha implementado un proveedor de almacenamiento, configure la aplicac
 1. Quitar el `Microsoft.AspNetCore.EntityFramework.Identity` paquete NuGet.
 1. Si el proveedor de almacenamiento reside en un proyecto independiente o un paquete, agregue una referencia a él.
 1. Reemplace todas las referencias a `Microsoft.AspNetCore.EntityFramework.Identity` con el uso de una instrucción para el espacio de nombres del proveedor de almacenamiento.
-1. En el ``ConfigureServices`` (método), cambiar la `AddIdentity` método usar sus tipos personalizados. Puede crear sus propios métodos de extensión para este propósito. Vea [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) para obtener un ejemplo.
+1. En el `ConfigureServices` (método), cambiar la `AddIdentity` método usar sus tipos personalizados. Puede crear sus propios métodos de extensión para este propósito. Vea [IdentityServiceCollectionExtensions](https://github.com/aspnet/Identity/blob/rel/1.1.0/src/Microsoft.AspNetCore.Identity/IdentityServiceCollectionExtensions.cs) para obtener un ejemplo.
 1. Si está utilizando Roles, actualice el `RoleManager` usar su `RoleStore` clase.
 1. Actualizar la cadena de conexión y las credenciales para la configuración de la aplicación.
 
@@ -240,5 +240,5 @@ public void ConfigureServices(IServiceCollection services)
 
 ## <a name="references"></a>Referencias
 
-- [Proveedores de almacenamiento personalizado para identidades de ASP.NET](https://docs.microsoft.com/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
+- [Proveedores de almacenamiento personalizado para identidades de ASP.NET](/aspnet/identity/overview/extensibility/overview-of-custom-storage-providers-for-aspnet-identity)
 - [ASP.NET Core Identity](https://github.com/aspnet/identity) -este repositorio incluye vínculos a la Comunidad mantenida los proveedores de almacenes.

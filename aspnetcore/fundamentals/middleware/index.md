@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 4c44063fb3385fc625c35c8a3cf06a35b5b0afb7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 016f15c13470db53252941acafa25a3c6caf8db5
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -109,7 +109,7 @@ public void Configure(IApplicationBuilder app)
 
 En el código anterior, `UseExceptionHandler` es el primer componente de middleware que se agrega a la canalización. Por tanto, captura todas las excepciones que se puedan producir en las llamadas posteriores.
 
-El middleware de archivos estáticos se llama al principio de la canalización para que pueda controlar solicitudes y realizar cortocircuitos sin pasar por los componentes restantes. Este middleware **no** proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los de *wwwroot*, están disponibles de forma pública. Vea [Trabajar con archivos estáticos ](xref:fundamentals/static-files) para obtener información sobre cómo proteger archivos estáticos.
+El middleware de archivos estáticos se llama al principio de la canalización para que pueda controlar solicitudes y realizar cortocircuitos sin pasar por los componentes restantes. Este middleware **no** proporciona comprobaciones de autorización. Los archivos que proporciona, incluidos los de *wwwroot*, están disponibles de forma pública. Consulte [Archivos estáticos](xref:fundamentals/static-files) para obtener más información sobre cómo proteger este tipo de archivos.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 

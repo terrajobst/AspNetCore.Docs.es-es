@@ -11,11 +11,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: a155422c0fd638f46fe4a9d8a77faebc0b2a5681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 381025d1c4a9951349e242482ca9b780c461e588
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Agrupación y minifiy activos estáticos en ASP.NET Core
 
@@ -77,15 +77,15 @@ Las plantillas de proyecto MVC y las páginas de Razor proporcionan una *bundlec
 
 Opciones de configuración incluyen:
 
-* `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **required**
+* `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **Obligatorio**
 * `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) patrones son compatibles.
 * `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado: `minify: { enabled: true }`*
   * Opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [Minificador de JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Minificador de HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto. **optional**, *default - false*
-* `sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado. **optional**, *default - false*
+* `includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto. **opcional**, *predeterminado: false*
+* `sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado. **opcional**, *predeterminado: false*
 * `sourceMapRootPath`: La ruta de acceso raíz para almacenar el archivo de mapa de código fuente generado.
 
 ## <a name="build-time-execution-of-bundling-and-minification"></a>Ejecución en tiempo de compilación de agrupar y minificar
@@ -313,5 +313,5 @@ También se puede usar el explorador del ejecutor de tareas de Visual Studio par
 
 * [Uso de Gulp](xref:client-side/using-gulp)
 * [Uso de Grunt](xref:client-side/using-grunt)
-* [Trabajar con varios entornos](xref:fundamentals/environments)
+* [Usar varios entornos](xref:fundamentals/environments)
 * [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)

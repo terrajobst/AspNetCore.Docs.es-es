@@ -3,23 +3,24 @@ title: Autenticación en dos fases con SMS en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de cómo configurar la autenticación en dos fases (2FA) con una aplicación de ASP.NET Core.
 manager: wpickett
+monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 08/15/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 1c4acc4e4be593051d30793b7f73ad90ce727283
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 20f00c2307e140d81e716304c96a143340d934d0
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Autenticación en dos fases con SMS en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [desarrolladores suizo](https://github.com/Swiss-Devs)
 
-Este tutorial se aplica a ASP.NET Core solo 1.x. Vea [generación habilitar código QR para las aplicaciones de autenticador de ASP.NET Core](xref:security/authentication/identity-enable-qrcodes) para ASP.NET Core 2.0 y versiones posteriores.
+Vea [generación habilitar código QR para las aplicaciones de autenticador de ASP.NET Core](xref:security/authentication/identity-enable-qrcodes) para ASP.NET Core 2.0 y versiones posteriores.
 
 Este tutorial muestra cómo configurar la autenticación en dos fases (2FA) con SMS. Se proporcionan instrucciones para [twilio](https://www.twilio.com/) y [ASPSMS](https://www.aspsms.com/asp.net/identity/core/testcredits/), pero puede usar cualquier otro proveedor SMS. Se recomienda realizar [confirmación de cuenta y contraseña de recuperación](xref:security/authentication/accconfirm) antes de iniciar este tutorial.
 

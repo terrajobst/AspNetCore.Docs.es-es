@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "Introducción a ASP.NET Web API 2 (C#)"
+title: Introducción a ASP.NET Web API 2 (C#)
 author: MikeWasson
-description: "HTTP no es solo para servir las páginas web. También es una herramienta eficaz para la creación de las API que exponen datos y servicios. HTTP es sencilla y flexible y ubiq..."
+description: HTTP no es solo para servir las páginas web. También es una herramienta eficaz para la creación de las API que exponen datos y servicios. HTTP es sencilla y flexible y ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -126,7 +126,7 @@ En el Explorador de soluciones, haga clic en el proyecto y seleccione **agregar*
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-En el **Agregar nuevo elemento** cuadro de diálogo, seleccione la **Web** nodo bajo **Visual C#**y, a continuación, seleccione la **página HTML** elemento. Nombre de la página &quot;index.html&quot;.
+En el **Agregar nuevo elemento** cuadro de diálogo, seleccione la **Web** nodo bajo **Visual C#** y, a continuación, seleccione la **página HTML** elemento. Nombre de la página &quot;index.html&quot;.
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 

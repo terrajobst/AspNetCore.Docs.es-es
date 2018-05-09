@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f53f77d342cc59094a80e8667db6ef345a6e8305
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
@@ -51,7 +51,7 @@ Detecte limitaciones de ejecución en tiempo de ejecución de Azure App Service 
 
 En ASP.NET Core 2.0 y versiones posteriores, tres paquetes del [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage) proporcionan características de registro automático para aplicaciones implementadas en Azure App Service:
 
-* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) utiliza [IHostingStartup](xref:host-and-deploy/platform-specific-configuration) para proporcionar a ASP.NET Core integración iluminada con Azure App Service. El paquete `Microsoft.AspNetCore.AzureAppServicesIntegration` proporciona las características de registro agregadas.
+* [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) utiliza [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) para proporcionar a ASP.NET Core integración iluminada con Azure App Service. El paquete `Microsoft.AspNetCore.AzureAppServicesIntegration` proporciona las características de registro agregadas.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) ejecuta [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) para agregar a Azure App Service proveedores de registro de diagnósticos en el paquete `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) proporciona implementaciones de registrador para admitir registros de diagnósticos de Azure App Service y características de transmisión en secuencias de registro.
 
@@ -97,7 +97,7 @@ Las aplicaciones de versión preliminar de ASP.NET Core se pueden implementar en
 
 * [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension)
 * [Implementación de la aplicación independiente](#deploy-the-app-self-contained)
-* [Uso de Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers)
+* [Usar Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers)
 
 Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
@@ -140,7 +140,7 @@ Puede implementar una [aplicación independiente](/dotnet/core/deploying/#self-c
 
 Las aplicaciones independientes son una opción válida para todas las aplicaciones ASP.NET Core.
 
-### <a name="use-docker-with-web-apps-for-containers"></a>Uso de Docker con Web Apps para contenedores
+### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
 
 [Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar 2.1 más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
 

@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 08866543d5b510b86c6af1896a9bd41ae0053ecf
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f9484d4806a7430177878b462209ba6608cfdd7d
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -92,7 +92,7 @@ Notas:
 
 ## <a name="writing-a-basic-form"></a>Escribir un formulario básico
 
-Las características de páginas de Razor están diseñadas para facilitar patrones comunes que se usan con exploradores web. Los [enlaces de modelos](xref:mvc/models/model-binding), las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y las aplicaciones auxiliares de HTML *simplemente funcionan* con las propiedades definidas en una clase de página de Razor. Considere la posibilidad de una página que implementa un formulario básico del estilo "Póngase en contacto con nosotros" para el modelo `Contact`:
+Las páginas de Razor están diseñadas para facilitar la implementación de patrones comunes que se usan con exploradores web al compilar una aplicación. Los [enlaces de modelos](xref:mvc/models/model-binding), las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y las aplicaciones auxiliares de HTML *simplemente funcionan* con las propiedades definidas en una clase de página de Razor. Considere la posibilidad de una página que implementa un formulario básico del estilo "Póngase en contacto con nosotros" para el modelo `Contact`:
 
 Para los ejemplos de este documento, `DbContext` se inicializa en el archivo [Startup.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16).
 
@@ -147,7 +147,7 @@ La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el e
 De forma predeterminada, las páginas de Razor enlazan propiedades solo con verbos que no sean GET. Enlazar a propiedades puede reducir la cantidad de código que se debe escribir. Enlazar reduce el código al usar la misma propiedad para representar los campos de formulario (`<input asp-for="Customer.Name" />`) y aceptar la entrada.
 
 > [!NOTE]
-> Por motivos de seguridad, debe participar en el enlace de datos de solicitud GET con las propiedades del modelo de página. Compruebe las entradas de los usuarios antes de asignarlas a las propiedades. Si participa en este comportamiento, le puede ser útil al crear características que dependan de cadenas de consultas o valores de rutas.
+> Por motivos de seguridad, debe participar en el enlace de datos de solicitud GET con las propiedades del modelo de página. Compruebe las entradas de los usuarios antes de asignarlas a las propiedades. Si participa en este comportamiento, le puede ser útil al trabajar con escenarios que dependan de cadenas de consultas o valores de rutas.
 >
 > Para enlazar una propiedad en solicitudes GET, establezca la propiedad `SupportsGet` del atributo `[BindProperty]` como `true`: `[BindProperty(SupportsGet = true)]`
 
@@ -336,7 +336,7 @@ Las páginas *Pages/Customers/Create.cshtml* y *Pages/Customers/Edit.cshtml* red
 * `<a asp-page="/Index">My Index Page</a>`
 * `RedirectToPage("/Index")`
 
-El nombre de página es la ruta de acceso a la página de la carpeta raíz */Pages* (incluido un `/` inicial, por ejemplo `/Index`). Los ejemplos de generación de URL anteriores tienen muchas más características que simplemente codificar una dirección URL. La generación de direcciones URL usa el [enrutamiento](xref:mvc/controllers/routing) y puede generar y codificar parámetros según cómo se defina la ruta en la ruta de acceso de destino.
+El nombre de página es la ruta de acceso a la página de la carpeta raíz */Pages*, incluido un `/` inicial, por ejemplo `/Index`. Los ejemplos anteriores de generación de URL ofrecen opciones mejoradas y capacidades funcionales en comparación con la escritura a mano de estas. La generación de direcciones URL usa el [enrutamiento](xref:mvc/controllers/routing) y puede generar y codificar parámetros según cómo se defina la ruta en la ruta de acceso de destino.
 
 La generación de direcciones URL para las páginas admite nombres relativos. En la siguiente tabla, se muestra qué página de índice está seleccionada con diferentes parámetros `RedirectToPage` de *Pages/Customers/Create.cshtml*:
 
@@ -455,5 +455,5 @@ services.AddMvc()
 * [Sintaxis de Razor](xref:mvc/views/razor)
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization)
-* [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-convention-features)
+* [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-conventions)
 * [Pruebas unitarias y de integración de las páginas de Razor](xref:testing/razor-pages-testing)

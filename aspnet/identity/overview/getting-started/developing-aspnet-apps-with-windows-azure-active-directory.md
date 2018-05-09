@@ -12,20 +12,17 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started/developing-aspnet-apps-with-windows-azure-active-directory
 msc.type: authoredcontent
-ms.openlocfilehash: 44bf29e099583bf9d49f2715d3ff4f748728ad8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9b2dc05089126fd5f4c1b0a0bd85b8a39f3041dc
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 <a name="developing-aspnet-apps-with-azure-active-directory"></a>Desarrollo de aplicaciones ASP.NET con Azure Active Directory
 ====================
 por [Rick Anderson](https://github.com/Rick-Anderson)
 
-> Herramientas de Microsoft ASP.NET para Azure Active Directory simplifica el proceso de habilitar la autenticación para las aplicaciones web hospedadas en [Azure](https://www.windowsazure.com/home/features/web-sites/). Puede utilizar autenticación de Azure para autenticar a los usuarios de Office 365 a su organización, las cuentas corporativas que se sincronizan desde su Active Directory local o los usuarios creados en su propio dominio personalizado de Azure Active Directory. Habilitar la autenticación de Windows Azure configura su aplicación para autenticar a los usuarios con una sola [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) inquilino.
-> 
->  Este tutorial se escribió Rick Anderson [@RickAndMSFT](https://twitter.com/#!/RickAndMSFT)
-
+Herramientas de Microsoft ASP.NET para Azure Active Directory simplifica cómo habilitar la autenticación para aplicaciones web hospedadas en [Azure](https://www.windowsazure.com/home/features/web-sites/). Puede utilizar autenticación de Azure para autenticar a los usuarios de Office 365 a su organización, las cuentas corporativas que se sincronizan desde su Active Directory local o los usuarios creados en su propio dominio personalizado de Azure Active Directory. Habilitar la autenticación de Windows Azure configura su aplicación para autenticar a los usuarios con una sola [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) inquilino.
 
 Este tutorial le mostrará cómo crear una aplicación de ASP.NET que está configurada para inicio de sesión con [Azure Active Directory](https://msdn.microsoft.com/library/azure/mt168838.aspx) (Azure AD). También obtendrá información sobre cómo llamar a la API de Graph para obtener información sobre el usuario que inició sesión actualmente y cómo implementar la aplicación en Azure.
 

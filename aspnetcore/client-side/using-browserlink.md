@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: client-side/using-browserlink
-ms.openlocfilehash: a75a896dd7ebc488e3e9344ec705c24201924375
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 0496f9df35956b8fe7ca9fcc7c03df33437d5a87
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core
 
@@ -66,7 +66,7 @@ if (env.IsDevelopment())
 }
 ```
 
-Para obtener más información, consulte [trabajar con varios entornos](xref:fundamentals/environments).
+Para obtener más información, consulte [usar varios entornos](xref:fundamentals/environments).
 
 ## <a name="how-to-use-browser-link"></a>Cómo usar el vínculo de explorador
 
@@ -112,7 +112,7 @@ Vínculo de explorador también funciona con exploradores que inicie desde fuera
 
 Abrir el panel de vínculo de explorador desde el menú para administrar la conexión con exploradores abiertos desplegable de vínculo de explorador:
 
-![open-browserslink-dashboard](using-browserlink/_static/open-browserlink-dashboard.png)
+![Abrir Panel de browserslink](using-browserlink/_static/open-browserlink-dashboard.png)
 
 Si no hay ningún explorador está conectado, puede iniciar una sesión de depuración no seleccionando la *ver en el explorador* vínculo:
 
@@ -120,7 +120,7 @@ Si no hay ningún explorador está conectado, puede iniciar una sesión de depur
 
 En caso contrario, se muestran los exploradores conectados con la ruta de acceso a la página que se muestra cada explorador:
 
-![browserlink-dashboard-two-connections](using-browserlink/_static/browserlink-dashboard-two-connections.png)
+![browserlink panel dos conexiones](using-browserlink/_static/browserlink-dashboard-two-connections.png)
 
 Si lo desea, puede hacer clic en un nombre de lista del explorador para actualizar esa única del explorador.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 2f1d0b43f565dbf6189406bfd65158f809e1f18f
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 059e1bc54c57e502ad01fd50d9899dfd0671037f
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrar de API Web de ASP.NET a ASP.NET Core
 
@@ -66,7 +66,7 @@ Eliminar el `Project_Readme.html` archivo desde el nuevo proyecto. La solución 
 
 Ya no usa ASP.NET Core *Global.asax*, *web.config*, o *App_Start* carpetas. En su lugar, se realizan todas las tareas de inicio en *Startup.cs* en la raíz del proyecto (vea [inicio de la aplicación](../fundamentals/startup.md)). En ASP.NET MVC de núcleo, el enrutamiento basado en atributos ahora se incluye de forma predeterminada cuando `UseMvc()` se denomina; y, es el enfoque recomendado para configurar las rutas de Web API (y es la forma en que el proyecto de inicio de la API Web controla el enrutamiento).
 
-[!code-csharp[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=40)]
+[!code-csharp[](../migration/webapi/sample/ProductsCore/Startup.cs?highlight=31)]
 
 Suponiendo que desea utilizar el enrutamiento de atributo en el proyecto en el futuro, se necesita ninguna configuración adicional. Basta con aplicar los atributos según sea necesario para los controladores y acciones, como se hace en el ejemplo `ValuesController` clase que se incluye en el proyecto de inicio de la API Web:
 
