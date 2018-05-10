@@ -6,22 +6,20 @@ manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 05/09/2018
 ms.prod: aspnet-core
 ms.topic: tutorial
 ms.technology: aspnet
 uid: signalr/get-started
-ms.openlocfilehash: ecd40eba5f46d4cbe768c332478c24277f27446b
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 11c8cf079a0922e925060ad3d439ba5e095ae22e
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Empezar a trabajar con SignalR en ASP.NET Core
 
 Por [Rachel Appel](https://twitter.com/rachelappel)
-
-[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
 
 Este tutorial le enseña los fundamentos de la creación de una aplicación en tiempo real con SignalR para ASP.NET Core.
 
@@ -136,7 +134,7 @@ El servidor de SignalR debe configurarse para que sepa para pasar las solicitude
 2. Configurar las rutas a los concentradores con `UseSignalR`.
 
 
-   [!code-csharp[Startup](get-started/sample/Startup.cs?highlight=36,56-59)]
+   [!code-csharp[Startup](get-started/sample/Startup.cs?highlight=37,57-60)]
 
 
 ## <a name="create-the-signalr-client-code"></a>Crear el código de cliente de SignalR

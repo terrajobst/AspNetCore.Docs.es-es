@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 64093b9fcfa9047145de8f8b142f72fa1515f248
-ms.sourcegitcommit: d45d766504c2c5aad2453f01f089bc6b696b5576
+ms.openlocfilehash: fe772203e5e3fceb7489e0a5866f60ea914b7329
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hospedar ASP.NET Core en Linux con Nginx
 
@@ -95,7 +95,7 @@ app.UseFacebookAuthentication(new FacebookOptions()
 
 Si no hay ningún [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) se especifican en el middleware, los encabezados de forma predeterminada para reenviar son `None`.
 
-Configuración adicional podría ser necesaria para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga. Para obtener más información, consulte [configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
+Podría ser necesario realizar una configuración adicional para las aplicaciones hospedadas detrás de servidores proxy y equilibradores de carga. Para más información, vea [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer).
 
 ### <a name="install-nginx"></a>Instalar Nginx
 
@@ -184,6 +184,13 @@ WantedBy=multi-user.target
 
 **Nota:** si el usuario *www datos* no se usa por la configuración, el usuario definido aquí se debe crear primero y determinado propiedad adecuada para los archivos.
 **Nota:** Linux tiene un sistema de archivos distingue mayúsculas de minúsculas. Si se establece ASPNETCORE_ENVIRONMENT en los resultados de "Producción" en la búsqueda del archivo de configuración *appsettings. Production.JSON*, no *appsettings.production.json*.
+
+> [!NOTE]
+> Algunos valores (por ejemplo, cadenas de conexión de SQL) deben ser de escape para que los proveedores de configuración leer las variables de entorno. Use el siguiente comando para generar un valor de escape correctamente para su uso en el archivo de configuración:
+>
+> ```console
+> systemd-escape "<value-to-escape>"
+> ```
 
 Guarde el archivo y habilite el servicio.
 

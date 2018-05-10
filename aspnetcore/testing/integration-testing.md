@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: testing/integration-testing
-ms.openlocfilehash: 3c618b2bd5919f6536601631eb4d21359a6bc03a
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ac3a9e00edfd4c736ee1e7d5c0c724c3e52d0b6b
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración de ASP.NET Core
 
@@ -43,7 +43,7 @@ Para obtener configurado para pruebas de integración de ejecución, debe crear 
 
 ### <a name="the-test-host"></a>El Host de prueba
 
-ASP.NET Core incluye un host de prueba que se puede agregar a proyectos de prueba de integración y utilizado para hospedar ASP.NET Core aplicaciones, prueba atendiendo las solicitudes sin la necesidad de un host web real. El ejemplo proporcionado incluye un proyecto de prueba de integración que se ha configurado para usar [xUnit](https://xunit.github.io) y el Host de prueba. Usa el `Microsoft.AspNetCore.TestHost` paquete NuGet.
+ASP.NET Core incluye un host de prueba que se puede agregar a proyectos de prueba de integración y utilizado para hospedar ASP.NET Core aplicaciones, prueba atendiendo las solicitudes sin la necesidad de un host web real. El ejemplo proporcionado incluye un proyecto de prueba de integración que se ha configurado para usar [xUnit](https://xunit.github.io) y el Host de prueba. Usa el [Microsoft.AspNetCore.TestHost](https://www.nuget.org/packages/Microsoft.AspNetCore.TestHost/) paquete NuGet.
 
 Una vez el `Microsoft.AspNetCore.TestHost` paquete se incluye en el proyecto, podrá crear y configurar un `TestServer` en las pruebas. La prueba siguiente muestra cómo comprobar que una solicitud realizada a la raíz de un sitio devuelve "¡Hello World!" y debe ejecutarse correctamente y el valor predeterminado plantilla Web de ASP.NET Core vacía creada por Visual Studio.
 
