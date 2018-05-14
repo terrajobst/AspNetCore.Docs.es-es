@@ -1,8 +1,8 @@
-<span data-ttu-id="94ee1-101">En este tutorial se explica el funcionamiento de ASP.NET Core MVC y Entity Framework Core con controladores y vistas.</span><span class="sxs-lookup"><span data-stu-id="94ee1-101">This tutorial teaches ASP.NET Core MVC and Entity Framework Core with controllers and views.</span></span> <span data-ttu-id="94ee1-102">Las páginas de Razor son una nueva alternativa en ASP.NET Core 2.0, un modelo de programación basado en páginas que facilita la compilación de interfaces de usuario web y hace que sean más productivas.</span><span class="sxs-lookup"><span data-stu-id="94ee1-102">Razor Pages is a new alternative in ASP.NET Core 2.0, a page-based programming model that makes building web UI easier and more productive.</span></span> <span data-ttu-id="94ee1-103">Recomendamos el tutorial sobre las [páginas de Razor](xref:data/ef-rp/intro) antes que la versión MVC.</span><span class="sxs-lookup"><span data-stu-id="94ee1-103">We recommend the [Razor Pages](xref:data/ef-rp/intro) tutorial over the MVC version.</span></span> <span data-ttu-id="94ee1-104">El tutorial de las páginas de Razor:</span><span class="sxs-lookup"><span data-stu-id="94ee1-104">The Razor Pages tutorial:</span></span>
+En este tutorial se explica el funcionamiento de ASP.NET Core MVC y Entity Framework Core con controladores y vistas. Las páginas de Razor son una nueva alternativa en ASP.NET Core 2.0, un modelo de programación basado en páginas que facilita la compilación de interfaces de usuario web y hace que sean más productivas. Recomendamos el tutorial sobre las [páginas de Razor](xref:data/ef-rp/intro) antes que la versión MVC. El tutorial de las páginas de Razor:
 
-* <span data-ttu-id="94ee1-105">Es más fácil de seguir.</span><span class="sxs-lookup"><span data-stu-id="94ee1-105">Is easier to follow.</span></span>
-* <span data-ttu-id="94ee1-106">Proporciona más procedimientos recomendados de EF Core.</span><span class="sxs-lookup"><span data-stu-id="94ee1-106">Provides more EF Core best practices.</span></span>
-* <span data-ttu-id="94ee1-107">Usa consultas más eficaces.</span><span class="sxs-lookup"><span data-stu-id="94ee1-107">Uses more efficient queries.</span></span>
-* <span data-ttu-id="94ee1-108">Es más actual en relación con la API más reciente.</span><span class="sxs-lookup"><span data-stu-id="94ee1-108">Is more current with the latest API.</span></span>
-* <span data-ttu-id="94ee1-109">Abarca más características.</span><span class="sxs-lookup"><span data-stu-id="94ee1-109">Covers more features.</span></span>
-* <span data-ttu-id="94ee1-110">Es el método preferido para el desarrollo de nuevas aplicaciones.</span><span class="sxs-lookup"><span data-stu-id="94ee1-110">Is the preferred approach for new application development.</span></span>
+* Es más fácil de seguir.
+* Proporciona más procedimientos recomendados de EF Core.
+* Usa consultas más eficaces.
+* Es más actual en relación con la API más reciente.
+* Abarca más características.
+* Es el método preferido para el desarrollo de nuevas aplicaciones.

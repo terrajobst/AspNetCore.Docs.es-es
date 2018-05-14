@@ -13,52 +13,52 @@
 
 --> 
 
-<span data-ttu-id="f3c88-101">Ahora, cuando se envía una búsqueda, la URL contiene la cadena de consulta de búsqueda.</span><span class="sxs-lookup"><span data-stu-id="f3c88-101">Now when you submit a search, the URL contains the search query string.</span></span> <span data-ttu-id="f3c88-102">La búsqueda también será dirigida al método de acción `HttpGet Index`, aunque tenga un método `HttpPost Index`.</span><span class="sxs-lookup"><span data-stu-id="f3c88-102">Searching will also go to the `HttpGet Index` action method, even if you have a `HttpPost Index` method.</span></span>
+Ahora, cuando se envía una búsqueda, la URL contiene la cadena de consulta de búsqueda. La búsqueda también será dirigida al método de acción `HttpGet Index`, aunque tenga un método `HttpPost Index`.
 
 ![Ventana del explorador que muestra searchString=ghost en la URL y las películas que se devuelven, Ghostbusters y Ghostbusters 2, que contienen la palabra Ghost (Fantasma)](../../tutorials/first-mvc-app/search/_static/search_get.png)
 
-<span data-ttu-id="f3c88-104">El marcado siguiente muestra el cambio en la etiqueta `form`:</span><span class="sxs-lookup"><span data-stu-id="f3c88-104">The following markup shows the change to the `form` tag:</span></span>
+El marcado siguiente muestra el cambio en la etiqueta `form`:
 
 ```html
 <form asp-controller="Movies" asp-action="Index" method="get">
    ```
 
-## <a name="adding-search-by-genre"></a><span data-ttu-id="f3c88-105">Agregar búsqueda por género</span><span class="sxs-lookup"><span data-stu-id="f3c88-105">Adding Search by genre</span></span>
+## <a name="adding-search-by-genre"></a>Agregar búsqueda por género
 
-<span data-ttu-id="f3c88-106">Agregue la clase `MovieGenreViewModel` siguiente a la carpeta *Models*:</span><span class="sxs-lookup"><span data-stu-id="f3c88-106">Add the following `MovieGenreViewModel` class to the *Models* folder:</span></span>
+Agregue la clase `MovieGenreViewModel` siguiente a la carpeta *Models*:
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieGenreViewModel.cs)]
 
-<span data-ttu-id="f3c88-107">El modelo de vista de película y género contendrá:</span><span class="sxs-lookup"><span data-stu-id="f3c88-107">The movie-genre view model will contain:</span></span>
+El modelo de vista de película y género contendrá:
 
-   * <span data-ttu-id="f3c88-108">Una lista de películas.</span><span class="sxs-lookup"><span data-stu-id="f3c88-108">A list of movies.</span></span>
-   * <span data-ttu-id="f3c88-109">`SelectList`, que contiene la lista de géneros.</span><span class="sxs-lookup"><span data-stu-id="f3c88-109">A `SelectList` containing the list of genres.</span></span> <span data-ttu-id="f3c88-110">Esto permitirá al usuario seleccionar un género de la lista.</span><span class="sxs-lookup"><span data-stu-id="f3c88-110">This will allow the user to select a genre from the list.</span></span>
-   * <span data-ttu-id="f3c88-111">`movieGenre`, que contiene el género seleccionado.</span><span class="sxs-lookup"><span data-stu-id="f3c88-111">`movieGenre`, which contains the selected genre.</span></span>
+   * Una lista de películas.
+   * `SelectList`, que contiene la lista de géneros. Esto permitirá al usuario seleccionar un género de la lista.
+   * `movieGenre`, que contiene el género seleccionado.
 
-<span data-ttu-id="f3c88-112">Reemplace el método `Index` en `MoviesController.cs` por el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="f3c88-112">Replace the `Index` method in `MoviesController.cs` with the following code:</span></span>
+Reemplace el método `Index` en `MoviesController.cs` por el código siguiente:
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_SearchGenre)]
 
-<span data-ttu-id="f3c88-113">El código siguiente es una consulta `LINQ` que recupera todos los géneros de la base de datos.</span><span class="sxs-lookup"><span data-stu-id="f3c88-113">The following code is a `LINQ` query that retrieves all the genres from the database.</span></span>
+El código siguiente es una consulta `LINQ` que recupera todos los géneros de la base de datos.
 
 [!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/MoviesController.cs?name=snippet_LINQ)]
 
-<span data-ttu-id="f3c88-114">La `SelectList` de géneros se crea mediante la proyección de los distintos géneros (no queremos que nuestra lista de selección tenga géneros duplicados).</span><span class="sxs-lookup"><span data-stu-id="f3c88-114">The `SelectList` of genres is created by projecting the distinct genres (we don't want our select list to have duplicate genres).</span></span>
+La `SelectList` de géneros se crea mediante la proyección de los distintos géneros (no queremos que nuestra lista de selección tenga géneros duplicados).
 
 ```csharp
 movieGenreVM.genres = new SelectList(await genreQuery.Distinct().ToListAsync())
    ```
 
-## <a name="adding-search-by-genre-to-the-index-view"></a><span data-ttu-id="f3c88-115">Agregar búsqueda por género a la vista de índice</span><span class="sxs-lookup"><span data-stu-id="f3c88-115">Adding search by genre to the Index view</span></span>
+## <a name="adding-search-by-genre-to-the-index-view"></a>Agregar búsqueda por género a la vista de índice
 
-<span data-ttu-id="f3c88-116">Actualice `Index.cshtml` de la siguiente manera:</span><span class="sxs-lookup"><span data-stu-id="f3c88-116">Update `Index.cshtml` as follows:</span></span>
+Actualice `Index.cshtml` de la siguiente manera:
 
 [!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Movies/IndexFormGenreNoRating.cshtml?highlight=1,15,16,17,28,31,34,37,43)]
 
-<span data-ttu-id="f3c88-117">Examine la expresión lambda usada en la siguiente aplicación auxiliar HTML:</span><span class="sxs-lookup"><span data-stu-id="f3c88-117">Examine the lambda expression used in the following HTML Helper:</span></span>
+Examine la expresión lambda usada en la siguiente aplicación auxiliar HTML:
 
 `@Html.DisplayNameFor(model => model.movies[0].Title)`
  
-<span data-ttu-id="f3c88-118">En el código anterior, la aplicación auxiliar HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar.</span><span class="sxs-lookup"><span data-stu-id="f3c88-118">In the preceding code, the `DisplayNameFor` HTML Helper inspects the `Title` property referenced in the lambda expression to determine the display name.</span></span> <span data-ttu-id="f3c88-119">Puesto que la expresión lambda se inspecciona en lugar de evaluarse, no recibirá una infracción de acceso cuando `model`, `model.movies` o `model.movies[0]` sean `null` o estén vacíos.</span><span class="sxs-lookup"><span data-stu-id="f3c88-119">Since the lambda expression is inspected rather than evaluated, you don't receive an access violation when `model`, `model.movies`, or `model.movies[0]` are `null` or empty.</span></span> <span data-ttu-id="f3c88-120">Cuando se evalúa la expresión lambda (por ejemplo, `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.</span><span class="sxs-lookup"><span data-stu-id="f3c88-120">When the lambda expression is evaluated (for example, `@Html.DisplayFor(modelItem => item.Title)`), the model's property values are evaluated.</span></span>
+En el código anterior, la aplicación auxiliar HTML `DisplayNameFor` inspecciona la propiedad `Title` a la que se hace referencia en la expresión lambda para determinar el nombre para mostrar. Puesto que la expresión lambda se inspecciona en lugar de evaluarse, no recibirá una infracción de acceso cuando `model`, `model.movies` o `model.movies[0]` sean `null` o estén vacíos. Cuando se evalúa la expresión lambda (por ejemplo, `@Html.DisplayFor(modelItem => item.Title)`), se evalúan los valores de propiedad del modelo.
 
-<span data-ttu-id="f3c88-121">Pruebe la aplicación haciendo búsquedas por género, título de la película y ambos.</span><span class="sxs-lookup"><span data-stu-id="f3c88-121">Test the app by searching by genre, by movie title, and by both.</span></span>
+Pruebe la aplicación haciendo búsquedas por género, título de la película y ambos.

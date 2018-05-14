@@ -1,7 +1,7 @@
-## <a name="next-steps"></a><span data-ttu-id="328d7-101">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="328d7-101">Next steps</span></span>
+## <a name="next-steps"></a>Pasos siguientes
 
-* [<span data-ttu-id="328d7-102">Páginas de ayuda de ASP.NET Core Web API mediante Swagger</span><span class="sxs-lookup"><span data-stu-id="328d7-102">ASP.NET Core Web API Help Pages using Swagger</span></span>](xref:tutorials/web-api-help-pages-using-swagger)
-* <span data-ttu-id="328d7-103">[Routing to Controller Actions](xref:mvc/controllers/routing) (Enrutamiento a acciones del controlador)</span><span class="sxs-lookup"><span data-stu-id="328d7-103">[Routing to Controller Actions](xref:mvc/controllers/routing)</span></span>
-* <span data-ttu-id="328d7-104">Para obtener información sobre la implementación de una API, como en Azure App Service, vea la documentación sobre [Hospedaje e implementación](xref:host-and-deploy/index).</span><span class="sxs-lookup"><span data-stu-id="328d7-104">For information about deploying an API, including to Azure App Service, see [Host and deploy](xref:host-and-deploy/index).</span></span>
-* <span data-ttu-id="328d7-105">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample).</span><span class="sxs-lookup"><span data-stu-id="328d7-105">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample).</span></span> <span data-ttu-id="328d7-106">Vea [cómo descargarlo](xref:tutorials/index#how-to-download-a-sample).</span><span class="sxs-lookup"><span data-stu-id="328d7-106">See [how to download](xref:tutorials/index#how-to-download-a-sample).</span></span>
-* [<span data-ttu-id="328d7-107">Postman</span><span class="sxs-lookup"><span data-stu-id="328d7-107">Postman</span></span>](https://www.getpostman.com/)
+* [Páginas de ayuda de ASP.NET Core Web API mediante Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+* [Routing to Controller Actions](xref:mvc/controllers/routing) (Enrutamiento a acciones del controlador)
+* Para obtener información sobre la implementación de una API, como en Azure App Service, vea la documentación sobre [Hospedaje e implementación](xref:host-and-deploy/index).
+* [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/first-web-api/sample). Vea [cómo descargarlo](xref:tutorials/index#how-to-download-a-sample).
+* [Postman](https://www.getpostman.com/)

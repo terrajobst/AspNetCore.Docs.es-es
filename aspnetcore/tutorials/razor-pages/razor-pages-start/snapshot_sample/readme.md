@@ -1,1 +1,1 @@
-<span data-ttu-id="b4135-101">El código de esta carpeta está formado por instantáneas de la serie Páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="b4135-101">The code in this folder is snapshots in time from the Razor Pages series.</span></span>
+El código de esta carpeta está formado por instantáneas de la serie Páginas de Razor.

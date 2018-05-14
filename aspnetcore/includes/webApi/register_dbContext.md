@@ -1,12 +1,12 @@
-## <a name="register-the-database-context"></a><span data-ttu-id="8b43a-101">Registrar el contexto de base de datos</span><span class="sxs-lookup"><span data-stu-id="8b43a-101">Register the database context</span></span>
+## <a name="register-the-database-context"></a>Registrar el contexto de base de datos
 
-<span data-ttu-id="8b43a-102">En este paso, el contexto de base de datos se registra con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="8b43a-102">In this step, the database context is registered with the [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="8b43a-103">Los servicios (por ejemplo, el contexto de la base de datos) que se registran con el contenedor de inserción de dependencias (DI) están disponibles para los controladores.</span><span class="sxs-lookup"><span data-stu-id="8b43a-103">Services (such as the DB context) that are registered with the dependency injection (DI) container are available to the controllers.</span></span>
+En este paso, el contexto de base de datos se registra con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection). Los servicios (por ejemplo, el contexto de la base de datos) que se registran con el contenedor de inserción de dependencias (DI) están disponibles para los controladores.
 
-<span data-ttu-id="8b43a-104">Registre el contexto de la base de datos con el contenedor de servicio mediante la compatibilidad integrada para [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="8b43a-104">Register the DB context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="8b43a-105">Reemplace el contenido del archivo *Startup.cs* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="8b43a-105">Replace the contents of the *Startup.cs* file with the following code:</span></span>
+Registre el contexto de la base de datos con el contenedor de servicio mediante la compatibilidad integrada para [inserción de dependencias](xref:fundamentals/dependency-injection). Reemplace el contenido del archivo *Startup.cs* con el código siguiente:
 
 [!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
 
-<span data-ttu-id="8b43a-106">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="8b43a-106">The preceding code:</span></span>
+El código anterior:
 
-* <span data-ttu-id="8b43a-107">Quita el código que no se usa.</span><span class="sxs-lookup"><span data-stu-id="8b43a-107">Removes the code that's not used.</span></span>
-* <span data-ttu-id="8b43a-108">Especifica que se inserte una base de datos en memoria en el contenedor de servicios.</span><span class="sxs-lookup"><span data-stu-id="8b43a-108">Specifies an in-memory database is injected into the service container.</span></span>
+* Quita el código que no se usa.
+* Especifica que se inserte una base de datos en memoria en el contenedor de servicios.
