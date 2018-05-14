@@ -1,7 +1,7 @@
 ---
-title: "Adición de un modelo a una aplicación MVC de ASP.NET"
+title: Agregar un modelo a una aplicación de ASP.NET Core MVC
 author: rick-anderson
-description: "Agregue un modelo a una aplicación sencilla de ASP.NET Core."
+description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 12/8/2017
@@ -9,19 +9,21 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 1819aff0e6ae68ad3c609466e52fcb6510fe1dcd
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 4204d4e2d474db51692d42751a9f82373e9f0c0d
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model1.md)]
+# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
+
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model1.md)]
 
 Nota: Las plantillas de ASP.NET Core 2.0 contienen la carpeta *Models*.
 
 Haga clic con el botón derecho en la carpeta *Models* > **Agregar** > **Clase**. Asigne a la clase el nombre **Movie** y agregue las siguientes propiedades:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieNoEF.cs?name=snippet_1)]
 
 La base de datos requiere el campo `ID` para la clave principal. 
 
@@ -59,7 +61,7 @@ Visual Studio crea:
 
 * Una [clase de contexto de base de datos](xref:data/ef-mvc/intro#create-the-database-context) de Entity Framework Core (*Data/MvcMovieContext.cs*)
 * Un controlador de películas (*Controllers/MoviesController.cs*)
-* Archivos de vistas Razor para las páginas de creación, eliminación, detalles, edición e índice (*Views/Movies/&ast;.cshtml*)
+* Archivos de vistas Razor para las páginas de creación, eliminación, detalles, edición e índice (<em>Views/Movies/&ast;.cshtml</em>)
 
 La creación automática del contexto de base de datos y de vistas y métodos de acción [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) (crear, leer, actualizar y eliminar) se conoce como *scaffolding*. Pronto contará con una aplicación web totalmente funcional que le permitirá administrar una base de datos de películas.
 
@@ -113,12 +115,21 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/\
   dotnet ef database update
   ```     
   
+  Si ejecuta la aplicación y aparece el error:
+  
+  ```text
+  SqlException: Cannot open database "Movie" requested by the login.
+  The login failed.
+  Login failed for user 'user name'.
+  ```
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model3.md)]
+Probablemente se deba a que no ha ejecutado ` dotnet ef database update`.
+  
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model3.md)]
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/adding-model4.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/adding-model4.md)]
 
 ![Menú contextual de IntelliSense en un elemento Modelo que enumera las propiedades disponibles para Identificador, Precio, Fecha de lanzamiento y Título](adding-model/_static/ints.png)
 
@@ -127,6 +138,6 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/\
 * [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
 * [Globalización y localización](xref:fundamentals/localization)
 
->[!div class="step-by-step"]
-[Anterior: Agregar una vista](adding-view.md)
-[Siguiente: Trabajar con SQL](working-with-sql.md)  
+> [!div class="step-by-step"]
+> [Anterior: Agregar una vista](adding-view.md)
+> [Siguiente: Trabajar con SQL](working-with-sql.md)  

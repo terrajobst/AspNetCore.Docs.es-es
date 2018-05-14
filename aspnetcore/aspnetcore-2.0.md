@@ -1,7 +1,7 @@
 ---
 title: Novedades de ASP.NET Core 2.0
 author: rick-anderson
-description: Novedades de ASP.NET Core 2.0
+description: Obtenga información sobre las nuevas características de ASP.NET Core 2.0.
 manager: wpickett
 ms.author: riande
 ms.date: 07/10/2017
@@ -9,11 +9,11 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: aspnetcore-2.0
-ms.openlocfilehash: 35d57abd07e83cd5b190572962fbf43aef03a534
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b4ac500888ce134e8f4f0d4bf16efa4e95f24c15
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="whats-new-in-aspnet-core-20"></a>Novedades de ASP.NET Core 2.0
 
@@ -38,7 +38,7 @@ Para más información, vea [Microsoft.AspNetCore.All metapackage for ASP.NET Co
 
 Las aplicaciones que usan el metapaquete `Microsoft.AspNetCore.All` pueden aprovechar automáticamente el nuevo almacén en tiempo de ejecución de .NET Core. El almacén contiene todos los recursos en tiempo de ejecución necesarios para ejecutar aplicaciones de ASP.NET Core 2.0. Al usar el metapaquete `Microsoft.AspNetCore.All`, no se implementa ningún recurso de los paquetes NuGet de ASP.NET Core referenciados con la aplicación, porque ya residen en el sistema de destino. Los recursos del almacén en tiempo de ejecución también se precompilan para mejorar el tiempo de inicio de la aplicación.
 
-Para más información, vea [Runtime store](https://docs.microsoft.com/dotnet/core/deploying/runtime-store) (Almacén en tiempo de ejecución).
+Para más información, vea [Runtime store](/dotnet/core/deploying/runtime-store) (Almacén en tiempo de ejecución).
 
 ## <a name="net-standard-20"></a>.NET Standard 2.0
 
@@ -62,7 +62,7 @@ Para más información, vea [Introduction to Logging](xref:fundamentals/logging/
 
 Hay un nuevo modelo de autenticación que facilita la configuración de la autenticación de una aplicación mediante la inserción de dependencias.
 
-Hay plantillas nuevas disponibles para configurar la autenticación para aplicaciones web y API web con [Azure AD B2C] (https://azure.microsoft.com/services/active-directory-b2c/).
+Hay plantillas nuevas disponibles para configurar la autenticación de aplicaciones web y API web con [Azure AD B2C] (https://azure.microsoft.com/services/active-directory-b2c/).
 
 Para información sobre el estado de la documentación planeada, vea este [problema de GitHub](https://github.com/aspnet/Docs/issues/3054).
 
@@ -78,7 +78,7 @@ Para más información sobre los cambios de autenticación en la versión 2.0, v
 
 ## <a name="spa-templates"></a>Plantillas de SPA
 
-Hay disponibles plantillas de proyectos de Single-Page Application (SPA) para Angular, Aurelia, Knockout.js, React.js y React.js con Redux. La plantilla de Angular se ha actualizado a Angular 4. Las plantillas de Angular y de React están disponibles de forma predeterminada. Para información sobre cómo obtener las otras plantillas, vea [Creating a new SPA project](xref:client-side/spa-services#creating-a-new-project) (Crear un proyecto de SPA). Para información sobre cómo crear una SPA en ASP.NET Core, vea [Using JavaScriptServices for Creating Single Page Applications](xref:client-side/spa-services) (Usar JavaScriptServices para crear aplicaciones SPA).
+Hay disponibles plantillas de proyectos de Single-Page Application (SPA) para Angular, Aurelia, Knockout.js, React.js y React.js con Redux. La plantilla de Angular se ha actualizado a Angular 4. Las plantillas de Angular y de React están disponibles de forma predeterminada. Para obtener información sobre cómo obtener las otras plantillas, vea [Creating a new SPA project](xref:client-side/spa-services#creating-a-new-project) (Crear un proyecto de SPA). Para más información sobre cómo crear una SPA en ASP.NET Core, vea [Using JavaScriptServices for Creating Single Page Applications](xref:client-side/spa-services) (Uso de JavaScriptServices para crear aplicaciones SPA).
 
 ## <a name="kestrel-improvements"></a>Mejoras en Kestrel
 
@@ -122,11 +122,13 @@ Para información sobre el estado de la documentación planeada, vea este [probl
 
 ASP.NET Core siempre ha ayudado a codificar en HTML el contenido de forma predeterminada, pero con la nueva versión estamos dando un paso más para impedir ataques de falsificación de solicitud entre sitios (CSRF). A partir de ahora, ASP.NET Core emitirá tokens antifalsificación de forma predeterminada y los validará en las páginas y acciones POST de formulario sin tener que aplicar ninguna configuración adicional.
 
-Para más información, vea [Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks in ASP.NET Core](xref:security/anti-request-forgery) (Evitar los ataques de falsificación de solicitud entre sitios (XSRF/CSRF)en ASP.NET Core).
+Para más información, vea [Preventing Cross-Site Request Forgery (XSRF/CSRF) Attacks](xref:security/anti-request-forgery) (Evitar los ataques de falsificación de solicitud entre sitios [XSRF/CSRF]).
 
 ## <a name="automatic-precompilation"></a>Precompilación automática
 
 La precompilación de vistas de Razor está habilitada de forma predeterminada durante la publicación, lo que reduce el tamaño de salida de la publicación y el tiempo de inicio de la aplicación.
+
+Para más información, vea [Precompilación y compilación de vistas de Razor en ASP.NET Core](xref:mvc/views/view-compilation).
 
 ## <a name="razor-support-for-c-71"></a>Compatibilidad de Razor con C# 7.1
 

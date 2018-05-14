@@ -1,7 +1,7 @@
 ---
-title: Control de errores en ASP.NET Core
+title: Controlar errores en ASP.NET Core
 author: ardalis
-description: "Descubra cómo controlar errores en aplicaciones ASP.NET Core."
+description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
 manager: wpickett
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 5b0cda7b79b8a9523d1ba6a9b321d22d3ccc753a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 5443cbeb1ef95c579e5fc12b625babbfa27c7ec2
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="introduction-to-error-handling-in-aspnet-core"></a>Introducción al control de errores en ASP.NET Core
+# <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdykstra/)
 
@@ -28,7 +28,7 @@ Este artículo trata sobre los métodos comunes para controlar errores en aplica
 
 Para configurar una aplicación de modo que muestre una página con información detallada sobre las excepciones, instale el paquete NuGet `Microsoft.AspNetCore.Diagnostics` y agregue una línea al [método Configure de la clase Startup](startup.md):
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=7)]
 
 Coloque `UseDeveloperExceptionPage` antes del software intermedio en el que quiera capturar excepciones, como `app.UseMvc`.
 
@@ -51,7 +51,7 @@ Esta solicitud no tenía cookies, pero en caso de que las tuviera, aparecerían 
 
 Se recomienda configurar una página de controlador de excepciones para usarla cuando la aplicación no se ejecute en el entorno `Development`.
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
 En una aplicación MVC, no decore explícitamente el método de acción del controlador de errores con atributos de método HTTP, como `HttpGet`. El uso de verbos explícitos podría impedir que algunas solicitudes llegasen al método.
 
@@ -65,39 +65,44 @@ public IActionResult Index()
 
 ## <a name="configuring-status-code-pages"></a>Configuración de páginas de códigos de estado
 
-De manera predeterminada, la aplicación no proporciona una página de códigos de estado enriquecida para códigos de estado HTTP como 500 (Error interno del servidor) o 404 (No encontrado). Para configurar `StatusCodePagesMiddleware`, agregue una línea al método `Configure`:
+Una aplicación no proporciona de forma predeterminada una página de códigos de estado enriquecida para códigos de estado HTTP como *404 No encontrado*. Para proporcionarlas, configure el middleware de páginas de código de estado agregando una línea al método `Startup.Configure`:
 
 ```csharp
 app.UseStatusCodePages();
 ```
 
-De forma predeterminada, este software intermedio agrega controladores simples de solo texto para códigos de estado comunes, como 404:
+El middleware de páginas de código de estado agrega de forma predeterminada controladores simples de solo texto para códigos de estado comunes, como 404:
 
 ![Página 404](error-handling/_static/default-404-status-code.png)
 
-El software intermedio admite diversos métodos de extensión. Uno toma una expresión lambda, el otro toma un tipo de contenido y una cadena de formato.
+El middleware admite diversos métodos de extensión. Uno de ellos es una expresión lambda:
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePages)]
+
+Otro toma un tipo de contenido y una cadena de formato:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-También hay métodos de extensión de redireccionamiento. Uno envía un código de estado 302 al cliente, mientras que el otro devuelve el código de estado original al cliente, pero también ejecuta el controlador para la dirección URL de redireccionamiento.
+También hay métodos de extensión de redireccionamiento y de nueva ejecución. El método de redireccionamiento envía al cliente un código de estado 302:
 
-[!code-csharp[Main](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+[!code-csharp[](error-handling/sample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
+
+El método de nueva ejecución devuelve el código de estado original al cliente, pero también ejecuta el controlador para la dirección URL de redireccionamiento:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
 ```
 
-Si necesita deshabilitar las páginas de códigos de estado para algunas solicitudes, puede hacerlo de la manera siguiente:
+Las páginas de códigos de estado se pueden deshabilitar en solicitudes específicas en un método de controlador de páginas de Razor o en un controlador MVC. Para deshabilitar páginas de códigos de estado, intente recuperar [IStatusCodePagesFeature](/dotnet/api/microsoft.aspnetcore.diagnostics.istatuscodepagesfeature) de la colección [HttpContext.Features](/dotnet/api/microsoft.aspnetcore.http.httpcontext.features) de la solicitud y deshabilite la característica si está disponible:
 
 ```csharp
-var statusCodePagesFeature = context.Features.Get<IStatusCodePagesFeature>();
+var statusCodePagesFeature = HttpContext.Features.Get<IStatusCodePagesFeature>();
+
 if (statusCodePagesFeature != null)
 {
-  statusCodePagesFeature.Enabled = false;
+    statusCodePagesFeature.Enabled = false;
 }
 ```
 
@@ -109,13 +114,15 @@ Además, tenga en cuenta que una vez que se hayan enviado los encabezados de una
 
 ## <a name="server-exception-handling"></a>Control de excepciones del servidor
 
-Además de la lógica de control de excepciones de la aplicación, el [servidor](servers/index.md) que hospede la aplicación llevará a cabo el control de algunas excepciones. Si el servidor detecta una excepción antes de que se envíen los encabezados, enviará una respuesta "500 Error interno del servidor" sin cuerpo. Si el servidor detecta una excepción después de que se hayan enviado los encabezados, cerrará la conexión. El servidor controla las solicitudes que no controla la aplicación. El control de excepciones del servidor controla todas las excepciones que se producen. Las páginas de error personalizadas y el software intermedio o filtros de control de excepciones que se hayan configurado no afectarán a este comportamiento.
+Además de la lógica de control de excepciones de la aplicación, el [servidor](servers/index.md) que hospede la aplicación llevará a cabo el control de algunas excepciones. Si el servidor detecta una excepción antes de que se envíen los encabezados, enviará una respuesta *500 Error interno del servidor* sin cuerpo. Si el servidor detecta una excepción después de que se hayan enviado los encabezados, cerrará la conexión. El servidor controla las solicitudes que no controla la aplicación. El control de excepciones del servidor controla todas las excepciones que se producen. Las páginas de error personalizadas y el software intermedio o filtros de control de excepciones que se hayan configurado no afectarán a este comportamiento.
 
 ## <a name="startup-exception-handling"></a>Control de excepciones de inicio
 
 Solo el nivel de hospedaje puede controlar las excepciones que tienen lugar durante el inicio de la aplicación. También puede [configurar cómo se comporta el host en respuesta a los errores durante el inicio](hosting.md#detailed-errors) con `captureStartupErrors` y la clave `detailedErrors`.
 
-El hospedaje solo puede mostrar una página de error para un error de inicio capturado si este se produce después del enlace de puerto/dirección del host. Si se produce un error en algún enlace por cualquier motivo, el nivel de hospedaje registra una excepción crítica, el proceso de dotnet se bloquea y no se muestra ninguna página de error.
+El hospedaje solo puede mostrar una página de error para un error de inicio capturado si este se produce después del enlace de puerto/dirección del host. Si se produce un error en algún enlace por cualquier motivo, el nivel de hospedaje registra una excepción crítica, el proceso de dotnet se bloquea y no se muestra ninguna página de error si la aplicación se está ejecutando en el servidor de [Kestrel](xref:fundamentals/servers/kestrel).
+
+Si se ejecuta en [IIS](/iis) o [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview), el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) devuelve un *error de proceso 502.5* en caso de que el proceso no se pueda iniciar. Siga los consejos para solucionar problemas del tema [Troubleshoot ASP.NET Core on IIS](xref:host-and-deploy/iis/troubleshoot) (Solución de problemas de ASP.NET Core en IIS).
 
 ## <a name="aspnet-mvc-error-handling"></a>Control de errores de ASP.NET MVC
 

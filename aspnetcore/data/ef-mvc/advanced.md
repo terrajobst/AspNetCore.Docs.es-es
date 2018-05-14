@@ -1,7 +1,7 @@
 ---
 title: 'ASP.NET Core MVC con EF Core: Avanzado (10 de 10)'
 author: tdykstra
-description: "En este tutorial se presentan varios temas que es importante tener en cuenta cuando va más allá de los conceptos básicos del desarrollo de aplicaciones web ASP.NET que usan Entity Framework Core."
+description: En este tutorial se presentan varios temas que le serán de utilidad cuando quiera ir más allá de los conceptos básicos del desarrollo de aplicaciones web ASP.NET Core que usan Entity Framework Core.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: 458f2dc8a67f8c706d043f0d9d7cb7ce962e52ce
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 655f60116cbfe1dd81b7e2855906446b919b6489
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="advanced-topics---ef-core-with-aspnet-core-mvc-tutorial-10-of-10"></a>Temas avanzados: tutorial de EF Core con ASP.NET Core MVC (10 de 10)
+# <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC con EF Core: Avanzado (10 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -41,7 +41,7 @@ La clase `DbSet<TEntity>` proporciona un método que puede usar para ejecutar un
 
 En *DepartmentsController.cs*, en el método `Details`, reemplace el código que recupera un departamento con una llamada al método `FromSql`, como se muestra en el código resaltado siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
+[!code-csharp[](intro/samples/cu/Controllers/DepartmentsController.cs?name=snippet_RawSQL&highlight=8,9,10,13)]
 
 Para comprobar que el nuevo código funciona correctamente, seleccione la pestaña **Departments** y, después, **Details** para uno de los departamentos.
 
@@ -53,11 +53,11 @@ Anteriormente creó una cuadrícula de estadísticas de alumno de la página Abo
 
 En *HomeController.cs*, reemplace el método `About` por el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseRawSQL&highlight=3-32)]
 
 Agregue una instrucción using:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
+[!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_Usings2)]
 
 Ejecute la aplicación y vaya a la página About. Muestra los mismos datos que anteriormente.
 
@@ -71,9 +71,9 @@ Imagine que los administradores de Contoso University quieren realizar cambios g
 
 En *CoursesContoller.cs*, agregue los métodos UpdateCourseCredits para HttpGet y HttpPost:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdateGet)]
 
-[!code-csharp[Main](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
+[!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_UpdatePost)]
 
 Cuando el controlador procesa una solicitud HttpGet, no se devuelve nada en `ViewData["RowsAffected"]` y la vista muestra un cuadro de texto vacío y un botón de envío, tal como se muestra en la ilustración anterior.
 
@@ -85,7 +85,7 @@ En el cuadro de diálogo **Agregar nuevo elemento**, haga clic en **ASP.NET** en
 
 En *Views/Courses/UpdateCourseCredits.cshtml*, reemplace el código de plantilla con el código siguiente:
 
-[!code-html[Main](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
+[!code-html[](intro/samples/cu/Views/Courses/UpdateCourseCredits.cshtml)]
 
 Ejecute el método `UpdateCourseCredits` seleccionando la pestaña **Courses**, después, agregue "/UpdateCourseCredits" al final de la dirección URL en la barra de direcciones del explorador (por ejemplo: `http://localhost:5813/Courses/UpdateCourseCredits`). Escriba un número en el cuadro de texto:
 
@@ -149,7 +149,7 @@ Muchos desarrolladores escriben código para implementar el repositorio y una un
 
 Para obtener información sobre cómo implementar los patrones de repositorio y de unidad de trabajo, consulte [la versión de Entity Framework 5 de esta serie de tutoriales](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application).
 
-Entity Framework Core implementa un proveedor de base de datos en memoria que puede usarse para realizar pruebas. Para obtener más información, consulte [Pruebas con InMemory](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
+Entity Framework Core implementa un proveedor de base de datos en memoria que puede usarse para realizar pruebas. Para más información, vea [Pruebas con InMemory](https://docs.microsoft.com/ef/core/miscellaneous/testing/in-memory).
 
 ## <a name="automatic-change-detection"></a>Detección de cambios automática
 
@@ -169,7 +169,7 @@ _context.ChangeTracker.AutoDetectChangesEnabled = false;
 
 ## <a name="entity-framework-core-source-code-and-development-plans"></a>Código fuente y planes de desarrollo de Entity Framework Core
 
-El código fuente de Entity Framework Core se encuentra en [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). El repositorio de EF Core contiene las compilaciones nocturnas, el seguimiento de problemas, las especificaciones de características, las notas de las reuniones de diseño y [el plan de desarrollo futuro](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Puede archivar o buscar errores y contribuir.
+El origen de Entity Framework Core está en [https://github.com/aspnet/EntityFrameworkCore](https://github.com/aspnet/EntityFrameworkCore). El repositorio de EF Core contiene las compilaciones nocturnas, el seguimiento de problemas, las especificaciones de características, las notas de las reuniones de diseño y [el plan de desarrollo futuro](https://github.com/aspnet/EntityFrameworkCore/wiki/Roadmap). Puede archivar o buscar errores y contribuir.
 
 Aunque el código fuente es abierto, Entity Framework Core es totalmente compatible como producto de Microsoft. El equipo de Microsoft Entity Framework mantiene el control sobre qué contribuciones se aceptan y comprueba todos los cambios de código para garantizar la calidad de cada versión.
 
@@ -182,7 +182,7 @@ Para usar técnicas de ingeniería inversa a un modelo de datos, incluidas las c
 
 El [tercer tutorial de esta serie](sort-filter-page.md) muestra cómo escribir código LINQ mediante el codificado de forma rígida de los nombres de columna en una instrucción `switch`. Con dos columnas entre las que elegir, esto funciona bien, pero si tiene muchas columnas, el código podría considerarse detallado. Para solucionar este problema, puede usar el método `EF.Property` para especificar el nombre de la propiedad como una cadena. Para probar este enfoque, reemplace el método `Index` en `StudentsController` con el código siguiente.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_DynamicLinq)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -192,7 +192,7 @@ Para obtener más información sobre EF Core, consulte la [documentación de Ent
 
 Para obtener información sobre cómo implementar una aplicación web, consulte [Hospedaje e implementación](xref:host-and-deploy/index).
 
-Para obtener información sobre otros temas relacionados con ASP.NET Core MVC, como la autenticación y autorización, consulte la [documentación de ASP.NET Core](https://docs.microsoft.com/aspnet/core/).
+Para obtener información sobre otros temas relacionados con ASP.NET Core MVC, como la autenticación y autorización, consulte la [documentación de ASP.NET Core](xref:index).
 
 ## <a name="acknowledgments"></a>Agradecimientos
 
@@ -244,5 +244,5 @@ Solución:
 
 Compruebe la cadena de conexión. Si ha eliminado manualmente el archivo de base de datos, cambie el nombre de la base de datos en la cadena de construcción para volver a empezar con una base de datos nueva.
 
->[!div class="step-by-step"]
-[Anterior](inheritance.md)
+> [!div class="step-by-step"]
+> [Anterior](inheritance.md)

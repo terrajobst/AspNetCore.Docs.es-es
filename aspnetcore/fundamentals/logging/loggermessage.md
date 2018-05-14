@@ -1,7 +1,7 @@
 ---
 title: Registro de alto rendimiento con LoggerMessage en ASP.NET Core
 author: guardrex
-description: "Obtenga información sobre cómo usar las características de LoggerMessage para crear delegados almacenables en caché que requieren menos asignaciones de objetos que los métodos de extensión del registrador para escenarios de registro de alto rendimiento."
+description: Obtenga información sobre cómo usar LoggerMessage para crear delegados almacenables en caché que requieren menos asignaciones de objetos que los escenarios de registro de alto rendimiento.
 manager: wpickett
 ms.author: riande
 ms.date: 11/03/2017
@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: b155826b5047e88a79d9e339d7bca8885a79006d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
+ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/02/2018
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Registro de alto rendimiento con LoggerMessage en ASP.NET Core
 
@@ -34,19 +34,11 @@ La aplicación de ejemplo muestra las características de `LoggerMessage` con un
 
 [Define(LogLevel, EventId, String)](/dotnet/api/microsoft.extensions.logging.loggermessage.define) crea un delegado `Action` para registrar un mensaje. Las sobrecargas `Define` permiten pasar hasta seis parámetros de tipo a una cadena de formato con nombre (plantilla).
 
-## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
-
-[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) crea un delegado `Func` para definir un [ámbito de registro](xref:fundamentals/logging/index#log-scopes). Las sobrecargas `DefineScope` permiten pasar hasta tres parámetros de tipo a una cadena de formato con nombre (plantilla).
-
-## <a name="message-template-named-format-string"></a>Plantilla de mensaje (cadena de formato con nombre)
-
-La cadena proporcionada a los métodos `Define` y `DefineScope` es una plantilla y no una cadena interpolada. Los marcadores de posición se rellenan en el orden en que se especifican los tipos. Los nombres de los marcadores de posición en la plantilla deben ser descriptivos y coherentes entre las plantillas. Sirven como nombres de propiedad en los datos estructurados del registro. Se recomienda el uso de la [grafía Pascal](/dotnet/standard/design-guidelines/capitalization-conventions) para los nombres de los marcadores de posición. Por ejemplo: `{Count}`, `{FirstName}`.
-
-## <a name="implementing-loggermessagedefine"></a>Implementación de LoggerMessage.Define
+La cadena proporcionada al método `Define` es una plantilla y no una cadena interpolada. Los marcadores de posición se rellenan en el orden en que se especifican los tipos. Los nombres de los marcadores de posición en la plantilla deben ser descriptivos y coherentes entre las plantillas. Sirven como nombres de propiedad en los datos estructurados del registro. Se recomienda el uso de la [grafía Pascal](/dotnet/standard/design-guidelines/capitalization-conventions) para los nombres de los marcadores de posición. Por ejemplo: `{Count}`, `{FirstName}`.
 
 Cada mensaje de registro es un delegado `Action` que se mantiene en un campo estático creado por `LoggerMessage.Define`. Por ejemplo, la aplicación de ejemplo crea un campo que describe un mensaje de registro para una solicitud GET para la página de índice (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet1)]
 
 Especifique lo siguiente para el delegado `Action`:
 
@@ -60,17 +52,17 @@ Una solicitud para la página de índice de la aplicación de ejemplo establece:
 * El identificador de evento en `1` con el nombre del método `IndexPageRequested`.
 * La plantilla de mensaje (cadena de formato con nombre) en una cadena.
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet5)]
 
 Los almacenes de registro estructurado pueden usar el nombre de evento cuando se suministra con el identificador de evento para enriquecer el registro. Por ejemplo, [Serilog](https://github.com/serilog/serilog-extensions-logging) usa el nombre de evento.
 
 El delegado `Action` se invoca mediante un método de extensión fuertemente tipado. El método `IndexPageRequested` registra un mensaje para una solicitud GET de página de índice en la aplicación de ejemplo:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet9)]
 
 Se llama a `IndexPageRequested` en el registrador en el método `OnGetAsync` en *Pages/Index.cshtml.cs*:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet2&highlight=3)]
 
 Inspeccione la salida de la consola de la aplicación:
 
@@ -82,19 +74,19 @@ info: LoggerMessageSample.Pages.IndexModel[1]
 
 Para pasar parámetros a un mensaje de registro, defina hasta seis tipos al crear el campo estático. La aplicación de ejemplo registra una cadena cuando se agrega una cita. Para ello, define un tipo `string` para el campo `Action`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet2)]
 
 La plantilla de mensaje de registro del delegado recibe sus valores de marcador de posición a partir de los tipos proporcionados. La aplicación de ejemplo define un delegado para agregar una cita cuando el parámetro de la cita es `string`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet6)]
 
 El método de extensión estático para agregar una cita, `QuoteAdded`, recibe el valor de argumento de la cita y lo pasa al delegado `Action`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet10)]
 
 En el modelo de página para la página de índice (*Pages/Index.cshtml.cs*), se llama a `QuoteAdded` para registrar el mensaje:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet3&highlight=6)]
 
 Inspeccione la salida de la consola de la aplicación:
 
@@ -106,17 +98,17 @@ info: LoggerMessageSample.Pages.IndexModel[2]
 
 La aplicación de ejemplo implementa un patrón `try`&ndash;`catch` para la eliminación de la cita. Se registra un mensaje informativo si se realiza correctamente una operación de eliminación. Se registra un mensaje de error para una operación de eliminación si se produce una excepción. El mensaje de registro de la operación de eliminación con error incluye el seguimiento de la pila de excepciones (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet3)]
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet7)]
 
 Observe cómo se pasa la excepción al delegado en `QuoteDeleteFailed`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet11)]
 
 En el modelo de página para la página de índice, una operación correcta de eliminación de cita llama al método `QuoteDeleted` en el registrador. Cuando no se encuentra una cita para su eliminación, se produce una excepción `ArgumentNullException`. La excepción se captura mediante la instrucción `try`&ndash;`catch` y se registra mediante una llamada al método `QuoteDeleteFailed` en el registrador en el bloque `catch` (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet5&highlight=14,18)]
 
 Cuando se elimine correctamente una cita, inspeccione la salida de la consola de la aplicación:
 
@@ -141,7 +133,11 @@ Parameter name: entity
       <PATH>\sample\Pages\Index.cshtml.cs:line 87
 ```
 
-## <a name="implementing-loggermessagedefinescope"></a>Implementación de LoggerMessage.DefineScope
+## <a name="loggermessagedefinescope"></a>LoggerMessage.DefineScope
+
+[DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope) crea un delegado `Func` para definir un [ámbito de registro](xref:fundamentals/logging/index#log-scopes). Las sobrecargas `DefineScope` permiten pasar hasta tres parámetros de tipo a una cadena de formato con nombre (plantilla).
+
+Al igual que sucede con el método `Define`, la cadena proporcionada al método `DefineScope` es una plantilla y no una cadena interpolada. Los marcadores de posición se rellenan en el orden en que se especifican los tipos. Los nombres de los marcadores de posición en la plantilla deben ser descriptivos y coherentes entre las plantillas. Sirven como nombres de propiedad en los datos estructurados del registro. Se recomienda el uso de la [grafía Pascal](/dotnet/standard/design-guidelines/capitalization-conventions) para los nombres de los marcadores de posición. Por ejemplo: `{Count}`, `{FirstName}`.
 
 Defina un [ámbito de registro](xref:fundamentals/logging/index#log-scopes) para aplicarlo a una serie de mensajes de registro mediante el método [DefineScope(String)](/dotnet/api/microsoft.extensions.logging.loggermessage.definescope).
 
@@ -149,7 +145,7 @@ La aplicación de ejemplo tiene un botón **Borrar todo** para eliminar todas la
 
 Habilite `IncludeScopes` en las opciones del registrador de la consola:
 
-[!code-csharp[Main](loggermessage/sample/Program.cs?name=snippet1&highlight=22)]
+[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
 
 Es necesario establecer `IncludeScopes` en las aplicaciones de ASP.NET Core 2.0 para habilitar los ámbitos de registro. Está previsto incluir en la versión ASP.NET Core 2.1 la opción de establecer `IncludeScopes` a través de archivos de configuración *appsettings*.
 
@@ -157,19 +153,19 @@ La aplicación de ejemplo borra los demás proveedores y agrega filtros para red
 
 Para crear un ámbito de registro, agregue un campo para que contenga un delegado `Func` para el ámbito. La aplicación de ejemplo crea un campo denominado `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet4)]
 
 Use `DefineScope` para crear el delegado. Pueden especificarse hasta tres tipos para usarlos como argumentos de plantilla cuando se invoca el delegado. La aplicación de ejemplo usa una plantilla de mensaje que incluye el número de citas eliminadas (un tipo `int`):
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet8)]
 
 Proporcione un método de extensión estático para el mensaje de registro. Incluya todos los parámetros de tipo para propiedades con nombre que aparezcan en la plantilla de mensaje. La aplicación de ejemplo toma un valor de número `count` de citas que se van a eliminar y devuelve `_allQuotesDeletedScope`:
 
-[!code-csharp[Main](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
+[!code-csharp[](loggermessage/sample/Internal/LoggerExtensions.cs?name=snippet12)]
 
 El ámbito encapsula las llamadas a la extensión de registro en un bloque `using`:
 
-[!code-csharp[Main](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
+[!code-csharp[](loggermessage/sample/Pages/Index.cshtml.cs?name=snippet4&highlight=5-6,14)]
 
 Inspeccione los mensajes de registro en la salida de la consola de la aplicación. En el resultado siguiente se muestran tres citas eliminadas con el mensaje del ámbito de registro incluido:
 

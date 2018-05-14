@@ -1,7 +1,7 @@
 ---
-title: "Diseño"
+title: Diseño en ASP.NET Core
 author: ardalis
-description: 
+description: Obtenga información sobre cómo usar diseños comunes, compartir directivas y ejecutar código común antes de representar vistas en una aplicación ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/layout
-ms.openlocfilehash: 3e9e5949d8940a33508e24f0da015b49b7ba468c
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8e89c8e6cf18c47abb6bf432cdc6bb6b97e8aeb0
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="layout"></a>Diseño
+# <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
@@ -37,13 +37,13 @@ Este diseño define una plantilla de nivel superior para las vistas en la aplica
 
 Un ejemplo `_Layout.cshtml`:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
+[!code-html[](../../common/samples/WebApplication1/Views/Shared/_Layout.cshtml?highlight=42,66)]
 
 ## <a name="specifying-a-layout"></a>Especificar un diseño
 
 Las vistas de Razor tienen una propiedad `Layout`. Las vistas individuales especifican un diseño al configurar esta propiedad:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml?highlight=2)]
 
 El diseño especificado puede usar una ruta de acceso completa (ejemplo: `/Views/Shared/_Layout.cshtml`) o un nombre parcial (ejemplo: `_Layout`). Cuando se proporciona un nombre parcial, el motor de vista de Razor buscará el archivo de diseño mediante su proceso de detección estándar. Primero se busca en la carpeta asociada al controlador y después en la carpeta `Shared`. Este proceso de detección es idéntico al usado para detectar [vistas parciales](partial.md).
 
@@ -99,7 +99,7 @@ El archivo no es compatible con otras características de Razor, como las funcio
 
 Archivo `_ViewImports.cshtml` de ejemplo:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewImports.cshtml)]
 
 El archivo `_ViewImports.cshtml` para una aplicación ASP.NET Core MVC normalmente se coloca en la carpeta `Views`. Un archivo `_ViewImports.cshtml` puede colocarse dentro de cualquier carpeta, en cuyo caso solo se aplicará a vistas dentro de esa carpeta y sus subcarpetas. Los archivos `_ViewImports` se procesan a partir del nivel de raíz y después para cada carpeta que lleva hasta la ubicación de la propia vista, por lo que la configuración especificada en el nivel de raíz es posible que se invalide en el nivel de carpeta.
 
@@ -127,7 +127,7 @@ Si tiene código que debe ejecutar antes de cada vista, debe colocarlo en el arc
 
 Archivo `_ViewStart.cshtml` de ejemplo:
 
-[!code-html[Main](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
+[!code-html[](../../common/samples/WebApplication1/Views/_ViewStart.cshtml)]
 
 El archivo anterior especifica que todas las vistas usarán el diseño `_Layout.cshtml`.
 

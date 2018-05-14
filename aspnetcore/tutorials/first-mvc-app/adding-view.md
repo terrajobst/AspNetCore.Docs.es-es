@@ -1,7 +1,7 @@
 ---
 title: Agregar una vista
 author: rick-anderson
-description: "Agregar una vista a una aplicación sencilla de ASP.NET Core MVC"
+description: Agregar una vista a una aplicación sencilla de ASP.NET Core MVC
 manager: wpickett
 ms.author: riande
 ms.date: 03/04/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/adding-view
-ms.openlocfilehash: 2a10337fb5a0460368c3cdb59998b62015af389e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 27f07afaefa0af2b489237e6e0ff772a5c9d64dc
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-[!INCLUDE[adding-view](../../includes/mvc-intro/adding_view1.md)]
+[!INCLUDE [adding-view](../../includes/mvc-intro/adding_view1.md)]
 
 * Haga clic con el botón derecho en la carpeta *Vistas*, haga clic en **Agregar > Nueva carpeta** y asigne a la carpeta el nombre *HelloWorld*.
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/30/2018
 
   * En el cuadro de búsqueda situado en la esquina superior derecha, escriba *Vista*.
 
-  * Pulse **Página de la vista de MVC**.
+  * Pulse **Vista de Razor**.
 
   * En el cuadro **Nombre**, cambie el nombre si es necesario por *Index.cshtml*.
 
@@ -33,8 +33,8 @@ ms.lasthandoff: 01/30/2018
 
 ![Cuadro de diálogo Agregar nuevo elemento](adding-view/_static/add_view.png)
 
-[!INCLUDE[adding-view22](../../includes/mvc-intro/adding_view2.md)]
+[!INCLUDE [adding-view22](../../includes/mvc-intro/adding_view2.md)]
 
->[!div class="step-by-step"]
-[Anterior](adding-controller.md)
-[Siguiente](adding-model.md)
+> [!div class="step-by-step"]
+> [Anterior](adding-controller.md)
+> [Siguiente](adding-model.md)

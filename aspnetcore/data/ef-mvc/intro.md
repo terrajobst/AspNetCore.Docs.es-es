@@ -1,7 +1,7 @@
 ---
 title: 'ASP.NET Core MVC con Entity Framework Core: Tutorial 1 de 10'
 author: tdykstra
-description: 
+description: ''
 manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 7de43a390ee0e11f6eda811b0774343ab330c53b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: eaa3070e182b161087185bbb9007e8067052d95c
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-entity-framework-core-using-visual-studio-1-of-10"></a>Introducción a ASP.NET Core MVC y Entity Framework Core con Visual Studio (1 de 10)
+# <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC con Entity Framework Core: Tutorial 1 de 10
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Hay disponible una versión de páginas de Razor de este tutorial [aquí](xref:data/ef-rp/intro). La versión de las páginas de Razor es más fácil de seguir y abarca más características de EF. Se recomienda seguir la [versión de páginas de Razor de este tutorial](xref:data/ef-rp/intro).
+[!INCLUDE [RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
 
 En la aplicación web de ejemplo Contoso University se muestra cómo crear aplicaciones web ASP.NET Core 2.0 MVC con Entity Framework (EF) Core 2.0 y Visual Studio 2017.
 
@@ -35,7 +35,7 @@ EF Core 2.0 es la versión más reciente de EF pero aún no dispone de todas las
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -128,7 +128,7 @@ En las secciones siguientes creará una clase para cada una de estas entidades.
 
 En la carpeta *Models*, cree un archivo de clase denominado *Student.cs* y reemplace el código de plantilla con el código siguiente.
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Intro)]
 
 La propiedad `ID` se convertirá en la columna de clave principal de la tabla de base de datos que corresponde a esta clase. De forma predeterminada, Entity Framework interpreta como la clave principal una propiedad que se denomine `ID` o `classnameID`.
 
@@ -142,7 +142,7 @@ Si una propiedad de navegación puede contener varias entidades (como en las rel
 
 En la carpeta *Models*, cree *Enrollment.cs* y reemplace el código existente con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Intro)]
 
 La propiedad `EnrollmentID` será la clave principal; esta entidad usa el patrón `classnameID` en lugar de `ID` por sí solo, como se vio en la entidad `Student`. Normalmente debería elegir un patrón y usarlo en todo el modelo de datos. En este caso, la variación muestra que se puede usar cualquiera de los patrones. En un [tutorial posterior](inheritance.md), verá cómo el uso de ID sin un nombre de clase facilita la implementación de la herencia en el modelo de datos.
 
@@ -160,7 +160,7 @@ Entity Framework interpreta una propiedad como propiedad de clave externa si se 
 
 En la carpeta *Models*, cree *Course.cs* y reemplace el código existente con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Intro)]
 
 La propiedad `Enrollments` es una propiedad de navegación. Una entidad `Course` puede estar relacionada con cualquier número de entidades `Enrollment`.
 
@@ -174,7 +174,7 @@ En la carpeta del proyecto, cree una carpeta denominada *Data*.
 
 En la carpeta *Data*, cree un archivo de clase denominado *SchoolContext.cs* y reemplace el código de plantilla con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_Intro)]
 
 Este código crea una propiedad `DbSet` para cada conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponderse con una tabla de base de datos, mientras que una entidad lo hace con una fila de la tabla.
 
@@ -182,7 +182,7 @@ Se podrían haber omitido las instrucciones `DbSet<Enrollment>` y `DbSet<Course>
 
 Cuando se crea la base de datos, EF crea las tablas con los mismos nombres que los nombres de propiedad `DbSet`. Los nombres de propiedad para las colecciones normalmente están en plural (Students en lugar de Student), pero los desarrolladores no están de acuerdo sobre si los nombres de tabla deben estar en plural o no. Para estos tutoriales, se invalidará el comportamiento predeterminado mediante la especificación de nombres de tabla en singular en DbContext. Para ello, agregue el código resaltado siguiente después de la última propiedad DbSet.
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_TableNames&highlight=16-21)]
 
 ## <a name="register-the-context-with-dependency-injection"></a>Registro del contexto con inserción de dependencias
 
@@ -190,13 +190,13 @@ ASP.NET Core implementa la [inserción de dependencias](../../fundamentals/depen
 
 Para registrar `SchoolContext` como servicio, abra *Startup.cs* y agregue las líneas resaltadas al método `ConfigureServices`.
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_SchoolContext&highlight=3-4)]
 
 El nombre de la cadena de conexión se pasa al contexto mediante una llamada a un método en un objeto `DbContextOptionsBuilder`. Para el desarrollo local, el [sistema de configuración de ASP.NET Core](xref:fundamentals/configuration/index) lee la cadena de conexión desde el archivo *appsettings.json*.
 
 Agregue instrucciones `using` para los espacios de nombres `ContosoUniversity.Data` y `Microsoft.EntityFrameworkCore`, y después compile el proyecto.
 
-[!code-csharp[Main](intro/samples/cu/Startup.cs?name=snippet_Usings)]
+[!code-csharp[](intro/samples/cu/Startup.cs?name=snippet_Usings)]
 
 Abra el archivo *appsettings.json* y agregue una cadena de conexión como se muestra en el ejemplo siguiente.
 
@@ -214,7 +214,7 @@ Aquí usará el método `EnsureCreated` para crear automáticamente la base de d
 
 En la carpeta *Data*, cree un archivo de clase denominado *DbInitializer.cs* y reemplace el código de plantilla con el código siguiente, que hace que se cree una base de datos cuando es necesario y carga datos de prueba en la nueva base de datos.
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Intro)]
 
 El código comprueba si hay estudiantes en la base de datos, y si no es así, asume que la base de datos es nueva y debe inicializarse con datos de prueba. Carga los datos de prueba en matrices en lugar de colecciones `List<T>` para optimizar el rendimiento.
 
@@ -224,11 +224,11 @@ En *Program.cs*, modifique el método `Main` para que haga lo siguiente al inici
 * Llamar al método de inicialización, pasándolo al contexto.
 * Eliminar el contexto cuando el método de inicialización haya finalizado.
 
-[!code-csharp[Main](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
+[!code-csharp[](intro/samples/cu/Program.cs?name=snippet_Seed&highlight=3-20)]
 
 Agregue instrucciones `using`:
 
-[!code-csharp[Main](intro/samples/cu/Program.cs?name=snippet_Usings)]
+[!code-csharp[](intro/samples/cu/Program.cs?name=snippet_Usings)]
 
 En los tutoriales anteriores, es posible que vea código similar en el método `Configure` de *Startup.cs*. Se recomienda usar el método `Configure` solo para configurar la canalización de solicitudes. El código de inicio de la aplicación pertenece al método `Main`.
 
@@ -271,13 +271,13 @@ Si aparece el cuadro de diálogo **Agregar dependencias de MVC**:
 
 Observará que el controlador toma un `SchoolContext` como parámetro de constructor.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
 La inserción de dependencias de ASP.NET se encargará de pasar una instancia de `SchoolContext` al controlador. Lo configuró anteriormente en el archivo *Startup.cs*.
 
 El controlador contiene un método de acción `Index`, que muestra todos los alumnos en la base de datos. El método obtiene una lista de estudiantes de la entidad Students, que se establece leyendo la propiedad `Students` de la instancia del contexto de base de datos:
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex&highlight=3)]
 
 Más adelante en el tutorial obtendrá información sobre los elementos de programación asincrónicos de este código.
 
@@ -311,7 +311,7 @@ Haga clic con el botón derecho en la tabla **Student** y haga clic en **Ver dat
 
 ![Tabla de estudiantes en SSOX](intro/_static/ssox-student-table.png)
 
-Los archivos de base de datos *.mdf* y *.ldf* se encuentran en la carpeta *C:\Usuarios\<su_nombre_de_usuario>*.
+Los archivos de base de datos <em>.mdf</em> y <em>.ldf</em> se encuentran en la carpeta <em>C:\Usuarios\\<yourusername></em>.
 
 Como se está llamando a `EnsureCreated` en el método de inicializador que se ejecuta al iniciar la aplicación, ahora podría realizar un cambio en la clase `Student`, eliminar la base de datos, volver a ejecutar la aplicación y la base de datos se volvería a crear de forma automática para que coincida con el cambio. Por ejemplo, si agrega una propiedad `EmailAddress` a la clase `Student`, verá una columna `EmailAddress` nueva en la tabla que se ha vuelto a crear.
 
@@ -339,7 +339,7 @@ El código asincrónico introduce una pequeña cantidad de sobrecarga en tiempo 
 
 En el código siguiente, la palabra clave `async`, el valor devuelto `Task<T>`, la palabra clave `await` y el método `ToListAsync` hacen que el código se ejecute de forma asincrónica.
 
-[!code-csharp[Main](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
+[!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_ScaffoldedIndex)]
 
 * La palabra clave `async` indica al compilador que genere devoluciones de llamada para partes del cuerpo del método y que cree automáticamente el objeto `Task<IActionResult>` que se devuelve.
 
@@ -363,5 +363,5 @@ Para obtener más información sobre la programación asincrónica en .NET, vea 
 
 Ha creado una aplicación simple en la que se usa Entity Framework Core y SQL Server Express LocalDB para almacenar y mostrar datos. En el tutorial siguiente, obtendrá información sobre cómo realizar operaciones CRUD (crear, leer, actualizar y eliminar) básicas.
 
->[!div class="step-by-step"]
-[Siguiente](crud.md)
+> [!div class="step-by-step"]
+> [Siguiente](crud.md)

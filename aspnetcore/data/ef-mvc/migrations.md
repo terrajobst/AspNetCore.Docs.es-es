@@ -1,21 +1,21 @@
 ---
 title: 'ASP.NET Core MVC con EF Core: Migraciones (4 de 10)'
 author: tdykstra
-description: "En este tutorial, empezará usando la característica de migraciones de EF Core para administrar cambios en el modelo de datos en una aplicación ASP.NET Core MVC."
+description: En este tutorial, empezará usando la característica de migraciones de EF Core para administrar cambios en el modelo de datos en una aplicación ASP.NET Core MVC.
 manager: wpickett
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.date: 03/15/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: fd466af8a73bf4c568fafe7e7fdcaa82021624da
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: f3f14d6dab1eb03e0ead5edaa9d7ba41a10b21e9
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="migrations---ef-core-with-aspnet-core-mvc-tutorial-4-of-10"></a>Migraciones: tutorial de EF Core con ASP.NET Core MVC (4 de 10)
+# <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC con EF Core: Migraciones (4 de 10)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -43,7 +43,7 @@ Las herramientas de EF para la interfaz de nivel de la línea de comandos se pro
 
 En el archivo *appsettings.json*, cambie el nombre de la base de datos en la cadena de conexión por ContosoUniversity2 u otro nombre que no haya usado en el equipo que esté usando.
 
-[!code-json[Main](intro/samples/cu/appsettings2.json?range=1-4)]
+[!code-json[](intro/samples/cu/appsettings2.json?range=1-4)]
 
 Este cambio configura el proyecto para que la primera migración cree una base de datos. Esto no es necesario para comenzar a usar las migraciones, pero más adelante se verá por qué es una buena idea.
 
@@ -91,7 +91,7 @@ Si ve un mensaje de error "*No se puede obtener acceso al archivo... ContosoUniv
 
 Cuando ejecutó el comando `migrations add`, EF generó el código que va a crear la base de datos desde cero. Este código está en la carpeta *Migrations*, en el archivo denominado *\<marca_de_tiempo>_InitialCreate.cs*. El método `Up` de la clase `InitialCreate` crea las tablas de base de datos que corresponden a los conjuntos de entidades del modelo de datos y el método `Down` las elimina, como se muestra en el ejemplo siguiente.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
+[!code-csharp[](intro/samples/cu/Migrations/20170215220724_InitialCreate.cs?range=92-118)]
 
 Las migraciones llaman al método `Up` para implementar los cambios del modelo de datos para una migración. Cuando se escribe un comando para revertir la actualización, las migraciones llaman al método `Down`.
 
@@ -99,15 +99,13 @@ Este código es para la migración inicial que se creó cuando se escribió el c
 
 Si creó la migración inicial cuando la base de datos ya existía, se genera el código de creación de la base de datos pero no es necesario ejecutarlo porque la base de datos ya coincide con el modelo de datos. Al implementar la aplicación en otro entorno donde la base de datos todavía no existe, se ejecutará este código para crear la base de datos, por lo que es recomendable probarlo primero. Por ese motivo se cambió antes el nombre de la base de datos en la cadena de conexión, para que las migraciones puedan crear uno desde cero.
 
-## <a name="examine-the-data-model-snapshot"></a>Examinar la instantánea del modelo de datos
+## <a name="the-data-model-snapshot"></a>La instantánea del modelo de datos
 
-Migrations también crea una *instantánea* del esquema de la base de datos actual en *Migrations/SchoolContextModelSnapshot.cs*. Este es el aspecto de ese código:
+Las migraciones crean una *instantánea* del esquema de la base de datos actual en *Migrations/SchoolContextModelSnapshot.cs*. Cuando se agrega una migración, EF determina qué ha cambiado mediante la comparación del modelo de datos con el archivo de instantánea.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot1.cs?name=snippet_Truncate)]
+Cuando elimine una migración, use el comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove). `dotnet ef migrations remove` elimina la migración y garantiza que la instantánea se restablece correctamente.
 
-Como el esquema de la base de datos actual se representa en el código, EF Core no tiene que interactuar con la base de datos para crear las migraciones. Cuando se agrega una migración, EF determina qué ha cambiado mediante la comparación del modelo de datos con el archivo de instantánea. EF interactúa con la base de datos solo cuando tiene que actualizarla. 
-
-El archivo de instantánea tiene que estar sincronizado con las migraciones que lo crean, por lo que no se puede quitar una migración eliminando simplemente el archivo denominado *\<marca_de_tiempo>_\<nombre_de_la_migración>.cs*. Si elimina ese archivo, las migraciones restantes no estarán sincronizadas con el archivo de instantánea de base de datos. Para eliminar la última migración que se ha agregado, use el comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove).
+Vea [Migraciones en entornos de equipo](/ef/core/managing-schemas/migrations/teams) para más información sobre cómo se usa el archivo de instantánea.
 
 ## <a name="apply-the-migration-to-the-database"></a>Aplicar la migración a la base de datos
 
@@ -167,6 +165,6 @@ Para obtener más información sobre los comandos de la PMC, vea [Consola del Ad
 
 En este tutorial, ha visto cómo crear y aplicar la primera migración. En el siguiente, comenzará examinando temas más avanzados expandiendo el modelo de datos. Por el camino, podrá crear y aplicar migraciones adicionales.
 
->[!div class="step-by-step"]
-[Anterior](sort-filter-page.md)
-[Siguiente](complex-data-model.md)  
+> [!div class="step-by-step"]
+> [Anterior](sort-filter-page.md)
+> [Siguiente](complex-data-model.md)  

@@ -12,7 +12,7 @@ Si se produce un error:
 No executable found matching command "dotnet-aspnet-codegenerator"
   ```
 
-Abra un shell de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*).
+El error anterior se produce cuando el usuario se encuentra en el directorio incorrecto. Abra un shell de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*) y, después, ejecute el comando anterior.
 
 Si se produce un error:
   ```

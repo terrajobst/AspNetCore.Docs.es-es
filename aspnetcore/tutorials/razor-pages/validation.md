@@ -1,7 +1,7 @@
 ---
-title: "Agregar una validación"
+title: Agregar la validación a una página de Razor de ASP.NET Core
 author: rick-anderson
-description: "Se explica cómo agregar la validación a una página de Razor."
+description: Obtenga información sobre cómo agregar validación a una página de Razor de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 08/07/2017
@@ -9,13 +9,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 770b930373888c8b4bd578ba6d2524546549800e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 271a5ce517ae550845d96e3969b39b1eda6ae51b
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="adding-validation-to-a-razor-page"></a>Adición de validación a una página de Razor
+# <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -33,7 +33,7 @@ Abra el archivo *Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/
 
 Actualice la clase `Movie` para aprovechar los atributos de validación `Required`, `StringLength`, `RegularExpression` y `Range`.
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc//sample/MvcMovie/Models/MovieDateRatingDA.cs?name=snippet1)]
 
 Los atributos de validación especifican el comportamiento que se aplica a las propiedades del modelo:
 
@@ -85,7 +85,7 @@ Validación de servidor de prueba opcional:
 
 El código siguiente muestra una parte de la página *Create.cshtml* a la que se ha aplicado scaffolding anteriormente en el tutorial. Las páginas de creación y edición la usan para mostrar el formulario inicial y para volver a mostrar el formulario en caso de error.
 
-[!code-cshtml[Main](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
+[!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
 La [aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-forms) usa los atributos [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) y genera los atributos HTML necesarios para la validación de jQuery en el cliente. La [aplicación auxiliar de etiquetas de validación](xref:mvc/views/working-with-forms#the-validation-tag-helpers) muestra errores de validación. Para más información, vea [Validación](xref:mvc/models/validation).
 
@@ -97,7 +97,7 @@ Cuando es necesario modificar la lógica de validación, se hace únicamente en 
 
 Examine la clase `Movie`. El espacio de nombres `System.ComponentModel.DataAnnotations` proporciona atributos de formato además del conjunto integrado de atributos de validación. El atributo `DataType` se aplica a las propiedades `ReleaseDate` y `Price`.
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDA.cs?highlight=2,6&name=snippet2)]
 
 Los atributos `DataType` solo proporcionan sugerencias para que el motor de vista aplique formato a los datos (y ofrece atributos como `<a>` para las direcciones URL y `<a href="mailto:EmailAddress.com">` para el correo electrónico). Use el atributo `RegularExpression` para validar el formato de los datos. El atributo `DataType` se usa para especificar un tipo de datos más específico que el tipo intrínseco de base de datos. Los atributos `DataType` no son atributos de validación. En la aplicación de ejemplo solo se muestra la fecha, sin hora.
 
@@ -130,7 +130,7 @@ Por lo general no se recomienda compilar fechas fijas en los modelos, así que s
 
 El código siguiente muestra la combinación de atributos en una línea:
 
-[!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/MovieDateRatingDAmult.cs?name=snippet1)]
 
 En [Introducción a las páginas de Razor y EF Core](xref:data/ef-rp/intro) se muestran operaciones más avanzadas de EF Core con páginas de Razor.
 
@@ -145,6 +145,6 @@ Vea [Publicar una aplicación web de ASP.NET Core en Azure App Service con Visua
 * [Introducción a las aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
 * [Creación de aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/authoring)
 
->[!div class="step-by-step"]
-[Anterior: Adición de un nuevo campo](xref:tutorials/razor-pages/new-field)
-[Siguiente: Carga de archivos](xref:tutorials/razor-pages/uploading-files)
+> [!div class="step-by-step"]
+> [Anterior: Adición de un nuevo campo](xref:tutorials/razor-pages/new-field)
+> [Siguiente: Carga de archivos](xref:tutorials/razor-pages/uploading-files)

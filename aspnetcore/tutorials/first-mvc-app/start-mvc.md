@@ -1,7 +1,7 @@
 ---
-title: "Introducción a ASP.NET Core MVC y Visual Studio"
+title: Introducción a ASP.NET Core MVC y Visual Studio
 author: rick-anderson
-description: "Introducción a ASP.NET Core MVC y Visual Studio"
+description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC y Visual Studio.
 manager: wpickett
 ms.author: riande
 ms.date: 10/07/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: d07d133aa0ed83962b6dc60b9fa0c42993f87843
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: b7036b92e8f25613917cfc4112389be81c12f614
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="getting-started-with-aspnet-core-mvc-and-visual-studio"></a>Introducción a ASP.NET Core MVC y Visual Studio
+# <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Introducción a ASP.NET Core MVC y Visual Studio
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[consider RP](../../includes/razor.md)]
+[!INCLUDE [consider RP](../../includes/razor.md)]
 
 Hay tres versiones de este tutorial:
 
@@ -29,12 +29,10 @@ Hay tres versiones de este tutorial:
 
 ## <a name="install-visual-studio-and-net-core"></a>Instalar Visual Studio y .NET Core
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
-[!INCLUDE[install 2.0](../../includes/install2.0.md)]
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Instale Visual Studio Community 2017. Seleccione la descarga de Community. Omita este paso si tiene instalado Visual Studio 2017.
 
 * [Página principal del instalador de Visual Studio 2017](https://www.visualstudio.com/)
@@ -48,8 +46,7 @@ Ejecute el instalador y seleccione las siguientes cargas de trabajo:
 
 ![**Desarrollo multiplataforma de .NET Core** (en **Otros conjuntos de herramientas**)](start-mvc/_static/x_plat_wl.png)
 
----
-
+* * *
 ## <a name="create-a-web-app"></a>Crear una aplicación web
 
 En Visual Studio, seleccione **Archivo > Nuevo > Proyecto**.
@@ -95,7 +92,7 @@ Pulse **F5** para ejecutar la aplicación en modo de depuración o **Ctrl-F5** p
 <!-- These images are also used by uid: tutorials/first-mvc-app-xplat/start-mvc -->
 ![aplicación en ejecución](start-mvc/_static/1.png)
 
-* Visual Studio inicia [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) y ejecuta la aplicación. Tenga en cuenta que en la barra de direcciones aparece `localhost:port#` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Cuando Visual Studio crea un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen anterior, el número de puerto es el 5000. La dirección URL del explorador es `localhost:5000`. Al ejecutar la aplicación verá otro puerto distinto.
+* Visual Studio inicia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) y ejecuta la aplicación. Tenga en cuenta que en la barra de direcciones aparece `localhost:port#` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Cuando Visual Studio crea un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen anterior, el número de puerto es el 5000. La dirección URL del explorador es `localhost:5000`. Al ejecutar la aplicación verá otro puerto distinto.
 * Iniciar la aplicación con **CTRL+F5** (modo de no depuración) le permite efectuar cambios en el código, guardar el archivo, actualizar el explorador y ver los cambios de código. Muchos desarrolladores prefieren usar el modo de no depuración para iniciar la aplicación rápidamente y ver los cambios.
 * Puede iniciar la aplicación en modo de depuración o en modo de no depuración desde el elemento de menú **Depurar**:
 
@@ -113,5 +110,5 @@ Si iba a efectuar una ejecución en modo de depuración, pulse **MAYÚS-F5** par
 
 En la siguiente sección de este tutorial obtendrá información sobre MVC y empezará a escribir código.
 
->[!div class="step-by-step"]
-[Siguiente](adding-controller.md)  
+> [!div class="step-by-step"]
+> [Siguiente](adding-controller.md)  

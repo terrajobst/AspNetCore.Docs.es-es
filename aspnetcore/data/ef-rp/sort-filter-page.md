@@ -1,24 +1,24 @@
 ---
-title: "Páginas de Razor con EF Core: ordenación, filtrado y paginación (3 de 8)"
+title: 'Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)'
 author: rick-anderson
-description: "En este tutorial agregará la funcionalidad de ordenación, filtrado y paginación a la página usando ASP.NET Core y Entity Framework Core."
+description: En este tutorial agregará la funcionalidad de ordenación, filtrado y paginación a la página usando ASP.NET Core y Entity Framework Core.
 ms.author: riande
 ms.date: 10/22/2017
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 9c1ee6f8c00f3cd501ea86fbf73f51ae540a010a
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="sorting-filtering-paging-and-grouping---ef-core-with-razor-pages-3-of-8"></a>Ordenación, filtrado, paginación y agrupación: EF Core con páginas de Razor (3 de 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 
 Por [Tom Dykstra](https://github.com/tdykstra), [Rick Anderson](https://twitter.com/RickAndMSFT) y [Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 En este tutorial se agregan las funcionalidades de ordenación, filtrado, agrupación y paginación.
 
@@ -32,12 +32,12 @@ Si experimenta problemas que no puede resolver, descargue la [aplicación comple
 
 Agregue cadenas a *Students/Index.cshtml.cs* `PageModel` para que contenga los parámetros de ordenación:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet1&highlight=10-13)]
 
 
 Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
 El código anterior recibe un parámetro `sortOrder` de la cadena de consulta en la dirección URL. La [aplicación auxiliar de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 ) genera la dirección URL (incluida la cadena de consulta).
@@ -48,11 +48,11 @@ Cuando se solicita la página de índice del vínculo **Students** no hay ningun
 
 La página de Razor usa `NameSort` y `DateSort` para configurar los hipervínculos del encabezado de columna con los valores de cadena de consulta adecuados:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=3-4)]
 
 El código siguiente contiene el [operador ?:](https://docs.microsoft.com/dotnet/csharp/language-reference/operators/conditional-operator) de C#:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_Ternary)]
 
 La primera línea especifica que, cuando `sortOrder` es NULL o está vacío, `NameSort` se establece en "name_desc". Si `sortOrder` **no** es NULL ni está vacío, `NameSort` se establece en una cadena vacía.
 
@@ -69,11 +69,11 @@ Estas dos instrucciones habilitan la vista para establecer los hipervínculos de
 
 El método usa LINQ to Entities para especificar la columna por la que se va a ordenar. El código inicializa un `IQueryable<Student> ` antes de la instrucción switch y lo modifica en la instrucción switch:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly&highlight=6-999)]
 
  Cuando se crea o se modifica un `IQueryable`, no se envía ninguna consulta a la base de datos. La consulta no se ejecuta hasta que el objeto `IQueryable` se convierte en una colección. `IQueryable` se convierte en una colección mediante una llamada a un método como `ToListAsync`. Por lo tanto, el código `IQueryable` produce una única consulta que no se ejecuta hasta la siguiente instrucción:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortOnlyRtn)]
 
 `OnGetAsync` podría detallarse con un gran número de columnas.
 
@@ -113,7 +113,7 @@ Para agregar un filtro a la página de índice de Students:
 
 Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilter&highlight=1,5,9-13)]
 
 El código anterior:
 
@@ -164,7 +164,7 @@ En esta sección, se crea una clase `PaginatedList` para admitir la paginación.
 
 En la carpeta del proyecto, cree `PaginatedList.cs` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/PaginatedList.cs)]
+[!code-csharp[](intro/samples/cu/PaginatedList.cs)]
 
 El método `CreateAsync` en el código anterior toma el tamaño y el número de la página, y aplica las instrucciones `Skip` y `Take` correspondientes a `IQueryable`. Cuando `ToListAsync` se llama en `IQueryable`, devuelve una lista que solo contiene la página solicitada. Las propiedades `HasPreviousPage` y `HasNextPage` se usan para habilitar o deshabilitar los botones de página **Previous** y **Next**.
 
@@ -174,15 +174,15 @@ El método `CreateAsync` se usa para crear la `PaginatedList<T>`. No se puede cr
 
 En *Students/Index.cshtml.cs*, actualice el tipo de `Student` de `IList<Student>` a `PaginatedList<Student>`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPageType)]
 
 Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage&highlight=1-4,7-14,41-999)]
 
 El código anterior agrega el índice de la página, el `sortOrder` actual y el `currentFilter` a la firma del método.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage2)]
 
 Todos los parámetros son NULL cuando:
 
@@ -203,11 +203,11 @@ Si se cambia la cadena de búsqueda durante la paginación, la página se restab
 * La cadena de búsqueda cambia.
 * El parámetro `searchString` no es NULL.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage3)]
 
 El método `PaginatedList.CreateAsync` convierte la consulta del alumno en una sola página de alumnos de un tipo de colección que admita la paginación. Esa única página de alumnos se pasa a la página de Razor.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
+[!code-csharp[](intro/samples/cu/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
 Los dos signos de interrogación en `PaginatedList.CreateAsync` representan el [operador de uso combinado de NULL](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). El operador de uso combinado de NULL define un valor predeterminado para un tipo que acepta valores NULL. La expresión `(pageIndex ?? 1)` significa devolver el valor de `pageIndex` si tiene un valor. Devuelve 1 si `pageIndex` no tiene ningún valor.
 
@@ -215,7 +215,7 @@ Los dos signos de interrogación en `PaginatedList.CreateAsync` representan el [
 
 Actualice el marcado en *Students/Index.cshtml*. Se resaltan los cambios:
 
-[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-)]
+[!code-html[](intro/samples/cu/Pages/Students/Index.cshtml?highlight=28-31,37-40,68-999)]
 
 Los vínculos del encabezado de la columna usan la cadena de consulta para pasar la cadena de búsqueda actual al método `OnGetAsync`, de modo que el usuario pueda ordenar los resultados del filtro:
 
@@ -253,13 +253,13 @@ Cree una carpeta *SchoolViewModels* en la carpeta *Models*.
 
 En la carpeta *SchoolViewModels*, agregue *EnrollmentDateGroup.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/EnrollmentDateGroup.cs)]
 
 ### <a name="update-the-about-page-model"></a>Actualizar el modelo de la página About
 
 Actualice el archivo *Pages/About.cshtml.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/About.cshtml.cs)]
+[!code-csharp[](intro/samples/cu/Pages/About.cshtml.cs)]
 
 La instrucción LINQ agrupa las entidades de alumnos por fecha de inscripción, calcula la cantidad de entidades que se incluyen en cada grupo y almacena los resultados en una colección de objetos de modelo de la vista `EnrollmentDateGroup`.
 
@@ -283,6 +283,6 @@ Si experimenta problemas que no puede resolver, descargue la [aplicación comple
 
 En el tutorial siguiente, la aplicación usa las migraciones para actualizar el modelo de datos.
 
->[!div class="step-by-step"]
-[Anterior](xref:data/ef-rp/crud)
-[Siguiente](xref:data/ef-rp/migrations)
+> [!div class="step-by-step"]
+> [Anterior](xref:data/ef-rp/crud)
+> [Siguiente](xref:data/ef-rp/migrations)

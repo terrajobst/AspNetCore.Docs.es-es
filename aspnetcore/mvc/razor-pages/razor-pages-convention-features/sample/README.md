@@ -6,7 +6,7 @@ En este ejemplo se muestra el uso de proveedores personalizados de modelo de pá
 
 | Características | Demostración de ejemplo |
 | -------- | ----------- |
-| [Agregar las convenciones de modelo de aplicación y ruta](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#add-route-and-app-model-conventions) | Agregue un atributo de ruta y un encabezado a las páginas de la aplicación. |
+| [Convenciones de modelo](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#model-conventions) | Agregue un atributo de ruta y un encabezado a las páginas de la aplicación. |
 | [Usar AddPageRoute para agregar una ruta de página](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#configure-a-page-route) | Agrega la ruta especificada a la página en la página especificada. |
 | [Convenciones de acción del modelo de página](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#page-model-action-conventions) | Agregue un encabezado a las páginas de una carpeta, agregue un encabezado a una sola página y configure una fábrica de filtros para agregar un encabezado a las páginas de la aplicación. |
 | [Reemplazar el proveedor de modelo de aplicación de página predeterminado](https://docs.microsoft.com/aspnet/core/mvc/razor-pages/razor-pages-convention-features#replace-the-default-page-app-model-provider) | Cambie las convenciones de nomenclatura del controlador. |

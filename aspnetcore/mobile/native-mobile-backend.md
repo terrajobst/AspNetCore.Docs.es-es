@@ -1,7 +1,7 @@
 ---
-title: "Creación de servicios back-end para aplicaciones móviles nativas"
+title: Crear servicios back-end para aplicaciones móviles nativas con ASP.NET Core
 author: ardalis
-description: 
+description: Obtenga información sobre cómo crear servicios back-end con ASP.NET Core MVC que admitan aplicaciones móviles nativas.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: ff09f331cff5cca7b42fa89bff55c0ed5c7d82f4
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 18aecea00eb9cda3462ede7e478616a99cf302f8
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="creating-backend-services-for-native-mobile-applications"></a>Creación de servicios back-end para aplicaciones móviles nativas
+# <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Crear servicios back-end para aplicaciones móviles nativas con ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
@@ -25,7 +25,7 @@ Las aplicaciones móviles pueden comunicarse fácilmente con servicios back-end 
 
 ## <a name="the-sample-native-mobile-app"></a>La aplicación móvil nativa de ejemplo
 
-Este tutorial muestra cómo crear servicios back-end mediante ASP.NET Core MVC para admitir aplicaciones móviles nativas. Usa la [aplicación Xamarin Forms ToDoRest](https://developer.xamarin.com/guides/xamarin-forms/web-services/consuming/rest/) como su cliente nativo, lo que incluye clientes nativos independientes para dispositivos Android, iOS, Windows Universal y Windows Phone. Puede seguir el tutorial vinculado para crear la aplicación nativa (e instalar las herramientas de Xamarin gratuitas necesarias), así como descargar la solución de ejemplo de Xamarin. El ejemplo de Xamarin incluye un proyecto de servicios de ASP.NET Web API 2, que sustituye a las aplicaciones de ASP.NET Core de este artículo (sin cambios requeridos por el cliente).
+Este tutorial muestra cómo crear servicios back-end mediante ASP.NET Core MVC para admitir aplicaciones móviles nativas. Usa la [aplicación Xamarin Forms ToDoRest](/xamarin/xamarin-forms/data-cloud/consuming/rest) como su cliente nativo, lo que incluye clientes nativos independientes para dispositivos Android, iOS, Windows Universal y Windows Phone. Puede seguir el tutorial vinculado para crear la aplicación nativa (e instalar las herramientas de Xamarin gratuitas necesarias), así como descargar la solución de ejemplo de Xamarin. El ejemplo de Xamarin incluye un proyecto de servicios de ASP.NET Web API 2, que sustituye a las aplicaciones de ASP.NET Core de este artículo (sin cambios requeridos por el cliente).
 
 ![Aplicación ToDoRest que se ejecuta en un smartphone Android](native-mobile-backend/_static/todo-android.png)
 
@@ -61,31 +61,31 @@ Cree una aplicación web de ASP.NET Core en Visual Studio. Elija la plantilla de
 
 La aplicación debería responder a todas las solicitudes realizadas al puerto 5000. Actualice *Program.cs* para que incluya `.UseUrls("http://*:5000")` para conseguir lo siguiente:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Program.cs?range=10-16&highlight=3)]
 
 > [!NOTE]
-> Asegúrese de que ejecuta la aplicación directamente, en lugar de tras IIS Express, que omite las solicitudes no locales de forma predeterminada. Ejecute `dotnet run` desde un símbolo del sistema o elija el perfil del nombre de aplicación en la lista desplegable de destino de depuración en la barra de herramientas de Visual Studio.
+> Asegúrese de que ejecuta la aplicación directamente, en lugar de tras IIS Express, que omite las solicitudes no locales de forma predeterminada. Ejecute [dotnet run](/dotnet/core/tools/dotnet-run) desde un símbolo del sistema o elija el perfil del nombre de aplicación en la lista desplegable de destino de depuración en la barra de herramientas de Visual Studio.
 
 Agregue una clase de modelo para representar las tareas pendientes. Marque los campos obligatorios mediante el atributo `[Required]`:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Models/ToDoItem.cs)]
 
 Los métodos de API necesitan alguna manera de trabajar con los datos. Use la misma interfaz de `IToDoRepository` que usa el ejemplo original de Xamarin:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Interfaces/IToDoRepository.cs)]
 
 En este ejemplo, la implementación usa solo una colección de elementos privada:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Services/ToDoRepository.cs)]
 
 Configure la implementación en *Startup.cs*:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Startup.cs?highlight=6&range=29-35)]
 
 En este punto, está listo para crear el *ToDoItemsController*.
 
 > [!TIP]
-> Obtenga más información sobre la creación de API web en [Cree su primera API web con ASP.NET Core MVC y Visual Studio](../tutorials/first-web-api.md).
+> Obtenga más información sobre cómo crear API web en [Cree su primera API web con ASP.NET Core MVC y Visual Studio](../tutorials/first-web-api.md).
 
 ## <a name="creating-the-controller"></a>Crear el controlador
 
@@ -93,7 +93,7 @@ Agregue un nuevo controlador para el proyecto: *ToDoItemsController*. Debe hered
 
 El controlador necesita un `IToDoRepository` para funcionar. Solicite una instancia de este tipo a través del constructor del controlador. En tiempo de ejecución, esta instancia se proporcionará con la compatibilidad del marco con la [inserción de dependencias](../fundamentals/dependency-injection.md).
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=1-17&highlight=9,14)]
 
 Esta API es compatible con cuatro verbos HTTP diferentes para realizar operaciones CRUD (creación, lectura, actualización, eliminación) en el origen de datos. La más simple de ellas es la operación de lectura, que corresponde a una solicitud HTTP GET.
 
@@ -101,7 +101,7 @@ Esta API es compatible con cuatro verbos HTTP diferentes para realizar operacion
 
 La solicitud de una lista de elementos se realiza con una solicitud GET al método `List`. El atributo `[HttpGet]` en el método `List` indica que esta acción solo debe controlar las solicitudes GET. La ruta de esta acción es la ruta especificada en el controlador. No es necesario usar el nombre de acción como parte de la ruta. Solo debe asegurarse de que cada acción tiene una ruta única e inequívoca. El enrutamiento de atributos se puede aplicar tanto a los niveles de controlador como de método para crear rutas específicas.
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=19-23)]
 
 El método `List` devuelve un código de respuesta 200 OK y todos los elementos de lista de tareas, serializados como JSON.
 
@@ -115,11 +115,11 @@ Por convención, la creación de elementos de datos se asigna al verbo HTTP POST
 
 Dentro del método, se comprueba la validez del elemento y si existió anteriormente en el almacén de datos y, si no hay problemas, se agrega mediante el repositorio. Al comprobar `ModelState.IsValid` se realiza una [validación de modelos](../mvc/models/validation.md), y debe realizarse en cada método de API que acepte datos proporcionados por usuario.
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=25-46)]
 
 El ejemplo usa una enumeración que contiene códigos de error que se pasan al cliente móvil:
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=91-99)]
 
 Pruebe a agregar nuevos elementos con Postman eligiendo el verbo POST que proporciona el nuevo objeto en formato JSON en el cuerpo de la solicitud. También debe agregar un encabezado de solicitud que especifica un `Content-Type` de `application/json`.
 
@@ -131,7 +131,7 @@ El método devuelve el elemento recién creado en la respuesta.
 
 La modificación de registros se realiza mediante solicitudes HTTP PUT. Aparte de este cambio, el método `Edit` es casi idéntico a `Create`. Tenga en cuenta que, si no se encuentra el registro, la acción `Edit` devolverá una respuesta `NotFound` (404).
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=48-69)]
 
 Para probar con Postman, cambie el verbo a PUT. Especifique los datos actualizados del objeto en el cuerpo de la solicitud.
 
@@ -143,7 +143,7 @@ Este método devuelve una respuesta `NoContent` (204) cuando se realiza correcta
 
 La eliminación de registros se consigue mediante solicitudes DELETE al servicio y pasando el identificador del elemento que va a eliminar. Al igual que con las actualizaciones, las solicitudes para elementos que no existen recibirán respuestas `NotFound`. De lo contrario, las solicitudes correctas recibirán una respuesta `NoContent` (204).
 
-[!code-csharp[Main](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
+[!code-csharp[](native-mobile-backend/sample/ToDoApi/src/ToDoApi/Controllers/ToDoItemsController.cs?range=71-88)]
 
 Tenga en cuenta que, al probar la funcionalidad de eliminar, no se necesita nada en el cuerpo de la solicitud.
 

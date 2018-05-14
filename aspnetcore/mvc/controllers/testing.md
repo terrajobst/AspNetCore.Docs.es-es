@@ -1,7 +1,7 @@
 ---
-title: "Probar la lógica del controlador en ASP.NET Core"
+title: Probar la lógica del controlador en ASP.NET Core
 author: ardalis
-description: "Obtenga información sobre cómo probar la lógica del controlador en ASP.NET Core con Moq y xUnit."
+description: Obtenga información sobre cómo probar la lógica del controlador en ASP.NET Core con Moq y xUnit.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: cabb1d2498e6c993b327c2fb9719525ec2181f9e
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="testing-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
+# <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
@@ -40,20 +40,20 @@ Estas son algunas de las responsabilidades habituales de los controladores:
 
 ## <a name="unit-testing"></a>Pruebas unitarias
 
-Las [pruebas unitarias](https://docs.microsoft.com/dotnet/articles/core/testing/unit-testing-with-dotnet-test) conllevan probar una parte de una aplicación de forma aislada con respecto a su infraestructura y dependencias. Cuando se realizan pruebas unitarias de la lógica de controlador, solo se comprueba el contenido de una única acción, no el comportamiento de sus dependencias o del marco en sí. Cuando realice pruebas unitarias de sus acciones de controlador, asegúrese de que solo se centran en el comportamiento. Una prueba unitaria de controlador evita tener que recurrir a elementos como los [filtros](filters.md), el [enrutamiento](../../fundamentals/routing.md) o el [enlace de modelos](../models/model-binding.md). Al centrarse en comprobar solo una cosa, las pruebas unitarias suelen ser fáciles de escribir y rápidas de ejecutar. Un conjunto de pruebas unitarias bien escrito se puede ejecutar a menudo sin demasiada sobrecarga. Con todo, las pruebas unitarias no detectan problemas de interacción entre componentes, que es el propósito de las [pruebas de integración](xref:mvc/controllers/testing#integration-testing).
+Las [pruebas unitarias](/dotnet/articles/core/testing/unit-testing-with-dotnet-test) conllevan probar una parte de una aplicación de forma aislada con respecto a su infraestructura y dependencias. Cuando se realizan pruebas unitarias de la lógica de controlador, solo se comprueba el contenido de una única acción, no el comportamiento de sus dependencias o del marco en sí. Cuando realice pruebas unitarias de sus acciones de controlador, asegúrese de que solo se centran en el comportamiento. Una prueba unitaria de controlador evita tener que recurrir a elementos como los [filtros](filters.md), el [enrutamiento](../../fundamentals/routing.md) o el [enlace de modelos](../models/model-binding.md). Al centrarse en comprobar solo una cosa, las pruebas unitarias suelen ser fáciles de escribir y rápidas de ejecutar. Un conjunto de pruebas unitarias bien escrito se puede ejecutar con frecuencia sin demasiada sobrecarga. Pero las pruebas unitarias no detectan problemas de interacción entre componentes, que es el propósito de las [pruebas de integración](xref:mvc/controllers/testing#integration-testing).
 
 Si está escribiendo filtros personalizados, rutas, etc., debería realizar pruebas unitarias en ellos, pero no como parte de las comprobaciones de una acción de controlador determinada, sino de forma aislada.
 
 > [!TIP]
-> [Cree y ejecute pruebas unitarias con Visual Studio](https://docs.microsoft.com/visualstudio/test/unit-test-your-code).
+> [Cree y ejecute pruebas unitarias con Visual Studio](/visualstudio/test/unit-test-your-code).
 
 Para explicar las pruebas unitarias, revisaremos el siguiente controlador. Muestra una lista de sesiones de lluvia de ideas y permite crear nuevas sesiones de lluvia de ideas con un método POST:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/HomeController.cs?highlight=12,16,21,42,43)]
 
 El controlador sigue el [principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle/), de modo que espera que la inserción de dependencias le proporcione una instancia de `IBrainstormSessionRepository`. Esto es bastante sencillo de comprobar si se usa un marco de objeto ficticio, como [Moq](https://www.nuget.org/packages/Moq/). El método `HTTP GET Index` no tiene bucles ni bifurcaciones y solamente llama a un método. Para probar este método `Index`, tenemos que confirmar que se devuelve un `ViewResult`, con un `ViewModel` del método `List` del repositorio.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=17-18&range=1-33,76-95)]
 
 El método `HomeController` `HTTP POST Index` (mostrado arriba) debe comprobar lo siguiente:
 
@@ -63,7 +63,7 @@ El método `HomeController` `HTTP POST Index` (mostrado arriba) debe comprobar l
 
 El estado de modelo no válido se puede comprobar introduciendo errores con `AddModelError`, como se muestra en la primera prueba de abajo.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/HomeControllerTests.cs?highlight=8,15-16,37-39&range=35-75)]
 
 La primera prueba confirma cuándo `ModelState` no es válido; se devuelve el mismo `ViewResult` que para una solicitud `GET`. Cabe decir que la prueba no intenta pasar un modelo no válido. Eso no funcionaría de todas formas, ya que el enlace de modelos no se está ejecutando (aunque una [prueba de integración](xref:mvc/controllers/testing#integration-testing) sí usaría el enlace de modelos). En este caso concreto no estamos comprobando el enlace de modelos. Con estas pruebas unitarias solamente estamos comprobando lo que el código del método de acción hace.
 
@@ -74,23 +74,23 @@ La segunda prueba comprueba si, cuando `ModelState` es válido, se agrega un nue
 
 Otro controlador de la aplicación muestra información relacionada con una sesión de lluvia de ideas determinada. Este controlador incluye lógica para tratar los valores de identificador no válidos:
 
-[!code-csharp[Main](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 La acción de controlador tiene tres casos que comprobar, uno por cada instrucción `return`:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/SessionControllerTests.cs?highlight=27,28,29,46,47,64,65,66,67,68)]
 
 La aplicación expone la funcionalidad como una API web (una lista de ideas asociadas a una sesión de lluvia de ideas y un método para agregar nuevas ideas a una sesión):
 
 <a name="ideas-controller"></a>
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Api/IdeasController.cs?highlight=21,22,27,30,31,32,33,34,35,36,41,42,46,52,65)]
 
 El método `ForSession` devuelve una lista de tipos de `IdeaDTO`. Evite devolver entidades de dominio de empresa directamente a través de llamadas API, ya que con frecuencia incluyen más datos de los que el cliente de API requiere y asocian innecesariamente el modelo de dominio interno de su aplicación con la API que se expone externamente. La asignación entre las entidades de dominio y los tipos que se van a devolver se puede realizar manualmente (usando un método `Select` de LINQ, tal y como se muestra aquí) o por medio de una biblioteca como [AutoMapper](https://github.com/AutoMapper/AutoMapper).
 
 Estas son las pruebas unitarias de los métodos API `Create` y `ForSession`:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?highlight=18,23,29,33,38-39,43,50,58-59,68-70,76-78&range=1-83,121-135)]
 
 Como se ha indicado anteriormente, si quiere comprobar el comportamiento del método cuando `ModelState` no es válido, agregue un error de modelo al controlador como parte de la prueba. No intente probar la validación del modelo o el enlace de modelos en las pruebas unitarias: céntrese tan solo en el comportamiento de su método de acción al confrontarlo con un valor de `ModelState` determinado.
 
@@ -112,7 +112,7 @@ En esta aplicación de ejemplo, uso la base de datos InMemoryDatabase de Entity 
 
 La clase `Startup`:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Startup.cs?highlight=19,20,34,35,43,52)]
 
 Verá que el método `GetTestSession` se usa con bastante asiduidad en las siguientes pruebas de integración.
 
@@ -127,11 +127,11 @@ The view 'Index' wasn't found. The following locations were searched:
 
 Para corregir este problema, debe configurar la raíz del contenido del servidor de forma que pueda localizar las vistas del proyecto que se está comprobando. Esto se consigue con una llamada a `UseContentRoot` en la clase `TestFixture`, como se aprecia aquí:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/TestFixture.cs?highlight=30,33)]
 
 La clase `TestFixture` se encarga de configurar y crear el método `TestServer`, que configura un `HttpClient` para comunicarse con dicho método `TestServer`. En cada una de las pruebas de integración se usa la propiedad `Client` para conectarse al servidor de prueba y realizar una solicitud.
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/HomeControllerTests.cs?highlight=20,26,29,30,31,35,38,39,40,41,44,47,48)]
 
 En la primera prueba de arriba, `responseString` contiene el HTML realmente presentado de la vista, que se puede revisar para confirmar que contiene los resultados esperados.
 
@@ -143,7 +143,7 @@ Si la aplicación expone API web, conviene confirmar que se ejecutan según lo p
 
 El siguiente conjunto de pruebas tiene como destino el método `Create` en la clase [IdeasController](xref:mvc/controllers/testing#ideas-controller) de arriba:
 
-[!code-csharp[Main](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
+[!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/IntegrationTests/ApiIdeasControllerTests.cs)]
 
 A diferencia de las pruebas de integración de acciones que devuelven vistas HTML, los métodos de API web que devuelven resultados se suelen poder deserializar como objetos fuertemente tipados, tal y como arroja la última prueba mostrada arriba. En este caso, la prueba deserializa el resultado en una instancia de `BrainstormSession` y confirma que la idea se agregó correctamente a la colección de ideas.
 

@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9af2068aec4326585eb2a8994399a16461db3be
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -56,7 +56,7 @@ El contenido de la vista mostrado anteriormente es solo una parte de toda la pá
 
 ## <a name="how-controllers-specify-views"></a>Cómo especifican los controladores las vistas
 
-Las vistas normalmente las devuelven acciones como [ViewResult](/aspnet/core/api/microsoft.aspnetcore.mvc.viewresult), que es un tipo de [ActionResult](/aspnet/core/api/microsoft.aspnetcore.mvc.actionresult). El método de acción puede crear y devolver `ViewResult` directamente, pero no es lo más común. Puesto que la mayoría de los controladores heredan de [Controller](/aspnet/core/api/microsoft.aspnetcore.mvc.controller), simplemente se usa el método auxiliar `View` para devolver `ViewResult`:
+Las vistas normalmente las devuelven acciones como [ViewResult](/dotnet/api/microsoft.aspnetcore.mvc.viewresult), que es un tipo de [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult). El método de acción puede crear y devolver `ViewResult` directamente, pero no es lo más común. Puesto que la mayoría de los controladores heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), simplemente se usa el método auxiliar `View` para devolver `ViewResult`:
 
 *HomeController.cs*
 
@@ -64,7 +64,7 @@ Las vistas normalmente las devuelven acciones como [ViewResult](/aspnet/core/api
 
 Cuando esta acción devuelve un resultado, la vista *About.cshtml* mostrada en la última sección se representa como la página web siguiente:
 
-![Página Acerca de representada en el explorador Microsoft Edge](overview/_static/about-page.png)
+![Página Acerca de representada en el explorador Edge](overview/_static/about-page.png)
 
 El método auxiliar `View` tiene varias sobrecargas. También puede especificar:
 
@@ -92,7 +92,7 @@ El comportamiento predeterminado del método `View` (`return View();`) es devolv
 
 Da igual si se devuelve implícitamente `ViewResult` con `return View();` o si se pasa explícitamente el nombre de la vista al método `View` con `return View("<ViewName>");`. En ambos casos, la detección de vista busca un archivo de vista coincidente en este orden:
 
-   1. *Views/\[ControllerName]/\[ViewName].cshtml*
+   1. *Views/\[nombreDeControlador]/\[nombreDeVista].cshtml*
    1. *Views/Shared/\[nombreDeVista].cshtml*
 
 En lugar del nombre de una vista, se puede proporcionar la ruta de acceso del archivo de vista. Si se utiliza una ruta de acceso absoluta que comience en la raíz de la aplicación (también puede empezar con "/" o "~/"), debe especificarse la extensión *.cshtml*:
@@ -115,7 +115,7 @@ return View("./About");
 
 [Las vistas parciales](xref:mvc/views/partial) y los [componentes de vista](xref:mvc/views/view-components) usan mecanismos de detección similares (aunque no idénticos).
 
-Puede personalizar la convención predeterminada para la localización de las vistas en la aplicación si utiliza una interfaz [IViewLocationExpander](/aspnet/core/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander) personalizada.
+Puede personalizar la convención predeterminada para la localización de las vistas en la aplicación si utiliza una interfaz [IViewLocationExpander](/dotnet/api/microsoft.aspnetcore.mvc.razor.iviewlocationexpander) personalizada.
 
 La detección de vistas se basa en la búsqueda de archivos de vista por nombre de archivo. Si el sistema de archivos subyacente distingue mayúsculas de minúsculas, es probable que también lo hagan los nombres de las vistas. Para que haya compatibilidad entre sistemas operativos, haga coincidir las letras mayúsculas y minúsculas de los nombres de controlador y acción con los nombres de archivo y carpetas de vista asociados. Si mientras trabaja con un sistema de archivos que distingue mayúsculas de minúsculas se produce un error que le indica que no se encuentra un archivo de vista, confirme que el archivo de vista solicitado y el nombre de archivo de vista real coinciden en el uso de mayúsculas.
 
@@ -205,7 +205,7 @@ Puede hacer referencia a esta colección a través de las propiedades `ViewData`
 
 **ViewData**
 
-`ViewData` es un objeto [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) al que se accede a través de claves `string`. Los datos de cadena se pueden almacenar y utilizar directamente sin necesidad de una conversión, pero primero debe convertir otros valores de objeto `ViewData` a tipos específicos cuando los extrae. Se puede usar `ViewData` para pasar datos de los controladores a las vistas y dentro de las vistas, incluidas las [vistas parciales](xref:mvc/views/partial) y los [diseños](xref:mvc/views/layout).
+`ViewData` es un objeto [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) al que se accede a través de claves `string`. Los datos de cadena se pueden almacenar y utilizar directamente sin necesidad de una conversión, pero primero debe convertir otros valores de objeto `ViewData` a tipos específicos cuando los extrae. Se puede usar `ViewData` para pasar datos de los controladores a las vistas y dentro de las vistas, incluidas las [vistas parciales](xref:mvc/views/partial) y los [diseños](xref:mvc/views/layout).
 
 En el ejemplo siguiente se usa `ViewData` en una acción para establecer los valores de saludo y dirección:
 
@@ -247,7 +247,7 @@ Trabajar con los datos en una vista:
 
 Nota: `ViewBag` no está disponible en las páginas de Razor.
 
-`ViewBag` es un objeto [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag` puede ser más cómodo de trabajar con él, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que al usar `ViewData` anteriormente:
+`ViewBag` es un objeto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag` puede ser más cómodo de trabajar con él, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que al usar `ViewData` anteriormente:
 
 ```csharp
 public IActionResult SomeAction()
@@ -321,11 +321,11 @@ Es posible utilizar `ViewData` y `ViewBag` al mismo tiempo, al igual que combina
  `ViewBag` no está disponible en las páginas de Razor.
 
 * `ViewData`
-  * Se deriva de [ViewDataDictionary](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), por lo que tiene propiedades de diccionario que pueden ser útiles, como `ContainsKey`, `Add`, `Remove` y `Clear`.
+  * Se deriva de [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary), por lo que tiene propiedades de diccionario que pueden ser útiles, como `ContainsKey`, `Add`, `Remove` y `Clear`.
   * Las claves del diccionario son cadenas, por lo que se permiten espacios en blanco. Ejemplo: `ViewData["Some Key With Whitespace"]`
   * Todos los tipos excepto `string` deben convertirse en la vista que usa `ViewData`.
 * `ViewBag`
-  * Se deriva de [DynamicViewData](/aspnet/core/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), por lo que permite la creación de propiedades dinámicas mediante la notación de puntos (`@ViewBag.SomeKey = <value or object>`), y no se requiere ninguna conversión. La sintaxis de `ViewBag` hace que sea más rápido de agregar a controladores y vistas.
+  * Se deriva de [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata), por lo que permite la creación de propiedades dinámicas mediante la notación de puntos (`@ViewBag.SomeKey = <value or object>`), y no se requiere ninguna conversión. La sintaxis de `ViewBag` hace que sea más rápido de agregar a controladores y vistas.
   * Es más sencillo comprobar si hay valores null. Ejemplo: `@ViewBag.Person?.Name`
 
 **Cuándo utilizar ViewData o ViewBag**

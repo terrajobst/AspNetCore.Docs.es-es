@@ -1,7 +1,7 @@
 ---
-title: Enlace de modelos
+title: Enlace de modelos en ASP.NET Core
 author: rachelappel
-description: "Información sobre el enlace de modelos en ASP.NET Core MVC"
+description: Obtenga información sobre cómo el enlace de modelos en ASP.NET Core MVC asigna datos de solicitudes HTTP a parámetros de método de acción.
 manager: wpickett
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: rachelap
@@ -10,13 +10,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/models/model-binding
-ms.openlocfilehash: d64d2792d7c682f9112133be1b9d129b2fc8a048
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f416bda1d7bccdfa922ba598a411ef1d150e3111
+ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="model-binding"></a>Enlace de modelos
+# <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
 Por [Rachel Appel](https://github.com/rachelappel)
 

@@ -1,7 +1,7 @@
 ---
-title: "Inserción de dependencias en controladores"
+title: Inserción de dependencias en controladores en ASP.NET Core
 author: ardalis
-description: 
+description: Obtenga información sobre cómo los controladores de ASP.NET Core MVC solicitan sus dependencias explícitamente a través de sus constructores por medio de la inserción de dependencias en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/dependency-injection
-ms.openlocfilehash: 118f504311b58258b5a0510477280505135dd2d9
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c3e26d294d51dc7044158b05c1ac39015c494610
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="dependency-injection-into-controllers"></a>Inserción de dependencias en controladores
+# <a name="dependency-injection-into-controllers-in-aspnet-core"></a>Inserción de dependencias en controladores en ASP.NET Core
 
 <a name="dependency-injection-controllers"></a>
 
@@ -33,17 +33,17 @@ La inserción de dependencias es una técnica que sigue el [principio de inversi
 
 La compatibilidad integrada de ASP.NET Core con la inserción de dependencias basada en constructores se extiende a los controladores MVC. Simplemente con agregar un tipo de servicio al controlador como un parámetro de constructor, ASP.NET Core intentará resolver ese tipo mediante su contenedor de servicios integrado. Normalmente, los servicios se definen mediante interfaces, aunque no siempre es así. Por ejemplo, si la aplicación tiene lógica de negocios que depende de la hora actual, también se puede insertar un servicio que recupera la hora (en lugar de codificarla de forma rígida), lo que permitiría superar las pruebas en implementaciones que usan una hora determinada.
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Interfaces/IDateTime.cs)]
 
 
 Implementar una interfaz como esta para que utilice el reloj del sistema en tiempo de ejecución no es nada complicado:
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Services/SystemDateTime.cs)]
 
 
 Teniendo esto implementado, podemos utilizar el servicio en el controlador. En este caso, hemos agregado lógica al método `Index` de `HomeController` para presentar un saludo al usuario en función de la hora del día.
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=8,10,12,17,18,19,20,21,22,23,24,25,26,27,28,29,30&range=1-31,51-52)]
 
 Si se ejecuta la aplicación ahora, probablemente se producirá un error:
 
@@ -56,7 +56,7 @@ Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceP
 
 Este error se produce cuando no se ha configurado un servicio en el método `ConfigureServices` de nuestra clase `Startup`. Para especificar que las solicitudes de `IDateTime` deben resolverse mediante una instancia de `SystemDateTime`, agregue la línea resaltada en la siguiente lista a su método `ConfigureServices`:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=4&range=26-27,42-44)]
 
 > [!NOTE]
 > Este servicio en particular podría implementarse mediante cualquiera de las diversas opciones de duración (`Transient`, `Scoped` o `Singleton`). Consulte [Dependency Injection](../../fundamentals/dependency-injection.md) (Inserción de dependencias) para ver cómo afectará al comportamiento de su servicio cada una de estas opciones de ámbito.
@@ -66,7 +66,7 @@ Una vez que se ha configurado el servicio, al ejecutar la aplicación y navegar 
 ![Saludo del servidor](dependency-injection/_static/server-greeting.png)
 
 >[!TIP]
-> Consulte [Testing Controller Logic](testing.md) (Comprobación de la lógica de controlador) para obtener información sobre cómo solicitar explícitamente dependencias [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) en controladores para facilitar la comprobación de código.
+> Vea [Testing controller logic](testing.md) (Comprobación de la lógica de controlador) para obtener información sobre cómo solicitar explícitamente dependencias [http://deviq.com/explicit-dependencies-principle/](http://deviq.com/explicit-dependencies-principle/) en controladores para facilitar la comprobación de código.
 
 La inserción de dependencias integrada de ASP.NET Core es compatible con tener un solo constructor para las clases que soliciten servicios. Si se tiene más de un constructor, es posible recibir la siguiente excepción:
 
@@ -83,7 +83,7 @@ Tal como indica el mensaje de error, tener un solo constructor corregiría el pr
 
 A veces, un servicio solo es necesario para una acción en el controlador. En este caso, puede tener sentido insertar el servicio como un parámetro en el método de acción. Para ello, se marca el parámetro con el atributo `[FromServices]`, tal como se muestra a continuación:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/HomeController.cs?highlight=1&range=33-38)]
 
 ## <a name="accessing-settings-from-a-controller"></a>Acceso a la configuración desde un controlador
 
@@ -91,17 +91,17 @@ El acceso a la configuración de la aplicación o a los valores de configuració
 
 Para trabajar con el patrón de opciones, debe crear una clase como la siguiente que represente las opciones:
 
-[!code-csharp[Main](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
+[!code-csharp[](dependency-injection/sample/src/ControllerDI/Model/SampleWebSettings.cs)]
 
 A continuación, necesita configurar la aplicación para que use el modelo de opciones y agregar la clase de configuración a la colección de servicios en `ConfigureServices`:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Startup.cs?highlight=3,4,5,6,9,16,19&range=14-44)]
 
 > [!NOTE]
 > En la lista anterior, se configura la aplicación para que lea la configuración de un archivo con formato JSON. La configuración también se puede definir completamente en código, como se muestra en el código comentado anterior. Consulte [Configuración](xref:fundamentals/configuration/index) para conocer más opciones de configuración.
 
 Una vez que haya especificado un objeto de configuración fuertemente tipado (en este caso, `SampleWebSettings`) y lo haya agregado a la colección de servicios, podrá solicitarlo desde cualquier método de acción o controlador mediante la solicitud de una instancia de `IOptions<T>` (en este caso, `IOptions<SampleWebSettings>`). El código siguiente muestra cómo se podría solicitar la configuración desde un controlador:
 
-[!code-csharp[Main](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
+[!code-csharp[](./dependency-injection/sample/src/ControllerDI/Controllers/SettingsController.cs?highlight=3,5,7&range=7-22)]
 
 Seguir el patrón de opciones permite desacoplar entre sí los valores y la configuración, y garantiza que el controlador respete la [separación de intereses](http://deviq.com/separation-of-concerns/), ya que no necesita saber cómo ni dónde encontrar la información de configuración. También hace que sea más fácil realizar una prueba unitaria de la [lógica del controlador](testing.md), puesto que no hay efecto [static cling](http://deviq.com/static-cling/) ni creación directa de instancias de clases de configuración dentro de la clase de controlador.

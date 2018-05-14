@@ -1,23 +1,23 @@
 ---
-title: Vistas parciales
+title: Vistas parciales en ASP.NET Core
 author: ardalis
-description: Usar vistas parciales en ASP.NET Core MVC
+description: Obtenga información sobre las vistas parciales, que son vistas que se representan dentro de otra vista, y cuándo deben usarse en aplicaciones ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 03/14/2017
+ms.date: 03/14/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/partial
-ms.openlocfilehash: 169948e5d7dc8068463ed61114666148b785b217
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 3deaaeb666e5443d0784f2ac6977e58e1b25d711
+ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 03/20/2018
 ---
-# <a name="partial-views"></a>Vistas parciales
+# <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
-Por [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Steve Smith](https://ardalis.com/), [Maher JENDOUBI](https://twitter.com/maherjend), [Rick Anderson](https://twitter.com/RickAndMSFT) y [Scott Sauber](https://twitter.com/scottsauber)
 
 ASP.NET Core MVC admite vistas parciales, las cuales resultan útiles cuando tiene partes reutilizables de páginas web que quiere compartir entre distintas vistas.
 
@@ -41,19 +41,17 @@ Las vistas parciales se crean como cualquier otra vista: se crea un archivo *.cs
 
 ## <a name="referencing-a-partial-view"></a>Referencia a una vista parcial
 
-Desde una página de vista, hay varias maneras de representar una vista parcial. La forma más sencilla consiste en usar `Html.Partial`, que devuelve un `IHtmlString` y se puede hacer referencia a ella agregando un prefijo a la llamada con `@`:
+Desde una página de vista, hay varias maneras de representar una vista parcial. El procedimiento recomendado consiste en usar `Html.PartialAsync`, que devuelve un `IHtmlString` y se puede hacer referencia a ella agregando un prefijo a la llamada con `@`:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=9)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
 
-El método `PartialAsync` está disponible para las vistas parciales que contienen código asincrónico (aunque normalmente no se recomienda el código en las vistas):
+Puede representar una vista parcial con `RenderPartialAsync`. Este método no devuelve ningún resultado; transmite por secuencias la salida representada directamente a la respuesta. Como no devuelve ningún resultado, debe llamarse desde un bloque de código de Razor:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=8)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=11-13)]
 
-Puede representar una vista parcial con `RenderPartial`. Este método no devuelve ningún resultado; transmite por secuencias la salida representada directamente a la respuesta. Como no devuelve ningún resultado, debe llamarlo desde un bloque de código de Razor (también puede llamar a `RenderPartialAsync` si es necesario):
+Dado que transmite por secuencias el resultado directamente, `RenderPartialAsync` puede funcionar mejor en algunos escenarios, pero se recomienda usar `PartialAsync`.
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Home/About.cshtml?range=10-12)]
-
-Dado que transmite por secuencias el resultado directamente, `RenderPartial` y `RenderPartialAsync` pueden funcionar mejor en algunos escenarios. Pero en la mayoría de los casos se recomienda usar `Partial` y `PartialAsync`.
+Aunque hay equivalentes sincrónicos de `Html.PartialAsync` (`Html.Partial`) y de `Html.RenderPartialAsync` (`Html.RenderPartial`), su uso no es aconsejable, ya que hay escenarios donde producen interbloqueos. Los métodos sincrónicos dejarán de estar disponibles en futuras versiones.
 
 > [!NOTE]
 > Si las vistas necesitan ejecutar código, el patrón recomendado es usar un [componente de vista](view-components.md) en lugar de una vista parcial.
@@ -62,21 +60,21 @@ Dado que transmite por secuencias el resultado directamente, `RenderPartial` y `
 
 Cuando se hace referencia a una vista parcial, se puede hacer referencia a su ubicación de varias maneras:
 
-```text
+```cshtml
 // Uses a view in current folder with this name
 // If none is found, searches the Shared folder
-@Html.Partial("ViewName")
+@await Html.PartialAsync("ViewName")
 
 // A view with this name must be in the same folder
-@Html.Partial("ViewName.cshtml")
+@await Html.PartialAsync("ViewName.cshtml")
 
 // Locate the view based on the application root
 // Paths that start with "/" or "~/" refer to the application root
-@Html.Partial("~/Views/Folder/ViewName.cshtml")
-@Html.Partial("/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("~/Views/Folder/ViewName.cshtml")
+@await Html.PartialAsync("/Views/Folder/ViewName.cshtml")
 
 // Locate the view using relative paths
-@Html.Partial("../Account/LoginPartial.cshtml")
+@await Html.PartialAsync("../Account/LoginPartial.cshtml")
 ```
 
 Puede tener diferentes vistas parciales con el mismo nombre en distintas carpetas de vistas. Cuando se hace referencia a las vistas por su nombre (sin extensión de archivo), las vistas de cada carpeta usarán la vista parcial en la misma carpeta que ellas. También puede especificar una vista parcial predeterminada que vaya a usar, colocándola en la carpeta *Shared*. Cualquier vista que no tenga su propia versión de la vista parcial usará la vista parcial compartida. Puede tener una vista parcial predeterminada (en *Shared*), que se haya reemplazado por una vista parcial con el mismo nombre y en la misma carpeta que la vista principal.
@@ -92,31 +90,31 @@ Cuando se crea una instancia de una vista parcial, obtiene una copia del diccion
 
 Puede pasar una instancia de `ViewDataDictionary` a la vista parcial:
 
-```csharp
-@Html.Partial("PartialName", customViewData)
-   ```
+```cshtml
+@await Html.PartialAsync("PartialName", customViewData)
+```
 
-También puede pasar un modelo a una vista parcial. Puede tratarse del modelo de vista de la página, o una parte de él, o un objeto personalizado. Puede pasar un modelo a `Partial`, `PartialAsync`, `RenderPartial` o `RenderPartialAsync`:
+También puede pasar un modelo a una vista parcial. Puede tratarse del modelo de vista de la página o un objeto personalizado. Puede pasar un modelo a `PartialAsync` o a `RenderPartialAsync`:
 
-```csharp
-@Html.Partial("PartialName", viewModel)
-   ```
+```cshtml
+@await Html.PartialAsync("PartialName", viewModel)
+```
 
 Puede pasar una instancia de `ViewDataDictionary` y un modelo de vista a una vista parcial:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml?range=15-16)]
 
 El marcado siguiente muestra la vista *Views/Articles/Read.cshtml* que contiene dos vistas parciales. La segunda vista parcial se pasa a un modelo y `ViewData` a la vista parcial. Puede pasar un nuevo diccionario de `ViewData` a la vez que conserva el `ViewData` existente si usa la sobrecarga del constructor de `ViewDataDictionary` resaltado aquí abajo:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/Read.cshtml)]
 
 *Views/Shared/AuthorPartial*:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Shared/AuthorPartial.cshtml)]
 
 La vista parcial *ArticleSection*:
 
-[!code-html[Main](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
+[!code-cshtml[](partial/sample/src/PartialViewsSample/Views/Articles/ArticleSection.cshtml)]
 
 En tiempo de ejecución, las vistas parciales se representan en la vista principal, que a su vez se representa dentro de *_Layout.cshtml* compartido.
 

@@ -1,7 +1,7 @@
 ---
 title: Control de solicitudes con controladores en ASP.NET Core MVC
 author: ardalis
-description: 
+description: ''
 manager: wpickett
 ms.author: riande
 ms.date: 07/03/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/actions
-ms.openlocfilehash: 1c6bf5ad92a43274af351652d240e2fa8873a956
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 187ac69322545685380ad8f810bb65208c093d82
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="handling-requests-with-controllers-in-aspnet-core-mvc"></a>Control de solicitudes con controladores en ASP.NET Core MVC
+# <a name="handle-requests-with-controllers-in-aspnet-core-mvc"></a>Control de solicitudes con controladores en ASP.NET Core MVC
 
 Por [Steve Smith](https://ardalis.com/) y [Scott Addie](https://github.com/scottaddie)
 
@@ -54,7 +54,7 @@ Las acciones pueden devolver de todo, pero suelen devolver una instancia de `IAc
 
 ### <a name="controller-helper-methods"></a>Métodos auxiliares de controlador
 
-Los controladores normalmente heredan de [Controller](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.controller), aunque esto no es necesario. Al derivar de `Controller`, se proporciona acceso a tres categorías de métodos auxiliares:
+Los controladores normalmente heredan de [Controller](/dotnet/api/microsoft.aspnetcore.mvc.controller), aunque esto no es necesario. Al derivar de `Controller`, se proporciona acceso a tres categorías de métodos auxiliares:
 
 #### <a name="1-methods-resulting-in-an-empty-response-body"></a>1. Métodos que producen un cuerpo de respuesta vacío
 
@@ -76,7 +76,7 @@ Hay dos tipos de resultados en esta categoría: redireccionamiento y código de 
 
 La mayoría de los métodos auxiliares de esta categoría incluye una propiedad `ContentType`, lo que permite establecer el encabezado de respuesta `Content-Type` para describir el cuerpo de la respuesta.
 
-Hay dos tipos de resultados en esta categoría: [vista](xref:mvc/views/overview) y [respuesta con formato](xref:mvc/models/formatting).
+Hay dos tipos de resultados en esta categoría: [vista](xref:mvc/views/overview) y [respuesta con formato](xref:web-api/advanced/formatting).
 
 * **Vista**
 
@@ -90,7 +90,7 @@ Hay dos tipos de resultados en esta categoría: [vista](xref:mvc/views/overview)
 
 #### <a name="3-methods-resulting-in-a-non-empty-response-body-formatted-in-a-content-type-negotiated-with-the-client"></a>3. Métodos que producen un cuerpo de respuesta no vacío con formato en un tipo de contenido negociado con el cliente
 
-Esta categoría también se conoce como **negociación de contenido**. La [negociación de contenido](xref:mvc/models/formatting#content-negotiation) se aplica siempre que una acción devuelve un tipo [ObjectResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.objectresult) o un valor distinto de una implementación [IActionResult](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.mvc.iactionresult). Si una acción devuelve una implementación que no sea `IActionResult` (por ejemplo, `object`), también devolverá una respuesta con formato.
+Esta categoría también se conoce como **negociación de contenido**. La [negociación de contenido](xref:web-api/advanced/formatting#content-negotiation) se aplica siempre que una acción devuelve un tipo [ObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.objectresult) o un valor distinto de una implementación [IActionResult](/dotnet/api/microsoft.aspnetcore.mvc.iactionresult). Si una acción devuelve una implementación que no sea `IActionResult` (por ejemplo, `object`), también devolverá una respuesta con formato.
 
 Algunos métodos auxiliares de este tipo son `BadRequest`, `CreatedAtRoute` y `Ok`. Algunos ejemplos de estos métodos son `return BadRequest(modelState);`, `return CreatedAtRoute("routename", values, newobject);` y `return Ok(value);`, respectivamente. Tenga en cuenta que `BadRequest` y `Ok` realizan la negociación de contenido solo cuando se pasa un valor; si no se pasa un valor, actúan como tipos de resultado de código de estado HTTP. Por otro lado, el método `CreatedAtRoute` siempre realiza la negociación de contenido, ya que todas sus sobrecargas requieren que se pase un valor.
 
@@ -104,4 +104,4 @@ El control de errores y el almacenamiento en caché de respuestas suelen ser cue
    * [Control de errores](xref:mvc/controllers/filters#exception-filters)
    * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 
-Es posible controlar muchas cuestiones transversales mediante el uso de filtros o [software intermedio](xref:fundamentals/middleware) personalizado.
+Es posible controlar muchas cuestiones transversales mediante el uso de filtros o [software intermedio](xref:fundamentals/middleware/index) personalizado.

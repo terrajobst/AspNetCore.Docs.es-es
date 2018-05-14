@@ -1,7 +1,7 @@
 ---
-title: "Publicación de una aplicación ASP.NET Core en Azure con las herramientas de línea de comandos"
+title: Publicar una aplicación ASP.NET Core en Azure con las herramientas de línea de comandos
 author: camsoper
-description: "Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con el cliente de línea de comandos de Git."
+description: Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con el cliente de línea de comandos de Git.
 manager: wpickett
 ms.author: casoper
 ms.custom: mvc
@@ -12,15 +12,17 @@ ms.technology: aspnet
 ms.topic: get-started-article
 services: multiple
 uid: tutorials/publish-to-azure-webapp-using-cli
-ms.openlocfilehash: 0418a2695d3afb6dc2c55b8f694a97d62239835f
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0462a4cf18bba23643ed3b1b4e6b76bdbceb24a8
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="deploy-an-aspnet-core-application-to-azure-app-service-from-the-command-line"></a>Implementación de una aplicación de ASP.NET Core en Azure App Service desde la línea de comandos
+# <a name="publish-an-aspnet-core-app-to-azure-with-command-line-tools"></a>Publicar una aplicación ASP.NET Core en Azure con las herramientas de línea de comandos
 
 Por [Cam Soper](https://twitter.com/camsoper)
+
+[!INCLUDE [Azure App Service Preview Notice](../includes/azure-apps-preview-notice.md)]
 
 En este tutorial se explica cómo compilar e implementar una aplicación de ASP.NET Core en Microsoft Azure App Service con las herramientas de línea de comandos.  Cuando termine, tendrá una aplicación web integrada en ASP.NET MVC Core hospedada como una aplicación web de Azure App Service.  Este tutorial se escribe con herramientas de línea de comandos de Windows, pero también puede aplicarse a entornos de macOS y Linux.  
 
@@ -35,7 +37,7 @@ En este tutorial aprenderá a:
 Para completar este tutorial, necesita:
 
 * Una [suscripción de Microsoft Azure](https://azure.microsoft.com/free/)
-* [Núcleo de .NET](https://www.microsoft.com/net/download/core)
+* [!INCLUDE [](~/includes/net-core-sdk-download-link.md)]
 * Un cliente de línea de comandos de [Git](https://www.git-scm.com/)
 
 ## <a name="create-a-web-application"></a>Creación de una aplicación web

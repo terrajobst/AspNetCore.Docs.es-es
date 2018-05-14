@@ -1,7 +1,7 @@
 ---
-title: "Inserción de dependencias en ASP.NET Core"
+title: Inserción de dependencias en ASP.NET Core
 author: ardalis
-description: "Obtenga información sobre la manera en que ASP.NET Core implementa la inserción de dependencias y cómo se usa."
+description: Obtenga información sobre la manera en que ASP.NET Core implementa la inserción de dependencias y cómo se usa.
 manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: acbce5d139da0acc0870a9cf23a779bf27699a61
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -48,7 +48,6 @@ La inserción de constructor requiere que el constructor en cuestión sea *públ
 
 > A suitable constructor for type 'YourType' couldn't be located. Ensure the type is concrete and services are registered for all parameters of a public constructor. (No se pudo encontrar un constructor adecuado para el tipo "SuTipo". Asegúrese de que el tipo sea concreto y de que los servicios estén registrados para todos los parámetros de un constructor público.)
 
-
 La inserción de constructor requiere que solo exista un constructor aplicable. Se admiten las sobrecargas de constructor, pero solo puede existir una sobrecarga cuyos argumentos pueda cumplir la inserción de dependencias. Si existe más de una, la aplicación producirá una `InvalidOperationException`:
 
 > Multiple constructors accepting all given argument types have been found in type 'YourType'. Multiple constructors accepting all given argument types have been found in type 'YourType'. There should only be one applicable constructor. (Se han encontrado en el tipo "SuTipo" varios constructores que aceptan todos los tipos de argumento especificados. Solo debe haber un constructor aplicable.)
@@ -77,35 +76,35 @@ El método `ConfigureServices` de la clase `Startup` se encarga de definir los s
 
 | Tipo de servicio | Período de duración |
 | ----- | ------- |
-| [Microsoft.AspNetCore.Hosting.IHostingEnvironment](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.ihostingenvironment) | Singleton |
-| [Microsoft.Extensions.Logging.ILoggerFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.iloggerfactory) | Singleton |
-| [Microsoft.Extensions.Logging.ILogger&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) | Singleton |
-| [Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | Transitorio |
-| [Microsoft.AspNetCore.Http.IHttpContextFactory](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.http.ihttpcontextfactory) | Transitorio |
-| [Microsoft.Extensions.Options.IOptions&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.ioptions-1) | Singleton |
+| [Microsoft.AspNetCore.Hosting.IHostingEnvironment](/dotnet/api/microsoft.aspnetcore.hosting.ihostingenvironment) | Singleton |
+| [Microsoft.Extensions.Logging.ILoggerFactory](/dotnet/api/microsoft.extensions.logging.iloggerfactory) | Singleton |
+| [Microsoft.Extensions.Logging.ILogger&lt;T&gt;](/dotnet/api/microsoft.extensions.logging.ilogger) | Singleton |
+| [Microsoft.AspNetCore.Hosting.Builder.IApplicationBuilderFactory](/dotnet/api/microsoft.aspnetcore.hosting.builder.iapplicationbuilderfactory) | Transitorio |
+| [Microsoft.AspNetCore.Http.IHttpContextFactory](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextfactory) | Transitorio |
+| [Microsoft.Extensions.Options.IOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.ioptions-1) | Singleton |
 | [System.Diagnostics.DiagnosticSource](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticsource) | Singleton |
 | [System.Diagnostics.DiagnosticListener](https://docs.microsoft.com/dotnet/core/api/system.diagnostics.diagnosticlistener) | Singleton |
-| [Microsoft.AspNetCore.Hosting.IStartupFilter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.istartupfilter) | Transitorio |
-| [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.objectpool.objectpoolprovider) | Singleton |
-| [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.options.iconfigureoptions-1) | Transitorio |
-| [Microsoft.AspNetCore.Hosting.Server.IServer](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.server.iserver) | Singleton |
-| [Microsoft.AspNetCore.Hosting.IStartup](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.istartup) | Singleton |
-| [Microsoft.AspNetCore.Hosting.IApplicationLifetime](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | Singleton |
+| [Microsoft.AspNetCore.Hosting.IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) | Transitorio |
+| [Microsoft.Extensions.ObjectPool.ObjectPoolProvider](/dotnet/api/microsoft.extensions.objectpool.objectpoolprovider) | Singleton |
+| [Microsoft.Extensions.Options.IConfigureOptions&lt;T&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1) | Transitorio |
+| [Microsoft.AspNetCore.Hosting.Server.IServer](/dotnet/api/microsoft.aspnetcore.hosting.server.iserver) | Singleton |
+| [Microsoft.AspNetCore.Hosting.IStartup](/dotnet/api/microsoft.aspnetcore.hosting.istartup) | Singleton |
+| [Microsoft.AspNetCore.Hosting.IApplicationLifetime](/dotnet/api/microsoft.aspnetcore.hosting.iapplicationlifetime) | Singleton |
 
 A continuación se muestra un ejemplo de cómo agregar servicios adicionales al contenedor mediante una serie de métodos de extensión como `AddDbContext`, `AddIdentity` y `AddMvc`.
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
+[!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=5-6,8-10,12&range=39-56)]
 
 Las características y el software intermedio proporcionados por ASP.NET, como MVC, siguen la convención de usar un solo método de extensión Add*NombreDelServicio* para registrar todos los servicios requeridos por esa característica.
 
->[!TIP]
+> [!TIP]
 > Puede solicitar determinados servicios proporcionados por el marco de trabajo dentro de métodos `Startup` mediante sus listas de parámetros. Vea [Inicio de la aplicación](startup.md) para obtener más detalles.
 
 ## <a name="registering-services"></a>Registrar servicios
 
 Puede registrar sus propios servicios de aplicación de la manera siguiente. El primer tipo genérico representa el tipo (normalmente una interfaz) que se solicitará desde el contenedor. El segundo tipo genérico representa el tipo concreto del cual creará una instancia el contenedor y que se usará para responder a dichas solicitudes.
 
-[!code-csharp[Main](../common/samples/WebApplication1/Startup.cs?range=53-54)]
+[!code-csharp[](../common/samples/WebApplication1/Startup.cs?range=53-54)]
 
 > [!NOTE]
 > Cada método de extensión `services.Add<ServiceName>` agrega servicios (y potencialmente los configura). Por ejemplo, `services.AddMvc()` agrega los servicios que requiere MVC. Se recomienda que siga esta convención y coloque los métodos de extensión en el espacio de nombres `Microsoft.Extensions.DependencyInjection` para encapsular grupos de registros del servicio.
@@ -114,18 +113,18 @@ El método `AddTransient` se usa para asignar tipos abstractos a servicios concr
 
 En el ejemplo incluido en este artículo, hay un controlador simple que muestra los nombres de caracteres, denominado `CharactersController`. Su método `Index` muestra la lista actual de caracteres que se han almacenado en la aplicación e inicializa la colección con unos cuantos caracteres, si no existe ninguno. Tenga en cuenta que, aunque esta aplicación usa Entity Framework Core y la clase `ApplicationDbContext` para su persistencia, ninguno es evidente en el controlador. En su lugar, el mecanismo de acceso a datos específico se ha abstraído detrás de una interfaz, `ICharacterRepository`, que sigue el [modelo de repositorio](http://deviq.com/repository-pattern/). Se solicita una instancia de `ICharacterRepository` mediante el constructor y se asigna a un campo privado, que después se usa para tener acceso a caracteres, según sea necesario.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Controllers/CharactersController.cs?highlight=3,5,6,7,8,14,21-27&range=8-36)]
 
 `ICharacterRepository` define los dos métodos que el controlador necesita para funcionar con instancias de `Character`.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/ICharacterRepository.cs?highlight=8,9)]
 
 Esta interfaz la implementa a su vez un tipo concreto, `CharacterRepository`, que se usa en tiempo de ejecución.
 
 > [!NOTE]
 > La manera en que se usa la inserción de dependencias con la clase `CharacterRepository` es un modelo general que puede seguir para todos los servicios de aplicación, no solo en "repositorios" o clases de acceso a datos.
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Models/CharacterRepository.cs?highlight=9,11,12,13,14)]
 
 Tenga en cuenta que `CharacterRepository` solicita `ApplicationDbContext` en su constructor. No es raro que la inserción de dependencias se use encadenada de este modo, donde cada dependencia solicitada solicita a su vez sus propias dependencias. El contenedor se encarga de resolver todas las dependencias del gráfico y devolver el servicio totalmente resuelto.
 
@@ -134,11 +133,11 @@ Tenga en cuenta que `CharacterRepository` solicita `ApplicationDbContext` en su 
 
 En este caso, es necesario registrar `ICharacterRepository` y `ApplicationDbContext` con el contenedor de servicios de `ConfigureServices` en `Startup`. `ApplicationDbContext` se configura con la llamada al método de extensión `AddDbContext<T>`. En el código siguiente se muestra el registro del tipo `CharacterRepository`.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?highlight=3-5,11&range=16-32)]
 
 Es necesario agregar contextos de Entity Framework al contenedor de servicios mediante la duración `Scoped`. Esto se lleva a cabo automáticamente si usa los métodos auxiliares, tal como se ha indicado anteriormente. Los repositorios que vayan a usar Entity Framework deben usar la misma duración.
 
->[!WARNING]
+> [!WARNING]
 > Debe ser especialmente cauteloso al resolver un servicio `Scoped` desde un singleton. Es probable que en este caso el servicio tenga un estado incorrecto al procesar las solicitudes posteriores.
 
 Los servicios que tengan dependencias deben registrarlas en el contenedor. Si el constructor de un servicio requiere un primitivo, como `string`, se puede insertar mediante la [configuración](xref:fundamentals/configuration/index) y el [patrón de opciones](xref:fundamentals/configuration/options).
@@ -155,6 +154,9 @@ Los servicios de duración transitoria se crean cada vez que solicitan. Esta dur
 
 Los servicios de duración con ámbito se crean una vez por solicitud.
 
+> [!WARNING]
+> Si usa un servicio con ámbito en un middleware, inserte el servicio en el método `Invoke` o `InvokeAsync`. No lo inserte a través de la inserción de constructores, porque ello hace que el servicio se comporte como un singleton.
+
 **Singleton**
 
 Los servicios de duración de singleton se crean la primera vez que se solicitan (o cuando se ejecuta `ConfigureServices` si se especifica ahí una instancia) y todas las solicitudes posteriores usan la misma instancia. Si la aplicación requiere un comportamiento de singleton, se recomienda permitir que el contenedor de servicios administre la duración del servicio, en lugar de implementar el patrón de diseño de singleton y administrar por sí mismo la duración del objeto en la clase.
@@ -163,21 +165,21 @@ Los servicios se pueden registrar con el contenedor de varias maneras. Ya hemos 
 
 Para mostrar la diferencia entre estas duraciones y opciones de registro, imagine una interfaz simple que representa una o varias tareas como una *operación* con un identificador único, `OperationId`. Según cómo se configure la duración de este servicio, el contenedor proporcionará las mismas instancias o instancias diferentes del servicio a la clase que lo solicita. Para dejar claro qué duración se solicita, crearemos un tipo por opción de duración:
 
-[!code-csharp[Main](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
+[!code-csharp[](../fundamentals/dependency-injection/sample/DependencyInjectionSample/Interfaces/IOperation.cs?highlight=5-8)]
 
 Estas interfaces se implementan mediante una sola clase, `Operation`, que acepta un `Guid` en su constructor, o usa un `Guid` nuevo si no se proporciona ninguno.
 
 Después, en `ConfigureServices`, se agrega cada tipo al contenedor según su duración con nombre:
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Startup.cs?range=26-32)]
 
 Tenga en cuenta que el servicio `IOperationSingletonInstance` usa una instancia específica con un identificador conocido de `Guid.Empty` para que quede claro cuándo se usa este tipo (su GUID contendrá únicamente ceros). También hemos registrado un `OperationService` que depende de cada uno de los otros tipos `Operation`, para que quede claro dentro de una solicitud si este servicio obtiene la misma instancia que el controlador o una nueva para cada tipo de operación. Lo único que hace este servicio es exponer sus dependencias como propiedades, para que se puedan mostrar en la vista.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Services/OperationService.cs)]
 
 Para mostrar a la aplicación las duraciones de los objetos dentro de las solicitudes individuales independientes y entre estas, el ejemplo incluye un `OperationsController` que solicita cada tipo de `IOperation`, así como un `OperationService`. Después, la acción `Index` muestra todos los valores del controlador y del servicio `OperationId`.
 
-[!code-csharp[Main](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
+[!code-csharp[](dependency-injection/sample/DependencyInjectionSample/Controllers/OperationsController.cs)]
 
 Ahora se realizan dos solicitudes diferentes a esta acción del controlador:
 
@@ -193,6 +195,48 @@ Observe cuál de los valores `OperationId` varía dentro de una solicitud y entr
 
 * Los objetos *singleton* son iguales para todos los objetos y solicitudes (independientemente de si se proporciona una instancia en `ConfigureServices`)
 
+## <a name="resolve-a-scoped-service-within-the-application-scope"></a>Resolver un servicio con ámbito dentro del ámbito de la aplicación
+
+Cree un [IServiceScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescope) con [IServiceScopeFactory.CreateScope](/dotnet/api/microsoft.extensions.dependencyinjection.iservicescopefactory.createscope) para resolver un servicio con ámbito dentro del ámbito de la aplicación. Este método resulta útil para tener acceso a un servicio con ámbito durante el inicio para realizar tareas de inicialización. En el siguiente ejemplo se indica cómo obtener un contexto para `MyScopedService` en `Program.Main`:
+
+```csharp
+public static void Main(string[] args)
+{
+    var host = BuildWebHost(args);
+
+    using (var serviceScope = host.Services.CreateScope())
+    {
+        var services = serviceScope.ServiceProvider;
+
+        try
+        {
+            var serviceContext = services.GetRequiredService<MyScopedService>();
+            // Use the context here
+        }
+        catch (Exception ex)
+        {
+            var logger = services.GetRequiredService<ILogger<Program>>();
+            logger.LogError(ex, "An error occurred.");
+        }
+    }
+
+    host.Run();
+}
+```
+
+## <a name="scope-validation"></a>Validación del ámbito
+
+Cuando la aplicación se ejecuta en el entorno de desarrollo de ASP.NET Core 2.0 o posterior, el proveedor de servicios predeterminado realiza comprobaciones para confirmar lo siguiente:
+
+* Los servicios con ámbito no se resuelven directa o indirectamente desde el proveedor de servicios raíz.
+* Los servicios con ámbito no se insertan directa o indirectamente en singletons.
+
+El proveedor de servicios raíz se crea cuando se llama a [BuildServiceProvider](/dotnet/api/microsoft.extensions.dependencyinjection.servicecollectioncontainerbuilderextensions.buildserviceprovider). La vigencia del proveedor de servicios raíz es la misma que la de la aplicación o el servidor cuando el proveedor se inicia con la aplicación, y se elimina cuando la aplicación se cierra.
+
+De la eliminación de los servicios con ámbito se encarga el contenedor que los creó. Si un servicio con ámbito se crea en el contenedor raíz, su vigencia sube a la del singleton, ya que solo lo puede eliminar el contenedor raíz cuando la aplicación o el servidor se cierran. Al validar los ámbitos de servicio, este tipo de situaciones se detectan cuando se llama a `BuildServiceProvider`.
+
+Para más información, vea [Validación del ámbito](xref:fundamentals/hosting#scope-validation) en el tema sobre hospedaje.
+
 ## <a name="request-services"></a>Servicios de solicitud
 
 Los servicios disponibles en una solicitud de ASP.NET desde `HttpContext` se exponen mediante la colección `RequestServices`.
@@ -201,7 +245,7 @@ Los servicios disponibles en una solicitud de ASP.NET desde `HttpContext` se exp
 
 Los servicios de solicitud representan los servicios que se configuran y se solicitan como parte de la aplicación. Cuando los objetos especifican dependencias, estas se cumplen mediante los tipos que se encuentran en `RequestServices`, no en `ApplicationServices`.
 
-Por lo general, no debe usar estas propiedades directamente. Se recomienda que solicite los tipos que las clases necesitan mediante el constructor de la clase y que deje que el marco de trabajo inserte estas dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas](../testing/index.md)) y acopladas de manera más flexible.
+Por lo general, no debe usar estas propiedades directamente. Se recomienda que solicite los tipos que las clases necesitan mediante el constructor de la clase y que deje que el marco de trabajo inserte estas dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas y depuración](../testing/index.md)) y acopladas de manera más flexible.
 
 > [!NOTE]
 > Se recomienda que solicite las dependencias como parámetros del constructor para obtener acceso a la colección `RequestServices`.
@@ -315,7 +359,8 @@ Recuerde que la inserción de dependencias es una *alternativa* al uso de patron
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Inicio de aplicaciones](xref:fundamentals/startup)
-* [Pruebas](xref:testing/index)
+* [Prueba y depuración](xref:testing/index)
+* [Factory-based middleware activation](xref:fundamentals/middleware/extensibility) (Activación de middleware basada en Factory)
 * [Escritura de código limpio en ASP.NET Core con inserción de dependencias (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Preludio del diseño de aplicaciones administradas por contenedor: ¿cuál es el lugar del contenedor?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)
 * [Principio de dependencias explícitas](http://deviq.com/explicit-dependencies-principle/)

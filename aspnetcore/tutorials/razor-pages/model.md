@@ -1,23 +1,24 @@
 ---
-title: "Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core"
+title: Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 author: rick-anderson
-description: "Adición de un modelo a una aplicación de páginas de Razor en ASP.NET Core"
+description: Obtenga información sobre cómo agregar clases para administrar películas en una base de datos con Entity Framework Core (EF Core).
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 07/27/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 0ce7693bfdc37d930488304b329dbcd533a5ec1d
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: a288b454ac1b418ef0deacb3643be22d440cb938
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="adding-a-model-to-a-razor-pages-app"></a>Adición de un modelo a una aplicación de páginas de Razor
+# <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
-[!INCLUDE[model1](../../includes/RP/model1.md)]
+[!INCLUDE [model1](../../includes/RP/model1.md)]
 
 ## <a name="add-a-data-model"></a>Agregar un modelo de datos
 
@@ -25,21 +26,21 @@ En el Explorador de soluciones, haga clic con el botón derecho en el proyecto *
 
 Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Asigne a la clase el nombre **Movie** y agregue las siguientes propiedades:
 
-[!INCLUDE[model 2](../../includes/RP/model2.md)]
+[!INCLUDE [model 2](../../includes/RP/model2.md)]
 
 <a name="cs"></a>
 ### <a name="add-a-database-connection-string"></a>Agregar una cadena de conexión de base de datos
 
 Agregue una cadena de conexión al archivo *appsettings.json*.
 
-[!code-json[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=8-10)]
+[!code-json[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=8-10)]
 
 <a name="reg"></a>
 ###  <a name="register-the-database-context"></a>Registrar el contexto de base de datos
 
 Registre el contexto de base de datos con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) en el archivo *Startup.cs*.
 
-[!code-csharp[Main](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-5,7-9)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=3-5,7-9)]
 
 Compile el proyecto para comprobar que no contiene errores.
 
@@ -64,15 +65,23 @@ Add-Migration Initial
 Update-Database
 ```
 
+Se pueden usar los siguientes comandos de la CLI de .NET Core de forma alternativa:
+
+```console
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet ef migrations add Initial
+dotnet ef database update
+```
+
 El comando `Install-Package` instala las herramientas necesarias para ejecutar el motor de scaffolding.
 
 El comando `Add-Migration` genera el código para crear el esquema de base de datos inicial. El esquema se basa en el modelo especificado en `DbContext` (en el archivo *Models/MovieContext.cs*). El argumento `Initial` se usa para asignar un nombre a las migraciones. Puede usar cualquier nombre, pero se suele elegir uno que describa la migración. Vea [Introduction to migrations](xref:data/ef-mvc/migrations#introduction-to-migrations) (Introducción a las migraciones) para obtener más información.
 
 El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/\<time-stamp>_InitialCreate.cs*, con lo que se crea la base de datos.
 
-[!INCLUDE[model 4windows](../../includes/RP/model4Win.md)]
+[!INCLUDE [model 4windows](../../includes/RP/model4Win.md)]
 
-[!INCLUDE[model 4](../../includes/RP/model4tbl.md)]
+[!INCLUDE [model 4](../../includes/RP/model4tbl.md)]
 
 <a name="test"></a>
 ### <a name="test-the-app"></a>Prueba de la aplicación
@@ -80,7 +89,7 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/\
 * Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador (`http://localhost:port/movies`).
 * Pruebe el vínculo **Crear**.
 
- ![Página Crear](../../tutorials/razor-pages/model/_static/conan.png)
+  ![Página Crear](../../tutorials/razor-pages/model/_static/conan.png)
 
 <a name="scaffold"></a>
 
@@ -90,6 +99,6 @@ Si obtiene una excepción SQL, verifique que haya ejecuto las migraciones y que 
 
 En el tutorial siguiente se explican los archivos creados mediante scaffolding.
 
->[!div class="step-by-step"]
-[Anterior: Introducción](xref:tutorials/razor-pages/razor-pages-start)
-[Siguiente: Scaffolded Razor Pages (Páginas de Razor creadas mediante scaffolding)](xref:tutorials/razor-pages/page)    
+> [!div class="step-by-step"]
+> [Anterior: Introducción](xref:tutorials/razor-pages/razor-pages-start)
+> [Siguiente: Páginas de Razor creadas mediante scaffolding](xref:tutorials/razor-pages/page)    

@@ -1,7 +1,7 @@
 ---
-title: "Detección de cambios con tokens de cambio en ASP.NET Core"
+title: Detección de cambios con tokens de cambio en ASP.NET Core
 author: guardrex
-description: "Obtenga información sobre cómo usar tokens de cambio para realizar el seguimiento de los cambios."
+description: Obtenga información sobre cómo usar tokens de cambio para realizar el seguimiento de los cambios.
 manager: wpickett
 ms.author: riande
 ms.date: 11/10/2017
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 94bf356fcbfab3930804485c1b65e4a0f4c52b8e
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
+ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Detección de cambios con tokens de cambio en ASP.NET Core
 
@@ -59,22 +59,22 @@ Los tokens de cambio se usan en áreas principales de ASP.NET Core para la super
 
 De forma predeterminada, las plantillas de ASP.NET Core usan [archivos de configuración de JSON](xref:fundamentals/configuration/index#json-configuration) (*appsettings.json*, *appsettings.Development.json* y *appsettings.Production.json*) para cargar parámetros de configuración de la aplicación.
 
-Estos archivos se configuran mediante el método de extensión [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) de [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder), que acepta un parámetro `reloadOnChange` (ASP.NET Core 1.1 y versiones posteriores). `reloadOnChange` indica si la configuración se debe recargar en los cambios de archivo. Vea esta configuración en el método de conveniencia [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) de [WebHost](/dotnet/api/microsoft.aspnetcore.webhost) ([código fuente de referencia](https://github.com/aspnet/MetaPackages/blob/rel/2.0.3/src/Microsoft.AspNetCore/WebHost.cs#L152-L193)):
+Estos archivos se configuran mediante el método de extensión [AddJsonFile(IConfigurationBuilder, String, Boolean, Boolean)](/dotnet/api/microsoft.extensions.configuration.jsonconfigurationextensions.addjsonfile?view=aspnetcore-2.0#Microsoft_Extensions_Configuration_JsonConfigurationExtensions_AddJsonFile_Microsoft_Extensions_Configuration_IConfigurationBuilder_System_String_System_Boolean_System_Boolean_) de [ConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.configurationbuilder), que acepta un parámetro `reloadOnChange` (ASP.NET Core 1.1 y versiones posteriores). `reloadOnChange` indica si la configuración se debe recargar en los cambios de archivo. Vea esta configuración en el método de conveniencia [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) de [WebHost](/dotnet/api/microsoft.aspnetcore.webhost):
 
 ```csharp
 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
       .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
 ```
 
-La configuración basada en archivo se representa por medio de [FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource). `FileConfigurationSource` usa [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) ([código fuente de referencia](https://github.com/aspnet/FileSystem/blob/patch/2.0.1/src/Microsoft.Extensions.FileProviders.Abstractions/IFileProvider.cs)) para supervisar los archivos.
+La configuración basada en archivo se representa por medio de [FileConfigurationSource](/dotnet/api/microsoft.extensions.configuration.fileconfigurationsource). `FileConfigurationSource` usa [IFileProvider](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider) para supervisar los archivos.
 
-De forma predeterminada, [PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) ([código fuente de referencia](https://github.com/aspnet/Configuration/blob/patch/2.0.1/src/Microsoft.Extensions.Configuration.FileExtensions/FileConfigurationSource.cs#L82)) proporciona el `IFileMonitor`, que usa [FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) para supervisar los cambios del archivo de configuración.
+[PhysicalFileProvider](/dotnet/api/microsoft.extensions.fileproviders.physicalfileprovider) proporciona de forma predeterminada `IFileMonitor`, que usa [FileSystemWatcher](/dotnet/api/system.io.filesystemwatcher) para supervisar los cambios del archivo de configuración.
 
 En la aplicación de ejemplo se muestran dos implementaciones para supervisar los cambios de configuración. Si cambia el archivo *appsettings.json* o la versión del entorno del archivo, cada implementación ejecuta código personalizado. La aplicación de ejemplo escribe un mensaje en la consola.
 
 El `FileSystemWatcher` de un archivo de configuración puede desencadenar varias devoluciones de llamada de token para un único cambio del archivo de configuración. La implementación del ejemplo protege contra este problema mediante la comprobación del hash de archivo en los archivos de configuración. La comprobación del hash de archivo garantiza que al menos uno de los archivos de configuración ha cambiado antes de ejecutar el código personalizado. En el ejemplo se usa el hash de archivo SHA1 (*Utilities/Utilities.cs*):
 
-   [!code-csharp[Main](change-tokens/sample/Utilities/Utilities.cs?name=snippet1)]
+   [!code-csharp[](change-tokens/sample/Utilities/Utilities.cs?name=snippet1)]
 
    Se implementa un reintento con una interrupción exponencial. El reintento aparece porque se puede producir un bloqueo de archivos que impida temporalmente calcular un hash nuevo en uno de los archivos.
 
@@ -82,11 +82,11 @@ El `FileSystemWatcher` de un archivo de configuración puede desencadenar varias
 
 Registre una devolución de llamada de `Action` de consumidor de token para las notificaciones de cambio en el token de recarga de configuración (*Startup.cs*):
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet2)]
 
 `config.GetReloadToken()` proporciona el token. La devolución de llamada es el método `InvokeChanged`:
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet3)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet3)]
 
 El `state` de la devolución de llamada se usa para pasar el `IHostingEnvironment`. Esto es útil para determinar el archivo JSON de configuración *appsettings* correcto que se va a supervisar, *appsettings.&lt;Entorno&gt;.json*. Se usa el hash de archivo para evitar que se ejecute varias veces la instrucción `WriteConsole` debido a varias devoluciones de llamada de token cuando el archivo de configuración solo ha cambiado una vez.
 
@@ -102,11 +102,11 @@ En el ejemplo se implementa lo siguiente:
 
 En el ejemplo se establece una interfaz `IConfigurationMonitor` (*Extensions/ConfigurationMonitor.cs*):
 
-[!code-csharp[Main](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet1)]
 
 El constructor de la clase implementada, `ConfigurationMonitor`, registra una devolución de llamada para las notificaciones de cambio:
 
-[!code-csharp[Main](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
 `config.GetReloadToken()` proporciona el token. `InvokeChanged` es el método de devolución de llamada. En este caso, el `state` es una cadena que describe el estado de supervisión. Se usan dos propiedades:
 
@@ -119,27 +119,27 @@ El método `InvokeChanged` es similar al enfoque anterior, excepto en que:
 * Establece la cadena de la propiedad `CurrentState` en un mensaje descriptivo que registra la hora a la que se ejecutó el código.
 * Anota el `state` actual en su salida de `WriteConsole`.
 
-[!code-csharp[Main](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
+[!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
 
 Una instancia de `ConfigurationMonitor` se registra como servicio en `ConfigureServices` de *Startup.cs*:
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet1)]
 
 En la página Index se ofrece al usuario el control sobre la supervisión de la configuración. La instancia de `IConfigurationMonitor` se inserta en `IndexModel`:
 
-[!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet1)]
 
 Un botón habilita y deshabilita la supervisión:
 
-[!code-cshtml[Main](change-tokens/sample/Pages/Index.cshtml?range=35)]
+[!code-cshtml[](change-tokens/sample/Pages/Index.cshtml?range=35)]
 
-[!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet2)]
 
 Cuando se desencadena `OnPostStartMonitoring`, se habilita la supervisión y se borra el estado actual. Cuando se desencadena `OnPostStopMonitoring`, se deshabilita la supervisión y se establece el estado para reflejar que no se está realizando la supervisión.
 
 ## <a name="monitoring-cached-file-changes"></a>Supervisión de los cambios de archivos en caché
 
-El contenido de los archivos se puede almacenar en caché en memoria mediante [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). El almacenamiento caché en memoria se describe en el tema [Almacenamiento caché en memoria](xref:performance/caching/memory). Sin realizar pasos adicionales, como la implementación que se describe a continuación, si los datos de origen cambian, se devuelven datos *obsoletos* (no actualizados) de la caché.
+El contenido de los archivos se puede almacenar en caché en memoria mediante [IMemoryCache](/dotnet/api/microsoft.extensions.caching.memory.imemorycache). El almacenamiento en caché en memoria se describe en el tema [Cache in-memory](xref:performance/caching/memory) (Almacenamiento en caché en memoria). Sin realizar pasos adicionales, como la implementación que se describe a continuación, si los datos de origen cambian, se devuelven datos *obsoletos* (no actualizados) de la caché.
 
 Si no se tiene en cuenta el estado de un archivo de origen en caché cuando se renueva un período de [vencimiento variable](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration), se pueden crear datos en caché obsoletos. En cada solicitud de los datos se renueva el período de vencimiento variable, pero el archivo nunca se vuelve a cargar en la caché. Las características de la aplicación que usen el contenido en caché del archivo están sujetas a la posible recepción de contenido obsoleto.
 
@@ -152,7 +152,7 @@ En el ejemplo se usa `GetFileContent` para:
 
 *Utilities/Utilities.cs*:
 
-[!code-csharp[Main](change-tokens/sample/Utilities/Utilities.cs?name=snippet2)]
+[!code-csharp[](change-tokens/sample/Utilities/Utilities.cs?name=snippet2)]
 
 Se crea un `FileService` para administrar las búsquedas de archivos en caché. La llamada al método `GetFileContent` del servicio intenta obtener el contenido de archivo de la caché en memoria y devolverlo al autor de la llamada (*Services/FileService.cs*).
 
@@ -162,19 +162,19 @@ Si el contenido en caché no se encuentra mediante la clave de caché, se realiz
 1. Se obtiene un token de cambio del proveedor de archivos con [IFileProviders.Watch](/dotnet/api/microsoft.extensions.fileproviders.ifileprovider.watch). La devolución de llamada del token se desencadena cuando se modifica el archivo.
 1. El contenido del archivo se almacena en caché con un período de [vencimiento variable](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.slidingexpiration). El token de cambio se adjunta con [MemoryCacheEntryExtensions.AddExpirationToken](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.addexpirationtoken) para expulsar la entrada de caché si el archivo cambia mientras está almacenado en caché.
 
-[!code-csharp[Main](change-tokens/sample/Services/FileService.cs?name=snippet1)]
+[!code-csharp[](change-tokens/sample/Services/FileService.cs?name=snippet1)]
 
 El `FileService` se registra en el contenedor de servicios junto con el servicio de almacenamiento en caché (*Startup.cs*):
 
-[!code-csharp[Main](change-tokens/sample/Startup.cs?name=snippet4)]
+[!code-csharp[](change-tokens/sample/Startup.cs?name=snippet4)]
 
 El modelo de página carga el contenido del archivo mediante el servicio (*Pages/Index.cshtml.cs*):
 
-[!code-csharp[Main](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet3)]
+[!code-csharp[](change-tokens/sample/Pages/Index.cshtml.cs?name=snippet3)]
 
 ## <a name="compositechangetoken-class"></a>Clase CompositeChangeToken
 
-Para representar una o varias instancias de `IChangeToken` en un solo objeto, use la clase [CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken) ([código fuente de referencia](https://github.com/aspnet/Common/blob/patch/2.0.1/src/Microsoft.Extensions.Primitives/CompositeChangeToken.cs)).
+Para representar una o varias instancias de `IChangeToken` en un solo objeto, use la clase [CompositeChangeToken](/dotnet/api/microsoft.extensions.primitives.compositechangetoken).
 
 ```csharp
 var firstCancellationTokenSource = new CancellationTokenSource();
@@ -199,7 +199,7 @@ En el token compuesto, `HasChanged` notifica `true` si algún token representado
 
 ## <a name="see-also"></a>Vea también
 
-* [Almacenamiento caché en memoria](xref:performance/caching/memory)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)

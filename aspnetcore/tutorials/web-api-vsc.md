@@ -1,23 +1,28 @@
 ---
-title: Crear una API Web con ASP.NET Core y Visual Studio Code
+title: Crear una API web con ASP.NET Core y Visual Studio Code
 author: rick-anderson
 description: Compilar una API web con ASP.NET Core MVC y Visual Studio Code en macOS, Linux o Windows
 manager: wpickett
 ms.author: riande
-ms.date: 09/22/2017
+ms.custom: mvc
+ms.date: 04/27/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 44566c4014400aa2ca3d512eeaa226637b5f0b97
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: f991aeadbaa3f7696d6fd6b8791d26248e7560a6
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="create-a-web-api-with-aspnet-core-mvc-and-visual-studio-code-on-linux-macos-and-windows"></a>Crear una Web API con ASP.NET Core MVC y Visual Studio Code en Linux, macOS y Windows
+# <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Crear una API web con ASP.NET Core y Visual Studio Code
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://github.com/mikewasson)
+
+::: moniker range="= aspnetcore-2.1"
+[!INCLUDE[](~/includes/2.1.md)]
+::: moniker-end
 
 En este tutorial se compila una API web para administrar una lista de tareas pendientes. No se construye una interfaz de usuario.
 
@@ -31,43 +36,50 @@ Hay tres versiones de este tutorial:
 
 [!INCLUDE[template files](../includes/webApi/intro.md)]
 
-## <a name="set-up-your-development-environment"></a>Configuración del entorno de desarrollo
+## <a name="prerequisites"></a>Requisitos previos
 
-Descargue e instale:
-- [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
-- [Visual Studio Code](https://code.visualstudio.com)
-- [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) de Visual Studio Code
+[!INCLUDE[prerequisites](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-the-project"></a>Crear el proyecto
 
 Desde una consola, ejecute los siguientes comandos:
 
 ```console
-mkdir TodoApi
-cd TodoApi
-dotnet new webapi
+dotnet new webapi -o TodoApi
+code TodoApi
 ```
 
-Abra la carpeta *TodoApi* en Visual Studio Code (VS Code) y seleccione el archivo *Startup.cs*.
+La carpeta *TodoApi* se abre en Visual Studio Code (VS Code). Seleccione el archivo *Startup.cs*.
 
-- Seleccione **Sí** en el mensaje de **advertencia** "Required assets to build and debug are missing from 'TodoApi'. Add them?" (Faltan los activos necesarios para compilar y depurar en 'TodoApi'. ¿Quiere agregarlos?).
-- Seleccione **Restaurar** en el mensaje de **información** "There are unresolved dependencies" (Hay dependencias no resueltas).
+* Seleccione **Sí** en el mensaje de **advertencia** "Required assets to build and debug are missing from 'TodoApi'. Add them?" (Faltan los activos necesarios para compilar y depurar en 'TodoApi'. ¿Quiere agregarlos?).
+* Seleccione **Restaurar** en el mensaje de **información** "There are unresolved dependencies" (Hay dependencias no resueltas).
 
 <!-- uid: tutorials/first-mvc-app-xplat/start-mvc uses the pic below. If you change it, make sure it's consistent -->
 
 ![VS Code con la advertencia "Required assets to build and debug are missing from 'TodoApi'. Add them?" No volver a preguntar, Ahora no, Sí](web-api-vsc/_static/vsc_restore.png)
 
-Presione **Depurar** (F5) para compilar y ejecutar el programa. En un explorador, vaya a http://localhost:5000/api/values. Se muestra lo siguiente:
+Presione **Depurar** (F5) para compilar y ejecutar el programa. En un navegador, vaya a http://localhost:5000/api/values. Se muestra el siguiente resultado:
 
-`["value1","value2"]`
+```json
+["value1","value2"]
+```
 
 Vea [Ayuda de Visual Studio Code](#visual-studio-code-help) para obtener sugerencias sobre el uso de VS Code.
 
 ## <a name="add-support-for-entity-framework-core"></a>Agregar compatibilidad con Entity Framework Core
 
-Al crear un proyecto nuevo en .NET Core 2.0, se agrega el proveedor "Microsoft.AspNetCore.All" en el archivo *TodoApi.csproj*. No es necesario instalar el proveedor de base de datos [Entity Framework Core InMemory](https://docs.microsoft.com/ef/core/providers/in-memory/) por separado. Este proveedor de base de datos permite usar Entity Framework Core con una base de datos en memoria.
+:::moniker range="<= aspnetcore-2.0"
+Al crear un proyecto en ASP.NET Core 2.0, se agrega la referencia de paquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) al archivo *TodoApi.csproj*:
 
-[!code-xml[Main](web-api-vsc/sample/TodoApi/TodoApi.csproj?highlight=12)]
+[!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
+:::moniker-end
+:::moniker range=">= aspnetcore-2.1"
+Al crear un proyecto en ASP.NET Core 2.1 o posterior, se agrega la referencia de paquete [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) al archivo *TodoApi.csproj*:
+
+[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
+:::moniker-end
+
+No es necesario instalar el proveedor de base de datos [Entity Framework Core InMemory](/ef/core/providers/in-memory/) por separado. Este proveedor de base de datos permite usar Entity Framework Core con una base de datos en memoria.
 
 ## <a name="add-a-model-class"></a>Agregar una clase de modelo
 
@@ -77,7 +89,7 @@ Agregue una carpeta denominada *Models*. Puede colocar clases de modelo en cualq
 
 Agregue una clase `TodoItem` con el siguiente código:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoItem.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoItem.cs)]
 
 La base de datos genera el `Id` cuando se crea `TodoItem`.
 
@@ -87,13 +99,13 @@ El *contexto de base de datos* es la clase principal que coordina la funcionalid
 
 Agregue una clase `TodoContext` a la carpeta *Models*:
 
-[!code-csharp[Main](first-web-api/sample/TodoApi/Models/TodoContext.cs)]
+[!code-csharp[](first-web-api/samples/2.0/TodoApi/Models/TodoContext.cs)]
 
 [!INCLUDE[Register the database context](../includes/webApi/register_dbContext.md)]
 
 ## <a name="add-a-controller"></a>Adición de un controlador
 
-En la carpeta *Controladores*, cree una clase denominada `TodoController`. Agregue el código siguiente:
+En la carpeta *Controladores*, cree una clase denominada `TodoController`. Reemplace el contenido por el siguiente código:
 
 [!INCLUDE[code and get todo items](../includes/webApi/getTodoItems.md)]
 
@@ -101,19 +113,19 @@ En la carpeta *Controladores*, cree una clase denominada `TodoController`. Agreg
 
 En VS Code, presione F5 para iniciar la aplicación. Vaya a http://localhost:5000/api/todo (el controlador `Todo` que se acaba de crear).
 
+[!INCLUDE[jQuery](../includes/webApi/add-jquery.md)]
+
 [!INCLUDE[last part of web API](../includes/webApi/end.md)]
 
 ## <a name="visual-studio-code-help"></a>Ayuda de Visual Studio Code
 
-- [Introducción](https://code.visualstudio.com/docs)
-- [Depuración](https://code.visualstudio.com/docs/editor/debugging)
-- [Terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal)
-- [Métodos abreviados de teclado](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
+* [Introducción](https://code.visualstudio.com/docs)
+* [Depuración](https://code.visualstudio.com/docs/editor/debugging)
+* [Terminal integrado](https://code.visualstudio.com/docs/editor/integrated-terminal)
+* [Métodos abreviados de teclado](https://code.visualstudio.com/docs/getstarted/keybindings#_keyboard-shortcuts-reference)
 
-  - [Métodos abreviados de teclado de Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
-  - [Métodos abreviados de teclado de Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
-  - [Métodos abreviados de teclado de Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
+  * [Funciones rápidas de teclado de macOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
+  * [Métodos abreviados de teclado de Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf)
+  * [Métodos abreviados de teclado de Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf)
 
 [!INCLUDE[next steps](../includes/webApi/next.md)]
-
-

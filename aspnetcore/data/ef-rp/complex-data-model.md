@@ -1,7 +1,7 @@
 ---
-title: "Páginas de Razor con EF Core: Modelo de datos (5 de 8)"
+title: 'Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)'
 author: rick-anderson
-description: "En este tutorial agregará más entidades y relaciones, y personalizará el modelo de datos mediante la especificación de reglas de formato, validación y asignación de base de datos."
+description: En este tutorial agregará más entidades y relaciones, y personalizará el modelo de datos especificando reglas de formato, validación y asignación.
 manager: wpickett
 ms.author: riande
 ms.date: 10/25/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 58bb773ba16314827da84909def05a8ef370479b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 2cec45afbf08e5dd379a54e780e4218bfc86d13f
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="creating-a-complex-data-model---ef-core-with-razor-pages-tutorial-5-of-8"></a>Creación de un modelo de datos complejo: tutorial de EF Core con páginas de Razor (5 de 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 En los tutoriales anteriores se trabajaba con un modelo de datos básico que se componía de tres entidades. En este tutorial:
 
@@ -42,16 +42,16 @@ Las páginas de alumno actualmente muestran la hora de la fecha de inscripción.
 
 Actualice *Models/Student.cs* con el siguiente código resaltado:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_DataType&highlight=3,12-13)]
 
-El atributo [DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) especifica un tipo de datos más específico que el tipo intrínseco de base de datos. En este caso solo se debe mostrar la fecha, no la fecha y hora. La [enumeración DataType](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) proporciona muchos tipos de datos, como Date (Fecha), Time (Hora), PhoneNumber (Número de teléfono), Currency (Divisa), EmailAddress (Dirección de correo electrónico), etc. El atributo `DataType` también puede permitir que la aplicación proporcione automáticamente características específicas del tipo. Por ejemplo:
+El atributo [DataType](/dotnet/api/system.componentmodel.dataannotations.datatypeattribute?view=netframework-4.7.1) especifica un tipo de datos más específico que el tipo intrínseco de base de datos. En este caso solo se debe mostrar la fecha, no la fecha y hora. La [enumeración DataType](/dotnet/api/system.componentmodel.dataannotations.datatype?view=netframework-4.7.1) proporciona muchos tipos de datos, como Date (Fecha), Time (Hora), PhoneNumber (Número de teléfono), Currency (Divisa), EmailAddress (Dirección de correo electrónico), etc. El atributo `DataType` también puede permitir que la aplicación proporcione automáticamente características específicas del tipo. Por ejemplo:
 
 * El vínculo `mailto:` se crea automáticamente para `DataType.EmailAddress`.
 * El selector de fecha se proporciona para `DataType.Date` en la mayoría de los exploradores.
 
 El atributo `DataType` emite atributos HTML 5 `data-` (se pronuncia "datos dash") para su uso por parte de los exploradores HTML 5. Los atributos `DataType` no proporcionan validación.
 
-`DataType.Date` no especifica el formato de la fecha que se muestra. De manera predeterminada, el campo de fecha se muestra según los formatos predeterminados basados en el elemento [CultureInfo](https://docs.microsoft.com/aspnet/core/fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support) del servidor.
+`DataType.Date` no especifica el formato de la fecha que se muestra. De manera predeterminada, el campo de fecha se muestra según los formatos predeterminados basados en el elemento [CultureInfo](xref:fundamentals/localization#provide-localized-resources-for-the-languages-and-cultures-you-support) del servidor.
 
 El atributo `DisplayFormat` se usa para especificar el formato de fecha de forma explícita:
 
@@ -74,13 +74,13 @@ Ejecute la aplicación. Vaya a la página de índice de Students. Ya no se muest
 
 ### <a name="the-stringlength-attribute"></a>El atributo StringLength
 
-Las reglas de validación de datos y los mensajes de error de validación se pueden especificar con atributos. El atributo [StringLength](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) especifica la longitud mínima y máxima de caracteres que se permite en un campo de datos. El atributo `StringLength` también proporciona validación del lado cliente y del lado servidor. El valor mínimo no influye en el esquema de base de datos.
+Las reglas de validación de datos y los mensajes de error de validación se pueden especificar con atributos. El atributo [StringLength](/dotnet/api/system.componentmodel.dataannotations.stringlengthattribute?view=netframework-4.7.1) especifica la longitud mínima y máxima de caracteres que se permite en un campo de datos. El atributo `StringLength` también proporciona validación del lado cliente y del lado servidor. El valor mínimo no influye en el esquema de base de datos.
 
 Actualice el modelo `Student` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_StringLength&highlight=10,12)]
 
-El código anterior limita los nombres a no más de 50 caracteres. El atributo `StringLength` no impide que un usuario escriba un espacio en blanco para un nombre. El atributo [RegularExpression](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) se usa para aplicar restricciones a la entrada. Por ejemplo, el código siguiente requiere que el primer carácter sea una letra mayúscula y el resto de caracteres sean alfabéticos:
+El código anterior limita los nombres a no más de 50 caracteres. El atributo `StringLength` no impide que un usuario escriba un espacio en blanco para un nombre. El atributo [RegularExpression](/dotnet/api/system.componentmodel.dataannotations.regularexpressionattribute?view=netframework-4.7.1) se usa para aplicar restricciones a la entrada. Por ejemplo, el código siguiente requiere que el primer carácter sea una letra mayúscula y el resto de caracteres sean alfabéticos:
 
 ```csharp
 [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
@@ -110,7 +110,7 @@ El modelo `Student` usa `FirstMidName` para el nombre de campo por la posibilida
 
 Actualice el archivo *Models/Student.cs* con el siguiente código resaltado:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_Column&highlight=4,14)]
 
 Con el cambio anterior, `Student.FirstMidName` en la aplicación se asigna a la columna `FirstName` de la tabla `Student`.
 
@@ -155,7 +155,7 @@ Antes de aplicar la migración, las columnas de nombre eran de tipo [nvarchar(MA
 
 Actualice *Models/Student.cs* con el siguiente código:
 
-[!code-csharp[Main](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
+[!code-csharp[](intro/samples/cu/Models/Student.cs?name=snippet_BeforeInheritance&highlight=11,13,15,18,22,24-31)]
 
 ### <a name="the-required-attribute"></a>El atributo Required
 
@@ -183,7 +183,7 @@ El atributo `Display` especifica que el título de los cuadros de texto debe ser
 
 Cree *Models/Instructor.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
+[!code-csharp[](intro/samples/cu/Models/Instructor.cs?name=snippet_BeforeInheritance)]
 
 Tenga en cuenta que varias propiedades son las mismas en las entidades `Student` y `Instructor`. En el tutorial Implementación de la herencia, más adelante en esta serie, se refactoriza este código para eliminar la redundancia.
 
@@ -229,7 +229,7 @@ public OfficeAssignment OfficeAssignment { get; set; }
 
 Cree *Models/OfficeAssignment.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/OfficeAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/OfficeAssignment.cs)]
 
 ### <a name="the-key-attribute"></a>El atributo Key
 
@@ -278,7 +278,7 @@ El código anterior especifica que debe haber un instructor relacionado. El cód
 
 Actualice *Models/Course.cs* con el siguiente código:
 
-[!code-csharp[Main](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
+[!code-csharp[](intro/samples/cu/Models/Course.cs?name=snippet_Final&highlight=2,10,13,16,19,21,23)]
 
 La entidad `Course` tiene una propiedad de clave externa (FK) `DepartmentID`. `DepartmentID` apunta a la entidad relacionada `Department`. La entidad `Course` tiene una propiedad de navegación `Department`.
 
@@ -336,7 +336,7 @@ public ICollection<CourseAssignment> CourseAssignments { get; set; }
 
 Cree *Models/Department.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Begin)]
 
 ### <a name="the-column-attribute"></a>El atributo Column
 
@@ -397,7 +397,7 @@ Un registro de inscripción es para un curso realizado por un alumno.
 
 Actualice *Models/Enrollment.cs* con el siguiente código:
 
-[!code-csharp[Main](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
+[!code-csharp[](intro/samples/cu/Models/Enrollment.cs?name=snippet_Final&highlight=1-2,16)]
 
 ### <a name="foreign-key-and-navigation-properties"></a>Propiedades de clave externa y de navegación
 
@@ -439,7 +439,7 @@ Nota: EF 6.x es compatible con las tablas de combinación implícitas para relac
 
 Cree *Models/CourseAssignment.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/CourseAssignment.cs)]
+[!code-csharp[](intro/samples/cu/Models/CourseAssignment.cs)]
 
 ### <a name="instructor-to-courses"></a>Relación Instructor-to-Courses
 
@@ -473,7 +473,7 @@ La entidad de combinación `Enrollment` define su propia clave principal, por lo
 
 Agregue el código resaltado siguiente a *Data/SchoolContext.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
+[!code-csharp[](intro/samples/cu/Data/SchoolContext.cs?name=snippet_BeforeInheritance&highlight=15-18,25-31)]
 
 El código anterior agrega las nuevas entidades y configura la clave principal compuesta de la entidad `CourseAssignment`.
 
@@ -523,7 +523,7 @@ El diagrama anterior muestra:
 
 Actualice el código en *Data/DbInitializer.cs*:
 
-[!code-csharp[Main](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
+[!code-csharp[](intro/samples/cu/Data/DbInitializer.cs?name=snippet_Final)]
 
 El código anterior proporciona datos de inicialización para las nuevas entidades. La mayor parte de este código crea objetos de entidad y carga los datos de ejemplo. Los datos de ejemplo se usan para pruebas. El código anterior crea las siguientes relaciones de varios a varios:
 
@@ -572,12 +572,12 @@ El código en la `DbInitializer` actualizada agrega los datos de inicialización
 
 * O bien, elimine la base de datos mediante:
 
-    * **Explorador de objetos de SQL Server** (SSOX).
-    * El comando de la CLI `database drop`:
+  * **Explorador de objetos de SQL Server** (SSOX).
+  * El comando de la CLI `database drop`:
 
-   ```console
-   dotnet ef database drop
-   ```
+    ```console
+    dotnet ef database drop
+    ```
 
 Ejecute `database update` en la ventana de comandos:
 
@@ -613,7 +613,7 @@ Cuando se ejecutan migraciones con datos existentes, puede haber restricciones d
 
 El archivo *{marca_de_tiempo}_ComplexDataModel.cs* contiene el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_DepartmentID)]
+[!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_DepartmentID)]
 
 El código anterior agrega una clave externa `DepartmentID` que acepta valores NULL a la tabla `Course`. La base de datos del tutorial anterior contiene filas en `Course`, por lo que no se puede actualizar esa tabla mediante migraciones.
 
@@ -629,9 +629,9 @@ Actualice el método `Up` de las clases `ComplexDataModel`:
 * Abra el archivo *{marca_de_tiempo}_ComplexDataModel.cs*.
 * Convierta en comentario la línea de código que agrega la columna `DepartmentID` a la tabla `Course`.
 
-[!code-csharp[Main](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
+[!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CommentOut&highlight=9-13)]
 
-Agregue el código resaltado siguiente. El nuevo código va después del bloque `.CreateTable( name: "Department"`: [!code-csharp[Main](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
+Agregue el código resaltado siguiente. El nuevo código va después del bloque `.CreateTable( name: "Department"`: [!code-csharp[](intro/samples/cu/Migrations/20171027005808_ComplexDataModel.cs?name=snippet_CreateDefaultValue&highlight=22-32)]
 
 Con los cambios anteriores, las filas `Course` existentes estarán relacionadas con el departamento "Temp" después de ejecutar el método `ComplexDataModel` de `Up`.
 
@@ -642,6 +642,6 @@ Una aplicación de producción debería:
 
 El siguiente tutorial trata los datos relacionados.
 
->[!div class="step-by-step"]
-[Anterior](xref:data/ef-rp/migrations)
-[Siguiente](xref:data/ef-rp/read-related-data)
+> [!div class="step-by-step"]
+> [Anterior](xref:data/ef-rp/migrations)
+> [Siguiente](xref:data/ef-rp/read-related-data)

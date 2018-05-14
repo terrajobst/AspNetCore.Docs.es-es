@@ -1,19 +1,19 @@
 ---
-title: "Implementación del servidor web WebListener en ASP.NET Core"
+title: Implementación del servidor web WebListener en ASP.NET Core
 author: rick-anderson
-description: "Este artículo presenta WebListener, un servidor web para ASP.NET Core en Windows. Basado en el controlador de modo kernel de Http.Sys, WebListener es una alternativa a Kestrel que permite conectarse directamente a Internet sin IIS."
+description: Obtenga información sobre WebListener, un servidor web para ASP.NET Core en Windows que se puede usar para conectarse directamente a Internet sin IIS.
 manager: wpickett
 ms.author: riande
-ms.date: 08/07/2017
+ms.date: 03/13/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: fb2e0621645a48f4e603d754d8babbc07a78cae4
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: cd2e477824d916afcf1a7901e935dd465a466922
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web WebListener en ASP.NET Core
 
@@ -78,7 +78,7 @@ También hay [valores de configuración del Registro de Http.Sys](https://suppor
 
 * Instale el paquete NuGet [Microsoft.AspNetCore.Server.WebListener](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.WebListener/). También se instalará [Microsoft.Net.Http.Server](https://www.nuget.org/packages/Microsoft.Net.Http.Server/) como una dependencia.
 
-* Llame al método de extensión `UseWebListener` en [WebHostBuilder](/aspnet/core/api/microsoft.aspnetcore.hosting.webhostbuilder) en el método `Main` y especifique cualquier [opción](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) y [configuración](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) de WebListener que necesite, como se muestra en este ejemplo:
+* Llame al método de extensión `UseWebListener` en [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder) en el método `Main` y especifique cualquier [opción](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.AspNetCore.Server.WebListener/WebListenerOptions.cs) y [configuración](https://github.com/aspnet/HttpSysServer/blob/rel/1.1.2/src/Microsoft.Net.Http.Server/WebListenerSettings.cs) de WebListener que necesite, como se muestra en este ejemplo:
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
@@ -87,6 +87,9 @@ También hay [valores de configuración del Registro de Http.Sys](https://suppor
   De forma predeterminada, ASP.NET Core enlaza a `http://localhost:5000`. Para configurar los puertos y los prefijos de URL, puede usar el método de extensión `UseURLs`, el argumento de línea de comandos `urls` o el sistema de configuración de ASP.NET Core. Para más información, vea [Hospedaje](../../fundamentals/hosting.md).
 
   WebListener usa los [formatos de cadena de prefijo de Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). No hay ningún requisito de formato de cadena de prefijo que sea específico de WebListener.
+
+  > [!WARNING]
+  > Los enlaces de carácter comodín de nivel superior (`http://*:80/` y `http://+:80`) **no** se deben usar. Los enlaces de carácter comodín de nivel superior pueden exponer su aplicación a vulnerabilidades de seguridad. Esto se aplica tanto a los caracteres comodín fuertes como a los débiles. Use nombres de host explícitos en lugar de caracteres comodín. Los enlaces de carácter comodín de subdominio (por ejemplo, `*.mysub.com`) no suponen este riesgo de seguridad si se controla todo el dominio primario (a diferencia de `*.com`, que sí es vulnerable). Vea la [sección 5.4 de RFC 7230](https://tools.ietf.org/html/rfc7230#section-5.4) para obtener más información.
 
   > [!NOTE]
   > Asegúrese de especificar en `UseUrls` las mismas cadenas de prefijo que registró previamente en el servidor. 
@@ -156,14 +159,14 @@ Aquí está la documentación de referencia oficial:
 Los siguientes recursos proporcionan instrucciones detalladas para varios escenarios. Los artículos que hacen referencia a `HttpListener` también son aplicables a `WebListener`, ya que ambos se basan en Http.Sys.
 
 * [Configuración de un puerto con un certificado SSL](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-configure-a-port-with-an-ssl-certificate)
-* [HTTPS Communication - HttpListener based Hosting and Client Certification](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) (Comunicación HTTPS - Certificación de cliente y hospedaje basado en HttpListener): es un blog de terceros bastante antiguo pero aún tiene información útil.
+* [HTTPS Communication - HttpListener based Hosting and Client Certification](http://sunshaking.blogspot.com/2012/11/https-communication-httplistener-based.html) (Comunicación HTTPS: Certificación de cliente y hospedaje basado en HttpListener): blog de terceros bastante antiguo, pero que aún tiene información útil.
 * [How To: Walkthrough Using HttpListener or Http Server unmanaged code (C++) as an SSL Simple Server](https://blogs.msdn.microsoft.com/jpsanders/2009/09/29/how-to-walkthrough-using-httplistener-or-http-server-unmanaged-code-c-as-an-ssl-simple-server/) (Procedimientos con código no administrado de HttpListener o Http Server (C++) como un servidor simple SSL): también es un blog antiguo con información útil.
 * [¿Cómo configurar WebListener de .NET Core con SSL?](https://blogs.msdn.microsoft.com/timomta/2016/11/04/how-do-i-set-up-a-net-core-weblistener-with-ssl/)
 
 Estas son algunas herramientas de terceros que pueden resultar más sencillas que la línea de comandos netsh.exe. Dichas herramientas no las proporciona ni las promociona Microsoft. Las herramientas se ejecutan como administrador de forma predeterminada, debido a que netsh.exe requiere privilegios de administrador.
 
 * [http.sys Manager](http://httpsysmanager.codeplex.com/) proporciona la interfaz de usuario para mostrar una lista de certificados SSL y configurarlos, además de configurar otras opciones, reservas de prefijo y listas de certificados de confianza. 
-* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) permite mostrar una lista de certificados SSL y prefijos de URL, y configurarlos. Su interfaz de usuario está más cuidada que la de http.sys Manager e incluye algunas opciones de configuración adicionales, aunque proporciona funciones similares. No puede crear una nueva lista de certificados de confianza de (CTL), pero puede asignar las existentes.
+* [HttpConfig](http://www.stevestechspot.com/ABetterHttpcfg.aspx) permite mostrar una lista de certificados SSL y prefijos de dirección URL, así como configurarlos. Su interfaz de usuario está más cuidada que la de http.sys Manager e incluye algunas opciones de configuración adicionales, aunque proporciona funciones similares. No puede crear una nueva lista de certificados de confianza de (CTL), pero puede asignar las existentes.
 
 Para generar certificados SSL autofirmados, Microsoft proporciona herramientas de línea de comandos: [MakeCert.exe](https://msdn.microsoft.com/library/windows/desktop/aa386968) y el cmdlet de PowerShell [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pki/new-selfsignedcertificate). También hay herramientas de interfaz de usuario de otros fabricantes que facilitan la tarea de generar certificados SSL autofirmados:
 

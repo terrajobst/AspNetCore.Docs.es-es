@@ -1,0 +1,92 @@
+---
+title: Aplicación auxiliar de etiquetas parciales en ASP.NET Core
+author: scottaddie
+description: Conozca la aplicación auxiliar de etiquetas parciales en ASP.NET Core y el rol que desempeña cada uno de sus atributos a la hora de representar una vista parcial.
+manager: wpickett
+monikerRange: '>= aspnetcore-2.1'
+ms.author: scaddie
+ms.custom: mvc
+ms.date: 04/13/2018
+ms.prod: aspnet-core
+ms.technology: aspnet
+ms.topic: article
+uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
+ms.openlocfilehash: 670663b963f4207da793afff44d55b85ba58b7f8
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/18/2018
+---
+# <a name="partial-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas parciales en ASP.NET Core
+
+Por [Scott Addie](https://github.com/scottaddie)
+
+[!INCLUDE [2.1 preview notice](~/includes/2.1.md)]
+
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+
+## <a name="overview"></a>Información general
+
+La aplicación auxiliar de etiquetas parciales sirve para representar una [vista parcial](xref:mvc/views/partial) en las páginas de Razor y las aplicaciones MVC. Tenga en cuenta lo siguiente:
+
+* Es necesario ASP.NET Core 2.1 o una versión posterior.
+* Es una alternativa a la [sintaxis de la aplicación auxiliar HTML](xref:mvc/views/partial#referencing-a-partial-view).
+* Presenta la vista parcial de forma asincrónica.
+
+Las opciones de la aplicación auxiliar HTML para representar una vista parcial son estas:
+
+* [@await Html.PartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partialasync)
+* [@await Html.RenderPartialAsync](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartialasync)
+* [@Html.Partial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.partial)
+* [@Html.RenderPartial](/dotnet/api/microsoft.aspnetcore.mvc.rendering.htmlhelperpartialextensions.renderpartial)
+
+En los ejemplos de todo este documento se usa el modelo *Product*:
+
+[!code-csharp[](samples/TagHelpersBuiltIn/Models/Product.cs)]
+
+Ahora pasaremos a ver una relación de los atributos de la aplicación auxiliar de etiquetas parciales.
+
+## <a name="name"></a>name
+
+El atributo `name` es necesario. Señala el nombre o la ruta de acceso de la vista parcial que se va a representar. Cuando se indica el nombre de una vista parcial, se inicia el proceso de [detección de vista](xref:mvc/views/overview#view-discovery). Este proceso se omite cuando se proporciona una ruta de acceso explícita.
+
+En el siguiente marcado se usa una ruta de acceso explícita, lo que indica que *_ProductPartial.cshtml* debe cargarse desde la carpeta *Shared*. Mediante el atributo [for](#for), se pasa un modelo a la vista parcial para el enlace.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Name)]
+
+## <a name="for"></a>for
+
+El atributo `for` asigna una [ModelExpression](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.modelexpression) para que se evalúe según el modelo actual. `ModelExpression` deduce la sintaxis de `@Model.`. Por ejemplo, se puede usar `for="Product"` en lugar de `for="@Model.Product"`. Este comportamiento predeterminado de deducción queda invalidado si se usa el símbolo `@` para definir una expresión insertada. El atributo `for` no se puede usar con el atributo [model](#model).
+
+El siguiente marcado carga *_ProductPartial.cshtml*:
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_For)]
+
+La vista parcial se enlaza a la propiedad `Product` del modelo de página asociado correspondiente:
+
+[!code-csharp[](samples/TagHelpersBuiltIn/Pages/Product.cshtml.cs?highlight=8)]
+
+## <a name="model"></a>modelo
+
+El atributo `model` asigna una instancia de modelo para pasarla a la vista parcial. El atributo `model` no se puede usar con el atributo [for](#for).
+
+En el siguiente código de marcado, se crea un objeto `Product` y se pasa al atributo `model` para el enlace:
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_Model)]
+
+## <a name="view-data"></a>view-data
+
+El atributo `view-data` asigna un [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) para pasarlo a la vista parcial. El siguiente marcado hace que toda la colección ViewData esté accesible para la vista parcial:
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Product.cshtml?name=snippet_ViewData&highlight=5-)]
+
+En el código anterior, el valor de clave `IsNumberReadOnly` está establecido en `true` y se ha agregado a la colección ViewData. Por tanto, `ViewData["IsNumberReadOnly"]` estará accesible dentro de la vista parcial siguiente:
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Shared/_ProductViewDataPartial.cshtml?highlight=5)]
+
+En este ejemplo, el valor de `ViewData["IsNumberReadOnly"]` determina si el campo *Number* se muestra como de solo lectura.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Vistas parciales](xref:mvc/views/partial)
+* [Datos débilmente tipados (ViewData y ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-and-viewbag)

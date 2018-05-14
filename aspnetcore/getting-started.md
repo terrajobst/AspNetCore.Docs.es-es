@@ -1,7 +1,7 @@
 ---
-title: "Introducción a ASP.NET Core 2.0"
+title: Introducción a ASP.NET Core
 author: rick-anderson
-description: "Tutorial rápido que crea y ejecuta una aplicación Hola mundo sencilla mediante ASP.NET Core."
+description: Tutorial rápido que crea y ejecuta una aplicación Hola mundo sencilla mediante ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/18/2017
@@ -9,18 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: eb1fd748029743ca6991927cc95b612ed1975338
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-aspnet-core"></a>Introducción a ASP.NET Core
 
 > [!NOTE]
-> Estas instrucciones corresponden a la versión más reciente de ASP.NET Core. Si busca la introducción de una versión anterior, vea [la versión 1.1 de este tutorial](xref:getting-started-1.1).
+> Estas instrucciones corresponden a la versión más reciente de ASP.NET Core. Vea [Introducción a ASP.NET Core 1.1](xref:getting-started-1.1) para obtener este documento, pero sobre la versión 1.1.
 
-1. Instale [.NET Core](https://www.microsoft.com/net/core/).
+1. Instale el [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
 2. Cree un nuevo proyecto de .NET Core.
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/30/2018
     dotnet new razor -o aspnetcoreapp
     ```
     
-4. Ejecute la aplicación.
+3. Ejecute la aplicación.
 
     Use los comandos siguientes para ejecutar la aplicación:
 
@@ -39,13 +39,13 @@ ms.lasthandoff: 01/30/2018
     dotnet run
     ```
 
-5. Vaya a [http://localhost:5000](http://localhost:5000).
+4. Vaya a [http://localhost:5000](http://localhost:5000).
 
-6. Abra *Pages/About.cshtml* y modifique la página para que muestre el mensaje "¡Hola, mundo!". La hora del servidor es "@DateTime.Now":
+5. Abra <em>Pages/About.cshtml</em> y modifique la página para que muestre el mensaje "¡Hola, mundo!". La hora del servidor es "@DateTime.Now":
 
-    [!code-html[Main](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
 
-7. Vaya a [http://localhost:5000/About](http://localhost:5000/About) y compruebe los cambios.
+6. Vaya a [http://localhost:5000/About](http://localhost:5000/About) y compruebe los cambios.
 
 ### <a name="next-steps"></a>Pasos siguientes
 

@@ -1,7 +1,7 @@
 ---
-title: "Trabajar con archivos estáticos en ASP.NET Core"
+title: Trabajar con archivos estáticos en ASP.NET Core
 author: rick-anderson
-description: "Aprenda a proporcionar y proteger los archivos estáticos y a configurar los comportamientos de middleware de hospedaje de archivos estáticos en una aplicación web de ASP.NET Core."
+description: Aprenda a proporcionar y proteger los archivos estáticos y a configurar los comportamientos de middleware de hospedaje de archivos estáticos en una aplicación web de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -11,11 +11,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 7b156830ab59db3c08fbff6b2c4180d8765a113b
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 46e868910661024ea3b950e78ced02a095896be1
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="work-with-static-files-in-aspnet-core"></a>Trabajar con archivos estáticos en ASP.NET Core
 
@@ -31,20 +31,17 @@ Los archivos estáticos se almacenan en el directorio raíz de la Web del proyec
 
 El host de web de la aplicación debe tener conocimiento del directorio raíz del contenido.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
-
+#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 El método `WebHost.CreateDefaultBuilder` establece la raíz de contenido en el directorio actual:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
-
+#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
 Establezca la raíz de contenido en el directorio actual invocando a [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) dentro de `Program.Main`:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
----
-
+* * *
 Se puede acceder a los archivos estáticos a través de una ruta de acceso relativa a la raíz web. Por ejemplo, la plantilla de proyecto **Aplicación web** contiene varias carpetas dentro de la carpeta *wwwroot*:
 
 * **wwwroot**
@@ -236,9 +233,9 @@ Con el código anterior, una solicitud para un archivo con un tipo de contenido 
 > [!WARNING]
 > `UseDirectoryBrowser` y `UseStaticFiles` pueden producir pérdidas de información confidencial. Se recomienda deshabilitar el examen de directorios en producción. Revise cuidadosamente los directorios que se habilitan mediante `UseStaticFiles` o `UseDirectoryBrowser`. Todo el directorio y sus subdirectorios pasan a ser accesibles públicamente. Almacene los archivos adecuados para proporcionarlos al público en un directorio dedicado, como *\<raíz_contenido>/wwwroot*. Separe estos archivos de las vistas MVC, las páginas de Razor (solo 2.x), los archivos de configuración, etc.
 
-* Las direcciones URL para el contenido que se expone a través de `UseDirectoryBrowser` y `UseStaticFiles` están sujetas a la distinción entre mayúsculas y minúsculas, y a restricciones de caracteres del sistema de archivos subyacente. Por ejemplo, Windows no distingue entre mayúsculas y minúsculas, pero Mac y Linux sí.
+* Las direcciones URL para el contenido que se expone a través de `UseDirectoryBrowser` y `UseStaticFiles` están sujetas a la distinción entre mayúsculas y minúsculas, y a restricciones de caracteres del sistema de archivos subyacente. Por ejemplo, Windows no distingue entre mayúsculas y minúsculas, pero macOS y Linux sí.
 
-* Las aplicaciones de ASP.NET Core hospedadas en IIS usan el [módulo de ASP.NET Core (ANCM)](xref:fundamentals/servers/aspnet-core-module) para reenviar todas las solicitudes a la aplicación, incluidas las solicitudes de archivos estáticos. No se usa el controlador de archivos estáticos de IIS. No tiene ninguna posibilidad de controlar las solicitudes antes de que las controle el ANCM.
+* Las aplicaciones de ASP.NET Core hospedadas en IIS usan el [módulo de ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) para reenviar todas las solicitudes a la aplicación, incluidas las solicitudes de archivos estáticos. No se usa el controlador de archivos estáticos de IIS. No tiene ninguna posibilidad de controlar las solicitudes antes de que las controle el módulo.
 
 * Complete los pasos siguientes en el Administrador de IIS para quitar el controlador de archivos estáticos de IIS en el nivel de servidor o de sitio web:
     1. Navegue hasta la característica **Módulos**.
@@ -246,7 +243,7 @@ Con el código anterior, una solicitud para un archivo con un tipo de contenido 
     1. Haga clic en **Quitar** en la barra lateral **Acciones**.
 
 > [!WARNING]
-> Si el controlador de archivos estáticos de IIS está habilitado **y** el ANCM no está configurado correctamente, se proporcionan archivos estáticos. Esto sucede, por ejemplo, si el archivo *web.config* no está implementado.
+> Si el controlador de archivos estáticos de IIS está habilitado **y** el módulo de ASP.NET Core no está configurado correctamente, se proporcionan archivos estáticos. Esto sucede, por ejemplo, si el archivo *web.config* no está implementado.
 
 * Coloque los archivos de código (incluidos *.cs* y *.cshtml*) fuera de la raíz web del proyecto de la aplicación. Por lo tanto, se crea una separación lógica entre el contenido del lado cliente de la aplicación y el código basado en servidor. Esto impide que se filtre el código del lado servidor.
 

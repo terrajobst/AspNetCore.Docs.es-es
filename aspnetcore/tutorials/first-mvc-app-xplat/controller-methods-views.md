@@ -1,7 +1,7 @@
 ---
-title: "Vistas y métodos de controlador"
+title: Vistas y métodos de controlador en ASP.NET Core
 author: rick-anderson
-description: "Trabajar con los métodos de controlador, vistas y DataAnnotations"
+description: Obtenga información sobre cómo trabajar con métodos de controlador, vistas y DataAnnotations en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 04/07/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/controller-methods-views
-ms.openlocfilehash: 34bd73af9bd0e4a7c1e59b491105f959bcbc06c6
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0bf9bffbf14ff958b28d9494600f55eb3f8e0c35
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="controller-methods-and-views"></a>Vistas y métodos de controlador
+# <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -25,7 +25,7 @@ La aplicación de películas pinta bien, pero la presentación no es ideal. No q
 
 Abra el archivo *Models/Movie.cs* y agregue las líneas resaltadas que se muestran a continuación:
 
-[!code-csharp[Main](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1&highlight=2,11-12)]
+[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1&highlight=2,11-12)]
 
 Compile y ejecute la aplicación.
 
@@ -34,8 +34,8 @@ Compile y ejecute la aplicación.
 
  -->
 
-[!INCLUDE[adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
 
->[!div class="step-by-step"]
-[Anterior: Trabajar con SQLite](working-with-sql.md)
-[Siguiente: Agregar búsqueda](search.md)  
+> [!div class="step-by-step"]
+> [Anterior: Trabajar con SQLite](working-with-sql.md)
+> [Siguiente: Agregar búsqueda](search.md)  

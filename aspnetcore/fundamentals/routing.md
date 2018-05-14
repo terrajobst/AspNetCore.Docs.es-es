@@ -9,26 +9,26 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d35c24347e8e06ed85e2af8addcc1f8cf28dc47a
-ms.sourcegitcommit: f2a11a89037471a77ad68a67533754b7bb8303e2
+ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
-De [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 La funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta. Las rutas se definen en la aplicación ASP.NET y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación ASP.NET, la funcionalidad de enrutamiento también puede generar direcciones URL que se asignan a controladores de ruta. Por tanto, el enrutamiento puede buscar un controlador de ruta basado en una dirección URL o la dirección URL correspondiente a un controlador de ruta determinado en función de la información del controlador de ruta.
 
 >[!IMPORTANT]
-> En este documento se describe el enrutamiento de nivel bajo de ASP.NET Core. Para el enrutamiento de ASP.NET Core MVC, vea [Enrutamiento a las acciones de controlador](../mvc/controllers/routing.md).
+> En este documento se describe el enrutamiento de nivel bajo de ASP.NET Core. Para más información sobre el enrutamiento de ASP.NET Core MVC, vea [Enrutamiento a las acciones de controlador](../mvc/controllers/routing.md).
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Fundamentos del enrutamiento
 
-El enrutamiento usa *rutas* (implementaciones de [IRouter](https://docs.microsoft.com/aspnet/core/api/microsoft.aspnetcore.routing.irouter)) para:
+El enrutamiento usa *rutas* (implementaciones de [IRouter](/dotnet/api/microsoft.aspnetcore.routing.irouter)) para:
 
 * asignar las solicitudes entrantes a *controladores de ruta*
 
@@ -187,7 +187,7 @@ Agregue el paquete NuGet "Microsoft.AspNetCore.Routing".
 
 Agregue enrutamiento al contenedor de servicios en *Startup.cs*:
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?highlight=3&start=11&end=14)]
 
 Las rutas deben configurarse en el método `Configure` en la clase `Startup`. En el ejemplo siguiente se usan estas API:
 
@@ -321,7 +321,7 @@ En la tabla siguiente se muestran algunas restricciones de ruta y su comportamie
 
 ## <a name="regular-expressions"></a>Expresiones regulares 
 
-El marco de trabajo de ASP.NET Core agrega `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al constructor de expresiones regulares. En [RegexOptions Enumeration](https://docs.microsoft.com/dotnet/api/system.text.regularexpressions.regexoptions) (Enumeración RegexOptions) puede ver una descripción de estos miembros.
+El marco de trabajo de ASP.NET Core agrega `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al constructor de expresiones regulares. En [RegexOptions Enumeration](/dotnet/api/system.text.regularexpressions.regexoptions) (Enumeración RegexOptions) puede ver una descripción de estos miembros.
 
 Las expresiones regulares usan delimitadores y tokens similares a los que usan el enrutamiento y el lenguaje C#. Es necesario usar secuencias de escape con los tokens de expresiones regulares. Por ejemplo, para usar la expresión regular `^\d{3}-\d{2}-\d{4}$` en el enrutamiento, es necesario escribir los caracteres `\` como `\\` en el archivo de código fuente de C# para que el carácter de escape de cadena `\` tenga una secuencia de escape (a menos que use [literales de cadena textuales](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Es necesario incluir una secuencia de escape en los caracteres `{`, `}`, "[" y "]". Para ello, duplíquelos a fin de incluir una secuencia de escape en los caracteres delimitadores del parámetro de enrutamiento.  En la tabla siguiente se muestra una expresión regular y la versión con una secuencia de escape.
 
@@ -351,7 +351,7 @@ Para restringir un parámetro a un conjunto conocido de valores posibles, use un
 
 En el ejemplo siguiente se muestra cómo se genera un vínculo a una ruta, dado un diccionario de valores de ruta y un valor `RouteCollection`.
 
-[!code-csharp[Main](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
+[!code-csharp[](../fundamentals/routing/sample/RoutingSample/Startup.cs?range=45-59)]
 
 El valor `VirtualPath` generado al final del ejemplo anterior es `/package/create/123`.
 

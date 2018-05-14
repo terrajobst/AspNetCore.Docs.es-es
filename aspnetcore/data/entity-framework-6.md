@@ -1,7 +1,7 @@
 ---
-title: "Introducción a ASP.NET Core y Entity Framework 6"
+title: Introducción a ASP.NET Core y Entity Framework 6
 author: tdykstra
-description: "En este artículo se muestra cómo usar Entity Framework 6 en una aplicación ASP.NET Core."
+description: En este artículo se muestra cómo usar Entity Framework 6 en una aplicación ASP.NET Core.
 manager: wpickett
 ms.author: tdykstra
 ms.date: 02/24/2017
@@ -9,13 +9,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: data/entity-framework-6
-ms.openlocfilehash: 7407fe8a976978d7d5077d5e5ac6cc264565621d
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 2ea51d01718adb785fd621421bc5f04d11e61199
+ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 03/22/2018
 ---
-# <a name="getting-started-with-aspnet-core-and-entity-framework-6"></a>Introducción a ASP.NET Core y Entity Framework 6
+# <a name="get-started-with-aspnet-core-and-entity-framework-6"></a>Introducción a ASP.NET Core y Entity Framework 6
 
 Por [Paweł Grudzień](https://github.com/pgrudzien12), [Damien Pontifex](https://github.com/DamienPontifex) y [Tom Dykstra](https://github.com/tdykstra)
 

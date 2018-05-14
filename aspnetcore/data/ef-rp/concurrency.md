@@ -1,7 +1,7 @@
 ---
-title: "Páginas de Razor con EF Core: Simultaneidad (8 de 8)"
+title: 'Páginas de Razor con EF Core en ASP.NET Core: Simultaneidad (8 de 8)'
 author: rick-anderson
-description: "Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo."
+description: Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
 manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
@@ -9,19 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: 1c6cdefa1410839606711d7460a8f4d0f1d6c72b
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: b6a8354bf438895f5188290013afefd883c4dd0a
+ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 05/03/2018
 ---
 es-es/
 
-# <a name="handling-concurrency-conflicts---ef-core-with-razor-pages-8-of-8"></a>Controlar los conflictos de simultaneidad: EF Core con páginas de Razor (8 de 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Simultaneidad (8 de 8)
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) y [Jon P Smith](https://twitter.com/thereformedprog)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan una entidad de forma simultánea (al mismo tiempo). Si experimenta problemas que no puede resolver, descargue la [aplicación completada para esta fase](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/StageSnapShots/cu-part8).
 
@@ -57,38 +57,38 @@ La simultaneidad optimista incluye las siguientes opciones:
 
 * Puede realizar un seguimiento de la propiedad que ha modificado un usuario y actualizar solo las columnas correspondientes de la base de datos.
 
- En el escenario, no se perderá ningún dato. Los dos usuarios actualizaron diferentes propiedades. La próxima vez que un usuario examine el departamento de inglés, verá los cambios tanto de Jane como de John. Este método de actualización puede reducir el número de conflictos que pueden dar lugar a una pérdida de datos. Este enfoque: * No puede evitar la pérdida de datos si se realizan cambios paralelos a la misma propiedad.
+  En el escenario, no se perderá ningún dato. Los dos usuarios actualizaron diferentes propiedades. La próxima vez que un usuario examine el departamento de inglés, verá los cambios tanto de Jane como de John. Este método de actualización puede reducir el número de conflictos que pueden dar lugar a una pérdida de datos. Este enfoque: * No puede evitar la pérdida de datos si se realizan cambios paralelos a la misma propiedad.
         * Por lo general no es práctico en una aplicación web. Requiere mantener un estado significativo para realizar un seguimiento de todos los valores capturados y nuevos. El mantenimiento de grandes cantidades de estado puede afectar al rendimiento de la aplicación.
         * Puede aumentar la complejidad de las aplicaciones en comparación con la detección de simultaneidad en una entidad.
 
 * Puede permitir que los cambios de John sobrescriban los cambios de Jane.
 
- La próxima vez que un usuario examine el departamento de inglés, verá 9/1/2013 y el valor de 350.000,00 USD capturado. Este enfoque se denomina un escenario de *Prevalece el cliente* o *Prevalece el último*. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos). Si no hace ninguna codificación para el control de la simultaneidad, Prevalece el cliente se realizará automáticamente.
+  La próxima vez que un usuario examine el departamento de inglés, verá 9/1/2013 y el valor de 350.000,00 USD capturado. Este enfoque se denomina un escenario de *Prevalece el cliente* o *Prevalece el último*. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos). Si no hace ninguna codificación para el control de la simultaneidad, Prevalece el cliente se realizará automáticamente.
 
 * Puede evitar que el cambio de John se actualice en la base de datos. Normalmente, la aplicación podría: * Mostrar un mensaje de error.
         * Mostrar el estado actual de los datos.
         * Permitir al usuario volver a aplicar los cambios.
 
- Esto se denomina un escenario de *Prevalece el almacén*. (Los valores del almacén de datos tienen prioridad sobre los valores enviados por el cliente). En este tutorial implementará el escenario de Prevalece el almacén. Este método garantiza que ningún cambio se sobrescriba sin que se avise al usuario.
+  Esto se denomina un escenario de *Prevalece el almacén*. (Los valores del almacén de datos tienen prioridad sobre los valores enviados por el cliente). En este tutorial implementará el escenario de Prevalece el almacén. Este método garantiza que ningún cambio se sobrescriba sin que se avise al usuario.
 
 ## <a name="handling-concurrency"></a>Administrar la simultaneidad 
 
 Cuando una propiedad se configura como un [token de simultaneidad](https://docs.microsoft.com/ef/core/modeling/concurrency):
 
-* EF Core comprueba que no se ha modificado la propiedad después de que se capturase. La comprobación se produce cuando se llama a [SaveChanges](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_).
-* Si se ha cambiado la propiedad después de haberla capturado, se produce una excepción [DbUpdateConcurrencyException](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0). 
+* EF Core comprueba que no se ha modificado la propiedad después de que se capturase. La comprobación se produce cuando se llama a [SaveChanges](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechanges?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChanges) o [SaveChangesAsync](/dotnet/api/microsoft.entityframeworkcore.dbcontext.savechangesasync?view=efcore-2.0#Microsoft_EntityFrameworkCore_DbContext_SaveChangesAsync_System_Threading_CancellationToken_).
+* Si se ha cambiado la propiedad después de haberla capturado, se produce una excepción [DbUpdateConcurrencyException](/dotnet/api/microsoft.entityframeworkcore.dbupdateconcurrencyexception?view=efcore-2.0). 
 
 Deben configurarse el modelo de datos y la base de datos para que admitan producir una excepción `DbUpdateConcurrencyException`.
 
 ### <a name="detecting-concurrency-conflicts-on-a-property"></a>Detectar conflictos de simultaneidad en una propiedad
 
-Se pueden detectar conflictos de simultaneidad en el nivel de propiedad con el atributo [ConcurrencyCheck](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0). El atributo se puede aplicar a varias propiedades en el modelo. Para obtener más información, consulte [Anotaciones de datos: ConcurrencyCheck](https://docs.microsoft.com/ef/core/modeling/concurrency#data-annotations).
+Se pueden detectar conflictos de simultaneidad en el nivel de propiedad con el atributo [ConcurrencyCheck](/dotnet/api/system.componentmodel.dataannotations.concurrencycheckattribute?view=netcore-2.0). El atributo se puede aplicar a varias propiedades en el modelo. Para obtener más información, consulte [Anotaciones de datos: ConcurrencyCheck](/ef/core/modeling/concurrency#data-annotations).
 
 El atributo `[ConcurrencyCheck]` no se usa en este tutorial.
 
 ### <a name="detecting-concurrency-conflicts-on-a-row"></a>Detectar conflictos de simultaneidad en una fila
 
-Para detectar conflictos de simultaneidad, se agrega al modelo una columna de seguimiento [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql).  `rowversion`:
+Para detectar conflictos de simultaneidad, se agrega al modelo una columna de seguimiento [rowversion](/sql/t-sql/data-types/rowversion-transact-sql).  `rowversion`:
 
 * Es específico de SQL Server. Otras bases de datos podrían no proporcionar una característica similar.
 * Se usa para determinar que no se ha cambiado una entidad desde que se capturó de la base de datos. 
@@ -105,9 +105,9 @@ En EF Core, cuando un comando `Update` o `Delete` no han actualizado ninguna fil
 
 En *Models/Department.cs*, agregue una propiedad de seguimiento denominada RowVersion:
 
-[!code-csharp[Main](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
+[!code-csharp[](intro/samples/cu/Models/Department.cs?name=snippet_Final&highlight=26,27)]
 
-El atributo [Timestamp](https://docs.microsoft.com/dotnet/api/system.componentmodel.dataannotations.timestampattribute) especifica que esta columna se incluye en la cláusula `Where` de los comandos `Update` y `Delete`. El atributo se denomina `Timestamp` porque las versiones anteriores de SQL Server usaban un tipo de datos `timestamp` antes de que el tipo `rowversion` de SQL lo sustituyera por otro.
+El atributo [Timestamp](/dotnet/api/system.componentmodel.dataannotations.timestampattribute) especifica que esta columna se incluye en la cláusula `Where` de los comandos `Update` y `Delete`. El atributo se denomina `Timestamp` porque las versiones anteriores de SQL Server usaban un tipo de datos `timestamp` antes de que el tipo `rowversion` de SQL lo sustituyera por otro.
 
 La API fluida también puede especificar la propiedad de seguimiento:
 
@@ -127,7 +127,7 @@ El código resaltado a continuación muestra el T-SQL que comprueba que se actua
 
 [!code-sql[](intro/samples/sql.txt?highlight=4-6)]
 
-[@@ROWCOUNT](https://docs.microsoft.com/sql/t-sql/functions/rowcount-transact-sql) devuelve el número de filas afectadas por la última instrucción. Si no se actualiza ninguna fila, EF Core produce una excepción `DbUpdateConcurrencyException`.
+[@@ROWCOUNT](/sql/t-sql/functions/rowcount-transact-sql) devuelve el número de filas afectadas por la última instrucción. Si no se actualiza ninguna fila, EF Core produce una excepción `DbUpdateConcurrencyException`.
 
 Puede ver el T-SQL que genera EF Core en la ventana de salida de Visual Studio.
 
@@ -147,7 +147,7 @@ Los comandos anteriores:
 * Agregan el archivo de migración *Migrations/{time stamp}_RowVersion.cs*.
 * Actualizan el archivo *Migrations/SchoolContextModelSnapshot.cs*. La actualización agrega el siguiente código resaltado al método `BuildModel`:
 
-[!code-csharp[Main](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Ejecutan las migraciones para actualizar la base de datos.
 
@@ -158,9 +158,9 @@ Los comandos anteriores:
 * Abra una ventana de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*).
 * Ejecute el siguiente comando:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Department -dc SchoolContext -udl -outDir Pages\Departments --referenceScriptLibraries
+  ```
 
 El comando anterior aplica scaffolding al modelo `Department`. Abra el proyecto en Visual Studio.
 
@@ -193,9 +193,9 @@ Actualice *pages\departments\edit.cshtml.cs* con el código siguiente:
 
 [!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet)]
 
-Para detectar un problema de simultaneidad, el [OriginalValue](https://docs.microsoft.com/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) se actualiza con el valor `rowVersion` de la entidad de la que se capturó. EF Core genera un comando UPDATE de SQL con una cláusula WHERE que contiene el valor `RowVersion` original. Si no hay ninguna fila afectada por el comando UPDATE (ninguna fila tiene el valor `RowVersion` original), se produce una excepción `DbUpdateConcurrencyException`.
+Para detectar un problema de simultaneidad, el [OriginalValue](/dotnet/api/microsoft.entityframeworkcore.changetracking.propertyentry.originalvalue?view=efcore-2.0#Microsoft_EntityFrameworkCore_ChangeTracking_PropertyEntry_OriginalValue) se actualiza con el valor `rowVersion` de la entidad de la que se capturó. EF Core genera un comando UPDATE de SQL con una cláusula WHERE que contiene el valor `RowVersion` original. Si no hay ninguna fila afectada por el comando UPDATE (ninguna fila tiene el valor `RowVersion` original), se produce una excepción `DbUpdateConcurrencyException`.
 
-[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-)]
+[!code-csharp[](intro/samples/cu/Pages/Departments/Edit.cshtml.cs?name=snippet_rv&highlight=24-999)]
 
 En el código anterior, `Department.RowVersion` es el valor cuando se capturó la entidad. `OriginalValue` es el valor de la base de datos cuando se llamó a `FirstOrDefaultAsync` en este método.
 
@@ -305,8 +305,8 @@ Vea [Herencia](xref:data/ef-mvc/inheritance) para obtener información sobre có
 
 ### <a name="additional-resources"></a>Recursos adicionales
 
-* [Tokens de simultaneidad en EF Core](https://docs.microsoft.com/ef/core/modeling/concurrency)
-* [Controlar la simultaneidad en EF Core](https://docs.microsoft.com/ef/core/saving/concurrency)
+* [Tokens de simultaneidad en EF Core](/ef/core/modeling/concurrency)
+* [Controlar la simultaneidad en EF Core](/ef/core/saving/concurrency)
 
->[!div class="step-by-step"]
-[Anterior](xref:data/ef-rp/update-related-data)
+> [!div class="step-by-step"]
+> [Anterior](xref:data/ef-rp/update-related-data)

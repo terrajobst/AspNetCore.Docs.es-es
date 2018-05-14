@@ -10,7 +10,7 @@ En la tabla siguiente se enumeran los archivos y las carpetas del proyecto. En e
 
 | Archivo o carpeta              | Propósito |
 | ----------------- | ------------ | 
-| wwwroot | Contiene archivos estáticos. Consulte [Working with static files](xref:fundamentals/static-files) (Trabajar con archivos estáticos). |
+| wwwroot | Contiene archivos estáticos. Vea [Trabajar con archivos estáticos](xref:fundamentals/static-files). |
 | Páginas | Carpeta para [páginas de Razor](xref:mvc/razor-pages/index). | 
 | *appsettings.json* | [Configuración](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Aloja](xref:fundamentals/hosting) la aplicación de ASP.NET Core.|

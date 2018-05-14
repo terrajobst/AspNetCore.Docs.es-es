@@ -1,7 +1,7 @@
 ---
-title: "Páginas de Razor con EF Core: Lectura de datos relacionados (6 de 8)"
+title: 'Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)'
 author: rick-anderson
-description: "En este tutorial, leerá y mostrará datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación."
+description: En este tutorial, leerá y mostrará datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación.
 manager: wpickett
 ms.author: riande
 ms.date: 11/05/2017
@@ -9,17 +9,17 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: ccb1e95ae2b43fd0a4c4b1ac9ed58a4d474ab3b6
-ms.sourcegitcommit: 18d1dc86770f2e272d93c7e1cddfc095c5995d9e
+ms.openlocfilehash: 55d9b6743c7d97dc9a354bae218b1fac69d7b6bc
+ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="reading-related-data---ef-core-with-razor-pages-6-of-8"></a>Lectura de datos relacionados: páginas de Razor con EF Core (6 de 8)
+# <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
 Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.com/thereformedprog) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE[about the series](../../includes/RP-EF/intro.md)]
+[!INCLUDE [about the series](../../includes/RP-EF/intro.md)]
 
 En este tutorial, se leen y se muestran datos relacionados. Los datos relacionados son los que EF Core carga en las propiedades de navegación.
 
@@ -37,22 +37,22 @@ EF Core puede cargar datos relacionados en las propiedades de navegación de una
 
 * [Carga diligente](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). La carga diligente es cuando una consulta para un tipo de entidad también carga las entidades relacionadas. Cuando se lee la entidad, se recuperan sus datos relacionados. Esto normalmente da como resultado una única consulta de combinación en la que se recuperan todos los datos que se necesitan. EF Core emitirá varias consultas para algunos tipos de carga diligente. La emisión de varias consultas puede ser más eficaz de lo que eran algunas consultas de EF6 cuando había una sola consulta. La carga diligente se especifica con los métodos `Include` y `ThenInclude`.
 
- ![Ejemplo de carga diligente](read-related-data/_static/eager-loading.png)
+  ![Ejemplo de carga diligente](read-related-data/_static/eager-loading.png)
  
- La carga diligente envía varias consultas cuando se incluye una propiedad de navegación de colección:
+  La carga diligente envía varias consultas cuando se incluye una propiedad de navegación de colección:
 
- * Una consulta para la consulta principal 
- * Una consulta para cada colección "perimetral" en el árbol de la carga.
+  * Una consulta para la consulta principal 
+  * Una consulta para cada colección "perimetral" en el árbol de la carga.
 
 * Separe las consultas con `Load`: los datos se pueden recuperar en distintas consultas y EF Core "corrige" las propiedades de navegación. "Corregir" significa que EF Core rellena automáticamente las propiedades de navegación. Separar las consultas con `Load` es más parecido a la carga explícita que a la carga diligente.
 
- ![Ejemplo de consultas independientes](read-related-data/_static/separate-queries.png)
+  ![Ejemplo de consultas independientes](read-related-data/_static/separate-queries.png)
 
- Nota: EF Core corrige automáticamente las propiedades de navegación para todas las entidades que se cargaron previamente en la instancia del contexto. Incluso si los datos de una propiedad de navegación *no* se incluyen explícitamente, es posible que la propiedad se siga rellenando si algunas o todas las entidades relacionadas se cargaron previamente.
+  Nota: EF Core corrige automáticamente las propiedades de navegación para todas las entidades que se cargaron previamente en la instancia del contexto. Incluso si los datos de una propiedad de navegación *no* se incluyen explícitamente, es posible que la propiedad se siga rellenando si algunas o todas las entidades relacionadas se cargaron previamente.
 
 * [Carga explícita](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. Se debe escribir código para recuperar los datos relacionados cuando sea necesario. La carga explícita con consultas independientes da como resultado varias consultas que se envían a la base de datos. Con la carga explícita, el código especifica las propiedades de navegación que se van a cargar. Use el método `Load` para realizar la carga explícita. Por ejemplo:
 
- ![Ejemplo de carga explícita](read-related-data/_static/explicit-loading.png)
+  ![Ejemplo de carga explícita](read-related-data/_static/explicit-loading.png)
 
 * [Carga diferida](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Actualmente EF Core no admite la carga diferida](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. La primera vez que se obtiene acceso a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Cada vez que se obtiene acceso a una propiedad de navegación, se envía una consulta a la base de datos.
 
@@ -76,9 +76,9 @@ Para mostrar el nombre del departamento asignado en una lista de cursos:
 * Abra una ventana de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*).
 * Ejecute el siguiente comando:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
+  ```
 
 El comando anterior aplica scaffolding al modelo `Course`. Abra el proyecto en Visual Studio.
 
@@ -97,7 +97,7 @@ Ejecute la aplicación y haga clic en el vínculo **Courses**. En la columna Dep
 
 Actualice el método `OnGetAsync` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod)]
 
 El código anterior agrega `AsNoTracking`. `AsNoTracking` mejora el rendimiento porque no se realiza el seguimiento de las entidades devueltas. No se realiza el seguimiento de las entidades porque no se actualizan en el contexto actual.
 
@@ -124,17 +124,17 @@ Ejecute la aplicación y haga clic en la pestaña **Courses** para ver la lista 
 
 El método `OnGetAsync` carga los datos relacionados con el método `Include`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/Index.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
-El operador `Select` solo carga los datos relacionados necesarios. Para elementos individuales, como el `Department.Name`, se usa INNER JOIN de SQL. Para las colecciones, se usa otro acceso de base de datos, como también hace el operador `Include` en las colecciones.
+El operador `Select` solo carga los datos relacionados necesarios. Para elementos individuales, como el `Department.Name`, se usa INNER JOIN de SQL. En las colecciones, se usa otro acceso de base de datos, como también hace el operador `Include` en las colecciones.
 
 En el código siguiente se cargan los datos relacionados con el método `Select`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
+[!code-csharp[](intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs?name=snippet_RevisedIndexMethod&highlight=4)]
 
 El `CourseViewModel`:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/CourseViewModel.cs?name=snippet)]
 
 Vea [IndexSelect.cshtml](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml) e [IndexSelect.cshtml.cs](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples/cu/Pages/Courses/IndexSelect.cshtml.cs) para obtener un ejemplo completo.
 
@@ -148,7 +148,7 @@ En esta sección, se crea la página de instructores.
 En esta página se leen y muestran los datos relacionados de las maneras siguientes:
 
 * En la lista de instructores se muestran datos relacionados de la entidad `OfficeAssignment` (Office en la imagen anterior). Las entidades `Instructor` y `OfficeAssignment` se encuentran en una relación de uno a cero o uno. Para las entidades `OfficeAssignment` se usa la carga diligente. Normalmente la carga diligente es más eficaz cuando es necesario mostrar los datos relacionados. En este caso, se muestran las asignaciones de oficina para los instructores.
-* Cuando el usuario selecciona un instructor (Harui en la imagen anterior), se muestran las entidades `Course` relacionadas. Las entidades `Instructor` y `Course` se encuentran en una relación de varios a varios. Se usa la carga diligente para las entidades `Course` y sus entidades `Department` relacionadas. En este caso, es posible que las consultas independientes sean más eficaces porque solo se necesitan cursos para el instructor seleccionado. En este ejemplo se muestra cómo usar la carga diligente para propiedades de navegación en entidades que se encuentran en propiedades de navegación.
+* Cuando el usuario selecciona un instructor (Harui en la imagen anterior), se muestran las entidades `Course` relacionadas. Las entidades `Instructor` y `Course` se encuentran en una relación de varios a varios. La carga diligente se usa con las entidades `Course` y sus entidades `Department` relacionadas. En este caso, es posible que las consultas independientes sean más eficaces porque solo se necesitan cursos para el instructor seleccionado. En este ejemplo se muestra cómo usar la carga diligente para propiedades de navegación en entidades que se encuentran en propiedades de navegación.
 * Cuando el usuario selecciona un curso (Chemistry [Química] en la imagen anterior), se muestran los datos relacionados de la entidad `Enrollments`. En la imagen anterior, se muestra el nombre del alumno y la calificación. Las entidades `Course` y `Enrollment` se encuentran en una relación uno a varios.
 
 ### <a name="create-a-view-model-for-the-instructor-index-view"></a>Crear un modelo de vista para la vista de índice de instructores
@@ -157,7 +157,7 @@ En la página Instructors se muestran datos de tres tablas diferentes. Se crea u
 
 En la carpeta *SchoolViewModels*, cree *InstructorIndexData.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
+[!code-csharp[](intro/samples/cu/Models/SchoolViewModels/InstructorIndexData.cs)]
 
 ### <a name="scaffold-the-instructor-model"></a>Aplicar scaffolding al modelo de Instructor
 
@@ -165,9 +165,9 @@ En la carpeta *SchoolViewModels*, cree *InstructorIndexData.cs* con el código s
 * Abra una ventana de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*).
 * Ejecute el siguiente comando:
 
- ```console
-dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
- ```
+  ```console
+  dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
+  ```
 
 El comando anterior aplica scaffolding al modelo `Instructor`. Abra el proyecto en Visual Studio.
 
@@ -179,13 +179,13 @@ Ejecute la aplicación y vaya a la página de instructores.
 
 Reemplace *Pages/Instructors/Index.cshtml.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
 
 El método `OnGetAsync` acepta datos de ruta opcionales para el identificador del instructor seleccionado.
 
 Examine la consulta en la página *Pages/Instructors/Index.cshtml*:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_ThenInclude)]
 
 La consulta tiene dos instrucciones include:
 
@@ -201,7 +201,7 @@ Actualice *Pages/Instructors/Index.cshtml* con el marcado siguiente:
 
 En el marcado anterior se realizan los cambios siguientes:
 
-* Se actualiza la directiva `page` de `@page` a `@page "{id:int?}"`. `"{id:int?}"` es una plantilla de ruta. La plantilla de ruta cambia las cadenas de consulta enteras de la dirección URL por datos de ruta. Por ejemplo, al hacer clic en el vínculo **Select** para un instructor cuando la directiva de página genera una dirección URL similar a la siguiente:
+* Se actualiza la directiva `page` de `@page` a `@page "{id:int?}"`. `"{id:int?}"` es una plantilla de ruta. La plantilla de ruta cambia las cadenas de consulta enteras de la dirección URL por datos de ruta. Por ejemplo, al hacer clic en el vínculo **Select** de un instructor con únicamente la directiva `@page`, se genera una dirección URL similar a la siguiente:
 
     `http://localhost:1234/Instructors?id=2`
 
@@ -248,17 +248,17 @@ Haga clic en el vínculo **Select**. El estilo de la fila cambia.
 
 Actualice el método `OnGetAsync` de *Pages/Instructors/Index.cshtml.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_OnGetAsync&highlight=1,8,16-999)]
 
 Examine la consulta actualizada:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ThenInclude)]
 
 En la consulta anterior se agregan las entidades `Department`.
 
 El código siguiente se ejecuta cuando se selecciona un instructor (`id != null`). El instructor seleccionado se recupera de la lista de instructores del modelo de vista. Se carga la propiedad `Courses` del modelo de vista con las entidades `Course` de la propiedad de navegación `CourseAssignments` de ese instructor.
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_ID)]
 
 El método `Where` devuelve una colección. En el método `Where` anterior, solo se devuelve una entidad `Instructor`. El método `Single` convierte la colección en una sola entidad `Instructor`. La entidad `Instructor` proporciona acceso a la propiedad `CourseAssignments`. `CourseAssignments` proporciona acceso a las entidades `Course` relacionadas.
 
@@ -271,11 +271,11 @@ El método `Single` se usa en una colección cuando la colección tiene un solo 
 
 El código siguiente rellena la propiedad `Enrollments` del modelo de vista cuando se selecciona un curso:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index2.cshtml.cs?name=snippet_courseID)]
 
 Agregue el siguiente marcado al final de la página de Razor *Pages/Courses/Index.cshtml*:
 
-[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-)]
+[!code-html[](intro/samples/cu/Pages/Instructors/IndexRRD.cshtml?range=60-102&highlight=7-999)]
 
 En el marcado anterior se muestra una lista de cursos relacionados con un instructor cuando se selecciona un instructor.
 
@@ -289,7 +289,7 @@ En esta sección, la aplicación se actualiza para mostrar los datos de estudian
 
 Actualice la consulta en el método `OnGetAsync` de *Pages/Instructors/Index.cshtml.cs* con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Actualice *Pages/Instructors/Index.cshtml*. Agregue el marcado siguiente al final del archivo:
 
@@ -305,7 +305,7 @@ Actualice la página y seleccione un instructor. Seleccione un curso para ver la
 
 Se puede pasar el método `Single` en la condición `Where` en lugar de llamar al método `Where` por separado:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
 
 El enfoque de `Single` anterior no ofrece ninguna ventaja con respecto a `Where`. Algunos desarrolladores prefieren el estilo del enfoque de `Single`.
 
@@ -313,13 +313,13 @@ El enfoque de `Single` anterior no ofrece ninguna ventaja con respecto a `Where`
 
 En el código actual se especifica la carga diligente para `Enrollments` y `Students`:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index.cshtml.cs?name=snippet_ThenInclude&highlight=6-9)]
 
 Imagine que los usuarios rara vez querrán ver las inscripciones en un curso. En ese caso, una optimización sería cargar solamente los datos de inscripción si se solicitan. En esta sección, se actualiza `OnGetAsync` para usar la carga explícita de `Enrollments` y `Students`.
 
 Actualice `OnGetAsync` con el código siguiente:
 
-[!code-csharp[Main](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexXp.cshtml.cs?name=snippet_OnGetAsync&highlight=9-13,29-35)]
 
 En el código anterior se quitan las llamadas al método *ThenInclude* para los datos de inscripción y estudiantes. Si se selecciona un curso, el código resaltado recupera lo siguiente:
 
