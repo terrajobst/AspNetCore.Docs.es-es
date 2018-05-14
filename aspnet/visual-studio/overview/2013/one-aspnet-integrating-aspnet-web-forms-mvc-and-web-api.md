@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
-title: "Laboratorio de prácticas: Uno ASP.NET: integrar formularios ASP.NET Web Forms, MVC y API Web | Documentos de Microsoft"
+title: 'Laboratorio de prácticas: Uno ASP.NET: integrar formularios ASP.NET Web Forms, MVC y API Web | Documentos de Microsoft'
 author: rick-anderson
-description: "ASP.NET es un marco para la creación de sitios Web, aplicaciones y servicios mediante tecnologías especializadas como MVC, Web API y otros. Con la expansión h ASP.NET..."
+description: ASP.NET es un marco para la creación de sitios Web, aplicaciones y servicios mediante tecnologías especializadas como MVC, Web API y otros. Con la expansión h ASP.NET...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/16/2014
 ms.topic: article
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
@@ -161,7 +161,7 @@ En esta tarea se ejecute la solución generada, explorar la aplicación y alguna
     *Direcciones URL descriptivas*
 
     > [!NOTE]
-    > Como puede ver, la dirección URL cambia a **o póngase en contacto con**. A partir de **ASP.NET 4**, capacidades de enrutamiento de dirección URL se agregaron a formularios Web Forms, por lo que puede escribir las direcciones URL como  *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)*  en lugar de  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Para obtener más información, consulte [enrutamiento de direcciones URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Como puede ver, la dirección URL cambia a **o póngase en contacto con**. A partir de **ASP.NET 4**, capacidades de enrutamiento de dirección URL se agregaron a formularios Web Forms, por lo que puede escribir las direcciones URL como *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* en lugar de  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Para obtener más información, consulte [enrutamiento de direcciones URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Ahora explorará el flujo de autenticación que se integra en la aplicación. Para ello, haga clic en **registrar** en la esquina superior derecha de la página.
 
     ![Registrar un nuevo usuario](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)
