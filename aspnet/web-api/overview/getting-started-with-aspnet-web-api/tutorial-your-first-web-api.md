@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-title: "Introducción a ASP.NET Web API 2 (C#)"
+title: Introducción a ASP.NET Web API 2 (C#)
 author: MikeWasson
-description: "HTTP no es solo para servir las páginas web. También es una herramienta eficaz para la creación de las API que exponen datos y servicios. HTTP es sencilla y flexible y ubiq..."
+description: HTTP no es solo para servir las páginas web. También es una herramienta eficaz para la creación de las API que exponen datos y servicios. HTTP es sencilla y flexible y ubiq...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/28/2017
@@ -126,7 +126,7 @@ ms.lasthandoff: 03/15/2018
 
 ![](tutorial-your-first-web-api/_static/image9.png)
 
-<span data-ttu-id="72242-183">En el **Agregar nuevo elemento** cuadro de diálogo, seleccione la **Web** nodo bajo **Visual C#**y, a continuación, seleccione la **página HTML** elemento.</span><span class="sxs-lookup"><span data-stu-id="72242-183">In the **Add New Item** dialog, select the **Web** node under **Visual C#**, and then select the **HTML Page** item.</span></span> <span data-ttu-id="72242-184">Nombre de la página &quot;index.html&quot;.</span><span class="sxs-lookup"><span data-stu-id="72242-184">Name the page &quot;index.html&quot;.</span></span>
+<span data-ttu-id="72242-183">En el **Agregar nuevo elemento** cuadro de diálogo, seleccione la **Web** nodo bajo **Visual C#** y, a continuación, seleccione la **página HTML** elemento.</span><span class="sxs-lookup"><span data-stu-id="72242-183">In the **Add New Item** dialog, select the **Web** node under **Visual C#**, and then select the **HTML Page** item.</span></span> <span data-ttu-id="72242-184">Nombre de la página &quot;index.html&quot;.</span><span class="sxs-lookup"><span data-stu-id="72242-184">Name the page &quot;index.html&quot;.</span></span>
 
 ![](tutorial-your-first-web-api/_static/image10.png)
 

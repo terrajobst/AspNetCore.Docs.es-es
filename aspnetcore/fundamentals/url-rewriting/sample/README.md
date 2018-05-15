@@ -1,45 +1,45 @@
-# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a>Ejemplo de reescritura de dirección URL de ASP.NET Core (ASP.NET Core 2.x)
+# <a name="aspnet-core-url-rewriting-sample-aspnet-core-2x"></a><span data-ttu-id="d1a86-101">Ejemplo de reescritura de dirección URL de ASP.NET Core (ASP.NET Core 2.x)</span><span class="sxs-lookup"><span data-stu-id="d1a86-101">ASP.NET Core URL Rewriting Sample (ASP.NET Core 2.x)</span></span>
 
-En este ejemplo se muestra el uso del software intermedio de reescritura de dirección URL de ASP.NET Core 2.x. En la aplicación se muestran las opciones de redireccionamiento de dirección URL y reescritura de dirección URL. Para obtener el ejemplo de ASP.NET Core 1.x, vea [ASP.NET Core URL Rewriting Sample (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x) (Ejemplo de reescritura de dirección URL de ASP.NET Core [ASP.NET Core 1.x]).
+<span data-ttu-id="d1a86-102">En este ejemplo se muestra el uso del software intermedio de reescritura de dirección URL de ASP.NET Core 2.x.</span><span class="sxs-lookup"><span data-stu-id="d1a86-102">This sample illustrates usage of ASP.NET Core 2.x URL Rewriting Middleware.</span></span> <span data-ttu-id="d1a86-103">En la aplicación se muestran las opciones de redireccionamiento de dirección URL y reescritura de dirección URL.</span><span class="sxs-lookup"><span data-stu-id="d1a86-103">The application demonstrates URL redirect and URL rewriting options.</span></span> <span data-ttu-id="d1a86-104">Para obtener el ejemplo de ASP.NET Core 1.x, vea [ASP.NET Core URL Rewriting Sample (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x) (Ejemplo de reescritura de dirección URL de ASP.NET Core [ASP.NET Core 1.x]).</span><span class="sxs-lookup"><span data-stu-id="d1a86-104">For the ASP.NET Core 1.x sample, see [ASP.NET Core URL Rewriting Sample (ASP.NET Core 1.x)](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/url-rewriting/samples/1.x).</span></span>
 
-Al ejecutar el ejemplo, se enviará una respuesta en la que aparecerá la dirección URL reescrita o redirigida al aplicar una de las reglas a una dirección URL de solicitud.
+<span data-ttu-id="d1a86-105">Al ejecutar el ejemplo, se enviará una respuesta en la que aparecerá la dirección URL reescrita o redirigida al aplicar una de las reglas a una dirección URL de solicitud.</span><span class="sxs-lookup"><span data-stu-id="d1a86-105">When running the sample, a response will be served that shows the rewritten or redirected URL when one of the rules is applied to a request URL.</span></span>
 
-## <a name="examples-in-this-sample"></a>Ejemplos incluidos
+## <a name="examples-in-this-sample"></a><span data-ttu-id="d1a86-106">Ejemplos incluidos</span><span class="sxs-lookup"><span data-stu-id="d1a86-106">Examples in this sample</span></span>
 
 * `AddRedirect("redirect-rule/(.*)", "redirected/$1")`
-  - Código de estado correcto: 302 (Encontrado)
-  - Ejemplo (redireccionamiento): **/redirect-rule/{capture_group}** a **/redirected/{capture_group}**
+  - <span data-ttu-id="d1a86-107">Código de estado correcto: 302 (Encontrado)</span><span class="sxs-lookup"><span data-stu-id="d1a86-107">Success status code: 302 (Found)</span></span>
+  - <span data-ttu-id="d1a86-108">Ejemplo (redireccionamiento): **/redirect-rule/{capture_group}** a **/redirected/{capture_group}**</span><span class="sxs-lookup"><span data-stu-id="d1a86-108">Example (redirect): **/redirect-rule/{capture_group}** to **/redirected/{capture_group}**</span></span>
 * `AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)`
-  - Código de estado correcto: 200 - Correcto
-  - Ejemplo (reescritura): **/rewrite-rule/{capture_group_1}/{capture_group_2}** a **/rewritten?var1={capture_group_1}&var2={capture_group_2}**
+  - <span data-ttu-id="d1a86-109">Código de estado correcto: 200 - Correcto</span><span class="sxs-lookup"><span data-stu-id="d1a86-109">Success status code: 200 (OK)</span></span>
+  - <span data-ttu-id="d1a86-110">Ejemplo (reescritura): **/rewrite-rule/{capture_group_1}/{capture_group_2}** a **/rewritten?var1={capture_group_1}&var2={capture_group_2}**</span><span class="sxs-lookup"><span data-stu-id="d1a86-110">Example (rewrite): **/rewrite-rule/{capture_group_1}/{capture_group_2}** to **/rewritten?var1={capture_group_1}&var2={capture_group_2}**</span></span>
 * `AddApacheModRewrite(env.ContentRootFileProvider, "ApacheModRewrite.txt")`
-  - Código de estado correcto: 302 (Encontrado)
-  - Ejemplo (redireccionamiento): **/apache-mod-rules-redirect/{capture_group}** a **/redirected?id={capture_group}**
+  - <span data-ttu-id="d1a86-111">Código de estado correcto: 302 (Encontrado)</span><span class="sxs-lookup"><span data-stu-id="d1a86-111">Success status code: 302 (Found)</span></span>
+  - <span data-ttu-id="d1a86-112">Ejemplo (redireccionamiento): **/apache-mod-rules-redirect/{capture_group}** a **/redirected?id={capture_group}**</span><span class="sxs-lookup"><span data-stu-id="d1a86-112">Example (redirect): **/apache-mod-rules-redirect/{capture_group}** to **/redirected?id={capture_group}**</span></span>
 * `AddIISUrlRewrite(env.ContentRootFileProvider, "IISUrlRewrite.xml")`
-  - Código de estado correcto: 200 - Correcto
-  - Ejemplo (reescritura): **/iis-rules-rewrite/{capture_group}** a **/rewritten?id={capture_group}**
+  - <span data-ttu-id="d1a86-113">Código de estado correcto: 200 - Correcto</span><span class="sxs-lookup"><span data-stu-id="d1a86-113">Success status code: 200 (OK)</span></span>
+  - <span data-ttu-id="d1a86-114">Ejemplo (reescritura): **/iis-rules-rewrite/{capture_group}** a **/rewritten?id={capture_group}**</span><span class="sxs-lookup"><span data-stu-id="d1a86-114">Example (rewrite): **/iis-rules-rewrite/{capture_group}** to **/rewritten?id={capture_group}**</span></span>
 * `Add(RedirectXMLRequests)`
-  - Código de estado correcto: 301 - Movido definitivamente
-  - Ejemplo (redireccionamiento): **/file.xml** a **/xmlfiles/file.xml**
+  - <span data-ttu-id="d1a86-115">Código de estado correcto: 301 - Movido definitivamente</span><span class="sxs-lookup"><span data-stu-id="d1a86-115">Success status code: 301 (Moved Permanently)</span></span>
+  - <span data-ttu-id="d1a86-116">Ejemplo (redireccionamiento): **/file.xml** a **/xmlfiles/file.xml**</span><span class="sxs-lookup"><span data-stu-id="d1a86-116">Example (redirect): **/file.xml** to **/xmlfiles/file.xml**</span></span>
 * `Add(new RedirectPNGRequests(".png", "/png-images")))`<br>`Add(new RedirectPNGRequests(".jpg", "/jpg-images")))`
-  - Código de estado correcto: 301 - Movido definitivamente
-  - Ejemplo (redireccionamiento): **/image.png** a **/png-images/image.png**
-  - Ejemplo (redireccionamiento): **/image.jpg** a **/jpg-images/image.jpg**
+  - <span data-ttu-id="d1a86-117">Código de estado correcto: 301 - Movido definitivamente</span><span class="sxs-lookup"><span data-stu-id="d1a86-117">Success status code: 301 (Moved Permanently)</span></span>
+  - <span data-ttu-id="d1a86-118">Ejemplo (redireccionamiento): **/image.png** a **/png-images/image.png**</span><span class="sxs-lookup"><span data-stu-id="d1a86-118">Example (redirect): **/image.png** to **/png-images/image.png**</span></span>
+  - <span data-ttu-id="d1a86-119">Ejemplo (redireccionamiento): **/image.jpg** a **/jpg-images/image.jpg**</span><span class="sxs-lookup"><span data-stu-id="d1a86-119">Example (redirect): **/image.jpg** to **/jpg-images/image.jpg**</span></span>
 
-## <a name="using-a-physicalfileprovider"></a>Uso de `PhysicalFileProvider`
-También puede obtener `IFileProvider` mediante la creación de un `PhysicalFileProvider` que se pasará a los métodos `AddApacheModRewrite()` y `AddIISUrlRewrite()`:
+## <a name="using-a-physicalfileprovider"></a><span data-ttu-id="d1a86-120">Uso de `PhysicalFileProvider`</span><span class="sxs-lookup"><span data-stu-id="d1a86-120">Using a `PhysicalFileProvider`</span></span>
+<span data-ttu-id="d1a86-121">También puede obtener `IFileProvider` mediante la creación de un `PhysicalFileProvider` que se pasará a los métodos `AddApacheModRewrite()` y `AddIISUrlRewrite()`:</span><span class="sxs-lookup"><span data-stu-id="d1a86-121">You can also obtain an `IFileProvider` by creating a `PhysicalFileProvider` to pass into the `AddApacheModRewrite()` and `AddIISUrlRewrite()` methods:</span></span>
 ```csharp
 using Microsoft.Extensions.FileProviders;
 PhysicalFileProvider fileProvider = new PhysicalFileProvider(Directory.GetCurrentDirectory());
 ```
-## <a name="secure-redirection-extensions"></a>Extensiones de redireccionamiento seguro
-En este ejemplo se incluye la configuración de `WebHostBuilder` para que la aplicación use direcciones URL (**https://localhost:5001**, **https://localhost**) y un certificado de prueba (**testCert.pfx**) para ayudar a explorar estos métodos de redireccionamiento. Agregue cualquiera de ellos a `RewriteOptions()` en **Startup.cs** para estudiar su comportamiento.
+## <a name="secure-redirection-extensions"></a><span data-ttu-id="d1a86-122">Extensiones de redireccionamiento seguro</span><span class="sxs-lookup"><span data-stu-id="d1a86-122">Secure redirection extensions</span></span>
+<span data-ttu-id="d1a86-123">En este ejemplo se incluye la configuración de `WebHostBuilder` para que la aplicación use direcciones URL (**https://localhost:5001**, **https://localhost**) y un certificado de prueba (**testCert.pfx**) para ayudar a explorar estos métodos de redireccionamiento.</span><span class="sxs-lookup"><span data-stu-id="d1a86-123">This sample includes `WebHostBuilder` configuration for the app to use URLs (**https://localhost:5001**, **https://localhost**) and a test certificate (**testCert.pfx**) to assist you in exploring these redirect methods.</span></span> <span data-ttu-id="d1a86-124">Agregue cualquiera de ellos a `RewriteOptions()` en **Startup.cs** para estudiar su comportamiento.</span><span class="sxs-lookup"><span data-stu-id="d1a86-124">Add any of them to the `RewriteOptions()` in **Startup.cs** to study their behavior.</span></span>
 
 
-|              Método              | Código de estado |    Puerto    |
+|              <span data-ttu-id="d1a86-125">Método</span><span class="sxs-lookup"><span data-stu-id="d1a86-125">Method</span></span>              | <span data-ttu-id="d1a86-126">Código de estado</span><span class="sxs-lookup"><span data-stu-id="d1a86-126">Status Code</span></span> |    <span data-ttu-id="d1a86-127">Puerto</span><span class="sxs-lookup"><span data-stu-id="d1a86-127">Port</span></span>    |
 |----------------------------------|:-----------:|:----------:|
-| `.AddRedirectToHttpsPermanent()` |     301     | null (465) |
-|     `.AddRedirectToHttps()`      |     302     | null (465) |
-|    `.AddRedirectToHttps(301)`    |     301     | null (465) |
-| `.AddRedirectToHttps(301, 5001)` |     301     |    5001    |
+| `.AddRedirectToHttpsPermanent()` |     <span data-ttu-id="d1a86-128">301</span><span class="sxs-lookup"><span data-stu-id="d1a86-128">301</span></span>     | <span data-ttu-id="d1a86-129">null (465)</span><span class="sxs-lookup"><span data-stu-id="d1a86-129">null (465)</span></span> |
+|     `.AddRedirectToHttps()`      |     <span data-ttu-id="d1a86-130">302</span><span class="sxs-lookup"><span data-stu-id="d1a86-130">302</span></span>     | <span data-ttu-id="d1a86-131">null (465)</span><span class="sxs-lookup"><span data-stu-id="d1a86-131">null (465)</span></span> |
+|    `.AddRedirectToHttps(301)`    |     <span data-ttu-id="d1a86-132">301</span><span class="sxs-lookup"><span data-stu-id="d1a86-132">301</span></span>     | <span data-ttu-id="d1a86-133">null (465)</span><span class="sxs-lookup"><span data-stu-id="d1a86-133">null (465)</span></span> |
+| `.AddRedirectToHttps(301, 5001)` |     <span data-ttu-id="d1a86-134">301</span><span class="sxs-lookup"><span data-stu-id="d1a86-134">301</span></span>     |    <span data-ttu-id="d1a86-135">5001</span><span class="sxs-lookup"><span data-stu-id="d1a86-135">5001</span></span>    |
 
