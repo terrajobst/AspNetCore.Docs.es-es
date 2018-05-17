@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: d9c7c1c3b2c052ba11f9ea5eaaa424d69bc43eb2
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: c40209e3b3f2b5bf28450bb2a88cbe40e9e23230
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Trabajar con una memoria caché distribuida en ASP.NET Core
 
@@ -40,7 +40,7 @@ Al igual que cualquier memoria caché, una memoria caché distribuida puede mejo
 
 La configuración de la caché es específica de la implementación. En este artículo se describe cómo configurar los almacenes distribuidos en caché Redis y SQL Server. Independientemente de qué implementación se seleccione, la aplicación interactúa con la memoria caché utilizando una interfaz común `IDistributedCache`.
 
-## <a name="the-idistributedcache-interface"></a>The IDistributedCache Interface
+## <a name="the-idistributedcache-interface"></a>La interfaz de IDistributedCache
 
 El `IDistributedCache` interfaz incluye métodos sincrónicos y asincrónicos. La interfaz permite elementos agregar, recuperar y quitar de la implementación de caché distribuida. El `IDistributedCache` interfaz incluye los métodos siguientes:
 
@@ -48,15 +48,15 @@ El `IDistributedCache` interfaz incluye métodos sincrónicos y asincrónicos. L
 
 Toma una clave de cadena y recupera un elemento almacenado en caché como un `byte[]` si se encuentra en la memoria caché.
 
-**Set, SetAsync**
+**Conjunto, SetAsync**
 
 Agrega un elemento (como `byte[]`) a la memoria caché utilizando una clave de cadena.
 
-**Refresh, RefreshAsync**
+**Actualización de RefreshAsync**
 
 Actualiza un elemento en la memoria caché basado en su clave, restablecer su tiempo de espera de expiración deslizante (si existe).
 
-**Remove, RemoveAsync**
+**Quitar, aplica removeasync a**
 
 Quita una entrada de caché basada en su clave.
 
@@ -138,7 +138,7 @@ La hora de decidir qué implementación de `IDistributedCache` es adecuado para 
 
 * [Caché en Azure en Redis](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [Base de datos SQL en Azure](https://azure.microsoft.com/documentation/services/sql-database/)
-* [En la memoria de caché](xref:performance/caching/memory)
+* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)

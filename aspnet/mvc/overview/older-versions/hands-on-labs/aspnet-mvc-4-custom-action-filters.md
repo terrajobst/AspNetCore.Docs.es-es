@@ -107,7 +107,7 @@ El filtro se ampliará **ActionFilterAttributeClass** e invalide **OnActionExecu
 
 Esta solución de la tienda de música tiene una nueva tabla de modelo de datos para el registro de sitio, **ActionLog**, con los siguientes campos: nombre del controlador que recibió una solicitud, acción de llamadas, dirección IP del cliente y marca de tiempo.
 
-![Modelo de datos. Tabla ActionLog. ] (aspnet-mvc-4-custom-action-filters/_static/image1.png "Modelo de datos. Tabla ActionLog.")
+![Modelo de datos. Tabla ActionLog. ](aspnet-mvc-4-custom-action-filters/_static/image1.png "Modelo de datos. Tabla ActionLog.")
 
 *Modelos de datos, tabla de ActionLog*
 

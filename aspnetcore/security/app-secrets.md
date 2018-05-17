@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 0a04f5762a35426f342b58b8b60288c66c057ae7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
-ms.translationtype: MT
+ms.openlocfilehash: a268fd76a303dc1185b451e4f678fc2fe761e80a
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de la aplicación en el desarrollo de ASP.NET Core
 
@@ -41,7 +41,8 @@ La herramienta Administrador de secreto almacena datos confidenciales en el trab
 
 ## <a name="installing-the-secret-manager-tool"></a>Instalar la herramienta Administrador de secreto
 
-#### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
+
 Haga clic en el proyecto en el Explorador de soluciones y seleccione **editar \<Nombre_proyecto\>.csproj** en el menú contextual. Agregue la línea resaltada en el *.csproj* y guardar archivos para restaurar el paquete NuGet asociado:
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -58,7 +59,8 @@ Guardar modificados *.csproj* archivo también se abre un `secrets.json` archivo
 }
 ```
 
-#### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
+
 Agregar `Microsoft.Extensions.SecretManager.Tools` a la *.csproj* de archivos y ejecutar [dotnet restauración](/dotnet/core/tools/dotnet-restore). Puede usar los mismos pasos para instalar la herramienta de administrador de secreto mediante la línea de comandos.
 
 [!code-xml[](app-secrets/sample/UserSecrets/UserSecrets-before.csproj?highlight=10)]
@@ -94,7 +96,8 @@ dotnet user-secrets set MySecret ValueOfMySecret --project c:\work\WebApp1\src\w
 
 También puede usar la herramienta Administrador de secreto para enumerar, quitar y borrar secretos de la aplicación.
 
-* * *
+---
+
 ## <a name="accessing-user-secrets-via-configuration"></a>Obtener acceso a información confidencial del usuario mediante la configuración
 
 Obtener acceso a los secretos de administrador de secreto a través del sistema de configuración. Agregar el `Microsoft.Extensions.Configuration.UserSecrets` empaquetar y ejecutar [dotnet restauración](/dotnet/core/tools/dotnet-restore).

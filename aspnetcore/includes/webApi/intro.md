@@ -10,8 +10,6 @@ En este tutorial se crea la siguiente API:
 |PUT /api/todo/{id} | Actualizar un elemento existente &nbsp; | Tarea pendiente | Ninguna |
 |DELETE /api/todo/{id} &nbsp; &nbsp; | Eliminar un elemento &nbsp; &nbsp; | Ninguna | Ninguna|
 
-<br>
-
 El siguiente diagrama muestra el diseño básico de la aplicación.
 
 ![El cliente está representado por un cuadro a la izquierda, envía una solicitud y recibe una respuesta de la aplicación, representada por un cuadro en la parte derecha. En el cuadro de la aplicación, hay tres cuadros que representan el controlador, el modelo y la capa de acceso a datos. La solicitud entra en el controlador de la aplicación y se producen operaciones de lectura/escritura entre el controlador y la capa de acceso a datos. El modelo se serializa y se devuelve al cliente en la respuesta.](../../tutorials/first-web-api/_static/architecture.png)

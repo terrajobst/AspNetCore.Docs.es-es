@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: aba12a94a573db35eadaa6a38f2fcf074b7b64c2
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e3d0f0c058dd7395aebf1c97821867bae3af7c54
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Programa de instalación de inicio de sesión externo de Google en ASP.NET Core
 
@@ -86,7 +86,8 @@ Los valores para estos tokens se pueden encontrar en el archivo JSON que descarg
 
 ## <a name="configure-google-authentication"></a>Configurar la autenticación de Google
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 Agregue el servicio de Google en el `ConfigureServices` método *Startup.cs* archivo:
 
 ```csharp
@@ -103,13 +104,14 @@ services.AddAuthentication().AddGoogle(googleOptions =>
 
 [!INCLUDE [default settings configuration](includes/default-settings.md)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 La plantilla de proyecto que se usan en este tutorial asegura de que [Microsoft.AspNetCore.Authentication.Google](https://www.nuget.org/packages/Microsoft.AspNetCore.Authentication.Google) paquete está instalado.
 
- * Para instalar este paquete con 2017 de Visual Studio, haga doble clic en el proyecto y seleccione **administrar paquetes de NuGet**.
- * Para instalar con CLI de .NET Core, ejecute lo siguiente en el directorio del proyecto:
+* Para instalar este paquete con 2017 de Visual Studio, haga doble clic en el proyecto y seleccione **administrar paquetes de NuGet**.
+* Para instalar con CLI de .NET Core, ejecute lo siguiente en el directorio del proyecto:
 
-   `dotnet add package Microsoft.AspNetCore.Authentication.Google`
+`dotnet add package Microsoft.AspNetCore.Authentication.Google`
 
 Agregar el middleware de Google en el `Configure` método *Startup.cs* archivo:
 
@@ -121,7 +123,8 @@ app.UseGoogleAuthentication(new GoogleOptions()
 });
 ```
 
-* * *
+---
+
 Consulte la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.builder.googleoptions) referencia de API para obtener más información sobre las opciones de configuración compatible con autenticación de Google. Esto se puede usar para solicitar información diferente sobre el usuario.
 
 ## <a name="sign-in-with-google"></a>Inicie sesión con Google

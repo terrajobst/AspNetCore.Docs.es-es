@@ -4,9 +4,14 @@ En este paso, el contexto de base de datos se registra con el contenedor de [ins
 
 Registre el contexto de la base de datos con el contenedor de servicio mediante la compatibilidad integrada para [inserción de dependencias](xref:fundamentals/dependency-injection). Reemplace el contenido del archivo *Startup.cs* con el código siguiente:
 
-[!code-csharp[Main](../../tutorials/first-web-api/sample/TodoApi/Startup.cs?highlight=2,4,12)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]
+::: moniker-end
 
 El código anterior:
 
-* Quita el código que no se usa.
+* Quita el código no usado.
 * Especifica que se inserte una base de datos en memoria en el contenedor de servicios.

@@ -1,21 +1,22 @@
 ---
-title: "Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code"
+title: Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code
 author: rick-anderson
-description: "Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code"
+description: Obtenga información sobre los conceptos básicos para compilar una aplicación web de páginas de Razor de ASP.NET Core con Visual Studio Code.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 7c01d802e59951281c86c8eab64b7c6b9d646fbf
-ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
+ms.openlocfilehash: 0ad008b4f2b2e74dcf7f3d6c83798d5f03d1d315
+ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="getting-started-with-razor-pages-in-aspnet-core-with-visual-studio-code"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code
+# <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -23,11 +24,7 @@ En este tutorial se enseñan los conceptos básicos de la compilación de una ap
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Instale el software siguiente:
-
-* [SDK de .NET Core 2.0.0](https://www.microsoft.com/net/core) o versiones posteriores
-* [Visual Studio Code](https://code.visualstudio.com)
-* [Extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) de VS Code 
+[!INCLUDE [](~/includes/net-core-prereqs-vscode.md)]
 
 ## <a name="create-a-razor-web-app"></a>Creación de una aplicación web de Razor
 
@@ -43,7 +40,7 @@ Los comandos anteriores usan el [CLI de .NET Core](https://docs.microsoft.com/do
 
 ![Página Inicio o Índice](../razor-pages/razor-pages-start/_static/home.png)
 
-[!INCLUDE[razor-pages-start](../../includes/RP/razor-pages-start.md)]
+[!INCLUDE [razor-pages-start](../../includes/RP/razor-pages-start.md)]
 
 ## <a name="open-the-project"></a>Abrir el proyecto
 
@@ -60,5 +57,5 @@ Presione Ctrl+F5 para iniciar la aplicación sin depurar. Si lo prefiere, puede 
 
 En el tutorial siguiente, agregaremos un modelo al proyecto. 
 
->[!div class="step-by-step"]
-[Siguiente: Adición de un modelo](xref:tutorials/razor-pages-vsc/model)  
+> [!div class="step-by-step"]
+> [Siguiente: Adición de un modelo](xref:tutorials/razor-pages-vsc/model)  

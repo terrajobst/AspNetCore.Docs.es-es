@@ -5,24 +5,20 @@ description: Compilar una API web con ASP.NET Core MVC y Visual Studio Code en m
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 04/27/2018
+ms.date: 05/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: f991aeadbaa3f7696d6fd6b8791d26248e7560a6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 9fac4d7b3f687881eafbd63ee71f99bff3b27183
+ms.sourcegitcommit: c867d7427bd4a88a78b2322e156367733b532730
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/09/2018
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Crear una API web con ASP.NET Core y Visual Studio Code
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Mike Wasson](https://github.com/mikewasson)
-
-::: moniker range="= aspnetcore-2.1"
-[!INCLUDE[](~/includes/2.1.md)]
-::: moniker-end
 
 En este tutorial se compila una API web para administrar una lista de tareas pendientes. No se construye una interfaz de usuario.
 

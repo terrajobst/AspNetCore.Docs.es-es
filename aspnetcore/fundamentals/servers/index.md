@@ -1,6 +1,6 @@
 ---
 title: Implementaciones de servidores web en ASP.NET Core
-author: tdykstra
+author: rick-anderson
 description: Detecte los servidores web Kestrel y HTTP.sys de ASP.NET Core. Obtenga más información sobre cómo elegir un servidor y cuándo se debe usar un servidor proxy inverso.
 manager: wpickett
 ms.author: tdykstra
@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/index
-ms.openlocfilehash: cdf6fafce644f424d3cd58395e1fa91e5e6fa2cb
-ms.sourcegitcommit: 71b93b42cbce8a9b1a12c4d88391e75a4dfb6162
+ms.openlocfilehash: 38af9d0206d66ac7fd2dc13a5a8245e8f66df41e
+ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 
@@ -24,13 +24,12 @@ Una aplicación ASP.NET Core se ejecuta con una implementación de servidor HTTP
 
 ASP.NET Core incluye dos implementaciones de servidor:
 
-* [Kestrel](xref:fundamentals/servers/kestrel) es un servidor HTTP multiplataforma basado en [libuv](https://github.com/libuv/libuv), una biblioteca de E/S asincrónica multiplataforma.
-
+* [Kestrel](xref:fundamentals/servers/kestrel) es el servidor HTTP multiplataforma predeterminado de ASP.NET Core.
 * [HTTP.sys](xref:fundamentals/servers/httpsys) es un servidor HTTP solo para Windows que se basa en el [controlador de kernel de HTTP.Sys y HTTP Server API](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx). (HTTP.sys se denomina [WebListener](xref:fundamentals/servers/weblistener) en ASP.NET Core 1.x).
 
 ## <a name="kestrel"></a>Kestrel
 
-Kestrel es el servidor web que se incluye de forma predeterminada en las plantillas de proyecto nuevo de ASP.NET Core. 
+Kestrel es el servidor web predeterminado que se incluye en las plantillas de proyecto de ASP.NET Core.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
