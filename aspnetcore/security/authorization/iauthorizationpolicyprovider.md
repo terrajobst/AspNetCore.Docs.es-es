@@ -11,10 +11,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/iauthorizationpolicyprovider
 ms.openlocfilehash: a5bad88b37d38b819b960b1eb27808d891268c01
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Proveedores personalizados de directiva de autorización mediante IAuthorizationPolicyProvider en ASP.NET Core 
 
