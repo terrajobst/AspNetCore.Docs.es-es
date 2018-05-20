@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 977a6b5a84825ebd087752dcc2ebc0c5410e1657
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 485d2ba7a1274bbb36cfbcbca9322cecc8c8d77c
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 05/18/2018
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>' S New en ASP.NET MVC 4
 
@@ -99,7 +99,7 @@ En este ejercicio, explorará las mejoras en las plantillas de proyecto de ASP.N
 <a id="Task_1_-_Exploring_the_Internet_Application_Template"></a>
 #### <a name="task-1---exploring-the-internet-application-template"></a>Tarea 1: explorar la plantilla de aplicación de Internet
 
-1. Open **Visual Studio**.
+1. Abra **Visual Studio**.
 2. Seleccione el **archivo | Nuevos | Proyecto** comando de menú. En el **nuevo proyecto** cuadro de diálogo, seleccione la **Visual C# | Web** plantilla en el panel izquierdo del árbol y elija **aplicación Web de ASP.NET MVC 4.** Denomine el proyecto **PhotoGallery**, seleccione una ubicación (o deje el valor predeterminado) y haga clic en **Aceptar**.
 
     > [!NOTE]
@@ -152,13 +152,10 @@ En este ejercicio, explorará las mejoras en las plantillas de proyecto de ASP.N
 6. Abra el archivo **AuthConfig.cs** situado bajo el **aplicación\_iniciar** carpeta.
 7. Quite el comentario de la última línea para registrar el cliente de Google para *OAuth* autenticación.
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample1.cs)]
-
-> [!NOTE]
-> Notice you can easily enable authentication using any OpenID or OAuth service like Facebook, Twitter, Microsoft, etc.
-~~~
+    > [!NOTE]
+    > Tenga en cuenta que puede habilitar fácilmente la autenticación mediante cualquier servicio OpenID o OAuth como Facebook, Twitter, Microsoft, etcetera.
 8. Presione **F5** para ejecutar la solución y navegar hasta la página de inicio de sesión.
 9. Seleccione **Google** servicio para iniciar sesión.
 
@@ -206,7 +203,7 @@ ASP.NET MVC 4 facilita el desarrollo de sitios Web para dispositivos móviles y 
     *Crear una nueva aplicación móvil de ASP.NET MVC 4*
 3. Ahora es posible explorar la solución y extraer del repositorio algunas de las nuevas características introducidas por la plantilla de solución de ASP.NET MVC 4 para dispositivos móviles:
 
-    - **jQuery Mobile Library**
+    - **jQuery Mobile biblioteca**
 
         La plantilla de proyecto de aplicación Mobile incluye la biblioteca de jQuery móvil, que es una biblioteca de código abierto para la compatibilidad de explorador móvil. jQuery Mobile aplica mejora progresiva a los exploradores móviles que admiten CSS y JavaScript. Mejora progresiva permite todos los exploradores mostrar el contenido básico de una página web, mientras que sólo permite que los exploradores más eficaces mostrar el contenido enriquecido. Los archivos JavaScript y CSS, incluidos en el estilo de dispositivos móvil, jQuery ayudan a los exploradores móviles para adaptarlos al contenido en la pantalla sin realizar ningún cambio en el marcado de la página.
 
@@ -227,23 +224,19 @@ ASP.NET MVC 4 facilita el desarrollo de sitios Web para dispositivos móviles y 
 
     *Páginas de la plantilla de proyecto en un dispositivo móvil*
 8. La nueva plantilla también usa el **ventanilla meta etiqueta**. Exploradores móviles más definen un ancho de una ventana del explorador virtual o &quot;ventanilla&quot;, que es mayor que el ancho real del dispositivo móvil. Esto permite que los exploradores móviles mostrar toda la página web dentro de la pantalla virtual. El **ventanilla meta etiqueta** permite a los desarrolladores de web establecer el ancho, el alto y la escala del área del explorador en dispositivos móviles **.** La plantilla de ASP.NET MVC 4 para las aplicaciones móviles establece la ventanilla para el ancho del dispositivo (&quot;ancho = dispositivo ancho&quot;) en la plantilla de diseño (*Views\Shared\_Layout.cshtml*), de modo que todos los el páginas tendrá su ventanilla establecida para el ancho de pantalla del dispositivo. Tenga en cuenta que la etiqueta meta de ventanilla no cambiará la vista de explorador predeterminado.
-9. Abra ** \_Layout.cshtml**, que se encuentra en la **vistas | Compartido** carpeta, y marque como comentario la etiqueta meta de la ventanilla. Ejecute la aplicación, si no ya abierto y desproteger las diferencias.
+9. Abra  **\_Layout.cshtml**, que se encuentra en la **vistas | Compartido** carpeta, y marque como comentario la etiqueta meta de la ventanilla. Ejecute la aplicación, si no ya abierto y desproteger las diferencias.
 
 
-~~~
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample2.cshtml)]
 
-![The site after commenting the viewport meta tag](whats-new-in-aspnet-mvc-4/_static/image15.png "The site after commenting the viewport meta tag")
+![El sitio después de la creación de comentarios de la ventanilla meta etiqueta](whats-new-in-aspnet-mvc-4/_static/image15.png "el sitio después de la creación de comentarios de la ventanilla meta etiqueta")
 
-*The site after commenting the viewport meta tag*
-~~~
+*El sitio después de la creación de comentarios de la ventanilla meta etiqueta*
 10. En Visual Studio, presione **MAYÚS** + **F5** para detener la depuración de la aplicación.
 11. Quite el comentario de la etiqueta de metadatos de la ventanilla.
 
 
-~~~
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample3.cshtml)]
-~~~
 
 <a id="Task_3_-_Using_Adaptive_Rendering"></a>
 #### <a name="task-3---using-adaptive-rendering"></a>Tarea 3: usar la representación adaptable
@@ -260,7 +253,7 @@ Mediante la técnica de representación adaptable, su sitio será **muestre corr
 > El formato básico de una consulta de medios es: @media \[ámbito: todos | mano | imprimir | proyección | pantalla\] ([: valor de propiedad] y... [propiedad: valor])
 
 
-Ejemplos de consultas de medios: &gt; <strong> @media todos y (ancho máximo: 1000px) y (min ancho: 700px) {}:</strong> para todas las resoluciones entre 700px y 1000px.
+Ejemplos de consultas de medios: &gt;  <strong>@media todos y (ancho máximo: 1000px) y (min ancho: 700px) {}:</strong> para todas las resoluciones entre 700px y 1000px.
 
 > <strong>@media pantalla y (min ancho: 400px) y (ancho máximo: 700px) {...}:</strong> solo para las pantallas. La resolución debe estar entre 400 y 700px.
 > 
@@ -273,7 +266,7 @@ Ahora explorará el funcionamiento de la representación adaptable, mejorar la l
 
 1. Abra la **PhotoGallery.sln** solución se ha creado en la tarea 1 y se selecciona el **PhotoGallery** proyecto. Presione **F5** para ejecutar la solución.
 2. Cambiar el tamaño de ancho del explorador, establecer las ventanas a la mitad o menos de un cuarto de su tamaño original. Tenga en cuenta lo que ocurre con los elementos en el encabezado: algunos elementos no aparecerán en el área visible del encabezado.
-3. Abra <strong>Site.css</strong> archivo desde el Explorador de soluciones de Visual Studio, ubicado en <strong>contenido</strong> carpeta del proyecto. Presione <strong>CTRL + F</strong> para abrir la búsqueda integrada en Visual Studio y escribir <strong> @media </strong> para buscar la <strong>consulta de medios CSS</strong>.
+3. Abra <strong>Site.css</strong> archivo desde el Explorador de soluciones de Visual Studio, ubicado en <strong>contenido</strong> carpeta del proyecto. Presione <strong>CTRL + F</strong> para abrir la búsqueda integrada en Visual Studio y escribir <strong>@media</strong> para buscar la <strong>consulta de medios CSS</strong>.
 
     La condición de consulta de medios definida en esta plantilla funciona de esta manera: cuando el tamaño de la ventana del explorador está por debajo **850 px**, las reglas CSS que se aplican son los definidos dentro de este bloque de medios.
 
@@ -326,10 +319,7 @@ En esta tarea, creará un simulacro del servicio para recuperar el contenido que
 
     (Código de fragmento de código: *acción de la Galería de ASP.NET MVC 4 laboratorio - Ex02 -*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample4.cs)]
 7. Presione **F5** para ejecutar la solución y, a continuación, vaya a la dirección URL siguiente para probar el servicio de fotografías simuladas: `http://localhost:[port]/photo/gallery` (el valor de [puerto] depende de puerto actual donde se inicia la aplicación). La solicitud a esta dirección URL debe recuperar el contenido de la **Photos.json** archivo.
 
     ![Probar el servicio de fotos simuladas](whats-new-in-aspnet-mvc-4/_static/image20.png "probar el servicio de fotos simuladas")
@@ -349,37 +339,25 @@ En esta tarea, actualizará la página de inicio para mostrar la Galería fotogr
 
     (Código de fragmento de código: *modelo foto de ASP.NET MVC 4 laboratorio - Ex02 -*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample5.cs)]
 4. Abra el archivo **HomeController.cs** desde la carpeta **Controladores**.
 5. Agregue las siguientes instrucciones de uso.
 
     (Código de fragmento de código: *HomeController usos de ASP.NET MVC 4 laboratorio - Ex02 -*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample6.cs)]
 6. Actualización del **índice** acción que se utilizará **HttpClient** para recuperar los datos de la galería y, a continuación, usar el **JavaScriptSerializer** para deserializar en el modelo de vista.
 
     (Código de fragmento de código: *acción del índice de ASP.NET MVC 4 laboratorio - Ex02 -*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample7.cs)]
 7. Abra la **Index.cshtml** archivo situado bajo el **Views\Home** carpeta y reemplace todo el contenido con el código siguiente.
 
     Este código recorre en bucle todas las fotos que se recupera del servicio y las muestra en una lista sin ordenar.
 
     (Código de fragmento de código: *lista de fotos de ASP.NET MVC 4 laboratorio - Ex02 -*)
 
-
-~~~
-[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
-~~~
+    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample8.cshtml)]
 8. En el **el Explorador de soluciones**, haga clic en el **contenido** carpeta del proyecto y seleccione **agregar | Elemento existente**. Vaya a la **Source\Assets\Content** carpeta de este laboratorio y agregue el **Site.css** archivo. Tendrá que confirmar su reemplazo. Si tiene la **Site.css** abierto el archivo, tendrá que confirmar para volver a cargar el archivo también.
 9. Abra el Explorador de archivos y copiar todo el **fotos** carpeta se encuentra en la **Source\Assets** carpeta de este laboratorio a la carpeta raíz del proyecto en el Explorador de soluciones.
 10. Ejecute la aplicación. Ahora debería ver la página principal muestra las fotos en la galería.
@@ -434,17 +412,14 @@ Una de las actualizaciones de claves en ASP.NET MVC 4 es la compatibilidad para 
 
     (Código de fragmento de código: *agrupaciones móviles de ASP.NET MVC 4 laboratorio - Ex03 - Register*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample10.cs)]
 5. Ejecute la aplicación mediante un explorador web de escritorio.
 6. Abra la **emulador de Windows Phone 7,** ubicado en **menú Inicio | Todos los programas | Windows Phone SDK 7.1 | Emulador de Windows Phone.**
 7. En la pantalla de inicio de teléfono, abra Internet Explorer. Visite la dirección URL donde se inicia la aplicación y vaya a esa dirección URL con el Explorador de teléfono (p. ej. `http://localhost:[PortNumber]/`).
 
     Observará que la aplicación tendrá un aspecto distinta en el emulador de Windows Phone, como el jQuery.Mobile.MVC ha creado nuevos activos del proyecto que muestren vistas optimizadas para dispositivos móviles.
 
-    Observe el mensaje en la parte superior del teléfono, que muestra el vínculo que se activa en la vista de escritorio. Además, el ** \_Layout.Mobile.cshtml** diseño que se creó el paquete ha instalado incluyen un diseño diferente en la aplicación.
+    Observe el mensaje en la parte superior del teléfono, que muestra el vínculo que se activa en la vista de escritorio. Además, el  **\_Layout.Mobile.cshtml** diseño que se creó el paquete ha instalado incluyen un diseño diferente en la aplicación.
 
     > [!NOTE]
     > Hasta ahora, no hay ningún vínculo para volver a la vista móvil. Se incluirá en versiones posteriores.
@@ -462,22 +437,19 @@ En esta tarea, creará una versión móvil de la vista de índice con contenido 
 1. Copia la **Views\Home\Index.cshtml** ver y péguelo para crear una copia, cambie el nombre del nuevo archivo a **Index.Mobile.cshtml**.
 2. Abrir la nueva creada **Index.Mobile.cshtml** ver y reemplazar a las &lt;ul&gt; etiqueta con este código. Al hacerlo, actualizará el &lt;ul&gt; etiqueta con las anotaciones de datos móviles de jQuery que se va a utilizar los temas de jQuery mobile.
 
+    [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
 
-~~~
-[!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample11.html)]
-
-> [!NOTE] 
-> 
-> Notice that:
-> 
-> - The **data-role** attribute set to **listview** will render the list using the listview styles.
-> 
-> - The **data-inset** attribute set to true will show the list with rounded border and margin.
-> 
-> - The **data-filter** attribute set to **true** will generate a search box.
-> 
-> You can learn more about jQuery Mobile conventions in the project documentation: [[http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
-~~~
+    > [!NOTE] 
+    > 
+    > Tenga en cuenta que:
+    > 
+    > - El **datos rol** atributo establecido en **listview** se representarán la lista con los estilos de listview.
+    > 
+    > - El **datos bajorrelieve** atributo establecido en true mostrará la lista con borde redondeado y margen.
+    > 
+    > - El **filtro de datos** atributo establecido en **true** generará un cuadro de búsqueda.
+    > 
+    > Puede aprender más acerca de las convenciones de móviles jQuery en la documentación del proyecto: [[http://jquerymobile.com/demos/1.1.1/](http://jquerymobile.com/demos/1.1.1/)](http://jquerymobile.com/demos/1.1.1/)
 3. Presione **CTRL + S** para guardar los cambios.
 4. Cambie a la **emulador de Windows Phone** y actualizar el sitio. Tenga en cuenta la nueva apariencia y funcionamiento de la lista de la galería, así como el nuevo cuadro de búsqueda que se encuentra en la parte superior. A continuación, escriba una palabra en el cuadro de búsqueda (por ejemplo, **Tulips**) para iniciar una búsqueda en la Galería fotográfica.
 
@@ -509,13 +481,10 @@ predeterminado de jQuery Mobile tema incluye 5 muestras que se asignan letras (a
 En esta tarea, actualizará el diseño móvil para que utilice un tema diferente que el valor predeterminado.
 
 1. Cambie a Visual Studio.
-2. Abra la ** \_Layout.Mobile.cshtml** archivo se encuentra en **Views\Shared**.
+2. Abra la  **\_Layout.Mobile.cshtml** archivo se encuentra en **Views\Shared**.
 3. Busque el elemento div con el rol de datos establecido en &quot;página&quot; y actualizar la **datos tema** a &quot; **e**&quot;.
 
-
-~~~
-[!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
-~~~
+    [!code-html[Main](whats-new-in-aspnet-mvc-4/samples/sample13.html)]
 4. Presione **CTRL + S** para guardar los cambios.
 5. Actualizar el sitio en el **emulador de Windows Phone** y observe la nueva combinación de colores.
 
@@ -526,7 +495,7 @@ En esta tarea, actualizará el diseño móvil para que utilice un tema diferente
 <a id="Task_4_-_Using_the_View-Switcher_Component_and_the_Browser_Overriding_Features"></a>
 #### <a name="task-4---using-the-view-switcher-component-and-the-browser-overriding-features"></a>Tarea 4: mediante el componente de modificador de vista y el explorador reemplazar características
 
-Es una convención para las páginas de web móvil optimizada agregar un vínculo cuyo texto está algo como vista de escritorio o en modo de sitio completo que permite a los usuarios cambiar a una versión de escritorio de la página. El paquete jQuery.Mobile.MVC incluye un ejemplo de **modificador de vista** componente para este propósito que se utiliza en el ** \_Layout.Mobile.cshtml** vista.
+Es una convención para las páginas de web móvil optimizada agregar un vínculo cuyo texto está algo como vista de escritorio o en modo de sitio completo que permite a los usuarios cambiar a una versión de escritorio de la página. El paquete jQuery.Mobile.MVC incluye un ejemplo de **modificador de vista** componente para este propósito que se utiliza en el  **\_Layout.Mobile.cshtml** vista.
 
 ![Vínculo para cambiar a vista de escritorio](whats-new-in-aspnet-mvc-4/_static/image28.png "vínculo para cambiar a vista de escritorio")
 
@@ -537,12 +506,12 @@ El modificador de vista utiliza una nueva característica denominada **explorado
 En esta tarea, explorará la implementación del ejemplo de un modificador de vista agregada por jQuery.Mobile.MVC y el nuevo explorador reemplazar las características de ASP.NET MVC 4.
 
 1. Cambie a Visual Studio.
-2. Abra la ** \_Layout.Mobile.cshtml** vista se encuentra en la **Views\Shared** carpeta y observe el componente de modificador de vista que se hace referencia como una vista parcial.
+2. Abra la  **\_Layout.Mobile.cshtml** vista se encuentra en la **Views\Shared** carpeta y observe el componente de modificador de vista que se hace referencia como una vista parcial.
 
     ![Diseño móvil mediante el componente de modificador de vista](whats-new-in-aspnet-mvc-4/_static/image29.png "diseño móvil mediante el componente de modificador de vista")
 
     *Diseño móvil mediante el componente de modificador de vista*
-3. Abra la ** \_ViewSwitcher.cshtml** vista parcial.
+3. Abra la  **\_ViewSwitcher.cshtml** vista parcial.
 
     La vista parcial utiliza el nuevo método **ViewContext.HttpContext.GetOverriddenBrowser()** para determinar el origen de la solicitud web y mostrar el vínculo correspondiente para pasar a las vistas de escritorio o móvil.
 
@@ -567,13 +536,10 @@ En esta tarea, actualizará el diseño del escritorio para que incluya al modifi
 
 1. Actualizar el sitio en el **emulador de Windows Phone**.
 2. Haga clic en el **vista de escritorio** vínculo en la parte superior de la galería. Tenga en cuenta que no hay ningún modificador de vista en la vista de escritorio para permitir que volver a la vista móvil.
-3. Vuelva a Visual Studio y abra el ** \_Layout.cshtml** vista.
-4. Busque la sección de inicio de sesión e inserte una llamada para representar la ** \_ViewSwitcher** vista parcial siguiente la ** \_LogOnPartial** vista parcial. A continuación, presione **CTRL + S** para guardar los cambios.
+3. Vuelva a Visual Studio y abra el  **\_Layout.cshtml** vista.
+4. Busque la sección de inicio de sesión e inserte una llamada para representar la  **\_ViewSwitcher** vista parcial siguiente la  **\_LogOnPartial** vista parcial. A continuación, presione **CTRL + S** para guardar los cambios.
 
-
-~~~
-[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
-~~~
+    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample14.cshtml)]
 5. Presione **CTRL + S** para guardar los cambios.
 6. Actualice la página en el emulador de Windows Phone y haga doble clic en la pantalla para acercar. Observe que ahora se muestra en la página principal de la **vista móvil** vínculo que se activa desde dispositivos móviles en vista de escritorio.
 
@@ -603,39 +569,32 @@ En esta tarea, creará un diseño personalizado para los dispositivos iPhone y t
 1. En Visual Studio, presione **MAYÚS** + **F5** para detener la depuración de la aplicación.
 2. Abra **Global.asax.cs** y agregue la siguiente instrucción using.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample15.cs)]
 3. Agregue el código que aparece resaltado en la aplicación\_Start (método).
 
     (Código de fragmento de código: *iPhone DisplayMode de ASP.NET MVC 4 laboratorio - Ex03 -*)
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample16.cs)]
+Se ha registrado un nuevo **DefaultDisplayMode denominado &quot;iPhone&quot;**, en el método estático **DisplayModeProvider.Instance.Modes** lista estática, que se comparará con cada solicitud entrante. Si la solicitud entrante contiene la cadena &quot;iPhone&quot;, ASP.NET MVC se detectarán las vistas cuyo nombre contenga la &quot;iPhone&quot; sufijo. El parámetro 0 indica cómo específico es el nuevo modo; Por ejemplo, esta vista es más específica que la ficha general &quot;.mobile&quot; regla que coincide con las solicitudes de dispositivos móviles.
 
-You have registered a new **DefaultDisplayMode named &quot;iPhone&quot;**, within the static **DisplayModeProvider.Instance.Modes** static list, that will be matched against each incoming request. If the incoming request contains the string &quot;iPhone&quot;, ASP.NET MVC will find the views whose name contain the &quot;iPhone&quot; suffix. The 0 parameter indicates how specific is the new mode; for instance, this view is more specific than the general &quot;.mobile&quot; rule that matches requests from mobile devices.
-
-After this code runs, when an iPhone browser generates a request, your application will use the **Views\Shared\\_Layout.iPhone.cshtml** layout you will create in the next steps.
+Después de ejecuta este código, cuando un explorador de iPhone genera una solicitud, la aplicación utilizará la **Views\Shared\\_Layout.iPhone.cshtml** diseño que se va a crear en los pasos siguientes.
 
 > [!NOTE]
-> This way of testing the request for iPhone has been simplified for demo purposes and might not work as expected for every iPhone user agent string (for example test is case sensitive).
-~~~
-4. Crear una copia de la ** \_Layout.Mobile.cshtml** un archivo en el **Views\Shared** carpeta y cambiar el nombre de la copia a &quot; ** \_Layout.iPhone.csthml **&quot;.
-5. Abra ** \_Layout.iPhone.csthml** que creó en el paso anterior.
+> Esta manera de probar la solicitud para iPhone se ha simplificado para fines de demostración y podría no funcionar según lo previsto para cada cadena de agente de usuario de iPhone (para la prueba de ejemplo distingue mayúsculas de minúsculas).
+
+4. Crear una copia de la  **\_Layout.Mobile.cshtml** un archivo en el **Views\Shared** carpeta y cambiar el nombre de la copia a &quot; **\_Layout.iPhone.csthml**&quot;.
+5. Abra  **\_Layout.iPhone.csthml** que creó en el paso anterior.
 6. Busque el elemento div con el atributo de rol de datos establecido en **página** y cambie el **datos tema** atribuir a &quot; **una**&quot;.
 
 
-~~~
 [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample17.cshtml)]
 
-Now you have 3 layouts in your ASP.NET MVC 4 application:
+Ahora tiene 3 diseños en la aplicación de ASP.NET MVC 4:
 
-1. **\_Layout.cshtml**: default layout used for desktop browsers.
-2. **\_Layout.mobile.cshtml**: default layout used for mobile devices.
-3. **\_Layout.iPhone.cshtml**: specific layout for iPhone devices, using a different color scheme to differentiate from \_Layout.mobile.cshtml.
-~~~
+1. **\_Layout.cshtml**: diseño predeterminado utilizado para los exploradores de escritorio.
+2. **\_Layout.Mobile.cshtml**: diseño predeterminado utilizado para dispositivos móviles.
+3. **\_Layout.iPhone.cshtml**: diseño específico de dispositivos de iPhone, mediante una combinación de colores diferentes para diferenciar de \_Layout.mobile.cshtml.
 7. Presione **F5** para ejecutar la aplicación y explora el sitio en el **emulador de Windows Phone**.
 8. Abrir un **iPhone simulador** (consulte [Apéndice C](#AppendixC) para obtener instrucciones sobre cómo instalar y configurar un emulador de iPhone) y busque el sitio demasiado. Tenga en cuenta que cada teléfono está usando la plantilla específica.
 
@@ -666,46 +625,31 @@ Este ejercicio explica los conceptos básicos de la operación asincrónica en A
 2. Abra la **HomeController.cs** clase desde el **controladores** carpeta.
 3. Agregue la siguiente instrucción using.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample18.cs)]
 4. Actualización de la **HomeController** clase herede de **AsyncController**. Controladores que se derivan de AsyncController permiten a ASP.NET procesar solicitudes asincrónicas y pueden métodos de acción sincrónicos de servicio.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample19.cs)]
 5. Agregar el **async** palabra clave para la **índice** método y hacer que el tipo de valor devuelto **tarea&lt;ActionResult&gt;**.
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample20.cs)]
-
-> [!NOTE]
-> The **async** keyword is one of the new keywords the .NET Framework 4.5 provides; it tells the compiler that this method contains asynchronous code. A **Task** object represents an asynchronous operation that may complete at some point in the future.
-~~~
+    > [!NOTE]
+    > El **async** palabra clave es una de las nuevas palabras clave proporciona .NET Framework 4.5; indica al compilador que este método contiene código asincrónico. A **tarea** objeto representa una operación asincrónica que puede completar en algún momento en el futuro.
 6. Reemplace el **cliente. GetAsync()** llamada con la versión de async completa mediante palabra clave await, tal y como se muestra a continuación.
 
     (Código de fragmento de código: *GetAsync de ASP.NET MVC 4 laboratorio - Ex04 -*)
 
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
 
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample21.cs)]
-
-> [!NOTE]
-> In the previous version, you were using the **Result** property from the **Task** object to block the thread until the result is returned (sync version).
-> 
-> Adding the **await** keyword tells the compiler to asynchronously wait for the task returned from the method call. This means that the rest of the code will be executed as a callback only after the awaited method completes. Another thing to notice is that you do not need to change your try-catch block in order to make this work: the exceptions that happen in background or in foreground will still be caught without any extra work using a handler provided by the framework.
-~~~
+    > [!NOTE]
+    > En la versión anterior, usaba la **resultado** propiedad desde el **tarea** objeto para bloquear el subproceso hasta que el resultado se devuelve (versión de sincronización).
+    > 
+    > Agregar el **await** palabra clave indica al compilador que esperar para la tarea devuelta desde la llamada al método de forma asincrónica. Esto significa que el resto del código se ejecutará como una devolución de llamada únicamente cuando haya finalizado el método esperado. Otra cosa que debe tener en cuenta es que no es necesario cambiar el bloque try-catch para solucionar este problema: todavía se detectarán las excepciones que se producen en segundo plano o en primer plano sin ningún trabajo adicional con un controlador proporcionado por el marco de trabajo.
 7. Cambiar el código para continuar con la implementación asincrónica reemplazando las líneas con el nuevo código, tal y como se muestra a continuación
 
     (Código de fragmento de código: *ReadAsStringAsync de ASP.NET MVC 4 laboratorio - Ex04 -*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample22.cs)]
 8. Ejecute la aplicación. Observará que no hay cambios importantes, pero el código, no se bloqueará un subproceso del grupo de subprocesos que hace un mejor uso de los recursos del servidor y se mejora el rendimiento.
 
     > [!NOTE]
@@ -719,44 +663,26 @@ Métodos de acción asincrónicos que devuelven instancias de la tarea también 
 1. Vuelva a Visual Studio y presione **MAYÚS + F5** para detener la depuración.
 2. Agregue la siguiente instrucción using en la **HomeController.cs** archivo.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample23.cs)]
 3. Actualizar la acción del índice para recibir un **CancellationToken** argumento.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample24.cs)]
 4. Actualización de la **GetAsync** llamada para pasar el token de cancelación.
 
     (Código de fragmento de código: *ASP.NET MVC 4 laboratorio - Ex04 - SendAsync con CancellationToken*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
-~~~
-5. Decorar la *índice* método con un **AsyncTimeout** atributo establecido en 500 milisegundos y un **HandleError** configurado para controlar el atributo ** TaskCanceledException** redirigiendo a un **TimedOut** vista.
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample25.cs)]
+5. Decorar la *índice* método con un **AsyncTimeout** atributo establecido en 500 milisegundos y un **HandleError** configurado para controlar el atributo  **TaskCanceledException** redirigiendo a un **TimedOut** vista.
 
     (Código de fragmento de código: *atributos de ASP.NET MVC 4 laboratorio - Ex04 -*)
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample26.cs)]
 6. Abra el **PhotoController** clase y actualizar el **galería** método retrasar los milisegundos de ejecución 1000 (1 segundo) para simular una tarea de ejecución prolongada.
 
-
-~~~
-[!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
-~~~
+    [!code-csharp[Main](whats-new-in-aspnet-mvc-4/samples/sample27.cs)]
 7. Abra la **Web.config** de archivos y habilitar errores personalizados agregando el siguiente elemento.
 
-
-~~~
-[!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
-~~~
+    [!code-xml[Main](whats-new-in-aspnet-mvc-4/samples/sample28.xml)]
 8. Crear una nueva vista en **Views\Shared** denominado **TimedOut** y usar el diseño predeterminado. En el Explorador de soluciones, haga clic en el **Views\Shared** carpeta y seleccione **agregar | Vista**.
 
     ![Usar vistas diferentes para cada dispositivo móvil](whats-new-in-aspnet-mvc-4/_static/image36.png "con vistas diferentes para cada dispositivo móvil")
@@ -764,10 +690,7 @@ Métodos de acción asincrónicos que devuelven instancias de la tarea también 
     *Usar vistas diferentes para cada dispositivo móvil*
 9. Actualización de la **TimedOut** ver el contenido tal y como se muestra a continuación.
 
-
-~~~
-[!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
-~~~
+    [!code-cshtml[Main](whats-new-in-aspnet-mvc-4/samples/sample29.cshtml)]
 10. Ejecute la aplicación y vaya a la dirección URL raíz. Tal y como se ha agregado un **Thread.Sleep** de 1000 milisegundos, obtendrá un error de tiempo de espera, generado por el **AsyncTimeout** de atributo y captura el **HandleError** atributo.
 
     ![Excepción de tiempo de espera controlan](whats-new-in-aspnet-mvc-4/_static/image37.png "excepción de tiempo de espera controlan")
@@ -842,7 +765,7 @@ Con fragmentos de código, tiene todo el código que necesita a su alcance. El d
 <a id="Appendix_B_Installing_Visual_Studio_Express_2012_for_Web"></a>
 ## <a name="appendix-b-installing-visual-studio-express-2012-for-web"></a>Apéndice B: instalación de Visual Studio Express 2012 para Web
 
-Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la ** [instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx) **. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
+Puede instalar **Microsoft Visual Studio Express 2012 para Web** u otro &quot;Express&quot; versión usando la **[instalador de plataforma Web de Microsoft](https://www.microsoft.com/web/downloads/platform.aspx)**. Las instrucciones siguientes le guían a través de los pasos necesarios para instalar *Visual studio Express 2012 para Web* con *instalador de plataforma Web de Microsoft*.
 
 1. Vaya a [ [ https://go.microsoft.com/?linkid=9810169 ](https://go.microsoft.com/?linkid=9810169) ](https://go.microsoft.com/?linkid=9810169). O bien, si ya ha instalado el instalador de plataforma Web, puede abrirla y busque el producto &quot; <em>Visual Studio Express 2012 for Web con SDK de Windows Azure</em>&quot;.
 2. Haga clic en **instalar ahora**. Si no tiene **instalador de plataforma Web** se le redirigirá para descargarlo e instalarlo primero.

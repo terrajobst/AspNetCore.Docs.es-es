@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: b328b733914b20b0aa3fe529c9a9f999349171ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 7887d81366cc166ad89308b22ad7cc6af0263111
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="mvc-recommended-resources"></a>MVC recomienda recursos
 ====================
@@ -42,7 +42,6 @@ por [Rick Anderson](https://github.com/Rick-Anderson)
 ## <a name="new-featured-content"></a>Nuevo contenido destacado
 
 - [Al seleccionar las referencias culturales para la localización en ASP.NET](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
-- [Diseños de anidamiento en MVC](http://astutelogic.com/nesting-layouts-in-mvc/) por Pablo Waite
 - [Crear una aplicación de ASP.NET MVC 5 con Facebook y Google OAuth2 Sign-on](../security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 - [Descripción ASP.NET MVC filtra y atributos](http://www.dotnet-tricks.com/Tutorial/mvc/b11a280114-Understanding-ASP.NET-MVC-Filters-and-Attributes.html)
 - [Ciclo de vida de una aplicación ASP.NET MVC 5](lifecycle-of-an-aspnet-mvc-5-application.md) (PDF)
@@ -196,7 +195,7 @@ por [Rick Anderson](https://github.com/Rick-Anderson)
 
 ## <a name="angularjs-knockout-knockoutjs"></a>AngularJS, Knockout, KnockoutJS
 
-- [Knockout](http://knockoutjs.com/)
+- [knockout](http://knockoutjs.com/)
 - [Introducción a KnockoutJS en ASP.NET MVC](http://www.dotnetcurry.com/ShowArticle.aspx?ID=933)
 - [Arranque AngularJS aplicaciones con datos del servidor de ASP.NET MVC](http://blog.mariusschulz.com/2014/03/25/bootstrapping-angularjs-applications-with-server-side-data-from-aspnet-mvc) por Marius Schulz
 - [TypeScripted Knockout en ASP.NET MVC](http://www.dotnetcurry.com/ShowArticle.aspx?ID=939)
@@ -259,7 +258,7 @@ por [Rick Anderson](https://github.com/Rick-Anderson)
 
 ## <a name="globalization-internationalization-and-localization"></a>Globalización, internacionalización y localización
 
-- [ASP.NET MVC 5 Internationalization](http://afana.me/post/aspnet-mvc-internationalization.aspx)
+- [Internacionalización de MVC de ASP.NET 5](http://afana.me/post/aspnet-mvc-internationalization.aspx)
 - [Al seleccionar las referencias culturales para la localización en ASP.NET](http://weblog.west-wind.com/posts/2014/Mar/27/Auto-Selecting-Cultures-for-Localization-in-ASPNET)
 - [· De internacionalización de MVC de ASP.NET 5 Fecha y hora](http://afana.me/post/aspnet-mvc-internationalization-date-time.aspx) por Nadeem Afana
 - [· De internacionalización de MVC de ASP.NET 5 Cómo almacenar cadenas en una base de datos o Xml](http://afana.me/post/aspnet-mvc-internationalization-store-strings-in-database-or-xml.aspx)
@@ -325,7 +324,7 @@ por [Rick Anderson](https://github.com/Rick-Anderson)
 - [Probar las vistas de MVC de ASP.NET, desde un proyecto nuevo en el servidor de compilación](https://channel9.msdn.com/Events/aspConf/aspConf/Testing-ASP-NET-MVC-Views-from-New-Project-to-the-Build-Server) (vídeo)
 - [Inicio rápido: Desarrollo basado en pruebas](https://channel9.msdn.com/Events/aspConf/aspConf/Quick-Start-Test-Driven-Development)(vídeo)
 - [Probar automóvil ASP.NET MVC](https://channel9.msdn.com/Events/aspConf/aspConf/Test-Driving-ASP-NET-MVC) (vídeo)
-- [Pruebas de integración con SpecsFor.Mvc – pruebas en Steroids de MVC de ASP.NET.](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (video)
+- [Pruebas de integración con SpecsFor.Mvc – pruebas en Steroids de MVC de ASP.NET.](https://channel9.msdn.com/Events/aspConf/aspConf/Integration-Testing-With-SpecsFor-Mvc-ASP-NET-MVC-Testing-on-Steroids) (vídeo)
 - [Creación de aplicaciones pueden someterse a prueba de unidad en ASP.NET MVC - Tutorial para principiantes](http://www.codeproject.com/Articles/579035/Creating-Unit-Testable-Applications-in-ASP-NET-MVC)
 - [Tutorial: Utilizar TDD con ASP.NET MVC](https://msdn.microsoft.com/library/gg416511(v=vs.98).aspx) (MVC 3)
 - [Liberar SocialGoal - aplicación de referencia Web para ASP.NET MVC 5, 6 de EF de código en primer lugar, AutoMapper, Autofac, TDD y DDD](https://weblogs.asp.net/shijuvarghese/archive/2014/01/24/releasing-socialgoal-reference-web-app-for-asp-net-mvc-5-ef-6-code-first-automapper-autofac-tdd-and-ddd.aspx)

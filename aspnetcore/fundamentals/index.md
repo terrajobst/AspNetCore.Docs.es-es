@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: fundamentals/index
-ms.openlocfilehash: ce79118fa025f912d7f04e2c9bff481a04489674
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 97c0b289b259332d57f8175e05020fe03d505723
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -155,7 +155,7 @@ Para obtener más información, consulte [Archivos estáticos](xref:fundamentals
 
 Las aplicaciones ASP.NET Core configuran e inician un *host*. Dicho host es responsable de la administración de inicio y duración de la aplicación.
 
-Para más información, vea [Hospedaje](xref:fundamentals/hosting).
+Para obtener más información, consulte [Hospedaje en ASP.NET Core](xref:fundamentals/host/index).
 
 ## <a name="session-and-application-state"></a>Estado de sesión y aplicación
 
@@ -189,7 +189,7 @@ Para más información, vea [Características de la solicitud](xref:fundamentals
 
 Las tareas en segundo plano se implementan como *servicios hospedados*. Un servicio hospedado es una clase con lógica de tarea en segundo plano que implementa la interfaz [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice).
 
-Para más información, consulte [Tareas en segundo plano con servicios hospedados](xref:fundamentals/hosted-services).
+Para más información, consulte [Tareas en segundo plano con servicios hospedados](xref:fundamentals/host/hosted-services).
 
 ## <a name="open-web-interface-for-net-owin"></a>Interfaz web abierta para .NET (OWIN)
 
