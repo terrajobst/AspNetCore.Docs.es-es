@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/claims
-ms.openlocfilehash: da308b67be046395bb1baa0f272e767cccbc99c8
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 2464f8cac720dcf5de02f2679e9450e8b77de3ee
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/20/2018
 ---
 # <a name="claims-based-authorization-in-aspnet-core"></a>Autorización basada en notificaciones en ASP.NET Core
 
@@ -100,6 +100,10 @@ public void ConfigureServices(IServiceCollection services)
     });
 }
 ```
+
+### <a name="add-a-generic-claim-check"></a>Agregue una comprobación de notificación genérico
+
+Si el valor de notificación no es un valor único o una transformación es necesaria, utilice [RequireAssertion](/dotnet/api/microsoft.aspnetcore.authorization.authorizationpolicybuilder.requireassertion). Para obtener más información, consulte [con un elemento func para cumplir una directiva](xref:security/authorization/policies#using-a-func-to-fulfill-a-policy).
 
 ## <a name="multiple-policy-evaluation"></a>Evaluación múltiple de directiva
 
