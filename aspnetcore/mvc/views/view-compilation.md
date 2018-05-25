@@ -9,20 +9,19 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-compilation
-ms.openlocfilehash: 5d971645106a79497a9902063c7774dc6d546395
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 013ca0d149c6415b5e6825aa5a48e93ae48f6728
+ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="razor-view-compilation-and-precompilation-in-aspnet-core"></a>Precompilación y compilación de vistas de Razor en ASP.NET Core
+# <a name="razor-file-cshtml-compilation-in-aspnet-core"></a>Compilación del archivo de Razor (.cshtml) en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Las vistas de Razor se compilan en tiempo de ejecución cuando se invoca la vista. ASP.NET Core 1.1.0 y versiones posteriores pueden, opcionalmente, compilar las vistas de Razor e implementarlas con la aplicación (un proceso conocido como precompilación). Las plantillas de proyecto de ASP.NET Core 2.x habilitan la precompilación de forma predeterminada.
+Las vistas de Razor se compilan en tiempo de ejecución cuando se invoca la vista. En ASP.NET Core 2.1.0 y versiones posteriores, las vistas se compilan en tiempo de compilación y de publicación por medio del [SDK de Razor](/aspnetcore/mvc/razor-pages/sdk). En ASP.NET Core 1.1 y ASP.NET Core 2.0, las vistas se pueden compilar (si se quiere) en el tiempo de publicación e implementar con la aplicación usando la herramienta de precompilación. 
 
-> [!IMPORTANT]
-> La precompilación de vistas de Razor no está disponible actualmente al realizar una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) en ASP.NET Core 2.0. La característica estará disponible para las implementaciones independientes en la versión 2.1. Para más información, vea [View compilation fails when cross-compiling for Linux on Windows](https://github.com/aspnet/MvcPrecompilation/issues/102) (Error de compilación de vistas al hacer varias compilaciones para Linux en Windows).
+
 
 Consideraciones para la precompilación:
 
@@ -31,7 +30,14 @@ Consideraciones para la precompilación:
 
 Para implementar vistas precompiladas:
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-21tabaspnetcore21"></a>[ASP.NET Core 2.1](#tab/aspnetcore21/)
+En el SDK de Razor, la compilación en tiempo de compilación y de publicación de archivos de Razor está habilitada de forma predeterminada. Estos archivos de Razor se pueden editar en el tiempo de compilación, después de que se hayan actualizado. De forma predeterminada, con la aplicación solo se implementa el archivo *Views.dll* compilado, y no ningún archivo cshtml. 
+    
+> [!IMPORTANT]
+> El SDK de Razor solo es efectivo cuando no se han establecido propiedades específicas de precompilación en el archivo de proyecto. Por ejemplo, si define `MvcRazorCompileOnPublish` en el archivo *.csproj*, el SDK de Razor se deshabilitará.
+
+# <a name="aspnet-core-20tabaspnetcore20"></a>[ASP.NET Core 2.0](#tab/aspnetcore20/)
+
 Si el proyecto tiene como destino .NET Framework, incluya una referencia de paquete a [Microsoft.AspNetCore.Mvc.Razor.ViewCompilation](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.Razor.ViewCompilation/):
 
 ```xml
@@ -40,14 +46,10 @@ Si el proyecto tiene como destino .NET Framework, incluya una referencia de paqu
 
 Si el proyecto tiene como destino .NET Core, no es necesario hacer cambios.
 
-Las plantillas de proyecto de ASP.NET Core 2.x establecen implícitamente `MvcRazorCompileOnPublish` en `true` de forma predeterminada, lo que significa que este nodo se puede quitar de forma segura del archivo *.csproj*. Si prefiere ser explícito, no hay peligro en configurar la propiedad `MvcRazorCompileOnPublish` en `true`. El siguiente ejemplo de *.csproj* resalta esta configuración:
-
-[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish2.csproj?highlight=5)]
-
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
-Establezca `MvcRazorCompileOnPublish` en `true` e incluya una referencia de paquete a `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`. El siguiente ejemplo de *.csproj* resalta estas opciones:
-
-[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+Las plantillas de proyecto de ASP.NET Core 2.x establecen `MvcRazorCompileOnPublish` en `true` implícitamente y de forma predeterminada, lo que significa que este nodo se puede quitar de forma segura del archivo *.csproj*.
+    
+> [!IMPORTANT]
+> La precompilación de vistas de Razor no está disponible al realizar una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) en ASP.NET Core 2.0. 
 
 Prepare la aplicación para una [implementación independiente de la plataforma](/dotnet/core/deploying/#framework-dependent-deployments-fdd) con el [comando de publicación de la CLI de .NET Core](/dotnet/core/tools/dotnet-publish). Por ejemplo, ejecute el siguiente comando en la raíz del proyecto:
 
@@ -58,3 +60,12 @@ dotnet publish -c Release
 Cuando se realiza correctamente la precompilación, se genera un archivo *<nombre_de_proyecto>.PrecompiledViews.dll* que contiene las vistas de Razor compiladas. Por ejemplo, la captura de pantalla de abajo muestra el contenido de *Index.cshtml* dentro de *WebApplication1.PrecompiledViews.dll*:
 
 ![Vistas de Razor dentro de DLL](view-compilation/_static/razor-views-in-dll.png)
+
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
+Establezca `MvcRazorCompileOnPublish` en `true` e incluya una referencia de paquete a `Microsoft.AspNetCore.Mvc.Razor.ViewCompilation`. El siguiente ejemplo de *.csproj* resalta estas opciones:
+
+[!code-xml[](view-compilation/sample/MvcRazorCompileOnPublish.csproj?highlight=5,12)]
+
+---
+

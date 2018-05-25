@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations
 title: Compatibilidad con las relaciones de entidad en OData v3 con Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: "La mayoría de los conjuntos de datos definen las relaciones entre entidades: los clientes tienen pedidos; los libros tienen autores; los productos tienen proveedores. Con OData, los clientes pueden navegar por..."
+description: 'La mayoría de los conjuntos de datos definen las relaciones entre entidades: los clientes tienen pedidos; los libros tienen autores; los productos tienen proveedores. Con OData, los clientes pueden navegar por...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2014
@@ -68,7 +68,7 @@ Para admitir esta solicitud, agregue el método siguiente a la `ProductsControll
 
 [!code-csharp[Main](working-with-entity-relations/samples/sample6.cs)]
 
-El *clave* parámetro es la clave del producto. El método devuelve la entidad relacionada &#8212;en este caso, un `Supplier` instancia. El nombre del método y el nombre de parámetro son importantes. En general, si la propiedad de navegación se denomina "X", debe agregar un método denominado "GetX". El método debe tomar un parámetro denominado "*clave*" que coincide con el tipo de datos de clave del elemento primario.
+El *clave* parámetro es la clave del producto. El método devuelve la entidad relacionada & #8212 en este caso, un `Supplier` instancia. El nombre del método y el nombre de parámetro son importantes. En general, si la propiedad de navegación se denomina "X", debe agregar un método denominado "GetX". El método debe tomar un parámetro denominado "*clave*" que coincide con el tipo de datos de clave del elemento primario.
 
 También es importante incluir la **[FromOdataUri]** de atributo en el *clave* parámetro. Este atributo indica a API Web para usar las reglas de sintaxis de OData cuando analiza la clave de URI de la solicitud.
 

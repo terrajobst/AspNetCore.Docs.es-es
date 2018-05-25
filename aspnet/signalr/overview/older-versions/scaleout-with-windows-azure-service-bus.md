@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
-title: "Ampliación de SignalR con el Bus de servicio de Azure (SignalR 1.x) | Documentos de Microsoft"
+title: Ampliación de SignalR con el Bus de servicio de Azure (SignalR 1.x) | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/01/2013

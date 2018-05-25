@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/tutorial-getting-started-with-signalr
-title: "Tutorial: Introducción con SignalR 1.x | Documentos de Microsoft"
+title: 'Tutorial: Introducción con SignalR 1.x | Documentos de Microsoft'
 author: pfletcher
-description: "Use ASP.NET SignalR para compilar una aplicación de chat en tiempo real en una página HTML."
+description: Use ASP.NET SignalR para compilar una aplicación de chat en tiempo real en una página HTML.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013

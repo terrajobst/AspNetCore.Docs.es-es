@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: 9af08d8fcbd91a9189fe1f4c6cedd644361773f7
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -21,7 +21,7 @@ Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guard
 
 En este documento se explican las vistas utilizadas en las aplicaciones de ASP.NET Core MVC. Para obtener información sobre las páginas de Razor, consulte [Introducción a las páginas Razor](xref:mvc/razor-pages/index).
 
-En el patrón **M**odelo-**V**ista-**C**ontrolador (MVC), la *vista* administra la presentación de los datos y la interacción del usuario. Una vista es una plantilla HTML con [marcado de Razor](xref:mvc/views/razor) insertado. El marcado de Razor es código que interactúa con el formato HTML para generar una página web que se envía al cliente.
+En el patrón de controlador de vista de modelos (MVC), la *vista* se encarga de la presentación de los datos y de la interacción del usuario. Una vista es una plantilla HTML con [marcado de Razor](xref:mvc/views/razor) insertado. El marcado de Razor es código que interactúa con el formato HTML para generar una página web que se envía al cliente.
 
 En ASP.NET Core MVC, las vistas son archivos *.cshtml* que usan el [lenguaje de programación C#](/dotnet/csharp/) en el marcado de Razor. Por lo general, los archivos de vistas se agrupan en carpetas con el nombre de cada uno de los [controladores](xref:mvc/controllers/actions) de la aplicación. Las carpetas se almacenan en una carpeta llamada *Views* que está ubicada en la raíz de la aplicación:
 
@@ -123,7 +123,16 @@ Siga el procedimiento recomendado de organizar la estructura de archivos de vist
 
 ## <a name="passing-data-to-views"></a>Paso de datos a las vistas
 
-Puede pasar datos a vistas mediante varios enfoques. El enfoque más eficaz consiste en especificar un tipo de [modelo](xref:mvc/models/model-binding) en la vista. Este modelo se conoce normalmente como *viewmodel* (modelo de vista) y en él se pasa una instancia de tipo viewmodel a la vista de la acción.
+Se pueden pasar datos a vistas con varios métodos:
+
+* Datos fuertemente tipados: ViewModel
+* Datos con establecimiento flexible de tipos
+  - `ViewData` (`ViewDataAttribute`)
+  - `ViewBag`
+
+### <a name="strongly-typed-data-viewmodel"></a>Datos fuertemente tipados (ViewModel)
+
+El enfoque más eficaz consiste en especificar un tipo de [modelo](xref:mvc/models/model-binding) en la vista. Este modelo se conoce normalmente como *viewmodel* (modelo de vista) y en él se pasa una instancia de tipo viewmodel a la vista de la acción.
 
 La utilización de un modelo de vista para pasar datos a una vista permite que la vista se beneficie de las ventajas de la comprobación de tipos *seguros*. La *especificación detallada de tipos* (*fuertemente tipado*) significa que cada variable y cada constante tienen un tipo definido de forma explícita (por ejemplo, `string`, `int` o `DateTime`). La validez de los tipos usados en una vista se comprueba en tiempo de compilación.
 
@@ -178,15 +187,13 @@ namespace WebApplication1.ViewModels
 }
 ```
 
-> [!NOTE]
-> Nada le impide usar las mismas clases tanto para los tipos de modelo de vista como para los de modelo de negocio. Pero el uso de modelos independientes permite que las vistas varíen de forma independiente de las partes de lógica de negocios y acceso de datos de la aplicación. La separación de los modelos y los modelos de vista también ofrece ventajas de seguridad cuando los modelos utilizan [enlace de modelo](xref:mvc/models/model-binding) y [validación](xref:mvc/models/validation) para los datos enviados a la aplicación por el usuario.
-
+Nada le impide usar las mismas clases tanto para los tipos de modelo de vista como para los de modelo de negocio. Pero el uso de modelos independientes permite que las vistas varíen de forma independiente de las partes de lógica de negocios y acceso de datos de la aplicación. La separación de los modelos y los modelos de vista también ofrece ventajas de seguridad cuando los modelos utilizan [enlace de modelo](xref:mvc/models/model-binding) y [validación](xref:mvc/models/validation) para los datos enviados a la aplicación por el usuario.
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-and-viewbag"></a>Datos débilmente tipados (ViewData y ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Datos con establecimiento flexible de tipos (ViewData, atributo ViewData y ViewBag)
 
-Nota: `ViewBag` no está disponible en las páginas de Razor.
+`ViewBag` *no está disponible en las páginas de Razor.*
 
 Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colección de datos *débilmente tipada* (también denominada *imprecisa*). A diferencia de los tipos fuertes, en los *tipos débiles* (o *débilmente tipados*) no se declara explícitamente el tipo de datos que se está utilizando. Puede usar la colección de datos débilmente tipada para introducir y sacar pequeñas cantidades de datos de los controladores y las vistas.
 
@@ -199,7 +206,6 @@ Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colecc
 Puede hacer referencia a esta colección a través de las propiedades `ViewData` o `ViewBag` en controladores y vistas. La propiedad `ViewData` es un diccionario de objetos débilmente tipados. La propiedad `ViewBag` es un contenedor alrededor de `ViewData` que proporciona propiedades dinámicas para la colección `ViewData` subyacente.
 
 `ViewData` y `ViewBag` se resuelven de forma dinámica en tiempo de ejecución. Debido a que no ofrecen la comprobación de tipos en tiempo de compilación, ambas son generalmente más propensas a errores que el uso de un modelo de vista. Por esta razón, algunos desarrolladores prefieren prescindir de `ViewData` y `ViewBag` o usarlos lo menos posible.
-
 
 <a name="VD"></a>
 
@@ -243,9 +249,49 @@ Trabajar con los datos en una vista:
 </address>
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+**Atributo ViewData**
+
+Otro método en el que se usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) es [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor completadas con `[ViewData]` se almacenan y cargan desde el diccionario.
+
+En el siguiente ejemplo, el controlador Home contiene una propiedad `Title` completada con `[ViewData]`. El método `About` establece el título de la vista About:
+
+```csharp
+public class HomeController : Controller
+{
+    [ViewData]
+    public string Title { get; set; }
+
+    public IActionResult About()
+    {
+        Title = "About Us";
+        ViewData["Message"] = "Your application description page.";
+
+        return View();
+    }
+}
+```
+
+En la vista About, tenga acceso a la propiedad `Title` como propiedad de modelo:
+
+```cshtml
+<h1>@Model.Title</h1>
+```
+
+En el diseño, el título se lee desde el diccionario ViewData:
+
+```cshtml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"] - WebApplication</title>
+    ...
+```
+::: moniker-end
+
 **ViewBag**
 
-Nota: `ViewBag` no está disponible en las páginas de Razor.
+`ViewBag` *no está disponible en las páginas de Razor.*
 
 `ViewBag` es un objeto [DynamicViewData](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.internal.dynamicviewdata) que proporciona acceso dinámico a los objetos almacenados en `ViewData`. `ViewBag` puede ser más cómodo de trabajar con él, ya que no requiere conversión. En el ejemplo siguiente se muestra cómo usar `ViewBag` con el mismo resultado que al usar `ViewData` anteriormente:
 
@@ -278,7 +324,7 @@ public IActionResult SomeAction()
 
 **Uso simultáneo de ViewData y ViewBag**
 
-Nota: `ViewBag` no está disponible en las páginas de Razor.
+`ViewBag` *no está disponible en las páginas de Razor.*
 
 Puesto que `ViewData` y `ViewBag` hacen referencia a la misma colección `ViewData` subyacente, se pueden utilizar `ViewData` y `ViewBag`, y combinarlos entre ellos al leer y escribir valores.
 

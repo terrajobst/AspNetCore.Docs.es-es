@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: tutorials/first-mvc-app-mac/start-mvc
 ms.openlocfilehash: ffa620f07251c52c785672d8fbeefacac31ed4c1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/21/2018
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio-for-mac"></a>Introducción a ASP.NET Core MVC y Visual Studio para Mac
 

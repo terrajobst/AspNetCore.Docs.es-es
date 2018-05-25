@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
-title: "Notas de la versión de ASP.NET y herramientas Web 2013.1 para Visual Studio 2012 | Documentos de Microsoft"
+title: Notas de la versión de ASP.NET y herramientas Web 2013.1 para Visual Studio 2012 | Documentos de Microsoft
 author: microsoft
-description: "Este documento describe la versión de ASP.NET y 2013.1 de herramientas Web para Visual Studio 2012."
+description: Este documento describe la versión de ASP.NET y 2013.1 de herramientas Web para Visual Studio 2012.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/13/2013
 ms.topic: article
 ms.assetid: ca26e5bb-630e-41d2-8512-2a9386c431cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20131-for-visual-studio-2012
 msc.type: authoredcontent
@@ -181,7 +181,7 @@ Después de realizar este cambio, al seleccionar F5 navega a la raíz de la apli
 
 Después de actualizar a ASP.NET Razor 3 o 5 de MVC de ASP.NET, la notación de tilde(~) ya no funcionen correctamente si utilizas una dirección URL de escribir de nuevo. La reescritura de direcciones URL afecta a la notación de tilde(~) en los elementos HTML como &lt;A /&gt;, &lt;secuencia de comandos /&gt;, &lt;vínculo /&gt;, y así la tilde ya no se asigna al directorio raíz.
 
-Por ejemplo, si vuelve a escribir las solicitudes de **asp.net/content** a **asp.net**, el atributo href de &lt;A href = "~/content/" /&gt; se resuelve como **/content/ contenido /** en lugar de  **/** . Para suprimir este cambio, puede establecer la **IIS\_WasUrlRewritten** contexto en false en cada página Web o en **aplicación\_BeginRequest** en Global.asax.
+Por ejemplo, si vuelve a escribir las solicitudes de **asp.net/content** a **asp.net**, el atributo href de &lt;A href = "~/content/" /&gt; se resuelve como **/content/ contenido /** en lugar de **/**. Para suprimir este cambio, puede establecer la **IIS\_WasUrlRewritten** contexto en false en cada página Web o en **aplicación\_BeginRequest** en Global.asax.
 
 <a id="templateissue"></a>
 ### <a name="templates"></a>Plantillas

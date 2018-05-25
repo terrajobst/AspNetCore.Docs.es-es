@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/view-components
-ms.openlocfilehash: a3614024c7f776e4502bc049180ae1c965e31db4
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cdf44fc15ac64497b2589e8b7b289beb94c5b2c4
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -21,9 +21,11 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/view-components/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="introducing-view-components"></a>Introducción a los componentes de vista
+## <a name="view-components"></a>Componentes de vista
 
-Los componentes de vista son una novedad de ASP.NET Core MVC, similares a las vistas parciales pero mucho más eficaces. Los componentes de vista no usan el enlace de modelos y solo dependen de los datos proporcionados cuando se les llama. Un componente de vista:
+Los componentes de vista son similares a las vistas parciales, pero mucho más eficaces. Los componentes de vista no usan el enlace de modelos y solo dependen de los datos proporcionados cuando se les llama. Este artículo se escribió en torno a ASP.NET Core MVC, pero los componentes de vista también funcionan con páginas de Razor.
+
+Un componente de vista:
 
 * Representa un fragmento en lugar de una respuesta completa.
 * Incluye las mismas ventajas de separación de conceptos y capacidad de prueba que se encuentran entre un controlador y una vista.

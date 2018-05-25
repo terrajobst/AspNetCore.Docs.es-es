@@ -11,17 +11,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/http-requests
-ms.openlocfilehash: 30ac239a38376feecffc3010387ec5e0009b6db6
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 1f2c7522a10220cd9520d78846d2e897115447c2
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="initiate-http-requests"></a>Inicio de solicitudes HTTP
 
 Por [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/rynowak) y [Steve Gordon](https://github.com/stevejgordon)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 Se puede registrar y usar un `IHttpClientFactory` para crear y configurar instancias de [HttpClient](/dotnet/api/system.net.http.httpclient) en una aplicación. Esto reporta las siguientes ventajas:
 
@@ -77,7 +75,7 @@ Un cliente con tipo acepta un parámetro `HttpClient` en su constructor:
 
 [!code-csharp[](http-requests/samples/GitHub/GitHubService.cs?name=snippet1&highlight=5)]
 
-En el código anterior, la configuración se mueve al cliente con tipo. El objeto `HttpClient` se expone como una propiedad pública. Se pueden definir métodos específicos de API que exponen la funcionalidad `HttpClient`. El método `GetLatestDocsIssue` encapsula el código necesario para consultar y analizar el último problema de repositorio de GitHub.
+En el código anterior, la configuración se mueve al cliente con tipo. El objeto `HttpClient` se expone como una propiedad pública. Se pueden definir métodos específicos de API que exponen la funcionalidad `HttpClient`. El método `GetAspNetDocsIssues` encapsula el código necesario para consultar y analizar los últimos problemas abiertos de un repositorio de GitHub.
 
 Para registrar un cliente con tipo, se puede usar el método de extensión genérico `AddHttpClient` dentro de `ConfigureServices`, especificando la clase del cliente con tipo:
 

@@ -10,17 +10,15 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: 2cbebb12ccd1098e1950aa7eeb22fab4ffc689e6
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/08/2018
 ---
 # <a name="aspnet-core-razor-sdk"></a>SDK de Razor de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
-
-[!INCLUDE[](~/includes/2.1.md)]
 
 El [!INCLUDE [](~/includes/2.1-SDK.md)] incluye el SDK de MSBuild `Microsoft.NET.Sdk.Razor` (SDK de Razor). El SDK de Razor:
 
@@ -66,7 +64,7 @@ Para configurar las entradas y la salida del SDK de Razor se usan las siguientes
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Elementos (archivos *.cshtml*) que son entradas para los destinos de generación de código. |
 | RazorCompile                                  | Elementos (archivos .cs) que son entradas para los destinos de compilación de Razor. Use este ItemGroup para especificar más archivos para que se compilen en el ensamblado de Razor. |
-| RazorAssemblyAttribute                        | Elementos que se usan para generar atributos de código para el ensamblado de Razor. Por ejemplo:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
+| RazorTargetAssemblyAttribute                  | Elementos que se usan para generar atributos de código para el ensamblado de Razor. Por ejemplo:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Elementos que se agregan como recursos insertados en el ensamblado de Razor generado. |
 
 | Property                                      | Description                                                                   |

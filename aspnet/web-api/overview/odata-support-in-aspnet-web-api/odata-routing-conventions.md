@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 title: Convenciones de enrutamiento en ASP.NET Web API 2 Odata | Documentos de Microsoft
 author: MikeWasson
-description: "Este artículo describen las convenciones de enrutamiento utiliza API de Web para puntos de conexión de OData."
+description: Este artículo describen las convenciones de enrutamiento utiliza API de Web para puntos de conexión de OData.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/31/2013
@@ -147,7 +147,7 @@ Actualmente las convenciones integradas no tratan a todos los OData URIs posible
 
 Para ambos métodos, si la convención no se aplica a esa solicitud, el método debe devolver null.
 
-El **ODataPath** parámetro representa la ruta de acceso de recurso de OData analizado. Contiene una lista de  **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)**  instancias, uno para cada segmento de la ruta de acceso del recurso. **ODataPathSegment** es una clase abstracta; cada tipo de segmento se representa mediante una clase que deriva de **ODataPathSegment**.
+El **ODataPath** parámetro representa la ruta de acceso de recurso de OData analizado. Contiene una lista de **[ODataPathSegment](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatapathsegment.aspx)** instancias, uno para cada segmento de la ruta de acceso del recurso. **ODataPathSegment** es una clase abstracta; cada tipo de segmento se representa mediante una clase que deriva de **ODataPathSegment**.
 
 El **ODataPath.TemplatePath** propiedad es una cadena que representa la concatenación de todos los segmentos de ruta de acceso. Por ejemplo, si el identificador URI es `/Products(1)/Supplier`, la plantilla de ruta de acceso es &quot;~/entityset/key/navigation&quot;. Tenga en cuenta que los segmentos no corresponden directamente a segmentos URI. Por ejemplo, la clave de entidad (1) se representa como su propio **ODataPathSegment**.
 
@@ -169,7 +169,7 @@ Notas:
 
 1. Derivan de **EntitySetRoutingConvention**, porque la **SelectController** método de esa clase es el adecuado para esta nueva convención de enrutamiento. Esto significa que no es necesario volver a implementar **SelectController**.
 2. La convención se aplica únicamente a las solicitudes GET, y solo cuando la plantilla de ruta de acceso es &quot;~/entityset/key/navigation/key&quot;.
-3. Es el nombre de acción &quot;obtener {EntityType}&quot;, donde *{EntityType}* es el tipo de la colección de navegación. Por ejemplo, &quot;GetSupplier&quot;. Puede usar cualquier convención de nomenclatura que le guste &#8212; Asegúrese de que las acciones de controlador coincide con.
+3. Es el nombre de acción &quot;obtener {EntityType}&quot;, donde *{EntityType}* es el tipo de la colección de navegación. Por ejemplo, &quot;GetSupplier&quot;. Puede usar cualquier convención de nomenclatura que le guste & #8212; Asegúrese de que las acciones de controlador coincide con.
 4. La acción toma dos parámetros denominados *clave* y *relatedKey*. (Para obtener una lista de algunos nombres de parámetro predefinidos, vea [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 El paso siguiente consiste en agregar la convención de nuevo a la lista de convenciones de enrutamiento. Esto sucede durante la configuración, tal como se muestra en el código siguiente:

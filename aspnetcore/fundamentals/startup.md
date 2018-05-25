@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/startup
-ms.openlocfilehash: 8dd632a2c888e65c6420e0fed7acf6fa15173b3d
-ms.sourcegitcommit: c4a31aaf902f2e84aaf4a9d882ca980fdf6488c0
+ms.openlocfilehash: a61f78b2d0e5c6c171a26690fcce256462a82508
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="application-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
@@ -44,7 +44,7 @@ El constructor de clase `Startup` acepta dependencias definidas por el host. Un 
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Una alternativa a la inserción de `IHostingEnvironment` consiste en utilizar un enfoque basado en convenciones. La aplicación puede definir clases `Startup` independientes para los distintos entornos (por ejemplo, `StartupDevelopment`), mientras que la clase de inicio correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto la clase `Startup` como la clase `StartupDevelopment`, se utiliza la clase `StartupDevelopment`. Para más información, vea [Trabajar con varios entornos](xref:fundamentals/environments#startup-conventions).
+Una alternativa a la inserción de `IHostingEnvironment` consiste en utilizar un enfoque basado en convenciones. La aplicación puede definir clases `Startup` independientes para los distintos entornos (por ejemplo, `StartupDevelopment`), mientras que la clase de inicio correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto la clase `Startup` como la clase `StartupDevelopment`, se utiliza la clase `StartupDevelopment`. Para obtener más información, consulte [Uso de varios entornos](xref:fundamentals/environments#startup-conventions).
 
 Para obtener más información sobre `WebHostBuilder`, consulte el tema [Hospedaje](xref:fundamentals/hosting). Para obtener información sobre cómo controlar los errores que se producen durante el inicio, consulte [Control de excepciones de inicio](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -64,9 +64,10 @@ Para las características que requieren una configuración sustancial, hay méto
 
 [!code-csharp[](../common/samples/WebApplication1/Startup.cs?highlight=4,7,11&start=40&end=55)]
 
-::: moniker range=">= aspnetcore-2.1" 
+::: moniker range=">= aspnetcore-2.1"
 
 <a name="setcompatibilityversion"></a>
+
 ### <a name="setcompatibilityversion-for-aspnet-core-mvc"></a>SetCompatibilityVersion en ASP.NET Core MVC 
 
 El método `SetCompatibilityVersion` permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET MVC Core 2.1+. Estos cambios de comportamiento importantes suelen estar relacionados con cómo se comporta el subsistema de MVC y cómo el tiempo de ejecución llama al **código**. Si la aplicación participa, obtendrá el comportamiento más reciente y a largo plazo de ASP.NET Core.
@@ -157,10 +158,14 @@ El orden de ejecución de middleware se establece según el orden de registros d
 * Varias implementaciones de `IStartupFilter` pueden interactuar con los mismos objetos. Si el orden es importante, ordene los registros de servicio de `IStartupFilter` para que coincidan con el orden en que se deben ejecutar los middleware.
 * Las bibliotecas pueden agregar middleware con una o varias implementaciones de `IStartupFilter` que se ejecuten antes o después de otro middleware de aplicación registrado con `IStartupFilter`. Para invocar un middleware `IStartupFilter` antes que un middleware agregado por el `IStartupFilter` de una biblioteca, coloque el registro del servicio antes de que la biblioteca se agregue al contenedor de servicios. Para invocarlo posteriormente, coloque el registro del servicio después de que se agregue la biblioteca.
 
+## <a name="adding-configuration-at-startup-from-an-external-assembly"></a>Agregar opciones de configuración en el inicio a partir de un ensamblado externo
+
+Una implementación de [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo fuera de la clase `Startup` de esta. Para obtener más información, consulte [Mejora de una aplicación a partir de un ensamblado externo](xref:fundamentals/configuration/platform-specific-configuration).
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Hospedar aplicaciones de WPF](xref:fundamentals/hosting)
-* [Trabajar con varios entornos](xref:fundamentals/environments)
+* [Uso de varios entornos](xref:fundamentals/environments)
 * [Middleware](xref:fundamentals/middleware/index)
 * [Registro](xref:fundamentals/logging/index)
 * [Configuración](xref:fundamentals/configuration/index)

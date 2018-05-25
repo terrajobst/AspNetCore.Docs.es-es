@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: 2e1257639ec41f657093439c5245b50adbad34dc
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -74,7 +74,7 @@ Las rutas usan principalmente los valores de ruta proporcionados por `Values` y 
 
 Sugerencia: Considere `Values` como un conjunto de invalidaciones de `AmbientValues`. La generación de dirección URL intenta reutilizar los valores de ruta de la solicitud actual para que sea más fácil generar direcciones URL para los vínculos con la misma ruta o valores de ruta.
 
-La salida de `GetVirtualPath` es `VirtualPathData`. `VirtualPathData` es un valor paralelo de `RouteData`; contiene el valor `VirtualPath` de la dirección URL de salida, así como algunas propiedades adicionales que la ruta debe establecer.
+La salida de `GetVirtualPath` es `VirtualPathData`. `VirtualPathData` es un valor paralelo de `RouteData`; contiene el valor `VirtualPath` de la dirección URL de salida y algunas propiedades más que la ruta debe establecer.
 
 La propiedad `VirtualPathData.VirtualPath` contiene la *ruta de acceso virtual* generada por la ruta. Es posible que deba procesar aún más la ruta de acceso, según sus necesidades. Por ejemplo, si quiere representar la dirección URL generada en HTML debe anteponer la ruta de acceso base de la aplicación.
 

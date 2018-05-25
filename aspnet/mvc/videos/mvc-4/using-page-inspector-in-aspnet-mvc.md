@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-4/using-page-inspector-in-aspnet-mvc
-title: "Usar Inspector de página en ASP.NET MVC | Documentos de Microsoft"
+title: Usar Inspector de página en ASP.NET MVC | Documentos de Microsoft
 author: rick-anderson
-description: "Los vídeos se explora el uso de Inspector de página en las aplicaciones web de ASP.NET MVC. Leer el tutorial"
+description: Los vídeos se explora el uso de Inspector de página en las aplicaciones web de ASP.NET MVC. Leer el tutorial
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2012
@@ -24,4 +24,4 @@ por Tim Ammann
 
 Los vídeos se explora el uso de Inspector de página en las aplicaciones web de ASP.NET MVC. [Leer el tutorial](../../overview/views/using-page-inspector-in-aspnet-mvc.md)
 
-[&#9654; Vea el vídeo (6 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)
+[& #9654; Vea el vídeo (6 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/using-page-inspector-in-aspnet-mvc)

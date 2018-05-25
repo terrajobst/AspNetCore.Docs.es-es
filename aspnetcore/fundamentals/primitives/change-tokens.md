@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: 3055eec91adc412b596d4cc73e8523e18ff63331
-ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.openlocfilehash: 06751e713fbd579a944333cc3c3b2c0c0ad51eba
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Detección de cambios con tokens de cambio en ASP.NET Core
 
@@ -108,7 +108,7 @@ El constructor de la clase implementada, `ConfigurationMonitor`, registra una de
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet2)]
 
-`config.GetReloadToken()` proporciona el token. `InvokeChanged` es el método de devolución de llamada. En este caso, el `state` es una cadena que describe el estado de supervisión. Se usan dos propiedades:
+`config.GetReloadToken()` proporciona el token. `InvokeChanged` es el método de devolución de llamada. El elemento `state` de esta instancia es una referencia a la instancia de `IConfigurationMonitor` que se usa para tener acceso al estado de supervisión. Se usan dos propiedades:
 
 * `MonitoringEnabled` indica si la devolución de llamada debe ejecutar su código personalizado.
 * `CurrentState` describe el estado de supervisión actual para su uso en la interfaz de usuario.
@@ -116,7 +116,6 @@ El constructor de la clase implementada, `ConfigurationMonitor`, registra una de
 El método `InvokeChanged` es similar al enfoque anterior, excepto en que:
 
 * No ejecuta su código, a menos que `MonitoringEnabled` sea `true`.
-* Establece la cadena de la propiedad `CurrentState` en un mensaje descriptivo que registra la hora a la que se ejecutó el código.
 * Anota el `state` actual en su salida de `WriteConsole`.
 
 [!code-csharp[](change-tokens/sample/Extensions/ConfigurationMonitor.cs?name=snippet3)]
@@ -201,7 +200,6 @@ En el token compuesto, `HasChanged` notifica `true` si algún token representado
 
 * [Almacenamiento en caché en memoria](xref:performance/caching/memory)
 * [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
-* [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
 * [Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)

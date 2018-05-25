@@ -1,24 +1,31 @@
 ---
 title: Introducción a Swashbuckle y ASP.NET Core
 author: zuckerthoben
-description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core para integrar la interfaz de usuario de Swagger.
+description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core Web API para integrar la interfaz de usuario de Swagger.
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/26/2018
+ms.date: 05/08/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: e90339f2884dd9b20cf135f879c9cab6110efecf
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0eb9aa12419cc09899af6bc85dd32a85687dab62
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
 Por [Shayne Boyer](https://twitter.com/spboyer) y [Scott Addie](https://twitter.com/Scott_Addie)
+
+::: moniker range="<= aspnetcore-2.0"
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+::: moniker-end
 
 Hay tres componentes principales de Swashbuckle:
 
@@ -32,29 +39,31 @@ Hay tres componentes principales de Swashbuckle:
 
 Se puede agregar Swashbuckle con los métodos siguientes:
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
+### <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 * En la ventana **Consola del Administrador de paquetes**:
+  * Vaya a **Vista** > **Otras ventanas** > **Consola del Administrador de paquetes**.
+  * Vaya al directorio en el que está *TodoApi.csproj*.
+  * Ejecute el siguiente comando:
 
     ```powershell
     Install-Package Swashbuckle.AspNetCore
     ```
 
 * En el cuadro de diálogo **Administrar paquetes NuGet**:
-
   * Haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** > **Administrar paquetes NuGet**.
   * Establezca el **origen del paquete** en "nuget.org".
   * Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.
   * Seleccione el paquete "Swashbuckle.AspNetCore" en la pestaña **Examinar** y haga clic en **Instalar**.
 
-# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
+### <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
 * Haga clic con el botón derecho en la carpeta *Paquetes* en **Panel de solución** > **Agregar paquetes...**
 * Establezca el menú desplegable **Origen** de la ventana **Agregar paquetes** en "nuget.org".
-* Escriba Swashbuckle.AspNetCore en el cuadro de búsqueda.
-* Seleccione el paquete Swashbuckle.AspNetCore en el panel de resultados y haga clic en **Agregar paquete**.
+* Escriba "Swashbuckle.AspNetCore" en el cuadro de búsqueda.
+* Seleccione el paquete "Swashbuckle.AspNetCore" en el panel de resultados y haga clic en **Agregar paquete**.
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
+### <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Ejecute el siguiente comando en el **terminal integrado**:
 
@@ -62,7 +71,7 @@ Ejecute el siguiente comando en el **terminal integrado**:
 dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+### <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Ejecute el siguiente comando:
 
@@ -76,26 +85,29 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 
 Agregue el generador de Swagger a la colección de servicios en el método `Startup.ConfigureServices`:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=7-10)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=8-11)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=9-12)]
+::: moniker-end
 
 Importe el siguiente espacio de nombres para que use la clase `Info`:
 
-```csharp
-using Swashbuckle.AspNetCore.Swagger;
-```
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_InfoClassNamespace)]
 
 En el método `Startup.Configure`, habilite el middleware para servir el documento JSON generado y la interfaz de usuario de Swagger:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,7-10)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_Configure&highlight=4,8-11)]
 
-Inicie la aplicación y vaya a `http://localhost:<random_port>/swagger/v1/swagger.json`. El documento generado en el que se describen los puntos de conexión aparecerá según se muestra en la [especificación de Swagger (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).
+Inicie la aplicación y vaya a `http://localhost:<port>/swagger/v1/swagger.json`. El documento generado en el que se describen los puntos de conexión aparecerá según se muestra en la [especificación de Swagger (swagger.json)](xref:tutorials/web-api-help-pages-using-swagger#swagger-specification-swaggerjson).
 
-La interfaz de usuario de Swagger se encuentra en `http://localhost:<random_port>/swagger`. Explore la API a través de la interfaz de usuario de Swagger e incorpórela a otros programas.
+La interfaz de usuario de Swagger se encuentra en `http://localhost:<port>/swagger`. Explore la API a través de la interfaz de usuario de Swagger e incorpórela a otros programas.
 
 > [!TIP]
-> Para servir la interfaz de usuario de Swagger en la raíz de la aplicación (`http://localhost:<random_port>/`), establezca la propiedad `RoutePrefix` en una cadena vacía:
-> 
-> [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
+> Para servir la interfaz de usuario de Swagger en la raíz de la aplicación (`http://localhost:<port>/`), establezca la propiedad `RoutePrefix` en una cadena vacía:
+>
+> [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
 ## <a name="customize--extend"></a>Personalizar y ampliar
 
@@ -105,7 +117,7 @@ Swagger proporciona opciones para documentar el modelo de objetos y personalizar
 
 La acción de configuración que se pasa al método `AddSwaggerGen` agrega información, como el autor, la licencia y la descripción:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Startup.cs?range=21-40,46)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup4.cs?name=snippet_AddSwaggerGen)]
 
 La interfaz de usuario de Swagger muestra información de la versión:
 
@@ -115,24 +127,24 @@ La interfaz de usuario de Swagger muestra información de la versión:
 
 Los comentarios XML se pueden habilitar con los métodos siguientes:
 
-#### <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
+# <a name="visual-studiotabvisual-studio-xml"></a>[Visual Studio](#tab/visual-studio-xml/)
+
 * En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto y seleccione **Propiedades**.
-* Seleccione la casilla **Archivo de documentación XML** en la sección **Salida** de la pestaña **Compilar**:
+* Active la casilla **Archivo de documentación XML** en la sección **Salida** de la pestaña **Compilar**.
 
-![Pestaña Compilar de las propiedades del proyecto](web-api-help-pages-using-swagger/_static/swagger-xml-comments.png)
+# <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio para Mac](#tab/visual-studio-mac-xml/)
 
-#### <a name="visual-studio-for-mactabvisual-studio-mac-xml"></a>[Visual Studio para Mac](#tab/visual-studio-mac-xml/)
 * Abra el cuadro de diálogo **Opciones del proyecto** > **Compilar** > **Compilador**.
-* Seleccione la casilla **Generar documentación XML** en la sección **Opciones generales**:
+* Active la casilla **Generar documentación XML** en la sección **Opciones generales**.
 
-![Sección Opciones generales de las opciones del proyecto](web-api-help-pages-using-swagger/_static/swagger-xml-comments-mac.png)
+# <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
 
-#### <a name="visual-studio-codetabvisual-studio-code-xml"></a>[Visual Studio Code](#tab/visual-studio-code-xml/)
 Agregue manualmente el siguiente fragmento de código al archivo *.csproj*:
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=2)]
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=2)]
 
-* * *
+---
+
 Puede habilitar los comentarios XML para proporcionar información de depuración para miembros y tipos públicos sin documentación. Los miembros y tipos que no estén documentados se indican por medio del mensaje de advertencia. Por ejemplo, el siguiente mensaje señala una infracción con el código de advertencia 1591:
 
 ```text
@@ -141,17 +153,22 @@ warning CS1591: Missing XML comment for publicly visible type or member 'TodoCon
 
 Para eliminar las advertencias, defina una lista delimitada por punto y coma de códigos de advertencia que deban omitirse el archivo *.csproj*:
 
-[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
+[!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
 
 Configure Swagger para usar el archivo XML generado. En Linux o sistemas operativos que no sean Windows, las rutas de acceso y los nombres de archivo pueden distinguir entre mayúsculas y minúsculas. Por ejemplo, un archivo *TodoApi.XML* es válido en Windows, pero no en CentOS.
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=29-31)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=30-32)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=31-33)]
+::: moniker-end
 
 En el código anterior, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) se usa para crear un nombre de archivo XML que coincida con el proyecto de Web API. Con este método se garantiza que el nombre de archivo XML generado va a ser el mismo que el nombre del proyecto. La propiedad [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) sirve para crear una ruta de acceso al archivo XML.
 
 Agregar comentarios con la triple barra diagonal a una acción mejora la interfaz de usuario de Swagger en tanto agrega una descripción de la acción al encabezado de la sección. Agregue un elemento [\<summary>](/dotnet/csharp/programming-guide/xmldoc/summary) antes de la acción `Delete`:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Delete&highlight=1-3)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Delete&highlight=1-3)]
 
 La interfaz de usuario de Swagger muestra el texto interno del elemento `<summary>` del código anterior:
 
@@ -188,7 +205,12 @@ La interfaz de usuario se controla por medio del esquema JSON generado:
 
 Agregue un elemento [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) a la documentación del método de acción `Create`. Este elemento complementa la información especificada en el elemento `<summary>` y proporciona una interfaz de usuario de Swagger más sólida. El contenido del elemento `<remarks>` puede estar formado por texto, JSON o XML.
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+::: moniker-end
 
 Fíjese en las mejoras de la interfaz de usuario con estos comentarios extra:
 
@@ -200,7 +222,7 @@ Incorpore al modelo atributos que se encuentren en [System.ComponentModel.DataAn
 
 Agregue el atributo `[Required]` a la propiedad `Name` de la clase `TodoItem`:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Models/TodoItem.cs?highlight=10)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Models/TodoItem.cs?highlight=10)]
 
 La presencia de este atributo cambia el comportamiento de la interfaz de usuario y modifica el esquema JSON subyacente:
 
@@ -230,7 +252,12 @@ La presencia de este atributo cambia el comportamiento de la interfaz de usuario
 
 Agregue el atributo `[Produces("application/json")]` al controlador de API. Su propósito consiste en declarar que las acciones del controlador admiten un contenido de respuesta de tipo *application/json*:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=3)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+::: moniker-end
 
 En el menú desplegable **Response Content Type** (Tipo de contenido de respuesta) se selecciona este tipo de contenido como el valor predeterminado para las acciones GET del controlador:
 
@@ -244,7 +271,12 @@ Lo que más preocupa a los desarrolladores es lo que se devuelve; sobre todo, lo
 
 La acción `Create` devuelve un código de estado HTTP 201 cuando se ha ejecutado correctamente. Cuando el cuerpo de solicitud enviado es null, se devuelve un código de estado HTTP 400. Sin la documentación correcta en la interfaz de usuario de Swagger, el consumidor no dispone de la información necesaria de estos resultados esperados. Corrija este problema agregando las líneas resaltadas en el siguiente ejemplo:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+::: moniker range="<= aspnetcore-2.0"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+::: moniker-end
 
 Ahora, la interfaz de usuario de Swagger documenta de forma clara los códigos de respuesta HTTP esperados:
 
@@ -264,7 +296,7 @@ El paquete NuGet anterior ya estará instalado si el destino es .NET Core 2.x y 
 
 Habilite el middleware de los archivos estáticos:
 
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_Configure&highlight=3)]
 
 Obtenga el contenido de la carpeta *dist* en el [repositorio de GitHub de la interfaz de usuario de Swagger](https://github.com/swagger-api/swagger-ui/tree/master/dist). Esta carpeta contiene los recursos necesarios para la página de interfaz de usuario de Swagger.
 
@@ -272,13 +304,13 @@ Cree una carpeta *wwwroot/swagger/ui* y copie en ella el contenido de la carpeta
 
 Cree un archivo *custom.css* en *wwwroot/swagger/ui* con el siguiente código CSS para personalizar el encabezado de página:
 
-[!code-css[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/wwwroot/swagger/ui/custom.css)]
+[!code-css[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/custom.css)]
 
 Cree una referencia a *custom.css* en el archivo *index.html* después de cualquier otro archivo CSS:
 
-[!code-html[](../tutorials/web-api-help-pages-using-swagger/samples/TodoApi.Swashbuckle/wwwroot/swagger/ui/index.html?name=snippet_SwaggerUiCss&highlight=3)]
+[!code-html[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/wwwroot/swagger/ui/index.html?name=snippet_SwaggerUiCss&highlight=3)]
 
-Vaya a la página *index.html* en `http://localhost:<random_port>/swagger/ui/index.html`. Escriba `http://localhost:<random_port>/swagger/v1/swagger.json` en el cuadro de texto del encabezado y haga clic en el botón **Explorar**. La página resultante tiene el siguiente aspecto:
+Vaya a la página *index.html* en `http://localhost:<port>/swagger/ui/index.html`. Escriba `http://localhost:<port>/swagger/v1/swagger.json` en el cuadro de texto del encabezado y haga clic en el botón **Explorar**. La página resultante tiene el siguiente aspecto:
 
 ![Interfaz de usuario de Swagger con el título de encabezado personalizado](web-api-help-pages-using-swagger/_static/custom-header.png)
 

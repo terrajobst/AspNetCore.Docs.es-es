@@ -445,7 +445,7 @@ Como hemos ya mencionado, Visual Studio 2005 se suministra con un servidor Web c
 
 El servidor de desarrollo de ASP.NET es un servidor Web restringido. No permite las conexiones remotas, no permite las solicitudes de cualquier usuario distinto del usuario que inició el servidor Web. No tiene la capacidad de ofrecer servicio a las páginas ASP. Se sirven solo los recursos ASP.NET y los recursos HTML (incluidas imágenes, archivos CSS, etc.).
 
-Se puede iniciar el servidor de desarrollo de ASP.NET a través de la línea de comandos ejecutando el archivo WebDev.WebServer.exe ubicado en c:/Windows/Microsoft.NET/Framework/v2.0./ */*  /  */*/*. El siguiente cuadro de diálogo muestra los parámetros que están disponibles.
+Se puede iniciar el servidor de desarrollo de ASP.NET a través de la línea de comandos ejecutando el archivo WebDev.WebServer.exe ubicado en c:/Windows/Microsoft.NET/Framework/v2.0./*/* /  */*/*. El siguiente cuadro de diálogo muestra los parámetros que están disponibles.
 
 
 ![](improvements-in-visual-studio-2005/_static/image11.jpg)

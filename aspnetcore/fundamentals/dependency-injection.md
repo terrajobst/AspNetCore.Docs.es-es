@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 8a105f835dddfcd0e9f32059e644f60dc1fdbbe1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -72,7 +72,7 @@ public CharactersController(ICharacterRepository characterRepository, string tit
 
 ## <a name="using-framework-provided-services"></a>Uso de servicios proporcionados por el marco de trabajo
 
-El método `ConfigureServices` de la clase `Startup` se encarga de definir los servicios que usará la aplicación, incluidas las características de plataforma como Entity Framework Core y ASP.NET Core MVC. Inicialmente, el valor `IServiceCollection` proporcionado a `ConfigureServices` tiene los siguientes servicios definidos (en función de [cómo se configurara el host](xref:fundamentals/hosting)):
+El método `ConfigureServices` de la clase `Startup` se encarga de definir los servicios que usará la aplicación, incluidas las características de plataforma como Entity Framework Core y ASP.NET Core MVC. Inicialmente, el valor `IServiceCollection` proporcionado a `ConfigureServices` tiene los siguientes servicios definidos (en función de [cómo se configurara el host](xref:fundamentals/host/index)):
 
 | Tipo de servicio | Período de duración |
 | ----- | ------- |
@@ -235,7 +235,7 @@ El proveedor de servicios raíz se crea cuando se llama a [BuildServiceProvider]
 
 De la eliminación de los servicios con ámbito se encarga el contenedor que los creó. Si un servicio con ámbito se crea en el contenedor raíz, su vigencia sube a la del singleton, ya que solo lo puede eliminar el contenedor raíz cuando la aplicación o el servidor se cierran. Al validar los ámbitos de servicio, este tipo de situaciones se detectan cuando se llama a `BuildServiceProvider`.
 
-Para más información, vea [Validación del ámbito](xref:fundamentals/hosting#scope-validation) en el tema sobre hospedaje.
+Para obtener más información, vea [Validación del ámbito en el tema de host web](xref:fundamentals/host/web-host#scope-validation).
 
 ## <a name="request-services"></a>Servicios de solicitud
 
@@ -245,7 +245,7 @@ Los servicios disponibles en una solicitud de ASP.NET desde `HttpContext` se exp
 
 Los servicios de solicitud representan los servicios que se configuran y se solicitan como parte de la aplicación. Cuando los objetos especifican dependencias, estas se cumplen mediante los tipos que se encuentran en `RequestServices`, no en `ApplicationServices`.
 
-Por lo general, no debe usar estas propiedades directamente. Se recomienda que solicite los tipos que las clases necesitan mediante el constructor de la clase y que deje que el marco de trabajo inserte estas dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas y depuración](../testing/index.md)) y acopladas de manera más flexible.
+Por lo general, no debe usar estas propiedades directamente. Se recomienda que solicite los tipos que las clases necesitan mediante el constructor de la clase y que deje que el marco de trabajo inserte estas dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas y depuración](xref:testing/index)) y acopladas de manera más flexible.
 
 > [!NOTE]
 > Se recomienda que solicite las dependencias como parámetros del constructor para obtener acceso a la colección `RequestServices`.
@@ -351,13 +351,15 @@ Cuando trabaje con la inserción de dependencias, tenga en cuenta las recomendac
 
 * Evite el acceso estático a `HttpContext`.
 
-> [!NOTE]
-> Al igual que sucede con todas las recomendaciones, podría verse en una situación que le obligue a ignorar alguna de ellas. Por lo que sabemos las excepciones son muy poco frecuentes, ya que suelen ser casos muy especiales del propio marco de trabajo.
+Al igual que sucede con todas las recomendaciones, podría verse en una situación que le obligue a ignorar alguna de ellas. Por lo que sabemos las excepciones son muy poco frecuentes, ya que suelen ser casos muy especiales del propio marco de trabajo.
 
-Recuerde que la inserción de dependencias es una *alternativa* al uso de patrones de acceso a objetos estáticos o globales. No podrá aprovechar las ventajas de la inserción de dependencias si la combina con el acceso a objetos estáticos.
+La inserción de dependencias es una *alternativa* al uso de patrones de acceso a objetos estáticos o globales. No podrá aprovechar las ventajas de la inserción de dependencias si la combina con el acceso a objetos estáticos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* [Inserción de dependencias en vistas](xref:mvc/views/dependency-injection)
+* [Inserción de dependencias en controladores](xref:mvc/controllers/dependency-injection)
+* [Inserción de dependencias en controladores de requisitos](xref:security/authorization/dependencyinjection)
 * [Inicio de aplicaciones](xref:fundamentals/startup)
 * [Prueba y depuración](xref:testing/index)
 * [Factory-based middleware activation](xref:fundamentals/middleware/extensibility) (Activación de middleware basada en Factory)

@@ -8,11 +8,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: be7d55bf1a5d3da63ff137ed86f71984dc897eff
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
+ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 
@@ -58,7 +58,7 @@ La primera línea especifica que, cuando `sortOrder` es NULL o está vacío, `Na
 
 El `?: operator` también se conoce como el operador ternario.
 
-Estas dos instrucciones habilitan la vista para establecer los hipervínculos de encabezado de columna de la forma siguiente:
+Estas dos instrucciones habilitan la página para establecer los hipervínculos de encabezado de columna de la siguiente forma:
 
 | Criterio de ordenación actual | Hipervínculo de apellido | Hipervínculo de fecha |
 |:--------------------:|:-------------------:|:--------------:|
@@ -77,7 +77,7 @@ El método usa LINQ to Entities para especificar la columna por la que se va a o
 
 `OnGetAsync` podría detallarse con un gran número de columnas.
 
-### <a name="add-column-heading-hyperlinks-to-the-student-index-view"></a>Agregar hipervínculos del encabezado de columna a la vista de índice de Student
+### <a name="add-column-heading-hyperlinks-to-the-student-index-page"></a>Agregar hipervínculos de encabezado de columna a la página de índice de Student
 
 Reemplace el código de *Students/Index.cshtml* con el siguiente código resaltado:
 
@@ -122,7 +122,7 @@ El código anterior:
 
 Nota: El código anterior llama al método `Where` en un objeto `IQueryable` y el filtro se procesa en el servidor. En algunos escenarios, la aplicación puede hacer una llamada al método `Where` como un método de extensión en una colección en memoria. Por ejemplo, suponga que `_context.Students` cambia de `DbSet` de EF Core a un método de repositorio que devuelve una colección `IEnumerable`. Lo más habitual es que el resultado fuera el mismo, pero en algunos casos puede ser diferente.
 
-Por ejemplo, la implementación de .NET Framework de `Contains` realiza una comparación que distingue mayúsculas de minúsculas de forma predeterminada. En SQL Server, la distinción entre mayúsculas y minúsculas de `Contains` viene determinada por la configuración de intercalación de la instancia de SQL Server. De forma predeterminada, SQL Server no diferencia entre mayúsculas y minúsculas. Se podría llamar a `ToUpper` para hacer explícitamente que la prueba no distinga entre mayúsculas y minúsculas:
+Por ejemplo, la implementación de .NET Framework de `Contains` realiza una comparación que distingue mayúsculas de minúsculas de forma predeterminada. En SQL Server, la distinción entre mayúsculas y minúsculas de `Contains` viene determinada por la configuración de intercalación de la instancia de SQL Server. SQL Server no diferencia entre mayúsculas y minúsculas de forma predeterminada. Se podría llamar a `ToUpper` para hacer explícitamente que la prueba no distinga entre mayúsculas y minúsculas:
 
 `Where(s => s.LastName.ToUpper().Contains(searchString.ToUpper())`
 
@@ -133,9 +133,9 @@ El código anterior garantiza que los resultados no distingan entre mayúsculas 
 
 Hay una disminución del rendimiento por llamar a `ToUpper`. El código `ToUpper` agrega una función en la cláusula WHERE de la instrucción SELECT de TSQL. La función agregada impide que el optimizador use un índice. Dado que SQL está instalado para no distinguir entre mayúsculas y minúsculas, es mejor evitar llamar a `ToUpper` cuando no sea necesario.
 
-### <a name="add-a-search-box-to-the-student-index-view"></a>Agregar un cuadro de búsqueda a la vista de índice de Student
+### <a name="add-a-search-box-to-the-student-index-page"></a>Agregar un cuadro de búsqueda a la página de índice de Student
 
-En *Views/Student/Index.cshtml*, agregue el siguiente código resaltado para crear un botón **Search** y cromo ordenado.
+En *Pages/Student/Index.cshtml*, agregue el siguiente código resaltado para crear un botón **Search** y cromo ordenado.
 
 [!code-html[](intro/samples/cu/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
@@ -242,7 +242,7 @@ Ejecute paso a paso el depurador.
 
 ## <a name="update-the-about-page-to-show-student-statistics"></a>Actualizar la página About para mostrar las estadísticas de los alumnos
 
-En este paso, se actualiza *Pages/About.cshtml* para mostrar cuántos alumnos se han inscrito por cada fecha de inscripción. La actualización usa la agrupación e incluye los pasos siguientes:
+En este paso, se actualiza *Pages/About.cshtml* para mostrar cuántos alumnos se han inscrito por cada fecha de inscripción. La actualización usa la agrupación e incluye los siguientes pasos:
 
 * Cree una clase de modelo de vista para los datos usados por la página **About**.
 * Modifique el modelo de página y la página de Razor About.
@@ -267,7 +267,7 @@ Nota: EF Core actualmente no admite el comando `group` de LINQ. En el código an
 
 ### <a name="modify-the-about-razor-page"></a>Modificar la página de Razor About
 
-Reemplace el código del archivo *Views/Home/About.cshtml* por el código siguiente:
+Reemplace el código del archivo *Pages/About.cshtml* por el código siguiente:
 
 [!code-html[](intro/samples/cu/Pages/About.cshtml)]
 

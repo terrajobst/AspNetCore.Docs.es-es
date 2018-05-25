@@ -2,7 +2,7 @@
 uid: signalr/overview/getting-started/tutorial-high-frequency-realtime-with-signalr
 title: 'Tutorial: En tiempo real alta frecuencia con SignalR 2 | Documentos de Microsoft'
 author: pfletcher
-description: "Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR para proporcionar funcionalidad de mensajería de alta frecuencia. Alta frecuencia de mensajería en..."
+description: Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR para proporcionar funcionalidad de mensajería de alta frecuencia. Alta frecuencia de mensajería en...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014

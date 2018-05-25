@@ -2,7 +2,7 @@
 uid: web-api/overview/releases/whats-new-in-aspnet-web-api-21
 title: "' S New en ASP.NET Web API 2.1 | Documentos de Microsoft"
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014

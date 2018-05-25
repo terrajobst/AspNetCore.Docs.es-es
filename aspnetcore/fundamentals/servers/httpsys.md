@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: ce4edf6f07808d3958c919a1d81561ce020fe52b
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 89d9a51334bdd50b72213d32fa194808ac6a93b9
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -133,7 +133,7 @@ HTTP.sys es una tecnología consolidada que protege contra muchos tipos de ataqu
 
    Una ventaja de `UrlPrefixes` es que se genera inmediatamente un mensaje de error para prefijos con formato incorrecto.
 
-   La configuración de `UrlPrefixes` invalida la configuración de `UseUrls`/`urls`/`ASPNETCORE_URLS`. Por lo tanto, la ventaja de `UseUrls`, `urls` y la variable de entorno `ASPNETCORE_URLS` es que resulta más fácil de cambiar entre Kestrel y HTTP.sys. Para obtener más información sobre `UseUrls`, `urls` y la variable de entorno `ASPNETCORE_URLS`, vea [Hospedaje](xref:fundamentals/hosting).
+   La configuración de `UrlPrefixes` invalida la configuración de `UseUrls`/`urls`/`ASPNETCORE_URLS`. Por lo tanto, la ventaja de `UseUrls`, `urls` y la variable de entorno `ASPNETCORE_URLS` es que resulta más fácil de cambiar entre Kestrel y HTTP.sys. Para obtener más información sobre `UseUrls`, `urls` y `ASPNETCORE_URLS`, vea el tema [Hospedaje en ASP.NET Core](xref:fundamentals/host/index).
 
    HTTP.sys usa los [formatos de cadena UrlPrefix de la API HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx).
 
@@ -179,4 +179,4 @@ En el caso de las aplicaciones hospedadas por HTTP.sys que interactúan con las 
 
 * [API HTTP Server](https://msdn.microsoft.com/library/windows/desktop/aa364510.aspx)
 * [Repositorio aspnet/HttpSysServer de GitHub (código fuente)](https://github.com/aspnet/HttpSysServer/)
-* [Hospedar aplicaciones de WPF](xref:fundamentals/hosting)
+* [Hospedaje en ASP.NET Core](xref:fundamentals/host/index)

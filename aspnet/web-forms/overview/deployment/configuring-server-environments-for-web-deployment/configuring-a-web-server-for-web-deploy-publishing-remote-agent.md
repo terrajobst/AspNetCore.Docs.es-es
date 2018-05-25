@@ -12,17 +12,17 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: 8cad6ee45a8331513c72c4079f300fbb06c1ed77
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9f3a55c5e68e61a2d7907c765209d3786e05a485
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/24/2018
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Configurar un servidor Web de publicación (agente remoto) de implementación Web
 ====================
 por [Jason Lee](https://github.com/jrjlee)
 
-[Descarga de PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[Descargar PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > En este tema se describe cómo configurar un servidor web de Internet Information Services (IIS) para admitir la publicación en web y la implementación con el servicio de agente remoto de la herramienta de implementación Web de IIS (Web Deploy).
 > 
@@ -217,7 +217,7 @@ Puede comprobar si está ejecutando un servicio de varias maneras diferentes, co
 
 De forma predeterminada, el servicio del agente remoto escucha en el puerto TCP 80, en esta dirección URL:
 
-http:// [<em>nombre del servidor</em>] / MSDEPLOYAGENTSERVICE
+<http://servername.com/MSDEPLOYAGENTSERVICE>
 
 En la mayoría de los casos, no necesitará configurar las reglas de firewall adicionales para el servicio del agente remoto porque los servidores web suelen realizar escuchas para las solicitudes HTTP en el puerto 80. Si ha personalizado la instalación para que escuche en un puerto no estándar, debe configurar excepciones de firewall según sea necesario.
 

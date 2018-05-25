@@ -2,7 +2,7 @@
 uid: web-api/overview/older-versions/self-host-a-web-api
 title: Autohospedaje ASP.NET Web API 1 (C#) | Documentos de Microsoft
 author: MikeWasson
-description: "ASP.NET Web API no requiere IIS. Puede probarlo internamente una API web en su propio proceso de host. Este tutorial muestra cómo hospedar una API web dentro de una consola applic..."
+description: ASP.NET Web API no requiere IIS. Puede probarlo internamente una API web en su propio proceso de host. Este tutorial muestra cómo hospedar una API web dentro de una consola applic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012

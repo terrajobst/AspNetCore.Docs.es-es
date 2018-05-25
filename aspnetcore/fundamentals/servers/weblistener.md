@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: d40243454632550147a7d42ab26a8f1d2d100db2
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 46871edb744ad152df8eb958b344068b7408dd1e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web WebListener en ASP.NET Core
 
@@ -82,9 +82,9 @@ También hay [valores de configuración del Registro de Http.Sys](https://suppor
 
   [!code-csharp[](weblistener/sample/Program.cs?name=snippet_Main&highlight=13-17)]
 
-* Configurar puertos y URL para escuchar en ellos 
+* Configurar puertos y direcciones URL de escucha 
 
-  De forma predeterminada, ASP.NET Core enlaza a `http://localhost:5000`. Para configurar los puertos y los prefijos de URL, puede usar el método de extensión `UseURLs`, el argumento de línea de comandos `urls` o el sistema de configuración de ASP.NET Core. Para más información, vea [Hospedaje](../../fundamentals/hosting.md).
+  ASP.NET Core se enlaza a `http://localhost:5000` de forma predeterminada. Para configurar los puertos y los prefijos de URL, puede usar el método de extensión `UseURLs`, el argumento de línea de comandos `urls` o el sistema de configuración de ASP.NET Core. Para obtener más información, consulte Hospedaje en ASP.NET Core (xref:fundamentals/host/index).
 
   WebListener usa los [formatos de cadena de prefijo de Http.Sys](https://msdn.microsoft.com/library/windows/desktop/aa364698.aspx). No hay ningún requisito de formato de cadena de prefijo que sea específico de WebListener.
 
@@ -179,4 +179,4 @@ Para obtener más información, vea los siguientes recursos:
 
 * [Aplicación de ejemplo para este artículo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/servers/weblistener/sample)
 * [Código fuente de WebListener](https://github.com/aspnet/HttpSysServer/)
-* [Hospedar aplicaciones de WPF](../hosting.md)
+* [Hospedar aplicaciones de WPF](xref:fundamentals/host/index)

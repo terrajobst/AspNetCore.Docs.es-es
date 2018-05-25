@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-datatables/cdnjquerydatatables194
 msc.type: content
 ms.openlocfilehash: ea4449a248aa7c1ebbb61bad6c142009b8d9bb2c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/21/2018
 ---
 <a name="jquery-datatables-194"></a>jQuery DataTables 1.9.4
 ====================
@@ -25,15 +25,15 @@ Los siguientes archivos para los complementos de DataTables de jQuery se hospeda
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css
-- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables\_themeroller.CSS
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables\_themeroller.css
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_disabled.png
-- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_Enabled.png
-- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_habilitado\_hover.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/back\_enabled\_hover.png
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_disabled.png
-- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_Enabled.png
-- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_habilitado\_hover.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/forward\_enabled\_hover.png
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc.png
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_asc\_disabled.png
-- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_Both.png
+- https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_both.png
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc.png
 - https://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/images/sort\_desc\_disabled.png

@@ -9,23 +9,21 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 929156633048b8ee68a66290f44b12026a08c8c9
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 9c1d91fc185a0afecf59af8927ddf6f25eff29ab
+ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/10/2018
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas de caché distribuida en ASP.NET Core
 
 Por [Peter Kellner](http://peterkellner.net) 
 
-
 La aplicación auxiliar de etiquetas de caché distribuida proporciona la capacidad de mejorar drásticamente el rendimiento de la aplicación ASP.NET Core al permitir almacenar en caché su contenido en un origen de caché distribuida.
 
-La aplicación auxiliar de etiquetas de caché distribuida hereda de la misma clase base que la aplicación auxiliar de etiquetas de caché.  Todos los atributos asociados a la aplicación auxiliar de etiquetas de caché también funcionarán en la aplicación auxiliar de etiquetas de caché distribuida.
+La aplicación auxiliar de etiquetas de caché distribuida hereda de la misma clase base que la aplicación auxiliar de etiquetas de caché. Todos los atributos asociados a la aplicación auxiliar de etiquetas de caché también funcionarán en la aplicación auxiliar de etiquetas de caché distribuida.
 
-
-La aplicación auxiliar de etiquetas de caché distribuida sigue el **principio de dependencias explícitas** conocido como **inserción de constructores**.  En concreto, el contenedor de interfaz `IDistributedCache` se pasa al constructor de la aplicación auxiliar de etiquetas de caché distribuida.  Si no se ha creado ninguna implementación específica de `IDistributedCache` en `ConfigureServices`, que normalmente se encuentra en startup.cs, la aplicación auxiliar de etiquetas de caché distribuida usará el mismo proveedor en memoria para almacenar datos en caché que la aplicación auxiliar de etiquetas de caché básica.
+La aplicación auxiliar de etiquetas de caché distribuida sigue el **principio de dependencias explícitas** conocido como **inserción de constructores**. En concreto, el contenedor de interfaz `IDistributedCache` se pasa al constructor de la aplicación auxiliar de etiquetas de caché distribuida. Si no se ha creado ninguna implementación específica de `IDistributedCache` en `ConfigureServices`, que normalmente se encuentra en startup.cs, la aplicación auxiliar de etiquetas de caché distribuida usará el mismo proveedor en memoria para almacenar datos en caché que la aplicación auxiliar de etiquetas de caché básica.
 
 ## <a name="distributed-cache-tag-helper-attributes"></a>Atributos de la aplicación auxiliar de etiquetas de caché distribuida
 
@@ -43,7 +41,7 @@ Vea la aplicación auxiliar de etiquetas de caché para obtener las definiciones
 |----------------   |----------------   |
 | cadena    | "my-distributed-cache-unique-key-101"     |
 
-El atributo `name` obligatorio se usa como clave de la caché almacenada para cada instancia de una aplicación auxiliar de etiquetas de caché distribuida.  A diferencia de la aplicación auxiliar de etiquetas de caché básica, que asigna una clave a cada instancia de la aplicación auxiliar de etiquetas de caché en función del nombre de la página de Razor y la ubicación de la aplicación auxiliar de etiquetas en la página de Razor, la aplicación auxiliar de etiquetas de caché distribuida solo basa su clave en el atributo `name`.
+El atributo `name` obligatorio se usa como clave de la caché almacenada para cada instancia de una aplicación auxiliar de etiquetas de caché distribuida. A diferencia de la aplicación auxiliar de etiquetas de caché básica, que asigna una clave a cada instancia de la aplicación auxiliar de etiquetas de caché en función del nombre de la página de Razor y la ubicación de la aplicación auxiliar de etiquetas en la página de Razor, la aplicación auxiliar de etiquetas de caché distribuida solo basa su clave en el atributo `name`.
 
 Ejemplo de uso:
 
@@ -55,15 +53,9 @@ Ejemplo de uso:
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Implementaciones de IDistributedCache de la aplicación auxiliar de etiquetas de caché distribuida
 
-Hay dos implementaciones de `IDistributedCache` integradas en ASP.NET Core.  Una se basa en **Sql Server** y la otra en **Redis**. Encontrará más información sobre estas implementaciones en el recurso denominado "Trabajar con una memoria caché distribuida", al que se hace referencia a continuación. Ambas implementaciones requieren establecer una instancia de `IDistributedCache` en el archivo **startup.cs** de ASP.NET Core.
+Hay dos implementaciones de `IDistributedCache` integradas en ASP.NET Core. Una se basa en SQL Server y la otra, en Redis. En <xref:performance/caching/distributed> encontrará detalles de estas implementaciones. Ambas implementaciones requieren establecer una instancia de `IDistributedCache` en el archivo *Startup.cs* de ASP.NET Core.
 
 No hay atributos de etiqueta asociados específicamente con el uso de implementaciones concretas de `IDistributedCache`.
-
-
-
-- - -
-
-
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

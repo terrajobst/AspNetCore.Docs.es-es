@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-vb
-title: "Descripción de los modelos, vistas y controladores (VB) | Documentos de Microsoft"
+title: Descripción de los modelos, vistas y controladores (VB) | Documentos de Microsoft
 author: StephenWalther
-description: "¿Está confundido por modelos, vistas y controladores? En este tutorial, Stephen Walther presenta las distintas partes de una aplicación ASP.NET MVC."
+description: ¿Está confundido por modelos, vistas y controladores? En este tutorial, Stephen Walther presenta las distintas partes de una aplicación ASP.NET MVC.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/19/2008

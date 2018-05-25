@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
-title: "Crear una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#) | Documentos de Microsoft"
+title: Crear una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#) | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial muestra cómo compilar una aplicación web de ASP.NET MVC 5 con confirmación por correo electrónico y con el sistema de pertenencia de ASP.NET Identity de restablecimiento de contraseña. Ca..."
+description: Este tutorial muestra cómo compilar una aplicación web de ASP.NET MVC 5 con confirmación por correo electrónico y con el sistema de pertenencia de ASP.NET Identity de restablecimiento de contraseña. Ca...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2015
@@ -12,11 +12,11 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: d55b34135d5bab98ab8de31cc4b12dcc272cbc0a
-ms.sourcegitcommit: d43c84c4c80527c85e49d53691b293669557a79d
+ms.openlocfilehash: bfa5d52019be81374c7a544e255ab7ffb301fa7b
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="create-a-secure-aspnet-mvc-5-web-app-with-log-in-email-confirmation-and-password-reset-c"></a>Crear una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#)
 ====================
@@ -62,7 +62,7 @@ En general conveniente evitar que los nuevos usuarios se registren todos los dat
 
 Aunque este tutorial solo muestra cómo agregar la notificación de correo electrónico a través de [SendGrid](http://sendgrid.com/), puede enviar correo electrónico mediante SMTP y otros mecanismos (vea [recursos adicionales](#addRes)).
 
-1. En la consola de administrador de paquetes, escriba lo siguiente el comando siguiente: 
+1. En la consola de administrador de paquetes, escriba el siguiente comando: 
 
     [!code-console[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample1.cmd)]
 2. Vaya a la [página de registro Azure SendGrid](https://go.microsoft.com/fwlink/?linkid=271033&clcid=0x409) y registrar una cuenta gratuita de SendGrid. Configurar SendGrid agregando código similar al siguiente en *App_Start/IdentityConfig.cs*:
@@ -78,7 +78,7 @@ Para simplificar este ejemplo, se podrá almacenar la configuración de la aplic
 [!code-xml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample4.xml)]
 
 > [!WARNING]
-> Seguridad - nunca almacenar los datos confidenciales en el código fuente. La cuenta y las credenciales se almacenan en el appSetting. En Azure, puede almacenar con seguridad estos valores en el  **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)**  ficha en el portal de Azure. Vea [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
+> Seguridad - nunca almacenar los datos confidenciales en el código fuente. La cuenta y las credenciales se almacenan en el appSetting. En Azure, puede almacenar con seguridad estos valores en el **[configurar](https://blogs.msdn.com/b/webdev/archive/2014/06/04/queuebackgroundworkitem-to-reliably-schedule-and-run-long-background-process-in-asp-net.aspx)** ficha en el portal de Azure. Vea [las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y Azure](../../../identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure.md).
 
 
 ### <a name="enable-email-confirmation-in-the-account-controller"></a>Habilitar la confirmación de correo electrónico en el controlador de cuenta
@@ -108,7 +108,7 @@ Crear un `Views\Shared\Info.cshtml` de archivos y agregue el siguiente marcado d
 
 [!code-cshtml[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample8.cshtml)]
 
-Agregar el [atributo Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) a la `Contact` método de acción del controlador Home. Puede usar haga clic en el **póngase en contacto con** vínculo para comprobar que los usuarios anónimos no tienen acceso y los usuarios autenticados tengan acceso.
+Agregar el [atributo Authorize](https://msdn.microsoft.com/library/system.web.mvc.authorizeattribute(v=vs.118).aspx) a la `Contact` método de acción del controlador Home. Puede hacer clic en el **póngase en contacto con** vínculo para comprobar que los usuarios anónimos no tienen acceso y los usuarios autenticados tengan acceso.
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample9.cs?highlight=1)]
 
@@ -148,18 +148,18 @@ El método Register para utilizar la nueva aplicación auxiliar de actualizació
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample15.cs?highlight=17)]
 
-Actualizar el método de inicio de sesión para enviar la contraseña cuando si no se ha confirmado la cuenta de usuario:
+Actualizar el método de inicio de sesión para enviar la contraseña si no se ha confirmado la cuenta de usuario:
 
 [!code-csharp[Main](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/samples/sample16.cs?highlight=20)]
 
 <a id="combine"></a>
 ## <a name="combine-social-and-local-login-accounts"></a>Combinar las cuentas de inicio de sesión locales y redes sociales
 
-Puede combinar cuentas locales y redes sociales, haga clic en el vínculo de correo electrónico. En la siguiente secuencia  **RickAndMSFT@gmail.com**  en primer lugar se crea como un inicio de sesión local, pero puede crear la cuenta como un inicio de sesión social primero y luego agregar un inicio de sesión local.
+Puede combinar cuentas locales y redes sociales, haga clic en el vínculo de correo electrónico. En la siguiente secuencia **RickAndMSFT@gmail.com** en primer lugar se crea como un inicio de sesión local, pero puede crear la cuenta como un inicio de sesión social primero y luego agregar un inicio de sesión local.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image5.png)
 
-Haga clic en el **administrar** vínculo. Tenga en cuenta el externo 0 (inicios de sesión sociales) asociados con esta cuenta.
+Haga clic en el **administrar** vínculo. Tenga en cuenta el **inicios de sesión externos: 0** asociados con esta cuenta.
 
 ![](create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset/_static/image6.png)
 

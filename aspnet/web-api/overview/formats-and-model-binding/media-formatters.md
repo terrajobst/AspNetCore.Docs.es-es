@@ -2,7 +2,7 @@
 uid: web-api/overview/formats-and-model-binding/media-formatters
 title: Formateadores de contenido multimedia en ASP.NET Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -12,17 +12,17 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 9103574597df126a22e21a2f51815f608e46f47f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 1cb1c7e0f832a0a0160276fbd41facc017e2ae3e
+ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/22/2018
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Formateadores de contenido multimedia en ASP.NET Web API 2
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
-Este tutorial muestra cómo admite formatos multimedia adicionales en ASP.NET Web API.
+Este tutorial muestra cómo admiten formatos multimedia adicionales en ASP.NET Web API.
 
 ## <a name="internet-media-types"></a>Tipos de medios de Internet
 
@@ -48,7 +48,7 @@ El tipo de medio determina cómo API Web serializa y deserializa el cuerpo del m
 
 Para crear a un formateador de medios, que se derivan de una de estas clases:
 
-- [MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Esta clase usa la lectura asincrónica y los métodos de escritura.
+- [Elemento MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Esta clase usa la lectura asincrónica y los métodos de escritura.
 - [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Esta clase se deriva de **elemento MediaTypeFormatter** pero utiliza métodos de lectura/escritura de sychronous.
 
 Derivar de **BufferedMediaTypeFormatter** es más sencillo, porque no hay ningún código asincrónico, pero también significa que puede bloquear el subproceso que realiza la llamada durante la E/S.

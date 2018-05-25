@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/routing-in-aspnet-web-api
 title: Enrutamiento en ASP.NET Web API | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/11/2012

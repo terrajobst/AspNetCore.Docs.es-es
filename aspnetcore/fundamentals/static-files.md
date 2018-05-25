@@ -1,5 +1,5 @@
 ---
-title: Trabajar con archivos estáticos en ASP.NET Core
+title: Archivos estáticos en ASP.NET Core
 author: rick-anderson
 description: Aprenda a proporcionar y proteger los archivos estáticos y a configurar los comportamientos de middleware de hospedaje de archivos estáticos en una aplicación web de ASP.NET Core.
 manager: wpickett
@@ -11,13 +11,13 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/static-files
-ms.openlocfilehash: 46e868910661024ea3b950e78ced02a095896be1
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f0d34b5b64235d136f7df1b3ffdbb9fb10eca316
+ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/12/2018
 ---
-# <a name="work-with-static-files-in-aspnet-core"></a>Trabajar con archivos estáticos en ASP.NET Core
+# <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Scott Addie](https://twitter.com/Scott_Addie)
 
@@ -31,17 +31,20 @@ Los archivos estáticos se almacenan en el directorio raíz de la Web del proyec
 
 El host de web de la aplicación debe tener conocimiento del directorio raíz del contenido.
 
-#### <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+
 El método `WebHost.CreateDefaultBuilder` establece la raíz de contenido en el directorio actual:
 
 [!code-csharp[](../common/samples/WebApplication1DotNetCore2.0App/Program.cs?name=snippet_Main&highlight=9)]
 
-#### <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+
 Establezca la raíz de contenido en el directorio actual invocando a [UseContentRoot](/dotnet/api/microsoft.aspnetcore.hosting.hostingabstractionswebhostbuilderextensions.usecontentroot#Microsoft_AspNetCore_Hosting_HostingAbstractionsWebHostBuilderExtensions_UseContentRoot_Microsoft_AspNetCore_Hosting_IWebHostBuilder_System_String_) dentro de `Program.Main`:
 
 [!code-csharp[](static-files/samples/1x/Program.cs?name=snippet_ProgramClass&highlight=7)]
 
-* * *
+---
+
 Se puede acceder a los archivos estáticos a través de una ruta de acceso relativa a la raíz web. Por ejemplo, la plantilla de proyecto **Aplicación web** contiene varias carpetas dentro de la carpeta *wwwroot*:
 
 * **wwwroot**

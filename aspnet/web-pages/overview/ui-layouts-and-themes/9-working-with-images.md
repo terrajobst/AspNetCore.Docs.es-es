@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/9-working-with-images
-title: "Trabajar con imágenes en un sitio ASP.NET Web Pages (Razor) | Documentos de Microsoft"
+title: Trabajar con imágenes en un sitio ASP.NET Web Pages (Razor) | Documentos de Microsoft
 author: tfitzmac
-description: "Este capítulo muestra cómo agregar, mostrar y manipular imágenes (cambiar el tamaño, voltear y agregar marcas de agua) en el sitio Web."
+description: Este capítulo muestra cómo agregar, mostrar y manipular imágenes (cambiar el tamaño, voltear y agregar marcas de agua) en el sitio Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2014
@@ -58,7 +58,7 @@ Si una imagen ya está disponible en el sitio y desea mostrar en una página, pu
 
 [!code-html[Main](9-working-with-images/samples/sample1.html)]
 
-A veces, sin embargo, debe ser capaz de mostrar imágenes dinámicamente &#8212; es decir, no sabe qué imagen que se mostrará hasta que la página se está ejecutando.
+A veces, sin embargo, debe ser capaz de mostrar imágenes dinámicamente & #8212; es decir, no sabe qué imagen que se mostrará hasta que la página se está ejecutando.
 
 El procedimiento de esta sección muestra cómo mostrar una imagen sobre la marcha donde los usuarios especificar el nombre de archivo de imagen de una lista de nombres de imagen. Se selecciona el nombre de la imagen de una lista desplegable y, cuando envía la página, se muestra la imagen que seleccionan.
 
@@ -109,7 +109,7 @@ El ejemplo anterior mostraba cómo mostrar una imagen de forma dinámica, pero s
 
     *C:\Users\Joe\Pictures\SamplePhoto1.jpg*
 
-    No desea que esa información de ruta de acceso, aunque &#8212; su intención es el nombre de archivo real (*SamplePhoto1.jpg*). Puede quitar simplemente el archivo de una ruta de acceso mediante el uso de la `Path.GetFileName` método, similar al siguiente:
+    No desea que esa información de ruta de acceso, aunque & #8212; su intención es el nombre de archivo real (*SamplePhoto1.jpg*). Puede quitar simplemente el archivo de una ruta de acceso mediante el uso de la `Path.GetFileName` método, similar al siguiente:
 
     [!code-csharp[Main](9-working-with-images/samples/sample4.cs)]
 

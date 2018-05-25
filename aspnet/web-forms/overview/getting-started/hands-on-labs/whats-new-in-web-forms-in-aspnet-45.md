@@ -12,11 +12,11 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: db2658ff1feae1d4c20e4cfd19c36cfdf9492761
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e230faac0dc81b67d74945dc98eee80f83205f65
+ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/18/2018
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Novedades de formularios Web Forms de ASP.NET 4.5
 ====================
@@ -579,10 +579,7 @@ Las operaciones que consumen muchos recursos en el sitio web son buenos candidat
 
 1. Abra la **ProductDetails.aspx** página. Agregar el **Async** de atributo en el **página** elemento y establézcalo en **true**. Este atributo indica a ASP.NET que implementa la interfaz IHttpAsyncHandler.
 
-
-~~~
-[!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
-~~~
+    [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample35.aspx)]
 2. Agregar una etiqueta en la parte inferior de la página para mostrar los detalles de los subprocesos de ejecución de la página.
 
     [!code-aspx[Main](whats-new-in-web-forms-in-aspnet-45/samples/sample36.aspx)]

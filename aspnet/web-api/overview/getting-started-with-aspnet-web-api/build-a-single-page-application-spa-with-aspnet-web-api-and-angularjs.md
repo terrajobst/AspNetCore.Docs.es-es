@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
-title: "Laboratorio de prácticas: Compilar una aplicación de una página (SPA) con ASP.NET Web API y Angular.js | Documentos de Microsoft"
+title: 'Laboratorio de prácticas: Compilar una aplicación de una página (SPA) con ASP.NET Web API y Angular.js | Documentos de Microsoft'
 author: rick-anderson
-description: "En las aplicaciones web tradicionales, el cliente (explorador) inicia la comunicación con el servidor al que solicita una página. El servidor, a continuación, procesa la solicitud..."
+description: En las aplicaciones web tradicionales, el cliente (explorador) inicia la comunicación con el servidor al que solicita una página. El servidor, a continuación, procesa la solicitud...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2015
@@ -153,13 +153,13 @@ En esta tarea se comenzará a crear un nuevo proyecto de MVC de ASP.NET con comp
 
     > [!NOTE]
     > El **Authorize** filtrar comprueba si el usuario está autenticado. Si el usuario no está autenticado, devuelve código de estado HTTP 401 (no autorizado) sin invocar la acción. Puede aplicar el filtro globalmente, en el nivel de controlador, o en el nivel de acciones individuales.
-9. Ahora va a personalizar el diseño de las páginas web y la personalización de marca. Para ello, abra el  **\_Layout.cshtml** archivo dentro de la **vistas | Compartido** carpeta y actualizar el contenido de la  **&lt;título&gt;**  elemento reemplazando *mi aplicación ASP.NET* con *experto en prueba* .
+9. Ahora va a personalizar el diseño de las páginas web y la personalización de marca. Para ello, abra el  **\_Layout.cshtml** archivo dentro de la **vistas | Compartido** carpeta y actualizar el contenido de la **&lt;título&gt;** elemento reemplazando *mi aplicación ASP.NET* con *experto en prueba* .
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample4.cshtml)]
 10. En el mismo archivo, actualice la barra de navegación mediante la eliminación de la *sobre* y *póngase en contacto con* vínculos y cambiar el nombre de la *inicio* vincular a *reproducir*. Además, cambie el nombre de la *nombre de la aplicación* vincular a *cuestionario experto en*. El código HTML de la barra de navegación debe ser similar al código siguiente.
 
     [!code-cshtml[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample5.cshtml)]
-11. Actualice el pie de página de la página de diseño reemplazando *mi aplicación ASP.NET* con *cuestionario experto en*. Para ello, reemplace el contenido de la  **&lt;pie de página&gt;**  elemento con el código que aparece resaltado.
+11. Actualice el pie de página de la página de diseño reemplazando *mi aplicación ASP.NET* con *cuestionario experto en*. Para ello, reemplace el contenido de la **&lt;pie de página&gt;** elemento con el código que aparece resaltado.
 
     [!code-html[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample6.html)]
 
@@ -421,7 +421,7 @@ En esta tarea usará CSS3 propiedades para realizar animaciones enriquecidas agr
 5. Busque la **ocultar parte posterior del panel durante flip** comentario. El estilo de comentario oculta el lado posterior de las caras cuando que se encuentran visibles desde el Visor estableciendo la **visibilidad del lado posterior** propiedad CSS en *oculto*.
 
     [!code-css[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample23.css)]
-6. Abra el **BundleConfig.cs** archivo dentro de la **aplicación\_iniciar** carpeta y agregar la referencia al **Flip.css** en el archivo la  **&quot;~/Content/css&quot;**  agrupación de estilo
+6. Abra el **BundleConfig.cs** archivo dentro de la **aplicación\_iniciar** carpeta y agregar la referencia al **Flip.css** en el archivo la **&quot;~/Content/css&quot;** agrupación de estilo
 
     [!code-csharp[Main](build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs/samples/sample24.cs)]
 7. Presione **F5** para ejecutar la solución e inicie sesión con sus credenciales.
