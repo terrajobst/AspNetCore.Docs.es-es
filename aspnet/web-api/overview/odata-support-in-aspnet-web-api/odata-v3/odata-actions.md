@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/odata-actions
 title: Compatibilidad con las acciones de OData en ASP.NET Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: "En OData, las acciones son una manera de agregar los comportamientos de servidor que no se definen fácilmente como operaciones CRUD en entidades. Algunos usos de las acciones son: implemente..."
+description: 'En OData, las acciones son una manera de agregar los comportamientos de servidor que no se definen fácilmente como operaciones CRUD en entidades. Algunos usos de las acciones son: implemente...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/25/2014

@@ -4,53 +4,92 @@ author: rick-anderson
 description: Tutorial rápido que crea y ejecuta una aplicación Hola mundo sencilla mediante ASP.NET Core.
 manager: wpickett
 ms.author: riande
-ms.date: 10/18/2017
+ms.custom: mvc
+ms.date: 05/10/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: getting-started
-ms.openlocfilehash: c2f18c69901a5a6503314d508a776e6985872681
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: e814277663ff5a964171a71ebb6e0f094e0ddc60
+ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/10/2018
 ---
-# <a name="get-started-with-aspnet-core"></a><span data-ttu-id="67fa9-103">Introducción a ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="67fa9-103">Get Started with ASP.NET Core</span></span>
+# <a name="get-started-with-aspnet-core"></a><span data-ttu-id="e5f4a-103">Introducción a ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="e5f4a-103">Get started with ASP.NET Core</span></span>
 
-> [!NOTE]
-> <span data-ttu-id="67fa9-104">Estas instrucciones corresponden a la versión más reciente de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="67fa9-104">These instructions are for the latest version of ASP.NET Core.</span></span> <span data-ttu-id="67fa9-105">Vea [Introducción a ASP.NET Core 1.1](xref:getting-started-1.1) para obtener este documento, pero sobre la versión 1.1.</span><span class="sxs-lookup"><span data-stu-id="67fa9-105">See [Getting Started with ASP.NET Core 1.1](xref:getting-started-1.1) for the 1.1 version of this document.</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-1. <span data-ttu-id="67fa9-106">Instale el [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].</span><span class="sxs-lookup"><span data-stu-id="67fa9-106">Install the [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].</span></span>
+1. <span data-ttu-id="e5f4a-104">Instale el [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].</span><span class="sxs-lookup"><span data-stu-id="e5f4a-104">Install the [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].</span></span>
 
-2. <span data-ttu-id="67fa9-107">Cree un nuevo proyecto de .NET Core.</span><span class="sxs-lookup"><span data-stu-id="67fa9-107">Create a new .NET Core project.</span></span>
+2. <span data-ttu-id="e5f4a-105">Cree un nuevo proyecto de .NET Core.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-105">Create a new .NET Core project.</span></span>
 
-   <span data-ttu-id="67fa9-108">En macOS y Linux, abra una ventana de terminal.</span><span class="sxs-lookup"><span data-stu-id="67fa9-108">On macOS and Linux, open a terminal window.</span></span> <span data-ttu-id="67fa9-109">En Windows, abra un símbolo del sistema.</span><span class="sxs-lookup"><span data-stu-id="67fa9-109">On Windows, open a command prompt.</span></span> <span data-ttu-id="67fa9-110">Escriba el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="67fa9-110">Enter the following command:</span></span>
+   <span data-ttu-id="e5f4a-106">En macOS y Linux, abra una ventana de terminal.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-106">On macOS and Linux, open a terminal window.</span></span> <span data-ttu-id="e5f4a-107">En Windows, abra un símbolo del sistema.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-107">On Windows, open a command prompt.</span></span> <span data-ttu-id="e5f4a-108">Escriba el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="e5f4a-108">Enter the following command:</span></span>
 
     ```terminal
     dotnet new razor -o aspnetcoreapp
     ```
-    
-3. <span data-ttu-id="67fa9-111">Ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="67fa9-111">Run the app.</span></span>
 
-    <span data-ttu-id="67fa9-112">Use los comandos siguientes para ejecutar la aplicación:</span><span class="sxs-lookup"><span data-stu-id="67fa9-112">Use the following commands to run the app:</span></span>
+3. <span data-ttu-id="e5f4a-109">Ejecute la aplicación con los siguientes comandos:</span><span class="sxs-lookup"><span data-stu-id="e5f4a-109">Run the app with the following commands:</span></span>
 
     ```terminal
     cd aspnetcoreapp
     dotnet run
     ```
 
-4. <span data-ttu-id="67fa9-113">Vaya a [http://localhost:5000](http://localhost:5000).</span><span class="sxs-lookup"><span data-stu-id="67fa9-113">Browse to [http://localhost:5000](http://localhost:5000)</span></span>
+4. <span data-ttu-id="e5f4a-110">Vaya a [http://localhost:5000](http://localhost:5000).</span><span class="sxs-lookup"><span data-stu-id="e5f4a-110">Browse to [http://localhost:5000](http://localhost:5000).</span></span>
 
-5. <span data-ttu-id="67fa9-114">Abra <em>Pages/About.cshtml</em> y modifique la página para que muestre el mensaje "¡Hola, mundo!".</span><span class="sxs-lookup"><span data-stu-id="67fa9-114">Open <em>Pages/About.cshtml</em> and modify the page to display the message "Hello, world!</span></span> <span data-ttu-id="67fa9-115">La hora del servidor es "@DateTime.Now":</span><span class="sxs-lookup"><span data-stu-id="67fa9-115">The time on the server is @DateTime.Now ":</span></span>
+5. <span data-ttu-id="e5f4a-111">Abra *Pages/About.cshtml* y modifique la página para que muestre el mensaje "¡Hola, mundo!".</span><span class="sxs-lookup"><span data-stu-id="e5f4a-111">Open *Pages/About.cshtml* and modify the page to display the message "Hello, world!</span></span> <span data-ttu-id="e5f4a-112">La hora del servidor es @DateTime.Now" :</span><span class="sxs-lookup"><span data-stu-id="e5f4a-112">The time on the server is @DateTime.Now":</span></span>
 
-    [!code-html[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]
+    <span data-ttu-id="e5f4a-113">[!code-cshtml[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]</span><span class="sxs-lookup"><span data-stu-id="e5f4a-113">[!code-cshtml[](getting-started/sample/getting-started/about.cshtml?highlight=9&range=1-9)]</span></span>
 
-6. <span data-ttu-id="67fa9-116">Vaya a [http://localhost:5000/About](http://localhost:5000/About) y compruebe los cambios.</span><span class="sxs-lookup"><span data-stu-id="67fa9-116">Browse to [http://localhost:5000/About](http://localhost:5000/About) and verify the changes.</span></span>
+6. <span data-ttu-id="e5f4a-114">Vaya a [http://localhost:5000/About](http://localhost:5000/About) y compruebe los cambios.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-114">Browse to [http://localhost:5000/About](http://localhost:5000/About) and verify the changes.</span></span>
 
-### <a name="next-steps"></a><span data-ttu-id="67fa9-117">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="67fa9-117">Next steps</span></span>
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end
 
-<span data-ttu-id="67fa9-118">Para obtener tutoriales de introducción, vea [Tutoriales de ASP.NET Core](tutorials/index.md)</span><span class="sxs-lookup"><span data-stu-id="67fa9-118">For getting-started tutorials, see [ASP.NET Core Tutorials](tutorials/index.md)</span></span>
+::: moniker range="<= aspnetcore-1.1"
 
-<span data-ttu-id="67fa9-119">Para obtener una introducción a la arquitectura y los conceptos de ASP.NET Core, vea [ASP.NET Core Introduction (Introducción a ASP.NET Core)](index.md) y [ASP.NET Core Fundamentals (Conceptos básicos de ASP.NET Core)](fundamentals/index.md).</span><span class="sxs-lookup"><span data-stu-id="67fa9-119">For an introduction to ASP.NET Core concepts and architecture, see [ASP.NET Core Introduction](index.md) and [ASP.NET Core Fundamentals](fundamentals/index.md).</span></span>
+1. <span data-ttu-id="e5f4a-115">Instale el **instalador del SDK** de .NET Core para SDK 1.0.4 desde la [página de descargas de .NET Core](https://www.microsoft.com/net/download/all).</span><span class="sxs-lookup"><span data-stu-id="e5f4a-115">Install the .NET Core **SDK Installer** for SDK 1.0.4 from the [.NET Core All Downloads page](https://www.microsoft.com/net/download/all).</span></span>
 
-<span data-ttu-id="67fa9-120">Una aplicación de ASP.NET Core puede usar la biblioteca de clases base y el runtime de .NET Core o .NET Framework.</span><span class="sxs-lookup"><span data-stu-id="67fa9-120">An ASP.NET Core app can use the .NET Core or .NET Framework Base Class Library and runtime.</span></span> <span data-ttu-id="67fa9-121">Para más información, vea [Selección entre .NET Core y .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).</span><span class="sxs-lookup"><span data-stu-id="67fa9-121">For more information, see [Choosing between .NET Core and .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).</span></span>
+2. <span data-ttu-id="e5f4a-116">Cree una carpeta para un nuevo proyecto de .NET Core.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-116">Create a folder for a new .NET Core project.</span></span>
+
+   <span data-ttu-id="e5f4a-117">En macOS y Linux, abra una ventana de terminal.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-117">On macOS and Linux, open a terminal window.</span></span> <span data-ttu-id="e5f4a-118">En Windows, abra un símbolo del sistema.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-118">On Windows, open a command prompt.</span></span>
+
+   ```terminal
+   mkdir aspnetcoreapp
+   cd aspnetcoreapp
+   ```
+
+3. <span data-ttu-id="e5f4a-119">Si ha instalado una versión posterior del SDK en el equipo, cree un archivo *global.json* para seleccionar la versión 1.0.4 del SDK.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-119">If you have installed a later SDK version on your machine, create a *global.json* file to select the 1.0.4 SDK.</span></span>
+
+   ```json
+   {
+     "sdk": { "version": "1.0.4" }
+   }
+   ```
+
+4. <span data-ttu-id="e5f4a-120">Cree un nuevo proyecto de .NET Core.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-120">Create a new .NET Core project.</span></span>
+
+   ```terminal
+   dotnet new web
+   ```
+
+5. <span data-ttu-id="e5f4a-121">Restaure los paquetes.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-121">Restore the packages.</span></span>
+
+    ```terminal
+    dotnet restore
+    ```
+
+6. <span data-ttu-id="e5f4a-122">Ejecute la aplicación.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-122">Run the app.</span></span>
+
+   ```terminal
+   dotnet run
+   ```
+
+   <span data-ttu-id="e5f4a-123">El comando [dotnet run](/dotnet/core/tools/dotnet-run) compila primero la aplicación en caso de que sea necesario.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-123">The [dotnet run](/dotnet/core/tools/dotnet-run) command builds the app first, if needed.</span></span>
+
+7. <span data-ttu-id="e5f4a-124">Vaya a `http://localhost:5000`.</span><span class="sxs-lookup"><span data-stu-id="e5f4a-124">Browse to `http://localhost:5000`.</span></span>
+
+[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+::: moniker-end

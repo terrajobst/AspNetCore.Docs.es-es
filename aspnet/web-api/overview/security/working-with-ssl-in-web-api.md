@@ -2,7 +2,7 @@
 uid: web-api/overview/security/working-with-ssl-in-web-api
 title: Trabajar con SSL en Web API | Documentos de Microsoft
 author: MikeWasson
-description: "Muestra cómo utilizar SSL con ASP.NET Web API, incluido el uso de certificados de cliente SSL."
+description: Muestra cómo utilizar SSL con ASP.NET Web API, incluido el uso de certificados de cliente SSL.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/12/2012

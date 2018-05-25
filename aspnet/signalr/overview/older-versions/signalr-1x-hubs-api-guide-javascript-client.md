@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/older-versions/signalr-1x-hubs-api-guide-javascript-client
-title: "Guía de API de concentradores SignalR 1.x - cliente de JavaScript | Documentos de Microsoft"
+title: Guía de API de concentradores SignalR 1.x - cliente de JavaScript | Documentos de Microsoft
 author: pfletcher
-description: "Este documento proporciona una introducción al uso de la API de concentradores de SignalR versión 1.1 en los clientes de JavaScript, como los exploradores y la tienda de Windows (WinJS) applic..."
+description: Este documento proporciona una introducción al uso de la API de concentradores de SignalR versión 1.1 en los clientes de JavaScript, como los exploradores y la tienda de Windows (WinJS) applic...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/17/2013

@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/web-api-routing-and-actions/routing-and-action-selection
-title: "Enrutamiento y selección de acción en ASP.NET Web API | Documentos de Microsoft"
+title: Enrutamiento y selección de acción en ASP.NET Web API | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2012

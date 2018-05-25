@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/getting-started/tutorial-getting-started-with-signalr
-title: "Tutorial: Introducción a SignalR 2 | Documentos de Microsoft"
+title: 'Tutorial: Introducción a SignalR 2 | Documentos de Microsoft'
 author: pfletcher
-description: "En este tutorial se muestra cómo usar SignalR para crear una aplicación de chat en tiempo real. Agregará SignalR a una aplicación web ASP.NET vacía y crear a un pa HTML..."
+description: En este tutorial se muestra cómo usar SignalR para crear una aplicación de chat en tiempo real. Agregará SignalR a una aplicación web ASP.NET vacía y crear a un pa HTML...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
