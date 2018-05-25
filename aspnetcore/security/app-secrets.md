@@ -5,16 +5,16 @@ description: Obtenga información acerca de cómo almacenar y recuperar informac
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/app-secrets
-ms.openlocfilehash: 9e9b548e5572da2c347bc874c473a02d8691e738
-ms.sourcegitcommit: 300a1127957dcdbce1b6ad79a7b9dc676f571510
-ms.translationtype: HT
+ms.openlocfilehash: ece2bf541df2b4acac60a88767cc57ede473bd49
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="safe-storage-of-app-secrets-in-development-in-aspnet-core"></a>Ubicación de almacenamiento segura de secretos de la aplicación en el desarrollo de ASP.NET Core
 
@@ -48,7 +48,7 @@ La herramienta Administrador de secreto almacena datos confidenciales durante el
 
 ## <a name="how-the-secret-manager-tool-works"></a>Cómo funciona la herramienta Administrador de secreto
 
-La herramienta Administrador de secreto abstrae los detalles de implementación, como dónde y cómo se almacenan los valores. Puede usar la herramienta sin conocer estos detalles de implementación. Los valores se almacenan en un [JSON](https://json.org/) archivo de configuración en una carpeta de perfiles de usuarios protegidos por el sistema en el equipo local:
+La herramienta Administrador de secreto abstrae los detalles de implementación, como dónde y cómo se almacenan los valores. Puede usar la herramienta sin conocer estos detalles de implementación. Los valores se almacenan en un archivo de configuración de JSON en una carpeta de perfiles de usuarios protegidos por el sistema en el equipo local:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -77,9 +77,18 @@ No escriba código que depende de la ubicación o el formato de datos que se gua
 ::: moniker range="<= aspnetcore-2.0"
 ## <a name="install-the-secret-manager-tool"></a>Instalar la herramienta Administrador de secreto
 
-La herramienta Administrador de secreto se incluye con la CLI de núcleo de .NET en .NET Core SDK 2.1. En .NET Core SDK 2.0 y versiones anteriores, la instalación de herramientas es necesaria.
+La herramienta Administrador de secreto se incluye con la CLI de núcleo de .NET a partir de .NET Core SDK 2.1.300. Para las versiones de .NET Core SDK anteriores 2.1.300, es necesaria la instalación de herramientas.
 
-Instalar el [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) paquete de NuGet en el proyecto de ASP.NET Core:
+> [!TIP]
+> Ejecute `dotnet --version` desde un shell de comandos para ver el número de versión de .NET Core SDK instalado.
+
+Se mostrará una advertencia si se usa .NET Core SDK incluye la herramienta:
+
+```console
+The tool 'Microsoft.Extensions.SecretManager.Tools' is now included in the .NET Core SDK. Information on resolving this warning is available at (https://aka.ms/dotnetclitools-in-box).
+```
+
+Instalar el [Microsoft.Extensions.SecretManager.Tools](https://www.nuget.org/packages/Microsoft.Extensions.SecretManager.Tools/) paquete de NuGet en el proyecto de ASP.NET Core. Por ejemplo:
 
 [!code-xml[](app-secrets/samples/1.x/UserSecrets/UserSecrets.csproj?name=snippet_CsprojFile&highlight=13-14)]
 

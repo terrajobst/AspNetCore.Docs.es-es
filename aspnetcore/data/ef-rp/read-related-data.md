@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bd739abe4737e0fb9e4da6011c5810d7b05a3a22
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1a63246dd81a16bbcca22ad2c50bc2010c852c4e
+ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/17/2018
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -101,7 +101,7 @@ Actualice el método `OnGetAsync` con el código siguiente:
 
 El código anterior agrega `AsNoTracking`. `AsNoTracking` mejora el rendimiento porque no se realiza el seguimiento de las entidades devueltas. No se realiza el seguimiento de las entidades porque no se actualizan en el contexto actual.
 
-Actualice *Views/Courses/Index.cshtml* con el siguiente marcado resaltado:
+Actualice *Pages/Courses/Index.cshtml* con el marcado resaltado siguiente:
 
 [!code-html[](intro/samples/cu/Pages/Courses/Index.cshtml?highlight=4,7,15-17,34-36,44)]
 
