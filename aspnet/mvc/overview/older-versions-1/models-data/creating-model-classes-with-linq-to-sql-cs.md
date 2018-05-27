@@ -12,17 +12,17 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/creating-model-classes-with-linq-to-sql-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 1f30ff6c97e565059c57c55f26d2dff477774aeb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 9a56ceb9eab5774906ecc89ce9da570d4f691a82
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/27/2018
 ---
 <a name="creating-model-classes-with-linq-to-sql-c"></a>Crear clases de modelo con LINQ to SQL (C#)
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-[Descarga de PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_CS.pdf)
+[Descargar PDF](http://download.microsoft.com/download/1/1/f/11f721aa-d749-4ed7-bb89-a681b68894e6/ASPNET_MVC_Tutorial_10_CS.pdf)
 
 > El objetivo de este tutorial es explicar un método de creación de clases del modelo para una aplicación ASP.NET MVC. En este tutorial, aprenderá cómo crear clases de modelo y realizar el acceso de la base de datos aprovechando las ventajas de Microsoft LINQ to SQL.
 
@@ -74,8 +74,8 @@ Tenemos que agregar las columnas siguientes a la tabla de base de datos:
 | **Nombre de columna** | **Tipo de datos** | **Permitir valores null** |
 | --- | --- | --- |
 | Id. | Valor int. | False |
-| Title | Nvarchar(200) | False |
-| Director de | Nvarchar(50) | False |
+| Title | Nvarchar (200) | False |
+| Director de | nvarchar (50) | False |
 
 Debe hacer dos cosas especial a la columna de identificador. En primer lugar, debe marcar la columna Id. como una columna de clave principal, seleccionando la columna en el Diseñador de tablas y haga clic en el icono de una clave. LINQ to SQL requiere especificar las columnas de clave principales al realizar inserta o actualiza la base de datos.
 
@@ -149,7 +149,7 @@ Después de agregar algunas entradas de la base de datos a la `tblMovies` tabla 
 
 ## <a name="using-the-repository-pattern"></a>Utilizando el modelo de repositorio
 
-En la sección anterior, hemos usado LINQ a las clases SQL directamente dentro de una acción de controlador. Hemos usado el `MovieDataContex` clase t directamente desde el `Index()` acción del controlador. No hay ningún problema con esto en el caso de una aplicación sencilla. Sin embargo, para trabajar directamente con LINQ to SQL en una clase de controlador crea problemas cuando se necesita para crear una aplicación más compleja.
+En la sección anterior, hemos usado LINQ a las clases SQL directamente dentro de una acción de controlador. Hemos usado el `MovieDataContext` clase directamente desde el `Index()` acción del controlador. No hay ningún problema con esto en el caso de una aplicación sencilla. Sin embargo, para trabajar directamente con LINQ to SQL en una clase de controlador crea problemas cuando se necesita para crear una aplicación más compleja.
 
 Usar LINQ to SQL dentro de una clase de controlador hace difícil cambiar tecnologías de acceso a datos en el futuro. Por ejemplo, podría decidir cambia de utilizar Microsoft LINQ to SQL con Microsoft Entity Framework como la tecnología de acceso a datos. En ese caso, necesitaría volver a escribir todos los controladores que tiene acceso a la base de datos dentro de la aplicación.
 
