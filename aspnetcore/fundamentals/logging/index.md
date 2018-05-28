@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 7e2a4657211b0142ec87fd792d013f7ef397de2b
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 8b53a19f4958e97198175d6acea4017d54f827bb
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -583,21 +583,22 @@ El proveedor solo funciona cuando el proyecto se ejecuta en el entorno de Azure.
 
 ## <a name="third-party-logging-providers"></a>Proveedores de registro de terceros
 
-Estos son algunas plataformas de registro de terceros que funcionan con ASP.NET Core:
+Plataformas de registro de terceros que funcionan con ASP.NET Core:
 
-* [elmah.io](https://github.com/elmahio/Elmah.Io.Extensions.Logging): proveedor para el servicio Elmah.Io
+* [elmah.io](https://elmah.io/) ([repositorio de GitHub](https://github.com/elmahio/Elmah.Io.Extensions.Logging))
+* [JSNLog](http://jsnlog.com/) ([repositorio de GitHub](https://github.com/mperdeck/jsnlog))
+* [Loggr](http://loggr.net/) ([repositorio de GitHub](https://github.com/imobile3/Loggr.Extensions.Logging))
+* [NLog](http://nlog-project.org/) ([repositorio de GitHub](https://github.com/NLog/NLog.Extensions.Logging))
+* [Serilog](https://serilog.net/) ([repositorio de GitHub](https://github.com/serilog/serilog-extensions-logging))
 
-* [JSNLog](http://jsnlog.com): registra excepciones de JavaScript y otros eventos del lado cliente en el registro del lado servidor.
+Algunas plataformas de terceros pueden realizar [registro semántico, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-* [Loggr](https://github.com/imobile3/Loggr.Extensions.Logging): proveedor para el servicio Loggr
+El uso de una plataforma de terceros es similar al uso de uno de los proveedores integrados:
 
-* [NLog](https://github.com/NLog/NLog.Extensions.Logging): proveedor para la biblioteca de NLog
+1. Agregue un paquete NuGet al proyecto.
+1. Llame a un método de extensión en `ILoggerFactory`.
 
-* [Serilog](https://github.com/serilog/serilog-extensions-logging): proveedor para la biblioteca de Serilog
-
-Algunas plataformas de terceros pueden realizar el [registro semántico, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
-
-El uso de una plataforma de terceros es similar al de uno de los proveedores integrados: se agrega un paquete NuGet al proyecto y se llama a un método de extensión de `ILoggerFactory`. Para más información, vea la documentación de cada plataforma.
+Para más información, vea la documentación de cada plataforma.
 
 ## <a name="azure-log-streaming"></a>Secuencias de registro de Azure
 

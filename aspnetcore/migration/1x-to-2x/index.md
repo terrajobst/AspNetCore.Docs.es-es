@@ -9,11 +9,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: migration/1x-to-2x/index
-ms.openlocfilehash: c462f38ba345a9eaf648967524cadd1ba45aee19
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: f96b38e9f0368e04198c849bb3585674183a92b1
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
 ---
 # <a name="migrate-from-aspnet-core-1x-to-20"></a>Migración de ASP.NET Core 1.x a 2.0
 
@@ -26,7 +26,7 @@ Las aplicaciones existentes de ASP.NET Core 1.x se basan en plantillas de proyec
 <a name="prerequisites"></a>
 
 ## <a name="prerequisites"></a>Requisitos previos
-Vea [Introducción a ASP.NET Core](xref:getting-started).
+Consulte [Introducción a ASP.NET Core](xref:getting-started).
 
 <a name="tfm"></a>
 

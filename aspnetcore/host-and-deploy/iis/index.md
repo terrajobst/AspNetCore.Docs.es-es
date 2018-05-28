@@ -10,11 +10,11 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 3a9479dc1bb09218ebb4a5a76078ea514041d751
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 6b2c3334798861ebdb14787205480422d7d536ea
+ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 05/24/2018
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -113,7 +113,7 @@ Al deshabilitar el SDK web para la transformación del archivo, el desarrollador
 
 ### <a name="webconfig-file-location"></a>Ubicación del archivo web.config
 
-Las aplicaciones .NET Core se hospedan en un proxy inverso entre IIS y el servidor Kestrel. Para crear el servidor proxy inverso, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada. Se trata de la misma ubicación que la ruta de acceso física del sitio web proporcionada a IIS. El archivo *web.config* debe estar en la raíz de la aplicación para habilitar la publicación de varias aplicaciones mediante Web Deploy.
+Para crear el proxy inverso entre IIS y el servidor de Kestrel, el archivo *web.config* debe estar presente en la ruta de acceso raíz del contenido (normalmente la ruta de acceso base de la aplicación) de la aplicación implementada. Se trata de la misma ubicación que la ruta de acceso física del sitio web proporcionada a IIS. El archivo *web.config* debe estar en la raíz de la aplicación para habilitar la publicación de varias aplicaciones mediante Web Deploy.
 
 Los archivos confidenciales están en la ruta de acceso física de la aplicación, como *\<ensamblado>.runtimeconfig.json*, *\<ensamblado>.xml* (comentarios de documentación XML) y *\<ensamblado>.deps.json*. Cuando el archivo *web.config* está presente y el sitio se inicia normalmente, IIS no sirve estos archivos confidenciales si se solicitan. Si el archivo *web.config* no está presente, se le asignó un nombre incorrecto o no se puede configurar el sitio para un inicio normal, IIS puede servir archivos confidenciales públicamente.
 
@@ -172,7 +172,7 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
 1. Instale el *conjunto de hospedaje de .NET Core* en el sistema de hospedaje. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el conjunto de hospedaje de .NET Core.
 
    1. Vaya a la [página de todas las descargas de .NET](https://www.microsoft.com/net/download/all).
-   1. Seleccione el tiempo de ejecución de .NET Core que no sea versión preliminar más reciente de la lista (**.NET Core** > **Tiempo de ejecución** > **Tiempo de ejecución de .NET Core x.y.z**). A menos que vaya a trabajar con software de versión preliminar, evite los tiempos de ejecución que incluyan la palabra "preview" (versión preliminar) en el texto del vínculo.
+   1. Seleccione el tiempo de ejecución de .NET Core que no sea versión preliminar más reciente de la lista (**.NET Core** > **Tiempo de ejecución** > **Tiempo de ejecución de .NET Core x.y.z**). A menos que vaya a trabajar con software de versión preliminar, evite un entorno de tiempo de ejecución con la palabra "vista previa" o "rc" (Release Candidate) en el texto del vínculo.
    1. En la página de descarga de entornos de ejecución de .NET Core, en **Windows**, haga clic en el vínculo del **instalador del conjunto de hospedaje** para descargar el *conjunto de hospedaje de .NET Core*.
 
    **¡Importante!** Si el conjunto de hospedaje se instala antes que IIS, se debe reparar la instalación de dicho conjunto. Vuelva a ejecutar el instalador del conjunto de hospedaje después de instalar IIS.
