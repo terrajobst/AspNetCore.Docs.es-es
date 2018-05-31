@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: content
 uid: mvc/razor-pages/sdk
-ms.openlocfilehash: acc049a69574968d1e304d6c504cb89243387d6c
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: cf0e1873c7ce500ce3b8ad2b3367555bdc41a576
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555539"
 ---
 # <a name="aspnet-core-razor-sdk"></a>SDK de Razor de ASP.NET Core
 
@@ -63,7 +64,7 @@ Para configurar las entradas y la salida del SDK de Razor se usan las siguientes
 | Elementos                                         | Description                                                                   |
 | ------------                                  | -------------                                                                 |
 | RazorGenerate                                 | Elementos (archivos *.cshtml*) que son entradas para los destinos de generación de código. |
-| RazorCompile                                  | Elementos (archivos .cs) que son entradas para los destinos de compilación de Razor. Use este ItemGroup para especificar más archivos para que se compilen en el ensamblado de Razor. |
+| RazorCompile                                  | Elementos (archivos .cs) que son entradas para los destinos de compilación de Razor. Use este ItemGroup para especificar otros archivos que se compilen en el ensamblado de Razor. |
 | RazorTargetAssemblyAttribute                  | Elementos que se usan para generar atributos de código para el ensamblado de Razor. Por ejemplo:  <br />`<RazorAssemblyAttribute ` <br />  `Include="System.Reflection.AssemblyMetadataAttribute"`<br />`  _Parameter1="BuildSource" _Parameter2="https://docs.asp.net/">` |
 | RazorEmbeddedResource                         | Elementos que se agregan como recursos insertados en el ensamblado de Razor generado. |
 

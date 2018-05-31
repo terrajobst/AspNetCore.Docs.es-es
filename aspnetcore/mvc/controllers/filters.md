@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: edc2e9460eb68febe25e8dd60e3872e5ab28e9e9
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555409"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -66,7 +67,7 @@ Los filtros sincrónicos que pueden ejecutar código tanto antes como después d
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleActionFilter.cs?name=snippet1)]
 
-Los filtros asincrónicos definen un solo método On*Stage*ExecutionAsync. Este método toma un delegado *FilterType*ExecutionDelegate que ejecuta la fase de canalización del filtro. Por ejemplo, `ActionExecutionDelegate` llama al método de acción y el usuario puede ejecutar código antes y después de esta llamada.
+Los filtros asincrónicos definen un solo método On*Stage*ExecutionAsync. Este método toma un delegado *FilterType*ExecutionDelegate que ejecuta la fase de canalización del filtro. Por ejemplo, `ActionExecutionDelegate` llama al método de acción o al siguiente filtro de acción y el usuario puede ejecutar código antes y después de esta llamada.
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Filters/SampleAsyncActionFilter.cs?highlight=6,8-10,13)]
 

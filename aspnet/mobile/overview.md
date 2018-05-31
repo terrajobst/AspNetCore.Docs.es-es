@@ -1,6 +1,6 @@
 ---
 uid: mobile/overview
-title: Sitios con ASP.NET y aplicaciones móviles | Documentos de Microsoft
+title: Mobile Apps y sitios con ASP.NET
 author: rick-anderson
 description: Obtenga información acerca de cómo ASP.NET facilita compilar aplicaciones Web móviles
 ms.author: aspnetcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "28039832"
 ---
 <a name="mobile-apps--sites-with-aspnet"></a>Aplicaciones móviles & sitios con ASP.NET
 ====================

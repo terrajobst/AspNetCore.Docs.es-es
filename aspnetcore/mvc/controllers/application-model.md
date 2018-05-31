@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: f61d04f6cf0aa054566d9f48a030cf268f2ba72a
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0e38b041f428f8b519fd726643b3214761fb44e
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555357"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Trabajar con el modelo de aplicación en ASP.NET Core
 
@@ -168,7 +169,7 @@ En este ejemplo se aplica esta convención a las rutas que no usan el enrutamien
 ASP.NET Core MVC usa un conjunto diferente de convenciones de ASP.NET Web API 2. Mediante el uso de convenciones personalizadas, puede modificar el comportamiento de una aplicación ASP.NET Core MVC para que sea coherente con el de una aplicación Web API. Microsoft suministra [WebApiCompatShim](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc.WebApiCompatShim/) específicamente para este propósito.
 
 > [!NOTE]
-> Obtenga más información sobre cómo [migrar desde ASP.NET Web API](xref:migration/webapi).
+> Obtenga más información sobre la [migración desde ASP.NET Web API](xref:migration/webapi).
 
 Para usar las correcciones de compatibilidad (shim) de Web API, debe agregar el paquete al proyecto y, después, agregar las convenciones a MVC mediante una llamada a `AddWebApiConventions` en `Startup`:
 
