@@ -1,8 +1,9 @@
 ---
-title: Utilizar la plantilla de proyecto de reaccionar con ASP.NET Core
+title: Uso de la plantilla de proyecto de React con ASP.NET Core
 author: SteveSandersonMS
-description: Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para reaccionar y aplicación reaccionar crear.
+description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para React y create-react-app.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,61 +12,66 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/react
-ms.openlocfilehash: 4dcfef2bbb99873a9d716a4942f39123944f495c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
-ms.translationtype: MT
+ms.openlocfilehash: c88320c628f219652a2cb63a16b494661c481ffb
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555344"
 ---
-# <a name="use-the-react-project-template-with-aspnet-core"></a>Utilizar la plantilla de proyecto de reaccionar con ASP.NET Core
+# <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
+
+::: moniker range="= aspnetcore-2.0"
 
 > [!NOTE]
-> Acerca de la plantilla de proyecto de reaccionar en esta documentación no está incluida en ASP.NET 2.0 de núcleo. Se trata de la plantilla de reaccionar más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.
+> Esta documentación no trata sobre la plantilla de proyecto de React incluida en ASP.NET Core 2.0. Trata sobre la nueva plantilla de React que puede actualizar manualmente. La plantilla se incluye de forma predeterminada en ASP.NET Core 2.1.
 
-La plantilla de proyecto de reaccionar actualizada proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con reaccionar y [aplicación reaccionar crear](https://github.com/facebookincubator/create-react-app) convenciones (CRA) para implementar una interfaz de usuario de cliente enriquecido (UI).
+::: moniker-end
 
-La plantilla es equivalente a crear un proyecto de ASP.NET Core para actuar como un API de back-end y un proyecto de reaccionar CRA estándar para actuar como una interfaz de usuario, pero con la comodidad de hospedarlos en un proyecto de aplicación único que se puedan generar y publicar como una sola unidad.
+La plantilla de proyecto actualizada de React ofrece un práctico punto de partida para las aplicaciones ASP.NET Core que usan React y las convenciones [create-react-app](https://github.com/facebookincubator/create-react-app) (CRA) para implementar una completa interfaz de usuario (UI) en el lado cliente.
 
-## <a name="create-a-new-app"></a>Crear una nueva aplicación
+La plantilla es equivalente a crear un proyecto de ASP.NET Core para que funcione como un back-end de API y un proyecto de React de CRA estándar para que funcione como interfaz de usuario, pero con la comodidad de hospedar ambos en un único proyecto de aplicación que se puede compilar y publicar como una sola unidad.
 
-Si usa ASP.NET Core 2.0, asegúrese de que se haya [instalar la plantilla de proyecto de reaccionar actualizada](xref:spa/index#installation). Si tiene ASP.NET Core 2.1, no es necesario instalarlo.
+## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-Crear un nuevo proyecto desde un símbolo del sistema mediante el comando `dotnet new react` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un *mi aplicación nuevo* directorio y cambie a ese directorio:
+Si usa ASP.NET Core 2.0, asegúrese de que ha [instalado la plantilla de proyecto actualizada de React](xref:spa/index#installation). Si tiene ASP.NET Core 2.1, no es necesario instalarla.
+
+En un símbolo del sistema, cree un nuevo proyecto con el comando `dotnet new react` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un directorio *my-new-app* y cambian a ese directorio:
 
 ```console
 dotnet new react -o my-new-app
 cd my-new-app
 ```
 
-Ejecute la aplicación desde Visual Studio o en el núcleo de .NET CLI:
+Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-Abra el archivo *.csproj* archivo y ejecutar la aplicación como normal desde allí.
+Abra el archivo *.csproj* generado y, desde ahí, ejecute la aplicación de la manera habitual.
 
-El proceso de compilación restaura npm dependencias en la primera ejecución, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
+El proceso de compilación restaura las dependencias npm en la primera ejecución, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
-Asegúrese de que tiene una variable de entorno denominada `ASPNETCORE_Environment` con el valor de `Development`. En Windows (en PowerShell no solicita), ejecute `SET ASPNETCORE_Environment=Development`. En Linux o Mac OS, ejecute `export ASPNETCORE_Environment=Development`.
+Asegúrese de tener una variable de entorno denominada `ASPNETCORE_Environment` con un valor de `Development`. En Windows (en los avisos que no son de PowerShell), ejecute `SET ASPNETCORE_Environment=Development`. En Linux o macOS, ejecute `export ASPNETCORE_Environment=Development`.
 
-Ejecutar [dotnet compilación](/dotnet/core/tools/dotnet-build) para comprobar la aplicación se compila correctamente. En la primera ejecución, el proceso de compilación restaura las dependencias de npm, que pueden tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
+Ejecute [dotnet build](/dotnet/core/tools/dotnet-build) para comprobar que la aplicación se compila correctamente. En la primera ejecución, el proceso de compilación restaura las dependencias de npm, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
 
-Ejecutar [dotnet ejecutar](/dotnet/core/tools/dotnet-run) para iniciar la aplicación.
+Ejecute [dotnet run](/dotnet/core/tools/dotnet-run) para iniciar la aplicación.
 
 ---
 
-La plantilla de proyecto crea una aplicación de ASP.NET Core y una aplicación de reaccionar. La aplicación de ASP.NET Core está pensada para usarse para el acceso a datos, la autorización y otros problemas relativos a servidor. La aplicación reaccionar, que reside en el *ClientApp* subdirectorio, está diseñada para utilizarse para todos los problemas de la interfaz de usuario.
+La plantilla de proyecto crea una aplicación ASP.NET Core y una aplicación de React. El uso previsto de la aplicación ASP.NET Core es el acceso a los datos, la autorización y otros problemas relativos al servidor. La aplicación de React, que reside en el subdirectorio *ClientApp*, está diseñada para utilizarse para su uso con todos los problemas de la interfaz de usuario.
 
-## <a name="add-pages-images-styles-modules-etc"></a>Agregar páginas, imágenes, estilos, módulos, etcetera.
+## <a name="add-pages-images-styles-modules-etc"></a>Adición de páginas, imágenes, estilos, módulos, etc.
 
-El *ClientApp* directorio es una aplicación de reaccionar CRA estándar. Vea el oficial [documentación CRA](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md) para obtener más información.
+El directorio *ClientApp* es una aplicación de React de CRA estándar. Para más información, consulte la [documentación oficial de CRA](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-Existen pequeñas diferencias entre la aplicación de reaccionar creados por esta plantilla y creado por CRA sí; Sin embargo, no se modifican las capacidades de la aplicación. La aplicación creada por la plantilla contiene un [arranque](https://getbootstrap.com/)-según el diseño y ver un ejemplo de enrutamiento básico.
+Existe pequeñas diferencias entre la aplicación de React creada mediante este plantilla y la creada mediante CRA propiamente dicho; sin embargo, las funcionalidades de la aplicación permanecen sin cambios. La aplicación creada con la plantilla contiene un diseño basado en [arranque](https://getbootstrap.com/) y un ejemplo de enrutamiento básico.
 
 ## <a name="install-npm-packages"></a>Instalar paquetes de npm
 
-Para instalar paquetes de npm de otro fabricante, utilice un símbolo del sistema en el *ClientApp* subdirectorio. Por ejemplo:
+Para instalar paquetes de npm de otro fabricante, use un símbolo del sistema en el subdirectorio *ClientApp*. Por ejemplo:
 
 ```console
 cd ClientApp
@@ -74,29 +80,29 @@ npm install --save <package_name>
 
 ## <a name="publish-and-deploy"></a>Publicación e implementación
 
-En el desarrollo, la aplicación se ejecuta en modo optimizado para comodidad del desarrollador. Por ejemplo, agrupaciones de JavaScript contienen asignaciones de origen (de modo que durante la depuración, puede ver el código fuente original). La aplicación supervisa JavaScript, HTML y CSS cambios de archivo en el disco y vuelve a compilar automáticamente y vuelve a cargar cuando ve cambiar esos archivos.
+En el desarrollo, la aplicación se ejecuta en modo optimizado para comodidad del desarrollador. Por ejemplo, agrupaciones de JavaScript contienen asignaciones de origen (de modo que durante la depuración, puede ver el código fuente original). La aplicación inspecciona los cambios en los archivos de JavaScript, HTML y CSS en el disco y, automáticamente, realiza una nueva compilación y recarga cuando observa que esos archivos han cambiado.
 
-En producción, servir una versión de la aplicación que está optimizada para el rendimiento. Esto se configura para que se producen automáticamente. Cuando se publica, la configuración de compilación emite una compilación transpiled reducida, del código de cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere Node.js esté instalado en el servidor.
+En producción, use una versión de la aplicación que esté optimizada para el rendimiento. Esto se configura para que tenga lugar automáticamente. Al publicar, la configuración de compilación emite una compilación transpilada reducida del código de cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere la instalación de Node.js en el servidor.
 
-Puede usar estándar [métodos de implementación y hospedaje de ASP.NET Core](xref:host-and-deploy/index).
+Puede usar [métodos de implementación y hospedaje de ASP.NET Core](xref:host-and-deploy/index) estándar.
 
-## <a name="run-the-cra-server-independently"></a>Ejecutar el servidor CRA independientemente
+## <a name="run-the-cra-server-independently"></a>Ejecución del servidor de CRA de forma independiente
 
-El proyecto está configurado para iniciar su propia instancia del servidor de desarrollo CRA en segundo plano cuando la aplicación ASP.NET Core se inicia en modo de desarrollo. Esto resulta útil porque significa que no tiene que ejecutar manualmente un servidor independiente.
+El proyecto está configurado para iniciar su propia instancia del servidor de desarrollo de CRA en segundo plano cuando la aplicación ASP.NET Core se inicia en modo de desarrollo. Esto resulta útil porque significa que no tiene que ejecutar manualmente un servidor independiente.
 
-Hay un inconveniente de este programa de instalación de forma predeterminada. Cada vez que modifique el código de C# y su aplicación necesita que se reinicie, de ASP.NET Core se reinicia el servidor CRA. Unos pocos segundos son necesarios para iniciar copia de seguridad. Si está realizando frecuentes modificaciones del código de C# y no desea esperar a que se reinicie el servidor CRA, ejecute el servidor CRA externamente, independientemente del proceso de ASP.NET Core. Para ello:
+Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez que modifica el código de C# y la aplicación ASP.NET Core debe reiniciarse, el servidor de CRA se reinicia. Se necesitan unos segundos para iniciar la copia de seguridad. Sin realiza frecuentes modificaciones en el código de C# y no quiere esperar a que se reinicie el servidor de CRA, ejecute el servidor de CRA externamente, con independencia del proceso de ASP.NET Core. Para ello:
 
-1. En un símbolo del sistema, cambie a la *ClientApp* subdirectorio e inicie el servidor de desarrollo de CRA:
+1. En un símbolo del sistema, cambie al subdirectorio *ClientApp* e inicie el servidor de desarrollo de CRA:
 
     ```console
     cd ClientApp
     npm start
     ```
 
-2. Modificar la aplicación de ASP.NET Core para usar la instancia del servidor CRA externa en lugar de iniciar una propia. En su *inicio* clase, reemplace el `spa.UseReactDevelopmentServer` invocación con lo siguiente:
+2. Modifique la aplicación ASP.NET Core para usar la instancia del servidor de CRA externo en lugar de iniciar una de las suyas. En la clase *Startup*, reemplace la invocación de `spa.UseReactDevelopmentServer` por lo siguiente:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:3000");
     ```
 
-Al iniciar la aplicación de ASP.NET Core, no ejecutar un servidor CRA. La instancia que iniciarse de forma manual se usa en su lugar. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no está esperando la aplicación reaccionar a generar cada vez.
+Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de CRA. En su lugar, se usa la instancia que inició manualmente. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no tiene que esperar a que la aplicación de React se recompile de una vez a otra.

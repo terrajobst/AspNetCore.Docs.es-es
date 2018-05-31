@@ -1,7 +1,7 @@
 ---
-title: Perfiles para la implementación de aplicaciones de ASP.NET Core de publicación de Visual Studio
+title: Perfiles de publicación de Visual Studio para la implementación de aplicaciones ASP.NET Core
 author: rick-anderson
-description: Obtenga información acerca de cómo crear perfiles de publicación en Visual Studio y usarlas para administrar implementaciones de aplicaciones de ASP.NET Core para diferentes destinos.
+description: Aprenda a crear perfiles de publicación en Visual Studio y usarlos para administrar implementaciones de aplicaciones ASP.NET Core en diversos destinos.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
@@ -12,15 +12,16 @@ ms.topic: article
 uid: host-and-deploy/visual-studio-publish-profiles
 ms.openlocfilehash: 3dc858793cd4ddb2630d05a5084f4b7caeaa30eb
 ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483375"
 ---
-# <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Perfiles para la implementación de aplicaciones de ASP.NET Core de publicación de Visual Studio
+# <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Perfiles de publicación de Visual Studio para la implementación de aplicaciones ASP.NET Core
 
 Por [Sayed Ibrahim Hashimi](https://github.com/sayedihashimi) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-Este documento se centra en el uso de 2017 de Visual Studio para crear y usar perfiles de publicación. Los perfiles de publicación creados con Visual Studio se pueden ejecutar en MSBuild y en Visual Studio 2017. Vea [Publicar una aplicación web de ASP.NET Core en Azure App Service con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) para obtener instrucciones sobre la publicación en Azure.
+Este documento se centra en el uso de Visual Studio 2017 para crear y usar perfiles de publicación. Los perfiles de publicación creados con Visual Studio se pueden ejecutar en MSBuild y en Visual Studio 2017. Vea [Publicar una aplicación web de ASP.NET Core en Azure App Service con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) para obtener instrucciones sobre la publicación en Azure.
 
 El siguiente archivo de proyecto se creó con el comando `dotnet new mvc`:
 
@@ -64,28 +65,28 @@ El siguiente archivo de proyecto se creó con el comando `dotnet new mvc`:
 
 ---
 
-El `<Project>` del elemento `Sdk` atributo lleva a cabo las siguientes tareas:
+El atributo `<Project>` del elemento `Sdk` lleva a cabo las siguientes tareas:
 
-* Importa el archivo de propiedades de *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.Props* al principio.
+* Importa el archivo de propiedades de *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.Props* al comienzo.
 * Importa el archivo targets de *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web\Sdk\Sdk.targets* al final.
 
 La ubicación predeterminada de `MSBuildSDKsPath` (con Visual Studio 2017 Enterprise) es la carpeta *%programfiles(x86)%\Microsoft Visual Studio\2017\Enterprise\MSBuild\Sdks*.
 
-El `Microsoft.NET.Sdk.Web` depende de SDK:
+El SDK de `Microsoft.NET.Sdk.Web` depende de:
 
 * *Microsoft.NET.Sdk.Web.ProjectSystem*
 * *Microsoft.NET.Sdk.Publish*
 
-Lo que hace que las propiedades y destinos que se importarán los siguientes:
+Lo que hace que se importen las propiedades y los destinos siguientes:
 
 * *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web.ProjectSystem\Sdk\Sdk.Props*
 * *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Web.ProjectSystem\Sdk\Sdk.targets*
 * *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Publish\Sdk\Sdk.Props*
 * *$(MSBuildSDKsPath)\Microsoft.NET.Sdk.Publish\Sdk\Sdk.targets*
 
-Publicar la importación de destinos el derecho de conjunto de destinos en función del método de publicación que se utiliza.
+Los destinos de publicación importan el conjunto adecuado de destinos en función del método de publicación usado.
 
-Cuando Visual Studio o MSBuild carga un proyecto, se producen las siguientes acciones de alto nivel:
+Cuando se carga un proyecto en Visual Studio o MSBuild, se llevan a cabo las siguientes acciones generales:
 
 * Compilación del proyecto
 * Cálculo de los archivos para la publicación
@@ -95,21 +96,21 @@ Cuando Visual Studio o MSBuild carga un proyecto, se producen las siguientes acc
 
 Cuando se carga el proyecto, se calculan los elementos del proyecto (archivos). El atributo `item type` determina cómo se procesa el archivo. De forma predeterminada, los archivos *.cs* se incluyen en la lista de elementos `Compile`. Después se compilan los archivos de la lista de elementos `Compile`.
 
-El `Content` lista de elementos contiene archivos que se publican además de los resultados de compilación. De forma predeterminada, los archivos que coincidan con el patrón `wwwroot/**` se incluyen en el `Content` elemento. El `wwwroot/\*\*` [patrón de uso de comodines en](https://gruntjs.com/configuring-tasks#globbing-patterns) coincide con todos los archivos de la *wwwroot* carpeta **y** las subcarpetas. Para agregar un archivo de forma explícita a la lista de publicación, agregue el archivo directamente en el *.csproj* archivo tal como se muestra en [archivos de inclusión](#include-files).
+La lista de elementos `Content` contiene archivos que se van a publicar, además de los resultados de compilación. De forma predeterminada, los archivos que coinciden con el patrón `wwwroot/**` se incluyen en el elemento `Content`. El `wwwroot/\*\*` [patrón global](https://gruntjs.com/configuring-tasks#globbing-patterns) coincide con los archivos de la carpeta *wwwroot* y de las subcarpetas **y**. Para agregar explícitamente un archivo a la lista de publicación, agregue el archivo directamente en el archivo *.csproj*, como se muestra en [Archivos de inclusión](#include-files).
 
-Al seleccionar la **publicar** botón en Visual Studio o al publicar desde la línea de comandos:
+Al seleccionar el botón **Publicar** en Visual Studio o al publicar desde la línea de comandos:
 
 * Se calculan los elementos/propiedades (los archivos que se deben compilar).
-* **Visual Studio solo**: paquetes de NuGet se restauran. (la restauración debe ser explícita por parte del usuario en la CLI).
+* **Solo para Visual Studio**: se restauran los paquetes NuGet. (la restauración debe ser explícita por parte del usuario en la CLI).
 * Se compila el proyecto.
 * Se calculan los elementos de publicación (los archivos que se deben publicar).
 * Se publica el proyecto (los archivos calculados se copian en el destino de publicación).
 
-Cuando hace referencia a un proyecto de ASP.NET Core `Microsoft.NET.Sdk.Web` en el archivo de proyecto, un *app_offline.htm* archivo se coloca en la raíz del directorio de aplicación web. Cuando el archivo está presente, el módulo de ASP.NET Core cierra correctamente la aplicación y proporciona el archivo *app_offline.htm* durante la implementación. Para más información, vea [ASP.NET Core Module configuration reference](xref:host-and-deploy/aspnet-core-module#app_offlinehtm) (Referencia de configuración del módulo de ASP.NET Core).
+Cuando hace referencia a un proyecto de ASP.NET Core `Microsoft.NET.Sdk.Web` en el archivo de proyecto, se coloca un archivo *app_offline.htm* en la raíz del directorio de la aplicación web. Cuando el archivo está presente, el módulo de ASP.NET Core cierra correctamente la aplicación y proporciona el archivo *app_offline.htm* durante la implementación. Para más información, vea [ASP.NET Core Module configuration reference](xref:host-and-deploy/aspnet-core-module#app_offlinehtm) (Referencia de configuración del módulo de ASP.NET Core).
 
-## <a name="basic-command-line-publishing"></a>Publicación de línea de comandos básica
+## <a name="basic-command-line-publishing"></a>Publicación básica de línea de comandos
 
-Publicación de línea de comandos funciona en todas las plataformas compatibles con .NET Core y no requiere Visual Studio. En los ejemplos siguientes, el [publicar dotnet](/dotnet/core/tools/dotnet-publish) comando se ejecuta desde el directorio del proyecto (que contiene el *.csproj* archivo). Si no es así en la carpeta del proyecto, pasar de manera explícita en la ruta de acceso del archivo de proyecto. Por ejemplo:
+La publicación de línea de comandos funciona en todas las plataformas admitidas de .NET Core y no se requiere Visual Studio. En los ejemplos siguientes, se ejecuta el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) desde el directorio del proyecto (que contiene el archivo *.csproj*). Si no se encuentra en la carpeta del proyecto, pase de forma explícita la ruta de acceso del archivo del proyecto. Por ejemplo:
 
 ```console
 dotnet publish C:\Webs\Web1
@@ -134,7 +135,7 @@ dotnet publish
 
 ---
 
-El [publicar dotnet](/dotnet/core/tools/dotnet-publish) comando produce un resultado similar al siguiente:
+El comando [dotnet publish](/dotnet/core/tools/dotnet-publish) produce una salida similar a la siguiente:
 
 ```console
 C:\Webs\Web1>dotnet publish
@@ -145,7 +146,7 @@ Copyright (C) Microsoft Corporation. All rights reserved.
   Web1 -> C:\Webs\Web1\bin\Debug\netcoreapp2.0\publish\
 ```
 
-La carpeta de publicación predeterminada es `bin\$(Configuration)\netcoreapp<version>\publish`, El valor predeterminado de `$(Configuration)` es *depurar*. En el ejemplo anterior, el `<TargetFramework>` es `netcoreapp2.0`.
+La carpeta de publicación predeterminada es `bin\$(Configuration)\netcoreapp<version>\publish`, El valor predeterminado de `$(Configuration)` es *Debug*. En el ejemplo anterior, el elemento `<TargetFramework>` es `netcoreapp2.0`.
 
 `dotnet publish -h` muestra información de ayuda de la publicación.
 
@@ -155,9 +156,9 @@ El siguiente comando especifica una compilación `Release` y el directorio de pu
 dotnet publish -c Release -o C:\MyWebs\test
 ```
 
-El [publicar dotnet](/dotnet/core/tools/dotnet-publish) comando llamadas MSBuild, que se invoca el `Publish` destino. Los parámetros pasados a `dotnet publish` se pasan a MSBuild. El parámetro `-c` se asigna a la propiedad de MSBuild `Configuration`. El parámetro `-o` se asigna a `OutputPath`.
+El comando [dotnet publish](/dotnet/core/tools/dotnet-publish) llama a MSBuild, que invoca el destino `Publish`. Todos los parámetros pasados a `dotnet publish` se pasan a MSBuild. El parámetro `-c` se asigna a la propiedad de MSBuild `Configuration`. El parámetro `-o` se asigna a `OutputPath`.
 
-Propiedades de MSBuild se pueden pasar mediante cualquiera de los siguientes formatos:
+Se pueden pasar propiedades de MSBuild mediante cualquiera de los siguientes formatos:
 
 * ` p:<NAME>=<VALUE>`
 * `/p:<NAME>=<VALUE>`
@@ -172,22 +173,22 @@ Confirme que la aplicación publicada para la implementación no se está ejecut
 
 ## <a name="publish-profiles"></a>Publicar los perfiles
 
-Esta sección utiliza 2017 de Visual Studio para crear un perfil de publicación. Una vez creado, publicación de Visual Studio o la línea de comandos está disponible.
+En esta sección se usa Visual Studio 2017 para crear un perfil de publicación. Una vez creado, es posible publicar desde Visual Studio o la línea de comandos.
 
-Publicar perfiles pueden simplificar el proceso de publicación, y puede existir cualquier número de perfiles. Crear un perfil de publicación en Visual Studio eligiendo una de las rutas de acceso siguientes:
+Los perfiles de publicación pueden simplificar el proceso de publicación, y puede existir cualquier número de perfiles. Cree un perfil de publicación en Visual Studio mediante la selección de una de las rutas de acceso siguientes:
 
-* Haga clic en el proyecto en el Explorador de soluciones y seleccione **publicar**.
-* Seleccione **publicar &lt;Nombre_proyecto&gt;**  desde el **generar** menú.
+* Haga clic con el botón derecho en el Explorador de soluciones y seleccione **Publicar**.
+* Seleccione **Publicar &lt;nombre_del_proyecto&gt;** en el menú **Compilar**.
 
-El **publicar** se muestra la pestaña de la página de las capacidades de la aplicación. Si el proyecto no tiene un perfil de publicación, se muestra la página siguiente:
+Aparece la pestaña **Publicar** de la página de funcionalidades de la aplicación. Si el proyecto no contiene ningún perfil de publicación, se muestra la página siguiente:
 
-![La pestaña de la publicación de la página de las capacidades de la aplicación](visual-studio-publish-profiles/_static/az.png)
+![La pestaña Publicar de la página de funcionalidades de la aplicación](visual-studio-publish-profiles/_static/az.png)
 
-Cuando **carpeta** está seleccionada, especifique una ruta de acceso de carpeta para almacenar los recursos publicados. La carpeta predeterminada es *bin\Release\PublishOutput*. Haga clic en el **Crear perfil** para terminar.
+Cuando se seleccione **Carpeta**, especifique una ruta de acceso a la carpeta para almacenar los recursos publicados. La carpeta predeterminada es *bin\Release\PublishOutput*. Haga clic en el botón **Crear perfil** para terminar.
 
-Una vez que se crea un perfil de publicación, la **publicar** pestaña cambios. El perfil recién creado aparece en una lista desplegable. Haga clic en **crear nuevo perfil** para crear otro nuevo perfil.
+Una vez que se crea un perfil de publicación, la pestaña **Publicar** cambia. El perfil recién creado aparece en una lista desplegable. Haga clic en **Crear nuevo perfil** para crear otro nuevo perfil.
 
-![La pestaña de la publicación de la página de las capacidades de la aplicación que muestra FolderProfile](visual-studio-publish-profiles/_static/create_new.png)
+![La pestaña Publicar de la página de funcionalidades de la aplicación que muestra FolderProfile](visual-studio-publish-profiles/_static/create_new.png)
 
 El Asistente para publicación admite los siguientes destinos de publicación:
 
@@ -197,43 +198,43 @@ El Asistente para publicación admite los siguientes destinos de publicación:
 * Carpeta
 * Perfil de importación
 
-Para obtener más información, consulte [qué opciones de publicación son adecuadas para mí](/visualstudio/ide/not-in-toc/web-publish-options).
+Para más información, consulte [¿Qué opciones de publicación son las adecuadas para mí?](/visualstudio/ide/not-in-toc/web-publish-options)
 
-Al crear un perfil de publicación con Visual Studio, un *propiedades/PublishProfiles/&lt;profile_name&gt;.pubxml* se crea el archivo de MSBuild. El *.pubxml* archivo es un archivo de MSBuild y contiene opciones de configuración de publicación. Este archivo se puede cambiar para personalizar la compilación y el proceso de publicación. Este archivo se lee durante el proceso de publicación. `<LastUsedBuildConfiguration>` es especial porque es una propiedad global y no debe estar en cualquier archivo que se importa en la compilación. Vea [MSBuild: cómo establecer la propiedad de configuración](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) para obtener más información.
+Al crear un perfil de publicación con Visual Studio, se crea un archivo de MSBuild *Properties/PublishProfiles/&lt;nombre_del_perfil&gt;.pubxml*. Este archivo *.pubxml* es un archivo de MSBuild que contiene la configuración de publicación. Este archivo se puede modificar para personalizar el proceso de compilación y publicación. Este archivo se lee durante el proceso de publicación. `<LastUsedBuildConfiguration>` es especial porque es una propiedad global y no debe estar en ningún archivo importado en la compilación. Consulte [MSBuild: how to set the configuration property](http://sedodream.com/2012/10/27/MSBuildHowToSetTheConfigurationProperty.aspx) (MSBuild: Cómo establecer la propiedad de configuración) para más información.
 
-Al publicar en un destino de Azure, el *.pubxml* archivo contiene el identificador de suscripción de Azure. Con ese tipo de destino, agregar este archivo al control de código fuente no se recomienda. Al publicar en un destino no sea de Azure, es seguro proteger el *.pubxml* archivo.
+Al publicar en un destino de Azure, el archivo *.pubxml* contiene el identificador de suscripción de Azure. Con ese tipo de destino, no se recomienda agregar este archivo al control de código fuente. Al publicar en un destino que no sea Azure, es seguro insertar el archivo *.pubxml* en el repositorio.
 
-Información confidencial (por ejemplo, la contraseña de publicación) se cifra en una por cada nivel de usuario/equipo. Se almacena en la *propiedades/PublishProfiles/&lt;profile_name&gt;. pubxml.user* archivo. Dado que este archivo puede almacenar información confidencial, se no debe proteger en el control de código fuente.
+La información confidencial (por ejemplo, la contraseña de publicación) se cifra en cada usuario y máquina. Se almacena en el archivo *Properties/PublishProfiles/&lt;nombre_del_perfil&gt;.pubxml.user*. Como este archivo puede contener información confidencial, no se debe insertar en el repositorio de control del código fuente.
 
-Para obtener información general sobre cómo publicar una aplicación web de ASP.NET Core, vea [Host e implementar](xref:host-and-deploy/index). Las tareas de MSBuild y los destinos necesarios para publicar una aplicación de ASP.NET Core son código abierto en https://github.com/aspnet/websdk.
+Para información general sobre cómo publicar una aplicación web en ASP.NET Core, consulte [Hospedaje e implementación](xref:host-and-deploy/index), Las tareas de MSBuild y los destinos necesarios para publicar una aplicación ASP.NET Core son de código abierto en https://github.com/aspnet/websdk.
 
-`dotnet publish` Puede usar la carpeta, MSDeploy, y [Kudu](https://github.com/projectkudu/kudu/wiki) perfiles de publicación:
+`dotnet publish` puede usar perfiles de publicación, de carpeta, Msdeploy y [Kudu](https://github.com/projectkudu/kudu/wiki):
 
-Carpeta (funcione entre plataformas):
+Carpeta (funciona entre plataformas)
 
 ```console
 dotnet publish WebApplication.csproj /p:PublishProfile=<FolderProfileName>
 ```
 
-MSDeploy (actualmente este sólo funciona en Windows desde MSDeploy no multiplataforma):
+MSDeploy (actualmente solo funciona en Windows dado que MSDeploy no es multiplataforma):
 
 ```console
 dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployProfileName> /p:Password=<DeploymentPassword>
 ```
 
-Paquete de MSDeploy (actualmente este sólo funciona en Windows desde MSDeploy no multiplataforma):
+El paquete de MSDeploy (actualmente solo funciona en Windows dado que MSDeploy no es multiplataforma):
 
 ```console
 dotnet publish WebApplication.csproj /p:PublishProfile=<MsDeployPackageProfileName>
 ```
 
-En los ejemplos anteriores, **no** pasar `deployonbuild` a `dotnet publish`.
+En los ejemplos anteriores, **no** pase `deployonbuild` a `dotnet publish`.
 
-Para obtener más información, consulte [Microsoft.NET.Sdk.Publish](https://github.com/aspnet/websdk#microsoftnetsdkpublish).
+Para más información, consulte [Microsoft.NET.Sdk.Publish](https://github.com/aspnet/websdk#microsoftnetsdkpublish).
 
-`dotnet publish` admite las API de Kudu para publicar en Azure desde cualquier plataforma. Visual Studio publicar admite las API Kudu, pero es compatible con WebSDK para multiplataforma publicar en Azure.
+`dotnet publish` admite las API de Kudu para publicar en Azure desde cualquier plataforma. La publicación de Visual Studio admite API de Kudu, pero es compatible con WebSDK para la publicación multiplataforma en Azure.
 
-Agregar un perfil de publicación para la *propiedades/PublishProfiles* carpeta con el siguiente contenido:
+Agregue un perfil de publicación a la carpeta *Properties/PublishProfiles* con el contenido siguiente:
 
 ```xml
 <Project>
@@ -246,7 +247,7 @@ Agregar un perfil de publicación para la *propiedades/PublishProfiles* carpeta 
 </Project>
 ```
 
-Ejecute el siguiente comando para comprimir el contenido de la publicación y publicarlo en Azure mediante las API de Kudu:
+Ejecute el comando siguiente para descomprimir el contenido de publicación y publicarlo en Azure mediante las API de Kudu:
 
 ```console
 dotnet publish /p:PublishProfile=Azure /p:Configuration=Release
@@ -257,12 +258,12 @@ Establezca las siguientes propiedades de MSBuild cuando use un perfil de publica
 * `DeployOnBuild=true`
 * `PublishProfile=<Publish profile name>`
 
-Cuando se publica con un perfil denominado *FolderProfile*, se puede ejecutar cualquiera de los comandos siguientes:
+Por ejemplo, al efectuar una publicación con un perfil denominado *FolderProfile*, se puede ejecutar cualquiera de los comandos siguientes:
 
 * `dotnet build /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 * `msbuild      /p:DeployOnBuild=true /p:PublishProfile=FolderProfile`
 
-Al invocar [dotnet compilación](/dotnet/core/tools/dotnet-build), llama a `msbuild` para ejecutar la compilación y proceso de publicación. Una llamada a `dotnet build` o `msbuild` es equivalente al pasar de un perfil de la carpeta. Al llamar a MSBuild directamente en Windows, se utiliza la versión de .NET Framework de MSBuild. Actualmente, MSDeploy está limitado a los equipos con Windows para efectuar publicaciones. Al llamar a `dotnet build` en un perfil que no es de carpeta se invoca a MSBuild, que usa MSDeploy en los perfiles que no son de carpeta. Al llamar a `dotnet build` en un perfil que no es de carpeta, se invoca a MSBuild (mediante MSDeploy), lo cual genera un error (incluso si se ejecuta en una plataforma de Windows). Para publicar con un perfil que no es de carpeta, llame directamente a MSBuild.
+Al invocar [dotnet build](/dotnet/core/tools/dotnet-build), se llama a `msbuild` para ejecutar el proceso de compilación y publicación. Llamar a `dotnet build` o `msbuild` es equivalente cuando se pasa un perfil de carpeta. Al llamar a MSBuild directamente en Windows, se usa la versión .NET Framework de MSBuild. Actualmente, MSDeploy está limitado a los equipos con Windows para efectuar publicaciones. Al llamar a `dotnet build` en un perfil que no es de carpeta se invoca a MSBuild, que usa MSDeploy en los perfiles que no son de carpeta. Al llamar a `dotnet build` en un perfil que no es de carpeta, se invoca a MSBuild (mediante MSDeploy), lo cual genera un error (incluso si se ejecuta en una plataforma de Windows). Para publicar con un perfil que no es de carpeta, llame directamente a MSBuild.
 
 El siguiente perfil de publicación de carpeta se creó con Visual Studio y se publica en un recurso compartido de red:
 
@@ -290,9 +291,9 @@ MSBuild file.
 </Project>
 ```
 
-Tenga en cuenta que `<LastUsedBuildConfiguration>` está establecido en `Release`. Al efectuar una publicación en Visual Studio, el valor de la propiedad de configuración `<LastUsedBuildConfiguration>` se establece con el valor cuando se inicia el proceso de publicación. El `<LastUsedBuildConfiguration>` propiedad de configuración es especial y no debe reemplazarse en un archivo de MSBuild importado. Esta propiedad se puede invalidar desde la línea de comandos.
+Tenga en cuenta que `<LastUsedBuildConfiguration>` está establecido en `Release`. Al efectuar una publicación en Visual Studio, el valor de la propiedad de configuración `<LastUsedBuildConfiguration>` se establece con el valor cuando se inicia el proceso de publicación. La propiedad de configuración `<LastUsedBuildConfiguration>` es especial y no se debe reemplazar en un archivo importado de MSBuild. Esta propiedad se puede invalidar desde la línea de comandos.
 
-Mediante el uso de la CLI de .NET Core:
+Con la CLI de .NET Core:
 
 ```console
 dotnet build -c Release /p:DeployOnBuild=true /p:PublishProfile=FolderProfile
@@ -306,13 +307,13 @@ msbuild /p:Configuration=Release /p:DeployOnBuild=true /p:PublishProfile=FolderP
 
 ## <a name="publish-to-an-msdeploy-endpoint-from-the-command-line"></a>Publicar en un punto de conexión de MSDeploy desde la línea de comandos
 
-La publicación puede realizarse mediante la CLI de núcleo de .NET o MSBuild. `dotnet publish` se ejecuta en el contexto de .NET Core. El `msbuild` comando requiere .NET Framework, lo que limita a los entornos de Windows.
+La publicación se puede realizar mediante la CLI de .NET Core o MSBuild. `dotnet publish` se ejecuta en el contexto de .NET Core. El comando `msbuild` requiere .NET Framework, de forma que se limita a los entornos de Windows.
 
 La forma más fácil de publicar con MSDeploy consiste en crear primero un perfil de publicación en Visual Studio 2017 y, luego, usar el perfil en la línea de comandos.
 
-En el ejemplo siguiente, se crea una aplicación web de ASP.NET Core (mediante `dotnet new mvc`), y se agrega un perfil de publicación de Azure con Visual Studio.
+En el ejemplo siguiente, se crea una aplicación web de ASP.NET Core (con `dotnet new mvc`) y se agrega un perfil de publicación de Azure con Visual Studio.
 
-Ejecutar `msbuild` desde una **símbolo del sistema para desarrolladores de VS 2017**. El símbolo del sistema para desarrolladores tiene el valor correcto *msbuild.exe* en su ruta de acceso con un conjunto de variables de MSBuild.
+Ejecute `msbuild` desde un **Símbolo del sistema para desarrolladores de VS 2017**. El Símbolo del sistema para desarrolladores tiene el archivo *msbuild.exe* correcto en su ruta de acceso con algunas variables de MSBuild establecidas.
 
 MSBuild usa la sintaxis siguiente:
 
@@ -320,14 +321,14 @@ MSBuild usa la sintaxis siguiente:
 msbuild <path-to-project-file> /p:DeployOnBuild=true /p:PublishProfile=<Publish Profile> /p:Username=<USERNAME> /p:Password=<PASSWORD>
 ```
 
-Obtener la `Password` desde el *\<nombre de publicación >. Configuración de publicación* archivo. Descargue el *. Configuración de publicación* archivo desde:
+Obtenga el valor `Password` del archivo *\<nombre de la publicación>.PublishSettings*. Descargue el archivo *.PublishSettings* desde:
 
-* El Explorador de soluciones: Haga doble clic en la aplicación Web y seleccione **descargar un perfil de publicación**.
-* Portal de Azure: haga clic en **perfil de publicación Get** en la aplicación Web **Introducción** panel.
+* Explorador de soluciones: haga clic con el botón derecho en la aplicación web y seleccione **Descargar perfil de publicación**.
+* Azure Portal: haga clic en **Get publish profile** (Obtener perfil de publicación) en el panel **Overview** (Información general) de Web Apps.
 
 `Username` está en el perfil de publicación.
 
-El siguiente ejemplo se utiliza la *Web11112 - Web Deploy* perfil de publicación:
+En el siguiente ejemplo se usa el perfil de publicación *Web11112 - Web Deploy*:
 
 ```console
 msbuild "C:\Webs\Web1\Web1.csproj" /p:DeployOnBuild=true
@@ -335,9 +336,9 @@ msbuild "C:\Webs\Web1\Web1.csproj" /p:DeployOnBuild=true
  /p:Password="<password removed>"
 ```
 
-## <a name="exclude-files"></a>Excluir archivos
+## <a name="exclude-files"></a>Archivos de exclusión
 
-Al publicar aplicaciones web de ASP.NET Core, se incluyen los artefactos de compilación y el contenido de la carpeta *wwwroot*. `msbuild` admite los [patrones globales](https://gruntjs.com/configuring-tasks#globbing-patterns). Por ejemplo, la siguiente `<Content>` elemento excluye todo el texto (*.txt*) archivos desde el *wwwroot/content* carpeta y todas sus subcarpetas.
+Al publicar aplicaciones web de ASP.NET Core, se incluyen los artefactos de compilación y el contenido de la carpeta *wwwroot*. `msbuild` admite los [patrones globales](https://gruntjs.com/configuring-tasks#globbing-patterns). Por ejemplo, el siguiente elemento `<Content>` excluye todo los archivos de texto (*.txt*) de la carpeta *wwwroot/content* y de todas sus subcarpetas.
 
 ```xml
 <ItemGroup>
@@ -345,9 +346,9 @@ Al publicar aplicaciones web de ASP.NET Core, se incluyen los artefactos de comp
 </ItemGroup>
 ```
 
-El marcado anterior puede agregarse a un perfil de publicación o la *.csproj* archivo. Si se agrega al archivo *.csproj*, la regla se agrega a todos los perfiles de publicación del proyecto.
+El marcado anterior se puede agregar a un perfil de publicación o al archivo *.csproj*. Si se agrega al archivo *.csproj*, la regla se agrega a todos los perfiles de publicación del proyecto.
 
-El siguiente `<MsDeploySkipRules>` elemento excluye todos los archivos de la *wwwroot/content* carpeta:
+El siguiente elemento `<MsDeploySkipRules>` excluye todos los archivos de la carpeta *wwwroot/content*:
 
 ```xml
 <ItemGroup>
@@ -358,13 +359,13 @@ El siguiente `<MsDeploySkipRules>` elemento excluye todos los archivos de la *ww
 </ItemGroup>
 ```
 
-`<MsDeploySkipRules>` No eliminar el *omitir* destinos desde el sitio de implementación. `<Content>` las carpetas y archivos de destino se eliminan desde el sitio de implementación. Por ejemplo, suponga que una aplicación web implementadas tenía los siguientes archivos:
+`<MsDeploySkipRules>` no eliminará del sitio de implementación los destinos *skip*. Los archivos y carpetas destinados a `<Content>` se eliminan del sitio de implementación. Por ejemplo, suponga que una aplicación web implementada tenía los siguientes archivos:
 
 * *Views/Home/About1.cshtml*
 * *Views/Home/About2.cshtml*
 * *Views/Home/About3.cshtml*
 
-Si el siguiente `<MsDeploySkipRules>` se agregan elementos, no podrá eliminar esos archivos en el sitio de implementación.
+Si se agregan los siguientes elementos `<MsDeploySkipRules>`, esos archivos no se eliminarán en el sitio de implementación.
 
 ```xml
 <ItemGroup>
@@ -385,9 +386,9 @@ Si el siguiente `<MsDeploySkipRules>` se agregan elementos, no podrá eliminar e
 </ItemGroup>
 ```
 
-Los anteriores `<MsDeploySkipRules>` elementos evitar el *omitido* archivos desde que se está implementando. Una vez que se implementen no elimina esos archivos.
+Los elementos `<MsDeploySkipRules>` anteriores impiden que se implementen los archivos *omitidos*. Una vez que se implementan esos archivos, no se eliminarán.
 
-El siguiente `<Content>` elemento elimina los archivos de destino en el sitio de implementación:
+El siguiente elemento `<Content>` elimina los archivos de destino en el sitio de implementación:
 
 ```xml
 <ItemGroup>
@@ -395,7 +396,7 @@ El siguiente `<Content>` elemento elimina los archivos de destino en el sitio de
 </ItemGroup>
 ```
 
-Mediante la implementación de línea de comandos a la anterior `<Content>` elemento produce el siguiente resultado:
+El uso de la implementación de línea de comandos con el elemento `<Content>` anterior, produce la siguiente salida:
 
 ```console
 MSDeployPublish:
@@ -416,7 +417,7 @@ Done Building Project "C:\Webs\Web1\Web1.csproj" (default targets).
 
 ## <a name="include-files"></a>Archivos de inclusión
 
-El siguiente marcado incluye un *imágenes* carpeta fuera del directorio de proyecto para el *wwwroot/imágenes* carpeta del sitio de publicación:
+El siguiente marcado incluye una carpeta *images* fuera del directorio del proyecto a la carpeta *wwwroot/images* del sitio de publicación:
 
 ```xml
 <ItemGroup>
@@ -427,7 +428,7 @@ El siguiente marcado incluye un *imágenes* carpeta fuera del directorio de proy
 </ItemGroup>
 ```
 
-El marcado se puede agregar al archivo *.csproj* o al perfil de publicación. Si se agrega a la *.csproj* archivo, se incluye en cada perfil de publicación en el proyecto.
+El marcado se puede agregar al archivo *.csproj* o al perfil de publicación. Si se agrega al archivo *.csproj*, se incluye en todos los perfiles de publicación del proyecto.
 
 En el siguiente marcado resaltado se muestra cómo:
 
@@ -472,7 +473,7 @@ Vea [WebSDK Readme](https://github.com/aspnet/websdk) (Archivo Léame de WebSDK)
 
 ## <a name="run-a-target-before-or-after-publishing"></a>Ejecutar un destino antes o después de la publicación
 
-Integrado `BeforePublish` y `AfterPublish` destinos ejecutan un destino antes o después del destino de publicación. Agregue los siguientes elementos para el perfil de publicación para registrar mensajes de la consola antes y después de la publicación:
+Los destinos `BeforePublish` y `AfterPublish` ejecutan un destino antes o después del destino de publicación. Agregue los siguientes elementos al perfil de publicación para registrar mensajes de la consola antes y después de la publicación:
 
 ```xml
 <Target Name="CustomActionsBeforePublish" BeforeTargets="BeforePublish">
@@ -483,9 +484,9 @@ Integrado `BeforePublish` y `AfterPublish` destinos ejecutan un destino antes o 
 </Target>
 ```
 
-## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>Publicar en un servidor mediante un certificado de confianza
+## <a name="publish-to-a-server-using-an-untrusted-certificate"></a>Publicación en un servidor mediante un certificado que no es de confianza
 
-Agregar el `<AllowUntrustedCertificate>` propiedad con un valor de `True` para el perfil de publicación:
+Agregue la propiedad `<AllowUntrustedCertificate>` con un valor de `True` al perfil de publicación:
 
 ```xml
 <PropertyGroup>
@@ -495,16 +496,16 @@ Agregar el `<AllowUntrustedCertificate>` propiedad con un valor de `True` para e
 
 ## <a name="the-kudu-service"></a>Servicio Kudu
 
-Para ver los archivos en una implementación de aplicaciones web de servicio de aplicaciones de Azure, use la [servicio Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). Anexar la `scm` token utilizado para el nombre de la aplicación web. Por ejemplo:
+Para ver los archivos de la implementación de una aplicación web de Azure App Service, use el [servicio Kudu](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service). Anexe el token `scm` al nombre de la aplicación web. Por ejemplo:
 
 | Resolución                                    | Resultado       |
 | -------------------------------------- | ------------ |
 | `http://mysite.azurewebsites.net/`     | Aplicación web      |
-| `http://mysite.scm.azurewebsites.net/` | Servicio de kudu |
+| `http://mysite.scm.azurewebsites.net/` | Servicio Kudu |
 
-Seleccione el [consola de depuración](https://github.com/projectkudu/kudu/wiki/Kudu-console) elemento de menú para ver, editar, eliminar o agregar archivos.
+Seleccione el elemento de menú [Consola de depuración](https://github.com/projectkudu/kudu/wiki/Kudu-console) para ver, editar, eliminar o agregar archivos.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) simplifica la implementación de aplicaciones web y sitios Web a los servidores IIS.
-* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): Problemas de archivos y solicitar características para la implementación.
+* [Web Deploy](https://www.iis.net/downloads/microsoft/web-deploy) (MSDeploy) simplifica la implementación de aplicaciones web y sitios web en servidores de IIS.
+* [https://github.com/aspnet/websdk](https://github.com/aspnet/websdk/issues): problemas de archivos y características de solicitud para la implementación.

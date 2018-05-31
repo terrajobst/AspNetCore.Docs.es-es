@@ -12,31 +12,32 @@ ms.topic: article
 uid: host-and-deploy/directory-structure
 ms.openlocfilehash: a5cc1f23d624643facddc9e2006fb246e5ae66dc
 ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33838441"
 ---
 # <a name="aspnet-core-directory-structure"></a>Estructura de directorios de ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-En el núcleo de ASP.NET, el directorio de la aplicación publicada, *publicar*, consta de los archivos de la aplicación, archivos de configuración, activos estáticos, paquetes y el tiempo de ejecución (para [implementaciones independientes](/dotnet/core/deploying/#self-contained-deployments-scd)).
+En ASP.NET Core, el directorio de aplicaciones publicadas, *publish*, consta de archivos de aplicación, archivos de configuración, recursos estáticos, paquetes y el entorno de tiempo de ejecución (para las [implementaciones independientes](/dotnet/core/deploying/#self-contained-deployments-scd)).
 
 
 | Tipo de aplicación | Estructura de directorios |
 | -------- | ------------------- |
-| [Implementación del marco de trabajo dependiente](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>Publicar&dagger;<ul><li>registros&dagger; (opcional, a menos que se requiere para recibir registros stdout)</li><li>Vistas&dagger; (aplicaciones de MVC; si no se precompilan vistas)</li><li>Páginas&dagger; (MVC o las páginas de Razor aplicaciones; si no se precompilan páginas)</li><li>wwwroot&dagger;</li><li>*\.archivos DLL</li><li>\<nombre del ensamblado >. deps.json</li><li>\<nombre del ensamblado > .dll</li><li>\<nombre del ensamblado > .pdb</li><li>\<nombre del ensamblado >. PrecompiledViews.dll</li><li>\<nombre del ensamblado >. PrecompiledViews.pdb</li><li>\<nombre del ensamblado >. runtimeconfig.json</li><li>Web.config (implementaciones de IIS)</li></ul></li></ul> |
-| [Implementación independiente](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>Publicar&dagger;<ul><li>registros&dagger; (opcional, a menos que se requiere para recibir registros stdout)</li><li>Refs&dagger;</li><li>Vistas&dagger; (aplicaciones de MVC; si no se precompilan vistas)</li><li>Páginas&dagger; (MVC o las páginas de Razor aplicaciones; si no se precompilan páginas)</li><li>wwwroot&dagger;</li><li>\*archivos .dll</li><li>\<nombre del ensamblado >. deps.json</li><li>\<nombre del ensamblado > .exe</li><li>\<nombre del ensamblado > .pdb</li><li>\<nombre del ensamblado >. PrecompiledViews.dll</li><li>\<nombre del ensamblado >. PrecompiledViews.pdb</li><li>\<nombre del ensamblado >. runtimeconfig.json</li><li>Web.config (implementaciones de IIS)</li></ul></li></ul> |
+| [Implementación dependiente de marco](/dotnet/core/deploying/#framework-dependent-deployments-fdd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (opcional a menos que sea necesario para recibir registros de stdout)</li><li>Views&dagger; (aplicaciones MVC; si las vistas no están precompiladas)</li><li>Pages&dagger; (aplicaciones MVC o de páginas Razor; si las páginas no están precompiladas)</li><li>wwwroot&dagger;</li><li>archivos *\.dll</li><li>\<nombre del ensamblado>.deps.json</li><li>\<nombre del ensamblado>.dll</li><li>\<nombre del ensamblado>.pdb</li><li>\<nombre del ensamblado>.PrecompiledViews.dll</li><li>\<nombre del ensamblado>.PrecompiledViews.pdb</li><li>\<nombre del ensamblado>.runtimeconfig.json</li><li>web.config (implementaciones de IIS)</li></ul></li></ul> |
+| [Implementación independiente](/dotnet/core/deploying/#self-contained-deployments-scd) | <ul><li>publish&dagger;<ul><li>logs&dagger; (opcional a menos que sea necesario para recibir registros de stdout)</li><li>refs&dagger;</li><li>Views&dagger; (aplicaciones MVC; si las vistas no están precompiladas)</li><li>Pages&dagger; (aplicaciones MVC o de páginas Razor; si las páginas no están precompiladas)</li><li>wwwroot&dagger;</li><li>archivos \*.dll</li><li>\<nombre del ensamblado>.deps.json</li><li>\<nombre del ensamblado>.exe</li><li>\<nombre del ensamblado>.pdb</li><li>\<nombre del ensamblado>.PrecompiledViews.dll</li><li>\<nombre del ensamblado>.PrecompiledViews.pdb</li><li>\<nombre del ensamblado>.runtimeconfig.json</li><li>web.config (implementaciones de IIS)</li></ul></li></ul> |
 
 &dagger;Indica un directorio
 
-El *publicar* directorio representa el *ruta de acceso raíz del contenido*, también denominado el *ruta de acceso base de aplicación*, de la implementación. El nombre se asigna a la *publicar* su ubicación de directorio de la aplicación implementada en el servidor, actúa como ruta de acceso física del servidor para la aplicación hospedada.
+El directorio *publish* representa la *ruta de acceso raíz del contenido*, también conocida como la *ruta de acceso base de aplicación*, de la implementación. Sea cual sea el nombre que se asigna al directorio *publish* de la aplicación implementada en el servidor, su ubicación funciona como la ruta física del servidor a la aplicación hospedada.
 
-El *wwwroot* directory, si está presente, sólo contiene recursos estáticos.
+El directorio *wwwroot*, si existe, solo contiene recursos estáticos.
 
-El stdout *registros* se puede crear directorio para la implementación mediante uno de los dos métodos siguientes:
+El directorio *registros* de stdout se puede crear para la implementación mediante una de las dos estrategias siguientes:
 
-* Agregue las siguientes `<Target>` elemento al archivo del proyecto:
+* Agregue el siguiente elemento `<Target>` al archivo del proyecto:
 
    ```xml
    <Target Name="CreateLogsFolder" AfterTargets="Publish">
@@ -49,8 +50,8 @@ El stdout *registros* se puede crear directorio para la implementación mediante
    </Target>
    ```
 
-   El `<MakeDir>` elemento crea vacío *registros* carpeta en la salida publicada. El elemento utiliza el `PublishDir` propiedad para determinar la ubicación de destino para crear la carpeta. Varios métodos de implementación, por ejemplo, Web Deploy, omiten las carpetas vacías durante la implementación. El `<WriteLinesToFile>` elemento genera un archivo en el *registros* carpeta, lo que garantiza la implementación de la carpeta en el servidor. Tenga en cuenta que la creación de carpetas todavía puede fallar si el proceso de trabajo no tiene acceso de escritura a la carpeta de destino.
+   El elemento `<MakeDir>` crea una carpeta *Logs* vacía en la salida publicada. El elemento usa la propiedad `PublishDir` para determinar la ubicación de destino para la creación de la carpeta. Varios métodos de implementación, como Web Deploy, omiten las carpetas vacías durante la implementación. El elemento `<WriteLinesToFile>` genera un archivo en la carpeta *Logs*, que garantiza la implementación de la carpeta en el servidor. Tenga en cuenta que puede producirse un error en la creación de carpetas si el proceso de trabajo no tiene acceso de escritura a la carpeta de destino.
 
-* Crear físicamente la *registros* directorio en el servidor de la implementación.
+* Cree físicamente el directorio *Logs* en el servidor de la implementación.
 
-El directorio de implementación requiere permisos de lectura y ejecución. El *registros* directory requiere permisos de lectura/escritura. Directorios adicionales donde se escriben los archivos requieren permisos de lectura/escritura.
+El directorio de implementación requiere permisos de lectura y ejecución. El directorio *Logs* requiere permisos de lectura y escritura. Otros directorios donde se escriben los archivos requieren permisos de lectura y escritura.

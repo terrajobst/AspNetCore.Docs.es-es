@@ -1,8 +1,9 @@
 ---
-title: Utilice la plantilla de proyecto Angular con ASP.NET Core
+title: Uso de la plantilla de proyecto de Angular con ASP.NET Core
 author: SteveSandersonMS
-description: Obtenga información acerca de cómo empezar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para Angular y la CLI Angular.
+description: Aprenda cómo comenzar a trabajar con la plantilla de proyecto de aplicación de página única (SPA) de ASP.NET Core para Angular y la CLI de Angular.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
@@ -11,47 +12,52 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: spa/angular
-ms.openlocfilehash: b4e48f40c3d4e3167e7fdb3534d2c33b3544592c
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
-ms.translationtype: MT
+ms.openlocfilehash: 244fece83279ae4d9ead9b345fcdd66ad6ed4225
+ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 05/27/2018
+ms.locfileid: "34555435"
 ---
-# <a name="use-the-angular-project-template-with-aspnet-core"></a>Utilice la plantilla de proyecto Angular con ASP.NET Core
+# <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
+
+::: moniker range="= aspnetcore-2.0"
 
 > [!NOTE]
-> Esta documentación no acerca de la plantilla de proyecto Angular se incluye en el núcleo de ASP.NET 2.0. Se trata de la plantilla Angular más reciente en la que puede actualizar manualmente. La plantilla se incluye en ASP.NET Core 2.1 de forma predeterminada.
+> Esta documentación no trata sobre la plantilla de proyecto de Angular incluida en ASP.NET Core 2.0. Trata sobre la nueva plantilla de Angular que puede actualizar manualmente. La plantilla se incluye de forma predeterminada en ASP.NET Core 2.1.
 
-La plantilla de proyecto Angular actualizado proporciona un punto de partida cómodo para ASP.NET Core aplicaciones con Angular y la CLI Angular para implementar una interfaz de usuario de cliente enriquecido (UI).
+::: moniker-end
 
-La plantilla es equivalente a crear un proyecto de ASP.NET Core para actuar como un API de back-end y un proyecto de CLI Angular para actuar como una interfaz de usuario. La plantilla ofrece la ventaja de alojar ambos tipos de proyecto en un proyecto de aplicación único. Por lo tanto, el proyecto de aplicación puede ser creado y publicado como una sola unidad.
+La plantilla de proyecto de Angular actualizada proporciona un práctico punto de partida para las aplicaciones ASP.NET Core que usan Angular y la CLI de Angular para implementar una completa interfaz de usuario (UI) del lado cliente.
 
-## <a name="create-a-new-app"></a>Crear una nueva aplicación
+La plantilla es equivalente a crear un proyecto de ASP.NET Core que funciona como back-end de API y un proyecto de la CLI de Angular que funciona como interfaz de usuario. La plantilla ofrece la ventaja de hospedar ambos tipos de proyecto en un único proyecto de aplicación. Por lo tanto, el proyecto de aplicación se puede compilar y publicar como una sola unidad.
 
-Si usa ASP.NET Core 2.0, asegúrese de que se haya [instalar la plantilla de proyecto Angular actualizado](xref:spa/index#installation). Si tiene ASP.NET Core 2.1, no es necesario instalarlo.
+## <a name="create-a-new-app"></a>Creación de una nueva aplicación
 
-Crear un nuevo proyecto desde un símbolo del sistema mediante el comando `dotnet new angular` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un *mi aplicación nuevo* directorio y cambie a ese directorio:
+Si usa ASP.NET Core 2.0, asegúrese de que ha [instalado la plantilla de proyecto de Angular actualizada](xref:spa/index#installation). Si tiene ASP.NET Core 2.1, no es necesario instalarla.
+
+En un símbolo del sistema, cree un nuevo proyecto con el comando `dotnet new angular` en un directorio vacío. Por ejemplo, los siguientes comandos crean la aplicación en un directorio *my-new-app* y cambian a ese directorio:
 
 ```console
 dotnet new angular -o my-new-app
 cd my-new-app
 ```
 
-Ejecute la aplicación desde Visual Studio o en el núcleo de .NET CLI:
+Ejecute la aplicación desde Visual Studio o la CLI de .NET Core:
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-Abra el archivo *.csproj* archivo y ejecutar la aplicación como normal desde allí.
+Abra el archivo *.csproj* generado y, desde ahí, ejecute la aplicación de la manera habitual.
 
-El proceso de compilación restaura npm dependencias en la primera ejecución, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
+El proceso de compilación restaura las dependencias npm en la primera ejecución, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli/)
 
-Asegúrese de que tiene una variable de entorno denominada `ASPNETCORE_Environment` con un valor de `Development`. En Windows (en PowerShell no solicita), ejecute `SET ASPNETCORE_Environment=Development`. En Linux o Mac OS, ejecute `export ASPNETCORE_Environment=Development`.
+Asegúrese de tener una variable de entorno denominada `ASPNETCORE_Environment` con un valor de `Development`. En Windows (en los avisos que no son de PowerShell), ejecute `SET ASPNETCORE_Environment=Development`. En Linux o macOS, ejecute `export ASPNETCORE_Environment=Development`.
 
-Ejecutar [dotnet compilación](/dotnet/core/tools/dotnet-build) para comprobar la aplicación se compila correctamente. En la primera ejecución, el proceso de compilación restaura las dependencias de npm, que pueden tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
+Ejecute [dotnet build](/dotnet/core/tools/dotnet-build) para comprobar que la aplicación se compila correctamente. En la primera ejecución, el proceso de compilación restaura las dependencias de npm, lo que puede tardar varios minutos. Las compilaciones posteriores son mucho más rápidas.
 
-Ejecutar [dotnet ejecutar](/dotnet/core/tools/dotnet-run) para iniciar la aplicación. Se registra un mensaje similar al siguiente:
+Ejecute [dotnet run](/dotnet/core/tools/dotnet-run) para iniciar la aplicación. Se registra un mensaje similar al siguiente:
 
 ```console
 Now listening on: http://localhost:<port>
@@ -59,33 +65,33 @@ Now listening on: http://localhost:<port>
 
 Vaya a esta dirección URL en un explorador.
 
-La aplicación se inicia una instancia del servidor de CLI Angular en segundo plano. Se registra un mensaje similar al siguiente: <em>NG Live desarrollo Server está escuchando en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt; otherport&gt; /</em>  . Pasar por alto este mensaje&mdash;tiene <strong>no</strong> la dirección URL de la aplicación de ASP.NET Core y la CLI Angular combinada.
+La aplicación inicia en segundo plano una instancia del servidor de la CLI de Angular. Se registra un mensaje similar al siguiente: *El servidor de desarrollo de NG Live escucha en localhost:&lt;otherport&gt;, abra el explorador en http://localhost:&lt;otherport&gt;/*. Omita este mensaje, no **es** la dirección URL de la aplicación combinada de ASP.NET Core y la CLI de Angular.
 
 ---
 
-La plantilla de proyecto crea una aplicación de ASP.NET Core y una aplicación Angular. La aplicación de ASP.NET Core está pensada para usarse para el acceso a datos, la autorización y otros problemas relativos a servidor. La aplicación Angular, que reside en el *ClientApp* subdirectorio, está diseñada para utilizarse para todos los problemas de la interfaz de usuario.
+La plantilla de proyecto crea una aplicación ASP.NET Core y una aplicación de Angular. El uso previsto de la aplicación ASP.NET Core es el acceso a los datos, la autorización y otros problemas relativos al servidor. Por otro lado, la aplicación de Angular, que reside en el subdirectorio *ClientApp* está destinada a todos los problemas relacionados con la interfaz de usuario.
 
-## <a name="add-pages-images-styles-modules-etc"></a>Agregar páginas, imágenes, estilos, módulos, etcetera.
+## <a name="add-pages-images-styles-modules-etc"></a>Adición de páginas, imágenes, estilos, módulos, etc.
 
-El *ClientApp* directorio contiene una aplicación de CLI Angular estándar. Vea el oficial [documentación Angular](https://github.com/angular/angular-cli/wiki) para obtener más información.
+El directorio *ClientApp* contiene una aplicación estándar de la CLI de Angular. Consulte la [documentación de Angular](https://github.com/angular/angular-cli/wiki) para más información.
 
-Existen pequeñas diferencias entre la aplicación Angular creadas con esta plantilla y creado CLI Angular (a través de `ng new`); sin embargo, las capacidades de la aplicación no se modifican. La aplicación creada por la plantilla contiene un [arranque](https://getbootstrap.com/)-según el diseño y ver un ejemplo de enrutamiento básico.
+Existen pequeñas diferencias entre la aplicación de Angular creada con esta plantilla y la creada con la propia CLI de Angular (mediante `ng new`); sin embargo, las funcionalidades de la aplicación permanecen sin cambios. La aplicación creada con la plantilla contiene un diseño basado en [arranque](https://getbootstrap.com/) y un ejemplo de enrutamiento básico.
 
-## <a name="run-ng-commands"></a>Ejecutar comandos ng
+## <a name="run-ng-commands"></a>Ejecución de comandos ng
 
-En un símbolo del sistema, cambie a la *ClientApp* subdirectorio:
+En un símbolo del sistema, cambie al subdirectorio *ClientApp*:
 
 ```console
 cd ClientApp
 ```
 
-Si tiene la `ng` herramienta instalada global, puede ejecutar cualquiera de sus comandos. Por ejemplo, puede ejecutar `ng lint`, `ng test`, o cualquiera de los demás [comandos de CLI Angular](https://github.com/angular/angular-cli/wiki#additional-commands). No es necesario para ejecutar `ng serve` sin embargo, dado que la aplicación de ASP.NET Core ocupa que sirve al servidor y de cliente partes de la aplicación. Internamente, utiliza `ng serve` en desarrollo.
+Si tiene instalada la herramienta `ng` globalmente, puede ejecutar cualquiera de sus comandos. Por ejemplo, puede ejecutar `ng lint`, `ng test`, o cualquiera de los otros [comandos de la CLI de Angular](https://github.com/angular/angular-cli/wiki#additional-commands). Si bien, no es necesario ejecutar `ng serve`, dado que la aplicación ASP.NET Core se ocupa de atender las partes del lado cliente y servidor de la aplicación. Internamente, usa `ng serve` en el desarrollo.
 
-Si no tiene la `ng` herramienta instalada, ejecute `npm run ng` en su lugar. Por ejemplo, puede ejecutar `npm run ng lint` o `npm run ng test`.
+Si no tiene instalada la herramienta `ng`, ejecute en su lugar `npm run ng`. Por ejemplo, puede ejecutar `npm run ng lint` o `npm run ng test`.
 
 ## <a name="install-npm-packages"></a>Instalar paquetes de npm
 
-Para instalar paquetes de npm de otro fabricante, utilice un símbolo del sistema en el *ClientApp* subdirectorio. Por ejemplo:
+Para instalar paquetes de npm de otro fabricante, use un símbolo del sistema en el subdirectorio *ClientApp*. Por ejemplo:
 
 ```console
 cd ClientApp
@@ -94,19 +100,19 @@ npm install --save <package_name>
 
 ## <a name="publish-and-deploy"></a>Publicación e implementación
 
-En el desarrollo, la aplicación se ejecuta en modo optimizado para comodidad del desarrollador. Por ejemplo, agrupaciones de JavaScript contienen asignaciones de origen (de modo que durante la depuración, puede ver el código original de TypeScript). La aplicación inspecciona los cambios de archivo de TypeScript, HTML y CSS en el disco y vuelve a compilar automáticamente y vuelve a cargar cuando ve cambiar esos archivos.
+En el desarrollo, la aplicación se ejecuta en modo optimizado para comodidad del desarrollador. Por ejemplo, las agrupaciones de JavaScript incluyen asignaciones de origen (de modo que, durante la depuración, puede ver el código original de TypeScript). La aplicación inspecciona los cambios en los archivos de TypeScript, HTML y CSS en el disco y, automáticamente, realiza una nueva compilación y recarga cuando observa que esos archivos han cambiado.
 
-En producción, servir una versión de la aplicación que está optimizada para el rendimiento. Esto se configura para que se producen automáticamente. Cuando se publica, la configuración de compilación emite una reducida, de anticipado (AoT) compila compilación del código de cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere Node.js esté instalado en el servidor (salvo que haya habilitado [procesamiento previo de servidor](#server-side-rendering)).
+En producción, use una versión de la aplicación que esté optimizada para el rendimiento. Esto se configura para que tenga lugar automáticamente. Al publicar, la configuración de compilación emite una compilación Ahead Of Time (AoT) reducida del código del lado cliente. A diferencia de la compilación de desarrollo, la compilación de producción no requiere la instalación de Node.js en el servidor (a no ser que haya habilitado la [representación previa del lado servidor](#server-side-rendering)).
 
-Puede usar estándar [métodos de implementación y hospedaje de ASP.NET Core](xref:host-and-deploy/index).
+Puede usar [métodos de implementación y hospedaje de ASP.NET Core](xref:host-and-deploy/index) estándar.
 
-## <a name="run-ng-serve-independently"></a>Ejecutar de forma independiente "ng Server"
+## <a name="run-ng-serve-independently"></a>Ejecución de "ng serve" de manera independiente
 
-El proyecto está configurado para iniciar su propia instancia del servidor de CLI Angular en segundo plano cuando la aplicación ASP.NET Core se inicia en modo de desarrollo. Esto resulta útil porque no tiene que ejecutar manualmente un servidor independiente.
+El proyecto está configurado para iniciar su propia instancia del servidor de CLI de Angular en segundo plano cuando la aplicación ASP.NET Core se inicia en modo de desarrollo. Esto resulta útil porque no tiene que ejecutar manualmente un servidor independiente.
 
-Hay un inconveniente de este programa de instalación de forma predeterminada. Cada vez que modifique el código de C# y su aplicación necesita que se reinicie, de ASP.NET Core se reinicia el servidor de CLI Angular. Se requiere alrededor de 10 segundos para iniciar copia de seguridad. Si está realizando frecuentes modificaciones del código de C# y no desea esperar a CLI Angular reiniciarlo, ejecute la CLI Angular servidor externamente, independientemente del proceso de ASP.NET Core. Para ello:
+Sin embargo, esta configuración predeterminada tiene un inconveniente. Cada vez que modifica el código de C# y la aplicación ASP.NET Core debe reiniciarse, el servidor de CLI de Angular se reinicia. Se necesitan unos 10 segundos para iniciar la copia de seguridad. Sin realiza frecuentes modificaciones en el código de C# y no quiere esperar a que se reinicie la CLI de Angular, ejecute el servidor de la CLI de Angular externamente, con independencia del proceso de ASP.NET Core. Para ello:
 
-1. En un símbolo del sistema, cambie a la *ClientApp* subdirectorio e inicie el servidor de desarrollo de CLI Angular:
+1. En un símbolo del sistema, cambie al subdirectorio *ClientApp* e inicie el servidor de desarrollo de la CLI Angular:
 
     ```console
     cd ClientApp
@@ -114,64 +120,64 @@ Hay un inconveniente de este programa de instalación de forma predeterminada. C
     ```
 
     > [!IMPORTANT]
-    > Use `npm start` para iniciar el servidor de desarrollo de CLI Angular, no `ng serve`, de modo que la configuración de *package.json* se respeta. Para pasar parámetros adicionales al servidor CLI Angular, agréguelos a la correspondiente `scripts` de línea en su *package.json* archivo.
+    > Use `npm start` para iniciar el servidor de desarrollo de la CLI de Angular, no `ng serve`, de modo que la configuración de *package.json* se respete. Para pasar parámetros adicionales al servidor de la CLI de Angular, agréguelos a la línea de `scripts` correspondiente de su archivo *package.json*.
 
-2. Modificar la aplicación de ASP.NET Core para usar la instancia de CLI Angular externo en lugar de iniciar una de sus propias. En su *inicio* clase, reemplace el `spa.UseAngularCliServer` invocación con lo siguiente:
+2. Modifique la aplicación ASP.NET Core para usar la instancia externa de la CLI de Angular en lugar de iniciar una de las suyas. En la clase *Startup*, reemplace la invocación de `spa.UseAngularCliServer` por lo siguiente:
 
     ```csharp
     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
     ```
 
-Al iniciar la aplicación de ASP.NET Core, no ejecutar un servidor de CLI Angular. La instancia que iniciarse de forma manual se usa en su lugar. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no está esperando Angular CLI para volver a generar la aplicación de cliente cada vez.
+Cuando inicie la aplicación ASP.NET Core, no se iniciará un servidor de la CLI de Angular. En su lugar, se usa la instancia que inició manualmente. Esto le permite iniciar y reiniciar con mayor rapidez. Ya no tiene que esperar a que la CLI de Angular vuelva a compilar la aplicación cliente una y otra vez.
 
 ## <a name="server-side-rendering"></a>Representación del lado servidor
 
-Como una característica de rendimiento, puede elegir para un procesamiento previo de la aplicación Angular en el servidor, así como la ejecución en el cliente. Esto significa que los exploradores reciban marcado HTML que representa la interfaz de usuario inicial de la aplicación, por lo que muestra incluso antes de descargar y ejecutar los paquetes de JavaScript. La mayoría de la implementación de este provienen de una característica Angular denominada [Angular Universal](https://universal.angular.io/).
+Como característica de rendimiento, puede elegir representar previamente su aplicación de Angular en el servidor, así como ejecutarla en el cliente. Esto significa que los exploradores reciben marcado HTML que representa la interfaz de usuario inicial de la aplicación, de modo que lo muestran incluso antes de descargar y ejecutar las agrupaciones de JavaScript. La mayor parte de la implementación de esta representación procede de una característica de Angular llamada [Angular Universal](https://universal.angular.io/).
 
 > [!TIP]
-> Habilitar la representación del lado servidor (SSR) presenta a una serie de complicaciones adicionales tanto durante el desarrollo e implementación. Lectura [desventajas del SSR](#drawbacks-of-ssr) para determinar si SSR es una buena opción para sus requisitos.
+> Habilitar la representación del lado servidor (SSR) conlleva una serie de complicaciones adicionales tanto durante el desarrollo como durante la implementación. La las [desventajas de SSR](#drawbacks-of-ssr) para determinar si SSR es una buena opción para sus requisitos.
 
-Para habilitar SSR, debe realizar varias adiciones al proyecto.
+Para habilitar SSR, deberá realizar varias adiciones al proyecto.
 
-En el *inicio* (clase), *después* la línea que configura `spa.Options.SourcePath`, y *antes de* la llamada a `UseAngularCliServer` o `UseProxyToSpaDevelopmentServer`, agregue lo siguiente:
+En la clase *Startup*, *después de* la línea que configura `spa.Options.SourcePath`, y *antes de* la llamada a `UseAngularCliServer` o `UseProxyToSpaDevelopmentServer`, agregue el siguiente código:
 
 [!code-csharp[](sample/AngularServerSideRendering/Startup.cs?name=snippet_Call_UseSpa&highlight=5-12)]
 
-En el modo de desarrollo, este código intentará crear el paquete SSR mediante la ejecución de la secuencia de comandos `build:ssr`, que se define en *ClientApp\package.json*. Esto genera una aplicación Angular denominada `ssr`, que aún no se ha definido. 
+En modo de desarrollo, este código intenta compilar la agrupación de SSR mediante la ejecución del script `build:ssr`, que se define en *ClientApp\package.json*. Esta acción compila una aplicación de Angular denominada `ssr`, que aún no se ha definido.
 
-Al final de la `apps` la matriz en *ClientApp/.angular-cli.json*, definir una aplicación adicional con el nombre `ssr`. Utilice las siguientes opciones:
+Al final de la matriz `apps` en *ClientApp/.angular-cli.json*, defina una aplicación adicional con el nombre `ssr`. Use las siguientes opciones:
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/.angular-cli.json?range=24-41)]
 
-Esta nueva configuración de la aplicación habilitada para SSR requiere dos archivos más: *tsconfig.server.json* y *main.server.ts*. El *tsconfig.server.json* archivo especifica las opciones de compilación de TypeScript. El *main.server.ts* archivo actúa como el punto de entrada de código durante SSR.
+Esta nueva configuración de aplicación habilitada para SSR requiere dos archivos más: *tsconfig.server.json* y *main.server.ts*. El archivo *tsconfig.server.json* especifica las opciones de compilación de TypeScript. El archivo *main.server.ts* sirve de punto de entrada de código durante SSR.
 
-Agregar un nuevo archivo denominado *tsconfig.server.json* en *ClientApp/src* (junto con las existentes *tsconfig.app.json*), que contiene lo siguiente:
+Agregue un nuevo archivo llamado *tsconfig.server.json* dentro de *ClientApp/src* (al lado del archivo *tsconfig.app.json* existente), que contenga lo siguiente:
 
 [!code-json[](sample/AngularServerSideRendering/ClientApp/src/tsconfig.server.json)]
 
-Este archivo configura el compilador de AoT del Angular para buscar un módulo denominado `app.server.module`. Agregar esto mediante la creación de un nuevo archivo en *ClientApp/src/app/app.server.module.ts* (junto con las existentes *app.module.ts*) que contiene lo siguiente: 
+Este archivo configura el compilador AoT de Angular para buscar un módulo llamado `app.server.module`. Para agregar el archivo, cree un nuevo archivo en *ClientApp/src/app/app.server.module.ts* (al lado del archivo *app.module.ts* existente), que contenga lo siguiente:
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/app/app.server.module.ts)]
 
-Este módulo se hereda de su cliente `app.module` y define qué módulos angulares adicionales están disponibles durante SSR.
+Este módulo hereda del objeto `app.module` del lado cliente y define qué módulos adicionales de Angular están disponibles durante SSR.
 
-Recuerde que el nuevo `ssr` entrada en *.angular cli.json* hace referencia a un archivo de punto de entrada denominado *main.server.ts*. Aún no ha agregado ese archivo y ahora es el momento de hacerlo. Crear un nuevo archivo en *ClientApp/src/main.server.ts* (junto con las existentes *main.ts*), que contiene lo siguiente:
+Recuerde que la nueva entrada `ssr` en *.angular-cli.json* hacía referencia a un archivo de punto de entrada llamado *main.server.ts*. Ese archivo no se ha agregado aún, y ahora es el momento de hacerlo. Cree un nuevo archivo en *ClientApp/src/main.server.ts* (junto al archivo *main.ts* existente), que contenga lo siguiente:
 
 [!code-typescript[](sample/AngularServerSideRendering/ClientApp/src/main.server.ts)]
 
-Código de este archivo es lo que ejecuta ASP.NET Core para cada solicitud, cuando se ejecuta el `UseSpaPrerendering` middleware que ha agregado a la *inicio* clase. Abordan la recepción `params` desde el código de .NET (por ejemplo, la dirección URL que se solicita) y realizar llamadas a las API de SSR angulares para obtener el HTML resultante. 
+El código de este archivo es lo que ejecuta ASP.NET Core en cada solicitud cuando ejecuta el middleware `UseSpaPrerendering` que agregó a la clase *Startup*. Se encarga de recibir `params` del código de .NET (como la dirección URL que se solicita), y realiza llamadas a las API de SSR de Angular para obtener el HTML resultante.
 
-Estrictamente-general, esto es suficiente para habilitar SSR en modo de desarrollo. Es fundamental realizar un cambio final para que la aplicación funciona correctamente cuando se publica. En main de la aplicación *.csproj* de archivos, establezca la `BuildServerSideRenderer` valor de propiedad `true`:
+Estrictamente hablando, esto es suficiente para habilitar SSR en modo de desarrollo. Para que la aplicación funcione correctamente cuando se publica, es fundamental realizar un cambio final. En el archivo *.csproj* principal de la aplicación, establezca el valor de propiedad `BuildServerSideRenderer` en `true`:
 
 [!code-xml[](sample/AngularServerSideRendering/AngularServerSideRendering.csproj?name=snippet_EnableBuildServerSideRenderer)]
 
-Esto configura el proceso de compilación para ejecutar `build:ssr` durante la publicación e implementar los archivos SSR en el servidor. Si no habilita esta, SSR produce un error en producción.
+Este valor configura el proceso de compilación para ejecutar `build:ssr` durante la publicación e implementar los archivos SSR en el servidor. Si no se habilita, SSR produce un error en producción.
 
-Cuando la aplicación se ejecuta en modo de desarrollo o de producción, el código Angular previamente representa como HTML en el servidor. El código de cliente se ejecuta con normalidad.
+Cuando la aplicación se ejecuta en modo de desarrollo o de producción, el código de Angular se representa previamente como HTML en el servidor. El código del lado cliente se ejecuta con normalidad.
 
-### <a name="pass-data-from-net-code-into-typescript-code"></a>Pasar datos desde el código de .NET en código TypeScript
+### <a name="pass-data-from-net-code-into-typescript-code"></a>Paso de datos del código de .NET al código de TypeScript
 
-Durante la SSR, puede pasar datos de cada solicitud de la aplicación de ASP.NET Core en su aplicación Angular. Por ejemplo, podría pasar información de la cookie o algo lee de una base de datos. Para ello, edite la *inicio* clase. En la devolución de llamada para `UseSpaPrerendering`, establezca un valor para `options.SupplyData` como el siguiente:
+Durante SSR, quizás quiera puede pasar datos por solicitud de la aplicación ASP.NET Core a la aplicación de Angular. Por ejemplo, podría pasar información de cookies o algo que se haya leído de una base de datos. Para ello, edite la clase *Startup*. En la devolución de llamada de `UseSpaPrerendering`, establezca un valor para `options.SupplyData`, como el siguiente:
 
 ```csharp
 options.SupplyData = (context, data) =>
@@ -181,17 +187,17 @@ options.SupplyData = (context, data) =>
 };
 ```
 
-El `SupplyData` permite de devolución de llamada se pasan arbitrarios, cada solicitud, datos JSON serializable (por ejemplo, cadenas, valores booleanos o números). Su *main.server.ts* código recibe como `params.data`. Por ejemplo, el ejemplo de código anterior pasa un valor booleano como `params.data.isHttpsRequest` en el `createServerRenderer` devolución de llamada. Se puede pasar a otras partes de la aplicación en cualquier modo admitido por Angular. Por ejemplo, vea cómo *main.server.ts* pasa el `BASE_URL` valor a cualquier componente cuyo constructor se declara para recibirlo.
+La devolución de llamada `SupplyData` permite pasar datos arbitrarios y por solicitud que se pueden serializar con JSON (por ejemplo, cadenas, valores booleanos o números). El código *main.server.ts* la recibe como `params.data`. Por ejemplo, el ejemplo de código anterior pasa un valor booleano como `params.data.isHttpsRequest` a la devolución de llamada `createServerRenderer`. Se puede pasar a otras partes de la aplicación en cualquier modo admitido por Angular. Por ejemplo, vea cómo *main.server.ts* pasa el valor `BASE_URL` a cualquier componente cuyo constructor se declara para recibirlo.
 
 ### <a name="drawbacks-of-ssr"></a>Desventajas de SSR
 
-No todas las aplicaciones se benefician SSR. La principal ventaja es rendimiento percibida. Los visitantes que llegan a la aplicación mediante una conexión de red lenta o en los dispositivos móviles lenta verán la interfaz de usuario inicial rápidamente, incluso si se tarda un tiempo para capturar o analizar las agrupaciones de JavaScript. Sin embargo, muchos SPAs se utilizan principalmente a través de redes de empresa rápida, interno en equipos rápidos donde la aplicación aparece casi al instante.
+No todas las aplicaciones se benefician de SSR. La principal ventaja es el rendimiento percibido. Los visitantes que llegan a la aplicación a través de una conexión de red lenta o en dispositivos móviles lentos verán la interfaz de usuario inicial rápidamente, incluso si tarda un rato en capturar o analizar las agrupaciones de JavaScript. Sin embargo, muchas SPA se utilizan principalmente a través de redes de empresa internas rápidas en equipos rápidos donde la aplicación aparece casi al instante.
 
-Al mismo tiempo, hay unas desventajas importantes para habilitar SSR. Agrega complejidad al proceso de desarrollo. El código debe ejecutarse en dos entornos diferentes: de cliente y servidor (en un entorno de Node.js se invoca desde ASP.NET Core). Hay algunas cuestiones a tener en cuenta:
+Al mismo tiempo, la habilitación de SSR conlleva importantes desventajas: Agrega complejidad al proceso de desarrollo. El código se debe ejecutar en dos entornos diferentes: cliente y servidor (en un entorno de Node.js se invoca desde ASP.NET Core). Hay algunos aspectos a tener en cuenta:
 
-* SSR requiere una instalación de Node.js en los servidores de producción. Esto sucede automáticamente para algunos escenarios de implementación, como servicios de aplicaciones de Azure, pero no para otros, como Azure Service Fabric.
-* Habilitar la `BuildServerSideRenderer` crear causas de marca su *node_modules* directory para publicar. Esta carpeta contiene archivos de 20.000, lo que aumenta el tiempo de implementación.
-* Para ejecutar el código en un entorno de Node.js, no puede confiar en la existencia de explorador JavaScript APIs específicas como `window` o `localStorage`. Si el código (o alguna biblioteca de terceros que hacen referencia a ella) intenta utilizar estas API, obtendrá un error durante la SSR. Por ejemplo, no use jQuery porque hace referencia a las API específicas del explorador en muchos lugares. Para evitar errores, debe evitar SSR o evitar API o bibliotecas de explorador específico. Puede ajustar las llamadas a estas API en comprobaciones para asegurarse de que no se invoquen durante SSR. Por ejemplo, use una comprobación como la siguiente en el código de JavaScript o TypeScript:
+* SSR requiere la instalación de Node.js en los servidores de producción. En algunos escenarios de implementación esto se produce automáticamente, como Azure App Services, pero no en otros, como Azure Service Fabric.
+* Al habilitar la marca de compilación `BuildServerSideRenderer`, el directorio *node_modules* se publica. Esta carpeta contiene más de 20 000 archivos, lo que aumenta el tiempo de implementación.
+* Para ejecutar el código en un entorno de Node.js, no puede confiar en la existencia de API de JavaScript específicas del explorador como `window` o `localStorage`. Si el código (o alguna biblioteca de terceros a la que hace referencia) intenta usar estas API, obtendrá un error durante SSR. Por ejemplo, no use jQuery porque hace referencia a API específicas del explorador en muchos lugares. Para evitar errores, no use en la medida de lo posible SSR ni API o bibliotecas específicas del explorador. Puede encapsular las llamadas a estas API en comprobaciones para asegurarse de que no se invoquen durante SSR. Por ejemplo, use una comprobación como la siguiente en código de JavaScript o TypeScript:
 
     ```javascript
     if (typeof window !== 'undefined') {
