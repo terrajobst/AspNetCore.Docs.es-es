@@ -10,17 +10,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: dc1724e8a78c25d3697d14ad784ce853737681f2
-ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
+ms.openlocfilehash: 92a7000f4f8e4c2097065cb530fe106ef0e98545
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688632"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Compatibilidad de la UE General datos protección normativa (GDPR) en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-ASP.NET Core proporciona las API y plantillas para ayudar a cumplir algunos de los [normativa General de protección de datos (GDPR) de UE](https://www.eugdpr.org/) requisitos:
+ASP.NET Core proporciona las API y plantillas para ayudar a cumplir algunos de los [normativa General de protección de datos (GDPR) de la UE](https://www.eugdpr.org/) requisitos:
 
 * Las plantillas de proyecto incluyen puntos de extensión y marcado auxiliar que puede reemplazar por su privacidad y la directiva de uso de cookies.
 * Una característica de consentimiento de cookie permite pedir consentimiento (y realizar un seguimiento) de los usuarios para almacenar la información personal. Si un usuario no ha dado su consentimiento para la recopilación de datos y la aplicación está configurada con [CheckConsentNeeded](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions.checkconsentneeded?view=aspnetcore-2.1#Microsoft_AspNetCore_Builder_CookiePolicyOptions_CheckConsentNeeded) a `true`, las cookies no sean esenciales no se enviará al explorador.
@@ -38,7 +39,7 @@ Las páginas de Razor y MVC proyectos creados con las plantillas de proyecto inc
 
 * [CookiePolicyOptions](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyoptions?view=aspnetcore-2.0) y [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_CookiePolicyAppBuilderExtensions_UseCookiePolicy_Microsoft_AspNetCore_Builder_IApplicationBuilder_) se establecen en `Startup`.
 * El *_CookieConsentPartial.cshtml* [vista parcial](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper).
-* El *Pages/Privacy.cshtml* o *Home/rivacy.cshtml* vista proporciona una página de detalle de la directiva de privacidad de su sitio. El *_CookieConsentPartial.cshtml* archivo genera un vínculo a la página de privacidad.
+* El *Pages/Privacy.cshtml* o *Home/Privacy.cshtml* vista proporciona una página de detalle de la directiva de privacidad de su sitio. El *_CookieConsentPartial.cshtml* archivo genera un vínculo a la página de privacidad.
 * Para las aplicaciones creadas con cuentas de usuario individuales, la página de administración proporciona vínculos para descargar y eliminar [personal del usuario](#pd).
 
 ### <a name="cookiepolicyoptions-and-usecookiepolicy"></a>CookiePolicyOptions y UseCookiePolicy

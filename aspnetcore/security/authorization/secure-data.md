@@ -9,11 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: e42f299efcae7c6a0e3d20b157c591eed98c99d0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 36475776966cfb0cb3bb40477798f6e24df9725d
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 05/31/2018
+ms.locfileid: "34688457"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -303,9 +304,21 @@ Crear un contacto en el explorador del administrador. Copie la dirección URL pa
   * Crear la aplicación con **cuentas de usuario individuales**.
   * Asígnele el nombre "ContactManager" para el espacio de nombres coincide con el espacio de nombres utilizado en el ejemplo.
 
+::: moniker range=">= aspnetcore-2.1"
+
+  ```console
+  dotnet new webapp -o ContactManager -au Individual -uld
+  ```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
   ```console
   dotnet new razor -o ContactManager -au Individual -uld
   ```
+
+::: moniker-end
 
   * `-uld` Especifica LocalDB en lugar de SQLite
 
