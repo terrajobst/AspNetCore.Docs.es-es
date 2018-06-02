@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 7527d3c075fd845ac804d4cfd56469a0679ed7e8
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: a43b7bbaf1f90d3373b3846bc3f4f32be6b80bd4
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729615"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identidad de scaffolding en proyectos de ASP.NET Core
 
@@ -26,7 +27,7 @@ Las aplicaciones que **no** incluyen autenticación puede aplicar el scaffolder 
 
 Aunque el scaffolder genera la mayoría del código necesario, tendrá que actualizar el proyecto para completar el proceso. Este documento explican los pasos necesarios para completar una actualización de la técnica scaffolding de identidad.
 
-Cuando se ejecuta el scaffolder de identidad, un *ScaffoldingReadme.txt* archivo se crea en el directorio del proyecto. El *ScaffoldingReadme.txt* archivo contiene instrucciones generales en lo que se necesita para completar la actualización de la técnica scaffolding de identidad. Este documento contiene instrucciones más completas que la lectura del *ScaffoldingReadme.txt* archivo.
+Cuando se ejecuta el scaffolder de identidad, un *ScaffoldingReadme.txt* archivo se crea en el directorio del proyecto. El *ScaffoldingReadme.txt* archivo contiene instrucciones generales sobre lo que se necesita para completar la actualización de la técnica scaffolding de identidad. Este documento contiene instrucciones más completas que la lectura del *ScaffoldingReadme.txt* archivo.
 
 Se recomienda utilizar un sistema de control de código fuente que se muestran las diferencias de archivo y le permite revertir los cambios. Inspeccionar los cambios después de ejecutar al scaffolder de identidad.
 
@@ -47,7 +48,7 @@ Agregue las siguientes llamadas resaltadas a la `Startup` clase:
 <!--
 set projNam=RPnoAuth
 set projType=razor
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -76,12 +77,13 @@ Opcional: Agregar el inicio de sesión parcial (`_LoginPartial`) para el archivo
 
 [!code-html[Main](scaffold-identity/sample/_Layout.cshtml?highlight=37)]
 
-## <a name="scaffold-identity-into-a-razor-project-with-individual-authorization"></a>Identidad de scaffolding en un proyecto de Razor con autorización individual
+## <a name="scaffold-identity-into-a-razor-project-with-authorization"></a>Identidad de scaffolding en un proyecto de Razor con autorización
 
 <!--
-dotnet new razor -au Individual -o RPauth
+Use >=2.1: dotnet new webapp -au Individual -o RPauth
+Use = 2.0: dotnet new razor -au Individual -o RPauth
 cd RPauth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 dotnet aspnet-codegenerator identity -dc RPauth.Data.ApplicationDbContext --files Account.Register
 -->
@@ -94,7 +96,7 @@ Algunas opciones de identidad se configuran en *Areas/Identity/IdentityHostingSt
 <!--
 set projNam=MvcNoAuth
 set projType=mvc
-set version=2.1.0-rc1-final
+set version=2.1.0
 
 dotnet new %projType% -o %projNam%
 cd %projNam%
@@ -123,12 +125,12 @@ Llame a [UseAuthentication](https://docs.microsoft.com/en-us/dotnet/api/microsof
 
 [!INCLUDE[](~/includes/scaffold-identity/hsts.md)]
 
-## <a name="scaffold-identity-into-an-mvc-project-with-individual-authorization"></a>Identidad de scaffolding en un proyecto MVC con autorización individual
+## <a name="scaffold-identity-into-an-mvc-project-with-authorization"></a>Identidad de scaffolding en un proyecto MVC con autorización
 
 <!--
 dotnet new mvc -au Individual -o MvcAuth
 cd MvcAuth
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design -v "2.1.0-rc1-final"
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
 dotnet restore
 dotnet aspnet-codegenerator identity -dc MvcAuth.Data.ApplicationDbContext --files Account.Register
 -->

@@ -1,5 +1,5 @@
 ---
-title: Exigir HTTPS en un núcleo de ASP.NET
+title: Exigir HTTPS en el núcleo de ASP.NET
 author: rick-anderson
 description: Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET de aplicación web.
 manager: wpickett
@@ -9,52 +9,79 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 0433ddb3bf1ef0074c683903ad4553cd6a0b4741
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: 24ab83192ded381b46fab337a986f51fb22b2227
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34687823"
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729508"
 ---
-# <a name="enforce-https-in-an-aspnet-core"></a>Exigir HTTPS en un núcleo de ASP.NET
+# <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en el núcleo de ASP.NET
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Este documento se muestra cómo:
 
-- Requerir HTTPS para todas las solicitudes.
-- Redirigir todas las solicitudes HTTP a HTTPS.
+* Requerir HTTPS para todas las solicitudes.
+* Redirigir todas las solicitudes HTTP a HTTPS.
 
 > [!WARNING]
-> Hacer **no** usar `RequireHttpsAttribute` en las API Web que reciben información confidencial. `RequireHttpsAttribute` usa códigos de estado HTTP para redirigir exploradores de HTTP a HTTPS. Los clientes de API no pueden entender o siguen las redirecciones de HTTP a HTTPS. Estos clientes pueden enviar información a través de HTTP. Las API Web deben realizar las tareas:
+> Hacer **no** usar [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) en las API Web que reciben información confidencial. `RequireHttpsAttribute` usa códigos de estado HTTP para redirigir exploradores de HTTP a HTTPS. Los clientes de API no pueden entender o siguen las redirecciones de HTTP a HTTPS. Estos clientes pueden enviar información a través de HTTP. Las API Web deben realizar las tareas:
 >
->* No escuchar en HTTP.
->* Cierre la conexión con el código de estado 400 (solicitud incorrecta) y no atender la solicitud.
+> * No escuchar en HTTP.
+> * Cierre la conexión con el código de estado 400 (solicitud incorrecta) y no atender la solicitud.
 
 <a name="require"></a>
 ## <a name="require-https"></a>Requerir HTTPS
 
 ::: moniker range=">= aspnetcore-2.1"
-Se recomienda que todos los núcleos de ASP.NET web aplicaciones de la llamada `UseHttpsRedirection` para redirigir todas las solicitudes HTTP a HTTPS. Si `UseHsts` se llama en la aplicación, debe llamarse antes de `UseHttpsRedirection`.
+
+Se recomienda que todas las aplicaciones web de ASP.NET Core llamará Middleware de redirección de HTTPS ([UseHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpspolicybuilderextensions.usehttpsredirection)) para redirigir todas las solicitudes HTTP a HTTPS.
 
 El código siguiente llama `UseHttpsRedirection` en la `Startup` clase:
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
 
+El código siguiente llama [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) para configurar las opciones de middleware:
 
-El código siguiente:
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=14-99)]
+El código resaltado anterior:
 
-* Conjuntos de `RedirectStatusCode`.
+* Conjuntos de [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode).
 * Establece el puerto HTTPS en 5001.
+
+Los siguientes mecanismos establecen automáticamente el puerto:
+
+* El software intermedio puede detectar los puertos a través de [IServerAddressesFeature](/dotnet/api/microsoft.aspnetcore.hosting.server.features.iserveraddressesfeature) cuando se aplican las condiciones siguientes:
+  - Se utiliza kestrel o HTTP.sys directamente con los puntos de conexión HTTPS (también se aplica a la aplicación se ejecuta con el depurador de código de Visual Studio).
+  - Solo **un puerto HTTPS** se utiliza la aplicación.
+* Se utiliza Visual Studio:
+  - IIS Express tiene habilitados para HTTPS.
+  - *launchSettings.json* establece el `sslPort` de IIS Express.
+
+> [!NOTE]
+> Cuando una aplicación se ejecute detrás de un proxy inverso (por ejemplo, IIS, IIS Express), `IServerAddressesFeature` no está disponible. El puerto debe configurarse manualmente. Cuando el puerto no está configurado, no se redirigen las solicitudes.
+
+El puerto se puede configurar estableciendo el:
+
+* La variable de entorno `ASPNETCORE_HTTPS_PORT`.
+* `http_port` clave de configuración de host (por ejemplo, a través de *hostsettings.json* o un argumento de línea de comandos).
+* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Vea el ejemplo anterior que se muestra cómo establecer el puerto a 5001.
+
+> [!NOTE]
+> El puerto puede configurarse indirectamente estableciendo la dirección URL con el `ASPNETCORE_URLS` variable de entorno. La variable de entorno configura el servidor y, a continuación, el middleware indirectamente detecta el puerto HTTPS a través de `IServerAddressesFeature`.
+
+Si no se establece ningún puerto:
+
+* No se redirigen las solicitudes.
+* El middleware registra una advertencia.
 
 ::: moniker-end
 
-
 ::: moniker range="< aspnetcore-2.1"
 
-El [RequireHttpsAttribute](/dotnet/api/Microsoft.AspNetCore.Mvc.RequireHttpsAttribute) se usa para requerir HTTPS. `[RequireHttpsAttribute]` puede decorar controladores o métodos, o se pueden aplicar globalmente. Para aplicar el atributo global, agregue el código siguiente a `ConfigureServices` en `Startup`:
+El [RequireHttpsAttribute](/dotnet/api/microsoft.aspnetcore.mvc.requirehttpsattribute) se usa para requerir HTTPS. `[RequireHttpsAttribute]` puede decorar controladores o métodos, o se pueden aplicar globalmente. Para aplicar el atributo global, agregue el código siguiente a `ConfigureServices` en `Startup`:
 
 [!code-csharp[](authentication/accconfirm/sample/WebApp1/Startup.cs?name=snippet2&highlight=4-999)]
 
@@ -69,6 +96,7 @@ Requerir HTTPS globalmente (`options.Filters.Add(new RequireHttpsAttribute());`)
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protocolo de seguridad de transporte estrictos de HTTP (HSTS)
 
@@ -76,13 +104,13 @@ Por [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Secur
 
 ASP.NET Core 2.1 o posterior implementa HSTS con el `UseHsts` método de extensión. El código siguiente llama `UseHsts` cuando la aplicación no se encuentra en [modo de desarrollo](xref:fundamentals/environments):
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
 `UseHsts` no es recomendable en el desarrollo porque el encabezado HSTS es alta puede almacenar exploradores. De forma predeterminada, UseHsts excluye la dirección de bucle invertido local.
 
 El código siguiente:
 
-[!code-csharp[sample](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
+[!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet2&highlight=5-12)]
 
 * Establece el parámetro precarga del encabezado de seguridad de transporte Strict. Precarga no es parte de la [especificación RFC HSTS](https://tools.ietf.org/html/rfc6797), pero es compatible con los exploradores web para cargar previamente sitios HSTS en instalación nueva. Para más información, vea [https://hstspreload.org/](https://hstspreload.org/).
 * Permite [includeSubDomain](https://tools.ietf.org/html/rfc6797#section-6.1.2), que aplica la directiva HSTS a subdominios de Host. 
@@ -98,12 +126,12 @@ El código siguiente:
 En el ejemplo anterior se muestra cómo agregar hosts adicionales.
 ::: moniker-end
 
-
 ::: moniker range=">= aspnetcore-2.1"
+
 <a name="https"></a>
 ## <a name="opt-out-of-https-on-project-creation"></a>Desactivación de HTTPS en la creación del proyecto
 
-Habilitan el ASP.NET Core 2.1 y posteriores plantillas de aplicación web (desde Visual Studio o la línea de comandos dotnet) [redirección HTTPS](#require) y [HSTS](#hsts). Para las implementaciones que no requieran HTTPS, puede cancelar voluntariamente la suscripción de HTTPS. Por ejemplo, algunos servicios back-end donde HTTPS se está controlando externamente en el perímetro, mediante HTTPS en cada nodo no es necesario.
+Habilitar las plantillas de aplicación de ASP.NET Core web 2.1 o posterior (en Visual Studio o la línea de comandos dotnet) [redirección HTTPS](#require) y [HSTS](#hsts). Para las implementaciones que no requieran HTTPS, puede cancelar voluntariamente la suscripción de HTTPS. Por ejemplo, algunos servicios back-end donde HTTPS se está controlando externamente en el perímetro, mediante HTTPS en cada nodo no es necesario.
 
 A la cancelación de HTTPS:
 
@@ -126,6 +154,7 @@ dotnet new webapp --no-https
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="how-to-setup-a-developer-certificate-for-docker"></a>Cómo configurar un certificado de desarrollador para Docker
 
 Vea [este problema de GitHub](https://github.com/aspnet/Docs/issues/6199).

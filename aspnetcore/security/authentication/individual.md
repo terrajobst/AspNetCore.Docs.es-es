@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/individual
-ms.openlocfilehash: 40715debb48c0a7121ce84d7843b8517b0973e74
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 699def0133f53b922477ac294f70db41998945ef
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729555"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artículos basados en los proyectos de ASP.NET Core creados con cuentas de usuario individuales
 
@@ -21,11 +22,25 @@ Identidad de ASP.NET Core se incluye en las plantillas de proyecto en Visual Stu
 
 Las plantillas de autenticación están disponibles en .NET Core CLI con `-au Individual`:
 
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new mvc -au Individual
+dotnet new webapi -au Individual
+dotnet new webapp -au Individual
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 ```console
 dotnet new mvc -au Individual
 dotnet new webapi -au Individual
 dotnet new razor -au Individual
 ```
+
+::: moniker-end
 
 Los artículos siguientes muestran cómo usar el código generado en las plantillas de ASP.NET Core que utilizan cuentas de usuario individuales:
 

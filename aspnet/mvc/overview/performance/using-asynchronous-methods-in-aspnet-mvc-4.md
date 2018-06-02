@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: cee5fded4d8005df6054ab921f39882c3e5f21b8
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
+ms.sourcegitcommit: a0b6319c36f41cdce76ea334372f6e14fc66507e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/02/2018
+ms.locfileid: "34729186"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Usar métodos asincrónicos en ASP.NET MVC 4
 ====================
@@ -43,7 +44,7 @@ Esto podría no ser un problema, porque el grupo de subprocesos se puede estable
 
 ## <a name="processing-asynchronous-requests"></a>Procesar solicitudes asincrónicas
 
-En las aplicaciones web que ve un gran número de solicitudes simultáneas en el inicio o que tenga una carga por ráfagas (donde simultaneidad aumenta repentinamente), que realiza estas llamadas al servicio web asincrónica, aumentará la capacidad de respuesta de la aplicación. Una solicitud asincrónica tarda la misma cantidad de tiempo en procesarse que una solicitud sincrónica. Por ejemplo, si una solicitud realiza un servicio web llamada requiere dos segundos en completarse, la solicitud tardará dos segundos si se realiza de forma sincrónica o asincrónica. Sin embargo, durante una llamada asincrónica, no se bloquea un subproceso de responder a otras solicitudes mientras espera a que la primera solicitud que se complete. Por lo tanto, solicitudes asincrónicas evita el crecimiento del grupo de puesta en cola y el subproceso de solicitud cuando hay muchas solicitudes simultáneas que invocan operaciones de ejecución prolongada.
+En las aplicaciones web que aparece un gran número de solicitudes simultáneas en el inicio o que tenga una carga por ráfagas (donde simultaneidad aumenta repentinamente), que realiza estas llamadas al servicio web asincrónica, aumentará la capacidad de respuesta de la aplicación. Una solicitud asincrónica tarda la misma cantidad de tiempo en procesarse que una solicitud sincrónica. Por ejemplo, si una solicitud realiza un servicio web llamada requiere dos segundos en completarse, la solicitud tardará dos segundos si se realiza de forma sincrónica o asincrónica. Sin embargo, durante una llamada asincrónica, no se bloquea un subproceso de responder a otras solicitudes mientras espera a que la primera solicitud que se complete. Por lo tanto, solicitudes asincrónicas evita el crecimiento del grupo de puesta en cola y el subproceso de solicitud cuando hay muchas solicitudes simultáneas que invocan operaciones de ejecución prolongada.
 
 ## <a id="ChoosingSyncVasync"></a>  Elegir los métodos de acción sincrónicos o asincrónicos
 
@@ -61,7 +62,7 @@ En general, utilice los métodos sincrónicos para las siguientes condiciones:
 - Las operaciones están relacionadas con la red o enlazadas a E/s en lugar de límite de CPU.
 - El paralelismo es más importante que la simplicidad de código.
 - Desea proporcionar un mecanismo que permite a los usuarios cancelar una solicitud de ejecución prolongada.
-- Cuando la ventaja de cambiar subprocesos out compensa el costo de cambio de contexto. En general, debe crear un método asincrónico si espera a que el método sincrónico en el subproceso de solicitud ASP.NET mientras no realiza ningún trabajo. Al realizar la llamada asincrónica, el subproceso de solicitud ASP.NET está detenido no realiza ningún trabajo mientras se espera para que la solicitud de servicio web que se complete.
+- Cuando la ventaja de cambio de subprocesos supera con creces el costo de cambio de contexto. En general, debe crear un método asincrónico si espera a que el método sincrónico en el subproceso de solicitud ASP.NET mientras no realiza ningún trabajo. Al realizar la llamada asincrónica, el subproceso de solicitud ASP.NET está detenido no realiza ningún trabajo mientras se espera para que la solicitud de servicio web que se complete.
 - Las pruebas muestran que las operaciones bloqueo son un cuello de botella en el rendimiento del sitio y que IIS puede prestar servicio a más solicitudes mediante el uso de métodos asincrónicos para estas llamadas que causan bloqueos.
 
   El ejemplo descargable muestra cómo utilizar métodos de acción asincrónicos de forma eficaz. El ejemplo proporcionado se diseñó para proporcionar una sencilla demostración de la programación asincrónica en ASP.NET MVC 4 mediante .NET 4.5. El ejemplo no pretende ser una arquitectura de referencia para la programación asincrónica en ASP.NET MVC. El programa de ejemplo llama [ASP.NET Web API](../../../web-api/index.md) métodos que a su vez llaman a [Task.Delay](https://msdn.microsoft.com/library/hh139096(VS.110).aspx) para simular llamadas al servicio web de ejecución prolongada. La mayoría de las aplicaciones de producción no mostrará ventajas tan evidentes del uso de métodos de acción asincrónicos.   
@@ -89,7 +90,7 @@ El código siguiente muestra el `GetGizmos` método del artículo tiene un servi
 El `GizmoService GetGizmos` método pasa un URI a un servicio ASP.NET Web API HTTP que devuelve una lista de datos de gizmos. El *WebAPIpgw* proyecto contiene la implementación de la API Web `gizmos, widget` y `product` controladores.  
 La siguiente imagen muestra la vista chismes desde el proyecto de ejemplo.
 
-![Gizmos](using-asynchronous-methods-in-aspnet-mvc-4/_static/image1.png)
+![Chismes](using-asynchronous-methods-in-aspnet-mvc-4/_static/image1.png)
 
 ## <a id="CreatingAsynchGizmos"></a>  Crear un método de acción asincrónico chismes
 
@@ -169,7 +170,7 @@ Para obtener los beneficios derivados de una aplicación web asincrónica, deber
 
     - Abra el Administrador de IIS y navegue hasta el panel de grupos de aplicaciones.
     - Haga clic con el botón secundario en el grupo de aplicaciones de destino y seleccione **configuración avanzada**.  
-        ![advanced](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
+        ![Avanzadas](using-asynchronous-methods-in-aspnet-mvc-4/_static/image4.png)
     - En el **configuración avanzada** cuadro de diálogo, cambie *longitud de cola* de 1000 a 5000.  
         ![Longitud de cola](using-asynchronous-methods-in-aspnet-mvc-4/_static/image5.png)  
   
