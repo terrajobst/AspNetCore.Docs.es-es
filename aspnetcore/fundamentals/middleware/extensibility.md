@@ -10,11 +10,12 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility
-ms.openlocfilehash: 76ba257abfb11e0c2950b974f837c6ae5818a6a1
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 8cec5b3b498f5a23463d8c3cd5901e14f22f6eab
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729121"
 ---
 # <a name="factory-based-middleware-activation-in-aspnet-core"></a>Activación de middleware basada en Factory en ASP.NET Core
 
@@ -69,11 +70,11 @@ public static IApplicationBuilder UseIMiddlewareMiddleware(
 
 El middleware activado por Factory se agrega al contenedor integrado en *Startup.cs*:
 
-[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=6)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet1&highlight=12)]
 
 Ambos middlewares se registran en la canalización de procesamiento de solicitudes en `Configure`:
 
-[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=12-13)]
+[!code-csharp[](extensibility/sample/Startup.cs?name=snippet2&highlight=13-14)]
 
 ## <a name="imiddlewarefactory"></a>IMiddlewareFactory
 

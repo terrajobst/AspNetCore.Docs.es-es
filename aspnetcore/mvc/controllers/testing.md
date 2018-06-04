@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/testing
-ms.openlocfilehash: 51b7a02c697807c9e3504b70f89370126ee0e781
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: a0073e4de361c37a6854ceaf54ffd9eaea4837d4
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34567054"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -74,7 +75,7 @@ La segunda prueba comprueba si, cuando `ModelState` es válido, se agrega un nue
 
 Otro controlador de la aplicación muestra información relacionada con una sesión de lluvia de ideas determinada. Este controlador incluye lógica para tratar los valores de identificador no válidos:
 
-[!code-csharp[](./testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
+[!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?highlight=19,20,21,22,25,26,27,28)]
 
 La acción de controlador tiene tres casos que comprobar, uno por cada instrucción `return`:
 
@@ -100,7 +101,7 @@ La última prueba confirma que se llama al método `Update` del repositorio. Tal
 
 ## <a name="integration-testing"></a>Pruebas de integración
 
-Las [pruebas de integración](../../testing/integration-testing.md) se realizan para garantizar que distintos módulos independientes dentro de la aplicación funcionan correctamente juntos. Por lo general, todo lo que se puede comprobar con una prueba unitaria también se puede comprobar con una prueba de integración, pero no a la inversa. Pero las pruebas de integración suelen ser mucho más lentas que las unitarias. Por tanto, lo mejor es comprobar todo lo que sea factible con las pruebas unitarias y recurrir a las pruebas de integración en los casos en los que existan varios colaboradores.
+Las [pruebas de integración](xref:test/integration-tests) se realizan para garantizar que distintos módulos independientes dentro de la aplicación funcionan correctamente juntos. Por lo general, todo lo que se puede comprobar con una prueba unitaria también se puede comprobar con una prueba de integración, pero no a la inversa. Pero las pruebas de integración suelen ser mucho más lentas que las unitarias. Por tanto, lo mejor es comprobar todo lo que sea factible con las pruebas unitarias y recurrir a las pruebas de integración en los casos en los que existan varios colaboradores.
 
 Los objetos ficticios rara vez se usan en las pruebas de integración, aunque pueden seguir siendo de utilidad. En las pruebas unitarias, los objetos ficticios constituyen un método eficaz de controlar el modo en que los colaboradores fuera de la unidad que se está probando deben comportarse según los propósitos de la prueba. En una prueba de integración se usan colaboradores reales para confirmar que todo el subsistema funciona correctamente en conjunto.
 

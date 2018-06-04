@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 067d9bd09f6d5e54bbafd953eea169d2df2be34e
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 14c3d464773fe78a563a27776bfcd124c22df134
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566963"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -245,7 +246,7 @@ Los servicios disponibles en una solicitud de ASP.NET desde `HttpContext` se exp
 
 Los servicios de solicitud representan los servicios que se configuran y se solicitan como parte de la aplicación. Cuando los objetos especifican dependencias, estas se cumplen mediante los tipos que se encuentran en `RequestServices`, no en `ApplicationServices`.
 
-Por lo general, no debe usar estas propiedades directamente. Se recomienda que solicite los tipos que las clases necesitan mediante el constructor de la clase y que deje que el marco de trabajo inserte estas dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas y depuración](xref:testing/index)) y acopladas de manera más flexible.
+Por lo general, no debe usar estas propiedades directamente. Se recomienda que solicite los tipos que las clases necesitan mediante el constructor de la clase y que deje que el marco de trabajo inserte estas dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas y depuración](xref:test/index)) y acopladas de manera más flexible.
 
 > [!NOTE]
 > Se recomienda que solicite las dependencias como parámetros del constructor para obtener acceso a la colección `RequestServices`.
@@ -361,7 +362,7 @@ La inserción de dependencias es una *alternativa* al uso de patrones de acceso 
 * [Inserción de dependencias en controladores](xref:mvc/controllers/dependency-injection)
 * [Inserción de dependencias en controladores de requisitos](xref:security/authorization/dependencyinjection)
 * [Inicio de aplicaciones](xref:fundamentals/startup)
-* [Prueba y depuración](xref:testing/index)
+* [Prueba y depuración](xref:test/index)
 * [Factory-based middleware activation](xref:fundamentals/middleware/extensibility) (Activación de middleware basada en Factory)
 * [Escritura de código limpio en ASP.NET Core con inserción de dependencias (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Preludio del diseño de aplicaciones administradas por contenedor: ¿cuál es el lugar del contenedor?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

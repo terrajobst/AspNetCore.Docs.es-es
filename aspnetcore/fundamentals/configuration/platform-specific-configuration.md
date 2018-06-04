@@ -11,11 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 9bd54319b312e18e6114cd800231c47e1fa22894
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 618cb4349dcff696db37012af3aee844b82974f2
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729056"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Mejorar una aplicación desde un ensamblado externo en ASP.NET Core con IHostingStartup
 
@@ -37,7 +38,7 @@ La aplicación de ejemplo lee el valor de [HostingStartupAssembliesKey](/dotnet/
 
 Existen dos formas de deshabilitar la carga automática de ensamblados de inicio de hospedaje:
 
-* Establecer la opción de configuración de host para [impedir el inicio de hospedaje](xref:fundamentals/hosting#prevent-hosting-startup).
+* Establecer la opción de configuración de host para [impedir el inicio de hospedaje](xref:fundamentals/host/web-host#prevent-hosting-startup).
 * Establecer la variable de entorno `ASPNETCORE_PREVENTHOSTINGSTARTUP`.
 
 Cuando la configuración del host o la variable de entorno está establecida en `true` o `1`, los ensamblados de inicio de hospedaje no se cargan automáticamente. Si ambas se han definido, será la configuración del host la que controle el comportamiento.
@@ -68,7 +69,7 @@ Solo se muestra parte del archivo. El nombre del ensamblado en el ejemplo es `St
 
 ### <a name="update-the-dependencies-file"></a>Actualizar el archivo de dependencias
 
-La ubicación del tiempo de ejecución se especifica en el archivo *\*.deps.json*. Para activar la mejora, el elemento `runtime` debe especificar la ubicación del ensamblado de tiempo de ejecución de la mejora. Anteponga `lib/netcoreapp2.0/` a la ubicación de `runtime`:
+La ubicación del tiempo de ejecución se especifica en el archivo *\*.deps.json*. Para activar la mejora, el elemento `runtime` debe especificar la ubicación del ensamblado de tiempo de ejecución de la mejora. Anteponga `lib/<TARGET_FRAMEWORK_MONIKER>/` a la ubicación de `runtime`:
 
 [!code-json[](platform-specific-configuration/snapshot_sample/StartupEnhancement2.deps.json?range=2-13&highlight=8)]
 
@@ -83,13 +84,13 @@ El archivo de ensamblado de la implementación `IHostingStartup` debe estar impl
 Para usarlo individualmente con cada usuario, coloque el ensamblado en el almacenamiento en tiempo de ejecución del perfil del usuario en cuestión, en:
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Users\<USER>\.dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 Para usarlo de manera global, colóquelo en el almacenamiento en tiempo de ejecución de la instalación de .NET Core:
 
 ```
-<DRIVE>\Program Files\dotnet\store\x64\netcoreapp2.0\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\netcoreapp2.0\
+<DRIVE>\Program Files\dotnet\store\x64\<TARGET_FRAMEWORK_MONIKER>\<ENHANCEMENT_ASSEMBLY_NAME>\<ENHANCEMENT_VERSION>\lib\<TARGET_FRAMEWORK_MONIKER>\
 ```
 
 Si el ensamblado se implementa en el almacenamiento en tiempo de ejecución, puede que también se implemente el archivo de símbolos, si bien esto no es imprescindible para que la mejora funcione.
@@ -101,16 +102,16 @@ El archivo *\*.deps.json* de la implementación debe estar en una ubicación acc
 Para usarlo individualmente con cada usuario, coloque el archivo en la carpeta `additonalDeps` de la configuración `.dotnet` del perfil de usuario: 
 
 ```
-<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Users\<USER>\.dotnet\x64\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
 ```
 
 Para usarlo de manera global, colóquelo en la carpeta `additonalDeps` de la instalación de .NET Core:
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\
 ```
 
-La versión `2.0.0` es la versión del tiempo de ejecución compartido que la aplicación de destino usa. El tiempo de ejecución compartido se muestra en el archivo *\*.runtimeconfig.json*. En la aplicación de ejemplo, el tiempo de ejecución compartido se especifica en el archivo *HostingStartupSample.runtimeconfig.json*.
+La versión `2.1.0` es la versión del tiempo de ejecución compartido que la aplicación de destino usa. El tiempo de ejecución compartido se muestra en el archivo *\*.runtimeconfig.json*. En la aplicación de ejemplo, el tiempo de ejecución compartido se especifica en el archivo *HostingStartupSample.runtimeconfig.json*.
 
 **Establecer las variables de entorno**
 
@@ -120,7 +121,7 @@ ASPNETCORE\_HOSTINGSTARTUPASSEMBLIES
 
 Solo se examinan los ensamblados de inicio de hospedaje en busca de `HostingStartupAttribute`. El nombre del ensamblado de la implementación se proporciona en esta variable de entorno. En la aplicación de ejemplo, este valor se establece en `StartupDiagnostics`.
 
-Dicho valor también se puede establecer usando la configuración de host de [ensamblados de inicio de hospedaje](xref:fundamentals/hosting#hosting-startup-assemblies).
+Dicho valor también se puede establecer usando la configuración de host de [ensamblados de inicio de hospedaje](xref:fundamentals/host/web-host#hosting-startup-assemblies).
 
 DOTNET\_ADDITIONAL\_DEPS
 
@@ -135,7 +136,7 @@ Si el archivo está en la carpeta *.dotnet* del perfil de usuario para usarlo in
 Si el archivo está en la instalación de .NET Core para usarlo de manera global, indique la ruta de acceso completa al archivo:
 
 ```
-<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.0.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
+<DRIVE>\Program Files\dotnet\additionalDeps\<ENHANCEMENT_ASSEMBLY_NAME>\shared\Microsoft.NETCore.App\2.1.0\<ENHANCEMENT_ASSEMBLY_NAME>.deps.json
 ```
 
 En la aplicación de ejemplo, este valor se establece en:

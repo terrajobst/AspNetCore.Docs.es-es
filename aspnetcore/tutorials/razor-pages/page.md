@@ -10,14 +10,13 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/page
-ms.openlocfilehash: c2a92cea2fdb3465963df1c4dcb71d1d3c95dcd3
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 1388249eaf62b7e7a102a87385565c462eef8564
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729929"
 ---
-# <a name="scaffolded-razor-pages-in-aspnet-core"></a>Páginas de Razor con scaffolding en ASP.NET Core
-
 [!INCLUDE [model1](../../includes/RP/page1.md)]
 
 Visual Studio muestra la etiqueta `<form method="post">` con una fuente diferenciada que se aplica a las aplicaciones auxiliares de etiquetas: 

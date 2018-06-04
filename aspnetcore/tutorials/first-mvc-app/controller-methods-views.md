@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 6fe0a0e71079bebcbd3a76abee0f2917f562e766
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3f84d242a41bc482110d87ff342fa5b5d8c870ff
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729858"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 
@@ -25,30 +26,14 @@ La aplicación de películas pinta bien, pero la presentación no es ideal. No q
 
 Abra el archivo *Models/Movie.cs* y agregue las líneas resaltadas que se muestran a continuación:
 
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]
+::: moniker-end
+::: moniker range="<= aspnetcore-2.0"
 [!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]
+::: moniker-end
 
-Haga clic con el botón derecho en una línea ondulada roja **> Acciones rápidas y refactorizaciones**.
-
-  ![En el menú contextual se muestra **> Acciones rápidas y refactorizaciones**.](controller-methods-views/_static/qa.png)
-
-
-Pulse `using System.ComponentModel.DataAnnotations;`.
-
-  ![uso de System.ComponentModel.DataAnnotations en la parte superior de la lista](controller-methods-views/_static/da.png)
-
-  Visual Studio agrega `using System.ComponentModel.DataAnnotations;`.
-
-Vamos a quitar las instrucciones `using` que no son necesarias. Se muestran de forma predeterminada con una fuente de color gris claro. Haga clic con el botón derecho en cualquier lugar del archivo *Movie.cs* **> Eliminar y ordenar instrucciones Using**.
-
-![Eliminar y ordenar instrucciones Using](controller-methods-views/_static/rm.png)
-
-El código actualizado:
-
-[!code-csharp[](./start-mvc/sample/MvcMovie/Models/MovieDate.cs?name=snippet_1)]
-
-<!-- include start -->
-
-[!INCLUDE [adding-model](../../includes/mvc-intro/controller-methods-views.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/controller-methods-views.md)]
 
 > [!div class="step-by-step"]
 > [Anterior](working-with-sql.md)

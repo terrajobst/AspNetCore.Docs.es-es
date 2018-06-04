@@ -1,14 +1,14 @@
 Reemplace el contenido del archivo de vista de Razor *Views/HelloWorld/Index.cshtml* con lo siguiente:
 
-[!code-HTML[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
+[!code-HTML[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Index.cshtml)]
 
 Navegue a `http://localhost:xxxx/HelloWorld`. El método `Index` en `HelloWorldController` no hizo mucho; ejecutó la instrucción `return View();`, que especificaba que el método debe usar un archivo de plantilla de vista para representar una respuesta al explorador. Como no especificó expresamente el nombre del archivo de plantilla de vista, MVC usó de manera predeterminada el archivo de vista *Index.cshtml* de la carpeta */Views/HelloWorld*. La imagen siguiente muestra la cadena "Hello from our View Template!" (Hola desde nuestra plantilla de vista) codificada de forma rígida en la vista.
 
-![Ventana del explorador](../../tutorials/first-mvc-app/adding-view/_static/hell_template.png)
+![Ventana del explorador](~/tutorials/first-mvc-app/adding-view/_static/hell_template.png)
 
 Si la ventana del explorador es pequeña (por ejemplo en un dispositivo móvil), es conveniente que alterne (pulse) el [botón de navegación de arranque](http://getbootstrap.com/components/#navbar) en la esquina superior derecha para ver los vínculos **Home** (Inicio), **About** (Acerca de) y **Contact** (Contacto).
 
-![Ventana del explorador donde se resalta el botón de navegación de arranque](../../tutorials/first-mvc-app/adding-view/_static/1.png)
+![Ventana del explorador donde se resalta el botón de navegación de arranque](~/tutorials/first-mvc-app/adding-view/_static/1.png)
 
 ## <a name="changing-views-and-layout-pages"></a>Cambiar vistas y páginas de diseño
 
@@ -20,16 +20,21 @@ Las plantillas de [diseño](xref:mvc/views/layout) permiten especificar el dise�
 
 En el elemento de título, cambie `MvcMovie` por `Movie App`. Cambie el texto del delimitador en la plantilla de diseño de `MvcMovie` a `Movie App` y el controlador de `Home` a `Movies` como se resalta aquí:
 
-Nota: La versión ASP.NET Core 2.0 es algo diferente. No contiene `@inject ApplicationInsights` ni `@Html.Raw(JavaScriptSnippet.FullScript)`.
+::: moniker range="<= aspnetcore-2.0"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=6,29)]
+::: moniker-end
 
 >[!WARNING]
 > Aún no hemos implementado el controlador `Movies`, por lo que si hace clic en ese vínculo, obtendrá un error 404 (no encontrado).
 
 Guarde los cambios y pulse en el vínculo **About** (Acerca de). Observe cómo el título de la pestaña del explorador muestra ahora **About - Movie App** (Acerca de - Aplicación de película) en lugar de **About - Mvc Movie** (Acerca de - Aplicación de MVC): 
 
-![Acerca de la pestaña](../../tutorials/first-mvc-app/adding-view/_static/about2.png)
+![Acerca de la pestaña](~/tutorials/first-mvc-app/adding-view/_static/about2.png)
 
 Pulse el vínculo **Contacto** y observe que el texto del título y el delimitador también muestran **Movie App**. Hemos realizado el cambio una vez en la plantilla de diseño y hemos conseguido que todas las páginas del sitio reflejen el nuevo texto de vínculo y el nuevo título.
 
@@ -75,7 +80,7 @@ Guarde el cambio y navegue a `http://localhost:xxxx/HelloWorld`. Tenga en cuenta
 
 Observe también cómo el contenido de la plantilla de vista *Index.cshtml* se fusionó con la plantilla de vista *Views/Shared/_Layout.cshtml* y se envió una única respuesta HTML al explorador. Con las plantillas de diseño es realmente fácil hacer cambios para que se apliquen en todas las páginas de la aplicación. Para saber más, vea [Layout](xref:mvc/views/layout) (Diseño).
 
-![Vista de lista de películas](../../tutorials/first-mvc-app/adding-view/_static/hell3.png)
+![Vista de lista de películas](~/tutorials/first-mvc-app/adding-view/_static/hell3.png)
 
 Nuestra pequeña cantidad de "datos", en este caso, el mensaje "Hello from our View Template!" (Hola desde nuestra plantilla de vista), están codificados de forma rígida. La aplicación de MVC tiene una "V" (vista) y ha obtenido una "C" (controlador), pero todavía no tiene una "M" (modelo).
 
@@ -89,7 +94,7 @@ Actualmente, el método `Welcome` de la clase `HelloWorldController` toma un par
 
 Vuelva al archivo *HelloWorldController.cs* y cambie el método `Welcome` para agregar un valor `Message` y `NumTimes` al diccionario `ViewData`. El diccionario `ViewData` es un objeto dinámico, lo que significa que puede colocar en él todo lo que quiera; el objeto `ViewData` no tiene ninguna propiedad definida hasta que coloca algo dentro de él. El [sistema de enlace de modelos](xref:mvc/models/model-binding) de MVC asigna automáticamente los parámetros con nombre (`name` y `numTimes`) de la cadena de consulta en la barra de dirección a los parámetros del método. El archivo *HelloWorldController.cs* completo tiene este aspecto:
 
-[!code-csharp[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
+[!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Controllers/HelloWorldController.cs?name=snippet_5)]
 
 El objeto de diccionario `ViewData` contiene datos que se pasarán a la vista. 
 
@@ -97,7 +102,7 @@ Cree una plantilla de vista principal denominada *Views/HelloWorld/Welcome.cshtm
 
 Se creará un bucle en la vista *Welcome.cshtml* que muestra "Hello" (Hola) `NumTimes`. Reemplace el contenido de *Views/HelloWorld/Welcome.cshtml* con lo siguiente:
 
-[!code-html[](../../tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
+[!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/HelloWorld/Welcome.cshtml)]
 
 Guarde los cambios y vaya a esta dirección URL:
 
@@ -105,7 +110,7 @@ Guarde los cambios y vaya a esta dirección URL:
 
 Los datos se toman de la dirección URL y se pasan al controlador mediante el [enlazador de modelos MVC](xref:mvc/models/model-binding). El controlador empaqueta los datos en un diccionario `ViewData` y pasa ese objeto a la vista. Después, la vista representa los datos como HTML en el explorador.
 
-![Vista About (Acerca de) que muestra una etiqueta Welcome (Bienvenida) y la frase "Hello Rick" (Hola Rick) cuatro veces](../../tutorials/first-mvc-app/adding-view/_static/rick2.png)
+![Vista About (Acerca de) que muestra una etiqueta Welcome (Bienvenida) y la frase "Hello Rick" (Hola Rick) cuatro veces](~/tutorials/first-mvc-app/adding-view/_static/rick2.png)
 
 En el ejemplo anterior, usamos el diccionario `ViewData` para pasar datos del controlador a una vista. Más adelante en el tutorial usaremos un modelo de vista para pasar datos de un controlador a una vista. El enfoque del modelo de vista que consiste en pasar datos suele ser más preferible que el enfoque de diccionario `ViewData`. Para saber más, vea [ViewModel vs ViewData vs ViewBag vs TempData vs Session in MVC](http://www.mytecbits.com/microsoft/dot-net/viewmodel-viewdata-viewbag-tempdata-mvc) (ViewModel, ViewData, ViewBag, TempData y Session en MVC).
 

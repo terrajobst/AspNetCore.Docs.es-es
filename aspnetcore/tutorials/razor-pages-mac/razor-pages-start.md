@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 2da9b34f797758c02132d5cf6cc2f2fb2fe6f05a
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 8da34f0a59976032747edcaf482f75c087ca8d8d
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34688275"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core-on-macos-with-visual-studio-for-mac"></a>Introducción a las páginas de Razor en ASP.NET Core en macOS con Visual Studio para Mac
 
@@ -30,11 +31,25 @@ En este tutorial se enseñan los conceptos básicos de la compilación de una ap
 
 Desde un terminal, ejecute estos comandos:
 
+::: moniker range=">= aspnetcore-2.1"
+
+```console
+dotnet new webapp -o RazorPagesMovie
+cd RazorPagesMovie
+dotnet run
+```
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 ```console
 dotnet new razor -o RazorPagesMovie
 cd RazorPagesMovie
 dotnet run
 ```
+
+::: moniker-end
 
 Los comandos anteriores usan el [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/dotnet) para crear y ejecutar un proyecto de páginas de Razor. Abra http://localhost:5000 en un explorador para ver la aplicación.
 

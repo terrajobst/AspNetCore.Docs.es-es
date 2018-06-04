@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/razor-pages/razor-pages-conventions
-ms.openlocfilehash: 15bb0687ffef777b82ea9374fdc3b92f3af7818b
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: eba3422fbf46ac181a783b7f8cc605c2a549b4b7
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729748"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenciones de aplicación y de ruta de páginas de Razor en ASP.NET Core
 
@@ -104,8 +105,6 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ::: moniker range=">= aspnetcore-2.1"
 **Agregar una convención de modelo de controlador a todas las páginas**
-
-
 
 Use [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) para crear y agregar un [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) a la colección de instancias [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) que se van a aplicar durante la construcción del modelo de controlador de página.
 
@@ -342,6 +341,6 @@ Las páginas de Razor no tienen en cuenta los [filtros de acciones](xref:mvc/con
 
 El filtro de página ([IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter)) es un filtro que se aplica a las páginas de Razor. Para más información, vea [Filter methods for Razor Pages](xref:mvc/razor-pages/filter) (Métodos de filtrado para páginas de Razor).
 
-## <a name="see-also"></a>Vea también
+## <a name="additional-resources"></a>Recursos adicionales
 
 * [Convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization)

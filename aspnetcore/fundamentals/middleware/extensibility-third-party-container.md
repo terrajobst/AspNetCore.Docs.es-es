@@ -10,11 +10,12 @@ ms.topic: article
 ms.technology: aspnet
 ms.prod: asp.net-core
 uid: fundamentals/middleware/extensibility-third-party-container
-ms.openlocfilehash: b6fd02d1863efe571bafe1344fb34939883e6cb5
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: c55075fd3c6fda4073d26925eab823c35d8656f5
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729897"
 ---
 # <a name="middleware-activation-with-a-third-party-container-in-aspnet-core"></a>Activación de middleware con un contenedor de terceros en ASP.NET Core
 
@@ -61,7 +62,7 @@ Se crea una extensión para el middleware (*Middleware/MiddlewareExtensions.cs*)
 
 El middleware se registra en la canalización de procesamiento de solicitudes en `Startup.Configure`:
 
-[!code-csharp[](extensibility-third-party-container/sample/Startup.cs?name=snippet2&highlight=12)]
+[!code-csharp[](extensibility-third-party-container/sample/Startup.cs?name=snippet2&highlight=13)]
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

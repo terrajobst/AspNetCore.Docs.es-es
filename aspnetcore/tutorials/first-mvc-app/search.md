@@ -9,13 +9,14 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/first-mvc-app/search
-ms.openlocfilehash: 772409f11a43e1d130265d8bba3bad1da5a41b86
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: aee1682755385d9fa292f9ba0814d5d3602f3881
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729913"
 ---
-[!INCLUDE [adding-model](../../includes/mvc-intro/search1.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search1.md)]
 
 Puede cambiar fácilmente el nombre del parámetro `searchString` por `id` con el comando **rename**. Haga clic con el botón derecho en `searchString` **> Cambiar nombre**.
 
@@ -29,7 +30,7 @@ Cambie el parámetro por `id` y todas las apariciones de `searchString` se modif
 
 ![Editor de código que muestra que la variable se ha modificado por id](search/_static/rename3.png)
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/search2.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search2.md)]
 
 Observe cómo IntelliSense le ayuda a actualizar el marcado.
 
@@ -37,11 +38,11 @@ Observe cómo IntelliSense le ayuda a actualizar el marcado.
 
 ![Menú contextual de IntelliSense con el método get seleccionado en la lista de valores de atributos de método](search/_static/int_get.png)
 
-Observe que la fuente es diferente en la etiqueta `<form>`. Esta fuente distinta indica que la etiqueta es compatible con las [aplicaciones auxiliares de etiquetas](../../mvc/views/tag-helpers/intro.md).
+Observe que la fuente es diferente en la etiqueta `<form>`. Esta fuente distinta indica que la etiqueta es compatible con las [aplicaciones auxiliares de etiquetas](~/mvc/views/tag-helpers/intro.md).
 
 ![etiqueta form con el texto de color morado](search/_static/th_font.png)
 
-[!INCLUDE [adding-model](../../includes/mvc-intro/search3.md)]
+[!INCLUDE [adding-model](~/includes/mvc-intro/search3.md)]
 
 > [!div class="step-by-step"]
 > [Anterior](controller-methods-views.md)
