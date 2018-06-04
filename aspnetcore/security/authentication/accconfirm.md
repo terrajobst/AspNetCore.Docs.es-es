@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/accconfirm
-ms.openlocfilehash: 397d8bf04abf6be811ad8c91d52565251ac61678
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.openlocfilehash: b6dbe234973431448c18d3cc82a6ac98d4f53a3b
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2018
-ms.locfileid: "34688975"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34730456"
 ---
 # <a name="account-confirmation-and-password-recovery-in-aspnet-core"></a>Confirmación de la cuenta y la recuperación de contraseña en ASP.NET Core
 
@@ -110,7 +110,7 @@ Vea [requieren HTTPS](xref:security/enforcing-ssl).
 <a name="prevent-login-at-registration"></a>
 ## <a name="require-email-confirmation"></a>Requerir confirmación por correo electrónico
 
-Es una práctica recomendada para confirmar el correo electrónico de un nuevo registro de usuario. Enviar por correo electrónico de confirmación le ayuda a comprobar que no están suplantando otra persona (es decir, no ha registrado con el correo electrónico de otra persona). Imagine que tuviera un foro de discusión, y desea evitar "yli@example.com"al registrar como"nolivetto@contoso.com." Sin confirmación por correo electrónico, "nolivetto@contoso.com" podría recibir correos electrónicos no deseados de la aplicación. Suponga que el usuario registrado accidentalmente como "ylo@example.com" y no se vio el error ortográfico de "yli". No podrían usar recuperación de contraseña porque la aplicación no tiene su correo electrónico correcto. Confirmación por correo electrónico proporciona sólo una protección limitada de robots. Confirmación por correo electrónico no proporciona protección de los usuarios malintencionados con varias cuentas de correo electrónico.
+Es una práctica recomendada para confirmar el correo electrónico de un nuevo registro de usuario. Enviar por correo electrónico de confirmación le ayuda a comprobar que no están suplantando otra persona (es decir, no ha registrado con el correo electrónico de otra persona). Imagine que tuviera un foro de discusión, y desea evitar "yli@example.com"al registrar como"nolivetto@contoso.com". Sin confirmación por correo electrónico, "nolivetto@contoso.com" podría recibir correos electrónicos no deseados de la aplicación. Suponga que el usuario registrado accidentalmente como "ylo@example.com" y no se vio el error ortográfico de "yli". No podrían usar recuperación de contraseña porque la aplicación no tiene su correo electrónico correcto. Confirmación por correo electrónico proporciona sólo una protección limitada de robots. Confirmación por correo electrónico no proporciona protección de los usuarios malintencionados con varias cuentas de correo electrónico.
 
 En general conveniente evitar que los nuevos usuarios se registren todos los datos del sitio web antes de que tengan un correo electrónico confirmado.
 
@@ -307,7 +307,7 @@ Se han combinado las dos cuentas. Es posible iniciar sesión con cualquiera de e
 
 ## <a name="enable-account-confirmation-after-a-site-has-users"></a>Habilitar la confirmación de la cuenta después de un sitio tiene usuarios
 
-Habilitar confirmación de la cuenta en un sitio con usuarios bloquea todos los usuarios existentes. No tienen acceso a los usuarios existentes porque no se ha confirmado sus cuentas. Para evitar salir del bloqueo de usuario, use uno de los métodos siguientes:
+Habilitar confirmación de la cuenta en un sitio con usuarios bloquea todos los usuarios existentes. No tienen acceso a los usuarios existentes porque no se ha confirmado sus cuentas. Para evitar el bloqueo de usuario existente, use uno de los métodos siguientes:
 
-* Actualizar la base de datos para marcar todos los usuarios existentes como está confirmado
+* Actualizar la base de datos para marcar todos los usuarios existentes como que se va a confirmar.
 * Confirme que los usuarios existentes. Por ejemplo, lote enviar correos electrónicos con vínculos de confirmación.

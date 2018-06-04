@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/windowsauth
 ms.openlocfilehash: dbcef095561fe656bdd28c4fa6560c6b269a2db0
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34689014"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core

@@ -10,10 +10,10 @@ ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
 ms.openlocfilehash: ccb771dbefefb007aede1bdf05ab50ec363a3089
-ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2018
+ms.lasthandoff: 06/04/2018
 ms.locfileid: "34689040"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Programa de instalación de inicio de sesión externo de Google en ASP.NET Core
