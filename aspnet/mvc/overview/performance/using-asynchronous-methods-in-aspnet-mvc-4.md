@@ -12,12 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 5b3b9b82fa64155c1dfd2a49649def10d7dae87e
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
-ms.translationtype: HT
+ms.openlocfilehash: 65ba01dd1b0ed5a43ca5c868608f2858f86b4b59
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729186"
+ms.locfileid: "34734541"
 ---
 <a name="using-asynchronous-methods-in-aspnet-mvc-4"></a>Usar métodos asincrónicos en ASP.NET MVC 4
 ====================
@@ -44,7 +44,7 @@ Esto podría no ser un problema, porque el grupo de subprocesos se puede estable
 
 ## <a name="processing-asynchronous-requests"></a>Procesar solicitudes asincrónicas
 
-En las aplicaciones web que aparece un gran número de solicitudes simultáneas en el inicio o que tenga una carga por ráfagas (donde simultaneidad aumenta repentinamente), que realiza estas llamadas al servicio web asincrónica, aumentará la capacidad de respuesta de la aplicación. Una solicitud asincrónica tarda la misma cantidad de tiempo en procesarse que una solicitud sincrónica. Por ejemplo, si una solicitud realiza un servicio web llamada requiere dos segundos en completarse, la solicitud tardará dos segundos si se realiza de forma sincrónica o asincrónica. Sin embargo, durante una llamada asincrónica, no se bloquea un subproceso de responder a otras solicitudes mientras espera a que la primera solicitud que se complete. Por lo tanto, solicitudes asincrónicas evita el crecimiento del grupo de puesta en cola y el subproceso de solicitud cuando hay muchas solicitudes simultáneas que invocan operaciones de ejecución prolongada.
+En una aplicación web que ve un gran número de solicitudes simultáneas en el inicio o que tenga una carga por ráfagas (donde simultaneidad aumenta repentinamente), que realiza llamadas al servicio web asincrónica aumenta la capacidad de respuesta de la aplicación. Una solicitud asincrónica tarda la misma cantidad de tiempo en procesarse que una solicitud sincrónica. Si una solicitud realiza un servicio web llamada requiere dos segundos en completarse, la solicitud tardará dos segundos si se realiza de forma sincrónica o asincrónica. Sin embargo durante una llamada asincrónica, un subproceso no está bloqueado por responder a otras solicitudes mientras espera a que la primera solicitud que se complete. Por lo tanto, solicitudes asincrónicas evita el crecimiento del grupo de puesta en cola y el subproceso de solicitud cuando hay muchas solicitudes simultáneas que invocan operaciones de ejecución prolongada.
 
 ## <a id="ChoosingSyncVasync"></a>  Elegir los métodos de acción sincrónicos o asincrónicos
 

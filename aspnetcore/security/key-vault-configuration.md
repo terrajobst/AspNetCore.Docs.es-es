@@ -8,11 +8,12 @@ ms.date: 08/09/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: 78a00e04e260863af17d7888ca6bf77d3f915ce1
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: cf56515a2a7116f399af7e671547fc81b616619c
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734710"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves Azure en ASP.NET Core
 
@@ -30,16 +31,18 @@ Ver o descargar el código de ejemplo para 2.x:
 Ver o descargar el código de ejemplo para 1.x:
 
 * [Ejemplo básico](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/basic-sample/1.x) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))-lee los valores de secreto en una aplicación.
-* [Ejemplo de prefijo de nombre de clave](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample)): valores secretos lecturas utilizando un prefijo de nombre de la clave que representa la versión de una aplicación, lo que permite cargar un conjunto diferente de valores secretos para cada versión de la aplicación. 
+* [Ejemplo de prefijo de nombre de clave](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples/key-name-prefix-sample/1.x) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample)): valores secretos lecturas utilizando un prefijo de nombre de la clave que representa la versión de una aplicación, lo que permite cargar un conjunto diferente de valores secretos para cada versión de la aplicación.
 
 ---
 
 Este documento explica cómo utilizar el [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) proveedor de configuración para cargar valores de configuración de aplicación de secretos del almacén de claves de Azure. Almacén de claves de Azure es un servicio basado en la nube que le ayuda a proteger las claves criptográficas y secretos usados por aplicaciones y servicios. Escenarios comunes incluyen controlar el acceso a datos confidenciales de la configuración y satisfacer el requisito para FIPS 140-2 nivel 2 validar módulos de seguridad de Hardware (HSM) al almacenar los datos de configuración. Esta característica está disponible para las aplicaciones que tienen como destino ASP.NET Core 1.1 o posterior.
 
 ## <a name="package"></a>Package
+
 Para usar el proveedor, agregue una referencia a la [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) paquete.
 
 ## <a name="application-configuration"></a>Configuración de aplicación
+
 Puede explorar el proveedor con el [aplicaciones de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples). Una vez que establezca un almacén de claves y crear secretos en el almacén, las aplicaciones de ejemplo segura cargar los valores de secreto en sus configuraciones y mostrarlos en las páginas Web.
 
 El proveedor se agrega a la `ConfigurationBuilder` con el `AddAzureKeyVault` extensión. En las aplicaciones de ejemplo, la extensión utiliza tres valores de configuración cargados desde el *appSettings.JSON que se* archivo.
@@ -50,9 +53,10 @@ El proveedor se agrega a la `ConfigurationBuilder` con el `AddAzureKeyVault` ext
 | `ClientId`     | Id. de aplicación de Azure Active Directory  | 627e911e-43cc-61d4-992e-12db9c81b413         |
 | `ClientSecret` | Clave de aplicación de Azure Active Directory | g58K3dtg59o1Pa+e59v2Tx829w6VxTB2yv9sv/101di= |
 
-[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1&highlight=2,7-10)]
+[!code-csharp[Program](key-vault-configuration/samples/basic-sample/2.x/Program.cs?name=snippet1)]
 
 ## <a name="creating-key-vault-secrets-and-loading-configuration-values-basic-sample"></a>Creación de secretos del almacén de claves y cargar los valores de configuración (ejemplo de basic)
+
 1. Crear un almacén de claves y configurar Azure Active Directory (Azure AD) para la aplicación siguiendo las instrucciones de [empezar a trabajar con el almacén de claves de Azure](https://azure.microsoft.com/documentation/articles/key-vault-get-started/).
    * Agregar secretos en el almacén de claves mediante el [módulo de PowerShell de almacén de claves AzureRM](/powershell/module/azurerm.keyvault) disponibles desde el [Galería de PowerShell](https://www.powershellgallery.com/packages/AzureRM.KeyVault), el [API de REST del almacén de claves de Azure](/rest/api/keyvault/), o la [Portal de azure](https://portal.azure.com/). Los secretos se crean como *Manual* o *certificado* secretos. *Certificado* secretos están certificados para su uso por aplicaciones y servicios, pero no son compatibles con el proveedor de configuración. Debe utilizar el *Manual* opción para crear los secretos de par nombre / valor para su uso con el proveedor de configuración.
      * Secretos simples se crean como pares nombre / valor. Nombres de secreto de almacén de claves Azure están limitados a caracteres alfanuméricos y guiones.
@@ -75,6 +79,7 @@ Cuando se ejecuta la aplicación, una página Web muestra los valores cargados s
 ![Ventana del explorador que muestra valores secretos carga mediante el proveedor de configuración de almacén de claves de Azure](key-vault-configuration/_static/sample1.png)
 
 ## <a name="creating-prefixed-key-vault-secrets-and-loading-configuration-values-key-name-prefix-sample"></a>Crear el almacén de claves con prefijo secretos y cargar los valores de configuración (clave-nombre-ejemplo de prefijo)
+
 `AddAzureKeyVault` También proporciona una sobrecarga que acepta una implementación de `IKeyVaultSecretManager`, que le permite controlar cómo clave secretos del almacén se convierten en las claves de configuración. Por ejemplo, puede implementar la interfaz para cargar valores secretos basándose en un valor de prefijo que proporcione al iniciar la aplicación. Esto le permite, por ejemplo, para cargar los secretos en función de la versión de la aplicación.
 
 > [!WARNING]
@@ -82,7 +87,7 @@ Cuando se ejecuta la aplicación, una página Web muestra los valores cargados s
 
 Con la segunda aplicación de ejemplo, crear un secreto en el almacén de claves para `5000-AppSecret` (períodos no están permitidos en los nombres de secreto de almacén de claves) que representa un secreto de la aplicación para la versión 5.0.0.0 de la aplicación. Para obtener otra versión, 5.1.0.0, crear un secreto para `5100-AppSecret`. Cada versión de la aplicación carga su propio valor secreto en su configuración como `AppSecret`, extracción desactivar la versión cuando se cargue el secreto. Implementación del ejemplo se muestra a continuación:
 
-[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=12)]
+[!code-csharp[Configuration builder](key-vault-configuration/samples/key-name-prefix-sample/2.x/Program.cs?name=snippet1&highlight=20)]
 
 [!code-csharp[PrefixKeyVaultSecretManager](key-vault-configuration/samples/key-name-prefix-sample/2.x/Startup.cs?name=snippet1)]
 
@@ -116,6 +121,7 @@ Al implementar este enfoque:
    ![Ventana del explorador que muestra un valor secreto que se carga mediante el proveedor de configuración de almacén de claves de Azure versión de la aplicación una vez 5.1.0.0](key-vault-configuration/_static/sample2-2.png)
 
 ## <a name="controlling-access-to-the-clientsecret"></a>Controlar el acceso a la ClientSecret
+
 Use la [herramienta Administrador de secreto](xref:security/app-secrets) para mantener la `ClientSecret` fuera de su árbol de código fuente del proyecto. Con el Administrador de secreto, para asocia los secretos de aplicación a un proyecto específico y compartirlos en varios proyectos.
 
 Al desarrollar una aplicación de .NET Framework en un entorno que admite certificados, puede autenticarse en el almacén de claves de Azure con un certificado X.509. Clave privada del certificado X.509 es administrada por el sistema operativo. Para obtener más información, consulte [autenticar con un certificado en lugar de un secreto de cliente](https://docs.microsoft.com/azure/key-vault/key-vault-use-from-web-application#authenticate-with-a-certificate-instead-of-a-client-secret). Use la `AddAzureKeyVault` sobrecarga que acepta un `X509Certificate2`.
@@ -136,6 +142,7 @@ Configuration = builder.Build();
 ```
 
 ## <a name="reloading-secrets"></a>Volver a cargar secretos
+
 Los secretos se almacenan en caché hasta que `IConfigurationRoot.Reload()` se llama. Caducado, deshabilitado, y por la aplicación hasta que no se respeten la secretos actualizados en el almacén de claves `Reload` se ejecuta.
 
 ```csharp
@@ -143,10 +150,13 @@ Configuration.Reload();
 ```
 
 ## <a name="disabled-and-expired-secrets"></a>Secretos deshabilitados y expirados
+
 Secretos deshabilitados y expirados producen un `KeyVaultClientException`. Para evitar que la aplicación genere, reemplace la aplicación o actualizar el secreto deshabilitado o expirado.
 
 ## <a name="troubleshooting"></a>Solución de problemas
+
 Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura del registro de ASP.NET](xref:fundamentals/logging/index). Las siguientes condiciones se evita que la configuración de carga:
+
 * La aplicación no está configurada correctamente en Azure Active Directory.
 * El almacén de claves no existe en el almacén de claves de Azure.
 * La aplicación no está autorizada para tener acceso al almacén de claves.
@@ -157,6 +167,7 @@ Cuando no se puede cargar la configuración mediante el proveedor de la aplicaci
 * La clave de configuración (nombre) es incorrecta en la aplicación para el valor que está intentando cargar.
 
 ## <a name="additional-resources"></a>Recursos adicionales
+
 * [Configuración](xref:fundamentals/configuration/index)
 * [Microsoft Azure: Almacén de claves](https://azure.microsoft.com/services/key-vault/)
 * [Microsoft Azure: Documentación de almacén de claves](https://docs.microsoft.com/azure/key-vault/)

@@ -3,39 +3,41 @@ title: Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 author: guardrex
 description: Obtenga información acerca de cómo configurar y usar el Middleware de almacenamiento en caché de respuesta en ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 8296d535725d95682fa5904a43ab196e21b4f83c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
+ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34734502"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex) y [John Luo](https://github.com/JunTaoLuo)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Ver o descargar el código de ejemplo de ASP.NET Core 2.1](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/middleware/samples) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample))
 
 En este artículo se explica cómo configurar el Middleware de almacenamiento en caché de respuesta en una aplicación de ASP.NET Core. El middleware determina cuando las respuestas son almacenable en caché, las respuestas de los almacenes y actúa las respuestas de caché. Para obtener una introducción al almacenamiento en caché de HTTP y el `ResponseCache` de atributo, vea [las respuestas en caché](xref:performance/caching/response).
 
 ## <a name="package"></a>Package
 
-Para incluir el software intermedio en un proyecto, agregue una referencia a la [ `Microsoft.AspNetCore.ResponseCaching` ](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) empaquetar o usar el [ `Microsoft.AspNetCore.All` ](https://www.nuget.org/packages/Microsoft.AspNetCore.All/) paquete (núcleo ASP.NET 2.0 o posterior cuando el destino es .NET Core).
+Para incluir el software intermedio en el proyecto, agregue una referencia a la [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) empaquetar o usar el [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), que está disponible para su uso en ASP.NET Core 2.1 o posterior.
 
 ## <a name="configuration"></a>Configuración
 
 En `ConfigureServices`, agregue el middleware a la colección de servicio.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet1&highlight=3)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet1&highlight=9)]
 
 Configurar la aplicación para usar el middleware con el `UseResponseCaching` método de extensión, que agrega el middleware a la canalización de procesamiento de la solicitud. La aplicación de ejemplo agrega un [ `Cache-Control` ](https://tools.ietf.org/html/rfc7234#section-5.2) encabezado a la respuesta que se almacena en caché las respuestas almacenable en caché durante 10 segundos. El ejemplo envía una [ `Vary` ](https://tools.ietf.org/html/rfc7231#section-7.1.4) encabezado para configurar el middleware para dar servicio a un respuesta almacenada en caché solo si la [ `Accept-Encoding` ](https://tools.ietf.org/html/rfc7231#section-5.3.4) coincide con el encabezado de las solicitudes posteriores de la solicitud original. En el ejemplo de código siguiente, [CacheControlHeaderValue](/dotnet/api/microsoft.net.http.headers.cachecontrolheadervalue) y [HeaderNames](/dotnet/api/microsoft.net.http.headers.headernames) requieren un `using` instrucción para el [Microsoft.Net.Http.Headers](/dotnet/api/microsoft.net.http.headers) espacio de nombres.
 
-[!code-csharp[](middleware/sample/Startup.cs?name=snippet2&highlight=3,7-12)]
+[!code-csharp[](middleware/samples/2.x/ResponseCachingMiddleware/Startup.cs?name=snippet2&highlight=17,21-28)]
 
 Middleware de almacenamiento en caché de respuesta sólo almacena en caché las respuestas del servidor que dan como resultado un código de estado 200 (OK). Otras respuestas, incluidos los [páginas de errores](xref:fundamentals/error-handling), se omiten el middleware.
 
@@ -46,10 +48,10 @@ Middleware de almacenamiento en caché de respuesta sólo almacena en caché las
 
 El middleware ofrece tres opciones para controlar las respuestas en caché.
 
-| Opción                | Valor predeterminado |
-| --------------------- | ------------- |
-| UseCaseSensitivePaths | Determina si se almacenan en caché las respuestas en las rutas de acceso entre mayúsculas y minúsculas.</p><p>El valor predeterminado es `false`. |
-| MaximumBodySize       | El mayor tamaño almacenable en caché para el cuerpo de respuesta en bytes.</p>El valor predeterminado es `64 * 1024 * 1024` (64 MB). |
+| Opción                | Descripción |
+| --------------------- | ----------- |
+| UseCaseSensitivePaths | Determina si se almacenan en caché las respuestas en las rutas de acceso entre mayúsculas y minúsculas. El valor predeterminado es `false`. |
+| MaximumBodySize       | El mayor tamaño almacenable en caché para el cuerpo de respuesta en bytes. El valor predeterminado es `64 * 1024 * 1024` (64 MB). |
 | SizeLimit             | El límite de tamaño para el middleware de caché de respuesta en bytes. El valor predeterminado es `100 * 1024 * 1024` (100 MB). |
 
 En el ejemplo siguiente se configura el middleware de:
