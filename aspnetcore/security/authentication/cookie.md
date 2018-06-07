@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/cookie
-ms.openlocfilehash: f84d69f84cb0b80418bbb6de6bfcd7e2172f65ef
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 82f826bbc2bb19339851d5e25c539ea2c03acfb3
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734619"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819115"
 ---
 # <a name="use-cookie-authentication-without-aspnet-core-identity"></a>Usar autenticación con cookies sin ASP.NET Core Identity
 
@@ -22,7 +22,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Luke Latham](https://git
 
 Como ha visto en los temas de autenticación anteriores, [ASP.NET Core Identity](xref:security/authentication/identity) es un proveedor de autenticación completo y completa para crear y mantener los inicios de sesión. Sin embargo, puede que desee utilizar su propia lógica de autenticación personalizada con la autenticación basada en cookies a veces. Puede usar la autenticación basada en cookies como un proveedor de autenticación independiente sin ASP.NET Core Identity.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authentication/cookie/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Para fines de demostración de la aplicación de ejemplo, la cuenta de usuario para el usuario hipotética, Maria Rodríguez, está codificada en la aplicación. Use el nombre de usuario de correo electrónico "maria.rodriguez@contoso.com" y una contraseña para iniciar sesión en el usuario. El usuario se autentica en el `AuthenticateUser` método en el *Pages/Account/Login.cshtml.cs* archivo. En un ejemplo del mundo real, se debería autenticar el usuario en una base de datos.
 

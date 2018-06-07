@@ -12,11 +12,12 @@ ms.technology: dotnet-mvc
 ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 msc.type: authoredcontent
-ms.openlocfilehash: c289c209b50f0c2c1f2d8b15a3aedeaebf671d0b
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: aa4c91865f7b720846a5e8deb4281c3ca6933c8e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819102"
 ---
 <a name="create-an-aspnet-mvc-5-app-with-facebook-twitter-linkedin-and-google-oauth2-sign-on-c"></a>Crear una aplicación de ASP.NET MVC 5 con Facebook, Twitter, LinkedIn y Google OAuth2 Sign-on (C#)
 ====================
@@ -174,7 +175,7 @@ Para la autenticación de Facebook OAuth2, debe copiar en el proyecto algunas op
     ![Crear una nueva aplicación](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image22.png)
 4. Escriba un **nombre de la aplicación** y **categoría**, a continuación, haga clic en **crear aplicación**.
 
-    Esto debe ser único en Facebook. El <strong>aplicación Namespace</strong> es la parte de la dirección URL que la aplicación utilizará para tener acceso a la aplicación de Facebook para la autenticación (por ejemplo, https://apps.facebook.com/{App Namespace}). Si no se especifica un <strong>aplicación Namespace</strong>, el <strong>identificador de la aplicación</strong> se usará para la dirección URL. El <strong>Id. de aplicación</strong> es un número long-generados por el sistema que se incluye en el paso siguiente.
+    El <strong>aplicación Namespace</strong> es la parte de la dirección URL que la aplicación utilizará para tener acceso a la aplicación de Facebook para la autenticación (por ejemplo, https\://apps.facebook.com/{App Namespace}). Si no se especifica un <strong>aplicación Namespace</strong>, el <strong>identificador de la aplicación</strong> se usará para la dirección URL. El <strong>Id. de aplicación</strong> es un número long-generados por el sistema que se incluye en el paso siguiente.
 
     ![Crear cuadro de diálogo nueva aplicación](create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on/_static/image23.png)
 5. Enviar la comprobación de seguridad estándar.

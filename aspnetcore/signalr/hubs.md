@@ -11,11 +11,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: signalr/hubs
-ms.openlocfilehash: 5c477dd64c4cf8b7d6da1f121a290b00f3864f45
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 495aa156dd5e4641d688d7b16df1e5814c9607f4
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819089"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Use los concentradores de SignalR para ASP.NET Core
 
@@ -63,12 +64,12 @@ Además, `Hub.Clients` contiene los siguientes métodos:
 | `AllExcept` | Llama a un método en todos los clientes conectados, excepto para las conexiones especificadas |
 | `Client` | Llama a un método en un cliente conectado específico |
 | `Clients` | Llama a un método en los clientes conectados específicos |
-| `Group` | Envía un mensaje a todas las conexiones en el grupo especificado  |
-| `GroupExcept` | Envía un mensaje a todas las conexiones en el grupo especificado, excepto las conexiones especificadas |
-| `Groups` | Envía un mensaje a varios grupos de conexiones  |
-| `OthersInGroup` | Envía un mensaje a un grupo de conexiones, excepto al cliente que invoca el método de concentrador  |
-| `User` | Envía un mensaje a todas las conexiones asociadas a un usuario específico |
-| `Users` | Envía un mensaje a todas las conexiones asociadas a los usuarios especificados |
+| `Group` | Llama a un método a todas las conexiones en el grupo especificado  |
+| `GroupExcept` | Llama a un método a todas las conexiones en el grupo especificado, excepto las conexiones especificadas |
+| `Groups` | Llama a un método a varios grupos de conexiones  |
+| `OthersInGroup` | Llama a un método a un grupo de conexiones, excepto al cliente que invoca el método de concentrador  |
+| `User` | Llama a un método para todas las conexiones asociadas a un usuario específico |
+| `Users` | Llama a un método para todas las conexiones asociadas a los usuarios especificados |
 
 Cada propiedad o método de las tablas anteriores devuelve un objeto con un `SendAsync` método. El `SendAsync` método le permite especificar el nombre y los parámetros del método de cliente para llamar a.
 

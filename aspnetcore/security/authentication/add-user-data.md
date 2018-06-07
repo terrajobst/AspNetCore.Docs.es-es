@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 23fd792c0d93c038f31ce947e7885ad6e36d119e
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: cc7b29499e9db702cab70be7c15eac53373d450d
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758791"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819076"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Agregar, descargar y eliminar datos de usuario personalizada para la identidad en un proyecto de ASP.NET Core
 
@@ -116,7 +116,7 @@ Actualización de la `IdentityUser` deriva la clase con propiedades personalizad
 
 Propiedades decorada con el [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atributo son:
 
-* Se eliminan cuando el *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor página llama `UserManager.Delete`.
+* Cuando elimina el *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor página llama `UserManager.Delete`.
 * Incluido en los datos descargados por el *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* página Razor.
 
 ### <a name="update-the-accountmanageindexcshtml-page"></a>Actualizar la página Account/Manage/Index.cshtml

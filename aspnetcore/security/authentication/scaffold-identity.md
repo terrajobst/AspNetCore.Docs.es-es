@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/scaffold-identity
-ms.openlocfilehash: 8933cf9c4063bd94f7f3a9ba53b5372b443eb7c8
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: 6202cb4d28cc8d77c1f83c8cee8c90892deef26e
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758757"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818982"
 ---
 # <a name="scaffold-identity-in-aspnet-core-projects"></a>Identidad de scaffolding en proyectos de ASP.NET Core
 
@@ -27,7 +27,7 @@ Las aplicaciones que **no** incluyen autenticación puede aplicar el scaffolder 
 
 Aunque el scaffolder genera la mayoría del código necesario, tendrá que actualizar el proyecto para completar el proceso. Este documento explican los pasos necesarios para completar una actualización de la técnica scaffolding de identidad.
 
-Cuando se ejecuta el scaffolder de identidad, un *ScaffoldingReadme.txt* archivo se crea en el directorio del proyecto. El *ScaffoldingReadme.txt* archivo contiene instrucciones generales sobre lo que se necesita para completar la actualización de la técnica scaffolding de identidad. Este documento contiene instrucciones más completas que la lectura del *ScaffoldingReadme.txt* archivo.
+Cuando se ejecuta el scaffolder de identidad, un *ScaffoldingReadme.txt* archivo se crea en el directorio del proyecto. El *ScaffoldingReadme.txt* archivo contiene instrucciones generales sobre lo que se necesita para completar la actualización de la técnica scaffolding de identidad. Este documento contiene instrucciones más completas que la *ScaffoldingReadme.txt* archivo.
 
 Se recomienda utilizar un sistema de control de código fuente que se muestran las diferencias de archivo y le permite revertir los cambios. Inspeccionar los cambios después de ejecutar al scaffolder de identidad.
 
