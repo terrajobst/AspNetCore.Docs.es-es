@@ -10,41 +10,41 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/add-user-data
-ms.openlocfilehash: 23fd792c0d93c038f31ce947e7885ad6e36d119e
-ms.sourcegitcommit: d4cefc0c63550c64a8040b11867cc05efcfb7e86
+ms.openlocfilehash: cc7b29499e9db702cab70be7c15eac53373d450d
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34758791"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819076"
 ---
-# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a><span data-ttu-id="1115d-104">Agregar, descargar y eliminar datos de usuario personalizada para la identidad en un proyecto de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="1115d-104">Add, download, and delete custom user data to Identity in an ASP.NET Core project</span></span>
+# <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a><span data-ttu-id="ba80f-104">Agregar, descargar y eliminar datos de usuario personalizada para la identidad en un proyecto de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="ba80f-104">Add, download, and delete custom user data to Identity in an ASP.NET Core project</span></span>
 
-<span data-ttu-id="1115d-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="1115d-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="ba80f-105">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="ba80f-105">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="1115d-106">Este artículo se muestra cómo:</span><span class="sxs-lookup"><span data-stu-id="1115d-106">This article shows how to:</span></span>
+<span data-ttu-id="ba80f-106">Este artículo se muestra cómo:</span><span class="sxs-lookup"><span data-stu-id="ba80f-106">This article shows how to:</span></span>
 
-* <span data-ttu-id="1115d-107">Agregar datos de usuario personalizado a una aplicación web de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="1115d-107">Add custom user data to an ASP.NET Core web app.</span></span>
-* <span data-ttu-id="1115d-108">Decorar el modelo de datos de usuario personalizada con el [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atributo para que esté disponible automáticamente para su eliminación y la descarga.</span><span class="sxs-lookup"><span data-stu-id="1115d-108">Decorate the custom user data model with the [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) attribute so it's automatically available for download and deletion.</span></span> <span data-ttu-id="1115d-109">Hacer que los datos que se puede descargar y eliminar ayuda a cumplir [GDPR](xref:security/gdpr) requisitos.</span><span class="sxs-lookup"><span data-stu-id="1115d-109">Making the data able to be downloaded and deleted helps meet [GDPR](xref:security/gdpr) requirements.</span></span>
+* <span data-ttu-id="ba80f-107">Agregar datos de usuario personalizado a una aplicación web de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="ba80f-107">Add custom user data to an ASP.NET Core web app.</span></span>
+* <span data-ttu-id="ba80f-108">Decorar el modelo de datos de usuario personalizada con el [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atributo para que esté disponible automáticamente para su eliminación y la descarga.</span><span class="sxs-lookup"><span data-stu-id="ba80f-108">Decorate the custom user data model with the [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) attribute so it's automatically available for download and deletion.</span></span> <span data-ttu-id="ba80f-109">Hacer que los datos que se puede descargar y eliminar ayuda a cumplir [GDPR](xref:security/gdpr) requisitos.</span><span class="sxs-lookup"><span data-stu-id="ba80f-109">Making the data able to be downloaded and deleted helps meet [GDPR](xref:security/gdpr) requirements.</span></span>
 
-<span data-ttu-id="1115d-110">Se crea el proyecto de ejemplo desde una aplicación web de las páginas de Razor, pero las instrucciones son similares para una aplicación web de MVC de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="1115d-110">The project sample is created from a Razor Pages web app, but the instructions are similar for a ASP.NET Core MVC web app.</span></span>
+<span data-ttu-id="ba80f-110">Se crea el proyecto de ejemplo desde una aplicación web de las páginas de Razor, pero las instrucciones son similares para una aplicación web de MVC de ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="ba80f-110">The project sample is created from a Razor Pages web app, but the instructions are similar for a ASP.NET Core MVC web app.</span></span>
 
-<span data-ttu-id="1115d-111">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="1115d-111">[View or download sample code](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="ba80f-111">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="ba80f-111">[View or download sample code](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="1115d-112">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="1115d-112">Prerequisites</span></span>
+## <a name="prerequisites"></a><span data-ttu-id="ba80f-112">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="ba80f-112">Prerequisites</span></span>
 
 [!INCLUDE [](~/includes/2.1-SDK.md)]
 
-## <a name="create-a-razor-web-app"></a><span data-ttu-id="1115d-113">Creación de una aplicación web de Razor</span><span class="sxs-lookup"><span data-stu-id="1115d-113">Create a Razor web app</span></span>
+## <a name="create-a-razor-web-app"></a><span data-ttu-id="ba80f-113">Creación de una aplicación web de Razor</span><span class="sxs-lookup"><span data-stu-id="ba80f-113">Create a Razor web app</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="1115d-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="1115d-114">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ba80f-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ba80f-114">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="1115d-115">En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**.</span><span class="sxs-lookup"><span data-stu-id="1115d-115">From the Visual Studio **File** menu, select **New** > **Project**.</span></span> <span data-ttu-id="1115d-116">Denomine el proyecto **WebApp1** si desea coincida con el espacio de nombres de la [Descargar ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) código.</span><span class="sxs-lookup"><span data-stu-id="1115d-116">Name the project **WebApp1** if you want to it match the namespace of the [download sample](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) code.</span></span>
-* <span data-ttu-id="1115d-117">Seleccione **aplicación Web de ASP.NET Core** > **Aceptar**</span><span class="sxs-lookup"><span data-stu-id="1115d-117">Select **ASP.NET Core Web Application** > **OK**</span></span>
-* <span data-ttu-id="1115d-118">Seleccione **ASP.NET Core 2.1** en la lista desplegable</span><span class="sxs-lookup"><span data-stu-id="1115d-118">Select **ASP.NET Core 2.1** in the dropdown</span></span>
-* <span data-ttu-id="1115d-119">Seleccione **aplicación Web**  > **Aceptar**</span><span class="sxs-lookup"><span data-stu-id="1115d-119">Select **Web Application**  > **OK**</span></span>
-* <span data-ttu-id="1115d-120">Compile y ejecute el proyecto.</span><span class="sxs-lookup"><span data-stu-id="1115d-120">Build and run the project.</span></span>
+* <span data-ttu-id="ba80f-115">En el menú **Archivo** de Visual Studio, seleccione **Nuevo** > **Proyecto**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-115">From the Visual Studio **File** menu, select **New** > **Project**.</span></span> <span data-ttu-id="ba80f-116">Denomine el proyecto **WebApp1** si desea coincida con el espacio de nombres de la [Descargar ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) código.</span><span class="sxs-lookup"><span data-stu-id="ba80f-116">Name the project **WebApp1** if you want to it match the namespace of the [download sample](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/authentication/add-user-data/sample) code.</span></span>
+* <span data-ttu-id="ba80f-117">Seleccione **aplicación Web de ASP.NET Core** > **Aceptar**</span><span class="sxs-lookup"><span data-stu-id="ba80f-117">Select **ASP.NET Core Web Application** > **OK**</span></span>
+* <span data-ttu-id="ba80f-118">Seleccione **ASP.NET Core 2.1** en la lista desplegable</span><span class="sxs-lookup"><span data-stu-id="ba80f-118">Select **ASP.NET Core 2.1** in the dropdown</span></span>
+* <span data-ttu-id="ba80f-119">Seleccione **aplicación Web**  > **Aceptar**</span><span class="sxs-lookup"><span data-stu-id="ba80f-119">Select **Web Application**  > **OK**</span></span>
+* <span data-ttu-id="ba80f-120">Compile y ejecute el proyecto.</span><span class="sxs-lookup"><span data-stu-id="ba80f-120">Build and run the project.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="1115d-121">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="1115d-121">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ba80f-121">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="ba80f-121">.NET Core CLI</span></span>](#tab/netcore-cli)
 
 ```cli
 dotnet new webapp -o WebApp1
@@ -52,43 +52,43 @@ dotnet new webapp -o WebApp1
 
 ------
 
-## <a name="run-the-identity-scaffolder"></a><span data-ttu-id="1115d-122">Ejecute al scaffolder de identidad</span><span class="sxs-lookup"><span data-stu-id="1115d-122">Run the Identity scaffolder</span></span>
+## <a name="run-the-identity-scaffolder"></a><span data-ttu-id="ba80f-122">Ejecute al scaffolder de identidad</span><span class="sxs-lookup"><span data-stu-id="ba80f-122">Run the Identity scaffolder</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="1115d-123">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="1115d-123">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ba80f-123">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ba80f-123">Visual Studio</span></span>](#tab/visual-studio)
 
-* <span data-ttu-id="1115d-124">De **el Explorador de soluciones**, haga doble clic en el proyecto > **agregar** > **nuevo elemento de scaffolding**.</span><span class="sxs-lookup"><span data-stu-id="1115d-124">From **Solution Explorer**, right-click on the project > **Add** > **New Scaffolded Item**.</span></span>
-* <span data-ttu-id="1115d-125">En el panel izquierdo de la **agregar scaffolding** cuadro de diálogo, seleccione **identidad** > **agregar**.</span><span class="sxs-lookup"><span data-stu-id="1115d-125">From the left pane of the **Add Scaffold** dialog, select **Identity** > **ADD**.</span></span>
-* <span data-ttu-id="1115d-126">En el **Agregar identidad** cuadro de diálogo, las siguientes opciones:</span><span class="sxs-lookup"><span data-stu-id="1115d-126">In the **ADD Identity** dialog, the following options:</span></span>
-  * <span data-ttu-id="1115d-127">Seleccione el archivo de diseño existente *~/Pages/Shared/_Layout.cshtml*</span><span class="sxs-lookup"><span data-stu-id="1115d-127">Select your existing layout  file  *~/Pages/Shared/_Layout.cshtml*</span></span>
-  * <span data-ttu-id="1115d-128">Seleccione los archivos siguientes para reemplazar:</span><span class="sxs-lookup"><span data-stu-id="1115d-128">Select the following files to override:</span></span>
-    * <span data-ttu-id="1115d-129">**Cuenta/Register**</span><span class="sxs-lookup"><span data-stu-id="1115d-129">**Account/Register**</span></span>
-    * <span data-ttu-id="1115d-130">**Cuenta/Administrar/índice**</span><span class="sxs-lookup"><span data-stu-id="1115d-130">**Account/Manage/Index**</span></span>
-  * <span data-ttu-id="1115d-131">Seleccione el **+** botón para crear un nuevo **clase de contexto de datos**.</span><span class="sxs-lookup"><span data-stu-id="1115d-131">Select the **+** button to create a new **Data context class**.</span></span> <span data-ttu-id="1115d-132">Acepte el tipo (**WebApp1.Models.WebApp1Context** si denominado el proyecto **WebApp1**).</span><span class="sxs-lookup"><span data-stu-id="1115d-132">Accept the type (**WebApp1.Models.WebApp1Context** if you named the project **WebApp1**).</span></span>
-  * <span data-ttu-id="1115d-133">Seleccione el **+** botón para crear un nuevo **User (clase)**.</span><span class="sxs-lookup"><span data-stu-id="1115d-133">Select the **+** button to create a new **User class**.</span></span> <span data-ttu-id="1115d-134">Acepte el tipo (**WebApp1User** si denominado el proyecto **WebApp1**) > **agregar**.</span><span class="sxs-lookup"><span data-stu-id="1115d-134">Accept the type (**WebApp1User** if you named the project **WebApp1**) > **Add**.</span></span>
-* <span data-ttu-id="1115d-135">Seleccione **agregar**.</span><span class="sxs-lookup"><span data-stu-id="1115d-135">Select **ADD**.</span></span>
+* <span data-ttu-id="ba80f-124">De **el Explorador de soluciones**, haga doble clic en el proyecto > **agregar** > **nuevo elemento de scaffolding**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-124">From **Solution Explorer**, right-click on the project > **Add** > **New Scaffolded Item**.</span></span>
+* <span data-ttu-id="ba80f-125">En el panel izquierdo de la **agregar scaffolding** cuadro de diálogo, seleccione **identidad** > **agregar**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-125">From the left pane of the **Add Scaffold** dialog, select **Identity** > **ADD**.</span></span>
+* <span data-ttu-id="ba80f-126">En el **Agregar identidad** cuadro de diálogo, las siguientes opciones:</span><span class="sxs-lookup"><span data-stu-id="ba80f-126">In the **ADD Identity** dialog, the following options:</span></span>
+  * <span data-ttu-id="ba80f-127">Seleccione el archivo de diseño existente *~/Pages/Shared/_Layout.cshtml*</span><span class="sxs-lookup"><span data-stu-id="ba80f-127">Select your existing layout  file  *~/Pages/Shared/_Layout.cshtml*</span></span>
+  * <span data-ttu-id="ba80f-128">Seleccione los archivos siguientes para reemplazar:</span><span class="sxs-lookup"><span data-stu-id="ba80f-128">Select the following files to override:</span></span>
+    * <span data-ttu-id="ba80f-129">**Cuenta/Register**</span><span class="sxs-lookup"><span data-stu-id="ba80f-129">**Account/Register**</span></span>
+    * <span data-ttu-id="ba80f-130">**Cuenta/Administrar/índice**</span><span class="sxs-lookup"><span data-stu-id="ba80f-130">**Account/Manage/Index**</span></span>
+  * <span data-ttu-id="ba80f-131">Seleccione el **+** botón para crear un nuevo **clase de contexto de datos**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-131">Select the **+** button to create a new **Data context class**.</span></span> <span data-ttu-id="ba80f-132">Acepte el tipo (**WebApp1.Models.WebApp1Context** si denominado el proyecto **WebApp1**).</span><span class="sxs-lookup"><span data-stu-id="ba80f-132">Accept the type (**WebApp1.Models.WebApp1Context** if you named the project **WebApp1**).</span></span>
+  * <span data-ttu-id="ba80f-133">Seleccione el **+** botón para crear un nuevo **User (clase)**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-133">Select the **+** button to create a new **User class**.</span></span> <span data-ttu-id="ba80f-134">Acepte el tipo (**WebApp1User** si denominado el proyecto **WebApp1**) > **agregar**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-134">Accept the type (**WebApp1User** if you named the project **WebApp1**) > **Add**.</span></span>
+* <span data-ttu-id="ba80f-135">Seleccione **agregar**.</span><span class="sxs-lookup"><span data-stu-id="ba80f-135">Select **ADD**.</span></span>
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="1115d-136">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="1115d-136">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ba80f-136">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="ba80f-136">.NET Core CLI</span></span>](#tab/netcore-cli)
 
-<span data-ttu-id="1115d-137">Si no ha instalado previamente el scaffolder ASP.NET, instalarla ahora:</span><span class="sxs-lookup"><span data-stu-id="1115d-137">If you have not previously installed the ASP.NET scaffolder, install it now:</span></span>
+<span data-ttu-id="ba80f-137">Si no ha instalado previamente el scaffolder ASP.NET, instalarla ahora:</span><span class="sxs-lookup"><span data-stu-id="ba80f-137">If you have not previously installed the ASP.NET scaffolder, install it now:</span></span>
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator
 ```
 
-<span data-ttu-id="1115d-138">Agregue una referencia de paquete a [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) al archivo de proyecto (.csproj).</span><span class="sxs-lookup"><span data-stu-id="1115d-138">Add a package reference to [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) to the project (.csproj) file.</span></span> <span data-ttu-id="1115d-139">Ejecute el siguiente comando en el directorio del proyecto:</span><span class="sxs-lookup"><span data-stu-id="1115d-139">Run the following command in the project directory:</span></span>
+<span data-ttu-id="ba80f-138">Agregue una referencia de paquete a [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) al archivo de proyecto (.csproj).</span><span class="sxs-lookup"><span data-stu-id="ba80f-138">Add a package reference to [Microsoft.VisualStudio.Web.CodeGeneration.Design](https://www.nuget.org/packages/Microsoft.VisualStudio.Web.CodeGeneration.Design/) to the project (.csproj) file.</span></span> <span data-ttu-id="ba80f-139">Ejecute el siguiente comando en el directorio del proyecto:</span><span class="sxs-lookup"><span data-stu-id="ba80f-139">Run the following command in the project directory:</span></span>
 
 ```cli
 dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 dotnet restore
 ```
 
-<span data-ttu-id="1115d-140">Ejecute el siguiente comando para mostrar las opciones de scaffolder de identidad:</span><span class="sxs-lookup"><span data-stu-id="1115d-140">Run the following command to list the Identity scaffolder options:</span></span>
+<span data-ttu-id="ba80f-140">Ejecute el siguiente comando para mostrar las opciones de scaffolder de identidad:</span><span class="sxs-lookup"><span data-stu-id="ba80f-140">Run the following command to list the Identity scaffolder options:</span></span>
 
 ```cli
 dotnet aspnet-codegenerator identity -h
 ```
 
-<span data-ttu-id="1115d-141">En la carpeta del proyecto, ejecute al scaffolder de identidad:</span><span class="sxs-lookup"><span data-stu-id="1115d-141">In the project folder, run the Identity scaffolder:</span></span>
+<span data-ttu-id="ba80f-141">En la carpeta del proyecto, ejecute al scaffolder de identidad:</span><span class="sxs-lookup"><span data-stu-id="ba80f-141">In the project folder, run the Identity scaffolder:</span></span>
 
 ```cli
 dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account.Manage.Index
@@ -96,63 +96,63 @@ dotnet aspnet-codegenerator identity -u WebApp1User -fi Account.Register;Account
 
 -------------
 
-<span data-ttu-id="1115d-142">Siga las instrucciones [UseAuthentication, migraciones y diseño](xref:security/authentication/scaffold-identity#efm) para realizar los pasos siguientes:</span><span class="sxs-lookup"><span data-stu-id="1115d-142">Follow the instruction in [Migrations, UseAuthentication, and layout](xref:security/authentication/scaffold-identity#efm) to perform the following steps:</span></span>
+<span data-ttu-id="ba80f-142">Siga las instrucciones [UseAuthentication, migraciones y diseño](xref:security/authentication/scaffold-identity#efm) para realizar los pasos siguientes:</span><span class="sxs-lookup"><span data-stu-id="ba80f-142">Follow the instruction in [Migrations, UseAuthentication, and layout](xref:security/authentication/scaffold-identity#efm) to perform the following steps:</span></span>
 
-* <span data-ttu-id="1115d-143">Cree una migración y actualice la base de datos.</span><span class="sxs-lookup"><span data-stu-id="1115d-143">Create a migration and update the database.</span></span>
-* <span data-ttu-id="1115d-144">Agregue `UseAuthentication` a `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="1115d-144">Add `UseAuthentication` to `Startup.Configure`.</span></span>
-* <span data-ttu-id="1115d-145">Agregar `<partial name="_LoginPartial" />` para el archivo de diseño.</span><span class="sxs-lookup"><span data-stu-id="1115d-145">Add `<partial name="_LoginPartial" />` to the layout file.</span></span>
-* <span data-ttu-id="1115d-146">Pruebe la aplicación:</span><span class="sxs-lookup"><span data-stu-id="1115d-146">Test the app:</span></span>
-  * <span data-ttu-id="1115d-147">Registrar un usuario</span><span class="sxs-lookup"><span data-stu-id="1115d-147">Register a user</span></span>
-  * <span data-ttu-id="1115d-148">Seleccione el nuevo nombre de usuario (junto a la **Logout** vínculo).</span><span class="sxs-lookup"><span data-stu-id="1115d-148">Select the new user name (next to the **Logout** link).</span></span> <span data-ttu-id="1115d-149">Deberá expandir la ventana o seleccione el icono de la barra de navegación para mostrar el nombre de usuario y otros vínculos.</span><span class="sxs-lookup"><span data-stu-id="1115d-149">You might need to expand the window or select the navigation bar icon to show the user name and other links.</span></span>
-  * <span data-ttu-id="1115d-150">Seleccione el **datos personales** ficha.</span><span class="sxs-lookup"><span data-stu-id="1115d-150">Select the **Personal Data** tab.</span></span>
-  * <span data-ttu-id="1115d-151">Seleccione el **descargar** botón y examinar el *PersonalData.json* archivo.</span><span class="sxs-lookup"><span data-stu-id="1115d-151">Select the **Download** button and examined the *PersonalData.json* file.</span></span>
-  * <span data-ttu-id="1115d-152">Prueba la **eliminar** botón, lo que elimina el inicio de sesión de usuario.</span><span class="sxs-lookup"><span data-stu-id="1115d-152">Test the **Delete** button, which deletes the logged on user.</span></span>
+* <span data-ttu-id="ba80f-143">Cree una migración y actualice la base de datos.</span><span class="sxs-lookup"><span data-stu-id="ba80f-143">Create a migration and update the database.</span></span>
+* <span data-ttu-id="ba80f-144">Agregue `UseAuthentication` a `Startup.Configure`.</span><span class="sxs-lookup"><span data-stu-id="ba80f-144">Add `UseAuthentication` to `Startup.Configure`.</span></span>
+* <span data-ttu-id="ba80f-145">Agregar `<partial name="_LoginPartial" />` para el archivo de diseño.</span><span class="sxs-lookup"><span data-stu-id="ba80f-145">Add `<partial name="_LoginPartial" />` to the layout file.</span></span>
+* <span data-ttu-id="ba80f-146">Pruebe la aplicación:</span><span class="sxs-lookup"><span data-stu-id="ba80f-146">Test the app:</span></span>
+  * <span data-ttu-id="ba80f-147">Registrar un usuario</span><span class="sxs-lookup"><span data-stu-id="ba80f-147">Register a user</span></span>
+  * <span data-ttu-id="ba80f-148">Seleccione el nuevo nombre de usuario (junto a la **Logout** vínculo).</span><span class="sxs-lookup"><span data-stu-id="ba80f-148">Select the new user name (next to the **Logout** link).</span></span> <span data-ttu-id="ba80f-149">Deberá expandir la ventana o seleccione el icono de la barra de navegación para mostrar el nombre de usuario y otros vínculos.</span><span class="sxs-lookup"><span data-stu-id="ba80f-149">You might need to expand the window or select the navigation bar icon to show the user name and other links.</span></span>
+  * <span data-ttu-id="ba80f-150">Seleccione el **datos personales** ficha.</span><span class="sxs-lookup"><span data-stu-id="ba80f-150">Select the **Personal Data** tab.</span></span>
+  * <span data-ttu-id="ba80f-151">Seleccione el **descargar** botón y examinar el *PersonalData.json* archivo.</span><span class="sxs-lookup"><span data-stu-id="ba80f-151">Select the **Download** button and examined the *PersonalData.json* file.</span></span>
+  * <span data-ttu-id="ba80f-152">Prueba la **eliminar** botón, lo que elimina el inicio de sesión de usuario.</span><span class="sxs-lookup"><span data-stu-id="ba80f-152">Test the **Delete** button, which deletes the logged on user.</span></span>
 
-## <a name="add-custom-user-data-to-the-identity-db"></a><span data-ttu-id="1115d-153">Agregar datos de usuario personalizado a la base de datos de identidad</span><span class="sxs-lookup"><span data-stu-id="1115d-153">Add custom user data to the Identity DB</span></span>
+## <a name="add-custom-user-data-to-the-identity-db"></a><span data-ttu-id="ba80f-153">Agregar datos de usuario personalizado a la base de datos de identidad</span><span class="sxs-lookup"><span data-stu-id="ba80f-153">Add custom user data to the Identity DB</span></span>
 
-<span data-ttu-id="1115d-154">Actualización de la `IdentityUser` deriva la clase con propiedades personalizadas.</span><span class="sxs-lookup"><span data-stu-id="1115d-154">Update the `IdentityUser` derived class with custom properties.</span></span> <span data-ttu-id="1115d-155">Si con el nombre de su proyecto WebApp1, el archivo se denomina *Areas/Identity/Data/WebApp1User.cs*.</span><span class="sxs-lookup"><span data-stu-id="1115d-155">If you named your project WebApp1, the file is named *Areas/Identity/Data/WebApp1User.cs*.</span></span> <span data-ttu-id="1115d-156">Actualice el archivo con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="1115d-156">Update the file with the following code:</span></span>
+<span data-ttu-id="ba80f-154">Actualización de la `IdentityUser` deriva la clase con propiedades personalizadas.</span><span class="sxs-lookup"><span data-stu-id="ba80f-154">Update the `IdentityUser` derived class with custom properties.</span></span> <span data-ttu-id="ba80f-155">Si con el nombre de su proyecto WebApp1, el archivo se denomina *Areas/Identity/Data/WebApp1User.cs*.</span><span class="sxs-lookup"><span data-stu-id="ba80f-155">If you named your project WebApp1, the file is named *Areas/Identity/Data/WebApp1User.cs*.</span></span> <span data-ttu-id="ba80f-156">Actualice el archivo con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="ba80f-156">Update the file with the following code:</span></span>
 
 [!code-csharp[Main](add-user-data/sample/Areas/Identity/Data/WebApp1User.cs)]
 
-<span data-ttu-id="1115d-157">Propiedades decorada con el [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atributo son:</span><span class="sxs-lookup"><span data-stu-id="1115d-157">Properties decorated with the [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) attribute are:</span></span>
+<span data-ttu-id="ba80f-157">Propiedades decorada con el [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) atributo son:</span><span class="sxs-lookup"><span data-stu-id="ba80f-157">Properties decorated with the [PersonalData](/dotnet/api/microsoft.aspnetcore.identity.personaldataattribute?view=aspnetcore-2.1) attribute are:</span></span>
 
-* <span data-ttu-id="1115d-158">Se eliminan cuando el *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor página llama `UserManager.Delete`.</span><span class="sxs-lookup"><span data-stu-id="1115d-158">Are deleted when the *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor Page calls `UserManager.Delete`.</span></span>
-* <span data-ttu-id="1115d-159">Incluido en los datos descargados por el *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* página Razor.</span><span class="sxs-lookup"><span data-stu-id="1115d-159">Included in the downloaded data by the *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* Razor Page.</span></span>
+* <span data-ttu-id="ba80f-158">Cuando elimina el *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor página llama `UserManager.Delete`.</span><span class="sxs-lookup"><span data-stu-id="ba80f-158">Deleted when the *Areas/Identity/Pages/Account/Manage/DeletePersonalData.cshtml* Razor Page calls `UserManager.Delete`.</span></span>
+* <span data-ttu-id="ba80f-159">Incluido en los datos descargados por el *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* página Razor.</span><span class="sxs-lookup"><span data-stu-id="ba80f-159">Included in the downloaded data by the *Areas/Identity/Pages/Account/Manage/DownloadPersonalData.cshtml* Razor Page.</span></span>
 
-### <a name="update-the-accountmanageindexcshtml-page"></a><span data-ttu-id="1115d-160">Actualizar la página Account/Manage/Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="1115d-160">Update the Account/Manage/Index.cshtml page</span></span>
+### <a name="update-the-accountmanageindexcshtml-page"></a><span data-ttu-id="ba80f-160">Actualizar la página Account/Manage/Index.cshtml</span><span class="sxs-lookup"><span data-stu-id="ba80f-160">Update the Account/Manage/Index.cshtml page</span></span>
 
-<span data-ttu-id="1115d-161">Actualización de la `InputModel` en *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* aparece resaltado este código con lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="1115d-161">Update the `InputModel` in *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* with the following highlighted code:</span></span>
+<span data-ttu-id="ba80f-161">Actualización de la `InputModel` en *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* aparece resaltado este código con lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="ba80f-161">Update the `InputModel` in *Areas/Identity/Pages/Account/Manage/Index.cshtml.cs* with the following highlighted code:</span></span>
 
 [!code-csharp[Main](add-user-data/sample/Areas/Identity/Pages/Account/Manage/Index.cshtml.cs?name=snippet&highlight=28-36,63-64,87-95)]
 
-<span data-ttu-id="1115d-162">Actualización de la *Areas/Identity/Pages/Account/Manage/Index.cshtml* con el siguiente marcado resaltado:</span><span class="sxs-lookup"><span data-stu-id="1115d-162">Update the *Areas/Identity/Pages/Account/Manage/Index.cshtml* with the following highlighted markup:</span></span>
+<span data-ttu-id="ba80f-162">Actualización de la *Areas/Identity/Pages/Account/Manage/Index.cshtml* con el siguiente marcado resaltado:</span><span class="sxs-lookup"><span data-stu-id="ba80f-162">Update the *Areas/Identity/Pages/Account/Manage/Index.cshtml* with the following highlighted markup:</span></span>
 
 [!code-html[Main](add-user-data/sample/Areas/Identity/Pages/Account/Manage/Index.cshtml?highlight=34-41)]
 
-### <a name="update-the-accountregistercshtml-page"></a><span data-ttu-id="1115d-163">Actualizar la página Account/Register.cshtml</span><span class="sxs-lookup"><span data-stu-id="1115d-163">Update the Account/Register.cshtml page</span></span>
+### <a name="update-the-accountregistercshtml-page"></a><span data-ttu-id="ba80f-163">Actualizar la página Account/Register.cshtml</span><span class="sxs-lookup"><span data-stu-id="ba80f-163">Update the Account/Register.cshtml page</span></span>
 
-<span data-ttu-id="1115d-164">Actualización de la `InputModel` en *Areas/Identity/Pages/Account/Register.cshtml.cs* aparece resaltado este código con lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="1115d-164">Update the `InputModel` in *Areas/Identity/Pages/Account/Register.cshtml.cs* with the following highlighted code:</span></span>
+<span data-ttu-id="ba80f-164">Actualización de la `InputModel` en *Areas/Identity/Pages/Account/Register.cshtml.cs* aparece resaltado este código con lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="ba80f-164">Update the `InputModel` in *Areas/Identity/Pages/Account/Register.cshtml.cs* with the following highlighted code:</span></span>
 
 [!code-csharp[Main](add-user-data/sample/Areas/Identity/Pages/Account/Register.cshtml.cs?name=snippet&highlight=8-16,43,44)]
 
-<span data-ttu-id="1115d-165">Actualización de la *Areas/Identity/Pages/Account/Register.cshtml* con el siguiente marcado resaltado:</span><span class="sxs-lookup"><span data-stu-id="1115d-165">Update the *Areas/Identity/Pages/Account/Register.cshtml* with the following highlighted markup:</span></span>
+<span data-ttu-id="ba80f-165">Actualización de la *Areas/Identity/Pages/Account/Register.cshtml* con el siguiente marcado resaltado:</span><span class="sxs-lookup"><span data-stu-id="ba80f-165">Update the *Areas/Identity/Pages/Account/Register.cshtml* with the following highlighted markup:</span></span>
 
 [!code-html[Main](add-user-data/sample/Areas/Identity/Pages/Account/Register.cshtml?highlight=16-25)]
 
-<span data-ttu-id="1115d-166">Compile el proyecto.</span><span class="sxs-lookup"><span data-stu-id="1115d-166">Build the project.</span></span>
+<span data-ttu-id="ba80f-166">Compile el proyecto.</span><span class="sxs-lookup"><span data-stu-id="ba80f-166">Build the project.</span></span>
 
-### <a name="add-a-migration-for-the-custom-user-data"></a><span data-ttu-id="1115d-167">Agregar una migración de los datos de usuario personalizada</span><span class="sxs-lookup"><span data-stu-id="1115d-167">Add a migration for the custom user data</span></span>
+### <a name="add-a-migration-for-the-custom-user-data"></a><span data-ttu-id="ba80f-167">Agregar una migración de los datos de usuario personalizada</span><span class="sxs-lookup"><span data-stu-id="ba80f-167">Add a migration for the custom user data</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="1115d-168">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="1115d-168">Visual Studio</span></span>](#tab/visual-studio)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="ba80f-168">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="ba80f-168">Visual Studio</span></span>](#tab/visual-studio)
 
-<span data-ttu-id="1115d-169">En Visual Studio **consola de administrador de paquetes**:</span><span class="sxs-lookup"><span data-stu-id="1115d-169">In the Visual Studio **Package Manager Console**:</span></span>
+<span data-ttu-id="ba80f-169">En Visual Studio **consola de administrador de paquetes**:</span><span class="sxs-lookup"><span data-stu-id="ba80f-169">In the Visual Studio **Package Manager Console**:</span></span>
 
 ```PMC
 Add-Migration CustomUserData
 Update-Database
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="1115d-170">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="1115d-170">.NET Core CLI</span></span>](#tab/netcore-cli)
+# <a name="net-core-clitabnetcore-cli"></a>[<span data-ttu-id="ba80f-170">CLI de .NET Core</span><span class="sxs-lookup"><span data-stu-id="ba80f-170">.NET Core CLI</span></span>](#tab/netcore-cli)
 
 ```cli
 dotnet ef migrations add CustomUserData
@@ -161,10 +161,10 @@ dotnet ef database update
 
 ------
 
-## <a name="test-create-view-download-delete-custom-user-data"></a><span data-ttu-id="1115d-171">Prueba de crear, ver, descargar, eliminar datos de usuario personalizada</span><span class="sxs-lookup"><span data-stu-id="1115d-171">Test create, view, download, delete custom user data</span></span>
+## <a name="test-create-view-download-delete-custom-user-data"></a><span data-ttu-id="ba80f-171">Prueba de crear, ver, descargar, eliminar datos de usuario personalizada</span><span class="sxs-lookup"><span data-stu-id="ba80f-171">Test create, view, download, delete custom user data</span></span>
 
-<span data-ttu-id="1115d-172">Pruebe la aplicación:</span><span class="sxs-lookup"><span data-stu-id="1115d-172">Test the app:</span></span>
+<span data-ttu-id="ba80f-172">Pruebe la aplicación:</span><span class="sxs-lookup"><span data-stu-id="ba80f-172">Test the app:</span></span>
 
-* <span data-ttu-id="1115d-173">Registrar un nuevo usuario.</span><span class="sxs-lookup"><span data-stu-id="1115d-173">Register a new user.</span></span>
-* <span data-ttu-id="1115d-174">Ver los datos de usuario personalizada en el `/Identity/Account/Manage` página.</span><span class="sxs-lookup"><span data-stu-id="1115d-174">View the custom user data on the `/Identity/Account/Manage` page.</span></span>
-* <span data-ttu-id="1115d-175">Descargar y ver los datos personales de los usuarios de la `/Identity/Account/Manage/PersonalData` página.</span><span class="sxs-lookup"><span data-stu-id="1115d-175">Download and view the users personal data from the `/Identity/Account/Manage/PersonalData` page.</span></span>
+* <span data-ttu-id="ba80f-173">Registrar un nuevo usuario.</span><span class="sxs-lookup"><span data-stu-id="ba80f-173">Register a new user.</span></span>
+* <span data-ttu-id="ba80f-174">Ver los datos de usuario personalizada en el `/Identity/Account/Manage` página.</span><span class="sxs-lookup"><span data-stu-id="ba80f-174">View the custom user data on the `/Identity/Account/Manage` page.</span></span>
+* <span data-ttu-id="ba80f-175">Descargar y ver los datos personales de los usuarios de la `/Identity/Account/Manage/PersonalData` página.</span><span class="sxs-lookup"><span data-stu-id="ba80f-175">Download and view the users personal data from the `/Identity/Account/Manage/PersonalData` page.</span></span>
