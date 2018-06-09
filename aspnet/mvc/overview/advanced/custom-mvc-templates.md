@@ -2,7 +2,7 @@
 uid: mvc/overview/advanced/custom-mvc-templates
 title: Plantilla MVC personalizado | Documentos de Microsoft
 author: joeloff
-description: "Crear una plantilla como una extensión VSIX."
+description: Crear una plantilla como una extensión VSIX.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/10/2012
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/advanced/custom-mvc-templates
 msc.type: authoredcontent
 ms.openlocfilehash: c3ddd4e341511f520927e924b25d890088adb69e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034612"
 ---
 <a name="custom-mvc-template"></a>Plantilla MVC personalizado
 ====================
@@ -43,7 +44,7 @@ Ninguno de los métodos mencionados anteriormente es ideal, por lo que hemos dec
 
 El primer paso es crear un nuevo proyecto VSIX mediante C# o Visual Basic. Seleccione **archivo > Nuevo proyecto**, a continuación, haga clic en **extensibilidad** en el panel izquierdo y seleccione la **proyecto VSIX**.
 
-![Nuevo proyecto](custom-mvc-templates/_static/image1.jpg)
+![nuevo proyecto](custom-mvc-templates/_static/image1.jpg)
 
 Una vez creado el proyecto, se abrirá el diseñador VSIX.
 
@@ -63,13 +64,13 @@ Si piensa admitir todas las Professional y versiones posteriores SKU (Profession
 
 El **activos** ficha sirve para agregar todos los archivos de contenido a la extensión VSIX. Debido a que MVC requiere metadatos personalizados que va a editar el XML sin formato del archivo de manifiesto de VSIX en lugar de utilizar el **activos** tab para agregar contenido. Empiece por agregar el contenido de plantilla al proyecto VSIX. Es importante que la estructura de la carpeta y el contenido refleja el diseño del proyecto. En el ejemplo siguiente contiene cuatro plantillas de proyecto que se derivan de la plantilla de proyecto de MVC básica. Asegúrese de que todos los archivos que componen la plantilla de proyecto (todos los elementos debajo de la carpeta ProjectTemplates) se agregan a la **contenido** itemgroup en VSIX de proyectos de archivo y que cada elemento contiene el  **CopyToOutputDirectory** y **IncludeInVsix** metadatos se establecen como se muestra en el ejemplo siguiente.
 
-&lt;Content Include=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
+&lt;Incluir contenido =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicWeb.config&quot;&gt;
 
-&lt;CopyToOutputDirectory&gt;Always&lt;/CopyToOutputDirectory&gt;
+&lt;CopyToOutputDirectory&gt;siempre&lt;/CopyToOutputDirectory&gt;
 
 &lt;IncludeInVSIX&gt;true&lt;/IncludeInVSIX&gt;
 
-&lt;/Content&gt;
+&lt;/ Content&gt;
 
 De lo contrario, el IDE intentará compilar el contenido de la plantilla al generar la extensión VSIX y probablemente verá un error. Archivos de código en las plantillas a menudo contienen especial [parámetros de plantilla](https://msdn.microsoft.com/library/eehb4faa(v=vs.110).aspx) utilizado por Visual Studio cuando se crea una instancia de la plantilla de proyecto y, por tanto, no se pueden compilar en el IDE.
 
@@ -79,31 +80,31 @@ Cierre el diseñador VSIX, a continuación, haga clic con el botón secundario e
 
 ![Abrir cuadro de diálogo](custom-mvc-templates/_static/image7.jpg)
 
-Crear un  **&lt;activos&gt;**  elemento y agregue un  **&lt;Asset&gt;**  (elemento) para cada archivo que debe incluirse en la extensión VSIX. El **tipo** atributo de cada  **&lt;Asset&gt;**  elemento debe establecerse en **Microsoft.VisualStudio.Mvc.Template**. Se trata de un espacio de nombres personalizado que entiende únicamente el Asistente de proyecto MVC. Consulte la documentación del esquema de 2.0 VSIX para obtener información adicional sobre la estructura y el diseño del archivo de manifiesto.
+Crear un **&lt;activos&gt;** elemento y agregue un **&lt;Asset&gt;** (elemento) para cada archivo que debe incluirse en la extensión VSIX. El **tipo** atributo de cada **&lt;Asset&gt;** elemento debe establecerse en **Microsoft.VisualStudio.Mvc.Template**. Se trata de un espacio de nombres personalizado que entiende únicamente el Asistente de proyecto MVC. Consulte la documentación del esquema de 2.0 VSIX para obtener información adicional sobre la estructura y el diseño del archivo de manifiesto.
 
-No es suficiente para registrar las plantillas con el Asistente MVC limitarse a agregar los archivos a la extensión VSIX. Deberá proporcionar información como el nombre de la plantilla, descripción, los motores de vista admitidas y lenguaje de programación para el Asistente MVC. Esta información se incluye en los atributos personalizados asociados con la  **&lt;Asset&gt;**  para cada elemento **vstemplate** archivo.
+No es suficiente para registrar las plantillas con el Asistente MVC limitarse a agregar los archivos a la extensión VSIX. Deberá proporcionar información como el nombre de la plantilla, descripción, los motores de vista admitidas y lenguaje de programación para el Asistente MVC. Esta información se incluye en los atributos personalizados asociados con la **&lt;Asset&gt;** para cada elemento **vstemplate** archivo.
 
-&lt;Asset d:VsixSubPath=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
+&lt;Asset d:VsixSubPath =&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx&quot;
 
 Type=&quot;Microsoft.VisualStudio.Mvc.Template&quot;
 
-d:Source=&quot;File&quot;
+d:Source =&quot;archivo&quot;
 
 Path=&quot;ProjectTemplates\MyMvcWebApplicationProjectTemplate.csaspx\BasicMvcWebApplicationProjectTemplate.11.csaspx.vstemplate&quot;
 
-ProjectType=&quot;MVC&quot;
+ProjectType =&quot;MVC&quot;
 
-Language=&quot;C#&quot;
+Language =&quot;C#&quot;
 
-ViewEngine=&quot;Aspx&quot;
+ViewEngine =&quot;Aspx&quot;
 
-TemplateId=&quot;MyMvcApplication&quot;
+TemplateId =&quot;MyMvcApplication&quot;
 
 Título =&quot;aplicación Web básica personalizada&quot;
 
 Descripción =&quot;una plantilla personalizada que deriva de una aplicación web de MVC básica (Razor)&quot;
 
-Version=&quot;4.0&quot;/&gt;
+Versión =&quot;4.0&quot;/&gt;
 
 A continuación se muestra una explicación de los atributos personalizados que deben estar presentes:
 
@@ -114,7 +115,7 @@ A continuación se muestra una explicación de los atributos personalizados que 
 - **Título** designa breve descripción que aparece en el Asistente MVC debajo de cada plantilla de proyecto.
 - **Descripción** designa una descripción más detallada de la plantilla.
 
-Después de que haya agregado todos los archivos para el manifiesto y guardarlo, observará que el **activos** ficha en el diseñador mostrará todos los archivos, pero no personalizado atributos que ha agregado a la  **&lt;Asset&gt;**  elementos para la **vstemplate** archivos.
+Después de que haya agregado todos los archivos para el manifiesto y guardarlo, observará que el **activos** ficha en el diseñador mostrará todos los archivos, pero no personalizado atributos que ha agregado a la **&lt;Asset&gt;** elementos para la **vstemplate** archivos.
 
 ![Diseñador activos del proyecto](custom-mvc-templates/_static/image8.jpg)
 

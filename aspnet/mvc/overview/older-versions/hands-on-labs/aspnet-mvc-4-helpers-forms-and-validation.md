@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-helpers-forms-and-validation
 msc.type: authoredcontent
 ms.openlocfilehash: 4cfa98144919c3f1bdb3608970af1a7952fe6ea7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30878183"
 ---
 # <a name="aspnet-mvc-4-helpers-forms-and-validation"></a>Validación, formularios y aplicaciones auxiliares de ASP.NET MVC 4
 
@@ -605,7 +606,7 @@ Puede agregar validación a la aplicación mediante la adición de anotaciones d
 
 En esta tarea, agregará las anotaciones de datos para el modelo de álbum que harán que la página de creación y edición de mostrar mensajes de validación cuando corresponda.
 
-Para una clase de modelo simple, agregar una anotación de datos se controla simplemente mediante la adición de un **con** instrucción para **System.ComponentModel.DataAnnotation**, a continuación, colocar un **[obligatorio]**atributo en las propiedades adecuadas. En el ejemplo siguiente, se haría que el **nombre** propiedad un campo obligatorio en la vista.
+Para una clase de modelo simple, agregar una anotación de datos se controla simplemente mediante la adición de un **con** instrucción para **System.ComponentModel.DataAnnotation**, a continuación, colocar un **[obligatorio]** atributo en las propiedades adecuadas. En el ejemplo siguiente, se haría que el **nombre** propiedad un campo obligatorio en la vista.
 
 [!code-csharp[Main](aspnet-mvc-4-helpers-forms-and-validation/samples/sample18.cs)]
 

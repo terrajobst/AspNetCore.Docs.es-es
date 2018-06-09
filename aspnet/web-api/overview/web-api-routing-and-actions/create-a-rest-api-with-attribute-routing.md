@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
 ms.openlocfilehash: 1f1e90544c9dd8439a522f2196d81d020ea2f4f2
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30223267"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Crear una API de REST con atributo enrutar en ASP.NET Web API 2
 ====================
@@ -27,11 +28,11 @@ Web API 2 es compatible con un nuevo tipo de enrutamiento, denominado *atributo 
 | Acción | URI de ejemplo |
 | --- | --- |
 | Obtener una lista de todos los libros. | / api/libros |
-| Obtener un libro por identificador. | /api/books/1 |
-| Obtener los detalles de un libro. | /api/books/1/details |
-| Obtener una lista de libros por género. | /api/books/fantasy |
+| Obtener un libro por identificador. | /API/Books/1 |
+| Obtener los detalles de un libro. | /API/Books/1/Details |
+| Obtener una lista de libros por género. | /API/Books/fantasy |
 | Obtener una lista de libros por fecha de publicación. | /API/Books/Date/2013-02-16 /api/books/date/2013/02/16 (forma alternativa) |
-| Obtener una lista de libros por un autor concreto. | /api/authors/1/books |
+| Obtener una lista de libros por un autor concreto. | /API/authors/1/Books |
 
 Todos los métodos son de solo lectura (las solicitudes HTTP GET).
 
@@ -167,8 +168,8 @@ La plantilla de ruta para cada método de controlador es el prefijo además de l
 
 | Método | Plantilla de ruta | URI de ejemplo |
 | --- | --- | --- |
-| `GetBooks` | "api/books" | `http://localhost/api/books` |
-| `GetBook` | "api/books/{id:int}" | `http://localhost/api/books/5` |
+| `GetBooks` | "api/libros" | `http://localhost/api/books` |
+| `GetBook` | "api/libros / {Id.: int}" | `http://localhost/api/books/5` |
 
 ## <a name="get-book-details"></a>Obtener detalles del libro
 

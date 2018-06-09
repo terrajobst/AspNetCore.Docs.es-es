@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 01/30/2013
 ms.topic: article
 ms.assetid: 04d5f142-5f62-494a-b5ea-4f3d068d34cb
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/emberjs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 1fb7633aee288be648d4f9681b43c8911b7dbab9
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506804"
 ---
 <a name="emberjs-template"></a>Plantilla de EmberJS
 ====================
@@ -134,7 +135,7 @@ TodoListRoute.js carga datos para el TodoListRoute reemplazando la función setu
 
 [!code-javascript[Main](emberjs-template/samples/sample11.js)]
 
-Ember usa las convenciones de nomenclatura para que coincida con las direcciones URL, los nombres de ruta, controladores y plantillas. Para obtener más información, consulte [http://emberjs.com/guides/routing/defining-your-routes/](http://emberjs.com/guides/routing/defining-your-routes/) en la documentación de EmberJS.
+Ember usa las convenciones de nomenclatura para que coincida con las direcciones URL, los nombres de ruta, controladores y plantillas. Para obtener más información, consulte [ http://emberjs.com/guides/routing/defining-your-routes/ ](http://emberjs.com/guides/routing/defining-your-routes/) en la documentación de EmberJS.
 
 ## <a name="templates"></a>Plantillas
 
@@ -146,7 +147,7 @@ La carpeta de plantillas contiene cuatro plantillas:
 - todoList.hbs: la plantilla para la "/ todo" ruta.
 - \_NavBar.HBS: la plantilla define el menú de navegación.
 
-La plantilla de aplicación actúa como una página maestra. Contiene un encabezado y un pie de página, una "{{toma}}" para insertar otras plantillas de función de la ruta. Para obtener más información acerca de las plantillas de aplicación en Ember, consulte [http://guides.emberjs.com/v1.10.0/templates/the-application-template//](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
+La plantilla de aplicación actúa como una página maestra. Contiene un encabezado y un pie de página, una "{{toma}}" para insertar otras plantillas de función de la ruta. Para obtener más información acerca de las plantillas de aplicación en Ember, consulte [ http://guides.emberjs.com/v1.10.0/templates/the-application-template// ](http://guides.emberjs.com/v1.10.0/templates/the-application-template/).
 
 El "/ todoList" plantilla contiene dos expresiones de bucle. El bucle exterior es `{{#each controller}}`y el interior bucle es `{{#each todos}}`. El código siguiente muestra un integrada `Ember.Checkbox` ver una personalizada `App.TodoItemEditView`y un vínculo con un `deleteTodo` acción.
 

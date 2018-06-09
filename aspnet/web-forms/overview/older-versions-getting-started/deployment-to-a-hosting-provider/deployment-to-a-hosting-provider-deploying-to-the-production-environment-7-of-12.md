@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12
 msc.type: authoredcontent
 ms.openlocfilehash: ab3b7ba332deddae7d04fc37c7aabc72bdb2d17e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30889688"
 ---
 <a name="deploying-an-aspnet-web-application-with-sql-server-compact-using-visual-studio-or-visual-web-developer-deploying-to-the-production-environment---7-of-12"></a>Implementar una aplicación Web de ASP.NET con SQL Server Compact con Visual Studio o Visual Web Developer: implementarla en el entorno de producción - 7 de 12
 ====================
@@ -85,7 +86,7 @@ En el **propiedades de sitio Web** cuadro, seleccione la **extensiones** ficha.
 
 [![Cytanium_Control_Panel_Extensions_tab](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image18.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image17.png)
 
-Cambiar ASP.NET desde **2.0 canalización integrada** a **4.0 (canalización integrada)**y, a continuación, haga clic en **actualización**.
+Cambiar ASP.NET desde **2.0 canalización integrada** a **4.0 (canalización integrada)** y, a continuación, haga clic en **actualización**.
 
 ## <a name="publishing-to-the-hosting-provider"></a>Publicación en el proveedor de hospedaje
 
@@ -190,7 +191,7 @@ En el **archivo**/**permisos de la carpeta** ventana, seleccione la **lectura** 
 
 Asegúrese de que Elmah tiene acceso de escritura a la *Elmah* carpeta, produciendo un error y, a continuación, mostrar el informe de errores de Elmah. Solicitar una dirección URL no válida como *Studentsxxx.aspx*. Como antes, verá el *GenericErrorPage.aspx* página. Haga clic en el **Log Out** vincular y, a continuación, ejecute *Elmah.axd*. Obtiene el **inicio de sesión** en primer lugar, página que valida que la *Web.config* transformación Elmah autorización agregó correctamente. Tras iniciar sesión, se mostrará el informe que muestra el error que provocó el solo.
 
-[![Elmah.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
+[![ELMAH.axd_Prod](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image41.png)](deployment-to-a-hosting-provider-deploying-to-the-production-environment-7-of-12/_static/image40.png)
 
 ## <a name="testing-in-the-production-environment"></a>Realización de pruebas en el entorno de producción
 

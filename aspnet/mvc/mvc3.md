@@ -2,7 +2,7 @@
 uid: mvc/mvc3
 title: ASP.NET MVC 3 | Microsoft Docs
 author: rick-anderson
-description: "(abril de 2011 de incluye herramientas de actualización) ASP.NET MVC 3 es un marco para crear aplicaciones web escalable, basada en estándares con el modelo de diseño establecidos..."
+description: (abril de 2011 de incluye herramientas de actualización) ASP.NET MVC 3 es un marco para crear aplicaciones web escalable, basada en estándares con el modelo de diseño establecidos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2010
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc3
 msc.type: content
 ms.openlocfilehash: c7eee987b28a5d7f8b40fe89a7bf7517ec06646f
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28034742"
 ---
 <a name="aspnet-mvc-3"></a>ASP.NET MVC 3
 ====================
@@ -128,8 +129,8 @@ ASP.NET MVC 3 incluye un nuevo motor de vista denominado Razor que ofrece las si
 
 Algunas características nuevas de Razor son los siguientes:
 
-- `@model`sintaxis para especificar el tipo que se pasa a la vista.
-- `@* *@`sintaxis de comentario.
+- `@model` sintaxis para especificar el tipo que se pasa a la vista.
+- `@* *@` sintaxis de comentario.
 - La capacidad de especificar los valores predeterminados (como `layoutpage`) una vez para todo un sitio.
 - El `Html.Raw` método para mostrar texto sin codificación HTML.
 - Compatibilidad para compartir código entre varias vistas (*\_viewstart.cshtml* o  *\_viewstart.vbhtml* archivos).
@@ -219,7 +220,7 @@ ASP.NET MVC 3 incluye compatibilidad de enlace de JSON integrada que permite a l
 
 ## <a name="model-validation-improvements"></a>Mejoras de validación de modelo
 
-### <a name="dataannotations-metadata-attributes"></a>"DataAnnotations" Metadata Attributes
+### <a name="dataannotations-metadata-attributes"></a>Atributos de metadatos de "DataAnnotations"
 
 ASP.NET MVC 3 admite `DataAnnotations` atributos de metadatos como `DisplayAttribute`.
 

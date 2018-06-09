@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-routing-conventions
 msc.type: authoredcontent
 ms.openlocfilehash: 0ab99dd443040b90ffefd2f5b9261a63b91e9463
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037326"
 ---
 <a name="routing-conventions-in-aspnet-web-api-2-odata"></a>Convenciones de enrutamiento en ASP.NET Web API 2 Odata
 ====================
@@ -47,9 +48,9 @@ Antes de que describen las convenciones de enrutamiento de OData en API Web, res
 
 Para el enrutamiento, lo importante es la ruta de acceso del recurso. La ruta de acceso de recursos se divide en segmentos. Por ejemplo, `/Products(1)/Supplier` tiene tres segmentos:
 
-- `Products`hace referencia a un conjunto de entidades con nombre "Productos".
-- `1`es una clave de entidad, al seleccionar una sola entidad del conjunto.
-- `Supplier`es una propiedad de navegación que selecciona una entidad relacionada.
+- `Products` hace referencia a un conjunto de entidades con nombre "Productos".
+- `1` es una clave de entidad, al seleccionar una sola entidad del conjunto.
+- `Supplier` es una propiedad de navegación que selecciona una entidad relacionada.
 
 Por lo que esta ruta de acceso recoge el proveedor del producto 1.
 
@@ -66,8 +67,8 @@ Por lo que esta ruta de acceso recoge el proveedor del producto 1.
 | Solicitud | URI de ejemplo | Nombre de acción | Acción de ejemplo |
 | --- | --- | --- | --- |
 | OBTENER /entityset | / Products | GetEntitySet o Get | GetProducts |
-| GET /entityset(key) | /Products(1) | GetEntityType o Get | GetProduct |
-| GET /entityset(key)/cast | /Products(1)/Models.Book | GetEntityType o Get | GetBook |
+| OBTENER /entityset(key) | /Products(1) | GetEntityType o Get | GetProduct |
+| GET /entityset (clave) / convierte | / /Models.Book products (1) | GetEntityType o Get | GetBook |
 
 Para obtener más información, consulte [crear un extremo de OData de solo lectura](odata-v3/creating-an-odata-endpoint.md).
 
@@ -76,19 +77,19 @@ Para obtener más información, consulte [crear un extremo de OData de solo lect
 | Solicitud | URI de ejemplo | Nombre de acción | Acción de ejemplo |
 | --- | --- | --- | --- |
 | REGISTRAR /entityset | / Products | PostEntityType o posterior | PostProduct |
-| PUT /entityset(key) | /Products(1) | PutEntityType o Put | PutProduct |
-| PUT /entityset(key)/cast | /Products(1)/Models.Book | PutEntityType o Put | PutBook |
+| COLOCAR /entityset(key) | /Products(1) | PutEntityType o Put | PutProduct |
+| COLOCAR /entityset (clave) / convierte | / /Models.Book products (1) | PutEntityType o Put | PutBook |
 | REVISIÓN /entityset(key) | /Products(1) | PatchEntityType o revisión | PatchProduct |
-| Aplicar la revisión /entityset (clave) / convierte | /Products(1)/Models.Book | PatchEntityType o revisión | PatchBook |
+| Aplicar la revisión /entityset (clave) / convierte | / /Models.Book products (1) | PatchEntityType o revisión | PatchBook |
 | ELIMINAR /entityset(key) | /Products(1) | DeleteEntityType o Delete | DeleteProduct |
-| ELIMINAR /entityset (clave) / convierte | /Products(1)/Models.Book | DeleteEntityType o Delete | DeleteBook |
+| ELIMINAR /entityset (clave) / convierte | / /Models.Book products (1) | DeleteEntityType o Delete | DeleteBook |
 
 **Consultar una propiedad de navegación**
 
 | Solicitud | URI de ejemplo | Nombre de acción | Acción de ejemplo |
 | --- | --- | --- | --- |
-| GET /entityset(key)/navigation | / Products (1) / proveedor | GetNavigationFromEntityType o GetNavigation | GetSupplierFromProduct |
-| GET /entityset(key)/cast/navigation | /Products(1)/Models.Book/Author | GetNavigationFromEntityType o GetNavigation | GetAuthorFromBook |
+| GET /entityset (clave) y navegación | / Products (1) / proveedor | GetNavigationFromEntityType o GetNavigation | GetSupplierFromProduct |
+| OBTENER navegación/cast//entityset (clave) | / /Models.Book/Author products (1) | GetNavigationFromEntityType o GetNavigation | GetAuthorFromBook |
 
 Para obtener más información, consulte [trabajar con relaciones de entidad](odata-v3/working-with-entity-relations.md).
 
@@ -96,10 +97,10 @@ Para obtener más información, consulte [trabajar con relaciones de entidad](od
 
 | Solicitud | URI de ejemplo | Nombre de acción |
 | --- | --- | --- |
-| POST /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | CreateLink |
-| PUT /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | CreateLink |
-| DELETE /entityset(key)/$links/navigation | /Products(1)/$links/Supplier | DeleteLink |
-| DELETE /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$links/Suppliers(1) | DeleteLink |
+| POST /entityset (clave) / $links/navegación | / Vínculos de (1) / $ productos/proveedor | CreateLink |
+| PUT /entityset (clave) / $links/navegación | / Vínculos de (1) / $ productos/proveedor | CreateLink |
+| ELIMINAR /entityset (clave) / $links/navegación | / Vínculos de (1) / $ productos/proveedor | DeleteLink |
+| ELIMINAR /entityset(key)/$links/navigation(relatedKey) | /Products/(1)/$Links/Suppliers(1) | DeleteLink |
 
 Para obtener más información, consulte [trabajar con relaciones de entidad](odata-v3/working-with-entity-relations.md).
 
@@ -109,15 +110,15 @@ Para obtener más información, consulte [trabajar con relaciones de entidad](od
 
 | Solicitud | URI de ejemplo | Nombre de acción | Acción de ejemplo |
 | --- | --- | --- | --- |
-| GET /entityset(key)/property | / Products (1) / nombre | GetPropertyFromEntityType o GetProperty | GetNameFromProduct |
-| GET /entityset(key)/cast/property | /Products(1)/Models.Book/Author | GetPropertyFromEntityType o GetProperty | GetTitleFromBook |
+| GET /entityset (clave) o propiedad | / Products (1) / nombre | GetPropertyFromEntityType o GetProperty | GetNameFromProduct |
+| OBTENER propiedades/cast//entityset (clave) | / /Models.Book/Author products (1) | GetPropertyFromEntityType o GetProperty | GetTitleFromBook |
 
-**Acciones**
+**acciones**
 
 | Solicitud | URI de ejemplo | Nombre de acción | Acción de ejemplo |
 | --- | --- | --- | --- |
 | POST /entityset (clave) / acción | / Products (1) / velocidad | ActionNameOnEntityType o ActionName | RateOnProduct |
-| /Entityset (clave) / cast/acción posterior a la | /Products(1)/Models.Book/CheckOut | ActionNameOnEntityType o ActionName | CheckOutOnBook |
+| /Entityset (clave) / cast/acción posterior a la | / /Models.Book/CheckOut products (1) | ActionNameOnEntityType o ActionName | CheckOutOnBook |
 
 Para obtener más información, consulte [las acciones de OData](odata-v3/odata-actions.md).
 
@@ -169,7 +170,7 @@ Notas:
 
 1. Derivan de **EntitySetRoutingConvention**, porque la **SelectController** método de esa clase es el adecuado para esta nueva convención de enrutamiento. Esto significa que no es necesario volver a implementar **SelectController**.
 2. La convención se aplica únicamente a las solicitudes GET, y solo cuando la plantilla de ruta de acceso es &quot;~/entityset/key/navigation/key&quot;.
-3. Es el nombre de acción &quot;obtener {EntityType}&quot;, donde *{EntityType}* es el tipo de la colección de navegación. Por ejemplo, &quot;GetSupplier&quot;. Puede usar cualquier convención de nomenclatura que le guste & #8212; Asegúrese de que las acciones de controlador coincide con.
+3. Es el nombre de acción &quot;obtener {EntityType}&quot;, donde *{EntityType}* es el tipo de la colección de navegación. Por ejemplo, &quot;GetSupplier&quot;. Puede usar cualquier convención de nomenclatura que le gusta &#8212; siempre que se asegure las acciones de controlador coincide con.
 4. La acción toma dos parámetros denominados *clave* y *relatedKey*. (Para obtener una lista de algunos nombres de parámetro predefinidos, vea [ODataRouteConstants](https://msdn.microsoft.com/library/system.web.http.odata.routing.odatarouteconstants.aspx).)
 
 El paso siguiente consiste en agregar la convención de nuevo a la lista de convenciones de enrutamiento. Esto sucede durante la configuración, tal como se muestra en el código siguiente:

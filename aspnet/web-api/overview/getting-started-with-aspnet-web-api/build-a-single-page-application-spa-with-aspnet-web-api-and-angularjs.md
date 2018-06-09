@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
 ms.openlocfilehash: 9a748628d53878be380869ac5327de0111d2284d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507264"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Laboratorio de prácticas: Compilar una aplicación de una página (SPA) con ASP.NET Web API y Angular.js
 ====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
 [Descargar el Kit de aprendizaje de colonias de Web](http://aka.ms/webcamps-training-kit)
 
@@ -32,7 +33,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > 
 > En este laboratorio de mano, aprovechará de esas tecnologías para implementar el experto en juego de prueba matemática, un sitio Web de curiosidades basado en el concepto SPA. En primer lugar, implemente el nivel de servicio con ASP.NET Web API para exponer los puntos de conexión necesarias para recuperar las preguntas de prueba y almacenar las respuestas. A continuación, creará una interfaz de usuario enriquecida y la capacidad de respuesta con AngularJS y CSS3 efectos de transformación.
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 ## <a name="overview"></a>Información general
@@ -307,7 +308,7 @@ En esta tarea usará **AngularJS** para implementar el cliente de la aplicación
 Se iniciará mediante la instalación de AngularJS desde la consola de administrador de paquetes de Visual Studio. A continuación, creará el controlador para proporcionar el comportamiento de la aplicación de prueba de experto en la vista para representar las preguntas de prueba y respuestas con el motor de plantillas de AngularJS.
 
 > [!NOTE]
-> Para obtener más información acerca de AngularJS, consulte [ [http://angularjs.org/](http://angularjs.org/)](http://angularjs.org/).
+> Para obtener más información acerca de AngularJS, consulte [ [ http://angularjs.org/ ](http://angularjs.org/) ](http://angularjs.org/).
 
 
 1. Abra **Visual Studio Express 2013 para Web** y abra el **GeekQuiz.sln** soluciones se encuentran en la **origen/Ex2-CreatingASPAInterface/Begin** carpeta. Como alternativa, puede continuar con la solución que obtuvo en el ejercicio anterior.

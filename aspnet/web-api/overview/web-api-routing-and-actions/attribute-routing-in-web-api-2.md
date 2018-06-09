@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 title: Atributo de enrutamiento en ASP.NET Web API 2 | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
 ms.openlocfilehash: 173add73a150d3e13ae243d6548463da912dadee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038054"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Ruta de atributo en ASP.NET Web API 2
 ====================
@@ -180,22 +181,22 @@ En la tabla siguiente enumera las restricciones que se admiten.
 
 | Restricción | Descripción | Ejemplo |
 | --- | --- | --- |
-| Alfa | Coincidencias en mayúsculas o minúsculas caracteres del alfabeto latino (a – z, a Z) | {x:alpha} |
-| bool | Coincide con un valor booleano. | {x:bool} |
-| datetime | Coincide con un **DateTime** valor. | {x:datetime} |
-| decimal | Coincide con un valor decimal. | {x:decimal} |
-| double | Coincide con un valor de punto flotante de 64 bits. | {x:double} |
-| float | Coincide con un valor de punto flotante de 32 bits. | {x:float} |
-| guid | Coincide con un valor GUID. | {x:guid} |
+| Alfa | Coincidencias en mayúsculas o minúsculas caracteres del alfabeto latino (a – z, a Z) | {x: alfa} |
+| bool | Coincide con un valor booleano. | {x: bool} |
+| datetime | Coincide con un **DateTime** valor. | {x: fecha y hora} |
+| decimal | Coincide con un valor decimal. | {x: decimal} |
+| double | Coincide con un valor de punto flotante de 64 bits. | {x: double} |
+| float | Coincide con un valor de punto flotante de 32 bits. | {x: float} |
+| guid | Coincide con un valor GUID. | {x: guid} |
 | int | Coincide con un valor entero de 32 bits. | {x: int} |
 | longitud | Coincide con una cadena con la longitud especificada o dentro de un intervalo especificado de longitudes. | {x: length(6)} {x: length(1,20)} |
-| long | Coincide con un valor entero de 64 bits. | {x:long} |
-| max | Devuelve un entero con un valor máximo. | {x:max(10)} |
-| MaxLength | Coincide con una cadena con una longitud máxima. | {x:maxlength(10)} |
-| min | Devuelve un entero con un valor mínimo. | {x:min(10)} |
-| minLength | Coincide con una cadena con una longitud mínima. | {x:minlength(10)} |
+| long | Coincide con un valor entero de 64 bits. | {x: long} |
+| max | Devuelve un entero con un valor máximo. | {x: max(10)} |
+| MaxLength | Coincide con una cadena con una longitud máxima. | {x: maxlength(10)} |
+| min | Devuelve un entero con un valor mínimo. | {x: min(10)} |
+| minLength | Coincide con una cadena con una longitud mínima. | {x: minlength(10)} |
 | range | Devuelve un número entero dentro de un intervalo de valores. | {x: range(10,50)} |
-| regex | Coincide con una expresión regular. | {x:regex(^\d{3}-\d{3}-\d{4}$)} |
+| regex | Coincide con una expresión regular. | {x: regex(^\d{3}-\d{3}-\d{4}$)} |
 
 Observe que algunas de las restricciones, como &quot;min&quot;, toman argumentos entre paréntesis. Puede aplicar varias restricciones a un parámetro, separado por un coma.
 
@@ -269,10 +270,10 @@ A continuación se muestra un ejemplo. Supongamos que define el siguiente contro
 
 Estas rutas se ordenan como se indica a continuación.
 
-1. orders/details
+1. pedidos y detalles
 2. pedidos / {id}
-3. orders/{customerName}
-4. orders/{\*date}
+3. pedidos / {NombreCliente}
+4. pedidos / {\*fecha}
 5. pedidos / pendiente
 
 Observe que "Detalles" es un segmento literal y aparece antes que "{id}", pero "pendiente" aparece última porque la **RouteOrder** propiedad es 1. (En este ejemplo se supone que hay es ningún cliente denominada "Detalles" o "pendiente". En general, intente evitar las rutas ambiguas. En este ejemplo, una plantilla de ruta mejor para `GetByCustomer` es "clientes / {NombreCliente}")

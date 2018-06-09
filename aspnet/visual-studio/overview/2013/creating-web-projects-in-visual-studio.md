@@ -2,25 +2,26 @@
 uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
 title: Crear proyectos Web ASP.NET en Visual Studio 2013 | Documentos de Microsoft
 author: tdykstra
-description: "Este tema se explican las opciones para crear proyectos web ASP.NET en Visual Studio 2013 con Update 3 aquí son algunas de las nuevas características de c de desarrollo de web..."
+description: Este tema se explican las opciones para crear proyectos web ASP.NET en Visual Studio 2013 con Update 3 aquí son algunas de las nuevas características de c de desarrollo de web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 12/01/2014
 ms.topic: article
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
 ms.openlocfilehash: aacae7a9ccf483b21d3c6796c0411d558fa3c75b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28038870"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Crear proyectos Web ASP.NET en Visual Studio 2013
 ====================
-Por [Tom Dykstra](https://github.com/tdykstra)
+por [Tom Dykstra](https://github.com/tdykstra)
 
 > En este tema se explica las opciones para crear proyectos web ASP.NET en Visual Studio 2013 con Update 3
 > 
@@ -243,7 +244,7 @@ Restringir un poco más de la ventana y el menú superior horizontal se conviert
 
 También puede utilizar la característica de temas del arranque para llevar a cabo fácilmente un cambio en la apariencia y funcionamiento de la aplicación. Por ejemplo, puede hacer lo siguiente para cambiar el tema.
 
-1. En el explorador, vaya a [http://Bootswatch.com](http://Bootswatch.com), elija un tema y, a continuación, haga clic en **descargar**. (Este paquete descargará *bootstrap.min.css* de forma predeterminada; si desea examinar el código CSS, obtener *bootstrap.css* en lugar de la versión reducida.)
+1. En el explorador, vaya a [ http://Bootswatch.com ](http://Bootswatch.com), elija un tema y, a continuación, haga clic en **descargar**. (Este paquete descargará *bootstrap.min.css* de forma predeterminada; si desea examinar el código CSS, obtener *bootstrap.css* en lugar de la versión reducida.)
 2. Copie el contenido del archivo CSS descargado.
 3. En Visual Studio, cree un nuevo **hoja de estilos** archivo denominado *bootstrap-theme.css* en el *contenido* carpeta y pegue el código CSS descargado de código en él.
 4. Abra *aplicación\_Start/Bundle.config* y cambiar *bootstrap.css* a *bootstrap-theme.css*.
@@ -321,7 +322,7 @@ Identidad de ASP.NET es una buena opción si va a crear un sitio web de Internet
 
 Para obtener más información acerca de la opción de cuentas de usuario individuales, vea los siguientes recursos:
 
-- [www.asp.net/identity](../../../identity/index.md). Documentación acerca de la identidad de ASP.NET en el sitio web ASP.NET.
+- [www.ASP.NET/Identity](../../../identity/index.md). Documentación acerca de la identidad de ASP.NET en el sitio web ASP.NET.
 - [Crear una aplicación de ASP.NET MVC 5 con Facebook y Google OAuth2 y OpenID Sign-on](../../../mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md). También muestra cómo personalizar los datos de perfil de usuario.
 - [Web API - Servicios de autenticación externos](../../../web-api/overview/security/external-authentication-services.md)
 - [Agregar inicios de sesión externos a la aplicación de ASP.NET en Visual Studio 2013](https://blogs.msdn.com/b/webdev/archive/2013/06/27/adding-external-logins-to-your-asp-net-application-in-visual-studio-2013.aspx)
@@ -426,4 +427,4 @@ Proporcione un URI único que AD puede usar para identificar esta aplicación, o
 <a id="nextsteps"></a>
 ## <a name="next-steps"></a>Pasos siguientes
 
-Este documento proporciona Ayuda básica para crear un nuevo proyecto web ASP.NET en Visual Studio 2013. Para obtener más información acerca del uso de Visual Studio para el desarrollo web, consulte [https://www.asp.net/visual-studio/](../../index.md).
+Este documento proporciona Ayuda básica para crear un nuevo proyecto web ASP.NET en Visual Studio 2013. Para obtener más información acerca del uso de Visual Studio para el desarrollo web, consulte [ https://www.asp.net/visual-studio/ ](../../index.md).

@@ -13,16 +13,17 @@ ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-controllers-and-views-to-implement-a-listingdetails-ui
 msc.type: authoredcontent
 ms.openlocfilehash: ac3568941eeef24bd9857c5787471aadea15fc7f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30875739"
 ---
 <a name="use-controllers-and-views-to-implement-a-listingdetails-ui"></a>Usar controladores y vistas para implementar una interfaz de usuario de la lista y detalles
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-[Descarga de PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[Descargar PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
 > Este es el paso 4 de una segunda ["" la aplicación NerdDinner](introducing-the-nerddinner-tutorial.md) que los recorridos de obtención de cómo generar una pequeña, pero completa, la aplicación web mediante ASP.NET MVC 1.
 > 
@@ -59,10 +60,10 @@ También se abrirá la nueva clase de DinnersController en el editor de código.
 
 Queremos permitir a que los visitantes con nuestra aplicación para examinar una lista de las próximas cenas y que puedan hacer clic en cualquier cena en la lista para ver detalles concretos sobre él. Deberá hacerlo mediante la publicación de las siguientes direcciones URL de nuestra aplicación:
 
-| **URL** | **Purpose** |
+| **URL** | **Propósito** |
 | --- | --- |
 | */Dinners/* | Mostrar una lista HTML de cenas próximos |
-| */Dinners/Details/[id]* | Mostrar los detalles sobre una cena específica indicado por un parámetro "id" incrustado en la dirección URL: que coincidirá con la DinnerID de la cena de la base de datos. Por ejemplo: /Dinners/Details/2 podría mostrar una página HTML con detalles acerca de la cena cuyo valor de DinnerID es 2. |
+| */Dinners/detalles / [id]* | Mostrar los detalles sobre una cena específica indicado por un parámetro "id" incrustado en la dirección URL: que coincidirá con la DinnerID de la cena de la base de datos. Por ejemplo: /Dinners/Details/2 podría mostrar una página HTML con detalles acerca de la cena cuyo valor de DinnerID es 2. |
 
 Publicaremos implementaciones iniciales de estas direcciones URL mediante la adición de dos público "métodos de acción" a nuestra clase DinnersController como a continuación:
 
@@ -96,10 +97,10 @@ A continuación se muestra una tabla que muestra cómo una variedad de direccion
 
 | **URL** | **Clase de controlador** | **Método de acción** | **Parámetros pasados** |
 | --- | --- | --- | --- |
-| */Dinners/Details/2* | DinnersController | Details(ID) | id=2 |
-| */Dinners/Edit/5* | DinnersController | Edit(ID) | id=5 |
-| */Dinners/Create* | DinnersController | Método Create() | N/D |
-| */Dinners* | DinnersController | Index() | N/D |
+| */ Cenas/detalles/2* | DinnersController | Details(ID) | Id. = 2 |
+| */ Cenas/editar/5* | DinnersController | Edit(ID) | Id. = 5 |
+| */ Cenas/crear* | DinnersController | Método Create() | N/D |
+| */ Cenas* | DinnersController | Index() | N/D |
 | */ Principal* | HomeController | Index() | N/D |
 | */* | HomeController | Index() | N/D |
 

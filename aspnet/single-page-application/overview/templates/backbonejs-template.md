@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 04/04/2013
 ms.topic: article
 ms.assetid: 00aca413-f067-4108-9bd1-cf21e64a2646
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /single-page-application/overview/templates/backbonejs-template
 msc.type: authoredcontent
 ms.openlocfilehash: 3b8eabd3cefcb96dc40bbf6cc6e3ee81accb0d7c
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26506684"
 ---
 <a name="backbone-template"></a>Plantilla de la red troncal
 ====================
@@ -61,7 +62,7 @@ Vamos a empieza por el lado del cliente. Las secuencias de comandos de la aplica
 
 **Aplicación**
 
-`Application`se define en application.ts. Este objeto inicializa la aplicación y actúa como el espacio de nombres raíz. Mantiene información de configuración y el estado que se comparte entre la aplicación, como si el usuario ha iniciado sesión.
+`Application` se define en application.ts. Este objeto inicializa la aplicación y actúa como el espacio de nombres raíz. Mantiene información de configuración y el estado que se comparte entre la aplicación, como si el usuario ha iniciado sesión.
 
 El `application.start` método crea las vistas modales y adjunta controladores de eventos para eventos de nivel de aplicación, como inicio de sesión de usuario. A continuación, crea el enrutador predeterminado y comprueba si se especifica cualquier dirección URL de cliente. Si no es así, redirige a la dirección url predeterminada (#! /).
 

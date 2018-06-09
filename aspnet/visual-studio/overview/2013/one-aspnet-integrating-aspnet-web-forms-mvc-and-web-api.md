@@ -13,14 +13,15 @@ ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 55109723e566a9f7c66c1a59414377b05dbec760
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26507124"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Laboratorio de prácticas: Uno ASP.NET: integrar formularios ASP.NET Web Forms, MVC y API Web
 ====================
-por [Web colonias equipo](https://twitter.com/webcamps)
+Por [Web colonias equipo](https://twitter.com/webcamps)
 
 [Descargar el Kit de aprendizaje de colonias de Web](http://aka.ms/webcamps-training-kit)
 
@@ -28,7 +29,7 @@ por [Web colonias equipo](https://twitter.com/webcamps)
 > 
 > Visual Studio 2013 presenta un nuevo sistema de proyectos unificada que permite compilar una aplicación y utilizar todas las tecnologías ASP.NET en un proyecto. Esta característica elimina la necesidad de elegir una tecnología al principio de un proyecto y stick con él y en su lugar, recomienda el uso de varios marcos de trabajo ASP.NET dentro de un proyecto.
 > 
-> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [http://aka.ms/webcamps-training-kit](http://aka.ms/webcamps-training-kit).
+> Todo el código de ejemplo y fragmentos de código se incluyen en el Kit de aprendizaje de Web colonias, disponible en [ http://aka.ms/webcamps-training-kit ](http://aka.ms/webcamps-training-kit).
 
 
 <a id="Overview"></a>
@@ -161,7 +162,7 @@ En esta tarea se ejecute la solución generada, explorar la aplicación y alguna
     *Direcciones URL descriptivas*
 
     > [!NOTE]
-    > Como puede ver, la dirección URL cambia a **o póngase en contacto con**. A partir de **ASP.NET 4**, capacidades de enrutamiento de dirección URL se agregaron a formularios Web Forms, por lo que puede escribir las direcciones URL como *[http://www.mysite.com/products/software](http://www.mysite.com/products/software)* en lugar de  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Para obtener más información, consulte [enrutamiento de direcciones URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
+    > Como puede ver, la dirección URL cambia a **o póngase en contacto con**. A partir de **ASP.NET 4**, capacidades de enrutamiento de dirección URL se agregaron a formularios Web Forms, por lo que puede escribir las direcciones URL como *[ http://www.mysite.com/products/software ](http://www.mysite.com/products/software)* en lugar de  *[http://www.mysite.com/products.aspx?category=software](http://www.mysite.com/products.aspx?category=software)*. Para obtener más información, consulte [enrutamiento de direcciones URL](../../../web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/url-routing.md).
 3. Ahora explorará el flujo de autenticación que se integra en la aplicación. Para ello, haga clic en **registrar** en la esquina superior derecha de la página.
 
     ![Registrar un nuevo usuario](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/_static/image8.png)

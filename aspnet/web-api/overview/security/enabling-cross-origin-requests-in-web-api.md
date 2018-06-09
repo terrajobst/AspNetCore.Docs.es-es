@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
 ms.openlocfilehash: 453ad29ff4f10f9660f3aa8bab358519b4cfd48b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "26508384"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Habilitar las solicitudes entre orígenes en ASP.NET Web API 2
 ====================
@@ -51,10 +52,10 @@ Estas dos direcciones URL tienen el mismo origen:
 
 Estas direcciones URL tengan diferentes orígenes que el anterior dos:
 
-- `http://example.net`-Dominio diferente
-- `http://example.com:9000/foo.html`-Otro puerto
-- `https://example.com/foo.html`-Esquema diferente
-- `http://www.example.com/foo.html`-Otro subdominio
+- `http://example.net` -Dominio diferente
+- `http://example.com:9000/foo.html` -Otro puerto
+- `https://example.com/foo.html` -Esquema diferente
+- `http://www.example.com/foo.html` -Otro subdominio
 
 > [!NOTE]
 > Internet Explorer no tiene en cuenta el puerto al comparar elementos Origin.

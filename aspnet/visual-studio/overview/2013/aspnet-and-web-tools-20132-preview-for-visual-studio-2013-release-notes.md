@@ -2,21 +2,22 @@
 uid: visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 title: 2013.2 para Visual Studio 2013 consultar las notas de las herramientas de ASP.NET y Web | Documentos de Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/06/2014
 ms.topic: article
 ms.assetid: 7ef5f73c-ca60-43c1-bdb2-702800347e7e
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes
 msc.type: authoredcontent
 ms.openlocfilehash: 0e7ad52662f7ceaa1f087d007d0b14b610f90bee
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28036029"
 ---
 <a name="aspnet-and-web-tools-20132--for-visual-studio-2013-release-notes"></a>ASP.NET y herramientas Web 2013.2 para notas de versión de Visual Studio 2013
 ====================
@@ -99,7 +100,7 @@ Firefox usa su propio almacén de certificados, por lo que mostrará una adverte
 
     IntelliSense ahora admite [esquema JSON](http://json-schema.org/) v3 y v4. Hay un cuadro combinado de esquema para elegir esquemas existentes, edite la ruta de acceso local del esquema, o simplemente arrastrar un archivo de proyecto JSON en él para obtener la ruta de acceso relativa.
 
-    ![Intellisense JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![JSON Schema editor](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
+    ![Intellisense JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image7.png)    ![Editor de esquemas de JSON](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image8.png)
 - **Nuevo editor de Sass (SCSS)**: hemos agregado menor en VS2013 RTM y ahora tenemos un elemento de proyecto Sass y el editor. Editor de SASS características son comparables en el editor de LESS e incluyen coloración, variable y Mixins IntelliSense, comentario o quite, información rápida, formato, validación de la sintaxis, la esquematización, ir a definición, selector de color, las herramientas de configuración de la opción etcetera.
 
     ![Agregar nuevo elemento: Hoja de estilos SCSS](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image9.png)    ![Editor de la hoja de estilos](aspnet-and-web-tools-20132-preview-for-visual-studio-2013-release-notes/_static/image10.png)

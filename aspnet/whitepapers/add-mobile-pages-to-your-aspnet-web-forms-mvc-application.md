@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
 ms.openlocfilehash: a8358b91ca424f4f3e576057ab43d850081dda60
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "30898988"
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación de MVC
 ====================
@@ -104,7 +105,7 @@ El requisito previo de clave para todas las técnicas de servidor para admitir d
 - Método de entrada (mouse, teclado, táctil, teclado, joystick,...)
 - Tamaño de la pantalla (físicamente y en píxeles)
 - Formatos admitidos de medios y los datos
-- Etc.
+- Etcetera.
 
 Es mejor tomar decisiones basadas en características que el número de modelo, ya que, a continuación, estará mejor preparado para controlar futuros dispositivos.
 

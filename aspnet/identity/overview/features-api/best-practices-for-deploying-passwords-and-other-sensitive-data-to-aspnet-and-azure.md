@@ -1,26 +1,27 @@
 ---
 uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
-title: "Las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y el servicio de aplicación de Azure | Documentos de Microsoft"
+title: Las prácticas recomendadas para implementar las contraseñas y otros datos confidenciales en ASP.NET y el servicio de aplicación de Azure | Documentos de Microsoft
 author: Rick-Anderson
-description: "Este tutorial muestra cómo el código puede almacenar y tener acceso a información segura de forma segura. El punto más importante es que nunca debe almacenar contraseñas u otros Cone..."
+description: Este tutorial muestra cómo el código puede almacenar y tener acceso a información segura de forma segura. El punto más importante es que nunca debe almacenar contraseñas u otros Cone...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/21/2015
 ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
 ms.openlocfilehash: 995d9a088e3095f36a01d2adb19ec08e6a6d1b3e
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28033026"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Prácticas recomendadas para implementar las contraseñas y otros datos confidenciales a ASP.NET y el servicio de aplicación de Azure
 ====================
-Por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > Este tutorial muestra cómo el código puede almacenar y tener acceso a información segura de forma segura. El punto más importante es nunca debe almacenar las contraseñas u otros datos confidenciales en el código fuente y no utilice secretos de producción en modo de desarrollo y pruebas.
 > 
@@ -90,7 +91,7 @@ El *app.config* archivo usado por una aplicación de consola no es compatible co
 
 Al implementar la aplicación web en Azure, el *AppSettingsSecrets.config* no se implementarán archivo (es decir, lo que desea). También puede ir a la [Portal de administración de Azure](https://azure.microsoft.com/services/management-portal/) y configurarlas manualmente, para ello:
 
-1. Vaya a [https://portal.azure.com](https://portal.azure.com)e inicie sesión con sus credenciales de Azure.
+1. Vaya a [ https://portal.azure.com ](https://portal.azure.com)e inicie sesión con sus credenciales de Azure.
 2. Haga clic en **examinar &gt; aplicaciones Web**, a continuación, haga clic en el nombre de la aplicación web.
 3. Haga clic en **toda la configuración de &gt; configuración de la aplicación**.
 

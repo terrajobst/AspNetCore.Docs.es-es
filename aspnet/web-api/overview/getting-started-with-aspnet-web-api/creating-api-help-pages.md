@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
-title: "Crear páginas de ayuda para ASP.NET Web API | Documentos de Microsoft"
+title: Crear páginas de ayuda para ASP.NET Web API | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/01/2013
@@ -13,10 +13,11 @@ ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
 ms.openlocfilehash: 37fd26ebaea192cb540c443eff8a07343ab8c15b
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "28037908"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Crear páginas de ayuda para ASP.NET Web API
 ====================
@@ -60,9 +61,9 @@ Puede agregar páginas de ayuda a un proyecto existente de la API Web mediante e
 
 Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**y, a continuación, seleccione **Package Manager Console**. En el [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ventana, escriba uno de los siguientes comandos:
 
-Para una **C#** aplicación:`Install-Package Microsoft.AspNet.WebApi.HelpPage`
+Para una **C#** aplicación: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 
-Para una **Visual Basic** aplicación:`Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
+Para una **Visual Basic** aplicación: `Install-Package Microsoft.AspNet.WebApi.HelpPage.VB`
 
 Hay dos paquetes, uno para C# y otro para Visual Basic. Asegúrese de utilizar uno que se adapte al proyecto.
 
