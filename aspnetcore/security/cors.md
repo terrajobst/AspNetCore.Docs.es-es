@@ -19,13 +19,13 @@ ms.lasthandoff: 03/22/2018
 
 Por [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), y [Tom Dykstra](https://github.com/tdykstra)
 
-Seguridad del explorador impide que una página web que realiza las solicitudes AJAX a otro dominio. Esta restricción se denomina la *directiva de mismo origen*y se impide que un sitio malintencionado pueda leer los datos confidenciales desde otro sitio. Sin embargo, en ocasiones, puede permitir que otros sitios realizar solicitudes entre orígenes en la API web.
+La seguridad del explorador impide que una página web que realice solicitudes AJAX a otro dominio. Esta restricción se denomina la *directiva de mismo origen* (cross-origin policy), e impide que un sitio malintencionado pueda leer los datos confidenciales desde otro sitio. Sin embargo, en ocasiones, puede permitir que otros sitios realicen solicitudes entre orígenes en la API web.
 
-[Entre el uso compartido de recursos de origen](http://www.w3.org/TR/cors/) (CORS) es un estándar de W3C que permite que un servidor relajar la directiva de mismo origen. Con CORS, un servidor puede permitir explícitamente algunas solicitudes entre orígenes y rechazar los otros usuarios. CORS es más seguro y más flexible que técnicas anteriores como [JSONP](https://wikipedia.org/wiki/JSONP). En este tema se muestra cómo habilitar CORS en una aplicación de ASP.NET Core.
+[El uso compartido de recursos de origen cruzado](http://www.w3.org/TR/cors/) (CORS) es un estándar del W3C que permite a un servidor relajar la directiva de mismo origen. Usando CORS, un servidor puede permitir explícitamente algunas solicitudes de origen cruzado mientras rechaza otras. CORS es más seguro y más flexible que técnicas anteriores como [JSONP](https://wikipedia.org/wiki/JSONP). En este tema se muestra cómo habilitar CORS en una aplicación de ASP.NET Core.
 
 ## <a name="what-is-same-origin"></a>¿Qué es el "mismo origen"?
 
-Dos direcciones URL tienen el mismo origen si tienen puertos, los hosts y los esquemas idénticos. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+Dos direcciones URL tienen el mismo origen si tienen puertos, hosts y esquemas idénticos. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
 Estas dos direcciones URL tienen el mismo origen:
 
@@ -33,76 +33,76 @@ Estas dos direcciones URL tienen el mismo origen:
 
 * `http://example.com/bar.html`
 
-Estas direcciones URL tengan diferentes orígenes que el anterior dos:
+Estas direcciones URL tienen orígenes diferentes de los anteriores:
 
-* `http://example.net` -Dominio diferente
+* `http://example.net` - Dominio diferente
 
-* `http://www.example.com/foo.html` -Otro subdominio
+* `http://www.example.com/foo.html` - Subdominio diferente
 
-* `https://example.com/foo.html` -Esquema diferente
+* `https://example.com/foo.html` - Esquema diferente
 
-* `http://example.com:9000/foo.html` -Otro puerto
+* `http://example.com:9000/foo.html` - Puerto diferente
 
 > [!NOTE]
-> Internet Explorer no considerará el puerto al comparar elementos Origin.
+> Internet Explorer no considera el puerto al comparar orígenes.
 
 ## <a name="setting-up-cors"></a>Configuración de CORS
 
-Para configurar agregar CORS para su aplicación el `Microsoft.AspNetCore.Cors` paquete al proyecto.
+Para configurar CORS en su aplicación añade el paquete `Microsoft.AspNetCore.Cors` al proyecto.
 
-Agregue los servicios CORS de Startup.cs:
+Añade los servicios CORS en Startup.cs:
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
-## <a name="enabling-cors-with-middleware"></a>Habilitación de CORS con middleware
+## <a name="enabling-cors-with-middleware"></a>Habilitar CORS con middleware
 
-Para habilitar CORS para toda la aplicación agregar el middleware CORS a la canalización de solicitud usando el `UseCors` método de extensión. Tenga en cuenta que el middleware CORS debe preceder a cualquier extremo definido en la aplicación que desea admitir las solicitudes entre orígenes (p. ej. antes de cualquier llamada a `UseMvc`).
+Para habilitar CORS para toda la aplicación agregue el middleware CORS a la canalización de solicitud usando el método de extensión `UseCors`. Tenga en cuenta que el middleware CORS debe preceder a cualquier extremo definido en la aplicación que desea admitir las solicitudes entre orígenes (p. ej. antes de cualquier llamada a `UseMvc`).
 
-Puede especificar una directiva de entre orígenes cuando se agrega el middleware CORS mediante la `CorsPolicyBuilder` clase. Existen dos formas de lograr esto. La primera consiste en llamar a UseCors con una expresión lambda:
+Puede especificar una directiva de entre orígenes cuando se agrega el middleware CORS mediante la clase `CorsPolicyBuilder`. Existen dos formas de lograr esto. La primera consiste en llamar a UseCors con una expresión lambda:
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-**Nota:** debe especificarse la dirección URL sin una barra diagonal final (`/`). Si la dirección URL finaliza con `/`, devolverá la comparación `false` y no se devolverá ningún encabezado.
+**Nota:** debe especificarse la dirección URL sin una barra diagonal final (`/`). Si la dirección URL finaliza con `/`, la comparación devolverá `false` y no se devolverá ningún encabezado.
 
-La expresión lambda toma un `CorsPolicyBuilder` objeto. Encontrará una lista de los [opciones de configuración](#cors-policy-options) más adelante en este tema. En este ejemplo, la directiva permite que las solicitudes entre orígenes de `http://example.com` y no hay otros orígenes.
+La expresión lambda toma un objeto `CorsPolicyBuilder`. Encontrará una lista de las [opciones de configuración](#cors-policy-options) más adelante en este tema. En este ejemplo, la directiva permite las solicitudes entre orígenes de `http://example.com` y no de otros orígenes.
 
 Tenga en cuenta que CorsPolicyBuilder tiene una API fluida, por lo que se pueden encadenar llamadas de método:
 
 [!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
-El segundo enfoque es definir una o varias directivas CORS con nombre y, a continuación, seleccione la directiva por su nombre en tiempo de ejecución.
+El segundo enfoque es definir una o varias directivas CORS con nombre y, a continuación, seleccionar la directiva por su nombre en tiempo de ejecución.
 
 [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
 Este ejemplo agrega una directiva CORS denominada "AllowSpecificOrigin". Para seleccionar la directiva, pase el nombre a `UseCors`.
 
-## <a name="enabling-cors-in-mvc"></a>Habilitación de CORS en MVC
+## <a name="enabling-cors-in-mvc"></a>Habilitar de CORS en MVC
 
 Como alternativa, puede usar MVC para aplicar CORS específico por cada acción, por cada controlador o globalmente para todos los controladores. Al utilizar MVC para habilitar CORS se utilizan los mismos servicios CORS, pero no el middleware CORS.
 
 ### <a name="per-action"></a>Por cada acción
 
-Para especificar una directiva CORS para una acción específica agregar el `[EnableCors]` atribuir a la acción. Especifique el nombre de la directiva.
+Para especificar una directiva CORS para una acción específica agregue el atributo `[EnableCors]` a la acción. Especifique el nombre de la directiva.
 
 [!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>Por cada controlador
 
-Para especificar la directiva CORS de un controlador específico agregar el `[EnableCors]` atributo a la clase de controlador. Especifique el nombre de la directiva.
+Para especificar la directiva CORS para un controlador específico agregue el atributo `[EnableCors]` a la clase controlador. Especifique el nombre de la directiva.
 
 [!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>Global
 
-Puede habilitar CORS globalmente para todos los controladores mediante la adición de la `CorsAuthorizationFilterFactory` filtro a la colección de filtros globales:
+Puede habilitar CORS globalmente para todos los controladores mediante la adición del filtro `CorsAuthorizationFilterFactory` a  la colección de filtros globales:
 
 [!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
-Es el orden de prioridad: acción, controlador, de forma global. Las directivas de nivel de acción tienen prioridad sobre las directivas de nivel de controlador y las directivas de nivel de controlador tienen prioridad sobre las directivas globales.
+El orden de prioridad es: acción, controlador, de forma global. Las directivas de nivel de acción tienen prioridad sobre las directivas de nivel de controlador y las directivas de nivel de controlador tienen prioridad sobre las directivas globales.
 
 ### <a name="disable-cors"></a>Deshabilitar CORS
 
-Para deshabilitar CORS para una acción o controlador, utilice la `[DisableCors]` atributo.
+Para deshabilitar CORS para una acción o controlador, utilice el atributo `[DisableCors]`.
 
 [!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
@@ -114,23 +114,23 @@ Esta sección describe las distintas opciones que se pueden establecer en una di
 
 * [Establecer los métodos HTTP permitidos](#set-the-allowed-http-methods)
 
-* [Establecer los encabezados de solicitudes permitido](#set-the-allowed-request-headers)
+* [Establecer los encabezados de solicitudes permitidos](#set-the-allowed-request-headers)
 
-* [Establecer los encabezados de respuesta expuesto](#set-the-exposed-response-headers)
+* [Establecer los encabezados de respuesta expuestos](#set-the-exposed-response-headers)
 
 * [Credenciales en solicitudes cross-origin](#credentials-in-cross-origin-requests)
 
-* [Establecer el tiempo de expiración preparatoria](#set-the-preflight-expiration-time)
+* [Establecer el tiempo de expiración de la preparación](#set-the-preflight-expiration-time)
 
 Para algunas opciones pueden serle de ayuda leer [CORS cómo funciona](#how-cors-works) primero.
 
 ### <a name="set-the-allowed-origins"></a>Establecer los orígenes permitidos
 
-Para permitir que uno o más orígenes específicos:
+Para permitir uno o más orígenes específicos:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
-Para permitir que todos los orígenes:
+Para permitir todos los orígenes:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
@@ -138,27 +138,27 @@ Debe considerar detenidamente antes de permitir que las solicitudes de cualquier
 
 ### <a name="set-the-allowed-http-methods"></a>Establecer los métodos HTTP permitidos
 
-Para permitir que todos los métodos HTTP:
+Para permitir todos los métodos HTTP:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
-Esto afecta a solicitudes preparatorias y encabezado de acceso-Control-Allow-Methods.
+Esto afecta a solicitudes preparatorias y encabezados de Access-Control-Allow-Methods.
 
-### <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitido
+### <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitidos
 
-Una solicitud preparatoria de CORS puede incluir un encabezado de acceso-Access-Control-Request-Headers, enumerar los encabezados HTTP establecidos por la aplicación (la "crear encabezados de solicitud").
+Una solicitud preparatoria de CORS puede incluir un encabezado Access-Control-Request-Headers, enumerando los encabezados HTTP establecidos por la aplicación (los llamados "encabezados de solicitud de autor").
 
-A encabezados específicos de la lista blanca de direcciones:
+Para añadir encabezados específicos a la lista blanca:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
-Para permitir que todos crear encabezados de solicitud:
+Para permitir todos los encabezados de solicitud de autor:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
-Los exploradores no son completamente coherentes en forma de conjunto de acceso-Access-Control-Request-Headers. Si establece encabezados en ningún otro valor distinto de "*", debe incluir al menos "Aceptar", "content-type" y "origen", además de los encabezados personalizados que desee admitir.
+Los navegadores no son completamente coherentes en la forma de establecer Access-Control-Request-Headers. Si establece encabezados a un otro valor distinto de "*", debe incluir al menos "accept", "content-type" y "origin", además de los encabezados personalizados que desee admitir.
 
-### <a name="set-the-exposed-response-headers"></a>Establecer los encabezados de respuesta expuesto
+### <a name="set-the-exposed-response-headers"></a>Establecer los encabezados de respuesta expuestos
 
 De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. (Consulte [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Los encabezados de respuesta que están disponibles de forma predeterminada son:
 
@@ -166,11 +166,11 @@ De forma predeterminada, el explorador no expone todos los encabezados de respue
 
 * Content-Language
 
-* Tipo de contenido
+* Content-Type
 
-* Expira
+* Expires
 
-* Última modificación
+* Last-Modified
 
 * Pragma
 
@@ -182,7 +182,7 @@ La especificación CORS llama a estos *encabezados de respuesta simple*. Para qu
 
 Las credenciales requieren un tratamiento especial en una solicitud de CORS. De forma predeterminada, el explorador no envía las credenciales con una solicitud entre orígenes. Las credenciales son las cookies, así como esquemas de autenticación HTTP. Para enviar las credenciales con una solicitud entre orígenes, el cliente debe establecer XMLHttpRequest.withCredentials en true.
 
-Utilizar directamente el objeto XMLHttpRequest:
+Utilizando directamente el objeto XMLHttpRequest:
 
 ```javascript
 var xhr = new XMLHttpRequest();
@@ -201,19 +201,19 @@ $.ajax({
 }
 ```
 
-Además, el servidor debe permitir las credenciales. Para permitir que las credenciales entre orígenes:
+Además, el servidor debe permitir las credenciales. Para permitir las credenciales entre orígenes:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=80-85)]
 
-Ahora, la respuesta HTTP incluirá un encabezado de acceso-Control-Allow-Credentials, que indica al explorador que el servidor permite que las credenciales para una solicitud entre orígenes.
+Ahora, la respuesta HTTP incluirá un encabezado Access-Control-Allow-Credentials, que indica al explorador que el servidor permite credenciales para una solicitud entre orígenes.
 
-Si el explorador envía las credenciales, pero la respuesta no incluye un encabezado de acceso-Control-Allow-Credentials válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
+Si el explorador envía las credenciales, pero la respuesta no incluye un encabezado de Access-Control-Allow-Credentials válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
 
-Tenga cuidado al permitir que las credenciales entre orígenes. Un sitio Web en otro dominio puede enviar credenciales ha iniciado la sesión de un usuario a la aplicación en nombre del usuario sin el conocimiento del usuario. La especificación de CORS también indica esa configuración de orígenes que "*" (todos los orígenes) no es válido si el `Access-Control-Allow-Credentials` encabezado está presente.
+Tenga cuidado al permitir credenciales entre orígenes. Un sitio web en otro dominio puede enviar las credenciales de un usuario que ha iniciado sesión en la aplicación en nombre del usuario sin el conocimiento del usuario. La especificación de CORS también indica que establecer los orígenes para "*" (todos los orígenes) no es válido si el encabezado `Access-Control-Allow-Credentials` está presente.
 
-### <a name="set-the-preflight-expiration-time"></a>Establecer el tiempo de expiración preparatoria
+### <a name="set-the-preflight-expiration-time"></a>Establecer el tiempo de expiración de la preparación
 
-El encabezado de acceso-Control: Max-Age especifica cuánto tiempo puede almacenarse en caché la respuesta a la solicitud preparatoria. Para establecer este encabezado:
+El encabezado Access-Control-Max-Age especifica cuánto tiempo puede almacenarse en caché la respuesta a la solicitud preparatoria. Para establecer este encabezado:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=89-94)]
 
@@ -221,11 +221,11 @@ El encabezado de acceso-Control: Max-Age especifica cuánto tiempo puede almacen
 
 ## <a name="how-cors-works"></a>Funcionamiento de CORS
 
-Esta sección describe lo que ocurre en una solicitud de CORS en el nivel de los mensajes HTTP. Es importante comprender el funcionamiento de CORS para que se pueda configurar correctamente la directiva CORS y solucionar cuando se produzcan comportamientos inesperados.
+Esta sección describe lo que ocurre en una solicitud de CORS en el nivel de los mensajes HTTP. Es importante comprender el funcionamiento de CORS para que se pueda configurar correctamente la directiva CORS y solucionar los comportamientos inesperados que puedan ocurrir.
 
-La especificación de CORS presenta varios encabezados HTTP nuevo que permiten las solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. Código de JavaScript personalizado no es necesario para habilitar CORS.
+La especificación de CORS presenta varios encabezados HTTP nuevos que permiten las solicitudes entre orígenes. Si un explorador es compatible con CORS, establece estos encabezados automáticamente para las solicitudes entre orígenes. Código de JavaScript personalizado no es necesario para habilitar CORS.
 
-Este es un ejemplo de una solicitud entre orígenes. El `Origin` encabezado proporciona el dominio del sitio que está realizando la solicitud:
+Este es un ejemplo de una solicitud entre orígenes. El encabezado `Origin` proporciona el dominio del sitio que está realizando la solicitud:
 
 ```
 GET http://myservice.azurewebsites.net/api/test HTTP/1.1
@@ -238,7 +238,7 @@ User-Agent: Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6
 Host: myservice.azurewebsites.net
 ```
 
-Si el servidor permite la solicitud, Establece el encabezado de acceso Access-Control-Allow-Origin en la respuesta. El valor de este encabezado coincide con el encabezado de origen de la solicitud, o es el valor de carácter comodín "*", lo que significa que se permite cualquier origen:
+Si el servidor permite la solicitud, establece el encabezado Access-Control-Allow-Origin en la respuesta. El valor de este encabezado coincide con el encabezado de origen de la solicitud, o es el valor de carácter comodín "*", lo que significa que se permite cualquier origen:
 
 ```
 HTTP/1.1 200 OK
@@ -252,7 +252,7 @@ Content-Length: 12
 Test message
 ```
 
-Si la respuesta no incluye el encabezado de acceso Access-Control-Allow-Origin, se produce un error en la solicitud de AJAX. En concreto, el explorador no permite la solicitud. Incluso si el servidor devuelve una respuesta correcta, el explorador no disponer de la respuesta a la aplicación cliente.
+Si la respuesta no incluye el encabezado Access-Control-Allow-Origin, se produce un error en la solicitud de AJAX. En concreto, el explorador no permite la solicitud. Incluso si el servidor devuelve una respuesta correcta, el explorador no expone la respuesta a la aplicación cliente.
 
 ### <a name="preflight-requests"></a>Solicitudes preparatorias
 
@@ -260,17 +260,17 @@ Para algunas solicitudes CORS, el explorador envía una solicitud adicional, den
 
 * El método de solicitud es GET, HEAD o POST, y
 
-* La aplicación no establece los encabezados de solicitud que no sean Accept, Accept-Language, Content-Language, Content-Type o último--Id. de evento, y
+* La aplicación no establece los encabezados de solicitud que no sean Accept, Accept-Language, Content-Language, Content-Type o Last-Event-ID, y
 
-* El encabezado Content-Type (si establece) es uno de los siguientes:
+* El encabezado Content-Type (si se establece) es uno de los siguientes:
 
   * application/x-www-form-urlencoded
 
   * multipart/form-data
 
-  * texto/sin formato
+  * text/plain
 
-La regla acerca de los encabezados de solicitud se aplica a los encabezados de la aplicación se establece mediante una llamada a setRequestHeader en el objeto XMLHttpRequest. (La especificación de CORS llama a estos "encabezados de solicitud de autor"). La regla no se aplica a los encabezados que se puede establecer el explorador, como agente de usuario, el Host o Content-Length.
+La regla acerca de los encabezados de solicitud se aplica a los encabezados que la aplicación establece mediante una llamada a setRequestHeader en el objeto XMLHttpRequest. (La especificación de CORS llama a estos "encabezados de solicitud de autor"). La regla no se aplica a los encabezados se puede establecer el explorador, como User-Agent, el Host o Content-Length.
 
 Este es un ejemplo de una solicitud preparatoria:
 
@@ -288,9 +288,9 @@ Content-Length: 0
 
 La solicitud preparatoria utiliza el método HTTP OPTIONS. Incluye dos encabezados especiales:
 
-* Acceso Access-Control-Request-Method: El método HTTP que se usará para la solicitud real.
+* Access-Control-Request-Method: El método HTTP que se usará para la solicitud real.
 
-* Acceso Access-Control-Request-Headers: Una lista de encabezados de solicitud que la aplicación se establece en la solicitud real. (De nuevo, esto no incluye encabezados que establece el explorador.)
+* Access-Control-Request-Headers: Una lista de encabezados de solicitud que la aplicación establece en la solicitud real. (De nuevo, esto no incluye los encabezados que establece el explorador.)
 
 Esta es una respuesta de ejemplo, suponiendo que el servidor permite que la solicitud:
 
@@ -305,4 +305,4 @@ Access-Control-Allow-Methods: PUT
 Date: Wed, 20 May 2015 06:33:22 GMT
 ```
 
-La respuesta incluye un encabezado de acceso-Control-Allow-Methods que enumera los métodos permitidos y, opcionalmente, un encabezado Access-Control-permitir-Headers, que se muestra los encabezados permitidos. Si la solicitud preparatoria se realiza correctamente, el explorador envía la solicitud real, como se describió anteriormente.
+La respuesta incluye un encabezado de Access-Control-Allow-Methods que enumera los métodos permitidos y, opcionalmente, un encabezado Access-Control-Allow-Headers, que se muestra los encabezados permitidos. Si la solicitud preparatoria se realiza correctamente, el explorador envía la solicitud real, como se describió anteriormente.
