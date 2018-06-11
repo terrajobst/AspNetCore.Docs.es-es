@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/index
-ms.openlocfilehash: f4b0af39ea865d5d8b47a7b385de72e616c13cd7
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 1048554c78e3810206b1261371ae7c41485c436a
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252131"
 ---
 # <a name="configuration-in-aspnet-core"></a>Configuración en ASP.NET Core
 
@@ -36,7 +37,7 @@ Cada valor de configuración se asigna a una clave de cadena. Hay compatibilidad
 
 El patrón de opciones usa las clases de opciones para representar grupos de configuraciones relacionadas. Para más información sobre cómo usar el patrón de opciones, vea el tema [Opciones](xref:fundamentals/configuration/options).
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="json-configuration"></a>Configuración de JSON
 
@@ -230,7 +231,7 @@ key3=value_from_json_3
 
 El [proveedor de configuración CommandLine](/dotnet/api/microsoft.extensions.configuration.commandline.commandlineconfigurationprovider) recibe pares de clave y valor de argumento de línea de comandos para la configuración en tiempo de ejecución.
 
-[Ver o descargar el ejemplo de configuración CommandLine](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/index/sample/CommandLine)
+[Ver o descargar el ejemplo de configuración CommandLine](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/index/sample/CommandLine)
 
 ### <a name="setup-and-use-the-commandline-configuration-provider"></a>Configurar y usar el proveedor de configuración CommandLine
 
