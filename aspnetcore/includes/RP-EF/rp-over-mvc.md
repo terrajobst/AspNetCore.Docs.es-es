@@ -6,3 +6,5 @@ En este tutorial se explica el funcionamiento de ASP.NET Core MVC y Entity Frame
 * Es más actual en relación con la API más reciente.
 * Abarca más características.
 * Es el método preferido para el desarrollo de nuevas aplicaciones.
+
+Si elige este tutorial en lugar de la versión de [páginas de Razor](xref:data/ef-rp/intro), le agradeceremos que nos explique el motivo en este [problema de GitHub](https://github.com/aspnet/Docs/issues/6146).
