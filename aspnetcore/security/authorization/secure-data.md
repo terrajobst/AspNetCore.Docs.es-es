@@ -9,12 +9,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authorization/secure-data
-ms.openlocfilehash: 36475776966cfb0cb3bb40477798f6e24df9725d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 1ffa44d1816284d563b80b2d9a02b7b816116ee1
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688457"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252118"
 ---
 # <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación de ASP.NET Core con datos de usuario protegidos por autorización
 
@@ -309,6 +309,8 @@ Crear un contacto en el explorador del administrador. Copie la dirección URL pa
   ```console
   dotnet new webapp -o ContactManager -au Individual -uld
   ```
+
+  [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 

@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 24ab83192ded381b46fab337a986f51fb22b2227
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 69ce182855878e4d05bff95139fefb9e1312f3d5
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729508"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252079"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en el núcleo de ASP.NET
 
@@ -148,6 +148,8 @@ Use la opción `--no-https`. Por ejemplo
 ```console
 dotnet new webapp --no-https
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ---
 

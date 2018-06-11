@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/individual
-ms.openlocfilehash: 699def0133f53b922477ac294f70db41998945ef
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 6d05cd8c0ee6c9029eb9bbafc15d9b19ee7633de
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729555"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252027"
 ---
 # <a name="articles-based-on-aspnet-core-projects-created-with-individual-user-accounts"></a>Artículos basados en los proyectos de ASP.NET Core creados con cuentas de usuario individuales
 
@@ -29,6 +29,8 @@ dotnet new mvc -au Individual
 dotnet new webapi -au Individual
 dotnet new webapp -au Individual
 ```
+
+[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 
