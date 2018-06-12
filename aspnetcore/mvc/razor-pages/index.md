@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: mvc/razor-pages/index
-ms.openlocfilehash: 651d47ce20f3269340f0796f487e2f1a2a155710
-ms.sourcegitcommit: 0063338c2e130409081bb60fcffa0c3f190cd46a
+ms.openlocfilehash: c8611ef9218711410cde9e142202fa25c3e51862
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729463"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -40,17 +41,47 @@ Vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pag
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 
+::: moniker range=">= aspnetcore-2.1"
+
+Ejecute `dotnet new webapp` desde la línea de comandos.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Ejecute `dotnet new razor` desde la línea de comandos.
+
+::: moniker-end
 
 Abra el archivo *.csproj* generado desde Visual Studio para Mac.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Ejecute `dotnet new webapp` desde la línea de comandos.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Ejecute `dotnet new razor` desde la línea de comandos.
+
+::: moniker-end
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
 
+::: moniker range=">= aspnetcore-2.1"
+
+Ejecute `dotnet new webapp` desde la línea de comandos.
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
 Ejecute `dotnet new razor` desde la línea de comandos.
+
+::: moniker-end
 
 ---
 
@@ -116,7 +147,7 @@ Modelo de página *Pages/Create.cshtml.cs*:
 
 Por convención, la clase `PageModel` se denomina `<PageName>Model` y se encuentra en el mismo espacio de nombres que la página.
 
-La clase `PageModel` permite la separación de la lógica de una página de su presentación. Define los controladores de página para solicitudes que se envían a la página y los datos que usan para representar la página. Esta separación le permite administrar dependencias de páginas mediante la [inyección de dependencias](xref:fundamentals/dependency-injection) y para realizar [pruebas unitarias](xref:testing/razor-pages-testing) de las páginas.
+La clase `PageModel` permite la separación de la lógica de una página de su presentación. Define los controladores de página para solicitudes que se envían a la página y los datos que usan para representar la página. Esta separación le permite administrar dependencias de páginas mediante la [inyección de dependencias](xref:fundamentals/dependency-injection) y para realizar [pruebas unitarias](xref:test/razor-pages-tests) de las páginas.
 
 La página tiene un *método de controlador* `OnPostAsync`, que se ejecuta en solicitudes `POST` (cuando un usuario envía el formulario). Puede agregar métodos de controlador para cualquier verbo HTTP. Los controladores más comunes son:
 
@@ -502,4 +533,4 @@ services.AddMvc()
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization)
 * [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:mvc/razor-pages/razor-pages-conventions)
-* [Pruebas unitarias y de integración de las páginas de Razor](xref:testing/razor-pages-testing)
+* [Pruebas unitarias de páginas de Razor](xref:test/razor-pages-tests)

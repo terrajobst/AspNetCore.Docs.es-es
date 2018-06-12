@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 9cd14a47a512c2a887614e617dd914dbdb25cb9d
-ms.sourcegitcommit: 01db73f2f7ac22b11ea48a947131d6176b0fe9ad
+ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34688444"
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -39,7 +40,7 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 * [Introducción a ASP.NET Core y Entity Framework Core con Visual Studio](xref:data/ef-mvc/index)
 * [Creación de aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/authoring)
 * [Creación de un componente de vista simple](xref:mvc/views/view-components#walkthrough-creating-a-simple-view-component)
-* [Desarrollo de aplicaciones de ASP.NET Core con dotnet watch](xref:tutorials/dotnet-watch)
+* [Desarrollo de aplicaciones mediante un monitor de archivos](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Compilación de API web
 * Creación de una API web con ASP.NET Core
