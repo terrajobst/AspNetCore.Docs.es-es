@@ -14,18 +14,19 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077553"
 ---
 # <a name="enable-cross-origin-requests-cors-in-aspnet-core"></a>Permitir solicitudes entre orígenes (CORS) en ASP.NET Core
 
 Por [Mike Wasson](https://github.com/mikewasson), [Shayne Boyer](https://twitter.com/spboyer), y [Tom Dykstra](https://github.com/tdykstra)
 
-Seguridad del explorador impide que una página web que realiza las solicitudes AJAX a otro dominio. Esta restricción se denomina la *directiva de mismo origen*y se impide que un sitio malintencionado pueda leer los datos confidenciales desde otro sitio. Sin embargo, en ocasiones, puede permitir que otros sitios realizar solicitudes entre orígenes en la API web.
+La seguridad del explorador impide que una página web realice solicitudes AJAX a otro dominio. Esta restricción se denomina *"directiva de mismo origen"* e impide que un sitio malintencionado lea los datos confidenciales desde otro sitio. En cambio, a veces, es posible que quiera permitir que otros sitios realicen solicitudes entre orígenes en su API web.
 
-[Entre el uso compartido de recursos de origen](http://www.w3.org/TR/cors/) (CORS) es un estándar de W3C que permite que un servidor relajar la directiva de mismo origen. Con CORS, un servidor puede permitir explícitamente algunas solicitudes entre orígenes y rechazar los otros usuarios. CORS es más seguro y más flexible que técnicas anteriores como [JSONP](https://wikipedia.org/wiki/JSONP). En este tema se muestra cómo habilitar CORS en una aplicación de ASP.NET Core.
+El [uso compartido de recursos entre orígenes](http://www.w3.org/TR/cors/) (CORS) es un estándar del W3C que permite que un servidor modere la directiva de mismo origen. Mediante CORS, un servidor puede permitir explícitamente algunas solicitudes entre orígenes y rechazar otras. CORS es más seguro y flexible que técnicas anteriores como [JSONP](https://wikipedia.org/wiki/JSONP). En este tema, se muestra cómo habilitar CORS en una aplicación de ASP.NET Core.
 
 ## <a name="what-is-same-origin"></a>¿Qué es el "mismo origen"?
 
-Dos direcciones URL tienen el mismo origen si tienen puertos, los hosts y los esquemas idénticos. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
+Dos direcciones URL tienen el mismo origen si tienen puertos, hosts y esquemas idénticos. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
 Estas dos direcciones URL tienen el mismo origen:
 
@@ -33,44 +34,44 @@ Estas dos direcciones URL tienen el mismo origen:
 
 * `http://example.com/bar.html`
 
-Estas direcciones URL tengan diferentes orígenes que el anterior dos:
+Estas direcciones URL tienen orígenes diferentes de los dos anteriores:
 
-* `http://example.net` -Dominio diferente
+* `http://example.net`: dominio diferente
 
-* `http://www.example.com/foo.html` -Otro subdominio
+* `http://www.example.com/foo.html`: subdominio diferente
 
-* `https://example.com/foo.html` -Esquema diferente
+* `https://example.com/foo.html`: esquema diferente
 
-* `http://example.com:9000/foo.html` -Otro puerto
+* `http://example.com:9000/foo.html`: puerto diferente
 
 > [!NOTE]
-> Internet Explorer no considerará el puerto al comparar elementos Origin.
+> Internet Explorer no tiene en cuenta el puerto al comparar orígenes.
 
 ## <a name="setting-up-cors"></a>Configuración de CORS
 
-Para configurar agregar CORS para su aplicación el `Microsoft.AspNetCore.Cors` paquete al proyecto.
+Para configurar CORS en su aplicación, agregue el paquete `Microsoft.AspNetCore.Cors` al proyecto.
 
-Agregue los servicios CORS de Startup.cs:
+Agregue los servicios CORS en Startup.cs:
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?name=snippet_addcors)]
 
 ## <a name="enabling-cors-with-middleware"></a>Habilitación de CORS con middleware
 
-Para habilitar CORS para toda la aplicación agregar el middleware CORS a la canalización de solicitud usando el `UseCors` método de extensión. Tenga en cuenta que el middleware CORS debe preceder a cualquier extremo definido en la aplicación que desea admitir las solicitudes entre orígenes (p. ej. antes de cualquier llamada a `UseMvc`).
+Para habilitar CORS para toda la aplicación, agregue el middleware de CORS a la canalización de solicitud mediante el método de extensión `UseCors`. Tenga en cuenta que el middleware de CORS debe preceder a cualquier punto de conexión definido en la aplicación que quiera que admita las solicitudes entre orígenes (por ejemplo, antes de cualquier llamada a `UseMvc`).
 
-Puede especificar una directiva de entre orígenes cuando se agrega el middleware CORS mediante la `CorsPolicyBuilder` clase. Existen dos formas de lograr esto. La primera consiste en llamar a UseCors con una expresión lambda:
+Puede especificar una directiva entre orígenes al agregar el middleware de CORS mediante la clase `CorsPolicyBuilder`. Hay dos formas de hacerlo. La primera consiste en llamar a UseCors con una expresión lambda:
 
 [!code-csharp[](cors/sample/CorsExample1/Startup.cs?highlight=11,12&range=22-38)]
 
-**Nota:** debe especificarse la dirección URL sin una barra diagonal final (`/`). Si la dirección URL finaliza con `/`, devolverá la comparación `false` y no se devolverá ningún encabezado.
+**Nota:** Debe especificarse la dirección URL sin una barra diagonal final (`/`). Si la dirección URL finaliza con `/`, la comparación devolverá `false` y no se devolverá ningún encabezado.
 
-La expresión lambda toma un `CorsPolicyBuilder` objeto. Encontrará una lista de los [opciones de configuración](#cors-policy-options) más adelante en este tema. En este ejemplo, la directiva permite que las solicitudes entre orígenes de `http://example.com` y no hay otros orígenes.
+La expresión lambda toma un objeto `CorsPolicyBuilder`. Encontrará una lista de las [opciones de configuración](#cors-policy-options) más adelante en este tema. En este ejemplo, la directiva permite las solicitudes entre orígenes de `http://example.com` y no de otros orígenes.
 
 Tenga en cuenta que CorsPolicyBuilder tiene una API fluida, por lo que se pueden encadenar llamadas de método:
 
 [!code-csharp[](../security/cors/sample/CorsExample3/Startup.cs?highlight=3&range=29-32)]
 
-El segundo enfoque es definir una o varias directivas CORS con nombre y, a continuación, seleccione la directiva por su nombre en tiempo de ejecución.
+El segundo enfoque es definir una o varias directivas CORS con nombre y, después, seleccionar la directiva por su nombre en tiempo de ejecución.
 
 [!code-csharp[](cors/sample/CorsExample2/Startup.cs?name=snippet_begin)]
 
@@ -82,27 +83,27 @@ Como alternativa, puede usar MVC para aplicar CORS específico por cada acción,
 
 ### <a name="per-action"></a>Por cada acción
 
-Para especificar una directiva CORS para una acción específica agregar el `[EnableCors]` atribuir a la acción. Especifique el nombre de la directiva.
+Para especificar una directiva CORS para una acción específica, agregue el atributo `[EnableCors]`a la acción. Especifique el nombre de la directiva.
 
 [!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnAction)]
 
 ### <a name="per-controller"></a>Por cada controlador
 
-Para especificar la directiva CORS de un controlador específico agregar el `[EnableCors]` atributo a la clase de controlador. Especifique el nombre de la directiva.
+Para especificar la directiva CORS para un controlador específico, agregue el atributo `[EnableCors]` a la clase controller. Especifique el nombre de la directiva.
 
 [!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=EnableOnController)]
 
 ### <a name="globally"></a>Global
 
-Puede habilitar CORS globalmente para todos los controladores mediante la adición de la `CorsAuthorizationFilterFactory` filtro a la colección de filtros globales:
+Puede habilitar CORS globalmente para todos los controladores si agrega el filtro `CorsAuthorizationFilterFactory`a la colección de filtros globales:
 
 [!code-csharp[](cors/sample/CorsMVC/Startup2.cs?name=snippet_configureservices)]
 
-Es el orden de prioridad: acción, controlador, de forma global. Las directivas de nivel de acción tienen prioridad sobre las directivas de nivel de controlador y las directivas de nivel de controlador tienen prioridad sobre las directivas globales.
+El orden de prioridad es: acción, controlador, global. Las directivas de nivel de acción tienen prioridad sobre las directivas de nivel de controlador y estas últimas tienen prioridad sobre las directivas globales.
 
 ### <a name="disable-cors"></a>Deshabilitar CORS
 
-Para deshabilitar CORS para una acción o controlador, utilice la `[DisableCors]` atributo.
+Para deshabilitar CORS para una acción o un controlador, use el atributo `[DisableCors]`.
 
 [!code-csharp[](cors/sample/CorsMVC/Controllers/ValuesController.cs?name=DisableOnAction)]
 
@@ -114,23 +115,23 @@ Esta sección describe las distintas opciones que se pueden establecer en una di
 
 * [Establecer los métodos HTTP permitidos](#set-the-allowed-http-methods)
 
-* [Establecer los encabezados de solicitudes permitido](#set-the-allowed-request-headers)
+* [Establecer los encabezados de solicitudes permitidos](#set-the-allowed-request-headers)
 
-* [Establecer los encabezados de respuesta expuesto](#set-the-exposed-response-headers)
+* [Establecer los encabezados de respuesta expuestos](#set-the-exposed-response-headers)
 
 * [Credenciales en solicitudes cross-origin](#credentials-in-cross-origin-requests)
 
-* [Establecer el tiempo de expiración preparatoria](#set-the-preflight-expiration-time)
+* [Establecer el tiempo de expiración de las comprobaciones preparatorias](#set-the-preflight-expiration-time)
 
 Para algunas opciones pueden serle de ayuda leer [CORS cómo funciona](#how-cors-works) primero.
 
 ### <a name="set-the-allowed-origins"></a>Establecer los orígenes permitidos
 
-Para permitir que uno o más orígenes específicos:
+Para permitir uno o más orígenes específicos:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=19-23)]
 
-Para permitir que todos los orígenes:
+Para permitir todos los orígenes:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs??range=27-31)]
 
@@ -138,27 +139,27 @@ Debe considerar detenidamente antes de permitir que las solicitudes de cualquier
 
 ### <a name="set-the-allowed-http-methods"></a>Establecer los métodos HTTP permitidos
 
-Para permitir que todos los métodos HTTP:
+Para permitir todos los métodos HTTP:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=44-49)]
 
-Esto afecta a solicitudes preparatorias y encabezado de acceso-Control-Allow-Methods.
+Esto afecta a las solicitudes de comprobaciones preparatorias y al encabezado Access-Control-Allow-Methods.
 
-### <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitido
+### <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitidos
 
-Una solicitud preparatoria de CORS puede incluir un encabezado de acceso-Access-Control-Request-Headers, enumerar los encabezados HTTP establecidos por la aplicación (la "crear encabezados de solicitud").
+Una solicitud de comprobaciones preparatorias de CORS puede incluir un encabezado Access-Control-Request-Headers, en el que aparezcan los encabezados HTTP que ha establecido la aplicación (los denominados "encabezados de solicitud de autor").
 
-A encabezados específicos de la lista blanca de direcciones:
+Para agregar encabezados específicos a la lista de permitidos:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=53-58)]
 
-Para permitir que todos crear encabezados de solicitud:
+Para permitir todos los encabezados de solicitud de autor:
 
 [!code-csharp[](cors/sample/CorsExample4/Startup.cs?range=62-67)]
 
-Los exploradores no son completamente coherentes en forma de conjunto de acceso-Access-Control-Request-Headers. Si establece encabezados en ningún otro valor distinto de "*", debe incluir al menos "Aceptar", "content-type" y "origen", además de los encabezados personalizados que desee admitir.
+Los exploradores no son completamente coherentes en la forma en que establecen Access-Control-Request-Headers. Si establece encabezados en un valor que no sea "*", debe incluir al menos "accept", "content-type" y "origin", además de los encabezados personalizados que quiera admitir.
 
-### <a name="set-the-exposed-response-headers"></a>Establecer los encabezados de respuesta expuesto
+### <a name="set-the-exposed-response-headers"></a>Establecer los encabezados de respuesta expuestos
 
 De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. (Consulte [ http://www.w3.org/TR/cors/#simple-response-header ](http://www.w3.org/TR/cors/#simple-response-header).) Los encabezados de respuesta que están disponibles de forma predeterminada son:
 
@@ -166,11 +167,11 @@ De forma predeterminada, el explorador no expone todos los encabezados de respue
 
 * Content-Language
 
-* Tipo de contenido
+* Content-Type
 
-* Expira
+* Expires
 
-* Última modificación
+* Last-Modified
 
 * Pragma
 
@@ -182,7 +183,7 @@ La especificación CORS llama a estos *encabezados de respuesta simple*. Para qu
 
 Las credenciales requieren un tratamiento especial en una solicitud de CORS. De forma predeterminada, el explorador no envía las credenciales con una solicitud entre orígenes. Las credenciales son las cookies, así como esquemas de autenticación HTTP. Para enviar las credenciales con una solicitud entre orígenes, el cliente debe establecer XMLHttpRequest.withCredentials en true.
 
-Utilizar directamente el objeto XMLHttpRequest:
+Al usar directamente el objeto XMLHttpRequest:
 
 ```javascript
 var xhr = new XMLHttpRequest();
