@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/anti-request-forgery
-ms.openlocfilehash: ad50f8b261447d40ccc24c0ee006239aa976bf20
-ms.sourcegitcommit: 7d02ca5f5ddc2ca3eb0258fdd6996fbf538c129a
+ms.openlocfilehash: 3bca96f4a2e247eeeb93140df93221371d88d4d3
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341865"
 ---
 # <a name="prevent-cross-site-request-forgery-xsrfcsrf-attacks-in-aspnet-core"></a>Ataques de evitar Cross-Site falsificación de solicitud (XSRF/CSRF) en ASP.NET Core
 
@@ -43,11 +44,13 @@ Un ejemplo de un ataque CSRF:
 1. El usuario selecciona el botón Enviar. El explorador realiza la solicitud y automáticamente incluye la cookie de autenticación para el dominio solicitado, `www.good-banking-site.com`.
 1. La solicitud se ejecuta en el `www.good-banking-site.com` servidor con contexto de autenticación del usuario y pueden realizar cualquier acción que puede realizar un usuario autenticado.
 
-Cuando el usuario selecciona el botón para enviar el formulario, el sitio malintencionado podría:
+Además el escenario donde el usuario selecciona el botón para enviar el formulario, el sitio malintencionado podría:
 
 * Ejecutar un script que envía automáticamente el formulario.
-* Envía un envío de formulario como una solicitud AJAX. 
-* Usar un formulario oculto con CSS. 
+* Envía el envío del formulario como una solicitud AJAX.
+* Ocultar el formulario de uso de CSS.
+
+Estos escenarios alternativos no requieren ninguna acción o entrada del usuario que no sea inicialmente visitar el sitio malintencionado.
 
 Uso de HTTPS no impide que un ataque CSRF. El sitio malintencionado puede enviar un `https://www.good-banking-site.com/` solicitar de manera tan sencilla como puede enviar una solicitud insegura.
 

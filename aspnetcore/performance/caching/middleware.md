@@ -10,12 +10,12 @@ ms.date: 01/26/2017
 ms.prod: asp.net-core
 ms.topic: article
 uid: performance/caching/middleware
-ms.openlocfilehash: 7ceccffa39baf5f13d63c26e78c64a595bb42f60
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: abf07ec2d2692a8504caea243eacead6aa6e1a62
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734502"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341709"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -27,7 +27,7 @@ En este artículo se explica cómo configurar el Middleware de almacenamiento en
 
 ## <a name="package"></a>Package
 
-Para incluir el software intermedio en el proyecto, agregue una referencia a la [Microsoft.AspNetCore.ResponseCompression](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCompression/) empaquetar o usar el [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), que está disponible para su uso en ASP.NET Core 2.1 o posterior.
+Para incluir el software intermedio en el proyecto, agregue una referencia a la [Microsoft.AspNetCore.ResponseCaching](https://www.nuget.org/packages/Microsoft.AspNetCore.ResponseCaching/) empaquetar o usar el [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app), que está disponible para su uso en ASP. Núcleo NET 2.1 o posterior.
 
 ## <a name="configuration"></a>Configuración
 
@@ -94,7 +94,7 @@ Las respuestas en caché el middleware se configura mediante encabezados HTTP.
 | Pragma | A `Pragma: no-cache` encabezado en la solicitud produce el mismo efecto que `Cache-Control: no-cache`. Este encabezado se haya reemplazado por las directivas correspondientes en el `Cache-Control` encabezado, si está presente. Cuenta para mantener la compatibilidad con HTTP/1.0. |
 | Set-Cookie | La respuesta no está almacenado en memoria caché si el encabezado no existe. Cualquier middleware en la canalización de procesamiento de la solicitud que establece una o más cookies impide que el Middleware de almacenamiento en caché de respuesta de almacenamiento en caché la respuesta (por ejemplo, el [basado en cookies proveedor TempData](xref:fundamentals/app-state#tempdata)).  |
 | Variar | El `Vary` encabezado se utiliza para modificar la respuesta almacenada en caché por otro encabezado. Por ejemplo, almacenar en caché las respuestas mediante la codificación mediante la inclusión de la `Vary: Accept-Encoding` encabezado, que se almacena en caché las respuestas para las solicitudes con encabezados `Accept-Encoding: gzip` y `Accept-Encoding: text/plain` por separado. Una respuesta con un valor de encabezado de `*` nunca se almacena. |
-| Expira | Una respuesta considera obsoleta por este encabezado no almacenan o recuperan a menos que se reemplaza por otro `Cache-Control` encabezados. |
+| Expires | Una respuesta considera obsoleta por este encabezado no almacenan o recuperan a menos que se reemplaza por otro `Cache-Control` encabezados. |
 | If-None-Match | La respuesta completa se sirve desde la memoria caché si el valor no es `*` y `ETag` de la respuesta no coincide con ninguno de los valores proporcionados. En caso contrario, se otorga una respuesta 304 (no modificado). |
 | If-Modified-Since | Si el `If-None-Match` encabezado no está presente, una respuesta completa se sirve desde la memoria caché si la fecha de la respuesta almacenada en caché es más reciente que el valor proporcionado. En caso contrario, se otorga una respuesta 304 (no modificado). |
 | Fecha | Cuando se trabaja desde la memoria caché, el `Date` encabezado será ajustado por el middleware si no se proporcionó en la respuesta original. |
