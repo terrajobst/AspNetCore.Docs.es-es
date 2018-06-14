@@ -1,4 +1,4 @@
-﻿---
+---
 title: Permitir solicitudes entre orígenes (CORS) en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de cómo CORS como un estándar para permitir o rechazar las solicitudes entre orígenes en una aplicación de ASP.NET Core.
@@ -210,7 +210,7 @@ Ahora, la respuesta HTTP incluirá un encabezado Access-Control-Allow-Credential
 
 Si el explorador envía las credenciales, pero la respuesta no incluye un encabezado Access-Control-Allow-Credentials válido, el explorador no expone la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
 
-Tenga cuidado al permitir credenciales entre orígenes. Un sitio web en otro dominio puede enviar las credenciales de un usuario que ha iniciado sesión a la aplicación en nombre del usuario sin su conocimiento. La especificación de CORS también indica que configurar los orígenes en "*" (todos los orígenes) no es válido si está presente el encabezado Access-Control-Allow-Credentials.
+Tenga cuidado al permitir credenciales entre orígenes. Un sitio web en otro dominio puede enviar las credenciales de un usuario que ha iniciado sesión a la aplicación en nombre del usuario sin su conocimiento. La especificación de CORS también indica que configurar los orígenes en "*" (todos los orígenes) no es válido si está presente el encabezado `Access-Control-Allow-Credentials`.
 
 ### <a name="set-the-preflight-expiration-time"></a>Establecer el tiempo de expiración de las comprobaciones preparatorias
 
