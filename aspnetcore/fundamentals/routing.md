@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: d9d5a26b08f67fe4ee39d6b974027826a93e5d5f
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341787"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -262,7 +263,6 @@ El texto literal diferente de los parámetros de ruta (por ejemplo, `{id}`) y el
 Es necesario tener en cuenta otras consideraciones en el caso de los patrones de dirección URL que intentan capturar un nombre de archivo con una extensión de archivo opcional. Por ejemplo, cuando se usa la plantilla `files/{filename}.{ext?}`, si existen `filename` y `ext` se rellenarán ambos valores. Si solo existe `filename` en la dirección URL, la ruta coincide porque el punto final `.` es opcional. Las direcciones URL siguientes coincidirían con esta ruta:
 
 * `/files/myFile.txt`
-* `/files/myFile.`
 * `/files/myFile`
 
 Puede usar el carácter `*` como prefijo de un parámetro de ruta para enlazar con el resto del URI; es lo que se denomina un parámetro *comodín*. Por ejemplo, `blog/{*slug}` coincidirá con cualquier URI que empiece por `/blog` y que vaya seguido por cualquier valor (que se asignaría al valor de ruta `slug`). Los parámetros comodín también pueden coincidir con una cadena vacía.
