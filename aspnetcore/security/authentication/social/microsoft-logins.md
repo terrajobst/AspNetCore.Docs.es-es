@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/microsoft-logins
-ms.openlocfilehash: a9bf7b49b1cfdfff65c639eed1e14c94c5432350
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 46973f8a82034bd99a6e6634bbd6da06b1b14f25
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689027"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35726035"
 ---
 # <a name="microsoft-account-external-login-setup-with-aspnet-core"></a>Programa de instalación de Microsoft Account inicio de sesión externo con ASP.NET Core
 
@@ -46,9 +46,12 @@ Si ya no tiene una cuenta de Microsoft, pulse  **[crear uno.](https://signup.liv
 
 ![Agregar cuadro de diálogo de plataforma](index/_static/MicrosoftDevAppPlatform.png)
 
-* En el nuevo **Web** plataforma sección, escriba la dirección URL de desarrollo con */signin-microsoft* anexan a la **redirigir direcciones URL** campo (por ejemplo: `https://localhost:44320/signin-microsoft`). El esquema de autenticación de Microsoft configurado más adelante en este tutorial controlará automáticamente las solicitudes en */signin-microsoft* ruta para implementar el flujo de OAuth:
+* En el nuevo **Web** plataforma sección, escriba la dirección URL de desarrollo con `/signin-microsoft` anexan a la **redirigir direcciones URL** campo (por ejemplo: `https://localhost:44320/signin-microsoft`). El esquema de autenticación de Microsoft configurado más adelante en este tutorial controlará automáticamente las solicitudes en `/signin-microsoft` ruta para implementar el flujo de OAuth:
 
 ![Sección de plataforma Web](index/_static/MicrosoftRedirectUri.png)
+
+> [!NOTE]
+> El segmento URI `/signin-microsoft` se establece como la devolución de llamada predeterminada del proveedor de autenticación de Microsoft. Puede cambiar el URI de devolución de forma predeterminada al configurar el middleware de autenticación de Microsoft a través de los heredados [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) propiedad de la [MicrosoftAccountOptions](/dotnet/api/microsoft.aspnetcore.authentication.microsoftaccount.microsoftaccountoptions) clase.
 
 * Pulse **agregar dirección URL** para asegurarse de que se agregó la dirección URL.
 

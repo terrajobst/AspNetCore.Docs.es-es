@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/google-logins
-ms.openlocfilehash: ccb771dbefefb007aede1bdf05ab50ec363a3089
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 878c0b16e24f48a0ee84f93393af67af1728e284
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689040"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725970"
 ---
 # <a name="google-external-login-setup-in-aspnet-core"></a>Programa de instalación de inicio de sesión externo de Google en ASP.NET Core
 
@@ -61,7 +61,10 @@ Este tutorial muestra cómo permitir a los usuarios iniciar sesión con su cuent
 
 * Dado que vamos a crear un proyecto de Google + con una sola característica (inicio de sesión), podemos escribir el mismo **nombre** para el identificador de cliente de OAuth 2.0 que la que se utilizará para el proyecto.
 
-* Escriba el URI de desarrollo con */signin-google* anexan a la **URI de redireccionamiento autorizados** campo (por ejemplo: `https://localhost:44320/signin-google`). La autenticación de Google configurada más adelante en este tutorial controlará automáticamente las solicitudes en */signin-google* ruta para implementar el flujo de OAuth.
+* Escriba el URI de desarrollo con `/signin-google` anexan a la **URI de redireccionamiento autorizados** campo (por ejemplo: `https://localhost:44320/signin-google`). La autenticación de Google configurada más adelante en este tutorial controlará automáticamente las solicitudes en `/signin-google` ruta para implementar el flujo de OAuth.
+
+> [!NOTE]
+> El segmento URI `/signin-google` se establece como la devolución de llamada predeterminada del proveedor de autenticación de Google. Puede cambiar el URI de devolución de forma predeterminada al configurar el middleware de autenticación de Google a través de los heredados [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) propiedad de la [GoogleOptions](/dotnet/api/microsoft.aspnetcore.authentication.google.googleoptions) clase.
 
 * Presione la tecla TAB para agregar el **URI de redireccionamiento autorizados** entrada.
 

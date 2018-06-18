@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/authentication/twitter-logins
-ms.openlocfilehash: 3f59f7d1bf0280cef8f7757e8cd57d4872769b3d
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 440695f98714f33cff9e4bf97bfc09477901e14c
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34689001"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725996"
 ---
 # <a name="twitter-external-login-setup-with-aspnet-core"></a>Programa de instalación de inicio de sesión externo de Twitter con ASP.NET Core
 
@@ -32,7 +32,10 @@ Este tutorial muestra cómo permitir a los usuarios a [iniciar sesión con su cu
 
 ![Crear una página de aplicación](index/_static/TwitterCreate.png)
 
-* Escriba el URI de desarrollo con */signin-twitter* anexan a la **válido URI de redireccionamiento de OAuth** campo (por ejemplo: `https://localhost:44320/signin-twitter`). El esquema de autenticación de Twitter configurado más adelante en este tutorial controlará automáticamente las solicitudes en */signin-twitter* ruta para implementar el flujo de OAuth.
+* Escriba el URI de desarrollo con `/signin-twitter` anexan a la **válido URI de redireccionamiento de OAuth** campo (por ejemplo: `https://localhost:44320/signin-twitter`). El esquema de autenticación de Twitter configurado más adelante en este tutorial controlará automáticamente las solicitudes en `/signin-twitter` ruta para implementar el flujo de OAuth.
+
+> [!NOTE]
+> El segmento URI `/signin-twitter` se establece como la devolución de llamada predeterminada del proveedor de autenticación de Twitter. Puede cambiar el URI de devolución de forma predeterminada al configurar el middleware de autenticación de Twitter a través de los heredados [RemoteAuthenticationOptions.CallbackPath](/dotnet/api/microsoft.aspnetcore.authentication.remoteauthenticationoptions.callbackpath) propiedad de la [TwitterOptions](/dotnet/api/microsoft.aspnetcore.authentication.twitter.twitteroptions) clase.
 
 * Rellene el resto del formulario y pulse **crear su aplicación de Twitter**. Se muestran los detalles de la nueva aplicación:
 

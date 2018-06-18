@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/enforcing-ssl
-ms.openlocfilehash: 48a25b7ba7affe84cfa6fe16096409239c510221
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: f49a7846149385125390285e2f1332d8e40642c0
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35652193"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725941"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en el núcleo de ASP.NET
 
@@ -111,7 +111,7 @@ ASP.NET Core 2.1 o posterior implementa HSTS con el `UseHsts` método de extensi
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=10)]
 
-`UseHsts` no es recomendable en el desarrollo porque el encabezado HSTS es alta puede almacenar exploradores. De forma predeterminada, UseHsts excluye la dirección de bucle invertido local.
+`UseHsts` no se recomienda en el desarrollo porque el encabezado HSTS es alta almacenable en caché exploradores. De forma predeterminada, `UseHsts` excluye la dirección de bucle invertido local.
 
 El código siguiente:
 

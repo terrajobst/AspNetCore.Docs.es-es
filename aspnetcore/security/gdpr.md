@@ -11,12 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: security/gdpr
-ms.openlocfilehash: c3c8a3fcd4a303aea65c57ff6be2ff0434383f33
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: eb9173bfe554b8b00ef8deb255e8347a534e7ba3
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341930"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35725801"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Compatibilidad de la UE General datos protección normativa (GDPR) en ASP.NET Core
 
@@ -121,4 +121,4 @@ Para las bases de datos que no proporcionan cifrado integrado en reposo, es posi
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Microsoft.com/GDPR](https://www.microsoft.com/trustcenter/Privacy/GDPR)
+* [Microsoft.com/GDPR](https://www.microsoft.com/en-us/trustcenter/Privacy/GDPR)
