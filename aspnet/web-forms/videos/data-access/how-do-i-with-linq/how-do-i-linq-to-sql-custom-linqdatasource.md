@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883786"
 ---
 <a name="how-do-i-linq-to-sql-custom-linqdatasource"></a><span data-ttu-id="7fad8-103">[¿Cómo I:] LINQ to SQL: LinqDataSource personalizado</span><span class="sxs-lookup"><span data-stu-id="7fad8-103">[How Do I:] LINQ to SQL: Custom LinqDataSource</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878739"
 ---
 <a name="aspnet-mvc-storefront-part-7-routing-and-ui-work"></a><span data-ttu-id="d74b7-103">ASP.NET MVC escaparate parte 7: Enrutamiento y trabajo de la interfaz de usuario</span><span class="sxs-lookup"><span data-stu-id="d74b7-103">ASP.NET MVC Storefront Part 7: Routing and UI Work</span></span>
 ====================

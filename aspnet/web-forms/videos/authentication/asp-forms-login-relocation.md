@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887023"
 ---
 <a name="asp-forms-login-relocation"></a><span data-ttu-id="3ac5a-103">Reubicación de inicio de sesión de formularios ASP</span><span class="sxs-lookup"><span data-stu-id="3ac5a-103">ASP Forms Login Relocation</span></span>
 ====================

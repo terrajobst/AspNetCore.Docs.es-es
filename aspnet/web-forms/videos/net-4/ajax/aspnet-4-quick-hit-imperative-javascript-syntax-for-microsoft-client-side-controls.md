@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882408"
 ---
 <a name="aspnet-4-quick-hit---imperative-javascript-syntax-for-microsoft-client-side-controls"></a><span data-ttu-id="125cc-103">Controles de ASP.NET 4 "Rápido Hit" - sintaxis imperativa de JavaScript de cliente de Microsoft</span><span class="sxs-lookup"><span data-stu-id="125cc-103">ASP.NET 4 "Quick Hit" - Imperative JavaScript Syntax for Microsoft Client Side Controls</span></span>
 ====================

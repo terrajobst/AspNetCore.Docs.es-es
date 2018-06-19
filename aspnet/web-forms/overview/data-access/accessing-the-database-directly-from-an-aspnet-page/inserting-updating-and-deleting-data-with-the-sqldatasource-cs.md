@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877286"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-c"></a><span data-ttu-id="ad13b-104">Insertar, actualizar y eliminar datos con SqlDataSource (C#)</span><span class="sxs-lookup"><span data-stu-id="ad13b-104">Inserting, Updating, and Deleting Data with the SqlDataSource (C#)</span></span>
 ====================

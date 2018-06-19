@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885656"
 ---
 <a name="aspnet-4-quick-hit--table-free-templated-controls"></a><span data-ttu-id="be300-103">ASP.NET 4 "rápido" que se seguía: tabla libres controles con plantilla</span><span class="sxs-lookup"><span data-stu-id="be300-103">ASP.NET 4 "Quick Hit" – Table Free Templated Controls</span></span>
 ====================

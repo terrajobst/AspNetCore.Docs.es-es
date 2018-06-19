@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/getting-started/lifecycle-of-an-aspnet-mvc-5-application
-title: "Ciclo de vida de una aplicación ASP.NET MVC 5 | Documentos de Microsoft"
+title: Ciclo de vida de una aplicación ASP.NET MVC 5 | Documentos de Microsoft
 author: cephalin
-description: "Descargar un documento PDF que muestra el ciclo de vida de una aplicación ASP.NET MVC 5. Este documento del ciclo de vida proporciona una vista de alto nivel del ciclo de vida MVC un..."
+description: Descargar un documento PDF que muestra el ciclo de vida de una aplicación ASP.NET MVC 5. Este documento del ciclo de vida proporciona una vista de alto nivel del ciclo de vida MVC un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/28/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036497"
 ---
 <a name="lifecycle-of-an-aspnet-mvc-5-application"></a><span data-ttu-id="45000-104">Ciclo de vida de una aplicación de MVC de ASP.NET 5</span><span class="sxs-lookup"><span data-stu-id="45000-104">Lifecycle of an ASP.NET MVC 5 Application</span></span>
 ====================

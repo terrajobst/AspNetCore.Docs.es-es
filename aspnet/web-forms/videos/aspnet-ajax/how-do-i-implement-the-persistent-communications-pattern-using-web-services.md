@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883188"
 ---
 <a name="how-do-i-implement-the-persistent-communications-pattern-using-web-services"></a><span data-ttu-id="91b38-104">[¿Cómo I:] ¿Implementar el patrón de comunicaciones persistente con los servicios Web?</span><span class="sxs-lookup"><span data-stu-id="91b38-104">[How Do I:] Implement the Persistent Communications Pattern using Web Services?</span></span>
 ====================

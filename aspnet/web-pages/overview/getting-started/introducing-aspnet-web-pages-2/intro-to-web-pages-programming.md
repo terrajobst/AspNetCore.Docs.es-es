@@ -17,6 +17,7 @@ ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33839291"
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a><span data-ttu-id="a636f-104">Introducción a ASP.NET Web Pages: conceptos básicos de programación</span><span class="sxs-lookup"><span data-stu-id="a636f-104">Introducing ASP.NET Web Pages - Programming Basics</span></span>
 ====================

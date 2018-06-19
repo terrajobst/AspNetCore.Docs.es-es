@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886763"
 ---
 <a name="lesson-4-understanding-web-application-state"></a><span data-ttu-id="740d7-103">[Lección 4:] Estado de la aplicación Web descripción</span><span class="sxs-lookup"><span data-stu-id="740d7-103">[Lesson 4:] Understanding Web Application State</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885136"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-client-library-controls"></a><span data-ttu-id="006bc-105">[¿Cómo I:] ¿Use los controles de biblioteca de cliente de AJAX de ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="006bc-105">[How Do I:] Use the ASP.NET AJAX Client Library Controls?</span></span>
 ====================

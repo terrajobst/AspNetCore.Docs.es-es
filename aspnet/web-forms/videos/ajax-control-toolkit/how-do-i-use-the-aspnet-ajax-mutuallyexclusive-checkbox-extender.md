@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882012"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-mutuallyexclusive-checkbox-extender"></a><span data-ttu-id="070d5-104">[¿Cómo I:] ¿Usar el extensor de casilla de verificación MutuallyExclusive ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="070d5-104">[How Do I:] Use the ASP.NET AJAX MutuallyExclusive Checkbox Extender?</span></span>
 ====================

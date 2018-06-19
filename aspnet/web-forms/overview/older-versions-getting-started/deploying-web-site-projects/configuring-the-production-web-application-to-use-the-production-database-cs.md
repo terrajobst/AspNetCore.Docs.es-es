@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887699"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a><span data-ttu-id="69960-104">Configuración de la aplicación Web de producción para usar la base de datos de producción (C#)</span><span class="sxs-lookup"><span data-stu-id="69960-104">Configuring the Production Web Application to Use the Production Database (C#)</span></span>
 ====================

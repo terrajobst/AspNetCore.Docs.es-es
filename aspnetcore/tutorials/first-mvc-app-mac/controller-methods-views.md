@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897883"
 ---
 # <a name="controller-methods-and-views-in-an-aspnet-core-mvc-app"></a><span data-ttu-id="5a59b-103">Vistas y métodos de controlador en una aplicación de ASP.NET Core MVC</span><span class="sxs-lookup"><span data-stu-id="5a59b-103">Controller methods and views in an ASP.NET Core MVC app</span></span>
 

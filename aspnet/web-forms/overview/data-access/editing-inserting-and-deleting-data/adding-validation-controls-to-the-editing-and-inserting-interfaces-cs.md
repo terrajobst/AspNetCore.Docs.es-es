@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888454"
 ---
 <a name="adding-validation-controls-to-the-editing-and-inserting-interfaces-c"></a><span data-ttu-id="7b43f-103">Agregar controles de validación para la edición e insertar Interfaces (C#)</span><span class="sxs-lookup"><span data-stu-id="7b43f-103">Adding Validation Controls to the Editing and Inserting Interfaces (C#)</span></span>
 ====================

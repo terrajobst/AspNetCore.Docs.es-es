@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885579"
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a><span data-ttu-id="52139-104">Configurar un servidor de base de datos para publicación de implementación Web</span><span class="sxs-lookup"><span data-stu-id="52139-104">Configuring a Database Server for Web Deploy Publishing</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871043"
 ---
 <a name="aspnet-mvc-storefront-part-13-dependency-injection"></a><span data-ttu-id="9b800-103">MVC de ASP.NET escaparate parte 13: Inserción de dependencias</span><span class="sxs-lookup"><span data-stu-id="9b800-103">ASP.NET MVC Storefront Part 13: Dependency Injection</span></span>
 ====================

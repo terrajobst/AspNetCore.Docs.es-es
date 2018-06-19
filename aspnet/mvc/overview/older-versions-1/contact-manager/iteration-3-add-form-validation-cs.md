@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872369"
 ---
 <a name="iteration-3--add-form-validation-c"></a><span data-ttu-id="dcbd4-105">Iteración #3: agregar validación del formulario (C#)</span><span class="sxs-lookup"><span data-stu-id="dcbd4-105">Iteration #3 – Add form validation (C#)</span></span>
 ====================

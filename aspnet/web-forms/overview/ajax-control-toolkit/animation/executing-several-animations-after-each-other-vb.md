@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873763"
 ---
 <a name="executing-several-animations-after-each-other-vb"></a><span data-ttu-id="f111f-104">Ejecutar varias animaciones uno tras otro (VB)</span><span class="sxs-lookup"><span data-stu-id="f111f-104">Executing Several Animations after Each Other (VB)</span></span>
 ====================

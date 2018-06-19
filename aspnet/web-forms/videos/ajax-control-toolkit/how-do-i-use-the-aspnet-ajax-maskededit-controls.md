@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882236"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-maskededit-controls"></a><span data-ttu-id="1fe1f-104">[¿Cómo I:] ¿Use los controles ASP.NET AJAX MaskedEdit?</span><span class="sxs-lookup"><span data-stu-id="1fe1f-104">[How Do I:] Use the ASP.NET AJAX MaskedEdit Controls?</span></span>
 ====================

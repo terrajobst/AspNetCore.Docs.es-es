@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34154548"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a><span data-ttu-id="1769d-103">ASP.NET Core MVC con EF Core: Modelo de datos (5 de 10)</span><span class="sxs-lookup"><span data-stu-id="1769d-103">ASP.NET Core MVC with EF Core - Data Model - 5 of 10</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883475"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slideshow-extender"></a><span data-ttu-id="c972e-104">[¿Cómo I:] ¿Se usa el extensor de presentación de imágenes de AJAX de ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="c972e-104">[How Do I:] Use the ASP.NET AJAX SlideShow Extender?</span></span>
 ====================

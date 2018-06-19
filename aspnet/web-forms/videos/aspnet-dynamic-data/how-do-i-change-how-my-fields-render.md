@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882369"
 ---
 <a name="how-do-i-change-how-my-fields-render"></a><span data-ttu-id="0755f-105">¿Cómo se puede cambiar cómo se representan los campos?</span><span class="sxs-lookup"><span data-stu-id="0755f-105">How do I Change how my Fields render?</span></span>
 ====================

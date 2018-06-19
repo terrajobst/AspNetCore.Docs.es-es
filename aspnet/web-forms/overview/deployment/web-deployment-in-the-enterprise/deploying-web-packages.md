@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887508"
 ---
 <a name="deploying-web-packages"></a><span data-ttu-id="ee5cb-103">Implementar paquetes de Web</span><span class="sxs-lookup"><span data-stu-id="ee5cb-103">Deploying Web Packages</span></span>
 ====================

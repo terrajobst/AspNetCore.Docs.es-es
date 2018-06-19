@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880640"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a><span data-ttu-id="dd93d-103">Principal-detalle filtrado con DropDownList (C#)</span><span class="sxs-lookup"><span data-stu-id="dd93d-103">Master/Detail Filtering With a DropDownList (C#)</span></span>
 ====================

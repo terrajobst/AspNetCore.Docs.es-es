@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885398"
 ---
 <a name="how-to-work-with-datasets-and-filters-from-an-asp-application"></a><span data-ttu-id="ea1e9-104">Cómo trabajar con conjuntos de datos y los filtros de una aplicación ASP</span><span class="sxs-lookup"><span data-stu-id="ea1e9-104">How to Work with Datasets and Filters from an ASP Application</span></span>
 ====================

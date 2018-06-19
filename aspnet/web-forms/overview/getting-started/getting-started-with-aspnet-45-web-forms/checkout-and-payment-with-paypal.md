@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891898"
 ---
 <a name="checkout-and-payment-with-paypal"></a><span data-ttu-id="18bb5-103">Desprotección y pago con PayPal</span><span class="sxs-lookup"><span data-stu-id="18bb5-103">Checkout and Payment with PayPal</span></span>
 ====================

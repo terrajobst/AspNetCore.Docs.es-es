@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879587"
 ---
 <a name="add-models-and-controllers"></a><span data-ttu-id="e97f7-102">Agregar modelos y controladores</span><span class="sxs-lookup"><span data-stu-id="e97f7-102">Add Models and Controllers</span></span>
 ====================

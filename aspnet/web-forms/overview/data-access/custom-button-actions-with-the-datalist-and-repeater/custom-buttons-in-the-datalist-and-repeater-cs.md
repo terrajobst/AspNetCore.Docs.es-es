@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876493"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a><span data-ttu-id="92ac5-103">Botones personalizados DataList y repetidor (C#)</span><span class="sxs-lookup"><span data-stu-id="92ac5-103">Custom Buttons in the DataList and Repeater (C#)</span></span>
 ====================

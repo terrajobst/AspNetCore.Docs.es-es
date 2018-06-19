@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883032"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a><span data-ttu-id="4f1d3-104">Maestro y detalles mediante un GridView maestro seleccionable con un DetailView de detalles (C#)</span><span class="sxs-lookup"><span data-stu-id="4f1d3-104">Master/Detail Using a Selectable Master GridView with a Details DetailView (C#)</span></span>
 ====================

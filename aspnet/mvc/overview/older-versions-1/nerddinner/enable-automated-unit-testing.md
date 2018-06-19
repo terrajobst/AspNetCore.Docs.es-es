@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875635"
 ---
 <a name="enable-automated-unit-testing"></a><span data-ttu-id="c7354-103">Habilitar pruebas unitarias automatizadas</span><span class="sxs-lookup"><span data-stu-id="c7354-103">Enable Automated Unit Testing</span></span>
 ====================

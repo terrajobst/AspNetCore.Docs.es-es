@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883757"
 ---
 <a name="intro-to-aspnet-for-coldfusion-developers-adding-aspnet-to-your-repertoire"></a><span data-ttu-id="ad4b2-103">Introducción a ASP.NET para programadores de ColdFusion: adición de ASP.NET al repertorio</span><span class="sxs-lookup"><span data-stu-id="ad4b2-103">Intro to ASP.NET for ColdFusion Developers: Adding ASP.NET to Your Repertoire</span></span>
 ====================

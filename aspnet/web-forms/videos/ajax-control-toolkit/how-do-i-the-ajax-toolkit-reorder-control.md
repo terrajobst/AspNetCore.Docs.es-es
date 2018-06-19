@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883439"
 ---
 <a name="how-do-i-the-ajax-toolkit-reorder-control"></a><span data-ttu-id="18f41-104">[¿Cómo I:] El Control de nuevo pedido del Kit de herramientas de AJAX</span><span class="sxs-lookup"><span data-stu-id="18f41-104">[How Do I:] The AJAX Toolkit Reorder Control</span></span>
 ====================

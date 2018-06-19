@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882902"
 ---
 <a name="how-do-i-use-a-dynamiccontrol-in-listview-and-detailsview-controls"></a><span data-ttu-id="38105-105">¿Cómo se usa un DynamicControl en controles ListView y DetailsView?</span><span class="sxs-lookup"><span data-stu-id="38105-105">How Do I Use a DynamicControl in ListView and DetailsView Controls?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884420"
 ---
 <a name="how-do-i-create-nested-master-page-in-visual-studio-2008"></a><span data-ttu-id="8f187-104">[¿Cómo I:] Crear una página maestra anidada en Visual Studio 2008</span><span class="sxs-lookup"><span data-stu-id="8f187-104">[How Do I:] Create Nested Master Page in Visual Studio 2008</span></span>
 ====================

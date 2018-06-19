@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880458"
 ---
 <a name="combo-box"></a><span data-ttu-id="cf8d1-103">Cuadro combinado</span><span class="sxs-lookup"><span data-stu-id="cf8d1-103">Combo Box</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874933"
 ---
 <a name="creating-model-classes-with-the-entity-framework-c"></a><span data-ttu-id="51a62-104">Crear clases de modelo con Entity Framework (C#)</span><span class="sxs-lookup"><span data-stu-id="51a62-104">Creating Model Classes with the Entity Framework (C#)</span></span>
 ====================

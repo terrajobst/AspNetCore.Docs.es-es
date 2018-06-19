@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888375"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-vb"></a><span data-ttu-id="e6b0f-103">Insertar un nuevo registro de pie de página de GridView (VB)</span><span class="sxs-lookup"><span data-stu-id="e6b0f-103">Inserting a New Record from the GridView's Footer (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887322"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a><span data-ttu-id="bdce5-103">Datos de informe de paginación en un Control de repetidor (VB) o DataList</span><span class="sxs-lookup"><span data-stu-id="bdce5-103">Paging Report Data in a DataList or Repeater Control (VB)</span></span>
 ====================

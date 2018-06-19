@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884722"
 ---
 <a name="lesson-7-databinding-to-user-interface-controls"></a><span data-ttu-id="389b2-103">[Lección 7:] Enlace de datos a controles de interfaz de usuario</span><span class="sxs-lookup"><span data-stu-id="389b2-103">[Lesson 7:] Databinding to User Interface Controls</span></span>
 ====================

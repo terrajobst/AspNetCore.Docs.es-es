@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875895"
 ---
 <a name="how-do-i-work-with-model-binders-in-an-mvc-application"></a><span data-ttu-id="73ba4-105">Cómo Trabajar con enlazadores de modelos en una aplicación MVC?</span><span class="sxs-lookup"><span data-stu-id="73ba4-105">How Do I: Work with Model Binders in an MVC Application?</span></span>
 ====================

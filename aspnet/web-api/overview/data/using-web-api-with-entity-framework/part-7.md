@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878807"
 ---
 <a name="create-the-view-ui"></a><span data-ttu-id="f98a9-102">Crear la vista (UI)</span><span class="sxs-lookup"><span data-stu-id="f98a9-102">Create the View (UI)</span></span>
 ====================

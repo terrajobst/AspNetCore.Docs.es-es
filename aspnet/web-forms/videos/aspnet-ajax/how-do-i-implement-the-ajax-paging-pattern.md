@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886542"
 ---
 <a name="how-do-i-implement-the-ajax-paging-pattern"></a><span data-ttu-id="19dcb-104">[¿Cómo I:] ¿Implementar el patrón de paginación de AJAX?</span><span class="sxs-lookup"><span data-stu-id="19dcb-104">[How Do I:] Implement the AJAX Paging Pattern?</span></span>
 ====================

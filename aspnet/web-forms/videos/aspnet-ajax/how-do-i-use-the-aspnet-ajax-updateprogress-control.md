@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886503"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-updateprogress-control"></a><span data-ttu-id="2729d-105">[¿Cómo I:] ¿Usar el Control ASP.NET AJAX UpdateProgress?</span><span class="sxs-lookup"><span data-stu-id="2729d-105">[How Do I:] Use the ASP.NET AJAX UpdateProgress Control?</span></span>
 ====================

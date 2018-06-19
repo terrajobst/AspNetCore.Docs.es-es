@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882798"
 ---
 <a name="configuring-sql-to-work-with-membership-schemas"></a><span data-ttu-id="71ee9-103">Configuración de SQL para trabajar con esquemas de pertenencia</span><span class="sxs-lookup"><span data-stu-id="71ee9-103">Configuring SQL To Work with Membership Schemas</span></span>
 ====================

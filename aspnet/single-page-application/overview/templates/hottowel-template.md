@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875024"
 ---
 <a name="hot-towel-template"></a><span data-ttu-id="8b6cf-103">Plantilla de toallas activa</span><span class="sxs-lookup"><span data-stu-id="8b6cf-103">Hot Towel template</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895056"
 ---
 <a name="working-with-forms-part-1"></a><span data-ttu-id="9d720-103">Trabajar con formularios (parte 1)</span><span class="sxs-lookup"><span data-stu-id="9d720-103">Working with Forms (Part 1)</span></span>
 ====================

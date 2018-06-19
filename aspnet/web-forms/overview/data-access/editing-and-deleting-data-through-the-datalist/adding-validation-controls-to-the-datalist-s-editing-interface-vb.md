@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888336"
 ---
 <a name="adding-validation-controls-to-the-datalists-editing-interface-vb"></a><span data-ttu-id="b13ff-103">Agregar controles de validación a la interfaz de edición del control DataList (VB)</span><span class="sxs-lookup"><span data-stu-id="b13ff-103">Adding Validation Controls to the DataList's Editing Interface (VB)</span></span>
 ====================

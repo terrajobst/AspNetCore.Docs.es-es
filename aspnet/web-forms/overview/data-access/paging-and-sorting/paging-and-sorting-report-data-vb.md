@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887244"
 ---
 <a name="paging-and-sorting-report-data-vb"></a><span data-ttu-id="564ca-104">Paginación y la ordenación de datos de informe (VB)</span><span class="sxs-lookup"><span data-stu-id="564ca-104">Paging and Sorting Report Data (VB)</span></span>
 ====================

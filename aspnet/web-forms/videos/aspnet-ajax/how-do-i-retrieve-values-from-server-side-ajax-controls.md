@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884813"
 ---
 <a name="how-do-i-retrieve-values-from-server-side-ajax-controls"></a><span data-ttu-id="6e0a0-103">[¿Cómo I:] Recuperar valores de los controles de AJAX del lado servidor</span><span class="sxs-lookup"><span data-stu-id="6e0a0-103">[How Do I:] Retrieve Values From Server Side AJAX Controls</span></span>
 ====================

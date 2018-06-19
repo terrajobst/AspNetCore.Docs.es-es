@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888973"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-c"></a><span data-ttu-id="bf00b-103">Principal-detalle utilizando una lista con viñetas de registros maestros con un control DataList de detalles (C#)</span><span class="sxs-lookup"><span data-stu-id="bf00b-103">Master/Detail Using a Bulleted List of Master Records with a Details DataList (C#)</span></span>
 ====================

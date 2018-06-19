@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881339"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-deploying-a-code-update"></a><span data-ttu-id="ff1c8-103">Implementación de Web ASP.NET con Visual Studio: implementar una actualización del código</span><span class="sxs-lookup"><span data-stu-id="ff1c8-103">ASP.NET Web Deployment using Visual Studio: Deploying a Code Update</span></span>
 ====================

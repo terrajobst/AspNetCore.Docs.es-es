@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889152"
 ---
 <a name="aspnet-web-deployment-using-visual-studio-preparing-for-database-deployment"></a><span data-ttu-id="f584e-103">Implementación de Web ASP.NET con Visual Studio: preparación para la implementación de la base de datos</span><span class="sxs-lookup"><span data-stu-id="f584e-103">ASP.NET Web Deployment using Visual Studio: Preparing for Database Deployment</span></span>
 ====================

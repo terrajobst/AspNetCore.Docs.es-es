@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872590"
 ---
 <a name="know-a-library-other-than-knockout"></a><span data-ttu-id="ba2bf-104">¿Saber una biblioteca distinta de cobertura?</span><span class="sxs-lookup"><span data-stu-id="ba2bf-104">Know a library other than Knockout?</span></span>
 ====================

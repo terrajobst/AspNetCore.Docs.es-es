@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881755"
 ---
 <a name="how-do-i-implement-the-ajax-after-processing-pattern"></a><span data-ttu-id="c3af6-105">[¿Cómo I:] ¿Implementar el AJAX después de procesar el modelo?</span><span class="sxs-lookup"><span data-stu-id="c3af6-105">[How Do I:] Implement the AJAX After Processing Pattern?</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888076"
 ---
 <a name="urls-in-master-pages-vb"></a><span data-ttu-id="ccdf3-104">Direcciones URL de páginas maestras (VB)</span><span class="sxs-lookup"><span data-stu-id="ccdf3-104">URLs in Master Pages (VB)</span></span>
 ====================

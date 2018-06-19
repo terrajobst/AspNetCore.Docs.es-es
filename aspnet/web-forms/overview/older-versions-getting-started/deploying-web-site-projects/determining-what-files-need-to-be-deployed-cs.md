@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888674"
 ---
 <a name="determining-what-files-need-to-be-deployed-c"></a><span data-ttu-id="42508-103">Determinar qué archivos deben tener implementado (C#)</span><span class="sxs-lookup"><span data-stu-id="42508-103">Determining What Files Need to Be Deployed (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876753"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a><span data-ttu-id="5ad58-103">Proporciona CRUD (crear, leer, actualizar y eliminar) compatibilidad con entrada de formularios de datos</span><span class="sxs-lookup"><span data-stu-id="5ad58-103">Provide CRUD (Create, Read, Update, Delete) Data Form Entry Support</span></span>
 ====================

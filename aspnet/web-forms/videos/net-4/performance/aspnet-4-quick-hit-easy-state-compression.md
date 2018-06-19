@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894111"
 ---
 <a name="aspnet-4-quick-hit--easy-state-compression"></a><span data-ttu-id="64788-103">ASP.NET 4 "Rápido Hit" – fácil compresión de estado</span><span class="sxs-lookup"><span data-stu-id="64788-103">ASP.NET 4 "Quick Hit" – Easy State Compression</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883731"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-resizablecontrol-extender"></a><span data-ttu-id="8f755-104">[¿Cómo I:] ¿Usar el extensor ResizableControl ASP.NET AJAX?</span><span class="sxs-lookup"><span data-stu-id="8f755-104">[How Do I:] Use the ASP.NET AJAX ResizableControl Extender?</span></span>
 ====================

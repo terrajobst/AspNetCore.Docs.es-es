@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-events-in-master-and-content-pages
-title: "[¿Cómo I:] Controlar los eventos en maestra y páginas de contenido | Documentos de Microsoft"
+title: '[¿Cómo I:] Controlar los eventos en maestra y páginas de contenido | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels le mostrará cómo se controlan los eventos en las páginas de contenido principales e individuales. Aunque el resultado final de un Conté individual y maestro..."
+description: En este vídeo Chris Pels le mostrará cómo se controlan los eventos en las páginas de contenido principales e individuales. Aunque el resultado final de un Conté individual y maestro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526004"
 ---
 <a name="how-do-i-handle-events-in-master-and-content-pages"></a><span data-ttu-id="2b9c0-104">[¿Cómo I:] Controlar los eventos en maestra y páginas de contenido</span><span class="sxs-lookup"><span data-stu-id="2b9c0-104">[How Do I:] Handle Events in Master and Content Pages</span></span>
 ====================

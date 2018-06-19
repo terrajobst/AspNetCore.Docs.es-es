@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/login-controls
-title: "Controles de inicio de sesión | Documentos de Microsoft"
+title: Controles de inicio de sesión | Documentos de Microsoft
 author: JoeStagner
-description: "En este vídeo Joe le presentará pertenencia a ASP.NET; se muestra cómo utilizar algunos de los controles de inicio de sesión de ASP.NET."
+description: En este vídeo Joe le presentará pertenencia a ASP.NET; se muestra cómo utilizar algunos de los controles de inicio de sesión de ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520924"
 ---
 <a name="login-controls"></a><span data-ttu-id="b81b1-103">Controles de inicio de sesión</span><span class="sxs-lookup"><span data-stu-id="b81b1-103">Login Controls</span></span>
 ====================

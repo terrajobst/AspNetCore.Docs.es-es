@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880250"
 ---
 <a name="how-do-i-linq-to-sql-data-model"></a><span data-ttu-id="268cc-104">[¿Cómo I:] LINQ to SQL: modelo de datos</span><span class="sxs-lookup"><span data-stu-id="268cc-104">[How Do I:] LINQ to SQL: Data Model</span></span>
 ====================

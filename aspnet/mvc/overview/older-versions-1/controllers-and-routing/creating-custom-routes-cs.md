@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867972"
 ---
 <a name="creating-custom-routes-c"></a><span data-ttu-id="c9cb8-104">Crear rutas personalizadas (C#)</span><span class="sxs-lookup"><span data-stu-id="c9cb8-104">Creating Custom Routes (C#)</span></span>
 ====================

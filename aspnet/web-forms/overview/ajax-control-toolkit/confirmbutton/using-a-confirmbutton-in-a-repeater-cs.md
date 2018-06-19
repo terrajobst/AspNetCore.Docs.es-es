@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871524"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-c"></a><span data-ttu-id="c312c-104">Usar un ConfirmButton en un repetidor (C#)</span><span class="sxs-lookup"><span data-stu-id="c312c-104">Using a ConfirmButton In a Repeater (C#)</span></span>
 ====================

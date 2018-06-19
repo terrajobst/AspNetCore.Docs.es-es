@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876311"
 ---
 <a name="using-templatefields-in-the-detailsview-control-vb"></a><span data-ttu-id="747a4-104">Uso de TemplateFields en el Control DetailsView (VB)</span><span class="sxs-lookup"><span data-stu-id="747a4-104">Using TemplateFields in the DetailsView Control (VB)</span></span>
 ====================

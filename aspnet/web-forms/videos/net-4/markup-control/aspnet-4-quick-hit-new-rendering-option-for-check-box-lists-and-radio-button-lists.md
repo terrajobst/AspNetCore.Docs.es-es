@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884735"
 ---
 <a name="aspnet-4-quick-hit--new-rendering-option-for-check-box-lists-and-radio-button-lists"></a><span data-ttu-id="1f6cd-103">Listas de "Rápido Hit" – nueva representación opción para listas de casilla de verificación y el botón de Radio de ASP.NET 4</span><span class="sxs-lookup"><span data-stu-id="1f6cd-103">ASP.NET 4 "Quick Hit" – New Rendering Option for Check Box Lists and Radio Button Lists</span></span>
 ====================

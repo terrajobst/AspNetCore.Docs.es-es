@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879223"
 ---
 <a name="caching-data-in-the-architecture-c"></a><span data-ttu-id="ff4cb-104">Almacenar en caché datos de la arquitectura (C#)</span><span class="sxs-lookup"><span data-stu-id="ff4cb-104">Caching Data in the Architecture (C#)</span></span>
 ====================

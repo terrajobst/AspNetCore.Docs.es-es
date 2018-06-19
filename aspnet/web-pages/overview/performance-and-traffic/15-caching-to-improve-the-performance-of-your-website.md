@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
-title: "Almacenamiento en caché de datos en un ASP.NET Web Pages (Razor) sitio para mejorar el rendimiento | Documentos de Microsoft"
+title: Almacenamiento en caché de datos en un ASP.NET Web Pages (Razor) sitio para mejorar el rendimiento | Documentos de Microsoft
 author: tfitzmac
-description: "Puede acelerar su sitio Web al tener almacenar: es decir, caché, los resultados de los datos que normalmente podrían tardar un tiempo considerable para recuperar o procesar un..."
+description: 'Puede acelerar su sitio Web al tener almacenar: es decir, caché, los resultados de los datos que normalmente podrían tardar un tiempo considerable para recuperar o procesar un...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/14/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28039201"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a><span data-ttu-id="baad8-103">Almacenar en caché datos en un sitio de ASP.NET Web Pages (Razor) para mejorar el rendimiento</span><span class="sxs-lookup"><span data-stu-id="baad8-103">Caching Data in an ASP.NET Web Pages (Razor) Site for Better Performance</span></span>
 ====================

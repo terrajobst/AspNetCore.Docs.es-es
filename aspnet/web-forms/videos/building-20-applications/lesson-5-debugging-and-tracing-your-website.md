@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30881927"
 ---
 <a name="lesson-5-debugging-and-tracing-your-website"></a><span data-ttu-id="707bb-103">[Lección 5:] Depuración y traza del sitio Web</span><span class="sxs-lookup"><span data-stu-id="707bb-103">[Lesson 5:] Debugging and Tracing Your Website</span></span>
 ====================

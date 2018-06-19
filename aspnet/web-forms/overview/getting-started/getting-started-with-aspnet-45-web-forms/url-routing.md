@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886438"
 ---
 <a name="url-routing"></a><span data-ttu-id="ecc6e-103">Enrutamiento de direcciones URL</span><span class="sxs-lookup"><span data-stu-id="ecc6e-103">URL Routing</span></span>
 ====================

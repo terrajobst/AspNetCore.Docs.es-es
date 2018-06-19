@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873331"
 ---
 <a name="part-1-overview-and-creating-the-project"></a><span data-ttu-id="3b3f1-102">Parte 1: Información general y crear el proyecto</span><span class="sxs-lookup"><span data-stu-id="3b3f1-102">Part 1: Overview and Creating the Project</span></span>
 ====================

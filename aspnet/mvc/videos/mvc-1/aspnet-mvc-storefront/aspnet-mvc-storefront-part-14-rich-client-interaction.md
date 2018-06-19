@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872057"
 ---
 <a name="aspnet-mvc-storefront-part-14-rich-client-interaction"></a><span data-ttu-id="da810-104">ASP.NET MVC escaparate parte 14: Interacción de cliente enriquecido</span><span class="sxs-lookup"><span data-stu-id="da810-104">ASP.NET MVC Storefront Part 14: Rich Client Interaction</span></span>
 ====================

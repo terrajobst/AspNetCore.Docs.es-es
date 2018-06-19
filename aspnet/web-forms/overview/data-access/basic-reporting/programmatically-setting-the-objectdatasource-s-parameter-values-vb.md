@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876675"
 ---
 <a name="programmatically-setting-the-objectdatasources-parameter-values-vb"></a><span data-ttu-id="1121e-104">Establecer mediante programación los valores de parámetro de ObjectDataSource (VB)</span><span class="sxs-lookup"><span data-stu-id="1121e-104">Programmatically Setting the ObjectDataSource's Parameter Values (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889796"
 ---
 <a name="security-basics-and-aspnet-support-c"></a><span data-ttu-id="cabce-103">Conceptos básicos de seguridad y compatibilidad de ASP.NET (C#)</span><span class="sxs-lookup"><span data-stu-id="cabce-103">Security Basics and ASP.NET Support (C#)</span></span>
 ====================

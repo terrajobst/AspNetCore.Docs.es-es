@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874426"
 ---
 <a name="improving-performance-with-output-caching-vb"></a><span data-ttu-id="50858-104">Mejorar el rendimiento con salida de almacenamiento en caché (VB)</span><span class="sxs-lookup"><span data-stu-id="50858-104">Improving Performance with Output Caching (VB)</span></span>
 ====================

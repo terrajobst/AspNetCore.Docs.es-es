@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889100"
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a><span data-ttu-id="1f490-104">Recuperar y mostrar los datos con el enlace de modelos y formularios web forms</span><span class="sxs-lookup"><span data-stu-id="1f490-104">Retrieving and displaying data with model binding and web forms</span></span>
 ====================

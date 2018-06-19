@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880276"
 ---
 <a name="adding-client-side-confirmation-when-deleting-c"></a><span data-ttu-id="e7ac9-104">Adición de confirmación del cliente cuando se elimina (C#)</span><span class="sxs-lookup"><span data-stu-id="e7ac9-104">Adding Client-Side Confirmation When Deleting (C#)</span></span>
 ====================

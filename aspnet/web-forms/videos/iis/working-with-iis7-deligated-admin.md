@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884709"
 ---
 <a name="working-with-iis7-delegated-admin"></a><span data-ttu-id="622ba-104">Trabajar con IIS7 delega administración</span><span class="sxs-lookup"><span data-stu-id="622ba-104">Working with IIS7 Delegated Admin</span></span>
 ====================

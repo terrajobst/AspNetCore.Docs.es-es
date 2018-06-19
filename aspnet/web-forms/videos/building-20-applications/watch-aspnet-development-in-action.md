@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885132"
 ---
 <a name="watch-aspnet-development-in-action"></a><span data-ttu-id="d634b-104">Desarrollo de ASP.NET de inspección en acción</span><span class="sxs-lookup"><span data-stu-id="d634b-104">Watch ASP.NET Development in Action</span></span>
 ====================

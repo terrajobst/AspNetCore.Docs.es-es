@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880575"
 ---
 <a name="adonet-data-services-with-aspnet-ajax-support"></a><span data-ttu-id="16f13-104">De ADO.NET Data Services con compatibilidad con AJAX de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="16f13-104">ADO.NET Data Services with ASP.NET AJAX Support</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878703"
 ---
 <a name="part-2-controllers"></a><span data-ttu-id="a02c7-104">Parte 2: controladores</span><span class="sxs-lookup"><span data-stu-id="a02c7-104">Part 2: Controllers</span></span>
 ====================

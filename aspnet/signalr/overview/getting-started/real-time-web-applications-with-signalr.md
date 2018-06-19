@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878053"
 ---
 <a name="hands-on-lab-real-time-web-applications-with-signalr"></a><span data-ttu-id="d4656-104">Laboratorio de prácticas: Las aplicaciones Web en tiempo real con SignalR</span><span class="sxs-lookup"><span data-stu-id="d4656-104">Hands On Lab: Real-Time Web Applications with SignalR</span></span>
 ====================

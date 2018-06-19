@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889649"
 ---
 <a name="processing-unhandled-exceptions-c"></a><span data-ttu-id="ac69b-103">Procesar las excepciones no controladas (C#)</span><span class="sxs-lookup"><span data-stu-id="ac69b-103">Processing Unhandled Exceptions (C#)</span></span>
 ====================

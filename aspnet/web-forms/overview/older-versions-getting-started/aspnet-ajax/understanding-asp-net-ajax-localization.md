@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30888044"
 ---
 <a name="understanding-aspnet-ajax-localization"></a><span data-ttu-id="37261-104">Descripción de localización de AJAX de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="37261-104">Understanding ASP.NET AJAX Localization</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884128"
 ---
 <a name="how-do-i-adding-elements-to-a-css-file-and-create-new-css-on-the-fly"></a><span data-ttu-id="0a3eb-103">[¿Cómo I:] Agregar elementos al CSS de archivos y creación nuevas CSS sobre la marcha</span><span class="sxs-lookup"><span data-stu-id="0a3eb-103">[How Do I:] Adding Elements to a CSS File and Create New CSS on the Fly</span></span>
 ====================

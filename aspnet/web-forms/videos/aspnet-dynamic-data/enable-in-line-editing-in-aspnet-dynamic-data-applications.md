@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884573"
 ---
 <a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a><span data-ttu-id="3f5c1-103">Habilitar la edición en línea en las aplicaciones de datos dinámicos de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="3f5c1-103">Enable In-Line Editing in ASP.NET Dynamic Data Applications</span></span>
 ====================

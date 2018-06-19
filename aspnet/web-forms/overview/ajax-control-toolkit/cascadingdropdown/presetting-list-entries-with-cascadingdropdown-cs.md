@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868833"
 ---
 <a name="presetting-list-entries-with-cascadingdropdown-c"></a><span data-ttu-id="53a15-103">Entradas de lista de preconfiguración CascadingDropDown (C#)</span><span class="sxs-lookup"><span data-stu-id="53a15-103">Presetting List Entries with CascadingDropDown (C#)</span></span>
 ====================

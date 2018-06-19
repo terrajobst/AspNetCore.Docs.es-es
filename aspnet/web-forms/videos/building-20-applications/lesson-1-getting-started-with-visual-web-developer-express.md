@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30885328"
 ---
 <a name="lesson-1-getting-started-with-visual-web-developer-express"></a><span data-ttu-id="04c5a-103">[Lección 1:] Introducción a Visual Web Developer Express</span><span class="sxs-lookup"><span data-stu-id="04c5a-103">[Lesson 1:] Getting Started with Visual Web Developer Express</span></span>
 ====================
