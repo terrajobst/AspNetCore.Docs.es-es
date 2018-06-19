@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/basic-authentication
-title: "La autenticación básica en ASP.NET Web API | Documentos de Microsoft"
+title: La autenticación básica en ASP.NET Web API | Documentos de Microsoft
 author: MikeWasson
-description: "Describe cómo utilizar la autenticación básica en ASP.NET Web API."
+description: Describe cómo utilizar la autenticación básica en ASP.NET Web API.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/02/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508134"
 ---
 <a name="basic-authentication-in-aspnet-web-api"></a>Autenticación básica en ASP.NET Web API
 ====================

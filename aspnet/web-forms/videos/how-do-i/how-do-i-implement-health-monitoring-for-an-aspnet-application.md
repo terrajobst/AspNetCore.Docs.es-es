@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-health-monitoring-for-an-aspnet-application
-title: "[¿Cómo I:]  ¿Implementar la supervisión de estado para una aplicación ASP.NET? | Microsoft Docs"
+title: '[¿Cómo I:]  ¿Implementar la supervisión de estado para una aplicación ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: "En este vídeo Chris Pels mostrará cómo implementar para obtener información detallada de tiempo de ejecución para una aplicación ASP.NET de supervisión de estado. Obtenga información acerca de las eficaces y..."
+description: En este vídeo Chris Pels mostrará cómo implementar para obtener información detallada de tiempo de ejecución para una aplicación ASP.NET de supervisión de estado. Obtenga información acerca de las eficaces y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526254"
 ---
 <a name="how-do-i--implement-health-monitoring-for-an-aspnet-application"></a>[¿Cómo I:]  ¿Implementar la supervisión de estado para una aplicación ASP.NET?
 ====================

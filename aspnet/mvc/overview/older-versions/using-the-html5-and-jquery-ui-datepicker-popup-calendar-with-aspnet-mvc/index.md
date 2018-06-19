@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/index
 title: MVC 3 - el calendario HTML5 y jQuery UI Datepicker emergente | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial explica cómo trabajar con plantillas de editor, plantillas de presentación y el calendario emergente de jQuery UI datepicker en una aplicación Web de MVC de ASP.NET."
+description: Este tutorial explica cómo trabajar con plantillas de editor, plantillas de presentación y el calendario emergente de jQuery UI datepicker en una aplicación Web de MVC de ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/19/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepi
 msc.type: chapter
 ms.openlocfilehash: 0e1ee1798d260215f8824a9222605a1a9a900917
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502604"
 ---
 <a name="mvc-3---the-html5-and-jquery-ui-datepicker-popup-calendar"></a>MVC 3 - el calendario HTML5 y jQuery UI Datepicker emergente
 ====================

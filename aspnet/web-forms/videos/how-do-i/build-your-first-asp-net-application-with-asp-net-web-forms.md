@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/build-your-first-asp-net-application-with-asp-net-web-forms
-title: "Crear su primera aplicación de ASP.NET con ASP.NET Web Forms | Documentos de Microsoft"
+title: Crear su primera aplicación de ASP.NET con ASP.NET Web Forms | Documentos de Microsoft
 author: lmoroney
-description: "Laurence Moroney de Microsoft muestra cómo crear su primera aplicación de ASP.NET a ASP.NET Web Forms."
+description: Laurence Moroney de Microsoft muestra cómo crear su primera aplicación de ASP.NET a ASP.NET Web Forms.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524894"
 ---
 <a name="build-your-first-aspnet-application-with-aspnet-web-forms"></a>Crear su primera aplicación de ASP.NET con ASP.NET Web Forms
 ====================

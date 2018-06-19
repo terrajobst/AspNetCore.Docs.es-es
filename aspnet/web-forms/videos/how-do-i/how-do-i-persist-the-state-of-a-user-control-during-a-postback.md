@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-persist-the-state-of-a-user-control-during-a-postback
-title: "[¿Cómo puedo]: el estado de un Control de usuario se conservan durante un Postback | Documentos de Microsoft"
+title: '[¿Cómo puedo]: el estado de un Control de usuario se conservan durante un Postback | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo guardar el estado de uno o más objetos en un control de usuario. En primer lugar, se crea un control de usuario que representa el abilit..."
+description: En este vídeo Chris Pels muestra cómo guardar el estado de uno o más objetos en un control de usuario. En primer lugar, se crea un control de usuario que representa el abilit...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/02/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525974"
 ---
 <a name="how-do-i-persist-the-state-of-a-user-control-during-a-postback"></a>[¿Cómo puedo]: conservar el estado de un Control de usuario durante una devolución de datos
 ====================

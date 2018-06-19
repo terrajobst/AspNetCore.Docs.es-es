@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/security/index
-title: "Seguridad, autenticación y autorización con ASP.NET MVC | Documentos de Microsoft"
+title: Seguridad, autenticación y autorización con ASP.NET MVC | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo proteger un sitio ASP.NET y cómo implementar la autenticación y autorización."
+description: Cómo proteger un sitio ASP.NET y cómo implementar la autenticación y autorización.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/10/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/security
 msc.type: chapter
 ms.openlocfilehash: ae6cee1fcccc080c9865f618f162e5f2acdcb620
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503214"
 ---
 <a name="security-authentication-and-authorization-with-aspnet-mvc"></a>Seguridad, autenticación y autorización con ASP.NET MVC
 ====================

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1b94305cc79843e2b0866dae811dab61c21980ad
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/24/2018
+ms.locfileid: "34472939"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 

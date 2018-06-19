@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-a-delete-data-page-in-webmatrix
-title: "Crear una página de datos de eliminación en WebMatrix | Documentos de Microsoft"
+title: Crear una página de datos de eliminación en WebMatrix | Documentos de Microsoft
 author: rick-anderson
-description: "Parte 8 finaliza la sesión en la aplicación le muestra cómo crear una página de borrado de los datos."
+description: Parte 8 finaliza la sesión en la aplicación le muestra cómo crear una página de borrado de los datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529964"
 ---
 <a name="create-a-delete-data-page-in-webmatrix"></a>Crear una página de datos de eliminación en WebMatrix
 ====================

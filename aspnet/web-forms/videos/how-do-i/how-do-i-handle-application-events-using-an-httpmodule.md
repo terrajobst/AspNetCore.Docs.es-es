@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-handle-application-events-using-an-httpmodule
-title: "[¿Cómo I:] ¿Controlar eventos de aplicación mediante un HttpModule? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Controlar eventos de aplicación mediante un HttpModule? | Microsoft Docs'
 author: rick-anderson
-description: "Obtenga información acerca de cómo crear un HttpModule que controla los eventos de aplicación durante el procesamiento de una solicitud de página. El módulo de ejemplo escribe información en un registro..."
+description: Obtenga información acerca de cómo crear un HttpModule que controla los eventos de aplicación durante el procesamiento de una solicitud de página. El módulo de ejemplo escribe información en un registro...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/13/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526184"
 ---
 <a name="how-do-i-handle-application-events-using-an-httpmodule"></a>[¿Cómo I:] ¿Controlar eventos de aplicación mediante un HttpModule?
 ====================

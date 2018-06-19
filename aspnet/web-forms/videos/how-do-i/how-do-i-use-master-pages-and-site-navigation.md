@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-master-pages-and-site-navigation
-title: "[¿Cómo I:] ¿Use las páginas principales y la navegación de sitio? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Use las páginas principales y la navegación de sitio? | Microsoft Docs'
 author: microsoft
-description: "Crear un sitio web con un diseño y diseño coherente en todas sus páginas mediante páginas maestras de ASP.NET 2.0. Vea lo fácil que es agregar funciones de navegación a un sitio web..."
+description: Crear un sitio web con un diseño y diseño coherente en todas sus páginas mediante páginas maestras de ASP.NET 2.0. Vea lo fácil que es agregar funciones de navegación a un sitio web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/11/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521504"
 ---
 <a name="how-do-i-use-master-pages-and-site-navigation"></a>[¿Cómo I:] ¿Use las páginas principales y la navegación de sitio?
 ====================

@@ -2,7 +2,7 @@
 uid: signalr/overview/testing-and-debugging/enabling-signalr-tracing
 title: Habilitar el seguimiento de SignalR | Documentos de Microsoft
 author: tfitzmac
-description: "Este documento describe cómo habilitar y configurar el seguimiento de los clientes y servidores de SignalR. El seguimiento le permite ver información acerca de los eventos de diagnóstico..."
+description: Este documento describe cómo habilitar y configurar el seguimiento de los clientes y servidores de SignalR. El seguimiento le permite ver información acerca de los eventos de diagnóstico...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28032823"
 ---
 <a name="enabling-signalr-tracing"></a>Habilitar el seguimiento de SignalR
 ====================

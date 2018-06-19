@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-data-driven-web-sites
-title: "[¿Cómo I:] ¿Crear sitios Web controlados por datos? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Crear sitios Web controlados por datos? | Microsoft Docs'
 author: microsoft
-description: "Vea lo fácil que es crear sitios web de controladas por datos con ASP.NET 2.0, Visual Web Developer 2005 Express Edition y SQL Server 2005 Express Edition. Obtenga información acerca de..."
+description: Vea lo fácil que es crear sitios web de controladas por datos con ASP.NET 2.0, Visual Web Developer 2005 Express Edition y SQL Server 2005 Express Edition. Obtenga información acerca de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524914"
 ---
 <a name="how-do-i-create-data-driven-web-sites"></a>[¿Cómo I:] ¿Crear sitios Web controlados por datos?
 ====================

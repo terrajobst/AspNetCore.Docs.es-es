@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-learn-the-tips-and-tricks-of-experts
-title: "[¿Cómo I:] ¿Obtenga información acerca de las sugerencias y trucos de los expertos? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Obtenga información acerca de las sugerencias y trucos de los expertos? | Microsoft Docs'
 author: microsoft
-description: "Ver sugerencias y trucos, incluido el cifrado de información confidencial almacenada en el archivo web.config, enviar contenido a una página distinta, simplificando las direcciones URL complejas..."
+description: Ver sugerencias y trucos, incluido el cifrado de información confidencial almacenada en el archivo web.config, enviar contenido a una página distinta, simplificando las direcciones URL complejas...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525764"
 ---
 <a name="how-do-i-learn-the-tips-and-tricks-of-experts"></a>[¿Cómo I:] ¿Obtenga información acerca de las sugerencias y trucos de los expertos?
 ====================

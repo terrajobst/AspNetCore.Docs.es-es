@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/index
-title: "Vídeos | Documentos de Microsoft"
+title: Vídeos | Documentos de Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos
 msc.type: book
 ms.openlocfilehash: a268e93a8863422b37dbbfa6d08331ce96b02672
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526654"
 ---
 <a name="videos"></a>Vídeos
 ====================

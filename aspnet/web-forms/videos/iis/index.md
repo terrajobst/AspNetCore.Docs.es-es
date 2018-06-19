@@ -2,7 +2,7 @@
 uid: web-forms/videos/iis/index
 title: Sugerencias generales de IIS | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo configurar IIS para que funcione con aplicaciones ASP.NET."
+description: Cómo configurar IIS para que funcione con aplicaciones ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/iis
 msc.type: chapter
 ms.openlocfilehash: 2fb4da58fd5e0fc6bce8f042a9811d4ef30c1eb4
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525604"
 ---
 <a name="general-iis-tips"></a>Sugerencias generales de IIS
 ====================

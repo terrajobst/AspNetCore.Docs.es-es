@@ -14,9 +14,10 @@ msc.legacyurl: /web-api
 msc.type: categoryindex
 ms.openlocfilehash: 208cca850cc18f02c6a317c86b532e9707e9d5cf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26507054"
 ---
 <a name="aspnet-web-api"></a>ASP.NET Web API
 ====================

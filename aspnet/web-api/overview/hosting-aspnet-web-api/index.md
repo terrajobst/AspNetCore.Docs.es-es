@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/hosting-aspnet-web-api/index
-title: "ASP.NET Web API: Implementación y el hospedaje | Documentos de Microsoft"
+title: 'ASP.NET Web API: Implementación y el hospedaje | Documentos de Microsoft'
 author: rick-anderson
-description: "Cómo hospedar su API web."
+description: Cómo hospedar su API web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/hosting-aspnet-web-api
 msc.type: chapter
 ms.openlocfilehash: 903e533d96c5187e1c7875f5bfcfdc4eba0ae98d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506904"
 ---
 <a name="aspnet-web-api-deployment-and-hosting"></a>ASP.NET Web API: Implementación y el hospedaje
 ====================

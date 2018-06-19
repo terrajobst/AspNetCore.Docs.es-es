@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/getting-started-with-ef/index
-title: "ASP.NET 4: Introducción a Entity Framework 4 y formularios Web Forms | Documentos de Microsoft"
+title: 'ASP.NET 4: Introducción a Entity Framework 4 y formularios Web Forms | Documentos de Microsoft'
 author: rick-anderson
-description: "Los conceptos básicos del uso de Entity Framework para mostrar y editar datos en una aplicación de formularios Web Forms de ASP.NET."
+description: Los conceptos básicos del uso de Entity Framework para mostrar y editar datos en una aplicación de formularios Web Forms de ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/getting-starte
 msc.type: chapter
 ms.openlocfilehash: 4a25fa435613fa099b4ec411f0381d7481d2e228
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26518134"
 ---
 <a name="aspnet-4---getting-started-with-entity-framework-4-and-web-forms"></a>4: Introducción a Entity Framework 4 y formularios Web Forms ASP.NET
 ====================

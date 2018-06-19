@@ -2,13 +2,13 @@
 uid: visual-studio/overview/2012/visual-studio-2012-javascript-editor
 title: Editor de JavaScript de Visual Studio 2012 | Documentos de Microsoft
 author: shanselman
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: b7c029cf-3fe0-4528-beb4-f577514b48ef
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-javascript-editor
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506414"
 ---
 <a name="visual-studio-2012-javascript-editor"></a>Editor de JavaScript de Visual Studio 2012
 ====================

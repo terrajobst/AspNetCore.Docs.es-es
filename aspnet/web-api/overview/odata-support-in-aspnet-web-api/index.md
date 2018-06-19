@@ -2,7 +2,7 @@
 uid: web-api/overview/odata-support-in-aspnet-web-api/index
 title: OData en ASP.NET Web API | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo crear los puntos de conexión de OData en Web API. OData es un protocolo de acceso de datos para la web. Proporciona una manera uniforme para consultar y manipular conjuntos de datos. Web API s..."
+description: Cómo crear los puntos de conexión de OData en Web API. OData es un protocolo de acceso de datos para la web. Proporciona una manera uniforme para consultar y manipular conjuntos de datos. Web API s...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/17/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api
 msc.type: chapter
 ms.openlocfilehash: dd46454ae78424ab383a71d185ff7a563692cc5f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508044"
 ---
 <a name="odata-in-aspnet-web-api"></a>OData en ASP.NET Web API
 ====================

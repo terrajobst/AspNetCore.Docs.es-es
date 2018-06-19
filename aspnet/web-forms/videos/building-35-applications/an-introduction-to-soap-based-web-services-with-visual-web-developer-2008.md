@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/an-introduction-to-soap-based-web-services-with-visual-web-developer-2008
-title: "Una introducción a SOAP según los servicios Web con Visual Web Developer 2008 | Documentos de Microsoft"
+title: Una introducción a SOAP según los servicios Web con Visual Web Developer 2008 | Documentos de Microsoft
 author: JoeStagner
-description: "Este vídeo muestra cómo rápida y fácil se puede empezar a desarrollar aplicaciones distribuidas basadas en SOAP o servicios web XML."
+description: Este vídeo muestra cómo rápida y fácil se puede empezar a desarrollar aplicaciones distribuidas basadas en SOAP o servicios web XML.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521644"
 ---
 <a name="an-introduction-to-soap-based-web-services-with-visual-web-developer-2008"></a>Una introducción a SOAP según los servicios Web con Visual Web Developer 2008
 ====================

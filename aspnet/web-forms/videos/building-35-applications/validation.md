@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/validation
-title: "Validación | Documentos de Microsoft"
+title: Validación | Documentos de Microsoft
 author: JoeStagner
-description: "En este vídeo Joe indicará el uso de los controles de FormValidation en ASP.NET utilizando Microsoft Visual Web Developer."
+description: En este vídeo Joe indicará el uso de los controles de FormValidation en ASP.NET utilizando Microsoft Visual Web Developer.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/04/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525004"
 ---
 <a name="validation"></a>Validación
 ====================

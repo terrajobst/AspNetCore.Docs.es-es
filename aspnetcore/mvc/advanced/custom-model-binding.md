@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740626"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 

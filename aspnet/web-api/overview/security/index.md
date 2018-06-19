@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/security/index
-title: "Seguridad, autenticación y autorización en ASP.NET Web API | Documentos de Microsoft"
+title: Seguridad, autenticación y autorización en ASP.NET Web API | Documentos de Microsoft
 author: rick-anderson
 description: Problemas de seguridad de API Web.
 ms.author: aspnetcontent
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/security
 msc.type: chapter
 ms.openlocfilehash: 2006e672aab83a508bcaf44b6c7c276d4b1f3342
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508094"
 ---
 <a name="security-authentication-and-authorization-in-aspnet-web-api"></a>Seguridad, autenticación y autorización en ASP.NET Web API
 ====================

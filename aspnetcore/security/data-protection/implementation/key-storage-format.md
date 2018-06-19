@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153578"
 ---
 # <a name="key-storage-format-in-aspnet-core"></a>Formato de almacenamiento de claves en ASP.NET Core
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26507134"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a>Laboratorio de prácticas: Visual Studio 2013 Web Tools
 ====================
@@ -302,7 +303,7 @@ En esta tarea, va a usar el vínculo de explorador **el modo de diseño** caract
     ![Editar la pregunta](visual-studio-2013-web-tools/_static/image28.png "editar la pregunta")
 
     *Edición de la pregunta*
-3. Debería aparecer un cursor. Reemplace el texto original con *lo que parece al igual que cuando escribe una pregunta más?*y, a continuación, presione **ESC** para salir del modo de diseño.
+3. Debería aparecer un cursor. Reemplace el texto original con *lo que parece al igual que cuando escribe una pregunta más?* y, a continuación, presione **ESC** para salir del modo de diseño.
 
     ![Pregunta editado](visual-studio-2013-web-tools/_static/image29.png "pregunta editado")
 

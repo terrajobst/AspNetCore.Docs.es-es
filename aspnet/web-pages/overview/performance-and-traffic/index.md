@@ -2,7 +2,7 @@
 uid: web-pages/overview/performance-and-traffic/index
 title: Rendimiento | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo almacenar en caché contenido para acelerar el rendimiento y cómo medir el tráfico del sitio."
+description: Cómo almacenar en caché contenido para acelerar el rendimiento y cómo medir el tráfico del sitio.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/performance-and-traffic
 msc.type: chapter
 ms.openlocfilehash: fffeb7c5b5a202a273bfd8b144ad1f63d5743087
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528524"
 ---
 <a name="performance"></a>Rendimiento
 ====================

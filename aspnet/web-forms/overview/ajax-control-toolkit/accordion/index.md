@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/accordion/index
 title: Accordion | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control Accordion, que contiene varios paneles y permite a los usuarios mostrar uno de ellos al mismo tiempo."
+description: Este tutorial muestra cómo utilizar el control Accordion, que contiene varios paneles y permite a los usuarios mostrar uno de ellos al mismo tiempo.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/11/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion
 msc.type: chapter
 ms.openlocfilehash: 6d21104c82419da4a6445d505fab549eba686efb
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509074"
 ---
 <a name="accordion"></a>Accordion
 ====================

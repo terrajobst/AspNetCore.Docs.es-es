@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/popup/index
 title: Elemento emergente | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control de menú emergente para mostrar un menú emergente cuando se activa cualquier otro control."
+description: Este tutorial muestra cómo utilizar el control de menú emergente para mostrar un menú emergente cuando se activa cualquier otro control.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup
 msc.type: chapter
 ms.openlocfilehash: f0d9ab97c0d04b0fd6b8798d08676755bda43cdf
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510584"
 ---
 <a name="popup"></a>Popup
 ====================

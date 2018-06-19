@@ -2,7 +2,7 @@
 uid: mvc/index
 title: ASP.NET MVC | Documentos de Microsoft
 author: rick-anderson
-description: "Descargar ASP.NET MVC y obtenga información acerca de cómo crear aplicaciones web mediante el modelo de controlador de vista de modelo."
+description: Descargar ASP.NET MVC y obtenga información acerca de cómo crear aplicaciones web mediante el modelo de controlador de vista de modelo.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/24/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc
 msc.type: categoryindex
 ms.openlocfilehash: d7e59b49250b29409836162f1ba2dcabd88c9925
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26497834"
 ---
 <a name="aspnet-mvc"></a>ASP.NET MVC
 ====================

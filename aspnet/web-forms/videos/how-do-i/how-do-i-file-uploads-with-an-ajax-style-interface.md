@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-file-uploads-with-an-ajax-style-interface
-title: "[¿Cómo I:]  Archivo de carga con una interfaz de estilo AJAX | Documentos de Microsoft"
+title: '[¿Cómo I:]  Archivo de carga con una interfaz de estilo AJAX | Documentos de Microsoft'
 author: JoeStagner
-description: "En este vídeo mostrarán, con ASP.NET, un estilo de AJAX de carga de archivos desde el equipo cliente al servidor. Quiero estilo AJAX porque no hay un..."
+description: En este vídeo mostrarán, con ASP.NET, un estilo de AJAX de carga de archivos desde el equipo cliente al servidor. Quiero estilo AJAX porque no hay un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/12/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526214"
 ---
 <a name="how-do-i--file-uploads-with-an-ajax-style-interface"></a>[¿Cómo I:]  Cargas de archivos con una interfaz de estilo AJAX
 ====================

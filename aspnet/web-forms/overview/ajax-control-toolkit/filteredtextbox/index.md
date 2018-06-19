@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/filteredtextbox/index
 title: FilteredTextBox | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control FilteredTextBox, que le permite especificar qué caracteres se permiten en proporcionados por el usuario."
+description: Este tutorial muestra cómo utilizar el control FilteredTextBox, que le permite especificar qué caracteres se permiten en proporcionados por el usuario.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/filteredtextbox
 msc.type: chapter
 ms.openlocfilehash: 04197e6348ac97f8ea668591c894f25774966cae
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510394"
 ---
 <a name="filteredtextbox"></a>FilteredTextBox
 ====================

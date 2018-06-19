@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/security/index
 title: Seguridad | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial establece cubre cómo para proteger por contraseña algunas páginas en la aplicación de ASP.NET MVC y cómo crear y administrar usuarios y roles."
+description: Este tutorial establece cubre cómo para proteger por contraseña algunas páginas en la aplicación de ASP.NET MVC y cómo crear y administrar usuarios y roles.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/security
 msc.type: chapter
 ms.openlocfilehash: 827802db011995cb8728f51d5c967e50669045e2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500654"
 ---
 <a name="security"></a>Seguridad
 ====================

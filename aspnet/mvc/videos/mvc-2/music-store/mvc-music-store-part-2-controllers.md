@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871069"
 ---
 <a name="mvc-music-store-part-2-controllers"></a>Parte de la tienda de música de MVC 2: controladores
 ====================

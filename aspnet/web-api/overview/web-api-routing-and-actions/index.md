@@ -2,7 +2,7 @@
 uid: web-api/overview/web-api-routing-and-actions/index
 title: Enrutamiento de Web API | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo ASP.NET Web API enruta las solicitudes HTTP a controladores y acciones."
+description: Cómo ASP.NET Web API enruta las solicitudes HTTP a controladores y acciones.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/26/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/web-api-routing-and-actions
 msc.type: chapter
 ms.openlocfilehash: eee9d853e67cf8e13541a8ae570108a3564f8a51
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508984"
 ---
 <a name="web-api-routing"></a>Enrutamiento de Web API
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/videos/net-4/ajax/index
 title: AJAX | Documentos de Microsoft
 author: rick-anderson
-description: "Esta serie de vídeos muestra las nuevas características en ASP.NET 4 para la compatibilidad con JavaScript y jQuery."
+description: Esta serie de vídeos muestra las nuevas características en ASP.NET 4 para la compatibilidad con JavaScript y jQuery.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/net-4/ajax
 msc.type: chapter
 ms.openlocfilehash: 66ff40cae98db347b3a30617dc1ade124522480e
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528194"
 ---
 <a name="ajax"></a>Ajax
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883682"
 ---
 <a name="how-to-remove-columns-from-your-dynamicdata-data-grids"></a>Cómo quitar las columnas de las cuadrículas de datos de DynamicData
 ====================

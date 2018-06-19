@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-2/music-store/index
-title: "Tienda de música | Documentos de Microsoft"
+title: Tienda de música | Documentos de Microsoft
 author: rick-anderson
-description: "Compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET"
+description: Compilar la aplicación de ejemplo de la tienda de música de MVC de ASP.NET
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-2/music-store
 msc.type: chapter
 ms.openlocfilehash: 95c720f3d3a2066b23d3d173d86acd7120fbad47
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503724"
 ---
 <a name="music-store"></a>Tienda de música
 ====================

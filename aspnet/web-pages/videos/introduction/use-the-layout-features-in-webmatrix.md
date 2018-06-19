@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/use-the-layout-features-in-webmatrix
-title: "Usar las características de diseño de WebMatrix | Documentos de Microsoft"
+title: Usar las características de diseño de WebMatrix | Documentos de Microsoft
 author: rick-anderson
-description: "Parte 4 le enseña diseño y cómo pueden utilizar los diseño en WebMatrix para el código común a través de las páginas."
+description: Parte 4 le enseña diseño y cómo pueden utilizar los diseño en WebMatrix para el código común a través de las páginas.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529774"
 ---
 <a name="use-the-layout-features-in-webmatrix"></a>Usar las características de diseño de WebMatrix
 ====================

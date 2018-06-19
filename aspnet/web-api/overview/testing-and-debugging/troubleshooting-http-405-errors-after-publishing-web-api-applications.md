@@ -17,6 +17,7 @@ ms.sourcegitcommit: f1436107b4c022b26f5235dddef103cec5aa6bff
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/15/2017
+ms.locfileid: "26743278"
 ---
 <a name="troubleshooting-http-405-errors-after-publishing-web-api-2-applications"></a>Solución de problemas de HTTP 405 errores después de la publicación de Web API 2 aplicaciones
 ====================

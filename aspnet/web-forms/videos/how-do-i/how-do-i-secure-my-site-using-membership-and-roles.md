@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-secure-my-site-using-membership-and-roles
-title: "[¿Cómo I:] ¿Proteger mi sitio con pertenencia y los Roles? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Proteger mi sitio con pertenencia y los Roles? | Microsoft Docs'
 author: microsoft
-description: "Obtenga información acerca de cómo proteger un sitio web mediante las nuevas características de pertenencia y los Roles de ASP.NET 2.0. Los temas incluyen registro de usuario, la recuperación de contraseña y restricti..."
+description: Obtenga información acerca de cómo proteger un sitio web mediante las nuevas características de pertenencia y los Roles de ASP.NET 2.0. Los temas incluyen registro de usuario, la recuperación de contraseña y restricti...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/09/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526104"
 ---
 <a name="how-do-i-secure-my-site-using-membership-and-roles"></a>[¿Cómo I:] ¿Proteger mi sitio con pertenencia y los Roles?
 ====================

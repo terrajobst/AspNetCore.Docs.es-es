@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions/mvc-music-store/index
-title: "Tienda de música de ASP.NET MVC 3 | Documentos de Microsoft"
+title: Tienda de música de ASP.NET MVC 3 | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo crear la aplicación de tienda de música de MVC, una aplicación de ejemplo que vende álbumes de música en línea y que implementa la administración de sitios, inicio de sesión de usuario, un..."
+description: Cómo crear la aplicación de tienda de música de MVC, una aplicación de ejemplo que vende álbumes de música en línea y que implementa la administración de sitios, inicio de sesión de usuario, un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions/mvc-music-store
 msc.type: chapter
 ms.openlocfilehash: b8fc43d8a8803a5b4cacfe46b55282e8dfd988c8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26502454"
 ---
 <a name="aspnet-mvc-3-music-store"></a>Tienda de música de ASP.NET MVC 3
 ====================

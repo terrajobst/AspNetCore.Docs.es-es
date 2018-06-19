@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-embed-an-image-in-an-email-with-aspnet
-title: "[¿Cómo I:] Incrustar una imagen en un correo electrónico con ASP.NET | Documentos de Microsoft"
+title: '[¿Cómo I:] Incrustar una imagen en un correo electrónico con ASP.NET | Documentos de Microsoft'
 author: rick-anderson
-description: "Chris Pels muestra cómo incrustar una imagen en un correo electrónico con ASP.NET. Crea un formulario web Forms (con campos de para, de, asunto y cuerpo), se utiliza el AlternateView..."
+description: Chris Pels muestra cómo incrustar una imagen en un correo electrónico con ASP.NET. Crea un formulario web Forms (con campos de para, de, asunto y cuerpo), se utiliza el AlternateView...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525074"
 ---
 <a name="how-do-i-embed-an-image-in-an-email-with-aspnet"></a>[¿Cómo I:] Incrustar una imagen en un correo electrónico con ASP.NET
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index
-title: "ASP.NET 4: implementación de Web con SQL Server Compact con Visual Studio | Documentos de Microsoft"
+title: 'ASP.NET 4: implementación de Web con SQL Server Compact con Visual Studio | Documentos de Microsoft'
 author: rick-anderson
-description: "Esta serie de tutoriales muestra cómo hacer que la aplicación web ASP.NET que usa SQL Server Compact disponible a través de internet mediante la implementación en un h de terceros..."
+description: Esta serie de tutoriales muestra cómo hacer que la aplicación web ASP.NET que usa SQL Server Compact disponible a través de internet mediante la implementación en un h de terceros...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/29/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-getting-started/deployment-to-
 msc.type: chapter
 ms.openlocfilehash: 2674550e6e69c2b8b9f463c5e9cb2d1d3e0713af
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26518104"
 ---
 <a name="aspnet-4---web-deployment-with-sql-server-compact-using-visual-studio"></a>ASP.NET 4: implementación de Web con SQL Server Compact con Visual Studio
 ====================

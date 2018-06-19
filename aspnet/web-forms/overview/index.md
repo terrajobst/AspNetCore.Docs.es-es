@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/index
-title: "Guía de ASP.NET Web Forms | Documentos de Microsoft"
+title: Guía de ASP.NET Web Forms | Documentos de Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview
 msc.type: book
 ms.openlocfilehash: 7a2a5a1afd2a6094d01f5acc86737ede48b90dd0
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516864"
 ---
 <a name="aspnet-web-forms-guidance"></a>Guía de ASP.NET Web Forms
 ====================

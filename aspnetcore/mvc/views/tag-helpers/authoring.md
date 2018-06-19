@@ -15,6 +15,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741003"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear aplicaciones auxiliares de etiquetas en ASP.NET Core
 

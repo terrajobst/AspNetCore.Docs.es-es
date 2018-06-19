@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2013/visual-studio-2013-web-editor-features-html-editor
-title: "Visual Studio 2013 Web características del Editor - Editor HTML | Documentos de Microsoft"
+title: Visual Studio 2013 Web características del Editor - Editor HTML | Documentos de Microsoft
 author: madskristensen
-description: "Mads muestra Kristensen desactivar las características del editor de HTML en Visual Studio 2013, incluidas todas las características IntelliSense para los elementos HTML, todas las clases CSS e identificadores en el proyecto..."
+description: Mads muestra Kristensen desactivar las características del editor de HTML en Visual Studio 2013, incluidas todas las características IntelliSense para los elementos HTML, todas las clases CSS e identificadores en el proyecto...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/17/2013
 ms.topic: article
 ms.assetid: 5a6b4558-0555-4cac-99c7-06865169007f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-html-editor
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506724"
 ---
 <a name="visual-studio-2013-web-editor-features---html-editor"></a>Visual Studio 2013 Web características del Editor - Editor de HTML
 ====================

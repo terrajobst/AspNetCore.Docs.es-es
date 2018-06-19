@@ -2,7 +2,7 @@
 uid: web-pages/videos/introduction/create-a-website-using-webmatrix
 title: Crear un sitio Web mediante WebMatrix | Documentos de Microsoft
 author: rick-anderson
-description: "Parte 2 le enseña a crear la primera página Web mediante WebMatrix."
+description: Parte 2 le enseña a crear la primera página Web mediante WebMatrix.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529854"
 ---
 <a name="create-a-website-using-webmatrix"></a>Crear un sitio Web mediante WebMatrix
 ====================

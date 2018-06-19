@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
-title: "[¿Cómo I:] Implementar una devolución de datos entre páginas de ASP.NET | Documentos de Microsoft"
+title: '[¿Cómo I:] Implementar una devolución de datos entre páginas de ASP.NET | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo crear un PostBack de página Cross en ASP.NET, donde un control en una página de código fuente genera un evento de PostBack a un destino diferente..."
+description: En este vídeo Chris Pels muestra cómo crear un PostBack de página Cross en ASP.NET, donde un control en una página de código fuente genera un evento de PostBack a un destino diferente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/10/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526314"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[¿Cómo I:] Implemente una devolución de datos entre páginas de ASP.NET
 ====================

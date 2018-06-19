@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-in-signalr
-title: "Introducción a la ampliación de SignalR | Documentos de Microsoft"
+title: Introducción a la ampliación de SignalR | Documentos de Microsoft
 author: MikeWasson
-description: "Versiones de software emplea en este tema Visual Studio 2013 .NET 4.5 SignalR las versiones anteriores de la versión 2 de este tema para obtener información acerca de las versiones anteriores de..."
+description: Versiones de software emplea en este tema Visual Studio 2013 .NET 4.5 SignalR las versiones anteriores de la versión 2 de este tema para obtener información acerca de las versiones anteriores de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034599"
 ---
 <a name="introduction-to-scaleout-in-signalr"></a>Introducción a la ampliación de SignalR
 ====================

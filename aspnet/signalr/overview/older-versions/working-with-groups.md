@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036549"
 ---
 <a name="working-with-groups-in-signalr-1x"></a>Trabajar con grupos en SignalR 1.x
 ====================

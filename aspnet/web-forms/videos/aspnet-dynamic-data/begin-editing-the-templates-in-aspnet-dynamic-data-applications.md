@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883312"
 ---
 <a name="begin-editing-the-templates-in-aspnet-dynamic-data-applications"></a>Empezar a editar las plantillas en aplicaciones de datos dinámicos de ASP.NET
 ====================

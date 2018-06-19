@@ -1,8 +1,8 @@
 ---
 uid: web-pages/pluralsight
-title: "Aprendizaje mediante vídeo WebMatrix y Web Pages de Pluralsight | Documentos de Microsoft"
+title: Aprendizaje mediante vídeo WebMatrix y Web Pages de Pluralsight | Documentos de Microsoft
 author: rick-anderson
-description: "WebMatrix &amp; páginas Web de aprendizaje de Pluralsight este curso detallada obtendrá a trabajar con WebMatrix y ASP.NET Web Pages. Abarca everythi..."
+description: WebMatrix &amp; páginas Web de aprendizaje de Pluralsight este curso detallada obtendrá a trabajar con WebMatrix y ASP.NET Web Pages. Abarca everythi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529824"
 ---
 <a name="webmatrix-and-web-pages-video-training-from-pluralsight"></a>Aprendizaje mediante vídeo WebMatrix y Web Pages de Pluralsight
 ====================

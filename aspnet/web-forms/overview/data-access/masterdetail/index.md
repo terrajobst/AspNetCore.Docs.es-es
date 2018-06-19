@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/masterdetail/index
 title: Principal-detalle | Documentos de Microsoft
 author: rick-anderson
-description: "Estos tutoriales muestra cómo mostrar los registros maestros en una lista desplegable y detalles en un control GridView."
+description: Estos tutoriales muestra cómo mostrar los registros maestros en una lista desplegable y detalles en un control GridView.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/masterdetail
 msc.type: chapter
 ms.openlocfilehash: d0e8193c008f5457a62cd009873883acc0c5c237
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26514444"
 ---
 <a name="masterdetail"></a>Maestro y detalles
 ====================

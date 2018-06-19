@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/nobot/index
 title: NoBot | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control NoBot, que proporciona una forma automatizada para impedir que los robots se publiquen en un sitio."
+description: Este tutorial muestra cómo utilizar el control NoBot, que proporciona una forma automatizada para impedir que los robots se publiquen en un sitio.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot
 msc.type: chapter
 ms.openlocfilehash: c2e4da8991b116754b6e21f97a383f2a1003ad2a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510674"
 ---
 <a name="nobot"></a>NoBot
 ====================

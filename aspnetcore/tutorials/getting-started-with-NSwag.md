@@ -15,6 +15,7 @@ ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34094897"
 ---
 # <a name="get-started-with-nswag-and-aspnet-core"></a>Introducción a NSwag y ASP.NET Core
 

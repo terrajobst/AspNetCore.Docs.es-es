@@ -2,7 +2,7 @@
 uid: web-forms/videos/data-access/adonet-data-services/index
 title: De ADO.NET Data Services | Documentos de Microsoft
 author: rick-anderson
-description: "Estos vídeos enseña cómo crear una capa de acceso a datos mediante un conjunto de datos con tipo para una aplicación ASP.NET simple."
+description: Estos vídeos enseña cómo crear una capa de acceso a datos mediante un conjunto de datos con tipo para una aplicación ASP.NET simple.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/04/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/adonet-data-services
 msc.type: chapter
 ms.openlocfilehash: 07181564ee701c71ce74ac7cea3d8cfd0f9f4ffd
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525104"
 ---
 <a name="adonet-data-services"></a>Data Services de ADO.NET
 ====================

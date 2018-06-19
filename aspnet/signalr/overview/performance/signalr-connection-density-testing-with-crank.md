@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/signalr-connection-density-testing-with-crank
-title: "Densidad de la conexión de SignalR pruebas con cigüeñal | Documentos de Microsoft"
+title: Densidad de la conexión de SignalR pruebas con cigüeñal | Documentos de Microsoft
 author: tfitzmac
-description: "Densidad de la conexión de SignalR pruebas con cigüeñal"
+description: Densidad de la conexión de SignalR pruebas con cigüeñal
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/22/2015
@@ -17,6 +17,7 @@ ms.sourcegitcommit: fe880bf4ed1c8116071c0e47c0babf3623b7f44a
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/21/2017
+ms.locfileid: "26535334"
 ---
 <a name="signalr-connection-density-testing-with-crank"></a>Densidad de la conexión de SignalR pruebas con cigüeñal
 ====================

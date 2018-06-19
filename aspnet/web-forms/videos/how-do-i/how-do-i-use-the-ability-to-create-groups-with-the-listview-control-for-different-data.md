@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data
-title: "[¿Cómo I:] Use la capacidad para crear grupos con el Control ListView para diferentes datos | Documentos de Microsoft"
+title: '[¿Cómo I:] Use la capacidad para crear grupos con el Control ListView para diferentes datos | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo, Chris Pels mostrará cómo agrupar elementos para mostrar datos en un control ListView. En primer lugar, consulte los conceptos básicos del diseño de elemento en el control ListView fuente..."
+description: En este vídeo, Chris Pels mostrará cómo agrupar elementos para mostrar datos en un control ListView. En primer lugar, consulte los conceptos básicos del diseño de elemento en el control ListView fuente...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/20/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525204"
 ---
 <a name="how-do-i-use-the-ability-to-create-groups-with-the-listview-control-for-different-data"></a>[¿Cómo I:] Use la capacidad para crear grupos con el Control ListView de datos diferentes
 ====================
