@@ -1,7 +1,7 @@
 ---
-title: "Aplicación auxiliar de etiquetas de entorno en ASP.NET Core"
+title: Aplicación auxiliar de etiquetas de entorno en ASP.NET Core
 author: pkellner
-description: "Aplicación auxiliar de etiquetas de entorno de ASP.NET Core definida con todas las propiedades"
+description: Aplicación auxiliar de etiquetas de entorno de ASP.NET Core definida con todas las propiedades
 manager: wpickett
 ms.author: riande
 ms.date: 07/14/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28901187"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas de entorno en ASP.NET Core
 

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/application-level-objects
-title: "Objetos de nivel de aplicación | Documentos de Microsoft"
+title: Objetos de nivel de aplicación | Documentos de Microsoft
 author: JoeStagner
-description: "Este vídeo presenta los eventos de nivel de aplicación y los objetos y explica el concepto de &quot;ámbito&quot; ya que pertenece a ellos."
+description: Este vídeo presenta los eventos de nivel de aplicación y los objetos y explica el concepto de &quot;ámbito&quot; ya que pertenece a ellos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521564"
 ---
 <a name="application-level-objects"></a>Objetos de nivel de aplicación
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895184"
 ---
 <a name="introduction-to-managing-and-running-tests-with-team-system"></a>Introducción a la administración y ejecución de pruebas con Team System
 ====================

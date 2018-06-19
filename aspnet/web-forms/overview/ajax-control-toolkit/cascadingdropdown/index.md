@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/cascadingdropdown/index
 title: CascadingDropdown | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el las CascadingDropDown para crear una lista desplegable relacionada listas de control que se actualizan cuando los usuarios realizan una selección."
+description: Este tutorial muestra cómo utilizar el las CascadingDropDown para crear una lista desplegable relacionada listas de control que se actualizan cuando los usuarios realizan una selección.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown
 msc.type: chapter
 ms.openlocfilehash: 200dc5ce3f27b5123edea2ac63f0a86b8502605d
 ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/12/2018
+ms.locfileid: "29152857"
 ---
 <a name="cascadingdropdown"></a>CascadingDropdown
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893991"
 ---
 <a name="how-do-i-enable-code-coverage-and-profiling-in-production-applications"></a>[¿Cómo I:] ¿Habilitar la cobertura de código y la generación de perfiles en las aplicaciones de producción?
 ====================

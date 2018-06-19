@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585236"
 ---
 <a name="supported-platforms"></a>Plataformas compatibles
 ====================

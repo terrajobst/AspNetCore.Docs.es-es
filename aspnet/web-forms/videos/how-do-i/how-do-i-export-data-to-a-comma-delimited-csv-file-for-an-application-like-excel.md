@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel
-title: "[¿Cómo I:] Exportar datos a un archivo de (CSV) delimitado por comas para una aplicación como Excel | Documentos de Microsoft"
+title: '[¿Cómo I:] Exportar datos a un archivo de (CSV) delimitado por comas para una aplicación como Excel | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo tomar datos de una base de datos u otro origen y exportarlo a un archivo delimitado por comas que puede usarse en una aplicación li..."
+description: En este vídeo Chris Pels muestra cómo tomar datos de una base de datos u otro origen y exportarlo a un archivo delimitado por comas que puede usarse en una aplicación li...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/22/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525644"
 ---
 <a name="how-do-i-export-data-to-a-comma-delimited-csv-file-for-an-application-like-excel"></a>[¿Cómo I:] Exportar datos a un archivo de (CSV) delimitado por comas para una aplicación como Excel.
 ====================

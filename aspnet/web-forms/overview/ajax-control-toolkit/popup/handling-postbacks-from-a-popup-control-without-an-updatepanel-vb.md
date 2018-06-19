@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871368"
 ---
 <a name="handling-postbacks-from-a-popup-control-without-an-updatepanel-vb"></a>Controla las devoluciones de datos de un Control emergente sin un UpdatePanel (VB)
 ====================

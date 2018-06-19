@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887930"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Configuración de la aplicación Web de producción para usar la base de datos de producción (VB)
 ====================

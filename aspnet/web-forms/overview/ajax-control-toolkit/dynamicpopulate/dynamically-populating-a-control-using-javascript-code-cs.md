@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873188"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-c"></a>Rellenar dinámicamente un Control utilizando el código de JavaScript (C#)
 ====================

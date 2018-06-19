@@ -1,7 +1,7 @@
 ---
-title: "Administración de claves de protección de datos y la duración en ASP.NET Core"
+title: Administración de claves de protección de datos y la duración en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de la administración de claves de protección de datos y la duración en ASP.NET Core."
+description: Obtenga información acerca de la administración de claves de protección de datos y la duración en ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28887295"
 ---
 # <a name="data-protection-key-management-and-lifetime-in-aspnet-core"></a>Administración de claves de protección de datos y la duración en ASP.NET Core
 

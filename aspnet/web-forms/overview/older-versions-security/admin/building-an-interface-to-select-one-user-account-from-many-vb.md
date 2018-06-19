@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891209"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-vb"></a>Creación de una interfaz para seleccionar una cuenta de usuario de muchos (VB)
 ====================

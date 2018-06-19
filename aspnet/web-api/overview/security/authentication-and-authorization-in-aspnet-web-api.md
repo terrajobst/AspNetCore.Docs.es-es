@@ -1,8 +1,8 @@
 ---
 uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
-title: "Autenticación y autorización en ASP.NET Web API | Documentos de Microsoft"
+title: Autenticación y autorización en ASP.NET Web API | Documentos de Microsoft
 author: MikeWasson
-description: "Ofrece una visión general de autenticación y autorización en ASP.NET Web API."
+description: Ofrece una visión general de autenticación y autorización en ASP.NET Web API.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/27/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29726763"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Autenticación y autorización en ASP.NET Web API
 ====================

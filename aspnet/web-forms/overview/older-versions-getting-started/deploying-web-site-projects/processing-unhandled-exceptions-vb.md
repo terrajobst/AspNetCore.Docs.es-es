@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890182"
 ---
 <a name="processing-unhandled-exceptions-vb"></a>Procesar las excepciones no controladas (VB)
 ====================

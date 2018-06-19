@@ -1,14 +1,14 @@
 ---
 uid: mobile/device-simulators
-title: "Simular dispositivos móviles más conocidos para la prueba | Documentos de Microsoft"
+title: Simular dispositivos móviles más conocidos para la prueba | Documentos de Microsoft
 author: rick-anderson
-description: "Puede descargar los emuladores de dispositivos móviles más conocidos y exploradores siguiendo estos vínculos"
+description: Puede descargar los emuladores de dispositivos móviles más conocidos y exploradores siguiendo estos vínculos
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/28/2011
 ms.topic: article
 ms.assetid: bfb5612e-c3ec-4f28-b43b-63d781aa2272
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /mobile/device-simulators
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043816"
 ---
 <a name="simulate-popular-mobile-devices-for-testing"></a>Simular dispositivos móviles más conocidos para la prueba
 ====================

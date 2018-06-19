@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071605"
 ---
 # <a name="replace-the-aspnet-machinekey-in-aspnet-core"></a>Reemplace el elemento machineKey ASP.NET en ASP.NET Core
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30890624"
 ---
 <a name="logging-error-details-with-elmah-c"></a>Detalles de Error de registro con ELMAH (C#)
 ====================

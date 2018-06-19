@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-detect-browser-capabilities-in-aspnet-web-pages
-title: "[¿Cómo I:] Detectar las capacidades del explorador en páginas Web ASP.NET | Documentos de Microsoft"
+title: '[¿Cómo I:] Detectar las capacidades del explorador en páginas Web ASP.NET | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo, Chris Pels mostrará cómo determinar qué capacidades tiene de explorador del usuario cuando se visualizan las páginas en un sitio web ASP.NET. En primer lugar, obtenga información acerca de cómo cuenta..."
+description: En este vídeo, Chris Pels mostrará cómo determinar qué capacidades tiene de explorador del usuario cuando se visualizan las páginas en un sitio web ASP.NET. En primer lugar, obtenga información acerca de cómo cuenta...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/19/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28884096"
 ---
 <a name="how-do-i-detect-browser-capabilities-in-aspnet-web-pages"></a>[¿Cómo I:] Detectar las capacidades del explorador en las páginas Web ASP.NET
 ====================

@@ -8,15 +8,16 @@ manager: wpickett
 ms.date: 06/25/2013
 ms.topic: article
 ms.assetid: 51900291-7787-4a6e-be4e-fa558486f5ff
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012
 msc.type: chapter
 ms.openlocfilehash: 21f7800b2a5d396b040fe5a04b70214469e74392
 ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/20/2018
+ms.locfileid: "27980142"
 ---
 <a name="aspnet-and-visual-studio-2012"></a>ASP.NET y Visual Studio 2012
 ====================

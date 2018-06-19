@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898926"
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTML
 ====================

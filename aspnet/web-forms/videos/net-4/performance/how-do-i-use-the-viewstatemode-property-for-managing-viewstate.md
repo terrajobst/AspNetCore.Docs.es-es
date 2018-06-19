@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894212"
 ---
 <a name="how-do-i-use-the-viewstatemode-property-for-managing-viewstate"></a>¿Cómo: usar la propiedad ViewStateMode para administrar el estado de vista?
 ====================

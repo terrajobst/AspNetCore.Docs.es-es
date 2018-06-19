@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-cascading-style-sheets-for-web-page-layout
-title: "[¿Cómo I:] ¿Usar hojas de estilos en cascada para el diseño de página Web? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Usar hojas de estilos en cascada para el diseño de página Web? | Microsoft Docs'
 author: rick-anderson
-description: "En este vídeo se obtenga información acerca de cómo usar &amp;lt; div&amp;gt; elementos en combinación con hojas de estilos en cascada (CSS) para crear sólido y mayor rendimiento web p..."
+description: En este vídeo se obtenga información acerca de cómo usar &amp;lt; div&amp;gt; elementos en combinación con hojas de estilos en cascada (CSS) para crear sólido y mayor rendimiento web p...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988008"
 ---
 <a name="how-do-i-use-cascading-style-sheets-for-web-page-layout"></a>[¿Cómo I:] ¿Usar hojas de estilos en cascada para el diseño de página Web?
 ====================

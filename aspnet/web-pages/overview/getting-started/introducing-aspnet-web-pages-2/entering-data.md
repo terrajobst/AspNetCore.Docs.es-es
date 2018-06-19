@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897974"
 ---
 <a name="introducing-aspnet-web-pages---entering-database-data-by-using-forms"></a>Introducción a ASP.NET Web Pages: escribir datos de la base de datos mediante el uso de formularios
 ====================

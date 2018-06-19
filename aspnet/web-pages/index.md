@@ -2,7 +2,7 @@
 uid: web-pages/index
 title: ASP.NET Web Pages | Documentos de Microsoft
 author: rick-anderson
-description: "Descargar WebMatrix y aprenda a crear rápidamente páginas web en una forma sencilla de combinar código de servidor con HTML."
+description: Descargar WebMatrix y aprenda a crear rápidamente páginas web en una forma sencilla de combinar código de servidor con HTML.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages
 msc.type: categoryindex
 ms.openlocfilehash: d6c2d8a564b5144845e89cd0ee86841b9f305bf5
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528664"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 ====================

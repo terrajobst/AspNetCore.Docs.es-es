@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-work-with-master-pages-declaratively-and-programmatically
-title: "[¿Cómo I:] Trabajar con páginas principales mediante declaración y mediante programación | Documentos de Microsoft"
+title: '[¿Cómo I:] Trabajar con páginas principales mediante declaración y mediante programación | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels mostrará varios aspectos de la definición y uso de páginas maestras en un sitio web ASP.NET. En primer lugar, consulte how to create declarati páginas maestras..."
+description: En este vídeo Chris Pels mostrará varios aspectos de la definición y uso de páginas maestras en un sitio web ASP.NET. En primer lugar, consulte how to create declarati páginas maestras...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/21/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526524"
 ---
 <a name="how-do-i-work-with-master-pages-declaratively-and-programmatically"></a>[¿Cómo I:] Trabajar con páginas principales mediante declaración y mediante programación
 ====================

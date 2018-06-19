@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30071264"
 ---
 <a name="jquery-mobile-110-rc2-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.1.0 RC2 en CDN de Microsoft Ajax
 ====================

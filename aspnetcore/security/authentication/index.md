@@ -1,7 +1,7 @@
 ---
-title: "Autenticación en ASP.NET Core"
+title: Autenticación en ASP.NET Core
 author: rick-anderson
-description: "Descubra temas relacionados con las tecnologías de autenticación de ASP.NET Core."
+description: Descubra temas relacionados con las tecnologías de autenticación de ASP.NET Core.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29903304"
 ---
 # <a name="authentication-in-aspnet-core"></a>Autenticación en ASP.NET Core
 

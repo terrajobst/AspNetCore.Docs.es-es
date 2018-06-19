@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-custom-provider-for-logging-health-monitoring-events
-title: "[¿Cómo I:] Crear un proveedor personalizado para eventos de supervisión de estado de registro | Documentos de Microsoft"
+title: '[¿Cómo I:] Crear un proveedor personalizado para eventos de supervisión de estado de registro | Documentos de Microsoft'
 author: rick-anderson
-description: "Chris Pels muestra cómo crear un proveedor personalizado para el estado ASP.NET sistema, que registra eventos en un archivo de registro basado en texto de supervisión de estado de supervisión. Le..."
+description: Chris Pels muestra cómo crear un proveedor personalizado para el estado ASP.NET sistema, que registra eventos en un archivo de registro basado en texto de supervisión de estado de supervisión. Le...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/06/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524974"
 ---
 <a name="how-do-i-create-a-custom-provider-for-logging-health-monitoring-events"></a>[¿Cómo I:] Crear un proveedor personalizado para eventos de supervisión de estado de registro
 ====================

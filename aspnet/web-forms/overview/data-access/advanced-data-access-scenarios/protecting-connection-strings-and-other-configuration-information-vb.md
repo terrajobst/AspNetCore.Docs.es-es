@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877000"
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Proteger las cadenas de conexión y otra información de configuración (VB)
 ====================

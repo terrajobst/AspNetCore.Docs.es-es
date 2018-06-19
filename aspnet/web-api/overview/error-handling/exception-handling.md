@@ -2,7 +2,7 @@
 uid: web-api/overview/error-handling/exception-handling
 title: Control de excepciones en ASP.NET Web API | Documentos de Microsoft
 author: MikeWasson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506964"
 ---
 <a name="exception-handling-in-aspnet-web-api"></a>Control de excepciones en ASP.NET Web API
 ====================

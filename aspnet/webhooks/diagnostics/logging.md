@@ -2,19 +2,20 @@
 uid: webhooks/diagnostics/logging
 title: Registro de Webhook de ASP.NET | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo realizar el inicio de sesión ASP.NET Webhook."
+description: Cómo realizar el inicio de sesión ASP.NET Webhook.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: f71bc442-5f80-481b-a32c-a0ec18dee9d6
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 042d20e38a9bc4f1e9792f6e3ff5be11a1eaa882
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044830"
 ---
 # <a name="aspnet-webhooks-logging"></a>Registro de Webhook de ASP.NET
 

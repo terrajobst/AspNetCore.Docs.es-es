@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895069"
 ---
 <a name="visual-studio-2010-quick-hit---intellisense-smart-lists"></a>Muestra de Visual Studio 2010 "Rápido Hit" - inteligente de IntelliSense
 ====================
