@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070591"
 ---
 <a name="jquery-validate-155"></a><span data-ttu-id="6dfcb-102">jQuery validar 1.5.5</span><span class="sxs-lookup"><span data-stu-id="6dfcb-102">jQuery Validate 1.5.5</span></span>
 ====================

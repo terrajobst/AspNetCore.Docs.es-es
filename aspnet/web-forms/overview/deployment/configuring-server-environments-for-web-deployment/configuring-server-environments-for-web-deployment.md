@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892301"
 ---
 <a name="configuring-server-environments-for-web-deployment"></a><span data-ttu-id="06c4e-103">Configurar entornos de servidor para la implementación Web</span><span class="sxs-lookup"><span data-stu-id="06c4e-103">Configuring Server Environments for Web Deployment</span></span>
 ====================

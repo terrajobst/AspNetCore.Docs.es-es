@@ -1,20 +1,21 @@
 ---
 uid: webhooks/diagnostics/debugging
-title: "WebHooks ASP.NET depuración | Documentos de Microsoft"
+title: WebHooks ASP.NET depuración | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo depurar WebHooks de ASP.NET."
+description: Cómo depurar WebHooks de ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: 467da78b-3c35-4c51-8b08-77a32379e4a8
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 524cdf0246eda9ef213414923cd23a92a01f211e
 ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28044869"
 ---
 # <a name="aspnet-webhooks-debugging"></a><span data-ttu-id="2659a-103">Depuración de Webhook de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="2659a-103">ASP.NET WebHooks debugging</span></span>  
 

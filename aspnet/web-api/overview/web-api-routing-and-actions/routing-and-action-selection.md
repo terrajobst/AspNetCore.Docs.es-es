@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28043423"
 ---
 <a name="routing-and-action-selection-in-aspnet-web-api"></a><span data-ttu-id="601c2-102">Enrutamiento y selección de acción en ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="601c2-102">Routing and Action Selection in ASP.NET Web API</span></span>
 ====================

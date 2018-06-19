@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890364"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a><span data-ttu-id="ce6d3-104">Ejecutar Scripts de Windows PowerShell desde archivos de proyecto de MSBuild</span><span class="sxs-lookup"><span data-stu-id="ce6d3-104">Running Windows PowerShell Scripts from MSBuild Project Files</span></span>
 ====================

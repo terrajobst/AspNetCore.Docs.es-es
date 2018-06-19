@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892327"
 ---
 <a name="scenario-configuring-a-staging-environment-for-web-deployment"></a><span data-ttu-id="27466-103">Escenario: Configuración de un entorno de ensayo para la implementación Web</span><span class="sxs-lookup"><span data-stu-id="27466-103">Scenario: Configuring a Staging Environment for Web Deployment</span></span>
 ====================
