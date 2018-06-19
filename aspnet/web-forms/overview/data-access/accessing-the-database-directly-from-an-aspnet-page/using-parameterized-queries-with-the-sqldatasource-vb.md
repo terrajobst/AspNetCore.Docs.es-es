@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878144"
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a><span data-ttu-id="3e027-104">Uso de consultas parametrizadas con SqlDataSource (VB)</span><span class="sxs-lookup"><span data-stu-id="3e027-104">Using Parameterized Queries with the SqlDataSource (VB)</span></span>
 ====================

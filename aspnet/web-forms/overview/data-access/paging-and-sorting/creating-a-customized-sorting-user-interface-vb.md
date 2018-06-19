@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892678"
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a><span data-ttu-id="5e07d-104">Crear una interfaz de usuario de ordenación personalizada (VB)</span><span class="sxs-lookup"><span data-stu-id="5e07d-104">Creating a Customized Sorting User Interface (VB)</span></span>
 ====================

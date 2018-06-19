@@ -2,7 +2,7 @@
 uid: web-forms/videos/aspnet-ajax/index
 title: AJAX DE ASP.NET | Documentos de Microsoft
 author: rick-anderson
-description: "Maneras de trabajar con AJAX de ASP.NET para crear páginas de alta capacidad de respuesta, incluso si no es un experto en JavaScript."
+description: Maneras de trabajar con AJAX de ASP.NET para crear páginas de alta capacidad de respuesta, incluso si no es un experto en JavaScript.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/aspnet-ajax
 msc.type: chapter
 ms.openlocfilehash: ef5d267a6a19382369fc877b3776d9dcdc0fd2d5
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522504"
 ---
 <a name="aspnet-ajax"></a><span data-ttu-id="c4e28-103">ASP.NET AJAX</span><span class="sxs-lookup"><span data-stu-id="c4e28-103">ASP.NET AJAX</span></span>
 ====================

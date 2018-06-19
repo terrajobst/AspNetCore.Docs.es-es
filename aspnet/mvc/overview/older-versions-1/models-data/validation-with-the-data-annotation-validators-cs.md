@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870198"
 ---
 <a name="validation-with-the-data-annotation-validators-c"></a><span data-ttu-id="d0a73-104">Validación con los controles de validación de la anotación de datos (C#)</span><span class="sxs-lookup"><span data-stu-id="d0a73-104">Validation with the Data Annotation Validators (C#)</span></span>
 ====================

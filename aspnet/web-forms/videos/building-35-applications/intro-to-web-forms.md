@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-web-forms
-title: "Introducción a los formularios Web Forms | Documentos de Microsoft"
+title: Introducción a los formularios Web Forms | Documentos de Microsoft
 author: JoeStagner
-description: "ASP.NET Web Forms es el mecanismo de interfaz de usuario predeterminada para las aplicaciones ASP.NET... Este vídeo muestra las opciones básicas de desarrollo de formularios Web Forms."
+description: ASP.NET Web Forms es el mecanismo de interfaz de usuario predeterminada para las aplicaciones ASP.NET... Este vídeo muestra las opciones básicas de desarrollo de formularios Web Forms.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521024"
 ---
 <a name="intro-to-web-forms"></a><span data-ttu-id="6dd86-104">Introducción a los formularios Web Forms</span><span class="sxs-lookup"><span data-stu-id="6dd86-104">Intro to Web Forms</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: mvc/pluralsight
-title: "Aprendizaje mediante vídeo de MVC de Pluralsight | Documentos de Microsoft"
+title: Aprendizaje mediante vídeo de MVC de Pluralsight | Documentos de Microsoft
 author: rick-anderson
-description: "Aprendizaje mediante vídeos de MVC de Pluralsight este aprendizaje mediante vídeo libre obtendrá a trabajar con ASP.NET MVC. Abarca todo el contenido de la configuración de un desarrollo..."
+description: Aprendizaje mediante vídeos de MVC de Pluralsight este aprendizaje mediante vídeo libre obtendrá a trabajar con ASP.NET MVC. Abarca todo el contenido de la configuración de un desarrollo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/09/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503894"
 ---
 <a name="mvc-video-training-from-pluralsight"></a><span data-ttu-id="defa1-104">Aprendizaje mediante vídeo de MVC de Pluralsight</span><span class="sxs-lookup"><span data-stu-id="defa1-104">MVC Video Training from Pluralsight</span></span>
 ====================

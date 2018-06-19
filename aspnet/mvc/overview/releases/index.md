@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/releases
 msc.type: chapter
 ms.openlocfilehash: 095b8f601fb994e6efc877981bfe92583bd3ee1d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503334"
 ---
 <a name="releases"></a><span data-ttu-id="5ec54-103">Versiones</span><span class="sxs-lookup"><span data-stu-id="5ec54-103">Releases</span></span>
 ====================

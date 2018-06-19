@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875271"
 ---
 <a name="iteration-7--add-ajax-functionality-vb"></a><span data-ttu-id="92e72-103">Iteración #7: la funcionalidad de Ajax de agregar (VB)</span><span class="sxs-lookup"><span data-stu-id="92e72-103">Iteration #7 – Add Ajax functionality (VB)</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: signalr/overview/performance/index
 title: Rendimiento de SignalR | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo maximizar el rendimiento de aplicaciones de SignalR."
+description: Cómo maximizar el rendimiento de aplicaciones de SignalR.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/19/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview/performance
 msc.type: chapter
 ms.openlocfilehash: efbdb0a329972a56d8518c35dc1ead1bcb8305e6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505604"
 ---
 <a name="signalr-performance"></a><span data-ttu-id="91b11-103">Rendimiento de SignalR</span><span class="sxs-lookup"><span data-stu-id="91b11-103">SignalR Performance</span></span>
 ====================

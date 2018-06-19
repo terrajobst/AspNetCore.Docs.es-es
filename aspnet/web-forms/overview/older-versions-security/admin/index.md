@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/older-versions-security/admin/index
-title: "ASP.NET 3.5 - administración de la seguridad | Documentos de Microsoft"
+title: ASP.NET 3.5 - administración de la seguridad | Documentos de Microsoft
 author: rick-anderson
-description: "Esta serie de tutoriales muestra cómo crear una página de administración que le permite administrar usuarios y roles."
+description: Esta serie de tutoriales muestra cómo crear una página de administración que le permite administrar usuarios y roles.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/older-versions-security/admin
 msc.type: chapter
 ms.openlocfilehash: 8a280ab8b6a7ee6d4c0a43592512976b89d1b723
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26519044"
 ---
 <a name="aspnet-35---security-administration"></a><span data-ttu-id="3e085-103">ASP.NET 3.5 - administración de la seguridad</span><span class="sxs-lookup"><span data-stu-id="3e085-103">ASP.NET 3.5 - Security Administration</span></span>
 ====================

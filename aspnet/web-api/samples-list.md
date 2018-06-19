@@ -2,7 +2,7 @@
 uid: web-api/samples-list
 title: Lista de ejemplos de API Web | Documentos de Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28038994"
 ---
 <a name="web-api-samples-list"></a><span data-ttu-id="90027-102">Lista de ejemplos de API Web</span><span class="sxs-lookup"><span data-stu-id="90027-102">Web API Samples List</span></span>
 ====================

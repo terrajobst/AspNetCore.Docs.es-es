@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-user-selectable-themes-for-a-web-site
-title: "[¿Cómo I:] Crear temas seleccionables por el usuario para un sitio Web | Documentos de Microsoft"
+title: '[¿Cómo I:] Crear temas seleccionables por el usuario para un sitio Web | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo, Chris Pels mostrará cómo crear varios temas para un sitio web y, a continuación, permitir al usuario seleccionar el tema que se aplica al sitio. Vea cómo..."
+description: En este vídeo, Chris Pels mostrará cómo crear varios temas para un sitio web y, a continuación, permitir al usuario seleccionar el tema que se aplica al sitio. Vea cómo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524954"
 ---
 <a name="how-do-i-create-user-selectable-themes-for-a-web-site"></a><span data-ttu-id="7e181-104">[¿Cómo I:] Crear temas seleccionables por el usuario para un sitio Web</span><span class="sxs-lookup"><span data-stu-id="7e181-104">[How Do I:] Create User Selectable Themes for a Web Site</span></span>
 ====================

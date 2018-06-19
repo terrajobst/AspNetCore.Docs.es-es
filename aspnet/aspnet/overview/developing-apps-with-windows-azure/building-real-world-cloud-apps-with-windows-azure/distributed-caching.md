@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868677"
 ---
 <a name="distributed-caching-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="047d4-104">Almacenamiento en caché (compilación reales en la nube aplicaciones distribuidas con Azure)</span><span class="sxs-lookup"><span data-stu-id="047d4-104">Distributed Caching (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

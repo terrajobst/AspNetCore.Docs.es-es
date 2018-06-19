@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879184"
 ---
 <a name="get-started-with-the-ajax-control-toolkit-c"></a><span data-ttu-id="61b56-103">Empezar a trabajar con el Kit de herramientas de Control de AJAX (C#)</span><span class="sxs-lookup"><span data-stu-id="61b56-103">Get Started with the AJAX Control Toolkit (C#)</span></span>
 ====================

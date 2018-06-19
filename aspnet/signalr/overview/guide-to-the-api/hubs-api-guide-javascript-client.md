@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28035340"
 ---
 <a name="aspnet-signalr-hubs-api-guide---javascript-client"></a><span data-ttu-id="98e66-103">Guía de API de bases de datos centrales de ASP.NET SignalR - cliente de JavaScript</span><span class="sxs-lookup"><span data-stu-id="98e66-103">ASP.NET SignalR Hubs API Guide - JavaScript Client</span></span>
 ====================

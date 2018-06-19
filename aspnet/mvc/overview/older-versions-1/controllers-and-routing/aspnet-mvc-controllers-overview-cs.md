@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869093"
 ---
 <a name="aspnet-mvc-controller-overview-c"></a><span data-ttu-id="0aa51-104">Información general de controlador de MVC de ASP.NET (C#)</span><span class="sxs-lookup"><span data-stu-id="0aa51-104">ASP.NET MVC Controller Overview (C#)</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-1/conference-presentations/creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc
 title: Crear NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC) | Documentos de Microsoft
 author: shanselman
-description: "No hay diapositivas. Sólo el código. Comenzar con el archivo nuevo y crear un sitio Web real con ASP.NET AJAX de ASP.NET, autenticación, autorización, MVC, Microsoft SQL Server y..."
+description: No hay diapositivas. Sólo el código. Comenzar con el archivo nuevo y crear un sitio Web real con ASP.NET AJAX de ASP.NET, autenticación, autorización, MVC, Microsoft SQL Server y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503454"
 ---
 <a name="creating-nerddinnercom-with-microsoft-aspnet-model-view-controller-mvc"></a><span data-ttu-id="39f1e-105">Crear NerdDinner.com con Microsoft ASP.NET Model View Controller (MVC)</span><span class="sxs-lookup"><span data-stu-id="39f1e-105">Creating NerdDinner.com with Microsoft ASP.NET Model View Controller (MVC)</span></span>
 ====================

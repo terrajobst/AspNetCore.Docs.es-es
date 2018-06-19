@@ -2,7 +2,7 @@
 uid: web-pages/overview/testing-and-debugging/index
 title: Probar y depurar | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo probar y depurar aplicaciones de ASP.NET Web Pages."
+description: Cómo probar y depurar aplicaciones de ASP.NET Web Pages.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/testing-and-debugging
 msc.type: chapter
 ms.openlocfilehash: c9c43ce6c25496049c4788efc0cb5e39cb0db42a
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529524"
 ---
 <a name="testing-and-debugging"></a><span data-ttu-id="80751-103">Pruebas y depuración</span><span class="sxs-lookup"><span data-stu-id="80751-103">Testing and Debugging</span></span>
 ====================

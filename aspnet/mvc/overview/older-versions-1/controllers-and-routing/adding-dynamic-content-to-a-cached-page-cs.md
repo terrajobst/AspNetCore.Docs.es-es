@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868586"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a><span data-ttu-id="3b59c-104">Agregar contenido dinámico a una página almacenada en caché (C#)</span><span class="sxs-lookup"><span data-stu-id="3b59c-104">Adding Dynamic Content to a Cached Page (C#)</span></span>
 ====================

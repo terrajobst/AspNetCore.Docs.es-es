@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880432"
 ---
 <a name="creating-a-team-project-in-tfs"></a><span data-ttu-id="ed1e4-103">Crear un proyecto de equipo en TFS</span><span class="sxs-lookup"><span data-stu-id="ed1e4-103">Creating a Team Project in TFS</span></span>
 ====================

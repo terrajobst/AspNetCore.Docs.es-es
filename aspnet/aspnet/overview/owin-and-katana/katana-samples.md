@@ -2,13 +2,13 @@
 uid: aspnet/overview/owin-and-katana/katana-samples
 title: Ejemplos de Katana | Documentos de Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2014
 ms.topic: article
 ms.assetid: bec04f5d-2638-4417-b288-97c58c8d6379
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /aspnet/overview/owin-and-katana/katana-samples
 msc.type: authoredcontent
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28034495"
 ---
 <a name="katana-samples"></a><span data-ttu-id="b80a7-102">Ejemplos de Katana</span><span class="sxs-lookup"><span data-stu-id="b80a7-102">Katana Samples</span></span>
 ====================

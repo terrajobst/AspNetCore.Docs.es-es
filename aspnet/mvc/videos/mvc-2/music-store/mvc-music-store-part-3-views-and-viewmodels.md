@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869353"
 ---
 <a name="mvc-music-store-part-3-views-and-viewmodels"></a><span data-ttu-id="bc54f-103">Parte de la tienda de música de MVC 3: Vistas y ViewModels</span><span class="sxs-lookup"><span data-stu-id="bc54f-103">MVC Music Store Part 3: Views and ViewModels</span></span>
 ====================

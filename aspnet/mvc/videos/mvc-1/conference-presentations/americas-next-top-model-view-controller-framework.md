@@ -1,8 +1,8 @@
 ---
 uid: mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
-title: "Marco de trabajo de América siguiente superior del modelo View Controller | Documentos de Microsoft"
+title: Marco de trabajo de América siguiente superior del modelo View Controller | Documentos de Microsoft
 author: Haacked
-description: "Vea cómo crear una aplicación simple que se resalta algunas de las capacidades clave de ASP.NET MVC. Además, obtenga información acerca de cómo mejorar la productividad con algunos de los..."
+description: Vea cómo crear una aplicación simple que se resalta algunas de las capacidades clave de ASP.NET MVC. Además, obtenga información acerca de cómo mejorar la productividad con algunos de los...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/12/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503444"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a><span data-ttu-id="04b38-104">Marco de trabajo de América siguiente superior del modelo View Controller</span><span class="sxs-lookup"><span data-stu-id="04b38-104">America's Next Top Model View Controller Framework</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869457"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-vb"></a><span data-ttu-id="171ba-104">Usar un ConfirmButton en un repetidor (VB)</span><span class="sxs-lookup"><span data-stu-id="171ba-104">Using a ConfirmButton In a Repeater (VB)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871875"
 ---
 <a name="aspnet-mvc-storefront-part-9-the-shopping-cart"></a><span data-ttu-id="ef4ae-103">ASP.NET MVC escaparate parte 9: El carro de la compra</span><span class="sxs-lookup"><span data-stu-id="ef4ae-103">ASP.NET MVC Storefront Part 9: The Shopping Cart</span></span>
 ====================

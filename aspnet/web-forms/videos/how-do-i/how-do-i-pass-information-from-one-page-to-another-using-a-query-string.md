@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-pass-information-from-one-page-to-another-using-a-query-string
-title: "[¿Cómo I:] Pasar información de una página a otra mediante una cadena de consulta | Documentos de Microsoft"
+title: '[¿Cómo I:] Pasar información de una página a otra mediante una cadena de consulta | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels le mostrará cómo se puede pasar información de una página a otra mediante una cadena de consulta. En primer lugar, vea cómo construir una cadena de consulta en..."
+description: En este vídeo Chris Pels le mostrará cómo se puede pasar información de una página a otra mediante una cadena de consulta. En primer lugar, vea cómo construir una cadena de consulta en...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/26/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521964"
 ---
 <a name="how-do-i-pass-information-from-one-page-to-another-using-a-query-string"></a><span data-ttu-id="792f9-104">[¿Cómo I:] Pasar información de una página a otra mediante una cadena de consulta</span><span class="sxs-lookup"><span data-stu-id="792f9-104">[How Do I:] Pass Information From One Page to Another Using a Query String</span></span>
 ====================

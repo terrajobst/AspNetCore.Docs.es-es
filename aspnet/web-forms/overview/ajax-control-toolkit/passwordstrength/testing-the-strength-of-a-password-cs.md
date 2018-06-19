@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869223"
 ---
 <a name="testing-the-strength-of-a-password-c"></a><span data-ttu-id="2516d-104">Probar la seguridad de una contraseña (C#)</span><span class="sxs-lookup"><span data-stu-id="2516d-104">Testing the Strength of a Password (C#)</span></span>
 ====================

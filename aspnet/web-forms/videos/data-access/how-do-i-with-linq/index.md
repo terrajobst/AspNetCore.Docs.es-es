@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/index
-title: "¿Cómo puedo con LINQ | Documentos de Microsoft"
+title: ¿Cómo puedo con LINQ | Documentos de Microsoft
 author: rick-anderson
-description: "Esta serie de vídeos le guía a través de todo lo que necesita saber para convertirse en expertos en usa LINQ como un desarrollador web."
+description: Esta serie de vídeos le guía a través de todo lo que necesita saber para convertirse en expertos en usa LINQ como un desarrollador web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/24/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq
 msc.type: chapter
 ms.openlocfilehash: aad424cd891aa0ca8e8179b3899f7c2e3330a11f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526394"
 ---
 <a name="how-do-i-with-linq"></a><span data-ttu-id="6cfaf-103">¿Cómo puedo con LINQ</span><span class="sxs-lookup"><span data-stu-id="6cfaf-103">How Do I with LINQ</span></span>
 ====================

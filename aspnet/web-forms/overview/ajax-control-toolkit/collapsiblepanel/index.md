@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/collapsiblepanel/index
 title: CollapsiblePanel | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control de CollapsiblePanel para permitir que los usuarios expandir y contraer las áreas en la página."
+description: Este tutorial muestra cómo utilizar el control de CollapsiblePanel para permitir que los usuarios expandir y contraer las áreas en la página.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/collapsiblepanel
 msc.type: chapter
 ms.openlocfilehash: eb511e4c0f126fc54aad7b64473bd40eccf335a6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509344"
 ---
 <a name="collapsiblepanel"></a><span data-ttu-id="3803c-103">CollapsiblePanel</span><span class="sxs-lookup"><span data-stu-id="3803c-103">CollapsiblePanel</span></span>
 ====================

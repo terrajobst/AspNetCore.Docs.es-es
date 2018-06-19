@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876506"
 ---
 <a name="debugging-stored-procedures-c"></a><span data-ttu-id="5c57d-103">Depurar procedimientos almacenados (C#)</span><span class="sxs-lookup"><span data-stu-id="5c57d-103">Debugging Stored Procedures (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878482"
 ---
 <a name="aspnet-mvc-storefront-part-21-order-manager-and-personalization"></a><span data-ttu-id="81407-104">ASP.NET MVC escaparate parte 21: Administrador de pedidos y la personalización</span><span class="sxs-lookup"><span data-stu-id="81407-104">ASP.NET MVC Storefront Part 21: Order Manager and Personalization</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-implement-tracing-in-an-aspnet-web-site
-title: "[¿Cómo I:]  ¿Implementar el seguimiento en un sitio Web ASP.NET? | Microsoft Docs"
+title: '[¿Cómo I:]  ¿Implementar el seguimiento en un sitio Web ASP.NET? | Microsoft Docs'
 author: rick-anderson
-description: "En este vídeo Chris Pels le mostrará cómo implementar el seguimiento en un sitio web ASP.NET para supervisar o medir el rendimiento y diagnosticar errores. Obtenga información acerca de CA..."
+description: En este vídeo Chris Pels le mostrará cómo implementar el seguimiento en un sitio web ASP.NET para supervisar o medir el rendimiento y diagnosticar errores. Obtenga información acerca de CA...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/05/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526564"
 ---
 <a name="how-do-i--implement-tracing-in-an-aspnet-web-site"></a><span data-ttu-id="84840-105">[¿Cómo I:]  ¿Implementar el seguimiento en un sitio Web ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="84840-105">[How Do I:]  Implement Tracing in an ASP.NET Web Site?</span></span>
 ====================

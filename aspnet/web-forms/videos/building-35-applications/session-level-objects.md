@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/session-level-objects
-title: "Objetos de nivel de sesión | Documentos de Microsoft"
+title: Objetos de nivel de sesión | Documentos de Microsoft
 author: JoeStagner
-description: "En este vídeo se presentan eventos de nivel de sesión y los objetos y comparar su uso con sus equivalentes de nivel de aplicación y página."
+description: En este vídeo se presentan eventos de nivel de sesión y los objetos y comparar su uso con sus equivalentes de nivel de aplicación y página.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26524994"
 ---
 <a name="session-level-objects"></a><span data-ttu-id="dadc1-103">Objetos de nivel de sesión</span><span class="sxs-lookup"><span data-stu-id="dadc1-103">Session Level Objects</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles
-title: "¿Cómo: crear un enfoque eficaz y estandarizado para implementar los estilos CSS? | Microsoft Docs"
+title: '¿Cómo: crear un enfoque eficaz y estandarizado para implementar los estilos CSS? | Microsoft Docs'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo organizar e implementar los estilos CSS que proporcionan una apariencia y funcionamiento estándar a un sitio web. Además, los estilos son..."
+description: En este vídeo Chris Pels muestra cómo organizar e implementar los estilos CSS que proporcionan una apariencia y funcionamiento estándar a un sitio web. Además, los estilos son...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/15/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521904"
 ---
 <a name="how-do-i-create-an-efficient-and-standardized-approach-for-implementing-css-styles"></a><span data-ttu-id="735f0-105">¿Cómo: crear un enfoque eficaz y estandarizado para implementar los estilos CSS?</span><span class="sxs-lookup"><span data-stu-id="735f0-105">How Do I: Create an Efficient and Standardized Approach for Implementing CSS Styles?</span></span>
 ====================

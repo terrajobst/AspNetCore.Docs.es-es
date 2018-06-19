@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872330"
 ---
 <a name="creating-custom-routes-vb"></a><span data-ttu-id="dc06c-104">Crear rutas personalizadas (VB)</span><span class="sxs-lookup"><span data-stu-id="dc06c-104">Creating Custom Routes (VB)</span></span>
 ====================

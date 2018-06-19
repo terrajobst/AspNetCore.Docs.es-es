@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873162"
 ---
 <a name="animating-an-updatepanel-control-vb"></a><span data-ttu-id="349ca-104">Animar un Control UpdatePanel (VB)</span><span class="sxs-lookup"><span data-stu-id="349ca-104">Animating an UpdatePanel Control (VB)</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-api/videos/getting-started/aspnet-web-api
 title: ASP.NET Web API | Documentos de Microsoft
 author: shanselman
-description: "Depuración"
+description: Depuración
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26508964"
 ---
 <a name="aspnet-web-api"></a><span data-ttu-id="84e3c-103">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="84e3c-103">ASP.NET Web API</span></span>
 ====================

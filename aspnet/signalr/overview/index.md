@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/index
-title: "Guía de SignalR | Documentos de Microsoft"
+title: Guía de SignalR | Documentos de Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/24/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /signalr/overview
 msc.type: book
 ms.openlocfilehash: 2b82918afd1513975b11265a13f3dac4bb4fbc6f
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26505564"
 ---
 <a name="signalr-guidance"></a><span data-ttu-id="e0565-102">Guía de SignalR</span><span class="sxs-lookup"><span data-stu-id="e0565-102">SignalR Guidance</span></span>
 ====================

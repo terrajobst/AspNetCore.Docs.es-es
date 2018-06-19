@@ -2,7 +2,7 @@
 uid: mvc/overview/older-versions-1/nerddinner/index
 title: NerdDinner | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo crear el sitio Web de NerdDinner.com con ASP.NET MVC 1. Para la versión de ASP.NET MVC 3, visite nerddinner en GitHub."
+description: Cómo crear el sitio Web de NerdDinner.com con ASP.NET MVC 1. Para la versión de ASP.NET MVC 3, visite nerddinner en GitHub.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/nerddinner
 msc.type: chapter
 ms.openlocfilehash: e4791f1fa7d5a23fdd688c294836971735070afc
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500754"
 ---
 <a name="nerddinner"></a><span data-ttu-id="70a63-104">NerdDinner</span><span class="sxs-lookup"><span data-stu-id="70a63-104">NerdDinner</span></span>
 ====================

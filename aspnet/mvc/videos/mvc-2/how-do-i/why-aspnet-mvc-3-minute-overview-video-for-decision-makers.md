@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871082"
 ---
 <a name="why-aspnet-mvc-3-minute-overview-video-for-decision-makers"></a><span data-ttu-id="14bc3-104">¿Por qué ASP.NET MVC?</span><span class="sxs-lookup"><span data-stu-id="14bc3-104">Why ASP.NET MVC?</span></span> <span data-ttu-id="14bc3-105">información general de 3 minutos vídeo para la toma de decisiones</span><span class="sxs-lookup"><span data-stu-id="14bc3-105">3 minute overview video for decision makers</span></span>
 ====================

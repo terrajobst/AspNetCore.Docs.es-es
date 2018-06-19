@@ -1,14 +1,14 @@
 ---
 uid: visual-studio/overview/2012/visual-studio-2012-html-editing-features
-title: "Características de edición Visual Studio 2012 HTML | Documentos de Microsoft"
+title: Características de edición Visual Studio 2012 HTML | Documentos de Microsoft
 author: shanselman
-description: "Scott Hanselman muestra las características de edición de HTML en Visual Studio 2012."
+description: Scott Hanselman muestra las características de edición de HTML en Visual Studio 2012.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: 5da4c4de-0836-4815-b524-3166fd3e6d0f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-2012-html-editing-features
 msc.type: video
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506434"
 ---
 <a name="visual-studio-2012-html-editing-features"></a><span data-ttu-id="5d63b-103">Características de edición Visual Studio 2012 HTML</span><span class="sxs-lookup"><span data-stu-id="5d63b-103">Visual Studio 2012 HTML Editing Features</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: signalr/overview/deployment/tutorial-signalr-self-host
 title: 'Tutorial: SignalR autohospedaje | Documentos de Microsoft'
 author: pfletcher
-description: "Este tutorial muestra cómo crear un servidor de SignalR 2 hospedado por sí mismo y cómo conectarse a él con un cliente de JavaScript. Versiones de software que se usa en el tutorial V..."
+description: Este tutorial muestra cómo crear un servidor de SignalR 2 hospedado por sí mismo y cómo conectarse a él con un cliente de JavaScript. Versiones de software que se usa en el tutorial V...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28036783"
 ---
 <a name="tutorial-signalr-self-host"></a><span data-ttu-id="d743b-104">Tutorial: SignalR autohospedaje</span><span class="sxs-lookup"><span data-stu-id="d743b-104">Tutorial: SignalR Self-Host</span></span>
 ====================

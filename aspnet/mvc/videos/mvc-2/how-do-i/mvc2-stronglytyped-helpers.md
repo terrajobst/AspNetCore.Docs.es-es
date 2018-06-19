@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867611"
 ---
 <a name="mvc2---stronglytyped-helpers"></a><span data-ttu-id="5bb56-103">MVC2 - aplicaciones auxiliares de StronglyTyped</span><span class="sxs-lookup"><span data-stu-id="5bb56-103">MVC2 - StronglyTyped Helpers</span></span>
 ====================

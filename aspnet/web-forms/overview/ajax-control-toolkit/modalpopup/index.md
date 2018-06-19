@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/index
 title: ModalPopup | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control ModalPopup, que le permite crear el equivalente de un cuadro de diálogo modal."
+description: Este tutorial muestra cómo utilizar el control ModalPopup, que le permite crear el equivalente de un cuadro de diálogo modal.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup
 msc.type: chapter
 ms.openlocfilehash: 6cf39ad54a0aa85036f5d37e223672e0059b7ed0
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26510824"
 ---
 <a name="modalpopup"></a><span data-ttu-id="a4cba-103">ModalPopup</span><span class="sxs-lookup"><span data-stu-id="a4cba-103">ModalPopup</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information
-title: "[¿Cómo I:] El almacenamiento en caché de una página ASP.NET en función de información personalizada de control | Documentos de Microsoft"
+title: '[¿Cómo I:] El almacenamiento en caché de una página ASP.NET en función de información personalizada de control | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo controlar los criterios para almacenar en caché una página ASP.NET en función de la información personalizada. Se crea una página de ejemplo y, a continuación, el o..."
+description: En este vídeo Chris Pels muestra cómo controlar los criterios para almacenar en caché una página ASP.NET en función de la información personalizada. Se crea una página de ejemplo y, a continuación, el o...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/19/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528134"
 ---
 <a name="how-do-i-control-the-caching-of-an-aspnet-page-based-upon-custom-information"></a><span data-ttu-id="a150f-104">[¿Cómo I:] El almacenamiento en caché de una página ASP.NET en función de información personalizada de control</span><span class="sxs-lookup"><span data-stu-id="a150f-104">[How Do I:] Control the Caching of an ASP.NET Page Based Upon Custom Information</span></span>
 ====================

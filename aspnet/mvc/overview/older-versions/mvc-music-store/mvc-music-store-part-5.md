@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874917"
 ---
 <a name="part-5-edit-forms-and-templating"></a><span data-ttu-id="21ab7-104">Parte 5: Editar formularios y plantillas</span><span class="sxs-lookup"><span data-stu-id="21ab7-104">Part 5: Edit Forms and Templating</span></span>
 ====================

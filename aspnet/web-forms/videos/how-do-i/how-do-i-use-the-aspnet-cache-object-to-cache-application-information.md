@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-aspnet-cache-object-to-cache-application-information
-title: "[¿Cómo puedo]: usar el objeto de caché de ASP.NET para almacenar en caché información de la aplicación | Documentos de Microsoft"
+title: '[¿Cómo puedo]: usar el objeto de caché de ASP.NET para almacenar en caché información de la aplicación | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo usar el objeto de caché de ASP.NET para almacenar información de la aplicación. Se crea una página de ejemplo con una interfaz de usuario sencilla un..."
+description: En este vídeo Chris Pels muestra cómo usar el objeto de caché de ASP.NET para almacenar información de la aplicación. Se crea una página de ejemplo con una interfaz de usuario sencilla un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/26/2009
@@ -17,8 +17,10 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525984"
 ---
-<a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a><span data-ttu-id="5fd7c-104">[¿Cómo puedo]: usar el objeto de caché de ASP.NET para almacenar en caché información de la aplicación</span><span class="sxs-lookup"><span data-stu-id="5fd7c-104">[How Do I]: Use the ASP.NET Cache Object to Cache Application Information</span></span>
+<a name="how-do-i-use-the-aspnet-cache-object-to-cache-application-information"></a>[¿Cómo puedo]: usar el objeto de caché de ASP.NET para almacenar en caché información de la aplicación
+[How Do I]: Use the ASP.NET Cache Object to Cache Application Information
 ====================
 <span data-ttu-id="5fd7c-105">por [Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="5fd7c-105">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 

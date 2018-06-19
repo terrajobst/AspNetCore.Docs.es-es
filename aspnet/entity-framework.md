@@ -2,13 +2,13 @@
 uid: entity-framework
 title: Entity Framework | Documentos de Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/12/2010
 ms.topic: article
 ms.assetid: faa761a9-86b3-4859-b9c0-60d5c5bc5e93
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /entity-framework
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26497964"
 ---
 <a name="entity-framework"></a><span data-ttu-id="f14d2-102">Entity Framework</span><span class="sxs-lookup"><span data-stu-id="f14d2-102">Entity Framework</span></span>
 ====================

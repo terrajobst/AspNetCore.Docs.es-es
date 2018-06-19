@@ -1,8 +1,8 @@
 ---
 uid: signalr/overview/performance/scaleout-with-redis
-title: "Ampliación de SignalR con Redis | Documentos de Microsoft"
+title: Ampliación de SignalR con Redis | Documentos de Microsoft
 author: MikeWasson
-description: "Versiones de software emplea en este tema Visual Studio 2013 .NET 4.5 SignalR las versiones anteriores de la versión 2 de este tema para obtener información acerca de las versiones anteriores de..."
+description: Versiones de software emplea en este tema Visual Studio 2013 .NET 4.5 SignalR las versiones anteriores de la versión 2 de este tema para obtener información acerca de las versiones anteriores de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/10/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042695"
 ---
 <a name="signalr-scaleout-with-redis"></a><span data-ttu-id="b42c6-103">Ampliación de SignalR con Redis</span><span class="sxs-lookup"><span data-stu-id="b42c6-103">SignalR Scaleout with Redis</span></span>
 ====================

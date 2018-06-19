@@ -1,8 +1,8 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: "ASP.NET 4 - 4 de la serie de implementación empresarial temas avanzados | Documentos de Microsoft"
+title: ASP.NET 4 - 4 de la serie de implementación empresarial temas avanzados | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial le mostrará cómo realizar diversas tareas que están necesario o deseable en muchos escenarios de implementación de empresa."
+description: Este tutorial le mostrará cómo realizar diversas tareas que están necesario o deseable en muchos escenarios de implementación de empresa.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/16/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
 ms.openlocfilehash: 42e80df6040dec0194bc1a5ba6ccc79c09c65ea6
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26515154"
 ---
 <a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a><span data-ttu-id="f5f28-103">ASP.NET 4 - 4 de la serie de implementación empresarial temas avanzados</span><span class="sxs-lookup"><span data-stu-id="f5f28-103">ASP.NET 4 - Enterprise Deployment Series 4 Advanced Topics</span></span>
 ====================

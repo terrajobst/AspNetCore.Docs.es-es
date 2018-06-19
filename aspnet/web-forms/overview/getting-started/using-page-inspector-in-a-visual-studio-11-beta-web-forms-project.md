@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28040332"
 ---
 <a name="using-page-inspector-for-visual-studio-2012-in-aspnet-web-forms"></a><span data-ttu-id="f6071-104">Con el Inspector de página para Visual Studio 2012 en formularios Web Forms ASP.NET</span><span class="sxs-lookup"><span data-stu-id="f6071-104">Using Page Inspector for Visual Studio 2012 in ASP.NET Web Forms</span></span>
 ====================

@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/videos/mvc-1/conference-presentations
 msc.type: chapter
 ms.openlocfilehash: ed730075f5c4232ff48406a2cc047d85f16c2244
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503374"
 ---
 <a name="talks"></a><span data-ttu-id="57086-103">Conferencias</span><span class="sxs-lookup"><span data-stu-id="57086-103">Talks</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: mvc/videos/mvc-3/mvc-3-razor-view-engine
 title: 'MVC 3: motor de vista Razor | Documentos de Microsoft'
 author: jongalloway
-description: "En este vídeo aprenderá los conceptos básicos del nuevo motor de vista Razor incluidos en ASP.NET MVC 3."
+description: En este vídeo aprenderá los conceptos básicos del nuevo motor de vista Razor incluidos en ASP.NET MVC 3.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/04/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26503824"
 ---
 <a name="mvc-3---razor-view-engine"></a><span data-ttu-id="a92d3-103">MVC 3: motor de vista Razor</span><span class="sxs-lookup"><span data-stu-id="a92d3-103">MVC 3 - Razor View Engine</span></span>
 ====================

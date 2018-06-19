@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/movie-database/index
-title: "Base de datos de película | Documentos de Microsoft"
+title: Base de datos de película | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo crear una aplicación de base de datos de la película en 15 minutos."
+description: Cómo crear una aplicación de base de datos de la película en 15 minutos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/movie-database
 msc.type: chapter
 ms.openlocfilehash: df2781ae848ed2196fd5cd2451d20aaac91a2e2b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26500714"
 ---
 <a name="movie-database"></a><span data-ttu-id="f8321-103">Base de datos de película</span><span class="sxs-lookup"><span data-stu-id="f8321-103">Movie Database</span></span>
 ====================

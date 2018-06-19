@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/index
-title: "Póngase en contacto con el administrador | Documentos de Microsoft"
+title: Póngase en contacto con el administrador | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo generar una aplicación de administración de contactos toda desde el principio para finalizar."
+description: Cómo generar una aplicación de administración de contactos toda desde el principio para finalizar.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/28/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/contact-manager
 msc.type: chapter
 ms.openlocfilehash: 1dfcaeef7f292a24f2ba191d965028f5c0f912e4
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26499194"
 ---
 <a name="contact-manager"></a><span data-ttu-id="b693d-103">Póngase en contacto con el administrador</span><span class="sxs-lookup"><span data-stu-id="b693d-103">Contact Manager</span></span>
 ====================

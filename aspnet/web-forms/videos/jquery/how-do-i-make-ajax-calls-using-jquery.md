@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/jquery/how-do-i-make-ajax-calls-using-jquery
-title: "Cómo Realizar llamadas Ajax mediante jQuery? | Microsoft Docs"
+title: Cómo Realizar llamadas Ajax mediante jQuery? | Microsoft Docs
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo realizar llamadas de Ajax mediante la biblioteca de jQuery. Se crea un sitio web de ejemplo que contiene un servicio web simple que devuelve..."
+description: En este vídeo Chris Pels muestra cómo realizar llamadas de Ajax mediante la biblioteca de jQuery. Se crea un sitio web de ejemplo que contiene un servicio web simple que devuelve...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526424"
 ---
 <a name="how-do-i-make-ajax-calls-using-jquery"></a><span data-ttu-id="eeed4-105">Cómo Realizar llamadas Ajax mediante jQuery?</span><span class="sxs-lookup"><span data-stu-id="eeed4-105">How Do I: Make Ajax Calls Using jQuery?</span></span>
 ====================

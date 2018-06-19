@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509264"
 ---
 <a name="routing-in-aspnet-web-api"></a><span data-ttu-id="a5dca-102">Enrutamiento en ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="a5dca-102">Routing in ASP.NET Web API</span></span>
 ====================

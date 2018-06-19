@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-utilize-web-parts-and-personalization
-title: "[¿Cómo I:] ¿Utilizar elementos Web y la personalización? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Utilizar elementos Web y la personalización? | Microsoft Docs'
 author: microsoft
-description: "Obtenga información acerca de cómo usar las nuevas características de elementos Web y personalización para crear páginas web personalizables cuyo contenido y diseño se puede modificar por el usuario."
+description: Obtenga información acerca de cómo usar las nuevas características de elementos Web y personalización para crear páginas web personalizables cuyo contenido y diseño se puede modificar por el usuario.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526134"
 ---
 <a name="how-do-i-utilize-web-parts-and-personalization"></a><span data-ttu-id="7d5a0-104">[¿Cómo I:] ¿Utilizar elementos Web y la personalización?</span><span class="sxs-lookup"><span data-stu-id="7d5a0-104">[How Do I:] Utilize Web Parts and Personalization?</span></span>
 ====================

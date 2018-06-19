@@ -2,7 +2,7 @@
 uid: web-forms/videos/sql-2005/index
 title: SQL 2005 | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo trabajar con SQL Server Express para agregar capacidades de la base de datos a las aplicaciones ASP.NET."
+description: Cómo trabajar con SQL Server Express para agregar capacidades de la base de datos a las aplicaciones ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/sql-2005
 msc.type: chapter
 ms.openlocfilehash: 42fc321b4d1d51ec2fe71e4c8873ae62da43c345
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26522254"
 ---
 <a name="sql-2005"></a><span data-ttu-id="9ff00-103">SQL 2005</span><span class="sxs-lookup"><span data-stu-id="9ff00-103">SQL 2005</span></span>
 ====================

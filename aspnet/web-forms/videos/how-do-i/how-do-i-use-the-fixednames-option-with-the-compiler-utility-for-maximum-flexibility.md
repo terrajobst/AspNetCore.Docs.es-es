@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility
-title: "[¿Cómo I:] Utilice la opción Fixednames con la utilidad de compilador para obtener la máxima flexibilidad | Documentos de Microsoft"
+title: '[¿Cómo I:] Utilice la opción Fixednames con la utilidad de compilador para obtener la máxima flexibilidad | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels mostrará cómo utilizar la opción fixednames con la utilidad aspnet_compiler.exe para generar nombres de archivo coherentes en la unidad organizativa de compilación..."
+description: En este vídeo Chris Pels mostrará cómo utilizar la opción fixednames con la utilidad aspnet_compiler.exe para generar nombres de archivo coherentes en la unidad organizativa de compilación...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/24/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525934"
 ---
 <a name="how-do-i-use-the-fixednames-option-with-the-compiler-utility-for-maximum-flexibility"></a><span data-ttu-id="c3f1a-103">[¿Cómo I:] Utilice la opción Fixednames con la utilidad de compilador para obtener la máxima flexibilidad</span><span class="sxs-lookup"><span data-stu-id="c3f1a-103">[How Do I:] Use the Fixednames Option with the Compiler Utility for Maximum Flexibility</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869691"
 ---
 <a name="using-multiple-popup-controls-c"></a><span data-ttu-id="32c98-104">Uso de varios controles de menú emergente (C#)</span><span class="sxs-lookup"><span data-stu-id="32c98-104">Using Multiple Popup Controls (C#)</span></span>
 ====================

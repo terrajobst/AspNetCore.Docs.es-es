@@ -2,7 +2,7 @@
 uid: web-forms/overview/getting-started/hands-on-labs/index
 title: Visual Studio 2012 manos en laboratorios | Documentos de Microsoft
 author: rick-anderson
-description: "Obtenga información acerca de cómo desarrollar con ASP.NET Web Forms con estos manos en laboratorios"
+description: Obtenga información acerca de cómo desarrollar con ASP.NET Web Forms con estos manos en laboratorios
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/13/2013
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs
 msc.type: chapter
 ms.openlocfilehash: fcfb9d1f4b1cdd55dbc9472e2b74cab7a4c7d84b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26516554"
 ---
 <a name="visual-studio-2012-hands-on-labs"></a><span data-ttu-id="49029-103">Visual Studio 2012 manos en laboratorios</span><span class="sxs-lookup"><span data-stu-id="49029-103">Visual Studio 2012 Hands On Labs</span></span>
 ====================

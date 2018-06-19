@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876220"
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-c"></a><span data-ttu-id="28375-103">Dar formato al DataList y repetidor basándose en datos (C#)</span><span class="sxs-lookup"><span data-stu-id="28375-103">Formatting the DataList and Repeater Based Upon Data (C#)</span></span>
 ====================

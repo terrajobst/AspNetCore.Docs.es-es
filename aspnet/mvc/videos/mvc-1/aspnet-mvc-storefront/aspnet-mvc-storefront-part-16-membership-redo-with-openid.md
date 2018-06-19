@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868040"
 ---
 <a name="aspnet-mvc-storefront-part-16-membership-redo-with-openid"></a><span data-ttu-id="dbef2-104">ASP.NET MVC escaparate parte 16: Pertenencia puesta al día con OpenID</span><span class="sxs-lookup"><span data-stu-id="dbef2-104">ASP.NET MVC Storefront Part 16: Membership Redo With OpenID</span></span>
 ====================

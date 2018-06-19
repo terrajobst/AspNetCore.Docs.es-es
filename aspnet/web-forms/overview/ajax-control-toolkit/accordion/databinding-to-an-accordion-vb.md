@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869298"
 ---
 <a name="databinding-to-an-accordion-vb"></a><span data-ttu-id="62f61-104">Enlace de datos a Accordion (VB)</span><span class="sxs-lookup"><span data-stu-id="62f61-104">Databinding to an Accordion (VB)</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api
 title: Usar OWIN para probar internamente ASP.NET Web API 2 | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo hospedar ASP.NET Web API en una aplicación de consola, con OWIN para probar internamente el marco Web API. Abra la interfaz Web para .NET (OWIN) d..."
+description: Este tutorial muestra cómo hospedar ASP.NET Web API en una aplicación de consola, con OWIN para probar internamente el marco Web API. Abra la interfaz Web para .NET (OWIN) d...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/09/2013
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506974"
 ---
 <a name="use-owin-to-self-host-aspnet-web-api-2"></a><span data-ttu-id="80b6f-104">Usar OWIN para probar internamente ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="80b6f-104">Use OWIN to Self-Host ASP.NET Web API 2</span></span>
 ====================

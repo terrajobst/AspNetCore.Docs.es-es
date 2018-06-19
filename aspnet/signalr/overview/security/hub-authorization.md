@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872759"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs"></a><span data-ttu-id="00aee-104">Autenticación y autorización para los concentradores de SignalR</span><span class="sxs-lookup"><span data-stu-id="00aee-104">Authentication and Authorization for SignalR Hubs</span></span>
 ====================

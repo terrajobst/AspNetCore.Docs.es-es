@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-html-elements-accessible-from-server-side-code
-title: "[¿Cómo I:] Que sea accesible desde código de servidor elementos HTML | Documentos de Microsoft"
+title: '[¿Cómo I:] Que sea accesible desde código de servidor elementos HTML | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels mostraremos cómo lograr los elementos HTML estándar en una página .aspx sea accesible desde el código de servidor para que se puedan utilizar en la página processin..."
+description: En este vídeo Chris Pels mostraremos cómo lograr los elementos HTML estándar en una página .aspx sea accesible desde el código de servidor para que se puedan utilizar en la página processin...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/29/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521554"
 ---
 <a name="how-do-i-make-html-elements-accessible-from-server-side-code"></a><span data-ttu-id="9d79b-103">[¿Cómo I:] Hacer elementos HTML sean accesibles desde código de servidor</span><span class="sxs-lookup"><span data-stu-id="9d79b-103">[How Do I:] Make HTML elements accessible from server side code</span></span>
 ====================

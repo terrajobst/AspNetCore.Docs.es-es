@@ -2,7 +2,7 @@
 uid: web-forms/overview/data-access/database-driven-site-maps/index
 title: Bases de datos de mapas de sitio | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial le explica cómo crear un mapa del sitio manera dinámica basándose en la información de la base de datos."
+description: Este tutorial le explica cómo crear un mapa del sitio manera dinámica basándose en la información de la base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 10/05/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps
 msc.type: chapter
 ms.openlocfilehash: a237409281885cbec652de091c6e1d690b24061c
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26513034"
 ---
 <a name="database-driven-site-maps"></a><span data-ttu-id="c0e9c-103">Mapas de sitio controlado por la base de datos</span><span class="sxs-lookup"><span data-stu-id="c0e9c-103">Database-Driven Site Maps</span></span>
 ====================

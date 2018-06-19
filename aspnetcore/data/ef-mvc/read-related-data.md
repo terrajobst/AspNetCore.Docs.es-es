@@ -14,6 +14,7 @@ ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34153659"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a><span data-ttu-id="76daa-103">ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)</span><span class="sxs-lookup"><span data-stu-id="76daa-103">ASP.NET Core MVC with EF Core - Read Related Data - 6 of 10</span></span>
 

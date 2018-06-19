@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883377"
 ---
 <a name="how-do-i-implement-the-predictive-fetch-pattern-for-ajax"></a><span data-ttu-id="c5582-104">[¿Cómo I:] ¿Implementar el patrón de captura predictiva para AJAX?</span><span class="sxs-lookup"><span data-stu-id="c5582-104">[How Do I:] Implement the Predictive Fetch Pattern for AJAX?</span></span>
 ====================

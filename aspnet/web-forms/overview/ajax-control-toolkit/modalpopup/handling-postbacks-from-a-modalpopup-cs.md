@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873737"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a><span data-ttu-id="bc3cc-104">Controla las devoluciones de datos desde un ModalPopup (C#)</span><span class="sxs-lookup"><span data-stu-id="bc3cc-104">Handling Postbacks from a ModalPopup (C#)</span></span>
 ====================

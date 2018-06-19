@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868144"
 ---
 <a name="adding-a-model-vb"></a><span data-ttu-id="cac7b-103">Agregar un modelo (VB)</span><span class="sxs-lookup"><span data-stu-id="cac7b-103">Adding a Model (VB)</span></span>
 ====================

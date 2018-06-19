@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/masterpages
-title: "Páginas maestras | Documentos de Microsoft"
+title: Páginas maestras | Documentos de Microsoft
 author: JoeStagner
-description: "Páginas maestras de ASP.NET son una parte fundamental de la creación de aplicaciones web de agile. Este vídeo muestra los aspectos básicos del uso de páginas maestras y páginas maestras anidadas en..."
+description: Páginas maestras de ASP.NET son una parte fundamental de la creación de aplicaciones web de agile. Este vídeo muestra los aspectos básicos del uso de páginas maestras y páginas maestras anidadas en...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/08/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520904"
 ---
 <a name="masterpages"></a><span data-ttu-id="12547-104">Páginas maestras</span><span class="sxs-lookup"><span data-stu-id="12547-104">MasterPages</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30887794"
 ---
 <a name="masterdetail-filtering-across-two-pages-c"></a><span data-ttu-id="4b4d6-104">Principal-detalle filtrado a través de dos páginas (C#)</span><span class="sxs-lookup"><span data-stu-id="4b4d6-104">Master/Detail Filtering Across Two Pages (C#)</span></span>
 ====================

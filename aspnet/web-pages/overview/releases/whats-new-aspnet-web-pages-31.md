@@ -2,7 +2,7 @@
 uid: web-pages/overview/releases/whats-new-aspnet-web-pages-31
 title: Novedades de ASP.NET Web Pages 3.1 | Documentos de Microsoft
 author: microsoft
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/20/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529514"
 ---
 <a name="whats-new-in-aspnet-web-pages-31"></a><span data-ttu-id="0405f-102">Novedades en las páginas Web ASP.NET 3.1</span><span class="sxs-lookup"><span data-stu-id="0405f-102">What's New in ASP.NET Web Pages 3.1</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: "Páginas de ASP.NET Razor | Documentos de Microsoft"
+title: Páginas de ASP.NET Razor | Documentos de Microsoft
 author: rick-anderson
-description: "Los vídeos verá a profundizar en las páginas Web y WebMatrix."
+description: Los vídeos verá a profundizar en las páginas Web y WebMatrix.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
 ms.openlocfilehash: c2656e666e3267895ced67562e0b3e6292d83d3d
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529934"
 ---
 <a name="aspnet-web-pages"></a><span data-ttu-id="18f1f-103">ASP.NET Web Pages</span><span class="sxs-lookup"><span data-stu-id="18f1f-103">ASP.NET Web Pages</span></span>
 =================

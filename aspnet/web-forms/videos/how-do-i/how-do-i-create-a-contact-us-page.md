@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-create-a-contact-us-page
-title: "Cómo crear un página de contacto"
+title: Cómo crear un página de contacto
 author: microsoft
-description: "Crear una página web para recopilar información del usuario con el control de asistente, validar esa información y usar las clases System.Net.Mail para enviar un confi..."
+description: Crear una página web para recopilar información del usuario con el control de asistente, validar esa información y usar las clases System.Net.Mail para enviar un confi...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/24/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525464"
 ---
 <a name="how-do-i-create-a-contact-us-page"></a><span data-ttu-id="74144-103">[¿Cómo I:] ¿Crear una página "Póngase en contacto con nosotros"?</span><span class="sxs-lookup"><span data-stu-id="74144-103">[How Do I:] Create a "Contact Us" Page?</span></span>
 ====================

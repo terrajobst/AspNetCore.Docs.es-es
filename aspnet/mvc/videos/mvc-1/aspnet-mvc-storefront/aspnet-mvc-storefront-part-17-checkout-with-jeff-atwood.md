@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867156"
 ---
 <a name="aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood"></a><span data-ttu-id="b0597-104">ASP.NET MVC escaparate parte 17: Retirada con Jeff Atwood</span><span class="sxs-lookup"><span data-stu-id="b0597-104">ASP.NET MVC Storefront Part 17: Checkout With Jeff Atwood</span></span>
 ====================

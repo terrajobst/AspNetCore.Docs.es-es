@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874062"
 ---
 <a name="fighting-bots-vb"></a><span data-ttu-id="b6629-104">Luchar contra Bots (VB)</span><span class="sxs-lookup"><span data-stu-id="b6629-104">Fighting Bots (VB)</span></span>
 ====================

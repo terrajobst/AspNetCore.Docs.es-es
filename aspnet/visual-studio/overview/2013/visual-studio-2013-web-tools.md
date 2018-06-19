@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26507134"
 ---
 <a name="hands-on-lab-visual-studio-2013-web-tools"></a><span data-ttu-id="43df2-104">Laboratorio de prácticas: Visual Studio 2013 Web Tools</span><span class="sxs-lookup"><span data-stu-id="43df2-104">Hands On Lab: Visual Studio 2013 Web Tools</span></span>
 ====================
@@ -302,7 +303,7 @@ ms.lasthandoff: 04/10/2018
     <span data-ttu-id="43df2-291">![Editar la pregunta](visual-studio-2013-web-tools/_static/image28.png "editar la pregunta")</span><span class="sxs-lookup"><span data-stu-id="43df2-291">![Editing the question](visual-studio-2013-web-tools/_static/image28.png "Editing the question")</span></span>
 
     <span data-ttu-id="43df2-292">*Edición de la pregunta*</span><span class="sxs-lookup"><span data-stu-id="43df2-292">*Editing the question*</span></span>
-3. <span data-ttu-id="43df2-293">Debería aparecer un cursor.</span><span class="sxs-lookup"><span data-stu-id="43df2-293">A cursor should appear.</span></span> <span data-ttu-id="43df2-294">Reemplace el texto original con *lo que parece al igual que cuando escribe una pregunta más?*y, a continuación, presione **ESC** para salir del modo de diseño.</span><span class="sxs-lookup"><span data-stu-id="43df2-294">Replace the original text with *What does it look like when I write a longer question?*, and then press **ESC** to exit Design Mode.</span></span>
+3. <span data-ttu-id="43df2-293">Debería aparecer un cursor.</span><span class="sxs-lookup"><span data-stu-id="43df2-293">A cursor should appear.</span></span> <span data-ttu-id="43df2-294">Reemplace el texto original con *lo que parece al igual que cuando escribe una pregunta más?* y, a continuación, presione **ESC** para salir del modo de diseño.</span><span class="sxs-lookup"><span data-stu-id="43df2-294">Replace the original text with *What does it look like when I write a longer question?*, and then press **ESC** to exit Design Mode.</span></span>
 
     <span data-ttu-id="43df2-295">![Pregunta editado](visual-studio-2013-web-tools/_static/image29.png "pregunta editado")</span><span class="sxs-lookup"><span data-stu-id="43df2-295">![Question edited](visual-studio-2013-web-tools/_static/image29.png "Question edited")</span></span>
 

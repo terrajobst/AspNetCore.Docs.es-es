@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28042435"
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a><span data-ttu-id="b379b-102">Parámetro de enlace en ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="b379b-102">Parameter Binding in ASP.NET Web API</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-to-best-learn-aspnet-web-forms
-title: "Cómo obtener mejor la información de formularios Web Forms ASP.NET | Documentos de Microsoft"
+title: Cómo obtener mejor la información de formularios Web Forms ASP.NET | Documentos de Microsoft
 author: JoeStagner
-description: "Joe Stagner de Microsoft muestra lo que necesita obtener información sobre cómo utilizar formularios Web Forms de ASP.NET para desarrollar las aplicaciones web."
+description: Joe Stagner de Microsoft muestra lo que necesita obtener información sobre cómo utilizar formularios Web Forms de ASP.NET para desarrollar las aplicaciones web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/03/2010
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521744"
 ---
 <a name="how-to-best-learn-aspnet-web-forms"></a><span data-ttu-id="18536-103">Cómo mejor obtener información sobre ASP.NET Web Forms</span><span class="sxs-lookup"><span data-stu-id="18536-103">How to Best Learn ASP.NET Web Forms</span></span>
 ====================

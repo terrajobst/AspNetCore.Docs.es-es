@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880393"
 ---
 <a name="basic-aspnet-authentication-in-an-ajax-enabled-application"></a><span data-ttu-id="e11e3-103">Aplicación de autenticación de ASP.NET básica en AJAX habilitada</span><span class="sxs-lookup"><span data-stu-id="e11e3-103">Basic ASP.NET Authentication in an AJAX Enabled Application</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-forms/index
 title: Formularios Web Forms ASP.NET | Documentos de Microsoft
 author: rick-anderson
-description: "Descargar Visual Web Developer Express y aprenda a crear rápidamente aplicaciones con controles fácil de entender en formularios Web Forms de ASP.NET en un diseño visual environ de web..."
+description: Descargar Visual Web Developer Express y aprenda a crear rápidamente aplicaciones con controles fácil de entender en formularios Web Forms de ASP.NET en un diseño visual environ de web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms
 msc.type: categoryindex
 ms.openlocfilehash: f56ac2552017ad2b41debdea58d93c19c56268b9
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26509744"
 ---
 <a name="aspnet-web-forms"></a><span data-ttu-id="2c9c4-103">Formularios Web Forms de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="2c9c4-103">ASP.NET Web Forms</span></span>
 ====================

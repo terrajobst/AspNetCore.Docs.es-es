@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877845"
 ---
 <a name="aspnet-mobile-controls-tested-devices"></a><span data-ttu-id="f72a4-104">Dispositivos probados de controles de ASP.NET Mobile</span><span class="sxs-lookup"><span data-stu-id="f72a4-104">ASP.NET Mobile Controls Tested Devices</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/intro-to-aspnet-controls
-title: "Introducción a los controles ASP.NET | Documentos de Microsoft"
+title: Introducción a los controles ASP.NET | Documentos de Microsoft
 author: JoeStagner
-description: "Controles de desarrollo controlado por realmente pueden aumentar la productividad de desarrollo. Este vídeo proporciona una introducción básica a los controles estándar de ASP.NET."
+description: Controles de desarrollo controlado por realmente pueden aumentar la productividad de desarrollo. Este vídeo proporciona una introducción básica a los controles estándar de ASP.NET.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/09/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520964"
 ---
 <a name="intro-to-aspnet-controls"></a><span data-ttu-id="accf4-104">Introducción a los controles de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="accf4-104">Intro to ASP.NET Controls</span></span>
 ====================

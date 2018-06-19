@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site
-title: "[¿Cómo I:] Configurar notificación por correo electrónico para la supervisión de estado en un sitio Web ASP.NET | Documentos de Microsoft"
+title: '[¿Cómo I:] Configurar notificación por correo electrónico para la supervisión de estado en un sitio Web ASP.NET | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo configurar la notificación por correo electrónico para el estado de supervisión en un sitio web ASP.NET. En primer lugar, consulte cómo configurar el envío de e..."
+description: En este vídeo Chris Pels muestra cómo configurar la notificación por correo electrónico para el estado de supervisión en un sitio web ASP.NET. En primer lugar, consulte cómo configurar el envío de e...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/11/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521764"
 ---
 <a name="how-do-i-configure-email-notification-for-health-monitoring-on-an-aspnet-web-site"></a><span data-ttu-id="b34b6-104">[¿Cómo I:] Configurar notificación por correo electrónico para el estado de supervisión en un sitio Web ASP.NET</span><span class="sxs-lookup"><span data-stu-id="b34b6-104">[How Do I:] Configure Email Notification for Health Monitoring on an ASP.NET Web Site</span></span>
 ====================

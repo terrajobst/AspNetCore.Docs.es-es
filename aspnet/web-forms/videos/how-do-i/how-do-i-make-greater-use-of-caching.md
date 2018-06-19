@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-make-greater-use-of-caching
-title: "[¿Cómo I:] ¿Hacer un uso mayor de almacenamiento en caché? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Hacer un uso mayor de almacenamiento en caché? | Microsoft Docs'
 author: microsoft
-description: "Ver una demostración de la caché de resultados parcial de página, seguido de una visión general de la API de caché que se muestra cómo enlazar de forma eficaz una presentación de datos..."
+description: Ver una demostración de la caché de resultados parcial de página, seguido de una visión general de la API de caché que se muestra cómo enlazar de forma eficaz una presentación de datos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/16/2006
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26526454"
 ---
 <a name="how-do-i-make-greater-use-of-caching"></a><span data-ttu-id="4bf03-104">[¿Cómo I:] ¿Hacer un uso mayor de almacenamiento en caché?</span><span class="sxs-lookup"><span data-stu-id="4bf03-104">[How Do I:] Make Greater use of Caching?</span></span>
 ====================

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32741412"
 ---
 <span data-ttu-id="11bf1-103">es-es/</span><span class="sxs-lookup"><span data-stu-id="11bf1-103">en-us/</span></span>
 

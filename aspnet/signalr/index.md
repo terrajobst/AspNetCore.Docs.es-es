@@ -14,9 +14,10 @@ msc.legacyurl: /signalr
 msc.type: categoryindex
 ms.openlocfilehash: 7c09eac2247891f872f77cc6395a54d8554e183b
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26504154"
 ---
 <a name="signalr"></a><span data-ttu-id="b9649-103">SignalR</span><span class="sxs-lookup"><span data-stu-id="b9649-103">SignalR</span></span>
 ====================

@@ -2,7 +2,7 @@
 uid: web-api/overview/advanced/index
 title: Temas avanzados para ASP.NET Web API | Documentos de Microsoft
 author: rick-anderson
-description: "Avanzadas más temas para el desarrollo de ASP.NET Web API, una vez ha aprendido los conceptos básicos."
+description: Avanzadas más temas para el desarrollo de ASP.NET Web API, una vez ha aprendido los conceptos básicos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/23/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-api/overview/advanced
 msc.type: chapter
 ms.openlocfilehash: dca812e1c88d1aa2692365711d71813199be9ca2
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26506754"
 ---
 <a name="advanced-topics-for-aspnet-web-api"></a><span data-ttu-id="c36ec-103">Temas avanzados para ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="c36ec-103">Advanced Topics for ASP.NET Web API</span></span>
 ====================

@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-designer/visual-studio-2008-and-nested-masterpages
-title: "Visual Studio 2008 y páginas maestras anidadas | Documentos de Microsoft"
+title: Visual Studio 2008 y páginas maestras anidadas | Documentos de Microsoft
 author: JoeStagner
-description: "Usará una plantilla web de oswd.org para mostrar el uso de páginas maestras y cómo se admiten en Visual Studio 2008. En concreto, mostrará th..."
+description: Usará una plantilla web de oswd.org para mostrar el uso de páginas maestras y cómo se admiten en Visual Studio 2008. En concreto, mostrará th...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26520564"
 ---
 <a name="visual-studio-2008-and-nested-masterpages"></a><span data-ttu-id="161f3-104">Visual Studio 2008 y páginas maestras anidadas</span><span class="sxs-lookup"><span data-stu-id="161f3-104">Visual Studio 2008 and Nested Masterpages</span></span>
 ====================

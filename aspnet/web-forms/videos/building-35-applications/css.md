@@ -2,7 +2,7 @@
 uid: web-forms/videos/building-35-applications/css
 title: CSS | Documentos de Microsoft
 author: JoeStagner
-description: "Hojas de estilos en cascada son parte integrales de desarrollo web modernos y Visual Web Developer 2008 incluye una colección de CSS eficaz crear instalaciones para ayudar a..."
+description: Hojas de estilos en cascada son parte integrales de desarrollo web modernos y Visual Web Developer 2008 incluye una colección de CSS eficaz crear instalaciones para ayudar a...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/30/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521484"
 ---
 <a name="css"></a><span data-ttu-id="a1031-103">CSS</span><span class="sxs-lookup"><span data-stu-id="a1031-103">CSS</span></span>
 ====================
