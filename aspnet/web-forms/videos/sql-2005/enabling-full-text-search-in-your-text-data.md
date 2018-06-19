@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893500"
 ---
 <a name="enabling-full-text-search-in-your-text-data"></a>Habilitar la búsqueda de texto completo en los datos de texto
 ====================

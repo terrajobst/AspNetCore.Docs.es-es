@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868235"
 ---
 <a name="how-do-i-work-with-data-in-aspnet-mvc-partial-views"></a>Cómo Trabajar con datos en las vistas parciales de ASP.NET MVC?
 ====================

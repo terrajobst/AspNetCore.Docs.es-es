@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30898757"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
 

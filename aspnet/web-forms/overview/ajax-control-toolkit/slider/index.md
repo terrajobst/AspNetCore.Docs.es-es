@@ -2,7 +2,7 @@
 uid: web-forms/overview/ajax-control-toolkit/slider/index
 title: Control deslizante | Documentos de Microsoft
 author: rick-anderson
-description: "Este tutorial muestra cómo utilizar el control deslizante para mostrar un control deslizante gráfico que los usuarios pueden controlar con el mouse."
+description: Este tutorial muestra cómo utilizar el control deslizante para mostrar un control deslizante gráfico que los usuarios pueden controlar con el mouse.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider
 msc.type: chapter
 ms.openlocfilehash: 52b6fda01b6ef9931c3557b57b5ebd216a7f2eda
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26511634"
 ---
 <a name="slider"></a>Slider
 ====================

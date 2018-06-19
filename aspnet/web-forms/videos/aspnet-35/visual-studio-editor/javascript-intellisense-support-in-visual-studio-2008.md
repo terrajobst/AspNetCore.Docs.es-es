@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30884904"
 ---
 <a name="javascript-intellisense-support-in-visual-studio-2008"></a>Compatibilidad con Intellisense de JavaScript en Visual Studio 2008
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874491"
 ---
 <a name="aspnet-mvc-storefront-part-2-the-repository-pattern"></a>ASP.NET MVC escaparate, parte 2: El modelo de repositorio
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882545"
 ---
 <a name="javascript-debugging-in-visual-studio-2008"></a>Depuración de JavaScript en Visual Studio 2008
 ====================

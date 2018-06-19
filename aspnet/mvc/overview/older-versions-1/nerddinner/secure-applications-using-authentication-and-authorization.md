@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30874387"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Proteger aplicaciones mediante la autenticación y autorización
 ====================

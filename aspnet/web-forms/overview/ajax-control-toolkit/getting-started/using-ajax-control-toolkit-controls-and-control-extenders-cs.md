@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30873500"
 ---
 <a name="using-ajax-control-toolkit-controls-and-control-extenders-c"></a>Usar controles de Kit de herramientas de Control de AJAX y los extensores de Control (C#)
 ====================

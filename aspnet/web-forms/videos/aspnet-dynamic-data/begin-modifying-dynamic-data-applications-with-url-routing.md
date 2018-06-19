@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883497"
 ---
 <a name="begin-modifying-dynamic-data-applications-with-url-routing"></a>Empezar a modificar las aplicaciones de datos dinámicos con enrutamiento de direcciones URL
 ====================

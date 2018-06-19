@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882174"
 ---
 <a name="how-do-i-determine-whether-an-asynchronous-postback-has-occurred"></a>[¿Cómo I:] ¿Determinar que si una devolución de datos asincrónica se ha producido?
 ====================

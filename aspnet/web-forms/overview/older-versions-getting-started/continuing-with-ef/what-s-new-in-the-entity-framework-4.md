@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30889191"
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>¿Qué es nueva en Entity Framework 4.0
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3a893ae05f010656d99d6ddf55e82f1b5b6933bc
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34306772"
 ---
 # <a name="aspnet-mvc-4-fundamentals"></a>Conceptos básicos de ASP.NET MVC 4
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879158"
 ---
 <a name="changing-an-animation-using-client-side-code-vb"></a>Cambiar una animación con código del lado cliente (VB)
 ====================

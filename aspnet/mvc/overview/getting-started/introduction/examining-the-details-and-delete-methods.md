@@ -17,6 +17,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962433"
 ---
 <a name="examining-the-details-and-delete-methods"></a>Examen de los detalles y los métodos de eliminación
 ====================

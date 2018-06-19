@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30886464"
 ---
 <a name="how-do-i-converting-a-net-20-windows-forms-application-to-net-35"></a>[¿Cómo I:] Convertir una aplicación de formularios de Windows 2.0 de .NET para .NET 3.5
 ====================

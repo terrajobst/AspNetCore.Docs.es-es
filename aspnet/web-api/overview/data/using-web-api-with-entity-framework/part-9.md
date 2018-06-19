@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868378"
 ---
 <a name="add-a-new-item-to-the-database"></a>Agregar un nuevo elemento a la base de datos
 ====================
