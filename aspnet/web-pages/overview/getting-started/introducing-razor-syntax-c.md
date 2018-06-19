@@ -17,6 +17,7 @@ ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31483690"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a><span data-ttu-id="64223-104">Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#)</span><span class="sxs-lookup"><span data-stu-id="64223-104">Introduction to ASP.NET Web Programming Using the Razor Syntax (C#)</span></span>
 ====================

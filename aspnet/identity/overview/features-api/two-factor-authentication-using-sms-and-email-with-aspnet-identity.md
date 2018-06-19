@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876142"
 ---
 <a name="two-factor-authentication-using-sms-and-email-with-aspnet-identity"></a><span data-ttu-id="47250-104">Autenticación en dos fases mediante SMS y correo electrónico con la identidad de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="47250-104">Two-factor authentication using SMS and email with ASP.NET Identity</span></span>
 ====================

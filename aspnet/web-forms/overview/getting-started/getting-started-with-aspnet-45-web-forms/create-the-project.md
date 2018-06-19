@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32740457"
 ---
 <a name="create-the-project"></a><span data-ttu-id="49151-103">Crear el proyecto</span><span class="sxs-lookup"><span data-stu-id="49151-103">Create the Project</span></span>
 ====================

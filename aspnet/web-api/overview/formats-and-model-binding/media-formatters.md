@@ -17,6 +17,7 @@ ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/22/2018
+ms.locfileid: "34452605"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a><span data-ttu-id="369d9-102">Formateadores de contenido multimedia en ASP.NET Web API 2</span><span class="sxs-lookup"><span data-stu-id="369d9-102">Media Formatters in ASP.NET Web API 2</span></span>
 ====================

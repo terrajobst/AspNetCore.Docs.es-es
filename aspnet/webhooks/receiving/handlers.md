@@ -2,19 +2,20 @@
 uid: webhooks/receiving/handlers
 title: Controladores de ASP.NET WebHooks | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo administrar las solicitudes en ASP.NET Webhook."
+description: Cómo administrar las solicitudes en ASP.NET Webhook.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: a55b0d20-9c90-4bd3-a471-20da6f569f0c
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 ms.openlocfilehash: 4cf5770a731ef77842eb29b0a66ee0aac5d85d85
 ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883676"
 ---
 # <a name="aspnet-webhooks-handlers"></a><span data-ttu-id="a1a01-103">Controladores de Webhook de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="a1a01-103">ASP.NET WebHooks handlers</span></span>
 

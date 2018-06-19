@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30070425"
 ---
 # <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a><span data-ttu-id="6b5ff-102">Páginas de Razor de ASP.NET Core con EF Core: serie de tutoriales</span><span class="sxs-lookup"><span data-stu-id="6b5ff-102">ASP.NET Core Razor Pages with EF Core - tutorial series</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870172"
 ---
 <a name="validation-with-the-data-annotation-validators-vb"></a><span data-ttu-id="616a4-104">Validación con los validadores de anotación de datos (VB)</span><span class="sxs-lookup"><span data-stu-id="616a4-104">Validation with the Data Annotation Validators (VB)</span></span>
 ====================

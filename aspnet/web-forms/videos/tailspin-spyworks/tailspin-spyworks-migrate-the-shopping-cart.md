@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894274"
 ---
 <a name="tailspin-spyworks---migrate-the-shopping-cart"></a><span data-ttu-id="721ca-103">Tailspin Spyworks - migrar el carro de la compra</span><span class="sxs-lookup"><span data-stu-id="721ca-103">Tailspin Spyworks - Migrate the Shopping Cart</span></span>
 ====================

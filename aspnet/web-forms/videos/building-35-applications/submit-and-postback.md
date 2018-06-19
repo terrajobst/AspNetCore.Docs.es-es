@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/building-35-applications/submit-and-postback
-title: "Envío y devolución de datos | Documentos de Microsoft"
+title: Envío y devolución de datos | Documentos de Microsoft
 author: JoeStagner
-description: "Este vídeo le presentará los lo que el que va en &quot;tras los bastidores&quot; al explorador y el servidor de la aplicación ASP.NET interactúan."
+description: Este vídeo le presentará los lo que el que va en &quot;tras los bastidores&quot; al explorador y el servidor de la aplicación ASP.NET interactúan.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/20/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882359"
 ---
 <a name="submit-and-postback"></a><span data-ttu-id="6d894-103">Envío y devolución de datos</span><span class="sxs-lookup"><span data-stu-id="6d894-103">Submit and Postback</span></span>
 ====================

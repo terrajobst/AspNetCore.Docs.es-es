@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30870822"
 ---
 <a name="disabling-actions-during-animation-c"></a><span data-ttu-id="f3bf7-104">Deshabilite las acciones durante la animación (C#)</span><span class="sxs-lookup"><span data-stu-id="f3bf7-104">Disabling Actions during Animation (C#)</span></span>
 ====================

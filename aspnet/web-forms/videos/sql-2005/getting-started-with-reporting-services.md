@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892860"
 ---
 <a name="getting-started-with-reporting-services"></a><span data-ttu-id="c2bce-104">Introducción a servicios de informes</span><span class="sxs-lookup"><span data-stu-id="c2bce-104">Getting Started with Reporting Services</span></span>
 ====================

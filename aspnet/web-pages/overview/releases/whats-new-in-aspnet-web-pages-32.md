@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30896399"
 ---
 <a name="whats-new-in-aspnet-web-pages-32"></a><span data-ttu-id="0d9d1-102">Novedades en las páginas Web ASP.NET 3.2</span><span class="sxs-lookup"><span data-stu-id="0d9d1-102">What's New in ASP.NET Web Pages 3.2</span></span>
 ====================

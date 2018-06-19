@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891911"
 ---
 <a name="an-overview-of-forms-authentication-vb"></a><span data-ttu-id="09c1d-104">Información general sobre la autenticación de formularios (VB)</span><span class="sxs-lookup"><span data-stu-id="09c1d-104">An Overview of Forms Authentication (VB)</span></span>
 ====================

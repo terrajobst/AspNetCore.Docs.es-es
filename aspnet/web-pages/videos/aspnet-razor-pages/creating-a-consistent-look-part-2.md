@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899076"
 ---
 <a name="creating-a-consistent-look-part-2"></a><span data-ttu-id="fdd99-103">Crear una apariencia coherente (parte 2)</span><span class="sxs-lookup"><span data-stu-id="fdd99-103">Creating a Consistent Look (Part 2)</span></span>
 ====================

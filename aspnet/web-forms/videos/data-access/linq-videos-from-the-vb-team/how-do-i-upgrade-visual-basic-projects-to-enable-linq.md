@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892717"
 ---
 <a name="how-do-i-upgrade-visual-basic-projects-to-enable-linq"></a><span data-ttu-id="f6b5c-104">[¿Cómo I:] ¿Actualizar proyectos de Visual Basic para habilitar LINQ?</span><span class="sxs-lookup"><span data-stu-id="f6b5c-104">[How Do I:] Upgrade Visual Basic Projects to Enable LINQ?</span></span>
 ====================

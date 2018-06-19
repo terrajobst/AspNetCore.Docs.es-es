@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30075640"
 ---
 # <a name="key-immutability-and-key-settings-in-aspnet-core"></a><span data-ttu-id="1ee96-103">Inmutabilidad de clave y la configuración de clave de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="1ee96-103">Key immutability and key settings in ASP.NET Core</span></span>
 

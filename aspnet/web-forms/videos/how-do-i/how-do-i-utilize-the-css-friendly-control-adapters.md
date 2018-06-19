@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-utilize-the-css-friendly-control-adapters
-title: "[¿Cómo I:] ¿Utilizar los adaptadores de Control descriptivo de CSS? | Microsoft Docs"
+title: '[¿Cómo I:] ¿Utilizar los adaptadores de Control descriptivo de CSS? | Microsoft Docs'
 author: rick-anderson
-description: "Los adaptadores de Control descriptivo CSS le permite modificar el código HTML que representa un control de servidor ASP.NET 2.0 estándar. En este vídeo se información que el stan..."
+description: Los adaptadores de Control descriptivo CSS le permite modificar el código HTML que representa un control de servidor ASP.NET 2.0 estándar. En este vídeo se información que el stan...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/01/2007
@@ -17,6 +17,7 @@ ms.sourcegitcommit: d8aa1d314891e981460b5e5c912afb730adbb3ad
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/05/2018
+ms.locfileid: "28988086"
 ---
 <a name="how-do-i-utilize-the-css-friendly-control-adapters"></a><span data-ttu-id="457ee-105">[¿Cómo I:] ¿Utilizar los adaptadores de Control descriptivo de CSS?</span><span class="sxs-lookup"><span data-stu-id="457ee-105">[How Do I:] Utilize the CSS Friendly Control Adapters?</span></span>
 ====================

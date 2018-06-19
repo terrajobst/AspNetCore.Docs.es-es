@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892074"
 ---
 <a name="creating-user-accounts-vb"></a><span data-ttu-id="3a81c-104">Crear cuentas de usuario (VB)</span><span class="sxs-lookup"><span data-stu-id="3a81c-104">Creating User Accounts (VB)</span></span>
 ====================

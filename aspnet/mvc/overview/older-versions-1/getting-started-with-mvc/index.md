@@ -1,8 +1,8 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/index
-title: "Introducción a MVC | Documentos de Microsoft"
+title: Introducción a MVC | Documentos de Microsoft
 author: rick-anderson
-description: "Se trata de una serie de tutoriales para principiantes que presenta ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos."
+description: Se trata de una serie de tutoriales para principiantes que presenta ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/08/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc
 msc.type: chapter
 ms.openlocfilehash: b2e2f167de1e4c1c197bb0a8d37c1a1aed047f14
 ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883303"
 ---
 <a name="getting-started-with-mvc"></a><span data-ttu-id="6e4cc-104">Introducción a MVC</span><span class="sxs-lookup"><span data-stu-id="6e4cc-104">Getting Started With MVC</span></span>
 ====================

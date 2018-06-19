@@ -2,7 +2,7 @@
 uid: web-forms/videos/net-4/markup-control/index
 title: Control de marcado | Documentos de Microsoft
 author: rick-anderson
-description: "Esta serie de vídeos muestra mejoras en los controles de las páginas de formularios Web Forms de ASP.NET 4."
+description: Esta serie de vídeos muestra mejoras en los controles de las páginas de formularios Web Forms de ASP.NET 4.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/14/2011
@@ -14,9 +14,10 @@ msc.legacyurl: /web-forms/videos/net-4/markup-control
 msc.type: chapter
 ms.openlocfilehash: 48bb88cad6362adab51561eaba2d603bac49c9c7
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528144"
 ---
 <a name="markup-control"></a><span data-ttu-id="9c1a3-103">Control de marcado</span><span class="sxs-lookup"><span data-stu-id="9c1a3-103">Markup Control</span></span>
 ====================

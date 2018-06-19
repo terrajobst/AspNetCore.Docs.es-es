@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30882506"
 ---
 <a name="deploying-database-projects"></a><span data-ttu-id="1d309-104">Implementar proyectos de base de datos</span><span class="sxs-lookup"><span data-stu-id="1d309-104">Deploying Database Projects</span></span>
 ====================

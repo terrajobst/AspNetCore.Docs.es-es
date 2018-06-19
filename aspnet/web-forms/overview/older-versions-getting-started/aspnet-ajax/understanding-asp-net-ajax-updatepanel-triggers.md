@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890754"
 ---
 <a name="understanding-aspnet-ajax-updatepanel-triggers"></a><span data-ttu-id="a5a3f-104">Descripción de los desencadenadores de UpdatePanel de AJAX de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="a5a3f-104">Understanding ASP.NET AJAX UpdatePanel Triggers</span></span>
 ====================

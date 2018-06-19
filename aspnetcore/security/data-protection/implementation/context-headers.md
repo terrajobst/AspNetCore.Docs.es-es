@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30077859"
 ---
 # <a name="context-headers-in-aspnet-core"></a><span data-ttu-id="b1825-103">Encabezados de contexto en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="b1825-103">Context headers in ASP.NET Core</span></span>
 

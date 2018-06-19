@@ -1,7 +1,7 @@
 ---
 title: Primitivas en ASP.NET Core
 author: guardrex
-description: "Descubra artículos sobre bloques de creación de ASP.NET Core compartidos por extensiones de la plataforma que puede usar en su propio código."
+description: Descubra artículos sobre bloques de creación de ASP.NET Core compartidos por extensiones de la plataforma que puede usar en su propio código.
 manager: wpickett
 ms.author: riande
 ms.date: 10/28/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882716"
 ---
 # <a name="primitives-in-aspnet-core"></a><span data-ttu-id="4457d-103">Primitivas en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="4457d-103">Primitives in ASP.NET Core</span></span>
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072999"
 ---
 # <a name="dependency-injection-in-requirement-handlers-in-aspnet-core"></a><span data-ttu-id="084b5-103">Inserción de dependencias en los controladores de requisito en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="084b5-103">Dependency injection in requirement handlers in ASP.NET Core</span></span>
 

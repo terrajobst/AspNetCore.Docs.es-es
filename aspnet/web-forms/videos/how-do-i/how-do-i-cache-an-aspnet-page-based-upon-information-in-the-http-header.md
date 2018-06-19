@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-cache-an-aspnet-page-based-upon-information-in-the-http-header
-title: "[¿Cómo I:]  Caché de una página ASP.NET basada en la información en el encabezado HTTP | Documentos de Microsoft"
+title: '[¿Cómo I:]  Caché de una página ASP.NET basada en la información en el encabezado HTTP | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo mantener una página en la caché de resultados ASP.NET basada en información de encabezado HTTP de la página. En primer lugar, el potencial i HTTP..."
+description: En este vídeo Chris Pels muestra cómo mantener una página en la caché de resultados ASP.NET basada en información de encabezado HTTP de la página. En primer lugar, el potencial i HTTP...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/26/2009
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882222"
 ---
 <a name="how-do-i--cache-an-aspnet-page-based-upon-information-in-the-http-header"></a><span data-ttu-id="ed68c-104">[¿Cómo I:]  Caché de una página ASP.NET basada en la información en el encabezado HTTP</span><span class="sxs-lookup"><span data-stu-id="ed68c-104">[How Do I:]  Cache an ASP.NET Page Based Upon Information in the HTTP Header</span></span>
 ====================

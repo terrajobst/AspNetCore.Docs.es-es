@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871550"
 ---
 <a name="dynamically-controlling-updatepanel-animations-vb"></a><span data-ttu-id="cdd17-104">Controlar dinámicamente UpdatePanel animaciones (VB)</span><span class="sxs-lookup"><span data-stu-id="cdd17-104">Dynamically Controlling UpdatePanel Animations (VB)</span></span>
 ====================

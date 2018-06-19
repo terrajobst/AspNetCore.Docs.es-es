@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893634"
 ---
 <a name="designing-relational-database-tables"></a><span data-ttu-id="9ce25-104">Diseñar tablas de base de datos relacional</span><span class="sxs-lookup"><span data-stu-id="9ce25-104">Designing Relational Database Tables</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30869444"
 ---
 <a name="animating-in-response-to-user-interaction-vb"></a><span data-ttu-id="c53f5-104">Animar en respuesta a la interacción del usuario (VB)</span><span class="sxs-lookup"><span data-stu-id="c53f5-104">Animating in Response To User Interaction (VB)</span></span>
 ====================

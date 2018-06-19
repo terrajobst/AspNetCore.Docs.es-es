@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895897"
 ---
 <a name="more-about-column-data-types-and-other-properties"></a><span data-ttu-id="87ab2-103">Más información acerca de los tipos de datos de columna y otras propiedades</span><span class="sxs-lookup"><span data-stu-id="87ab2-103">More about Column Data Types and Other Properties</span></span>
 ====================

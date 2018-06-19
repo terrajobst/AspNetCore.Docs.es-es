@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/index
-title: "Vídeos | Documentos de Microsoft"
+title: Vídeos | Documentos de Microsoft
 author: rick-anderson
-description: 
+description: ''
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/18/2012
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/videos
 msc.type: book
 ms.openlocfilehash: 6d55feac7eb0da089832f19716bae9b9407196f8
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26530014"
 ---
 <a name="videos"></a><span data-ttu-id="09371-102">Vídeos</span><span class="sxs-lookup"><span data-stu-id="09371-102">Videos</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30878534"
 ---
 <a name="aspnet-mvc-storefront-part-5-globalization"></a><span data-ttu-id="fff0f-103">ASP.NET MVC escaparate parte 5: globalización</span><span class="sxs-lookup"><span data-stu-id="fff0f-103">ASP.NET MVC Storefront Part 5: Globalization</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30867923"
 ---
 <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a><span data-ttu-id="73105-102">Crear una cadena de conexión y trabajar con SQL Server LocalDB</span><span class="sxs-lookup"><span data-stu-id="73105-102">Creating a Connection String and Working with SQL Server LocalDB</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875700"
 ---
 <a name="source-control-building-real-world-cloud-apps-with-azure"></a><span data-ttu-id="42246-104">Control de código fuente (creación de aplicaciones de nube reales con Azure)</span><span class="sxs-lookup"><span data-stu-id="42246-104">Source Control (Building Real-World Cloud Apps with Azure)</span></span>
 ====================

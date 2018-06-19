@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893607"
 ---
 <a name="manipulating-database-data"></a><span data-ttu-id="ffd80-104">Manipular datos de la base de datos</span><span class="sxs-lookup"><span data-stu-id="ffd80-104">Manipulating Database Data</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30883244"
 ---
 <a name="validating-users-with-the-login-control"></a><span data-ttu-id="5b2e0-103">Validación de usuarios con el Control de inicio de sesión</span><span class="sxs-lookup"><span data-stu-id="5b2e0-103">Validating Users with the Login Control</span></span>
 ====================

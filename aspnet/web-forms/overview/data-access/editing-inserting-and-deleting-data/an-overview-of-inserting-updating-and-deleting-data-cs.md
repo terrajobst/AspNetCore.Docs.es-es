@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891235"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a><span data-ttu-id="b5e4e-103">Información general de insertar, actualizar y eliminar datos (C#)</span><span class="sxs-lookup"><span data-stu-id="b5e4e-103">An Overview of Inserting, Updating, and Deleting Data (C#)</span></span>
 ====================

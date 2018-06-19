@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891986"
 ---
 <a name="storing-additional-user-information-vb"></a><span data-ttu-id="c6eed-104">Almacenar información de usuario adicional (VB)</span><span class="sxs-lookup"><span data-stu-id="c6eed-104">Storing Additional User Information (VB)</span></span>
 ====================

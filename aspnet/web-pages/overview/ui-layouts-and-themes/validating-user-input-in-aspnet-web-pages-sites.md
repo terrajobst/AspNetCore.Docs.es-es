@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30899183"
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a><span data-ttu-id="b9863-103">Validar la entrada del usuario en sitios de ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="b9863-103">Validating User Input in ASP.NET Web Pages (Razor) Sites</span></span>
 ====================

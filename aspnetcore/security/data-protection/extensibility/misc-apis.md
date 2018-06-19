@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30072769"
 ---
 # <a name="miscellaneous-aspnet-core-data-protection-apis"></a><span data-ttu-id="da44e-103">API de protección de datos de varios núcleos de ASP.NET</span><span class="sxs-lookup"><span data-stu-id="da44e-103">Miscellaneous ASP.NET Core Data Protection APIs</span></span>
 

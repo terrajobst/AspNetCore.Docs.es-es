@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897510"
 ---
 <a name="introduction-to-debugging-aspnet-web-pages-razor-sites"></a><span data-ttu-id="42d5f-104">Introducción a la depuración ASP.NET Web Pages (Razor) sitios</span><span class="sxs-lookup"><span data-stu-id="42d5f-104">Introduction to Debugging ASP.NET Web Pages (Razor) Sites</span></span>
 ====================

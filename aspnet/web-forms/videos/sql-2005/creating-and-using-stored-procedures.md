@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893474"
 ---
 <a name="creating-and-using-stored-procedures"></a><span data-ttu-id="ad07e-104">Crear y usar procedimientos almacenados</span><span class="sxs-lookup"><span data-stu-id="ad07e-104">Creating and Using Stored Procedures</span></span>
 ====================

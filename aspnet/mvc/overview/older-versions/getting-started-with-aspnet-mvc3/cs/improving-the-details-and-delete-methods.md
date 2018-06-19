@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30871589"
 ---
 <a name="improving-the-details-and-delete-methods-c"></a><span data-ttu-id="2f0b5-103">Mejora de los detalles y métodos de eliminación (C#)</span><span class="sxs-lookup"><span data-stu-id="2f0b5-103">Improving the Details and Delete Methods (C#)</span></span>
 ====================

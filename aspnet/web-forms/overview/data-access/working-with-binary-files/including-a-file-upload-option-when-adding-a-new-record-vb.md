@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30888658"
 ---
 <a name="including-a-file-upload-option-when-adding-a-new-record-vb"></a><span data-ttu-id="8fa4a-104">Incluida una opción de carga de archivo al agregar un nuevo registro (VB)</span><span class="sxs-lookup"><span data-stu-id="8fa4a-104">Including a File Upload Option When Adding a New Record (VB)</span></span>
 ====================

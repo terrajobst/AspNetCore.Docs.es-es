@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet
-title: "[¿Cómo I:] Enviar mensajes de correo electrónico mediante plantillas para supervisar los eventos de ASP.NET de mantenimiento | Documentos de Microsoft"
+title: '[¿Cómo I:] Enviar mensajes de correo electrónico mediante plantillas para supervisar los eventos de ASP.NET de mantenimiento | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels muestra cómo utilizar el TemplatedEmailWebEventProvider para enviar mensajes de correo electrónico cuando producen eventos de supervisión de estado que usan una plantilla para t..."
+description: En este vídeo Chris Pels muestra cómo utilizar el TemplatedEmailWebEventProvider para enviar mensajes de correo electrónico cuando producen eventos de supervisión de estado que usan una plantilla para t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/18/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26521794"
 ---
 <a name="how-do-i-send-templated-emails-for-health-monitoring-events-in-aspnet"></a><span data-ttu-id="fd68b-103">[¿Cómo I:] Enviar mensajes de correo electrónico mediante plantillas de estado de la supervisión de eventos en ASP.NET</span><span class="sxs-lookup"><span data-stu-id="fd68b-103">[How Do I:] Send Templated Emails for Health Monitoring Events in ASP.NET</span></span>
 ====================

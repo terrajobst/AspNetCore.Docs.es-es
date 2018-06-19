@@ -12,8 +12,10 @@ ms.topic: content
 uid: mvc/razor-pages/filter
 ms.openlocfilehash: b04253b9240cb88c4f0d3824a4b9fda947d6da08
 ms.sourcegitcommit: 7c8fd9b7445cd77eb7f7d774bfd120c26f3b5d84
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31585197"
 ---
 # <a name="filter-methods-for-razor-pages-in-aspnet-core"></a><span data-ttu-id="02651-103">Métodos de filtrado de páginas de Razor en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="02651-103">Filter methods for Razor Pages in ASP.NET Core</span></span>
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30895847"
 ---
 <a name="tailspin-spyworks---display-per-product-details"></a><span data-ttu-id="57806-103">Tailspin Spyworks - mostrar detalles de producto por</span><span class="sxs-lookup"><span data-stu-id="57806-103">Tailspin Spyworks - Display Per Product Details</span></span>
 ====================

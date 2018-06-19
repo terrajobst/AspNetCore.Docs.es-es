@@ -14,6 +14,7 @@ ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33962329"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a><span data-ttu-id="055fd-103">Aplicación auxiliar de etiquetas de caché distribuida en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="055fd-103">Distributed Cache Tag Helper in ASP.NET Core</span></span>
 

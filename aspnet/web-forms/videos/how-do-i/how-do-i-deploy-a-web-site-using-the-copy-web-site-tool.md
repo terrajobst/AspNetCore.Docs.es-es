@@ -1,8 +1,8 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-deploy-a-web-site-using-the-copy-web-site-tool
-title: "[¿Cómo I:] Implementar un sitio Web mediante la herramienta Copiar sitio Web | Documentos de Microsoft"
+title: '[¿Cómo I:] Implementar un sitio Web mediante la herramienta Copiar sitio Web | Documentos de Microsoft'
 author: rick-anderson
-description: "En este vídeo Chris Pels mostrará cómo implementar un sitio web mediante la herramienta Copiar sitio Web en Visual Studio. Consulte en primer lugar cómo conectarse a un sitio web remoto y..."
+description: En este vídeo Chris Pels mostrará cómo implementar un sitio web mediante la herramienta Copiar sitio Web en Visual Studio. Consulte en primer lugar cómo conectarse a un sitio web remoto y...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/03/2008
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26525674"
 ---
 <a name="how-do-i-deploy-a-web-site-using-the-copy-web-site-tool"></a><span data-ttu-id="5f6c4-104">[¿Cómo I:] Implementar un sitio Web mediante la herramienta Copiar sitio Web</span><span class="sxs-lookup"><span data-stu-id="5f6c4-104">[How Do I:] Deploy a Web Site Using the Copy Web Site Tool</span></span>
 ====================

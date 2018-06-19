@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30879496"
 ---
 <a name="using-postbacks-with-reorderlist-vb"></a><span data-ttu-id="cc91d-104">Uso de las devoluciones de datos con ReorderList (VB)</span><span class="sxs-lookup"><span data-stu-id="cc91d-104">Using Postbacks with ReorderList (VB)</span></span>
 ====================

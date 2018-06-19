@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30892392"
 ---
 <a name="performing-batch-updates-vb"></a><span data-ttu-id="ce04e-103">Realizar actualizaciones por lotes (VB)</span><span class="sxs-lookup"><span data-stu-id="ce04e-103">Performing Batch Updates (VB)</span></span>
 ====================

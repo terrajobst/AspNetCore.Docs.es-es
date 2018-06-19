@@ -2,7 +2,7 @@
 uid: web-pages/overview/security/index
 title: Seguridad | Documentos de Microsoft
 author: rick-anderson
-description: "Cómo agregar capacidades de inicio de sesión a una aplicación de ASP.NET Web Pages y cómo ayudar a proteger la aplicación de robots."
+description: Cómo agregar capacidades de inicio de sesión a una aplicación de ASP.NET Web Pages y cómo ayudar a proteger la aplicación de robots.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/08/2014
@@ -14,9 +14,10 @@ msc.legacyurl: /web-pages/overview/security
 msc.type: chapter
 ms.openlocfilehash: 6b493fb9afaa894ec805ebd6684180c33a33b1b0
 ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26529534"
 ---
 <a name="security"></a><span data-ttu-id="851fa-103">Seguridad</span><span class="sxs-lookup"><span data-stu-id="851fa-103">Security</span></span>
 ====================

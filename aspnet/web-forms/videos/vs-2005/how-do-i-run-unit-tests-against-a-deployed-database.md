@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893527"
 ---
 <a name="how-do-i-run-unit-tests-against-a-deployed-database"></a><span data-ttu-id="dd633-104">[¿Cómo I:] ¿Ejecutar pruebas unitarias en una base de datos implementada?</span><span class="sxs-lookup"><span data-stu-id="dd633-104">[How Do I:] Run Unit Tests against a Deployed Database?</span></span>
 ====================

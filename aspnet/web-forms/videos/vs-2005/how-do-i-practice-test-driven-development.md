@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30894475"
 ---
 <a name="how-do-i-practice-test-driven-development"></a><span data-ttu-id="6a3a0-104">[¿Cómo I:] ¿Prácticas recomendadas de desarrollo controlado por pruebas?</span><span class="sxs-lookup"><span data-stu-id="6a3a0-104">[How Do I:] Practice Test-Driven Development?</span></span>
 ====================

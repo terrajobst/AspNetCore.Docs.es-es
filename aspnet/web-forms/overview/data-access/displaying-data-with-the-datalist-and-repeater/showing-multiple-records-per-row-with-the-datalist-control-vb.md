@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30890000"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-vb"></a><span data-ttu-id="7cefa-103">Mostrar varios registros por cada fila con el Control DataList (VB)</span><span class="sxs-lookup"><span data-stu-id="7cefa-103">Showing Multiple Records per Row with the DataList Control (VB)</span></span>
 ====================

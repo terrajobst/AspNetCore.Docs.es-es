@@ -16,6 +16,7 @@ ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/15/2018
+ms.locfileid: "29905041"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a><span data-ttu-id="72242-105">Introducción a ASP.NET Web API 2 (C#)</span><span class="sxs-lookup"><span data-stu-id="72242-105">Get Started with ASP.NET Web API 2 (C#)</span></span>
 ====================

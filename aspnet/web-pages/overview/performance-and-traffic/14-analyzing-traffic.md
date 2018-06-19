@@ -1,8 +1,8 @@
 ---
 uid: web-pages/overview/performance-and-traffic/14-analyzing-traffic
-title: "Seguimiento de la información de visitante (análisis) para ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft"
+title: Seguimiento de la información de visitante (análisis) para ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft
 author: tfitzmac
-description: "Después de que ha llegado el sitio Web va, puede analizar el tráfico del sitio Web."
+description: Después de que ha llegado el sitio Web va, puede analizar el tráfico del sitio Web.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/17/2014
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "26528764"
 ---
 <a name="tracking-visitor-information-analytics-for-an-aspnet-web-pages-razor-site"></a><span data-ttu-id="88f09-103">Seguimiento de la información de visitante (análisis) para un sitio de ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="88f09-103">Tracking Visitor Information (Analytics) for an ASP.NET Web Pages (Razor) Site</span></span>
 ====================

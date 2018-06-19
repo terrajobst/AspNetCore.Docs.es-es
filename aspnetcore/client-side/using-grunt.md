@@ -14,6 +14,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30897186"
 ---
 # <a name="use-grunt-in-aspnet-core"></a><span data-ttu-id="d0885-102">Usar Grunt en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="d0885-102">Use Grunt in ASP.NET Core</span></span>
 

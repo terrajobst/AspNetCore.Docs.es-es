@@ -14,6 +14,7 @@ ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34009077"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a><span data-ttu-id="1e694-103">Migrar de API Web de ASP.NET a ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="1e694-103">Migrate from ASP.NET Web API to ASP.NET Core</span></span>
 

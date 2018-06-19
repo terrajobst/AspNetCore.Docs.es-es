@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30875544"
 ---
 <a name="collapsing-and-expanding-a-panel-from-javascript-c"></a><span data-ttu-id="8240e-103">Contraer y expandir un Panel desde JavaScript (C#)</span><span class="sxs-lookup"><span data-stu-id="8240e-103">Collapsing and Expanding a Panel from JavaScript (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30893513"
 ---
 <a name="understanding-security-and-network-connectivity"></a><span data-ttu-id="16ac1-104">Descripción de la seguridad y la conectividad de red</span><span class="sxs-lookup"><span data-stu-id="16ac1-104">Understanding Security and Network Connectivity</span></span>
 ====================

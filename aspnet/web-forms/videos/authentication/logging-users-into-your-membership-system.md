@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30880608"
 ---
 <a name="logging-users-into-your-membership-system"></a><span data-ttu-id="edb20-103">Iniciar sesión a los usuarios en el sistema de pertenencia</span><span class="sxs-lookup"><span data-stu-id="edb20-103">Logging Users Into Your Membership System</span></span>
 ====================

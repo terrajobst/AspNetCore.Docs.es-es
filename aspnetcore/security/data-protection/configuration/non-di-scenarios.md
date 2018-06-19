@@ -1,7 +1,7 @@
 ---
-title: "DI no compatible con escenarios para la protección de datos en ASP.NET Core"
+title: DI no compatible con escenarios para la protección de datos en ASP.NET Core
 author: rick-anderson
-description: "Obtenga información acerca de cómo admitir escenarios de protección de datos que no se puede o no desea utilizar un servicio suministrado por inyección de dependencia."
+description: Obtenga información acerca de cómo admitir escenarios de protección de datos que no se puede o no desea utilizar un servicio suministrado por inyección de dependencia.
 manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29727251"
 ---
 # <a name="non-di-aware-scenarios-for-data-protection-in-aspnet-core"></a><span data-ttu-id="fe136-103">DI no compatible con escenarios para la protección de datos en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="fe136-103">Non-DI aware scenarios for Data Protection in ASP.NET Core</span></span>
 

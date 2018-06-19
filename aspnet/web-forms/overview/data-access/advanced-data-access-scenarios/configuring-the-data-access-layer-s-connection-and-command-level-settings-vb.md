@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30877182"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-vb"></a><span data-ttu-id="87e00-103">Configuración de opciones de nivel de conexión y comandos de la capa de acceso a datos (VB)</span><span class="sxs-lookup"><span data-stu-id="87e00-103">Configuring the Data Access Layer's Connection- and Command-Level Settings (VB)</span></span>
 ====================

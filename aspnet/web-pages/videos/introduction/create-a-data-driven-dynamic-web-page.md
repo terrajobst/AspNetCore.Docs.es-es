@@ -1,8 +1,8 @@
 ---
 uid: web-pages/videos/introduction/create-a-data-driven-dynamic-web-page
-title: "Crear una página Web dinámica controlada por datos | Documentos de Microsoft"
+title: Crear una página Web dinámica controlada por datos | Documentos de Microsoft
 author: rick-anderson
-description: "Parte 5 trata todos los datos, donde obtendrá información sobre cómo utilizar una base de datos en la página web y hacerla más dinámica."
+description: Parte 5 trata todos los datos, donde obtendrá información sobre cómo utilizar una base de datos en la página web y hacerla más dinámica.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 04/12/2011
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28882521"
 ---
 <a name="create-a-data-driven-dynamic-web-page"></a><span data-ttu-id="9349d-103">Crear una página Web dinámica controlada por datos</span><span class="sxs-lookup"><span data-stu-id="9349d-103">Create a Data-Driven Dynamic Web Page</span></span>
 ====================

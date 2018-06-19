@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30872278"
 ---
 <a name="displaying-a-table-of-database-data-vb"></a><span data-ttu-id="ef4f3-104">Muestra una tabla de base de datos (VB)</span><span class="sxs-lookup"><span data-stu-id="ef4f3-104">Displaying a Table of Database Data (VB)</span></span>
 ====================

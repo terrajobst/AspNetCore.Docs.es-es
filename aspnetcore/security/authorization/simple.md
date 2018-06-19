@@ -14,6 +14,7 @@ ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/22/2018
+ms.locfileid: "30078249"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a><span data-ttu-id="e49cb-103">Simple de autorización en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="e49cb-103">Simple authorization in ASP.NET Core</span></span>
 

@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/aspnet-web-deployment-content-map
-title: "Implementación de Web de ASP.NET: los recursos recomendados | Documentos de Microsoft"
+title: 'Implementación de Web de ASP.NET: los recursos recomendados | Documentos de Microsoft'
 author: rick-anderson
-description: "Este tema proporciona vínculos a documentación (publicar) ASP.NET web recursos sobre cómo implementar aplicaciones en IIS mediante el uso de Visual Studio 2010, Visual De Web..."
+description: Este tema proporciona vínculos a documentación (publicar) ASP.NET web recursos sobre cómo implementar aplicaciones en IIS mediante el uso de Visual Studio 2010, Visual De Web...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/14/2014
 ms.topic: article
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28048173"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a><span data-ttu-id="68576-103">Recursos recomendados de implementación Web de ASP.NET:</span><span class="sxs-lookup"><span data-stu-id="68576-103">ASP.NET Web Deployment - Recommended Resources</span></span>
 ====================

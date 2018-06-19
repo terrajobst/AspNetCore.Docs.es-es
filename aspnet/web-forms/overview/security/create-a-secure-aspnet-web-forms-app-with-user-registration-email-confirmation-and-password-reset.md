@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30892704"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a><span data-ttu-id="5b601-103">Crear una aplicación de formularios Web Forms de ASP.NET segura con el registro de usuario, enviar por correo electrónico de confirmación y restablecimiento de contraseña (C#)</span><span class="sxs-lookup"><span data-stu-id="5b601-103">Create a secure ASP.NET Web Forms app with user registration, email confirmation and password reset (C#)</span></span>
 ====================

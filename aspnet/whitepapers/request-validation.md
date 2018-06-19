@@ -1,14 +1,14 @@
 ---
 uid: whitepapers/request-validation
-title: "Solicitar validación - prevención de ataques de Script | Documentos de Microsoft"
+title: Solicitar validación - prevención de ataques de Script | Documentos de Microsoft
 author: rick-anderson
-description: "Este documento describe la característica de validación de solicitud de ASP.NET donde, de forma predeterminada, la aplicación no puede procesar enviar contenido de HTML sin codificar..."
+description: Este documento describe la característica de validación de solicitud de ASP.NET donde, de forma predeterminada, la aplicación no puede procesar enviar contenido de HTML sin codificar...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/10/2010
 ms.topic: article
 ms.assetid: fa429113-5f8f-4ef4-97c5-5c04900a19fa
-ms.technology: 
+ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /whitepapers/request-validation
 msc.type: content
@@ -17,6 +17,7 @@ ms.sourcegitcommit: a510f38930abc84c4b302029d019a34dfe76823b
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/30/2018
+ms.locfileid: "28883560"
 ---
 <a name="request-validation---preventing-script-attacks"></a><span data-ttu-id="aa8d2-103">La validación - prevención de ataques de secuencia de comandos de solicitudes</span><span class="sxs-lookup"><span data-stu-id="aa8d2-103">Request Validation - Preventing Script Attacks</span></span>
 ====================

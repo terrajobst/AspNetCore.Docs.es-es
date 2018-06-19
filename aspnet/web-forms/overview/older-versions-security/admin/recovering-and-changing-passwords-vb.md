@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891378"
 ---
 <a name="recovering-and-changing-passwords-vb"></a><span data-ttu-id="a4b5a-104">Recuperar y cambiar las contraseñas (VB)</span><span class="sxs-lookup"><span data-stu-id="a4b5a-104">Recovering and Changing Passwords (VB)</span></span>
 ====================

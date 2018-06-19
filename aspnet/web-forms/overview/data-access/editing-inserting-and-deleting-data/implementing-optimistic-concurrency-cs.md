@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891053"
 ---
 <a name="implementing-optimistic-concurrency-c"></a><span data-ttu-id="de12a-104">Implementación de simultaneidad optimista (C#)</span><span class="sxs-lookup"><span data-stu-id="de12a-104">Implementing Optimistic Concurrency (C#)</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30891505"
 ---
 <a name="control-id-naming-in-content-pages-vb"></a><span data-ttu-id="1601f-103">Id. de control de nomenclatura en páginas de contenido (VB)</span><span class="sxs-lookup"><span data-stu-id="1601f-103">Control ID Naming in Content Pages (VB)</span></span>
 ====================

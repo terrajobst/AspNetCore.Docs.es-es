@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30876454"
 ---
 <a name="debugging-stored-procedures-vb"></a><span data-ttu-id="68362-103">Depurar procedimientos almacenados (VB)</span><span class="sxs-lookup"><span data-stu-id="68362-103">Debugging Stored Procedures (VB)</span></span>
 ====================

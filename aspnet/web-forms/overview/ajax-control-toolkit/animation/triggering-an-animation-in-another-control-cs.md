@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30868118"
 ---
 <a name="triggering-an-animation-in-another-control-c"></a><span data-ttu-id="84819-104">Desencadenar una animación en otro Control (C#)</span><span class="sxs-lookup"><span data-stu-id="84819-104">Triggering an Animation in another Control (C#)</span></span>
 ====================

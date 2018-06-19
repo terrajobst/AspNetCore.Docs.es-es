@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "26504054"
 ---
 <a name="whats-new-in-aspnet-mvc-51"></a><span data-ttu-id="54106-102">' S New en ASP.NET MVC 5.1</span><span class="sxs-lookup"><span data-stu-id="54106-102">What's New in ASP.NET MVC 5.1</span></span>
 ====================

@@ -17,6 +17,7 @@ ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/10/2018
+ms.locfileid: "30891248"
 ---
 <a name="using-page-inspector-in-visual-studio-2012"></a><span data-ttu-id="c0655-104">Con el Inspector de página en Visual Studio 2012</span><span class="sxs-lookup"><span data-stu-id="c0655-104">Using Page Inspector in Visual Studio 2012</span></span>
 ====================
