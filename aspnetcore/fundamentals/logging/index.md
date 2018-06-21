@@ -2,19 +2,15 @@
 title: Registro en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre la plataforma de registro de ASP.NET Core. Descubra los proveedores de registro integrados y obtenga más información sobre proveedores de terceros conocidos.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 12/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/logging/index
-ms.openlocfilehash: 5e7e0fe0744a8dc3f3dd6097a059d77f2c578f77
-ms.sourcegitcommit: 40b102ecf88e53d9d872603ce6f3f7044bca95ce
+ms.openlocfilehash: 8ba604ae8748455c95932f9d8843c1f7a5da2a06
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35652206"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272768"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
