@@ -13,10 +13,10 @@ ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
 ms.openlocfilehash: 6f44f74774c2fa6338524987779e15f3940d1830
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.sourcegitcommit: 9a35906446af7ffd4ccfc18daec38874b5abbef7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/20/2018
 ms.locfileid: "30898926"
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTML

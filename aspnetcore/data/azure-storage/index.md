@@ -2,19 +2,15 @@
 title: Azure Storage en ASP.NET Core
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: data/azure-storage/index
-ms.openlocfilehash: 6a2065a93280f279bcb4bd59f9d8930be3ada462
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 4ae5f5dae795e095d4d1608d838d08320b436a13
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30071290"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277240"
 ---
 # <a name="azure-storage-in-aspnet-core"></a>Azure Storage en ASP.NET Core
 

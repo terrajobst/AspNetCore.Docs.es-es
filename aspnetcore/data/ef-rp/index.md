@@ -2,19 +2,15 @@
 title: 'Páginas de Razor de ASP.NET Core con EF Core: serie de tutoriales'
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: riande
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/index
-ms.openlocfilehash: 4247dff434b83658d18cd6d4bd22d6165258230e
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 0bb700e4ee6b33c65ab519c41bab620def261752
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30070425"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277517"
 ---
 # <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a>Páginas de Razor de ASP.NET Core con EF Core: serie de tutoriales
 

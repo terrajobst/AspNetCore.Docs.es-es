@@ -2,19 +2,15 @@
 title: Temas avanzados sobre ASP.NET Core Web API
 author: scottaddie
 description: Descubra temas avanzados sobre el desarrollo de ASP.NET Core Web API.
-manager: wpickett
 ms.author: scaddie
 ms.date: 04/25/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: web-api/advanced/index
-ms.openlocfilehash: b141720e8703a08d0344ec730e98c8f789ac63d6
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: 5932ff8445b7924f526c65eca3bd2435e5ce8bf7
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32078491"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279147"
 ---
 # <a name="advanced-topics-for-aspnet-core-web-api"></a>Temas avanzados sobre ASP.NET Core Web API
 

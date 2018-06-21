@@ -2,19 +2,15 @@
 title: Creación de una aplicación de ASP.NET Core MVC con Visual Studio Code
 author: rick-anderson
 description: Obtenga información sobre la tabla de contenido de la aplicación de MVC de ASP.NET Core con el este tutorial de Visual Studio Code.
-manager: wpickett
 ms.author: riande
 ms.date: 05/17/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/index
-ms.openlocfilehash: b705b590c1fbfe8e220089e2ffcf213de5c4a0f9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b17e09e086874fa3e8f3e7a6eef05d1f24f8de66
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30896454"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276807"
 ---
 # <a name="create-an-aspnet-core-mvc-app-with-visual-studio-code"></a>Creación de una aplicación de ASP.NET Core MVC con Visual Studio Code
 
