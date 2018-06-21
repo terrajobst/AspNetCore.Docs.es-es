@@ -2,22 +2,17 @@
 title: Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
 author: rick-anderson
 description: En este tutorial se muestra cómo crear una aplicación de ASP.NET Core 2.x mediante OAuth 2.0 con proveedores de autenticación externos.
-manager: wpickett
 ms.author: riande
 ms.date: 11/01/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/social/index
-ms.openlocfilehash: 93fa42be9c551f5bbdf3851aec1d9e01139fdb76
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 58045504ce4588f854428273273d3ea8f181e12e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278003"
 ---
 # <a name="facebook-google-and-external-provider-authentication-in-aspnet-core"></a>Autenticación con Facebook, Google y proveedores externos en ASP.NET Core
-
-<a name="security-authentication-social-logins"></a>
 
 Por [Valeriy Novytskyy](https://github.com/01binary) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -78,13 +73,15 @@ En los temas siguientes encontrará información para configurar la aplicación 
 * Instrucciones para [Microsoft](xref:security/authentication/microsoft-logins)
 * Instrucciones para [otros proveedores](xref:security/authentication/otherlogins)
 
+[!INCLUDE[](~/includes/chain-auth-providers.md)]
+
 ## <a name="optionally-set-password"></a>Establecimiento opcional de contraseña
 
 Si el registro se realiza mediante un proveedor de inicio de sesión externo, no se tiene ninguna contraseña en la aplicación. De esta forma no hace falta crear y recordar una contraseña para el sitio, aunque le hace depender del proveedor de inicio de sesión externo. Si el proveedor de inicio de sesión externo no está disponible, no podrá iniciar sesión en el sitio web.
 
 Para crear una contraseña e iniciar sesión con el correo electrónico establecido durante el proceso de inicio de sesión con proveedores externos:
 
-* Pulse el vínculo **Hola <email alias>** situado en la esquina superior derecha para ir a la vista **Administración**.
+* Pulse el vínculo **Hola, &lt;alias de correo electrónico&gt;** situado en la esquina superior derecha para ir a la vista **Administración**.
 
 ![Vista Administración de la aplicación web](index/_static/pass1a.png)
 

@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/middleware/index
-ms.openlocfilehash: 016f15c13470db53252941acafa25a3c6caf8db5
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: c6d362cf15b5d4611f0e544c5092a18f32ed7dfc
+ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34819050"
 ---
 # <a name="aspnet-core-middleware"></a>Middleware de ASP.NET Core
 
@@ -196,10 +197,13 @@ ASP.NET Core incluye los siguientes componentes de middleware, así como una des
 | [Autenticación](xref:security/authentication/identity) | Proporciona compatibilidad con autenticación. | Antes de que se necesite `HttpContext.User`. Terminal para devoluciones de llamadas OAuth. |
 | [CORS](xref:security/cors) | Configura el uso compartido de recursos entre orígenes. | Antes de los componentes que usan CORS. |
 | [Diagnóstico](xref:fundamentals/error-handling) | Configura el diagnóstico. | Antes de los componentes que generan errores. |
-| [ForwardedHeaders/HttpOverrides](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Reenvía encabezados con proxy a la solicitud actual. | Antes de los componentes que consumen los campos actualizados (ejemplos: Scheme, Host, ClientIP, Method). |
+| [Encabezados reenviados](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions) | Reenvía encabezados con proxy a la solicitud actual. | Antes de los componentes que consumen los campos actualizados (ejemplos: esquema, host, cliente, IP y método). |
+| [Invalidación del método HTTP](/dotnet/api/microsoft.aspnetcore.builder.httpmethodoverrideextensions) | Permite que una solicitud POST entrante invalide el método. | Antes de los componentes que consumen el método actualizado. |
+| [Redireccionamiento de HTTPS](xref:security/enforcing-ssl#require-https) | Redireccione todas las solicitudes HTTP a HTTPS (ASP.NET Core 2.1 o posterior). | Antes de los componentes que consumen la dirección URL. |
+| [Seguridad de transporte estricta de HTTP (HSTS)](xref:security/enforcing-ssl#http-strict-transport-security-protocol-hsts) | Middleware de mejora de seguridad que agrega un encabezado de respuesta especial (ASP.NET Core 2.1 o posterior). | Antes de que se envíen las respuestas y después de los componentes que modifican las solicitudes (por ejemplo, encabezados reenviados, reescritura de URL). |
 | [Almacenamiento en caché de respuestas](xref:performance/caching/middleware) | Proporciona compatibilidad con la captura de respuestas. | Antes de los componentes que requieren el almacenamiento en caché. |
 | [Compresión de respuesta](xref:performance/response-compression) | Proporciona compatibilidad con la compresión de respuestas. | Antes de los componentes que requieren compresión. |
-| [RequestLocalization](xref:fundamentals/localization) | Proporciona compatibilidad con ubicación. | Antes de los componentes que dependen de la ubicación. |
+| [Localización de solicitudes](xref:fundamentals/localization) | Proporciona compatibilidad con ubicación. | Antes de los componentes que dependen de la ubicación. |
 | [Enrutamiento](xref:fundamentals/routing) | Define y restringe las rutas de la solicitud. | Terminal para rutas que coincidan. |
 | [Sesión](xref:fundamentals/app-state) | Proporciona compatibilidad con la administración de sesiones de usuario. | Antes de los componentes que requieren Session. |
 | [Archivos estáticos](xref:fundamentals/static-files) | Proporciona compatibilidad con la proporción de archivos estáticos y la exploración de directorios. | Terminal si hay una solicitud que coincida con archivos. |
