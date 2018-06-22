@@ -181,7 +181,7 @@ En este ejercicio, explorará las mejoras en las plantillas de proyecto de ASP.N
 
        Examinar vistas de plantilla para averiguar la nueva marca de tema.
 
-       ![Nueva plantilla, uso de marcado de Razor y HTML5 About.cshtml. ] (whats-new-in-aspnet-mvc-4/_static/image10.png "Nueva plantilla, uso de marcado de Razor y HTML5 About.cshtml.")
+       ![Nueva plantilla, uso de marcado de Razor y HTML5 About.cshtml. ](whats-new-in-aspnet-mvc-4/_static/image10.png "Nueva plantilla, uso de marcado de Razor y HTML5 About.cshtml.")
 
        *Nueva plantilla, uso de marcado de Razor y HTML5 (About.cshtml).*
    - **Bibliotecas actualizadas de JavaScript**
