@@ -2,18 +2,15 @@
 title: Proveedor de configuración de almacén de claves Azure en ASP.NET Core
 author: guardrex
 description: Obtenga información acerca de cómo usar el proveedor de configuración de almacén de claves de Azure para configurar una aplicación con pares de nombre / valor que se carga en tiempo de ejecución.
-manager: wpickett
 ms.author: riande
 ms.date: 08/09/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: security/key-vault-configuration
-ms.openlocfilehash: cf56515a2a7116f399af7e671547fc81b616619c
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 433a9cee917a36ff7aa950dbe2a631d127c74821
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734710"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273442"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de almacén de claves Azure en ASP.NET Core
 

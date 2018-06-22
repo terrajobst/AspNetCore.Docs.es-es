@@ -2,19 +2,15 @@
 title: Migrar de API Web de ASP.NET a ASP.NET Core
 author: ardalis
 description: Obtenga información acerca de cómo migrar una implementación de la API Web de ASP.NET Web API para MVC de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 05/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/webapi
-ms.openlocfilehash: 8d842877e49e317323d453e71ebb3302245f388d
-ms.sourcegitcommit: 3d071fabaf90e32906df97b08a8d00e602db25c0
+ms.openlocfilehash: 9385805d548bc87f4a50b87f2c06aa74abdaf8af
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34009077"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272535"
 ---
 # <a name="migrate-from-aspnet-web-api-to-aspnet-core"></a>Migrar de API Web de ASP.NET a ASP.NET Core
 

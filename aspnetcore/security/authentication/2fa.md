@@ -2,20 +2,16 @@
 title: Autenticación en dos fases con SMS en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de cómo configurar la autenticación en dos fases (2FA) con una aplicación de ASP.NET Core.
-manager: wpickett
 monikerRange: < aspnetcore-2.0
 ms.author: riande
 ms.date: 08/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/2fa
-ms.openlocfilehash: 20f00c2307e140d81e716304c96a143340d934d0
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 335edfd5cd4dfbb9d223ba0ae888a6d2386cd4a5
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33850927"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272314"
 ---
 # <a name="two-factor-authentication-with-sms-in-aspnet-core"></a>Autenticación en dos fases con SMS en ASP.NET Core
 

@@ -2,20 +2,16 @@
 title: Migrar de autenticación de pertenencia a ASP.NET a ASP.NET Core 2.0 Identity
 author: isaac2004
 description: Obtenga información acerca de cómo migrar las aplicaciones ASP.NET existentes mediante la autenticación de pertenencia a ASP.NET Core 2.0 Identity.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/24/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/proper-to-2x/membership-to-core-identity
-ms.openlocfilehash: f0d1099bfda01d036831350e0888ae3830ad3d58
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 3ec22713997a74b587ef5d18e71a28668a5481e2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851547"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274110"
 ---
 # <a name="migrate-from-aspnet-membership-authentication-to-aspnet-core-20-identity"></a>Migrar de autenticación de pertenencia a ASP.NET a ASP.NET Core 2.0 Identity
 
@@ -42,7 +38,7 @@ La manera más rápida de ver el esquema de núcleo de ASP.NET 2.0 Identity cons
 
 * Seleccione **Archivo** > **Nuevo** > **Proyecto**.
 * Crear un nuevo **aplicación Web de ASP.NET Core**y el nombre del proyecto *CoreIdentitySample*.
-* Seleccione **ASP.NET Core 2.0** en la lista desplegable y, luego, seleccione **Aplicación web**. Esta plantilla genera un [páginas de Razor](xref:mvc/razor-pages/index) aplicación. Antes de hacer clic **Aceptar**, haga clic en **Cambiar autenticación**.
+* Seleccione **ASP.NET Core 2.0** en la lista desplegable y, luego, seleccione **Aplicación web**. Esta plantilla genera un [páginas de Razor](xref:razor-pages/index) aplicación. Antes de hacer clic **Aceptar**, haga clic en **Cambiar autenticación**.
 * Elija **cuentas de usuario individuales** para las plantillas de identidad. Por último, haga clic en **Aceptar**, a continuación, **Aceptar**. Visual Studio crea un proyecto mediante la plantilla de ASP.NET Core Identity.
 
 Identidad de núcleo de ASP.NET 2.0 utiliza [Entity Framework Core](/ef/core) para interactuar con la base de datos almacena los datos de autenticación. En orden de la aplicación recién creada para que funcione, debe ser una base de datos para almacenar estos datos. Después de crear una nueva aplicación, la manera más rápida para inspeccionar el esquema en un entorno de base de datos es crear la base de datos usando migraciones de Entity Framework. Este proceso crea una base de datos, ya sea localmente o en otro lugar, que imita ese esquema. Revise la documentación anterior para obtener más información.

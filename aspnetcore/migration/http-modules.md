@@ -2,19 +2,15 @@
 title: Migrar controladores HTTP y módulos ASP.NET Core middleware
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: tdykstra
 ms.date: 12/07/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/http-modules
-ms.openlocfilehash: cbdef871ffc3269e3118d23ed20306a71b9df030
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: c5a2f498c93ea7c1e7914660ae266bc82ba17800
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32741055"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272561"
 ---
 # <a name="migrate-http-handlers-and-modules-to-aspnet-core-middleware"></a>Migrar controladores HTTP y módulos ASP.NET Core middleware
 

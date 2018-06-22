@@ -2,19 +2,15 @@
 title: Detalles de cifrado autenticado en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de los detalles de implementación del cifrado de protección de datos de ASP.NET Core autenticado.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/authenticated-encryption-details
-ms.openlocfilehash: 3ca5231e84156ede59793825e1a3e3bea0313055
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ac650e5c32e7eacc4088225e63f56340f95e1913
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30077912"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275689"
 ---
 # <a name="authenticated-encryption-details-in-aspnet-core"></a>Detalles de cifrado autenticado en ASP.NET Core
 

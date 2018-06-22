@@ -2,19 +2,15 @@
 title: Simple de autorización en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de cómo usar el atributo Authorize para restringir el acceso a las acciones y controladores de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/simple
-ms.openlocfilehash: cef5cb146c6c1ff052430748a9a64c6a822d6fa3
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 3c5e9d5dfd65ded40c9828a666143c1868f5562f
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30078249"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272070"
 ---
 # <a name="simple-authorization-in-aspnet-core"></a>Simple de autorización en ASP.NET Core
 

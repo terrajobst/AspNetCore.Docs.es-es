@@ -3,19 +3,15 @@ title: Autenticación de nube en web API con Azure Active Directory B2C en ASP.N
 author: camsoper
 description: Descubra cómo configurar la autenticación de Azure Active Directory B2C con API Web de ASP.NET Core. Pruebe la API con Postman de web autenticado.
 ms.author: casoper
-manager: wpickett
 ms.date: 01/25/2018
-ms.topic: tutorial
-ms.technology: aspnet
-ms.prod: asp.net-core
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 621290f7e303f9157577b5c1b32646b750ed5159
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897809"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273423"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación de nube en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -65,7 +61,7 @@ Utilice los siguientes valores:
 | **Incluir la aplicación web / web API** | Sí                 |                                                                                        |
 | **Permitir flujo implícito**       | Sí                 |                                                                                        |
 | **Dirección URL de respuesta**                 | `https://localhost` | Direcciones URL de respuesta son los puntos de conexión que Azure AD B2C devuelve los tokens que solicita la aplicación. |
-| **URI del Id. de aplicación**                | *api*               | El URI no tiene que resolverse en una dirección física. Solo debe ser único.     |
+| **URI del Id. de aplicación**                | *API*               | El URI no tiene que resolverse en una dirección física. Solo debe ser único.     |
 | **Incluir a cliente nativo**     | No                  |                                                                                        |
 
 Una vez registrada la API, se muestra la lista de aplicaciones y las API en el inquilino. Seleccione la API que se acaba de registrar. Seleccione el **copia** icono a la derecha de la **Id. de aplicación** campo para copiarlo en el Portapapeles. Seleccione **publicado ámbitos** y compruebe el valor predeterminado *user_impersonation* ámbito está presente.

@@ -2,19 +2,15 @@
 title: Subclave derivación y cifrado autenticado en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de los detalles de implementación de protección de datos de ASP.NET Core subclave derivación y autentican el cifrado.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/data-protection/implementation/subkeyderivation
-ms.openlocfilehash: 8c83da40a524896becc07c94c01d5e2b684e4386
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 37e7b01700e8a6b755b5ed16a9d7d75a9eeb970e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30072644"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275728"
 ---
 # <a name="subkey-derivation-and-authenticated-encryption-in-aspnet-core"></a>Subclave derivación y cifrado autenticado en ASP.NET Core
 
@@ -39,7 +35,7 @@ El `IAuthenticatedEncryptor` interfaz actúa como la interfaz básica para todas
 
 Dado que el AAD es única para la tupla de los tres componentes, podemos usar se pueden para derivar nuevas claves KM en lugar de usar KM propio en todos nuestros operaciones de cifrado. Para todas las llamadas a `IAuthenticatedEncryptor.Encrypt`, realiza el proceso de derivación de claves siguiente:
 
-( K_E, K_H ) = SP800_108_CTR_HMACSHA512(K_M, AAD, contextHeader || keyModifier)
+(K_E, K_H) = SP800_108_CTR_HMACSHA512 (contextHeader K_M, AAD, || keyModifier)
 
 En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NIST SP800-108](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-108.pdf), s. 5.1) con los siguientes parámetros:
 
@@ -47,7 +43,7 @@ En este caso, estamos llamando a KDF SP800-108 NIST en modo de contador (vea [NI
 
 * PRF = HMACSHA512
 
-* label = additionalAuthenticatedData
+* etiqueta = additionalAuthenticatedData
 
 * contexto = contextHeader || keyModifier
 

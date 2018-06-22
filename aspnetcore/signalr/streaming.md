@@ -2,21 +2,17 @@
 title: Uso de ASP.NET Core SignalR transmisión por secuencias
 author: rachelappel
 description: ''
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.custom: mvc
 ms.date: 06/07/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: signalr/streaming
-ms.openlocfilehash: e8b32d5f25ae3bf8555fd2375c0fbb99a6f8bd53
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: ae0e733dddfb48db07d77ea73f4673cf8f783b88
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35358447"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275855"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Uso de ASP.NET Core SignalR transmisión por secuencias
 

@@ -1,21 +1,17 @@
 ---
 title: Pruebas de integración de ASP.NET Core
 author: guardrex
-description: Obtenga información acerca de cómo las pruebas de integración garantizan que los componentes de una aplicación funcionen correctamente en el nivel de infraestructura, incluida la base de datos, el sistema de archivos y la red.
-manager: wpickett
+description: Obtenga información sobre cómo las pruebas de integración garantizan que los componentes de una aplicación, como la base de datos, el sistema de archivos y la red, funcionen correctamente en la infraestructura.
 ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: test/integration-tests
-ms.openlocfilehash: a402c3f5f6a75917eba4058e6cc6926f25b214d4
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 1895b06f1af9a9eb66c14aa5c7834497fc95d583
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35217744"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277701"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración de ASP.NET Core
 
@@ -29,7 +25,7 @@ Este tema supone un conocimiento básico de las pruebas unitarias. Si familiariz
 
 La aplicación de ejemplo es una aplicación de páginas de Razor y asume un conocimiento básico de las páginas de Razor. Si no conoce las páginas de Razor, vea los temas siguientes:
 
-* [Introducción a las páginas de Razor](xref:mvc/razor-pages/index)
+* [Introducción a las páginas de Razor](xref:razor-pages/index)
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
 * [Pruebas unitarias de páginas de Razor](xref:test/razor-pages-tests)
 

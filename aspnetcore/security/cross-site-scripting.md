@@ -2,18 +2,15 @@
 title: Evitar que las secuencias de comandos (XSS) en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de Scripting entre sitios (XSS) y las técnicas para tener acceso a esta vulnerabilidad en una aplicación de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/cross-site-scripting
-ms.openlocfilehash: d9263a2c1bb6a376008b7d8a55864e4d15e77cee
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: ce6bb273034c56890e0cd98b890436602b5acc69
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272453"
 ---
 # <a name="prevent-cross-site-scripting-xss-in-aspnet-core"></a>Evitar que las secuencias de comandos (XSS) en ASP.NET Core
 
@@ -60,7 +57,7 @@ Esta vista muestra el contenido de la *untrustedInput* variable. Esta variable i
 
 ## <a name="javascript-encoding-using-razor"></a>Codificación de JavaScript con Razor
 
-Puede haber ocasiones en que desea insertar un valor en JavaScript para procesar en la vista. Existen dos formas de lograr esto. La forma más segura para insertar valores simples es colocar el valor en un atributo de una etiqueta de datos y recuperarlos en el JavaScript. Por ejemplo:
+Puede haber ocasiones en que desea insertar un valor en JavaScript para procesar en la vista. Hay dos formas de hacerlo. La forma más segura para insertar valores es colocar el valor en un atributo de una etiqueta de datos y recuperarlos en el JavaScript. Por ejemplo:
 
 ```none
 @{
@@ -228,4 +225,4 @@ La ficha general acepta práctica es que la codificación realiza en el punto de
 
 ## <a name="validation-as-an-xss-prevention-technique"></a>Validación como una técnica de prevención de XSS
 
-Validación puede ser una herramienta útil para limitar los ataques XSS. Por ejemplo, una cadena numérica simple que contiene los caracteres 0-9 no desencadenará un ataque XSS. Validación se complica si desea aceptar HTML en proporcionados por el usuario - analiza la entrada de HTML es difícil, si no imposible. Otros formatos de texto y marcado sería una opción más segura para la entrada enriquecido. Nunca debe confiar en la validación por sí sola. Codifique siempre la entrada no es de confianza antes de la salida, con independencia de qué validación ha llevado a cabo.
+Validación puede ser una herramienta útil para limitar los ataques XSS. Por ejemplo, un tipo numérico string que contiene los caracteres 0-9 no desencadenará un ataque XSS. Validación se complica si desea aceptar HTML en proporcionados por el usuario - analiza la entrada de HTML es difícil, si no imposible. Otros formatos de texto y marcado sería una opción más segura para la entrada enriquecido. Nunca debe confiar en la validación por sí sola. Codifique siempre la entrada no es de confianza antes de la salida, con independencia de qué validación ha llevado a cabo.

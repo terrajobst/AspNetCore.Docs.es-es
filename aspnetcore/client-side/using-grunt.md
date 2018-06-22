@@ -2,19 +2,15 @@
 title: Usar Grunt en ASP.NET Core
 author: rick-anderson
 description: ''
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: client-side/using-grunt
-ms.openlocfilehash: 169552e9b5dd811884ce1c65952677ba83626b58
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 21fa565c930563bbc819c2a02ea71655193513d0
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897186"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272979"
 ---
 # <a name="use-grunt-in-aspnet-core"></a>Usar Grunt en ASP.NET Core
 
@@ -100,7 +96,7 @@ A continuación, configure NPM para descargar grunt y tareas grunt.
     ![grun Intellisense](using-grunt/_static/devdependencies-grunt.png)
     
     > [!NOTE]
-    > Usa NPM [control de versiones semántico](http://semver.org/) para organizar las dependencias. Control de versiones semántico, también conocido como SemVer, identifica los paquetes con el esquema de numeración <major>.<minor>.<patch>. IntelliSense simplifica el control de versiones semántico presentando unas cuantas opciones comunes. El elemento superior en la lista de Intellisense (0.4.5 en el ejemplo anterior) se considera la versión estable más reciente del paquete. El símbolo de intercalación (^) coincide con la versión principal más reciente y la tilde (~) coincide con la versión secundaria más reciente. Consulte la [referencia del analizador de versión NPM semver](https://www.npmjs.com/package/semver) como guía para la expresividad completa que proporciona SemVer.
+    > Usa NPM [control de versiones semántico](http://semver.org/) para organizar las dependencias. Control de versiones semántico, también conocido como SemVer, identifica los paquetes con el esquema de numeración <major>.<minor>. <patch>. IntelliSense simplifica el control de versiones semántico presentando unas cuantas opciones comunes. El elemento superior en la lista de Intellisense (0.4.5 en el ejemplo anterior) se considera la versión estable más reciente del paquete. El símbolo de intercalación (^) coincide con la versión principal más reciente y la tilde (~) coincide con la versión secundaria más reciente. Consulte la [referencia del analizador de versión NPM semver](https://www.npmjs.com/package/semver) como guía para la expresividad completa que proporciona SemVer.
 
 3. Agregar más dependencias de carga grunt-hogar -\* empaqueta para su *limpia*, *jshint*, *concat*, *uglify*y *inspección* tal como se muestra en el ejemplo siguiente. Las versiones no es necesario para que coincida con el ejemplo.
 

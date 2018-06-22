@@ -2,18 +2,15 @@
 title: Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 author: ardalis
 description: Obtenga información acerca de cómo configurar los proveedores de almacenamiento personalizados de ASP.NET Core Identity.
-manager: wpickett
 ms.author: riande
 ms.date: 05/24/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: a50069586c702152e81961773114ea75901ab23d
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 11c49d630c922b0aa91678277e9553bf0c25134d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278432"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -170,7 +167,7 @@ Dentro de la `UserStore` (clase), se utilizan las clases de acceso de datos que 
 - **IUserLockoutStore**  
  El [IUserLockoutStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iuserlockoutstore-1) interfaz define los métodos que se implementan para almacenar información acerca de los bloqueos de una cuenta. Contiene métodos para realizar el seguimiento de intentos de acceso erróneos y bloqueos.
 - **IQueryableUserStore**  
- El [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfaz define el implementan miembros para proporcionar un almacén de usuarios consultable.
+ El [IQueryableUserStore&lt;TUser&gt; ](/dotnet/api/microsoft.aspnetcore.identity.iqueryableuserstore-1) interfaz define los miembros que implementa para proporcionar un almacén de usuarios consultable.
 
 Implementar sólo las interfaces que son necesarios en la aplicación. Por ejemplo:
 

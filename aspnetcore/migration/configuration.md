@@ -2,19 +2,15 @@
 title: Migrar la configuración a ASP.NET Core
 author: ardalis
 description: Obtenga información acerca de cómo migrar la configuración de un proyecto de MVC de ASP.NET a un proyecto de MVC de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: migration/configuration
-ms.openlocfilehash: ead4f96aa0041cd919caa972d3bb05bd94a857b3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 40b332f9042a4ce793acd29ef5e3f3e389056a62
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851727"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275826"
 ---
 # <a name="migrate-configuration-to-aspnet-core"></a>Migrar la configuración a ASP.NET Core
 
