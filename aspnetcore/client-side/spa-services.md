@@ -17,7 +17,7 @@ ms.locfileid: "36279628"
 
 Por [Scott Addie](https://github.com/scottaddie) y [Fiyaz Hasan](http://fiyazhasan.me/)
 
-Una aplicación de página única (SPA) es un tipo conocido de aplicación web debido a su experiencia de usuario enriquecida inherente. Integración de cliente marcos SPA o bibliotecas, como [Angular](https://angular.io/) o [reaccionar](https://facebook.github.io/react/), con marcos de trabajo de servidor como ASP.NET Core puede ser difícil. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) se desarrolló para reducir la fricción en el proceso de integración. Permite la operación sin problemas entre los distintos clientes y pilas de tecnología de servidor.
+Una aplicación de página única (SPA) es un tipo conocido de aplicación web debido a su experiencia de usuario completa e inherente. La integración de marcos o bibliotecas SPA del lado cliente, como [Angular](https://angular.io/) o [React](https://facebook.github.io/react/), con marcos del lado servidor como ASP.NET Core puede ser difícil. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) se desarrolló para reducir la fricción en el proceso de integración. Permite el funcionamiento sin problemas entre los distintos componentes tecnológicos del lado servidor y cliente.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
@@ -34,7 +34,7 @@ JavaScriptServices consta de tres paquetes de NuGet distintos:
 
 Estos paquetes son útiles si se:
 * Ejecutar JavaScript en el servidor
-* Usar un marco de SPA o biblioteca
+* Usa un marco o biblioteca de SPA
 * Compilar recursos de lado cliente con Webpack
 
 Gran parte de la atención en este artículo se coloca sobre cómo usar el paquete SpaServices.
@@ -43,7 +43,7 @@ Gran parte de la atención en este artículo se coloca sobre cómo usar el paque
 
 ## <a name="what-is-spaservices"></a>¿Qué es SpaServices?
 
-Se creó para colocar ASP.NET Core como plataforma de servidor preferido de los desarrolladores para compilar SPAs SpaServices. SpaServices no es necesario desarrollar SPAs con ASP.NET Core, y no bloquea en un marco de trabajo de cliente en particular.
+SpaServices se creó para colocar ASP.NET Core como la plataforma del lado servidor preferida de los desarrolladores para compilar las SPA. SpaServices no es necesario para desarrollar SPA con ASP.NET Core y no le obliga a usar un marco de cliente en particular.
 
 SpaServices ofrece una infraestructura útil como:
 * [Procesamiento previo de servidor](#server-prerendering)
@@ -77,7 +77,7 @@ Nota: Si va a implementar en un sitio web de Azure, no es necesario hacer nada a
 
 ## <a name="server-side-prerendering"></a>Procesamiento previo de servidor
 
-Una aplicación universal (también conocido como mismo formato) es una aplicación de JavaScript capaz de ejecutar tanto en el servidor y el cliente. Angular, reaccionar y otros entornos populares proporciona una plataforma universal de este estilo de desarrollo de aplicaciones. La idea es representar primero los componentes de framework en el servidor a través de Node.js y, a continuación, más delegar la ejecución al cliente.
+Una aplicación universal (también conocida como isomorfa) es una aplicación de JavaScript capaz de ejecutarse tanto en el servidor como en el cliente. Angular, React y otros marcos populares proporcionan una plataforma universal para el desarrollo de este estilo de aplicaciones. La idea es representar primero los componentes del marco en el servidor a través de Node.js y, después, delegar el resto de la ejecución al cliente.
 
 ASP.NET Core [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) proporcionada por SpaServices simplificar la implementación de procesamiento previo de servidor mediante la invocación de las funciones de JavaScript en el servidor.
 
@@ -223,7 +223,7 @@ Sugerencia: Las rutas se evalúan en el orden en el que está configurados. Por 
 
 ## <a name="creating-a-new-project"></a>Crear un nuevo proyecto
 
-JavaScriptServices proporciona plantillas de aplicaciones configuradas previamente. SpaServices se utiliza en estas plantillas, junto con una diversidad de marcos y bibliotecas como Angular, reaccionar y Redux.
+JavaScriptServices proporciona plantillas de aplicaciones configuradas previamente. SpaServices se usa en estas plantillas, junto con una diversidad de marcos y bibliotecas como Angular, React y Redux.
 
 Estas plantillas se pueden instalar a través de la CLI de núcleo de .NET con el comando siguiente:
 
@@ -283,7 +283,7 @@ Abra la *.csproj* archivo generado por la [dotnet nueva](/dotnet/core/tools/dotn
 
 ## <a name="testing-the-app"></a>Probar la aplicación
 
-Plantillas de SpaServices están preconfiguradas para ejecutar pruebas de cliente mediante [Karma](https://karma-runner.github.io/1.0/index.html) y [Jasmine](https://jasmine.github.io/). Jasmine es una unidad popular marco de pruebas para JavaScript, mientras que Karma es un ejecutor de pruebas para las pruebas. Karma está configurado para trabajar con la [Webpack Dev Middleware](#webpack-dev-middleware) tal que el programador no es necesario detener y ejecutar la prueba cada vez que se realizan cambios. Si es el código que se ejecuta en el caso de prueba o el propio caso de prueba, la prueba se ejecuta automáticamente.
+Las plantillas de SpaServices están preconfiguradas para ejecutar pruebas del lado cliente mediante [Karma](https://karma-runner.github.io/1.0/index.html) y [Jasmine](https://jasmine.github.io/). Jasmine es un marco de pruebas unitarias popular para JavaScript, mientras que Karma es un ejecutor de esas pruebas. Karma está configurado para funcionar con [Webpack Dev Middleware](#webpack-dev-middleware), de forma que el desarrollador no tenga que parar y ejecutar la prueba cada vez que se realicen cambios. Tanto si se ejecuta el código en el caso de prueba como si se trata del propio caso de prueba, la prueba se ejecuta automáticamente.
 
 Usar la aplicación Angular como ejemplo, dos casos de prueba criterio Comidos ya se proporcionan para que la `CounterComponent` en el *counter.component.spec.ts* archivo:
 
