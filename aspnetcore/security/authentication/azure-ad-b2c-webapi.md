@@ -6,12 +6,12 @@ ms.author: casoper
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c-webapi
-ms.openlocfilehash: 82179e52e2c292ec3b7e618b3c61eef6494abc7c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c56efda28c668b8f88d28334705b4c26f288870f
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273423"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314167"
 ---
 # <a name="cloud-authentication-in-web-apis-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación de nube en web API con Azure Active Directory B2C en ASP.NET Core
 
@@ -173,7 +173,7 @@ Para realizar una solicitud autenticada a la API web, se requiere un token de po
    |      <strong>Nombre del token</strong>       |                                  <em>&lt;nombre del token&gt;</em>                                  |                                                                                                                   Escriba un nombre descriptivo para el token.                                                                                                                    |
    |      <strong>Tipo de concesión</strong>       |                                           Implícitas                                            |                                                                                                                                                                                                                                                                              |
    |     <strong>Dirección URL de devolución de llamada</strong>      |                               `https://getpostman.com/postman`                                |                                                                                                                                                                                                                                                                              |
-   |       <strong>Dirección URL de autenticación</strong>        | `https://login.microsoftonline.com/<tenant domain name>/oauth2/v2.0/authorize?p=B2C_1_SiUpIn` |                                                                                                  Reemplace <em>&lt;nombre_de_dominio_de&gt;</em> con el nombre de dominio del inquilino.                                                                                                  |
+   |       <strong>Dirección URL de autenticación</strong>        | `https://login.microsoftonline.com/tfp/<tenant domain name>/B2C_1_SiUpIn/oauth2/v2.0/authorize` |                                                                                                  Reemplace <em>&lt;nombre_de_dominio_de&gt;</em> con el nombre de dominio del inquilino.                                                                                                  |
    |       <strong>Id. de cliente</strong>       |                <em>&lt;Escriba la aplicación Postman <b>Id. de aplicación</b>&gt;</em>                 |                                                                                                                                                                                                                                                                              |
    |     <strong>Secreto del cliente</strong>     |                                 <em>&lt;Deje en blanco&gt;</em>                                  |                                                                                                                                                                                                                                                                              |
    |         <strong>Ámbito</strong>         |         `https://<tenant domain name>/<api>/user_impersonation openid offline_access`         | Reemplace <em>&lt;nombre_de_dominio_de&gt;</em> con el nombre de dominio del inquilino. Reemplace <em>&lt;api&gt;</em> con el nombre del proyecto Web API. También puede usar el identificador de aplicación. El patrón para la dirección URL es: <em>https://{tenant}.onmicrosoft.com/{app_name_or_id}/{scope nombre}</em>. |

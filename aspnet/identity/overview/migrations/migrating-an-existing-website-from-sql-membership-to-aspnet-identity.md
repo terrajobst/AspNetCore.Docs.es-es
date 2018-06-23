@@ -12,12 +12,12 @@ ms.technology: ''
 ms.prod: .net-framework
 msc.legacyurl: /identity/overview/migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 2790f32bc74cecf450f5a258fc1ff5b280a63923
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1766c11dabec3931ec2bfc4ae2e15332427d7855
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874998"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314018"
 ---
 <a name="migrating-an-existing-website-from-sql-membership-to-aspnet-identity"></a>Migrar un sitio Web existente de pertenencia SQL a la identidad de ASP.NET
 ====================
@@ -99,23 +99,25 @@ Para que las clases de identidad de ASP.NET para que funcione de fábrica con lo
 | PhoneNumberConfirmed | bool |  |  |  |  |
 | LockoutEnabled | bool |  |  |  |  |
 | LockoutEndDate | DateTime |  |  |  |  |
-| AccessFailedCount | int |  |  |  |  |
+| Valor de AccessFailedCount | int |  |  |  |  |
 
 Es necesario tener tablas para cada uno de estos modelos con las columnas correspondientes a las propiedades. La asignación entre las clases y las tablas se define en el `OnModelCreating` método de la `IdentityDBContext`. Esto se conoce como el método de API fluido de configuración y se puede encontrar más información [aquí](https://msdn.microsoft.com/data/jj591617.aspx). La configuración de las clases es tal y como se mencionan más abajo
 
-| **Clase** | **Table** | **Clave principal** | **clave externa** |
+| **Clase** | **Table** | **clave principal** | **clave externa** |
 | --- | --- | --- | --- |
 | IdentityUser | AspnetUsers | Id. |  |
 | IdentityRole | AspnetRoles | Id. |  |
 | IdentityUserRole | AspnetUserRole | Identificador de usuario + RoleId | Usuario\_Id -&gt;AspnetUsers RoleId -&gt;AspnetRoles |
-| IdentityUserLogin | AspnetUserLogins | Identificador de usuario + ProviderKey + LoginProvider | UserId-&gt;AspnetUsers |
-| IdentityUserClaim | AspnetUserClaims | Id. | User\_Id-&gt;AspnetUsers |
+| IdentityUserLogin | AspnetUserLogins | Identificador de usuario + ProviderKey + LoginProvider | UserId -&gt;AspnetUsers |
+| IdentityUserClaim | AspnetUserClaims | Id. | Usuario\_Id -&gt;AspnetUsers |
 
 Con esta información podemos crear instrucciones SQL para crear nuevas tablas. Se puede escribir cada instrucción individualmente o generar el script completo mediante comandos de EntityFramework PowerShell que, a continuación, se puede modificar según sea necesario. Para ello, bajo licencia open de VS el **Package Manager Console** desde el **vista** o **herramientas** menú
 
 - Ejecute el comando "Enable-Migrations" para habilitar las migraciones de Entity Framework.
 - Ejecute el comando "Add-migration inicial" que crea el código de la instalación inicial para crear la base de datos en C# / VB.
 - El paso final consiste en ejecutar "Actualizar base de datos: secuencia de comandos" comando que genera el script SQL se basa en las clases del modelo.
+
+[!INCLUDE[](../../../includes/identity/alter-command-exception.md)]
 
 Esta secuencia de comandos de generación de base de datos puede utilizarse como un inicio donde llevaremos a cabo cambios adicionales para agregar nuevas columnas y copiar los datos. La ventaja de esto es que se genera el `_MigrationHistory` tabla utilizada por Entity Framework para modificar el esquema de base de datos cuando el modelo de clases de cambio para futuras versiones de las versiones de identidad. 
 
