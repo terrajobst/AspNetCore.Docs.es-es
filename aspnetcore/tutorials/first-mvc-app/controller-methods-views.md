@@ -2,40 +2,36 @@
 title: Vistas y métodos de controlador en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo trabajar con métodos de controlador, vistas y DataAnnotations en ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 3f84d242a41bc482110d87ff342fa5b5d8c870ff
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: e94cb877576a68540a565225b2b3d79f9be53327
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729858"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274819"
 ---
-# <a name="controller-methods-and-views-in-aspnet-core"></a><span data-ttu-id="1e960-103">Vistas y métodos de controlador en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="1e960-103">Controller methods and views in ASP.NET Core</span></span>
+# <a name="controller-methods-and-views-in-aspnet-core"></a><span data-ttu-id="22432-103">Vistas y métodos de controlador en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="22432-103">Controller methods and views in ASP.NET Core</span></span>
 
-<span data-ttu-id="1e960-104">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="1e960-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
+<span data-ttu-id="22432-104">Por [Rick Anderson](https://twitter.com/RickAndMSFT)</span><span class="sxs-lookup"><span data-stu-id="22432-104">By [Rick Anderson](https://twitter.com/RickAndMSFT)</span></span>
 
-<span data-ttu-id="1e960-105">La aplicación de películas pinta bien, pero la presentación no es ideal.</span><span class="sxs-lookup"><span data-stu-id="1e960-105">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="1e960-106">No queremos ver la hora (12:00:00 a.m. en la imagen siguiente) y **ReleaseDate** deben ser dos palabras.</span><span class="sxs-lookup"><span data-stu-id="1e960-106">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be two words.</span></span>
+<span data-ttu-id="22432-105">La aplicación de películas pinta bien, pero la presentación no es ideal.</span><span class="sxs-lookup"><span data-stu-id="22432-105">We have a good start to the movie app, but the presentation isn't ideal.</span></span> <span data-ttu-id="22432-106">No queremos ver la hora (12:00:00 a.m. en la imagen siguiente) y **ReleaseDate** deben ser dos palabras.</span><span class="sxs-lookup"><span data-stu-id="22432-106">We don't want to see the time (12:00:00 AM in the image below) and **ReleaseDate** should be two words.</span></span>
 
 ![Vista de índice: Release Date es una palabra (sin espacios) y en todas las fechas de lanzamiento de películas se muestra una hora de 12 AM](working-with-sql/_static/m55.png)
 
-<span data-ttu-id="1e960-108">Abra el archivo *Models/Movie.cs* y agregue las líneas resaltadas que se muestran a continuación:</span><span class="sxs-lookup"><span data-stu-id="1e960-108">Open the *Models/Movie.cs* file and add the highlighted lines shown below:</span></span>
+<span data-ttu-id="22432-108">Abra el archivo *Models/Movie.cs* y agregue las líneas resaltadas que se muestran a continuación:</span><span class="sxs-lookup"><span data-stu-id="22432-108">Open the *Models/Movie.cs* file and add the highlighted lines shown below:</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
-<span data-ttu-id="1e960-109">[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]</span><span class="sxs-lookup"><span data-stu-id="1e960-109">[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]</span></span>
+<span data-ttu-id="22432-109">[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]</span><span class="sxs-lookup"><span data-stu-id="22432-109">[!code-csharp[](start-mvc/sample/MvcMovie21/Models/MovieDateFixed.cs?name=snippet_1&highlight=2,3,12-13,17)]</span></span>
 ::: moniker-end
 ::: moniker range="<= aspnetcore-2.0"
-<span data-ttu-id="1e960-110">[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]</span><span class="sxs-lookup"><span data-stu-id="1e960-110">[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]</span></span>
+<span data-ttu-id="22432-110">[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]</span><span class="sxs-lookup"><span data-stu-id="22432-110">[!code-csharp[](start-mvc/sample/MvcMovie/Models/MovieDateWithExtraUsings.cs?name=snippet_1&highlight=13-14)]</span></span>
 ::: moniker-end
 
 [!INCLUDE [adding-model](~/includes/mvc-intro/controller-methods-views.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="1e960-111">[Anterior](working-with-sql.md)
-> [Siguiente](search.md)</span><span class="sxs-lookup"><span data-stu-id="1e960-111">[Previous](working-with-sql.md)
+> <span data-ttu-id="22432-111">[Anterior](working-with-sql.md)
+> [Siguiente](search.md)</span><span class="sxs-lookup"><span data-stu-id="22432-111">[Previous](working-with-sql.md)
 [Next](search.md)</span></span>  

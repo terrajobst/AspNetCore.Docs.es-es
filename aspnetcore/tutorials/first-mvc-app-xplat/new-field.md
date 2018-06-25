@@ -2,23 +2,19 @@
 title: Agregar un nuevo campo a una aplicación de ASP.NET Core
 author: rick-anderson
 description: Se muestra cómo agregar un nuevo campo a una aplicación existente de ASP.NET Core EF/MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 04/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/new-field
-ms.openlocfilehash: 38dc1d63620cd696e16b6e247696a0aa20aecc54
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 56b165d034c7ee0e21d72e60d36c06cbe434ff70
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30898428"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272272"
 ---
 [!INCLUDE [adding-field](../../includes/mvc-intro/new-field.md)]
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="64118-103">[Anterior: Agregar búsqueda](search.md)
-> [Siguiente: Agregar validación](validation.md)</span><span class="sxs-lookup"><span data-stu-id="64118-103">[Previous - Add search](search.md)
+> <span data-ttu-id="5d5ac-103">[Anterior: Agregar búsqueda](search.md)
+> [Siguiente: Agregar validación](validation.md)</span><span class="sxs-lookup"><span data-stu-id="5d5ac-103">[Previous - Add search](search.md)
 [Next - Add validation](validation.md)</span></span>  
