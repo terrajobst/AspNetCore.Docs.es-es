@@ -2,19 +2,15 @@
 title: 'ASP.NET Core MVC con EF Core: Avanzado (10 de 10)'
 author: rick-anderson
 description: En este tutorial se presentan varios temas que le serán de utilidad cuando quiera ir más allá de los conceptos básicos del desarrollo de aplicaciones web ASP.NET Core que usan Entity Framework Core.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/advanced
-ms.openlocfilehash: fffb78e4d66c8a798d5f952ba9e4506c8cb666ca
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 2aced1126e3062835d9c35ef01fd3c1438f0af84
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34566937"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274374"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---advanced---10-of-10"></a>ASP.NET Core MVC con EF Core: Avanzado (10 de 10)
 

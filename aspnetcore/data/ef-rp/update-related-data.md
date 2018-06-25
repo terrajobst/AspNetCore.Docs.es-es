@@ -2,19 +2,15 @@
 title: 'Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)'
 author: rick-anderson
 description: En este tutorial, actualizará datos relacionados mediante la actualización de campos de clave externa y propiedades de navegación.
-manager: wpickett
 ms.author: riande
 ms.date: 11/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/update-related-data
-ms.openlocfilehash: 2eff6cd5f4bb737cb79875c9b04c889914376cd0
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e987971f60e5c5a9fb79e30440c7c986df64447e
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740379"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275299"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---update-related-data---7-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Actualización de datos relacionados (7 de 8)
 
@@ -95,8 +91,6 @@ En el marcado anterior se realizan los cambios siguientes:
 * Se muestra el identificador del curso. Por lo general no se muestra la clave principal (PK) de una entidad. Las PK normalmente no tienen sentido para los usuarios. En este caso, la clave principal es el número de curso.
 * Se cambia el título de **DepartmentID** a **Department**.
 * Se reemplaza `"ViewBag.DepartmentID"` con `DepartmentNameSL` (de la clase base).
-* Se agrega la opción "Select Department" (Seleccionar departamento). Este cambio representa "Select Department" en lugar del primer departamento.
-* Se agrega un mensaje de validación cuando el departamento no está seleccionado.
 
 La página contiene un campo oculto (`<input type="hidden">`) para el número de curso. Agregar una aplicación auxiliar de etiquetas `<label>` con `asp-for="Course.CourseID"` no elimina la necesidad del campo oculto. Se requiere `<input type="hidden">` para que el número de curso se incluya en los datos enviados cuando el usuario hace clic en **Guardar**.
 

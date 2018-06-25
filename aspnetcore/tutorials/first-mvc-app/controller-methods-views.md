@@ -2,19 +2,15 @@
 title: Vistas y métodos de controlador en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo trabajar con métodos de controlador, vistas y DataAnnotations en ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 03/07/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app/controller-methods-views
-ms.openlocfilehash: 3f84d242a41bc482110d87ff342fa5b5d8c870ff
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: e94cb877576a68540a565225b2b3d79f9be53327
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34729858"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274819"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 

@@ -2,19 +2,15 @@
 title: 'ASP.NET Core MVC con EF Core: Actualización de datos relacionados (7 de 10)'
 author: rick-anderson
 description: En este tutorial, actualizará datos relacionados mediante la actualización de campos de clave externa y propiedades de navegación.
-manager: wpickett
 ms.author: tdykstra
 ms.date: 03/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: e8375cfdef9c149efdc722df499744be71923664
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: 53f1607d96a9a1db98f4e80e9582c124cedf6c8d
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153646"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272655"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC con EF Core: Actualización de datos relacionados (7 de 10)
 

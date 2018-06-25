@@ -2,19 +2,15 @@
 title: Crear servicios back-end para aplicaciones móviles nativas con ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo crear servicios back-end con ASP.NET Core MVC que admitan aplicaciones móviles nativas.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 18aecea00eb9cda3462ede7e478616a99cf302f8
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: 27051cd3c4e2c3aa1ebf6d5510db4645651120e8
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073183"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276131"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Crear servicios back-end para aplicaciones móviles nativas con ASP.NET Core
 

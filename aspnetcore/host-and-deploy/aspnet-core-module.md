@@ -2,20 +2,16 @@
 title: Referencia de configuración del módulo ASP.NET Core
 author: guardrex
 description: Obtenga información sobre cómo configurar el módulo de ASP.NET Core para hospedar aplicaciones ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: host-and-deploy/aspnet-core-module
-ms.openlocfilehash: 954841a1b1465c80e60d5745ad9e22294a88fdf4
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 8d4283c61163a586557135fddfb85440251aaf29
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483752"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275624"
 ---
 # <a name="aspnet-core-module-configuration-reference"></a>Referencia de configuración del módulo ASP.NET Core
 

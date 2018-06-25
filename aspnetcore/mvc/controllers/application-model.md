@@ -2,19 +2,15 @@
 title: Trabajar con el modelo de aplicación en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo leer y manipular el modelo de aplicación para modificar la forma en que los elementos de MVC se comportan en ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/application-model
-ms.openlocfilehash: a0e38b041f428f8b519fd726643b3214761fb44e
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 7a03f5eaa561557f3abe9c8dd8f4e46a57413a55
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555357"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277597"
 ---
 # <a name="work-with-the-application-model-in-aspnet-core"></a>Trabajar con el modelo de aplicación en ASP.NET Core
 

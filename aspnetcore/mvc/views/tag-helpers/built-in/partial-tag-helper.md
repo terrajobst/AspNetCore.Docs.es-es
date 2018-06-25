@@ -2,21 +2,17 @@
 title: Aplicación auxiliar de etiquetas parciales en ASP.NET Core
 author: scottaddie
 description: Conozca la aplicación auxiliar de etiquetas parciales en ASP.NET Core y el rol que desempeña cada uno de sus atributos a la hora de representar una vista parcial.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 04/13/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 786c333980db89a9a5a60dc70c0bd1998ca159cd
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: fea84621f185c4113147cf0dfd173704bc7b6d81
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962599"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36274419"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas parciales en ASP.NET Core
 

@@ -2,20 +2,16 @@
 title: Trabajar con SQLite y páginas de Razor
 author: rick-anderson
 description: Uso de SQLite con las páginas de Razor
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 1/27/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/sql
-ms.openlocfilehash: cd01db9b46817efb42a939e49683004da43d5724
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: e3e2f42d20c787e2d07e906abf20d27f4ae08233
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31482990"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277750"
 ---
 [!INCLUDE [SQLlite](../../includes/RP/sql.md)]
 

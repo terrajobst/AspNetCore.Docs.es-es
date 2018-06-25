@@ -2,20 +2,16 @@
 title: Compatibilidad con WebSockets en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre cómo empezar a usar WebSockets en ASP.NET Core.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 02/15/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/websockets
-ms.openlocfilehash: ede8064b5e77024b843357d4715869b3495b9147
-ms.sourcegitcommit: a19261eb82b948af6e4a1664fcfb8dabb16150e3
+ms.openlocfilehash: ee529f1aaadb6b6062bed56003c51f161eae7e72
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34153688"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273802"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 

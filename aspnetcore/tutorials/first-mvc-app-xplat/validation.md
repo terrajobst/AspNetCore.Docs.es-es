@@ -2,19 +2,15 @@
 title: Agregar una validación
 author: rick-anderson
 description: Cómo agregar la validación a una aplicación sencilla de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 04/13/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/first-mvc-app-xplat/validation
-ms.openlocfilehash: 1028048801c3dae69d5fda56c233fcc13669cf5e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 82ec58e6151e175a6a44f04b6e176e14f9385a79
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30897151"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273603"
 ---
 [!INCLUDE [validation](../../includes/mvc-intro/validation.md)]
 

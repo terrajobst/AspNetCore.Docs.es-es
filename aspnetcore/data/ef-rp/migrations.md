@@ -2,19 +2,15 @@
 title: 'Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)'
 author: rick-anderson
 description: En este tutorial, empezará a usar la característica de EF Core de migraciones para administrar los cambios de modelos de datos en una aplicación de ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 10/15/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 690beaabeab098cf9b764730b1bf1bd04bf6b003
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: d39e1aa40ff97d5b335f2bde6170242e89f6189a
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740080"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36272353"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 

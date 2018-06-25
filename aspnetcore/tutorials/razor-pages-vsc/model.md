@@ -2,20 +2,16 @@
 title: Agregar un modelo a una aplicación de páginas de Razor de ASP.NET Core con Visual Studio Code
 author: rick-anderson
 description: Obtenga información sobre cómo agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core usando Visual Studio Code.
-manager: wpickett
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: 20282b491162e9f35e40702655532a78edceb89a
-ms.sourcegitcommit: 2ab550f8c46e1a8a5d45e58be44d151c676af256
+ms.openlocfilehash: bf7566d1be0d7b520ab329ed5490e11f11240886
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32078517"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276080"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Agregar un modelo a una aplicación de páginas de Razor de ASP.NET Core con Visual Studio Code
 

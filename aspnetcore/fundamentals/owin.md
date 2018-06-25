@@ -2,20 +2,16 @@
 title: Interfaz web abierta para .NET (OWIN) con ASP.NET Core
 author: ardalis
 description: Descubra la manera en que ASP.NET Core es compatible con la interfaz web abierta para .NET (OWIN), que permite que las aplicaciones web se desacoplen de servidores web.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/owin
-ms.openlocfilehash: 3ff7b6e02284b4f6c61bf5d31013b4edfe8f7f29
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 864580edd62032ad1409c1d3263cb5d464fa59fe
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31483502"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273629"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Interfaz web abierta para .NET (OWIN) con ASP.NET Core
 

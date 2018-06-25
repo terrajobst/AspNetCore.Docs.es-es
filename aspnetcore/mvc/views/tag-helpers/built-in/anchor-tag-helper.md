@@ -2,20 +2,16 @@
 title: Aplicación auxiliar de etiquetas delimitadoras en ASP.NET Core
 author: pkellner
 description: Descubra los atributos de la aplicación auxiliar de etiquetas delimitadoras de ASP.NET Core y el papel que desempeña cada atributo al ampliar el comportamiento de la etiqueta delimitadora de código HTML.
-manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/31/2018
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 31ff62b6bedb5e577a51f341c89d241d06a83ad3
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30899413"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273889"
 ---
 # <a name="anchor-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas delimitadoras en ASP.NET Core
 
@@ -272,4 +268,4 @@ El código HTML generado:
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * [Áreas](xref:mvc/controllers/areas)
-* [Introducción a las páginas de Razor](xref:mvc/razor-pages/index)
+* [Introducción a las páginas de Razor](xref:razor-pages/index)

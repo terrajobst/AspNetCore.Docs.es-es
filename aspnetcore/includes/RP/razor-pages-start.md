@@ -9,9 +9,9 @@ Pruebe los vínculos. Los vínculos **RazorPagesMovie** e **Inicio** dirigen a l
 En la tabla siguiente se enumeran los archivos y las carpetas del proyecto. En este tutorial, el archivo *Startup.cs* es el más importante. No es necesario revisar todos los vínculos siguientes. Los vínculos se proporcionan como referencia para cuando necesite más información sobre un archivo o una carpeta del proyecto.
 
 | Archivo o carpeta              | Propósito |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | wwwroot | Contiene archivos estáticos. Vea [Archivos estáticos](xref:fundamentals/static-files). |
-| Páginas | Carpeta para [páginas de Razor](xref:mvc/razor-pages/index). | 
+| Páginas | Carpeta para [páginas de Razor](xref:razor-pages/index). |
 | *appsettings.json* | [Configuración](xref:fundamentals/configuration/index) |
 | *Program.cs* | [Aloja](xref:fundamentals/host/index) la aplicación de ASP.NET Core.|
 | *Startup.cs* | Configura los servicios y la canalización de solicitudes. Consulte [Inicio](xref:fundamentals/startup).|

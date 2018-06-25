@@ -2,19 +2,15 @@
 title: Configurar la localización de objetos portátiles en ASP.NET Core
 author: sebastienros
 description: En este artículo se presentan los archivos de objeto portátil y se describen los pasos para usarlos en una aplicación ASP.NET Core con el marco de trabajo de Orchard Core.
-manager: wpickett
 ms.author: scaddie
 ms.date: 09/26/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/portable-object-localization
-ms.openlocfilehash: fbf2afd6fbc07c8068a21be15816aa45618f28d6
-ms.sourcegitcommit: 493a215355576cfa481773365de021bcf04bb9c7
+ms.openlocfilehash: 0baa8dbb1f42cdc30185108fe90937f89d0d42bf
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2018
-ms.locfileid: "29904552"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275790"
 ---
 # <a name="configure-portable-object-localization-in-aspnet-core"></a>Configurar la localización de objetos portátiles en ASP.NET Core
 

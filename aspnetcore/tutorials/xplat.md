@@ -2,19 +2,15 @@
 title: Tutoriales de ASP.NET Core
 author: rick-anderson
 description: Una lista de guías detalladas para aprender a desarrollar aplicaciones de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/xplat
-ms.openlocfilehash: 097d63d5be5bd83c688a7f377d8ed45ffdd43ff8
-ms.sourcegitcommit: 7f92990bad6a6cb901265d621dcbc136794f5f3f
+ms.openlocfilehash: 9cc2f7a91c081fbd74999f6dc0334a4ee1980864
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30223078"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277054"
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -22,9 +18,9 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 
 ## <a name="build-web-apps"></a>Compilación de aplicaciones web
 
-[Las páginas de Razor](xref:mvc/razor-pages/index) son el método recomendado para crear una aplicación de interfaz de usuario web con ASP.NET Core 2.0 y versiones posteriores.
+[Las páginas de Razor](xref:razor-pages/index) son el método recomendado para crear una aplicación de interfaz de usuario web con ASP.NET Core 2.0 y versiones posteriores.
 
-* [Introducción a las páginas de Razor en ASP.NET Core](xref:mvc/razor-pages/index)
+* [Introducción a las páginas de Razor en ASP.NET Core](xref:razor-pages/index)
 * Creación de una aplicación web de páginas de Razor con ASP.NET Core
 
    * [Páginas de Razor en macOS](xref:tutorials/razor-pages-mac/index)

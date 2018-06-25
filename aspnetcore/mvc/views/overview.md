@@ -2,25 +2,21 @@
 title: Vistas de ASP.NET Core MVC
 author: ardalis
 description: Obtenga información sobre la forma en que las vistas controlan la presentación de datos de la aplicación y la interacción del usuario en ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 12/12/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/overview
-ms.openlocfilehash: b9947de03942bd71616e4bf12263befd9f784915
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33965730"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36278354"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
 Por [Steve Smith](https://ardalis.com/) y [Luke Latham](https://github.com/guardrex)
 
-En este documento se explican las vistas utilizadas en las aplicaciones de ASP.NET Core MVC. Para obtener información sobre las páginas de Razor, consulte [Introducción a las páginas Razor](xref:mvc/razor-pages/index).
+En este documento se explican las vistas utilizadas en las aplicaciones de ASP.NET Core MVC. Para obtener información sobre las páginas de Razor, consulte [Introducción a las páginas Razor](xref:razor-pages/index).
 
 En el patrón de controlador de vista de modelos (MVC), la *vista* se encarga de la presentación de los datos y de la interacción del usuario. Una vista es una plantilla HTML con [marcado de Razor](xref:mvc/views/razor) insertado. El marcado de Razor es código que interactúa con el formato HTML para generar una página web que se envía al cliente.
 

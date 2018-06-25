@@ -2,19 +2,15 @@
 title: Aplicación auxiliar de etiquetas de caché distribuida en ASP.NET Core
 author: pkellner
 description: Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché
-manager: wpickett
 ms.author: riande
 ms.date: 02/14/2017
-ms.prod: aspnet-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 9c1d91fc185a0afecf59af8927ddf6f25eff29ab
-ms.sourcegitcommit: 74be78285ea88772e7dad112f80146b6ed00e53e
+ms.openlocfilehash: d33c22802030eb9bc77baa64b83c9bbd7e902195
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33962329"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275180"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas de caché distribuida en ASP.NET Core
 
