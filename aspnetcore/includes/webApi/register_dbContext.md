@@ -1,22 +1,22 @@
-## <a name="register-the-database-context"></a><span data-ttu-id="a6397-101">Registrar el contexto de base de datos</span><span class="sxs-lookup"><span data-stu-id="a6397-101">Register the database context</span></span>
+## <a name="register-the-database-context"></a><span data-ttu-id="ae792-101">Registrar el contexto de base de datos</span><span class="sxs-lookup"><span data-stu-id="ae792-101">Register the database context</span></span>
 
-<span data-ttu-id="a6397-102">En este paso, el contexto de base de datos se registra con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="a6397-102">In this step, the database context is registered with the [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="a6397-103">Los servicios (por ejemplo, el contexto de la base de datos) que se registran con el contenedor de inserción de dependencias (DI) están disponibles para los controladores.</span><span class="sxs-lookup"><span data-stu-id="a6397-103">Services (such as the DB context) that are registered with the dependency injection (DI) container are available to the controllers.</span></span>
+<span data-ttu-id="ae792-102">En este paso, el contexto de base de datos se registra con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="ae792-102">In this step, the database context is registered with the [dependency injection](xref:fundamentals/dependency-injection) container.</span></span> <span data-ttu-id="ae792-103">Los servicios (por ejemplo, el contexto de la base de datos) que se registran con el contenedor de inserción de dependencias (DI) están disponibles para los controladores.</span><span class="sxs-lookup"><span data-stu-id="ae792-103">Services (such as the DB context) that are registered with the dependency injection (DI) container are available to the controllers.</span></span>
 
-<span data-ttu-id="a6397-104">Registre el contexto de la base de datos con el contenedor de servicio mediante la compatibilidad integrada para [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="a6397-104">Register the DB context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="a6397-105">Reemplace el contenido del archivo *Startup.cs* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="a6397-105">Replace the contents of the *Startup.cs* file with the following code:</span></span>
+<span data-ttu-id="ae792-104">Registre el contexto de la base de datos con el contenedor de servicio mediante la compatibilidad integrada para [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="ae792-104">Register the DB context with the service container using the built-in support for [dependency injection](xref:fundamentals/dependency-injection).</span></span> <span data-ttu-id="ae792-105">Reemplace el contenido del archivo *Startup.cs* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="ae792-105">Replace the contents of the *Startup.cs* file with the following code:</span></span>
 
 ::: moniker range=">= aspnetcore-2.1"
 
-<span data-ttu-id="a6397-106">[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]</span><span class="sxs-lookup"><span data-stu-id="a6397-106">[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]</span></span>
+[!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Startup.cs?highlight=3,5,13-14)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-<span data-ttu-id="a6397-107">[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]</span><span class="sxs-lookup"><span data-stu-id="a6397-107">[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]</span></span>
+[!code-csharp[](../../tutorials/first-web-api/samples/2.0/TodoApi/Startup.cs?highlight=2,4,12-13)]
 
 ::: moniker-end  
 
-<span data-ttu-id="a6397-108">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="a6397-108">The preceding code:</span></span>
+<span data-ttu-id="ae792-106">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="ae792-106">The preceding code:</span></span>
 
-* <span data-ttu-id="a6397-109">Quita el código no usado.</span><span class="sxs-lookup"><span data-stu-id="a6397-109">Removes the unused code.</span></span>
-* <span data-ttu-id="a6397-110">Especifica que se inserte una base de datos en memoria en el contenedor de servicios.</span><span class="sxs-lookup"><span data-stu-id="a6397-110">Specifies an in-memory database is injected into the service container.</span></span>
+* <span data-ttu-id="ae792-107">Quita el código no usado.</span><span class="sxs-lookup"><span data-stu-id="ae792-107">Removes the unused code.</span></span>
+* <span data-ttu-id="ae792-108">Especifica que se inserte una base de datos en memoria en el contenedor de servicios.</span><span class="sxs-lookup"><span data-stu-id="ae792-108">Specifies an in-memory database is injected into the service container.</span></span>
