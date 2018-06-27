@@ -12,12 +12,12 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/forms-authentication-configuration-and-advanced-topics-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d6578737478fb86f64be261925becc3adec33247
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 58d87bd6211ae1b1eea227d34c001239efcf5f1d
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30891785"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961404"
 ---
 <a name="forms-authentication-configuration-and-advanced-topics-c"></a>Configuración de autenticación de formularios y temas avanzados (C#)
 ====================
@@ -168,7 +168,7 @@ Guarde los cambios en Default.aspx y, a continuación, se visita a través de un
 
 `http://localhost:2448/ASPNET\_Security\_Tutorial\_03\_CS/(F(jaIOIDTJxIr12xYS-VVgkqKCVAuIoW30Bu0diWi6flQC-FyMaLXJfow\_Vd9GZkB2Cv-rfezq0gKadKX0YPZCkA2))/SomePage.aspx`
 
-La dirección URL SomePage.aspx en el vínculo se convierte automáticamente en una dirección URL que incluye el vale de autenticación - no teníamos escribir ni una sola línea de código. El vale de autenticación de formularios se incrustarán automáticamente en la dirección URL de los hipervínculos que no comienzan por http:// o /. No importa si aparece el hipervínculo en una llamada a Response.Redirect, en un control de hipervínculo o en un elemento delimitador HTML (es decir, &lt;un href = "..."&gt;... &lt;/a&gt;). Siempre y cuando la dirección URL no es algo parecido a http://www.someserver.com/SomePage.aspx o /SomePage.aspx, los formularios se incrustará el vale de autenticación para que podamos.
+La dirección URL SomePage.aspx en el vínculo se convierte automáticamente en una dirección URL que incluye el vale de autenticación - no teníamos escribir ni una sola línea de código. El vale de autenticación de formularios se incrustarán automáticamente en la dirección URL de los hipervínculos que no se inician con `http://` o `/`. No importa si aparece el hipervínculo en una llamada a Response.Redirect, en un control de hipervínculo o en un elemento delimitador HTML (es decir, `<a href="...">...</a>`). Siempre y cuando la dirección URL no es algo parecido a `http://www.someserver.com/SomePage.aspx` o `/SomePage.aspx`, el vale de autenticación de formularios se incrustarán automáticamente.
 
 > [!NOTE]
 > Vales de autenticación de formularios sin cookies adhieren a las mismas directivas de tiempo de espera como vales de autenticación basado en cookies. Sin embargo, los vales de autenticación sin cookies son más susceptibles de ataques de reproducción, puesto que el vale de autenticación se incrusta directamente en la dirección URL. Imagine un usuario que visita un sitio Web, inicia sesión en y, a continuación, pega la dirección URL en un correo electrónico a un compañero de trabajo. Si el compañero hace clic en ese vínculo antes de alcanza la expiración, registrará que el usuario que envió el correo electrónico.

@@ -12,12 +12,12 @@ ms.technology: dotnet-webapi
 ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-22
 msc.type: authoredcontent
-ms.openlocfilehash: 400329dd852ca3c527387ee45e3e902b725e771b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 89b065fccd0e4864f4a24c37b4caa29a1e127840
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508404"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961304"
 ---
 <a name="whats-new-in-aspnet-web-api-22"></a>' S New en ASP.NET Web API 2.2
 ====================
@@ -131,7 +131,7 @@ Por ejemplo, los literales de cadena se pueden utilizar en las rutas de acceso d
 
 Cuando Servicios reciben estas solicitudes el escape de quitar hosts tendrán los escape secuencias antes de pasarlas al tiempo de ejecución de API Web. Esto protege contra los ataques similar al siguiente:  
   
- http://www.contoso.com/..%2f..%2f/Windows/System32/cmd.exe?/c+dir+c:
+`http://www.contoso.com/..%2F..%2F/Windows/System32/cmd.exe?/c+dir+c:`
 
 Esto hace que la pila de OData de Web API devolver un error 404 (no encontrado). Para evitar este error, el cliente debería utilizar las secuencias de doble escape de barra diagonal (% 252F) y barra diagonal inversa (% C de 255). Esto no sucede con las cadenas de consulta como /Employees? $filter = nombre eq 'Nombre % 2F'
 
@@ -158,7 +158,7 @@ Una solución alternativa es usar el siguiente código en la configuración de W
 Problema: Enlace de modelos de tipo complejo que se decora con el atributo FromUri tiene un comportamiento diferente al usar el enrutamiento de atributo.
 
 Vínculo siguiente realiza un seguimiento del problema y también incluye detalles acerca de cómo solucionar este problema.  
-[http://aspnetwebstack.codeplex.com/WorkItem/1944](http://aspnetwebstack.codeplex.com/workitem/1944)
+[http://aspnetwebstack.codeplex.com/workitem/1944](http://aspnetwebstack.codeplex.com/workitem/1944)
 
 Problema: Scaffolding MVC o Web API en un proyecto con 5.2.0 resultados de paquetes en 5.1.2 paquetes para los que ya no existen en el proyecto
 
