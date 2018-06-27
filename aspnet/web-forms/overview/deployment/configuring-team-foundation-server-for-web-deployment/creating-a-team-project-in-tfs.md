@@ -12,18 +12,18 @@ ms.technology: dotnet-webforms
 ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/creating-a-team-project-in-tfs
 msc.type: authoredcontent
-ms.openlocfilehash: 79c069a601c0eafd84ae142241895428052acd29
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 96e0ee5fd0b74e7b22b8e346aa8462f7558a3ddc
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880432"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960699"
 ---
 <a name="creating-a-team-project-in-tfs"></a>Crear un proyecto de equipo en TFS
 ====================
 por [Jason Lee](https://github.com/jrjlee)
 
-[Descarga de PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
+[Descargar PDF](https://msdnshared.blob.core.windows.net/media/MSDNBlogsFS/prod.evol.blogs.msdn.com/CommunityServer.Blogs.Components.WeblogFiles/00/00/00/63/56/8130.DeployingWebAppsInEnterpriseScenarios.pdf)
 
 > En este tema se describe cómo crear un nuevo proyecto de equipo en Team Foundation Server (TFS) 2010.
 
@@ -110,9 +110,8 @@ A continuación, debe conceder al usuario permiso para crear nuevos sitios de eq
 
    > [!NOTE]
    > Es posible que reciba un <strong>HTTP 404 no encontrado</strong> error debido a un error de codificación doble de HTTP. Si esto ocurre, reemplace la dirección URL a este:   
-   > [<em>dirección URL de la colección de sitios</em>] /\_layouts/permsetup.aspx  
-   > Por ejemplo:  
-   > http://tfs/sites/Fabrikam%20Web%20Projects/\_layouts/permsetup.aspx
+   > `[site_collection_URL]/_layouts/permsetup.aspx` Por ejemplo:  
+   > `http://tfs/sites/Fabrikam%20Web%20Projects/_layouts/permsetup.aspx` 
 8. En el **configurar grupos para este sitio** página, agregue el usuario que vayan a crear proyectos de equipo para el **propietarios** de grupo y, a continuación, haga clic en **Aceptar**.
 
     ![](creating-a-team-project-in-tfs/_static/image10.png)
