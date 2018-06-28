@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 8ba604ae8748455c95932f9d8843c1f7a5da2a06
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272768"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033318"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -488,7 +488,7 @@ loggerFactory.AddEventSourceLogger()
 
 ---
 
-Una buena manera de recopilar y ver los registros es usar la [utilidad PerfView](https://www.microsoft.com/download/details.aspx?id=28567). Hay otras herramientas para ver los registros ETW, pero PerfView proporciona la mejor experiencia para trabajar con los eventos ETW emitidos por ASP.NET. 
+Una buena manera de recopilar y ver los registros es usar la [utilidad PerfView](https://github.com/Microsoft/perfview). Hay otras herramientas para ver los registros ETW, pero PerfView proporciona la mejor experiencia para trabajar con los eventos ETW emitidos por ASP.NET. 
 
 Para configurar PerfView para la recopilación de eventos registrados por este proveedor, agregue la cadena `*Microsoft-Extensions-Logging` a la lista **Proveedores adicionales**. (No olvide el asterisco al principio de la cadena).
 
