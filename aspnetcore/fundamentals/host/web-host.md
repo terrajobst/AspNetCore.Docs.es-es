@@ -10,23 +10,24 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/web-host
-ms.openlocfilehash: ced2a766359894b9b83164c12a3ab69aa13c93a0
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: ce95599ec8e940635ca63c3bf9a3c28784a3f371
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34687495"
 ---
 # <a name="aspnet-core-web-host"></a>Host web de ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-Las aplicaciones de ASP.NET Core configuran e inician un *host*. El host es responsable de la administración del inicio y la duración de la aplicación. Como mínimo, el host configura un servidor y una canalización de procesamiento de solicitudes. En este tema se aborda el host web de ASP.NET Core ([WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder)), muy útil para hospedar aplicaciones web. Para la cobertura del host genérico de .NET ([HostBuilder](/dotnet/api/microsoft.extensions.hosting.hostbuilder)), consulte el tema [Host genérico](xref:fundamentals/host/generic-host).
+Las aplicaciones de ASP.NET Core configuran e inician un *host*. El host es responsable de la administración del inicio y la duración de la aplicación. Como mínimo, el host configura un servidor y una canalización de procesamiento de solicitudes. En este tema se aborda el host web de ASP.NET Core ([IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder)), muy útil para hospedar aplicaciones web. Para conocer la cobertura del host genérico de .NET ([IHostBuilder](/dotnet/api/microsoft.extensions.hosting.ihostbuilder)), vea el tema [Host genérico](xref:fundamentals/host/generic-host).
 
 ## <a name="set-up-a-host"></a>Configuración de un host
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-Cree un host con una instancia de [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder). Normalmente, esto se realiza en el punto de entrada de la aplicación, el método `Main`. En las plantillas de proyecto, `Main` se encuentra en *Program.cs*. Los archivos *Program.cs* estándar llaman a [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) para empezar a configurar un host:
+Cree un host con una instancia de [IWebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder). Normalmente, esto se realiza en el punto de entrada de la aplicación, el método `Main`. En las plantillas de proyecto, `Main` se encuentra en *Program.cs*. Los archivos *Program.cs* estándar llaman a [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) para empezar a configurar un host:
 
 ```csharp
 public class Program
@@ -44,12 +45,12 @@ public class Program
 
 `CreateDefaultBuilder` realiza las tareas siguientes:
 
-* Configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web. Para conocer las opciones predeterminadas de Kestrel, consulte [la sección Opciones de Kestrel de la implementación de servidor web Kestrel en ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
+* Configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y configura el servidor por medio de los proveedores de configuración de hospedaje de la aplicación. Para conocer las opciones predeterminadas de Kestrel, consulte [la sección Opciones de Kestrel de la implementación de servidor web Kestrel en ASP.NET Core](xref:fundamentals/servers/kestrel#kestrel-options).
 * Establece la raíz de contenido en la ruta de acceso devuelta por [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory).
-* Carga configuración opcional de:
+* Carga la [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) opcional de los siguientes elementos:
   * *appsettings.json*.
   * *appsettings.{Environment}.json*.
-  * [Secretos del usuario](xref:security/app-secrets) cuando la aplicación se ejecuta en el entorno `Development`.
+  * [Secretos del usuario](xref:security/app-secrets) cuando la aplicación se ejecuta en el entorno `Development` por medio del ensamblado de entrada.
   * Variables de entorno.
   * Argumentos de la línea de comandos.
 * Configura el [registro](xref:fundamentals/logging/index) para la salida de consola y de depuración. El registro incluye reglas de [filtrado del registro](xref:fundamentals/logging/index#log-filtering) especificadas en una sección de configuración de registro de un archivo *appSettings.json* o *appsettings.{Environment}.json*.

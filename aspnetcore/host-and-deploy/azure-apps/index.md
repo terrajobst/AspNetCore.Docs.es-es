@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9e438cef9db61e725b5385da53e8aa2b407218c3
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 4cf81a3e269500a5108f280348fbddd172df10a0
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34687508"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
@@ -103,25 +104,29 @@ Si tiene algún problema al usar la extensión de sitio de versión preliminar, 
 
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
 
-* En Azure Portal, vaya a la hoja de App Service.
-* Escriba "ex" en el cuadro de búsqueda.
-* Seleccione **Extensiones**.
-* Seleccione "Agregar".
+1. En Azure Portal, vaya a la hoja de App Service.
+1. Seleccione la aplicación web.
+1. Escriba "ex" en el cuadro de búsqueda o desplácese hacia abajo en la lista de paneles de administración hasta **HERRAMIENTAS DE DESARROLLO**.
+1. Seleccione **HERRAMIENTAS DE DESARROLLO** > **Extensiones**.
+1. Seleccione **Agregar**.
 
-![Hoja de Azure App con los pasos anteriores](index/_static/x1.png)
+   ![Hoja de Azure App con los pasos anteriores](index/_static/x1.png)
 
-* Seleccione **ASP.NET Core 2.1 (x86) Runtime** o **ASP.NET Core 2.1 (x64) Runtime**.
-* Seleccione **Aceptar**. Vuelva a seleccionar **Aceptar**.
+1. Seleccione **ASP.NET Core Extensions** (Extensiones de ASP.NET Core).
+1. Seleccione **Aceptar** para aceptar los términos legales.
+1. Seleccione **Aceptar** para instalar la extensión.
 
-Cuando se complete la operación de adición, se instalará la versión preliminar de .NET Core 2.1. Para comprobar la instalación, ejecute `dotnet --info` en la consola. En la hoja de **App Service**:
+Cuando se complete la operación de adición, se instalará la versión preliminar de .NET Core. Para comprobar la instalación, ejecute `dotnet --info` en la consola. En la hoja de **App Service**:
 
-* Escriba "con" en el cuadro de búsqueda.
-* Seleccione **Consola**.
-* Escriba `dotnet --info` en la consola.
+1. Escriba "con" en el cuadro de búsqueda o desplácese hacia abajo en la lista de paneles de administración hasta **HERRAMIENTAS DE DESARROLLO**.
+1. Seleccione **HERRAMIENTAS DE DESARROLLO** > **Consola**.
+1. Escriba `dotnet --info` en la consola.
+
+Si la versión `2.1.300-preview1-008174` es la versión preliminar más reciente, se obtendrá el siguiente resultado al ejecutar `dotnet --info` en el símbolo del sistema:
 
 ![Hoja de Azure App con los pasos anteriores](index/_static/cons.png)
 
-La imagen anterior se capturó en el momento en que se escribía esto. Podría ver una versión diferente.
+La versión de ASP.NET Core reflejada en la imagen anterior (`2.1.300-preview1-008174`) es un ejemplo. La versión preliminar más reciente de ASP.NET Core en el momento en que se configura la extensión del sitio aparece cuando se ejecuta `dotnet --info`.
 
 `dotnet --info` muestra la ruta de acceso a la extensión de sitio en la que se ha instalado la versión preliminar. Muestra que la aplicación se está ejecutando desde la extensión de sitio, en lugar de desde la ubicación predeterminada *ProgramFiles*. Si ve *ProgramFiles*, reinicie el sitio y ejecute `dotnet --info`.
 
@@ -142,7 +147,7 @@ Las aplicaciones independientes son una opción válida para todas las aplicacio
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
 
-[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar 2.1 más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
+[Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

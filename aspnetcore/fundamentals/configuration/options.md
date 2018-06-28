@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 800ff2039e7cc1fa37315ed55a77711dc9f47504
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 11f3e0b0cc1356db4c5fb9a2ce948099ed9f85b5
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252391"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -25,11 +26,11 @@ El patrón de opciones usa clases para representar grupos de configuraciones rel
 * El [principio de segregación de interfaz (ISP)](http://deviq.com/interface-segregation-principle/): las características (clases) que dependen de valores de configuración dependerán únicamente de los valores de configuración que usen.
 * [Separación de intereses](http://deviq.com/separation-of-concerns/): los valores de configuración para distintos elementos de la aplicación no son dependientes entre sí ni están emparejados.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample)). Este artículo es más fácil de seguir con la aplicación de ejemplo.
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample)). Este artículo es más fácil de seguir con la aplicación de ejemplo.
 
 ## <a name="basic-options-configuration"></a>Configuración de opciones básicas
 
-La configuración de opciones básicas se muestra en el ejemplo &num;1 en la [aplicación de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+La configuración de opciones básicas se muestra en el ejemplo &num;1 en la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Una clase de opciones debe ser no abstracta con un constructor público sin parámetros. La siguiente clase, `MyOptions`, tiene dos propiedades: `Option1` y `Option2`. Configurar los valores predeterminados es opcional, pero el constructor de clases en el ejemplo siguiente establece el valor predeterminado de `Option1`. `Option2` tiene un valor predeterminado que se establece al inicializar la propiedad directamente (*Models/MyOptions.cs*):
 
@@ -49,7 +50,7 @@ El siguiente modelo de página usa la [inserción de dependencias de constructor
 
 El archivo *appSettings.json* del ejemplo especifica valores para `option1` y `option2`:
 
-[!code-json[](options/sample/appsettings.json)]
+[!code-json[](options/sample/appsettings.json?highlight=2-3)]
 
 Cuando se ejecuta la aplicación, el método `OnGet` del modelo de página devuelve una cadena que muestra los valores de la clase de opción:
 
@@ -59,7 +60,7 @@ option1 = value1_from_json, option2 = -1
 
 ## <a name="configure-simple-options-with-a-delegate"></a>Configurar opciones simples con un delegado
 
-La configuración de opciones simples con un delegado se muestra como ejemplo &num;2 en la [aplicación de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+La configuración de opciones simples con un delegado se muestra como ejemplo &num;2 en la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Use un delegado para establecer los valores de opciones. La aplicación de ejemplo usa la clase `MyOptionsWithDelegateConfig` (*Models/MyOptionsWithDelegateConfig.cs*):
 
@@ -89,7 +90,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 ## <a name="suboptions-configuration"></a>Configuración de subopciones
 
-La configuración de subopciones se muestra en el ejemplo &num;3 en la [aplicación de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+La configuración de subopciones se muestra en el ejemplo &num;3 en la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Las aplicaciones deben crear clases de opciones que pertenezcan a grupos específicos de características (clases) en la aplicación. Los elementos de la aplicación que requieran valores de configuración deben acceder solamente a los valores de configuración que usen.
 
@@ -99,7 +100,7 @@ En el código siguiente, se agrega un tercer servicio `IConfigureOptions<TOption
 
 [!code-csharp[](options/sample/Startup.cs?name=snippet_Example3)]
 
-El método de extensión `GetSection` requiere el paquete NuGet [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/). Si la aplicación usa el metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All/), el paquete se incluye automáticamente.
+El método de extensión `GetSection` requiere el paquete NuGet [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/). Si la aplicación usa el metapaquete [Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) (ASP.NET Core 2.1 o posterior), el paquete se incluye automáticamente.
 
 El archivo *appSettings.json* del ejemplo define un miembro `subsection` con las claves para `suboption1` y `suboption2`:
 
@@ -125,7 +126,7 @@ subOption1 = subvalue1_from_json, subOption2 = 200
 
 ## <a name="options-provided-by-a-view-model-or-with-direct-view-injection"></a>Opciones proporcionadas por un modelo de vista o con inserción de vista directa
 
-Las opciones proporcionadas por un modelo de vista o de inserción de vista directa se muestran en el ejemplo &num;4 en la [aplicación de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+Las opciones proporcionadas por un modelo de vista o de inserción de vista directa se muestran en el ejemplo &num;4 en la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 Las opciones se pueden suministrar en un modelo de vista o insertando `IOptions<TOptions>` directamente en una vista (*Pages/Index.cshtml.cs*):
 
@@ -145,7 +146,7 @@ Cuando se ejecuta la aplicación, se muestran los valores de opciones en la pág
 
 ## <a name="reload-configuration-data-with-ioptionssnapshot"></a>Volver a cargar los datos de configuración con IOptionsSnapshot
 
-El procedimiento de volver a cargar los datos de configuración con `IOptionsSnapshot` se muestra en el ejemplo &num;5 en la [aplicación de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+El procedimiento de volver a cargar los datos de configuración con `IOptionsSnapshot` se muestra en el ejemplo &num;5 en la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 *Requiere ASP.NET Core 1.1 o versiones posteriores.*
 
@@ -173,7 +174,7 @@ snapshot option1 = value1_from_json UPDATED, snapshot option2 = 200
 
 ## <a name="named-options-support-with-iconfigurenamedoptions"></a>Compatibilidad de opciones con nombre con IConfigureNamedOptions
 
-La compatibilidad de opciones con nombre con [IConfigureNamedOptions](/dotnet/api/microsoft.extensions.options.iconfigurenamedoptions-1) se muestra en el ejemplo &num;6 de la [aplicación de ejemplo](https://github.com/aspnet/docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
+La compatibilidad de opciones con nombre con [IConfigureNamedOptions](/dotnet/api/microsoft.extensions.options.iconfigurenamedoptions-1) se muestra en el ejemplo &num;6 de la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
 *Requiere ASP.NET Core 2.0 o versiones posteriores.*
 

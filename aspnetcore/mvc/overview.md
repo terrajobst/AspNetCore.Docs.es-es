@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/overview
-ms.openlocfilehash: 1cf48499d3bc0ba63e2f0667740668fad0b13c28
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
-ms.translationtype: MT
+ms.openlocfilehash: 0ebf53e0d14ffb5d9ab969e3d6e038a292f913c1
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566911"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -185,13 +186,13 @@ Las [áreas](controllers/areas.md) ofrecen una manera de dividir una aplicación
 
 Además de ser una plataforma excelente para crear sitios web, ASP.NET Core MVC es muy compatible con la creación de las API web. Puede crear servicios que lleguen con facilidad a una amplia gama de clientes, incluidos exploradores y dispositivos móviles.
 
-El marco de trabajo incluye compatibilidad para la negociación de contenido HTTP con la compatibilidad integrada para [dar formato a datos](xref:web-api/advanced/formatting) como JSON o XML. Escriba [formateadores personalizados](xref:web-api/advanced/custom-formatters) para agregar compatibilidad con sus propios formatos.
+El marco incluye compatibilidad con la negociación de contenido HTTP y compatibilidad integrada para [aplicar formato a datos](xref:web-api/advanced/formatting) como JSON o XML. Escriba [formateadores personalizados](xref:web-api/advanced/custom-formatters) para agregar compatibilidad con sus propios formatos.
 
 Use la generación de vínculos para habilitar la compatibilidad con hipermedios. Habilite fácilmente la compatibilidad con el [uso compartido de recursos entre orígenes (CORS)](http://www.w3.org/TR/cors/) para que las API web se pueden compartir entre varias aplicaciones web.
 
 ### <a name="testability"></a>Capacidad de prueba
 
-Uso del marco de trabajo de inserción de dependencias e interfaces hacer adecuadas a las pruebas unitarias y el marco de trabajo incluye características (por ejemplo, un proveedor TestHost y InMemory para Entity Framework) que hacen [pruebas de integración](../testing/integration-testing.md) rápido y fácil así. Obtenga más información sobre [cómo probar la lógica del controlador](controllers/testing.md).
+Al usar interfaces e inserción de dependencias, el marco es adecuado para realizar pruebas unitarias. También incluye características (por ejemplo, un proveedor TestHost e InMemory para Entity Framework) con las que resulta muy fácil y rápido realizar [pruebas de integración](xref:test/integration-tests). Obtenga más información sobre [cómo probar la lógica del controlador](controllers/testing.md).
 
 ### <a name="razor-view-engine"></a>Motor de vistas de Razor
 

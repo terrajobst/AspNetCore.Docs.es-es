@@ -9,11 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: cc34b9069ec062f08644c0026c1ccdcd00f667ac
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: d33f0253fc7c1329e8bab400ace4c4ce8d10d792
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613065"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserción de dependencias en vistas de ASP.NET Core
 
@@ -67,8 +68,8 @@ Estas listas se rellenan mediante un servicio que se ha insertado en la vista:
 
 [!code-csharp[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Model/Services/ProfileOptionsService.cs?highlight=7,13,24)]
 
->[!TIP]
-> No olvide registrar los tipos que solicitará a través de la inserción de dependencias en el método `ConfigureServices` en *Startup.cs*.
+> [!IMPORTANT]
+> No olvide registrar los tipos que solicite a través de la inserción de dependencias en `Startup.ConfigureServices`. Un tipo no registrado produce una excepción en tiempo de ejecución porque el proveedor de servicios se consulta internamente a través de [GetRequiredService](/dotnet/api/microsoft.extensions.dependencyinjection.serviceproviderserviceextensions.getrequiredservice).
 
 ## <a name="overriding-services"></a>Reemplazar servicios
 

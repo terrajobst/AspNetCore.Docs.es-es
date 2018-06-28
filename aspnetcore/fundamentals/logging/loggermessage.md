@@ -9,17 +9,18 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: 24a75cfacfa61ca66e78deeb743baa75718dfb76
-ms.sourcegitcommit: 7ac15eaae20b6d70e65f3650af050a7880115cbf
+ms.openlocfilehash: 5b5bd03b6cb5da693f046653a09ba400ee6ff585
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729199"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Registro de alto rendimiento con LoggerMessage en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-Las características de [LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) crean delegados almacenables en caché que requieren menos asignaciones de objetos y una menor sobrecarga computacional que los [métodos de extensión del registrador](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), como `LogInformation`, `LogDebug` y `LogError`. Para escenarios de registro de alto rendimiento, use el patrón `LoggerMessage`.
+Las características de [LoggerMessage](/dotnet/api/microsoft.extensions.logging.loggermessage) crean delegados almacenables en caché que requieren menos asignaciones de objetos y una menor sobrecarga computacional en comparación con los [métodos de extensión del registrador](/dotnet/api/Microsoft.Extensions.Logging.LoggerExtensions), como `LogInformation`, `LogDebug` y `LogError`. Para escenarios de registro de alto rendimiento, use el patrón `LoggerMessage`.
 
 `LoggerMessage` proporciona las siguientes ventajas de rendimiento frente a los métodos de extensión del registrador:
 
@@ -143,13 +144,9 @@ Defina un [ámbito de registro](xref:fundamentals/logging/index#log-scopes) para
 
 La aplicación de ejemplo tiene un botón **Borrar todo** para eliminar todas las citas de la base de datos. Para eliminar las citas, se van quitando de una en una. Cada vez que se elimina una cita, se llama al método `QuoteDeleted` en el registrador. Se agrega un ámbito de registro a estos mensajes de registro.
 
-Habilite `IncludeScopes` en las opciones del registrador de la consola:
+Habilite `IncludeScopes` en la sección del registrador de la consola de *appsettings.json*:
 
-[!code-csharp[](loggermessage/sample/Program.cs?name=snippet1&highlight=10)]
-
-Es necesario establecer `IncludeScopes` en las aplicaciones de ASP.NET Core 2.0 para habilitar los ámbitos de registro. Está previsto incluir en la versión ASP.NET Core 2.1 la opción de establecer `IncludeScopes` a través de archivos de configuración *appsettings*.
-
-La aplicación de ejemplo borra los demás proveedores y agrega filtros para reducir la salida del registro. Así resulta más fácil ver los mensajes de registro del ejemplo que muestran las características de `LoggerMessage`.
+[!code-csharp[](loggermessage/sample/appsettings.json?highlight=3-5)]
 
 Para crear un ámbito de registro, agregue un campo para que contenga un delegado `Func` para el ámbito. La aplicación de ejemplo crea un campo denominado `_allQuotesDeletedScope` (*Internal/LoggerExtensions.cs*):
 
@@ -181,6 +178,6 @@ info: LoggerMessageSample.Pages.IndexModel[4]
       Quote deleted (Quote = 'Quote 3' Id = 4)
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="additional-resources"></a>Recursos adicionales
 
 * [Registro](xref:fundamentals/logging/index)

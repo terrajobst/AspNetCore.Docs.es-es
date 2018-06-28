@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/servers/httpsys
-ms.openlocfilehash: 89d9a51334bdd50b72213d32fa194808ac6a93b9
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: dff798b19ad6d10a8ce93001ed4cebe732c54320
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729320"
 ---
 # <a name="httpsys-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web HTTP.sys en ASP.NET Core
 
@@ -63,7 +64,7 @@ HTTP.sys es una tecnología consolidada que protege contra muchos tipos de ataqu
 
 ### <a name="configure-the-aspnet-core-app-to-use-httpsys"></a>Configuración de la aplicación de ASP.NET Core para usar HTTP.sys
 
-1. No se requiere una referencia de paquete en el archivo de proyecto cuando se usa el [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.All/)) (ASP.NET Core 2.0 o posterior). Si no usa el metapaquete `Microsoft.AspNetCore.All`, agregue una referencia de paquete a [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
+1. No se requiere una referencia de paquete en el archivo de proyecto cuando se usa el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) ([nuget.org](https://www.nuget.org/packages/Microsoft.AspNetCore.App/)) (ASP.NET Core 2.1 o posterior). Si no usa el metapaquete `Microsoft.AspNetCore.App`, agregue una referencia de paquete a [Microsoft.AspNetCore.Server.HttpSys](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.HttpSys/).
 
 2. Llame al método de extensión [UseHttpSys](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderhttpsysextensions.usehttpsys) extensión al compilar el host de web y especifique las [opciones de HTTP.sys](/dotnet/api/microsoft.aspnetcore.server.httpsys.httpsysoptions) necesarias:
 
@@ -167,7 +168,6 @@ HTTP.sys es una tecnología consolidada que protege contra muchos tipos de ataqu
    2. Si es necesario, cree certificados X.509 autofirmados.
 
       [!INCLUDE [How to make an X.509 cert](../../includes/make-x509-cert.md)]
-
 
 4. Abra puertos del firewall para permitir que el tráfico llegue a HTTP.sys. Use *netsh.exe* o [cmdlets de PowerShell](https://technet.microsoft.com/library/jj554906).
 

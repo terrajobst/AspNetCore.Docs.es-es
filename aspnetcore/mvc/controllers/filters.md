@@ -9,12 +9,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: 49e51a867e47ce375a5048cae5979360c4103365
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555409"
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252157"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -78,7 +78,7 @@ Se pueden implementar interfaces que abarquen varias fases de filtro en una sola
 
 ### <a name="ifilterfactory"></a>IFilterFactory
 
-`IFilterFactory` implementa `IFilter`. Por tanto, una instancia de `IFilterFactory` se puede usar como una instancia de `IFilter` en cualquier parte de la canalización de filtro. Cuando el marco se prepara para invocar el filtro, intenta convertirlo a un `IFilterFactory`. Si esa conversión se realiza correctamente, se llama al método `CreateInstance` para crear la instancia `IFilter` que se va a invocar. Esto proporciona un diseño flexible, dado que no hay que establecer la canalización de filtro exacta de forma explícita cuando la aplicación se inicia.
+[IFilterFactory](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory) implementa [IFilterMetadata](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifiltermetadata). Por tanto, una instancia de `IFilterFactory` se puede usar como una instancia de `IFilterMetadata` en cualquier parte de la canalización de filtro. Cuando el marco se prepara para invocar el filtro, intenta convertirlo a un `IFilterFactory`. Si esa conversión se realiza correctamente, se llama al método [CreateInstance](/dotnet/api/microsoft.aspnetcore.mvc.filters.ifilterfactory.createinstance) para crear la instancia de `IFilterMetadata` que se va a invocar. Esto proporciona un diseño flexible, dado que no hay que establecer la canalización de filtro exacta de forma explícita cuando la aplicación se inicia.
 
 Puede implementar `IFilterFactory` en sus propias implementaciones de atributo como método alternativo para crear filtros:
 
@@ -221,7 +221,7 @@ System.InvalidOperationException: No service for type
 'FiltersSample.Filters.AddHeaderFilterWithDI' has been registered.
 ```
 
-`ServiceFilterAttribute` implementa `IFilterFactory`. `IFilterFactory` expone el método `CreateInstance` para crear una instancia de `IFilter`. El método `CreateInstance` carga el tipo especificado desde el contenedor de servicios (inserción de dependencias).
+`ServiceFilterAttribute` implementa `IFilterFactory`. `IFilterFactory` expone el método `CreateInstance` para crear una instancia de `IFilterMetadata`. El método `CreateInstance` carga el tipo especificado desde el contenedor de servicios (inserción de dependencias).
 
 ### <a name="typefilterattribute"></a>TypeFilterAttribute
 

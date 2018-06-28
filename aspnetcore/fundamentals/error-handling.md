@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 3ff3a17d14d9ed7c438399191ffe3cf93d555d49
-ms.sourcegitcommit: a66f38071e13685bbe59d48d22aa141ac702b432
+ms.openlocfilehash: 86041cf58dd88bea153eefed63a1985b6ddcacd8
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566716"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -49,17 +50,21 @@ Esta solicitud no tenía cookies, pero en caso de que las tuviera, aparecerían 
 
 ## <a name="configuring-a-custom-exception-handling-page"></a>Configuración de una página personalizada de control de excepciones
 
-Se recomienda configurar una página de controlador de excepciones para usarla cuando la aplicación no se ejecute en el entorno `Development`.
+Configure una página de controlador de excepciones para usarla cuando la aplicación no se ejecute en el entorno `Development`.
 
 [!code-csharp[](error-handling/sample/Startup.cs?name=snippet_DevExceptionPage&highlight=11)]
 
-En una aplicación MVC, no decore explícitamente el método de acción del controlador de errores con atributos de método HTTP, como `HttpGet`. El uso de verbos explícitos podría impedir que algunas solicitudes llegasen al método.
+En una aplicación de Razor Pages, la plantilla de Razor Pages [dotnet new](/dotnet/core/tools/dotnet-new) facilita una página de error y una clase de modelo de página `ErrorModel` en la carpeta *Pages*.
+
+En una aplicación MVC, no decore el método de acción del controlador de errores con atributos de método HTTP, como `HttpGet`. Los verbos explícitos impiden que algunas solicitudes lleguen al método. Permita el acceso anónimo al método para que los usuarios no autenticados puedan recibir y ver el error.
+
+Por ejemplo, la plantilla de MVC [dotnet new](/dotnet/core/tools/dotnet-new) proporciona el siguiente método de controlador de errores y aparece en el controlador Home:
 
 ```csharp
-[Route("/Error")]
-public IActionResult Index()
+[AllowAnonymous]
+public IActionResult Error()
 {
-    // Handle error here
+    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 }
 ```
 
@@ -106,6 +111,53 @@ if (statusCodePagesFeature != null)
 }
 ```
 
+Si se usa una sobrecarga `UseStatusCodePages*` que apunta a un punto de conexión dentro de la aplicación, cree una vista de MVC o una página de Razor Pages para ese punto de conexión. Por ejemplo, la plantilla [dotnet new](/dotnet/core/tools/dotnet-new) de una aplicación de Razor Pages genera la página y la clase de modelo de página siguientes:
+
+*Error.cshtml*:
+
+```cshtml
+@page
+@model ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Development Mode</h3>
+<p>
+    Swapping to <strong>Development</strong> environment will display more detailed information about the error that occurred.
+</p>
+<p>
+    <strong>Development environment should not be enabled in deployed applications</strong>, as it can result in sensitive information from exceptions being displayed to end users. For local debugging, development environment can be enabled by setting the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to <strong>Development</strong>, and restarting the application.
+</p>
+```
+
+*Error.cshtml.cs*:
+
+```csharp
+public class ErrorModel : PageModel
+{
+    public string RequestId { get; set; }
+
+    public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public void OnGet()
+    {
+        RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+    }
+}
+```
+
 ## <a name="exception-handling-code"></a>Código de control de excepciones
 
 El código de las páginas de control de excepciones puede producir excepciones. Es recomendable que las páginas de errores de producción incluyan únicamente contenido estático.
@@ -132,7 +184,7 @@ Las aplicaciones [MVC](xref:mvc/overview) tienen algunas opciones adicionales pa
 
 Los filtros de excepciones se pueden configurar globalmente, o bien por controlador o por acción, en una aplicación MVC. Estos filtros controlan todas las excepciones no controladas que se hayan producido durante la ejecución de una acción de controlador o de otro filtro; en caso contrario, no se les llama. Encontrará más información sobre los filtros de excepciones en [Filtros](xref:mvc/controllers/filters).
 
->[!TIP]
+> [!TIP]
 > Los filtros de excepciones están indicados para capturar las excepciones que se producen en las acciones de MVC, pero no son tan flexibles como el software intermedio de control de errores. Use de preferencia el software intermedio para los casos generales y aplique filtros solo cuando deba realizar el control de errores *de manera diferente* según la acción de MVC elegida.
 
 ### <a name="handling-model-state-errors"></a>Control de errores de estado del modelo
@@ -140,6 +192,3 @@ Los filtros de excepciones se pueden configurar globalmente, o bien por controla
 La [validación de modelos](xref:mvc/models/validation) se produce antes de invocar cada acción de controlador, y es el método de acción el encargado de inspeccionar `ModelState.IsValid` y reaccionar de manera apropiada.
 
 Algunas aplicaciones optarán por seguir una convención estándar para tratar los errores de validación de modelos, en cuyo caso un [filtro](xref:mvc/controllers/filters) podría ser el lugar adecuado para implementar esta directiva. Debe probar cómo se comportan las acciones con estados de modelo no válidos. Obtenga más información en [Probar la lógica del controlador](xref:mvc/controllers/testing).
-
-
-

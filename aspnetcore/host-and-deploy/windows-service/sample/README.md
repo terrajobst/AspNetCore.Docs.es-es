@@ -1,27 +1,29 @@
 # <a name="custom-webhost-service-sample"></a>Ejemplo de servicio personalizado de WebHost
 
-Este ejemplo muestra la manera recomendada para hospedar una aplicación de ASP.NET Core en Windows sin utilizar IIS como un servicio de Windows. Este ejemplo muestra las características descritas en [hospedar una aplicación de ASP.NET Core en un servicio de Windows](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
+En este ejemplo se muestra cómo hospedar una aplicación de ASP.NET Core como un servicio de Windows sin usar IIS. Se centra en el escenario descrito en [Hospedaje de ASP.NET Core en un servicio de Windows](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
 
 ## <a name="instructions"></a>Instrucciones
 
-La aplicación de ejemplo es una aplicación web MVC simple modificada según las instrucciones de [hospedar una aplicación de ASP.NET Core en un servicio de Windows](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
+La aplicación de ejemplo es una aplicación web de Razor Pages modificada según las instrucciones de [Hospedaje de ASP.NET Core en un servicio de Windows](https://docs.microsoft.com/aspnet/core/host-and-deploy/windows-service).
 
 Para ejecutar la aplicación en un servicio, realice los pasos siguientes:
 
-1. Crear una carpeta en *c:\svc*.
+1. Cree una carpeta en *c:\svc*.
 
-1. Publique la aplicación en la carpeta con `dotnet publish --configuration Release --output c:\\svc`. El comando moverá activos de la aplicación a la carpeta, incluidos los necesarios `appsettings.json` archivo y `wwwroot` carpeta con su contenido.
+1. Publique la aplicación en la carpeta con `dotnet publish --configuration Release --output c:\\svc`. El comando mueve los recursos de la aplicación a la carpeta *svc*, incluido el archivo `appsettings.json` necesario y la carpeta `wwwroot`.
 
-1. Abra un **administrador** shell de comandos.
+1. Abra un símbolo del sistema de **administrador**.
 
 1. Ejecute los siguientes comandos:
 
    ```console
-   sc create MyService binPath="c:\svc\aspnetcoreservice.exe"
+   sc create MyService binPath= "c:\svc\aspnetcoreservice.exe"
    sc start MyService
    ```
 
-1. En un explorador, vaya a `http://localhost:5000` para comprobar que el servicio se está ejecutando.
+  *El espacio entre el signo igual y el inicio de la cadena de ruta de acceso es obligatorio.*
+
+1. En un explorador, vaya a `http://localhost:5000` y compruebe que el servicio se esté ejecutando. La aplicación redirige al punto de conexión seguro `https://localhost:5001`.
 
 1. Para detener el servicio, use el comando:
 
@@ -29,7 +31,7 @@ Para ejecutar la aplicación en un servicio, realice los pasos siguientes:
    sc stop MyService
    ```
 
-Si la aplicación no se inicia como se esperaba cuando se ejecuta en un servicio, es una forma rápida de hacer accesibles los mensajes de error agregar un proveedor de registro, como el [proveedor de registro de eventos de Windows](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog). Otra opción consiste en comprobar el registro de eventos de aplicación con el Visor de eventos en el sistema. Por ejemplo, aquí es una excepción no controlada para un error de FileNotFound en el registro de eventos de aplicación:
+Si la aplicación no se inicia del modo previsto, una forma rápida de poder acceder a los mensajes de error consiste en agregar un proveedor de registro, como el [proveedor de registros de eventos de Windows](https://docs.microsoft.com/aspnet/core/fundamentals/logging/index#eventlog). Otra opción consiste en comprobar el registro de eventos de la aplicación con el Visor de eventos en el sistema. Por ejemplo, esta es una excepción no controlada de un error de FileNotFound en el registro de eventos de la aplicación:
 
 ```console
 Application: AspNetCoreService.exe

@@ -10,11 +10,12 @@ ms.prod: aspnet-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: tutorials/razor-pages/sql
-ms.openlocfilehash: d1a345fe8c61f6e07ebbe53de6d53e18d6f4c851
-ms.sourcegitcommit: c79fd3592f444d58e17518914f8873d0a11219c0
+ms.openlocfilehash: 92a5965e7a535ca729c0bec13911b6bf051a7b19
+ms.sourcegitcommit: 545ff5a632e2281035c1becec1f99137298e4f5c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34582874"
 ---
 # <a name="work-with-sql-server-localdb-and-aspnet-core"></a>Trabajar con SQL Server LocalDB y ASP.NET Core
 
@@ -22,9 +23,22 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twi
 
 El objeto `MovieContext` controla la tarea de conexión a la base de datos y de asignación de objetos `Movie` a los registros de la base de datos. El contexto de base de datos se registra con el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection) en el método `ConfigureServices` del archivo *Startup.cs*:
 
+::: moniker range="= aspnetcore-2.0"
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices&highlight=7-8)]
 
-El sistema [Configuración](xref:fundamentals/configuration/index) de ASP.NET Core lee el elemento `ConnectionString`. Para el desarrollo local, obtiene la cadena de conexión del archivo *appsettings.json*:
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+Para más información sobre los modelos empleados en `ConfigureServices`, vea:
+
+* [Compatibilidad con el Reglamento general de protección de datos (RGPD) en ASP.NET Core](xref:security/gdpr) para `CookiePolicyOptions`.
+* [SetCompatibilityVersion](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc)
+
+::: moniker-end
+
+El sistema [Configuración](xref:fundamentals/configuration/index) de ASP.NET Core lee el elemento `ConnectionString`. Para el desarrollo local, obtiene la cadena de conexión del archivo *appsettings.json*. El valor de nombre de la base de datos (`Database={Database name}`) será distinto en su código generado. El valor de nombre es arbitrario.
 
 [!code-json[](razor-pages-start/sample/RazorPagesMovie/appsettings.json?highlight=2&range=8-10)]
 
@@ -55,7 +69,17 @@ Observe el icono de llave junto a `ID`. De forma predeterminada, EF crea una pro
 
 Cree una nueva clase denominada `SeedData` en la carpeta *Models*. Reemplace el código generado con el siguiente:
 
+::: moniker range="= aspnetcore-2.0"
+
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedData.cs?name=snippet_1)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Models/SeedData.cs?name=snippet_1)]
+
+::: moniker-end
 
 Si hay alguna película en la base de datos, se devuelve el inicializador y no se agrega ninguna película.
 
@@ -68,11 +92,32 @@ if (context.Movie.Any())
 <a name="si"></a>
 ### <a name="add-the-seed-initializer"></a>Agregar el inicializador
 
-Agregue el inicializador al final del método `Main` del archivo *Program.cs*:
+En *Program.cs*, modifique el método `Main` para que haga lo siguiente:
+
+* Obtener una instancia del contexto de base de datos desde el contenedor de inserción de dependencias.
+* Llamar al método de inicialización, pasándolo al contexto.
+* Eliminar el contexto cuando el método de inicialización finalice.
+
+En el código siguiente se muestra el archivo *Program.cs* actualizado.
+
+::: moniker range="= aspnetcore-2.0"
 
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Program.cs)]
 
-Prueba de la aplicación
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Program.cs)]
+
+::: moniker-end
+
+Una aplicación de producción no llamaría a `Database.Migrate`. Se agrega al código anterior para evitar que se produzca la siguiente excepción cuando `Update-Database` no se ha ejecutado:
+
+SqlException: No se puede abrir la base de datos "RazorPagesMovieContext-21" solicitada por el inicio de sesión. Error de inicio de sesión.
+Error de inicio de sesión del usuario <nombre de usuario>.
+
+### <a name="test-the-app"></a>Prueba de la aplicación
 
 * Elimine todos los registros de la base de datos. Puede hacerlo con los vínculos de eliminación en el explorador o desde [SSOX](xref:tutorials/razor-pages/new-field#ssox).
 * Obligue a la aplicación a inicializarse (llame a los métodos de la clase `Startup`) para que se ejecute el método de inicialización. Para forzar la inicialización, se debe detener y reiniciar IIS Express. Puede hacerlo con cualquiera de los siguientes enfoques:

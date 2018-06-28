@@ -10,11 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: 0c66b700f9bb3e6349fe2e0c8a7e254b8e7903a5
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: c8d5a63948aed0630d677ad3c0a40fb07ddc62af
+ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/14/2018
+ms.locfileid: "35613130"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Aplicaciones auxiliares de etiquetas en ASP.NET Core
 
@@ -67,11 +68,11 @@ El ámbito de las aplicaciones auxiliares de etiquetas se controla mediante una 
 
 ### <a name="addtaghelper-makes-tag-helpers-available"></a>`@addTagHelper` hace que las aplicaciones auxiliares de etiquetas estén disponibles
 
-Si crea una aplicación web ASP.NET Core denominada *AuthoringTagHelpers* (sin autenticación), el siguiente archivo *Views/_ViewImports.cshtml* se agregará al proyecto:
+Si crea una aplicación web de ASP.NET Core denominada *AuthoringTagHelpers*, el siguiente archivo *Views/_ViewImports.cshtml* se agregará al proyecto:
 
 [!code-cshtml[](../../../mvc/views/tag-helpers/authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/_ViewImportsCopy.cshtml?highlight=2&range=2-3)]
 
-La directiva `@addTagHelper` hace que las aplicaciones auxiliares de etiquetas estén disponibles en la vista. En este caso, el archivo de vista es *Views/_ViewImports.cshtml*, el cual heredan de forma predeterminada todos los archivos de vista de la carpeta *Views* y los subdirectorios, lo que hace que las aplicaciones auxiliares de etiquetas estén disponibles. El código anterior usa la sintaxis de comodines ("\*") para especificar que todas las aplicaciones auxiliares de etiquetas del ensamblado especificado (*Microsoft.AspNetCore.Mvc.TagHelpers*) estarán disponibles para todos los archivos de vista del directorio o subdirectorio *Views*. El primer parámetro después de `@addTagHelper` especifica las aplicaciones auxiliares de etiquetas que se van a cargar (usamos "\*" para todas las aplicaciones auxiliares de etiquetas), y el segundo parámetro ("Microsoft.AspNetCore.Mvc.TagHelpers") especifica el ensamblado que contiene las aplicaciones auxiliares de etiquetas. *Microsoft.AspNetCore.Mvc.TagHelpers* es el ensamblado para las aplicaciones auxiliares de etiquetas integradas de ASP.NET Core.
+La directiva `@addTagHelper` hace que las aplicaciones auxiliares de etiquetas estén disponibles en la vista. En este caso, el archivo de vista es *Pages/_ViewImports.cshtml*, que heredan de forma predeterminada todos los archivos contenidos en la carpeta *Pages* y sus subcarpetas, lo que hace que las aplicaciones auxiliares de etiquetas estén disponibles. El código anterior usa la sintaxis de comodines ("\*") para especificar que todas las aplicaciones auxiliares de etiquetas del ensamblado especificado (*Microsoft.AspNetCore.Mvc.TagHelpers*) estarán disponibles para todos los archivos de vista del directorio o subdirectorio *Views*. El primer parámetro después de `@addTagHelper` especifica las aplicaciones auxiliares de etiquetas que se van a cargar (usamos "\*" para todas las aplicaciones auxiliares de etiquetas), y el segundo parámetro ("Microsoft.AspNetCore.Mvc.TagHelpers") especifica el ensamblado que contiene las aplicaciones auxiliares de etiquetas. *Microsoft.AspNetCore.Mvc.TagHelpers* es el ensamblado para las aplicaciones auxiliares de etiquetas integradas de ASP.NET Core.
 
 Para exponer todas las aplicaciones auxiliares de etiquetas de este proyecto (que crea un ensamblado denominado *AuthoringTagHelpers*), use lo siguiente:
 

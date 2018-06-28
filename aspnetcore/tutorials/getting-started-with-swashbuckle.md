@@ -5,27 +5,23 @@ description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto 
 manager: wpickett
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 05/31/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 0eb9aa12419cc09899af6bc85dd32a85687dab62
-ms.sourcegitcommit: 9bc34b8269d2a150b844c3b8646dcb30278a95ea
+ms.openlocfilehash: eaeb27903c462ef002edbb0b84cd5a751db2bb9d
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34729735"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
 Por [Shayne Boyer](https://twitter.com/spboyer) y [Scott Addie](https://twitter.com/Scott_Addie)
 
-::: moniker range="<= aspnetcore-2.0"
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
-::: moniker-end
-::: moniker range=">= aspnetcore-2.1"
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
-::: moniker-end
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/web-api-help-pages-using-swagger/samples/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 Hay tres componentes principales de Swashbuckle:
 
@@ -86,10 +82,15 @@ dotnet add TodoApi.csproj package Swashbuckle.AspNetCore
 Agregue el generador de Swagger a la colección de servicios en el método `Startup.ConfigureServices`:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=8-11)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup2.cs?name=snippet_ConfigureServices&highlight=9-12)]
+
 ::: moniker-end
 
 Importe el siguiente espacio de nombres para que use la clase `Info`:
@@ -109,7 +110,7 @@ La interfaz de usuario de Swagger se encuentra en `http://localhost:<port>/swagg
 >
 > [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup3.cs?name=snippet_UseSwaggerUI&highlight=4)]
 
-## <a name="customize--extend"></a>Personalizar y ampliar
+## <a name="customize-and-extend"></a>Personalizar y ampliar
 
 Swagger proporciona opciones para documentar el modelo de objetos y personalizar la interfaz de usuario para que coincida con el tema.
 
@@ -157,11 +158,22 @@ Para eliminar las advertencias, defina una lista delimitada por punto y coma de 
 
 Configure Swagger para usar el archivo XML generado. En Linux o sistemas operativos que no sean Windows, las rutas de acceso y los nombres de archivo pueden distinguir entre mayúsculas y minúsculas. Por ejemplo, un archivo *TodoApi.XML* es válido en Windows, pero no en CentOS.
 
-::: moniker range="<= aspnetcore-2.0"
-[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=30-32)]
+::: moniker range="<= aspnetcore-1.1"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup1x.cs?name=snippet_ConfigureServices&highlight=30-32)]
+
 ::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+[!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=30-32)]
+
+::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Startup.cs?name=snippet_ConfigureServices&highlight=31-33)]
+
 ::: moniker-end
 
 En el código anterior, [Reflection](/dotnet/csharp/programming-guide/concepts/reflection) se usa para crear un nombre de archivo XML que coincida con el proyecto de Web API. Con este método se garantiza que el nombre de archivo XML generado va a ser el mismo que el nombre del proyecto. La propiedad [AppContext.BaseDirectory](/dotnet/api/system.appcontext.basedirectory#System_AppContext_BaseDirectory) sirve para crear una ruta de acceso al archivo XML.
@@ -206,10 +218,15 @@ La interfaz de usuario se controla por medio del esquema JSON generado:
 Agregue un elemento [\<remarks>](/dotnet/csharp/programming-guide/xmldoc/remarks) a la documentación del método de acción `Create`. Este elemento complementa la información especificada en el elemento `<summary>` y proporciona una interfaz de usuario de Swagger más sólida. El contenido del elemento `<remarks>` puede estar formado por texto, JSON o XML.
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=4-14)]
+
 ::: moniker-end
 
 Fíjese en las mejoras de la interfaz de usuario con estos comentarios extra:
@@ -253,10 +270,15 @@ La presencia de este atributo cambia el comportamiento de la interfaz de usuario
 Agregue el atributo `[Produces("application/json")]` al controlador de API. Su propósito consiste en declarar que las acciones del controlador admiten un contenido de respuesta de tipo *application/json*:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_TodoController&highlight=1)]
+
 ::: moniker-end
 
 En el menú desplegable **Response Content Type** (Tipo de contenido de respuesta) se selecciona este tipo de contenido como el valor predeterminado para las acciones GET del controlador:
@@ -272,10 +294,15 @@ Lo que más preocupa a los desarrolladores es lo que se devuelve; sobre todo, lo
 La acción `Create` devuelve un código de estado HTTP 201 cuando se ha ejecutado correctamente. Cuando el cuerpo de solicitud enviado es null, se devuelve un código de estado HTTP 400. Sin la documentación correcta en la interfaz de usuario de Swagger, el consumidor no dispone de la información necesaria de estos resultados esperados. Corrija este problema agregando las líneas resaltadas en el siguiente ejemplo:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](../tutorials/web-api-help-pages-using-swagger/samples/2.1/TodoApi.Swashbuckle/Controllers/TodoController.cs?name=snippet_Create&highlight=17,18,20,21)]
+
 ::: moniker-end
 
 Ahora, la interfaz de usuario de Swagger documenta de forma clara los códigos de respuesta HTTP esperados:

@@ -10,12 +10,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: f18a5c518edc739e0fe667f3aef6ffd38c06366c
-ms.sourcegitcommit: 5130b3034165f5cf49d829fe7475a84aa33d2693
+ms.openlocfilehash: e18f049fd5d8caef5dfc488a020ec239d1a6d83d
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32740951"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34567080"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configuración de ASP.NET Core para trabajar con servidores proxy y equilibradores de carga
 
@@ -26,7 +26,7 @@ En la configuración recomendada de ASP.NET Core, la aplicación se hospeda medi
 * Cuando las solicitudes HTTPS se redirigen mediante proxy a través de HTTP, el esquema original (HTTPS) se pierde y se debe reenviar en un encabezado.
 * Como una aplicación recibe una solicitud del proxy y no desde su verdadero origen en Internet o la red corporativa, la dirección IP del cliente de origen también se debe reenviar en el encabezado.
 
-Esta información puede ser importante en el procesamiento de las solicitudes, por ejemplo, en los redireccionamientos, la autenticación, la generación de vínculos, la evaluación de directivas y la ubicación geográfica del cliente.
+Esta información puede ser importante en el procesamiento de las solicitudes, por ejemplo, en los redireccionamientos, la autenticación, la generación de vínculos, la evaluación de directivas y la geolocalización del cliente.
 
 ## <a name="forwarded-headers"></a>Encabezados reenviados
 
@@ -38,7 +38,7 @@ Por costumbre, los servidores proxy reenvían la información en encabezados HTT
 | X-Forwarded-Proto | El valor del esquema de origen (HTTP/HTTPS). El valor también puede ser una lista de esquemas si la solicitud ha pasado por varios servidores proxy. |
 | X-Forwarded-Host | El valor original del campo de encabezado de host. Por lo general, los servidores proxy no modifican el encabezado de host. Consulte [Microsoft Security Advisory CVE-2018-0787](https://github.com/aspnet/Announcements/issues/295) para información sobre una vulnerabilidad de elevación de privilegios que afecta a sistemas donde el proxy no valida ni restringe los encabezados de host a valores buenos conocidos. |
 
-El Middleware de encabezados reenviados, del paquete [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/), lee estos encabezados y rellena los campos asociados en [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext). 
+El Middleware de encabezados reenviados, del paquete [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/), lee estos encabezados y rellena los campos asociados en [HttpContext](/dotnet/api/microsoft.aspnetcore.http.httpcontext).
 
 El middleware realiza las siguientes actualizaciones:
 
@@ -67,7 +67,7 @@ Configure el middleware con [ForwardedHeadersOptions](/dotnet/api/microsoft.aspn
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddMvc();
-    
+
     services.Configure<ForwardedHeadersOptions>(options =>
     {
         options.ForwardedHeaders = 
@@ -97,6 +97,14 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 > [!NOTE]
 > Si no se especifica ningún valor [ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) en `Startup.ConfigureServices` o directamente para el método de extensión con [UseForwardedHeaders(IApplicationBuilder, ForwardedHeadersOptions)](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders?view=aspnetcore-2.0#Microsoft_AspNetCore_Builder_ForwardedHeadersExtensions_UseForwardedHeaders_Microsoft_AspNetCore_Builder_IApplicationBuilder_Microsoft_AspNetCore_Builder_ForwardedHeadersOptions_), los encabezados predeterminados que se reenvían son [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). La propiedad [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) se debe configurar con los encabezados que se reenvían.
+
+## <a name="nginx-configuration"></a>Configuración de Nginx
+
+Para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`, vea [Hospedaje en Linux con Nginx: Configurar Nginx](xref:host-and-deploy/linux-nginx#configure-nginx). Para más información, vea [NGINX: Using the Forwarded header](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/) (NGINX: Uso del encabezado Forwarded).
+
+## <a name="apache-configuration"></a>Configuración de Apache
+
+`X-Forwarded-For` se agrega automáticamente. Vea [Apache Module mod_proxy: Reverse Proxy Request Headers](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers) (Módulo de Apache mod_proxy: Encabezados de solicitud de proxy inverso). Para más información sobre cómo reenviar el encabezado `X-Forwarded-Proto`, vea [Hospedaje en Linux con Apache: Configurar Apache](xref:host-and-deploy/linux-apache#configure-apache).
 
 ## <a name="forwarded-headers-middleware-options"></a>Opciones del Middleware de encabezados reenviados
 

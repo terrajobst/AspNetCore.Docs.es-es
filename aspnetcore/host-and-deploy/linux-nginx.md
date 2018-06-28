@@ -1,30 +1,30 @@
 ---
 title: Hospedar ASP.NET Core en Linux con Nginx
 author: rick-anderson
-description: Se describe cómo configurar Nginx como un proxy inverso en Ubuntu 16.04 para reenviar el tráfico HTTP a una aplicación web de ASP.NET Core que se ejecuta en Kestrel.
+description: Sepa cómo configurar Nginx como un proxy inverso en Ubuntu 16.04 para reenviar el tráfico HTTP a una aplicación web de ASP.NET Core que se ejecuta en Kestrel.
 manager: wpickett
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 05/22/2018
 ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: d37aa25c712d715aa4134587a84e5923f9cb5b79
-ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
+ms.openlocfilehash: edef672ca809c560a3f9faa891586e5e255284b5
+ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34452560"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34566820"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hospedar ASP.NET Core en Linux con Nginx
 
 Por [Sourabh Shirhatti](https://twitter.com/sshirhatti)
 
-En esta guía se explica cómo configurar un entorno de ASP.NET Core listo para producción en un servidor de Ubuntu 16.04.
+En esta guía se explica cómo configurar un entorno de ASP.NET Core listo para producción en un servidor de Ubuntu 16.04. Probablemente estas instrucciones sean válidas también con versiones más recientes de Ubuntu, pero no se han probado con versiones más recientes.
 
 > [!NOTE]
-> En Ubuntu 14.04, *supervisord* is es la solución recomendada para supervisar el proceso de Kestrel. *systemd* no está disponible en Ubuntu 14.04. [Consulte la versión anterior de este documento](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
+> En Ubuntu 14.04, *supervisord* is es la solución recomendada para supervisar el proceso de Kestrel. *systemd* no está disponible en Ubuntu 14.04. Para obtener instrucciones de Ubuntu 14.04, vea la [versión anterior de este tema](https://github.com/aspnet/Docs/blob/e9c1419175c4dd7e152df3746ba1df5935aaafd5/aspnetcore/publishing/linuxproduction.md).
 
 En esta guía:
 
@@ -35,31 +35,55 @@ En esta guía:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Acceso a un servidor de Ubuntu 16.04 con una cuenta de usuario estándar con privilegios sudo
-1. Una aplicación ASP.NET Core existente
+1. Acceso a un servidor de Ubuntu 16.04 con una cuenta de usuario estándar con privilegios sudo.
+1. Tener .NET Core Runtime instalado en el servidor.
+   1. Vaya a la [página de descargas de .NET Core](https://www.microsoft.com/net/download/all).
+   1. Seleccione el tiempo de ejecución más reciente que no sea versión preliminar en la lista **Runtime**.
+   1. Selecciónelo y siga las instrucciones de Ubuntu correspondientes a la versión de Ubuntu del servidor.
+1. Disponer de una aplicación de ASP.NET Core existente.
 
-## <a name="copy-over-the-app"></a>Copia a través de la aplicación
+## <a name="publish-and-copy-over-the-app"></a>Publicar y copiar en la aplicación
 
-Ejecute [dotnet publish](/dotnet/core/tools/dotnet-publish) desde el entorno de desarrollo para empaquetar una aplicación en un directorio independiente que pueda ejecutarse en el servidor.
+Configure la aplicación para una [implementación dependiente de Framework](/dotnet/core/deploying/#framework-dependent-deployments-fdd).
 
-Copie la aplicación ASP.NET Core en el servidor mediante cualquiera de las herramientas que se integran en el flujo de trabajo de la organización (por ejemplo, SCP, FTP). Pruebe la aplicación, por ejemplo:
+Ejecute [dotnet publish](/dotnet/core/tools/dotnet-publish) desde el entorno de desarrollo para empaquetar una aplicación en un directorio (por ejemplo, *bin/Release/&lt;target_framework_moniker&gt;/publish*) que se pueda ejecutar en el servidor:
 
-* Ejecute `dotnet <app_assembly>.dll` desde la línea de comandos.
-* En un explorador, vaya a `http://<serveraddress>:<port>` para comprobar que la aplicación funciona en Linux. 
- 
+```console
+dotnet publish --configuration Release
+```
+
+La aplicación también se puede publicar como una [implementación independiente](/dotnet/core/deploying/#self-contained-deployments-scd) si prefiere no mantener .NET Core Runtime en el servidor.
+
+Copie la aplicación de ASP.NET Core en el servidor usando una herramienta que se integre en el flujo de trabajo de la organización (como SCP o SFTP). Lo habitual es encontrar las aplicaciones web en el directorio *var* (por ejemplo, *aspnetcore/var/hellomvc*).
+
+> [!NOTE]
+> En un escenario de implementación de producción, un flujo de trabajo de integración continua lleva a cabo la tarea de publicar la aplicación y copiar los recursos en el servidor.
+
+Pruebe la aplicación:
+
+1. Desde la línea de comandos, ejecute la aplicación: `dotnet <app_assembly>.dll`.
+1. En un explorador, vaya a `http://<serveraddress>:<port>` para comprobar que la aplicación funciona en Linux de forma local.
+
 ## <a name="configure-a-reverse-proxy-server"></a>Configurar un servidor proxy inverso
 
 Un proxy inverso es una configuración común para trabajar con aplicaciones web dinámicas. Un proxy inverso finaliza la solicitud HTTP y la reenvía a la aplicación ASP.NET Core.
 
-### <a name="why-use-a-reverse-proxy-server"></a>¿Por qué usar un servidor proxy inverso?
+::: moniker range=">= aspnetcore-2.0"
+
+> [!NOTE]
+> Cualquiera de las configuraciones&mdash;con o sin un servidor proxy inverso&mdash;es una configuración de hospedaje válida y admitida para ASP.NET 2.0 o aplicaciones posteriores. Para más información, vea [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Cuándo se debe usar Kestrel con un proxy inverso).
+
+::: moniker-end
+
+### <a name="use-a-reverse-proxy-server"></a>Usar un servidor proxy inverso
 
 Kestrel resulta muy adecuado para suministrar contenido dinámico de ASP.NET Core. Sin embargo, las funcionalidades de servicio web no son tan completas como las de los servidores, como IIS, Apache o Nginx. Un servidor proxy inverso puede descargar trabajo, por ejemplo, suministrar contenido estático, almacenar solicitudes en caché, comprimir solicitudes y finalizar SSL desde el servidor HTTP. Un servidor proxy inverso puede residir en un equipo dedicado o se puede implementar junto con un servidor HTTP.
 
 Para los fines de esta guía, se usa una única instancia de Nginx. Se ejecuta en el mismo servidor, junto con el servidor HTTP. En función de requisitos, se puede elegir una configuración diferente.
 
-Como el proxy inverso reenvía las solicitudes, use el Middleware de encabezados reenviados del paquete [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/). El middleware actualiza `Request.Scheme`, mediante el encabezado `X-Forwarded-Proto`, para que los URI de redireccionamiento y otras directivas de seguridad funcionen correctamente.
+Como el proxy inverso reenvía las solicitudes, use el [Middleware de encabezados reenviados](xref:host-and-deploy/proxy-load-balancer) del paquete [Microsoft.AspNetCore.HttpOverrides](https://www.nuget.org/packages/Microsoft.AspNetCore.HttpOverrides/). El middleware actualiza `Request.Scheme`, mediante el encabezado `X-Forwarded-Proto`, para que los URI de redireccionamiento y otras directivas de seguridad funcionen correctamente.
 
-Al usar cualquier tipo de middleware de autenticación, el Middleware de encabezados reenviados debe ejecutarse primero. Este orden garantiza que el middleware de autenticación puede consumir los valores de encabezado y generar los URI de redireccionamiento correctos.
+Cualquier componente que dependa del esquema (como la autenticación, la generación de vínculos, los redireccionamientos o la geolocalización) debe colocarse después de invocar al Middleware de encabezados reenviados. Como norma general, el Middleware de encabezados reenviados se debe ejecutar antes de cualquier otro middleware, salvo el middleware de diagnóstico y control de errores. Hacerlo en ese orden garantiza que el middleware que se basa en la información de encabezados reenviados pueda usar los valores de encabezado para procesarlos.
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
 
@@ -100,20 +124,28 @@ Podría ser necesario realizar una configuración adicional para las aplicacione
 
 ### <a name="install-nginx"></a>Instalar Nginx
 
+Use `apt-get` para instalar Nginx. El instalador crea un script de inicio *systemd* que ejecuta Nginx como demonio al iniciarse el sistema. 
+
 ```bash
-sudo apt-get install nginx
+sudo -s
+nginx=stable # use nginx=development for latest development version
+add-apt-repository ppa:nginx/$nginx
+apt-get update
+apt-get install nginx
 ```
 
-> [!NOTE]
-> Si se van a instalar módulos de Nginx opcionales, podría ser necesario compilar Nginx desde el origen.
+[nginx.org](https://nginx.org/) no distribuye el archivo de paquete personal de Ubuntu (PPA), sino que lo mantienen usuarios voluntarios. Para más información, vea [Nginx: Binary Releases: Official Debian/Ubuntu packages](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages) (Nginx: Versiones binarias: paquetes oficiales de Debian/Ubuntu).
 
-Use `apt-get` para instalar Nginx. El instalador crea un script de inicio de System V que ejecuta Nginx como demonio al iniciarse el sistema. Puesto que Nginx se ha instalado por primera vez, ejecute lo siguiente para iniciarlo de forma explícita:
+> [!NOTE]
+> Si se necesitan módulos de Nginx opcionales, puede que haya que compilar Nginx desde el origen.
+
+Puesto que Nginx se ha instalado por primera vez, ejecute lo siguiente para iniciarlo de forma explícita:
 
 ```bash
 sudo service nginx start
 ```
 
-Compruebe que un explorador muestra la página de aterrizaje predeterminada de Nginx.
+Compruebe que un explorador muestra la página de aterrizaje predeterminada de Nginx. La página de aterrizaje está accesible en `http://<server_IP_address>/index.nginx-debian.html`.
 
 ### <a name="configure-nginx"></a>Configurar Nginx
 
@@ -128,8 +160,10 @@ server {
         proxy_http_version 1.1;
         proxy_set_header   Upgrade $http_upgrade;
         proxy_set_header   Connection keep-alive;
-        proxy_set_header   Host $http_host;
+        proxy_set_header   Host $host;
         proxy_cache_bypass $http_upgrade;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto $scheme;
     }
 }
 ```
@@ -150,6 +184,21 @@ Con el archivo de configuración anterior y el servidor predeterminado, Nginx ac
 > Si no se especifica una [directiva de server_name](https://nginx.org/docs/http/server_names.html) adecuada, su aplicación se expone a vulnerabilidades de seguridad. Los enlaces de carácter comodín de subdominio (por ejemplo, `*.example.com`) no presentan este riesgo de seguridad si se controla todo el dominio primario (a diferencia de `*.com`, que sí es vulnerable). Vea la [sección 5.4 de RFC 7230](https://tools.ietf.org/html/rfc7230#section-5.4) para obtener más información.
 
 Una vez establecida la configuración de Nginx, ejecute `sudo nginx -t` para comprobar la sintaxis de los archivos de configuración. Si la prueba del archivo de configuración es correcta, fuerce a Nginx a recopilar los cambios mediante la ejecución de `sudo nginx -s reload`.
+
+Para ejecutar la aplicación directamente en el servidor:
+
+1. Vaya al directorio de la aplicación.
+1. Ejecute el archivo ejecutable de la aplicación: `./<app_executable>`.
+
+Si se produce un error de permisos, cambie los permisos:
+
+```console
+chmod u+x <app_executable>
+```
+
+Si la aplicación se ejecuta en el servidor, pero no responde a través de Internet, compruebe el firewall del servidor y confirme que el puerto 80 está abierto. Si está usando una máquina virtual Ubuntu de Azure, agregue una regla de grupo de seguridad de red que posibilite el tráfico entrante del puerto 80. No es necesario para habilitar una regla de tráfico saliente en el puerto 80, ya que dicho tráfico se concede automáticamente al habilitar la regla de entrada.
+
+Cuando termine de probar la aplicación, ciérrela con `Ctrl+C` en el símbolo del sistema.
 
 ## <a name="monitoring-the-app"></a>Supervisión de la aplicación
 
@@ -259,20 +308,6 @@ sudo ufw allow 443/tcp
 
 ### <a name="securing-nginx"></a>Proteger Nginx
 
-La distribución predeterminada de Nginx no habilita SSL. Para habilitar características de seguridad adicionales, compile desde el origen.
-
-#### <a name="download-the-source-and-install-the-build-dependencies"></a>Descargar el origen e instalar las dependencias de compilación
-
-```bash
-# Install the build dependencies
-sudo apt-get update
-sudo apt-get install build-essential zlib1g-dev libpcre3-dev libssl-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev
-
-# Download Nginx 1.10.0 or latest
-wget http://www.nginx.org/download/nginx-1.10.0.tar.gz
-tar zxf nginx-1.10.0.tar.gz
-```
-
 #### <a name="change-the-nginx-response-name"></a>Cambiar el nombre de la respuesta de Nginx
 
 Edite *src/http/ngx_http_header_filter_module.c*:
@@ -282,20 +317,9 @@ static char ngx_http_server_string[] = "Server: Web Server" CRLF;
 static char ngx_http_server_full_string[] = "Server: Web Server" CRLF;
 ```
 
-#### <a name="configure-the-options-and-build"></a>Configurar las opciones y la compilación
+#### <a name="configure-options"></a>Configurar opciones
 
-Se necesita la biblioteca PCRE para expresiones regulares. Las expresiones regulares se usan en la directiva de ubicación de ngx_http_rewrite_module. http_ssl_module agrega compatibilidad con el protocolo HTTPS.
-
-Considere el uso de un firewall de aplicación web como *ModSecurity* para proteger la aplicación.
-
-```bash
-./configure
---with-pcre=../pcre-8.38
---with-zlib=../zlib-1.2.8
---with-http_ssl_module
---with-stream
---with-mail=dynamic
-```
+Configure el servidor con más módulos que sean necesarios. Sopese la posibilidad de usar un firewall de aplicación web como [ModSecurity](https://www.modsecurity.org/) para proteger la aplicación.
 
 #### <a name="configure-ssl"></a>Configurar SSL
 
@@ -337,3 +361,9 @@ sudo nano /etc/nginx/nginx.conf
 ```
 
 Agregue la línea `add_header X-Content-Type-Options "nosniff";`, guarde el archivo y después reinicie Nginx.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Nginx: Binary Releases: Official Debian/Ubuntu packages](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#official-debian-ubuntu-packages) (Nginx: Versiones binarias: paquetes oficiales de Debian/Ubuntu)
+* [Configurar ASP.NET Core para trabajar con servidores proxy y equilibradores de carga](xref:host-and-deploy/proxy-load-balancer)
+* [NGINX: Using the Forwarded header](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/) (NGINX: Uso del encabezado Forwarded)

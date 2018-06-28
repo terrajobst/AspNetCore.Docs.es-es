@@ -8,11 +8,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: get-started-article
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: 26f516716864bdce81cf3acdacb0f9d2f98407b7
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 1220740ca35edf75fac97d4f33eff4e221414574
+ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/10/2018
+ms.locfileid: "35252469"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 

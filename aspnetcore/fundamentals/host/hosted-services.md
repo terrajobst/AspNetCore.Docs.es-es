@@ -3,6 +3,7 @@ title: Tareas en segundo plano con servicios hospedados en ASP.NET Core
 author: guardrex
 description: Obtenga información sobre cómo implementar tareas en segundo plano con servicios hospedados en ASP.NET Core.
 manager: wpickett
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/15/2018
@@ -10,12 +11,12 @@ ms.prod: asp.net-core
 ms.technology: aspnet
 ms.topic: article
 uid: fundamentals/host/hosted-services
-ms.openlocfilehash: cc39d125b639719599eca68d627fda014fb107e0
-ms.sourcegitcommit: 466300d32f8c33e64ee1b419a2cbffe702863cdf
+ms.openlocfilehash: 13ac7e266b657bc186188b2b6f40204cfd936fca
+ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2018
-ms.locfileid: "34555305"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35341826"
 ---
 # <a name="background-tasks-with-hosted-services-in-aspnet-core"></a>Tareas en segundo plano con servicios hospedados en ASP.NET Core
 
@@ -46,7 +47,7 @@ Los servicios hospedados implementan la interfaz [IHostedService](/dotnet/api/mi
 
 * [StopAsync(CancellationToken)](/dotnet/api/microsoft.extensions.hosting.ihostedservice.stopasync): se activa cuando el host está realizando un cierre estable. `StopAsync` contiene la lógica para finalizar la tarea en segundo plano y desechar los recursos no administrados. Si la aplicación se cierra inesperadamente (por ejemplo, porque se produzca un error en el proceso de la aplicación), puede que no sea posible llamar a `StopAsync`.
 
-El servicio hospedado es un singleton que se activa una vez en el inicio de la aplicación y se cierra de manera estable cuando dicha aplicación se cierra. Si [IDisposable](/dotnet/api/system.idisposable) está implementada, se pueden desechar recursos cuando se deseche el contenedor de servicios. Si se produce un error durante la ejecución de una tarea en segundo plano, hay que llamar a `Dispose`, aun cuando no se haya llamado a `StopAsync`.
+El servicio hospedado se activa una vez en el inicio de la aplicación y se cierra de manera estable cuando dicha aplicación se cierra. Si [IDisposable](/dotnet/api/system.idisposable) está implementada, se pueden desechar recursos cuando se deseche el contenedor de servicios. Si se produce un error durante la ejecución de una tarea en segundo plano, hay que llamar a `Dispose`, aun cuando no se haya llamado a `StopAsync`.
 
 ## <a name="timed-background-tasks"></a>Tareas en segundo plano temporizadas
 
@@ -54,9 +55,21 @@ Una tarea en segundo plano temporizada hace uso de la clase [System.Threading.Ti
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/TimedHostedService.cs?name=snippet1&highlight=15-16,30,37)]
 
-El servicio se registra en `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+El servicio se registra en `Startup.ConfigureServices` con el método de extensión `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+El servicio se registra en `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet1)]
+
+::: moniker-end
 
 ## <a name="consuming-a-scoped-service-in-a-background-task"></a>Consumir un servicio con ámbito en una tarea en segundo plano
 
@@ -70,13 +83,25 @@ El servicio hospedado crea un ámbito con objeto de resolver el servicio de tare
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/ConsumeScopedServiceHostedService.cs?name=snippet1&highlight=29-36)]
 
-Los servicios se registran en `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Los servicios se registran en `Startup.ConfigureServices`. La implementación `IHostedService` se registra con el método de extensión `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
 
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Los servicios se registran en `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet2)]
+
+::: moniker-end
+
 ## <a name="queued-background-tasks"></a>Tareas en segundo plano en cola
 
-Las colas de tareas en segundo plano se basan en [QueueBackgroundWorkItem](/dotnet/api/system.web.hosting.hostingenvironment.queuebackgroundworkitem) de .NET 4.x ([está previsto que se integre en ASP.NET Core 2.2](https://github.com/aspnet/Hosting/issues/1280)):
+Las colas de tareas en segundo plano se basan en [QueueBackgroundWorkItem](/dotnet/api/system.web.hosting.hostingenvironment.queuebackgroundworkitem) de .NET 4.x ([está previsto que se integre en ASP.NET Core 3.0](https://github.com/aspnet/Hosting/issues/1280)):
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/BackgroundTaskQueue.cs?name=snippet1)]
 
@@ -84,9 +109,21 @@ En `QueueHostedService`, las tareas en segundo plano (`workItem`) que están en 
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Services/QueuedHostedService.cs?name=snippet1&highlight=30-31,35)]
 
-Los servicios se registran en `Startup.ConfigureServices`:
+::: moniker range=">= aspnetcore-2.1"
+
+Los servicios se registran en `Startup.ConfigureServices`. La implementación `IHostedService` se registra con el método de extensión `AddHostedService`:
 
 [!code-csharp[](hosted-services/samples/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Los servicios se registran en `Startup.ConfigureServices`:
+
+[!code-csharp[](hosted-services/samples-snapshot/2.x/BackgroundTasksSample-WebHost/Startup.cs?name=snippet3)]
+
+::: moniker-end
 
 En la clase de modelo de página de índice, `IBackgroundTaskQueue` se inserta en el constructor y se asigna a `Queue`:
 
