@@ -2,20 +2,16 @@
 title: Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 author: ardalis
 description: Obtenga información sobre cómo dar formato a datos de respuesta en ASP.NET Core Web API.
-manager: wpickett
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: web-api/advanced/formatting
-ms.openlocfilehash: f25705bcd3a704de12ea24c3e196de1ba1afd492
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 3891e8d000c091f34e39a5e40d9bcd12e854a478
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35217475"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276534"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 

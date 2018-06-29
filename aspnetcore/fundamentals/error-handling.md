@@ -2,20 +2,16 @@
 title: Controlar errores en ASP.NET Core
 author: ardalis
 description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
 ms.date: 11/30/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/error-handling
-ms.openlocfilehash: 86041cf58dd88bea153eefed63a1985b6ddcacd8
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 2fe46ecc32d61a7fafb2ad6e2a35456476608251
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34566716"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273714"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 

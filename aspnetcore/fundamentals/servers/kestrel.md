@@ -2,20 +2,16 @@
 title: Implementación del servidor web Kestrel en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre Kestrel, el servidor web multiplataforma de ASP.NET Core.
-manager: wpickett
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/02/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 39949585dc8fce10c31045ef3013c6bc166e45ba
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: 62649351271deebcf1ed9d2f8b2258bed3478989
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613156"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276661"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -458,12 +454,12 @@ Escuche en un socket de Unix con [ListenUnixSocket](/dotnet/api/microsoft.aspnet
 
 Cuando se especifica el número de puerto `0`, Kestrel se enlaza de forma dinámica a un puerto disponible. En el siguiente ejemplo se muestra cómo averiguar qué puerto Kestrel está realmente enlazado a un runtime:
 
-[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Port0&highlight=3)]
+[!code-csharp[](kestrel/samples/2.x/KestrelSample/Startup.cs?name=snippet_Configure&highlight=3-4,15-21)]
 
 Cuando la aplicación se ejecuta, la salida de la ventana de consola indica el puerto dinámico en el que se puede tener acceso a la aplicación:
 
 ```console
-Now listening on: http://127.0.0.1:48508
+Listening on the following addresses: http://127.0.0.1:48508
 ```
 
 **UseUrls, argumento de línea de comandos --urls, clave de configuración de host urls y limitaciones de la variable de entorno ASPNETCORE_URLS**

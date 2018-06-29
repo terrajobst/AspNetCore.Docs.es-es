@@ -2,19 +2,15 @@
 title: Inserción de dependencias en vistas de ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo ASP.NET Core admite la inserción de dependencias en las vistas de MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: d33f0253fc7c1329e8bab400ace4c4ce8d10d792
-ms.sourcegitcommit: 4e3497bda0c3e5011ffba3717eb61a1d46c61c15
+ms.openlocfilehash: 753a335ec4f9f6a62fd20851af43da078b6f6a37
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/14/2018
-ms.locfileid: "35613065"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36277337"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserción de dependencias en vistas de ASP.NET Core
 

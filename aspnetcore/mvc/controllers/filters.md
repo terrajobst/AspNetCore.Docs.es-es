@@ -2,19 +2,15 @@
 title: Filtros en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo funcionan los filtros y cómo se pueden usar en ASP.NET Core MVC.
-manager: wpickett
 ms.author: riande
 ms.date: 4/10/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: mvc/controllers/filters
-ms.openlocfilehash: d3b775116c126e4d6456b89b2c76ca9d9e1a004c
-ms.sourcegitcommit: 63fb07fb3f71b32daf2c9466e132f2e7cc617163
+ms.openlocfilehash: 24551382847fee0896fe6620d52c30a03aca69d1
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2018
-ms.locfileid: "35252157"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36275650"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -23,10 +19,10 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://gith
 Los *filtros* en ASP.NET Core MVC permiten ejecutar código antes o después de determinadas fases de la canalización de procesamiento de la solicitud.
 
 > [!IMPORTANT]
-> Este tema **no** es válido con páginas de Razor. ASP.NET Core 2.1 y versiones posteriores admiten [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) para las páginas de Razor. Para más información, vea [Filter methods for Razor Pages](xref:mvc/razor-pages/filter) (Métodos de filtrado para páginas de Razor).
+> Este tema **no** es válido con páginas de Razor. ASP.NET Core 2.1 y versiones posteriores admiten [IPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.ipagefilter?view=aspnetcore-2.0) e [IAsyncPageFilter](/dotnet/api/microsoft.aspnetcore.mvc.filters.iasyncpagefilter?view=aspnetcore-2.0) para las páginas de Razor. Para más información, vea [Filter methods for Razor Pages](xref:razor-pages/filter) (Métodos de filtrado para páginas de Razor).
 
  Los filtros integrados se encargan de tareas como las siguientes:
- 
+
  * Autorización (impedir el acceso a los recursos a un usuario que no está autorizado).
  * Procurar que se use HTTPS en todas las solicitudes.
  * Almacenamiento en caché de respuestas (cortocircuitar la canalización de solicitud para devolver una respuesta almacenada en caché). 

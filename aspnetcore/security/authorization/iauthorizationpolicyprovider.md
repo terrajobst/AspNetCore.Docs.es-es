@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: security/authorization/iauthorizationpolicyprovider
-ms.openlocfilehash: 524928a5b291e02556d11a762d86430a6dc94660
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 218d7a495655598046671093c0cfe7b9622aca5e
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277262"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077607"
 ---
 # <a name="custom-authorization-policy-providers-using-iauthorizationpolicyprovider-in-aspnet-core"></a>Proveedores personalizados de directiva de autorización mediante IAuthorizationPolicyProvider en ASP.NET Core 
 
@@ -88,7 +88,7 @@ Personalizado `MinimumAgeAuthorizeAttribute` facilita la directivas de solicitud
 Cuando se usa `MinimumAgeAuthorizationAttribute`, los nombres de directiva de autorización sigue el patrón de `"MinimumAge" + Age`, por lo que la opción de instalación `IAuthorizationPolicyProvider` debe generar directivas de autorización por:
 
 * Analizar la edad de nombre de la directiva.
-* Usar `AuthorizationPolicyBuiler` para crear un nuevo `AuthorizationPolicy`
+* Usar `AuthorizationPolicyBuilder` para crear un nuevo `AuthorizationPolicy`
 * Agregar requisitos a la directiva en función de la antigüedad con `AuthorizationPolicyBuilder.AddRequirements`. En otros escenarios, puede usar `RequireClaim`, `RequireRole`, o `RequireUserName` en su lugar.
 
 ```CSharp

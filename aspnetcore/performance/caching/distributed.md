@@ -2,20 +2,16 @@
 title: Trabajar con una memoria caché distribuida en ASP.NET Core
 author: ardalis
 description: Obtenga información acerca de cómo usar ASP.NET Core distribuida almacenamiento en caché para mejorar el rendimiento de la aplicación y la escalabilidad, especialmente en un entorno de granja de servidores en la nube o de servidor.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: performance/caching/distributed
-ms.openlocfilehash: 6c595572641604d241c0c8f702d4f392afe34f71
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 5ddc3a6927652f773ab38f93db1e222c5a1900b3
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734463"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077704"
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Trabajar con una memoria caché distribuida en ASP.NET Core
 

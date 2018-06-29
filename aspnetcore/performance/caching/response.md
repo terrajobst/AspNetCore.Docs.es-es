@@ -2,18 +2,15 @@
 title: Las respuestas en caché de ASP.NET Core
 author: rick-anderson
 description: Aprenda a usar el almacenamiento en caché a menores requisitos de ancho de banda de respuesta y aumentar el rendimiento de las aplicaciones de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 09/20/2017
-ms.prod: asp.net-core
-ms.topic: article
 uid: performance/caching/response
-ms.openlocfilehash: e5a3877c68f8475e7dd49d44f4a92cf7b09ac7f5
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: c53ae3f6ab8d26588533772dd4fdacb36ec12059
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734515"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077769"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Las respuestas en caché de ASP.NET Core
 
@@ -98,9 +95,9 @@ El Middleware de almacenamiento en caché de la respuesta debe estar habilitado 
 
 | Solicitud                          | Resultado                   |
 | -------------------------------- | ------------------------ |
-| `http://example.com?key1=value1` | devuelta por el servidor     |
-| `http://example.com?key1=value1` | procedentes de middleware |
-| `http://example.com?key1=value2` | devuelta por el servidor     |
+| `http://example.com?key1=value1` | Devuelta por el servidor     |
+| `http://example.com?key1=value1` | Procedentes de middleware |
+| `http://example.com?key1=value2` | Devuelta por el servidor     |
 
 La primera solicitud es devuelto por el servidor y en memoria caché de middleware. Dado que la cadena de consulta coincide con la solicitud anterior, se devuelve la segunda solicitud middleware. La tercera solicitud no se encuentra en la caché de middleware porque el valor de cadena de consulta no coincide con una solicitud anterior. 
 

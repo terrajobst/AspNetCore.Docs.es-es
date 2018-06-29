@@ -1,20 +1,19 @@
 ---
-title: Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core
+title: Habilitar la generación de código QR para aplicaciones de autenticador TOTP en ASP.NET Core
 author: rick-anderson
-description: Descubra cómo habilitar la generación de código QR para aplicaciones de autenticador que funcionan con la autenticación de dos factores principales de ASP.NET.
+description: Descubra cómo habilitar la generación de código QR para TOTP autenticador aplicaciones que funcionan con la autenticación en dos fases principales de ASP.NET.
+monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/24/2017
 uid: security/authentication/identity-enable-qrcodes
-ms.openlocfilehash: 7604371eef1e8dcf35a5c47ef11b66c0669cacc5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b0d8f104119340b97bd65f1826bb921ca875acf8
+ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274734"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37089976"
 ---
-# <a name="enable-qr-code-generation-for-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para las aplicaciones de autenticador de ASP.NET Core
-
-Nota: En este tema se aplica a ASP.NET Core 2.x
+# <a name="enable-qr-code-generation-for-totp-authenticator-apps-in-aspnet-core"></a>Habilitar la generación de código QR para aplicaciones de autenticador TOTP en ASP.NET Core
 
 ASP.NET Core se suministra con compatibilidad para las aplicaciones de autenticador para la autenticación individual. Dos aplicaciones de autenticador de autenticación (2FA) de factor, con una duración única contraseña algoritmo (TOTP), son el enfoque para 2FA recomendado en el sector. 2FA uso TOTP es preferible a 2FA SMS. Una aplicación de autenticador proporciona un código de 6 a 8 dígitos que los usuarios deben escribir después de confirmar su nombre de usuario y contraseña. Normalmente, una aplicación autenticadora está instalada en un Smartphone.
 
@@ -22,7 +21,7 @@ Las plantillas de aplicación web de ASP.NET Core admiten autenticadores, pero n
 
 ## <a name="adding-qr-codes-to-the-2fa-configuration-page"></a>Agregar códigos QR a la página de configuración de 2FA
 
-Utilizan estas instrucciones *qrcode.js* de la https://davidshimjs.github.io/qrcodejs/ repo.
+Estas instrucciones usan *qrcode.js* desde el https://davidshimjs.github.io/qrcodejs/ repositorio.
 
 * Descargue el [qrcode.js javascript biblioteca](https://davidshimjs.github.io/qrcodejs/) a la `wwwroot\lib` carpeta del proyecto.
 
@@ -58,7 +57,7 @@ Ejecutar la aplicación y asegúrese de que puede examinar el código QR y valid
 
 ## <a name="change-the-site-name-in-the-qr-code"></a>Cambiar el nombre del sitio en el código QR
 
-El nombre del sitio en el código QR se toma del nombre del proyecto que elegir al crear inicialmente el proyecto. Puede cambiarla si se busca la `GenerateQrCodeUri(string email, string unformattedKey)` método en el *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* archivo (las páginas de Razor) o la *Controllers\ManageController.cs* archivo (MVC). 
+El nombre del sitio en el código QR se toma del nombre del proyecto que elegir al crear inicialmente el proyecto. Puede cambiarla si se busca la `GenerateQrCodeUri(string email, string unformattedKey)` método en el *Pages\Account\Manage\EnableAuthenticator.cshtml.cs* archivo (las páginas de Razor) o la *Controllers\ManageController.cs* archivo (MVC).
 
 El código predeterminado de la plantilla tiene el siguiente aspecto:
 
@@ -82,7 +81,7 @@ Puede reemplazar la biblioteca de código QR por la biblioteca preferida. El có
 La dirección URL con el formato correcto para el código QR está disponible en el:
 
 * `AuthenticatorUri` propiedad del modelo.
-* `data-url` propiedad en el `qrCodeData` elemento. 
+* `data-url` propiedad en el `qrCodeData` elemento.
 
 ## <a name="totp-client-and-server-time-skew"></a>TOTP cliente y servidor sesgo horario
 

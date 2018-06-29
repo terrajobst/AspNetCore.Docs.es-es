@@ -2,20 +2,15 @@
 title: Detección de cambios con tokens de cambio en ASP.NET Core
 author: guardrex
 description: Obtenga información sobre cómo usar tokens de cambio para realizar el seguimiento de los cambios.
-manager: wpickett
 ms.author: riande
 ms.date: 11/10/2017
-ms.devlang: csharp
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/primitives/change-tokens
-ms.openlocfilehash: d132747cb7c92ef5afac4664c91634a4ad290e5f
-ms.sourcegitcommit: 726ffab258070b4fe6cf950bf030ce10c0c07bb4
+ms.openlocfilehash: 165602587d73907416f47a7ce82a3081e8d74c4b
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34734528"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36276898"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Detección de cambios con tokens de cambio en ASP.NET Core
 
