@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 2307df3b4b571840f31808b86b48b0e6fb2de852
-ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
+ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033318"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077782"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -610,6 +610,10 @@ Para configurar las secuencias de registro de Azure:
 Navegue hasta la página **Secuencias de registro** para ver los mensajes de la aplicación. Se registran por la aplicación a través de la interfaz `ILogger`.
 
 ![Secuencias de registro de aplicación de Azure Portal](index/_static/azure-log-streaming.png)
+
+## <a name="azure-application-insights-trace-logging"></a>Registro de seguimiento de Azure Application Insights
+
+El SDK de [Application Insights](https://azure.microsoft.com/services/application-insights/) es capaz de recopilar información de telemetría de seguimiento de registros generados mediante la infraestructura de registro de ASP.NET Core. Para obtener más información, vea la [wiki de Microsoft/ApplicationInsights-aspnetcore sobre el registro](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Logging).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

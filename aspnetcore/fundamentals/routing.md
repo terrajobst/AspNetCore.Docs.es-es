@@ -2,19 +2,15 @@
 title: Enrutamiento en ASP.NET Core
 author: ardalis
 description: Descubra la manera en que la funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2016
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: fundamentals/routing
-ms.openlocfilehash: a23e2e1a1dd25a57e5d6189bbd5938c48078515b
-ms.sourcegitcommit: 7e87671fea9a5f36ca516616fe3b40b537f428d2
+ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
+ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2018
-ms.locfileid: "35341787"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36314141"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -154,7 +150,7 @@ routes.MapRoute(
     dataTokens: new { locale = "en-US" });
 ```
 
-Esta plantilla coincidirá con una ruta de dirección URL como `/Products/5` y extraerá los valores `{ controller = Products, action = Details, id = 5 }` y los tokens de datos `{ locale = en-US }`.
+Esta plantilla coincide con una ruta de dirección URL como `/en-US/Products/5` y extrae los valores `{ controller = Products, action = Details, id = 5 }` y los tokens de datos `{ locale = en-US }`.
 
 ![Tokens de Windows de variables locales](routing/_static/tokens.png)
 
@@ -285,6 +281,16 @@ En la tabla siguiente se muestran algunas plantillas de ruta y su comportamiento
 El uso de una plantilla suele ser el método de enrutamiento más sencillo. Las restricciones y los valores predeterminados también se pueden especificar fuera de la plantilla de ruta.
 
 Sugerencia: Habilite el [registro](xref:fundamentals/logging/index) para ver de qué forma las implementaciones de enrutamiento integradas, como `Route`, coinciden con las solicitudes.
+
+## <a name="reserved-routing-names"></a>Nombres de enrutamientos reservados
+
+Las siguientes palabras clave son nombres reservados y no se pueden usar como nombres de ruta o parámetros:
+
+* `action`
+* `area`
+* `controller`
+* `handler`
+* `page`
 
 ## <a name="route-constraint-reference"></a>Referencia de restricción de ruta
 

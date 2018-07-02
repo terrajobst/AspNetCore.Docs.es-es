@@ -2,20 +2,16 @@
 title: Autorización en ASP.NET Core
 author: rick-anderson
 description: Vea los temas de autorización de ASP.NET Core en los que se explica cómo proporcionar derechos y privilegios a los usuarios de aplicaciones.
-manager: wpickett
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/19/2018
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: article
 uid: security/authorization/index
-ms.openlocfilehash: ef275011cdd87b1d0c861de735d89d064574be5a
-ms.sourcegitcommit: 477d38e33530a305405eaf19faa29c6d805273aa
+ms.openlocfilehash: 344a7e4490d4e92a9ee6efd566b5b7822d049e16
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33851279"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36273850"
 ---
 # <a name="authorization-in-aspnet-core"></a>Autorización en ASP.NET Core
 
@@ -33,7 +29,7 @@ ms.locfileid: "33851279"
 
 * [Autorización basada en directivas](xref:security/authorization/policies)
 
-* [Proveedores de directivas de autorización personalizada](xref:security/authorization/iauthorizationpolicyprovider)
+* [Proveedores de directivas de autorización](xref:security/authorization/iauthorizationpolicyprovider)
 
 * [Inserción de dependencias en controladores de requisitos](xref:security/authorization/dependencyinjection)
 

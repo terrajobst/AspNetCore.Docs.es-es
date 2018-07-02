@@ -2,19 +2,15 @@
 title: Tutoriales de ASP.NET Core
 author: rick-anderson
 description: Una lista de guías detalladas para aprender a desarrollar aplicaciones de ASP.NET Core.
-manager: wpickett
 ms.author: riande
 ms.date: 10/14/2017
-ms.prod: asp.net-core
-ms.technology: aspnet
-ms.topic: get-started-article
 uid: tutorials/index
-ms.openlocfilehash: 019224e86f1f5583ce0f212d8be70e8829274c7e
-ms.sourcegitcommit: 43bd79667bbdc8a07bd39fb4cd6f7ad3e70212fb
+ms.openlocfilehash: 2ec362ea546d7bdb493665fe836bdf9ddb68b1b3
+ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34688444"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36279524"
 ---
 # <a name="aspnet-core-tutorials"></a>Tutoriales de ASP.NET Core
 
@@ -22,14 +18,16 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 
 ## <a name="build-web-apps"></a>Compilación de aplicaciones web
 
-[Las páginas de Razor](xref:mvc/razor-pages/index) son el método recomendado para crear una aplicación de interfaz de usuario web con ASP.NET Core 2.0.
+[Las páginas de Razor](xref:razor-pages/index) son el método recomendado para crear una aplicación de interfaz de usuario web con ASP.NET Core 2.0.
 
-* [Introducción a las páginas de Razor en ASP.NET Core](xref:mvc/razor-pages/index)
+* [Introducción a las páginas de Razor en ASP.NET Core](xref:razor-pages/index)
 * Creación de una aplicación web de páginas de Razor con ASP.NET Core
 
    * [Páginas de Razor en Windows](xref:tutorials/razor-pages/index)
    * [Páginas de Razor en macOS](xref:tutorials/razor-pages-mac/index)
    * [Páginas de Razor con VSCode](xref:tutorials/razor-pages-vsc/index)  
+
+* [Crear una aplicación web de SignalR en tiempo real](xref:tutorials/signalr)
 
 * Creación de una aplicación web de ASP.NET Core MVC
 
@@ -43,6 +41,7 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 * [Desarrollo de aplicaciones mediante un monitor de archivos](xref:tutorials/dotnet-watch)
 
 ## <a name="build-web-apis"></a>Compilación de API web
+
 * Creación de una API web con ASP.NET Core
 
   * [API web con Visual Studio para Windows](xref:tutorials/first-web-api)
@@ -56,34 +55,40 @@ Están disponibles las siguientes guías detalladas para desarrollar aplicacione
 * [Creación de servicios web de back-end para aplicaciones móviles nativas](xref:mobile/native-mobile-backend)
 
 ## <a name="data-access-and-storage"></a>Acceso a datos y almacenamiento
+
 * [Introducción a las páginas de Razor y Entity Framework Core con Visual Studio](xref:data/ef-rp/intro)
 * [Introducción a ASP.NET Core MVC y Entity Framework Core con Visual Studio](xref:data/ef-mvc/index)
 * [ASP.NET Core MVC con EF Core: nueva base de datos](/ef/core/get-started/aspnetcore/new-db)
 * [ASP.NET Core MVC con EF Core: base de datos existente](/ef/core/get-started/aspnetcore/existing-db)
 
 ## <a name="authentication-and-authorization"></a>Autenticación y autorización
+
 * [Habilitar la autenticación con Facebook, Google y otros proveedores externos](xref:security/authentication/social/index)
 * [Confirmación de cuentas y recuperación de contraseñas](xref:security/authentication/accconfirm)
 * [Autenticación en dos fases con SMS](xref:security/authentication/2fa)
 
 ## <a name="client-side-development"></a>Desarrollo del lado cliente
+
 * [Uso de Gulp](xref:client-side/using-gulp)
 * [Uso de Grunt](xref:client-side/using-grunt)
 * [Administración de paquetes de cliente con Bower](xref:client-side/bower)
 * [Creación de sitios con capacidad de respuesta con Bootstrap](xref:client-side/bootstrap)
 
 ## <a name="test"></a>Prueba
+
 * [Pruebas unitarias de .NET Core mediante dotnet test](/dotnet/articles/core/testing/unit-testing-with-dotnet-test)
 
 ## <a name="host-and-deploy"></a>Hospedaje e implementación
+
 * [Implementar una aplicación web de ASP.NET Core en Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
 * [Implementar una aplicación web de ASP.NET Core en Azure con la línea de comandos](xref:tutorials/publish-to-azure-webapp-using-cli)
 * [Publicación en una aplicación web de Azure con una implementación continua](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
 * [Implementar un contenedor de ASP.NET en un host remoto de Docker](/azure/vs-azure-tools-docker-hosting-web-apps-in-docker)
 * [ASP.NET Core y Azure Service Fabric](/azure/service-fabric/service-fabric-add-a-web-frontend)
 
-<a name="download"></a> 
+<a name="download"></a>
 ## <a name="how-to-download-a-sample"></a>Cómo descargar un ejemplo
+
 1. [Descargue el archivo ZIP del repositorio de ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
 1. Descomprima el archivo *Docs-master.zip*.
-1. Use la dirección URL del vínculo de ejemplo para ir al directorio de ejemplo. 
+1. Use la dirección URL del vínculo de ejemplo para ir al directorio de ejemplo.
