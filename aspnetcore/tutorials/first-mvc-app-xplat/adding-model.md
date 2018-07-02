@@ -5,15 +5,13 @@ description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
 ms.date: 09/18/2017
 uid: tutorials/first-mvc-app-xplat/adding-model
-ms.openlocfilehash: a3b6f68acef748ab7d7703dd3e24a3766fda159c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 82b8338f10cb4d58ae06bdb70583e1563c2e6b64
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273326"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961430"
 ---
-# <a name="add-a-model-to-an-aspnet-core-mvc-app"></a>Agregar un modelo a una aplicación de ASP.NET Core MVC
-
 [!INCLUDE [adding-model1](../../includes/mvc-intro/adding-model1.md)]
 
 * Agregue una clase a la carpeta *Modelos* denominada *Movie.cs*.

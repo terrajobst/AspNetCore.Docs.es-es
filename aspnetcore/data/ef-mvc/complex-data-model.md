@@ -5,14 +5,18 @@ description: En este tutorial agregará más entidades y relaciones, y personali
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: d89ca44917fac57febc2f8b0d632ae004ca7216c
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277392"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093119"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core: Modelo de datos (5 de 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -351,7 +355,7 @@ Cada línea de relación tiene un 1 en un extremo y un asterisco (*) en el otro,
 
 Si la tabla Enrollment no incluyera información de calificaciones, solo tendría que contener las dos claves externas CourseID y StudentID. En ese caso, sería una tabla de combinación de varios a varios sin carga (o una tabla de combinación pura) en la base de datos. Las entidades Instructor y Course tienen ese tipo de relación de varios a varios, y el paso siguiente consiste en crear una clase de entidad para que funcione como una tabla de combinación sin carga.
 
-(EF 6.x es compatible con las tablas de combinación implícitas para relaciones de varios a varios, pero EF Core no. Para obtener más información, vea la [explicación en el repositorio de GitHub EF Core](https://github.com/aspnet/EntityFramework/issues/1368)). 
+(EF 6.x es compatible con las tablas de combinación implícitas para relaciones de varios a varios, pero EF Core no. Para obtener más información, vea la [explicación en el repositorio de GitHub EF Core](https://github.com/aspnet/EntityFramework/issues/1368)).
 
 ## <a name="the-courseassignment-entity"></a>La entidad CourseAssignment
 
@@ -437,7 +441,7 @@ En ocasiones, al ejecutar migraciones con datos existentes, debe insertar códig
 
 Para realizar este trabajo de migración con datos existentes, tendrá que cambiar el código para asignar un valor predeterminado a la nueva columna y crear un departamento de código auxiliar denominado "Temp" para que actúe como el predeterminado. Como resultado, las filas Course existentes estarán relacionadas con el departamento "Temp" después de ejecutar el método `Up`.
 
-* Abra el archivo *{marca_de_tiempo}_ComplexDataModel.cs*. 
+* Abra el archivo *{marca_de_tiempo}_ComplexDataModel.cs*.
 
 * Convierta en comentario la línea de código que agrega la columna DepartmentID a la tabla Course.
 
@@ -491,7 +495,8 @@ Haga clic con el botón derecho en la tabla **CourseAssignment** y seleccione **
 ## <a name="summary"></a>Resumen
 
 Ahora tiene un modelo de datos más complejo y la base de datos correspondiente. En el siguiente tutorial, obtendrá más información sobre cómo obtener acceso a datos relacionados.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Anterior](migrations.md)
-> [Siguiente](read-related-data.md)  
+> [Siguiente](read-related-data.md)

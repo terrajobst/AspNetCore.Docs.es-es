@@ -5,14 +5,18 @@ description: En este tutorial agregará la funcionalidad de ordenación, filtrad
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/sort-filter-page
-ms.openlocfilehash: 34097eacad16c0ffb989efb3b6a8656be4a076cd
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 1f80faf0e36332c28e8337ddc331cc8b4c4970d7
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273655"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093093"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---sort-filter-paging---3-of-10"></a>ASP.NET Core MVC con EF Core: ordenación, filtrado y paginación (3 de 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -228,7 +232,7 @@ Reemplace el método `About` con el código siguiente:
 [!code-csharp[](intro/samples/cu/Controllers/HomeController.cs?name=snippet_UseDbSet)]
 
 La instrucción LINQ agrupa las entidades de alumnos por fecha de inscripción, calcula la cantidad de entidades que se incluyen en cada grupo y almacena los resultados en una colección de objetos de modelo de la vista `EnrollmentDateGroup`.
-> [!NOTE] 
+> [!NOTE]
 > En la versión 1.0 de Entity Framework Core, el conjunto de resultados completo se devuelve al cliente y la agrupación se realiza en el cliente. En algunos casos, esto puede crear problemas de rendimiento. Asegúrese de probar el rendimiento con volúmenes de producción de datos y, si es necesario, use SQL sin formato para realizar la agrupación en el servidor. Para obtener información sobre cómo usar SQL sin formato, consulte [el último tutorial de esta serie](advanced.md).
 
 ### <a name="modify-the-about-view"></a>Modificación de la vista About
@@ -245,6 +249,8 @@ Ejecute la aplicación y vaya a la página About. En una tabla se muestra el nú
 
 En este tutorial, ha visto cómo realizar la ordenación, el filtrado, la paginación y la agrupación. En el siguiente tutorial, aprenderá a controlar los cambios en el modelo de datos mediante migraciones.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Anterior](crud.md)
-> [Siguiente](migrations.md)  
+> [Siguiente](migrations.md)

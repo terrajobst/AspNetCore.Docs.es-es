@@ -5,14 +5,18 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: e0d454ce4f2319b48b649d46c0878d6969acbc9f
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278562"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093106"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core: CRUD (2 de 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -20,7 +24,7 @@ En la aplicación web de ejemplo Contoso University se muestra cómo crear aplic
 
 En el tutorial anterior, creó una aplicación MVC que almacena y muestra los datos con Entity Framework y SQL Server LocalDB. En este tutorial, podrá revisar y personalizar el código CRUD (crear, leer, actualizar y eliminar) que el scaffolding de MVC crea automáticamente para usted en controladores y vistas.
 
-> [!NOTE] 
+> [!NOTE]
 > Es una práctica habitual implementar el modelo de repositorio con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para que estos tutoriales sean sencillos y se centren en enseñar a usar Entity Framework, no se usan repositorios. Para obtener información sobre los repositorios con EF, vea [el último tutorial de esta serie](advanced.md).
 
 En este tutorial, trabajará con las páginas web siguientes:
@@ -183,7 +187,7 @@ Como resultado de estos cambios, la firma de método del método HttpPost `Edit`
 
 ### <a name="alternative-httppost-edit-code-create-and-attach"></a>Código alternativo para HttpPost Edit: crear y adjuntar
 
-El código recomendado para HttpPost Edit garantiza que solo se actualicen las columnas cambiadas y conserva los datos de las propiedades que no quiere que se incluyan para el enlace de modelos. Pero el enfoque de primera lectura requiere una operación de lectura adicional de la base de datos y puede dar lugar a código más complejo para controlar los conflictos de simultaneidad. Una alternativa consiste en adjuntar una entidad creada por el enlazador de modelos en el contexto de EF y marcarla como modificada. (No actualice el proyecto con este código, solo se muestra para ilustrar un enfoque opcional). 
+El código recomendado para HttpPost Edit garantiza que solo se actualicen las columnas cambiadas y conserva los datos de las propiedades que no quiere que se incluyan para el enlace de modelos. Pero el enfoque de primera lectura requiere una operación de lectura adicional de la base de datos y puede dar lugar a código más complejo para controlar los conflictos de simultaneidad. Una alternativa consiste en adjuntar una entidad creada por el enlazador de modelos en el contexto de EF y marcarla como modificada. (No actualice el proyecto con este código, solo se muestra para ilustrar un enfoque opcional).
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_CreateAndAttach)]
 
@@ -293,6 +297,8 @@ Para obtener más información, vea [Tracking vs. No-Tracking](https://docs.micr
 
 Ahora tiene un conjunto completo de páginas que realizan sencillas operaciones CRUD para entidades Student. En el siguiente tutorial podrá expandir la funcionalidad de la página **Index** mediante la adición de ordenación, filtrado y paginación.
 
+::: moniker-end
+
 > [!div class="step-by-step"]
 > [Anterior](intro.md)
-> [Siguiente](sort-filter-page.md)  
+> [Siguiente](sort-filter-page.md)

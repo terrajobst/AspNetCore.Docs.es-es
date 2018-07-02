@@ -5,14 +5,18 @@ description: En este tutorial, empezará usando la característica de migracione
 ms.author: tdykstra
 ms.date: 03/15/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: d8b92aeedb252b93e1dc1aca424d26a377305da2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: f710b33ac1a6017b0e3d7e8c3e528675a41424bb
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273590"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092947"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC con EF Core: Migraciones (4 de 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -34,7 +38,7 @@ Las herramientas de EF para la interfaz de nivel de la línea de comandos se pro
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
   
-(Los números de versión en este ejemplo eran los actuales cuando se escribió el tutorial). 
+(Los números de versión en este ejemplo eran los actuales cuando se escribió el tutorial).
 
 ## <a name="change-the-connection-string"></a>Cambiar la cadena de conexión
 
@@ -154,14 +158,15 @@ Los comandos de EF para los comandos de la PMC están en el paquete [Microsoft.E
 
 **Importante:** Este no es el mismo paquete que el que se instala para la CLI mediante la edición del archivo *.csproj*. El nombre de este paquete termina en `Tools`, a diferencia del nombre de paquete de la CLI que termina en `Tools.DotNet`.
 
-Para obtener más información sobre los comandos de la CLI, vea [CLI de .NET Core](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet). 
+Para obtener más información sobre los comandos de la CLI, vea [CLI de .NET Core](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
 
 Para obtener más información sobre los comandos de la PMC, vea [Consola del Administrador de paquetes (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
 
 ## <a name="summary"></a>Resumen
 
 En este tutorial, ha visto cómo crear y aplicar la primera migración. En el siguiente, comenzará examinando temas más avanzados expandiendo el modelo de datos. Por el camino, podrá crear y aplicar migraciones adicionales.
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Anterior](sort-filter-page.md)
-> [Siguiente](complex-data-model.md)  
+> [Siguiente](complex-data-model.md)

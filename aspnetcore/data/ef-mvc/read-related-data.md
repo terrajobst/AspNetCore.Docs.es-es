@@ -5,14 +5,18 @@ description: En este tutorial podrá leer y mostrar datos relacionados, es decir
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: 8c634bb1ae715776e18b847574ce03791f2ede03
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277217"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37092989"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)
+
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
 
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -238,6 +242,8 @@ Ejecute la aplicación, vaya a la página de índice de instructores ahora y no 
 
 Ha usado la carga diligente con una consulta y con varias para leer datos relacionados en las propiedades de navegación. En el siguiente tutorial, obtendrá información sobre cómo actualizar datos relacionados.
 
+::: moniker-end
+
 >[!div class="step-by-step"]
 >[Anterior](complex-data-model.md)
->[Siguiente](update-related-data.md)  
+>[Siguiente](update-related-data.md)
