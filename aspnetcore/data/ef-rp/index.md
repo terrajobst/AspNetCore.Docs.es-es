@@ -5,22 +5,22 @@ description: ''
 ms.author: riande
 ms.date: 03/15/2017
 uid: data/ef-rp/index
-ms.openlocfilehash: 0bb700e4ee6b33c65ab519c41bab620def261752
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 56d317e4334ee006c8b52163594e2850c11d23d7
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277517"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960871"
 ---
-# <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a><span data-ttu-id="3ae2b-102">Páginas de Razor de ASP.NET Core con EF Core: serie de tutoriales</span><span class="sxs-lookup"><span data-stu-id="3ae2b-102">ASP.NET Core Razor Pages with EF Core - tutorial series</span></span>
+# <a name="aspnet-core-razor-pages-with-ef-core---tutorial-series"></a><span data-ttu-id="c50da-102">Páginas de Razor de ASP.NET Core con EF Core: serie de tutoriales</span><span class="sxs-lookup"><span data-stu-id="c50da-102">ASP.NET Core Razor Pages with EF Core - tutorial series</span></span>
 
-<span data-ttu-id="3ae2b-103">En esta serie de tutoriales aprenderá a crear aplicaciones web de páginas de Razor de ASP.NET Core que usen Entity Framework (EF) Core para acceder a los datos.</span><span class="sxs-lookup"><span data-stu-id="3ae2b-103">This series of tutorials teaches you how to create ASP.NET Core Razor Pages web apps that use Entity Framework (EF) Core for data access.</span></span> <span data-ttu-id="3ae2b-104">Los tutoriales requieren Visual Studio 2017.</span><span class="sxs-lookup"><span data-stu-id="3ae2b-104">The tutorials require Visual Studio 2017.</span></span>
+<span data-ttu-id="c50da-103">En esta serie de tutoriales se explica cómo crear aplicaciones web de Razor Pages de ASP.NET Core que usen Entity Framework (EF) Core para acceder a los datos.</span><span class="sxs-lookup"><span data-stu-id="c50da-103">This series of tutorials teaches how to create ASP.NET Core Razor Pages web apps that use Entity Framework (EF) Core for data access.</span></span>
 
-1. [<span data-ttu-id="3ae2b-105">Introducción</span><span class="sxs-lookup"><span data-stu-id="3ae2b-105">Get started</span></span>](xref:data/ef-rp/intro)
-1. [<span data-ttu-id="3ae2b-106">Operaciones de creación, lectura, actualización y eliminación</span><span class="sxs-lookup"><span data-stu-id="3ae2b-106">Create, Read, Update, and Delete operations</span></span>](xref:data/ef-rp/crud)
-1. [<span data-ttu-id="3ae2b-107">Ordenado, filtrado, paginación y agrupación</span><span class="sxs-lookup"><span data-stu-id="3ae2b-107">Sorting, filtering, paging, and grouping</span></span>](xref:data/ef-rp/sort-filter-page)
-1. [<span data-ttu-id="3ae2b-108">Migraciones</span><span class="sxs-lookup"><span data-stu-id="3ae2b-108">Migrations</span></span>](xref:data/ef-rp/migrations)
-1. [<span data-ttu-id="3ae2b-109">Creación de un modelo de datos complejo</span><span class="sxs-lookup"><span data-stu-id="3ae2b-109">Create a complex data model</span></span>](xref:data/ef-rp/complex-data-model)
-1. [<span data-ttu-id="3ae2b-110">Lectura de datos relacionados</span><span class="sxs-lookup"><span data-stu-id="3ae2b-110">Reading related data</span></span>](xref:data/ef-rp/read-related-data)
-1. [<span data-ttu-id="3ae2b-111">Actualización de datos relacionados</span><span class="sxs-lookup"><span data-stu-id="3ae2b-111">Updating related data</span></span>](xref:data/ef-rp/update-related-data)
-1. [<span data-ttu-id="3ae2b-112">Control de conflictos de simultaneidad</span><span class="sxs-lookup"><span data-stu-id="3ae2b-112">Handle concurrency conflicts</span></span>](xref:data/ef-rp/concurrency)
+1. [<span data-ttu-id="c50da-104">Introducción</span><span class="sxs-lookup"><span data-stu-id="c50da-104">Get started</span></span>](xref:data/ef-rp/intro)
+1. [<span data-ttu-id="c50da-105">Operaciones de creación, lectura, actualización y eliminación</span><span class="sxs-lookup"><span data-stu-id="c50da-105">Create, Read, Update, and Delete operations</span></span>](xref:data/ef-rp/crud)
+1. [<span data-ttu-id="c50da-106">Ordenado, filtrado, paginación y agrupación</span><span class="sxs-lookup"><span data-stu-id="c50da-106">Sorting, filtering, paging, and grouping</span></span>](xref:data/ef-rp/sort-filter-page)
+1. [<span data-ttu-id="c50da-107">Migraciones</span><span class="sxs-lookup"><span data-stu-id="c50da-107">Migrations</span></span>](xref:data/ef-rp/migrations)
+1. [<span data-ttu-id="c50da-108">Creación de un modelo de datos complejo</span><span class="sxs-lookup"><span data-stu-id="c50da-108">Create a complex data model</span></span>](xref:data/ef-rp/complex-data-model)
+1. [<span data-ttu-id="c50da-109">Lectura de datos relacionados</span><span class="sxs-lookup"><span data-stu-id="c50da-109">Reading related data</span></span>](xref:data/ef-rp/read-related-data)
+1. [<span data-ttu-id="c50da-110">Actualización de datos relacionados</span><span class="sxs-lookup"><span data-stu-id="c50da-110">Updating related data</span></span>](xref:data/ef-rp/update-related-data)
+1. [<span data-ttu-id="c50da-111">Control de conflictos de simultaneidad</span><span class="sxs-lookup"><span data-stu-id="c50da-111">Handle concurrency conflicts</span></span>](xref:data/ef-rp/concurrency)
