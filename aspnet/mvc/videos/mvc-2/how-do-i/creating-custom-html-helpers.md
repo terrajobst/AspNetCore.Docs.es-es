@@ -1,29 +1,28 @@
 ---
 uid: mvc/videos/mvc-2/how-do-i/creating-custom-html-helpers
-title: Crear aplicaciones auxiliares HTML personalizado | Documentos de Microsoft
+title: Creación de aplicaciones auxiliares HTML personalizadas | Microsoft Docs
 author: StephenWalther
-description: Crear nuevas aplicaciones auxiliares de HTML para que resulten más fáciles de generar el contenido de la vista. Stephen Walther muestra dos métodos simples para crear nuevas aplicaciones auxiliares de HTML.
+description: Crear nuevas aplicaciones auxiliares de HTML para que resulte más fácil generar contenido de la vista. Stephen Walther muestra dos métodos sencillos de creación de nuevas aplicaciones auxiliares HTML.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/20/2008
 ms.topic: article
 ms.assetid: e67b3889-ac7d-4811-8bf5-54f6abc7f49f
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/creating-custom-html-helpers
 msc.type: video
-ms.openlocfilehash: 2f8fd378af35c53ef6586c18f726a7f1c5d1ef0f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b7f18369ec9869310109945679b874920ad4e996
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872127"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362036"
 ---
-<a name="creating-custom-html-helpers"></a>Crear aplicaciones auxiliares HTML personalizado
+<a name="creating-custom-html-helpers"></a>Creación de aplicaciones auxiliares HTML personalizadas
 ====================
 por [Stephen Walther](https://github.com/StephenWalther)
 
-Crear nuevas aplicaciones auxiliares de HTML para que resulten más fáciles de generar el contenido de la vista. Stephen Walther muestra dos métodos simples para crear nuevas aplicaciones auxiliares de HTML.
+Crear nuevas aplicaciones auxiliares de HTML para que resulte más fácil generar contenido de la vista. Stephen Walther muestra dos métodos sencillos de creación de nuevas aplicaciones auxiliares HTML.
 
 [&#9654;Vea el vídeo (14 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-custom-html-helpers)
 
