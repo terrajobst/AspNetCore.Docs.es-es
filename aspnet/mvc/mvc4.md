@@ -1,40 +1,39 @@
 ---
 uid: mvc/mvc4
-title: ASP.NET MVC 4 | Documentos de Microsoft
+title: ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
-description: ASP.NET MVC 4 de ASP.NET MVC 4 es un marco para crear aplicaciones web escalable, basada en estándares con hacia patrones de diseño y la eficacia de AS....
+description: ASP.NET MVC 4 ASP.NET MVC 4 es un marco para crear aplicaciones web escalable y basada en estándares con los patrones de diseño bien establecido y la eficacia de AS....
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/12/2011
 ms.topic: article
 ms.assetid: 1279f5b1-390f-4b4b-9e6e-f947cb1ef5f5
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/mvc4
 msc.type: content
-ms.openlocfilehash: f1a1717aafde990530f4ee71c05432122520de5e
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: b9b1ac7998d02358b5754c9a4ad0f09b8d24da8b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497864"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362108"
 ---
 <a name="aspnet-mvc-4"></a>ASP.NET MVC 4
 ====================
 ### <a name="top-features"></a>Características principales
 
 - ASP.NET Web API
-- Plantillas de proyecto actualizado y modernizado predeterminadas
+- Plantillas de proyecto actualizado y modernizada predeterminadas
 - Nueva plantilla de proyecto móvil
 - Muchas características nuevas para admitir aplicaciones móviles
 - Compatibilidad mejorada para los métodos asincrónicos
 - *Leer la lista de todas las características en el [notas de la versión](../whitepapers/mvc4-release-notes.md)*
 
 
-### <a name="whats-new-in-aspnet-mvc-4"></a>' S New en ASP.NET MVC 4
+### <a name="whats-new-in-aspnet-mvc-4"></a>Novedades de ASP.NET MVC 4
 
 - [ASP.NET Web API](../web-api/index.md) (Más información sobre ASP.NET Web API)
-- Tutorial: [características para móviles de ASP.NET MVC 4](overview/older-versions/aspnet-mvc-4-mobile-features.md)
+- Tutorial: [características móviles de ASP.NET MVC 4](overview/older-versions/aspnet-mvc-4-mobile-features.md)
 - [Notas de la versión de ASP.NET MVC 4](../whitepapers/mvc4-release-notes.md)
 - [Nueva serie de tutoriales de ASP.NET MVC 4](overview/older-versions/getting-started-with-aspnet-mvc4/intro-to-aspnet-mvc-4.md)
 
@@ -49,9 +48,9 @@ ms.locfileid: "26497864"
 - [Visual Studio 2012 Ultimate](https://go.microsoft.com/fwlink/?linkid=247148)
 
 
-### <a name="getting-help-and-reporting-issues"></a>Informes de problemas y obtención de ayuda
+### <a name="getting-help-and-reporting-issues"></a>Obtención de ayuda y los informes de problemas
 
-- [Problemas conocidos y lista de los cambios importantes](../whitepapers/mvc4-release-notes.md#_Toc303253815)
-- Obtener ayuda y se tratan de ASP.NET MVC 4 en el [foros](https://forums.asp.net/1146.aspx)
-- [Informar de un error en ASP.NET MVC 4](https://github.com/aspnet/AspNetWebStack/issues)
+- [Problemas conocidos y la lista de los cambios de última hora](../whitepapers/mvc4-release-notes.md#_Toc303253815)
+- Obtener ayuda y comente ASP.NET MVC 4 en el [foros](https://forums.asp.net/1146.aspx)
+- [Notificar un error en ASP.NET MVC 4](https://github.com/aspnet/AspNetWebStack/issues)
 - [Realizar una solicitud de característica](http://aspnet.uservoice.com/forums/41201-asp-net-mvc)
