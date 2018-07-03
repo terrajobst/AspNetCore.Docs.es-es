@@ -5,12 +5,12 @@ description: Conozca los conceptos básicos de la compilación de una aplicació
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/razor-pages-start
-ms.openlocfilehash: e317b49f2ad33c392de33bc32a87f67bb8cb72a0
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7148f2d944bd1978b1a83278dfed9051f192e4dd
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278049"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144942"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -94,7 +94,7 @@ Presione **F5** para ejecutar la aplicación en modo de depuración o **Ctrl-F5*
 * Visual Studio inicia [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) y ejecuta la aplicación. En la barra de direcciones aparece `localhost:port#` (y no algo como `example.com`). Esto es así porque `localhost` es el nombre de host estándar del equipo local. Localhost solo sirve las solicitudes web del equipo local. Cuando Visual Studio crea un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen anterior, el número de puerto es 5000. Al ejecutar la aplicación verá otro puerto distinto.
 * Iniciar la aplicación con **CTRL+F5** (modo de no depuración) le permite efectuar cambios en el código, guardar el archivo, actualizar el explorador y ver los cambios de código. Muchos desarrolladores prefieren usar el modo de no depuración para iniciar la aplicación rápidamente y ver los cambios.
 
-[!INCLUDE [razor-pages-start](~/includes/RP/2.1/razor-pages-start.md)]
+[!INCLUDE [razor-pages-start](~/includes/RP/razor-pages-start.md)]
 
 ::: moniker-end
 

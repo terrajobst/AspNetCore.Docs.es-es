@@ -5,18 +5,22 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 3c418cc4e331ad19b0ec1be3207fa2cc44bef041
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
+ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275676"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37093132"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC con Entity Framework Core: Tutorial 1 de 10
 
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc-21.md)]
+
+::: moniker range="= aspnetcore-2.0"
+
 Por [Tom Dykstra](https://github.com/tdykstra) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-[!INCLUDE [RP better than MVC](../../includes/RP-EF/rp-over-mvc.md)]
+[!INCLUDE [RP better than MVC](~/includes/RP-EF/rp-over-mvc.md)]
 
 En la aplicación web de ejemplo Contoso University se muestra cómo crear aplicaciones web ASP.NET Core 2.0 MVC con Entity Framework (EF) Core 2.0 y Visual Studio 2017.
 
@@ -31,7 +35,7 @@ EF Core 2.0 es la versión más reciente de EF pero aún no dispone de todas las
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -104,7 +108,7 @@ Presione CTRL+F5 para ejecutar el proyecto o seleccione **Depurar > Iniciar sin 
 
 Para agregar compatibilidad con EF Core a un proyecto, instale el proveedor de base de datos que quiera tener como destino. En este tutorial se usa SQL Server y el paquete de proveedor es [Microsoft.EntityFrameworkCore.SqlServer](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.SqlServer/). Este paquete se incluye en el metapaquete [Microsoft.AspNetCore.All](xref:fundamentals/metapackage), por lo que no es necesario instalarlo.
 
-Este paquete y sus dependencias (`Microsoft.EntityFrameworkCore` y `Microsoft.EntityFrameworkCore.Relational`) proporcionan compatibilidad en tiempo de ejecución para EF. Más adelante, en el tutorial [Migraciones](migrations.md), agregará un paquete de herramientas. 
+Este paquete y sus dependencias (`Microsoft.EntityFrameworkCore` y `Microsoft.EntityFrameworkCore.Relational`) proporcionan compatibilidad en tiempo de ejecución para EF. Más adelante, en el tutorial [Migraciones](migrations.md), agregará un paquete de herramientas.
 
 Para obtener información sobre otros proveedores de base de datos disponibles para Entity Framework Core, vea [Proveedores de bases de datos](https://docs.microsoft.com/ef/core/providers/).
 
@@ -358,6 +362,8 @@ Para obtener más información sobre la programación asincrónica en .NET, vea 
 ## <a name="summary"></a>Resumen
 
 Ha creado una aplicación simple en la que se usa Entity Framework Core y SQL Server Express LocalDB para almacenar y mostrar datos. En el tutorial siguiente, obtendrá información sobre cómo realizar operaciones CRUD (crear, leer, actualizar y eliminar) básicas.
+
+::: moniker-end
 
 > [!div class="step-by-step"]
 > [Siguiente](crud.md)

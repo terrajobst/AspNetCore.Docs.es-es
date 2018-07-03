@@ -6,18 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: eb049dea2800cf2e12c044b88d1664ee80bb95a5
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296772"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077665"
 ---
 # <a name="get-started-with-aspnet-core"></a>Introducción a ASP.NET Core
 
 ::: moniker range=">= aspnetcore-2.1"
 
-1. Instale el [!INCLUDE[](~/includes/2.1-SDK.md)].
+1. Instale el [!INCLUDE [](~/includes/2.1-SDK.md)].
 
 2. Cree un proyecto de ASP.NET Core. Abra un shell de comandos y escriba el siguiente comando:
 
@@ -25,7 +25,7 @@ ms.locfileid: "36296772"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
+    [!INCLUDE [](~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
 
 3. Confíe en el certificado de desarrollo HTTPS:
 
@@ -76,13 +76,13 @@ ms.locfileid: "36296772"
 
 7. Vaya a [http://localhost:5001/About](http://localhost:5001/About) y confirme que los cambios aparecen reflejados.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-1. Instale el [!INCLUDE[](~/includes/net-core-sdk-download-link.md)].
+1. Instale el [!INCLUDE [](~/includes/net-core-sdk-download-link.md)].
 
 2. Cree un proyecto de ASP.NET Core.
 
@@ -107,7 +107,7 @@ ms.locfileid: "36296772"
 
 6. Vaya a [http://localhost:5000/About](http://localhost:5000/About) y compruebe los cambios.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 
 ::: moniker-end
 
@@ -154,5 +154,5 @@ ms.locfileid: "36296772"
 
 7. Vaya a `http://localhost:5000`.
 
-[!INCLUDE[next steps](~/includes/getting-started/next-steps.md)]
+[!INCLUDE [next steps](~/includes/getting-started/next-steps.md)]
 ::: moniker-end
