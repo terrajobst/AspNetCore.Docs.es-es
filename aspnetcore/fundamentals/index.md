@@ -4,14 +4,14 @@ author: rick-anderson
 description: Descubra los conceptos básicos para crear aplicaciones ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 09/30/2017
+ms.date: 07/02/2018
 uid: fundamentals/index
-ms.openlocfilehash: b51d7b62525944d9924ecb4ce5964312f30a7835
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 33786bf78567a1aa12a1ac97d44d1a596ec4c3be
+ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278874"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37144981"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -204,15 +204,23 @@ Para más información, vea [Interfaz web abierta para .NET (OWIN)](xref:fundame
 
 Para más información, vea [WebSockets](xref:fundamentals/websockets).
 
+::: moniker range=">= aspnetcore-2.1"
+## <a name="microsoftaspnetcoreapp-metapackage"></a>Metapaquete Microsoft.AspNetCore
+
+El metapaquete [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) simplifica la administración de metapaquetes. Para obtener más información, vea [Metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
+::: moniker-end
+::: moniker range="= aspnetcore-2.0"
 ## <a name="microsoftaspnetcoreall-metapackage"></a>Metapaquete Microsoft.AspNetCore.All
 
 El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) para ASP.NET Core incluye lo siguiente:
 
 * Todos los paquetes admitidos por el equipo de ASP.NET Core.
-* Todos los paquetes admitidos por Entity Framework Core. 
+* Todos los paquetes admitidos por Entity Framework Core.
 * Dependencias internas y de terceros usadas por ASP.NET Core y Entity Framework Core.
 
 Para más información, vea [Metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage).
+::: moniker-end
 
 ## <a name="net-core-vs-net-framework-runtime"></a>Entorno de ejecución de .NET Core frente a .NET Framework
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 4ceb7886cc9410c3b39beec68c2b11ea3578d851
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.openlocfilehash: 969ad303c3fee06aa40d43140153ffbf58b735db
+ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077782"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37126292"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -18,15 +18,17 @@ Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdyks
 
 ASP.NET Core es compatible con una API de registro que funciona con una variedad de proveedores de registro. Los proveedores integrados permiten enviar registros a uno o varios destinos, y se puede conectar una plataforma de registro de terceros. En este artículo se muestra cómo usar las API y los proveedores de registro integrados en el código.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample2) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
----
+::: moniker-end
 
 ## <a name="how-to-create-logs"></a>Cómo crear registros
 
@@ -44,7 +46,7 @@ ASP.NET Core no proporciona métodos de registrador asincrónicos porque el regi
 
 ## <a name="how-to-add-providers"></a>Cómo agregar proveedores
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Un proveedor de registro toma los mensajes que se crean con un objeto `ILogger` y los muestra o almacena. Por ejemplo, el proveedor de la consola muestra mensajes en la consola y el proveedor de Azure App Service puede almacenarlos en Azure Blob Storage.
 
@@ -56,7 +58,9 @@ La plantilla de proyecto predeterminada permite el registro con el método [Crea
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Un proveedor de registro toma los mensajes que se crean con un objeto `ILogger` y los muestra o almacena. Por ejemplo, el proveedor de la consola muestra mensajes en la consola y el proveedor de Azure App Service puede almacenarlos en Azure Blob Storage.
 
@@ -69,9 +73,53 @@ La [inserción de dependencias](xref:fundamentals/dependency-injection) (DI) de 
 > [!NOTE]
 > La [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) agrega proveedores de registro en el método `Startup.Configure`. Si quiere obtener la salida de registro de código que se ejecuta antes, agregue los proveedores de registro en el constructor de la clase `Startup`.
 
----
+::: moniker-end
 
 Puede encontrar información sobre cada [proveedor de registro integrado](#built-in-logging-providers) y vínculos a [proveedores de registro de terceros](#third-party-logging-providers) más adelante en el artículo.
+
+## <a name="settings-file-configuration"></a>Configuración del archivo de configuración
+
+Cada uno de los ejemplos anteriores de la sección [Cómo agregar proveedores](#how-to-add-providers) carga la configuración de proveedor de registro de la sección `Logging` de los archivos de configuración de aplicación. En el ejemplo siguiente se muestra el contenido de un archivo *appsettings.Development.json* típico:
+
+::: moniker range=">= aspnetcore-2.1"
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    },
+    "Console":
+    {
+      "IncludeScopes": "true"
+    }
+  }
+}
+```
+
+Las claves `LogLevel` representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado. Las claves de registro que establecen `IncludeScopes` (`Console` en el ejemplo), especifican si los [ámbitos de registro](#log-scopes) están habilitados para el registro indicado.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.1"
+
+```json
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  }
+}
+```
+
+Las claves `LogLevel` representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado.
+
+::: moniker-end
 
 ## <a name="sample-logging-output"></a>Salida de registro de ejemplo
 
@@ -263,7 +311,7 @@ System.Exception: Item not found exception.
 
 ## <a name="log-filtering"></a>Filtrado del registro
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
 
 Puede especificar un nivel de registro mínimo para un proveedor y una categoría específicos, o para todos los proveedores o todas las categorías. Los registros por debajo del nivel mínimo no se pasan a ese proveedor, de modo que no se muestran o almacenan. 
 
@@ -345,7 +393,9 @@ Puede escribir código en una función de filtro para aplicar las reglas de filt
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_FilterFunction&highlight=5-13)]
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Algunos proveedores de registro permiten especificar cuándo deben escribirse los registros en un medio de almacenamiento o ignorarse en función de la categoría y el nivel de registro.
 
@@ -363,7 +413,7 @@ Si quiere usar el filtrado para impedir que se escriban todos los registros para
 
 El paquete NuGet [Microsoft.Extensions.Logging.Filter](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Filter) proporciona el método de extensión `WithFilter`. El método devuelve una instancia nueva de `ILoggerFactory` que filtrará los mensajes de registro pasados a todos los proveedores de registrador registrados con ella. No afecta a ninguna otra instancia de `ILoggerFactory`, incluida la instancia de `ILoggerFactory` original.
 
----
+::: moniker-end
 
 ## <a name="log-scopes"></a>Ámbitos de registro
 
@@ -375,22 +425,37 @@ Un ámbito es un tipo `IDisposable` devuelto por el método [ILogger.BeginScope&
 
 El código siguiente permite ámbitos para el proveedor de la consola:
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range="> aspnetcore-2.0"
 
-En *Program.cs*:
+*Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
 
 > [!NOTE]
-> Es necesario configurar la opción del registrador de consola `IncludeScopes` para habilitar el registro basado en el ámbito. La configuración de `IncludeScopes` con archivos de configuración *appsettings* estará disponible con la versión de ASP.NET Core 2.1.
+> Es necesario configurar la opción del registrador de consola `IncludeScopes` para habilitar el registro basado en el ámbito.
+>
+> `IncludeScopes` se puede configurar a través de archivos de configuración *appsettings*. Para obtener más información, vea la sección [Configuración del archivo de configuración](#settings-file-configuration).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
 
-En *Startup.cs*:
+::: moniker range="= aspnetcore-2.0"
+
+*Program.cs*:
+
+[!code-csharp[](index/sample2/Program.cs?name=snippet_Scopes&highlight=4)]
+
+> [!NOTE]
+> Es necesario configurar la opción del registrador de consola `IncludeScopes` para habilitar el registro basado en el ámbito.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+*Startup.cs*:
 
 [!code-csharp[](index/sample/Startup.cs?name=snippet_Scopes&highlight=6)]
 
----
+::: moniker-end
 
 Cada mensaje de registro incluye la información de ámbito:
 
@@ -418,13 +483,16 @@ ASP.NET Core incluye los proveedores siguientes:
 
 El paquete de proveedor [Microsoft.Extensions.Logging.Console](https://www.nuget.org/packages/Microsoft.Extensions.Logging.Console) envía la salida del registro a la consola. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
+::: moniker range=">= aspnetcore-2.0"
+
 
 ```csharp
 logging.AddConsole()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x/)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddConsole()
@@ -446,7 +514,7 @@ Este código hace referencia a la sección `Logging` del archivo *appSettings.js
 
 La configuración que se muestra limita los registros de la plataforma a las advertencias mientras que permite a la aplicación registrar en el nivel de depuración, como se explica en la sección [Filtrado del registro](#log-filtering). Para obtener más información, vea [Configuración](xref:fundamentals/configuration/index).
 
----
+::: moniker-end
 
 ### <a name="debug-provider"></a>Proveedor de depuración
 
@@ -454,13 +522,15 @@ El paquete de proveedor [Microsoft.Extensions.Logging.Debug](https://www.nuget.o
 
 En Linux, este proveedor escribe registros en */var/log/message*.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddDebug()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddDebug()
@@ -468,25 +538,27 @@ loggerFactory.AddDebug()
 
 [Las sobrecargas de AddDebug](/dotnet/api/microsoft.extensions.logging.debugloggerfactoryextensions) permiten pasar un nivel mínimo de registro o una función de filtro.
 
----
+::: moniker-end
 
 ### <a name="eventsource-provider"></a>Proveedor EventSource
 
 Para las aplicaciones que tienen como destino ASP.NET Core 1.1.0 o superior, el paquete de proveedor [Microsoft.Extensions.Logging.EventSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventSource) puede implementar el seguimiento de eventos. En Windows, usa [ETW](https://msdn.microsoft.com/library/windows/desktop/bb968803). Es un proveedor multiplataforma, pero todavía no hay herramientas de recopilación y visualización de eventos para Linux o macOS. 
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddEventSourceLogger()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddEventSourceLogger()
 ```
 
----
+::: moniker-end
 
 Una buena manera de recopilar y ver los registros es usar la [utilidad PerfView](https://github.com/Microsoft/perfview). Hay otras herramientas para ver los registros ETW, pero PerfView proporciona la mejor experiencia para trabajar con los eventos ETW emitidos por ASP.NET. 
 
@@ -498,13 +570,15 @@ Para configurar PerfView para la recopilación de eventos registrados por este p
 
 El paquete de proveedor [Microsoft.Extensions.Logging.EventLog](https://www.nuget.org/packages/Microsoft.Extensions.Logging.EventLog) envía la salida del registro al Registro de eventos de Windows.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddEventLog()
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddEventLog()
@@ -512,25 +586,27 @@ loggerFactory.AddEventLog()
 
 [Las sobrecargas de AddEventLog](/dotnet/api/microsoft.extensions.logging.eventloggerfactoryextensions) permiten pasar `EventLogSettings` o un nivel de registro mínimo.
 
----
+::: moniker-end
 
 ### <a name="tracesource-provider"></a>Proveedor TraceSource
 
 El paquete de proveedor [Microsoft.Extensions.Logging.TraceSource](https://www.nuget.org/packages/Microsoft.Extensions.Logging.TraceSource) usa las bibliotecas y proveedores de [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource).
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 ```csharp
 logging.AddTraceSource(sourceSwitchName);
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddTraceSource(sourceSwitchName);
 ```
 
----
+::: moniker-end
 
 [Las sobrecargas de AddTraceSource](/dotnet/api/microsoft.extensions.logging.tracesourcefactoryextensions) permiten pasar un modificador de origen y un agente de escucha de seguimiento.
 
@@ -544,7 +620,7 @@ En el ejemplo siguiente se configura un proveedor `TraceSource` que registra men
 
 El paquete de proveedor [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) escribe los registros en archivos de texto en el sistema de archivos de una aplicación de Azure App Service y en [Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#what-is-blob-storage) en una cuenta de Azure Storage. El proveedor solo está disponible para las aplicaciones que tienen como destino ASP.NET Core 1.1 o posterior.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Si el destino es .NET Core, no instale el paquete de proveedor ni llame explícitamente a [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics). El proveedor está disponible automáticamente para la aplicación cuando esta se implementa en Azure App Service.
 
@@ -554,7 +630,9 @@ Si el destino es .NET Framework, agregue el paquete de proveedor al proyecto e i
 logging.AddAzureWebAppDiagnostics();
 ```
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 ```csharp
 loggerFactory.AddAzureWebAppDiagnostics();
@@ -562,7 +640,7 @@ loggerFactory.AddAzureWebAppDiagnostics();
 
 Una sobrecarga de [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) le permite pasar [AzureAppServicesDiagnosticsSettings](/dotnet/api/microsoft.extensions.logging.azureappservices.azureappservicesdiagnosticssettings), con lo que se puede invalidar la configuración predeterminada, como la plantilla de salida del registro, el nombre de blob y el límite de tamaño de archivo. (La *plantilla de salida* es una plantilla de mensaje que se aplica a todos los registros además de la que se proporciona cuando se llama a un método `ILogger`).
 
----
+::: moniker-end
 
 Cuando se realiza una implementación en una aplicación de App Service, la aplicación respeta la configuración de la sección [Registros de diagnóstico](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/#enablediag) situada en la página **App Service** de Azure Portal. Cuando se actualiza esta configuración, los cambios se aplican inmediatamente sin necesidad de reiniciar ni de volver a implementar la aplicación.
 
