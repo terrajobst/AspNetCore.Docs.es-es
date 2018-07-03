@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/getting-started/introduction/getting-started
-title: Introducción a ASP.NET MVC 5 | Documentos de Microsoft
+title: Introducción a ASP.NET MVC 5 | Microsoft Docs
 author: Rick-Anderson
 description: 'Nota: Una versión actualizada de este tutorial está disponible aquí con Visual Studio 2015. El nuevo tutorial usa ASP.NET Core MVC 6, que proporciona muchas improvem...'
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: f3d8adbe-55e7-4fd4-84a8-7155bc45c676
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/getting-started/introduction/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 0f1fd2026691d3bc0e81b20a9731879d7a6041bb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0585e3a841aef72a17d966041029ff7be129a2b3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30868326"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402128"
 ---
 <a name="getting-started-with-aspnet-mvc-5"></a>Introducción a ASP.NET MVC 5
 ====================
@@ -25,22 +24,22 @@ por [Rick Anderson](https://github.com/Rick-Anderson)
 
 [!INCLUDE [consider RP](../../../../includes/razor.md)]
 
- Este tutorial le enseñará los aspectos básicos de la creación de una aplicación web de ASP.NET MVC 5 con [2017 de Visual Studio](https://www.visualstudio.com/). Origen final para el tutorial se encuentra en [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
+ Este tutorial le enseñará los aspectos básicos de la creación de una aplicación web de ASP.NET MVC 5 con [Visual Studio 2017](https://www.visualstudio.com/). Origen final para el tutorial se encuentra en [GitHub](https://github.com/aspnet/Docs/tree/master/aspnet/mvc/overview/getting-started/introduction/sample/MvcMovie/MvcMovie)
 
 
- Este tutorial se escribió por [Scott Guthrie](https://weblogs.asp.net/scottgu/) (twitter[ @scottgu ](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](https://twitter.com/shanselman) ) , y [Rick Anderson](https://twitter.com/RickAndMSFT) ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
+ En este tutorial se escribió por [Scott Guthrie](https://weblogs.asp.net/scottgu/) (twitter[ @scottgu ](https://twitter.com/scottgu) ), [Scott Hanselman](http://www.hanselman.com/blog/) (twitter: [ @shanselman ](https://twitter.com/shanselman) ) , y [Rick Anderson](https://twitter.com/RickAndMSFT) ( [ @RickAndMSFT ](https://twitter.com/#!/RickAndMSFT) )
 
  Necesita una cuenta de Azure para implementar esta aplicación en Azure:
 
- - También puede [abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
- - También puede [activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
+ - También puede [abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtenga créditos puede usar para probar los servicios de Azure de pago e incluso después de que se usan hasta, puede mantener la cuenta y usar servicios gratuitos de Azure.
+ - También puede [activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN le proporciona crédito todos los meses que puede usar para servicios de Azure de pago.
 
 
 ## <a name="getting-started"></a>Introducción
 
-Empiece por instalar y ejecutar [2017 de Visual Studio](https://www.visualstudio.com/).
+Comience por instalar y ejecutar [Visual Studio 2017](https://www.visualstudio.com/).
 
-Visual Studio es un entorno de desarrollo integrado o IDE. Al igual que usa Microsoft Word para escribir documentos, deberá usar un IDE para crear aplicaciones. En Visual Studio, hay una lista en la parte inferior muestra distintas opciones disponibles para usted. También hay un menú que proporciona otra manera de realizar las tareas en el IDE. (Por ejemplo, en lugar de seleccionar **nuevo proyecto** desde el **iniciar** página, puede usar el menú y seleccione **archivo** &gt; **denuevoproyecto**.)
+Visual Studio es un entorno de desarrollo integrado o IDE. Al igual que utiliza Microsoft Word para escribir documentos, usará un IDE para crear aplicaciones. En Visual Studio, hay una lista en la parte inferior muestra distintas opciones disponibles para usted. También hay un menú que proporciona otra manera de realizar las tareas en el IDE. (Por ejemplo, en lugar de seleccionar **nuevo proyecto** desde el **iniciar** página, puede usar el menú y seleccione **archivo** &gt; **denuevoproyecto**.)
 
 
 ![](getting-started/_static/image1.png)  
@@ -48,7 +47,7 @@ Visual Studio es un entorno de desarrollo integrado o IDE. Al igual que usa Micr
 
 ## <a name="creating-your-first-application"></a>Crear su primera aplicación
 
-Haga clic en **nuevo proyecto**, a continuación, seleccione Visual C# a la izquierda, a continuación, **Web** y, a continuación, seleccione **aplicación Web de ASP.NET (.NET Framework)**. Denomine el proyecto "MvcMovie" y, a continuación, haga clic en **Aceptar**.
+Haga clic en **nuevo proyecto**, a continuación, seleccione Visual C# a la izquierda y, a continuación, **Web** y, a continuación, seleccione **aplicación Web ASP.NET (.NET Framework)**. Nombre del proyecto "MvcMovie" y, a continuación, haga clic en **Aceptar**.
 
 ![](getting-started/_static/image2.png)
 
@@ -56,23 +55,23 @@ En el **nuevo proyecto ASP.NET** cuadro de diálogo, haga clic en **MVC** y, a c
 
 ![](getting-started/_static/image3.png)
 
-Visual Studio usa una plantilla predeterminada para el proyecto de MVC de ASP.NET que acaba de crear, por lo que tendrá una aplicación que funciona en este momento sin hacer nada. Se trata de un simple "Hola a todos" proyecto y, de un buen lugar para iniciar la aplicación.
+Visual Studio usa una plantilla predeterminada para el proyecto de ASP.NET MVC que acaba de crear, por lo que tiene ahora una aplicación de trabajo sin hacer nada! Se trata de un simple "Hello World!" proyecto y, de un buen lugar para iniciar la aplicación.
 
 ![](getting-started/_static/image4.png)
 
-Haga clic en F5 para iniciar la depuración. F5 hace que Visual Studio iniciar [IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) y ejecutar la aplicación web. Visual Studio, a continuación, inicia un explorador y abre la página principal de la aplicación. Observe que la barra de direcciones del explorador indica `localhost:port#` y no algo como `example.com`. Esto es así porque `localhost` siempre apunta a su propio equipo local, que en este caso, se ejecuta la aplicación que acaba de crear. Cuando Visual Studio se ejecuta un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen siguiente, el número de puerto es 1234. Al ejecutar la aplicación, verá un número de puerto diferente.
+Haga clic en F5 para iniciar la depuración. F5 hace que Visual Studio iniciar [IIS Express](https://www.iis.net/learn/extensions/introduction-to-iis-express/iis-express-overview) y ejecutar la aplicación web. A continuación, Visual Studio inicia un explorador y abre la página principal de la aplicación. Tenga en cuenta que la barra de direcciones del explorador dice `localhost:port#` y no algo como `example.com`. Eso es porque `localhost` siempre apunta a su propio equipo local, que en este caso, se ejecuta la aplicación que acaba de crear. Cuando Visual Studio se ejecuta un proyecto web, se usa un puerto aleatorio para el servidor web. En la imagen siguiente, el número de puerto es 1234. Al ejecutar la aplicación, verá un número de puerto diferente.
 
 ![](getting-started/_static/image5.png)
 
-Desde el cuadro de esta plantilla predeterminada proporciona páginas de inicio, póngase en contacto con y sobre. No muestra la imagen anterior del **inicio**, **sobre** y **póngase en contacto con** vínculos. Según el tamaño de la ventana del explorador, tendrá que hacer clic en el icono de navegación para ver estos vínculos.
+Desde el comienzo esta plantilla predeterminada proporciona páginas principal, contactos y sobre. No se muestra la imagen anterior el **inicio**, **sobre** y **póngase en contacto con** vínculos. Según el tamaño de la ventana del explorador, es posible que deba haga clic en el icono de navegación para ver estos vínculos.
 
 ![](getting-started/_static/image6.png)  
 
-La aplicación también proporciona soporte técnico para registrar e iniciar sesión. El paso siguiente es cambiar el funcionamiento de esta aplicación y aprender un poco sobre ASP.NET MVC. Cierre la aplicación de ASP.NET MVC y vamos a cambiar parte del código.
+La aplicación también proporciona compatibilidad para registrar e inicie sesión. El siguiente paso es cambiar el funcionamiento de esta aplicación y aprender un poco sobre ASP.NET MVC. Cierre la aplicación de ASP.NET MVC y vamos a cambiar algo de código.
 
-Para obtener una lista de tutoriales actuales, vea [MVC artículos recomendado](../mvc-learning-sequence.md).
+Para obtener una lista de tutoriales actuales, consulte [MVC artículos recomendado](../mvc-learning-sequence.md).
 
-## <a name="see-this-app-running-on-azure"></a>Vea esta aplicación se ejecuta en Azure
+## <a name="see-this-app-running-on-azure"></a>Consulte esta aplicación se ejecuta en Azure
 
 ¿Desea ver el sitio terminado que se ejecuta como una aplicación web en directo? Puede implementar una versión completa de la aplicación en su cuenta de Azure, simplemente haga clic en el botón siguiente.
 
@@ -80,8 +79,8 @@ Para obtener una lista de tutoriales actuales, vea [MVC artículos recomendado](
 
 Necesita una cuenta de Azure para implementar esta solución en Azure. Si no dispone de una cuenta, tiene las siguientes opciones:
 
-- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
-- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
+- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtiene crédito puede usar para probar los servicios de Azure de pago e incluso después de que se usan hasta, puede mantener la cuenta y usar servicios gratuitos de Azure.
+- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN le proporciona crédito todos los meses que puede usar para servicios de Azure de pago.
 
 > [!div class="step-by-step"]
 > [Siguiente](adding-a-controller.md)

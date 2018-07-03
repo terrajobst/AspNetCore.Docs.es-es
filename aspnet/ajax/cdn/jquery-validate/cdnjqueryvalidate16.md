@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate16
-title: jQuery validar 1.6 | Documentos de Microsoft
+title: 1.6 de validación de jQuery | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 07/23/2014
 ms.topic: article
 ms.assetid: 5c890d81-a1a9-4b4f-9221-6947978ae336
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate16
 msc.type: content
-ms.openlocfilehash: d781fe9dfc2545b6b2176e0ed27eed248d930ed2
-ms.sourcegitcommit: 24c32648ab0c6f0be15333d7c23c1bf680858c43
+ms.openlocfilehash: c3040e9571f32f7d94eb452245f7459e9641513d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2018
-ms.locfileid: "30075534"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402085"
 ---
-<a name="jquery-validate-16"></a>jQuery validar 1.6
+<a name="jquery-validate-16"></a>1.6 de validación de jQuery
 ====================
 Los siguientes archivos se hospedan en la red CDN:
 

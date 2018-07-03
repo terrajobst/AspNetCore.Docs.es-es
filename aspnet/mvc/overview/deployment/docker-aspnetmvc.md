@@ -7,16 +7,15 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.topic: article
-ms.prod: .net-framework
 ms.technology: dotnet-mvc
 ms.devlang: dotnet
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: 7a580c6c6236b375ea54ef4e9978fff6993d885a
-ms.sourcegitcommit: b83a5f731a9c02bdb1cc1e3f9a8bf273eb5b33e0
+ms.openlocfilehash: fa010e795878b26c79dbe04ef0017373283c4269
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2018
-ms.locfileid: "29143194"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37403024"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrar aplicaciones de ASP.NET MVC a contenedores de Windows
 
@@ -89,7 +88,7 @@ FROM microsoft/aspnet
 COPY ./bin/Release/PublishOutput/ /inetpub/wwwroot
 ```
 
-No hay ningún comando `ENTRYPOINT` en este Dockerfile. No se necesita ninguno. Cuando se ejecuta Windows Server con IIS, el proceso IIS es el punto de entrada, que está configurado para iniciarse en la imagen base de aspnet.
+No hay ningún comando `ENTRYPOINT` en este Dockerfile. No se necesita ninguno. Cuando se ejecuta Windows Server con IIS, el proceso IIS es el punto de entrada, que está configurado para iniciarse en la imagen base aspnet.
 
 Ejecute el comando de compilación Docker para crear la imagen que se ejecuta en la aplicación ASP.NET. Para ello, abra una ventana de PowerShell en el directorio del proyecto y escriba el siguiente comando en el directorio de la solución:
 
@@ -97,7 +96,7 @@ Ejecute el comando de compilación Docker para crear la imagen que se ejecuta en
 docker build -t mvcrandomanswers .
 ```
 
-Este comando creará la nueva imagen con las instrucciones en el Dockerfile, nomenclatura (-t etiquetado) la imagen como mvcrandomanswers. Esto puede incluir la extracción de la imagen base de [Docker Hub](http://hub.docker.com) y después agrega la aplicación a esa imagen.
+Este comando para compilar la imagen nueva con las instrucciones del dockerfile y nomenclatura (-t etiquetado) la imagen como mvcrandomanswers. Esto puede incluir la extracción de la imagen base de [Docker Hub](http://hub.docker.com) y después agrega la aplicación a esa imagen.
 
 Una vez que el comando finaliza, puede ejecutar el comando `docker images` para ver información sobre la nueva imagen:
 
@@ -118,7 +117,7 @@ docker run -d --name randomanswers mvcrandomanswers
 
 El argumento `-d` indica a Docker que inicie la imagen en modo desasociado. Esto significa que la imagen de Docker se ejecuta desconectada del shell actual.
 
-En muchos ejemplos de docker, pueden sufrir -p para asignar los puertos de contenedor y el host. La imagen de aspnet predeterminada ya configuró el contenedor para que escuche en el puerto 80 y exponerlo. 
+En muchos ejemplos de docker, es posible que vea -p para asignar los puertos de contenedor y el host. La imagen de aspnet predeterminada ya configuró el contenedor para escuchar en el puerto 80 y exponerla. 
 
 El argumento `--name randomanswers` da un nombre al contenedor en ejecución. Puede usar este nombre en lugar del identificador del contenedor en la mayoría de los comandos.
 
@@ -127,7 +126,7 @@ El argumento `mvcrandomanswers` es el nombre de la imagen que se iniciará.
 ## <a name="verify-in-the-browser"></a>Comprobar en el explorador
 
 > [!NOTE]
-> Con la versión actual del contenedor de Windows, no puede ir a `http://localhost`.
+> Con la versión actual del contenedor de Windows, no puede ir al `http://localhost`.
 > Esto se debe a un comportamiento conocido en WinNAT y se resolverá en el futuro. Hasta que se solucione, debe usar la dirección IP del contenedor.
 
 Una vez iniciado el contenedor, encontrará su dirección IP para poder conectarse al contenedor en ejecución desde un explorador:
@@ -137,7 +136,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
 172.31.194.61
 ```
 
-Conectar con el contenedor en ejecución con la dirección IPv4, `http://172.31.194.61` en el ejemplo mostrado. Escriba esa dirección URL en el explorador y debería ver el sitio en ejecución.
+Conéctese al contenedor en ejecución mediante la dirección IPv4, `http://172.31.194.61` en el ejemplo mostrado. Escriba esa dirección URL en el explorador y debería ver el sitio en ejecución.
 
 > [!NOTE]
 > Algún software de proxy o VPN puede impedir que explore su sitio.

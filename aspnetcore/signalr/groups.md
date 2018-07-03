@@ -1,5 +1,5 @@
 ---
-title: Administrar usuarios y grupos de SignalR
+title: Administrar usuarios y grupos en SignalR
 author: rachelappel
 description: Información general de administración de grupos y usuarios de ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
@@ -7,14 +7,14 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 06/04/2018
 uid: signalr/groups
-ms.openlocfilehash: f7d60a906fc238f79c76fd2a4ee693417a348825
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3e5e310c84bc3ed5790d5b67a917bd54162ea163
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272086"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402530"
 ---
-# <a name="manage-users-and-groups-in-signalr"></a>Administrar usuarios y grupos de SignalR
+# <a name="manage-users-and-groups-in-signalr"></a>Administrar usuarios y grupos en SignalR
 
 Por [Brennan Conroy](https://github.com/BrennanConroy)
 
@@ -24,9 +24,9 @@ SignalR permite que los mensajes se envíen a todas las conexiones asociadas a u
 
 ## <a name="users-in-signalr"></a>Usuarios de SignalR
 
-SignalR le permite enviar mensajes a todas las conexiones asociadas a un usuario específico. De forma predeterminada se usa SignalR el `ClaimTypes.NameIdentifier` desde el `ClaimsPrincipal` asociado a la conexión como el identificador de usuario. Un único usuario puede tener varias conexiones a una aplicación de SignalR. Por ejemplo, un usuario podría estar conectado en el escritorio, así como el número de teléfono. Cada dispositivo tiene una conexión SignalR independiente, pero están asociadas con el mismo usuario. Si se envía un mensaje al usuario, todas las conexiones asociadas a ese usuario recibe el mensaje.
+SignalR le permite enviar mensajes a todas las conexiones asociadas a un usuario específico. De forma predeterminada, usa SignalR el `ClaimTypes.NameIdentifier` desde el `ClaimsPrincipal` asociado a la conexión como el identificador de usuario. Un único usuario puede tener varias conexiones a una aplicación de SignalR. Por ejemplo, un usuario podría estar conectado en su escritorio, así como su teléfono. Cada dispositivo tiene una conexión SignalR independiente, pero que están todos los asociados con el mismo usuario. Si se envía un mensaje al usuario, todas las conexiones asociadas con la que el usuario recepción el mensaje. El identificador de usuario para una conexión puede tener acceso a la `Context.UserIdentifier` propiedad en el centro.
 
-Enviar un mensaje a un usuario específico, pase el identificador de usuario para el `User` funcionando en su método de concentrador, tal como se muestra en el ejemplo siguiente:
+Enviar un mensaje a un usuario específico, pasando el identificador de usuario para el `User` funcionando en su método de concentrador, tal como se muestra en el ejemplo siguiente:
 
 > [!NOTE]
 > El identificador de usuario distingue mayúsculas de minúsculas.
@@ -45,18 +45,18 @@ El identificador de usuario se puede personalizar mediante la creación de un `I
 [!code-csharp[Configure service](groups/sample/startup.cs?range=21-22,39-42)]
 
 > [!NOTE]
-> AddSignalR debe llamarse antes de registrar los servicios SignalR personalizados.
+> AddSignalR debe llamarse antes de registrar sus servicios personalizados de SignalR.
 
-## <a name="groups-in-signalr"></a>Grupos de SignalR
+## <a name="groups-in-signalr"></a>Grupos en SignalR
 
-Un grupo es una colección de conexiones asociadas a un nombre. Los mensajes pueden enviarse a todas las conexiones en un grupo. Los grupos son el método recomendado para enviar a una conexión o varias conexiones porque los grupos administrados por la aplicación. Una conexión puede ser un miembro de varios grupos. Esto hace que los grupos ideal para algo parecido a una aplicación de chat, donde cada habitación puede representarse como un grupo. Las conexiones se pueden agregar a o quitar de los grupos a través de la `AddToGroupAsync` y `RemoveFromGroupAsync` métodos.
+Un grupo es una colección de conexiones asociado con un nombre. Los mensajes pueden enviarse a todas las conexiones en un grupo. Los grupos son el método recomendado para enviar a una conexión o varias conexiones porque los grupos administrados por la aplicación. Una conexión puede ser un miembro de varios grupos. Esto hace que los grupos ideal para algo parecido a una aplicación de chat, donde cada sala puede representarse como un grupo. Las conexiones se pueden sumar o quitan de los grupos a través de la `AddToGroupAsync` y `RemoveFromGroupAsync` métodos.
 
 [!code-csharp[Hub methods](groups/sample/hubs/chathub.cs?range=15-27)]
 
-Pertenencia a grupos no se conserva cuando se vuelve a conectar una conexión. Debe volver a unirse al grupo cuando se vuelve a establecer la conexión. No es posible contar a los miembros de un grupo, puesto que esta información no está disponible si la aplicación se escala a varios servidores.
+Pertenencia a grupos no se conserva cuando se vuelve a conectar en una conexión. Debe volver a unirse al grupo cuando se vuelve a establecer la conexión. No es posible contar a los miembros de un grupo, puesto que esta información no está disponible si la aplicación se escala a varios servidores.
 
 > [!NOTE]
-> Nombres de grupo distinguen entre mayúsculas y minúsculas.
+> Los nombres de grupo distinguen entre mayúsculas y minúsculas.
 
 ## <a name="related-resources"></a>Recursos relacionados
 

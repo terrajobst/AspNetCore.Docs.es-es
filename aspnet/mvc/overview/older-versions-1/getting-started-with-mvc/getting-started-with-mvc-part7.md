@@ -1,52 +1,51 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
-title: Agregar validación para el modelo | Documentos de Microsoft
+title: Agregar validación al modelo | Microsoft Docs
 author: shanselman
-description: Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos.
+description: Este es un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Cree una aplicación web simple que lee y escribe desde una base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: aa7b3e8e-e23d-49f1-b160-f99a7f2982bd
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part7
 msc.type: authoredcontent
-ms.openlocfilehash: 78dd6bdd81fcb51a3a21a8f1ee12b4b2bfc37db5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 1a8c186d5a6b00aaf1061bb4025f4f062203a7df
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871953"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37402986"
 ---
-<a name="adding-validation-to-the-model"></a>Agregar validación para el modelo
+<a name="adding-validation-to-the-model"></a>Agregar validación al modelo
 ====================
 por [Scott Hanselman](https://github.com/shanselman)
 
-> Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Se creará una aplicación web simple que lee y escribe desde una base de datos. Visite la [centro de aprendizaje de ASP.NET MVC](../../../index.md) para buscar otros ASP.NET MVC, tutoriales y ejemplos.
+> Este es un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Creará una aplicación web simple que lee y escribe desde una base de datos. Visite el [centro de aprendizaje de ASP.NET MVC](../../../index.md) para buscar otros ASP.NET MVC, tutoriales y ejemplos.
 
 
-En esta sección, vamos a implementar la compatibilidad necesaria para habilitar la validación de entrada en nuestra aplicación. Se garantizará que nuestro contenido de la base de datos siempre es correcta y proporcionan mensajes de error útiles a los usuarios finales cuando intentan y escriba los datos de la película que no es válidos. Comenzaremos agregando un poco lógica de validación a la clase de la película.
+En esta sección vamos a implementar la compatibilidad necesaria para habilitar la validación de entrada dentro de nuestra aplicación. Le garantizamos que el contenido de la base de datos siempre es correcto y proporcionar mensajes de error útiles a los usuarios finales cuando pruebe y escriba los datos de la película que no es válidos. Empezaremos por agregar lógica de validación de un poco a la clase Movie.
 
-Haga clic con el botón secundario en la carpeta del modelo y seleccione Agregar clase. Nombre de la clase de la película.
+Haga clic con el botón derecho en la carpeta de modelo y seleccione Agregar clase. Nombre de la clase Movie.
 
-Cuando se creó el modelo de entidad de película anteriormente, el IDE ha creado una clase de la película. De hecho, puede ser parte de la clase de la película en un archivo y parte de otro. Esto se denomina una clase parcial. Vamos a ampliar la clase de película desde otro archivo.
+Cuando se creó el modelo de entidades de película, el IDE crea una clase llamada Movie. De hecho, puede ser parte de la clase de la película en un archivo y parte en otro. Esto se denomina una clase parcial. Vamos a ampliar la clase Movie de otro archivo.
 
-Vamos a crear una clase parcial de película que apunta a una "clase relacionada" con algunos atributos que le proporcionará sugerencias de validación en el sistema. Comenzaremos marcar el título y el precio según sea necesario y también insistir en que el precio sea dentro de un intervalo determinado. Haga clic en la carpeta de modelos y seleccione Agregar clase. Nombre de la clase de película y haga clic en el botón Aceptar. Este es nuestro parcial película clase aspecto.
+Vamos a crear una clase parcial de película que apunta a un amigo "class" con algunos atributos que proporcionan las sugerencias de validación en el sistema. Se deberá marcar el título y el precio según sea necesario y también insistir en que el precio ser dentro de un intervalo determinado. A la derecha, haga clic en la carpeta Models y seleccione Agregar clase. Nombre de la clase Movie y haga clic en el botón Aceptar. Este es nuestro parcial película clase aspecto.
 
 [!code-csharp[Main](getting-started-with-mvc-part7/samples/sample1.cs)]
 
-Vuelva a ejecutar la aplicación e intente escribir una película con un precio superiores a 100. Una vez que ha enviado el formulario, obtendrá un error. El error se captura en el servidor y se produce después de que se publique el formulario. Tenga en cuenta cómo aplicaciones auxiliares HTML integradas de ASP.NET MVC eran lo suficientemente inteligentes como para mostrar el mensaje de error y mantener los valores para que podamos dentro de los elementos de cuadro de texto:
+Vuelva a ejecutar la aplicación e intenta insertar una película con un precio superior a 100. Obtendrá un error después de haber enviado el formulario. El error se captura en el servidor y se produce después de que el formulario se publica. Tenga en cuenta cómo aplicaciones auxiliares de HTML integradas de ASP.NET MVC eran suficientemente inteligentes como para mostrar el mensaje de error y mantenga los valores para que podamos dentro de los elementos de cuadro de texto:
 
 [![CreateMovieWithValidation](getting-started-with-mvc-part7/_static/image2.png)](getting-started-with-mvc-part7/_static/image1.png)
 
-Esto funciona bien, pero sería estupendo si podemos decirle al usuario en el lado cliente, inmediatamente, antes de que el servidor obtiene implicado.
+Esto funciona bien, pero sería bueno si podemos decirle al usuario en el lado cliente, inmediatamente, antes de que el servidor se implique.
 
 Vamos a habilitar alguna validación del lado cliente con JavaScript.
 
 ## <a name="adding-client-side-validation"></a>Agregar la validación del lado cliente
 
-Puesto que nuestra clase película ya tiene algunos atributos de validación, se necesitará agregar algunos archivos de JavaScript a nuestra plantilla Create.aspx vista y agregar una línea de código para habilitar la validación del lado cliente que se realicen.
+Dado que nuestra clase Movie ya tiene algunos atributos de validación, sólo necesitaremos agregar algunos archivos de JavaScript a nuestra plantilla de vista Create.aspx y agregar una línea de código para habilitar la validación del lado cliente que tenga lugar.
 
 Desde VWD vaya la carpeta vistas/película y abra Create.aspx.
 
@@ -67,11 +66,11 @@ Este es el código que se muestra en el IDE.
 
 [![Películas - Microsoft Visual Web Developer 2010 Express (10)](getting-started-with-mvc-part7/_static/image4.png)](getting-started-with-mvc-part7/_static/image3.png)
 
-Ejecutar la aplicación, visite /Movies/Create nuevo y haga clic en crear sin escribir ningún dato. Los mensajes de error aparecen inmediatamente sin la página flash que asociamos con el envío de datos de todas la manera de nuevo al servidor. Esto es porque ASP.NET MVC ahora se está validando la entrada tanto en el cliente (mediante JavaScript) y en el servidor.
+Ejecute la aplicación y vuelve a visitar /Movies/Create y haga clic en crear sin especificar ningún dato. Los mensajes de error aparecen inmediatamente sin la página que se asocia con el envío de datos de flash remontándose al servidor. Esto es porque ASP.NET MVC ahora se está validando la entrada tanto en el cliente (mediante JavaScript) y en el servidor.
 
 [![Crear - Windows Internet Explorer](getting-started-with-mvc-part7/_static/image6.png)](getting-started-with-mvc-part7/_static/image5.png)
 
-¡Este es otro aspecto! Agreguemos ahora una columna adicional a la base de datos.
+¡Esto es genial! Ahora agreguemos una columna adicional a la base de datos.
 
 > [!div class="step-by-step"]
 > [Anterior](getting-started-with-mvc-part6.md)
