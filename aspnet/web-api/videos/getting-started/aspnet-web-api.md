@@ -1,6 +1,6 @@
 ---
 uid: web-api/videos/getting-started/aspnet-web-api
-title: ASP.NET Web API | Documentos de Microsoft
+title: ASP.NET Web API | Microsoft Docs
 author: shanselman
 description: Depuración
 ms.author: aspnetcontent
@@ -9,18 +9,17 @@ ms.date: 08/15/2012
 ms.topic: article
 ms.assetid: a3ad418c-601f-4be8-964c-fd81f7c4cc9f
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/videos/getting-started/aspnet-web-api
 msc.type: video
-ms.openlocfilehash: abe0195a5bd9b8453711a9fc3eb654709595592f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 004765b52d500478d386c8a5345c53f16e149425
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508964"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37363910"
 ---
-<a name="aspnet-web-api"></a><span data-ttu-id="84e3c-103">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="84e3c-103">ASP.NET Web API</span></span>
+<a name="aspnet-web-api"></a><span data-ttu-id="dd58d-103">ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="dd58d-103">ASP.NET Web API</span></span>
 ====================
-<span data-ttu-id="84e3c-104">por [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="84e3c-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
+<span data-ttu-id="dd58d-104">por [Scott Hanselman](https://github.com/shanselman)</span><span class="sxs-lookup"><span data-stu-id="dd58d-104">by [Scott Hanselman](https://github.com/shanselman)</span></span>
 
-[<span data-ttu-id="84e3c-105">&#9654; Vea el vídeo (6 minutos)</span><span class="sxs-lookup"><span data-stu-id="84e3c-105">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-web-api)
+[<span data-ttu-id="dd58d-105">&#9654;Vea el vídeo (6 minutos)</span><span class="sxs-lookup"><span data-stu-id="dd58d-105">&#9654; Watch video (6 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-web-api)
