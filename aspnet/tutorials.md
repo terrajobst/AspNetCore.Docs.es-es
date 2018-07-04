@@ -1,6 +1,6 @@
 ---
 uid: aspnet/tutorials
-title: Tutoriales ASP.NET | Documentos de Microsoft
+title: Tutoriales de ASP.NET | Microsoft Docs
 author: tdykstra
 description: Una lista de las guías paso a paso para desarrollar aplicaciones de ASP.NET.
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 01/17/2012
 ms.topic: article
 ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.technology: ''
-ms.prod: .net-framework
-ms.openlocfilehash: 704285fe06e2ece0f6afdc117aedf98f6155ef87
-ms.sourcegitcommit: 060879fcf3f73d2366b5c811986f8695fff65db8
+ms.openlocfilehash: 7929a06fd7857237c2529aca34d36564c2a89f82
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28036770"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389617"
 ---
-# <a name="aspnet-tutorials"></a>Tutoriales ASP.NET
+# <a name="aspnet-tutorials"></a>Tutoriales de ASP.NET
 
 Están disponibles las siguientes guías paso a paso para desarrollar aplicaciones de ASP.NET.
 
@@ -48,7 +47,7 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 
 ## <a name="mvc"></a>MVC
 
-* [Introducción a ASP.NET MVC 5](mvc/overview/getting-started/introduction/index.md)
+* [Introducción a ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
 * [Introducción a EF 6 mediante MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
 * [EF Database First con ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Usar el Inspector de página en ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)

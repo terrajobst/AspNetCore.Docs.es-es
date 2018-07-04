@@ -1,77 +1,76 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
-title: Inicie una ventana emergente Modal del código del servidor (VB) | Documentos de Microsoft
+title: Iniciar una ventana emergente Modal desde el código de servidor (VB) | Microsoft Docs
 author: wenz
-description: El control ModalPopup en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo, algunos escenarios requieren que t...
+description: El control ModalPopup de AJAX Control Toolkit ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo, algunos escenarios requieren que t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/02/2008
 ms.topic: article
 ms.assetid: 36ca81d7-906d-4db2-952b-add18a4ff421
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 46554dae60ad9cd13e97e5755e95cb2125d1fed9
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ea5149e9dece5393bb4c431bfc440a745611496d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872876"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362844"
 ---
-<a name="launching-a-modal-popup-window-from-server-code-vb"></a>Inicie una ventana emergente Modal del código del servidor (VB)
+<a name="launching-a-modal-popup-window-from-server-code-vb"></a>Iniciar una ventana emergente Modal desde el código de servidor (VB)
 ====================
 por [Christian Wenz](https://github.com/wenz)
 
-[Descargar código](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.vb.zip) o [descarga de PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1VB.pdf)
+[Descargar código](http://download.microsoft.com/download/2/4/0/24052038-f942-4336-905b-b60ae56f0dd5/ModalPopup1.vb.zip) o [descargar PDF](http://download.microsoft.com/download/b/6/a/b6ae89ee-df69-4c87-9bfb-ad1eb2b23373/modalpopup1VB.pdf)
 
-> El control ModalPopup en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo algunos escenarios requieren que se desencadene la apertura de la ventana emergente modal en el lado del servidor.
+> El control ModalPopup de AJAX Control Toolkit ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo algunos escenarios requieren que se desencadena la apertura de la ventana emergente modal en el lado del servidor.
 
 
 ## <a name="overview"></a>Información general
 
-El control ModalPopup en el Kit de herramientas de Control de AJAX ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo algunos escenarios requieren que se desencadene la apertura de la ventana emergente modal en el lado del servidor.
+El control ModalPopup de AJAX Control Toolkit ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo algunos escenarios requieren que se desencadena la apertura de la ventana emergente modal en el lado del servidor.
 
 ## <a name="steps"></a>Pasos
 
-En primer lugar, se requiere un control de botón de ASP.NET web para demostrar cómo funciona el control ModalPopup. Agregar un botón de este tipo dentro de la &lt;formulario&gt; elemento en una página nueva:
+En primer lugar, se requiere un control de botón de ASP.NET web para demostrar cómo funciona el control ModalPopup. Agregar un botón dentro de la &lt;formulario&gt; elemento en una página nueva:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample1.aspx)]
 
-A continuación, necesitará el marcado para la ventana emergente que desea crear. Definir como un `<asp:Panel>` de control y asegúrese de que incluye un control de botón. El control ModalPopup ofrece la funcionalidad necesaria para realizar este tipo un botón para cerrar la ventana emergente; en caso contrario, no hay ninguna manera fácil de dejar que desaparecer.
+A continuación, necesita el marcado para la ventana emergente que desea crear. Defínalo como un `<asp:Panel>` controlar y asegúrese de que incluye un control de botón. El control ModalPopup ofrece la funcionalidad para hacer que un botón cerrar la ventana emergente; en caso contrario, no hay ninguna manera fácil para permitirle desaparecer.
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample2.aspx)]
 
-A continuación, agregue el control de ModalPopup desde el Kit de herramientas de AJAX de ASP.NET a la página. Establecer propiedades para el botón que cargue el control, el botón que facilita el desaparecen y el identificador de la ventana emergente real.
+A continuación, agregue el control ModalPopup de ASP.NET AJAX Toolkit a la página. Establecer propiedades para el botón que carga el control, el botón que hace desaparecer y el identificador del elemento emergente real.
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample3.aspx)]
 
-Al igual que con todas las páginas web en función de AJAX de ASP.NET; el Administrador de scripts es necesario para cargar las bibliotecas de JavaScript necesarias para los exploradores de destino diferente:
+Igual que con todas las páginas web basadas en ASP.NET AJAX; el director de scripts es necesaria para cargar las bibliotecas de JavaScript necesarias para los exploradores de destino diferente:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample4.aspx)]
 
-Ejecutar el ejemplo en el explorador. Al hacer clic en el botón, aparece el cuadro emergente modal. Para lograr el mismo efecto mediante código del lado servidor, se requiere un nuevo botón:
+Ejecute el ejemplo en el explorador. Al hacer clic en el botón, aparece la ventana emergente modal. Para lograr el mismo efecto mediante el código del lado servidor, se requiere un nuevo botón:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample5.aspx)]
 
-Como puede ver, al hacer clic en el botón genera una devolución de datos y ejecuta el `ServerButton_Click()` método en el servidor. En este método, llama a una función de JavaScript `launchModal()` se ejecuta para ser exactos, la función de JavaScript se ejecutará una vez que se ha cargado la página:
+Como puede ver, hacer clic en el botón genera un postback y ejecuta el `ServerButton_Click()` método en el servidor. En este método, llama una función de JavaScript `launchModal()` se ejecuta para ser exactos, la función de JavaScript se ejecutará una vez que se ha cargado la página:
 
 [!code-aspx[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample6.aspx)]
 
-El trabajo de `launchModal()` es mostrar la ModalPopup. El `launchModal()` se ejecuta la función una vez que se ha cargado la página HTML completa. En ese momento, sin embargo, el marco de AJAX de ASP.NET no ha sido totalmente cargado aún. Por lo tanto, la `launchModal()` función simplemente establece una variable que se debe mostrar el control ModalPopup más adelante:
+El trabajo de `launchModal()` es mostrar la ModalPopup. El `launchModal()` función se ejecuta una vez que se ha cargado la página HTML completa. En ese momento, sin embargo, el marco de ASP.NET AJAX no ha sido totalmente cargado aún. Por lo tanto, el `launchModal()` función solo establece una variable que se debe mostrar el control ModalPopup más adelante:
 
 [!code-html[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample7.html)]
 
-El `pageLoad()` función de JavaScript es una función especial que se ejecuta una vez que se ha cargado completamente AJAX de ASP.NET. Por lo tanto, se agregue código a esta función para mostrar el control ModalPopup, pero solo si `launchModal()` se ha llamado antes de:
+El `pageLoad()` función de JavaScript es una función especial que se ejecuta una vez que AJAX de ASP.NET se ha cargado completamente. Por lo tanto, agregue código a esta función para mostrar el control ModalPopup, pero solo si `launchModal()` ha llamado antes de:
 
 [!code-javascript[Main](launching-a-modal-popup-window-from-server-code-vb/samples/sample8.js)]
 
-El `$find()` función busca un elemento con nombre en la página y espera el identificador de servidor como un parámetro. Por lo tanto, `$find("mpe")` devuelve la representación del cliente del control ModalPopup; su `show()` método permite que aparezca la ventana emergente.
+El `$find()` función busca un elemento con nombre en la página y se espera que el identificador del lado servidor como un parámetro. Por lo tanto, `$find("mpe")` devuelve la representación del cliente del control ModalPopup; su `show()` método permite que aparezca la ventana emergente.
 
 
 [![Aparece la ventana emergente modal cuando se hace clic en cualquiera de los botones](launching-a-modal-popup-window-from-server-code-vb/_static/image2.png)](launching-a-modal-popup-window-from-server-code-vb/_static/image1.png)
 
-Aparece la ventana emergente modal cuando se hace clic en cualquiera de los botones ([haga clic aquí para ver la imagen a tamaño completo](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))
+Aparece la ventana emergente modal cuando se hace clic en cualquiera de los botones ([haga clic aquí para ver imagen en tamaño completo](launching-a-modal-popup-window-from-server-code-vb/_static/image3.png))
 
 > [!div class="step-by-step"]
 > [Anterior](positioning-a-modalpopup-cs.md)

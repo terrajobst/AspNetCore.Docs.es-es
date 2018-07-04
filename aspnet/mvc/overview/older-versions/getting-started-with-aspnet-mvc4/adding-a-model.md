@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
-title: Agregar un modelo | Documentos de Microsoft
+title: Adición de un modelo | Microsoft Docs
 author: Rick-Anderson
 description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
@@ -9,61 +9,60 @@ ms.date: 08/28/2012
 ms.topic: article
 ms.assetid: 53db72da-e0b9-44d9-b60b-6e6988c00b28
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 562a06e22aad62b6982aca3316a2dfe18a6eba2e
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ea8700020c1cc4b8ca88f657bd46b82e61d6f40f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871966"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37388576"
 ---
-<a name="adding-a-model"></a>Agregar un modelo
+<a name="adding-a-model"></a>Adición de un modelo
 ====================
 por [Rick Anderson](https://github.com/Rick-Anderson)
 
 > > [!NOTE]
-> > Hay disponible una versión actualizada de este tutorial [aquí](../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestra más características.
+> > Hay disponible una versión actualizada de este tutorial [aquí](../../getting-started/introduction/getting-started.md) que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y se muestran las características más.
 
 
-En esta sección agregará algunas clases para la administración de películas en una base de datos. Estas clases será la &quot;modelo&quot; forma parte de la aplicación ASP.NET MVC.
+En esta sección agregará algunas clases para administrar películas en una base de datos. Estas clases serán el &quot;modelo&quot; forma parte de la aplicación ASP.NET MVC.
 
-Deberá usar una tecnología de acceso a datos de .NET Framework conocida como la [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx) para definir y trabajar con estas clases de modelo. El Entity Framework (a menudo denominado EF) es compatible con un paradigma de desarrollo llama *Code First*. Código primero le permite crear objetos del modelo mediante la escritura de clases simples. (Estas son también conocido como las clases, desde &quot;los objetos CLR antiguos sin formato.&quot;) A continuación, puede hacer que la base de datos que se crea sobre la marcha de las clases, lo que permite a un flujo de trabajo de desarrollo muy limpio y rápido.
+Deberá usar una tecnología de acceso a datos de .NET Framework conocida como la [Entity Framework](https://msdn.microsoft.com/library/bb399572(VS.110).aspx) para definir y trabajar con estas clases de modelo. El Entity Framework (a menudo denominado EF) es compatible con un paradigma de desarrollo llama *Code First*. Código primero permite crear objetos de modelo mediante la escritura de clases simple. (También conocido como son las clases POCO, de &quot;los objetos CLR antiguos sin formato.&quot;) A continuación, puede tener la base de datos que se crean sobre la marcha de las clases, lo que permite un flujo de trabajo de desarrollo muy limpio y rápido.
 
 ## <a name="adding-model-classes"></a>Agregar clases de modelo
 
-En **el Explorador de soluciones**, haga clic con el *modelos* carpeta, seleccione **agregar**y, a continuación, seleccione **clase**.
+En **el Explorador de soluciones**, haga clic en el *modelos* carpeta, seleccione **agregar**y, a continuación, seleccione **clase**.
 
 ![](adding-a-model/_static/image1.png)
 
 Escriba el *clase* nombre &quot;película&quot;.
 
-Agregue las siguientes propiedades de cinco a la `Movie` clase:
+Agregue las siguientes cinco propiedades para el `Movie` clase:
 
 [!code-csharp[Main](adding-a-model/samples/sample1.cs)]
 
-Vamos a usar la `Movie` clase para representar las películas de una base de datos. Cada instancia de un `Movie` objeto corresponderá a una fila en una tabla de base de datos y cada propiedad de la `Movie` clase se asignará a una columna en la tabla.
+Vamos a usar la `Movie` clase para representar las películas en una base de datos. Cada instancia de un `Movie` objeto corresponderá a una fila en una tabla de base de datos y cada propiedad de la `Movie` clase se asignará a una columna en la tabla.
 
-En el mismo archivo, agregue las siguientes `MovieDBContext` clase:
+En el mismo archivo, agregue la siguiente `MovieDBContext` clase:
 
 [!code-csharp[Main](adding-a-model/samples/sample2.cs)]
 
-El `MovieDBContext` clase representa el contexto de base de datos de película de Entity Framework, que controla capturar, almacenar y actualizar `Movie` instancias en una base de datos de clase. El `MovieDBContext` se deriva de la `DbContext` clase proporcionada por el marco de trabajo de la entidad base.
+El `MovieDBContext` clase representa el contexto de base de datos de películas de Entity Framework, que se encarga de capturar, almacenar y actualizar `Movie` instancias en una base de datos de clase. El `MovieDBContext` deriva el `DbContext` proporcionado por Entity Framework de clase base.
 
-Para poder hacer referencia a `DbContext` y `DbSet`, debe agregar la siguiente `using` instrucción en la parte superior del archivo:
+Para poder hacer referencia a `DbContext` y `DbSet`, deberá agregar lo siguiente `using` instrucción en la parte superior del archivo:
 
 [!code-csharp[Main](adding-a-model/samples/sample3.cs)]
 
-La sección completa *Movie.cs* archivo se muestra a continuación. (Varias instrucciones using que no son necesarios se han quitado.)
+La completa *Movie.cs* archivo se muestra a continuación. (Varias instrucciones using que no son necesitan se han quitado.)
 
 [!code-csharp[Main](adding-a-model/samples/sample4.cs)]
 
-## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Crear una cadena de conexión y trabajar con SQL Server LocalDB
+## <a name="creating-a-connection-string-and-working-with-sql-server-localdb"></a>Creación de una cadena de conexión y trabajar con SQL Server LocalDB
 
-El `MovieDBContext` clase creada controla la tarea de conectarse a la base de datos y asignación `Movie` objetos a los registros de base de datos. Una pregunta que podría preguntar, sin embargo, se muestra cómo especificar qué base de datos se conecta a. Llevará a cabo mediante la adición de información de conexión en el *Web.config* archivo de la aplicación.
+El `MovieDBContext` clase creó controla la tarea de conectarse a la base de datos y asignación `Movie` objetos a los registros de la base de datos. Una pregunta que podría preguntar, sin embargo, es cómo especificar que se conectará a la base de datos. Hágalo mediante la adición de información de conexión en el *Web.config* archivo de la aplicación.
 
-Abrir la raíz de la aplicación *Web.config* archivo. (No el *Web.config* un archivo en el *vistas* carpeta.) Abra la *Web.config* archivo destacado en rojo.
+Abra la raíz de la aplicación *Web.config* archivo. (No el *Web.config* de archivos en el *vistas* carpeta.) Abra el *Web.config* archivo destacado en rojo.
 
 ![](adding-a-model/_static/image2.png)
 
@@ -71,13 +70,13 @@ Agregue la siguiente cadena de conexión para el `<connectionStrings>` elemento 
 
 [!code-xml[Main](adding-a-model/samples/sample5.xml)]
 
-En el ejemplo siguiente se muestra una parte de la *Web.config* archivo con la nueva cadena de conexión agregada:
+El ejemplo siguiente muestra una parte de la *Web.config* archivo con la nueva cadena de conexión agregada:
 
 [!code-xml[Main](adding-a-model/samples/sample6.xml?highlight=6-9)]
 
-Esta cantidad pequeña de código y XML es todo lo que necesario para escribir con el fin de representar y almacenar los datos de la película en una base de datos.
+Esta pequeña cantidad de código y XML es todo lo que necesita para escribir con el fin de representar y almacenar los datos de la película en una base de datos.
 
-A continuación, vamos a compilar un nuevo `MoviesController` clase que puede usar para mostrar los datos de la película y permitir a los usuarios crear nuevos anuncios de película.
+A continuación, creará un nuevo `MoviesController` clase que puede usar para mostrar los datos de la película y permitir a los usuarios crear nuevos anuncios de película.
 
 > [!div class="step-by-step"]
 > [Anterior](adding-a-view.md)

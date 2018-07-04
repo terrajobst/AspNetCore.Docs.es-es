@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
-title: '[¿Cómo I:] ¿Implementar las actualizaciones dinámicas de página parcial con ASP.NET AJAX? | Microsoft Docs'
+title: '[¿Cómo lo hago?:] ¿Implementar las actualizaciones dinámicas de página parcial con ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: En este vídeo aprenderá a agregar las actualizaciones dinámicas de parcial de página a la aplicación ASP.NET con AJAX de ASP.NET de Microsoft. En concreto, verá CA...
+description: En este vídeo aprenderá a agregar las actualizaciones dinámicas de página parcial a la aplicación de ASP.NET con AJAX de ASP.NET de Microsoft. En concreto, verá ¿cómo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/25/2007
 ms.topic: article
 ms.assetid: 7559a912-2753-4866-a140-a4c6cefee00c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax
 msc.type: video
-ms.openlocfilehash: 048914d0607580c6850dd75b8dfea3d87250823c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 51e032c3a23619291fee0f13d2ff40cdc08ddbb6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882187"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376063"
 ---
-<a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[¿Cómo I:] ¿Implementar las actualizaciones dinámicas de página parcial con ASP.NET AJAX?
+<a name="how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax"></a>[¿Cómo lo hago?:] ¿Implementar las actualizaciones dinámicas de página parcial con ASP.NET AJAX?
 ====================
 por [Joe Stagner](https://github.com/JoeStagner)
 
-En este vídeo aprenderá a agregar las actualizaciones dinámicas de parcial de página a la aplicación ASP.NET con AJAX de ASP.NET de Microsoft. En concreto, verá cómo utilizar el TimerControl para administrar la frecuencia de las devoluciones de llamada de AJAX.
+En este vídeo aprenderá a agregar las actualizaciones dinámicas de página parcial a la aplicación de ASP.NET con AJAX de ASP.NET de Microsoft. En concreto, verá cómo usar el TimerControl para administrar la frecuencia de las devoluciones de llamada de AJAX.
 
 [&#9654;Vea el vídeo (12 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-dynamic-partial-page-updates-with-aspnet-ajax)
 

@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/releases/mvc51-release-notes
-title: "' S New en ASP.NET MVC 5.1 | Documentos de Microsoft"
+title: Novedades de ASP.NET MVC 5.1 | Microsoft Docs
 author: microsoft
 description: ''
 ms.author: aspnetcontent
@@ -9,44 +9,43 @@ ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 9a83a058-9b01-48aa-acce-ec041e694567
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/releases/mvc51-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: be10486c9fd39738f44cdda4fedb409058017601
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 2b63ca8868bbf31be569e2eb2edb51141b9f4330
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "26504054"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362767"
 ---
-<a name="whats-new-in-aspnet-mvc-51"></a>' S New en ASP.NET MVC 5.1
+<a name="whats-new-in-aspnet-mvc-51"></a>Novedades de ASP.NET MVC 5.1
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-Este tema describe lo que es nuevo en ASP.NET Web MVC 5.1.
+Este tema describe cuáles son las novedades para ASP.NET Web MVC 5.1.
 
 - [Requisitos de software](#SoftwareRequirements)
 - [Descarga](#download)
 - [Documentación](#documentation)
 - [Nuevas características de ASP.NET MVC 5.1](#new-features)
 
-    - [Atributo mejoras de enrutamiento](#AttributeRouting)
+    - [Mejoras de enrutamiento de atributo](#AttributeRouting)
     - [Compatibilidad de arranque para plantillas de editor](#Bootstrap)
     - [Compatibilidad de enumeraciones en las vistas](#Enum)
-    - [Validación discreto para los atributos de MinLength y MaxLength](#Unobtrusive)
-    - [Compatibilidad con el contexto de 'this' en Ajax discreto](#thisContext)
+    - [Validación discreta de los atributos de MinLength/MaxLength](#Unobtrusive)
+    - [Compatibilidad con el contexto 'this' en Ajax discreto](#thisContext)
 - [Problemas conocidos y cambios importantes](#KnownBreakingChanges)- [correcciones de errores](#bug-fixes)
 
 <a id="SoftwareRequirements"></a>
 ## <a name="software-requirements"></a>Requisitos de software
 
-- Visual Studio 2012: Descargar [Web ASP.NET y herramientas 2013.1 para Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkId=390062).
+- Visual Studio 2012: Descargar [ASP.NET y Web Tools 2013.1 para Visual Studio 2012](https://go.microsoft.com/fwlink/?LinkId=390062).
 - Visual Studio 2013: Descarga [Visual Studio 2013 Update 1](https://go.microsoft.com/fwlink/?LinkId=390064). Esta actualización es necesaria para editar las vistas de Razor de ASP.NET MVC 5.1.
 
 <a id="download"></a>
 ## <a name="download"></a>Descargar
 
-Las características en tiempo de ejecución se publican como paquetes de NuGet en la Galería de NuGet. Siguen todos los paquetes en tiempo de ejecución el [control de versiones semántico](http://semver.org/) especificación. El paquete más reciente de RTM de ASP.NET MVC 5.1 tiene la siguiente versión: "5.1.2". Puede instalar o actualizar estos paquetes a través de [NuGet](http://www.nuget.org/packages/Microsoft.AspNet.Mvc/). La versión también incluye paquetes localizados correspondientes en NuGet.
+Las características en tiempo de ejecución se publican como paquetes de NuGet en la Galería de NuGet. Siguen todos los paquetes en tiempo de ejecución el [Versionamiento semántico](http://semver.org/) especificación. El paquete más reciente de ASP.NET MVC 5.1 RTM tiene la siguiente versión: "5.1.2". Puede instalar o actualizar estos paquetes a través de [NuGet](http://www.nuget.org/packages/Microsoft.AspNet.Mvc/). La versión también incluye los correspondientes paquetes localizados en NuGet.
 
 Puede instalar o actualizar a los paquetes de NuGet publicados mediante la consola de administrador de paquetes de NuGet:
 
@@ -62,16 +61,16 @@ Tutoriales y otra información sobre ASP.NET MVC 5.1 RTM están disponibles desd
 
 <a id="AttributeRouting"></a>
 
-### <a name="attribute-routing-improvements"></a>Atributo mejoras de enrutamiento
+### <a name="attribute-routing-improvements"></a>Mejoras de enrutamiento de atributo
 
- Atributo enrutamiento ahora es compatible con restricciones, habilitar el control de versiones y encabezado según la selección de la ruta. Muchos aspectos de las rutas de atributo ahora son personalizables a través de la `IDirectRouteFactory` interfaz y `RouteFactoryAttribute` clase. El prefijo de ruta ahora es extensible a través de la `IRoutePrefix` interfaz y `RoutePrefixAttribute` clase. 
+ Enrutamiento ahora es compatible con restricciones, habilitar el control de versiones y el encabezado de atributos en función de selección de la ruta. Muchos aspectos de las rutas de atributo ahora son personalizables a través de la `IDirectRouteFactory` interfaz y `RouteFactoryAttribute` clase. El prefijo de ruta ahora es extensible a través de la `IRoutePrefix` interfaz y `RoutePrefixAttribute` clase. 
 
 <a id="Enum"></a>
 
 ### <a name="enum-support-in-views"></a>Compatibilidad de enumeraciones en las vistas
 
-1. Nueva `@Html.EnumDropDownListFor()` métodos auxiliares. Deben usarse como la mayoría de las aplicaciones auxiliares HTML con la salvedad de que la expresión debe evaluarse como un [enum](https://msdn.microsoft.com/en-us/library/cc138362.aspx) tipo o un [Nullable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx) donde `T` es un [enum](https://msdn.microsoft.com/en-us/library/cc138362.aspx) tipo. Utilice `EnumHelper.IsValidForEnumHelper()` para comprobar estos requisitos.
-2. Nueva `EnumHelper.GetSelectList()` métodos que devuelven un `IList<SelectListItem>`. Esto es útil cuando es necesario manipular una lista de selección antes de llamar a, por ejemplo, `@Html.DropDownListFor()`, o cuando desee mostrar los nombres que `@Html.EnumDropDownListFor()` muestra.
+1. Nuevo `@Html.EnumDropDownListFor()` métodos auxiliares. Deben utilizarse como la mayoría de las aplicaciones auxiliares HTML con la salvedad de que la expresión debe evaluarse como un [enum](https://msdn.microsoft.com/en-us/library/cc138362.aspx) tipo o un [Nullable&lt;T&gt; ](https://msdn.microsoft.com/en-us/library/2cf62fcy.aspx) donde `T` es un [enum](https://msdn.microsoft.com/en-us/library/cc138362.aspx) tipo. Use `EnumHelper.IsValidForEnumHelper()` para comprobar estos requisitos.
+2. Nuevo `EnumHelper.GetSelectList()` métodos que devuelven un `IList<SelectListItem>`. Esto es útil cuando deba manipular una lista de selección antes de llamar a, por ejemplo, `@Html.DropDownListFor()`, o cuando desee mostrar los nombres que `@Html.EnumDropDownListFor()` muestra.
 
 El código siguiente muestra estas API.
 
@@ -83,7 +82,7 @@ Puede ver un ejemplo completo [aquí](https://aspnet.codeplex.com/SourceControl/
 
 ### <a name="bootstrap-support-for-editor-templates"></a>Compatibilidad de arranque para plantillas de editor
 
-Se permite ahora pasar en los atributos HTML en [EditorFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(v=vs.100).aspx) como un [objeto anónimo](https://msdn.microsoft.com/en-us/library/bb397696.aspx).
+Ahora permitimos pasar en los atributos HTML en [EditorFor](https://msdn.microsoft.com/en-us/library/system.web.mvc.html.editorextensions.editorfor(v=vs.100).aspx) como un [objeto anónimo](https://msdn.microsoft.com/en-us/library/bb397696.aspx).
 
 Por ejemplo:
 
@@ -91,41 +90,41 @@ Por ejemplo:
 
 <a id="Unobtrusive"></a>
 
-### <a name="unobtrusive-validation-for-minlengthattribute-and-maxlengthattribute"></a>Validación discreto para MinLengthAttribute y MaxLengthAttribute
+### <a name="unobtrusive-validation-for-minlengthattribute-and-maxlengthattribute"></a>Validación discreta para MinLengthAttribute y MaxLengthAttribute
 
-Ahora, se admitirá la validación del lado cliente para los tipos string y array para propiedades decorada con el [MinLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.minlengthattribute(v=vs.110).aspx) y [MaxLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.maxlengthattribute(v=vs.110).aspx) atributos.
+Ahora, se admitirá la validación del lado cliente para los tipos string y array para Propiedades decoran con el [MinLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.minlengthattribute(v=vs.110).aspx) y [MaxLength](https://msdn.microsoft.com/en-us/library/system.componentmodel.dataannotations.maxlengthattribute(v=vs.110).aspx) atributos.
 
 <a id="thisContext"></a>
 
-### <a name="supporting-the-this-context-in-unobtrusive-ajax"></a>Compatibilidad con el contexto de 'this' en Ajax discreto
+### <a name="supporting-the-this-context-in-unobtrusive-ajax"></a>Compatibilidad con el contexto 'this' en Ajax discreto
 
-Las funciones de devolución de llamada (`OnBegin, OnComplete, OnFailure, OnSuccess`) ahora podrá buscar el elemento invocar a través de la `this` contexto. Por ejemplo:
+Las funciones de devolución de llamada (`OnBegin, OnComplete, OnFailure, OnSuccess`) ahora podrán localizar el elemento de invocación a través de la `this` contexto. Por ejemplo:
 
 [!code-html[Main](mvc51-release-notes/samples/sample4.html)]
 
 <a id="KnownBreakingChanges"></a>
 
-## <a name="known-issues-and-breaking-changes"></a>Problemas conocidos y los cambios recientes
+## <a name="known-issues-and-breaking-changes"></a>Problemas conocidos y cambios importantes
 
-### <a name="attribute-routing"></a>Ruta de atributo
+### <a name="attribute-routing"></a>Enrutamiento mediante atributos
 
-Ambigüedades en coincidencias de enrutamiento de atributo ahora notificará un error en lugar de elegir a la primera coincidencia.
+Ambigüedades en coincidencias de enrutamiento de atributos ahora notificará un error en lugar de elegir a la primera coincidencia.
 
-Rutas de atributo se les prohíbe usar la `{controller}` parámetro y del uso de la `{action}` parámetro en las rutas se coloca en las acciones. Usos de estos parámetros muy probablemente conduciría a ambigüedades. 
+Las rutas de atributo se prohíbe la `{controller}` parámetro y del uso de la `{action}` parámetro en las rutas se coloca en las acciones. Usos de estos parámetros es muy probable que daría lugar a ambigüedades. 
 
-### <a name="scaffolding-mvcweb-api-into-a-project-with-51-packages-results-in-50-packages-for-ones-that-dont-already-exist-in-the-project"></a>Scaffolding MVC o Web API en un proyecto con 5.1 resultados de paquetes en 5.0 paquetes para los que ya no existen en el proyecto
+### <a name="scaffolding-mvcweb-api-into-a-project-with-51-packages-results-in-50-packages-for-ones-that-dont-already-exist-in-the-project"></a>Scaffolding de MVC o API Web en un proyecto con 5.1 da como resultado paquetes 5.0 paquetes para las que aún no existen en el proyecto
 
-Actualizar paquetes de NuGet para ASP.NET MVC 5.1 RTM no actualizar las herramientas de Visual Studio como scaffolding de ASP.NET o la plantilla de proyecto de aplicación Web ASP.NET. Usan la versión anterior de los paquetes en tiempo de ejecución ASP.NET (5.0.0.0). Como resultado, el scaffolding de ASP.NET se instalará la versión anterior (5.0.0.0) de los paquetes necesarios, si aún no están disponibles en los proyectos. Sin embargo, el scaffolding de ASP.NET en Visual Studio 2013 RTM o Update 1 sobrescribir los paquetes más recientes de los proyectos. Si utiliza ASP.NET scaffolding después de actualizar los paquetes de los proyectos Web API 2.1 o ASP.NET MVC 5.1, asegúrese de que las versiones de API Web y MVC de ASP.NET son coherentes. 
+Actualizar paquetes de NuGet para ASP.NET MVC 5.1 RTM no actualiza las herramientas de Visual Studio como el scaffolding de ASP.NET o la plantilla de proyecto de aplicación Web ASP.NET. Usan la versión anterior de los paquetes en tiempo de ejecución ASP.NET (5.0.0.0). Como resultado, el scaffolding de ASP.NET se instalará la versión anterior (5.0.0.0) de los paquetes necesarios, si aún no están disponibles en los proyectos. Sin embargo, el scaffolding de ASP.NET en Visual Studio 2013 RTM o Update 1 no sobrescribe los paquetes más recientes en sus proyectos. Si usa scaffolding de ASP.NET después de actualizar los paquetes de los proyectos de Web API 2.1 o ASP.NET MVC 5.1, asegúrese de que las versiones de API Web y ASP.NET MVC son coherentes. 
 
 ### <a name="syntax-highlighting-for-razor-views-in-visual-studio-2013"></a>Resaltado de sintaxis para las vistas de Razor en Visual Studio 2013
 
-Si ha actualizado a RTM de ASP.NET MVC 5.1 sin actualizar Visual Studio 2013, no obtendrá la compatibilidad con el editor de Visual Studio para resaltar la sintaxis mientras edita las vistas de Razor. Debe actualizar Visual Studio 2013 para obtener esta compatibilidad. 
+Si actualiza a ASP.NET MVC 5.1 RTM sin actualizar Visual Studio 2013, no obtendrá compatibilidad con el editor Visual Studio para resaltar la sintaxis mientras se editan las vistas de Razor. Deberá actualizar Visual Studio 2013 para obtener esta compatibilidad. 
 
 ### <a name="type-renames"></a>Cambia el nombre de tipo
 
-Algunos de los tipos utilizados para la extensibilidad de enrutamiento de atributo se cambia el nombre RTM 5.1.
+Algunos de los tipos utilizados para la extensibilidad de enrutamiento de atributos se cambia el nombre 5.1 RTM.
 
-| **Nombre de tipo anterior (5.1 RC)** | **Nuevo tipo de nombre (RTM 5.1)** |
+| **Nombre de tipo anterior (5.1 RC)** | **Nuevo tipo de nombre (5.1 RTM)** |
 | --- | --- |
 | IDirectRouteProvider | IDirectRouteFactory |
 | RouteProviderAttribute | RouteFactoryAttribute |
@@ -134,9 +133,9 @@ Algunos de los tipos utilizados para la extensibilidad de enrutamiento de atribu
 <a id="bug-fixes"></a>
 ## <a name="bug-fixes"></a>Correcciones de errores
 
-Esta versión también incluye varias correcciones de errores. Puede encontrar la lista completa aquí:
+Esta versión también incluye varias correcciones de errores. Puede encontrar una lista completa aquí:
 
 - [5.1.0 paquete](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&amp;status=Closed&amp;type=All&amp;priority=All&amp;release=v5.1%20Preview|v5.1%20RTM&amp;assignedTo=All&amp;component=MVC&amp;sortField=AssignedTo&amp;sortDirection=Ascending&amp;page=0&amp;reasonClosed=Fixed)
-- [5.1.1 paquete de](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&amp;status=All&amp;type=All&amp;priority=All&amp;release=v5.1.1%20RTM&amp;assignedTo=All&amp;component=MVC&amp;sortField=AssignedTo&amp;sortDirection=Ascending&amp;page=0&amp;reasonClosed=Fixed)
+- [5.1.1 paquete](https://aspnetwebstack.codeplex.com/workitem/list/advanced?keyword=&amp;status=All&amp;type=All&amp;priority=All&amp;release=v5.1.1%20RTM&amp;assignedTo=All&amp;component=MVC&amp;sortField=AssignedTo&amp;sortDirection=Ascending&amp;page=0&amp;reasonClosed=Fixed)
 
 El 5.1.2 paquete contiene actualizaciones de IntelliSense, pero no hay correcciones de errores.
