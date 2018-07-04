@@ -1,16 +1,16 @@
 ---
-title: Trabajar con SQL Server LocalDB en ASP.NET Core
+title: Trabajar con SQL Server LocalDB en una aplicación de ASP.NET Core MVC
 author: rick-anderson
 description: Obtenga información sobre cómo usar SQL Server LocalDB en una sencilla aplicación ASP.NET Core MVC.
 ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/working-with-sql
-ms.openlocfilehash: 5b8bbcd3c6590edbe199a0a52494e83fd2aa4dcf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 05bd76038e5856d2a3e392e3b00e589dbc26fcc6
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273876"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961063"
 ---
 # <a name="work-with-sql-server-localdb-in-aspnet-core"></a>Trabajar con SQL Server LocalDB en ASP.NET Core
 
@@ -69,7 +69,7 @@ if (context.Movie.Any())
 ```
 
 <a name="si"></a>
-### <a name="add-the-seed-initializer"></a>Agregar el inicializador
+### <a name="add-the-seed-initializer"></a>Adición del inicializador
 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Program.cs)]
@@ -78,7 +78,7 @@ if (context.Movie.Any())
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
-Agregue el inicializador al método `Main` en el archivo *Program.cs*:
+Agregue el inicializador al método `Main` del archivo *Program.cs*:
 
 [!code-csharp[](start-mvc/sample/MvcMovie/Program.cs?highlight=6,14-32)]
 

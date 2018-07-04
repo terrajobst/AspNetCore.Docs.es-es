@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/07/2017
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: 569c5b977d832aec3657321cad8d0f9520aae031
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: cabf3d955ef2eb17b3bcb40170a9de7b53ffd107
+ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277779"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37077636"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -45,7 +45,7 @@ Actualice la clase `Movie` para aprovechar los atributos de validación `Require
 Los atributos de validación especifican el comportamiento que se aplica a las propiedades del modelo:
 
 * Los atributos `Required` y `MinimumLength` indican que una propiedad debe tener un valor. Aun así, nada impide que el usuario escriba un espacio en blanco para cumplir la restricción de validación de un tipo que acepta valores NULL. Los [tipos de valor](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) que no aceptan valores NULL (como `decimal`, `int`, `float` y `DateTime`) son intrínsecamente necesarios y no necesitan el atributo `Required`.
-* El atributo `RegularExpression` limita los caracteres que el usuario puede escribir. En el código anterior, `Genre` y `Rating` solo deben usar letras (no se permiten espacios en blanco, números ni caracteres especiales).
+* El atributo `RegularExpression` limita los caracteres que el usuario puede escribir. En el código anterior, `Genre` debe comenzar por una o varias letras en mayúscula y continuar con cero o más letras, comillas simples o dobles, caracteres de espacio en blanco o guiones. `Rating` debe comenzar por una o varias letras en mayúscula y continuar con cero o más letras, números, comillas simples o dobles, caracteres de espacio en blanco o guiones.
 * El atributo `Range` restringe un valor a un intervalo determinado.
 * El atributo `StringLength` establece la longitud máxima de una cadena y, de forma opcional, la longitud mínima. 
 

@@ -1,4 +1,4 @@
-# <a name="adding-search-to-a-razor-pages-app"></a>Adición de búsqueda a la aplicación páginas de Razor
+# <a name="add-search-to-an-aspnet-core-razor-pages-app"></a>Agregar búsqueda a una aplicación de Razor Pages de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 

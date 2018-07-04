@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 508cca07fa96c20e228d2c55c9fb101f7fc3cb02
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: ed8faf8b3049adc7bcc7953d63ad805b0a836bd9
+ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327557"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961180"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -53,6 +53,36 @@ Complete el cuadro de diálogo para **agregar páginas de Razor Pages que usan E
 * Seleccione **Agregar**.
 
 ![Imagen de las instrucciones anteriores.](model/_static/arp.png)
+
+El proceso de scaffolding ha creado y cambiado los archivos siguientes:
+
+### <a name="files-created"></a>Archivos creados
+
+* *Pages/Movies* Create, Delete, Details, Edit, Index. Estas páginas se detallan en el tutorial siguiente.
+* *Data/RazorPagesMovieContext.cs*
+
+### <a name="files-updates"></a>Actualizaciones de archivos
+
+* *Startup.cs*: en la sección siguiente se detallan los cambios realizados en este archivo.
+* *appsettings.json*: se agrega la cadena de conexión que se usa para conectarse a una base de datos local.
+
+## <a name="examine-the-context-registered-with-dependency-injection"></a>Examinar el contexto registrado con la inserción de dependencias
+
+ASP.NET Core integra la [inserción de dependencias](xref:fundamentals/dependency-injection). Los servicios (como el contexto de base de datos de EF Core) se registran con inserción de dependencias durante el inicio de la aplicación. Estos servicios se proporcionan a los componentes que los necesitan (como las páginas de Razor) a través de parámetros de constructor. El código de constructor que obtiene una instancia de contexto de base de datos se muestra más adelante en el tutorial.
+
+La herramienta de scaffolding ha creado un contexto de base de datos de forma automática y lo ha registrado con el contenedor de inserción de dependencias.
+
+Examine el método `Startup.ConfigureServices`. El proveedor de scaffolding ha agregado la línea resaltada:
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Startup.cs?name=snippet_ConfigureServices&highlight=12-13)]
+
+La clase principal que coordina la funcionalidad de EF Core para un modelo de datos determinado es la clase de contexto de base de datos. El contexto de datos se deriva de [Microsoft.EntityFrameworkCore.DbContext](/dotnet/api/microsoft.entityframeworkcore.dbcontext). En el contexto de datos se especifica qué entidades se incluyen en el modelo de datos. En este proyecto, la clase se denomina `RazorPagesMovieContext`.
+
+[!code-csharp[](razor-pages-start/sample/RazorPagesMovie21/Data/RazorPagesMovieContext.cs)]
+
+En el código anterior se crea una propiedad [DbSet\<Movie>](/dotnet/api/microsoft.entityframeworkcore.dbset-1) para el conjunto de entidades. En la terminología de Entity Framework, un conjunto de entidades suele corresponder a una tabla de base de datos. Una entidad se corresponde con una fila de la tabla.
+
+El nombre de la cadena de conexión se pasa al contexto mediante una llamada a un método en un objeto [DbContextOptions](/dotnet/api/microsoft.entityframeworkcore.dbcontextoptions). Para el desarrollo local, el [sistema de configuración de ASP.NET Core](xref:fundamentals/configuration/index) lee la cadena de conexión desde el archivo *appsettings.json*.
 
 <a name="pmc"></a>
 ## <a name="perform-initial-migration"></a>Realizar la migración inicial
@@ -194,4 +224,4 @@ En el tutorial siguiente se explican los archivos creados mediante scaffolding.
 
 > [!div class="step-by-step"]
 > [Anterior: Introducción](xref:tutorials/razor-pages/razor-pages-start)
-> [Siguiente: Páginas de Razor creadas mediante scaffolding](xref:tutorials/razor-pages/page)    
+> [Siguiente: Páginas de Razor creadas mediante scaffolding](xref:tutorials/razor-pages/page)

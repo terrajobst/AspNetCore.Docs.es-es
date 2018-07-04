@@ -7,12 +7,12 @@ ms.author: rachelap
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 8762a4be1032d58014dd32dfdd3707197e14c6f9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 62cef2d6f032caa2f048cfdd49a225d975dad10d
+ms.sourcegitcommit: 7003d27b607e529642ded0400aa48ae692a0e666
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297204"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033347"
 ---
 # <a name="get-started-with-signalr-on-aspnet-core"></a>Introducción a SignalR en ASP.NET Core
 
@@ -29,9 +29,9 @@ En este tutorial se muestran las siguientes tareas de desarrollo de SignalR:
 > * Cree un concentrador de SignalR para insertar contenido en los clientes.
 > * Modificar la clase `Startup` y configurar la aplicación.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/get-started/sample/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-# <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Instale el software siguiente:
 
@@ -100,7 +100,7 @@ Un concentrador es una clase que actúa como una canalización de alto nivel que
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
-1. Agregue una clase al proyecto eligiendo **Archivo** > **Nuevo** > **Archivo** y seleccionando **Clase de Visual C#**. Asigne al archivo el nombre *ChatHub*.
+1. Agregue una clase al proyecto eligiendo **Archivo** > **Nuevo** > **Archivo** y seleccionando **Clase de Visual C#**. Asigne el nombre `ChatHub` a la clase y *ChatHub.cs* al archivo.
 
 2. Heredan de `Microsoft.AspNetCore.SignalR.Hub`. La clase `Hub` contiene propiedades y eventos para administrar las conexiones y grupos, así como enviar y recibir datos.
 
@@ -112,13 +112,13 @@ Un concentrador es una clase que actúa como una canalización de alto nivel que
 
 1. Abra la carpeta *SignalRChat* en Visual Studio Code.
 
-2. Agregue una clase al proyecto seleccionando **Archivo** > **Nuevo archivo** en el menú.
+2. Agregue una clase al proyecto seleccionando **Archivo** > **Nuevo archivo** en el menú. Asigne el nombre `ChatHub` a la clase y *ChatHub.cs* al archivo.
 
 3. Heredan de `Microsoft.AspNetCore.SignalR.Hub`. La clase `Hub` contiene propiedades y eventos para administrar las conexiones y grupos, así como enviar y recibir datos de los clientes.
 
 4. Agregue un método `SendMessage` a la clase. El método `SendMessage` envía un mensaje a todos los clientes de chat conectados. Tenga en cuenta que devuelve una [Tarea](/dotnet/api/system.threading.tasks.task), porque SignalR es asincrónica. El código asincrónico se escala mejor.
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs?range=6-12)]
+   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
 -----
 
