@@ -1,31 +1,30 @@
 ---
 uid: web-api/overview/data/using-web-api-with-entity-framework/part-1
-title: Usar Web API 2 con Entity Framework 6 | Documentos de Microsoft
+title: Usar Web API 2 con Entity Framework 6 | Microsoft Docs
 author: MikeWasson
-description: Este tutorial le enseñará a los conceptos básicos de creación de una aplicación web con ASP.NET Web API back-end. El tutorial usa Entity Framework 6 para el diseño de datos...
+description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación web con ASP.NET Web API back-end. Este tutorial usa Entity Framework 6 para el diseño de datos...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2015
 ms.topic: article
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 8e6d381509a121e3036ca3af91ea3b9bd0be33c2
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: b4ab0ec8b9ccb652d9f28ab42d9333fcc90abb65
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871979"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37362426"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Usar Web API 2 con Entity Framework 6
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
-[Descargar el proyecto completado](https://github.com/MikeWasson/BookService)
+[Descargue el proyecto completado](https://github.com/MikeWasson/BookService)
 
-> Este tutorial le enseñará a los conceptos básicos de creación de una aplicación web con ASP.NET Web API back-end. El tutorial usa Entity Framework 6 para la capa de datos y Knockout.js para la aplicación de JavaScript del lado cliente. El tutorial también muestra cómo implementar la aplicación para aplicaciones de Web del servicio de aplicación de Azure.
+> Este tutorial le enseñará los aspectos básicos de la creación de una aplicación web con ASP.NET Web API back-end. El tutorial usa Entity Framework 6 para la capa de datos y Knockout.js para la aplicación de JavaScript del lado cliente. El tutorial también muestra cómo implementar la aplicación en Azure App Service Web Apps.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
 > 
@@ -37,22 +36,22 @@ por [Mike Wasson](https://github.com/MikeWasson)
 > - [Knockout.js](http://knockoutjs.com/) 3.1
 
 
-Este tutorial usa ASP.NET Web API 2 con Entity Framework 6 para crear una aplicación web que se manipula una base de datos back-end. Aquí se muestra una captura de pantalla de la aplicación que va a crear.
+Este tutorial usa para crear una aplicación web que se manipula una base de datos back-end ASP.NET Web API 2 con Entity Framework 6. Aquí es una captura de pantalla de la aplicación que va a crear.
 
 [![](part-1/_static/image2.png)](part-1/_static/image1.png)
 
-La aplicación utiliza un diseño de la aplicación de página (SPA). "Aplicación de página" es el término general para una aplicación web que se carga una página HTML única y, a continuación, actualiza la página de forma dinámica, en lugar de cargar páginas nuevas. Después de la carga de la página inicial, la aplicación se comunica con el servidor a través de solicitudes de AJAX. El AJAX solicita devolver datos JSON, que utiliza la aplicación para actualizar la interfaz de usuario.
+La aplicación utiliza un diseño de la aplicación de página única (SPA). "Aplicación de página única" es el término general para una aplicación web que se carga una página HTML única y, a continuación, actualiza la página de forma dinámica, en lugar de cargar páginas nuevas. Después de la carga de página inicial, la aplicación se comunica con el servidor a través de las solicitudes AJAX. El AJAX solicita devolver datos JSON, que la aplicación usa para actualizar la interfaz de usuario.
 
-AJAX no es nueva, pero en la actualidad existen marcos de JavaScript que resulten más fácil generar y mantener una gran aplicación SPA sofisticada. Este tutorial usa [Knockout.js](http://knockoutjs.com/), pero puede usar cualquier marco de cliente de JavaScript.
+AJAX no es nueva, pero hoy en día existen marcos de JavaScript que resulte más fácil crear y mantener una gran aplicación SPA sofisticada. Este tutorial se usa [Knockout.js](http://knockoutjs.com/), pero puede usar cualquier marco de cliente de JavaScript.
 
 Estos son los principales bloques de creación para esta aplicación:
 
 - ASP.NET MVC se crea la página HTML.
-- API Web de ASP.NET controla las solicitudes de AJAX y devuelve datos JSON.
+- ASP.NET Web API controla las solicitudes AJAX y devuelve datos JSON.
 - Knockout.js enlaza datos con los elementos HTML a los datos JSON.
 - Entity Framework se comunica con la base de datos.
 
-## <a name="see-this-app-running-on-azure"></a>Vea esta aplicación se ejecuta en Azure
+## <a name="see-this-app-running-on-azure"></a>Consulte esta aplicación se ejecuta en Azure
 
 ¿Desea ver el sitio terminado que se ejecuta como una aplicación web en directo? Puede implementar una versión completa de la aplicación en su cuenta de Azure, simplemente haga clic en el botón siguiente.
 
@@ -60,8 +59,8 @@ Estos son los principales bloques de creación para esta aplicación:
 
 Necesita una cuenta de Azure para implementar esta solución en Azure. Si no dispone de una cuenta, tiene las siguientes opciones:
 
-- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtendrá créditos puede usar para probar los servicios de Azure de pagados e incluso después de que se utilizan hasta puede mantener la cuenta y libre de usar los servicios de Azure.
-- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN ofrece créditos cada mes que puede usar para los servicios de Azure de pagados.
+- [Abrir una cuenta de Azure de forma gratuita](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A443DD604) -obtiene crédito puede usar para probar los servicios de Azure de pago e incluso después de que se usan hasta, puede mantener la cuenta y usar servicios gratuitos de Azure.
+- [Activar las ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A443DD604) -su suscripción a MSDN le proporciona crédito todos los meses que puede usar para servicios de Azure de pago.
 
 ## <a name="create-the-project"></a>Crear el proyecto
 
@@ -71,21 +70,21 @@ En el **nuevo proyecto** cuadro de diálogo, haga clic en **Web** en el panel iz
 
 [![](part-1/_static/image4.png)](part-1/_static/image3.png)
 
-En el **nuevo proyecto ASP.NET** cuadro de diálogo, seleccione la **API Web** plantilla.
+En el **nuevo proyecto ASP.NET** cuadro de diálogo, seleccione el **API Web** plantilla.
 
 [![](part-1/_static/image6.png)](part-1/_static/image5.png)
 
-Si desea hospedar el proyecto en un servicio de aplicaciones de Azure, deje el **Host en la nube** casilla activada.
+Si desea hospedar el proyecto en un Azure App Service, deje el **Host en la nube** casilla activada.
 
 Haga clic en **Aceptar** para crear el proyecto.
 
-## <a name="configure-azure-settings-optional"></a>Configurar Azure (opcional)
+## <a name="configure-azure-settings-optional"></a>Configurar valores de Azure (opcionales)
 
-Si deja el **Host en la nube** activa la opción, Visual Studio le pedirá que inicie sesión en Microsoft Azure
+Si deja el **Host en la nube** opción activada, Visual Studio le pedirá que inicie sesión en Microsoft Azure
 
 [![](part-1/_static/image8.png)](part-1/_static/image7.png)
 
-Después de iniciar sesión Azure, Visual Studio le pide que configure la aplicación web. Escriba un nombre para el sitio, seleccione la suscripción de Azure y seleccione una región geográfica. En **servidor de base de datos**, seleccione **crear nuevo servidor**. Escriba un nombre de usuario de administrador y una contraseña.
+Después de iniciar sesión Azure, Visual Studio le pedirá que configure la aplicación web. Escriba un nombre para el sitio, seleccione su suscripción de Azure y seleccione una región geográfica. En **el servidor de base de datos**, seleccione **crear nuevo servidor**. Escriba un nombre de usuario de administrador y una contraseña.
 
 [![](part-1/_static/image10.png)](part-1/_static/image9.png)
 

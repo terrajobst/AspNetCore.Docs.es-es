@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-1-selecting-data
-title: 'ASP.NET vNext vídeos: enlace de modelo, parte 1 - selección de datos | Documentos de Microsoft'
+title: 'ASP.NET vNext vídeos: enlace de modelos, parte 1: seleccionar datos | Microsoft Docs'
 author: DamianEdwards
-description: En este vídeo, Damian Edwards comienza un vistazo a enlace de modelos con la selección de datos de demostración.
+description: En este vídeo, Damian Edwards comienza un vistazo al enlace de modelos con la selección de datos de demostración.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/12/2011
 ms.topic: article
 ms.assetid: 744d229b-a109-4692-a58d-1b2445bee54e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-model-binding-part-1-selecting-data
 msc.type: video
-ms.openlocfilehash: d4bd7f2dd9cacff86a991d51f4941f86489c0448
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 06d29667995c713c8d250cc716f890906966093c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885632"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37376166"
 ---
-<a name="aspnet-vnext-videos-model-binding-part-1---selecting-data"></a>ASP.NET vNext vídeos: enlace de modelo, parte 1 - selección de datos
+<a name="aspnet-vnext-videos-model-binding-part-1---selecting-data"></a>ASP.NET vNext vídeos: enlace de modelos, parte 1: seleccionar datos
 ====================
 por [Damian Edwards](https://github.com/DamianEdwards)
 
-En este vídeo, Damian Edwards comienza un vistazo a enlace de modelos con la selección de datos de demostración.
+En este vídeo, Damian Edwards comienza un vistazo al enlace de modelos con la selección de datos de demostración.
 
 [&#9654;Vea el vídeo (1 minuto)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-vnext-videos-model-binding-part-1-selecting-data)
 

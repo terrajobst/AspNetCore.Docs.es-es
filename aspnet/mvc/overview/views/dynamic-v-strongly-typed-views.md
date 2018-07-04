@@ -1,6 +1,6 @@
 ---
 uid: mvc/overview/views/dynamic-v-strongly-typed-views
-title: V dinámicos. Establecimiento inflexible de tipos vistas | Documentos de Microsoft
+title: Vistas dinámicas frente a Vistas de establecimiento inflexible de tipos | Microsoft Docs
 author: Rick-Anderson
 description: ''
 ms.author: aspnetcontent
@@ -9,41 +9,40 @@ ms.date: 01/27/2011
 ms.topic: article
 ms.assetid: 0cbd88da-0da6-4605-b222-2835c6478304
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/views/dynamic-v-strongly-typed-views
 msc.type: authoredcontent
-ms.openlocfilehash: 8a96d43e04a0a50d5176c10c26aa49918a0e56ef
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 7622ca8248374da27f4190075df5a6bfc32bb2e6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26504094"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389092"
 ---
-<a name="dynamic-v-strongly-typed-views"></a>V dinámicos. Vistas fuertemente tipadas
+<a name="dynamic-v-strongly-typed-views"></a>Vistas dinámicas frente a Vistas fuertemente tipadas
 ====================
 por [Rick Anderson](https://github.com/Rick-Anderson)
 
-Hay tres maneras para pasar información de un controlador a una vista en ASP.NET MVC 3:
+Hay tres maneras de pasar información de un controlador a una vista en ASP.NET MVC 3:
 
 1. Como un objeto de modelo fuertemente tipado.
-2. Como un tipo dinámico (con @model dinámica)
-3. Usar el elemento ViewBag
+2. Como un tipo dinámico (mediante @model dinámico)
+3. Utilizando el elemento ViewBag
 
-He escrito una aplicación de MVC 3 superior Blog simple para comparar y contrastar las vistas dinámicas y fuertemente tipadas. El controlador se inicia con una simple lista de blogs:
+He escrito una aplicación de MVC 3 principales Blog sencilla para comparar y contrastar las vistas dinámicas y fuertemente tipadas. El controlador comienza con una simple lista de blogs:
 
 [!code-csharp[Main](dynamic-v-strongly-typed-views/samples/sample1.cs)]
 
-Haga clic en el método IndexNotStonglyTyped() y agregar una vista Razor.
+Haga clic con el botón derecho en el método IndexNotStonglyTyped() y agregar una vista de Razor.
 
 [![8475.NotStronglyTypedView [1]](dynamic-v-strongly-typed-views/_static/image2.png)](dynamic-v-strongly-typed-views/_static/image1.png)
 
-Asegúrese de que el **crear una vista fuertemente tipada** casilla no está activada. La vista resultante no contiene gran parte:
+Asegúrese de que el **crear una vista fuertemente tipada** no esté marcada la casilla. La vista resultante no contiene gran parte:
 
 [!code-cshtml[Main](dynamic-v-strongly-typed-views/samples/sample2.cshtml)]
 
 [!code-cshtml[Main](dynamic-v-strongly-typed-views/samples/sample3.cshtml)]
 
-Como vamos a usar un dinámico y no una vista fuertemente tipada, intellisense no ayudarnos. El código completo se muestra a continuación:
+Dado que usamos un dinámico y no una vista fuertemente tipada, intellisense no ayudarnos. El código completo se muestra a continuación:
 
 [!code-cshtml[Main](dynamic-v-strongly-typed-views/samples/sample4.cshtml)]
 
@@ -54,11 +53,11 @@ Ahora vamos a agregar una vista fuertemente tipada. Agregue el código siguiente
 [!code-csharp[Main](dynamic-v-strongly-typed-views/samples/sample5.cs)]
 
 
-Tenga en cuenta que es exactamente el View(topBlogs) devuelto mismo; Llame a que la vista no fuertemente tipada. Haga clic con el botón secundario dentro de *StonglyTypedIndex()* y seleccione **agregar vista**. Esta vez, seleccione la **Blog** clase de modelo y seleccione **lista** como la plantilla de scaffolding.
+Tenga en cuenta es exactamente el View(topBlogs) devuelto mismo; Llame a que la vista que no son fuertemente tipada. Haga clic con el botón derecho dentro de *StonglyTypedIndex()* y seleccione **agregar vista**. Esta vez seleccione el **Blog** clase de modelo y seleccione **lista** como plantilla Scaffold.
 
 [![5658.StrongView [1]](dynamic-v-strongly-typed-views/_static/image6.png)](dynamic-v-strongly-typed-views/_static/image5.png)
 
-Dentro de la nueva plantilla de vista se obtener compatibilidad con intellisense.
+Dentro de la nueva plantilla de vista se obtiene compatibilidad con intellisense.
 
 [![7002.intellesince [1]](dynamic-v-strongly-typed-views/_static/image8.png)](dynamic-v-strongly-typed-views/_static/image7.png)
 

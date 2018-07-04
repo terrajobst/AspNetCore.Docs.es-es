@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart
-title: 'ASP.NET MVC escaparate parte 9: El carro de la compra | Documentos de Microsoft'
+title: 'Escaparate de ASP.NET MVC parte 9: Carro de la compra | Microsoft Docs'
 author: robconery
 description: Por lo que puede tener picos de cocina Rob Conery un sistema simple de carro.
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 05/27/2008
 ms.topic: article
 ms.assetid: 47d8a6e3-21de-4ac9-be5a-9f755c596529
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart
 msc.type: video
-ms.openlocfilehash: 905de3c5d44b18f2e24b93fc0027a27e7cd60ac5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3f4dfdef2ba0b4b6eca4cb30fe2f645d96c8a0d7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871875"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37389365"
 ---
-<a name="aspnet-mvc-storefront-part-9-the-shopping-cart"></a>ASP.NET MVC escaparate parte 9: El carro de la compra
+<a name="aspnet-mvc-storefront-part-9-the-shopping-cart"></a>Escaparate de ASP.NET MVC parte 9: Carro de la compra
 ====================
 por [Rob Conery](https://github.com/robconery)
 
