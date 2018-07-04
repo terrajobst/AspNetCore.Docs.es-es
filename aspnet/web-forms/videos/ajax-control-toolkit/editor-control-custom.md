@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/editor-control-custom
-title: Editor de Control personalizado | Documentos de Microsoft
+title: Control del editor personalizado | Microsoft Docs
 author: JoeStagner
-description: En este vídeo Joe muestra cómo crear una nueva clase que deriva de control AJAX Control del Kit de herramientas del Editor y la implementación de un usuario "simple".
+description: En este vídeo Joe demuestra cómo crear una nueva clase que deriva de control del Editor de AJAX Control Toolkit e implementación de un usuario "simple".
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/13/2009
 ms.topic: article
 ms.assetid: c688f8c3-0d0d-4ff2-a32b-f93e05fc826b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/editor-control-custom
 msc.type: video
-ms.openlocfilehash: 3602bd8c936d331478517fd76b08ee9dca0a0757
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 481150d39af21eeb4847b507490688b424df1cd8
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892405"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37392690"
 ---
-<a name="editor-control-custom"></a>Editor de Control personalizado
+<a name="editor-control-custom"></a>Control del editor personalizado
 ====================
 por [Joe Stagner](https://github.com/JoeStagner)
 
-En este vídeo Joe muestra cómo crear una nueva clase que deriva de control AJAX Control del Kit de herramientas del Editor y la implementación de un usuario "simple".
+En este vídeo Joe demuestra cómo crear una nueva clase que deriva de control del Editor de AJAX Control Toolkit e implementación de un usuario "simple".
 
 [&#9654;Vea el vídeo (8 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/editor-control-custom)
 

@@ -4,14 +4,14 @@ author: guardrex
 description: Vínculos a recursos para efectuar pruebas y depuraciones en aplicaciones de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 06/13/2018
+ms.date: 07/03/2018
 uid: test/index
-ms.openlocfilehash: c5925d55a1b7d50d44d6bea4013331416ce3cec8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 20f6804c1db588a88abb0d5686f894b7463ff6a9
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278806"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37433966"
 ---
 # <a name="test-debug-and-troubleshoot-in-aspnet-core"></a>Probar, depurar y solucionar problemas en ASP.NET Core
 
@@ -31,14 +31,20 @@ Obtenga información sobre cómo probar la lógica del controlador en ASP.NET Co
 
 ## <a name="debug"></a>Depuración
 
+[Información sobre cómo depurar con Visual Studio](/visualstudio/debugger/getting-started-with-the-debugger)  
+Descubra las características del depurador de Visual Studio en un tutorial paso a paso.
+
+[Depuración con Visual Studio Code](https://code.visualstudio.com/docs/editor/debugging)  
+Descubra la compatibilidad de la depuración integrada en Visual Studio Code.
+
 [Depuración de código fuente de ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)  
 Obtenga información sobre cómo depurar orígenes de .NET Core y ASP.NET Core.
 
 [Depuración remota](/visualstudio/debugger/remote-debugging-azure)  
-Descubra cómo configurar una aplicación ASP.NET Core en Visual Studio 2017, implementarla en IIS con Azure y agregar el depurador remoto de Visual Studio.
+Explore cómo configurar una aplicación ASP.NET Core en Visual Studio 2017, implementarla en IIS con Azure y agregar el depurador remoto de Visual Studio.
 
 [Depuración de instantáneas](/azure/application-insights/app-insights-snapshot-debugger)  
-Obtenga información sobre cómo recopilar instantáneas sobre las excepciones más importantes con el fin de tener los datos necesarios para diagnosticar problemas en la producción.
+Descubra cómo recopilar instantáneas sobre las excepciones más importantes con el fin de tener los datos necesarios para diagnosticar problemas en la producción.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 

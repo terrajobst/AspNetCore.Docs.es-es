@@ -1,29 +1,28 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete
-title: 'ASP.NET MVC escaparate parte 8: Pruebas completar controladores, iteración 1 | Documentos de Microsoft'
+title: 'Escaparate de ASP.NET MVC parte 8: Probar los controladores, iteración 1 completa | Microsoft Docs'
 author: robconery
-description: Rob termina la iteración inicial del sitio y de trabajo en el controlador de pruebas también.
+description: Rob finaliza la iteración inicial del sitio y funcionan igual tanto en el controlador de pruebas.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/27/2008
 ms.topic: article
 ms.assetid: dac14719-1158-4552-ba97-3aae6fb2aaae
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete
 msc.type: video
-ms.openlocfilehash: 82ac1066029c10d3cf6d2e89ec518891ce34ff10
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 80f887f156357505075421d10ebe1401dd70dc6e
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871121"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37379052"
 ---
-<a name="aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete"></a>ASP.NET MVC escaparate parte 8: Pruebas completar la iteración 1, de controladores
+<a name="aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete"></a>Escaparate de ASP.NET MVC parte 8: Probar los controladores, iteración 1 completa
 ====================
 por [Rob Conery](https://github.com/robconery)
 
-Rob termina la iteración inicial del sitio y de trabajo en el controlador de pruebas también.
+Rob finaliza la iteración inicial del sitio y funcionan igual tanto en el controlador de pruebas.
 
 [&#9654;Vea el vídeo (30 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-8-testing-controllers-iteration-1-complete)
 
