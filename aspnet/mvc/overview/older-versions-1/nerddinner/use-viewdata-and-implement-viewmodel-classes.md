@@ -1,114 +1,113 @@
 ---
 uid: mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
-title: Use ViewData e implemente ViewModel clases | Documentos de Microsoft
+title: Usar ViewData e implementar clases ViewModel | Microsoft Docs
 author: microsoft
-description: Paso 6 se muestra cómo habilita la compatibilidad de forma más completa que modificar escenarios y también se explican dos enfoques que pueden utilizarse para pasar datos de controladores a vistas:...
+description: Paso 6 se muestra cómo habilita la compatibilidad con la forma más completa edición de escenarios y también se describen dos enfoques que pueden utilizarse para pasar datos de los controladores de vistas:...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/27/2010
 ms.topic: article
 ms.assetid: 5755ec4c-60f1-4057-9ec0-3a5de3a20e23
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-viewdata-and-implement-viewmodel-classes
 msc.type: authoredcontent
-ms.openlocfilehash: 9ba8758bd6524f3e300f3fd91ef68cfe8a3587a7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: edc62246cdc5e5df51c369a70b47dab92c9ecc1c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30879431"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37365128"
 ---
-<a name="use-viewdata-and-implement-viewmodel-classes"></a>Use ViewData e implemente ViewModel clases
+<a name="use-viewdata-and-implement-viewmodel-classes"></a>Usar ViewData e implementar clases ViewModel
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-[Descarga de PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
+[Descargar PDF](http://aspnetmvcbook.s3.amazonaws.com/aspnetmvc-nerdinner_v1.pdf)
 
-> Este es el paso 6 de una segunda ["" la aplicación NerdDinner](introducing-the-nerddinner-tutorial.md) que los recorridos de obtención de cómo generar una pequeña, pero completa, la aplicación web mediante ASP.NET MVC 1.
+> Este es el paso 6 de manera gratuita ["" la aplicación NerdDinner](introducing-the-nerddinner-tutorial.md) que le guía a través cómo compilar un pequeño, pero completa, aplicación web mediante ASP.NET MVC 1.
 > 
-> Paso 6 se muestra cómo habilita la compatibilidad de forma más completa que modificar escenarios y también se explican dos enfoques que pueden utilizarse para pasar datos de controladores a vistas: ViewData y modelo de vista.
+> Paso 6 se muestra cómo habilita la compatibilidad con la forma más completa edición de escenarios y también se describen dos enfoques que pueden utilizarse para pasar datos de los controladores de vistas: ViewData y ViewModel.
 > 
-> Si usa ASP.NET MVC 3, se recomienda que siga el [obtener iniciado con MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) o [tienda de música de MVC](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) tutoriales.
+> Si usa ASP.NET MVC 3, se recomienda que siga el [Introducción a trabajar con MVC 3](../../older-versions/getting-started-with-aspnet-mvc3/cs/intro-to-aspnet-mvc-3.md) o [MVC Music Store](../../older-versions/mvc-music-store/mvc-music-store-part-1.md) tutoriales.
 
 
-## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>NerdDinner paso 6: ViewData y ViewModel
+## <a name="nerddinner-step-6-viewdata-and-viewmodel"></a>Paso 6 de NerdDinner: ViewData y ViewModel
 
-Hemos cubierto un número de escenarios de envío de formulario y se explica cómo implementar crear, actualizar y eliminar el soporte técnico (CRUD). Ahora podrá tomamos nuestra implementación DinnersController aún más y habilitar la compatibilidad con escenarios de edición de forma más completa. Al hacer esto analizaremos dos enfoques que pueden utilizarse para pasar datos de controladores a vistas: ViewData y modelo de vista.
+Hemos tratado varios escenarios de envío de formulario y se explica cómo implementar crear, actualizar y eliminar el soporte técnico (CRUD). Ahora echaremos nuestra implementación DinnersController aún más y habilitar la compatibilidad con escenarios de edición de forma más completa. Al hacerlo se tratarán dos enfoques que pueden utilizarse para pasar datos de los controladores de vistas: ViewData y ViewModel.
 
-### <a name="passing-data-from-controllers-to-view-templates"></a>Pasar los datos de controladores en las plantillas de vista
+### <a name="passing-data-from-controllers-to-view-templates"></a>Pasar los datos de los controladores a las plantillas de vista
 
-Una de las características que definen el modelo de MVC es la "separación de aspectos" strict ayuda a aplicar entre los distintos componentes de una aplicación. Modelos, controladores y vistas de cada uno de ellos también definida roles y responsabilidades, y se comunican entre sí de maneras bien definidos. Esto ayuda a promover la capacidad de prueba y reutilización del código.
+Una de las características que definen el patrón MVC es la "separación de preocupaciones" strict le ayuda a aplicar entre los distintos componentes de una aplicación. Models, Controllers y las vistas también cada uno han definido roles y responsabilidades, y se comunican entre sí de maneras bien definido. Esto ayuda a promover la capacidad de prueba y reutilización del código.
 
-Cuando una clase de controlador decide representar una respuesta HTML a un cliente, es responsable de pasar explícitamente a la plantilla de vista de todos los datos necesitan para representar la respuesta. Plantillas de vista nunca deberían realizar cualquier lógica de aplicación o de recuperación de datos – y en su lugar, deben limitar propios para solo tiene código de representación que se basa en el modelo/datos que recibe el controlador.
+Cuando una clase de controlador decide representar una respuesta HTML a un cliente, es responsable de pasar explícitamente a la plantilla de vista de todos los datos necesitan para representar la respuesta. Plantillas de vista nunca deben realizar la lógica de aplicación o de recuperación de datos – y en su lugar, deben limitar a sí mismos para sólo tener código de representación que se basa en los datos o del modelo pasados por el controlador.
 
-Ahora los datos del modelo que se pasa por nuestro DinnersController clase a nuestras plantillas de vista es sencilla y directa: una lista de objetos de la cena en el caso de Index() y una sola cena el objeto en el caso de Details(), Edit(), Create() y Delete(). Tal y como se agregan más capacidades de interfaz de usuario para nuestra aplicación, que vamos a menudo es necesario pasar algo más que estos datos para procesar respuestas de HTML en nuestras plantillas de vista. Por ejemplo, tengamos que queremos cambiar el campo "País" dentro de nuestro editar y crear vistas ante un cuadro de texto HTML a dropdownlist. En lugar de codificar la lista desplegable de nombres de país en la plantilla de vista, tengamos que queremos generar en una lista de países admitidos que se rellenan de forma dinámica. Necesitamos una manera de pasar el objeto de cena *y* la lista de países de nuestro controlador a nuestras plantillas de vista.
+Ahora los datos del modelo que se pasan por nuestro DinnersController clase a nuestras plantillas de vista es simple y sencillo: una lista de objetos de la cena en el caso de Index() y una cena única del objeto en el caso de Details(), Edit(), Create() y Delete(). Cuando agreguemos más funcionalidades de la interfaz de usuario a nuestra aplicación, vamos a menudo a debe pasar algo más que estos datos para procesar respuestas HTML dentro de nuestras plantillas de vista. Por ejemplo, podríamos queremos cambiar el campo "País" dentro de nuestro editar y crear vistas desde la que se va a un cuadro de texto HTML en dropdownlist. En lugar de codificar de forma rígida la lista desplegable de nombres de país en la plantilla de vista, que podría desear generarlo de una lista de países admitidos que se rellenan dinámicamente. Necesitamos una manera de pasar el objeto cena *y* la lista de países admitidos desde nuestro controlador a nuestras plantillas de vista.
 
-Echemos un vistazo a dos maneras que podemos lograr esto.
+Echemos un vistazo a dos maneras que podemos lograrlo.
 
 ### <a name="using-the-viewdata-dictionary"></a>Mediante el diccionario ViewData
 
-La clase base del controlador expone una propiedad de diccionario "ViewData" que puede utilizarse para pasar los elementos de datos adicionales de controladores a vistas.
+La clase base del controlador expone una propiedad de diccionario de "ViewData" que se puede usar para pasar los elementos de datos adicionales de controladores a las vistas.
 
-Por ejemplo, para admitir el escenario donde queremos cambiar el cuadro de texto "País" dentro de la vista de edición desde que se va a un cuadro de texto HTML en un dropdownlist, podemos actualizar el método de acción Edit() para pasar (además de un objeto de la cena) un objeto SelectList que puede usarse como m. odelo de dropdownlist países.
+Por ejemplo, para admitir el escenario donde queremos cambia el cuadro de texto "País" dentro de nuestra vista de edición de ser un cuadro de texto HTML en dropdownlist, podemos actualizar nuestro método de acción Edit() para pasar (además de un objeto de la cena) un objeto SelectList que puede usarse como la letra m odelo de dropdownlist países.
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample1.cs)]
 
-El constructor de la anterior SelectList acepta una lista de los condados para rellenar la colocación downlist con, así como el valor seleccionado actualmente.
+El constructor de la anterior SelectList acepta una lista de los condados para rellenar el downlist colocar con, así como el valor seleccionado actualmente.
 
-A continuación, podemos actualizar nuestra plantilla de vista Edit.aspx para utilizar el método de aplicación auxiliar de Html.DropDownList() en lugar del método de aplicación auxiliar de Html.TextBox() que hemos usado anteriormente:
+A continuación, podemos actualizar la plantilla de vista Edit.aspx para usar el método auxiliar Html.DropDownList() en lugar del método de aplicación auxiliar Html.TextBox() que hemos usado anteriormente:
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample2.aspx)]
 
-El método de aplicación auxiliar de Html.DropDownList() anterior toma dos parámetros. El primero es el nombre del elemento de formulario HTML para la salida. El segundo es el modelo de "SelectList" se pasan a través del diccionario ViewData. Estamos usando C# "como" (palabra clave) para convertir el tipo en el diccionario como un SelectList.
+El método auxiliar Html.DropDownList() anterior toma dos parámetros. El primero es el nombre del elemento de formulario HTML para la salida. El segundo es el modelo de "SelectList" se pasa mediante el diccionario ViewData. Estamos usando C# "como" palabra clave para convertir el tipo dentro del diccionario como un SelectList.
 
-Y ahora cuando se ejecución la aplicación y el acceso del */Dinners/Edit/1* dirección URL dentro de nuestro navegador, veremos que se ha actualizado la interfaz de usuario de edición para mostrar una dropdownlist de países en lugar de un cuadro de texto:
+Y ahora cuando ejecutamos nuestra aplicación y el acceso a la */Dinners/Edit/1* URL dentro de nuestro explorador veremos que nuestra interfaz de usuario de edición se ha actualizado para mostrar en dropdownlist de países en lugar de un cuadro de texto:
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image1.png)
 
-Dado que también se representan la plantilla de vista de edición desde el método HTTP POST Editar (en escenarios cuando se producen errores), queremos Asegúrese de que también se actualiza este método para agregar el SelectList a ViewData cuando la plantilla de vista se presenta en escenarios de error:
+Dado que también se representan la plantilla de vista de edición del método HTTP POST Editar (en escenarios cuando se producen errores), queremos asegurarse de que también se actualiza este método para agregar el SelectList a ViewData cuando la plantilla de vista se presenta en escenarios de error:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample3.cs)]
 
 Y ahora nuestro escenario de edición DinnersController admite DropDownList.
 
-### <a name="using-a-viewmodel-pattern"></a>Utilizar un modelo de ViewModel
+### <a name="using-a-viewmodel-pattern"></a>Con un patrón de ViewModel
 
-El diccionario ViewData tiene la ventaja de ser bastante rápida y fácil de implementar. Algunos desarrolladores no como con diccionarios basados en cadena, sin embargo, puesto que pueden provocar errores tipográficos errores que no se detectarán en tiempo de compilación. El diccionario ViewData sin tipo también requiere mediante el operador "como" o de conversión cuando se usa un lenguaje fuertemente tipado como C# en una plantilla de vista.
+El enfoque de diccionario ViewData tiene la ventaja de ser bastante rápido y fácil de implementar. Algunos desarrolladores no le gusta usar diccionarios basados en cadena, sin embargo, puesto que los errores tipográficos pueden conducir a errores que no se detecte en tiempo de compilación. El diccionario ViewData sin tipo también requiere utilizando el operador "as" o cuando se usa un lenguaje fuertemente tipado como C# en una plantilla de vista de conversión.
 
-Un método alternativo que podríamos usar es uno conoce a menudo como el patrón "ViewModel". Si utiliza este modelo, crear clases fuertemente tipadas que están optimizados para cuatro escenarios de vista específicos, y que exponen propiedades de los valores o contenido dinámico necesita nuestras plantillas de vista. Las clases de controlador, a continuación, pueden rellenar y pasar estas clases con optimización para ver a nuestra plantilla de vista que se usará. Esto permite la seguridad de tipos, comprobar tiempo de compilación e intellisense del editor de plantillas de vista.
+Un enfoque alternativo que podíamos usar es uno conoce a menudo como el patrón "ViewModel". Al utilizar este patrón se creación clases fuertemente tipadas que están optimizados para escenarios de nuestra vista específica y que exponen propiedades para el valores o contenido dinámico necesita nuestras plantillas de vista. Nuestras clases de controlador, a continuación, pueden rellenar y pasar estas clases optimizadas para la vista a nuestra plantilla de vista para usar. Esto permite la seguridad de tipos, comprobación en tiempo de compilación e intellisense del editor dentro de las plantillas de vista.
 
-Por ejemplo, para habilitar escenarios de edición podemos crear un "DinnerFormViewModel" clase como a continuación de formularios de cena que expone dos propiedades fuertemente tipadas: un objeto de la cena y el modelo de SelectList necesarios para rellenar la dropdownlist países:
+Por ejemplo, para habilitar escenarios de edición que podemos crear un "DinnerFormViewModel" clase como a continuación de formulario de dinner que expone dos propiedades fuertemente tipadas: un objeto de la cena y el modelo SelectList necesarios para rellenar la dropdownlist países:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample4.cs)]
 
-Podemos actualizar, a continuación, el método de acción de Edit() para crear el DinnerFormViewModel utilizando el objeto de la cena que recuperamos de nuestro repositorio y, a continuación, se pasa a la plantilla de vista:
+Podemos actualizar, a continuación, el método de acción Edit() para crear el DinnerFormViewModel utilizando el objeto de la cena que recuperamos de nuestro repositorio y luego pasarla a nuestra plantilla de vista:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample5.cs)]
 
-Te enviaremos un mensaje, a continuación, nuestra plantilla de vista de modo que TI espera un "DinnerFormViewModel" en lugar de una "cena" objeto cambiando el atributo "inherits" en la parte superior de la página edit.aspx de actualización de este modo:
+Vamos a nuestra plantilla de vista, por lo que TI espera un "DinnerFormViewModel" en lugar de una "cena" objeto cambiando el atributo "inherits" en la parte superior de la página edit.aspx de actualización, como lo:
 
 [!code-cshtml[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample6.cshtml)]
 
-Después de hacer esto, se actualizará para reflejar el modelo de objetos del tipo DinnerFormViewModel que estamos pasando las características de intellisense de la propiedad "Modelo" dentro de la plantilla de vista:
+Una vez que lo hacemos, intellisense de la propiedad "Modelo" dentro de nuestra plantilla de vista se actualizará para reflejar el modelo de objetos del tipo DinnerFormViewModel que nos estamos pasando:
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image2.png)
 
 ![](use-viewdata-and-implement-viewmodel-classes/_static/image3.png)
 
-A continuación, podemos actualizar el código de vista para trabajar fuera de él. Observe a continuación cómo no cambiar los nombres de los elementos de entrada, vamos a crear (los elementos de formulario todavía se denominarán "Título", "País"), pero estamos actualizando los métodos auxiliares de HTML para recuperar los valores de uso de la clase DinnerFormViewModel:
+A continuación, podemos actualizar nuestro código de vista para trabajar fuera de él. Tenga en cuenta a continuación cómo nos estamos cambiando los nombres de los elementos de entrada no vamos a crear (los elementos del formulario todavía se denominarán "Title", "País"), pero estamos actualizando los métodos de aplicación auxiliar HTML para recuperar los valores de uso de la clase DinnerFormViewModel:
 
 [!code-aspx[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample7.aspx)]
 
-También podrá Actualizamos nuestro método post de edición para utilizar la clase DinnerFormViewModel cuando errores de representación:
+También se actualizará nuestro método post de edición para usar la clase DinnerFormViewModel cuando errores de representación:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample8.cs)]
 
-Podemos también Actualizamos nuestro Create() los métodos de acción para volver a usar justo lo mismo *DinnerFormViewModel* clase para permitir a los países DropDownList dentro de las que también. A continuación se muestra la implementación de HTTP-GET:
+Podemos también actualizar nuestros métodos de acción Create() volver a utilizar exactamente igual *DinnerFormViewModel* clase para permitir a los países DropDownList dentro de esas también. Esta es la implementación HTTP-GET:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample9.cs)]
 
-A continuación se muestra la implementación del método HTTP POST crear:
+A continuación es la implementación del método HTTP POST a crear:
 
 [!code-csharp[Main](use-viewdata-and-implement-viewmodel-classes/samples/sample10.cs)]
 
@@ -116,17 +115,17 @@ Y ahora admiten nuestras pantallas editar y crear los desplegables para seleccio
 
 ### <a name="custom-shaped-viewmodel-classes"></a>Clases de ViewModel en forma de personalizado
 
-En el escenario anterior, nuestra clase DinnerFormViewModel expone directamente el objeto de modelo de la cena como una propiedad, junto con una propiedad de modelo SelectList auxiliar. Este enfoque funciona perfectamente en escenarios donde la interfaz de usuario de HTML que desea crear dentro de la plantilla de vista corresponde relativamente estrechamente con nuestros objetos del modelo de dominio.
+En el escenario anterior, nuestra clase DinnerFormViewModel expone directamente el objeto de modelo cena como una propiedad, junto con una propiedad de modelo SelectList auxiliar. Este enfoque funciona bien para escenarios donde la interfaz de usuario HTML que deseamos crear dentro de nuestra plantilla de vista corresponde relativamente estrechamente con nuestros objetos de modelo de dominio.
 
-Para escenarios donde no es el caso, una opción que puede usar es crear una clase ViewModel en forma personalizada cuyo modelo de objetos está más optimizado para su uso por la vista – y que podría ser completamente diferente del objeto de modelo de dominio subyacente. Por ejemplo, pudieron exponer los nombres de propiedad diferente o agregadas propiedades recopiladas por múltiples objetos de modelo.
+Para escenarios donde esto no es el caso, una opción que puede usar es crear una clase ViewModel personalizada en forma cuyo modelo de objetos de más está optimizado para su uso por la vista, y que podrían parecer completamente diferentes desde el objeto de modelo de dominio subyacente. Por ejemplo, podrían exponer los nombres de propiedad diferentes o las propiedades agregadas procedentes de varios objetos de modelo.
 
-Pueden ser en forma de personalizar las clases de ViewModel usa tanto para pasar datos de controladores a las vistas para representar, así como para ayudar a administrar los datos de formulario que se devuelve al método de acción del controlador. En este escenario más adelante, puede que tenga el método de acción Actualizar un objeto de modelo de vista con los datos expuestos por el formulario y, a continuación, usar la instancia ViewModel para asignar o recuperar un objeto de modelo de dominio real.
+En forma de personalizar las clases de ViewModel pueden usar tanto para pasar datos de los controladores a las vistas para representar, así como para ayudar a controlar los datos de formulario devuelve al método de acción del controlador. En este escenario más adelante, tendrá que el método de acción Actualizar un objeto ViewModel con los datos publicados por el formulario y, a continuación, usar la instancia de ViewModel para asignar o recuperar un objeto de modelo de dominio real.
 
-Clases de ViewModel en forma de personalizado pueden proporcionar una gran cantidad de flexibilidad y son algo para investigar cualquier momento que se encuentra el código de representación dentro de las plantillas de vista o el código de envío de formulario dentro de los métodos de acción empezando a ser demasiado complicado. Por lo general, suele ser un inicio de sesión que los modelos de dominio correctamente no corresponden a la interfaz de usuario que se va a generar, y que puede ayudar una clase ViewModel intermedia de forma personalizada.
+En forma de personalizar las clases de ViewModel pueden proporcionar un gran flexibilidad y son algo para investigar cada vez que se encuentra el código de representación dentro de las plantillas de vista o el código del formulario de registro dentro de los métodos de acción comienza a ser demasiado complicado. Esto suele ser un inicio de sesión que los modelos de dominio limpiamente no corresponden a la interfaz de usuario que se está generando y que puede ayudar una clase ViewModel intermedia de forma personalizada.
 
 ### <a name="next-step"></a>Paso siguiente
 
-Ahora veamos cómo podemos usar parciales y las páginas maestras para reutilizar y compartir la interfaz de usuario a través de nuestra aplicación.
+Ahora veamos cómo podemos usar parciales y páginas maestras para volver a usar y compartir la interfaz de usuario en nuestra aplicación.
 
 > [!div class="step-by-step"]
 > [Anterior](provide-crud-create-read-update-delete-data-form-entry-support.md)

@@ -1,6 +1,6 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
-title: Mostrar datos en un gráfico (parte 2) | Documentos de Microsoft
+title: Mostrar datos en un gráfico (parte 2) | Microsoft Docs
 author: JoeStagner
 description: Vídeo acompañamiento para mostrar datos en un tutorial del gráfico (parte 2)
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 02/25/2011
 ms.topic: article
 ms.assetid: f28e8c8e-5e0f-4bc3-af69-2e6e18a6d100
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/displaying-data-in-a-chart-part-2
 msc.type: video
-ms.openlocfilehash: 90646cf8b9874f0a8ede1133eb2aa555bc417eac
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: d4f25606c155faa943910d1ef0ac869f39d8209c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895857"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37391711"
 ---
 <a name="displaying-data-in-a-chart-part-2"></a>Mostrar datos en un gráfico (parte 2)
 ====================

@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource
-title: '[¿Cómo I:] LINQ to SQL: LinqDataSource | Documentos de Microsoft'
+title: '[¿Cómo lo hago?:] LINQ to SQL: LinqDataSource | Microsoft Docs'
 author: scottstanfield
-description: 'El nuevo control LinqDataSource: asp .NET 3.5 facilita el enlace a elementos de interfaz de usuario. De hecho, se escribe ningún código o se dañan en la realización de este vídeo. Consulta, upd...'
+description: 'El nuevo control asp: LinqDataSource .NET 3.5 facilita el enlace a los elementos de interfaz de usuario. De hecho, ningún código se ha escrito o dañan en la redacción de este vídeo. Consulta, los Actu...'
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 01/10/2008
 ms.topic: article
 ms.assetid: 8ba6bfb6-8eb3-45d2-8819-5b5b54bf520c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-linqdatasource
 msc.type: video
-ms.openlocfilehash: 303fe392330d5f58852f5ce6e75b684ec82afab5
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0e9cf4cc71f42ff5077e099ac2c2b66e3f325e49
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30885814"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37364719"
 ---
-<a name="how-do-i-linq-to-sql-linqdatasource"></a>[¿Cómo I:] LINQ to SQL: LinqDataSource
+<a name="how-do-i-linq-to-sql-linqdatasource"></a>[¿Cómo lo hago?:] LINQ to SQL: LinqDataSource
 ====================
 por [Scott Stanfield](https://github.com/scottstanfield)
 
-El nuevo control LinqDataSource: asp .NET 3.5 facilita el enlace a elementos de interfaz de usuario. De hecho, se escribe ningún código o se dañan en la realización de este vídeo. Consultar, actualizar, eliminar, paginar, ordenar, todo listo a través de LINQ y LinqDataSource.
+El nuevo control asp: LinqDataSource .NET 3.5 facilita el enlace a los elementos de interfaz de usuario. De hecho, ningún código se ha escrito o dañan en la redacción de este vídeo. Consultar, actualizar, eliminar, paginación, ordenación, ha realizado todo a través de LINQ y LinqDataSource.
 
 [&#9654;Vea el vídeo (11 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-linq-to-sql-linqdatasource)
 
