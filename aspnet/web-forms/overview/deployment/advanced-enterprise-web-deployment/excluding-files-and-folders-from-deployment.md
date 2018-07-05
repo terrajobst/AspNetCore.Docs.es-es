@@ -13,7 +13,7 @@ msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
 ms.openlocfilehash: c50352d423f41f84677dbf048e74088214340f3a
 ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/03/2018
 ms.locfileid: "37382587"
