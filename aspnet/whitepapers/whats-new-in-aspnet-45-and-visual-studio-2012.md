@@ -13,7 +13,7 @@ msc.legacyurl: /whitepapers/whats-new-in-aspnet-45-and-visual-studio-2012
 msc.type: content
 ms.openlocfilehash: e89b8faa7d513209436d40d15821694cf24fa453
 ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/03/2018
 ms.locfileid: "37369352"
