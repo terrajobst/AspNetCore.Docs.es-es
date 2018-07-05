@@ -4,19 +4,16 @@ title: 'Iteración #3: agregar una validación de formulario (C#) | Microsoft Do
 author: microsoft
 description: En la tercera iteración, se agrega una validación de formulario básico. Evitamos personas desde el envío de un formulario sin completar los campos obligatorios. También hemos validar emai...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 51a0d175-913b-43d8-95e3-840fb96ad1a9
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-3-add-form-validation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a76e75f2d343764038142235c92e2db04e807778
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 532a5849007a5e8301da7c2801b553b9148679c4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377011"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828152"
 ---
 <a name="iteration-3--add-form-validation-c"></a>Iteración #3: agregar una validación de formulario (C#)
 ====================

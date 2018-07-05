@@ -4,19 +4,16 @@ title: Crear una restricción de ruta (C#) | Microsoft Docs
 author: StephenWalther
 description: En este tutorial, Stephen Walther demuestra cómo puede controlar cómo el explorador solicita coincidencia rutas mediante la creación de las restricciones de ruta con expresiones regulares.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/16/2009
-ms.topic: article
 ms.assetid: 0bfd06b1-12d3-4fbb-9779-a82e5eb7fe7d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8c977df126ce79f6ca20bd3941009ae7295ae0a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f0dbbb880bc679da934444b87ef24d040b69e2f7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366537"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828259"
 ---
 <a name="creating-a-route-constraint-c"></a>Crear una restricción de ruta (C#)
 ====================

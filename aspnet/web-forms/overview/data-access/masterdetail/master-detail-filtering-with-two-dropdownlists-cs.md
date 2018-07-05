@@ -4,19 +4,16 @@ title: Maestro y detalles de filtrado con dos DropDownLists (C#) | Microsoft Doc
 author: rick-anderson
 description: Este tutorial amplía la relación principal-detalle para agregar una tercera capa, mediante dos controles de DropDownList para seleccionar la deseada registros primario y el elemento primario principal...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: ac4b0d77-4816-4ded-afd0-88dab667aedd
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-filtering-with-two-dropdownlists-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b4d7c6661bf95550ae91ae34f4bd4272c18e24d3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f8f216689494e0f80902c42f425883558c1e21ce
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368290"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842262"
 ---
 <a name="masterdetail-filtering-with-two-dropdownlists-c"></a>Maestro y detalles de filtrado con dos DropDownLists (C#)
 ====================

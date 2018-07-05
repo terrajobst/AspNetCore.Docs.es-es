@@ -4,19 +4,16 @@ title: Tailspin Spyworks - agregar elementos al carro de la compra | Microsoft D
 author: JoeStagner
 description: Joe Stagner compilaciones al agregar a la función del carro de la aplicación de formularios Web Forms de ejemplo Tailspin Spyworks.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/29/2010
-ms.topic: article
 ms.assetid: a408449b-4fc5-4659-8bb6-801404cfbd8f
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-items-to-the-shopping-cart
 msc.type: video
-ms.openlocfilehash: ec9dc96f3cbf31e8a068522e6ed31d7c6b08e9c7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e896a6dce294e271c38cb9003e120cfd8994d788
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396132"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801610"
 ---
 <a name="tailspin-spyworks---adding-items-to-the-shopping-cart"></a>Tailspin Spyworks - agregar elementos al carro de la compra
 ====================

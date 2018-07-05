@@ -4,19 +4,16 @@ title: Trabajar con archivos en un sitio ASP.NET Web Pages (Razor) | Microsoft D
 author: tfitzmac
 description: Este capítulo explica cómo leer, escribir, anexar, eliminar y cargar archivos.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2014
-ms.topic: article
 ms.assetid: eee916e4-ba4c-439a-a24e-68df7d45a569
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/data/working-with-files
 msc.type: authoredcontent
-ms.openlocfilehash: bd2b432eaa8bff31a8c4432d249308049a4c6aec
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3778bc0041c56fe7164265fe565996aea5564bdf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364677"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841609"
 ---
 <a name="working-with-files-in-an-aspnet-web-pages-razor-site"></a>Trabajar con archivos en un sitio Web de ASP.NET Pages (Razor)
 ====================
