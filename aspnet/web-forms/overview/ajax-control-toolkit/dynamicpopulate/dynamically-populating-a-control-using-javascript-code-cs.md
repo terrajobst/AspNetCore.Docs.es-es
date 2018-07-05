@@ -4,19 +4,16 @@ title: Rellenar dinámicamente un Control utilizando el código de JavaScript (C
 author: wenz
 description: El control DynamicPopulate de ASP.NET AJAX Control Toolkit llama a un servicio web (o el método de página) y rellena el valor resultante en un control de destino de t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: cc4c2def-e88c-4456-ae8b-a6ae0ff8cc2d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/dynamically-populating-a-control-using-javascript-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6999dee71966c4362254d9f601e55fdb75d0b292
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6fa8e0b91481467c7f53e7323b72e4b345833905
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394079"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841625"
 ---
 <a name="dynamically-populating-a-control-using-javascript-code-c"></a>Rellenar dinámicamente un Control utilizando el código de JavaScript (C#)
 ====================

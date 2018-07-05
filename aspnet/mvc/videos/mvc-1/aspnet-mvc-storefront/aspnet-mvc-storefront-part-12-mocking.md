@@ -4,19 +4,16 @@ title: 'Escaparate de ASP.NET MVC parte 12: Simulación | Microsoft Docs'
 author: robconery
 description: En este episodio implementar por lo que puedo probar mi acción de autenticación para mi UserController de simulación.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/19/2008
-ms.topic: article
 ms.assetid: 9a0f04b9-6a49-4e2c-9c12-03ab71ab2705
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-12-mocking
 msc.type: video
-ms.openlocfilehash: 6d9d6d149dd093b4233e1d98d970e77a4d5ad89a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4f25641ad0246d54e3e34b691d7169b76cfbde92
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377501"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841886"
 ---
 <a name="aspnet-mvc-storefront-part-12-mocking"></a>Escaparate de ASP.NET MVC, parte 12: simulación
 ====================

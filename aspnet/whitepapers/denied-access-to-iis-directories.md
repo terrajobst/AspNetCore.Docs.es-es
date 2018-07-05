@@ -4,19 +4,16 @@ title: ASP.NET deniega el acceso a directorios de IIS | Microsoft Docs
 author: rick-anderson
 description: Estas notas del producto describen lo que debe hacer si una solicitud para la aplicación ASP.NET devuelve el error "acceso denegado al directorio DirectoryName. No se pudo s...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: 3cb27b8a-354f-4332-bfe0-232b13bbf8aa
-ms.technology: ''
 msc.legacyurl: /whitepapers/denied-access-to-iis-directories
 msc.type: content
-ms.openlocfilehash: 22868738e02472f5f433c729967ac324131a0fdc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4853ee29d2468c4b67375123c5b2ec15089fe09b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383067"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842415"
 ---
 <a name="aspnet-denied-access-to-iis-directories"></a>Denegado el acceso a directorios de IIS de ASP.NET
 ====================
