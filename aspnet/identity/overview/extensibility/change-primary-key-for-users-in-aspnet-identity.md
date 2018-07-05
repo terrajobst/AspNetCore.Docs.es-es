@@ -1,71 +1,70 @@
 ---
 uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
-title: Cambiar la clave principal para los usuarios en ASP.NET Identity | Documentos de Microsoft
+title: Cambiar la clave principal para los usuarios en ASP.NET Identity | Microsoft Docs
 author: tfitzmac
-description: En Visual Studio 2013, la aplicación web predeterminada utiliza un valor de cadena de la clave para las cuentas de usuario. Identidad de ASP.NET le permite cambiar el tipo de la...
+description: En Visual Studio 2013, la aplicación web predeterminada utiliza un valor de cadena para la clave para las cuentas de usuario. ASP.NET Identity le permite cambiar el tipo de la...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/30/2014
 ms.topic: article
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 79812efb4de2461fad3765d6005bbd20393e62b2
-ms.sourcegitcommit: 6784510cfb589308c3875ccb5113eb31031766b4
+ms.openlocfilehash: 20e6b86f50a6ea62f188ae592e0b302c7ef77177
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "26498234"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37373333"
 ---
-<a name="change-primary-key-for-users-in-aspnet-identity"></a>Cambiar la clave principal para los usuarios de identidad de ASP.NET
+<a name="change-primary-key-for-users-in-aspnet-identity"></a>Cambiar la clave principal para los usuarios en ASP.NET Identity
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
 
-> En Visual Studio 2013, la aplicación web predeterminada utiliza un valor de cadena de la clave para las cuentas de usuario. Identidad de ASP.NET le permite cambiar el tipo de la clave para cumplir los requisitos de datos. Por ejemplo, puede cambiar el tipo de la clave de una cadena en un entero.
+> En Visual Studio 2013, la aplicación web predeterminada utiliza un valor de cadena para la clave para las cuentas de usuario. ASP.NET Identity le permite cambiar el tipo de la clave para cumplir los requisitos de datos. Por ejemplo, puede cambiar el tipo de la clave de una cadena en un entero.
 > 
-> Este tema muestra cómo comenzar con el valor predeterminado de aplicación web y cambiar la clave de cuenta de usuario a un entero. Puede utilizar las mismas modificaciones para implementar cualquier tipo de clave en el proyecto. Muestra cómo realizar estos cambios en la aplicación web predeterminada, pero podría aplicar modificaciones similares en una aplicación personalizada. Muestra los cambios necesarios cuando se trabaja con MVC o formularios Web Forms.
+> En este tema se muestra cómo comenzar con el valor predeterminado de aplicación web y cambie la clave de cuenta de usuario en un entero. Puede usar las mismas modificaciones para implementar cualquier tipo de clave en el proyecto. Muestra cómo realizar estos cambios en la aplicación web predeterminada, pero podría aplicar modificaciones similares en una aplicación personalizada. Muestra los cambios necesarios cuando se trabaja con MVC o Web Forms.
 > 
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
 > 
 > 
-> - Visual Studio 2013 Update 2 (o posterior)
+> - Visual Studio 2013 con Update 2 (o posterior)
 > - ASP.NET Identity 2.1 o posterior
 
 
-Para llevar a cabo los pasos de este tutorial, debe tener Visual Studio 2013 Update 2 (o posterior) y una aplicación web creada desde la plantilla de aplicación Web ASP.NET. La plantilla cambiada en Update 3. En este tema se muestra cómo cambiar la plantilla en Update 2 y Update 3.
+Para llevar a cabo los pasos de este tutorial, debe tener Visual Studio 2013 Update 2 (o posterior) y una aplicación web creada a partir de la plantilla de aplicación Web ASP.NET. La plantilla que se puede cambiada en Update 3. En este tema se muestra cómo cambiar la plantilla en Update 2 y 3 de actualización.
 
 Este tema contiene las siguientes secciones:
 
-- [Cambiar el tipo de la clave en la clase de usuario de identidad](#userclass)
-- [Agregar clases de identidad personalizadas que utilizan el tipo de clave](#customclass)
+- [Cambiar el tipo de la clave de la clase de usuario de identidad](#userclass)
+- [Agregar clases de identidad personalizadas que utilice el tipo de clave](#customclass)
 - [Cambiar el Administrador de usuario y la clase de contexto para usar el tipo de clave](#context)
 - [Cambiar la configuración de inicio para usar el tipo de clave](#startup)
-- [En el caso de MVC con Update 2, cambiar el AccountController para pasar el tipo de clave](#mvcupdate2)
+- [Para MVC con Update 2, cambiar AccountController para pasar el tipo de clave](#mvcupdate2)
 - [Para MVC con Update 3, cambiar el AccountController y ManageController para pasar el tipo de clave](#mvcupdate3)
-- [Para los formularios Web con la actualización 2, cambiar las páginas de la cuenta para pasar el tipo de clave](#webformsupdate2)
-- [Para los formularios Web con Update 3, cambiar las páginas de la cuenta para pasar el tipo de clave](#webformsupdate3)
+- [Para los formularios Web con Update 2, cambie las páginas de la cuenta para pasar el tipo de clave](#webformsupdate2)
+- [Para los formularios Web con Update 3, cambie las páginas de la cuenta para pasar el tipo de clave](#webformsupdate3)
 - [Ejecutar la aplicación](#run)
 - [Otros recursos](#other)
 
 <a id="userclass"></a>
-## <a name="change-the-type-of-the-key-in-the-identity-user-class"></a>Cambiar el tipo de la clave en la clase de usuario de identidad
+## <a name="change-the-type-of-the-key-in-the-identity-user-class"></a>Cambiar el tipo de la clave de la clase de usuario de identidad
 
-En el proyecto creado a partir de la plantilla de aplicación Web ASP.NET, especifica que la clase ApplicationUser utiliza un entero para la clave para las cuentas de usuario. En IdentityModels.cs, cambie la clase ApplicationUser heredar de IdentityUser que tiene un tipo de **int** para el parámetro genérico TKey. También pasa los nombres de clase personalizada tres que aún no ha implementado.
+En el proyecto creado a partir de la plantilla de aplicación Web ASP.NET, especifique que la clase ApplicationUser utiliza un entero para la clave para las cuentas de usuario. En IdentityModels.cs, cambie la clase ApplicationUser a derivarse de IdentityUser que tiene un tipo de **int** para el parámetro genérico TKey. También pasa los nombres de tres clases personalizadas que no ha implementado aún.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample1.cs?highlight=1-2)]
 
-Ha cambiado el tipo de la clave, pero, de forma predeterminada, el resto de la aplicación todavía se da por supuesto que la clave es una cadena. Debe indicar explícitamente el tipo de la clave en el código que supone una cadena.
+Se ha cambiado el tipo de la clave, pero, de forma predeterminada, el resto de la aplicación todavía supone que la clave es una cadena. Debe indicar explícitamente el tipo de la clave en el código que adopta una cadena.
 
-En el **ApplicationUser** clase, cambie el **GenerateUserIdentityAsync** método incluir int, como se muestra en el código que aparece resaltado a continuación. Este cambio no es necesario para los proyectos de formularios Web Forms con la plantilla de Update 3.
+En el **ApplicationUser** clase, cambie el **GenerateUserIdentityAsync** método a la práctica son int, tal como se muestra en el código resaltado siguiente. Este cambio no es necesario para los proyectos de formularios Web Forms con la plantilla de Update 3.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample2.cs?highlight=2)]
 
 <a id="customclass"></a>
-## <a name="add-customized-identity-classes-that-use-the-key-type"></a>Agregar clases de identidad personalizadas que utilizan el tipo de clave
+## <a name="add-customized-identity-classes-that-use-the-key-type"></a>Agregar clases de identidad personalizadas que utilice el tipo de clave
 
-Las demás clases de identidad, como IdentityUserRole, IdentityUserClaim, IdentityUserLogin, IdentityRole, UserStore, RoleStore, todavía se configuran para usar una clave de cadena. Crear nuevas versiones de estas clases que especifican un número entero para la clave. No es necesario proporcionar el código de implementación de estas clases, principalmente simplemente se establecer int como clave.
+Las otras clases de identidad, como IdentityUserRole, IdentityUserClaim, IdentityUserLogin, IdentityRole, UserStore, RoleStore, todavía se configuran para usar una clave de cadena. Crear nuevas versiones de estas clases que especifican un número entero para la clave. No es necesario proporcionar mucho código de implementación de estas clases, principalmente simplemente está configurando int como clave.
 
 Agregue las siguientes clases en el archivo IdentityModels.cs.
 
@@ -74,15 +73,15 @@ Agregue las siguientes clases en el archivo IdentityModels.cs.
 <a id="context"></a>
 ## <a name="change-the-context-class-and-user-manager-to-use-the-key-type"></a>Cambiar el Administrador de usuario y la clase de contexto para usar el tipo de clave
 
-En IdentityModels.cs, cambie la definición de la **ApplicationDbContext** clase se debe utilizar la nueva personalizar clases y un **int** de la clave, como se muestra en el código que aparece resaltado.
+En IdentityModels.cs, cambie la definición de la **ApplicationDbContext** a usar la nueva clase de personalizar las clases y un **int** para la clave, como se muestra en el código resaltado.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample4.cs?highlight=1-2)]
 
-El parámetro ThrowIfV1Schema ya no es válido en el constructor. Cambie el constructor, por lo que no pasa un valor de ThrowIfV1Schema.
+El parámetro ThrowIfV1Schema ya no es válido en el constructor. Cambie el constructor para que no pasa un valor ThrowIfV1Schema.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample5.cs)]
 
-Abra IdentityConfig.cs y cambie el **ApplicationUserManger** clase para usar el nuevo usuario de almacén de clase para conservar los datos y un **int** para la clave.
+Abra IdentityConfig.cs y cambie el **ApplicationUserManger** clase para usar el nuevo usuario de almacén de clase para guardar los datos y un **int** para la clave.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample6.cs?highlight=1,3,12,14,32,37,48)]
 
@@ -93,25 +92,25 @@ En la plantilla de Update 3, debe cambiar la clase ApplicationSignInManager.
 <a id="startup"></a>
 ## <a name="change-start-up-configuration-to-use-the-key-type"></a>Cambiar la configuración de inicio para usar el tipo de clave
 
-En Startup.Auth.cs, reemplace el código de OnValidateIdentity, como se indica a continuación. Tenga en cuenta que la definición de getUserIdCallback, analiza el valor de cadena en un entero.
+En Startup.Auth.cs, reemplace el código OnValidateIdentity, tal como se muestra a continuación. Tenga en cuenta que la definición de getUserIdCallback, analiza el valor de cadena en un entero.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample8.cs?highlight=7-12)]
 
-Si el proyecto no reconoce la implementación genérica de la **GetUserId** método, puede que necesite actualizar el paquete NuGet de identidad de ASP.NET a la versión 2.1
+Si el proyecto no reconoce la implementación genérica de la **GetUserId** método, es posible que deba actualizar el paquete NuGet de la identidad de ASP.NET a la versión 2.1
 
-Muchos de los cambios realizados en las clases de infraestructura usa ASP.NET Identity. Si intenta compilar el proyecto, observará una gran cantidad de errores. Afortunadamente, los errores restantes son similares. La clase de identidad espera un número entero para la clave, pero el controlador (o un formulario Web Forms) está pasando un valor de cadena. En cada caso, debe convertir de una cadena a y el entero mediante una llamada a **GetUserId&lt;int&gt;**. Puede trabajar con la lista de errores de compilación o seguir los cambios a continuación.
+Ha realizado muchos cambios en las clases de infraestructura usa ASP.NET Identity. Si intenta compilar el proyecto, observará una gran cantidad de errores. Afortunadamente, los errores restantes son muy parecidos. La clase de identidad espera un entero para la clave, pero el controlador (o un formulario Web Forms) está pasando un valor de cadena. En cada caso, deberá convertir de un entero y de cadena a mediante una llamada a **GetUserId&lt;int&gt;**. Puede trabajar a través de la lista de errores de compilación o seguir los cambios siguientes.
 
 Los cambios restantes dependen del tipo de proyecto que está creando y actualización que ha instalado en Visual Studio. Puede ir directamente a la sección correspondiente a través de los siguientes vínculos
 
-- [En el caso de MVC con Update 2, cambiar el AccountController para pasar el tipo de clave](#mvcupdate2)
+- [Para MVC con Update 2, cambiar AccountController para pasar el tipo de clave](#mvcupdate2)
 - [Para MVC con Update 3, cambiar el AccountController y ManageController para pasar el tipo de clave](#mvcupdate3)
-- [Para los formularios Web con la actualización 2, cambiar las páginas de la cuenta para pasar el tipo de clave](#webformsupdate2)
-- [Para los formularios Web con Update 3, cambiar las páginas de la cuenta para pasar el tipo de clave](#webformsupdate3)
+- [Para los formularios Web con Update 2, cambie las páginas de la cuenta para pasar el tipo de clave](#webformsupdate2)
+- [Para los formularios Web con Update 3, cambie las páginas de la cuenta para pasar el tipo de clave](#webformsupdate3)
 
 <a id="mvcupdate2"></a>
-## <a name="for-mvc-with-update-2-change-the-accountcontroller-to-pass-the-key-type"></a>En el caso de MVC con Update 2, cambiar el AccountController para pasar el tipo de clave
+## <a name="for-mvc-with-update-2-change-the-accountcontroller-to-pass-the-key-type"></a>Para MVC con Update 2, cambiar AccountController para pasar el tipo de clave
 
-Abra el archivo AccountController.cs. Debe cambiar los métodos siguientes.
+Abra el archivo AccountController.cs. Deberá cambiar los métodos siguientes.
 
 **ConfirmEmail** (método)
 
@@ -142,7 +141,7 @@ Ahora puede [ejecutar la aplicación](#run) y registrar un nuevo usuario.
 <a id="mvcupdate3"></a>
 ## <a name="for-mvc-with-update-3-change-the-accountcontroller-and-managecontroller-to-pass-the-key-type"></a>Para MVC con Update 3, cambiar el AccountController y ManageController para pasar el tipo de clave
 
-Abra el archivo AccountController.cs. Debe cambiar el método siguiente.
+Abra el archivo AccountController.cs. Deberá cambiar el método siguiente.
 
 **ConfirmEmail** (método)
 
@@ -152,7 +151,7 @@ Abra el archivo AccountController.cs. Debe cambiar el método siguiente.
 
 [!code-csharp[Main](change-primary-key-for-users-in-aspnet-identity/samples/sample16.cs?highlight=4)]
 
-Abra el archivo ManageController.cs. Debe cambiar los métodos siguientes.
+Abra el archivo ManageController.cs. Deberá cambiar los métodos siguientes.
 
 **Índice** (método)
 
@@ -209,9 +208,9 @@ Abra el archivo ManageController.cs. Debe cambiar los métodos siguientes.
 Ahora puede [ejecutar la aplicación](#run) y registrar un nuevo usuario.
 
 <a id="webformsupdate2"></a>
-## <a name="for-web-forms-with-update-2-change-account-pages-to-pass-the-key-type"></a>Para los formularios Web con la actualización 2, cambiar las páginas de la cuenta para pasar el tipo de clave
+## <a name="for-web-forms-with-update-2-change-account-pages-to-pass-the-key-type"></a>Para los formularios Web con Update 2, cambie las páginas de la cuenta para pasar el tipo de clave
 
-Para los formularios Web con la actualización 2, debe cambiar las páginas siguientes.
+Para los formularios Web con Update 2, deberá cambiar las páginas siguientes.
 
 **Confirm.aspx.CX**
 
@@ -228,9 +227,9 @@ Para los formularios Web con la actualización 2, debe cambiar las páginas sigu
 Ahora puede [ejecutar la aplicación](#run) y registrar un nuevo usuario.
 
 <a id="webformsupdate3"></a>
-## <a name="for-web-forms-with-update-3-change-account-pages-to-pass-the-key-type"></a>Para los formularios Web con Update 3, cambiar las páginas de la cuenta para pasar el tipo de clave
+## <a name="for-web-forms-with-update-3-change-account-pages-to-pass-the-key-type"></a>Para los formularios Web con Update 3, cambie las páginas de la cuenta para pasar el tipo de clave
 
-Para los formularios Web con Update 3, debe cambiar las páginas siguientes.
+Para los formularios Web con Update 3, deberá cambiar las páginas siguientes.
 
 **Confirm.aspx.CX**
 
@@ -271,12 +270,12 @@ Haya finalizado todos los cambios necesarios en la plantilla de aplicación Web 
 
 ![nueva clave principal](change-primary-key-for-users-in-aspnet-identity/_static/image1.png)
 
-Si previamente ha creado la identidad de ASP.NET tablas con una clave principal distinta, debe realizar algunos cambios adicionales. Si es posible, elimine la base de datos existente. La base de datos volverá a crear con el diseño correcto cuando se ejecuta la aplicación web y agregar un nuevo usuario. Si la eliminación no es posible ejecutar migraciones de code first para cambiar las tablas. Sin embargo, la nueva clave principal de entero no se configurará como una propiedad de identidad de SQL en la base de datos. Debe establecer manualmente la columna de identificador como una identidad.
+Si previamente ha creado la identidad de ASP.NET tablas con una clave principal distinta, deberá realizar algunos cambios adicionales. Si es posible, elimine la base de datos existente. La base de datos se vuelve a crear con el diseño correcto cuando se ejecuta la aplicación web y agregar un nuevo usuario. Si la eliminación no es posible, ejecute migraciones de code first para cambiar las tablas. Sin embargo, la nueva clave principal de entero no se configurará como una propiedad de identidad de SQL en la base de datos. Debe establecer manualmente la columna de identificador como una identidad.
 
 <a id="other"></a>
 ## <a name="other-resources"></a>Otros recursos
 
 - [Información general sobre los proveedores de almacenamiento personalizado para ASP.NET Identity](overview-of-custom-storage-providers-for-aspnet-identity.md)
 - [Migrar un sitio web existente desde la pertenencia de SQL a ASP.NET Identity](../migrations/migrating-an-existing-website-from-sql-membership-to-aspnet-identity.md)
-- [Migrar datos de proveedor Universal para la suscripción y perfiles de usuario para la identidad de ASP.NET](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
+- [Migrar datos de proveedor Universal para la suscripción y los perfiles de usuario a ASP.NET Identity](../migrations/migrating-universal-provider-data-for-membership-and-user-profiles-to-aspnet-identity.md)
 - [Aplicación de ejemplo](https://aspnet.codeplex.com/SourceControl/latest#Samples/Identity/ChangePK/readme.txt) con la clave principal cambiado

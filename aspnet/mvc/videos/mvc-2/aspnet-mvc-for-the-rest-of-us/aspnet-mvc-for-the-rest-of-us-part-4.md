@@ -1,6 +1,6 @@
 ---
 uid: mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4
-title: 'ASP.NET MVC para el resto de nosotros: parte 4 | Documentos de Microsoft'
+title: 'ASP.NET MVC For the Rest of Us: parte 4 | Microsoft Docs'
 author: JoeStagner
 description: En este vídeo Joe Stagner de Microsoft agrega un controlador a una aplicación ASP.NET MVC.
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 07/19/2010
 ms.topic: article
 ms.assetid: 50e7265e-b7fa-44a0-a17c-15048a2e84a8
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-2/aspnet-mvc-for-the-rest-of-us/aspnet-mvc-for-the-rest-of-us-part-4
 msc.type: video
-ms.openlocfilehash: b9498bb546f370279c090a9b3b57ed2543cee234
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 0046631e2424247d39a31cc8451f26895a125399
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871186"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387876"
 ---
-<a name="aspnet-mvc-for-the-rest-of-us-part-4"></a>ASP.NET MVC para el resto de nosotros: parte 4
+<a name="aspnet-mvc-for-the-rest-of-us-part-4"></a>ASP.NET MVC For the Rest of Us: parte 4
 ====================
 por [Joe Stagner](https://github.com/JoeStagner)
 

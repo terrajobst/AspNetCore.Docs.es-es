@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/net-4/routing/aspnet-4-quick-hit-declarative-webforms-routing
-title: Aciertos rápida ASP.NET 4 - declarativas WebForms enrutamiento
+title: Presione rápido ASP.NET 4 - enrutamiento de WebForms declarativo
 author: JoeStagner
 description: En este vídeo aprenderá a WebForms enrutamiento mediante declaración a través de marcado.
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 11/11/2009
 ms.topic: article
 ms.assetid: bfeb728e-3216-4310-8303-6cdb79255c15
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/net-4/routing/aspnet-4-quick-hit-declarative-webforms-routing
 msc.type: video
-ms.openlocfilehash: 27fdd978fc96c842e235888a370d0efa9842265a
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: eacdb1a2a682ab9fce2f60171188311fdb141e70
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30893022"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37397018"
 ---
-<a name="aspnet-4-quick-hit---declarative-webforms-routing"></a>ASP.NET 4 "Rápido Hit" - declarativas WebForms enrutamiento
+<a name="aspnet-4-quick-hit---declarative-webforms-routing"></a>ASP.NET 4 "Rápido Hit": enrutamiento de WebForms declarativo
 ====================
 por [Joe Stagner](https://github.com/JoeStagner)
 

@@ -1,58 +1,57 @@
 ---
 uid: mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
-title: Crear una restricción de ruta personalizada (C#) | Documentos de Microsoft
+title: Creación de una restricción de ruta personalizada (C#) | Microsoft Docs
 author: StephenWalther
-description: Stephen Walther muestra cómo puede crear una restricción de ruta personalizados. Implementamos un sencillo personalizado restricción que impide que una ruta que se va a coincide w...
+description: Stephen Walther demuestra cómo puede crear una restricción de ruta personalizada. Implementamos un simple personalizada restricción que impide que una ruta coincidente w...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/16/2009
 ms.topic: article
 ms.assetid: a4f4bf4e-abcc-4650-8f43-527e48b52fe6
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/creating-a-custom-route-constraint-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4c120a102b117433b6774f2ea7800f1c4a609f8b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a77a25672c94d6b706af0cc36807b11297bc573a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30874348"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400008"
 ---
-<a name="creating-a-custom-route-constraint-c"></a>Crear una restricción de ruta personalizada (C#)
+<a name="creating-a-custom-route-constraint-c"></a>Creación de una restricción de ruta personalizada (C#)
 ====================
 por [Stephen Walther](https://github.com/StephenWalther)
 
-> Stephen Walther muestra cómo puede crear una restricción de ruta personalizados. Implementamos una restricción personalizada simple que impide que una ruta que se va a buscar cuando se realiza una solicitud de explorador desde un equipo remoto.
+> Stephen Walther demuestra cómo puede crear una restricción de ruta personalizada. Implementamos una restricción personalizada simple que impide que una ruta que se va a coincidir cuando se realiza una solicitud de explorador desde un equipo remoto.
 
 
-El objetivo de este tutorial es mostrar cómo puede crear una restricción de ruta personalizados. Una restricción de ruta personalizada le permite impedir que una ruta que se coteja a menos que se compara una condición personalizada.
+El objetivo de este tutorial es mostrar cómo puede crear una restricción de ruta personalizada. Una restricción de ruta personalizada le permite impedir que una ruta que se coteja a menos que se hace coincidir con alguna condición personalizada.
 
-En este tutorial, se creará una restricción de ruta de host local. La restricción de ruta de host local solo coincide con las solicitudes realizadas desde el equipo local. No se cotejan solicitudes remotas de a través de Internet.
+En este tutorial, creamos una restricción de ruta de host local. La restricción de ruta Localhost solo coincide con las solicitudes realizadas desde el equipo local. No se hacen coincidir las solicitudes remotas de a través de Internet.
 
 Implementar una restricción de ruta personalizada implementando la interfaz IRouteConstraint. Se trata de una interfaz muy simple que describe un único método:
 
 [!code-csharp[Main](creating-a-custom-route-constraint-cs/samples/sample1.cs)]
 
-El método devuelve un valor booleano. Si devuelve false, la ruta asociada a la restricción no coincide con la solicitud del explorador.
+El método devuelve un valor booleano. Si devuelve false, la ruta asociada con la restricción no coincidirá con la solicitud del explorador.
 
-La restricción de Localhost está incluida en la lista 1.
+La restricción de Localhost se encuentra en el listado 1.
 
-**Lista 1 - LocalhostConstraint.cs**
+**Listado 1 - LocalhostConstraint.cs**
 
 [!code-csharp[Main](creating-a-custom-route-constraint-cs/samples/sample2.cs)]
 
-La restricción en la lista 1 aprovecha las ventajas de la propiedad IsLocal expuesta por la clase HttpRequest. Esta propiedad devuelve true cuando la dirección IP de la solicitud es 127.0.0.1 o cuando la dirección IP de la solicitud es el mismo que la dirección IP del servidor.
+La restricción en el listado 1 aprovecha las ventajas de la propiedad IsLocal expuesta por la clase HttpRequest. Esta propiedad devuelve true cuando la dirección IP de la solicitud es 127.0.0.1 o cuando la dirección IP de la solicitud es el mismo que la dirección IP del servidor.
 
-Usar una restricción personalizada dentro de una ruta definida en el archivo Global.asax. El archivo Global.asax en el listado 2 utiliza la restricción de Localhost para impedir que alguien solicita una página de administración a menos que realice la solicitud desde el servidor local. Por ejemplo, una solicitud para /Admin/DeleteAll se producirá un error cuando se realiza desde un servidor remoto.
+Usar una restricción personalizada dentro de una ruta definida en el archivo Global.asax. El archivo Global.asax en el listado 2 utiliza la restricción de Localhost para impedir que cualquier persona que solicita una página de administración a menos que la solicitud desde el servidor local. Por ejemplo, una solicitud para /Admin/DeleteAll se producirá un error cuando se realiza desde un servidor remoto.
 
-**Listing 2 - Global.asax**
+**Listado 2 - Global.asax**
 
 [!code-csharp[Main](creating-a-custom-route-constraint-cs/samples/sample3.cs)]
 
-La restricción de host local se utiliza en la definición de la ruta de administración. Esta ruta no se asocian con una solicitud de explorador remoto. Sin embargo, tenga en cuenta que otras rutas definidas en Global.asax podrían coincidir con la misma solicitud. Es importante comprender que una restricción impide que una determinada ruta de una solicitud de búsqueda de coincidencias y no todas las rutas definen en el archivo Global.asax.
+Se utiliza la restricción de Localhost en la definición de la ruta de administrador. Esta ruta no coincide con una solicitud de explorador remoto. Sin embargo, tenga en cuenta que otras rutas definidas en Global.asax podrían coincidir con la misma solicitud. Es importante comprender que una restricción impide que una determinada ruta de coincidencia de una solicitud y no todas las rutas se definen en el archivo Global.asax.
 
-Tenga en cuenta que la ruta predeterminada se convirtió en comentario en el archivo Global.asax en el listado 2. Si incluye la ruta predeterminada, la ruta predeterminada coincidiría con las solicitudes para el controlador de administración. En ese caso, los usuarios remotos todavía pudieron invocar acciones del controlador de administración, aunque sus solicitudes no coinciden con la ruta de administración.
+Tenga en cuenta que la ruta predeterminada se ha comentado en el archivo Global.asax en el listado 2. Si incluye la ruta predeterminada, la ruta predeterminada coincidiría con las solicitudes para el controlador de administración. En ese caso, los usuarios remotos todavía podrían invocar acciones del controlador de administración, aunque sus solicitudes no coinciden con la ruta de administrador.
 
 > [!div class="step-by-step"]
 > [Anterior](creating-a-route-constraint-cs.md)

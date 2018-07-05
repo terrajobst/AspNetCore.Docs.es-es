@@ -1,29 +1,28 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
-title: 'Escaparate ASP.NET MVC, parte 4: Linq a Sql pico | Documentos de Microsoft'
+title: 'Escaparate ASP.NET MVC, parte 4: Linq a Sql pico | Microsoft Docs'
 author: robconery
-description: "Antonio crea un pico de' ': un poco de funcionalidad para probar un pensamiento o ideas: para asegurarse de que Linq To Sql funcionará para el modelo de acceso de datos."
+description: "Rob crea un pico de' ': un poco de funcionalidad para probar un pensamiento o inspiración, para asegurarse de que Linq To Sql funcionará para mi patrón de acceso a datos."
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/27/2008
 ms.topic: article
 ms.assetid: 990262a5-4c06-472a-8083-ed11e14f1e5a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-4-linq-to-sql-spike
 msc.type: video
-ms.openlocfilehash: 3f404156a8b801365a11539ffec578ec38ab624b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 723a10b056b3f031916c06dd72293a17b7ce2797
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30871628"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401171"
 ---
-<a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>ASP.NET MVC escaparate, parte 4: Linq para pico de Sql
+<a name="aspnet-mvc-storefront-part-4-linq-to-sql-spike"></a>Escaparate ASP.NET MVC, parte 4: Linq a Sql pico
 ====================
 por [Rob Conery](https://github.com/robconery)
 
-Antonio crea un "pico" - cierta funcionalidad para probar un pensamiento o ideas: para asegurarse de que Linq To Sql funcionará para el modelo de acceso de datos.
+Rob crea un "pico": un poco de funcionalidad para probar un pensamiento o inspiración, para asegurarse de que Linq To Sql funcionará para mi patrón de acceso a datos.
 
 [&#9654;Vea el vídeo (14 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-4-linq-to-sql-spike)
 

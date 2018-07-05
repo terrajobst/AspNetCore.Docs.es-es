@@ -1,201 +1,200 @@
 ---
 uid: mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
-title: 'Iteración #4: hacer que la aplicación de acoplamiento flexible (VB) | Documentos de Microsoft'
+title: 'Iteración #4: hacer que la aplicación tenga un acoplamiento (VB) | Microsoft Docs'
 author: microsoft
-description: En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que resulten más fáciles de mantener y modificar la aplicación póngase en contacto con el administrador. Para...
+description: En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que sea más fácil de mantener y modificar la aplicación de Contact Manager. Para...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/20/2009
 ms.topic: article
 ms.assetid: 92c70297-4430-4e4e-919a-9c2333a8d09a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-vb
 msc.type: authoredcontent
-ms.openlocfilehash: d953a1b786c802c070619e553e27d88f2ded149c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 37aef9b3bb1221902c1eb84bd4218a30c758b81a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873945"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401242"
 ---
-<a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iteración #4: hacer que la aplicación de acoplamiento flexible (VB)
+<a name="iteration-4--make-the-application-loosely-coupled-vb"></a>Iteración #4: hacer que la aplicación tenga un acoplamiento (VB)
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-[Descargar código](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
+[Descargue el código](iteration-4-make-the-application-loosely-coupled-vb/_static/contactmanager_4_vb1.zip)
 
-> En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que resulten más fáciles de mantener y modificar la aplicación póngase en contacto con el administrador. Por ejemplo, se refactoriza nuestra aplicación para que use el modelo de repositorio y el modelo de inserción de dependencias.
+> En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que sea más fácil de mantener y modificar la aplicación de Contact Manager. Por ejemplo, se refactoriza nuestra aplicación para usar el patrón de repositorio y la inserción de dependencias.
 
 
-## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Creación de una aplicación de MVC de ASP.NET (VB) de administración de contactos
+## <a name="building-a-contact-management-aspnet-mvc-application-vb"></a>Creación de una aplicación de ASP.NET MVC (VB) de administración de contactos
 
-En esta serie de tutoriales, creamos una aplicación de administración de contactos toda desde el principio para finalizar. La aplicación de ponerse en contacto con el administrador permite almacenar información de contacto - nombres, números de teléfono y direcciones de correo electrónico: para obtener una lista de personas.
+En esta serie de tutoriales, creamos una aplicación de administración de contactos completa desde el principio para finalizar. La aplicación de Contact Manager permite almacenar información de contacto - nombres, números de teléfono y direcciones de correo electrónico: para obtener una lista de personas.
 
-Se compile la aplicación en varias iteraciones. Con cada iteración, se mejora gradualmente la aplicación. El objetivo de este enfoque de iteración varias es para que pueda entender el motivo de cada cambio.
+Creamos la aplicación a través de varias iteraciones. Con cada iteración, mejorar gradualmente la aplicación. Es el objetivo de este enfoque de varias iteraciones para que pueda entender el motivo de cada cambio.
 
-- Iteración #1: crear la aplicación. En la primera iteración, se creará el póngase en contacto con el Administrador de la manera más sencilla posible. Se agrega compatibilidad para las operaciones de base de datos básicos: crear, lectura, actualización y eliminación (CRUD).
+- Iteración #1: crear la aplicación. En la primera iteración, se creará el Administrador de contactos de la manera más sencilla posible. Se agrega compatibilidad con las operaciones de base de datos básicos: creación, lectura, actualización y eliminación (CRUD).
 
-- Iteración #2: hacer que la aplicación sea bonito. En esta iteración, mejorar la apariencia de la aplicación mediante la modificación de la página principal de vista de MVC de ASP.NET predeterminada y en cascada hoja de estilos.
+- Iteración #2: hacer que la aplicación parezca interesante. En esta iteración, mejorar la apariencia de la aplicación mediante la modificación de la página principal de la vista de MVC de ASP.NET predeterminada y en cascada de hoja de estilos.
 
-- Iteración #3: agregar validación del formulario. En la tercera iteración, agregamos la validación del formulario básico. Es evitar que los usuarios enviar un formulario sin completar los campos obligatorios. También hemos validar direcciones de correo electrónico y números de teléfono.
+- Iteración #3: agregar validación de formulario. En la tercera iteración, se agrega una validación de formulario básico. Evitamos personas desde el envío de un formulario sin completar los campos obligatorios. También hemos validar direcciones de correo electrónico y números de teléfono.
 
-- Iteración #4: hacer que la aplicación de acoplamiento flexible. En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que resulten más fáciles de mantener y modificar la aplicación póngase en contacto con el administrador. Por ejemplo, se refactoriza nuestra aplicación para que use el modelo de repositorio y el modelo de inserción de dependencias.
+- Iteración #4: hacer que la aplicación tenga un acoplamiento. En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que sea más fácil de mantener y modificar la aplicación de Contact Manager. Por ejemplo, se refactoriza nuestra aplicación para usar el patrón de repositorio y la inserción de dependencias.
 
-- Iteración #5: crear pruebas unitarias. En la iteración quinto, hacemos nuestra aplicación más fácil de mantener y modificar mediante la adición de pruebas unitarias. Hemos simular nuestro clases del modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
+- Iteración #5: crear pruebas unitarias. En la iteración quinta, realizamos nuestra aplicación más fácil de mantener y modificar mediante la adición de las pruebas unitarias. Hemos simular nuestras clases de modelo de datos y generar pruebas unitarias para nuestros controladores y la lógica de validación.
 
-- Iteración 6 #: Use desarrollo controlado por pruebas. En esta iteración sexto, se agregan nuevas funciones a nuestra aplicación escribiendo pruebas unitarias en primer lugar y escribir código frente a las pruebas unitarias. En esta iteración, agregamos grupos de contactos.
+- Iteración #6: usar el desarrollo controlado por pruebas. En esta iteración sexta, se agregan nuevas funciones a nuestra aplicación escribir pruebas unitarias en primer lugar y escribir código en las pruebas unitarias. En esta iteración, se agrega grupos de contactos.
 
-- Iteración #7 - agregar funcionalidad de Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad para Ajax.
+- Iteración #7: agregar funcionalidad Ajax. En la iteración séptima, mejorar la capacidad de respuesta y el rendimiento de nuestra aplicación agregando compatibilidad con Ajax.
 
 ## <a name="this-iteration"></a>Esta iteración
 
-En este cuarta iteración de la aplicación Administrador de contacto, se tiene que refactorizar la aplicación para que la aplicación de acoplamiento más flexible. Cuando una aplicación es de acoplamiento flexible, puede modificar el código en una parte de la aplicación sin necesidad de modificar el código en otras partes de la aplicación. Aplicaciones de acoplamiento flexible son más resistentes a cambiar.
+En este cuarta iteración de la aplicación de Contact Manager, se refactoriza la aplicación para que la aplicación tenga un acoplamiento flexible. Cuando una aplicación tiene un acoplamiento flexible, puede modificar el código en una parte de la aplicación sin necesidad de modificar el código en otras partes de la aplicación. Aplicaciones de acoplamiento flexible son más resistentes a cambiar.
 
-Actualmente, toda la lógica de acceso y la validación de datos utilizada por la aplicación de administrador de contacto se encuentra en las clases de controlador. Se trata de una mala idea. Siempre que tenga que modificar una parte de la aplicación, corre el riesgo de introducir errores en otra parte de la aplicación. Por ejemplo, si modifica su lógica de validación, se arriesga a la introducción de errores en la lógica de acceso o el controlador de datos.
-
-> [!NOTE] 
-> 
-> (SRP), una clase nunca debe tener más de un motivo para cambiarlo. Combinación de controlador, validación y lógica de la base de datos constituye una infracción masiva del principio de responsabilidad única.
-
-
-Hay varias razones por las que tendrá que modificar la aplicación. Tendrá que agregar una nueva característica a la aplicación, tendrá que corregir un error en la aplicación o tendrá que modificar cómo se implementa una característica de la aplicación. Las aplicaciones son rara vez estáticas. Tienden a crecer y se modifique con el tiempo.
-
-Por ejemplo, imagine que decide cambiar la forma de implementar la capa de acceso a datos. Derecha ahora, la aplicación póngase en contacto con el administrador utiliza Microsoft Entity Framework para tener acceso a la base de datos. Sin embargo, puede migrar a una tecnología de acceso a datos nuevos o alternativo como ADO.NET Data Services o NHibernate. Sin embargo, ya que el código de acceso de datos no está aislado desde el código de validación y el controlador, no hay ninguna manera de modificar el código de acceso a datos en la aplicación sin modificar otro código que no está directamente relacionado con el acceso a datos.
-
-Por otro lado, cuando una aplicación es de acoplamiento flexible, puede realizar cambios en una parte de una aplicación sin tocar otras partes de una aplicación. Por ejemplo, puede cambiar las tecnologías de acceso de datos sin modificar la lógica de validación o controlador.
-
-En esta iteración, aprovechamos de varios patrones de diseño de software que nos permitan refactorizar nuestra aplicación póngase en contacto con el administrador en una aplicación de acoplamiento más flexible. Que finalicemos, el Administrador de contacto won t no nada que lo Professionals t hacer antes. Sin embargo, se podrá cambiar la aplicación más fácilmente en el futuro.
+Actualmente, toda la lógica de acceso y la validación de datos utilizada por la aplicación de Contact Manager se encuentra en las clases del controlador. Se trata de una mala idea. Siempre que necesite modificar una parte de la aplicación, corre el riesgo de introducir errores en otra parte de la aplicación. Por ejemplo, si modifica su lógica de validación, se arriesga a introducir nuevos errores en la lógica de acceso o un controlador de datos.
 
 > [!NOTE] 
 > 
-> La refactorización es el proceso de volver a escribir una aplicación de forma que no pierde ninguna funcionalidad existente.
+> (SRP), una clase nunca debe tener más de una razón para cambiar. Mezcla de controlador, validación y lógica de la base de datos es una infracción del principio de responsabilidad única masiva.
 
 
-## <a name="using-the-repository-software-design-pattern"></a>Mediante el patrón de diseño de Software de repositorio
+Hay varias razones que es posible que deba modificar la aplicación. Es posible que deba agregar una nueva característica a la aplicación, es posible que deba corregir un error en la aplicación, o es posible que deba modificar cómo se implementa una característica de la aplicación. Las aplicaciones son estáticas con poca frecuencia. Tienden a crecer y se modifique con el tiempo.
 
-Nuestro primer cambio consiste en aprovechar las ventajas de un modelo de diseño de software denominado el modelo de repositorio. Vamos a usar el modelo de repositorio para aislar el código de acceso de datos del resto de nuestra aplicación.
+Por ejemplo, imagine que decide cambiar cómo implementar la capa de acceso a datos. Derecha ahora, la aplicación de Contact Manager utiliza Microsoft Entity Framework para tener acceso a la base de datos. Sin embargo, podría decidir migrar a una tecnología de acceso de datos nuevas o alternativas como ADO.NET Data Services o NHibernate. Sin embargo, dado que el código de acceso a datos no está aislado de la validación y el controlador de código, no hay ninguna manera para modificar el código de acceso a datos en la aplicación sin modificar otro código que no está directamente relacionado con el acceso a datos.
 
-Implementar el modelo de repositorio, es necesario poder completar los dos pasos siguientes:
+Por otro lado, cuando una aplicación tiene un acoplamiento flexible, puede realizar cambios en una parte de una aplicación sin tocar otras partes de una aplicación. Por ejemplo, puede cambiar las tecnologías de acceso de datos sin modificar la lógica de validación o controlador.
+
+En esta iteración, aprovechamos de varios patrones de diseño de software que nos permiten refactorizar nuestra aplicación de Contact Manager en una aplicación de acoplamiento más flexible. Si hemos terminado, el Administrador de contactos ha ganado t hacer todo lo que lo t hacer antes. Sin embargo, podremos cambiar la aplicación más fácilmente en el futuro.
+
+> [!NOTE] 
+> 
+> La refactorización es el proceso de volver a escribir una aplicación de manera que no pierda ninguna funcionalidad existente.
+
+
+## <a name="using-the-repository-software-design-pattern"></a>Con el patrón de diseño de Software de repositorio
+
+Nuestro primer cambio consiste en aprovechar las ventajas de un patrón de diseño de software denominado el modelo de repositorio. Vamos a usar el modelo de repositorio para aislar el código de acceso a datos del resto de nuestra aplicación.
+
+Implementar el patrón de repositorio requiere que complete los dos pasos siguientes:
 
 1. Crear una interfaz
 2. Crear una clase concreta que implementa la interfaz
 
-En primer lugar, necesitamos crear una interfaz que describe todos los métodos de acceso de datos que se deben realizar. La interfaz de IContactManagerRepository está contenida en la lista 1. Esta interfaz describe cinco métodos: CreateContact(), DeleteContact(), EditContact(), GetContact y ListContacts().
+En primer lugar, necesitamos crear una interfaz que describe todos los métodos de acceso de datos que se deben realizar. La interfaz IContactManagerRepository está contenida en el listado 1. Esta interfaz describe cinco métodos: CreateContact(), DeleteContact(), EditContact(), GetContact y ListContacts().
 
-**Lista 1 - Models\IContactManagerRepository.vb**
+**Listado 1 - Models\IContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample1.vb)]
 
-A continuación, necesitamos crear una clase concreta que implementa la interfaz IContactManagerRepository. Como estamos usando Microsoft Entity Framework para tener acceso a la base de datos, vamos a crear una nueva clase denominada EntityContactManagerRepository. Esta clase está contenida en el listado 2.
+A continuación, se debe crear una clase concreta que implementa la interfaz IContactManagerRepository. Como estamos usando Microsoft Entity Framework para tener acceso a la base de datos, vamos a crear una nueva clase denominada EntityContactManagerRepository. Esta clase se encuentra en el listado 2.
 
-**La lista 2 - Models\EntityContactManagerRepository.vb**
+**Listado 2 - Models\EntityContactManagerRepository.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample2.vb)]
 
-Tenga en cuenta que la clase EntityContactManagerRepository implementa la interfaz IContactManagerRepository. La clase implementa los cinco de los métodos descritos por esa interfaz.
+Tenga en cuenta que la clase EntityContactManagerRepository implementa la interfaz IContactManagerRepository. La clase implementa cinco de los métodos descritos por esa interfaz.
 
-Tal vez se pregunte por qué se tendrá que preocuparse por una interfaz. ¿Por qué se necesita crear una interfaz y una clase que lo implementa?
+Tal vez se pregunte por qué necesitamos lidiar con una interfaz. ¿Por qué se necesita crear una interfaz y una clase que lo implementa?
 
 Con una excepción, el resto de nuestra aplicación interactuará con la interfaz y no la clase concreta. En lugar de llamar a los métodos expuestos por la clase EntityContactManagerRepository, llamaremos a los métodos expuestos por la interfaz IContactManagerRepository.
 
-De este modo, podemos implementar la interfaz con una nueva clase sin necesidad de modificar el resto de la aplicación. Por ejemplo, en una fecha futura, tengamos que queremos implementar una clase DataServicesContactManagerRepository que implementa la interfaz IContactManagerRepository. La clase DataServicesContactManagerRepository podría utilizar ADO.NET Data Services para tener acceso a una base de datos en lugar de Microsoft Entity Framework.
+De este modo, podemos implementar la interfaz con una nueva clase sin necesidad de modificar el resto de nuestra aplicación. Por ejemplo, en una fecha futura, podría desear implementar una clase DataServicesContactManagerRepository que implementa la interfaz IContactManagerRepository. La clase DataServicesContactManagerRepository podría utilizar ADO.NET Data Services para tener acceso a una base de datos en lugar de Microsoft Entity Framework.
 
-Si el código de aplicación programado en la interfaz de IContactManagerRepository en lugar de la clase EntityContactManagerRepository concretos, a continuación, podemos cambiar las clases concretas sin modificar el resto de nuestro código. Por ejemplo, podemos cambiar de la clase EntityContactManagerRepository a la clase DataServicesContactManagerRepository sin modificar la lógica de acceso o la validación de datos.
+Si el código de aplicación programado en la interfaz IContactManagerRepository en lugar de la clase EntityContactManagerRepository, a continuación, podemos cambiar las clases concretas sin modificar el resto de nuestro código. Por ejemplo, podemos cambiar de la clase EntityContactManagerRepository a la clase DataServicesContactManagerRepository sin modificar la lógica de acceso o la validación de datos.
 
-Programación con interfaces (abstracciones) en lugar de las clases concretas hace que nuestra aplicación sea más resistente a cambiar.
+La programación de interfaces (abstracciones) en lugar de clases concretas hace que sea más resistente a cambiar nuestra aplicación.
 
 > [!NOTE] 
 > 
-> Puede crear rápidamente una interfaz de una clase concreta en Visual Studio seleccionando la opción de menú refactorizar Extraer interfaz. Por ejemplo, puede crear la clase EntityContactManagerRepository en primer lugar y, a continuación, usar Extraer interfaz para generar la interfaz de IContactManagerRepository automáticamente.
+> Puede crear rápidamente una interfaz de una clase concreta dentro de Visual Studio seleccionando la opción de menú refactorizar Extraer interfaz. Por ejemplo, puede crear la clase EntityContactManagerRepository primero y, a continuación, utilizar Extraer interfaz para generar la interfaz IContactManagerRepository automáticamente.
 
 
-## <a name="using-the-dependency-injection-software-design-pattern"></a>Utilizando el modelo de diseño de Software de inyección de dependencia
+## <a name="using-the-dependency-injection-software-design-pattern"></a>Usar el patrón de diseño de Software de inyección de dependencia
 
-Ahora que hemos migramos nuestro código de acceso a datos a una clase distinta del repositorio, es necesario modificar nuestro controlador de contacto para utilizar esta clase. Se aprovechará denominado inyección de dependencia para utilizar la clase de repositorio en el controlador de un modelo de diseño de software.
+Ahora que hemos hemos migrado nuestro código de acceso a datos a una clase de repositorio independiente, necesitamos modificar nuestro controlador de contacto para utilizar esta clase. Se aprovechará un patrón de diseño de software denominado inyección de dependencia para usar la clase de repositorio en nuestro controlador.
 
-El controlador de contacto modificado se encuentra en el listado 3.
+El controlador modificado de contacto se encuentra en el listado 3.
 
-**El listado 3 - Controllers\ContactController.vb**
+**Listado 3 - Controllers\ContactController.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample3.vb)]
 
-Tenga en cuenta que el controlador de contacto en la lista 3 tiene dos constructores. El primer constructor pasa una instancia concreta de la interfaz IContactManagerRepository para el segundo constructor. La clase de controlador de contacto utiliza *inyección de dependencia de Constructor*.
+Tenga en cuenta que el controlador de contacto en el listado 3 tiene dos constructores. El primer constructor pasa una instancia concreta de la interfaz IContactManagerRepository para el segundo constructor. La clase de controlador contacto utiliza *inserción de dependencias de Constructor*.
 
-Uno y solo el contexto que se usa la clase EntityContactManagerRepository está en el primer constructor. El resto de la clase utiliza la interfaz de IContactManagerRepository en lugar de la clase EntityContactManagerRepository concretos.
+El uno y solo el contexto que se usa la clase EntityContactManagerRepository está en el primer constructor. El resto de la clase usa la interfaz de IContactManagerRepository en lugar de la clase EntityContactManagerRepository concreta.
 
-Esto facilita el modificador de implementaciones de la clase IContactManagerRepository en el futuro. Si desea usar la clase DataServicesContactRepository en lugar de la clase EntityContactManagerRepository, simplemente modifique el primer constructor.
+Esto facilita el modificador de implementaciones de la clase IContactManagerRepository en el futuro. Si desea usar la clase DataServicesContactRepository en lugar de la clase EntityContactManagerRepository, sólo tiene que modificar el primer constructor.
 
-Inserción de dependencias de constructor también hace que la clase de controlador de contacto muy comprobables. En las pruebas unitarias, puede crear instancias del controlador de contacto pasando una implementación de la clase IContactManagerRepository ficticia. Esta característica de inserción de dependencias será muy importante para nosotros en la siguiente iteración cuando se generan pruebas unitarias para la aplicación póngase en contacto con el administrador.
+Inserción de dependencias de constructor también hace que la clase de controlador Contact muy fácil de probar. En las pruebas unitarias, puede crear instancias del controlador de contacto pasando una implementación ficticia de la clase IContactManagerRepository. Esta característica de inserción de dependencias será muy importante para nosotros en la siguiente iteración cuando se compilación pruebas unitarias para la aplicación de Contact Manager.
 
 > [!NOTE] 
 > 
-> Si desea completamente desacoplar la clase de controlador de contacto de una implementación concreta de la interfaz IContactManagerRepository, a continuación, se pueden aprovechar las ventajas de una plataforma que admite la inserción de dependencias, como StructureMap o Microsoft Entity Framework (MEF). Aprovechando las ventajas de un marco de trabajo de inserción de dependencias, nunca debe hacer referencia a una clase concreta en el código.
+> Si desea desacoplar por completo la clase de controlador de contacto de una implementación concreta de la interfaz IContactManagerRepository, a continuación, se pueden aprovechar las ventajas de un marco que admite la inserción de dependencias, como StructureMap o Microsoft Entity Framework (MEF). Aprovechando las ventajas de un marco de inserción de dependencias, nunca debe hacer referencia a una clase concreta en el código.
 
 
 ## <a name="creating-a-service-layer"></a>Creación de una capa de servicio
 
-Es posible que haya observado que nuestra lógica de validación se mezcla todavía con nuestra lógica de controlador en la clase del controlador modificado en el listado 3. Por la misma razón que resulta una buena idea aislar la lógica de acceso a datos, es una buena idea aislar la lógica de validación.
+Es posible que haya observado que nuestra lógica de validación todavía se combina con la lógica del controlador en la clase del controlador modificado en el listado 3. Para la misma razón que resulta una buena idea aislar nuestra lógica de acceso a datos, es una buena idea aislar nuestra lógica de validación.
 
-Para solucionar este problema, podemos crear otro [capa de servicio](http://martinfowler.com/eaaCatalog/serviceLayer.html). El nivel de servicio es una capa independiente que podemos insertamos entre nuestro controlador y las clases de repositorio. El nivel de servicio contiene la lógica de negocios, además de toda nuestra lógica de validación.
+Para corregir este problema, podemos crear otra [capa de servicio](http://martinfowler.com/eaaCatalog/serviceLayer.html). La capa de servicio es una capa independiente que podemos insertar entre nuestro controlador y las clases de repositorio. La capa de servicio contiene la lógica de negocios incluida toda nuestra lógica de validación.
 
-El ContactManagerService se incluye en el listado 4. Contiene la lógica de validación de la clase de controlador de contacto.
+El ContactManagerService está contenida en el listado 4. Contiene la lógica de validación de la clase de controlador de contacto.
 
 **Listado 4 - Models\ContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample4.vb)]
 
-Tenga en cuenta que el constructor para el ContactManagerService requiere un ValidationDictionary. El nivel de servicio se comunica con el nivel de controlador a través de este ValidationDictionary. Se explica lo ValidationDictionary en detalle en la sección siguiente cuando se describe el patrón de decorador.
+Tenga en cuenta que el constructor para la ContactManagerService requiere un ValidationDictionary. La capa de servicio se comunica con el nivel de controlador a través de este ValidationDictionary. Analizamos la ValidationDictionary en detalle en la sección siguiente al hablar con el patrón Decorator.
 
-Además, tenga en cuenta que el ContactManagerService implementa la interfaz IContactManagerService. Siempre debe procurar Programar interfaces en lugar de las clases concretas. Otras clases de la aplicación Administrador de contacto no interactúan directamente con la clase ContactManagerService. En su lugar, con una excepción, el resto de la aplicación póngase en contacto con el administrador se programa con la interfaz IContactManagerService.
+Además, tenga en cuenta que el ContactManagerService implementa la interfaz IContactManagerService. Debe esforzarse siempre para programar en interfaces en lugar de clases concretas. Otras clases en la aplicación de Contact Manager no interactúan directamente con la clase ContactManagerService. En su lugar, con una excepción, el resto de la aplicación de Contact Manager programado en la interfaz IContactManagerService.
 
-La interfaz de IContactManagerService está contenida en el listado 5.
+La interfaz IContactManagerService está contenida en el listado 5.
 
 **Listado 5 - Models\IContactManagerService.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample5.vb)]
 
-La clase de controlador modificada de contacto se encuentra en el listado 6. Tenga en cuenta que el controlador de contacto ya no interactúa con el repositorio ContactManager. En su lugar, el controlador de contacto interactúa con el servicio ContactManager. Cada capa está aislada tanto como sea posible de otras capas.
+La clase de controlador modificada de contacto se encuentra en el listado 6. Tenga en cuenta que el controlador de contacto ya no interactúa con el repositorio ContactManager. En su lugar, el controlador de contactos interactúa con el servicio de ContactManager. Cada capa se aísla tanto como sea posible desde otras capas.
 
 **Listado 6 - Controllers\ContactController.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample6.vb)]
 
-Nuestra aplicación ya no se ejecuta mantiene del principio de responsabilidad única (SRP). El controlador de contacto en el listado 6 se ha eliminado de cada responsabilidad distintos de controlar el flujo de ejecución de la aplicación. Toda la lógica de validación tiene ha quitado del controlador de contacto e inserta en el nivel de servicio. Toda la lógica de la base de datos se ha insertado en la capa de repositorio.
+Nuestra aplicación ya no se ejecuta mantiene del principio de responsabilidad única (SRP). Se ha quitado el controlador de contacto en el listado 6 de cada responsabilidad distintos de control del flujo de ejecución de la aplicación. Toda la lógica de validación ha tiene quitó el controlador de contacto e insertan en la capa de servicio. Toda la lógica de la base de datos se ha insertado en la capa de repositorio.
 
 ## <a name="using-the-decorator-pattern"></a>Uso del patrón Decorator
 
-Queremos poder completamente desacoplar nuestro nivel de servicio de la capa de controlador. En principio, deberíamos estar puede compilar nuestro nivel de servicio en un ensamblado independiente de la capa de controlador sin necesidad de agregar una referencia a nuestra aplicación de MVC.
+Queremos poder separar completamente nuestro nivel de servicio desde nuestro nivel de controlador. En principio, podremos nuestro nivel de servicio en un ensamblado independiente de la capa de nuestro controlador de compilación sin necesidad de agregar una referencia a nuestra aplicación de MVC.
 
-Sin embargo, el nivel de servicio debe poder pasar mensajes de error de validación a la capa de controlador. ¿Cómo podemos habilitar el nivel de servicio transmitir mensajes de error de validación sin acoplar el controlador y el nivel de servicio? Podemos aprovechar las ventajas de un modelo de diseño de software denominado el [patrón Decorator](http://en.wikipedia.org/wiki/Decorator_pattern).
+Sin embargo, la capa de servicio debe poder pasar los mensajes de error de validación a la capa de controlador. ¿Cómo podemos habilitar el nivel de servicio transmitir los mensajes de error de validación sin acoplamiento el controlador y la capa de servicio? Podemos aprovechar las ventajas de un patrón de diseño de software denominado el [patrón Decorator](http://en.wikipedia.org/wiki/Decorator_pattern).
 
-Un controlador utiliza una ModelStateDictionary denominado ModelState para representar errores de validación. Por lo tanto, podría verse tentado a pasar ModelState de la capa de controlador a la capa de servicio. Sin embargo, utilizar ModelState en el nivel de servicio haría que el nivel de servicio dependiente de una característica del marco de ASP.NET MVC. Esto sería incorrecta porque algún día, puede utilizar el nivel de servicio con una aplicación de WPF en lugar de una aplicación ASP.NET MVC. En ese caso, no sería t desea hacer referencia el marco de MVC de ASP.NET para usar la clase ModelStateDictionary.
+Un controlador utiliza un ModelStateDictionary denominado ModelState para representar errores de validación. Por lo tanto, podría verse tentado a pasar ModelState desde el nivel de controlador a la capa de servicio. Sin embargo, usar ModelState en el nivel de servicio haría que la capa de servicio depende de una característica de ASP.NET MVC framework. Esto sería incorrecta porque, en algún momento, es posible que desea usar la capa de servicio con una aplicación de WPF en lugar de una aplicación ASP.NET MVC. En ese caso, no sería t desea hacer referencia el marco de ASP.NET MVC para usar la clase ModelStateDictionary.
 
-El patrón de decorador permite ajustar una clase existente en una nueva clase con el fin de implementar una interfaz. Nuestro proyecto póngase en contacto con el administrador incluye la clase ModelStateWrapper contenida en la lista 7. La clase ModelStateWrapper implementa la interfaz del listado 8.
+El patrón Decorator permite ajustar una clase existente en una nueva clase con el fin de implementar una interfaz. Nuestro proyecto Contact Manager incluye la clase ModelStateWrapper contenida en la lista 7. La clase ModelStateWrapper implementa la interfaz del listado 8.
 
-**Listing 7 - Models\Validation\ModelStateWrapper.vb**
+**Listado 7 - Models\Validation\ModelStateWrapper.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample7.vb)]
 
-**Enumerar 8 - Models\Validation\IValidationDictionary.vb**
+**Listado 8 - Models\Validation\IValidationDictionary.vb**
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample8.vb)]
 
-Si echa un vistazo más detenidamente listado 5, a continuación, verá que el nivel de servicio ContactManager usa la interfaz IValidationDictionary exclusivamente. El servicio ContactManager no es dependiente de la clase ModelStateDictionary. Cuando el controlador de contacto crea el servicio ContactManager, el controlador ajusta su ModelState similar al siguiente:
+Si echa un vistazo más detenidamente listado 5, a continuación, verá que la capa de servicio ContactManager usa la interfaz IValidationDictionary exclusivamente. El servicio ContactManager no es dependiente de la clase ModelStateDictionary. Cuando el controlador de contacto, crea el servicio ContactManager, el controlador ajusta su ModelState similar al siguiente:
 
 [!code-vb[Main](iteration-4-make-the-application-loosely-coupled-vb/samples/sample9.vb)]
 
 ## <a name="summary"></a>Resumen
 
-En esta iteración, no se ha agregado ninguna funcionalidad nueva a la aplicación póngase en contacto con el administrador. El objetivo de esta iteración fue refactorizar la aplicación de Contact Manager por lo que es más fácil de mantener y modificar.
+En esta iteración, no se agregó ninguna funcionalidad nueva a la aplicación de Contact Manager. El objetivo de esta iteración era refactorizar la aplicación de Contact Manager por lo que es más fácil de mantener y modificar.
 
-En primer lugar, se implementa el modelo de diseño de software de repositorio. Todo el código de acceso de datos se migran a una clase de repositorio ContactManager distinta.
+En primer lugar, se implementa el patrón de diseño de software de repositorio. Hemos migrado todo el código de acceso de datos a una clase de repositorio ContactManager independiente.
 
-También se aisladas nuestra lógica de validación de la lógica del controlador. Se crea una capa de servicio independiente que contenga todo el código de validación. El nivel de controlador interactúa con el nivel de servicio y el nivel de servicio interactúa con la capa de repositorio.
+También nos habían aislada nuestra lógica de validación de la lógica del controlador. Creamos una capa de servicio independiente que contenga todo nuestro código de validación. El nivel de controlador interactúa con el nivel de servicio y la capa de servicio interactúa con la capa de repositorio.
 
-Cuando se crea el nivel de servicio, aprovechamos el patrón de decorador para aislar ModelState de nuestro nivel de servicio. En nuestro nivel de servicio, se programan con la interfaz de IValidationDictionary en lugar de ModelState.
+Cuando se crea la capa de servicio, aprovechamos el patrón Decorator para aislar ModelState desde nuestro nivel de servicio. En nuestro nivel de servicio, se programan con la interfaz IValidationDictionary en lugar de ModelState.
 
-Por último, aprovechamos de un modelo de diseño de software denominado el modelo de inserción de dependencias. Este patrón permite programar en interfaces (abstracciones) en lugar de las clases concretas. Implementar el patrón de diseño de inyección de dependencia también hace que el código más comprobables. En la siguiente iteración, se agregan pruebas unitarias a nuestro proyecto.
+Por último, aprovechamos un patrón de diseño de software denominado el patrón de inserción de dependencias. Este patrón nos permite programar en interfaces (abstracciones) en lugar de clases concretas. Implementar el patrón de diseño de la inserción de dependencias también hace que nuestro código más estable. En la siguiente iteración, agregamos las pruebas unitarias para nuestro proyecto.
 
 > [!div class="step-by-step"]
 > [Anterior](iteration-3-add-form-validation-vb.md)

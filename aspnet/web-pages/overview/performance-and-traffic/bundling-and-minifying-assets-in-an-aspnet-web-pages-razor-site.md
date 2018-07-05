@@ -1,29 +1,28 @@
 ---
 uid: web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
-title: Agrupar y Minificar activos en un ASP.NET Web Pages (Razor) sitio | Documentos de Microsoft
+title: Agrupar y Minificar recursos en ASP.NET Web Pages (Razor) sitio | Microsoft Docs
 author: microsoft
-description: Unión y minificación son formas para agilizar su sitio. Cómo agrupar permite combinar varios archivos de JavaScript (.js) o varios hoja en cascada de estilos (...)
+description: Unión y minificación son formas para agilizar su sitio. La Unión permite combinar varios archivos de JavaScript (.js) o múltiples hoja de estilo (...)
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 06/21/2012
 ms.topic: article
 ms.assetid: 8906f1e9-4b66-4a03-8e8a-9e9debf8ed91
 ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/performance-and-traffic/bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site
 msc.type: authoredcontent
-ms.openlocfilehash: df00b5c9e741e429011143d04121df97c1930602
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: dd1b184846a7ac9c08df0212a69b154279791d1a
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26528554"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37393810"
 ---
-<a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>Agrupar y Minificar activos en un sitio ASP.NET Web Pages (Razor)
+<a name="bundling-and-minifying-assets-in-an-aspnet-web-pages-razor-site"></a>Agrupar y Minificar recursos en un sitio ASP.NET Web Pages (Razor)
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-> Unión y minificación son formas para agilizar su sitio. Cómo agrupar le permite combinar varios JavaScript (*.js*) archivos o varias hojas de estilos en cascada (*.css*) archivos para que se puede descargar como una unidad, en lugar de uno en uno. Reducción encoge espera un espacio en blanco y realiza otros tipos de compresión que se va a realizar una posible de los archivos descargados como pequeño.
+> Unión y minificación son formas para agilizar su sitio. La unión le permite combinar varios JavaScript (*.js*) archivos o varias hojas de estilo en cascada (*.css*) archivos para que se pueden descargar como una unidad, en lugar de uno en uno. Minificación encoge out espacios en blanco y realiza otros tipos de compresión para que los archivos descargados como pequeñas un posible.
 > 
 > > [!NOTE]
-> > La versión RC de ASP.NET Web Pages 2 no admite la agrupación y minificación porque el paquete que contiene los elementos necesarios que aún no está disponible en Microsoft WebMatrix. Lamentamos las molestias. El paquete se espera que esté disponible en la versión final de ASP.NET Web Pages 2 y WebMatrix 2.
+> > La versión RC de ASP.NET Web Pages 2 no admite la unión y minificación porque aún no está disponible en Microsoft WebMatrix del paquete que contiene los elementos necesarios. Disculpe las molestias. El paquete se espera que esté disponible en la versión final de ASP.NET Web Pages 2 y WebMatrix 2.

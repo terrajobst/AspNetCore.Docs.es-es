@@ -1,29 +1,28 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design
-title: 'ASP.NET MVC escaparate parte 23: Introducción con diseño basado en dominio | Documentos de Microsoft'
+title: 'Escaparate de ASP.NET MVC parte 23: Introducción a Domain-Driven Design | Microsoft Docs'
 author: robconery
-description: No me gusta la complejidad que ha aparecido en mi aplicación. No está seguro de qué otra forma a colocarla - pero la arquitectura tiene que ser agita un bit por lo tanto, en este episodio...
+description: No me gusta la complejidad que ha aparecido en mi aplicación. No está seguro de qué otra forma al colocarla - pero la arquitectura tiene que agitar el contenido es un poco así en este episodio...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/28/2009
 ms.topic: article
 ms.assetid: 690538bb-6f23-4b1a-94b7-188454bb734a
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design
 msc.type: video
-ms.openlocfilehash: a0c07dcd9a0308544db5e57e5bb2eebc0af5a2cd
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 3b90a8d44144c2afd25500cefa08602e3ce49236
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30872382"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37372306"
 ---
-<a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a>ASP.NET MVC escaparate parte 23: Introducción con diseño basado en dominio
+<a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a>Escaparate de ASP.NET MVC parte 23: Introducción a Domain-Driven Design
 ====================
 por [Rob Conery](https://github.com/robconery)
 
-No me gusta la complejidad que ha aparecido en mi aplicación. No está seguro de qué otra forma a colocarla - pero la arquitectura tiene que ser agita un bit por lo que en este episodio abordar esta complejidad con determinación sobre el uso de diseño Domain-Driven (DDD).
+No me gusta la complejidad que ha aparecido en mi aplicación. No está seguro de qué otra forma al colocarla - pero la arquitectura debe ser agita algo por lo que en este episodio abordar esta complejidad con determinación sobre el uso de diseño guiado por el dominio (DDD).
 
 [&#9654;Vea el vídeo (46 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design)
 

@@ -1,28 +1,27 @@
 ---
 uid: web-forms/videos/how-do-i/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field
-title: '[¿Cómo I:] Compartir datos entre el cliente JavaScript y código del servidor mediante un campo oculto | Documentos de Microsoft'
+title: '[¿Cómo lo hago?:] Compartir datos entre el cliente JavaScript y código de servidor mediante un campo oculto | Microsoft Docs'
 author: rick-anderson
-description: En este vídeo Chris Pels mostrará cómo compartir datos entre JavaScript y el código del lado servidor mediante el uso de un campo oculto en una página ASP.NET. A continuación, obtenga información acerca de cómo t...
+description: En este vídeo Chris Pels mostrará cómo compartir datos entre JavaScript y código del lado servidor mediante el uso de un campo oculto en una página ASP.NET. A continuación, aprenda cómo t...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 03/13/2008
 ms.topic: article
 ms.assetid: bf0a7434-a017-4506-a240-2bd27e360a2f
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field
 msc.type: video
-ms.openlocfilehash: 1fd40d6914a6cf04cd3b63f2e484f7bd5235b3cc
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
+ms.openlocfilehash: 255774886772af585b859dcbe8268ec3c07d5f67
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26521584"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384912"
 ---
-<a name="how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field"></a>[¿Cómo I:] Compartir datos entre el cliente JavaScript y código del servidor mediante un campo oculto
+<a name="how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field"></a>[¿Cómo lo hago?:] Compartir datos entre el cliente JavaScript y código de servidor mediante un campo oculto
 ====================
 por [Chris Pels](https://twitter.com/chrispels)
 
-En este vídeo Chris Pels mostrará cómo compartir datos entre JavaScript y el código del lado servidor mediante el uso de un campo oculto en una página ASP.NET. A continuación, obtenga información acerca de cómo utilizar el método RegisterHiddenField en código del lado servidor para crear mediante programación un campo oculto en el cliente. Además, vea cómo crear mediante programación un control de servidor de control HiddenField para compartir datos en una página ASP.NET. Por último, utilice el método RegisterArrayDeclaration para crear un contenedor en código de servidor para almacenar varios valores que se representa en la página donde puede obtenerse mediante JavaScript.
+En este vídeo Chris Pels mostrará cómo compartir datos entre JavaScript y código del lado servidor mediante el uso de un campo oculto en una página ASP.NET. A continuación, obtenga información sobre cómo usar el método RegisterHiddenField en el código del lado servidor para crear mediante programación un campo oculto en el cliente. Además, vea cómo crear mediante programación un control de servidor HiddenField para compartir datos en una página ASP.NET. Por último, use el método RegisterArrayDeclaration para crear un contenedor en código del servidor para almacenar varios valores que se representa en la página donde puede obtenerse mediante JavaScript.
 
-[&#9654; Vea el vídeo (21 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field)
+[&#9654;Vea el vídeo (minutos 21)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-share-data-between-client-javascript-and-server-code-using-a-hidden-field)

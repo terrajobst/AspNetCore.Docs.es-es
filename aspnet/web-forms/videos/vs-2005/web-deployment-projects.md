@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/vs-2005/web-deployment-projects
-title: Proyectos de implementación Web | Documentos de Microsoft
+title: Proyectos de implementación Web | Microsoft Docs
 author: BradleyBartz
-description: Bradley Bartz y Richard Ersek muestra cómo los proyectos de implementación Web proporcionan una funcionalidad adicional para crear y distribuir aplicaciones de sitio web crean...
+description: Bradley Bartz y Richard Ersek muestra cómo los proyectos de implementación Web proporcionan una funcionalidad adicional para compilar y crea implementación de sitio web de aplicaciones...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 09/21/2006
 ms.topic: article
 ms.assetid: eca1b75a-2f32-4004-842e-aa555175a3ea
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/web-deployment-projects
 msc.type: video
-ms.openlocfilehash: 7a5cf69ec45f3bd1b1662a604bf6615feb5a35f0
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 14320f98c17e741c6e6dab1299102ce3e48fedb0
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894293"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382012"
 ---
 <a name="web-deployment-projects"></a>Proyectos de implementación Web
 ====================
 por [Bradley Bartz](https://github.com/BradleyBartz)
 
-Bradley Bartz y Richard Ersek muestra cómo los proyectos de implementación Web proporcionan una funcionalidad adicional para crear e implementar aplicaciones de sitio web creadas en Visual Studio 2005.
+Bradley Bartz y Richard Ersek muestra cómo los proyectos de implementación Web proporcionan una funcionalidad adicional para crear e implementar aplicaciones de sitios web creadas en Visual Studio 2005.
 
 [&#9654;Vea el vídeo (65 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/web-deployment-projects)
 

@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-35/visual-studio-editor/creating-and-modifying-a-css-file
-title: Crear y modificar un archivo CSS | Documentos de Microsoft
+title: Creación y modificación de un archivo CSS | Microsoft Docs
 author: tmiranda
-description: Este vídeo presenta las características de hoja (CSS) de estilo en cascada de Visual Studio 2008. Características de Visual Studio 2008 CSS que sean fáciles de crear hojas de estilos un...
+description: Este vídeo presenta las características de (CSS) de la hoja de estilos en cascada de Visual Studio 2008. Características de CSS de Visual Studio 2008 facilitan la tarea crear hojas de estilos un...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 11/15/2007
 ms.topic: article
 ms.assetid: e7c3b221-87ce-444e-9106-bb0609665009
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/creating-and-modifying-a-css-file
 msc.type: video
-ms.openlocfilehash: ee3f25281fed12b316e5b3db30e253f140c7ecfb
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 51e96671ea4971b28d7e68392049eefdbc72918f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30880822"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384269"
 ---
-<a name="creating-and-modifying-a-css-file"></a>Crear y modificar un archivo CSS
+<a name="creating-and-modifying-a-css-file"></a>Creación y modificación de un archivo CSS
 ====================
 por [Todd Miranda](https://github.com/tmiranda)
 
-Este vídeo presenta las características de hoja (CSS) de estilo en cascada de Visual Studio 2008. Características de Visual Studio 2008 CSS resulta fácil crear hojas de estilos y estilos a través de una interfaz de tipo de propiedad. Esto quita el desarrollador de tener que tratar con los detalles de implementación de CSS.
+Este vídeo presenta las características de (CSS) de la hoja de estilos en cascada de Visual Studio 2008. Características de CSS de Visual Studio 2008 facilitan crear hojas de estilos y estilos mediante una interfaz de estilo de propiedad. Esto quita el desarrollador de tener que tratar con los detalles de implementación de CSS.
 
 [&#9654;Vea el vídeo (15 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/creating-and-modifying-a-css-file)
 

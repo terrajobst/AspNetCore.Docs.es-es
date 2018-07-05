@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
-title: 'Parte 1: Información general y crear el proyecto | Documentos de Microsoft'
+title: 'Parte 1: Información general y creación del proyecto | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,43 +9,42 @@ ms.date: 07/03/2012
 ms.topic: article
 ms.assetid: 94421d86-68c4-4471-bf5f-82d654a17252
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: f9cdff0cb0cad9adad546c8f8d46ba9b010e1079
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: f0616383fce2e92f7d1a0b63bf840208f7327bf7
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30873331"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37394066"
 ---
 <a name="part-1-overview-and-creating-the-project"></a>Parte 1: Información general y crear el proyecto
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
-[Descargar el proyecto completado](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASP-NET-Web-API-with-afa30545)
 
-Entity Framework es un marco de trabajo de asignación relacional de objetos. Los objetos de dominio en el código se asigna a las entidades de una base de datos relacional. En general, no tiene que preocuparse de la capa de base de datos, dado que Entity Framework se encarga de ello automáticamente. El código manipula los objetos y cambios se mantienen en una base de datos.
+Entity Framework es un marco de asignación relacional de objetos. Los objetos de dominio en el código lo asigna a las entidades de una base de datos relacional. En su mayor parte, no es necesario preocuparse por la capa de base de datos, dado que Entity Framework se encarga de ello automáticamente. El código manipula los objetos y los cambios se guardan en una base de datos.
 
 ## <a name="about-the-tutorial"></a>Acerca del Tutorial
 
-En este tutorial, creará una aplicación de almacenamiento simple. Hay dos partes principales para la aplicación. Los usuarios normales pueden ver productos y crear pedidos:
+En este tutorial, creará una aplicación de almacenamiento simple. Hay dos partes principales a la aplicación. Los usuarios normales pueden ver los productos y crear pedidos:
 
 ![](using-web-api-with-entity-framework-part-1/_static/image1.png)
 
-Los administradores pueden crear, eliminar o editar productos:
+Los administradores pueden crear, eliminar o modificar los productos:
 
 ![](using-web-api-with-entity-framework-part-1/_static/image2.png)
 
-## <a name="skills-youll-learn"></a>Obtendrá información de conocimientos
+## <a name="skills-youll-learn"></a>Habilidades que aprenderá
 
-Esto es lo aprenderá:
+Aquí es lo que aprenderá:
 
 - Cómo usar Entity Framework con ASP.NET Web API.
-- Describe cómo usar knockout.js para crear una interfaz de usuario de cliente dinámico.
-- Cómo usar la autenticación de formularios con API Web para autenticar a los usuarios.
+- Cómo usar knockout.js para crear una interfaz de usuario del cliente dinámico.
+- Aprenda a utilizar autenticación de formularios con la API Web para autenticar a los usuarios.
 
-Aunque este tutorial es independiente entre sí, debe leer primero los siguientes tutoriales:
+Aunque este tutorial es independiente, desee leer primero los siguientes tutoriales:
 
 - [Su primer ASP.NET Web API](../../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md)
 - [Crear una API Web que admita operaciones CRUD](../creating-a-web-api-that-supports-crud-operations.md)
@@ -57,18 +56,18 @@ Algunos conocimientos de [ASP.NET MVC](../../../../mvc/index.md) también es út
 En un nivel alto, ésta es la arquitectura de la aplicación:
 
 - ASP.NET MVC genera las páginas HTML para el cliente.
-- ASP.NET Web API expone operaciones CRUD en los datos (productos y pedidos).
-- Entity Framework traduce los modelos de C# usados por la API Web en entidades de base de datos.
+- ASP.NET Web API expone las operaciones CRUD en los datos (productos y pedidos).
+- Entity Framework traduce los modelos de C# usados por la API Web en las entidades de base de datos.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image3.png)
 
-El diagrama siguiente muestra cómo se representan los objetos de dominio en varias capas de la aplicación: la capa de base de datos, el modelo de objetos y, por último, el formato, que se utiliza para transmitir datos al cliente a través de HTTP.
+El diagrama siguiente muestra cómo se representan los objetos de dominio en varias capas de la aplicación: la capa de base de datos, el modelo de objetos y, finalmente, el formato, que se usa para transmitir datos al cliente a través de HTTP.
 
 ![](using-web-api-with-entity-framework-part-1/_static/image4.png)
 
 ## <a name="create-the-visual-studio-project"></a>Crear el proyecto de Visual Studio
 
-Puede crear el proyecto de tutorial con Visual Web Developer Express o la versión completa de Visual Studio.
+Puede crear el proyecto del tutorial con la versión completa de Visual Studio o Visual Web Developer Express.
 
 Desde el **iniciar** página, haga clic en **nuevo proyecto**.
 
@@ -80,18 +79,18 @@ En el **nuevo proyecto de ASP.NET MVC 4** cuadro de diálogo, seleccione **aplic
 
 ![](using-web-api-with-entity-framework-part-1/_static/image6.png)
 
-La plantilla de "Aplicación de Internet" crea una aplicación de ASP.NET MVC que admita la autenticación de formularios. Si se ejecuta la aplicación ahora, ya tiene algunas características:
+La plantilla "Aplicación de Internet", crea una aplicación de ASP.NET MVC que admite la autenticación de formularios. Si ejecuta la aplicación ahora, ya tiene algunas características:
 
-- Pueden registrar los nuevos usuarios, haga clic en el vínculo "Register" en la esquina superior derecha.
+- Pueden registrar nuevos usuarios, haga clic en el vínculo "Register" en la esquina superior derecha.
 - Los usuarios registrados pueden iniciar sesión, haga clic en el vínculo "Iniciar sesión".
 
-Información de pertenencia se conserva en una base de datos que se crea automáticamente. Para obtener más información acerca de la autenticación de formularios en ASP.NET MVC, consulte [Tutorial: mediante la autenticación de formularios en ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
+Información de pertenencia se conserva en una base de datos que se crea automáticamente. Para obtener más información sobre la autenticación de formularios en ASP.NET MVC, consulte [Tutorial: uso de autenticación de formularios en ASP.NET MVC](https://msdn.microsoft.com/library/ff398049(VS.98).aspx).
 
-## <a name="update-the-css-file"></a>Actualizar el archivo CSS
+## <a name="update-the-css-file"></a>Actualice el archivo CSS
 
-Este paso es cosmético, pero hará que las páginas de representar como las capturas de pantalla anterior.
+Este paso es cosmético, pero hará que las páginas representará de esta forma las capturas de pantalla anteriores.
 
-En el Explorador de soluciones, expanda la carpeta de contenido y abra el archivo denominado Site.css. Agregue los siguientes estilos CSS:
+En el Explorador de soluciones, expanda la carpeta de contenido y abra el archivo Site.css. Agregue los siguientes estilos CSS:
 
 [!code-css[Main](using-web-api-with-entity-framework-part-1/samples/sample1.css)]
 

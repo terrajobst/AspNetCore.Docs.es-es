@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/editor-control
-title: Control de editor | Documentos de Microsoft
+title: Control del Editor | Microsoft Docs
 author: JoeStagner
-description: Este vídeo muestra cómo utilizar el nuevo control de Editor WYSIWYG Editor desde el Kit de herramientas de Control de Microsoft AJAX.
+description: Este vídeo demostrará cómo usar el nuevo control de Editor WYSIWYG Editor de Microsoft AJAX Control Toolkit.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/13/2009
 ms.topic: article
 ms.assetid: 8c766d28-60c0-423b-afaa-7cb2a93f8d7e
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/editor-control
 msc.type: video
-ms.openlocfilehash: eb4368378d639691e67cc96964f7cbbc9bc0a98f
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 6498deb68897a81647c3478de2d1ab8939adbfb3
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882743"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37387356"
 ---
 <a name="editor-control"></a>Control de editor
 ====================
 por [Joe Stagner](https://github.com/JoeStagner)
 
-Este vídeo muestra cómo utilizar el nuevo control de Editor WYSIWYG Editor desde el Kit de herramientas de Control de Microsoft AJAX.
+Este vídeo demostrará cómo usar el nuevo control de Editor WYSIWYG Editor de Microsoft AJAX Control Toolkit.
 
 [&#9654;Vea el vídeo (4 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/editor-control)
 

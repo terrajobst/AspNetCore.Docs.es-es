@@ -1,6 +1,6 @@
 ---
 uid: web-api/overview/formats-and-model-binding/media-formatters
-title: Formateadores de contenido multimedia en ASP.NET Web API 2 | Documentos de Microsoft
+title: Formateadores de contenido multimedia en ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
@@ -9,25 +9,24 @@ ms.date: 01/20/2014
 ms.topic: article
 ms.assetid: 4c56f64a-086a-44ce-99c2-4c69604cd7fd
 ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/formats-and-model-binding/media-formatters
 msc.type: authoredcontent
-ms.openlocfilehash: 1cb1c7e0f832a0a0160276fbd41facc017e2ae3e
-ms.sourcegitcommit: 50d40c83fa641d283c097f986dde5341ebe1b44c
+ms.openlocfilehash: 824fea5a8837ff8b09af832b7d2a094c7d82907b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34452605"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37368921"
 ---
 <a name="media-formatters-in-aspnet-web-api-2"></a>Formateadores de contenido multimedia en ASP.NET Web API 2
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
-Este tutorial muestra cómo admiten formatos multimedia adicionales en ASP.NET Web API.
+Este tutorial muestra cómo admitir formatos multimedia adicionales en ASP.NET Web API.
 
 ## <a name="internet-media-types"></a>Tipos de medios de Internet
 
-Un tipo de medio, conocido también como un tipo MIME, identifica el formato de un elemento de datos. En HTTP, tipos de medios describen el formato del cuerpo del mensaje. Un tipo de medio consta de dos cadenas, un tipo y un subtipo. Por ejemplo:
+Un tipo de medio, también denominado tipo MIME, identifica el formato de un elemento de datos. Tipos de medios en HTTP, describen el formato del cuerpo del mensaje. Un tipo de medio consta de dos cadenas, un tipo y un subtipo. Por ejemplo:
 
 - texto/html
 - image/png
@@ -39,24 +38,24 @@ Por ejemplo, si una respuesta HTTP contiene una imagen PNG, la respuesta podría
 
 [!code-console[Main](media-formatters/samples/sample1.cmd)]
 
-Cuando el cliente envía un mensaje de solicitud, puede incluir un encabezado de aceptación. El encabezado Accept indica que el servidor de tipos de los archivos multimedia que el cliente espera el servidor. Por ejemplo:
+Cuando el cliente envía un mensaje de solicitud, puede incluir un encabezado Accept. El encabezado Accept indica que el servidor de tipos de medios que el cliente desea desde el servidor. Por ejemplo:
 
 [!code-console[Main](media-formatters/samples/sample2.cmd)]
 
 Este encabezado indica al servidor que desea que el cliente HTML, XHTML o XML.
 
-El tipo de medio determina cómo API Web serializa y deserializa el cuerpo del mensaje HTTP. API Web tiene compatibilidad integrada para XML, JSON, BSON y datos de codificación de formulario, y puede admitir tipos de medios adicionales mediante la escritura de un *formateador del contenido multimedia*.
+El tipo de medio determina cómo la API Web serializa y deserializa el cuerpo del mensaje HTTP. API Web tiene compatibilidad integrada para XML, JSON, BSON y datos de formato form-urlencoded y puede admitir tipos de medios adicionales escribiendo un *formateador media*.
 
 Para crear a un formateador de medios, que se derivan de una de estas clases:
 
-- [Elemento MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Esta clase usa la lectura asincrónica y los métodos de escritura.
-- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Esta clase se deriva de **elemento MediaTypeFormatter** pero utiliza métodos de lectura/escritura de sychronous.
+- [Elemento MediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.mediatypeformatter.aspx). Esta lectura asincrónica de usos de clases y métodos de escritura.
+- [BufferedMediaTypeFormatter](https://msdn.microsoft.com/library/system.net.http.formatting.bufferedmediatypeformatter.aspx). Esta clase se deriva de **elemento MediaTypeFormatter** pero utiliza los métodos de lectura/escritura sychronous.
 
-Derivar de **BufferedMediaTypeFormatter** es más sencillo, porque no hay ningún código asincrónico, pero también significa que puede bloquear el subproceso que realiza la llamada durante la E/S.
+Derivar de **BufferedMediaTypeFormatter** es más sencillo, porque no hay ningún código asincrónico, pero también significa que puede bloquear el subproceso de llamada durante la E/S.
 
-## <a name="example-creating-a-csv-media-formatter"></a>Ejemplo: Crear a un formateador de medios CSV
+## <a name="example-creating-a-csv-media-formatter"></a>Ejemplo: Creación de un formateador de medios CSV
 
-En el ejemplo siguiente se muestra un formateador de tipo de medio que puede serializar un objeto del producto en un formato de valores separados por comas (CSV). Este ejemplo utiliza el tipo de producto definido en el tutorial [crear una API Web que admite las operaciones CRUD](../older-versions/creating-a-web-api-that-supports-crud-operations.md). Aquí está la definición del objeto de producto:
+El ejemplo siguiente muestra un formateador de tipo de medios que puede serializar un objeto de producto a un formato de valores separados por comas (CSV). Este ejemplo utiliza el tipo de producto definido en el tutorial [crear una API Web que admite operaciones de CRUD](../older-versions/creating-a-web-api-that-supports-crud-operations.md). Esta es la definición del objeto de producto:
 
 [!code-csharp[Main](media-formatters/samples/sample3.cs)]
 
@@ -72,19 +71,19 @@ Invalidar el **CanWriteType** método para indicar que escribe el formateador pu
 
 [!code-csharp[Main](media-formatters/samples/sample6.cs)]
 
-En este ejemplo, el formateador puede serializar solo `Product` objetos así como las colecciones de `Product` objetos.
+En este ejemplo, el formateador puede serializar solo `Product` objetos, así como las colecciones de `Product` objetos.
 
-De forma similar, invalidar la **CanReadType** método para indicar que escribe el formateador puede deserializar. En este ejemplo, el formateador no admite la deserialización, por lo que el método simplemente devuelve **false**.
+De forma similar, reemplace el **CanReadType** método para indicar que escribe el formateador puede deserializar. En este ejemplo, el formateador no admite la deserialización, por lo que simplemente devuelve el método **false**.
 
 [!code-csharp[Main](media-formatters/samples/sample7.cs)]
 
-Finalmente, se invalida la **WriteToStream** método. Este método serializa un tipo mediante la escritura en una secuencia. Si el formateador admite la deserialización, invalidar la **ReadFromStream** método.
+Por último, reemplace el **WriteToStream** método. Este método serializa un tipo escribiendo en una secuencia. Si el formateador admite la deserialización, también invalidar el **ReadFromStream** método.
 
 [!code-csharp[Main](media-formatters/samples/sample8.cs)]
 
-## <a name="adding-a-media-formatter-to-the-web-api-pipeline"></a>Agregar a un formateador del contenido multimedia a la canalización de API Web
+## <a name="adding-a-media-formatter-to-the-web-api-pipeline"></a>Agregar a un formateador de medios a la canalización de API Web
 
-Para agregar un tipo de medio formateador para la canalización Web API, use la **formateadores** propiedad en el **HttpConfiguration** objeto.
+Para agregar un tipo de medio formateador a la canalización de Web API, use el **formateadores** propiedad en el **HttpConfiguration** objeto.
 
 [!code-csharp[Main](media-formatters/samples/sample9.cs)]
 
@@ -92,10 +91,10 @@ Para agregar un tipo de medio formateador para la canalización Web API, use la 
 
 Opcionalmente, un formateador de medios puede admitir varias codificaciones de caracteres, como UTF-8 o ISO 8859-1.
 
-En el constructor, agregue uno o varios [System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) tipos a la **SupportedEncodings** colección. Coloque el primero de codificación predeterminado.
+En el constructor, agregue uno o varios [System.Text.Encoding](https://msdn.microsoft.com/library/system.text.encoding.aspx) tipos a la **SupportedEncodings** colección. Coloque el valor predeterminado de codificación primero.
 
 [!code-csharp[Main](media-formatters/samples/sample10.cs?highlight=6-7)]
 
-En el **WriteToStream** y **ReadFromStream** llamar métodos, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) para seleccionar la codificación de caracteres preferida. Este método devuelve los encabezados de solicitud con la lista de codificaciones admitidas. Utilice el valor devuelto **codificación** al leer o escribir en la secuencia:
+En el **WriteToStream** y **ReadFromStream** llamar métodos, [MediaTypeFormatter.SelectCharacterEncoding](https://msdn.microsoft.com/library/hh969054.aspx) para seleccionar la codificación de caracteres preferida. Este método coincide con los encabezados de solicitud con la lista de codificaciones compatibles. Utilice el valor devuelto **Encoding** al leer o escribir desde la secuencia:
 
 [!code-csharp[Main](media-formatters/samples/sample11.cs?highlight=3,5)]

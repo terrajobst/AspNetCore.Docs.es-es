@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/vs-2005/introduction-to-unit-testing-with-team-system
-title: Introducción a las pruebas unitarias con el sistema del equipo | Documentos de Microsoft
+title: Introducción a las pruebas unitarias con Team System | Microsoft Docs
 author: rick-anderson
 description: En este vídeo se muestra cómo se integran las características de pruebas unitarias de Visual Studio Team System directamente en el IDE de Visual Studio de pruebas unitarias.
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 02/09/2007
 ms.topic: article
 ms.assetid: 3410a9c7-9bf4-45fc-aafa-230ba8bd7a8c
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/introduction-to-unit-testing-with-team-system
 msc.type: video
-ms.openlocfilehash: 928f3cd08fc0e68003fa3b160953b997bd744f68
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 236bbbc6c65a8180fdabe47221570af6b7b8ad2d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30894059"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37383385"
 ---
-<a name="introduction-to-unit-testing-with-team-system"></a>Introducción a las pruebas unitarias con el sistema de equipo
+<a name="introduction-to-unit-testing-with-team-system"></a>Introducción a las pruebas unitarias con Team System
 ====================
 por Eric Lee
 

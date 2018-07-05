@@ -1,70 +1,69 @@
 ---
 uid: mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
-title: Agregar un método de creación y crear vista | Documentos de Microsoft
+title: Agregar un método de creación y crear vista | Microsoft Docs
 author: shanselman
-description: Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Crear una aplicación web simple que lee y escribe desde una base de datos.
+description: Este es un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Cree una aplicación web simple que lee y escribe desde una base de datos.
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/14/2010
 ms.topic: article
 ms.assetid: a3a90963-0286-4fa0-9b3d-c230cc18b0a3
 ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part6
 msc.type: authoredcontent
-ms.openlocfilehash: 48e656a0c394b9db5baaec9c557ec38c4020d41b
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 976df78ea22c30c094f70a57792d287f15d2c62d
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2018
-ms.locfileid: "30867988"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400913"
 ---
 <a name="adding-a-create-method-and-create-view"></a>Agregar un método de creación y crear vista
 ====================
-by [Scott Hanselman](https://github.com/shanselman)
+por [Scott Hanselman](https://github.com/shanselman)
 
-> Se trata de un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Se creará una aplicación web simple que lee y escribe desde una base de datos. Visite la [centro de aprendizaje de ASP.NET MVC](../../../index.md) para buscar otros ASP.NET MVC, tutoriales y ejemplos.
+> Este es un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Creará una aplicación web simple que lee y escribe desde una base de datos. Visite el [centro de aprendizaje de ASP.NET MVC](../../../index.md) para buscar otros ASP.NET MVC, tutoriales y ejemplos.
 
 
-En esta sección, vamos a implementar la compatibilidad necesaria para permitir a los usuarios crear nuevas películas en nuestra base de datos. Deberá hacerlo mediante la implementación de la acción de dirección URL de películas/Create.
+En esta sección vamos a implementar la compatibilidad necesaria para permitir que los usuarios crear nuevas películas en nuestra base de datos. Haremos esto mediante la implementación de la acción de dirección URL de películas/Create.
 
-La implementación de la dirección URL de películas/crear es un proceso de dos pasos. Cuando un usuario visita la dirección URL de películas/crear por primera vez que deseamos mostrar a un formulario HTML que puede rellenar para escribir una película nuevo. A continuación, cuando el usuario envía el formulario y publicaciones de que realizar copias de los datos al servidor, desea recuperar el contenido expuesto y guárdelo en nuestra base de datos.
+Implementación de la dirección URL de películas/Create es un proceso de dos pasos. Cuando un usuario visita la dirección URL de películas y crear por primera vez queremos mostrarles un formulario HTML que se pueden rellenar para especificar una película nueva. A continuación, cuando el usuario envía el formulario y publicaciones de que realizar una copia de los datos en el servidor, desea recuperar el contenido expuesto y guárdelo en nuestra base de datos.
 
-Implementaremos estos dos pasos en dos métodos de Create() dentro de nuestra clase MoviesController. Un método mostrará el &lt;formulario&gt; que el usuario debe rellenar para crear una película nuevo. El segundo método controlará el procesamiento de los datos enviados cuando el usuario envía la &lt;formulario&gt; al servidor y guardar una película nuevo dentro de nuestra base de datos.
+Implementaremos estos dos pasos dentro de dos métodos Create() dentro de nuestra clase nombre moviescontroller al. Un método mostrará el &lt;formulario&gt; que el usuario debe rellenar para crear una película nueva. El segundo método controlará el procesamiento de los datos enviados cuando el usuario envía el &lt;formulario&gt; al servidor y guardar una película nueva dentro de nuestra base de datos.
 
-A continuación se muestra el código vamos a agregar a nuestra clase MoviesController implementar esto:
+A continuación es el código que agregaremos a nuestra clase nombre moviescontroller al implementar esto:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample1.cs)]
 
-El código anterior contiene todo el código que necesitaremos dentro de nuestro controlador.
+El código anterior contiene todo el código que necesitamos, dentro de nuestro controlador.
 
-Implementemos ahora la plantilla Create View que vamos a usar para mostrar un formulario para el usuario. Se le haga clic en el primer método de crear y seleccione "Agregar vista" para crear la plantilla de vista de nuestro formulario de película.
+Implementemos ahora la plantilla Create View que vamos a usar para mostrar un formulario al usuario. Se le haga clic con el botón derecho en el primer método para crear y seleccione "Agregar vista" para crear la plantilla de vista para nuestro formulario de la película.
 
-Se seleccionará que se va a pasar a la plantilla de vista de una "película" como su clase de vista de datos e indican que deseamos "aplicar la técnica scaffolding" una plantilla "Crear".
+Seleccionaremos que se va a pasar a la plantilla de vista de una película"" como su clase de datos de vista e indicar que deseamos "aplicar la técnica scaffolding" una plantilla "Crear".
 
 [![Agregar vista](getting-started-with-mvc-part6/_static/image2.png)](getting-started-with-mvc-part6/_static/image1.png)
 
-Tras hacer clic en el botón Agregar, plantilla de vista de \Movies\Create.aspx se creará para usted. Dado que hemos seleccionado "Crear" en la lista desplegable de "vista contenido", el cuadro de diálogo Agregar vista automáticamente "scaffolding" algún contenido predeterminado para nosotros. La técnica scaffolding creado HTML &lt;formulario&gt;, un lugar para error de validación de mensajes para ir y, puesto que la técnica scaffolding sabe de películas, crea etiqueta y los campos para cada propiedad de la clase.
+Tras hacer clic en el botón Agregar, plantilla de vista \Movies\Create.aspx se crearán automáticamente. Dado que hemos seleccionado "Crear" en la lista desplegable de "ver el contenido", el cuadro de diálogo Agregar vista automáticamente "scaffolding" algún contenido predeterminado para nosotros. La técnica de scaffolding crea un elemento HTML &lt;formulario&gt;, un lugar para error de validación de mensajes para ir y, ya que sabe scaffolding sobre películas, crea campos y etiqueta para cada propiedad de nuestra clase.
 
 [!code-aspx[Main](getting-started-with-mvc-part6/samples/sample2.aspx)]
 
-Puesto que nuestra base de datos proporciona automáticamente una película en un identificador, vamos a quitar esos campos ese modelo de referencia. Id. de la vista de creación. Elimine las líneas después de 7 &lt;leyenda&gt;campos&lt;/legend&gt; tal y como se muestran el campo de identificador que no es aconsejable.
+Dado que nuestra base de datos automáticamente incluye un identificador de una película, vamos a quitar esos campos ese modelo de referencia. Id. de la vista de creación. Quite las líneas después de 7 &lt;leyenda&gt;campos&lt;/legend&gt; como que muestran el campo de identificador que no queremos.
 
-Ahora vamos a crear una película nuevo y lo agrega a la base de datos. Se deberá hacer esto mediante la ejecución de la aplicación de nuevo y visite el "/ películas" dirección URL y haga clic en "Crear" Use el vínculo para agregar una película nuevo.
+Ahora vamos a crear una película de nuevo y agregarlo a la base de datos. Se deberá hacer esto mediante la ejecución de la aplicación de nuevo y visite el "/ Movies" dirección URL y haga clic en la sección "crear" vínculo para agregar una nueva película.
 
 [![Crear - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image4.png)](getting-started-with-mvc-part6/_static/image3.png)
 
-Cuando se hace clic en el botón Crear, que publicaremos nuevo (a través de HTTP POST) los datos en este formulario para el método /Movies/Create que acaba de crear. Al igual que cuando el sistema automáticamente tardó el parámetro "numTimes" y "nombre" fuera de la dirección URL y ellos asignados a los parámetros en un método anteriormente, el sistema automáticamente toman los campos de formulario de una entrada de blog y asignarlos a un objeto. En este caso, los valores de los campos en formato HTML como "ReleaseDate" y "Title" automáticamente se colocan en las propiedades correctas de una nueva instancia de una película.
+Cuando hacemos clic en el botón Crear, publicaremos nuevo (a través de HTTP POST) los datos en este formulario para el método /Movies/Create que acabamos de crear. Al igual que cuando el sistema automáticamente usó el parámetro "numTimes" y "name" fuera de la dirección URL y ellos asignados a los parámetros en un método anteriormente, el sistema automáticamente toman los campos del formulario de una entrada de blog y asignarlos a un objeto. En este caso, los valores de campos de HTML, como "ReleaseDate" y "Title" se coloca automáticamente en las propiedades correctas de una nueva instancia de una película.
 
-Echemos un vistazo al segundo método Create de nuestro MoviesController nuevo. Tenga en cuenta cómo toma un objeto de "Película" como argumento:
+Echemos un vistazo en el segundo método de creación de nuestro nombre moviescontroller al nuevo. Tenga en cuenta cómo toma un objeto de "Movie" como argumento:
 
 [!code-csharp[Main](getting-started-with-mvc-part6/samples/sample3.cs)]
 
-Este objeto de película, a continuación, se pasó a la versión [HttpPost] de nuestro método de acción Create, y se guardan en la base de datos y, a continuación, redirige al usuario al método de acción de Index() que mostrará el resultado guardado en la lista de película:
+Este objeto de película, a continuación, se pasó a la versión [HttpPost] de nuestro método de acción Create, y se guardó en la base de datos y, a continuación, redirige al usuario al método de acción de Index() que mostrará los resultados guardados en la lista de películas:
 
 [![Lista de películas - Windows Internet Explorer](getting-started-with-mvc-part6/_static/image6.png)](getting-started-with-mvc-part6/_static/image5.png)
 
-Hemos no estamos comprobando si nuestro películas son correctos, sin embargo, y la base de datos no permite guardar una película con ningún título. Sería bueno si podríamos indicamos al usuario que antes de la base de datos produjo un error. Esto a continuación, haremos agregando compatibilidad de validación a la aplicación.
+Hemos no estamos comprobando si nuestra películas son correctas, sin embargo, y la base de datos no nos permite guardar una película con ningún título. Sería bueno si podemos decirle al usuario que antes de la base de datos produjo un error. Haremos esto a continuación mediante la adición de compatibilidad de validación a nuestra aplicación.
 
 > [!div class="step-by-step"]
 > [Anterior](getting-started-with-mvc-part5.md)

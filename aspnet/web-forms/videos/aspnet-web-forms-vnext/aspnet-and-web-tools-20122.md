@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
-title: Web ASP.NET y herramientas 2012.2 | Documentos de Microsoft
+title: ASP.NET y Web Tools 2012.2 | Microsoft Docs
 author: jongalloway
-description: ¡Cumplen la nueva versión ASP.NET y Web Tools 2012.2! Esta versión incluye una pila de características nuevas muy útiles, incluidas plantillas de proyecto, herramientas web y mucho más. Jo...
+description: Conoce a la nueva versión ASP.NET y Web Tools 2012.2. Esta versión incluye una pila de características nuevas, incluidas las plantillas de proyecto, herramientas web y mucho más. Jo...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/18/2013
 ms.topic: article
 ms.assetid: ca7458bd-b238-4633-a8b4-468a4c300acc
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
 msc.type: video
-ms.openlocfilehash: 572b948ac869b4391d7c486d603146bf1f1812c7
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 72552278c54733908b647a3fff09bcd0c87f395c
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30881095"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37382392"
 ---
-<a name="aspnet-and-web-tools-20122"></a>ASP.NET y herramientas Web 2012.2
+<a name="aspnet-and-web-tools-20122"></a>ASP.NET y Web Tools 2012.2
 ====================
 por [Jon Galloway](https://github.com/jongalloway)
 
-¡Cumplen la nueva versión ASP.NET y Web Tools 2012.2! Esta versión incluye una pila de características nuevas muy útiles, incluidas plantillas de proyecto, herramientas web y mucho más. Unir a Jon Galloway como que exhiba todas las principales características nuevas en bajo una media hora.
+Conoce a la nueva versión ASP.NET y Web Tools 2012.2. Esta versión incluye una pila de características nuevas, incluidas las plantillas de proyecto, herramientas web y mucho más. Únase a Jon Galloway mientras enseña desactivar todas las principales características nuevas de en una media hora.
 
 [&#9654;Vea el vídeo (26 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/aspnet-and-web-tools-20122)
 

@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
-title: '[¿Cómo I:] ¿Implementar una aplicación Web durante una compilación de equipo? | Microsoft Docs'
+title: '[¿Cómo lo hago?:] ¿Implementar una aplicación Web durante una compilación de equipo? | Microsoft Docs'
 author: pjhacker
-description: Este vídeo muestra cómo crear una nueva compilación de equipo y cómo implementar la aplicación Web como parte del proceso de compilación. Vemos que el deploym para incluir...
+description: Este vídeo muestra cómo crear una nueva compilación de equipo y cómo implementar la aplicación Web como parte del proceso de compilación. Vemos que la implemente para incluir...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 08/01/2007
 ms.topic: article
 ms.assetid: 3c81ee94-4561-4267-864d-2656b33d95c9
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
 msc.type: video
-ms.openlocfilehash: a2e9c9495f2222db12eafacc70d37efa0254a5ec
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: 04b2e5fb5d720ad41847e96700fb10ecc2002d57
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30895327"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37384337"
 ---
-<a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[¿Cómo I:] ¿Implementar una aplicación Web durante una compilación de equipo?
+<a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[¿Cómo lo hago?:] ¿Implementar una aplicación Web durante una compilación de equipo?
 ====================
 por [Paul Hacker](https://github.com/pjhacker)
 
-Este vídeo muestra cómo crear una nueva compilación de equipo y cómo implementar la aplicación Web como parte del proceso de compilación. Vemos que incluyendo el paso de implementación es tan simple como agregar un comando de copia de X a la secuencia de comandos de compilación.
+Este vídeo muestra cómo crear una nueva compilación de equipo y cómo implementar la aplicación Web como parte del proceso de compilación. Vemos que la incluida en el paso de implementación es tan sencilla como agregar un comando de copia de la X para el script de compilación.
 
 [&#9654;Vea el vídeo (5 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-deploy-a-web-application-during-a-team-build)
 

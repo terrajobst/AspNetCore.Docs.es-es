@@ -1,6 +1,6 @@
 ---
 uid: web-forms/videos/building-20-applications/lesson-4-understanding-web-application-state
-title: '[Lección 4:] Estado de la aplicación Web descripción | Documentos de Microsoft'
+title: '[Lección 4:] Estado de la aplicación Web descripción | Microsoft Docs'
 author: microsoft
 description: En esta lección, verá cómo mantener el estado en ASP.NET, incluidos los distintos objetos que puede usar para almacenar información para su aplicación de ASP.NET 2.0...
 ms.author: aspnetcontent
@@ -9,15 +9,14 @@ ms.date: 11/28/2005
 ms.topic: article
 ms.assetid: 22ddc59d-cd84-4def-a58b-ec3ca57f0d85
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-4-understanding-web-application-state
 msc.type: video
-ms.openlocfilehash: adfcc03b761ec55502b5b945f3c68ecc33a5c40c
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: ed804d37f94845bcc2043bf21e16a27b12f64f83
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30886763"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37400583"
 ---
 <a name="lesson-4-understanding-web-application-state"></a>[Lección 4:] Estado de la aplicación Web descripción
 ====================
