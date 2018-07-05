@@ -4,19 +4,16 @@ title: Proteger aplicaciones mediante la autenticación y autorización | Micros
 author: microsoft
 description: Paso 9 muestra cómo agregar autenticación y autorización para proteger nuestra aplicación NerdDinner, para que los usuarios necesitan registrar e inicie sesión en el sitio para crear...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 9e4d5cac-b071-440c-b044-20b6d0c964fb
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/secure-applications-using-authentication-and-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: d28102c8b80433b58a42cadc70b26c9fb5bc4404
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0005b99dbf7d59e96313f025880c46cdec4838b6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369889"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801397"
 ---
 <a name="secure-applications-using-authentication-and-authorization"></a>Proteger aplicaciones mediante la autenticación y autorización
 ====================

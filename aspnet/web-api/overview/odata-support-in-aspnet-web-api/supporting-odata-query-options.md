@@ -4,19 +4,16 @@ title: Compatibilidad con las opciones de consulta de OData en ASP.NET Web API 2
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/04/2013
-ms.topic: article
 ms.assetid: 50e6e62b-e72e-4a29-8293-4b67377bd21f
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options
 msc.type: authoredcontent
-ms.openlocfilehash: 3ce2b38a13e8684a88bb0ce6183671fae98795c7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 029a791074a5ab88f1c6d83311e88fc9f726fe6f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380848"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814946"
 ---
 <a name="supporting-odata-query-options-in-aspnet-web-api-2"></a>Compatibilidad con las opciones de consulta de OData en ASP.NET Web API 2
 ====================
