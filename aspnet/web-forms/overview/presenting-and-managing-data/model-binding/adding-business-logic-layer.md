@@ -1,69 +1,68 @@
 ---
 uid: web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
-title: Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms | Documentos de Microsoft
+title: Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms | Microsoft Docs
 author: tfitzmac
-description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más directa-...
+description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos permite interactuar con los datos más sencilla de...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 02/27/2014
 ms.topic: article
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: 25e887bdc316abf65c780bb6c8d075e938e85064
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: be69bf56c6a1c5bf601a47e90e4e1c67c48a760f
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30892756"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37386505"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms
 ====================
 por [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos hace interacción con los datos más sencilla de trabajar con datos de objetos de origen (por ejemplo, ObjectDataSource o SqlDataSource). Esta serie comienza con material introductorio y se mueve al conceptos más avanzados en tutoriales posteriores.
+> Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos permite interactuar con los datos más sencilla de tratar con datos de objetos de origen (como ObjectDataSource o SqlDataSource). Esta serie comienza con material introductorio y mueve a conceptos más avanzados en los tutoriales posteriores.
 > 
-> Este tutorial muestra cómo utilizar el enlace de modelos a una capa de lógica de negocios. Establecerá el miembro OnCallingDataMethods para especificar que un objeto distinto de la página actual se usa para llamar a los métodos de datos.
+> Este tutorial muestra cómo utilizar el enlace de modelos con una capa de lógica empresarial. Establecerá el miembro OnCallingDataMethods para especificar que un objeto distinto de la página actual se usa para llamar a los métodos de datos.
 > 
 > Este tutorial se basa en el proyecto creado en el [anteriores](retrieving-data.md) partes de la serie.
 > 
-> También puede [descargar](https://go.microsoft.com/fwlink/?LinkId=286116) el proyecto completo en C# o VB. El código que se puede descargar funciona con Visual Studio 2012 o Visual Studio 2013. Utiliza la plantilla de Visual Studio 2012, que es ligeramente diferente de la plantilla de Visual Studio 2013 que se muestra en este tutorial.
+> También puede [descargar](https://go.microsoft.com/fwlink/?LinkId=286116) el proyecto completo en C# o VB. El código descargable funciona con Visual Studio 2012 o Visual Studio 2013. Usa la plantilla de Visual Studio 2012, que es ligeramente diferente de la plantilla de Visual Studio 2013 que se muestra en este tutorial.
 
 
-## <a name="what-youll-build"></a>Lo que vamos a compilar
+## <a name="what-youll-build"></a>¿Qué va a crear
 
-Enlace de modelos le permite colocar el código de interacción de datos en el archivo de código subyacente para una página web o en una clase de lógica de negocios independientes. Los tutoriales anteriores han demostrado cómo usar los archivos de código subyacente para el código de interacción de datos. Este enfoque funciona para sitios pequeños, pero se pueden producir en código repetición y mayor dificultad al mantener un sitio grande. También puede ser muy difícil probar mediante programación el código que se encuentra en archivos de código subyacente porque no hay ninguna capa de abstracción.
+Enlace de modelos le permite colocar el código de interacción de datos en el archivo de código subyacente para una página web o en una clase de lógica de negocio independientes. Los tutoriales anteriores se muestra cómo usar los archivos de código subyacente para el código de interacción de datos. Este enfoque funciona para sitios pequeños, pero que puede dar lugar a código repetición y mayor dificultad al mantener un sitio grande. También puede ser muy difícil de probar código que reside en los archivos de código subyacente porque no hay ninguna capa de abstracción de mediante programación.
 
-Para centralizar el código de interacción de datos, puede crear una capa de lógica de negocios que contiene toda la lógica para interactuar con datos. A continuación, llamar a la capa de lógica de negocios desde las páginas web. Este tutorial muestra cómo mover todo el código que ha escrito en los tutoriales anteriores en una capa de lógica de negocios y, a continuación, usar ese código desde las páginas.
+Para centralizar el código de interacción de datos, puede crear una capa de lógica de negocios que contiene toda la lógica para interactuar con datos. A continuación, llame a la capa de lógica de negocios desde las páginas web. Este tutorial muestra cómo mover todo el código que ha escrito en los tutoriales anteriores en una capa de lógica empresarial y, a continuación, usar dicho código desde las páginas.
 
-En este tutorial, deberá:
+En este tutorial, necesitará:
 
-1. Mueva el código de archivos de código subyacente a una capa de lógica de negocios
+1. Mover el código de archivos de código subyacente a una capa de lógica empresarial
 2. Cambiar los controles enlazados a datos para llamar a los métodos en la capa de lógica de negocios
 
-## <a name="create-business-logic-layer"></a>Crear la capa de lógica de negocios
+## <a name="create-business-logic-layer"></a>Crear la capa de lógica empresarial
 
-Ahora, se creará la clase que se llama desde las páginas web. Los métodos de esta clase un aspecto similares a los métodos utilizados en los tutoriales anteriores e incluyen los atributos de proveedor de valor.
+Ahora, creará la clase que se llama desde las páginas web. Los métodos de esta clase tener un aspecto similares a los métodos que usó en los tutoriales anteriores e incluyen los atributos de proveedor de valor.
 
 En primer lugar, agregue una nueva carpeta denominada **BLL**.
 
 ![Agregar carpeta](adding-business-logic-layer/_static/image1.png)
 
-En la carpeta BLL, cree una nueva clase denominada **SchoolBL.cs**. Contendrá todas las operaciones de datos que residían originalmente en archivos de código subyacente. Los métodos son prácticamente los mismos que los métodos en el archivo de código subyacente, pero incluyen algunos cambios.
+En la carpeta BLL, cree una nueva clase denominada **SchoolBL.cs**. Contendrá todas las operaciones de datos que residían originalmente en los archivos de código subyacente. Los métodos son prácticamente los mismos que los métodos en el archivo de código subyacente, pero incluyen algunos cambios.
 
-El cambio más importante tener en cuenta es que ya no se está ejecutando el código desde dentro de una instancia de **página** clase. La clase de página contiene el **TryUpdateModel** método y **ModelState** propiedad. Cuando este código se traslada a una capa de lógica de negocios, ya no tiene una instancia de la clase de página para llamar a estos miembros. Para solucionar este problema, debe agregar una **ModelMethodContext** parámetro a cualquier método que tiene acceso a TryUpdateModel o ModelState. Este parámetro ModelMethodContext se usa para llamar a TryUpdateModel o recuperar ModelState. No es necesario cambiar nada en la página web para tener en cuenta este nuevo parámetro.
+El cambio más importante a tener en cuenta es que ya no se ejecuta el código desde una instancia de **página** clase. La clase de página contiene el **TryUpdateModel** método y el **ModelState** propiedad. Cuando este código se traslada a una capa de lógica empresarial, ya no tiene una instancia de la clase de página para llamar a estos miembros. Para solucionar este problema, debe agregar un **ModelMethodContext** parámetro a cualquier método que tiene acceso a TryUpdateModel o ModelState. Utilice este parámetro ModelMethodContext para llamar a TryUpdateModel o recuperar ModelState. No es necesario cambiar nada en la página web para tener en cuenta este nuevo parámetro.
 
 Reemplace el código en SchoolBL.cs con el código siguiente.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample1.cs)]
 
-## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>Revise las páginas existentes para recuperar datos de capa de lógica de negocios
+## <a name="revise-existing-pages-to-retrieve-data-from-business-logic-layer"></a>Revise las páginas existentes para recuperar datos de la capa de lógica empresarial
 
-Por último, convertirá las páginas Students.aspx, AddStudent.aspx y Courses.aspx del uso de consultas en el archivo de código subyacente al uso de la capa de lógica de negocios.
+Por último, convertirá las páginas Students.aspx, AddStudent.aspx y Courses.aspx del uso de las consultas en el archivo de código subyacente al uso de la capa de lógica empresarial.
 
-En los archivos de código subyacente para estudiantes, AddStudent y cursos, eliminar o marque como comentario los métodos de consulta siguiente:
+En los archivos de código subyacente para estudiantes, AddStudent y cursos, elimine o comente los siguientes métodos de consulta:
 
 - studentsGrid\_GetData
 - studentsGrid\_UpdateItem
@@ -71,13 +70,13 @@ En los archivos de código subyacente para estudiantes, AddStudent y cursos, eli
 - addStudentForm\_InsertItem
 - coursesGrid\_GetData
 
-Ahora no debería tener ningún código en el archivo de código subyacente que pertenece a las operaciones de datos.
+Ahora no debería tener ningún código en el archivo de código subyacente que pertenecen a las operaciones de datos.
 
-El **OnCallingDataMethods** controlador de eventos le permite especificar un objeto que se usará para los métodos de datos. En Students.aspx, agregue un valor para ese controlador de eventos y cambiar los nombres de los métodos de datos a los nombres de los métodos de la clase de la lógica de negocios.
+El **OnCallingDataMethods** controlador de eventos le permite especificar un objeto que se usará para los métodos de datos. En Students.aspx, agregue un valor para ese controlador de eventos y cambiar los nombres de los métodos de datos a los nombres de los métodos de la clase de lógica de negocios.
 
 [!code-aspx[Main](adding-business-logic-layer/samples/sample2.aspx?highlight=3-4,8)]
 
-En el archivo de código subyacente para Students.aspx, definir el controlador de eventos para el evento CallingDataMethods. En este controlador de eventos, se especifica la clase de la lógica de negocios para las operaciones de datos.
+En el archivo de código subyacente para Students.aspx, definir el controlador de eventos para el evento CallingDataMethods. En este controlador de eventos, especifique la clase de lógica de negocios para las operaciones de datos.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample3.cs)]
 
@@ -93,11 +92,11 @@ En Courses.aspx, realizar modificaciones similares.
 
 [!code-csharp[Main](adding-business-logic-layer/samples/sample7.cs)]
 
-Ejecute la aplicación y observe que todas las páginas funcionen como que tenían anteriormente. La lógica de validación también funciona correctamente.
+Ejecute la aplicación y observe que todas las páginas funcionan que tenían anteriormente. La lógica de validación también funciona correctamente.
 
 ## <a name="conclusion"></a>Conclusión
 
-En este tutorial, volver a estructurados de su aplicación para que utilice una capa de acceso a datos y la capa de lógica empresarial. Especifica que los controles de datos utilizan un objeto que no es la página actual para las operaciones de datos.
+En este tutorial, estructurado volver a la aplicación para usar una capa de acceso a datos y la capa de lógica empresarial. Especifica que los controles de datos utilizan un objeto que no es la página actual para las operaciones de datos.
 
 > [!div class="step-by-step"]
 > [Anterior](using-query-string-values-to-retrieve-data.md)

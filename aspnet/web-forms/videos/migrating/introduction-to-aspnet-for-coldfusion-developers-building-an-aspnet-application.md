@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
-title: 'Introducción a ASP.NET para programadores de ColdFusion: creación de una aplicación ASP.NET | Documentos de Microsoft'
+title: 'Introducción a ASP.NET para programadores de ColdFusion: compilar una aplicación ASP.NET | Microsoft Docs'
 author: microsoft
-description: Esta difusión por Web muestra cómo crear una aplicación ASP.NET a partir de un formulario en blanco, para dar el desarrollador de ColdFusion experimentado una idea clara de exactamente qué...
+description: Este webcast muestra cómo crear una aplicación ASP.NET a partir de un formulario en blanco, para proporcionar a los desarrolladores de ColdFusion experimentados una idea clara de exactamente qué...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 07/25/2006
 ms.topic: article
 ms.assetid: 47316dec-a4cd-4818-8ba7-87e29d963c38
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/migrating/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application
 msc.type: video
-ms.openlocfilehash: e4b250bc43778356893095cbeabe927e5478cd68
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: a898f510ed1632f2d5d8de35b365d550458005c6
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30882785"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401268"
 ---
-<a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>Introducción a ASP.NET para programadores de ColdFusion: creación de una aplicación de ASP.NET
+<a name="introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application"></a>Introducción a ASP.NET para programadores de ColdFusion: compilar una aplicación ASP.NET
 ====================
 por [Microsoft](https://github.com/microsoft)
 
-Esta difusión por Web muestra cómo crear una aplicación ASP.NET a partir de un formulario en blanco, para dar el desarrollador de ColdFusion experimentado una idea clara de exactamente lo que implica.
+Este webcast muestra cómo compilar una aplicación de ASP.NET a partir de un formulario en blanco, para dar una idea clara de exactamente lo que implica a desarrolladores de ColdFusion experimentados.
 
 [&#9654;Vea el vídeo (77 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/introduction-to-aspnet-for-coldfusion-developers-building-an-aspnet-application)
 

@@ -1,29 +1,28 @@
 ---
 uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-listsearch-extender
-title: '[¿Cómo I:] ¿Usar el extensor ListSearch ASP.NET AJAX? | Microsoft Docs'
+title: '[¿Cómo lo hago?:] ¿Usar el extensor ListSearch ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
-description: Este vídeo muestra el uso del control extensor ListSearch desde el Kit de herramientas de Control de AJAX de ASP.NET. El extensor ListSearch mejora DropDownList y L....
+description: Este vídeo muestra el uso del control extensor ListSearch de ASP.NET AJAX Control Toolkit. El extensor ListSearch mejora DropDownList y L...
 ms.author: aspnetcontent
 manager: wpickett
 ms.date: 05/25/2007
 ms.topic: article
 ms.assetid: 459490f0-79cb-4859-9fd2-885dae4d23fd
 ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-listsearch-extender
 msc.type: video
-ms.openlocfilehash: 3547cbde65f999bc1b0c67fdb6159d15b3d1f5f6
-ms.sourcegitcommit: f8852267f463b62d7f975e56bea9aa3f68fbbdeb
+ms.openlocfilehash: fb671210b4a4fe84fa982de1b3aebcccadc7a0af
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30883864"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37401797"
 ---
-<a name="how-do-i-use-the-aspnet-ajax-listsearch-extender"></a>[¿Cómo I:] ¿Usar el extensor ListSearch ASP.NET AJAX?
+<a name="how-do-i-use-the-aspnet-ajax-listsearch-extender"></a>[¿Cómo lo hago?:] ¿Usar el extensor ListSearch ASP.NET AJAX?
 ====================
 por [Joe Stagner](https://github.com/JoeStagner)
 
-Este vídeo muestra el uso del control extensor ListSearch desde el Kit de herramientas de Control de AJAX de ASP.NET. El extensor ListSearch mejora controles DropDownList y ListBox para que un usuario puede seleccionar un elemento en la lista simplemente escribiendo sus primeros caracteres. Este modo mejora la experiencia del usuario al proporcionar una manera intuitiva de seleccionar un elemento de una lista larga.
+Este vídeo muestra el uso del control extensor ListSearch de ASP.NET AJAX Control Toolkit. El extensor ListSearch mejora los controles de DropDownList y ListBox para que un usuario puede seleccionar un elemento en la lista simplemente escribiendo sus primeros caracteres. Este modo mejora la experiencia del usuario al proporcionar una manera intuitiva de seleccionar un elemento de una larga lista.
 
 [&#9654;Vea el vídeo (11 minutos)](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-use-the-aspnet-ajax-listsearch-extender)
 
