@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/jquery-validate/cdnjqueryvalidate1170
-title: jQuery validación 1.17.0 | Documentos de Microsoft
+title: Validación 1.17.0 jQuery | Microsoft Docs
 author: guardrex
 description: ''
 ms.author: aspnetcontent
@@ -9,17 +9,16 @@ ms.date: 10/14/2017
 ms.topic: article
 ms.assetid: f038f3d6-daad-43de-8514-d2483c7e6609
 ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate1170
 msc.type: content
-ms.openlocfilehash: c2bb42e37d1869a8271d019845bb62330d26ed7c
-ms.sourcegitcommit: 48beecfe749ddac52bc79aa3eb246a2dcdaa1862
+ms.openlocfilehash: e4edbd2b4905a55f022b0d515956ae8999f8036b
+ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2018
-ms.locfileid: "30073039"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37367220"
 ---
-<a name="jquery-validation-1170"></a>jQuery validación 1.17.0
+<a name="jquery-validation-1170"></a>1.17.0 de validación de jQuery
 ====================
 Los siguientes archivos se hospedan en la red CDN:
 
@@ -27,4 +26,4 @@ Los siguientes archivos se hospedan en la red CDN:
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/additional-methods.js
 - https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/additional-methods.min.js
-- Archivos de localización en https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/localization/messages \_.js ## donde ## es el código de loc.
+- Archivos de localización en https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/localization/messages\_##.js donde ## es el código de loc.
