@@ -4,19 +4,16 @@ title: Agregar un nuevo elemento a la base de datos | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/16/2014
-ms.topic: article
 ms.assetid: 0967c29e-e124-4db0-a788-c45d0ff5aff2
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-9
 msc.type: authoredcontent
-ms.openlocfilehash: b1f7935c70efcc3ee486e76fc356ff43716632dd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 36251ba907a6f580b63f0fded0591c26b6ff879e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368882"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818513"
 ---
 <a name="add-a-new-item-to-the-database"></a>Agregar un nuevo elemento a la base de datos
 ====================

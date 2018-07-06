@@ -4,19 +4,16 @@ title: Crear procedimientos almacenados para los TableAdapters del conjunto de d
 author: rick-anderson
 description: En los tutoriales anteriores hemos creado instrucciones SQL en nuestro código y pasa las instrucciones a la base de datos que se ejecutará. Un enfoque alternativo es usar s...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: a5a4a9ba-d18d-489a-a6b0-a3c26d6b0274
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-new-stored-procedures-for-the-typed-dataset-s-tableadapters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 38ce77460a00252850c7235a6affbeb8097ccea4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 601883ea0e0bbea08e564d77eea5ce7d19956cb7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366293"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829618"
 ---
 <a name="creating-new-stored-procedures-for-the-typed-datasets-tableadapters-vb"></a>Crear procedimientos almacenados para los TableAdapters del conjunto de datos con tipo (VB)
 ====================

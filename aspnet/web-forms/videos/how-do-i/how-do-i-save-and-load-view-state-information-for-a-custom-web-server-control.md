@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] Guardar y la información del estado de vista carga 
 author: rick-anderson
 description: En este vídeo Chris Pels mostrará cómo conservar y restaurar información de la propiedad ViewState de un control de usuario personalizado. En primer lugar, obtenga información sobre cómo conservar el valor simple...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 20750baf-ad6d-4754-a1f5-644b952f2ebb
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control
 msc.type: video
-ms.openlocfilehash: b1972fa557c59510033451bc1068829bfe793b74
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bcac44c0578ec0923a9bbae61640cfd363220c22
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395183"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826441"
 ---
 <a name="how-do-i-save-and-load-view-state-information-for-a-custom-web-server-control"></a>[¿Cómo lo hago?:] Guardar y la información de estado de vista de carga para un Control de servidor Web personalizado
 ====================

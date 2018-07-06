@@ -4,19 +4,16 @@ title: 'Recursos recomendados de acceso a datos de ASP.NET: | Microsoft Docs'
 author: rick-anderson
 description: Este tema proporcionan vínculos a recursos de documentación acerca de cómo obtener acceso a datos en aplicaciones web ASP.NET, principalmente mediante el uso de Entity Framework y SQL Se...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/25/2013
-ms.topic: article
 ms.assetid: f8157be1-4ab9-469e-ad3a-0ccc80b56c00
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet-data-access-content-map
 msc.type: content
-ms.openlocfilehash: 3a8d7de622fd2d0b229dba3af31557a172b90df8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fb0cea94d82cc8f59ec56a5445ee84d38325995e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396369"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832505"
 ---
 <a name="aspnet-data-access---recommended-resources"></a>Acceso a los datos de ASP.NET - recursos recomendado
 ====================

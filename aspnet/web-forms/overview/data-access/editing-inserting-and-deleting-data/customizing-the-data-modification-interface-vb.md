@@ -4,19 +4,16 @@ title: Personalizar la interfaz de modificación de datos (VB) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, echaremos un vistazo a cómo personalizar la interfaz de un control GridView editable reemplazando el cuadro de texto estándar y controles CheckBox con alterna...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 4830d984-bd2c-4a08-bfe5-2385599f1f7d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5eea1f226cbcfa07c2fcca3d68fb5ee1cb88ab61
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 991f8d07c12c13b1477c2df072847b3730bc1051
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370382"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840773"
 ---
 <a name="customizing-the-data-modification-interface-vb"></a>Personalizar la interfaz de modificación de datos (VB)
 ====================

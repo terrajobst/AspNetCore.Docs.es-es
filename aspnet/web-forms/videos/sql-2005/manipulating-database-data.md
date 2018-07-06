@@ -4,19 +4,16 @@ title: Manipulación de datos de la base de datos | Microsoft Docs
 author: microsoft
 description: Los principiantes de SQL Server obtendrá información sobre objetos ADO.NET y ejecución de la instrucción SQL de ADO.NET. Explorar SQL y obtenga información sobre insert, update y delete sta...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/29/2006
-ms.topic: article
 ms.assetid: 03a4cdda-480f-43fa-891c-a976633d90ae
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/sql-2005/manipulating-database-data
 msc.type: video
-ms.openlocfilehash: f4099d5789e907a69a73d5e02b198360e15d64d8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8dbbbb4febc84dbafbc71e99a0b635bbf61af997
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367404"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802025"
 ---
 <a name="manipulating-database-data"></a>Manipulación de datos de la base de datos
 ====================

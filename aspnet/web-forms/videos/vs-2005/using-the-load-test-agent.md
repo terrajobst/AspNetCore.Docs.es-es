@@ -4,19 +4,16 @@ title: Mediante el agente de prueba de carga | Microsoft Docs
 author: rick-anderson
 description: En este vídeo se examina cómo incorporar al agente de prueba de carga en la prueba que realizamos con Visual Studio Team System. Un agente de prueba de carga forma parte de un '...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/08/2007
-ms.topic: article
 ms.assetid: 4a262984-ab29-4bf7-a8b6-707d66cde011
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/using-the-load-test-agent
 msc.type: video
-ms.openlocfilehash: a6a22538b850ce297380723f83972139de40cb1b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf6f95b9e06ee6471c1db0a36b684944e71291a9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384191"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812800"
 ---
 <a name="using-the-load-test-agent"></a>Mediante el agente de prueba de carga
 ====================

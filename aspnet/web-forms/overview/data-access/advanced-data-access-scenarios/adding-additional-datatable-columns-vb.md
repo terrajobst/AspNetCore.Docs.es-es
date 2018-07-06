@@ -4,19 +4,16 @@ title: Agregar columnas adicionales de DataTable (VB) | Microsoft Docs
 author: rick-anderson
 description: Al usar al Asistente de TableAdapter para crear un conjunto de datos con tipo, la correspondiente DataTable contiene las columnas devueltas por la consulta de base de datos principal. Sin embargo, existen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: 1e8e65f9-fe3e-4250-810b-c90227786bed
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/adding-additional-datatable-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 84cb5f267a79fe7787ea23f1dc924e10e4d6fe13
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a36f7267591e01ac2bd552385eeb22e1fda68c6e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402790"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803238"
 ---
 <a name="adding-additional-datatable-columns-vb"></a>Agregar columnas adicionales de DataTable (VB)
 ====================

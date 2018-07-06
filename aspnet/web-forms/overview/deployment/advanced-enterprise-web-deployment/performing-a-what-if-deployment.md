@@ -4,19 +4,16 @@ title: Realizar el si implementación | Microsoft Docs
 author: jrjlee
 description: En este tema se describe cómo realizar "¿Qué ocurre si" (o simulados) las implementaciones que usan la herramienta de implementación Web de Internet Information Services (IIS) (Web Deploy) y V...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: c711b453-01ac-4e65-a48c-93d99bf22e58
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/performing-a-what-if-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: f50053c3b231a1d174df51ce7aa4c6013192bca8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f54a4d91ea0f735d3cd5b99c0dda5d83cbb5e5d4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378104"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830654"
 ---
 <a name="performing-a-what-if-deployment"></a>Realización de una implementación "What If"
 ====================

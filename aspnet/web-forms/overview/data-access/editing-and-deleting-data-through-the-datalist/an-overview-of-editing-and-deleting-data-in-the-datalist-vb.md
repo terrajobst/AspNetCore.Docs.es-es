@@ -4,19 +4,16 @@ title: Información general de editar y eliminar datos en el control DataList (V
 author: rick-anderson
 description: Mientras el control DataList carece de edición integrada y eliminación de funciones, en este tutorial veremos cómo crear a un control DataList que admite Editar y eliminar o...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: 9410a23c-9697-4f07-bd71-e62b0ceac655
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/an-overview-of-editing-and-deleting-data-in-the-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5e2a0f672a9be074abd3ab92eb5b36c18d64d1b6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: aa1e07be5b634a0e66f7c6f03f80a1aa2c741189
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364020"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804503"
 ---
 <a name="an-overview-of-editing-and-deleting-data-in-the-datalist-vb"></a>Información general de editar y eliminar datos en el control DataList (VB)
 ====================

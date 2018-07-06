@@ -4,19 +4,16 @@ title: Agregar validación al modelo | Microsoft Docs
 author: Rick-Anderson
 description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 5d9a2999-fcc4-4c45-a018-271fddf74a3b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-validation-to-the-model
 msc.type: authoredcontent
-ms.openlocfilehash: 47c3f16d4592d2f61c6f1c3c1988e3622cb84a00
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 50911920ed80f09033cfc53a137a6bbba3fc62f3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384808"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834496"
 ---
 <a name="adding-validation-to-the-model"></a>Agregar validación al modelo
 ====================

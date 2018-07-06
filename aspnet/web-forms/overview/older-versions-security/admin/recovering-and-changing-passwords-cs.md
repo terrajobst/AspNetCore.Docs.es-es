@@ -4,19 +4,16 @@ title: Recuperar y cambiar las contraseñas (C#) | Microsoft Docs
 author: rick-anderson
 description: ASP.NET incluye dos controles Web de ayudar a recuperar y cambiar las contraseñas. El control PasswordRecovery permite a un visitante recuperar a su pa perdido...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: 19c4d042-4e34-4b44-9f1d-6bf2253ba366
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-cs
 msc.type: authoredcontent
-ms.openlocfilehash: aaee217cb8bf4e970adf06ca29b4a3d0a90eb1cb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e63d3d1153c81c1bb54a1fb6bb242df032899511
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400475"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37824343"
 ---
 <a name="recovering-and-changing-passwords-c"></a>Recuperar y cambiar las contraseñas (C#)
 ====================

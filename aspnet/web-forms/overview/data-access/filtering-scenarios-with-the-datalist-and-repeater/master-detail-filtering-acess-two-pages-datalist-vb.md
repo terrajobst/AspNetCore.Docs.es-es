@@ -4,19 +4,16 @@ title: Maestro y detalles de filtrado a través de dos páginas (VB) | Microsoft
 author: rick-anderson
 description: En este tutorial, nos centramos en cómo separar un informe de maestro y detalles en dos páginas. En la página 'master' se usa un control Repeater para presentar una lista de categoría...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2010
-ms.topic: article
 ms.assetid: f1a1be2c-6fd9-4a09-916e-aa1b98d5cf17
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-acess-two-pages-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1c553332b2c6fb53b76d846365b33641ed99e99c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5cfbd685344bdd223f8d07f8bad5a54b63735839
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373271"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813706"
 ---
 <a name="masterdetail-filtering-across-two-pages-vb"></a>Maestro y detalles de filtrado a través de dos páginas (VB)
 ====================

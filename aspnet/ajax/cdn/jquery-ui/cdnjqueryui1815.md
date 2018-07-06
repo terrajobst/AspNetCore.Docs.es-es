@@ -4,19 +4,16 @@ title: jQuery UI 1.8.15 en la red CDN de Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 4947e9c7-f037-4115-94e9-8e0a8b9d122d
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1815
 msc.type: content
-ms.openlocfilehash: 83b1b85f134259ac422bf720e95c33ee50d583f8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 39f60e118520ad79760e5850ca21f51abdb39fbf
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377277"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810248"
 ---
 <a name="jquery-ui-1815-on-the-microsoft-ajax-cdn"></a>jQuery UI 1.8.15 en la red CDN de Microsoft Ajax
 ====================

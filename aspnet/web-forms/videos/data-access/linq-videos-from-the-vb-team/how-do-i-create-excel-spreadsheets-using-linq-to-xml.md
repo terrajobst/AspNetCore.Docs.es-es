@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Crear hojas de cálculo de Excel mediante LINQ to 
 author: bethmassi
 description: Los desarrolladores de Visual Basic aprenderán consultar su base de datos de SQL Server para crear fácilmente las hojas de cálculo de Excel directamente en el editor de Visual Basic nosotros...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: 147e51e3-3488-4e48-a06c-059c2cebd728
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/linq-videos-from-the-vb-team/how-do-i-create-excel-spreadsheets-using-linq-to-xml
 msc.type: video
-ms.openlocfilehash: a469c95d8de254739d3c4d0c1d07f0ac06639aa9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 935eccfee03bf0b3ca9795cbe2bd5fd3d0e7789f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376250"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821033"
 ---
 <a name="how-do-i-create-excel-spreadsheets-using-linq-to-xml"></a>[¿Cómo lo hago?:] ¿Crear hojas de cálculo de Excel mediante LINQ to XML?
 ====================

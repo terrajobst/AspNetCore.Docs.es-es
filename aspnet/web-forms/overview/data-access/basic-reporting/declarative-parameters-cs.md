@@ -4,19 +4,16 @@ title: Parámetros declarativos (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial le explicaremos cómo usar un parámetro establecido en un valor codificado de forma rígida para seleccionar los datos que se va a mostrar en un control DetailsView.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 603c9bd3-b895-4ec6-853b-0c81ff36d580
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6c2798ed1ac768a5103bbdc50db73ba6c3eed07f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 06577628d2b502df2854a83af564a0c0d402e9bd
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365375"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839430"
 ---
 <a name="declarative-parameters-c"></a>Parámetros declarativos (C#)
 ====================

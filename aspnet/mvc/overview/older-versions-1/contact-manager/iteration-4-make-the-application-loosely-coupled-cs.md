@@ -4,19 +4,16 @@ title: 'Iteración #4: hacer que la aplicación tenga un acoplamiento (C#) | Mic
 author: microsoft
 description: En esta tercera iteración, aprovechamos de varios patrones de diseño de software para que sea más fácil de mantener y modificar la aplicación de Contact Manager. Para...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2009
-ms.topic: article
 ms.assetid: 829f589f-e201-4f6e-9ae6-08ae84322065
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-4-make-the-application-loosely-coupled-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b440508a245c1db0c85693f8f8d2b60acf63472f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8eff8088398d0f7afc020b2bbdf41526ae51591a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372532"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829504"
 ---
 <a name="iteration-4--make-the-application-loosely-coupled-c"></a>Iteración #4: hacer que la aplicación tenga un acoplamiento (C#)
 ====================

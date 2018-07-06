@@ -4,19 +4,16 @@ title: ¿Conoce una biblioteca distinta de Knockout? | Microsoft Docs
 author: madskristensen
 description: ¿Conoce una biblioteca distinta de Knockout?
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/05/2013
-ms.topic: article
 ms.assetid: a8367c6d-ef94-4dff-a010-5eff9e6eea96
-ms.technology: ''
 msc.legacyurl: /single-page-application/overview/introduction/other-libraries
 msc.type: authoredcontent
-ms.openlocfilehash: 0424d209cbd24756d1a840788bb3dc5b48d905ff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 69006df6a5de3290ac294a309756eb0a53baa975
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375245"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834599"
 ---
 <a name="know-a-library-other-than-knockout"></a>¿Conoce una biblioteca distinta de Knockout?
 ====================

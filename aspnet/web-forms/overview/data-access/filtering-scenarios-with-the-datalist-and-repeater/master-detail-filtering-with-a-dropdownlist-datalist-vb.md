@@ -4,19 +4,16 @@ title: Maestro y detalles con DropDownList (VB) de filtrado | Microsoft Docs
 author: rick-anderson
 description: En este tutorial veremos cómo mostrar informes de maestro y detalles en una única página web con listas desplegables para mostrar los registros de 'master' y un control DataList para mostrar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: ad0f1014-1eff-465f-bdc6-93058de00e44
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: e58448da80f1024c2007e23b07c9a1f676ab0980
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e88a7459529e003b73ef5a42456de3501e3db461
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377352"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829326"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-vb"></a>Patrón de filtrado y detalles con DropDownList (VB)
 ====================

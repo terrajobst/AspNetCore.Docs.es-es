@@ -4,19 +4,16 @@ title: Medir el valor empresarial de AJAX | Microsoft Docs
 author: rick-anderson
 description: ASP.NET AJAX es conocido por su capacidad para mejorar la experiencia del usuario de aplicaciones Web. Con Visual Studio Team System también puede medir la busine...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/23/2007
-ms.topic: article
 ms.assetid: 60bb771b-e938-490f-944e-c80bc6bbdc12
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/measuring-the-business-value-of-ajax
 msc.type: video
-ms.openlocfilehash: 7a4dcb19b5cab8dcb1f3834daa4aafa604fa9534
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fa15ed06f20502aa53ec139d0673a4f35c16ea45
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385828"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831873"
 ---
 <a name="measuring-the-business-value-of-ajax"></a>Medir el valor empresarial de AJAX
 ====================

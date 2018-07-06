@@ -4,19 +4,16 @@ title: 'Introducción a ASP.NET Web Pages: conceptos básicos de programación |
 author: tfitzmac
 description: "Este tutorial proporciona información general sobre cómo programar en ASP.NET Web Pages con sintaxis Razor. Lo que aprenderá: la sintaxis 'Razor' básica que usa para la incorporación de cambios..."
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/17/2015
-ms.topic: article
 ms.assetid: 7526ed45-a97d-4e8a-8301-01324ef0eff9
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/intro-to-web-pages-programming
 msc.type: authoredcontent
-ms.openlocfilehash: 3824db99b3313876585fe284c254ac89b256bc8f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56268943b09d366b15d3a11e641d6c6b6c95aa16
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383250"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839754"
 ---
 <a name="introducing-aspnet-web-pages---programming-basics"></a>Introducción a las páginas Web ASP.NET - conceptos básicos de programación
 ====================

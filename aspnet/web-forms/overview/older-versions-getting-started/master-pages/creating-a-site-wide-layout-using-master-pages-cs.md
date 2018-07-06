@@ -4,19 +4,16 @@ title: Crear un diseño de todo el sitio mediante páginas maestras (C#) | Micro
 author: rick-anderson
 description: Este tutorial mostrará los conceptos básicos de la página maestra. Es decir, ¿cuáles son las páginas maestras, ¿cómo se uno cree una página maestra, ¿cuáles son los marcadores de posición de contenido, ¿cómo uno cr...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: 78f8d194-03b9-44a5-8255-90e7cd1c2ee1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/creating-a-site-wide-layout-using-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cea5894b269209326391de49003ec1d19c8e87f2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cf9264f6569fe1a5c0369b17a2358c5207cad6ad
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398555"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829284"
 ---
 <a name="creating-a-site-wide-layout-using-master-pages-c"></a>Crear un diseño de todo el sitio mediante páginas maestras (C#)
 ====================

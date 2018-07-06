@@ -4,19 +4,16 @@ title: Trabajar con columnas calculadas (VB) | Microsoft Docs
 author: rick-anderson
 description: Al crear una tabla de base de datos, Microsoft SQL Server le permite definir una columna calculada cuyo valor se calcula a partir de una expresión que normalmente referencia...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/03/2007
-ms.topic: article
 ms.assetid: 5811b8ff-ed56-40fc-9397-6b69ae09a8f6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/working-with-computed-columns-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5837baccb9e378546d26703c99dcddd144ba80de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7e489640c9075b3443725ddd776ca08fd5569232
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386778"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830998"
 ---
 <a name="working-with-computed-columns-vb"></a>Trabajar con columnas calculadas (VB)
 ====================

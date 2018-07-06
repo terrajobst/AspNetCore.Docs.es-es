@@ -4,19 +4,16 @@ title: 'Introducción a ASP.NET Web Pages: conceptos básicos de formularios HTM
 author: tfitzmac
 description: Este tutorial muestra los conceptos básicos de cómo crear un formulario de entrada y cómo controlar la entrada del usuario cuando se usa ASP.NET Web Pages (Razor). Y ahora que ya...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2015
-ms.topic: article
 ms.assetid: 81ed82bf-b940-44f1-b94a-555d0cb7cc98
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/form-basics
 msc.type: authoredcontent
-ms.openlocfilehash: f5f7c9813041c443675f4e443822a81c1c508c20
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 609c1c06ed8f29db82b5dd565a935440d4430819
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391996"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815400"
 ---
 <a name="introducing-aspnet-web-pages---html-form-basics"></a>Introducción a las páginas Web ASP.NET - conceptos básicos de formularios HTML
 ====================

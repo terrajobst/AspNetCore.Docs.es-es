@@ -4,19 +4,16 @@ title: Las direcciones URL en páginas maestras (VB) | Microsoft Docs
 author: rick-anderson
 description: Aborda cómo las direcciones URL en la página maestra pueden interrumpirse debido a la que están en un directorio relativo diferente que la página de contenido del archivo de página maestra. Examina el reajuste...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2008
-ms.topic: article
 ms.assetid: 43d1e83c-0092-4dcf-977c-e709c4dce7c3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/urls-in-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9094c6c2b1700f22fe29d8b341444e1178c9015f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 28c9927539ac243ce84f7a25c73be837d2dd6daa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395135"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822760"
 ---
 <a name="urls-in-master-pages-vb"></a>Direcciones URL en páginas maestras (VB)
 ====================

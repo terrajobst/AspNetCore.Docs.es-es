@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Usar el Control deslizante ASP.NET AJAX? | Microso
 author: JoeStagner
 description: El control deslizante de ASP.NET AJAX Control Toolkit proporciona una manera sencilla y elegante para el usuario seleccione un valor numérico. Este vídeo muestra cómo ad...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/13/2007
-ms.topic: article
 ms.assetid: 958e1bc8-65a8-4fe0-ad2d-f98691d5fdf1
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-slider-control
 msc.type: video
-ms.openlocfilehash: f97142a44d3a925d08311a7d301d9bb8aa81a47d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 278a90c60ac39b0162cfa4b09b985a163c55c1d5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401732"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832246"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-slider-control"></a>[¿Cómo lo hago?:] ¿Usar el Control deslizante ASP.NET AJAX?
 ====================

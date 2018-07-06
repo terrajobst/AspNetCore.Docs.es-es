@@ -4,19 +4,16 @@ title: 'Cómo: implementar los modelos de vista para administrar los datos para 
 author: rick-anderson
 description: En este vídeo, Chris Pels muestra cómo usar el concepto de un &quot;modelo de vista&quot; para administrar datos de las vistas de MVC de ASP.NET. En primer lugar, un proyecto de MVC de ejemplo es cre...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2009
-ms.topic: article
 ms.assetid: 22f55d63-78f7-44fd-9107-f74cbe16022b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
 msc.type: video
-ms.openlocfilehash: f0713b87dc6455016de921998a994f8bca7dd8bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 30a02f4e9f277f54891fdc86c7ba2820a0d77e0b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378091"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819077"
 ---
 <a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a>Cómo: implementar los modelos de vista para administrar los datos para las vistas de MVC de ASP.NET?
 ====================

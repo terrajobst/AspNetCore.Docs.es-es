@@ -4,19 +4,16 @@ title: Configurar la aplicación Web de producción para usar la base de datos d
 author: rick-anderson
 description: Como se describe en los tutoriales anteriores, no es raro que difieren entre los entornos de desarrollo y producción información de configuración. Esto es es...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/23/2009
-ms.topic: article
 ms.assetid: a64a7aa0-6608-449e-83bf-1ef8cceee504
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7b5afb17f405bc8652431dd0a13a9e810fdfd74b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 952bdafd06143ce24e9e8beb0d6e6343400ffdc6
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371069"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840705"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-vb"></a>Configurar la aplicación Web de producción para usar la base de datos de producción (VB)
 ====================

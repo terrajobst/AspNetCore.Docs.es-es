@@ -4,19 +4,16 @@ title: Controles (VB) Web de datos anidadas | Microsoft Docs
 author: rick-anderson
 description: En este tutorial que exploraremos cómo usar un Repeater anidado dentro de otro Repeater. Los ejemplos ilustran cómo rellenar el control Repeater interno ambos d...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 8b7fcf7b-722b-498d-a4e4-7c93701e0c95
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/nested-data-web-controls-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2f7980d22d6ebc15a033cca321644a2bf1d4e3bb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 45e460edb09fe9398d204e0f280dfb088a44946d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390042"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803183"
 ---
 <a name="nested-data-web-controls-vb"></a>Controles Web de datos anidadas (VB)
 ====================

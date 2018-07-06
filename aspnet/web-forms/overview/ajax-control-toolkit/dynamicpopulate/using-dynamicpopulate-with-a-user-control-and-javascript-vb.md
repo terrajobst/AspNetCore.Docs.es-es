@@ -4,19 +4,16 @@ title: Usar DynamicPopulate con un Control de usuario y JavaScript (VB) | Micros
 author: wenz
 description: El control DynamicPopulate de ASP.NET AJAX Control Toolkit llama a un servicio web (o el método de página) y rellena el valor resultante en un control de destino de t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 778b9009-76f2-4665-940e-afc0e35bc917
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dynamicpopulate/using-dynamicpopulate-with-a-user-control-and-javascript-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6ab979347a3f412e3225a58a133ae63fcae0a11a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c2fe7fbe0d57c6cf64fe31607215c920e67ed736
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365599"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841320"
 ---
 <a name="using-dynamicpopulate-with-a-user-control-and-javascript-vb"></a>Usar DynamicPopulate con un Control de usuario y JavaScript (VB)
 ====================

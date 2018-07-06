@@ -4,19 +4,16 @@ title: Middleware de OWIN en IIS integrado canalización | Microsoft Docs
 author: Praburaj
 description: En este artículo se muestra cómo ejecutar componentes de middleware OWIN (OMCs) en la canalización integrada de IIS, y cómo establecer el evento de la canalización un OMC se ejecuta en. Debería...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/07/2013
-ms.topic: article
 ms.assetid: d031c021-33c2-45a5-bf9f-98f8fa78c2ab
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
 msc.type: authoredcontent
-ms.openlocfilehash: 1c2f7a9b948331eae2f5b44f25219adb76a0c745
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e78ded1dcafd40097d6477a757406c7170dd1bb7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379065"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828103"
 ---
 <a name="owin-middleware-in-the-iis-integrated-pipeline"></a>Middleware de OWIN en la canalización integrada de IIS
 ====================

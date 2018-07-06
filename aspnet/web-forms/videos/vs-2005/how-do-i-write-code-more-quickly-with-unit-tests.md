@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Escribir código más rápidamente con las pruebas
 author: rick-anderson
 description: En este vídeo, obtenga información sobre cómo Unit Testing puede aumentar su productividad si lo que facilita el proceso de depuración. Podemos ver cómo Visual Studio Team System puede generar un U...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/21/2007
-ms.topic: article
 ms.assetid: 4618499e-1925-414e-a432-16952bb967f4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-write-code-more-quickly-with-unit-tests
 msc.type: video
-ms.openlocfilehash: 5ac8555fe1a1a0e2d620ad8f8b713ba22caa2ad1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c2ba4f3433d19654ff1dfe543cabec1673bdc5c5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375903"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840415"
 ---
 <a name="how-do-i-write-code-more-quickly-with-unit-tests"></a>[¿Cómo lo hago?:] ¿Escribir código más rápidamente con las pruebas unitarias?
 ====================

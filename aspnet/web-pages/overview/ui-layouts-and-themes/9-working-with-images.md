@@ -4,19 +4,16 @@ title: Trabajar con imágenes en un sitio ASP.NET Web Pages (Razor) | Microsoft 
 author: tfitzmac
 description: Este capítulo muestra cómo agregar, mostrar y manipular imágenes (cambiar el tamaño, voltear y añadir marcas de agua) en su sitio Web.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2014
-ms.topic: article
 ms.assetid: 778c4e58-4372-4d25-bab9-aec4a8d8e38d
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/9-working-with-images
 msc.type: authoredcontent
-ms.openlocfilehash: 32cfb9cc3c3eabcd6d724e05b85c5bf1160a39f6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a091d942f60242748b0a1d78bf0654b222d1bdb3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362932"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840990"
 ---
 <a name="working-with-images-in-an-aspnet-web-pages-razor-site"></a>Trabajar con imágenes en un sitio Web de ASP.NET Pages (Razor)
 ====================

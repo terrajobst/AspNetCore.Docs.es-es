@@ -4,19 +4,16 @@ title: Controles enlazados a datos | Microsoft Docs
 author: microsoft
 description: La mayoría de las aplicaciones de ASP.NET se basan en cierto grado de presentación de los datos de un origen de datos back-end. Controles enlazados a datos han sido una parte fundamental de w interactúan...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 0e23ff32-646d-43f3-8bec-6b2313d3abd6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/data-bound-controls
 msc.type: authoredcontent
-ms.openlocfilehash: adaf8a40c1877db4181e1b1c7a74a2ecbaa373ad
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bfee5ed9c786cc8799da108b99781ff6eb508477
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368264"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833224"
 ---
 <a name="data-bound-controls"></a>Controles enlazados a datos
 ====================

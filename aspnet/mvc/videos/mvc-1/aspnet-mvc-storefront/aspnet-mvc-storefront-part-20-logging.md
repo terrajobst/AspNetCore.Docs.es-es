@@ -4,19 +4,16 @@ title: 'Escaparate ASP.NET MVC, parte 20: Registro | Microsoft Docs'
 author: robconery
 description: 'En este episodio que conectar en el registro: algo que probablemente debería haber implementado antes.'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/16/2008
-ms.topic: article
 ms.assetid: aa7791dc-7310-43c5-a281-0b02c1216247
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging
 msc.type: video
-ms.openlocfilehash: 5b2f111e22aefdb330aec78634c2626a8d335fdc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 125970ac25bc762e067b0f3dc9833f32c76bbc3a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369229"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831937"
 ---
 <a name="aspnet-mvc-storefront-part-20-logging"></a>Escaparate de ASP.NET MVC, parte 20: registro
 ====================

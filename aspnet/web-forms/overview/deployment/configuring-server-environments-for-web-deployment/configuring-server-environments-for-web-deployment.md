@@ -4,19 +4,16 @@ title: Configurar entornos de servidor para la implementación Web | Microsoft D
 author: jrjlee
 description: Este tutorial le mostrará cómo configurar entornos de servidor para compatibilidad con un solo clic, o automatizada, la implementación del sitio Web y la publicación en diversos escenario diferente...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 0bf0959b-4ca8-45de-bd13-b15347543b5a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-server-environments-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 520239c926b853b91638ed2687daebfb561fb99a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: df40cc9d16b9e6b3fe0b659b405106e68cee62b5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365275"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835568"
 ---
 <a name="configuring-server-environments-for-web-deployment"></a>Configurar entornos de servidor para la implementación Web
 ====================

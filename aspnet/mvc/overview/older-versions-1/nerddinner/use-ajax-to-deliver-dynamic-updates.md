@@ -4,19 +4,16 @@ title: Usar AJAX para entregar actualizaciones dinámicas | Microsoft Docs
 author: microsoft
 description: Paso 10 implementa compatibilidad con los usuarios conectados a RSVP su interés por asistir a una cena, mediante un enfoque basado en Ajax integrado en los detalles de la cena...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: 18700815-8e6c-4489-91af-7ea9dab6529e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/use-ajax-to-deliver-dynamic-updates
 msc.type: authoredcontent
-ms.openlocfilehash: 789c9880dc43c5d15ee510d9856a4c4378019b71
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9f11c4c15c0ac9bab8d53b18a4e07be4b864b2c7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372336"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825206"
 ---
 <a name="use-ajax-to-deliver-dynamic-updates"></a>Usar AJAX para entregar actualizaciones dinámicas
 ====================

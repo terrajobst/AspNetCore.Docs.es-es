@@ -4,19 +4,16 @@ title: Agregar la confirmación del cliente al eliminar (VB) | Microsoft Docs
 author: rick-anderson
 description: En las interfaces creadas hasta ahora, un usuario puede eliminar accidentalmente los datos haciendo clic en el botón Eliminar cuando realmente deseaba hacer clic en el botón Editar. En este tipo t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 6331e02e-c465-4cdf-bd3f-f07680c289d6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/adding-client-side-confirmation-when-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: acab34cb362bd3e3351156a41a6826d03e5a749f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2318018b20841038ebb7a6e4900cf9849057d941
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388272"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802503"
 ---
 <a name="adding-client-side-confirmation-when-deleting-vb"></a>Agregar la confirmación del cliente al eliminar (VB)
 ====================

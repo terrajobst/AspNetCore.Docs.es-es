@@ -4,19 +4,16 @@ title: Autenticar a los usuarios con la autenticación de Windows (C#) | Microso
 author: microsoft
 description: Obtenga información sobre cómo usar la autenticación de Windows en el contexto de una aplicación MVC. Aprenda a habilitar la autenticación de Windows dentro de co de su aplicación web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/27/2009
-ms.topic: article
 ms.assetid: 418bb07e-f369-4119-b4b0-08f890f7abb2
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0261f3b989d721e6e9aae8fa5766e02c8bca7b63
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dd5cea6b23aad668307326a46db91d8ee5526dcb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397816"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802080"
 ---
 <a name="authenticating-users-with-windows-authentication-c"></a>Autenticar a los usuarios con la autenticación de Windows (C#)
 ====================

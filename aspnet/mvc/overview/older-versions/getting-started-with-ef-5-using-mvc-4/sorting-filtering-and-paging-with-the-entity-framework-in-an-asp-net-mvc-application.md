@@ -4,19 +4,16 @@ title: Ordenaci처n, filtrado y paginaci처n con Entity Framework en una aplicaci�
 author: tdykstra
 description: La aplicaci처n web de Contoso University muestra c처mo crear aplicaciones de ASP.NET MVC 4 mediante Code First de Entity Framework 5 y Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/30/2013
-ms.topic: article
 ms.assetid: 8af630e0-fffa-4110-9eca-c96e201b2724
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: c2b53c5f35b0d7cd519ab3fdcb57c39463c40a8a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f5ce5f926021a53a5dd96e578b26b8c186c9a83c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401229"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841039"
 ---
 <a name="sorting-filtering-and-paging-with-the-entity-framework-in-an-aspnet-mvc-application-3-of-10"></a>Ordenaci처n, filtrado y paginaci처n con Entity Framework en una aplicaci처n ASP.NET MVC (3 de 10)
 ====================

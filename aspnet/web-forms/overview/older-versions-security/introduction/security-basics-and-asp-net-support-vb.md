@@ -4,19 +4,16 @@ title: Conceptos básicos de seguridad y compatibilidad de ASP.NET (VB) | Micros
 author: rick-anderson
 description: Este es el primer tutorial de una serie de tutoriales que se explora las técnicas para autenticar a los visitantes a través de un formulario web Forms, autorizar el acceso a personaliz...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/13/2008
-ms.topic: article
 ms.assetid: ab68a92b-fc81-40a4-a7dc-406625d2c5d4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/security-basics-and-asp-net-support-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2213f2ac323e59fa67e51d6c9dcc8c2efdd2619e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ebd4e52720fc36bfcf86b7ef4205afcca7e2bc4a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398516"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820881"
 ---
 <a name="security-basics-and-aspnet-support-vb"></a>Conceptos básicos de seguridad y compatibilidad de ASP.NET (VB)
 ====================

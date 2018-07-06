@@ -4,19 +4,16 @@ title: Agregar capa de lógica empresarial a un proyecto que usa el enlace de mo
 author: tfitzmac
 description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos permite interactuar con los datos más sencilla de...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2014
-ms.topic: article
 ms.assetid: 7ef664b3-1cc8-4cbf-bb18-9f0f3a3ada2b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/adding-business-logic-layer
 msc.type: authoredcontent
-ms.openlocfilehash: be69bf56c6a1c5bf601a47e90e4e1c67c48a760f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 70e7ae6ad12c26ea5001ff68b25c0431a7440a77
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386505"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837878"
 ---
 <a name="adding-business-logic-layer-to-a-project-that-uses-model-binding-and-web-forms"></a>Agregar capa de lógica empresarial a un proyecto que usa el enlace de modelos y formularios web forms
 ====================

@@ -4,19 +4,16 @@ title: Corrección para el Error de "Aplicación de servidor no disponible" desp
 author: rick-anderson
 description: Este documento describe la revisión que corrige un problema con la actualización de seguridad MS03-32 para Internet Explorer que afecta a las aplicaciones de ASP.NET 1.0 que se ejecutan en Wi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
-ms.technology: ''
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: 186ed7ea7ad9b317506fb3951a974682b44b27a1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1a289379229335a9841dec48e577c19173419891
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402475"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836728"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Corrección para el Error de "Aplicación de servidor no disponible" después de aplicar la actualización de seguridad para Internet Explorer
 ====================

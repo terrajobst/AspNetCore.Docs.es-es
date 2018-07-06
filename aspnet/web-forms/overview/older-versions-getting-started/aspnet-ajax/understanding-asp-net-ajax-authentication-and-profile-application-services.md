@@ -4,19 +4,16 @@ title: Descripción de la autenticación de ASP.NET AJAX y los servicios de apli
 author: scottcate
 description: El servicio de autenticación permite a los usuarios proporcionar las credenciales para recibir una cookie de autenticación y es el servicio de puerta de enlace para permitir que el usuario personalizada...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/14/2008
-ms.topic: article
 ms.assetid: 6ab4efb6-aab6-45ac-ad2c-bdec5848ef9e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-authentication-and-profile-application-services
 msc.type: authoredcontent
-ms.openlocfilehash: 323fec56f18281b5b5a3d312a2e4c4c7133e3f03
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6c08cffacb9ebde6f29398f53b2e568b4bd59d5d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393066"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831685"
 ---
 <a name="understanding-aspnet-ajax-authentication-and-profile-application-services"></a>Descripción de la autenticación de ASP.NET AJAX y los servicios de aplicación de perfiles
 ====================

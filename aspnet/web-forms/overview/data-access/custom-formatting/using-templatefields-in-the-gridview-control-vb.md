@@ -4,19 +4,16 @@ title: Uso de TemplateFields en el Control GridView (VB) | Microsoft Docs
 author: rick-anderson
 description: Para proporcionar flexibilidad, el control GridView ofrece TemplateField, que se representa mediante una plantilla. Una plantilla puede incluir una combinación de HTML estático, controles Web, y...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: a92cd6ed-609a-4e40-ad23-004b54afd436
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-templatefields-in-the-gridview-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 845b5b07849420f03e60a9eb243f07641253540f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 411a3a2e4067d0e9b41143d85ddfb9b1031fd684
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396513"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829170"
 ---
 <a name="using-templatefields-in-the-gridview-control-vb"></a>Uso de TemplateFields en el Control GridView (VB)
 ====================

@@ -4,19 +4,16 @@ title: jQuery Mobile 1.4.5 en la red CDN de Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/31/2014
-ms.topic: article
 ms.assetid: 67e9fda2-7895-4818-add6-fdc5be5be367
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile145
 msc.type: content
-ms.openlocfilehash: 4a4642129fef5f0159139068179064e6b49b2799
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4f88914c877ef196698e6c190957363b2a9db356
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393298"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37826632"
 ---
 <a name="jquery-mobile-145-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.4.5 en la red CDN de Microsoft Ajax
 ====================

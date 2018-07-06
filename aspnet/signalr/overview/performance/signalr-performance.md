@@ -4,19 +4,16 @@ title: Rendimiento de SignalR | Microsoft Docs
 author: pfletcher
 description: Rendimiento de SignalR
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/10/2014
-ms.topic: article
 ms.assetid: 3751f5e7-59db-4be0-a290-50abc24e5c84
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/performance/signalr-performance
 msc.type: authoredcontent
-ms.openlocfilehash: 9d032f84bbbc3ddb2e102cb37fd4d52ae5ef75c4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bd44d77ae6166c58addbd5817977fdc26d44c024
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388758"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839520"
 ---
 <a name="signalr-performance"></a>Rendimiento de SignalR
 ====================

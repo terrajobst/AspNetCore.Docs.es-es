@@ -4,19 +4,16 @@ title: Crear la capa de acceso a datos | Microsoft Docs
 author: Erikre
 description: Esta serie de tutoriales aprenderá los conceptos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para se...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: 0bbf7a6e-d7eb-4091-91e4-fff892777f32
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/create_the_data_access_layer
 msc.type: authoredcontent
-ms.openlocfilehash: 5b4bb5bc89938836bc37e8ebd385fa966bc6f511
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b462444396d0dcb3fcaf8ec93170c049cd1ebaef
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390048"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819908"
 ---
 <a name="create-the-data-access-layer"></a>Crear la capa de acceso a datos
 ====================

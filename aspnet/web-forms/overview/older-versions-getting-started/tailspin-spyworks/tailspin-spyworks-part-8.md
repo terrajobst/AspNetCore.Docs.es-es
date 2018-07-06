@@ -4,19 +4,16 @@ title: 'Parte 8: Páginas finales, control de excepciones y conclusión | Micros
 author: JoeStagner
 description: Esta serie de tutoriales detalla todos los pasos que se tarda en compilar la aplicación de ejemplo Tailspin Spyworks. Parte 8 agrega una página de contacto, acerca de la página y la excepción...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2010
-ms.topic: article
 ms.assetid: 5aeadf8f-39f3-4f07-a78f-1c310c64fb23
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-8
 msc.type: authoredcontent
-ms.openlocfilehash: 3f1d855e157f6a58995d301a793e660925767fb4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4fb0147a5cd8621e5341e4995960adf2f00fffc0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380258"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804722"
 ---
 <a name="part-8-final-pages-exception-handling-and-conclusion"></a>Parte 8: Páginas finales, control de excepciones y conclusión
 ====================

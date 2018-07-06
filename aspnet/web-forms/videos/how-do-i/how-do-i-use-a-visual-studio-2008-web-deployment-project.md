@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] Usar un proyecto de implementación Web de Visual St
 author: rick-anderson
 description: En este vídeo, Chris Pels muestra cómo usar el complemento de implementación Web de Visual Studio 2008 para crear proyectos de implementación con un mayor grado de control sobre cómo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/11/2008
-ms.topic: article
 ms.assetid: 9517a342-e414-4c93-b0a6-5b52b391c908
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-visual-studio-2008-web-deployment-project
 msc.type: video
-ms.openlocfilehash: 651d27d94d6fae61b4d2468faab57a569c303f58
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 183ac4543fb294ca9815ec99f4c8c017fe637e8f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391831"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803488"
 ---
 <a name="how-do-i-use-a-visual-studio-2008-web-deployment-project"></a>[¿Cómo lo hago?:] Usar un proyecto de implementación Web de Visual Studio 2008
 ====================

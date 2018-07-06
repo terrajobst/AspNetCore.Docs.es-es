@@ -4,19 +4,16 @@ title: Habilitación de solicitudes entre orígenes en ASP.NET Web API 2 | Micro
 author: MikeWasson
 description: Muestra cómo admitir el uso compartido de recursos entre orígenes (CORS) en ASP.NET Web API.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/15/2014
-ms.topic: article
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 603eb55f8fa0b629d0287b66086b9495ef55faf7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7ac6158c2365aa324cefe97db044f568a1a43795
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381094"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805417"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Habilitación de solicitudes entre orígenes en ASP.NET Web API 2
 ====================

@@ -4,19 +4,16 @@ title: Limitar la funcionalidad de modificación de datos en función del usuari
 author: rick-anderson
 description: En una aplicación web que permite a los usuarios editar datos, distintas cuentas de usuario que tenga privilegios de edición de datos diferentes. En este tutorial examinaremos cómo t...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: 2b251c82-77cf-4e36-baa9-b648eddaa394
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/limiting-data-modification-functionality-based-on-the-user-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d8141a47bc7036641a93a0946b43e1f8086b9a93
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d011f57834ff27efd888a3f66342a7d0a2d70d8c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372247"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811398"
 ---
 <a name="limiting-data-modification-functionality-based-on-the-user-c"></a>Limitar la funcionalidad de modificación de datos en función del usuario (C#)
 ====================

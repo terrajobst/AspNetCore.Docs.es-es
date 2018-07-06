@@ -4,19 +4,16 @@ title: 'Escaparate de ASP.NET MVC parte 23: Introducción a Domain-Driven Design
 author: robconery
 description: No me gusta la complejidad que ha aparecido en mi aplicación. No está seguro de qué otra forma al colocarla - pero la arquitectura tiene que agitar el contenido es un poco así en este episodio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/28/2009
-ms.topic: article
 ms.assetid: 690538bb-6f23-4b1a-94b7-188454bb734a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design
 msc.type: video
-ms.openlocfilehash: 3b90a8d44144c2afd25500cefa08602e3ce49236
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a28f5fca4572ba7fdc28140d5ba66ec503f68b65
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372306"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803735"
 ---
 <a name="aspnet-mvc-storefront-part-23-getting-started-with-domain-driven-design"></a>Escaparate de ASP.NET MVC parte 23: Introducción a Domain-Driven Design
 ====================

@@ -4,19 +4,16 @@ title: Creación de un Control de clasificación (VB) | Microsoft Docs
 author: wenz
 description: Muchos sitios Web, de comercio electrónico para sitios de la Comunidad, ofrecen a los usuarios para los artículos de la velocidad o elementos. Esto normalmente requiere algún esfuerzo de codificación, pero tenemos el...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 6d0d70f4-725e-4258-8ae8-24a6ba1ddbf7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/rating/creating-a-rating-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 501859b833eb18147e483b0d7a7359133d790d8b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cb8bd8ab400bf5633b8218e724ad86cf7271699d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368853"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811978"
 ---
 <a name="creating-a-rating-control-vb"></a>Creación de un Control de clasificación (VB)
 ====================

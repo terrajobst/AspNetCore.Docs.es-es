@@ -4,19 +4,16 @@ title: Crear pruebas unitarias para aplicaciones de ASP.NET MVC | Microsoft Docs
 author: StephenWalther
 description: Obtenga información sobre cómo crear pruebas unitarias para las acciones de controlador. En este tutorial, Stephen Walther muestra cómo probar si una acción de controlador devuelve un ParteI...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: 490a8588-aa5a-418e-a9b9-6215f694055a
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/creating-unit-tests-for-aspnet-mvc-applications
 msc.type: video
-ms.openlocfilehash: e3263494f892dd6b7e698e7f06d266e2ac687213
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 99f57a172bb00d6047ed1fb0a103e0164ed9a1a7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389692"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808524"
 ---
 <a name="creating-unit-tests-for-aspnet-mvc-applications"></a>Crear pruebas unitarias para aplicaciones de ASP.NET MVC
 ====================

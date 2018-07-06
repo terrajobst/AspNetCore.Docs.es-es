@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Implementar un HttpModule? | Microsoft Docs'
 author: scottgolightly
 description: En este vídeo Scott Golightly muestra cómo implementar un HttpModule simple que utiliza los eventos BeginRequest y EndRequest para almacenar algunos datos sobre la solicitud...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/12/2007
-ms.topic: article
 ms.assetid: 45daf6e2-c652-49c0-a9b4-2263f4ceada8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-an-httpmodule
 msc.type: video
-ms.openlocfilehash: cefc5297bda02fd3a004e749998d24b2183030f2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: da4d9e5167801eb0fa79e59abeb1322c25f859e7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383589"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838493"
 ---
 <a name="how-do-i-implement-an-httpmodule"></a>[¿Cómo lo hago?:] ¿Implementar un HttpModule?
 ====================

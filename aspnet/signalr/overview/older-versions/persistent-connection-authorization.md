@@ -4,19 +4,16 @@ title: Autenticación y autorización para las conexiones persistentes de Signal
 author: pfletcher
 description: Este tema describe cómo aplicar la autorización en una conexión persistente. Para obtener información general sobre la integración de seguridad en una aplicación de SignalR,...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/21/2013
-ms.topic: article
 ms.assetid: c34bc627-41af-4c21-a817-e97a19a7f252
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/persistent-connection-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 471bce03a37a401c2afe3735afef6f838555cc26
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 28984518346ef7e79c976a565dae5e5ab924b678
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365115"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805332"
 ---
 <a name="authentication-and-authorization-for-signalr-persistent-connections-signalr-1x"></a>Autenticación y autorización para las conexiones persistentes de SignalR (SignalR 1.x)
 ====================

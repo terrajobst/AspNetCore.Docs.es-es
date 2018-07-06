@@ -3,20 +3,18 @@ uid: api-ref
 title: Referencia de la API de ASP.NET | Microsoft Docs
 author: rick-anderson
 description: Documentación de referencia de API de ASP.NET.
-ms.author: aspnetcontent
-manager: wpickett
-ms.date: 01/30/2017
-ms.topic: article
 ms.assetid: b2203f7b-b732-42f0-8e78-b0635fcdd1de
-ms.technology: ''
+ms.author: aspnetcontent
+ms.date: 01/30/2017
+ms.technology: aspnet
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: 428806fa415daeabeb063a09170d840e7a026492
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6ff56e6cf6a95fc78bc863c062b1ec23789b6f09
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372587"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37837800"
 ---
 # <a name="aspnet-api-reference"></a>Referencia de la API de ASP.NET
 

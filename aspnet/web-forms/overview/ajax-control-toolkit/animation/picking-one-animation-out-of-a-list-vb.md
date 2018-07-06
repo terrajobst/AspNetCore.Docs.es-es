@@ -4,19 +4,16 @@ title: Seleccionar una animación de una lista (VB) | Microsoft Docs
 author: wenz
 description: El control de animación en ASP.NET AJAX Control Toolkit no es simplemente un control, pero un marco completo para agregar animaciones a un control. El marco de trabajo también permitir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 81ba9116-d485-40c0-8ff6-7e9ae23e0a0c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/picking-one-animation-out-of-a-list-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 561f05e96888962cfe576963ce3905b171203939
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 126f1b03897763f0619f893d23ab2e763206d08e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387746"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809892"
 ---
 <a name="picking-one-animation-out-of-a-list-vb"></a>Seleccionar una animación de una lista (VB)
 ====================

@@ -4,19 +4,16 @@ title: Novedades de Entity Framework 4.0 | Microsoft Docs
 author: tdykstra
 description: Esta serie de tutoriales se basa en la aplicación web de Contoso University establecen que se crea mediante la introducción a la serie de tutoriales de Entity Framework 4.0. PUEDO...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/26/2011
-ms.topic: article
 ms.assetid: 393df4a8-b1db-44c4-9db7-2b533ca887d0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/continuing-with-ef/what-s-new-in-the-entity-framework-4
 msc.type: authoredcontent
-ms.openlocfilehash: 2a6d2ddd6fdfb418cbb948d0a3ffefc8452d6127
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 960aaf7aa7c2cff5c51079ecfe50031fa82d5508
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363175"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827846"
 ---
 <a name="whats-new-in-the-entity-framework-40"></a>Novedades de Entity Framework 4.0
 ====================

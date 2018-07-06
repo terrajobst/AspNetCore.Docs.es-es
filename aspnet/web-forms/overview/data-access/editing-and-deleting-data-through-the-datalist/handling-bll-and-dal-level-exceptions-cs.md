@@ -4,19 +4,16 @@ title: Control de excepciones de nivel BLL y DAL (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, veremos cómo controlar las excepciones producidas durante el flujo de trabajo actualización de un DataList editable de manera discreta.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/30/2006
-ms.topic: article
 ms.assetid: f8fd58e2-f932-4f08-ab3d-fbf8ff3295d2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/handling-bll-and-dal-level-exceptions-cs
 msc.type: authoredcontent
-ms.openlocfilehash: ad48b5d2dcb9748e6c2b5a08a9f09f594b9c8374
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f83293f7b8482c2a24c3d825e271582edaadec59
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368277"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812085"
 ---
 <a name="handling-bll--and-dal-level-exceptions-c"></a>Control de excepciones de nivel BLL y DAL (C#)
 ====================

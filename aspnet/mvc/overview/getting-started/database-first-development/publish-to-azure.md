@@ -4,19 +4,16 @@ title: Publicar sitio MVC Database First en Azure | Microsoft Docs
 author: tfitzmac
 description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/22/2014
-ms.topic: article
 ms.assetid: 7131f1c1-cef3-4396-ab44-ed4519676546
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/publish-to-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 5189d8ee92c6abac31d80ca4efdb06500e72126a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0aaa8e2a586a89f6ea5eaeb4f3d280993342b2f9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387275"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835753"
 ---
 <a name="publish-mvc-database-first-site-to-azure"></a>Publicar sitio MVC Database First en Azure
 ====================

@@ -4,19 +4,16 @@ title: Compilar API RESTful con ASP.NET Web API | Microsoft Docs
 author: rick-anderson
 description: En los últimos años, se ha convertido en claro que HTTP no es solo para servir como páginas HTML. También es una plataforma eficaz para la creación de API de Web, con un puñado de o...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: 87daa99f-3810-407e-b969-dd28a192959d
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/older-versions/build-restful-apis-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 88ac5102a1cf14050412abc336e7a8260a9fa80d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 9866b5f75771c633165587ba04e694f72a1e626c
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363525"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835604"
 ---
 <a name="build-restful-apis-with-aspnet-web-api"></a>Compilar API RESTful con ASP.NET Web API
 ====================

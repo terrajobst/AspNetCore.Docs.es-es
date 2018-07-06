@@ -4,19 +4,16 @@ title: Introducción a ASP.NET Ajax historial | Microsoft Docs
 author: bleroy
 description: Obtenga información sobre cómo la versión preliminar de las extensiones de ASP.NET permite el control sobre el botón Atrás del explorador en Ajax. Extensiones de AJAX de ASP.NET están disponibles en el xtensión del 3.5 de ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/20/2007
-ms.topic: article
 ms.assetid: fd3db529-601a-4a6e-b91a-d9cbe1ff7bd4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/aspnet-ajax/introduction-to-aspnet-ajax-history
 msc.type: video
-ms.openlocfilehash: 2bd37691a4a250a4699b66b0b262c5c54ae65869
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 311e39a636e9a8f95f23732bfb449efb377e52a1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392421"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802359"
 ---
 <a name="introduction-to-aspnet-ajax-history"></a>Introducción al historial de Ajax de ASP.NET
 ====================

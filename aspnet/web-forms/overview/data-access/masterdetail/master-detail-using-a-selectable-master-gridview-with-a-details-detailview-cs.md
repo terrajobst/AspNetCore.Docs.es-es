@@ -4,19 +4,16 @@ title: Maestro y detalles mediante un GridView maestro seleccionable con un Deta
 author: rick-anderson
 description: Este tutorial tendrá un control GridView cuyas filas incluyen el nombre y el precio de cada producto junto con un botón de selección. Al hacer clic en el botón Seleccionar para un particu...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: 0f982827-f8f9-420d-b36b-57b23f5aa519
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/masterdetail/master-detail-using-a-selectable-master-gridview-with-a-details-detailview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e93461d566f827ff81dedf3651e7bd3d24c3583a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ea1bb03e2ea39198b70cf71c1105b3e6134e3971
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374942"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825761"
 ---
 <a name="masterdetail-using-a-selectable-master-gridview-with-a-details-detailview-c"></a>Maestro y detalles mediante un GridView maestro seleccionable con un DetailView de detalles (C#)
 ====================

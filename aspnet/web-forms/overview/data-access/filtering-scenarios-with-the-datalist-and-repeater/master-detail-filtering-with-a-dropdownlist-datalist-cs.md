@@ -4,19 +4,16 @@ title: Patrón de filtrado y detalles con DropDownList (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial veremos cómo mostrar informes de maestro y detalles en una única página web con listas desplegables para mostrar los registros de 'master' y un control DataList para mostrar...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: 07fa47ae-e491-4a2f-b265-d342b9ddef46
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-filtering-with-a-dropdownlist-datalist-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8af99dec92050f6d3b64919d06e7bc0ddc19e083
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ed2631e49786c81075099cca6941d98ba3b67e37
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389679"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818257"
 ---
 <a name="masterdetail-filtering-with-a-dropdownlist-c"></a>Patrón de filtrado y detalles con DropDownList (C#)
 ====================

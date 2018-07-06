@@ -4,19 +4,16 @@ title: Combatir los Bots (VB) | Microsoft Docs
 author: wenz
 description: Inicios automáticos pegar los weblogs y otros sitios Web con el correo no deseado, envío de formularios de comentario sin ninguna interacción del usuario. El control NoBot en la desventaja de AJAX de ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: e9803150-452d-4521-97e3-d75d5599383c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/nobot/fighting-bots-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1f919d130cc97b5f892cc01d58a0bcba790a98e3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e79a973f721c1feeddb00ecbf9d6a76786afb4bb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362523"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833448"
 ---
 <a name="fighting-bots-vb"></a>Combatir los Bots (VB)
 ====================

@@ -4,19 +4,16 @@ title: Implementar paquetes Web | Microsoft Docs
 author: jrjlee
 description: Este tema describe cómo puede publicar paquetes de implementación web en un servidor remoto mediante la herramienta de implementación Web de Internet Information Services (IIS) (Web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: a5c5eed2-8683-40a5-a2e1-35c9f8d17c29
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/deploying-web-packages
 msc.type: authoredcontent
-ms.openlocfilehash: a660a9a5593d41064ab099296d4a7a675b206bb5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 44c3772263cbebaf03e1393542fda32467a97cd8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392863"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825270"
 ---
 <a name="deploying-web-packages"></a>Implementar paquetes Web
 ====================

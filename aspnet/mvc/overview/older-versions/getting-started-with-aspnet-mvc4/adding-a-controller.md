@@ -4,19 +4,16 @@ title: Agregar un controlador | Microsoft Docs
 author: Rick-Anderson
 description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/28/2012
-ms.topic: article
 ms.assetid: 0267d31c-892f-49a1-9e7a-3ae8cc12b2ca
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc4/adding-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: 100f5623bafa33548f9c979e98765c92327eb369
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b9ba4336b2239d835b648b82674bd4cfa8ca43dc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373294"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809039"
 ---
 <a name="adding-a-controller"></a>Agregar un controlador
 ====================

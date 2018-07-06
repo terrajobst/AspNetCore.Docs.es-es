@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] El Control de reordenación de Kit de herramientas d
 author: JoeStagner
 description: En este vídeo le demostraré el uso de control de reordenación de la que se incluye con el Kit de herramientas de AJAX. El control de reordenación permite presentar a los usuarios o de una lista...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 1bc7e41a-633c-4ade-ba7a-486c9484a0ba
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-the-ajax-toolkit-reorder-control
 msc.type: video
-ms.openlocfilehash: dbe8bd79bbd0ccaa0a9639aadb9eb8d7e5b7759e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 09e435b0c34bd889f0d7d320a6f6ca3a0e219c7a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390543"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839456"
 ---
 <a name="how-do-i-the-ajax-toolkit-reorder-control"></a>[¿Cómo lo hago?:] El Control de reordenación de Kit de herramientas de AJAX
 ====================

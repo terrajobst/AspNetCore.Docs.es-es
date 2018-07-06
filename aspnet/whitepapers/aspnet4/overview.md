@@ -4,19 +4,16 @@ title: ASP.NET 4 y Visual Studio 2010 Introducción al desarrollo Web | Microsof
 author: rick-anderson
 description: Este documento proporciona información general de muchas de las nuevas características para ASP.NET que se incluyen en.NET Framework 4 y en Visual Studio 2010.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/10/2010
-ms.topic: article
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
-ms.technology: ''
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 7a75b0c39c923bb500368dbb2304b534d8ed994d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5c7aa95b18bc0a97f42cc981476c110830286fa5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380784"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829048"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 y Visual Studio 2010 Introducción al desarrollo Web
 ====================

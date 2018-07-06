@@ -4,19 +4,16 @@ title: Procedimientos recomendados para implementar contraseñas y otros datos c
 author: Rick-Anderson
 description: Este tutorial muestra cómo el código puede almacenar y tener acceso a información segura de forma segura. El punto más importante es que nunca debe almacenar contraseñas u otros sen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2015
-ms.topic: article
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
-ms.technology: ''
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 8434c439cef7e30ddd45b78bb0bca5e4daeceaff
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 445e7c32baf4316273b0a5901a776684a6c5d73f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371014"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832460"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Procedimientos recomendados para implementar contraseñas y otros datos confidenciales en ASP.NET y Azure App Service
 ====================

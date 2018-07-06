@@ -4,19 +4,16 @@ title: jQuery UI 1.10.4 en la red CDN de Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2014
-ms.topic: article
 ms.assetid: 391248a2-ba70-4370-a114-2d4e3b8367b8
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1104
 msc.type: content
-ms.openlocfilehash: 7b396e54ad0ab7ebd0f65e1ef77067e099023c4f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0cfbb94126bdc2c37e1993b8935db6fce674ef5a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370975"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37833042"
 ---
 <a name="jquery-ui-1104-on-the-microsoft-ajax-cdn"></a>jQuery UI 1.10.4 en la red CDN de Microsoft Ajax
 ====================

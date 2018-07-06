@@ -4,19 +4,16 @@ title: Code First Migrations e implementación con Entity Framework en una aplic
 author: tdykstra
 description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/07/2014
-ms.topic: article
 ms.assetid: d4dfc435-bda6-4621-9762-9ba270f8de4e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/migrations-and-deployment-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 836711b05599087b540ad16bb5f462dd6baa287f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7c7092b770231b26fd666786af2e202acd70bc8a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400223"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838691"
 ---
 <a name="code-first-migrations-and-deployment-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Code First Migrations e implementación con Entity Framework en una aplicación ASP.NET MVC
 ====================

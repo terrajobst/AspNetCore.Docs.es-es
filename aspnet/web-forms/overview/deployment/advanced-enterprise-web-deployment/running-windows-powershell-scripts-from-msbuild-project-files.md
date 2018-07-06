@@ -4,19 +4,16 @@ title: Ejecutar secuencias de comandos de Windows PowerShell desde archivos de p
 author: jrjlee
 description: Este tema describe cómo ejecutar un script de Windows PowerShell como parte de un proceso de compilación e implementación. Puede ejecutar un script localmente (es decir, en la b...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 55f1ae45-fcb5-43a9-8415-fa5b935fc9c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/running-windows-powershell-scripts-from-msbuild-project-files
 msc.type: authoredcontent
-ms.openlocfilehash: ddb658d8a8f224a7c417321df3e17ce0610d2473
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: faedcee480b6c50dc560055206fedbe7af4d5f67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362900"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803154"
 ---
 <a name="running-windows-powershell-scripts-from-msbuild-project-files"></a>Ejecutar secuencias de comandos de Windows PowerShell desde archivos de proyecto de MSBuild
 ====================
@@ -59,7 +56,7 @@ En este tema le mostrará cómo realizar estos procedimientos. Las tareas y los 
 Las tareas de este tema usan un script de Windows PowerShell de ejemplo denominado **LogDeploy.ps1** para ilustrar cómo ejecutar scripts de MSBuild. El **LogDeploy.ps1** script contiene una función sencilla que escribe una entrada de una línea en un archivo de registro:
 
 
-[!code-javascript[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.js)]
+[!code-powershell[Main](running-windows-powershell-scripts-from-msbuild-project-files/samples/sample1.ps1)]
 
 
 El **LogDeploy.ps1** script acepta dos parámetros. El primer parámetro representa la ruta de acceso completa al archivo de registro a la que desea agregar una entrada, y el segundo parámetro representa el destino de implementación que desea registrar en el archivo de registro. Al ejecutar el script, agrega una línea al archivo de registro en este formato:

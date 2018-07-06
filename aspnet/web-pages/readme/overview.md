@@ -4,19 +4,16 @@ title: Archivo Léame de WebMatrix | Microsoft Docs
 author: rick-anderson
 description: WebMatrix y ASP.NET Web Pages (Razor) versión 1.0 Léame
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/06/2011
-ms.topic: article
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 924bf04772a1d73c7fdfb1168090daef388438ab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8aa0eedb3156ca33905c106b72d5fa553a917b16
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398805"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822867"
 ---
 <a name="webmatrix-readme"></a>Archivo Léame de WebMatrix
 ====================

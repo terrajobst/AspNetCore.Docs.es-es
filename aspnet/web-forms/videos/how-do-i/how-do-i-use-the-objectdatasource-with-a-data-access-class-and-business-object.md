@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] Usar ObjectDataSource con una clase de acceso a dato
 author: rick-anderson
 description: En este vídeo, Chris Pels mostrará cómo usar ObjectDataSource como la capa intermedia entre los elementos enlazados a datos de la interfaz de usuario y una cuenta de datos personalizada...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2008
-ms.topic: article
 ms.assetid: 8a47e438-3d8c-4a70-803c-56536a868bd9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object
 msc.type: video
-ms.openlocfilehash: 93a1bfb88ac1306f38e9781d8976daddf6628a05
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 582d656efe4ec0f33c24c8c217b7f834fb4d5b78
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381213"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804626"
 ---
 <a name="how-do-i-use-the-objectdatasource-with-a-data-access-class-and-business-object"></a>[¿Cómo lo hago?:] Usar ObjectDataSource con una clase de acceso a datos y un objeto comercial
 ====================

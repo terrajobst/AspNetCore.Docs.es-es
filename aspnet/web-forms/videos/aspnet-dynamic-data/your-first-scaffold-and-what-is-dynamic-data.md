@@ -4,19 +4,16 @@ title: ¿Su primer Scaffold y qué es dinámico de datos? | Microsoft Docs
 author: shanselman
 description: En esta breve introducción, cree una aplicación en cuestión de minutos con scaffolding y en el proceso de obtener información sobre los datos dinámicos de datos dinámica completa.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/08/2008
-ms.topic: article
 ms.assetid: aff67466-d3e1-4ecb-8df3-2a79583f65b2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/your-first-scaffold-and-what-is-dynamic-data
 msc.type: video
-ms.openlocfilehash: 434e5c4d96e7eb901c1286d82fb9aca321130a1d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 29ee070391d788da9cacc97c2ae50ba50a193a83
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397184"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840396"
 ---
 <a name="your-first-scaffold-and-what-is-dynamic-data"></a>¿Su primer Scaffold y qué es dinámico de datos?
 ====================

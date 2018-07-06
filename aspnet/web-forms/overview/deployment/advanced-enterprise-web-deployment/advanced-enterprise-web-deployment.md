@@ -4,19 +4,16 @@ title: Implementación Web de empresa avanzada | Microsoft Docs
 author: jrjlee
 description: Este tutorial le mostrará cómo realizar diversas tareas que están necesario o deseable en muchos escenarios de implementación de empresa. Para un translati italiano...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 7dcaba80-f2ec-4db3-ad98-daadc3afdb49
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/advanced-enterprise-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 7b4546079d15649ff2371ced6746a29a90bdfc85
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: adadd921a96b5643eb54cd6f6384ef881ca6ba50
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401878"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835087"
 ---
 <a name="advanced-enterprise-web-deployment"></a>Implementación Web de empresa avanzada
 ====================

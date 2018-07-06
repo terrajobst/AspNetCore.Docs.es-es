@@ -4,19 +4,16 @@ title: ASP.NET MVC 5 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 5 ASP.NET MVC 5 es un marco para crear aplicaciones web escalable y basada en estándares con los patrones de diseño bien establecido y la eficacia de AS....
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/20/2014
-ms.topic: article
 ms.assetid: f79fbf7f-59e5-4279-a832-c1a0294630f4
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/mvc5
 msc.type: content
-ms.openlocfilehash: f3a81d249f186a2bdea9c25a3e178e13fd2bc830
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 97423f9a2e66187329887c4c5e92bb20cb9a7fc4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37403037"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814345"
 ---
 <a name="aspnet-mvc-5"></a>ASP.NET MVC 5
 ====================

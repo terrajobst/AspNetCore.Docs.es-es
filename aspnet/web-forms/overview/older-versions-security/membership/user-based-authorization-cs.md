@@ -4,19 +4,16 @@ title: Autorización basada en usuario (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial veremos limitar el acceso a las páginas y restringir la funcionalidad de nivel de página a través de una variedad de técnicas.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 3c815a9e-2296-4b9b-b945-776d54989daa
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/user-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5ab8fb2782cf9d29c9912fa81158c50a9d8d8af5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2fe1dbc7e5fd609870975fbf41849522bbeed534
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396798"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823996"
 ---
 <a name="user-based-authorization-c"></a>Autorización basada en usuario (C#)
 ====================

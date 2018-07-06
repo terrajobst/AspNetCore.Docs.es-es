@@ -4,19 +4,16 @@ title: Crear un modelo de datos más compleja para una aplicación ASP.NET MVC |
 author: tdykstra
 description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/07/2014
-ms.topic: article
 ms.assetid: 46f7f3c9-274f-4649-811d-92222a9b27e2
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-a-more-complex-data-model-for-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 70227f44185df292ca96752fd1b2d79451ce6cbb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d73e291cf34a800dbe41766b2516e8dd33a66046
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372801"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804111"
 ---
 <a name="creating-a-more-complex-data-model-for-an-aspnet-mvc-application"></a>Crear un modelo de datos más compleja para una aplicación ASP.NET MVC
 ====================

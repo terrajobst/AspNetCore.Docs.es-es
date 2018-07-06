@@ -4,19 +4,16 @@ title: Programación de ASP.NET Web Pages (Razor) con Visual Studio | Microsoft 
 author: tfitzmac
 description: En este apéndice se explica cómo puede usar Visual Studio 2010 o Visual Web Developer 2010 Express programar ASP.NET Web Pages con la sintaxis Razor.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/13/2014
-ms.topic: article
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: b7f9a6c2d55d31dc918d2b2e542e26639a54b39a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 46807b464499b2e60d995d37f161ca129d38f439
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380368"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834460"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Programación de ASP.NET Web Pages (Razor) con Visual Studio
 ====================

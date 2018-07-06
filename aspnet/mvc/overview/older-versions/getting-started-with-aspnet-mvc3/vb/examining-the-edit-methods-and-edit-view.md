@@ -4,19 +4,16 @@ title: Examinar los métodos de edición y la vista Edit (VB) | Microsoft Docs
 author: Rick-Anderson
 description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 5cb3c59b-1e96-464b-b3a8-c55607201872
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
-ms.openlocfilehash: 9f99981b41d0e67514f5667b00640ad9174d1e4d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4c0478f077ef22a301d21a5a8ce65d4117ee2348
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362672"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815267"
 ---
 <a name="examining-the-edit-methods-and-edit-view-vb"></a>Examinar los métodos de edición y la vista Edit (VB)
 ====================

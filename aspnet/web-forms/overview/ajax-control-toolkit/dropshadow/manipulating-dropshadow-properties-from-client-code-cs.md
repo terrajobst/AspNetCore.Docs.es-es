@@ -4,19 +4,16 @@ title: Manipular propiedades DropShadow desde el código de cliente (C#) | Micro
 author: wenz
 description: Personalizar la interfaz de edición de DataList
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: c83ca3e6-c0bf-4158-a166-40c1ab0f33da
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e3166b9da97a0f4097566b62ba52b6d672eab78f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7255e8b2b4c3c5f1c5ebf5a05851c13c07e49c5e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377290"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820316"
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-c"></a>Manipular propiedades DropShadow desde el código de cliente (C#)
 ====================

@@ -4,19 +4,16 @@ title: Aplicación de ASP.NET MVC 5 con SMS y correo electrónico de autenticaci
 author: Rick-Anderson
 description: Este tutorial muestra cómo compilar una aplicación web de ASP.NET MVC 5 con autenticación en dos fases. Debe completar la aplicación web de crear una ASP.NET MVC 5 segura con...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2015
-ms.topic: article
 ms.assetid: f50a5cdb-c06a-46ed-aa14-fc5b049dc8dc
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/security/aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: 7987953ae94105be8f4856069ce13b86aec7e7f9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4fd0091effcf2cc0517da91922981e49ef0eef5a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393962"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803212"
 ---
 <a name="aspnet-mvc-5-app-with-sms-and-email-two-factor-authentication"></a>Aplicación de ASP.NET MVC 5 con SMS y correo electrónico de autenticación en dos fases
 ====================

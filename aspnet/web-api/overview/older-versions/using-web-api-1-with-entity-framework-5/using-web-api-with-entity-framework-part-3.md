@@ -4,19 +4,16 @@ title: 'Parte 3: Creación de un controlador de administración | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/04/2012
-ms.topic: article
 ms.assetid: 6b9ae3c4-0274-4170-a1bb-9df9c546b2a9
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: b9d21edec7b5006beea83395cdfc5ae181992e7d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: caf7649f2e420b4063966fd1a371c3d9a5eb4d04
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365050"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815462"
 ---
 <a name="part-3-creating-an-admin-controller"></a>Parte 3: Creación de un controlador de administración
 ====================

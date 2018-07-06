@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Proteger el sitio mediante la pertenencia y funcio
 author: microsoft
 description: Obtenga información sobre cómo proteger un sitio web mediante las nuevas características pertenencia y funciones de ASP.NET 2.0. Los temas incluyen el registro de usuario, la recuperación de contraseña y restricti...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/09/2006
-ms.topic: article
 ms.assetid: e80c641c-f5e5-42a5-8bcd-5fecb34de198
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-secure-my-site-using-membership-and-roles
 msc.type: video
-ms.openlocfilehash: 7cd8c367ff35f761367b09b03be287a3378b5eab
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 7cec18f7cf71e114d809c69b6fc3c689157e7c81
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372902"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830220"
 ---
 <a name="how-do-i-secure-my-site-using-membership-and-roles"></a>[¿Cómo lo hago?:] ¿Proteger el sitio mediante la pertenencia y funciones?
 ====================

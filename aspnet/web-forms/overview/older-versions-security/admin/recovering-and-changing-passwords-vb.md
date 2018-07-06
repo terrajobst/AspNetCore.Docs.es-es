@@ -4,19 +4,16 @@ title: Recuperar y cambiar las contraseñas (VB) | Microsoft Docs
 author: rick-anderson
 description: ASP.NET incluye dos controles Web de ayudar a recuperar y cambiar las contraseñas. El control PasswordRecovery permite a un visitante recuperar a su pa perdido...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: f9adcb5d-6d70-4885-a3bf-ed95efb4da1a
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/recovering-and-changing-passwords-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 68b70708904a46e31639331bbfd0dd31240ea421
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bb52204b58bcdbb3d03390868e52b8a6f74df5e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394001"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822919"
 ---
 <a name="recovering-and-changing-passwords-vb"></a>Recuperar y cambiar las contraseñas (VB)
 ====================

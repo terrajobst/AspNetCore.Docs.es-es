@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Implementar la reescritura de URL? | Microsoft Doc
 author: scottgolightly
 description: En este vídeo Scott Golightly muestra cómo crear un HttpModule ASP.NET ' reescribir ' la dirección URL cuando llega una solicitud para una página web. Es posible que desee volver a escribir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/01/2007
-ms.topic: article
 ms.assetid: aa0c328c-edff-4908-b052-31b6b06f8555
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-url-rewriting
 msc.type: video
-ms.openlocfilehash: e84e44b612f44c389c03d336af0e32584cdc861e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 91a5e9c5aa78688b7845e5081c6d0dec23e5c561
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364506"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836884"
 ---
 <a name="how-do-i-implement-url-rewriting"></a>[¿Cómo lo hago?:] ¿Implementar la reescritura de URL?
 ====================

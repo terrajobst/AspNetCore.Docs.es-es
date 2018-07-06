@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Usar los servicios de perfiles ASP.NET AJAX? | Mic
 author: rick-anderson
 description: ASP.NET 2.0 introdujo las propiedades de perfil con el que puede almacenar los detalles de cada usuario de la aplicación Web ASP.NET. Permitir que los servicios de perfil de AJAX de ASP.NET...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/16/2007
-ms.topic: article
 ms.assetid: 8fc77048-4d1f-42bf-a947-ecc9a02b25c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-use-the-aspnet-ajax-profile-services
 msc.type: video
-ms.openlocfilehash: 8e5d075c599720973ef58bf956701e4a9a371506
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5a059e503262b33b0bf6f21f244715e92f46ca16
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385227"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840094"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-profile-services"></a>[¿Cómo lo hago?:] ¿Usar los servicios de perfiles ASP.NET AJAX?
 ====================

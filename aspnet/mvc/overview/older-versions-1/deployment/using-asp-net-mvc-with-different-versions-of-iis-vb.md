@@ -4,19 +4,16 @@ title: Usar ASP.NET MVC con distintas versiones de IIS (VB) | Microsoft Docs
 author: microsoft
 description: En este tutorial, aprenderá a usar ASP.NET MVC y el enrutamiento de direcciones URL, con diferentes versiones de Internet Information Services. Aprenda estrategias diferentes...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: 1c1283b2-6956-4937-b568-d30de432ce23
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/deployment/using-asp-net-mvc-with-different-versions-of-iis-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e997f3c7db124869a731b346a4fb3b04072fb0b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4c0dc1ac08cfe06ad7ea35a6e6552ab1174ff989
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370050"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818209"
 ---
 <a name="using-aspnet-mvc-with-different-versions-of-iis-vb"></a>Usar ASP.NET MVC con distintas versiones de IIS (VB)
 ====================

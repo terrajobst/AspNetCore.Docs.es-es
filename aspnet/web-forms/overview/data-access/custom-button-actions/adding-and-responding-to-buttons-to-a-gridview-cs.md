@@ -4,19 +4,16 @@ title: Agregar y responder a los botones en un control GridView (C#) | Microsoft
 author: rick-anderson
 description: En este tutorial, buscaremos en cómo agregar botones personalizados tanto a los campos de un control GridView o DetailsView a una plantilla. En concreto, vamos a GE...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/13/2006
-ms.topic: article
 ms.assetid: 128fdb5f-4c5e-42b5-b485-f3aee90a8e38
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions/adding-and-responding-to-buttons-to-a-gridview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 25e9574a861d23579ce1a18da895159d47881457
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 92743d252e6d8895ac1bff104456ec5874202ec9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368598"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37804751"
 ---
 <a name="adding-and-responding-to-buttons-to-a-gridview-c"></a>Agregar y responder a los botones en un control GridView (C#)
 ====================

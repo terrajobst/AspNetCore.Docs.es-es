@@ -4,19 +4,16 @@ title: Mostrar una página de Error personalizada (C#) | Microsoft Docs
 author: rick-anderson
 description: ¿Lo que ve el usuario cuando se produce un error en tiempo de ejecución en una aplicación web ASP.NET? La respuesta depende de la del sitio Web &lt;customErrors&gt; configuración...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/09/2009
-ms.topic: article
 ms.assetid: cb061642-faf3-41b2-9372-69e13444d458
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/displaying-a-custom-error-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 7f2e9165acf86ce62d51e7c8d67205684d68e214
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8cd10806b3c803269d00265156ca618aef1db13a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362948"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37828688"
 ---
 <a name="displaying-a-custom-error-page-c"></a>Mostrar una página de Error personalizada (C#)
 ====================

@@ -4,19 +4,16 @@ title: Generar perfiles y depurar la aplicación de ASP.NET MVC con Glimpse | Mi
 author: Rick-Anderson
 description: Glimpse es un próspero y aumentando la familia de paquetes de NuGet de código abierto que proporciona detallados de rendimiento, depuración e información de diagnóstico para ASP.NET un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/26/2015
-ms.topic: article
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: ef65b512645d3f013ea34d3557da93254425c419
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4d044217d6c33594b39747a765165b8702338027
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37391075"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808546"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Generar perfiles y depurar la aplicación de ASP.NET MVC con Glimpse
 ====================

@@ -4,19 +4,16 @@ title: Configurar un servidor Web para Web (agente remoto) de la publicación de
 author: jrjlee
 description: Este tema describe cómo configurar un servidor web de Internet Information Services (IIS) para admitir la publicación en web y la implementación mediante la implementación Web de IIS...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/04/2012
-ms.topic: article
 ms.assetid: 239c7aa8-d09a-4d02-9c0e-6bd52be5f0d5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-remote-agent
 msc.type: authoredcontent
-ms.openlocfilehash: cb3191a260eb10a47f1aaf818052fcae023ff74a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 348c618fe6ec726e8087b4f3acb66cddbef1d225
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37392774"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819648"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-remote-agent"></a>Configurar un servidor Web para la publicación (agente remoto) de implementación Web
 ====================

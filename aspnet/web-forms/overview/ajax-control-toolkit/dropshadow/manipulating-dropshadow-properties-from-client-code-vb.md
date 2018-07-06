@@ -4,19 +4,16 @@ title: Manipular propiedades DropShadow desde el código de cliente (VB) | Micro
 author: wenz
 description: El control DropShadow en AJAX Control Toolkit amplía un panel con una sombra paralela. También se pueden cambiar las propiedades de este extensor mediante JavaScript de cliente...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 11be4211-2fb9-4e15-b6d4-2aa623d81f3e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow/manipulating-dropshadow-properties-from-client-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b2be6964e3f46a007cda7ddba4dda14d03449d34
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b9220eecca224c2b1e0f19c972c6c2a4dc9c7d35
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378928"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841414"
 ---
 <a name="manipulating-dropshadow-properties-from-client-code-vb"></a>Manipular propiedades DropShadow desde el código de cliente (VB)
 ====================

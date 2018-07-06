@@ -4,19 +4,16 @@ title: 'Parte 4: Lista de productos | Microsoft Docs'
 author: JoeStagner
 description: Esta serie de tutoriales detalla todos los pasos que se tarda en compilar la aplicación de ejemplo Tailspin Spyworks. Parte 4 cubre la lista de productos con el contr GridView...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/21/2010
-ms.topic: article
 ms.assetid: 4fab47d5-a6ec-4fdc-91f0-651a093a24b9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 929d88d747c25ca7c4f6f991421cb3aa9456aa45
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ec349a2564a63fd950ca5f6a171e6ffd1199c28a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368814"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813080"
 ---
 <a name="part-4-listing-products"></a>Parte 4: Lista de productos
 ====================

@@ -4,19 +4,16 @@ title: 'Parte 2: Crear modelos de dominio | Microsoft Docs'
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/03/2012
-ms.topic: article
 ms.assetid: fe3ef85f-bdc6-4e10-9768-25aa565c01d0
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-2
 msc.type: authoredcontent
-ms.openlocfilehash: 9f379c92f7795c9fe10f7860b72188a8cfc1b6d2
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 605a3eb5d781db6b317369efe8698288d7b9f648
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379730"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802275"
 ---
 <a name="part-2-creating-the-domain-models"></a>Parte 2: Crear modelos de dominio
 ====================

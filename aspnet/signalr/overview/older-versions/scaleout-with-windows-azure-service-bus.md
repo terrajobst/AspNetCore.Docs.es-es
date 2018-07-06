@@ -4,19 +4,16 @@ title: Escalabilidad horizontal de SignalR con Azure Service Bus (SignalR 1.x) |
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/01/2013
-ms.topic: article
 ms.assetid: 501db899-e68c-49ff-81b2-1dc561bfe908
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-windows-azure-service-bus
 msc.type: authoredcontent
-ms.openlocfilehash: bcaff2f371c757bc819bc44b9b3bd296b085a688
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 751de591ec62942c2c9d8b26af40101eb2e922d5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37380038"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820945"
 ---
 <a name="signalr-scaleout-with-azure-service-bus-signalr-1x"></a>Escalabilidad horizontal de SignalR con Azure Service Bus (SignalR 1.x)
 ====================

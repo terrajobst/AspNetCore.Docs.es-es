@@ -4,19 +4,16 @@ title: 'Escaparate de ASP.NET MVC parte 17: Finalizar la compra con Jeff Atwood 
 author: robconery
 description: En este episodio listo el proceso de retirada y hable con el Sr. CodingHorror a sí mismo, Jeff Atwood. Hablar sobre todos los tipos de cosas, pero tratan principalmente Ope...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/16/2008
-ms.topic: article
 ms.assetid: a39182f9-a82c-41fa-9be0-92c2291a3a96
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood
 msc.type: video
-ms.openlocfilehash: 3c5acf743757a088b22de63f5882e0b3f425c3c1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 87755873eb94af416e0e33dd62e41ab383357201
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37365164"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805391"
 ---
 <a name="aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood"></a>Escaparate de ASP.NET MVC parte 17: Finalizar la compra con Jeff Atwood
 ====================

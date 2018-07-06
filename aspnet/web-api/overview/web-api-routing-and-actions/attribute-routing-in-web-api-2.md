@@ -4,19 +4,16 @@ title: Atributo de enrutamiento en ASP.NET Web API 2 | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/20/2014
-ms.topic: article
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: e15f89ba98acef68279e51b278e3c7045569607a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 52164fde1a2277bb9ef07f2a5476ca78b71a8e52
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37373235"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37802762"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Enrutamiento mediante atributos en ASP.NET Web API 2
 ====================

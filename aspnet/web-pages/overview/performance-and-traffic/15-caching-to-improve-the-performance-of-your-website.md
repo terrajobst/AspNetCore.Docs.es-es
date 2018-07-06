@@ -4,19 +4,16 @@ title: Almacenamiento en caché de datos en ASP.NET Web Pages (Razor) sitio para
 author: tfitzmac
 description: 'Puede acelerar su sitio Web al tener almacenar: es decir, caché, los resultados de datos que normalmente tardará bastante tiempo en recuperar o procesar un...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/14/2014
-ms.topic: article
 ms.assetid: 961e525b-7700-469e-8a68-d7010b6fb68c
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/performance-and-traffic/15-caching-to-improve-the-performance-of-your-website
 msc.type: authoredcontent
-ms.openlocfilehash: 4134c80d7eed4752c90a06aab796a0fd8c2a9782
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 28be9194bbd95e896311700ddcf89379a82ee636
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37383414"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805210"
 ---
 <a name="caching-data-in-an-aspnet-web-pages-razor-site-for-better-performance"></a>Para mejorar el rendimiento de almacenamiento en caché datos en un sitio Web de ASP.NET Pages (Razor)
 ====================

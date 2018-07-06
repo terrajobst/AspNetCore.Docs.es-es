@@ -4,19 +4,16 @@ title: Validación 1.14.0 jQuery | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/26/2015
-ms.topic: article
 ms.assetid: 291287b9-14d0-40de-acff-3e038737825b
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate1140
 msc.type: content
-ms.openlocfilehash: 2d1867af942c1f0746a5ec09721d1a2590c0694e
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3caf22f02d074e169d69f034234292a57e6f5c46
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399982"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816958"
 ---
 <a name="jquery-validation-1140"></a>1.14.0 de validación de jQuery
 ====================

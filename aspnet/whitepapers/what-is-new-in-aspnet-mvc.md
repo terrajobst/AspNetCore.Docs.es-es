@@ -4,19 +4,16 @@ title: Novedades de ASP.NET MVC 2 | Microsoft Docs
 author: rick-anderson
 description: Este documento describe las nuevas características y mejoras introducidas en ASP.NET MVC 2. Este documento también está disponible para su descarga.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/20/2010
-ms.topic: article
 ms.assetid: 69a8d6f8-4b10-4602-8822-2d6c05fc432b
-ms.technology: ''
 msc.legacyurl: /whitepapers/what-is-new-in-aspnet-mvc
 msc.type: content
-ms.openlocfilehash: 51349c9967890675b4e13a6710572c1cea7d9337
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 54f62b0f6bbde50f53d062eda422f5f58806cbe1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400436"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37834169"
 ---
 <a name="whats-new-in-aspnet-mvc-2"></a>Novedades de ASP.NET MVC 2
 ====================

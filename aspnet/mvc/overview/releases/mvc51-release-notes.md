@@ -4,19 +4,16 @@ title: Novedades de ASP.NET MVC 5.1 | Microsoft Docs
 author: microsoft
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/27/2014
-ms.topic: article
 ms.assetid: 9a83a058-9b01-48aa-acce-ec041e694567
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/releases/mvc51-release-notes
 msc.type: authoredcontent
-ms.openlocfilehash: 2b63ca8868bbf31be569e2eb2edb51141b9f4330
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d2e67f64e725e73c3bf9021295da3fe870079a45
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362767"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37825653"
 ---
 <a name="whats-new-in-aspnet-mvc-51"></a>Novedades de ASP.NET MVC 5.1
 ====================

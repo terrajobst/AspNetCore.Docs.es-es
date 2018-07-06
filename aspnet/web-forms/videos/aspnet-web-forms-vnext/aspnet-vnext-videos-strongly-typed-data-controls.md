@@ -4,19 +4,16 @@ title: 'ASP.NET vNext vídeos: controles datos fuertemente tipados | Microsoft D
 author: DamianEdwards
 description: En este vídeo, Damian Edwards muestra controles de datos fuertemente tipados en Visual Studio vNext, que proporcionan IntelliSense y comprobación en tiempo de compilación.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/22/2011
-ms.topic: article
 ms.assetid: 4eda33a1-54f8-4cb6-8cc4-4be78f5fdc00
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-strongly-typed-data-controls
 msc.type: video
-ms.openlocfilehash: 3cede9b88684f2f26841eb377e2222643ed89ef4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bcd03f87b85782cd2b8de70370557ed628608925
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364635"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37803939"
 ---
 <a name="aspnet-vnext-videos-strongly-typed-data-controls"></a>ASP.NET vNext vídeos: controles datos fuertemente tipados
 ====================

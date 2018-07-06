@@ -4,19 +4,16 @@ title: Controladores de mensajes HttpClient en ASP.NET Web API | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/01/2012
-ms.topic: article
 ms.assetid: 5a4b6c80-b2e9-4710-8969-d5076f7f82b8
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/advanced/httpclient-message-handlers
 msc.type: authoredcontent
-ms.openlocfilehash: 1712f190c5a313c79b7c91b671214dd8972cb3c9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: db9edcf4fb31e967c3d4e7635f96c68829aec97d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402946"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37831377"
 ---
 <a name="httpclient-message-handlers-in-aspnet-web-api"></a>Controladores de mensajes HttpClient en ASP.NET Web API
 ====================
