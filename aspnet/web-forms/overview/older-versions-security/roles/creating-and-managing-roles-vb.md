@@ -4,19 +4,16 @@ title: Crear y administrar Roles (VB) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial examinan los pasos necesarios para configurar el marco de trabajo de Roles. A continuación, vamos a crear páginas web para crear y eliminar roles.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 83af9f5f-9a00-4f83-8afc-e98bdd49014e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fbcd8613327ada581289ce613b5d0e0a09df4e19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: cbfa06ec50693f9640c813288e7c9175db670351
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386619"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819609"
 ---
 <a name="creating-and-managing-roles-vb"></a>Crear y administrar Roles (VB)
 ====================

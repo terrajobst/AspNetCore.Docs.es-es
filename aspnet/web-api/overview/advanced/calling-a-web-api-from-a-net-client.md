@@ -4,18 +4,15 @@ title: Llamar a una API Web desde un cliente .NET (C#) | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/24/2017
-ms.topic: article
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/advanced/calling-a-web-api-from-a-net-client
 msc.type: authoredcontent
-ms.openlocfilehash: 434515692a53c0939652b643b080cea9f2102564
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6b034642f1616a9d5c6495b65d4adeeae9a6f2c9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370923"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821396"
 ---
 <a name="call-a-web-api-from-a-net-client-c"></a>Llamar a una API Web desde un cliente .NET (C#)
 ====================

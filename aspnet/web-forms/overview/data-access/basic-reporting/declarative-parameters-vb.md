@@ -4,19 +4,16 @@ title: Parámetros declarativos (VB) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial le explicaremos cómo usar un parámetro establecido en un valor codificado de forma rígida para seleccionar los datos que se va a mostrar en un control DetailsView.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/31/2010
-ms.topic: article
 ms.assetid: dc1234a3-114f-4c9a-8d25-50ca03cc8e8e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/declarative-parameters-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 86590faf30b41acdd8a0922f9cc33feabfded23f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 01330d6c743fa9534cdb5dfa42bde5dbbe954c40
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397735"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839234"
 ---
 <a name="declarative-parameters-vb"></a>Parámetros declarativos (VB)
 ====================

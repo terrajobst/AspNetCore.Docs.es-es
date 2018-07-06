@@ -4,19 +4,16 @@ title: Registrar detalles del Error con ELMAH (VB) | Microsoft Docs
 author: rick-anderson
 description: Error de registro de módulos y controladores (ELMAH) ofrece otro enfoque para registrar errores en tiempo de ejecución en un entorno de producción. ELMAH es un error de código abierto...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/09/2009
-ms.topic: article
 ms.assetid: a5f0439f-18b2-4c89-96ab-75b02c616f46
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-elmah-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ed59c6099925a2046d201e0eab0a9afdd620de28
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dafb1facb0e2b1828eb990c423fbf5b1af0731d7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37389207"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821682"
 ---
 <a name="logging-error-details-with-elmah-vb"></a>Registrar detalles del Error con ELMAH (VB)
 ====================

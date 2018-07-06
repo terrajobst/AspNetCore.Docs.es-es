@@ -4,19 +4,16 @@ title: Enlace de datos a Accordion (VB) | Microsoft Docs
 author: wenz
 description: El control Accordion de AJAX Control Toolkit ofrece varios paneles y permite al usuario mostrar uno de ellos a la vez. Los paneles se declaran normalmente w...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: b19f0875-7d3e-4ecf-baa1-a0c693c765b3
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/databinding-to-an-accordion-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bc11aa96577919c2ca5dfca4ffc6301da67645ea
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e21eeacf776111656eb539b1fef8203db1b761c7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377433"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805893"
 ---
 <a name="databinding-to-an-accordion-vb"></a>Enlace de datos a Accordion (VB)
 ====================

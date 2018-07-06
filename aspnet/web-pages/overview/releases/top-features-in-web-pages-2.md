@@ -4,19 +4,16 @@ title: Características de la parte superior de ASP.NET Web Pages 2 | Microsoft 
 author: microsoft
 description: En este tema se proporciona información general sobre las principales características nuevas de ASP.NET Web Pages 2, un marco de programación web ligero que se incluye con el WebMatr...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/13/2012
-ms.topic: article
 ms.assetid: cc712e72-c3d0-4e43-bc2d-28cc09cd8f71
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/releases/top-features-in-web-pages-2
 msc.type: authoredcontent
-ms.openlocfilehash: 3cdb9d83e0f612ad7404bfaa9721b580916e112d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6e20dedd19ae458b9881973570f23b5d77dda654
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385271"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37827406"
 ---
 <a name="the-top-features-in-aspnet-web-pages-2"></a>Las principales características de ASP.NET Web Pages 2
 ====================

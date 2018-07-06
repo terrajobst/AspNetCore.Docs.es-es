@@ -4,19 +4,16 @@ title: jQuery Mobile 1.3.2 en Microsoft Ajax CDN | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 89d6cf36-4dd1-46e3-ae2f-d3dee67e7805
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-mobile/cdnjquerymobile132
 msc.type: content
-ms.openlocfilehash: 7b4b21d9ec7bf1f4a46ef6a942834c289a11812c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9d6feca4036232c802cc4b8aad6abecca8aa903a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374444"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37829019"
 ---
 <a name="jquery-mobile-132-on-the-microsoft-ajax-cdn"></a>jQuery Mobile 1.3.2 en la red CDN de Microsoft Ajax
 ====================

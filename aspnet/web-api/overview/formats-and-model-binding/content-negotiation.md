@@ -4,19 +4,16 @@ title: En ASP.NET Web API la negociación de contenido | Microsoft Docs
 author: MikeWasson
 description: Describe cómo ASP.NET Web API implementa la negociación de contenido HTTP.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/20/2012
-ms.topic: article
 ms.assetid: 0dd51b30-bf5a-419f-a1b7-2817ccca3c7d
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/formats-and-model-binding/content-negotiation
 msc.type: authoredcontent
-ms.openlocfilehash: c4e7a0c2601ca60f081876e83757997a2e920298
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 2314a263a12c74e80c08391ae03425955a82458a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368934"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810322"
 ---
 <a name="content-negotiation-in-aspnet-web-api"></a>Negociación de contenido en ASP.NET Web API
 ====================

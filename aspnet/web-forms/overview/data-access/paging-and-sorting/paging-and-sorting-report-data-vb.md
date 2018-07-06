@@ -4,19 +4,16 @@ title: Paginar y ordenar datos (VB) de informes | Microsoft Docs
 author: rick-anderson
 description: Paginación y clasificación son dos características muy comunes al mostrar datos en una aplicación en línea. En este tutorial echaremos un primer vistazo al agregar ordenación y...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/15/2006
-ms.topic: article
 ms.assetid: b895e37e-0e69-45cc-a7e4-17ddd2e1b38d
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/paging-and-sorting-report-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6de1f78bab795ef191553bf0d58b3b29c26d7d85
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e8e33bc11074815b5beacd92c49c95f8ea9da2c0
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387655"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808465"
 ---
 <a name="paging-and-sorting-report-data-vb"></a>Paginación y ordenación de datos de informe (VB)
 ====================

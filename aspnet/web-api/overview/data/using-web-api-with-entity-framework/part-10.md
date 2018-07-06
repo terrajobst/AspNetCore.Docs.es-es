@@ -4,19 +4,16 @@ title: Publicar la aplicación en Azure App Service de Azure | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/16/2014
-ms.topic: article
 ms.assetid: 10fd812b-94d6-4967-be97-a31ce9c45e2c
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-10
 msc.type: authoredcontent
-ms.openlocfilehash: 0290b392c1b292d0f3cc080dbfa25ec6103b2751
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 66dde7b54ce084eed873afae56fd686d0dc8795f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400809"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808232"
 ---
 <a name="publish-the-app-to-azure-azure-app-service"></a>Publicar la aplicación en Azure App Service de Azure
 ====================

@@ -4,19 +4,16 @@ title: Diseño de página | Microsoft Docs
 author: JoeStagner
 description: ¿Las tablas u hojas de estilo? ¿Posición relativa o absoluta? Este vídeo muestra las características de Visual Web developer que admiten el desarrollo con yo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/09/2009
-ms.topic: article
 ms.assetid: c757d668-6f3e-4af1-beb5-100d4c101b88
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/building-35-applications/page-layout
 msc.type: video
-ms.openlocfilehash: fe01aeaaddaf4c59f8ce76ab25a2271606b0b431
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d83ab45fee6077a95408802fea81633d3faaa7af
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398532"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835060"
 ---
 <a name="page-layout"></a>Diseño de página
 ====================

@@ -4,19 +4,16 @@ title: Almacenamiento en caché de datos en la arquitectura (VB) | Microsoft Doc
 author: rick-anderson
 description: En el tutorial anterior hemos aprendido a aplicar el almacenamiento en caché en la capa de presentación. En este tutorial se aprenderá cómo aprovechar las ventajas de nuestro architectu capas...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: 5e189dd7-f4f9-4f28-9b3a-6cb7d392e9c7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7776fb01d31d9f84e57de2d5d899726b52c26d19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a8431c2b516a1a41f1d096b1bdb1071cc8a5ab66
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402014"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835385"
 ---
 <a name="caching-data-in-the-architecture-vb"></a>Datos en caché en la arquitectura (VB)
 ====================

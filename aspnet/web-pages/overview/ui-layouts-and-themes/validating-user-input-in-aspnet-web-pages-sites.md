@@ -4,19 +4,16 @@ title: Validar la entrada del usuario en ASP.NET Web Pages (Razor) sitios | Micr
 author: tfitzmac
 description: Este artículo describe cómo validar la información que se obtiene de los usuarios &mdash; es decir, para asegurarse de que los usuarios escriban válido información en HTML forms en un sistema autónomo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2014
-ms.topic: article
 ms.assetid: 4eb060cc-cf14-41ae-bab1-14a2c15332d0
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites
 msc.type: authoredcontent
-ms.openlocfilehash: 2a35e9895c5b711d5c6c5544987f99fe7e2e0085
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d412f3fa4ca144a8a9107c971279f7bf2663cfe5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368232"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819271"
 ---
 <a name="validating-user-input-in-aspnet-web-pages-razor-sites"></a>Validar la entrada del usuario en los sitios de ASP.NET Web Pages (Razor)
 ====================

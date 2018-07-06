@@ -4,19 +4,16 @@ title: Actualización de datos relacionados con Entity Framework en una aplicaci
 author: tdykstra
 description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/01/2015
-ms.topic: article
 ms.assetid: 7ba88418-5d0a-437d-b6dc-7c3816d4ec07
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/updating-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 05b2f92155a4c3cac7ec8edd36b8ac6724b21888
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 171314835781ba8cc1edbb0a02db0ac0592cf920
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370938"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819687"
 ---
 <a name="updating-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Actualización de datos relacionados con Entity Framework en una aplicación ASP.NET MVC
 ====================

@@ -4,19 +4,16 @@ title: Usar consultas parametrizadas con SqlDataSource (VB) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, se continúa nuestro aspecto en el control SqlDataSource y obtenga información sobre cómo definir consultas con parámetros. Los parámetros se pueden especificar ambos decla...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2007
-ms.topic: article
 ms.assetid: e322f34c-83b7-41ea-ab65-ab1e0bdcc609
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: fd6361d7b8981b7caee996ff3af165416af860a7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fd4964bbdfe7662513025086a6cc3a59a6d63782
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395491"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813820"
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-vb"></a>Usar consultas parametrizadas con SqlDataSource (VB)
 ====================

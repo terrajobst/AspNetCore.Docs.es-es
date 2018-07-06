@@ -4,19 +4,16 @@ title: Visual Studio 2010 Quick acierto - el ScriptLoader | Microsoft Docs
 author: JoeStagner
 description: En este vídeo aprenderá sobre el ScriptLoader.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/16/2009
-ms.topic: article
 ms.assetid: b79562dd-ddd2-4a6b-a681-6aa75f25e59c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/net-4/ajax/aspnet-4-quick-hit-the-scriptloader
 msc.type: video
-ms.openlocfilehash: 2e1afee03bf33e55f9751281bd9a73d830c4df07
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 83d545ca51852f32689e8cc85d48f4cf2e0963dc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400449"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836238"
 ---
 <a name="aspnet-4-quick-hit---the-scriptloader"></a>ASP.NET 4 "Rápido Hit" - la ScriptLoader
 ====================

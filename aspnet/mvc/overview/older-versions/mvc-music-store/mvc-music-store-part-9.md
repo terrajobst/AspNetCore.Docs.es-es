@@ -4,19 +4,16 @@ title: 'Parte 9: Registro y la desprotección | Microsoft Docs'
 author: jongalloway
 description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Music Store de ASP.NET MVC. Parte 9 cubre el registro y la desprotección.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: d65c5c2b-a039-463f-ad29-25cf9fb7a1ba
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-9
 msc.type: authoredcontent
-ms.openlocfilehash: 935729be0dce790c6fce2e2e982ee063318d64dd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: e521e30cb820d834d57c87538b869861a536657b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367015"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812878"
 ---
 <a name="part-9-registration-and-checkout"></a>Parte 9: Registro y desprotección
 ====================

@@ -4,19 +4,16 @@ title: Creación de aplicaciones de nube reales con Azure | Microsoft Docs
 author: MikeWasson
 description: Este libro electrónico le guiará a través de un enfoque basado en patrones para crear soluciones de nube del mundo real. Los patrones se aplican al proceso de desarrollo, así como a un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/12/2014
-ms.topic: article
 ms.assetid: accfa16a-ab15-4c26-9ad4-babdc2a77d2e
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction
 msc.type: authoredcontent
-ms.openlocfilehash: 15e5c0a0411e3cd9433544e9a09b6373311daf6b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 11388b9c58d2d21c7a337a343c10d33c7257ccf1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37396219"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840503"
 ---
 <a name="building-real-world-cloud-apps-with-azure"></a>Creación de aplicaciones de nube reales con Azure
 ====================

@@ -4,19 +4,16 @@ title: Introducción a ASP.NET MVC | Microsoft Docs
 author: shanselman
 description: Este es un tutorial para principiantes que presenta los conceptos básicos de ASP.NET MVC. Cree una aplicación web simple que lee y escribe desde una base de datos.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/14/2010
-ms.topic: article
 ms.assetid: bf4a1c19-0a94-4208-b268-a96ddcf26946
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/getting-started-with-mvc/getting-started-with-mvc-part1
 msc.type: authoredcontent
-ms.openlocfilehash: 408256d116a7e73e01c34b0a11881e14c5b8401d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: ee39cf78835767d73bd9a1d4c9a2c4ca75aca5fa
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385737"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808871"
 ---
 <a name="intro-to-aspnet-mvc"></a>Introducción a ASP.NET MVC
 ====================

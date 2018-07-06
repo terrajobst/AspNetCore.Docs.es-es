@@ -4,19 +4,16 @@ title: '¿Cómo lo hago?: LINQ to SQL: ejecutar SQL arbitrario | Microsoft Docs'
 author: scottstanfield
 description: Este vídeo muestra cómo ejecutar SQL arbitrario mediante la sintaxis de ExecuteCommand y encapsular el código a través de la clase parcial de DataContext.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/13/2008
-ms.topic: article
 ms.assetid: 9251bc80-33d9-4b86-9d96-a2e6f5c52a03
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-executing-arbitrary-sql
 msc.type: video
-ms.openlocfilehash: c673c80f6529e94a36e7dc56fe4a43ebc8613fc3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: be1c3a8063a5c169e2e46d6ac56ead720d842e14
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362439"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808070"
 ---
 <a name="how-do-i-linq-to-sql-executing-arbitrary-sql"></a>¿Cómo lo hago?: LINQ to SQL: ejecutar SQL arbitrario
 ====================

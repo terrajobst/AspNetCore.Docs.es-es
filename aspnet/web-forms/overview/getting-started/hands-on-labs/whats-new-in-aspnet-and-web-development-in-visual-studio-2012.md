@@ -4,19 +4,16 @@ title: Novedades de ASP.NET y desarrollo Web en Visual Studio 2012 | Microsoft D
 author: rick-anderson
 description: La nueva versión de Visual Studio presenta a varias mejoras que se centra en mejorar la experiencia y el rendimiento cuando se trabaja con tecnologías Web...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: 6d40d276-1642-4a77-b6c9-02ac914f6805
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-aspnet-and-web-development-in-visual-studio-2012
 msc.type: authoredcontent
-ms.openlocfilehash: d037ccb62693a07ab8e2640b2d930ec7093b35da
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 474df5c8e2cee820a3bdd80ba45e6504a025cdf1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37375890"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823613"
 ---
 <a name="whats-new-in-aspnet-and-web-development-in-visual-studio-2012"></a>Novedades de ASP.NET y desarrollo Web en Visual Studio 2012
 ====================

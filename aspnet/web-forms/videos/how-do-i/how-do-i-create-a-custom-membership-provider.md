@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Crear un proveedor de pertenencia personalizado? |
 author: rick-anderson
 description: Un proveedor de pertenencia permite a una aplicación web almacenar y recuperar datos de pertenencia de un usuario, y los usos de proveedor de pertenencia ASP.NET estándares predefinen...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/05/2007
-ms.topic: article
 ms.assetid: a250a97d-e04d-403a-816e-cd6efda396cd
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-custom-membership-provider
 msc.type: video
-ms.openlocfilehash: 732a996f1c73c7fdaeed5dde355a5c242de8b7c6
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f329323eb17bb8d8f8ef8f3591eeab706d95a90f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372652"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37812917"
 ---
 <a name="how-do-i-create-a-custom-membership-provider"></a>[¿Cómo lo hago?:] ¿Crear un proveedor de pertenencia personalizado?
 ====================

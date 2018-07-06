@@ -4,19 +4,16 @@ title: 'Introducción a ASP.NET Web Pages: eliminación de la base de datos | Mi
 author: tfitzmac
 description: Este tutorial muestra cómo eliminar una entrada de la base de datos individual. Supone que ha completado la serie a través de actualizar los datos de base de datos de ASP.NET Web PA...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/02/2018
-ms.topic: article
 ms.assetid: 75b5c1cf-84bd-434f-8a86-85c568eb5b09
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/deleting-data
 msc.type: authoredcontent
-ms.openlocfilehash: 45cd3ed7fdcede05823ef28d7cc6c8da3922dad7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 234b5f99c5d5f580316204c88ea1ab8c1269d452
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362095"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815361"
 ---
 <a name="introducing-aspnet-web-pages---deleting-database-data"></a>Introducción a ASP.NET Web Pages: eliminación de la base de datos
 ====================

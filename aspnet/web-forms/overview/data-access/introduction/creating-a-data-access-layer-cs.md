@@ -4,19 +4,16 @@ title: Creación de una capa de acceso a datos (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial comenzaremos desde el principio y crear la capa de acceso de datos (DAL), que con objetos DataSet con tipo, para acceder a la información en una base de datos.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/05/2010
-ms.topic: article
 ms.assetid: cfe2a6a0-1e56-4dc8-9537-c8ec76ba96a4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/introduction/creating-a-data-access-layer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3e124edc137db8444c687092f33db7e03aaeb179
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 556771994fd80773ec1e86bcbab0f60f2bb821e4
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37398325"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37838759"
 ---
 <a name="creating-a-data-access-layer-c"></a>Creación de una capa de acceso a datos (C#)
 ====================

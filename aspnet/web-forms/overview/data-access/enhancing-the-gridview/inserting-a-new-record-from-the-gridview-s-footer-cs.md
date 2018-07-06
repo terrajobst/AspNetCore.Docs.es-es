@@ -4,19 +4,16 @@ title: Insertar un nuevo registro desde el pie de página de GridView (C#) | Mic
 author: rick-anderson
 description: Mientras el control GridView no proporciona compatibilidad integrada para insertar un nuevo registro de datos, en este tutorial se muestra cómo aumentar el control GridView para incluir un...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/06/2007
-ms.topic: article
 ms.assetid: 49545652-98af-46ba-9dbc-9ab529805d9b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/inserting-a-new-record-from-the-gridview-s-footer-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3f402d98a12c7da10d97744bbbd33e204275e93c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3ce1c1ea83d2fc50d7cf9ab6cb64d1e76307c74b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381856"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37830508"
 ---
 <a name="inserting-a-new-record-from-the-gridviews-footer-c"></a>Insertar un nuevo registro desde el pie de página de GridView (C#)
 ====================

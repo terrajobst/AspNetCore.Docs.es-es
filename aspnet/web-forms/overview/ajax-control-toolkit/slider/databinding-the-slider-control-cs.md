@@ -4,19 +4,16 @@ title: Enlace de datos el Control deslizante (C#) | Microsoft Docs
 author: wenz
 description: El control deslizante en AJAX Control Toolkit proporciona un control deslizante gráfico que se puede controlar con el mouse. Es posible enlazar la sición actual...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: b7f77869-aa1d-4025-924f-622c57112db6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/databinding-the-slider-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cbb53309ccde9ed6be67a977a56cf2942bbe7f8c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: b7aebb8dd180113b011ac038e8da4a3baa701485
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400660"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818668"
 ---
 <a name="databinding-the-slider-control-c"></a>Enlace de datos el Control deslizante (C#)
 ====================

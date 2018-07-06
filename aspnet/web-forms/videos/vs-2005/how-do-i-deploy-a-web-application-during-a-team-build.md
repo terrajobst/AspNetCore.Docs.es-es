@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Implementar una aplicación Web durante una compil
 author: pjhacker
 description: Este vídeo muestra cómo crear una nueva compilación de equipo y cómo implementar la aplicación Web como parte del proceso de compilación. Vemos que la implemente para incluir...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/01/2007
-ms.topic: article
 ms.assetid: 3c81ee94-4561-4267-864d-2656b33d95c9
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-deploy-a-web-application-during-a-team-build
 msc.type: video
-ms.openlocfilehash: 04b2e5fb5d720ad41847e96700fb10ecc2002d57
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f4fc140947c28c54e02967a6611bbe59576e3ada
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384337"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823153"
 ---
 <a name="how-do-i-deploy-a-web-application-during-a-team-build"></a>[¿Cómo lo hago?:] ¿Implementar una aplicación Web durante una compilación de equipo?
 ====================

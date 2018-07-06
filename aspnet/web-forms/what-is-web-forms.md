@@ -4,19 +4,16 @@ title: ¿Qué es Web Forms | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/21/2014
-ms.topic: article
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: 6444577afa49512397f69055df1737d8aec148c0
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 06dfc642f2903be1e4928391806fd815d763c903
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362961"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823954"
 ---
 <a name="what-is-web-forms"></a>¿Qué es Web Forms
 ====================

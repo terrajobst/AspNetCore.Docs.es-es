@@ -4,19 +4,16 @@ title: Las estrategias de desarrollo de base de datos y la implementación (C#) 
 author: rick-anderson
 description: Al implementar una aplicación controlada por datos por primera vez ciegamente puede copiar la base de datos en el entorno de desarrollo al entorno de producción. B...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/23/2009
-ms.topic: article
 ms.assetid: 3e8b0627-3eb7-488e-807e-067cba7cec05
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 98ba771f6eafad84303279045e5b5c4a167c0678
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0cec51d7b0e87f3073e27eb9bbdb4187d61307f2
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371936"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823675"
 ---
 <a name="strategies-for-database-development-and-deployment-c"></a>Estrategias de desarrollo de base de datos y la implementación (C#)
 ====================

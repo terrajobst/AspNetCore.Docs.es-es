@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Habilitar la cobertura de código y la generación
 author: rick-anderson
 description: Obtenga información sobre cómo configurar la instrumentación de cobertura de código y la generación de perfiles en una aplicación de ASP.NET implementada, en lugar de una aplicación en ejecución desde Vi...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/22/2007
-ms.topic: article
 ms.assetid: a0437314-e310-425a-b67b-0dc06878dbe2
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-enable-code-coverage-and-profiling-in-production-applications
 msc.type: video
-ms.openlocfilehash: 2d07d4d90a64da75dc7720aa99b5e1cb54ad744a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56f133d2b7be5b611605f203ef7361fa2687d1c3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364292"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806913"
 ---
 <a name="how-do-i-enable-code-coverage-and-profiling-in-production-applications"></a>[¿Cómo lo hago?:] ¿Habilitar la cobertura de código y la generación de perfiles en aplicaciones de producción?
 ====================

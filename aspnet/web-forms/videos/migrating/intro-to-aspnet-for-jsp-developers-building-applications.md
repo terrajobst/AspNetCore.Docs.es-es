@@ -4,19 +4,16 @@ title: 'Introducción a ASP.NET para desarrolladores de JSP: compilar aplicacion
 author: microsoft
 description: Esta difusión Web examina las similitudes y diferencias entre crear una aplicación Web en ASP.NET 2.0 y crear uno mediante Java.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/25/2006
-ms.topic: article
 ms.assetid: 826b9a37-0bc3-4405-92fb-d8dc87db195e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/migrating/intro-to-aspnet-for-jsp-developers-building-applications
 msc.type: video
-ms.openlocfilehash: c6bd2c4547dccc82fe342dd961f733fd13c05fba
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 4b1ba4010185a8c8fe08b6fdc059af504a48327e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37372519"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839653"
 ---
 <a name="intro-to-aspnet-for-jsp-developers-building-applications"></a>Introducción a ASP.NET para desarrolladores de JSP: creación de aplicaciones
 ====================

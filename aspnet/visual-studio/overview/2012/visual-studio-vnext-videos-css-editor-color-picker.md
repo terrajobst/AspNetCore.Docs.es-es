@@ -4,19 +4,16 @@ title: 'Visual Studio vNext vídeos: selector de colores del Editor de CSS | Mic
 author: madskristensen
 description: En este vídeo, Mads Kristensen muestra el selector de colores en el editor de CSS de Visual Studio vNext que muestra los colores en la hoja de cálculo actual y proporciona...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/30/2011
-ms.topic: article
 ms.assetid: c0c084d3-1b12-4de1-b904-30fbbda59a30
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-color-picker
 msc.type: video
-ms.openlocfilehash: ff6654b77e90a00963c110d49b6c65b2a9deeb86
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d0a2404945c05d27d5a87db3748c4a80101d4112
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382875"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37805151"
 ---
 <a name="visual-studio-vnext-videos-css-editor-color-picker"></a>Visual Studio vNext vídeos: selector de colores del Editor de CSS
 ====================

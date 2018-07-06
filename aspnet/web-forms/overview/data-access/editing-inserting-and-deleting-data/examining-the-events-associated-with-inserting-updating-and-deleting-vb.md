@@ -4,19 +4,16 @@ title: Examinar los eventos asociados con la inserción, actualización y elimin
 author: rick-anderson
 description: En este tutorial que se examinarán con los eventos que se producen antes, durante y después de una inserción, actualizar o eliminar la operación de un control Web de datos ASP.NET. SITIO WEB
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/17/2006
-ms.topic: article
 ms.assetid: c9bd10a7-eff8-4d8c-bec9-963c2aef2d6e
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/examining-the-events-associated-with-inserting-updating-and-deleting-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 483ff296bb6fcda14c224c085fc87209bb548700
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 548bfecc4215fbb2b36e0e2be42c7c08ee884270
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387915"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817167"
 ---
 <a name="examining-the-events-associated-with-inserting-updating-and-deleting-vb"></a>Examinar los eventos relacionados con la inserción, actualización y eliminación (VB)
 ====================

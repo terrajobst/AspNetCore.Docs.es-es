@@ -4,19 +4,16 @@ title: Introducción a la programación Web de ASP.NET mediante la sintaxis Razo
 author: JoeStagner
 description: Complemento de vídeo a la introducción a ASP.NET Web programación con el tutorial de la sintaxis de Razor
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/25/2011
-ms.topic: article
 ms.assetid: 22947987-9b02-4595-9e83-3d54ae013796
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/introduction-to-aspnet-web-programming-using-the-razor-syntax
 msc.type: video
-ms.openlocfilehash: 133faaf0471ec75ec7ae07a4ea7cac7d73b0e38d
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 239e9d208735216a77a07c609c55ee390d671072
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379999"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823202"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax"></a>Introducción a la programación web de ASP.NET usando la sintaxis Razor
 ====================

@@ -4,19 +4,16 @@ title: Una introducción al enrutamiento de direcciones URL | Microsoft Docs
 author: StephenWalther
 description: En este tutorial, Stephen Walther se muestra cómo se asignan las solicitudes del explorador a acciones del controlador a través de enrutamiento de direcciones URL. También obtendrá información sobre cómo crear un cust...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/20/2008
-ms.topic: article
 ms.assetid: ad0f4d26-6366-4464-968f-a24a380e6dc6
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/an-introduction-to-url-routing
 msc.type: video
-ms.openlocfilehash: 3b5c9a5db8e6886a0b319b5c4b65aef6e946dc97
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f239bc6e781cf45090e16a197ff5adf9849f6f92
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366179"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839059"
 ---
 <a name="an-introduction-to-url-routing"></a>Una introducción al enrutamiento de direcciones URL
 ====================

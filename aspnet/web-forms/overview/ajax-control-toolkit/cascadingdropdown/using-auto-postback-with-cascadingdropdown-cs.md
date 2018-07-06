@@ -4,19 +4,16 @@ title: Usar el Postback automático con CascadingDropDown (C#) | Microsoft Docs
 author: wenz
 description: El control CascadingDropDown de AJAX Control Toolkit amplía un control DropDownList para que los cambios en una carga de DropDownList asociados valores en anoth...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 6755d8d9-14be-4a1d-86e5-1a6110f3dea8
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-auto-postback-with-cascadingdropdown-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f1e0416a9c45cc0478a0179a4eef1788b7e2a8a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bece4f78b46c44db988e04e0e987450d94c37aab
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384753"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819385"
 ---
 <a name="using-auto-postback-with-cascadingdropdown-c"></a>Usar el Postback automático con CascadingDropDown (C#)
 ====================

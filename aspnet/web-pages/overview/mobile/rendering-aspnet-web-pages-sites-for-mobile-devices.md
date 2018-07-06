@@ -4,19 +4,16 @@ title: Representación ASP.NET Web Pages (Razor) sitios para dispositivos móvil
 author: tfitzmac
 description: 'Este artículo describe cómo crear páginas en un sitio de ASP.NET Web Pages (Razor) que se representará correctamente en los dispositivos móviles. Lo que aprenderá: cómo se...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/17/2014
-ms.topic: article
 ms.assetid: f15ab392-c05e-4269-83bf-7c6d2b8c8ec8
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices
 msc.type: authoredcontent
-ms.openlocfilehash: d5c94af644c0dbc918544fe5112545c348136587
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: dcc44e0d78814ef9a8537b01efa17259a12e9c76
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369423"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37816355"
 ---
 <a name="rendering-aspnet-web-pages-razor-sites-for-mobile-devices"></a>Representar sitios de ASP.NET Web Pages (Razor) para dispositivos móviles
 ====================

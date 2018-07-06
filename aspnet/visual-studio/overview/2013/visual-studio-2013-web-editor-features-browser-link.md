@@ -4,19 +4,16 @@ title: Visual Studio 2013 características del Editor Web - vínculo con explora
 author: shanselman
 description: Scott Hanselman demostrar el vínculo de explorador en Visual Studio 2013, que permite la comunicación bidireccional entre Visual Studio y múltiples exploradores conectados...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: 45bf07c6-145f-435e-a703-3233e710d528
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013/visual-studio-2013-web-editor-features-browser-link
 msc.type: video
-ms.openlocfilehash: 630ef9bf0e74f2a1a20678e25467f858016c062b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 68191368d497d1735b9be237e83838dee349fbcb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379837"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37841381"
 ---
 <a name="visual-studio-2013-web-editor-features---browser-link"></a>Visual Studio 2013 características del Editor Web - vínculo con exploradores
 ====================

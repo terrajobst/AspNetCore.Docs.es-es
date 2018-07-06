@@ -4,19 +4,16 @@ title: ASP.NET y Web Tools 2012.2 | Microsoft Docs
 author: jongalloway
 description: Conoce a la nueva versión ASP.NET y Web Tools 2012.2. Esta versión incluye una pila de características nuevas, incluidas las plantillas de proyecto, herramientas web y mucho más. Jo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/18/2013
-ms.topic: article
 ms.assetid: ca7458bd-b238-4633-a8b4-468a4c300acc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-and-web-tools-20122
 msc.type: video
-ms.openlocfilehash: 72552278c54733908b647a3fff09bcd0c87f395c
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: db51918b6924a2247ccfb00cee29167bc8ccf0a8
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382392"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37808773"
 ---
 <a name="aspnet-and-web-tools-20122"></a>ASP.NET y Web Tools 2012.2
 ====================

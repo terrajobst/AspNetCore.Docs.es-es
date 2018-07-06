@@ -4,19 +4,16 @@ title: jQuery UI 1.8.24 en la red CDN de Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/23/2014
-ms.topic: article
 ms.assetid: 1d3b5e8c-5600-43cd-aa54-7aabdff535fa
-ms.technology: ''
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1824
 msc.type: content
-ms.openlocfilehash: 25aa239a687324eff067228b3af9c88c0b0a8b5a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 54359ada0f9d135198ccea8d73f797248ee94370
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37382999"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37813791"
 ---
 <a name="jquery-ui-1824-on-the-microsoft-ajax-cdn"></a>jQuery UI 1.8.24 en la red CDN de Microsoft Ajax
 ====================

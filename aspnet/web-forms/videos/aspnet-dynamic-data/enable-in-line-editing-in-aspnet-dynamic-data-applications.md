@@ -4,19 +4,16 @@ title: Habilitar la edición en línea en las aplicaciones de datos dinámicos d
 author: JoeStagner
 description: Este vídeo demostrará mediante el enrutamiento de direcciones URL para habilitar la edición en línea en la aplicación de datos dinámicos de ASP.NET.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/23/2008
-ms.topic: article
 ms.assetid: a22201df-c031-4505-b3bf-9a0a9667d62b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-dynamic-data/enable-in-line-editing-in-aspnet-dynamic-data-applications
 msc.type: video
-ms.openlocfilehash: 16fc853e652f0235b1e669748b93981c4617bb1a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 480bae979d37c9e7cee91684e68eea79defadf85
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387155"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811807"
 ---
 <a name="enable-in-line-editing-in-aspnet-dynamic-data-applications"></a>Habilitar la edición en línea en las aplicaciones de datos dinámicos de ASP.NET
 ====================

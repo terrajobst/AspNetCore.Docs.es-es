@@ -4,19 +4,16 @@ title: Entender y controlar eventos de duración de la conexión en SignalR 1.x 
 author: pfletcher
 description: En este artículo se describe cómo utilizar los eventos expuestos por la API Hubs.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/05/2013
-ms.topic: article
 ms.assetid: e608e263-264d-448b-b0eb-6eeb77713b22
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/older-versions/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 91303a9a1a507f3211f070194e7cce4ddf395e73
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 807cd64f39c91e4e651872e2ef13d1e463810f70
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366433"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811158"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr-1x"></a>Entender y controlar eventos de duración de la conexión en SignalR 1.x
 ====================

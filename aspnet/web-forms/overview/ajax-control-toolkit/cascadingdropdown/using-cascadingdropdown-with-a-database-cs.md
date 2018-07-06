@@ -4,19 +4,16 @@ title: Usar CascadingDropDown con una base de datos (C#) | Microsoft Docs
 author: wenz
 description: El control CascadingDropDown de AJAX Control Toolkit amplía un control DropDownList para que los cambios en una carga de DropDownList asociados valores en anoth...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: 684f0c28-a490-4e5b-b5e5-5dfb77464b49
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/cascadingdropdown/using-cascadingdropdown-with-a-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 06ba008740da7e9cb6a058465154a38b65ccb39a
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9930319d2f9443ef3b50a87c7dd3d42b879168c9
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381621"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818753"
 ---
 <a name="using-cascadingdropdown-with-a-database-c"></a>Usar CascadingDropDown con una base de datos (C#)
 ====================

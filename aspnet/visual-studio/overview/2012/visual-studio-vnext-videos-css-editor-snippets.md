@@ -4,19 +4,16 @@ title: 'Visual Studio vNext vídeos: fragmentos de código CSS | Microsoft Docs'
 author: madskristensen
 description: En este vídeo, Mads Kristensen muestra una mejora en el editor de CSS de Visual Studio vNext que agrega algunos fragmentos de código útiles para las transformaciones de CSS3, preguntas y medios...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/30/2011
-ms.topic: article
 ms.assetid: a87af3be-589d-4b0c-846d-4de60a8745c0
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2012/visual-studio-vnext-videos-css-editor-snippets
 msc.type: video
-ms.openlocfilehash: e119cc781e77f126d1fccbd5b2d3dadeb216fae9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: feef4f42aa88416356a24fc60e0b461609c9f041
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377554"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37801737"
 ---
 <a name="visual-studio-vnext-videos-css-snippets"></a>Visual Studio vNext vídeos: fragmentos de código CSS
 ====================

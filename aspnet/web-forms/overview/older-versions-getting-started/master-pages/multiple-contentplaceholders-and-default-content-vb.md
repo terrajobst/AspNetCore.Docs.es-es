@@ -4,19 +4,16 @@ title: Varios ContentPlaceHolders y contenido predeterminado (VB) | Microsoft Do
 author: rick-anderson
 description: Examina cómo agregar varios marcadores de posición de contenido a una página maestra, así como la especificación de contenido predeterminado de los marcadores de posición de contenido.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/21/2008
-ms.topic: article
 ms.assetid: 866a7177-6884-451e-88f4-c934b1dd1af5
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/multiple-contentplaceholders-and-default-content-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5425d59ac1ccec46617400601655ae72f860cab1
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 98cb78e03f9f7aff4a36625416188aba04512f6a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395119"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839705"
 ---
 <a name="multiple-contentplaceholders-and-default-content-vb"></a>Varios ContentPlaceHolders y contenido predeterminado (VB)
 ====================

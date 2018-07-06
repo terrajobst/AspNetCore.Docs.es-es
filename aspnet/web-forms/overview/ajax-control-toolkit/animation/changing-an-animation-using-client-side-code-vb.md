@@ -4,19 +4,16 @@ title: Cambiar una animación con código del lado cliente (VB) | Microsoft Docs
 author: wenz
 description: El control de animación en ASP.NET AJAX Control Toolkit no es simplemente un control, pero un marco completo para agregar animaciones a un control. La animación puede también...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/02/2008
-ms.topic: article
 ms.assetid: a7fe5de5-a964-4780-ae5e-70821dfb50a0
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/changing-an-animation-using-client-side-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cc8ca2c962c5ebe5e0c45d5b575031ada3e64acd
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: afb275e4e5155ceccb7e696cbf9d00de99a455f5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37386752"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840737"
 ---
 <a name="changing-an-animation-using-client-side-code-vb"></a>Cambiar una animación con código del lado cliente (VB)
 ====================

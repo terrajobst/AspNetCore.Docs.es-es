@@ -4,19 +4,16 @@ title: Archivo Léame de ASP.NET Web 2 páginas Developer Preview | Microsoft Do
 author: microsoft
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/14/2011
-ms.topic: article
 ms.assetid: 159a92e2-e011-4da7-b61d-2edde2a967da
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/releases/aspnet-web-pages-2-developer-preview-readme
 msc.type: authoredcontent
-ms.openlocfilehash: 914e99491908294cea1e04dd23ccdb66c1dc05a3
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0a89216c0f65d49d00c96a27a5ab33e3872f9bc5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364435"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818351"
 ---
 <a name="aspnet-web-pages-2-developer-preview-readme"></a>Léame de vista previa de 2 para desarrolladores de ASP.NET Web Pages
 ====================

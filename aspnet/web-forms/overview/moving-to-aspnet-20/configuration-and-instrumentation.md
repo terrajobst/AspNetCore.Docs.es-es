@@ -4,19 +4,16 @@ title: Configuración e instrumentación | Microsoft Docs
 author: microsoft
 description: Hay cambios importantes en la configuración e instrumentación de ASP.NET 2.0. La nueva API de configuración de ASP.NET permite cambios de configuración que se realizan pr...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/20/2005
-ms.topic: article
 ms.assetid: 21ebbaee-7ed8-45ae-b6c1-c27c88342e48
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/configuration-and-instrumentation
 msc.type: authoredcontent
-ms.openlocfilehash: dc4e75e8c97228bf14935d6bf4242a036d513816
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 8437b13cae83208983f26e0a5042a5f6c19e516e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399310"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822914"
 ---
 <a name="configuration-and-instrumentation"></a>Configuración e instrumentación
 ====================

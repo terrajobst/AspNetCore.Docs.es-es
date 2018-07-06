@@ -4,19 +4,16 @@ title: Creación de una interfaz para seleccionar una cuenta de usuario de mucho
 author: rick-anderson
 description: En este tutorial vamos a crear una interfaz de usuario con una cuadrícula por página, puede filtrar. En concreto, la interfaz de usuario constará de una serie de LinkButtons para...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/01/2008
-ms.topic: article
 ms.assetid: 9e4e687c-b4ec-434f-a4ef-edb0b8f365e4
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/building-an-interface-to-select-one-user-account-from-many-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4adc24033f44892671d2c9b4ec759aaec77e0bc9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: a4d5b4c332cd256007db2f857c89fe3133205315
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378597"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832848"
 ---
 <a name="building-an-interface-to-select-one-user-account-from-many-c"></a>Creación de una interfaz para seleccionar una cuenta de usuario de muchos (C#)
 ====================

@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] Implementar un PostBack entre páginas de ASP.NET | 
 author: rick-anderson
 description: En este vídeo Chris Pels muestra cómo crear un PostBack de página entre en ASP.NET, donde un control en una página de origen genera un evento de PostBack para un destino diferente...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/10/2008
-ms.topic: article
 ms.assetid: cd88fa45-8f51-48f5-b642-5021acddec40
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-a-cross-page-postback-in-aspnet
 msc.type: video
-ms.openlocfilehash: 562fdafd25f4d8ac259a57989f2a42aa979591cc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 51097f9444721e2af86ac4c3d5d37f7aaba83e67
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378545"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37815426"
 ---
 <a name="how-do-i-implement-a-cross-page-postback-in-aspnet"></a>[¿Cómo lo hago?:] Implementar un PostBack entre páginas de ASP.NET
 ====================

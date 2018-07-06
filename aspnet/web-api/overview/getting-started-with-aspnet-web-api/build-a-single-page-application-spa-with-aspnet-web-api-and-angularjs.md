@@ -4,19 +4,16 @@ title: 'Laboratorio práctico: Crear una aplicación de página única (SPA) con
 author: rick-anderson
 description: En las aplicaciones web tradicionales, el cliente (explorador) inicia la comunicación con el servidor mediante la solicitud de una página. El servidor, a continuación, procesa la solicitud...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 09/30/2015
-ms.topic: article
 ms.assetid: 719727b7-bef3-45ad-bfe9-ba5bcdb2305f
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs
 msc.type: authoredcontent
-ms.openlocfilehash: 174084d6923cf1fa445485b7c0dc639a240720a5
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 8e9cc082d982aec0a4385a3cefecd118c937e641
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37370868"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811525"
 ---
 <a name="hands-on-lab-build-a-single-page-application-spa-with-aspnet-web-api-and-angularjs"></a>Laboratorio práctico: Crear una aplicación de página única (SPA) con ASP.NET Web API y Angular.js
 ====================

@@ -4,19 +4,16 @@ title: Mejora de los métodos Details y Delete (VB) | Microsoft Docs
 author: Rick-Anderson
 description: Este tutorial le enseñará los aspectos básicos de la creación de una aplicación Web de ASP.NET MVC mediante Microsoft Visual Web Developer 2010 Express Service Pack 1, que es...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: c5c14ef0-c128-4dc1-8c01-7f0fdb09e411
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/vb/improving-the-details-and-delete-methods
 msc.type: authoredcontent
-ms.openlocfilehash: 0741603b8a280e4ab74b03018b5395b185542343
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 5b34c7d71e615215e933b607562a06f683c6c1ca
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399917"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819869"
 ---
 <a name="improving-the-details-and-delete-methods-vb"></a>Mejora de los métodos Details y Delete (VB)
 ====================

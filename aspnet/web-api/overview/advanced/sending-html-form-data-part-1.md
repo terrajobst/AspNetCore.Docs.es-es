@@ -4,19 +4,16 @@ title: 'Enviar datos de formulario HTML en ASP.NET Web API: datos de formato For
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 06/15/2012
-ms.topic: article
 ms.assetid: 585351c4-809a-4bf5-bcbe-35d624f565fe
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/advanced/sending-html-form-data-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 24410c92df828d4aaaa3b91dd3e9fa14575fd300
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 617b16da20f448bf86e4b99841ad6eeaf8aafe4d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399875"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818079"
 ---
 <a name="sending-html-form-data-in-aspnet-web-api-form-urlencoded-data"></a>Enviar datos de formulario HTML en ASP.NET Web API: datos de formato Form-urlencoded
 ====================

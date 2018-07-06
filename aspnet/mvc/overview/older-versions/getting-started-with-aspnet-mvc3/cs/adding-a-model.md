@@ -4,19 +4,16 @@ title: Adición de un modelo (C#) | Microsoft Docs
 author: Rick-Anderson
 description: 'Nota: Una versión actualizada de este tutorial está disponible aquí que usa ASP.NET MVC 5 y Visual Studio 2013. Es más seguro y mucho más fácil de seguir y demostraciones...'
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/12/2011
-ms.topic: article
 ms.assetid: 42355b95-5f1f-413e-8d16-14cdfaaefcd8
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-aspnet-mvc3/cs/adding-a-model
 msc.type: authoredcontent
-ms.openlocfilehash: 797a4b26960881c9df60a47389a0f979b00e45cf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 61ba86e4bfbb0557b34d245555bc56a320335628
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37371605"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820777"
 ---
 <a name="adding-a-model-c"></a>Adición de un modelo (C#)
 ====================

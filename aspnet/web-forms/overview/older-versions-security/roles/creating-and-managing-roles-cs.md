@@ -4,19 +4,16 @@ title: Crear y administrar Roles (C#) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial examinan los pasos necesarios para configurar el marco de trabajo de Roles. A continuación, vamos a crear páginas web para crear y eliminar roles.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 113f10b3-a19a-471b-8ff6-db3c79ce8a91
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/creating-and-managing-roles-cs
 msc.type: authoredcontent
-ms.openlocfilehash: af7f3a1c45f0e87f146e8fb1f3aff37a13847ba8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 84b9624aaae0cc98f1908b4521cee43bce6e856d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37390794"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37806877"
 ---
 <a name="creating-and-managing-roles-c"></a>Crear y administrar Roles (C#)
 ====================

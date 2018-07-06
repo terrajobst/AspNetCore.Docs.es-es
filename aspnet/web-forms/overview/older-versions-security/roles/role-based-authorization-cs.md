@@ -4,19 +4,16 @@ title: Autorización basada en roles (C#) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial comienza con un vistazo a cómo el marco de trabajo de Roles asocia los roles de un usuario con su contexto de seguridad. A continuación, se examina cómo aplicar la dirección URL basada en roles...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/24/2008
-ms.topic: article
 ms.assetid: 4d9b63fa-c3d4-4e85-82b1-26ae3ba3ca1c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/roles/role-based-authorization-cs
 msc.type: authoredcontent
-ms.openlocfilehash: c8c22f140478deddc2e44f0933edfe0e499bb471
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 243a386bf682d63e3095a4e90ca0a0f08d24b503
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37397168"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37839952"
 ---
 <a name="role-based-authorization-c"></a>Autorización basada en roles (C#)
 ====================

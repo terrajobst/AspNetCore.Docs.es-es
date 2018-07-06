@@ -4,19 +4,16 @@ title: Crear un diseño coherente en ASP.NET Web Pages (Razor) sitios | Microsof
 author: tfitzmac
 description: Para que sea más eficaz para crear páginas web para su sitio, puede crear bloques de contenido (por ejemplo, los encabezados y pies de página) para su sitio Web y c...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/10/2014
-ms.topic: article
 ms.assetid: d7bd001b-6db2-4422-9b78-f3d08b743b00
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look
 msc.type: authoredcontent
-ms.openlocfilehash: 91cabc8c026cbdbc89812577bdeaa939bfa828d4
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d27cdc70417f380d596f4d07384a615586427643
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378438"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821219"
 ---
 <a name="creating-a-consistent-layout-in-aspnet-web-pages-razor-sites"></a>Crear un diseño coherente en los sitios de ASP.NET Web Pages (Razor)
 ====================

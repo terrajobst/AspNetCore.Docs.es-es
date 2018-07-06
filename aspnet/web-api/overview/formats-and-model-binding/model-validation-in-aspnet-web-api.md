@@ -4,19 +4,16 @@ title: Validación en ASP.NET Web API de modelos | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/20/2012
-ms.topic: article
 ms.assetid: 7d061207-22b8-4883-bafa-e89b1e7749ca
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 75474d5597ba11e09f788269b9a2a278559c63a9
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: be681a97a65a95a6bb83196d29c60ae750a523a1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37393101"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820018"
 ---
 <a name="model-validation-in-aspnet-web-api"></a>Validación de modelos en ASP.NET Web API
 ====================

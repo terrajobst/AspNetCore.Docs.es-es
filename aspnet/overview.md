@@ -3,20 +3,18 @@ uid: overview
 title: Información general sobre ASP.NET | Microsoft Docs
 author: rick-anderson
 description: Introducción a ASP.NET, un marco gratuito para crear sitios Web, aplicaciones web y API web.
-ms.author: aspnetcontent
-manager: wpickett
-ms.date: 03/12/2010
-ms.topic: article
 ms.assetid: 3a309468-f1ca-4e51-b9c3-536af79d7a8b
-ms.technology: ''
+ms.author: aspnetcontent
+ms.date: 03/12/2010
+ms.technology: aspnet
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: de094258984e3ca09e4eadf21169cad9bfc67b22
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d477db5f38fff6549f0a7f62963a48ee89b74101
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362267"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37809490"
 ---
 # <a name="aspnet-overview"></a>Información general sobre ASP.NET
 

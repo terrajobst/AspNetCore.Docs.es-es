@@ -4,19 +4,16 @@ title: 'Escaparate de ASP.NET MVC, parte 15: Revisión del código público | Mi
 author: robconery
 description: En este episodio Rob Conery realiza una revisión de código público de la aplicación de escaparate según los comentarios del usuario. Rob Conery ha documentado cada paso en desarrollo...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/10/2008
-ms.topic: article
 ms.assetid: c06b991f-b1d8-4315-9bc7-d17bc644cbd3
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-15-public-code-review
 msc.type: video
-ms.openlocfilehash: 1191b92176dc5b052a7cb7e107cab4be71bf32de
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 06253386aed8da4b487509e6893dd909fcb2266f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37363125"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821815"
 ---
 <a name="aspnet-mvc-storefront-part-15-public-code-review"></a>Escaparate de ASP.NET MVC, parte 15: Revisión del código público
 ====================

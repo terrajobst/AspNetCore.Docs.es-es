@@ -4,19 +4,16 @@ title: Proporcionar CRUD (crear, leer, actualizar y eliminar) compatibilidad con
 author: microsoft
 description: Paso 5 muestra cómo aprovechar nuestra clase DinnersController aún más al habilitar la compatibilidad con para editar, crear y eliminar instancias Dinners con ella también.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/27/2010
-ms.topic: article
 ms.assetid: bbb976e5-6150-4283-a374-c22fbafe29f5
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/provide-crud-create-read-update-delete-data-form-entry-support
 msc.type: authoredcontent
-ms.openlocfilehash: 821684c0753967fc1a693b061d5d539951cd7c23
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: bfb8446ec8b39ad6fc88a0d5b747f0cec33bbd25
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37388813"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37817641"
 ---
 <a name="provide-crud-create-read-update-delete-data-form-entry-support"></a>Proporcionar CRUD (crear, leer, actualizar y eliminar) compatibilidad con entradas de formularios de datos
 ====================

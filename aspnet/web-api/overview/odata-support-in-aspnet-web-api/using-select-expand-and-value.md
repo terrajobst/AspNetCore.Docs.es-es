@@ -4,19 +4,16 @@ title: Usar $select, $expand y $value en ASP.NET Web API 2 OData | Microsoft Doc
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/11/2013
-ms.topic: article
 ms.assetid: 43279a80-a96c-4564-b6ea-ad992a2d6828
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/using-select-expand-and-value
 msc.type: authoredcontent
-ms.openlocfilehash: f7e70bd76668f2af9215d57ee1cc9e7d41948c67
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c5c0d374a918706e65254121ba5fa1516afdaf75
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37384769"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814464"
 ---
 <a name="using-select-expand-and-value-in-aspnet-web-api-2-odata"></a>Usar $select, $expand y $value en ASP.NET Web API 2 OData
 ====================

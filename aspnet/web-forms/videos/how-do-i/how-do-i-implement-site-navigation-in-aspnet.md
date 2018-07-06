@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] ¿Implementar la navegación de sitios en ASP.NET? |
 author: rick-anderson
 description: En este vídeo, obtenga información sobre cómo definir un mapa del sitio y su uso con los controles de servidor Menu, TreeView y Sitemap. Se muestra cómo usar un mapa del sitio en una página maestra...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/18/2007
-ms.topic: article
 ms.assetid: 889e8100-a80c-41c0-bfeb-7d466c754548
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-site-navigation-in-aspnet
 msc.type: video
-ms.openlocfilehash: dd11d5b44e44f56e6268838c918dd12e448cdb19
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 1995ce735698f0c7827e2721c07c1d98922a7ba3
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37374774"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822436"
 ---
 <a name="how-do-i-implement-site-navigation-in-aspnet"></a>[¿Cómo lo hago?:] ¿Implementar la navegación de sitios en ASP.NET?
 ====================

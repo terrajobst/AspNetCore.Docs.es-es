@@ -4,19 +4,16 @@ title: Botones personalizados en los controles DataList y Repeater (C#) | Micros
 author: rick-anderson
 description: En este tutorial vamos a crear una interfaz que usa un control Repeater para mostrar las categorías en el sistema, y cada categoría de proporcionar un botón para mostrar su associ...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/13/2006
-ms.topic: article
 ms.assetid: 1f42e332-78dc-438b-9e35-0c97aa0ad929
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/custom-button-actions-with-the-datalist-and-repeater/custom-buttons-in-the-datalist-and-repeater-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 802f52e8e4e1ca1addec3321503ac92474ffd6b8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 04dc12ed20fcda0b4074add065022c42343e5ffc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37369491"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822126"
 ---
 <a name="custom-buttons-in-the-datalist-and-repeater-c"></a>Botones personalizados en los controles DataList y Repeater (C#)
 ====================

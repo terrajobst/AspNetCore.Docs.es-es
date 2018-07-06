@@ -4,19 +4,16 @@ title: Trabajar con formularios (parte 2) | Microsoft Docs
 author: JoeStagner
 description: Vídeo acompañamiento para el trabajo con el tutorial de formularios (parte 2)
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 02/25/2011
-ms.topic: article
 ms.assetid: 2ceb5926-8326-41ba-858e-e86924b2e99b
-ms.technology: dotnet-webpages
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-forms-part-2
 msc.type: video
-ms.openlocfilehash: d403e9bf1c3262643ff366940ca8935b49e2d517
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 6ef1c5b2100ad33e5027a4c4d730b0158061d7eb
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37387106"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807497"
 ---
 <a name="working-with-forms-part-2"></a>Trabajar con formularios (parte 2)
 ====================

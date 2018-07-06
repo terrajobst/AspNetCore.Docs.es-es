@@ -4,19 +4,16 @@ title: 'Tutorial: Difusión de servidores con SignalR 2 | Microsoft Docs'
 author: tdykstra
 description: Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR 2 para proporcionar funcionalidad de difusión de servidor. Difusión de servidor significa que común...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/13/2014
-ms.topic: article
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
-ms.technology: dotnet-signalr
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: ff1eeee407ac7628afd587ca8b9102d0191ea356
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 0e86fbea9c5668e20fce7a494c76c52f9c089c09
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367933"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37820702"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Tutorial: Difusión de servidores con SignalR 2
 ====================
@@ -196,7 +193,7 @@ Solo quiere una instancia de la clase StockTicker para ejecutarse en el servidor
 
 ### <a name="register-the-signalr-route"></a>Registre la ruta de SignalR
 
-El servidor necesita saber qué dirección URL para interceptar y dirigir a SignalR. Para ello, agregará y clase de inicio OWIN.
+El servidor necesita saber qué dirección URL para interceptar y dirigir a SignalR. Para ello, agregue una clase de inicio OWIN:
 
 1. En **el Explorador de soluciones**, haga clic en el proyecto y, a continuación, haga clic en **Add | Clase de inicio OWIN**. Nombre de la clase **Startup.cs**.
 2. Reemplace el código de **Startup.cs** con lo siguiente.

@@ -4,19 +4,16 @@ title: Agregar una columna GridView de botones de Radio (VB) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial explica cómo agregar una columna de botones de radio a un control GridView para proporcionar al usuario una manera más intuitiva de la selección de una sola fila de...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/06/2007
-ms.topic: article
 ms.assetid: 2e31b60b-8723-4f14-b7ee-37859454dc3b
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-radio-buttons-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6932892ae75d9a4cb6d84ff7e92d9f2f611f6013
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 56aa37392ab51306112f934f8dbff4151f232d35
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37395427"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37835617"
 ---
 <a name="adding-a-gridview-column-of-radio-buttons-vb"></a>Agregar una columna GridView de botones de Radio (VB)
 ====================

@@ -4,19 +4,16 @@ title: Uso de API Web con ASP.NET Web Forms | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/03/2012
-ms.topic: article
 ms.assetid: 25da8c3f-4e90-4946-9765-4f160985e1e4
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/using-web-api-with-aspnet-web-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 91811031b937d3ca05888ce8d4f28bcc33537c76
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: c9da38d290a812e94ed9473386ba6b897447dac5
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37400884"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37840893"
 ---
 <a name="using-web-api-with-aspnet-web-forms"></a>Uso de API Web con ASP.NET Web Forms
 ====================

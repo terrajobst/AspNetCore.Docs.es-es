@@ -4,19 +4,16 @@ title: ¿Por qué ASP.NET MVC? vídeo para tomar decisiones de información gene
 author: robconery
 description: Una descripción general de ASP.NET MVC para encargados de tomar decisiones que les gustaría saber más sobre las ventajas de ASP.NET MVC.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/21/2009
-ms.topic: article
 ms.assetid: 5b3fb86a-3245-41a3-bd1a-bde92e37b18d
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/why-aspnet-mvc-3-minute-overview-video-for-decision-makers
 msc.type: video
-ms.openlocfilehash: 599ec30b2713b1fb6f9be8be44e73861340d6b6b
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3aa889ed0a96f431fa22fb5afabfa502a8660eab
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37362647"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811628"
 ---
 <a name="why-aspnet-mvc-3-minute-overview-video-for-decision-makers"></a>¿Por qué ASP.NET MVC? vídeo para tomar decisiones de información general de 3 minutos
 ====================

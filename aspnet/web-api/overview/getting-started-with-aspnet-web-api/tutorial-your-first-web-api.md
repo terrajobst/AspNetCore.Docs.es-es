@@ -4,18 +4,15 @@ title: Introducción a ASP.NET Web API 2 (C#)
 author: MikeWasson
 description: HTTP no es solo para servir páginas web. También es una plataforma eficaz para la creación de API que exponen los datos y servicios. HTTP es sencillo, flexible y ubiq...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/28/2017
-ms.topic: article
-ms.technology: dotnet-webapi
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: adda92a6a06bc30b9217d440bbd38066ef9ea24f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 170e361c46631e7ecdbe026061c181158dcf803f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37368869"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823425"
 ---
 <a name="get-started-with-aspnet-web-api-2-c"></a>Introducción a ASP.NET Web API 2 (C#)
 ====================

@@ -4,19 +4,16 @@ title: Mediante el vínculo de explorador en Visual Studio 2013 | Microsoft Docs
 author: MikeWasson
 description: ''
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/04/2013
-ms.topic: article
 ms.assetid: 46cbfe20-b4dc-449b-9016-80657dd44fbe
-ms.technology: ''
 msc.legacyurl: /visual-studio/overview/2013/using-browser-link
 msc.type: authoredcontent
-ms.openlocfilehash: 96add0de1c1e4366353137898f1ba102aec7f754
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 9da93c279bfa2af614733e3234ba62429abf688a
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399326"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37822200"
 ---
 <a name="using-browser-link-in-visual-studio-2013"></a>Mediante el vínculo de explorador en Visual Studio 2013
 ====================

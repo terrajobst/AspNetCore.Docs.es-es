@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] Introducción a Entity Framework | Microsoft Docs'
 author: adjames
 description: En este vídeo introductorio, Alex James mostrará cómo crear un Entity Data Model simple en un breve período de tiempo.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/22/2008
-ms.topic: article
 ms.assetid: 2039bdcd-04f0-4813-b85b-4a3ccc916702
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-get-started-with-the-entity-framework
 msc.type: video
-ms.openlocfilehash: 9f728092897596ccf53d8cd94c7341b6ce3a1671
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 92092e57f77ba112dcdc67617852ae7052a4cc8f
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37385155"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810457"
 ---
 <a name="how-do-i-get-started-with-the-entity-framework"></a>[¿Cómo lo hago?:] Introducción a Entity Framework
 ====================

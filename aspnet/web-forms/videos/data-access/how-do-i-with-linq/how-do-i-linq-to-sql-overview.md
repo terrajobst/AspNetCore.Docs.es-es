@@ -4,19 +4,16 @@ title: '[¿Cómo lo hago?:] LINQ to SQL: Introducción | Microsoft Docs'
 author: scottstanfield
 description: Nuevas características del lenguaje C# y VB admiten el acceso de datos directamente desde el código, sin necesidad de escribir SQL. Este vídeo muestra los pasos mínimos para usar LINQ (Language int...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/15/2007
-ms.topic: article
 ms.assetid: f8d01146-8048-4750-a43b-aae53e3bd5f6
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/data-access/how-do-i-with-linq/how-do-i-linq-to-sql-overview
 msc.type: video
-ms.openlocfilehash: 255121c189de414ca34e02999d9bb592cf9b16b7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: fa15b1c7749b0fee07f721ac92b1e55d800fd894
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37381161"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37818876"
 ---
 <a name="how-do-i-linq-to-sql-overview"></a>[¿Cómo lo hago?:] LINQ to SQL: información general
 ====================

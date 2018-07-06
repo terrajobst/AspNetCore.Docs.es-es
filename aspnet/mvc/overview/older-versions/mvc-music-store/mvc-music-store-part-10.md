@@ -4,19 +4,16 @@ title: 'Parte 10: Actualizaciones finales para navegación y el diseño del siti
 author: jongalloway
 description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Music Store de ASP.NET MVC. Parte 10 cubre actualizaciones finales de navegación y S...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 04/21/2011
-ms.topic: article
 ms.assetid: 0c6e4c2f-fcdb-4978-9656-1990c6f15727
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-10
 msc.type: authoredcontent
-ms.openlocfilehash: a5b1d02d268530d6288ed2bc502679336d06d403
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 40ed7c337e097675199ab66229095bd3315d8c8d
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37366325"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37836815"
 ---
 <a name="part-10-final-updates-to-navigation-and-site-design-conclusion"></a>Parte 10: Actualizaciones finales para navegación y el diseño del sitio, conclusión
 ====================

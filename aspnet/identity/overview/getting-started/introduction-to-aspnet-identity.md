@@ -4,19 +4,16 @@ title: Introducción a ASP.NET Identity | Microsoft Docs
 author: jongalloway
 description: El sistema de pertenencia ASP.NET se introdujo con ASP.NET 2.0 back en 2005 y, puesto que, a continuación, ha habido muchos cambios en lo veinticinco de aplicaciones web de formas...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 10/17/2013
-ms.topic: article
 ms.assetid: 38717fc1-5989-43cf-952d-4007cc1dd923
-ms.technology: ''
 msc.legacyurl: /identity/overview/getting-started/introduction-to-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 39a6f0195c407403b7bd7e2f1eb5b52c822b52a7
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 3cefefc85857c3e3e295789dfa9d9f4789de4602
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37402501"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37811586"
 ---
 <a name="introduction-to-aspnet-identity"></a>Introducción a ASP.NET Identity
 ====================

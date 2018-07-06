@@ -4,19 +4,16 @@ title: '¿Cómo lo hago?: Personalizar control de errores de ASP.NET AJAX Update
 author: rick-anderson
 description: Cuando se produce un error durante el procesamiento de un postback activado por un UpdatePanel de ASP.NET AJAX, PageRequestManager del cliente mostrará una alerta (. NE...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/18/2009
-ms.topic: article
 ms.assetid: 28bd411b-e708-4eab-baed-76981d6cd0dc
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel
 msc.type: video
-ms.openlocfilehash: 116366377d2c6b27cb2394ac089848c91110bd4f
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: f297d7bf916b0fedc6b26bd19dd8e9d35569af74
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37367608"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37807546"
 ---
 <a name="how-do-i-customize-error-handling-for-the-aspnet-ajax-updatepanel"></a>¿Cómo lo hago?: Personalizar control de errores de ASP.NET AJAX UpdatePanel
 ====================

@@ -4,19 +4,16 @@ title: Actualizar TableAdapter para usar Join (VB) | Microsoft Docs
 author: rick-anderson
 description: Cuando se trabaja con una base de datos es común a los datos de solicitud que se reparten entre varias tablas. Para recuperar datos de dos tablas diferentes podemos usar ya sea...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 07/18/2007
-ms.topic: article
 ms.assetid: e624a3e0-061b-4efc-8b0e-5877f9ff6714
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/updating-the-tableadapter-to-use-joins-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9987d4dab7de4fc19d36625fcebc9d63e21acbe8
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 43e0caf63600858f7f2211f3d2e98aa2c6425820
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37377177"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37832385"
 ---
 <a name="updating-the-tableadapter-to-use-joins-vb"></a>Actualizar TableAdapter para usar Join (VB)
 ====================

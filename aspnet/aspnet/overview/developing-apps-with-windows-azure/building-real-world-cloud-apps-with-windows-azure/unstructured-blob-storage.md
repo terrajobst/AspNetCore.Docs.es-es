@@ -4,19 +4,16 @@ title: Almacenamiento de blobs sin estructurar (crear aplicaciones de nube reale
 author: MikeWasson
 description: Building Real World Cloud Apps with e-book de Azure se basa en una presentación desarrollada por Scott Guthrie. Explican el 13 de patrones y prácticas que puede...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 03/30/2015
-ms.topic: article
 ms.assetid: 9f05ccb1-2004-4661-ad8b-c370e6c09c8e
-ms.technology: ''
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
 msc.type: authoredcontent
-ms.openlocfilehash: 1840bea3b4183838ffdfe710e987b864a05d53fb
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 55937854546fe02c36b15b7141d90b4c0785f32b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364189"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823467"
 ---
 <a name="unstructured-blob-storage-building-real-world-cloud-apps-with-azure"></a>Almacenamiento de blobs sin estructurar (crear aplicaciones de nube reales con Azure)
 ====================
