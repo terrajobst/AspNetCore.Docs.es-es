@@ -4,29 +4,26 @@ title: 'Cómo: implementar los modelos de vista para administrar los datos para 
 author: rick-anderson
 description: En este vídeo, Chris Pels muestra cómo usar el concepto de un &quot;modelo de vista&quot; para administrar datos de las vistas de MVC de ASP.NET. En primer lugar, un proyecto de MVC de ejemplo es cre...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 12/11/2009
-ms.topic: article
 ms.assetid: 22f55d63-78f7-44fd-9107-f74cbe16022b
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views
 msc.type: video
-ms.openlocfilehash: f0713b87dc6455016de921998a994f8bca7dd8bc
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: 30a02f4e9f277f54891fdc86c7ba2820a0d77e0b
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37378091"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37819077"
 ---
-<a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a><span data-ttu-id="96633-105">Cómo: implementar los modelos de vista para administrar los datos para las vistas de MVC de ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="96633-105">How Do I: Implement View  Models to Manage Data for ASP.NET MVC Views?</span></span>
+<a name="how-do-i-implement-view--models-to-manage-data-for-aspnet-mvc-views"></a><span data-ttu-id="1a091-105">Cómo: implementar los modelos de vista para administrar los datos para las vistas de MVC de ASP.NET?</span><span class="sxs-lookup"><span data-stu-id="1a091-105">How Do I: Implement View  Models to Manage Data for ASP.NET MVC Views?</span></span>
 ====================
-<span data-ttu-id="96633-106">por [Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="96633-106">by [Chris Pels](https://twitter.com/chrispels)</span></span>
+<span data-ttu-id="1a091-106">por [Chris Pels](https://twitter.com/chrispels)</span><span class="sxs-lookup"><span data-stu-id="1a091-106">by [Chris Pels](https://twitter.com/chrispels)</span></span>
 
-<span data-ttu-id="96633-107">En este vídeo Chris Pels muestra cómo se usa el concepto de un modelo de"vista" para la administración de datos de las vistas de MVC de ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="96633-107">In this video Chris Pels shows how to use the concept of a "View Model" for managing data for ASP.NET MVC views.</span></span> <span data-ttu-id="96633-108">En primer lugar, se crea un proyecto de MVC de ejemplo que usa un ViewDataDictionary para empaquetar y pasar datos de un controlador a una vista.</span><span class="sxs-lookup"><span data-stu-id="96633-108">First, a sample MVC project is created that uses a ViewDataDictionary to package and pass data from a controller to a view.</span></span> <span data-ttu-id="96633-109">A continuación, se crea una clase que representa un modelo de vista para obtener una vista en el proyecto de MVC de ejemplo.</span><span class="sxs-lookup"><span data-stu-id="96633-109">Next, a class is created which represents a view model for a view in the sample MVC project.</span></span> <span data-ttu-id="96633-110">Como parte de esta implementación, se describen las ventajas del enfoque de modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="96633-110">As part of this implementation, the advantages of the view model approach are discussed.</span></span> <span data-ttu-id="96633-111">Por último, hay una explicación de cómo dividir la lógica de aplicación cuando se usa una implementación del modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="96633-111">Finally, there is a discussion of how to partition the application logic when using a view model implementation.</span></span>
+<span data-ttu-id="1a091-107">En este vídeo Chris Pels muestra cómo se usa el concepto de un modelo de"vista" para la administración de datos de las vistas de MVC de ASP.NET.</span><span class="sxs-lookup"><span data-stu-id="1a091-107">In this video Chris Pels shows how to use the concept of a "View Model" for managing data for ASP.NET MVC views.</span></span> <span data-ttu-id="1a091-108">En primer lugar, se crea un proyecto de MVC de ejemplo que usa un ViewDataDictionary para empaquetar y pasar datos de un controlador a una vista.</span><span class="sxs-lookup"><span data-stu-id="1a091-108">First, a sample MVC project is created that uses a ViewDataDictionary to package and pass data from a controller to a view.</span></span> <span data-ttu-id="1a091-109">A continuación, se crea una clase que representa un modelo de vista para obtener una vista en el proyecto de MVC de ejemplo.</span><span class="sxs-lookup"><span data-stu-id="1a091-109">Next, a class is created which represents a view model for a view in the sample MVC project.</span></span> <span data-ttu-id="1a091-110">Como parte de esta implementación, se describen las ventajas del enfoque de modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="1a091-110">As part of this implementation, the advantages of the view model approach are discussed.</span></span> <span data-ttu-id="1a091-111">Por último, hay una explicación de cómo dividir la lógica de aplicación cuando se usa una implementación del modelo de vista.</span><span class="sxs-lookup"><span data-stu-id="1a091-111">Finally, there is a discussion of how to partition the application logic when using a view model implementation.</span></span>
 
-[<span data-ttu-id="96633-112">&#9654;Vea el vídeo (minutos 21)</span><span class="sxs-lookup"><span data-stu-id="96633-112">&#9654; Watch video (21 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views)
+[<span data-ttu-id="1a091-112">&#9654;Vea el vídeo (minutos 21)</span><span class="sxs-lookup"><span data-stu-id="1a091-112">&#9654; Watch video (21 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views)
 
 > [!div class="step-by-step"]
-> <span data-ttu-id="96633-113">[Anterior](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
-> [Siguiente](how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)</span><span class="sxs-lookup"><span data-stu-id="96633-113">[Previous](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
+> <span data-ttu-id="1a091-113">[Anterior](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
+> [Siguiente](how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)</span><span class="sxs-lookup"><span data-stu-id="1a091-113">[Previous](how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
 [Next](how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)</span></span>

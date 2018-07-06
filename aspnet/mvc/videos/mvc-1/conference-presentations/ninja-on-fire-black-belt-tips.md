@@ -4,24 +4,21 @@ title: Ninja en Fire Black Belt Tips | Microsoft Docs
 author: Haacked
 description: Vea un tutorial de varias sugerencias y trucos para sacar el máximo partido de ASP.NET MVC framework.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2009
-ms.topic: article
 ms.assetid: 8b92f005-930e-458f-b91f-b0e15bb7399f
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/videos/mvc-1/conference-presentations/ninja-on-fire-black-belt-tips
 msc.type: video
-ms.openlocfilehash: 59fd1ddf0cfa1040726335efbcb0d2fcd7478edf
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
+ms.openlocfilehash: d2ad739abc68c554c31242ca742839019c2f4af7
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37399359"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37810345"
 ---
-<a name="ninja-on-fire-black-belt-tips"></a><span data-ttu-id="9d8cc-103">Ninja en Fire Black Belt Tips</span><span class="sxs-lookup"><span data-stu-id="9d8cc-103">Ninja on Fire Black Belt Tips</span></span>
+<a name="ninja-on-fire-black-belt-tips"></a><span data-ttu-id="a9c28-103">Ninja en Fire Black Belt Tips</span><span class="sxs-lookup"><span data-stu-id="a9c28-103">Ninja on Fire Black Belt Tips</span></span>
 ====================
-<span data-ttu-id="9d8cc-104">por [Phil Haack](https://github.com/Haacked)</span><span class="sxs-lookup"><span data-stu-id="9d8cc-104">by [Phil Haack](https://github.com/Haacked)</span></span>
+<span data-ttu-id="a9c28-104">por [Phil Haack](https://github.com/Haacked)</span><span class="sxs-lookup"><span data-stu-id="a9c28-104">by [Phil Haack](https://github.com/Haacked)</span></span>
 
-<span data-ttu-id="9d8cc-105">Vea un tutorial de varias sugerencias y trucos para sacar el máximo partido de ASP.NET MVC framework.</span><span class="sxs-lookup"><span data-stu-id="9d8cc-105">See a walkthrough of several tips and tricks for getting the most out of the ASP.NET MVC framework.</span></span>
+<span data-ttu-id="a9c28-105">Vea un tutorial de varias sugerencias y trucos para sacar el máximo partido de ASP.NET MVC framework.</span><span class="sxs-lookup"><span data-stu-id="a9c28-105">See a walkthrough of several tips and tricks for getting the most out of the ASP.NET MVC framework.</span></span>
 
-[<span data-ttu-id="9d8cc-106">&#9654;Vea el vídeo (77 minutos)</span><span class="sxs-lookup"><span data-stu-id="9d8cc-106">&#9654; Watch video (77 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/ninja-on-fire-black-belt-tips)
+[<span data-ttu-id="a9c28-106">&#9654;Vea el vídeo (77 minutos)</span><span class="sxs-lookup"><span data-stu-id="a9c28-106">&#9654; Watch video (77 minutes)</span></span>](https://channel9.msdn.com/Blogs/ASP-NET-Site-Videos/ninja-on-fire-black-belt-tips)
