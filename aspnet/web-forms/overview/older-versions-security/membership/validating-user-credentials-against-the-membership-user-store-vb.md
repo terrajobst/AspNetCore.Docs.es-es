@@ -4,19 +4,16 @@ title: Validar las credenciales de usuario en el Store del usuario de pertenenci
 author: rick-anderson
 description: En este tutorial, examinaremos cómo validar las credenciales del usuario en el almacén de usuario de pertenencia mediante medios de programación y el control de inicio de sesión...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 01/18/2008
-ms.topic: article
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ad9f76f6c7c64c29971aed10ba165b5f4807eb64
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c5eeb67c8d175173f38ffcbc1b01fd5a5931866e
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37364836"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821409"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Validar las credenciales de usuario en el Store del usuario de pertenencia (VB)
 ====================
@@ -155,47 +152,47 @@ Después de realizar estos cambios de propiedad, deben ser similares al que se m
 
 ### <a name="configuring-the-login-controls-layout"></a>Configuración de diseño del Control de inicio de sesión
 
-Interfaz de usuario predeterminada del control de inicio de sesión Web presenta la interfaz en un elemento HTML `<table>`. Pero, ¿qué ocurre si se necesita un mayor control sobre la salida representada? Puede que queramos reemplazar el `<table>` con una serie de `<div>` etiquetas. O bien, ¿qué sucede si nuestra aplicación requiere credenciales adicionales para la autenticación? Muchos sitios Web financieros, por ejemplo, exigen que los usuarios proporcionar no solo un nombre de usuario y contraseña, pero también un número de identificación Personal (PIN) u otra información de identificación. Si no se cancela el registro de la operación, el flujo de trabajo progresa generando la   eventos.
+Interfaz de usuario predeterminada del control de inicio de sesión Web presenta la interfaz en un elemento HTML `<table>`. Pero, ¿qué ocurre si se necesita un mayor control sobre la salida representada? Puede que queramos reemplazar el `<table>` con una serie de `<div>` etiquetas. O bien, ¿qué sucede si nuestra aplicación requiere credenciales adicionales para la autenticación? Muchos sitios Web financieros, por ejemplo, exigen que los usuarios proporcionar no solo un nombre de usuario y contraseña, pero también un número de identificación Personal (PIN) u otra información de identificación. Todo lo que pueden ser los motivos, es posible convertir el control de inicio de sesión en una plantilla, desde el que podemos definir explícitamente marcado declarativo de la interfaz.
 
-Si hay un controlador de eventos para el  eventos, es responsable de determinar si las credenciales proporcionadas son válidas o no.
+Es necesario hacer dos cosas con el fin de actualizar el control de inicio de sesión para recopilar credenciales adicionales:
 
-1. Si no se especifica ningún controlador de eventos, el control de inicio de sesión utiliza el  método para determinar la validez de las credenciales.
-2. Si las credenciales proporcionadas son válidas, a continuación, se crea el vale de autenticación de formularios, el   evento se genera, y se redirige al usuario a la página adecuada.
+1. Actualizar la interfaz del control de inicio de sesión para incluir controles Web para recopilar las credenciales adicionales.
+2. Invalidar la lógica de autenticación interno del control de inicio de sesión para que un usuario se autentica solo si su nombre de usuario y la contraseña es válida y sus credenciales adicionales son válidos, demasiado.
 
-Si, sin embargo, las credenciales se consideran no válidas, la   evento se genera y se muestra un mensaje que informa al usuario sus credenciales no eran válidas. De forma predeterminada, un error en el inicio de sesión de control simplemente establece su [ etiqueta de propiedad de texto del control a un mensaje de error (el intento de inicio de sesión no era correcta.
+Para lograr la primera tarea, se debe convertir el control de inicio de sesión en una plantilla y agregue los controles Web necesarios. En cuanto a la segunda tarea, se puede sustituir la lógica de autenticación del control de inicio de sesión mediante la creación de un controlador de eventos para el control [ `Authenticate` eventos](https://msdn.microsoft.com/library/system.web.ui.webcontrols.login.authenticate.aspx).
 
-Vuelva a intentarlo). Sin embargo, si el control de inicio de sesión   propiedad está establecido en , a continuación, los problemas de control de inicio de sesión una  a la página de inicio de sesión que anexar el parámetro querystring  (lo que hace que el inicio de sesión control para mostrar el mensaje de error). Figura 9 ofrece un diagrama de flujo del flujo de trabajo de autenticación.
+Vamos a actualizar el control de inicio de sesión para que se solicita a los usuarios su nombre de usuario, contraseña y dirección de correo electrónico y sólo autentica al usuario si la dirección de correo electrónico proporcionada coincide con su dirección de correo electrónico en el archivo. En primer lugar, necesitamos convertir la interfaz del control de inicio de sesión en una plantilla. Desde la etiqueta inteligente del control de inicio de sesión, elija a la opción convertir en plantilla.
 
 
-[![Flujo de trabajo de autenticación de inicio de sesión del Control](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
+[![Convertir el Control de inicio de sesión en una plantilla](validating-user-credentials-against-the-membership-user-store-vb/_static/image17.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image16.png)
 
-**Figura 9**: flujo de trabajo de autenticación del Control de inicio de sesión ([haga clic aquí para ver imagen en tamaño completo](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
+**Figura 6**: convertir el Control de inicio de sesión en una plantilla ([haga clic aquí para ver imagen en tamaño completo](validating-user-credentials-against-the-membership-user-store-vb/_static/image18.png))
 
 
 > [!NOTE]
-> Si sabe cuándo utilizaría la del  opción de la página, considere el siguiente escenario.
+> Para revertir el control de inicio de sesión a su versión template previamente, haga clic en el vínculo de restablecimiento de la etiqueta inteligente del control.
 
 
-Ahora nuestra `LayoutTemplate` página maestra tiene actualmente el texto Hola stranger se muestran en la columna izquierda cuando visita un usuario anónimo, pero imaginemos que deseamos reemplazar el texto con un control de inicio de sesión. Esto permitiría que un usuario anónimo iniciar sesión desde cualquier página en el sitio, en lugar de requerir que visite directamente la página de inicio de sesión.
+Convertir el control de inicio de sesión a una plantilla agrega un `LayoutTemplate` al código de marcado declarativo con elementos HTML y controles Web define la interfaz de usuario del control. Como se muestra en la figura 7, convertir el control a una plantilla quita un número de propiedades de la ventana Propiedades, como `TitleText`, `CreateUserUrl`, y así sucesivamente, ya que estos valores de propiedad se omiten cuando se usa una plantilla.
 
 
-[![Sin embargo, si un usuario no pudo iniciar sesión a través del control de inicio de sesión representado por la página maestra, tendría sentido redirigirlas a la página de inicio de sesión ([) porque esa página probable incluye instrucciones adicionales, vínculos y otro ayuda - como vínculos para crear un nueva cuenta o recuperar una contraseña perdida - que no se han agregado a la página maestra.](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
+[![Menos propiedades están que disponibles cuando el Control Login se convierte en una plantilla](validating-user-credentials-against-the-membership-user-store-vb/_static/image20.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image19.png)
 
-**Crear el**controlador de eventos
+**Figura 7**: menos propiedades están disponibles cuando el Control Login se convierte en una plantilla ([haga clic aquí para ver imagen en tamaño completo](validating-user-credentials-against-the-membership-user-store-vb/_static/image21.png))
 
 
-Para conectar nuestra lógica de autenticación personalizada, es necesario crear un controlador de eventos para el control de inicio de sesión `LayoutTemplate` eventos. Creación de un controlador de eventos para el  eventos generará la siguiente definición de controlador de eventos: Como puede ver, el `ID` controlador de eventos se pasa un objeto de tipo    como su segundo parámetro de entrada. El `UserName` clase contiene una propiedad booleana denominada `Password` que se utiliza para especificar si las credenciales proporcionadas son válidas.
+El marcado HTML en el `LayoutTemplate` se puede modificar según sea necesario. Del mismo modo, no dude en agregar los nuevos controles Web a la plantilla. Sin embargo, es importante los controles Web de núcleo de ese control de inicio de sesión permanecen en la plantilla y mantener sus asignado `ID` valores. En concreto, no quite ni cambie el nombre de la `UserName` o `Password` cuadros de texto, el `RememberMe` casilla, la `LoginButton` botón, el `FailureText` etiqueta, o el `RequiredFieldValidator` controles.
 
-Nuestra tarea, a continuación, es escribir código aquí que determina si las credenciales proporcionadas son válidas o no y para establecer el  propiedad según corresponda. Determinar y validar las credenciales proporcionadas
+Para recopilar la dirección de correo electrónico del visitante, necesitamos agregar un cuadro de texto a la plantilla. Agregue el siguiente marcado declarativo entre la fila de tabla (`<tr>`) que contiene el `Password` casilla de verificación de tiempo de cuadro de texto y la fila de tabla que contiene el recordar mi cuenta a continuación:
 
 [!code-aspx[Main](validating-user-credentials-against-the-membership-user-store-vb/samples/sample2.aspx)]
 
-Use el control de inicio de sesión `Email`   y   propiedades para determinar las credenciales de usuario y la contraseña escritas por el usuario. Con el fin de determinar los valores especificados en los controles Web adicionales (como el  cuadro de texto se agregó en el paso anterior), utilice ("") para obtener una referencia a la Web mediante programación control de la plantilla cuya  es igual a la propiedad   .
+Después de agregar el `Email` cuadro de texto, visite la página a través de un explorador. Como se muestra en la figura 8, interfaz de usuario del control de inicio de sesión incluye ahora un tercer cuadro de texto.
 
 
-[![Por ejemplo, para obtener una referencia a la [ cuadro de texto, use el código siguiente:](validating-user-credentials-against-the-membership-user-store-vb/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image22.png)
+[![El Control de inicio de sesión ahora incluye un cuadro de texto dirección de correo electrónico del usuario](validating-user-credentials-against-the-membership-user-store-vb/_static/image23.png)](validating-user-credentials-against-the-membership-user-store-vb/_static/image22.png)
 
-**Para validar las credenciales del usuario, es necesario hacer dos cosas:
+**Figura 8**: el Control de inicio de sesión ahora incluye un cuadro de texto dirección de correo electrónico del usuario ([haga clic aquí para ver imagen en tamaño completo](validating-user-credentials-against-the-membership-user-store-vb/_static/image24.png))
 
 
 En este momento, el control de inicio de sesión todavía está usando el `Membership.ValidateUser` método para validar las credenciales proporcionadas. En consecuencia, el valor introducido en el `Email` cuadro de texto no influye en si el usuario puede iniciar sesión. En el paso 3 veremos cómo invalidar la lógica de autenticación del control de inicio de sesión para que las credenciales solo se consideran válidas si el nombre de usuario y la contraseña son válidos y la dirección de correo electrónico especificada coincide con la dirección de correo electrónico en el archivo.

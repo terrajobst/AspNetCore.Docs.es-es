@@ -4,19 +4,16 @@ title: Paginación de datos del informe en un Control DataList o Repeater (C#) |
 author: rick-anderson
 description: Mientras el control DataList ni Repeater oferta la paginación automática o admitir la ordenación, este tutorial muestra cómo agregar compatibilidad con la paginación para el control DataList o Repeater...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 11/13/2006
-ms.topic: article
 ms.assetid: e8e0809b-25c4-4c3b-8d12-9a17048148ae
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f77c4f781ee6001cea065d848f0a21a6cd4d7569
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 90df9c096b5411201da35b7076fdd3cd9b1f86d1
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37401940"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37842324"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-c"></a>Paginar datos de informe en un Control DataList o Repeater (C#)
 ====================
@@ -220,44 +217,44 @@ Para facilitar esto, cree un `RedirectUser(sendUserToPageIndex)` método que red
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample8.cs)]
 
-El `Click` método en el  clase devuelve el número total de productos que se va a paginar a través. Para determinar si se está viendo la primera página de datos, examine el índice de fila inicial si es cero, a continuación, se está viendo la primera página.
+Con la `Click` completar los controladores de eventos, pueden paginar a través de los registros de DataList s haciendo clic en los botones. Dedique un momento para probarlo.
 
-## <a name="disabling-paging-interface-controls"></a>Se está viendo la última página, si el índice de fila inicial más el número máximo de filas a devolver es mayor o igual que el número total de registros que se va a paginar a través.
+## <a name="disabling-paging-interface-controls"></a>Deshabilitación de los controles de interfaz de paginación
 
-Exploraremos implementar la paginación personalizada con más detalle en el siguiente tutorial. Mientras que el control DataList ni Repeater ofrece el fuera de la compatibilidad con paginación se encuentra en el control GridView, DetailsView y FormView controla, se puede agregar esta funcionalidad con el mínimo esfuerzo. Es la manera más fácil de implementar la paginación predeterminada encapsular todo el conjunto de productos dentro de un `PagedDataSource` y, a continuación, enlazar la `Select()` para el control DataList o Repeater.
+Actualmente, los cuatro botones están habilitados, independientemente de la página que se está viendo. Sin embargo, deseamos deshabilitar los botones primero y anterior cuando se muestre la primera página de datos y los botones siguiente y último cuando se muestre la última página. El `PagedDataSource` objeto devuelto por la s ObjectDataSource `Select()` método tiene propiedades [ `IsFirstPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.isfirstpage.aspx) y [ `IsLastPage` ](https://msdn.microsoft.com/library/system.web.ui.webcontrols.pageddatasource.islastpage.aspx) que podemos examinar para determinar si lo que está viendo la primera o última página de datos.
 
-En este tutorial se ha agregado el `Selected` método a la  clase para devolver el .
+Agregue lo siguiente a la s ObjectDataSource `Selected` controlador de eventos:
 
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample9.cs)]
 
-El  ya contiene los métodos necesarios para la paginación personalizada  y .
+Con esta versión, se deshabilitarán los botones primero y anterior al ver la primera página, mientras que los botones siguiente y último se deshabilitarán al ver la última página.
 
-Además de recuperar el conjunto de registros que deben mostrarse para la paginación personalizada, o bien, de todos los registros en un  para la paginación de forma predeterminada, también se debe agregar manualmente la interfaz de paginación. En este tutorial, creamos un siguiente, anterior, primero por última vez la interfaz con cuatro controles de botón Web. Además, se agrega un control de etiqueta muestra el número de página actual y el número total de páginas.
+S permiten completar la interfaz de paginación por informar al usuario qué página re viendo y existen el número total de páginas. Agregue un control Web de la etiqueta a la página y establezca su `ID` propiedad `CurrentPageNumber`. Establezca su `Text` propiedad ObjectDataSource s seleccionados controlador de eventos tal que incluye la página actual que se está viendo (`PageIndex + 1`) y el número total de páginas (`PageCount`).
 
 
 [!code-csharp[Main](paging-report-data-in-a-datalist-or-repeater-control-cs/samples/sample10.cs)]
 
-En el siguiente tutorial veremos cómo agregar compatibilidad con la ordenación para los controles DataList y Repeater. También veremos cómo crear a un control DataList que se puede paginar y ordenar (con ejemplos de uso predeterminada y la paginación personalizada). Feliz programación.
+La figura 10 muestra `Paging.aspx` cuando visita por primera vez. Puesto que la cadena de consulta está vacía, el control DataList el valor predeterminado es que muestra los cuatro primeros productos; los botones primero y anterior están deshabilitados. Haga clic en siguiente muestra los siguientes cuatro registros (consulte la figura 11); Ahora se habilitan los botones primero y anterior.
 
 
-[![Acerca del autor](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image22.png)
+[![Se muestra la primera página de datos](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image23.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image22.png)
 
-**Scott Mitchell**, autor de siete libros sobre ASP/ASP.NET y fundador de [4GuysFromRolla.com](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image24.png), trabaja con tecnologías Web de Microsoft desde 1998.
+**Figura 10**: se muestra la primera página de datos ([haga clic aquí para ver imagen en tamaño completo](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image24.png))
 
 
 [![Se muestra la segunda página de datos](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image26.png)](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image25.png)
 
-**Scott trabaja como consultor independiente, instructor y escritor.
+**Figura 11**: se muestra la segunda página de datos ([haga clic aquí para ver imagen en tamaño completo](paging-report-data-in-a-datalist-or-repeater-control-cs/_static/image27.png))
 
 
 > [!NOTE]
-> Puede ponerse en  . o a través de su blog, que puede encontrarse en   . Agradecimientos especiales a Esta serie de tutoriales ha sido revisada por muchos revisores útiles.
+> La interfaz de paginación se puede mejorar aún más, ya que permite al usuario especificar el número de páginas para ver por página. Por ejemplo, DropDownList se puede agregar opciones de tamaño de página de listado como 5, 10, 25, 50 y todos. Al seleccionar un tamaño de página, el usuario tendría que ser redirigido a `Paging.aspx?pageIndex=0&pageSize=selectedPageSize`. Salgo de la implementación de esta mejora como un ejercicio para el lector.
 
 
-## <a name="using-custom-paging"></a>Los revisores para este tutorial fueron Liz Shulok, Ken Pespisa y Bernadette Leigh.
+## <a name="using-custom-paging"></a>La paginación personalizada
 
-¿Está interesado en leer mi próximos artículos de MSDN? Si es así, envíeme una línea en  . Aunque los detalles de implementación difieren ligeramente, los conceptos de implementar la paginación personalizada en un control DataList son el mismo que con la paginación predeterminada. Con la paginación personalizada, utilice el `ProductBLL` clase s `GetProductsPaged` método (en lugar de `GetProductsAsPagedDataSource`). Como se describe en el [eficazmente paginación a través de grandes cantidades de datos](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) tutorial, `GetProductsPaged` debe pasarse el inicio fila índice y el número máximo de filas que se va a devolver. Estos parámetros se pueden mantener a través de la cadena de consulta, al igual que el `pageIndex` y `pageSize` parámetros que se usan de forma predeterminada en la paginación.
+Las páginas de DataList a través de sus datos mediante la técnica de paginación predeterminada ineficaz. Cuando la paginación a través de lo suficientemente grandes cantidades de datos, es imperativo que se utiliza la paginación personalizada. Aunque los detalles de implementación difieren ligeramente, los conceptos de implementar la paginación personalizada en un control DataList son el mismo que con la paginación predeterminada. Con la paginación personalizada, utilice el `ProductBLL` clase s `GetProductsPaged` método (en lugar de `GetProductsAsPagedDataSource`). Como se describe en el [eficazmente paginación a través de grandes cantidades de datos](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) tutorial, `GetProductsPaged` debe pasarse el inicio fila índice y el número máximo de filas que se va a devolver. Estos parámetros se pueden mantener a través de la cadena de consulta, al igual que el `pageIndex` y `pageSize` parámetros que se usan de forma predeterminada en la paginación.
 
 Desde ahí s ningún `PagedDataSource` con paginación personalizada, deben usarse técnicas alternativas para determinar el número total de registros que se va a paginar a través y si nos re mostrando la primera o última página de datos. El `TotalNumberOfProducts()` método en el `ProductsBLL` clase devuelve el número total de productos que se va a paginar a través. Para determinar si se está viendo la primera página de datos, examine el índice de fila inicial si es cero, a continuación, se está viendo la primera página. Se está viendo la última página, si el índice de fila inicial más el número máximo de filas a devolver es mayor o igual que el número total de registros que se va a paginar a través.
 
