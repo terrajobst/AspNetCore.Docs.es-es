@@ -4,19 +4,16 @@ title: Descripción de los modelos, vistas y controladores (C#) | Microsoft Docs
 author: StephenWalther
 description: ¿Tiene dudas acerca de los modelos, vistas y controladores? En este tutorial, Stephen Walther se presentan las distintas partes de una aplicación ASP.NET MVC.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 08/19/2008
-ms.topic: article
 ms.assetid: 87313792-0a96-4caf-89fc-1457d54e5c1e
-ms.technology: dotnet-mvc
 msc.legacyurl: /mvc/overview/older-versions-1/overview/understanding-models-views-and-controllers-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f5cf39e4652a3e487dcd79b2cf887efb992c2107
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: c4c5247ac4b880c1be60f0419ebc9fc9b790c639
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37376914"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37823402"
 ---
 <a name="understanding-models-views-and-controllers-c"></a>Descripción de los modelos, vistas y controladores (C#)
 ====================
@@ -123,15 +120,15 @@ Esta dirección URL se analiza en tres parámetros similar al siguiente:
 
 Controlador = empleado
 
-acción = índice
+Acción = índice
 
 Id. =
 
 Por último, si abre una aplicación de MVC de ASP.NET sin proporcionar cualquier dirección URL (por ejemplo, `http://localhost`), a continuación, se analiza la dirección URL similar al siguiente:
 
-controlador = Home
+Controlador = Home
 
-acción = índice
+Acción = índice
 
 Id. =
 

@@ -4,19 +4,16 @@ title: Usar dependencias de caché SQL (VB) | Microsoft Docs
 author: rick-anderson
 description: La estrategia de almacenamiento en caché más sencilla consiste en permitir que los datos almacenados en caché expire después de un período de tiempo especificado. Pero este enfoque simple significa que los datos almacenados en caché de maintai...
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/30/2007
-ms.topic: article
 ms.assetid: bd347d93-4251-4532-801c-a36f2dfa7f96
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 74692fb7018cd75e29afc6d5852caddfdac1ed06
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: 7929966d9eb82994b9d427d0c3fd7f08c41212fc
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37379850"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37821650"
 ---
 <a name="using-sql-cache-dependencies-vb"></a>Usar dependencias de caché SQL (VB)
 ====================
@@ -270,17 +267,17 @@ Para probar el código SQL dependencia de caché en la capa de almacenamiento en
 
 Después de la paginación a través de algunas páginas del control GridView, abra una segunda ventana del explorador y navegue hasta el tutorial de aspectos básicos de la edición, inserción y eliminación de la sección (`~/EditInsertDelete/Basics.aspx`). Actualizar un registro de la tabla Products y, a continuación, en la primera ventana de explorador, ver una nueva página o haga clic en uno de los encabezados de ordenación.
 
-Dependencias de caché de SQL también pueden utilizarse con `SqlCacheDependencies.aspx`la caché de resultados. Para ver una demostración de esta funcionalidad, consulte: Using ASP.NET Output Caching with SQL Server. Recuerde que el servicio de sondeo está comprobando los cambios a la `Products` tabla cada `pollTime` milisegundos, por lo que hay un retraso entre cuando los datos subyacentes se actualizan y cuando se expulsan los datos en caché.
+En este escenario verá dos cosas: ya sea el punto de interrupción se alcanzarán, que indica que los datos en caché se expulsan debido al cambio en la base de datos; o bien, el punto de interrupción no se tendrán en cuenta, lo que significa que `SqlCacheDependencies.aspx` ahora se muestran datos obsoletos. Si no se alcanza el punto de interrupción, es probable porque el servicio de sondeo no ha activado todavía desde que se ha cambiado los datos. Recuerde que el servicio de sondeo está comprobando los cambios a la `Products` tabla cada `pollTime` milisegundos, por lo que hay un retraso entre cuando los datos subyacentes se actualizan y cuando se expulsan los datos en caché.
 
 > [!NOTE]
-> Al almacenar en caché de la base de datos, los datos lo ideal es que permanecerán en la memoria caché hasta que se modifica en la base de datos. Con ASP.NET 2.0, se pueden crear y usar en escenarios declarativos y programáticos dependencias de caché de SQL. Uno de los desafíos con este enfoque está en la detección cuando se ha modificado los datos. Las versiones completas de Microsoft SQL Server 2005 proporcionan capacidades de notificación que se pueden alertar a una aplicación cuando ha cambiado el resultado de una consulta.
+> Este retraso es más probable que aparezcan al editar uno de los productos a través del control GridView en `SqlCacheDependencies.aspx`. En el [almacenamiento en caché de datos en la arquitectura](caching-data-in-the-architecture-vb.md) tutorial se ha agregado el `MasterCacheKeyArray` dependencias para asegurarse de que los datos que se va a editar a través de la caché la `ProductsCL` clase s `UpdateProduct` se expulsó el método de la memoria caché. Sin embargo, esta dependencia de caché se sustituye al modificar el `AddCacheItem` método anteriormente en este paso y, por tanto, el `ProductsCL` clase seguirá mostrando los datos en caché hasta que el sistema de sondeo detecta el cambio a la `Products` tabla. Veremos cómo introducir el `MasterCacheKeyArray` la dependencia en el paso 7 de caché.
 
 
-## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>Para las versiones anteriores de SQL Server y Express Edition de SQL Server 2005, un sistema de sondeo debe usarse en su lugar.
+## <a name="step-7-associating-multiple-dependencies-with-a-cached-item"></a>Paso 7: Asociar varias dependencias de un elemento almacenado en caché
 
-Afortunadamente, la configuración de la infraestructura necesaria de sondeo es bastante sencilla. Usar notificaciones de consulta en Microsoft SQL Server 2005 Creación de una notificación de consulta Almacenamiento en caché en ASP.NET con la  clase Herramienta de registro del servidor SQL de ASP.NET () Información general de
+Recuerde que el `MasterCacheKeyArray` dependencia de caché se utiliza para garantizar que *todas* datos relacionados con el producto se expulsan de la memoria caché cuando se actualiza cualquier elemento único asociado dentro de él. Por ejemplo, el `GetProductsByCategoryID(categoryID)` método cachés `ProductsDataTables` instancias para cada uno único *categoryID* valor. Si uno de estos objetos se expulsa, el `MasterCacheKeyArray` dependencia de caché garantiza que también se quitan los demás. Sin esta dependencia de caché cuando se modifican los datos almacenados en caché existe la posibilidad de que otros datos de productos almacenada en caché pueden no estar actualizados. Por lo tanto, lo importante que mantenemos la `MasterCacheKeyArray` dependencia de caché al usar dependencias de caché de SQL. Sin embargo, los datos de caché s `Insert` método solo se permite para un objeto de dependencia única.
 
-Los revisores para este tutorial fueron Marko Rangel, Teresa Murphy y Hilton Giesenow. Por ejemplo, el `ProductsDataTable` en caché el `ProductsCL` clase contiene los nombres de categoría y el proveedor para cada producto, pero la `AddCacheItem` método solo usa una dependencia en `Products`. En esta situación, si el usuario actualiza el nombre de una categoría o el proveedor, los datos del producto almacenada en caché se permanecen en la memoria caché y no estar actualizados. Por lo tanto, queremos hacer que los datos del producto almacenada en caché dependa no sólo el `Products` de tabla, pero en el `Categories` y `Suppliers` también las tablas.
+Además, al trabajar con dependencias de caché de SQL, podemos necesitamos asociar varias tablas de base de datos como dependencias. Por ejemplo, el `ProductsDataTable` en caché el `ProductsCL` clase contiene los nombres de categoría y el proveedor para cada producto, pero la `AddCacheItem` método solo usa una dependencia en `Products`. En esta situación, si el usuario actualiza el nombre de una categoría o el proveedor, los datos del producto almacenada en caché se permanecen en la memoria caché y no estar actualizados. Por lo tanto, queremos hacer que los datos del producto almacenada en caché dependa no sólo el `Products` de tabla, pero en el `Categories` y `Suppliers` también las tablas.
 
 El [ `AggregateCacheDependency` clase](https://msdn.microsoft.com/library/system.web.caching.aggregatecachedependency.aspx) proporciona un medio para asociar varias dependencias con un elemento de caché. Comience creando un `AggregateCacheDependency` instancia. A continuación, agregue el conjunto de dependencias mediante el `AggregateCacheDependency` s `Add` método. Al insertar el elemento en la caché de datos a partir de entonces, pase el `AggregateCacheDependency` instancia. Cuando *cualquier* de la `AggregateCacheDependency` cambian las dependencias de la instancia de s, el elemento en caché se expulsen.
 
