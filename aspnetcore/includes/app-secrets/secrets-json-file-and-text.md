@@ -1,3 +1,3 @@
-<span data-ttu-id="a6261-101">Se supone la aplicación *secrets.json* archivo contiene los siguientes dos secretos:</span><span class="sxs-lookup"><span data-stu-id="a6261-101">Assume the app's *secrets.json* file contains the following two secrets:</span></span>
+<span data-ttu-id="cc8ee-101">Se supone la aplicación *secrets.json* archivo contiene los siguientes dos secretos:</span><span class="sxs-lookup"><span data-stu-id="cc8ee-101">Assume the app's *secrets.json* file contains the following two secrets:</span></span>
 
 [!INCLUDE[secrets.json file](secrets-json-file.md)]
