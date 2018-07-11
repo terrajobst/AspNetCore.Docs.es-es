@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-vsc/model
-ms.openlocfilehash: bf7566d1be0d7b520ab329ed5490e11f11240886
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3552b541c43375aef43838800855ec63e7fed372
+ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276080"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37894048"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-code"></a>Agregar un modelo a una aplicación de páginas de Razor de ASP.NET Core con Visual Studio Code
 
@@ -27,7 +27,14 @@ ms.locfileid: "36276080"
 
 [!INCLUDE [model 2a](../../includes/RP/model2a.md)]
 
-[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-6)]
+[!code-csharp[](../../tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Startup.cs?name=snippet_ConfigureServices2&highlight=3-4)]
+
+Agregue las instrucciones `using` siguientes en la parte superior de *Startup.cs*:
+
+```csharp
+using RazorPagesMovie.Models;
+using Microsoft.EntityFrameworkCore;
+```
 
 Compile el proyecto para comprobar que no contiene errores.
 

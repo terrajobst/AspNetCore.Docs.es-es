@@ -5,14 +5,14 @@ description: Conozca la aplicación auxiliar de etiquetas parciales en ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 04/13/2018
+ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: fea84621f185c4113147cf0dfd173704bc7b6d81
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
+ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274419"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37889108"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas parciales en ASP.NET Core
 
@@ -25,7 +25,7 @@ Por [Scott Addie](https://github.com/scottaddie)
 La aplicación auxiliar de etiquetas parciales sirve para representar una [vista parcial](xref:mvc/views/partial) en las páginas de Razor y las aplicaciones MVC. Tenga en cuenta lo siguiente:
 
 * Es necesario ASP.NET Core 2.1 o una versión posterior.
-* Es una alternativa a la [sintaxis de la aplicación auxiliar HTML](xref:mvc/views/partial#referencing-a-partial-view).
+* Es una alternativa a la [sintaxis de la aplicación auxiliar HTML](xref:mvc/views/partial#reference-a-partial-view).
 * Presenta la vista parcial de forma asincrónica.
 
 Las opciones de la aplicación auxiliar HTML para representar una vista parcial son estas:
@@ -81,7 +81,17 @@ En el código anterior, el valor de clave `IsNumberReadOnly` está establecido e
 
 En este ejemplo, el valor de `ViewData["IsNumberReadOnly"]` determina si el campo *Number* se muestra como de solo lectura.
 
+## <a name="migrate-from-an-html-helper"></a>Migración desde una aplicación auxiliar HTML
+
+Tenga en cuenta el siguiente ejemplo de aplicación auxiliar HTML asincrónica. Se itera y se muestra una colección de productos. Según el primer parámetro del método `PartialAsync`, se carga la vista parcial *_ProductPartial.cshtml*. Se pasa una instancia del modelo `Product` a la vista parcial para el enlace.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_HtmlHelper&highlight=3)]
+
+La siguiente aplicación auxiliar de etiquetas parciales logra el mismo comportamiento de representación asincrónica que la aplicación auxiliar HTML `PartialAsync`. El atributo `model` tiene asignada una instancia del modelo `Product` para el enlace a la vista parcial.
+
+[!code-cshtml[](samples/TagHelpersBuiltIn/Pages/Products.cshtml?name=snippet_TagHelper&highlight=3)]
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Vistas parciales](xref:mvc/views/partial)
-* [Datos con establecimiento flexible de tipos (ViewData, atributo ViewData y ViewBag)](xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag)
+* <xref:mvc/views/partial>
+* <xref:mvc/views/overview#weakly-typed-data-viewdata-viewdata-attribute-and-viewbag>

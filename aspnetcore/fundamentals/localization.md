@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 0f48490af5805e4351c983f3ae519268c8e9c7a7
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9647b605d4b9a23b365085e3677fb0e9b93f0da4
+ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274136"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434018"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -158,6 +158,27 @@ Los archivos de recursos que usan `@inject IViewLocalizer` en las vistas de Razo
 * Resources/Views.Home.About.fr.resx
 
 Si no usa la opción `ResourcesPath`, el archivo *.resx* de una vista se ubicará en la misma carpeta que la vista.
+
+### <a name="rootnamespaceattribute"></a>RootNamespaceAttribute 
+
+El atributo [RootNamespace](/dotnet/api/microsoft.extensions.localization.rootnamespaceattribute?view=aspnetcore-2.1) proporciona el espacio de nombres raíz de un ensamblado cuando el espacio de nombres raíz del ensamblado es diferente del nombre de ensamblado. 
+
+Si el espacio de nombres raíz de un ensamblado es diferente del nombre de ensamblado:
+
+* La localización no funciona de forma predeterminada.
+* Se produce un error en la localización debido a la manera en que se buscan los recursos dentro del ensamblado. `RootNamespace` es un valor en tiempo de compilación que no está disponible para el proceso en ejecución. 
+
+Si `RootNamespace` es diferente de `AssemblyName`, incluya lo siguiente en *AssemblyInfo.cs* (con los valores de parámetro reemplazados por los valores reales):
+
+```Csharp
+using System.Reflection;
+using Microsoft.Extensions.Localization;
+
+[assembly: ResourceLocation("Resource Folder Name")]
+[assembly: RootNamespace("App Root Namespace")]
+```
+
+El código anterior permite la resolución correcta de los archivos resx.
 
 ## <a name="culture-fallback-behavior"></a>Comportamiento de reserva de la referencia cultural
 
