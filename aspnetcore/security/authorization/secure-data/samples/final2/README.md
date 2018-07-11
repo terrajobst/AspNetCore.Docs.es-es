@@ -1,10 +1,10 @@
-# <a name="how-to-buildrun-secure-user-data-sample"></a>Cómo generar y ejecutar el ejemplo de datos de usuario seguras
+# <a name="how-to-buildrun-secure-user-data-sample"></a>Procedimiento para generar y ejecutar el ejemplo de datos de usuario segura
 
-* Establecer la contraseña con la herramienta Administrador de secreto:
+* Establezca la contraseña con la herramienta Secret Manager:
 
   `dotnet user-secrets set SeedUserPW <pw>`
 
-* Actualizar la base de datos:
+* Actualización de la base de datos:
 
     `dotnet ef database update`
 
