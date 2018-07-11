@@ -9,11 +9,11 @@ ms.assetid: 52a4d5fe-aa31-4471-b3cb-a064f82cb791
 msc.legacyurl: /mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
 msc.type: authoredcontent
 ms.openlocfilehash: a166f6c4450c72adc23f7d36113ceba7e04f1929
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820894"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38170279"
 ---
 <a name="examining-the-edit-methods-and-edit-view"></a>Examinar los métodos de edición y vista de edición
 ====================
