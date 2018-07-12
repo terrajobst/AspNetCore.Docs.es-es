@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 12/15/2017
 uid: fundamentals/logging/index
-ms.openlocfilehash: 969ad303c3fee06aa40d43140153ffbf58b735db
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: dde01129bb7ea29544c4c416dfe9b5522a738d01
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126292"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938490"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -29,6 +29,8 @@ ASP.NET Core es compatible con una API de registro que funciona con una variedad
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ::: moniker-end
+
+Para obtener información sobre el registro de stdout al hospedar con IIS, consulte <xref:host-and-deploy/iis/troubleshoot#aspnet-core-module-stdout-log>. Para obtener información sobre el registro de stdout con Azure App Service, consulte <xref:host-and-deploy/azure-apps/troubleshoot#aspnet-core-module-stdout-log>.
 
 ## <a name="how-to-create-logs"></a>Cómo crear registros
 
