@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: c1df772c19bfa89c1d780d09d56c6bc4a79967c6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ea396764bfba0a20347dc231acf40cb36adc1e37
+ms.sourcegitcommit: 260abb706ed17f07a53288d8a0c3e69fc13e7468
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806198"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38966736"
 ---
 <a name="working-with-groups-in-signalr"></a>Trabajar con grupos en SignalR
 ====================
@@ -73,7 +73,7 @@ Si desea agregar a un cliente a un grupo y enviar inmediatamente un mensaje al c
 
 [!code-csharp[Main](working-with-groups/samples/sample2.cs?highlight=1,3)]
 
-En general, no debe incluir `await` al llamar a la `Groups.Remove` método porque el identificador de conexión que está intentando quitar es posible que ya no estarán disponible. En ese caso, `TaskCanceledException` se produce después de la solicitud agota el tiempo. Si la aplicación debe asegurarse de que el usuario se quitó del grupo antes de enviar un mensaje al grupo, puede agregar `await` antes Groups.Remove y, a continuación, detectar la `TaskCanceledException` excepciones que puedan producirse.
+En general, no debe incluir `await` al llamar a la `Groups.Remove` método porque el identificador de conexión que está intentando quitar es posible que ya no estarán disponible. En ese caso, `TaskCanceledException` se produce después de la solicitud agota el tiempo. Si la aplicación debe asegurarse de que el usuario se quitó del grupo antes de enviar un mensaje al grupo, puede agregar `await` antes `Groups.Remove`y, a continuación, detecte el `TaskCanceledException` excepciones que puedan producirse.
 
 <a id="call"></a>
 
