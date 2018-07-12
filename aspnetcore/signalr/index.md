@@ -27,7 +27,7 @@ ms.locfileid: "38966762"
   * [Cliente de JavaScript](xref:signalr/javascript-client)
   * [Cliente .NET](xref:signalr/dotnet-client)
   * [WebPack y TypeScript](xref:tutorials/signalr-typescript-webpack)
-  * [JavaScript API](/javascript/api/?view=signalr-js-latest)
+  * [API de JavaScript](/javascript/api/?view=signalr-js-latest)
 
 * [Configuración](xref:signalr/configuration)
 * [Protocolo de concentrador MessagePack](xref:signalr/messagepackhubprotocol)
