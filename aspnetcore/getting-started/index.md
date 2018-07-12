@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
 ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 931b6a2d7eb28a0f1295e8a95690b8c4c5f58477
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37077665"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38216218"
 ---
 # <a name="get-started-with-aspnet-core"></a>Introducción a ASP.NET Core
 
