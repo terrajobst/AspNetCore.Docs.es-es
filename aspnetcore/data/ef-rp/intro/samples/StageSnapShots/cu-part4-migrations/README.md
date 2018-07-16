@@ -1,3 +1,3 @@
-<span data-ttu-id="db4ab-101">Copie wwwroot desde ../cu/ o desde un proyecto nuevo de páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="db4ab-101">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
+<span data-ttu-id="ba607-101">Copie wwwroot desde ../cu/ o desde un proyecto nuevo de páginas de Razor.</span><span class="sxs-lookup"><span data-stu-id="ba607-101">Copy wwwroot from ../cu/ or from a new Razor Pages project.</span></span>
 
-<span data-ttu-id="db4ab-102">Ejecute `dotnet ef database update`.</span><span class="sxs-lookup"><span data-stu-id="db4ab-102">Run `dotnet ef database update`</span></span>
+<span data-ttu-id="ba607-102">Ejecute `dotnet ef database update`.</span><span class="sxs-lookup"><span data-stu-id="ba607-102">Run `dotnet ef database update`</span></span>
