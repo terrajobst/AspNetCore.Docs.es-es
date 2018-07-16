@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar un controlador a una senci
 ms.author: riande
 ms.date: 02/28/2017
 uid: tutorials/first-mvc-app/adding-controller
-ms.openlocfilehash: bf4ac33103d525194524e7578902e6f985dbe7c2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5686c4de6960e49714b822200212ea66cfa4b37c
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276596"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938425"
 ---
 # <a name="add-a-controller-to-an-aspnet-core-mvc-app"></a>Agregar un controlador a una aplicación de ASP.NET Core MVC
 

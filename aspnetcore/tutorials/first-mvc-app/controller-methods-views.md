@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 03/07/2017
 uid: tutorials/first-mvc-app/controller-methods-views
 ms.openlocfilehash: e94cb877576a68540a565225b2b3d79f9be53327
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274819"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38194019"
 ---
 # <a name="controller-methods-and-views-in-aspnet-core"></a>Vistas y métodos de controlador en ASP.NET Core
 

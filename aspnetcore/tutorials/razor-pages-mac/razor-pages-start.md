@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 07/27/2017
 uid: tutorials/razor-pages-mac/razor-pages-start
 ms.openlocfilehash: c2d2038a77a67d4e955856756f73e18e31f13a5d
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272057"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38193788"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core-on-macos-with-visual-studio-for-mac"></a>Introducción a las páginas de Razor en ASP.NET Core en macOS con Visual Studio para Mac
 

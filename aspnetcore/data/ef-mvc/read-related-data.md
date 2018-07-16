@@ -5,12 +5,12 @@ description: En este tutorial podrá leer y mostrar datos relacionados, es decir
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/read-related-data
-ms.openlocfilehash: d5c9b665a80003ef5029754d7ad1780b3254e97e
-ms.sourcegitcommit: c6ed2f00c7a08223d79090396b85793718b0dd69
+ms.openlocfilehash: a310c9e4b9cec6e2ab2477461f395c9bbd3fa364
+ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37092989"
+ms.lasthandoff: 07/15/2018
+ms.locfileid: "39063291"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---read-related-data---6-of-10"></a>ASP.NET Core MVC con EF Core: Lectura de datos relacionados (6 de 10)
 
@@ -155,7 +155,7 @@ El método `Single` se usa en una colección cuando se sabe que la colección te
 En lugar de:
 
 ```csharp
-.Where(I => i.ID == id.Value).Single()
+.Where(i => i.ID == id.Value).Single()
 ```
 
 A continuación, si se ha seleccionado un curso, se recupera de la lista de cursos en el modelo de vista. Después, se carga la propiedad `Enrollments` del modelo de vista con las entidades Enrollment de la propiedad de navegación `Enrollments` de ese curso.

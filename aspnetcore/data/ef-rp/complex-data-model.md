@@ -6,11 +6,11 @@ ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
 ms.openlocfilehash: d96ce7a3f81c54d3c4c0fe26d3fb588d9ce2e0ce
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37090002"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38127107"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 

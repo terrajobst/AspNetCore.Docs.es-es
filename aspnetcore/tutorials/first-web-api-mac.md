@@ -7,11 +7,11 @@ ms.custom: mvc
 ms.date: 05/08/2018
 uid: tutorials/first-web-api-mac
 ms.openlocfilehash: 4caa6d9057de8d0e821c4abefe22985f43ff95ad
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279615"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38156145"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-for-mac"></a>Crear una API web con ASP.NET Core y Visual Studio para Mac
 

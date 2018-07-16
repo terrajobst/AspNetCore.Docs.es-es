@@ -5,12 +5,12 @@ description: En este tutorial, empezará a usar la característica de EF Core de
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/migrations
-ms.openlocfilehash: 15e3bc57e98b249cbefc394bbe1a136a709a03a7
-ms.sourcegitcommit: 1faf2525902236428dae6a59e375519bafd5d6d7
+ms.openlocfilehash: 2051f55bfa7a9582486df78ec91315f0b03cb1e8
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37089963"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938383"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---migrations---4-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Migraciones (4 de 8)
 

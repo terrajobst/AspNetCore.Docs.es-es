@@ -7,11 +7,11 @@ ms.author: riande
 ms.date: 08/27/2017
 uid: tutorials/razor-pages-mac/model
 ms.openlocfilehash: 3ca6c9b9988b8335116b7248c6c4a89997d02b14
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273279"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38186763"
 ---
 # <a name="add-a-model-to-an-aspnet-core-razor-pages-app-with-visual-studio-for-mac"></a>Agregar un modelo a una aplicación de páginas de Razor de ASP.NET Core con Visual Studio para Mac
 

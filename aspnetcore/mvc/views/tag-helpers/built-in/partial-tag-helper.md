@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: 2272b2ecdd6f2b0a759356b1f03dd5c495ea1c91
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: a289a946a6d3eb491a08103dcefdd688eab52072
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889108"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938344"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas parciales en ASP.NET Core
 
