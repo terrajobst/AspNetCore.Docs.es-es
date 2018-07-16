@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: rachelap
 ms.date: 07/03/2018
 uid: signalr/index
-ms.openlocfilehash: 07846272ab7bd913648a093febb1c331533e2031
-ms.sourcegitcommit: 260abb706ed17f07a53288d8a0c3e69fc13e7468
+ms.openlocfilehash: 5c5c8c9af159a187cdb5c6be38dc3249addae597
+ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38966762"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39025477"
 ---
 # <a name="aspnet-core-signalr"></a>SignalR de ASP.NET Core
 
@@ -30,6 +30,8 @@ ms.locfileid: "38966762"
   * [API de JavaScript](/javascript/api/?view=signalr-js-latest)
 
 * [Configuración](xref:signalr/configuration)
+* [Autenticación y autorización](xref:signalr/authn-and-authz)
+* [Consideraciones de seguridad](xref:signalr/security)
 * [Protocolo de concentrador MessagePack](xref:signalr/messagepackhubprotocol)
 * [Streaming](xref:signalr/streaming)
 * [Diferencias entre las versiones de SignalR](xref:signalr/version-differences)
