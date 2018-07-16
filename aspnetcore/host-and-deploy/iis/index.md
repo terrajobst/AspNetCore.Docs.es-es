@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: f35fbbbf7d04b041565e76d3cc6b9822f1056e50
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 96a4403653e474bb056374909b3ee66998bc99be
+ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824544"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992820"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -177,7 +177,7 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
    
    Para evitar que el instalador instale paquetes x86 en un sistema operativo x64, ejecute el instalador desde un símbolo del sistema de administrador con el modificador `OPT_NO_X86=1`.
 
-1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema. Al reiniciar IIS se recoge un cambio en la variable PATH del sistema realizado por el programa de instalación.
+1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
 
 > [!NOTE]
 > Para obtener información sobre la configuración compartida de IIS, vea [ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration) (Módulo de ASP.NET Core con configuración compartida de IIS).
