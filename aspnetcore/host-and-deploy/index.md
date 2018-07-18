@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/07/2017
 uid: host-and-deploy/index
-ms.openlocfilehash: 31444475e39a12d526dd624bb508770429e414ca
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: e62b68c4cfad29bb8bea3b9fbb2c231a4afeccea
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277155"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095673"
 ---
 # <a name="host-and-deploy-aspnet-core"></a>Hospedaje e implementación de ASP.NET Core
 
@@ -71,6 +71,10 @@ Mediante la [característica de publicación web](xref:tutorials/publish-to-azur
 ## <a name="publishing-to-azure"></a>Publicación en Azure
 
 Vea [Publicar una aplicación web de ASP.NET Core en Azure App Service con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs) para obtener instrucciones sobre cómo publicar una aplicación en Azure con Visual Studio. También se puede publicar la aplicación en Azure desde la [línea de comandos](xref:tutorials/publish-to-azure-webapp-using-cli).
+
+## <a name="host-in-a-web-farm"></a>Hospedaje en una granja de servidores web
+
+Para obtener más información sobre la configuración del hospedaje de aplicaciones de ASP.NET Core en un entorno de granja de servidores web (por ejemplo, para implementar varias instancias de la aplicación para escalabilidad), consulte <xref:host-and-deploy/web-farm>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

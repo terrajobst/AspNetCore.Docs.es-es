@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: ed8faf8b3049adc7bcc7953d63ad805b0a836bd9
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 9e0fd0ee98c84bb2336749640b2a3c103e4639b6
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961180"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938331"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -209,7 +209,7 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{
 
 ### <a name="test-the-app"></a>Prueba de la aplicación
 
-* Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador (`http://localhost:port/movies`).
+* Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador ( `http://localhost:port/movies` ).
 * Pruebe el vínculo **Crear**.
 
   ![Página Crear](../../tutorials/razor-pages/model/_static/conan.png)

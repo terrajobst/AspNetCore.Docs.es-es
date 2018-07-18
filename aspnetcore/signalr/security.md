@@ -1,18 +1,18 @@
 ---
 title: Consideraciones de seguridad en ASP.NET Core SignalR
-author: rachelappel
+author: tdykstra
 description: Obtenga información sobre cómo utilizar la autenticación y autorización en ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/security
-ms.openlocfilehash: eff4542b88f24dd6c1c0675f56874e368d441fdd
-ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
+ms.openlocfilehash: b66c7fbfbaee4c70a68f3132875fbc81018c3e20
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39028487"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095137"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Consideraciones de seguridad en ASP.NET Core SignalR
 

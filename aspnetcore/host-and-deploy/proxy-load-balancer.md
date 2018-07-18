@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 03/26/2018
 uid: host-and-deploy/proxy-load-balancer
-ms.openlocfilehash: 1623c6dbe377ce24c380b75a828c3ec5653dd7dd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b04219803477c9dc1c25077cde117fc629f8b6fb
+ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827503"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37938503"
 ---
 # <a name="configure-aspnet-core-to-work-with-proxy-servers-and-load-balancers"></a>Configuración de ASP.NET Core para trabajar con servidores proxy y equilibradores de carga
 
@@ -42,12 +42,13 @@ El middleware realiza las siguientes actualizaciones:
 * [HttpContext.Request.Scheme](/dotnet/api/microsoft.aspnetcore.http.httprequest.scheme): establézcalo mediante el valor de encabezado `X-Forwarded-Proto`.
 * [HttpContext.Request.Host](/dotnet/api/microsoft.aspnetcore.http.httprequest.host): establézcalo mediante el valor de encabezado `X-Forwarded-Host`.
 
-Tenga en cuenta que no todos los dispositivos de red agregan los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` sin configuración adicional. Consulte las instrucciones del fabricante de su dispositivo si las solicitudes redirigidas mediante proxy no contienen estos encabezados cuando llegan a la aplicación.
-
 Se pueden configurar los [valores predeterminados](#forwarded-headers-middleware-options) del Middleware de encabezados reenviados. Estos valores son:
 
 * Solo hay *un proxy* entre la aplicación y el origen de las solicitudes.
 * Solo las direcciones de bucle invertido se configuran para servidores proxy conocidos y redes conocidas.
+* Los encabezados reenviados se denominan `X-Forwarded-For` y `X-Forwarded-Proto`.
+
+No todos los dispositivos de red agregan los encabezados `X-Forwarded-For` y `X-Forwarded-Proto` sin configuración adicional. Consulte las instrucciones del fabricante de su dispositivo si las solicitudes redirigidas mediante proxy no contienen estos encabezados cuando llegan a la aplicación. Si el dispositivo usa nombres de encabezado distintos a `X-Forwarded-For` y `X-Forwarded-Proto`, establezca las opciones [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) y [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) para que coincidan con los nombres de encabezado empleados por el dispositivo. Para obtener más información, vea [Opciones del Middleware de encabezados reenviados](#forwarded-headers-middleware-options) y [Configuración de un proxy que usa otros nombres de encabezado](#configuration-for-a-proxy-that-uses-different-header-names).
 
 ## <a name="iisiis-express-and-aspnet-core-module"></a>IIS o IIS Express y el módulo ASP.NET Core
 
@@ -96,32 +97,37 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## <a name="nginx-configuration"></a>Configuración de Nginx
 
-Para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`, vea [Hospedaje en Linux con Nginx: Configurar Nginx](xref:host-and-deploy/linux-nginx#configure-nginx). Para más información, vea [NGINX: Using the Forwarded header](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/) (NGINX: Uso del encabezado Forwarded).
+Para reenviar los encabezados `X-Forwarded-For` y `X-Forwarded-Proto`, vea <xref:host-and-deploy/linux-nginx#configure-nginx>. Para más información, vea [NGINX: Using the Forwarded header](https://www.nginx.com/resources/wiki/start/topics/examples/forwarded/) (NGINX: Uso del encabezado Forwarded).
 
 ## <a name="apache-configuration"></a>Configuración de Apache
 
-`X-Forwarded-For` se agrega automáticamente. Vea [Apache Module mod_proxy: Reverse Proxy Request Headers](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers) (Módulo de Apache mod_proxy: Encabezados de solicitud de proxy inverso). Para más información sobre cómo reenviar el encabezado `X-Forwarded-Proto`, vea [Hospedaje en Linux con Apache: Configurar Apache](xref:host-and-deploy/linux-apache#configure-apache).
+`X-Forwarded-For` se agrega automáticamente. Vea [Apache Module mod_proxy: Reverse Proxy Request Headers](https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#x-headers) (Módulo de Apache mod_proxy: Encabezados de solicitud de proxy inverso). Para obtener información sobre cómo reenviar el encabezado `X-Forwarded-Proto`, vea <xref:host-and-deploy/linux-apache#configure-apache>.
 
 ## <a name="forwarded-headers-middleware-options"></a>Opciones del Middleware de encabezados reenviados
 
-[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) controla el comportamiento del Middleware de encabezados reenviados:
+[ForwardedHeadersOptions](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) controla el comportamiento del middleware de encabezados reenviados. En el ejemplo siguiente se cambian los valores predeterminados:
+
+* Limite el número de entradas de los encabezados reenviados a `2`.
+* Agregue una dirección de proxy conocida de `127.0.10.1`.
+* Cambie el nombre del encabezado reenviado del valor predeterminado `X-Forwarded-For` a `X-Forwarded-For-My-Custom-Header-Name`.
 
 ```csharp
 services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.ForwardLimit = 2;
     options.KnownProxies.Add(IPAddress.Parse("127.0.10.1"));
-    options.ForwardedForHeaderName = "X-Forwarded-For-Custom-Header-Name";
+    options.ForwardedForHeaderName = "X-Forwarded-For-My-Custom-Header-Name";
 });
 ```
 
-::: moniker range="<= aspnetcore-2.0"
+::: moniker range=">= aspnetcore-2.1"
 | Opción | Description |
 | ------ | ----------- |
-| [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername).<br><br>El valor predeterminado es `X-Forwarded-For`. |
+| AllowedHosts | Restringe los hosts por el encabezado `X-Forwarded-Host` a los valores proporcionados.<ul><li>Los valores se comparan mediante ordinal-ignore-case.</li><li>Se deben excluir los números de puerto.</li><li>Si la lista está vacía, se permiten todos los hosts.</li><li>Un carácter comodín de nivel superior `*` permite que todos los hosts que no están vacíos.</li><li>Se permiten caracteres comodín de subdominio, pero no coinciden con el dominio raíz. Por ejemplo, `*.contoso.com` coincide con el subdominio `foo.contoso.com` pero no con el dominio raíz `contoso.com`.</li><li>Se permiten nombres de host Unicode, pero se convierten en [Punycode](https://tools.ietf.org/html/rfc3492) para buscar la coincidencia.</li><li>Las [direcciones IPv6](https://tools.ietf.org/html/rfc4291) deben incluir corchetes de enlace y estar en [formato convencional](https://tools.ietf.org/html/rfc4291#section-2.2) (por ejemplo, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). Las direcciones IPv6 no usan mayúsculas y minúsculas de forma especial para buscar la igualdad lógica entre diferentes formatos, y no se realiza ninguna canonización.</li><li>Si no se restringen los hosts permitidos, un atacante podría suplantar los vínculos generados por el servicio.</li></ul>El valor predeterminado es un elemento [IList\<string>](/dotnet/api/system.collections.generic.ilist-1) vacío. |
+| [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername). Esta opción se usa cuando el reenviador o proxy no emplea el encabezado `X-Forwarded-For` sino algún otro para reenviar la información.<br><br>El valor predeterminado es `X-Forwarded-For`. |
 | [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Identifica qué reenviadores se deben procesar. Consulte [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) para obtener la lista de campos que se aplican. Los valores típicos que se asignan a esta propiedad son <code>ForwardedHeaders.XForwardedFor &#124; ForwardedHeaders.XForwardedProto</code>.<br><br>El valor predeterminado es [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
-| [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername).<br><br>El valor predeterminado es `X-Forwarded-Host`. |
-| [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername).<br><br>El valor predeterminado es `X-Forwarded-Proto`. |
+| [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername). Esta opción se usa cuando el reenviador o proxy no emplea el encabezado `X-Forwarded-Host` sino algún otro para reenviar la información.<br><br>El valor predeterminado es `X-Forwarded-Host`. |
+| [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername). Esta opción se usa cuando el reenviador o proxy no emplea el encabezado `X-Forwarded-Proto` sino algún otro para reenviar la información.<br><br>El valor predeterminado es `X-Forwarded-Proto`. |
 | [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | Limita el número de entradas en los encabezados que se procesan. Establézcalo en `null` para deshabilitar el límite, pero esto solo se debe realizar si están configurados `KnownProxies` o `KnownNetworks`.<br><br>El valor predeterminado es 1. |
 | [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Intervalos de direcciones de servidores proxy conocidos de los que se aceptan encabezados reenviados. Proporcione intervalos de direcciones IP mediante la notación de Enrutamiento de interdominios sin clases (CIDR).<br><br>El valor predeterminado es [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPNetwork](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> que contiene una única entrada para `IPAddress.Loopback`. |
 | [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | Direcciones de servidores proxy conocidos de los que se aceptan encabezados reenviados. Use `KnownProxies` para especificar las coincidencias exactas de direcciones IP.<br><br>El valor predeterminado es [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPAddress](/dotnet/api/system.net.ipaddress)> que contiene una única entrada para `IPAddress.IPv6Loopback`. |
@@ -130,14 +136,13 @@ services.Configure<ForwardedHeadersOptions>(options =>
 | [OriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.originalprotoheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XOriginalProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xoriginalprotoheadername).<br><br>El valor predeterminado es `X-Original-Proto`. |
 | [RequireHeaderSymmetry](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.requireheadersymmetry) | Requiere que el número de valores de encabezado esté sincronizado entre los valores [ForwardedHeadersOptions.ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) que se van a procesar.<br><br>El valor predeterminado en ASP.NET Core 1.x es `true`. El valor predeterminado en ASP.NET Core 2.0 o posterior es `false`. |
 ::: moniker-end
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range="<= aspnetcore-2.0"
 | Opción | Description |
 | ------ | ----------- |
-| AllowedHosts | Restringe los hosts por el encabezado `X-Forwarded-Host` a los valores proporcionados.<ul><li>Los valores se comparan mediante ordinal-ignore-case.</li><li>Se deben excluir los números de puerto.</li><li>Si la lista está vacía, se permiten todos los hosts.</li><li>Un carácter comodín de nivel superior `*` permite que todos los hosts que no están vacíos.</li><li>Se permiten caracteres comodín de subdominio, pero no coinciden con el dominio raíz. Por ejemplo, `*.contoso.com` coincide con el subdominio `foo.contoso.com` pero no con el dominio raíz `contoso.com`.</li><li>Se permiten nombres de host Unicode, pero se convierten en [Punycode](https://tools.ietf.org/html/rfc3492) para buscar la coincidencia.</li><li>Las [direcciones IPv6](https://tools.ietf.org/html/rfc4291) deben incluir corchetes de enlace y estar en [formato convencional](https://tools.ietf.org/html/rfc4291#section-2.2) (por ejemplo, `[ABCD:EF01:2345:6789:ABCD:EF01:2345:6789]`). Las direcciones IPv6 no usan mayúsculas y minúsculas de forma especial para buscar la igualdad lógica entre diferentes formatos, y no se realiza ninguna canonización.</li><li>Si no se restringen los hosts permitidos, un atacante podría suplantar los vínculos generados por el servicio.</li></ul>El valor predeterminado es un elemento [IList\<string>](/dotnet/api/system.collections.generic.ilist-1) vacío. |
-| [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername).<br><br>El valor predeterminado es `X-Forwarded-For`. |
+| [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedforheadername). Esta opción se usa cuando el reenviador o proxy no emplea el encabezado `X-Forwarded-For` sino algún otro para reenviar la información.<br><br>El valor predeterminado es `X-Forwarded-For`. |
 | [ForwardedHeaders](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedheaders) | Identifica qué reenviadores se deben procesar. Consulte [ForwardedHeaders Enum](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders) para obtener la lista de campos que se aplican. Los valores típicos que se asignan a esta propiedad son <code>ForwardedHeaders.XForwardedFor &#124; ForwardedHeaders.XForwardedProto</code>.<br><br>El valor predeterminado es [ForwardedHeaders.None](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheaders). |
-| [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername).<br><br>El valor predeterminado es `X-Forwarded-Host`. |
-| [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername).<br><br>El valor predeterminado es `X-Forwarded-Proto`. |
+| [ForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedhostheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedHostHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedhostheadername). Esta opción se usa cuando el reenviador o proxy no emplea el encabezado `X-Forwarded-Host` sino algún otro para reenviar la información.<br><br>El valor predeterminado es `X-Forwarded-Host`. |
+| [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) | Use el encabezado especificado por esta propiedad en lugar del especificado por [ForwardedHeadersDefaults.XForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.httpoverrides.forwardedheadersdefaults.xforwardedprotoheadername). Esta opción se usa cuando el reenviador o proxy no emplea el encabezado `X-Forwarded-Proto` sino algún otro para reenviar la información.<br><br>El valor predeterminado es `X-Forwarded-Proto`. |
 | [ForwardLimit](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardlimit) | Limita el número de entradas en los encabezados que se procesan. Establézcalo en `null` para deshabilitar el límite, pero esto solo se debe realizar si están configurados `KnownProxies` o `KnownNetworks`.<br><br>El valor predeterminado es 1. |
 | [KnownNetworks](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownnetworks) | Intervalos de direcciones de servidores proxy conocidos de los que se aceptan encabezados reenviados. Proporcione intervalos de direcciones IP mediante la notación de Enrutamiento de interdominios sin clases (CIDR).<br><br>El valor predeterminado es [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPNetwork](/dotnet/api/microsoft.aspnetcore.httpoverrides.ipnetwork)> que contiene una única entrada para `IPAddress.Loopback`. |
 | [KnownProxies](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.knownproxies) | Direcciones de servidores proxy conocidos de los que se aceptan encabezados reenviados. Use `KnownProxies` para especificar las coincidencias exactas de direcciones IP.<br><br>El valor predeterminado es [IList](/dotnet/api/system.collections.generic.ilist-1)\<[IPAddress](/dotnet/api/system.net.ipaddress)> que contiene una única entrada para `IPAddress.IPv6Loopback`. |
@@ -173,7 +178,7 @@ Si `/foo` es la ruta de acceso base de aplicación para una ruta de acceso de pr
 app.UsePathBase("/foo");
 ```
 
-La ruta de acceso base y la ruta de acceso original se vuelven a aplicar cuando se llama de nuevo al middleware en orden inverso. Para más información sobre el procesamiento de pedidos de middleware, consulte [Middleware](xref:fundamentals/middleware/index).
+La ruta de acceso base y la ruta de acceso original se vuelven a aplicar cuando se llama de nuevo al middleware en orden inverso. Para obtener más información sobre el procesamiento de pedidos del middleware, vea <xref:fundamentals/middleware/index>.
 
 Si el proxy recorta la ruta de acceso (por ejemplo, el reenvío `/foo/api/1` a `/api/1`), corrija los redireccionamientos y los vínculos mediante el establecimiento de la propiedad [PathBase](/dotnet/api/microsoft.aspnetcore.http.httprequest.pathbase) de la solicitud:
 
@@ -196,6 +201,18 @@ app.Use((context, next) =>
     }
 
     return next();
+});
+```
+
+### <a name="configuration-for-a-proxy-that-uses-different-header-names"></a>Configuración de un proxy que usa otros nombres de encabezado
+
+Si el proxy no usa los encabezados denominados `X-Forwarded-For` y `X-Forwarded-Proto` para reenviar el puerto o la dirección de proxy y originar información de esquema, establezca las opciones [ForwardedForHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedforheadername) y [ForwardedProtoHeaderName](/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions.forwardedprotoheadername) de modo que coincidan con los nombres de encabezado empleados por el proxy:
+
+```csharp
+services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.ForwardedForHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-For_Header";
+    options.ForwardedProtoHeaderName = "Header_Name_Used_By_Proxy_For_X-Forwarded-Proto_Header";
 });
 ```
 
@@ -242,4 +259,4 @@ La dirección IP remota original de la solicitud debe coincidir con una entrada 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Microsoft Security Advisory CVE-2018-0787: ASP.NET Core Elevation Of Privilege Vulnerability](https://github.com/aspnet/Announcements/issues/295) (Microsoft Security Advisory CVE-2018-0787: Vulnerabilidad de elevación de privilegios de ASP.NET Core)
+[Microsoft Security Advisory CVE-2018-0787: ASP.NET Core Elevation Of Privilege Vulnerability](https://github.com/aspnet/Announcements/issues/295) (Microsoft Security Advisory CVE-2018-0787: Vulnerabilidad de elevación de privilegios de ASP.NET Core)
