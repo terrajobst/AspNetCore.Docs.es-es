@@ -1,16 +1,16 @@
 ---
 title: Introducción a la seguridad de ASP.NET Core
-author: rachelappel
+author: tdykstra
 description: Obtenga información sobre los conceptos básicos de autenticación, autorización y seguridad en ASP.NET Core.
-ms.author: rachelap
+ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: a23d23cf1bf0503b59c6f5d962cecf89af37b4b3
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ed64594c85d555d8417903947fc3ce927dc04cec
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278510"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095767"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Introducción a la seguridad de ASP.NET Core
 

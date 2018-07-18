@@ -1,18 +1,18 @@
 ---
 title: Autenticación y autorización en ASP.NET Core SignalR
-author: rachelappel
+author: tdykstra
 description: Obtenga información sobre cómo utilizar la autenticación y autorización en ASP.NET Core SignalR.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 32e5fcf2fd3f888e0e131fa47bd9a74eede3c26d
-ms.sourcegitcommit: 32626efaa7316c9b283c96be6516e637d548c5e5
+ms.openlocfilehash: d4259e04a0e3bb9ff517a10465323ccb5e2895a5
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39028467"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095176"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Autenticación y autorización en ASP.NET Core SignalR
 
@@ -54,7 +54,7 @@ var connection = new HubConnectionBuilder()
 
 En las API web estándar, se envían los tokens de portador en un encabezado HTTP. Sin embargo, SignalR es no se puede establecer estos encabezados en los exploradores cuando se usa algunos transportes. Cuando se usa WebSockets y los eventos, el token se transmite como un parámetro de cadena de consulta. Para admitir esto en el servidor, se requiere configuración adicional:
 
-[!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?range=33-34,42-80,90)]
+[!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
 
 ### <a name="windows-authentication"></a>Autenticación de Windows
 

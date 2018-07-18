@@ -1,18 +1,18 @@
 ---
 title: Plataformas compatibles con ASP.NET Core SignalR
-author: rachelappel
+author: tdykstra
 description: Plataformas compatibles con ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 04/20/2018
 uid: signalr/supported-platforms
-ms.openlocfilehash: 1e40efa53f854e7b223287779557936a7c43410d
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: 360dbe4b4e1d2ed99779410bdbee69662e7c3763
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37937860"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095354"
 ---
 # <a name="aspnet-core-signalr-supported-platforms"></a>Plataformas compatibles con ASP.NET Core SignalR
 

@@ -1,18 +1,18 @@
 ---
 title: Cliente ASP.NET Core SignalR JavaScript
-author: rachelappel
+author: tdykstra
 description: Información general de cliente de JavaScript de SignalR de ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: d0eba401b3152d510b9db092169e83f6da2a0523
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: c13c41b0344b0c880e842f2799d6ee97bd7fff7e
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938049"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095429"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Cliente ASP.NET Core SignalR JavaScript
 

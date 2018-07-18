@@ -1,39 +1,39 @@
 ---
-title: Uso de ASP.NET Core SignalR transmisión por secuencias
-author: rachelappel
+title: Usar la transmisión por secuencias en ASP.NET Core SignalR
+author: tdykstra
 description: ''
 monikerRange: '>= aspnetcore-2.1'
-ms.author: rachelap
+ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/07/2018
 uid: signalr/streaming
-ms.openlocfilehash: 08ddea4fb83150bab27a9e2685c75ff34565606b
-ms.sourcegitcommit: 79b756ea03eae77a716f500ef88253ee9b1464d2
+ms.openlocfilehash: 0001eed830249ac46ba35331759187bb4e7e8fd3
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36327498"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095267"
 ---
-# <a name="use-streaming-in-aspnet-core-signalr"></a>Uso de ASP.NET Core SignalR transmisión por secuencias
+# <a name="use-streaming-in-aspnet-core-signalr"></a>Usar la transmisión por secuencias en ASP.NET Core SignalR
 
 Por [Brennan Conroy](https://github.com/BrennanConroy)
 
-Núcleo de ASP.NET SignalR es compatible con transmisión por secuencias valores devueltos de métodos de servidor. Esto es útil para escenarios donde fragmentos de datos aparecerá en con el tiempo. Cuando un valor devuelto se transmite al cliente, significará que se ha enviado cada fragmento al cliente en cuanto se convierte en disponible, en lugar de esperar a todos los datos hasta que esté disponible.
+ASP.NET Core SignalR es compatible con la transmisión por secuencias los valores devueltos de métodos de servidor. Esto es útil para escenarios de fragmentos de datos de procedencia con el tiempo. Cuando se transmite un valor devuelto al cliente, significará que se ha enviado cada fragmento al cliente en cuanto se convierte en disponible, en lugar de tener que esperar todos los datos estén disponibles.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/streaming/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="set-up-the-hub"></a>Configurar el concentrador
+## <a name="set-up-the-hub"></a>Configurar el centro
 
-Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando devuelve un `ChannelReader<T>` o `Task<ChannelReader<T>>`. A continuación se muestra un ejemplo que muestra los conceptos básicos de transmisión de datos al cliente. Cada vez que un objeto se escribe en el `ChannelReader` ese objeto se envía inmediatamente al cliente. Al final, el `ChannelReader` se complete para indicar al cliente la secuencia está cerrada.
+Un método de concentrador se convierte automáticamente en un método de concentrador de transmisión por secuencias cuando vuelve una `ChannelReader<T>` o `Task<ChannelReader<T>>`. A continuación es un ejemplo que muestra los conceptos básicos de transmisión de datos al cliente. Cada vez que se escribe un objeto en el `ChannelReader` ese objeto inmediatamente se envía al cliente. Al final, el `ChannelReader` completada para indicar al cliente la secuencia está cerrada.
 
 > [!NOTE]
-> Escribir en el `ChannelReader` en un subproceso en segundo plano y vuelva la `ChannelReader` tan pronto como sea posible. Otras las invocaciones del concentrador se bloqueará hasta que un `ChannelReader` se devuelve.
+> Escribir en el `ChannelReader` en un subproceso en segundo plano y vuelva el `ChannelReader` tan pronto como sea posible. Las demás invocaciones de concentrador se bloqueará hasta que un `ChannelReader` se devuelve.
 
 [!code-csharp[Streaming hub method](streaming/sample/Hubs/StreamHub.cs?range=10-34)]
 
 ## <a name="net-client"></a>Cliente .NET
 
-El `StreamAsChannelAsync` método `HubConnection` se utiliza para invocar un método de transmisión por secuencias. Pasar el nombre del método de concentrador y los argumentos definidos en el método de concentrador a `StreamAsChannelAsync`. El parámetro genérico en `StreamAsChannelAsync<T>` especifica el tipo de objetos devueltos por el método de transmisión por secuencias. Un `ChannelReader<T>` se devuelve desde la invocación de flujo y representa el flujo en el cliente. Para leer los datos, es un patrón común para recorrer en `WaitToReadAsync` y llamar a `TryRead` cuando los datos están disponibles. El bucle terminará cuando se ha cerrado la secuencia por el servidor, o el token de cancelación que se pasa a `StreamAsChannelAsync` se cancela.
+El `StreamAsChannelAsync` método `HubConnection` se utiliza para invocar un método de transmisión por secuencias. Pase el nombre del método de concentrador y los argumentos definidos en el método de concentrador a `StreamAsChannelAsync`. El parámetro genérico en `StreamAsChannelAsync<T>` especifica el tipo de objetos devueltos por el método de transmisión por secuencias. Un `ChannelReader<T>` se devuelve desde la invocación de la secuencia y representa el flujo en el cliente. Para leer datos, un patrón común es para recorrer en bucle `WaitToReadAsync` y llamar a `TryRead` cuando los datos están disponibles. El bucle finalizará cuando el servidor ha cerrado la secuencia o el token de cancelación pasado a `StreamAsChannelAsync` se cancela.
 
 ```csharp
 var channel = await hubConnection.StreamAsChannelAsync<int>("Counter", 10, 500, CancellationToken.None);
@@ -55,10 +55,10 @@ Console.WriteLine("Streaming completed");
 
 Los clientes de JavaScript llamar a métodos de transmisión por secuencias en concentradores mediante `connection.stream`. El `stream` método acepta dos argumentos:
 
-* El nombre del método de concentrador. En el ejemplo siguiente, el nombre de método de concentrador es `Counter`.
+* El nombre del método de concentrador. En el ejemplo siguiente, que es el nombre del método de concentrador `Counter`.
 * Argumentos definidos en el método de concentrador. En el ejemplo siguiente, los argumentos son: un recuento del número de elementos de flujo para recibir y el retraso entre los elementos de la secuencia.
 
-`connection.stream` Devuelve un `IStreamResult` que contiene un `subscribe` método. Pasar un `IStreamSubscriber` a `subscribe` y establezca el `next`, `error`, y `complete` las devoluciones de llamada para recibir notificaciones de la `stream` invocación.
+`connection.stream` Devuelve un `IStreamResult` que contiene un `subscribe` método. Pasar un `IStreamSubscriber` a `subscribe` y establezca el `next`, `error`, y `complete` devoluciones de llamada para recibir notificaciones, la `stream` invocación.
 
 [!code-javascript[Streaming javascript](streaming/sample/wwwroot/js/stream.js?range=19-36)]
 
