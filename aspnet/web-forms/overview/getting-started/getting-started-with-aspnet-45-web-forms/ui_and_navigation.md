@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 5c76891d-e515-4885-b576-76bd2c494efe
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/ui_and_navigation
 msc.type: authoredcontent
-ms.openlocfilehash: ef1b226d673d18ec333c35f193dbe6bd21e54225
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2807560484d03122ed68ee3efb49a50e45150e12
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842920"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123806"
 ---
 <a name="ui-and-navigation"></a>Interfaz de usuario y navegación
 ====================
@@ -164,7 +164,7 @@ En este tutorial, cambiará la apariencia y comportamiento de la aplicación Win
 3. Cambiar el nombre de la *bootstrap.min.css* a *bootstrap original.min.css*.
 4. En **el Explorador de soluciones**, haga clic en el *contenido* carpeta y seleccione **Abrir carpeta en el Explorador de archivos**.  
    Se mostrará el Explorador de archivos. Guardará descargado archivos CSS bootstrap para esta ubicación.
-5. En el explorador, vaya a [ http://Bootswatch.com ](http://bootswatch.com/).
+5. En el explorador, vaya a [ https://bootswatch.com/3/ ](https://bootswatch.com/3/).
 6. Desplácese a la ventana del explorador hasta que vea el tema Cerulean. 
 
     ![Interfaz de usuario y navegación - tema Cerulean](ui_and_navigation/_static/image5.png)

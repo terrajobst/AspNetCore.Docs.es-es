@@ -8,12 +8,12 @@ ms.date: 08/23/2012
 ms.assetid: 5894dc13-5d45-4dad-8096-136499120f1d
 msc.legacyurl: /mvc/overview/performance/bundling-and-minification
 msc.type: authoredcontent
-ms.openlocfilehash: 090bb58f762302e0f58db7b8c005fe584e5ec419
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4e72804593c07318af8cc577f9d43ab96be4de05
+ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827380"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39123793"
 ---
 <a name="bundling-and-minification"></a>Unión y Minificación
 ====================
@@ -69,7 +69,7 @@ En la tabla siguiente se muestra varias diferencias importantes entre el listado
 | **KB recibido** | 388.51 | 530 | 36% |
 | **Tiempo de carga** | 510 MS | 780 MS | 53% |
 
-Los bytes enviados tenían una reducción significativa con unión tal como los exploradores son bastante detallados con los encabezados HTTP que se aplican en las solicitudes. La reducción de bytes recibidos no es tan grande porque los archivos más grandes (*Scripts\jquery-ui-1.8.11.min.js* y *Scripts\jquery-1.7.1.min.js*) ya se han minimizado. Nota: Los intervalos en el programa de ejemplo usa el [Fiddler](http://www.fiddler2.com/fiddler2/) herramienta para simular una red lenta. (Desde el Fiddler **reglas** menú, seleccione **rendimiento** , a continuación, **simular un módem**.)
+Los bytes enviados tenían una reducción significativa con unión tal como los exploradores son bastante detallados con los encabezados HTTP que se aplican en las solicitudes. La reducción de bytes recibidos no es tan grande porque los archivos más grandes (*Scripts\\jquery-ui-1.8.11.min.js* y *Scripts\\jquery 1.7.1.min.js*) ya se han minimizado . Nota: Los intervalos en el programa de ejemplo usa el [Fiddler](http://www.fiddler2.com/fiddler2/) herramienta para simular una red lenta. (Desde el Fiddler **reglas** menú, seleccione **rendimiento** , a continuación, **simular un módem**.)
 
 ## <a name="debugging-bundled-and-minified-javascript"></a>Depuración y Minificado JavaScript
 
@@ -79,7 +79,7 @@ Es fácil de depurar el código JavaScript en un entorno de desarrollo (donde el
 2. Seleccione el paquete que contiene la función de JavaScript que desea depurar mediante el botón de recursos.  
     ![](bundling-and-minification/_static/image4.png)
 3. Formato de JavaScript minimizado, seleccione el **botón configuración** ![](bundling-and-minification/_static/image5.png)y, a continuación, seleccione **formato JavaScript**.
-4. En el **búsqueda script** cuadro t de entrada, seleccione el nombre de la función que desea depurar. En la siguiente imagen, **AddAltToImg** se escribió en el **búsqueda script** cuadro de entrada de t.  
+4. En el **secuencia de comandos de búsqueda** cuadro de entrada, seleccione el nombre de la función que desea depurar. En la siguiente imagen, **AddAltToImg** se escribió en el **secuencia de comandos de búsqueda** cuadro de entrada.  
     ![](bundling-and-minification/_static/image6.png)
 
 Para obtener más información sobre la depuración con herramientas de desarrollo F12, consulte el artículo de MSDN [mediante las herramientas de desarrollo F12 para depurar errores de JavaScript](https://msdn.microsoft.com/library/ie/gg699336(v=vs.85).aspx).
@@ -107,15 +107,15 @@ Para habilitar la unión y minificación, establezca el `debug` valor en "false"
 
 En esta sección se creará un ASP.NET MVC project para examinar la unión y minificación. En primer lugar, cree un nuevo proyecto de ASP.NET MVC internet denominado **MvcBM** sin cambiar cualquiera de los valores predeterminados.
 
-Abra el *aplicación\_Start\BundleConfig.cs* de archivo y examine el `RegisterBundles` método que se usa para crear, registrar y configurar paquetes. El código siguiente muestra una parte de la `RegisterBundles` método.
+Abra el *aplicación\\\_iniciar\\BundleConfig.cs* de archivo y examine el `RegisterBundles` método que se usa para crear, registrar y configurar paquetes. El código siguiente muestra una parte de la `RegisterBundles` método.
 
 [!code-csharp[Main](bundling-and-minification/samples/sample5.cs)]
 
 El código anterior crea un nuevo paquete de JavaScript denominado *~/bundles/jquery* que incluye todos los controles (que es la depuración o se han minimizado pero no. *vsdoc*) archivos en el *Scripts* carpeta que coincide con la cadena comodín "~/Scripts/jquery-{version} .js". En ASP.NET MVC 4, esto significa que con una configuración de depuración, el archivo *jquery 1.7.1.js* se agregará a la agrupación. En una configuración de lanzamiento, *jquery 1.7.1.min.js* se agregará. El marco de unión sigue varias convenciones comunes, como:
 
-- Seleccionar archivo de ".min" versión cuando existen "FileX.min.js" y "FileX.js".
+- Seleccionar archivo ".min" para la versión cuando *FileX.min.js* y *FileX.js* existe.
 - Seleccionar la versión que no sea ".min" para la depuración.
-- Se omitirá "-vsdoc" archivos (por ejemplo, jquery-1.7.1-vsdoc.js), que se utilizan solo por IntelliSense.
+- Se omitirá "-vsdoc" archivos (como *jquery-1.7.1-vsdoc.js*), que solo son utilizados por IntelliSense.
 
 El `{version}` con caracteres comodín de coincidencia que se muestra arriba se usa para crear automáticamente un paquete jQuery con la versión adecuada de jQuery en su *Scripts* carpeta. En este ejemplo, el uso de un carácter comodín proporciona las siguientes ventajas:
 
@@ -134,7 +134,7 @@ En el código anterior, se solicitará jQuery desde la red CDN mientras que en l
 
 ## <a name="creating-a-bundle"></a>Creación de un paquete
 
-El [agrupación](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) clase `Include` método toma una matriz de cadenas, donde cada cadena es una ruta de acceso virtual al recurso. El siguiente código del método RegisterBundles en el *aplicación\_Start\BundleConfig.cs* archivo muestra cómo varios archivos se agregan a una agrupación:
+El [agrupación](https://msdn.microsoft.com/library/system.web.optimization.bundle(v=VS.110).aspx) clase `Include` método toma una matriz de cadenas, donde cada cadena es una ruta de acceso virtual al recurso. El siguiente código de la `RegisterBundles` método en el *aplicación\\\_iniciar\\BundleConfig.cs* archivo muestra cómo varios archivos se agregan a una agrupación:
 
 [!code-csharp[Main](bundling-and-minification/samples/sample8.cs)]
 
@@ -142,7 +142,7 @@ El [agrupación](https://msdn.microsoft.com/library/system.web.optimization.bund
 
 [!code-csharp[Main](bundling-and-minification/samples/sample9.cs)]
 
-Se hace referencia a agrupaciones en vistas mediante el método Render ( `Styles.Render` para CSS y `Scripts.Render` para JavaScript). El siguiente marcado de la *Views\Shared\\_Layout.cshtml* archivo muestra cómo hacer referencia a las vistas de proyecto predeterminada ASP.NET internet agrupaciones CSS y JavaScript.
+Se hace referencia a agrupaciones en vistas mediante el método Render (`Styles.Render` para CSS y `Scripts.Render` para JavaScript). El siguiente marcado de la *vistas\\Shared\\\_Layout.cshtml* archivo muestra cómo hacer referencia a las vistas de proyecto predeterminada ASP.NET internet agrupaciones CSS y JavaScript.
 
 [!code-cshtml[Main](bundling-and-minification/samples/sample10.cshtml?highlight=5-6,11)]
 
@@ -156,10 +156,10 @@ La ruta de acceso virtual especificada en el `Include` método y la búsqueda de
 
 Considere la posibilidad de un proyecto con los siguientes archivos JavaScript:
 
-- *Scripts\Common\AddAltToImg.js*
-- *Scripts\Common\ToggleDiv.js*
-- *Scripts\Common\ToggleImg.js*
-- *Scripts\Common\Sub1\ToggleLinks.js*
+- *Las secuencias de comandos\\común\\AddAltToImg.js*
+- *Las secuencias de comandos\\común\\ToggleDiv.js*
+- *Las secuencias de comandos\\común\\ToggleImg.js*
+- *Las secuencias de comandos\\común\\Sub1\\ToggleLinks.js*
 
 ![imag dir](bundling-and-minification/_static/image7.png)
 
@@ -167,13 +167,13 @@ La siguiente tabla muestra los archivos agregados a una agrupación mediante el 
 
 | **Call** | **Archivos agregados o una excepción** |
 | --- | --- |
-| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js, ToggleDiv.js, ToggleImg.js* |
+| Include("~/Scripts/Common/\*.js") | *AddAltToImg.js*, *ToggleDiv.js*, *ToggleImg.js* |
 | Include("~/Scripts/Common/T\*.js") | Excepción de patrón no válido. Solo se permite el carácter comodín en el prefijo o sufijo. |
 | Incluir ("~/Scripts/Common/\*og.\*") | Excepción de patrón no válido. Se permite sólo un carácter comodín. |
-| "Include("~/Scripts/Common/T\*") | *ToggleDiv.js, ToggleImg.js* |
-| "Include("~/Scripts/Common/\*") | Excepción de patrón no válido. Un segmento comodín puro no es válido. |
-| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js, ToggleImg.js* |
-| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js, ToggleImg.js, ToggleLinks.js* |
+| Incluir ("~/Scripts/Common/T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| Incluir ("~/Scripts/Common/\*") | Excepción de patrón no válido. Un segmento comodín puro no es válido. |
+| IncludeDirectory ("~/Scripts/Common", "T\*") | *ToggleDiv.js*, *ToggleImg.js* |
+| IncludeDirectory ("~/Scripts/Common", "T\*", true) | *ToggleDiv.js*, *ToggleImg.js*, *ToggleLinks.js* |
 
 Agregar explícitamente cada archivo a una agrupación es normalmente el preferido a través de la carga de comodín de archivos por las razones siguientes:
 
@@ -183,7 +183,7 @@ Agregar explícitamente cada archivo a una agrupación es normalmente el preferi
 
     [!code-csharp[Main](bundling-and-minification/samples/sample12.cs)]
 
-  El selector de carácter comodín "\*.css" pone en cada archivo CSS en la carpeta, incluido el *Content\themes\base\jquery.ui.all.css* archivo. El *jquery.ui.all.css* archivo importa otros archivos CSS.
+  El selector de carácter comodín "\*.css" pone en cada archivo CSS en la carpeta, incluido el *contenido\\temas\\base\\jquery.ui.all.css* archivo. El *jquery.ui.all.css* archivo importa otros archivos CSS.
 
 ## <a name="bundle-caching"></a>Lote de almacenamiento en caché
 
@@ -195,7 +195,7 @@ La siguiente imagen muestra la **Caching** ficha del panel de respuesta de Fiddl
 
 La solicitud   
 `http://localhost/MvcBM_time/bundles/AllMyScripts?v=r0sLDicvP58AIXN_mc3QdyVvVj5euZNzdsa2N1PKvb81`  
- es para la agrupación **AllMyScripts** y contiene un par de cadena de consulta **v = r0sLDicvP58AIXN\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. La cadena de consulta **v** tiene un valor que es un identificador único usado para almacenar en caché del token. Siempre que el paquete no cambia, la aplicación de ASP.NET solicitará el **AllMyScripts** usando este token de lote. Si cambia cualquier archivo en el paquete, el marco de optimización de ASP.NET generará un nuevo token, lo que garantiza que las solicitudes del explorador para la agrupación obtendrán el paquete más reciente.
+ es para la agrupación **AllMyScripts** y contiene un par de cadena de consulta **v = r0sLDicvP58AIXN\\\_mc3QdyVvVj5euZNzdsa2N1PKvb81**. La cadena de consulta **v** tiene un valor que es un identificador único usado para almacenar en caché del token. Siempre que el paquete no cambia, la aplicación de ASP.NET solicitará el **AllMyScripts** usando este token de lote. Si cambia cualquier archivo en el paquete, el marco de optimización de ASP.NET generará un nuevo token, lo que garantiza que las solicitudes del explorador para la agrupación obtendrán el paquete más reciente.
 
 Si ejecuta las herramientas de desarrollo F12 de Internet Explorer 9 y navegar a una página previamente cargada, IE incorrectamente muestra solicitudes GET condicionales realizadas en cada lote y el servidor devuelve HTTP 304. Puede leer por qué IE9 tiene problemas para determinar si se realizó una solicitud condicional en la entrada de blog [uso de CDN y Expires para mejorar el rendimiento del sitio Web](https://blogs.msdn.com/b/rickandy/archive/2011/05/21/using-cdns-to-improve-web-site-performance.aspx).
 
@@ -203,13 +203,13 @@ Si ejecuta las herramientas de desarrollo F12 de Internet Explorer 9 y navegar a
 
 El marco de trabajo de unión y minificación proporciona un mecanismo para procesar lenguajes intermedios como [SCSS](http://sass-lang.com/), [Sass](http://sass-lang.com/), [menos](http://www.dotlesscss.org/) o [Coffeescript ](http://coffeescript.org/)y aplicar transformaciones, como la minificación a la agrupación resultante. Por ejemplo, para agregar [.less](http://www.dotlesscss.org/) archivos al proyecto de MVC 4:
 
-1. Cree una carpeta para la menor cantidad de contenido. En el ejemplo siguiente se usa el *Content\MyLess* carpeta.
+1. Cree una carpeta para la menor cantidad de contenido. En el ejemplo siguiente se usa el *contenido\\MyLess* carpeta.
 2. Agregar el [.less](http://www.dotlesscss.org/) paquete NuGet **dotless** al proyecto.  
     ![Instalación de NuGet dotless](bundling-and-minification/_static/image9.png)
 3. Agregue una clase que implementa el [IBundleTransform](https://msdn.microsoft.com/library/system.web.optimization.ibundletransform(VS.110).aspx) interfaz. Para la transformación .less, agregue el código siguiente al proyecto.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample13.cs)]
-4. Crear un paquete de menos archivos con la `LessTransform` y [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformar. Agregue el código siguiente a la `RegisterBundles` método en el *aplicación\_Start\BundleConfig.cs* archivo.
+4. Crear un paquete de menos archivos con la `LessTransform` y [CssMinify](https://msdn.microsoft.com/library/system.web.optimization.cssminify(VS.110).aspx) transformar. Agregue el código siguiente a la `RegisterBundles` método en el *aplicación\\_iniciar\\BundleConfig.cs* archivo.
 
     [!code-csharp[Main](bundling-and-minification/samples/sample14.cs)]
 5. Agregue el código siguiente a todas las vistas que se hace referencia a la agrupación de menos.
@@ -228,7 +228,7 @@ La limitación del explorador de seis conexiones simultáneas por cada nombre de
 
 Los paquetes se deben particionar por las páginas que las necesiten. Por ejemplo, la plantilla de MVC de ASP.NET para una aplicación de internet predeterminada crea un paquete de validación de jQuery independiente de jQuery. Dado que las vistas predeterminadas que se crea no tienen ninguna entrada y no las publique los valores, no incluyen la agrupación de validación.
 
-El `System.Web.Optimization` espacio de nombres se implementa en System.Web.Optimization.DLL. Aprovecha la biblioteca de WebGrease (WebGrease.dll) para las capacidades de la minificación, que a su vez usa Antlr3.Runtime.dll.
+El `System.Web.Optimization` espacio de nombres se implementa en *System.Web.Optimization.dll*. Aprovecha la biblioteca de WebGrease (*WebGrease.dll*) para las capacidades de la minificación, que a su vez utiliza *Antlr3.Runtime.dll*.
 
 *Usar Twitter para realizar publicaciones rápidos y compartir vínculos. Mi identificador de Twitter es*: [@RickAndMSFT](http://twitter.com/RickAndMSFT)
 
