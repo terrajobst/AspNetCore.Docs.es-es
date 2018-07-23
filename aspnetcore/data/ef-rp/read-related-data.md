@@ -5,12 +5,12 @@ description: En este tutorial, leerá y mostrará datos relacionados, es decir, 
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: fa3147cc4ad121784911eef802e04ca91f16448f
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063317"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202684"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -168,7 +168,7 @@ Ejecute la aplicación y vaya a la página de instructores.
 
 Reemplace *Pages/Instructors/Index.cshtml.cs* con el código siguiente:
 
-[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,20-99)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/Index1.cshtml.cs?name=snippet_all&highlight=2,18-99)]
 
 El método `OnGetAsync` acepta datos de ruta opcionales para el identificador del instructor seleccionado.
 
@@ -298,7 +298,7 @@ Actualice la página y seleccione un instructor. Seleccione un curso para ver la
 
 Se puede pasar el método `Single` en la condición `Where` en lugar de llamar al método `Where` por separado:
 
-[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21,28-29)]
+[!code-csharp[](intro/samples/cu/Pages/Instructors/IndexSingle.cshtml.cs?name=snippet_single&highlight=21-22,30-31)]
 
 El enfoque de `Single` anterior no ofrece ninguna ventaja con respecto a `Where`. Algunos desarrolladores prefieren el estilo del enfoque de `Single`.
 
