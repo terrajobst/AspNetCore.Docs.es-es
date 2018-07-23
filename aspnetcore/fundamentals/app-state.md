@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 9c63d9313acb055e6c692a7fef3d28e94cb37093
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 072699113a45056ec3ea79436ad56896ba0a4197
+ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272888"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39095819"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -125,7 +125,7 @@ Para reemplazar los valores predeterminados de la sesión, use [SessionOptions](
 
 ::: moniker range=">= aspnetcore-2.0"
 
-| Opción | Description |
+| Opción | Descripción |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Determina la configuración usada para crear la cookie. [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) tiene como valor predeterminado [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) tiene como valor predeterminado [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) tiene como valor predeterminado [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) tiene como valor predeterminado `true`. [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) tiene como valor predeterminado `false`. |
 | [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` indica cuánto tiempo puede estar inactiva la sesión antes de que se abandone su contenido. Cada acceso a la sesión restablece el tiempo de espera. Tenga en cuenta que esto solo es aplicable al contenido de la sesión, no a la cookie. El valor predeterminado es de 20 minutos. |
@@ -137,7 +137,7 @@ La sesión utiliza una cookie para realizar el seguimiento de las solicitudes em
 
 ::: moniker range="< aspnetcore-2.0"
 
-| Opción | Description |
+| Opción | Descripción |
 | ------ | ----------- |
 | [CookieDomain](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiedomain) | Determina el dominio usado para crear la cookie. `CookieDomain` no se encuentra configurado de forma predeterminada. |
 | [CookieHttpOnly](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookiehttponly) | Determina si el explorador debe permitir que la cookie tenga acceso a código JavaScript del lado cliente. El valor predeterminado es `true`, lo que significa que la cookie solo se pasa a las solicitudes HTTP y no está disponible para script en la página. |
@@ -441,3 +441,7 @@ Use [inserción de dependencias](xref:fundamentals/dependency-injection) para qu
   Por ejemplo, un usuario almacena un carro de la compra en la sesión. El usuario agrega un elemento al carro, pero se produce un error en la confirmación. La aplicación no se percata del error y notifica al usuario que el elemento se ha agregado al carro, lo cual no es cierto.
 
   El enfoque recomendado para comprobar los errores es llamar a `await feature.Session.CommitAsync();` desde el código de la aplicación cuando esta haya terminado de escribir en la sesión. `CommitAsync` produce una excepción si la memoria auxiliar no está disponible. Si `CommitAsync` produce un error, la aplicación puede procesar la excepción. `LoadAsync` se produce en las mismas condiciones donde el almacén de datos no está disponible.
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+<xref:host-and-deploy/web-farm>

@@ -66,7 +66,7 @@ La red CDN hospeda las siguientes bibliotecas de scripts de terceros que se han 
 - jQuery Mobile (www.jquerymobile.com)
 - Validación (www.jquery.com) de jQuery
 - jQuery ciclo (www.malsup.com/jquery/cycle/)
-- (DataTables de jQueryhttp://datatables.net/)
+- DataTables de jQuery (http://datatables.net/)
 
 Microsoft Ajax CDN también incluye las siguientes bibliotecas que se han cargado por Microsoft:
 
@@ -682,7 +682,7 @@ Las siguientes versiones del complemento DataTables de jQuery se hospedan en est
 
 ### <a name="modernizr-releases-on-the-cdn"></a>Versiones de Modernizr en la red CDN
 
-Los siguientes versiones de [Modernizr](http://www.modernizr.com "Modernizr") se hospedan en la red CDN:
+Las siguientes versiones de [Modernizr](http://www.modernizr.com "Modernizr") se hospedan en la red CDN:
 
 - https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js
 - https://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.7.2.js
@@ -695,7 +695,7 @@ Los siguientes versiones de [Modernizr](http://www.modernizr.com "Modernizr") se
 
 ### <a name="jshint-releases-on-the-cdn"></a>Versiones de JSHint en la red CDN
 
-Los siguientes versiones de [JSHint](http://www.jshint.com "JSHint") se hospedan en la red CDN:
+Las siguientes versiones de [JSHint](http://www.jshint.com "JSHint") se hospedan en la red CDN:
 
 - https://ajax.aspnetcdn.com/ajax/jshint/r07/jshint.js
 
@@ -703,7 +703,7 @@ Los siguientes versiones de [JSHint](http://www.jshint.com "JSHint") se hospedan
 
 ### <a name="knockout-releases-on-the-cdn"></a>Versiones de knockout en la red CDN
 
-Los siguientes versiones de [Knockout](http://www.knockoutjs.com "Knockout") se hospedan en la red CDN:
+Las siguientes versiones de [Knockout](http://www.knockoutjs.com "Knockout") se hospedan en la red CDN:
 
 - https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js
 - https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.debug.js
@@ -730,7 +730,7 @@ Los siguientes versiones de [Knockout](http://www.knockoutjs.com "Knockout") se 
 
 ### <a name="globalize-releases-on-the-cdn"></a>Globalizar versiones en la red CDN
 
-Los siguientes versiones de [Globalize](https://github.com/jquery/globalize "Globalize") se hospedan en la red CDN:
+Las siguientes versiones de [Globalize](https://github.com/jquery/globalize "Globalize") se hospedan en la red CDN:
 
 #### <a name="globalize-version-100"></a>Globalizar versión 1.0.0
 
@@ -758,7 +758,7 @@ Los siguientes versiones de [Globalize](https://github.com/jquery/globalize "Glo
 
 ### <a name="respond-releases-on-the-cdn"></a>Responder a las versiones en la red CDN
 
-Los siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") responden se hospedan en la red CDN:
+Las siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") responden se hospedan en la red CDN:
 
 #### <a name="respond-version-142"></a>Responder versión 1.4.2
 
@@ -793,7 +793,7 @@ Los siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://gi
 
 ### <a name="bootstrap-releases-on-the-cdn"></a>Versiones de bootstrap en la red CDN
 
-Los siguientes versiones de [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap se hospedan en la red CDN:
+Las siguientes versiones de [getbootstrap.com](http://getbootstrap.com "getbootstrap.com") bootstrap se hospedan en la red CDN:
 
 #### <a name="bootstrap-version-411"></a>Versión de bootstrap 4.1.1
 
@@ -1056,7 +1056,7 @@ Los siguientes versiones de [getbootstrap.com](http://getbootstrap.com "getboots
 
 ### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>Versiones de bootstrap TouchCarousel en la red CDN
 
-Los siguientes versiones de [ https://github.com/ixisio/bootstrap-touch-carousel ] (https://github.com/ixisio/bootstrap-touch-carousel " https://github.com/ixisio/bootstrap-touch-carousel ") versiones TouchCarousel Bootstrap se hospedan en la red CDN:
+Las siguientes versiones de [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") versiones TouchCarousel Bootstrap se hospedan en la red CDN:
 
 #### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel versión 0.8.0
 
@@ -1067,7 +1067,7 @@ Los siguientes versiones de [ https://github.com/ixisio/bootstrap-touch-carousel
 
 ### <a name="hammerjs-releases-on-the-cdn"></a>Versiones de hammer.js en la red CDN
 
-Los siguientes versiones de [ http://hammerjs.github.io/ ] (http://hammerjs.github.io/ " http://hammerjs.github.io/ ") Hammer.js versiones se hospedan en la red CDN:
+Las siguientes versiones de [http://hammerjs.github.io/](http://hammerjs.github.io/ "http://hammerjs.github.io/") Hammer.js versiones se hospedan en la red CDN:
 
 #### <a name="hammerjs-version-204"></a>Hammer.js versión 2.0.4
 

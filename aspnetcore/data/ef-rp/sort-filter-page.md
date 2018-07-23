@@ -5,12 +5,12 @@ description: En este tutorial agregará la funcionalidad de ordenación, filtrad
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: fce524a5cb386fbf286907be42e920be13115ca6
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 86321538f02ccf1a36ee9e50729e63e007f10327
+ms.sourcegitcommit: ee2b26c7d08b38c908c668522554b52ab8efa221
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216283"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146902"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 
@@ -210,7 +210,7 @@ El método `PaginatedList.CreateAsync` convierte la consulta del alumno en una s
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortFilterPage4)]
 
-Los dos signos de interrogación en `PaginatedList.CreateAsync` representan el [operador de uso combinado de NULL](https://docs.microsoft.com/ dotnet/csharp/language-reference/operators/null-conditional-operator). El operador de uso combinado de NULL define un valor predeterminado para un tipo que acepta valores NULL. La expresión `(pageIndex ?? 1)` significa devolver el valor de `pageIndex` si tiene un valor. Devuelve 1 si `pageIndex` no tiene ningún valor.
+Los dos signos de interrogación en `PaginatedList.CreateAsync` representan el [operador de uso combinado de NULL](/dotnet/csharp/language-reference/operators/null-conditional-operator). El operador de uso combinado de NULL define un valor predeterminado para un tipo que acepta valores NULL. La expresión `(pageIndex ?? 1)` significa devolver el valor de `pageIndex` si tiene un valor. Devuelve 1 si `pageIndex` no tiene ningún valor.
 
 ## <a name="add-paging-links-to-the-student-razor-page"></a>Agregar vínculos de paginación a la página de Razor de alumno
 
