@@ -4,19 +4,16 @@ title: Crear un personalizado de AJAX Control extensor de Control Toolkit (VB) |
 author: microsoft
 description: Los extensores personalizados le permiten personalizar y ampliar las capacidades de los controles de ASP.NET sin tener que crear nuevas clases.
 ms.author: aspnetcontent
-manager: wpickett
 ms.date: 05/12/2009
-ms.topic: article
 ms.assetid: 18b29834-c991-4e0c-b533-44d358fbfc9c
-ms.technology: dotnet-webforms
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started/creating-a-custom-ajax-control-toolkit-control-extender-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a996409e8e9d37806fcbee8b7cc1c509dd9700fa
-ms.sourcegitcommit: 953ff9ea4369f154d6fd0239599279ddd3280009
-ms.translationtype: HT
+ms.openlocfilehash: b44918cff161088e98f7baaca7714348b0b6a8de
+ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37394552"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37814623"
 ---
 <a name="creating-a-custom-ajax-control-toolkit-control-extender-vb"></a>Crear un extensor de Control del Kit de herramientas de Control personalizado de AJAX (VB)
 ====================
