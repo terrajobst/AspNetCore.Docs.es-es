@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo compilar una aplicación de ASP.NE
 ms.author: riande
 ms.date: 7/11/2018
 uid: security/authentication/accconfirm
-ms.openlocfilehash: af3ba8b27148d94c4a905c688b8165f49b9f2927
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 84eb3580107572f66f0c3b565b8e76ba401c0ddb
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095751"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219412"
 ---
 ::: moniker range="<= aspnetcore-2.0"
 
@@ -34,13 +34,13 @@ Este tutorial muestra cómo crear una aplicación de ASP.NET Core con el restabl
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [](~/includes/2.1-SDK.md) [](~/includes/2.1-SDK.md)]
+[!INCLUDE [](~/includes/2.1-SDK.md)]
 
 ## <a name="create-a-web--app-and-scaffold-identity"></a>Crear una aplicación web y aplicar la técnica scaffolding identidad
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
 
-* En Visual Studio, cree un nuevo **aplicación Web** proyecto.
+* En Visual Studio, cree un nuevo **aplicación Web** proyecto denominado **WebPWrecover**.
 * Seleccione **ASP.NET Core 2.1**.
 * Mantenga el valor predeterminado **autenticación** establecido en **sin autenticación**. La autenticación se agrega en el paso siguiente.
 
