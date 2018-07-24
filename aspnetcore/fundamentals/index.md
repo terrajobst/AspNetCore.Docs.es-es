@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 07/02/2018
 uid: fundamentals/index
-ms.openlocfilehash: 33786bf78567a1aa12a1ac97d44d1a596ec4c3be
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: 30c456685ce26522faff9b58fbd2977ad2f2869a
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144981"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202632"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -191,6 +191,12 @@ Para más información, vea [Características de la solicitud](xref:fundamentals
 Las tareas en segundo plano se implementan como *servicios hospedados*. Un servicio hospedado es una clase con lógica de tarea en segundo plano que implementa la interfaz [IHostedService](/dotnet/api/microsoft.extensions.hosting.ihostedservice).
 
 Para más información, consulte [Tareas en segundo plano con servicios hospedados](xref:fundamentals/host/hosted-services).
+
+## <a name="access-httpcontext"></a>Acceso a HttpContext
+
+Acceda a `HttpContext` a través de la interfaz [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) y de su implementación predeterminada [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).
+
+Para obtener más información, vea <xref:fundamentals/httpcontext>.
 
 ## <a name="open-web-interface-for-net-owin"></a>Interfaz web abierta para .NET (OWIN)
 
