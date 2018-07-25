@@ -1,222 +1,230 @@
 ---
 title: Extensibilidad de administración de claves en ASP.NET Core
 author: rick-anderson
-description: Obtenga información sobre la extensibilidad de administración de claves de protección de datos de ASP.NET Core.
+description: Obtenga información acerca de la extensibilidad de administración de claves de protección de datos de ASP.NET Core.
 ms.author: riande
 ms.date: 11/22/2017
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 3ebde889d207e02aff8c042b1d80884210a68ff4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 965a7ed8ca2f72a66cfe093b5978a54fea5440fd
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274757"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219321"
 ---
-# <a name="key-management-extensibility-in-aspnet-core"></a><span data-ttu-id="01380-103">Extensibilidad de administración de claves en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="01380-103">Key management extensibility in ASP.NET Core</span></span>
+# <a name="key-management-extensibility-in-aspnet-core"></a><span data-ttu-id="9a789-103">Extensibilidad de administración de claves en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="9a789-103">Key management extensibility in ASP.NET Core</span></span>
 
-<a name="data-protection-extensibility-key-management"></a>
+> [!TIP]
+> <span data-ttu-id="9a789-104">Leer el [administración de claves](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) sección antes de leer esta sección, ya que explica algunos de los conceptos fundamentales de estas API.</span><span class="sxs-lookup"><span data-stu-id="9a789-104">Read the [key management](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) section before reading this section, as it explains some of the fundamental concepts behind these APIs.</span></span>
 
->[!TIP]
-> <span data-ttu-id="01380-104">Leer la [administración de claves](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) sección antes de leer esta sección, tal y como se explican algunos de los conceptos fundamentales de estas API.</span><span class="sxs-lookup"><span data-stu-id="01380-104">Read the [key management](xref:security/data-protection/implementation/key-management#data-protection-implementation-key-management) section before reading this section, as it explains some of the fundamental concepts behind these APIs.</span></span>
+> [!WARNING]
+> <span data-ttu-id="9a789-105">Tipos que implementan cualquiera de las interfaces siguientes deben ser seguro para subprocesos para varios de los llamadores.</span><span class="sxs-lookup"><span data-stu-id="9a789-105">Types that implement any of the following interfaces should be thread-safe for multiple callers.</span></span>
+
+## <a name="key"></a><span data-ttu-id="9a789-106">Key</span><span class="sxs-lookup"><span data-stu-id="9a789-106">Key</span></span>
+
+<span data-ttu-id="9a789-107">El `IKey` interfaz es la representación básica de una clave en los sistemas de cifrado.</span><span class="sxs-lookup"><span data-stu-id="9a789-107">The `IKey` interface is the basic representation of a key in cryptosystem.</span></span> <span data-ttu-id="9a789-108">La clave de término se utiliza aquí en el sentido abstracto, no en el sentido de "material criptográfico clave" literal.</span><span class="sxs-lookup"><span data-stu-id="9a789-108">The term key is used here in the abstract sense, not in the literal sense of "cryptographic key material".</span></span> <span data-ttu-id="9a789-109">Una clave tiene las siguientes propiedades:</span><span class="sxs-lookup"><span data-stu-id="9a789-109">A key has the following properties:</span></span>
+
+* <span data-ttu-id="9a789-110">Fechas de expiración, la creación y activación</span><span class="sxs-lookup"><span data-stu-id="9a789-110">Activation, creation, and expiration dates</span></span>
+
+* <span data-ttu-id="9a789-111">Estado de revocación</span><span class="sxs-lookup"><span data-stu-id="9a789-111">Revocation status</span></span>
+
+* <span data-ttu-id="9a789-112">Identificador de clave (GUID)</span><span class="sxs-lookup"><span data-stu-id="9a789-112">Key identifier (a GUID)</span></span>
+
+::: moniker range=">= aspnetcore-2.0"
+
+<span data-ttu-id="9a789-113">Además, `IKey` expone un `CreateEncryptor` método que se puede usar para crear un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instancia asociado a esta clave.</span><span class="sxs-lookup"><span data-stu-id="9a789-113">Additionally, `IKey` exposes a `CreateEncryptor` method which can be used to create an [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instance tied to this key.</span></span>
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+<span data-ttu-id="9a789-114">Además, `IKey` expone un `CreateEncryptorInstance` método que se puede usar para crear un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instancia asociado a esta clave.</span><span class="sxs-lookup"><span data-stu-id="9a789-114">Additionally, `IKey` exposes a `CreateEncryptorInstance` method which can be used to create an [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instance tied to this key.</span></span>
+
+::: moniker-end
+
+> [!NOTE]
+> <span data-ttu-id="9a789-115">No hay ninguna API para recuperar el material criptográfico sin procesar de un `IKey` instancia.</span><span class="sxs-lookup"><span data-stu-id="9a789-115">There's no API to retrieve the raw cryptographic material from an `IKey` instance.</span></span>
+
+## <a name="ikeymanager"></a><span data-ttu-id="9a789-116">IKeyManager</span><span class="sxs-lookup"><span data-stu-id="9a789-116">IKeyManager</span></span>
+
+<span data-ttu-id="9a789-117">El `IKeyManager` interfaz representa un objeto responsable de almacenamiento de claves general, la recuperación y manipulación.</span><span class="sxs-lookup"><span data-stu-id="9a789-117">The `IKeyManager` interface represents an object responsible for general key storage, retrieval, and manipulation.</span></span> <span data-ttu-id="9a789-118">Expone tres operaciones de alto nivel:</span><span class="sxs-lookup"><span data-stu-id="9a789-118">It exposes three high-level operations:</span></span>
+
+* <span data-ttu-id="9a789-119">Cree una nueva clave y enviarlo al almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="9a789-119">Create a new key and persist it to storage.</span></span>
+
+* <span data-ttu-id="9a789-120">Obtener todas las claves de almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="9a789-120">Get all keys from storage.</span></span>
+
+* <span data-ttu-id="9a789-121">Revocar una o varias claves y conservar la información de revocación en el almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="9a789-121">Revoke one or more keys and persist the revocation information to storage.</span></span>
 
 >[!WARNING]
-> <span data-ttu-id="01380-105">Los tipos que implementan cualquiera de las interfaces siguientes deben ser seguro para subprocesos para distintos llamadores.</span><span class="sxs-lookup"><span data-stu-id="01380-105">Types that implement any of the following interfaces should be thread-safe for multiple callers.</span></span>
+> <span data-ttu-id="9a789-122">Escribir un `IKeyManager` una tarea muy avanzada y la mayoría de los desarrolladores no debería intentar realizar.</span><span class="sxs-lookup"><span data-stu-id="9a789-122">Writing an `IKeyManager` is a very advanced task, and the majority of developers shouldn't attempt it.</span></span> <span data-ttu-id="9a789-123">En su lugar, la mayoría de los desarrolladores deben sacar partido de las funciones que ofrece el [XmlKeyManager](#xmlkeymanager) clase.</span><span class="sxs-lookup"><span data-stu-id="9a789-123">Instead, most developers should take advantage of the facilities offered by the [XmlKeyManager](#xmlkeymanager) class.</span></span>
 
-## <a name="key"></a><span data-ttu-id="01380-106">Key</span><span class="sxs-lookup"><span data-stu-id="01380-106">Key</span></span>
+## <a name="xmlkeymanager"></a><span data-ttu-id="9a789-124">XmlKeyManager</span><span class="sxs-lookup"><span data-stu-id="9a789-124">XmlKeyManager</span></span>
 
-<span data-ttu-id="01380-107">La `IKey` interfaz es la representación básica de una clave en el sistema de cifrado.</span><span class="sxs-lookup"><span data-stu-id="01380-107">The `IKey` interface is the basic representation of a key in cryptosystem.</span></span> <span data-ttu-id="01380-108">La clave de término se utiliza aquí en el sentido abstracto, no en el sentido de "material clave criptográfico" literal.</span><span class="sxs-lookup"><span data-stu-id="01380-108">The term key is used here in the abstract sense, not in the literal sense of "cryptographic key material".</span></span> <span data-ttu-id="01380-109">Una clave tiene las siguientes propiedades:</span><span class="sxs-lookup"><span data-stu-id="01380-109">A key has the following properties:</span></span>
+<span data-ttu-id="9a789-125">El `XmlKeyManager` es de tipo de la implementación concreta en el cuadro de `IKeyManager`.</span><span class="sxs-lookup"><span data-stu-id="9a789-125">The `XmlKeyManager` type is the in-box concrete implementation of `IKeyManager`.</span></span> <span data-ttu-id="9a789-126">Proporciona varias utilidades útiles, incluida la custodia de clave y el cifrado de claves en reposo.</span><span class="sxs-lookup"><span data-stu-id="9a789-126">It provides several useful facilities, including key escrow and encryption of keys at rest.</span></span> <span data-ttu-id="9a789-127">Las claves en este sistema se representan como elementos XML (en concreto, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).</span><span class="sxs-lookup"><span data-stu-id="9a789-127">Keys in this system are represented as XML elements (specifically, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).</span></span>
 
-* <span data-ttu-id="01380-110">Fechas de expiración, la creación y la activación</span><span class="sxs-lookup"><span data-stu-id="01380-110">Activation, creation, and expiration dates</span></span>
+<span data-ttu-id="9a789-128">`XmlKeyManager` depende de otros componentes en el transcurso de cumplimiento de sus tareas:</span><span class="sxs-lookup"><span data-stu-id="9a789-128">`XmlKeyManager` depends on several other components in the course of fulfilling its tasks:</span></span>
 
-* <span data-ttu-id="01380-111">Estado de revocación</span><span class="sxs-lookup"><span data-stu-id="01380-111">Revocation status</span></span>
+::: moniker range=">= aspnetcore-2.0"
 
-* <span data-ttu-id="01380-112">Identificador de clave (GUID)</span><span class="sxs-lookup"><span data-stu-id="01380-112">Key identifier (a GUID)</span></span>
+* <span data-ttu-id="9a789-129">`AlgorithmConfiguration`, que dicta los algoritmos usados por las nuevas claves.</span><span class="sxs-lookup"><span data-stu-id="9a789-129">`AlgorithmConfiguration`, which dictates the algorithms used by new keys.</span></span>
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="01380-113">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="01380-113">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
+* <span data-ttu-id="9a789-130">`IXmlRepository`, que controla donde las claves se conservan en almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="9a789-130">`IXmlRepository`, which controls where keys are persisted in storage.</span></span>
 
-<span data-ttu-id="01380-114">Además, `IKey` expone un `CreateEncryptor` método que se puede usar para crear un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instancia asociado a esta clave.</span><span class="sxs-lookup"><span data-stu-id="01380-114">Additionally, `IKey` exposes a `CreateEncryptor` method which can be used to create an [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instance tied to this key.</span></span>
+* <span data-ttu-id="9a789-131">`IXmlEncryptor` [opcional], lo que permite cifrar las claves en reposo.</span><span class="sxs-lookup"><span data-stu-id="9a789-131">`IXmlEncryptor` [optional], which allows encrypting keys at rest.</span></span>
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="01380-115">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="01380-115">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
+* <span data-ttu-id="9a789-132">`IKeyEscrowSink` [opcional], que proporciona servicios de custodia de clave.</span><span class="sxs-lookup"><span data-stu-id="9a789-132">`IKeyEscrowSink` [optional], which provides key escrow services.</span></span>
 
-<span data-ttu-id="01380-116">Además, `IKey` expone un `CreateEncryptorInstance` método que se puede usar para crear un [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instancia asociado a esta clave.</span><span class="sxs-lookup"><span data-stu-id="01380-116">Additionally, `IKey` exposes a `CreateEncryptorInstance` method which can be used to create an [IAuthenticatedEncryptor](xref:security/data-protection/extensibility/core-crypto#data-protection-extensibility-core-crypto-iauthenticatedencryptor) instance tied to this key.</span></span>
+::: moniker-end
 
----
+::: moniker range="< aspnetcore-2.0"
+
+* <span data-ttu-id="9a789-133">`IXmlRepository`, que controla donde las claves se conservan en almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="9a789-133">`IXmlRepository`, which controls where keys are persisted in storage.</span></span>
+
+* <span data-ttu-id="9a789-134">`IXmlEncryptor` [opcional], lo que permite cifrar las claves en reposo.</span><span class="sxs-lookup"><span data-stu-id="9a789-134">`IXmlEncryptor` [optional], which allows encrypting keys at rest.</span></span>
+
+* <span data-ttu-id="9a789-135">`IKeyEscrowSink` [opcional], que proporciona servicios de custodia de clave.</span><span class="sxs-lookup"><span data-stu-id="9a789-135">`IKeyEscrowSink` [optional], which provides key escrow services.</span></span>
+
+::: moniker-end
+
+<span data-ttu-id="9a789-136">A continuación se muestran los diagramas de alto nivel que indican cómo estos componentes se conectan entre sí dentro de `XmlKeyManager`.</span><span class="sxs-lookup"><span data-stu-id="9a789-136">Below are high-level diagrams which indicate how these components are wired together within `XmlKeyManager`.</span></span>
+
+::: moniker range=">= aspnetcore-2.0"
+
+![Creación de claves](key-management/_static/keycreation2.png)
+
+<span data-ttu-id="9a789-138">*Creación de clave / CreateNewKey*</span><span class="sxs-lookup"><span data-stu-id="9a789-138">*Key Creation / CreateNewKey*</span></span>
+
+<span data-ttu-id="9a789-139">En la implementación de `CreateNewKey`, `AlgorithmConfiguration` componente se utiliza para crear un nombre único `IAuthenticatedEncryptorDescriptor`, que, a continuación, se serializa como XML.</span><span class="sxs-lookup"><span data-stu-id="9a789-139">In the implementation of `CreateNewKey`, the `AlgorithmConfiguration` component is used to create a unique `IAuthenticatedEncryptorDescriptor`, which is then serialized as XML.</span></span> <span data-ttu-id="9a789-140">Si un receptor de custodia de clave está presente, el XML sin formato (sin cifrar) se proporciona al receptor de almacenamiento a largo plazo.</span><span class="sxs-lookup"><span data-stu-id="9a789-140">If a key escrow sink is present, the raw (unencrypted) XML is provided to the sink for long-term storage.</span></span> <span data-ttu-id="9a789-141">A continuación, se ejecuta el XML sin cifrar a través de un `IXmlEncryptor` (si es necesario) para generar el documento XML cifrado.</span><span class="sxs-lookup"><span data-stu-id="9a789-141">The unencrypted XML is then run through an `IXmlEncryptor` (if required) to generate the encrypted XML document.</span></span> <span data-ttu-id="9a789-142">Este documento cifrada se almacena en almacenamiento a largo plazo a través de la `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="9a789-142">This encrypted document is persisted to long-term storage via the `IXmlRepository`.</span></span> <span data-ttu-id="9a789-143">(Si no hay ningún `IXmlEncryptor` está configurado, se conserva en el documento sin cifrar el `IXmlRepository`.)</span><span class="sxs-lookup"><span data-stu-id="9a789-143">(If no `IXmlEncryptor` is configured, the unencrypted document is persisted in the `IXmlRepository`.)</span></span>
+
+![Recuperación de clave](key-management/_static/keyretrieval2.png)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+![Creación de claves](key-management/_static/keycreation1.png)
+
+<span data-ttu-id="9a789-146">*Creación de clave / CreateNewKey*</span><span class="sxs-lookup"><span data-stu-id="9a789-146">*Key Creation / CreateNewKey*</span></span>
+
+<span data-ttu-id="9a789-147">En la implementación de `CreateNewKey`, `IAuthenticatedEncryptorConfiguration` componente se utiliza para crear un nombre único `IAuthenticatedEncryptorDescriptor`, que, a continuación, se serializa como XML.</span><span class="sxs-lookup"><span data-stu-id="9a789-147">In the implementation of `CreateNewKey`, the `IAuthenticatedEncryptorConfiguration` component is used to create a unique `IAuthenticatedEncryptorDescriptor`, which is then serialized as XML.</span></span> <span data-ttu-id="9a789-148">Si un receptor de custodia de clave está presente, el XML sin formato (sin cifrar) se proporciona al receptor de almacenamiento a largo plazo.</span><span class="sxs-lookup"><span data-stu-id="9a789-148">If a key escrow sink is present, the raw (unencrypted) XML is provided to the sink for long-term storage.</span></span> <span data-ttu-id="9a789-149">A continuación, se ejecuta el XML sin cifrar a través de un `IXmlEncryptor` (si es necesario) para generar el documento XML cifrado.</span><span class="sxs-lookup"><span data-stu-id="9a789-149">The unencrypted XML is then run through an `IXmlEncryptor` (if required) to generate the encrypted XML document.</span></span> <span data-ttu-id="9a789-150">Este documento cifrada se almacena en almacenamiento a largo plazo a través de la `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="9a789-150">This encrypted document is persisted to long-term storage via the `IXmlRepository`.</span></span> <span data-ttu-id="9a789-151">(Si no hay ningún `IXmlEncryptor` está configurado, se conserva en el documento sin cifrar el `IXmlRepository`.)</span><span class="sxs-lookup"><span data-stu-id="9a789-151">(If no `IXmlEncryptor` is configured, the unencrypted document is persisted in the `IXmlRepository`.)</span></span>
+
+![Recuperación de clave](key-management/_static/keyretrieval1.png)
+
+::: moniker-end
+
+<span data-ttu-id="9a789-153">*Recuperación de clave / GetAllKeys*</span><span class="sxs-lookup"><span data-stu-id="9a789-153">*Key Retrieval / GetAllKeys*</span></span>
+
+<span data-ttu-id="9a789-154">En la implementación de `GetAllKeys`, el XML que representa claves documenta y se leen las revocaciones de subyacente `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="9a789-154">In the implementation of `GetAllKeys`, the XML documents representing keys and revocations are read from the underlying `IXmlRepository`.</span></span> <span data-ttu-id="9a789-155">Si estos documentos están cifrados, el sistema les descifrará automáticamente.</span><span class="sxs-lookup"><span data-stu-id="9a789-155">If these documents are encrypted, the system will automatically decrypt them.</span></span> <span data-ttu-id="9a789-156">`XmlKeyManager` crea la adecuada `IAuthenticatedEncryptorDescriptorDeserializer` instancias para deserializar los documentos de nuevo en `IAuthenticatedEncryptorDescriptor` instancias, que, a continuación, se incluyen en persona `IKey` instancias.</span><span class="sxs-lookup"><span data-stu-id="9a789-156">`XmlKeyManager` creates the appropriate `IAuthenticatedEncryptorDescriptorDeserializer` instances to deserialize the documents back into `IAuthenticatedEncryptorDescriptor` instances, which are then wrapped in individual `IKey` instances.</span></span> <span data-ttu-id="9a789-157">Esta colección de `IKey` instancias se devuelve al llamador.</span><span class="sxs-lookup"><span data-stu-id="9a789-157">This collection of `IKey` instances is returned to the caller.</span></span>
+
+<span data-ttu-id="9a789-158">Encontrará más información sobre los elementos XML determinados en el [documento con formato de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).</span><span class="sxs-lookup"><span data-stu-id="9a789-158">Further information on the particular XML elements can be found in the [key storage format document](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).</span></span>
+
+## <a name="ixmlrepository"></a><span data-ttu-id="9a789-159">IXmlRepository</span><span class="sxs-lookup"><span data-stu-id="9a789-159">IXmlRepository</span></span>
+
+<span data-ttu-id="9a789-160">El `IXmlRepository` interfaz representa un tipo que puede conservar XML y recuperar el XML desde un almacén de respaldo.</span><span class="sxs-lookup"><span data-stu-id="9a789-160">The `IXmlRepository` interface represents a type that can persist XML to and retrieve XML from a backing store.</span></span> <span data-ttu-id="9a789-161">Expone dos API:</span><span class="sxs-lookup"><span data-stu-id="9a789-161">It exposes two APIs:</span></span>
+
+* <span data-ttu-id="9a789-162">`GetAllElements` :`IReadOnlyCollection<XElement>`</span><span class="sxs-lookup"><span data-stu-id="9a789-162">`GetAllElements` :`IReadOnlyCollection<XElement>`</span></span>
+
+* `StoreElement(XElement element, string friendlyName)`
+
+<span data-ttu-id="9a789-163">Las implementaciones de `IXmlRepository` no es necesario analizar el XML que se pasa a través de ellos.</span><span class="sxs-lookup"><span data-stu-id="9a789-163">Implementations of `IXmlRepository` don't need to parse the XML passing through them.</span></span> <span data-ttu-id="9a789-164">Deben tratar los documentos XML como opaco y permitir que los niveles superiores preocuparse de generar y analizar los documentos.</span><span class="sxs-lookup"><span data-stu-id="9a789-164">They should treat the XML documents as opaque and let higher layers worry about generating and parsing the documents.</span></span>
+
+<span data-ttu-id="9a789-165">Hay cuatro tipos concretos integrados que implementan `IXmlRepository`:</span><span class="sxs-lookup"><span data-stu-id="9a789-165">There are four built-in concrete types which implement `IXmlRepository`:</span></span>
+
+* [<span data-ttu-id="9a789-166">FileSystemXmlRepository</span><span class="sxs-lookup"><span data-stu-id="9a789-166">FileSystemXmlRepository</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
+* [<span data-ttu-id="9a789-167">RegistryXmlRepository</span><span class="sxs-lookup"><span data-stu-id="9a789-167">RegistryXmlRepository</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
+* [<span data-ttu-id="9a789-168">AzureStorage.AzureBlobXmlRepository</span><span class="sxs-lookup"><span data-stu-id="9a789-168">AzureStorage.AzureBlobXmlRepository</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
+* [<span data-ttu-id="9a789-169">RedisXmlRepository</span><span class="sxs-lookup"><span data-stu-id="9a789-169">RedisXmlRepository</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.redisxmlrepository)
+
+<span data-ttu-id="9a789-170">Consulte la [documento de proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="9a789-170">See the [key storage providers document](xref:security/data-protection/implementation/key-storage-providers) for more information.</span></span>
+
+<span data-ttu-id="9a789-171">Registrar un personalizado `IXmlRepository` es adecuado cuando se usa un almacén de respaldo diferentes (por ejemplo, Azure Table Storage).</span><span class="sxs-lookup"><span data-stu-id="9a789-171">Registering a custom `IXmlRepository` is appropriate when using a different backing store (for example, Azure Table Storage).</span></span>
+
+<span data-ttu-id="9a789-172">Para cambiar el repositorio predeterminado de toda la aplicación, registrar un personalizado `IXmlRepository` instancia:</span><span class="sxs-lookup"><span data-stu-id="9a789-172">To change the default repository application-wide, register a custom `IXmlRepository` instance:</span></span>
+
+::: moniker range=">= aspnetcore-2.0"
+
+```csharp
+services.Configure<KeyManagementOptions>(options => options.XmlRepository = new MyCustomXmlRepository());
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+```csharp
+services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
+```
+
+::: moniker-end
+
+## <a name="ixmlencryptor"></a><span data-ttu-id="9a789-173">IXmlEncryptor</span><span class="sxs-lookup"><span data-stu-id="9a789-173">IXmlEncryptor</span></span>
+
+<span data-ttu-id="9a789-174">El `IXmlEncryptor` interfaz representa un tipo que puede cifrar un elemento XML de texto simple.</span><span class="sxs-lookup"><span data-stu-id="9a789-174">The `IXmlEncryptor` interface represents a type that can encrypt a plaintext XML element.</span></span> <span data-ttu-id="9a789-175">Expone una única API:</span><span class="sxs-lookup"><span data-stu-id="9a789-175">It exposes a single API:</span></span>
+
+* <span data-ttu-id="9a789-176">Cifrar (plaintextElement de XElement): EncryptedXmlInfo</span><span class="sxs-lookup"><span data-stu-id="9a789-176">Encrypt(XElement plaintextElement) : EncryptedXmlInfo</span></span>
+
+<span data-ttu-id="9a789-177">Si un serializador `IAuthenticatedEncryptorDescriptor` contiene todos los elementos marcados como "requiere cifrado", a continuación, `XmlKeyManager` ejecutará esos elementos a través de la configurada `IXmlEncryptor`del `Encrypt` método y conservarán el elemento cifrado en lugar de elemento de texto simple a la `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="9a789-177">If a serialized `IAuthenticatedEncryptorDescriptor` contains any elements marked as "requires encryption", then `XmlKeyManager` will run those elements through the configured `IXmlEncryptor`'s `Encrypt` method, and it will persist the enciphered element rather than the plaintext element to the `IXmlRepository`.</span></span> <span data-ttu-id="9a789-178">La salida de la `Encrypt` método es un `EncryptedXmlInfo` objeto.</span><span class="sxs-lookup"><span data-stu-id="9a789-178">The output of the `Encrypt` method is an `EncryptedXmlInfo` object.</span></span> <span data-ttu-id="9a789-179">Este objeto es un contenedor que contiene tanto el resultante cifrado `XElement` y el tipo que representa un `IXmlDecryptor` que puede utilizarse para descifrar el elemento correspondiente.</span><span class="sxs-lookup"><span data-stu-id="9a789-179">This object is a wrapper which contains both the resultant enciphered `XElement` and the Type which represents an `IXmlDecryptor` which can be used to decipher the corresponding element.</span></span>
+
+<span data-ttu-id="9a789-180">Hay cuatro tipos concretos integrados que implementan `IXmlEncryptor`:</span><span class="sxs-lookup"><span data-stu-id="9a789-180">There are four built-in concrete types which implement `IXmlEncryptor`:</span></span>
+
+* [<span data-ttu-id="9a789-181">CertificateXmlEncryptor</span><span class="sxs-lookup"><span data-stu-id="9a789-181">CertificateXmlEncryptor</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.certificatexmlencryptor)
+* [<span data-ttu-id="9a789-182">DpapiNGXmlEncryptor</span><span class="sxs-lookup"><span data-stu-id="9a789-182">DpapiNGXmlEncryptor</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapingxmlencryptor)
+* [<span data-ttu-id="9a789-183">DpapiXmlEncryptor</span><span class="sxs-lookup"><span data-stu-id="9a789-183">DpapiXmlEncryptor</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.dpapixmlencryptor)
+* [<span data-ttu-id="9a789-184">NullXmlEncryptor</span><span class="sxs-lookup"><span data-stu-id="9a789-184">NullXmlEncryptor</span></span>](/dotnet/api/microsoft.aspnetcore.dataprotection.xmlencryption.nullxmlencryptor)
+
+<span data-ttu-id="9a789-185">Consulte la [cifrado de claves en el documento de rest](xref:security/data-protection/implementation/key-encryption-at-rest) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="9a789-185">See the [key encryption at rest document](xref:security/data-protection/implementation/key-encryption-at-rest) for more information.</span></span>
+
+<span data-ttu-id="9a789-186">Para cambiar el mecanismo predeterminado de la clave de cifrado en reposo toda la aplicación, registrar un personalizado `IXmlEncryptor` instancia:</span><span class="sxs-lookup"><span data-stu-id="9a789-186">To change the default key-encryption-at-rest mechanism application-wide, register a custom `IXmlEncryptor` instance:</span></span>
+
+::: moniker range=">= aspnetcore-2.0"
+
+```csharp
+services.Configure<KeyManagementOptions>(options => options.XmlEncryptor = new MyCustomXmlEncryptor());
+```
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+```csharp
+services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
+```
+
+::: moniker-end
+
+## <a name="ixmldecryptor"></a><span data-ttu-id="9a789-187">IXmlDecryptor</span><span class="sxs-lookup"><span data-stu-id="9a789-187">IXmlDecryptor</span></span>
+
+<span data-ttu-id="9a789-188">El `IXmlDecryptor` interfaz representa un tipo que sabe cómo descifrar un `XElement` que se descifra mediante una `IXmlEncryptor`.</span><span class="sxs-lookup"><span data-stu-id="9a789-188">The `IXmlDecryptor` interface represents a type that knows how to decrypt an `XElement` that was enciphered via an `IXmlEncryptor`.</span></span> <span data-ttu-id="9a789-189">Expone una única API:</span><span class="sxs-lookup"><span data-stu-id="9a789-189">It exposes a single API:</span></span>
+
+* <span data-ttu-id="9a789-190">Descifrar (encryptedElement de XElement): XElement</span><span class="sxs-lookup"><span data-stu-id="9a789-190">Decrypt(XElement encryptedElement) : XElement</span></span>
+
+<span data-ttu-id="9a789-191">El `Decrypt` método deshace el cifrado realizado por `IXmlEncryptor.Encrypt`.</span><span class="sxs-lookup"><span data-stu-id="9a789-191">The `Decrypt` method undoes the encryption performed by `IXmlEncryptor.Encrypt`.</span></span> <span data-ttu-id="9a789-192">Por lo general, cada hormigón `IXmlEncryptor` implementación tendrá un hormigón correspondiente `IXmlDecryptor` implementación.</span><span class="sxs-lookup"><span data-stu-id="9a789-192">Generally, each concrete `IXmlEncryptor` implementation will have a corresponding concrete `IXmlDecryptor` implementation.</span></span>
+
+<span data-ttu-id="9a789-193">Los tipos que implementan `IXmlDecryptor` debe tener uno de los dos constructores públicos siguientes:</span><span class="sxs-lookup"><span data-stu-id="9a789-193">Types which implement `IXmlDecryptor` should have one of the following two public constructors:</span></span>
+
+* <span data-ttu-id="9a789-194">.ctor(IServiceProvider)</span><span class="sxs-lookup"><span data-stu-id="9a789-194">.ctor(IServiceProvider)</span></span>
+* <span data-ttu-id="9a789-195">.ctor()</span><span class="sxs-lookup"><span data-stu-id="9a789-195">.ctor()</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="01380-117">No hay ninguna API para recuperar el material criptográfico sin formato de un `IKey` instancia.</span><span class="sxs-lookup"><span data-stu-id="01380-117">There's no API to retrieve the raw cryptographic material from an `IKey` instance.</span></span>
+> <span data-ttu-id="9a789-196">El `IServiceProvider` pasado al constructor puede ser null.</span><span class="sxs-lookup"><span data-stu-id="9a789-196">The `IServiceProvider` passed to the constructor may be null.</span></span>
 
-## <a name="ikeymanager"></a><span data-ttu-id="01380-118">IKeyManager</span><span class="sxs-lookup"><span data-stu-id="01380-118">IKeyManager</span></span>
+## <a name="ikeyescrowsink"></a><span data-ttu-id="9a789-197">IKeyEscrowSink</span><span class="sxs-lookup"><span data-stu-id="9a789-197">IKeyEscrowSink</span></span>
 
-<span data-ttu-id="01380-119">El `IKeyManager` interfaz representa un objeto responsable de almacenamiento de claves general, la recuperación y la manipulación.</span><span class="sxs-lookup"><span data-stu-id="01380-119">The `IKeyManager` interface represents an object responsible for general key storage, retrieval, and manipulation.</span></span> <span data-ttu-id="01380-120">Expone tres operaciones de alto nivel:</span><span class="sxs-lookup"><span data-stu-id="01380-120">It exposes three high-level operations:</span></span>
+<span data-ttu-id="9a789-198">El `IKeyEscrowSink` interfaz representa un tipo que puede realizar la custodia de información confidencial.</span><span class="sxs-lookup"><span data-stu-id="9a789-198">The `IKeyEscrowSink` interface represents a type that can perform escrow of sensitive information.</span></span> <span data-ttu-id="9a789-199">Recuerde que los descriptores de serializado podrían contener información confidencial (por ejemplo, el material criptográfico) y esto es lo que llevó a la introducción de la [IXmlEncryptor](#ixmlencryptor) escriba en primer lugar.</span><span class="sxs-lookup"><span data-stu-id="9a789-199">Recall that serialized descriptors might contain sensitive information (such as cryptographic material), and this is what led to the introduction of the [IXmlEncryptor](#ixmlencryptor) type in the first place.</span></span> <span data-ttu-id="9a789-200">Sin embargo, los accidentes suceden y llaveros puede ser eliminados o dañados.</span><span class="sxs-lookup"><span data-stu-id="9a789-200">However, accidents happen, and key rings can be deleted or become corrupted.</span></span>
 
-* <span data-ttu-id="01380-121">Cree una nueva clave y almacenar los datos en almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="01380-121">Create a new key and persist it to storage.</span></span>
+<span data-ttu-id="9a789-201">La interfaz de custodia proporciona un sombreado de escape de emergencia, que permite el acceso al XML serializado sin procesar antes de que se transforme alguno configurado [IXmlEncryptor](#ixmlencryptor).</span><span class="sxs-lookup"><span data-stu-id="9a789-201">The escrow interface provides an emergency escape hatch, allowing access to the raw serialized XML before it's transformed by any configured [IXmlEncryptor](#ixmlencryptor).</span></span> <span data-ttu-id="9a789-202">La interfaz expone una única API:</span><span class="sxs-lookup"><span data-stu-id="9a789-202">The interface exposes a single API:</span></span>
 
-* <span data-ttu-id="01380-122">Obtener todas las claves de almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="01380-122">Get all keys from storage.</span></span>
+* <span data-ttu-id="9a789-203">Store (keyId Guid, elemento de XElement)</span><span class="sxs-lookup"><span data-stu-id="9a789-203">Store(Guid keyId, XElement element)</span></span>
 
-* <span data-ttu-id="01380-123">Revocar una o varias claves y conservar la información de revocación en el almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="01380-123">Revoke one or more keys and persist the revocation information to storage.</span></span>
+<span data-ttu-id="9a789-204">Es hasta el `IKeyEscrowSink` implementación para controlar el elemento proporcionado de forma segura coherente con la directiva empresarial.</span><span class="sxs-lookup"><span data-stu-id="9a789-204">It's up to the `IKeyEscrowSink` implementation to handle the provided element in a secure manner consistent with business policy.</span></span> <span data-ttu-id="9a789-205">Una posible implementación podría ser para que el receptor de custodia cifrar el elemento XML con un certificado X.509 corporativo conocido que se ha custodiado clave privada del certificado; el `CertificateXmlEncryptor` tipo puede ayudar con esto.</span><span class="sxs-lookup"><span data-stu-id="9a789-205">One possible implementation could be for the escrow sink to encrypt the XML element using a known corporate X.509 certificate where the certificate's private key has been escrowed; the `CertificateXmlEncryptor` type can assist with this.</span></span> <span data-ttu-id="9a789-206">El `IKeyEscrowSink` implementación también es responsable de conservar el elemento proporcionado de forma adecuada.</span><span class="sxs-lookup"><span data-stu-id="9a789-206">The `IKeyEscrowSink` implementation is also responsible for persisting the provided element appropriately.</span></span>
 
->[!WARNING]
-> <span data-ttu-id="01380-124">Escribir una `IKeyManager` una tarea muy avanzada y la mayoría de los desarrolladores no debe intentarlo.</span><span class="sxs-lookup"><span data-stu-id="01380-124">Writing an `IKeyManager` is a very advanced task, and the majority of developers shouldn't attempt it.</span></span> <span data-ttu-id="01380-125">En su lugar, la mayoría de los desarrolladores deben aprovechar las ventajas de las funciones que ofrece el [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) clase.</span><span class="sxs-lookup"><span data-stu-id="01380-125">Instead, most developers should take advantage of the facilities offered by the [XmlKeyManager](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-xmlkeymanager) class.</span></span>
+<span data-ttu-id="9a789-207">De forma predeterminada no está habilitado ningún mecanismo de custodia, aunque los administradores de servidor pueden [configurar esto globalmente](xref:security/data-protection/configuration/machine-wide-policy).</span><span class="sxs-lookup"><span data-stu-id="9a789-207">By default no escrow mechanism is enabled, though server administrators can [configure this globally](xref:security/data-protection/configuration/machine-wide-policy).</span></span> <span data-ttu-id="9a789-208">También se puede configurar mediante programación a través de la `IDataProtectionBuilder.AddKeyEscrowSink` método tal como se muestra en el ejemplo siguiente.</span><span class="sxs-lookup"><span data-stu-id="9a789-208">It can also be configured programmatically via the `IDataProtectionBuilder.AddKeyEscrowSink` method as shown in the sample below.</span></span> <span data-ttu-id="9a789-209">El `AddKeyEscrowSink` reflejado sobrecargas de método la `IServiceCollection.AddSingleton` y `IServiceCollection.AddInstance` sobrecargas, como `IKeyEscrowSink` instancias están pensadas para formar singletons con estado.</span><span class="sxs-lookup"><span data-stu-id="9a789-209">The `AddKeyEscrowSink` method overloads mirror the `IServiceCollection.AddSingleton` and `IServiceCollection.AddInstance` overloads, as `IKeyEscrowSink` instances are intended to be singletons.</span></span> <span data-ttu-id="9a789-210">Si hay varios `IKeyEscrowSink` se registran las instancias, cada uno de ellos se llamará durante la generación de claves, por lo que las claves se pueden custodiar a varios mecanismos simultáneamente.</span><span class="sxs-lookup"><span data-stu-id="9a789-210">If multiple `IKeyEscrowSink` instances are registered, each one will be called during key generation, so keys can be escrowed to multiple mechanisms simultaneously.</span></span>
 
-<a name="data-protection-extensibility-key-management-xmlkeymanager"></a>
+<span data-ttu-id="9a789-211">No hay ninguna API para leer el material de un `IKeyEscrowSink` instancia.</span><span class="sxs-lookup"><span data-stu-id="9a789-211">There's no API to read material from an `IKeyEscrowSink` instance.</span></span> <span data-ttu-id="9a789-212">Esto es coherente con la teoría del diseño del mecanismo de custodia: se ha diseñado para que el material de clave sea accesible a una autoridad de confianza y, puesto que la aplicación propia no es una autoridad de confianza, no debería tener acceso a su propio material custodiada.</span><span class="sxs-lookup"><span data-stu-id="9a789-212">This is consistent with the design theory of the escrow mechanism: it's intended to make the key material accessible to a trusted authority, and since the application is itself not a trusted authority, it shouldn't have access to its own escrowed material.</span></span>
 
-## <a name="xmlkeymanager"></a><span data-ttu-id="01380-126">XmlKeyManager</span><span class="sxs-lookup"><span data-stu-id="01380-126">XmlKeyManager</span></span>
-
-<span data-ttu-id="01380-127">El `XmlKeyManager` tipo es la implementación concreta en el cuadro de `IKeyManager`.</span><span class="sxs-lookup"><span data-stu-id="01380-127">The `XmlKeyManager` type is the in-box concrete implementation of `IKeyManager`.</span></span> <span data-ttu-id="01380-128">Proporciona varias funciones útiles, incluidas la custodia de clave y el cifrado de claves en reposo.</span><span class="sxs-lookup"><span data-stu-id="01380-128">It provides several useful facilities, including key escrow and encryption of keys at rest.</span></span> <span data-ttu-id="01380-129">Las claves en este sistema se representan como elementos XML (en concreto, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).</span><span class="sxs-lookup"><span data-stu-id="01380-129">Keys in this system are represented as XML elements (specifically, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).</span></span>
-
-<span data-ttu-id="01380-130">`XmlKeyManager` depende de otros componentes en el curso de cumplir sus tareas:</span><span class="sxs-lookup"><span data-stu-id="01380-130">`XmlKeyManager` depends on several other components in the course of fulfilling its tasks:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="01380-131">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="01380-131">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-* <span data-ttu-id="01380-132">`AlgorithmConfiguration`, que determina los algoritmos utilizados por las nuevas claves.</span><span class="sxs-lookup"><span data-stu-id="01380-132">`AlgorithmConfiguration`, which dictates the algorithms used by new keys.</span></span>
-
-* <span data-ttu-id="01380-133">`IXmlRepository`, que controla donde las claves se conservan en almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="01380-133">`IXmlRepository`, which controls where keys are persisted in storage.</span></span>
-
-* <span data-ttu-id="01380-134">`IXmlEncryptor` [opcional], que permite cifrar las claves en reposo.</span><span class="sxs-lookup"><span data-stu-id="01380-134">`IXmlEncryptor` [optional], which allows encrypting keys at rest.</span></span>
-
-* <span data-ttu-id="01380-135">`IKeyEscrowSink` [opcional], que proporciona servicios de custodia de clave.</span><span class="sxs-lookup"><span data-stu-id="01380-135">`IKeyEscrowSink` [optional], which provides key escrow services.</span></span>
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="01380-136">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="01380-136">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-* <span data-ttu-id="01380-137">`IXmlRepository`, que controla donde las claves se conservan en almacenamiento.</span><span class="sxs-lookup"><span data-stu-id="01380-137">`IXmlRepository`, which controls where keys are persisted in storage.</span></span>
-
-* <span data-ttu-id="01380-138">`IXmlEncryptor` [opcional], que permite cifrar las claves en reposo.</span><span class="sxs-lookup"><span data-stu-id="01380-138">`IXmlEncryptor` [optional], which allows encrypting keys at rest.</span></span>
-
-* <span data-ttu-id="01380-139">`IKeyEscrowSink` [opcional], que proporciona servicios de custodia de clave.</span><span class="sxs-lookup"><span data-stu-id="01380-139">`IKeyEscrowSink` [optional], which provides key escrow services.</span></span>
-
----
-
-<span data-ttu-id="01380-140">A continuación se muestran los diagramas de alto nivel que indican cómo se conectan juntos estos componentes en `XmlKeyManager`.</span><span class="sxs-lookup"><span data-stu-id="01380-140">Below are high-level diagrams which indicate how these components are wired together within `XmlKeyManager`.</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="01380-141">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="01380-141">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-   ![Creación de claves](key-management/_static/keycreation2.png)
-
-   <span data-ttu-id="01380-143">*Creación de clave / CreateNewKey*</span><span class="sxs-lookup"><span data-stu-id="01380-143">*Key Creation / CreateNewKey*</span></span>
-
-<span data-ttu-id="01380-144">En la implementación de `CreateNewKey`, `AlgorithmConfiguration` componente se utiliza para crear un nombre único `IAuthenticatedEncryptorDescriptor`, que, a continuación, se serializa como XML.</span><span class="sxs-lookup"><span data-stu-id="01380-144">In the implementation of `CreateNewKey`, the `AlgorithmConfiguration` component is used to create a unique `IAuthenticatedEncryptorDescriptor`, which is then serialized as XML.</span></span> <span data-ttu-id="01380-145">Si un receptor de custodia de clave está presente, el XML sin formato (sin cifrar) se proporciona al receptor de almacenamiento a largo plazo.</span><span class="sxs-lookup"><span data-stu-id="01380-145">If a key escrow sink is present, the raw (unencrypted) XML is provided to the sink for long-term storage.</span></span> <span data-ttu-id="01380-146">A continuación, se ejecuta el XML sin cifrar a través de un `IXmlEncryptor` (si es necesario) para generar el documento XML cifrado.</span><span class="sxs-lookup"><span data-stu-id="01380-146">The unencrypted XML is then run through an `IXmlEncryptor` (if required) to generate the encrypted XML document.</span></span> <span data-ttu-id="01380-147">Este documento cifrada se almacena en almacenamiento a largo plazo a través de la `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="01380-147">This encrypted document is persisted to long-term storage via the `IXmlRepository`.</span></span> <span data-ttu-id="01380-148">(Si no hay ningún `IXmlEncryptor` está configurado, se guarda el documento sin cifrar en la `IXmlRepository`.)</span><span class="sxs-lookup"><span data-stu-id="01380-148">(If no `IXmlEncryptor` is configured, the unencrypted document is persisted in the `IXmlRepository`.)</span></span>
-
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="01380-149">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="01380-149">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-   ![Creación de claves](key-management/_static/keycreation1.png)
-
-   <span data-ttu-id="01380-151">*Creación de clave / CreateNewKey*</span><span class="sxs-lookup"><span data-stu-id="01380-151">*Key Creation / CreateNewKey*</span></span>
-
-<span data-ttu-id="01380-152">En la implementación de `CreateNewKey`, `IAuthenticatedEncryptorConfiguration` componente se utiliza para crear un nombre único `IAuthenticatedEncryptorDescriptor`, que, a continuación, se serializa como XML.</span><span class="sxs-lookup"><span data-stu-id="01380-152">In the implementation of `CreateNewKey`, the `IAuthenticatedEncryptorConfiguration` component is used to create a unique `IAuthenticatedEncryptorDescriptor`, which is then serialized as XML.</span></span> <span data-ttu-id="01380-153">Si un receptor de custodia de clave está presente, el XML sin formato (sin cifrar) se proporciona al receptor de almacenamiento a largo plazo.</span><span class="sxs-lookup"><span data-stu-id="01380-153">If a key escrow sink is present, the raw (unencrypted) XML is provided to the sink for long-term storage.</span></span> <span data-ttu-id="01380-154">A continuación, se ejecuta el XML sin cifrar a través de un `IXmlEncryptor` (si es necesario) para generar el documento XML cifrado.</span><span class="sxs-lookup"><span data-stu-id="01380-154">The unencrypted XML is then run through an `IXmlEncryptor` (if required) to generate the encrypted XML document.</span></span> <span data-ttu-id="01380-155">Este documento cifrada se almacena en almacenamiento a largo plazo a través de la `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="01380-155">This encrypted document is persisted to long-term storage via the `IXmlRepository`.</span></span> <span data-ttu-id="01380-156">(Si no hay ningún `IXmlEncryptor` está configurado, se guarda el documento sin cifrar en la `IXmlRepository`.)</span><span class="sxs-lookup"><span data-stu-id="01380-156">(If no `IXmlEncryptor` is configured, the unencrypted document is persisted in the `IXmlRepository`.)</span></span>
-
----
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="01380-157">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="01380-157">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-   ![Recuperación de claves](key-management/_static/keyretrieval2.png)
-   
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="01380-159">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="01380-159">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-   ![Recuperación de claves](key-management/_static/keyretrieval1.png)
-
----
-
-   <span data-ttu-id="01380-161">*Recuperación de clave / GetAllKeys*</span><span class="sxs-lookup"><span data-stu-id="01380-161">*Key Retrieval / GetAllKeys*</span></span>
-
-<span data-ttu-id="01380-162">En la implementación de `GetAllKeys`, el XML documenta las claves que representan y se leen las revocaciones de subyacente `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="01380-162">In the implementation of `GetAllKeys`, the XML documents representing keys and revocations are read from the underlying `IXmlRepository`.</span></span> <span data-ttu-id="01380-163">Si estos documentos están cifrados, el sistema les descifrará automáticamente.</span><span class="sxs-lookup"><span data-stu-id="01380-163">If these documents are encrypted, the system will automatically decrypt them.</span></span> <span data-ttu-id="01380-164">`XmlKeyManager` crea la correspondiente `IAuthenticatedEncryptorDescriptorDeserializer` instancias para deserializar los documentos de nuevo en `IAuthenticatedEncryptorDescriptor` instancias, que, a continuación, se incluyen en persona `IKey` instancias.</span><span class="sxs-lookup"><span data-stu-id="01380-164">`XmlKeyManager` creates the appropriate `IAuthenticatedEncryptorDescriptorDeserializer` instances to deserialize the documents back into `IAuthenticatedEncryptorDescriptor` instances, which are then wrapped in individual `IKey` instances.</span></span> <span data-ttu-id="01380-165">Esta colección de `IKey` instancias se devuelve al llamador.</span><span class="sxs-lookup"><span data-stu-id="01380-165">This collection of `IKey` instances is returned to the caller.</span></span>
-
-<span data-ttu-id="01380-166">Encontrará más información sobre los elementos XML determinados en el [documento de formato de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).</span><span class="sxs-lookup"><span data-stu-id="01380-166">Further information on the particular XML elements can be found in the [key storage format document](xref:security/data-protection/implementation/key-storage-format#data-protection-implementation-key-storage-format).</span></span>
-
-## <a name="ixmlrepository"></a><span data-ttu-id="01380-167">IXmlRepository</span><span class="sxs-lookup"><span data-stu-id="01380-167">IXmlRepository</span></span>
-
-<span data-ttu-id="01380-168">El `IXmlRepository` interfaz representa un tipo que pueda persista código XML en y recuperar el XML de un almacén de copia de seguridad.</span><span class="sxs-lookup"><span data-stu-id="01380-168">The `IXmlRepository` interface represents a type that can persist XML to and retrieve XML from a backing store.</span></span> <span data-ttu-id="01380-169">Expone dos API:</span><span class="sxs-lookup"><span data-stu-id="01380-169">It exposes two APIs:</span></span>
-
-* <span data-ttu-id="01380-170">GetAllElements(): IReadOnlyCollection<XElement></span><span class="sxs-lookup"><span data-stu-id="01380-170">GetAllElements() : IReadOnlyCollection<XElement></span></span>
-
-* <span data-ttu-id="01380-171">StoreElement (elemento XElement, cadena friendlyName)</span><span class="sxs-lookup"><span data-stu-id="01380-171">StoreElement(XElement element, string friendlyName)</span></span>
-
-<span data-ttu-id="01380-172">Las implementaciones de `IXmlRepository` no es necesario analizar el XML que se pasan a través de ellos.</span><span class="sxs-lookup"><span data-stu-id="01380-172">Implementations of `IXmlRepository` don't need to parse the XML passing through them.</span></span> <span data-ttu-id="01380-173">Debe tratar los documentos XML como opaco y permitir que los niveles superiores a preocuparse sobre cómo generar y analizar los documentos.</span><span class="sxs-lookup"><span data-stu-id="01380-173">They should treat the XML documents as opaque and let higher layers worry about generating and parsing the documents.</span></span>
-
-<span data-ttu-id="01380-174">Hay dos tipos integrados concretos que implementan `IXmlRepository`: `FileSystemXmlRepository` y `RegistryXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="01380-174">There are two built-in concrete types which implement `IXmlRepository`: `FileSystemXmlRepository` and `RegistryXmlRepository`.</span></span> <span data-ttu-id="01380-175">Consulte la [documento de proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="01380-175">See the [key storage providers document](xref:security/data-protection/implementation/key-storage-providers#data-protection-implementation-key-storage-providers) for more information.</span></span> <span data-ttu-id="01380-176">Registrar un personalizado `IXmlRepository` sería la manera adecuada para usar un almacén de respaldo diferentes, por ejemplo, el almacenamiento de blobs de Azure.</span><span class="sxs-lookup"><span data-stu-id="01380-176">Registering a custom `IXmlRepository` would be the appropriate manner to use a different backing store, e.g., Azure Blob Storage.</span></span>
-
-<span data-ttu-id="01380-177">Para cambiar el repositorio predeterminado de toda la aplicación, registrar un personalizado `IXmlRepository` instancia:</span><span class="sxs-lookup"><span data-stu-id="01380-177">To change the default repository application-wide, register a custom `IXmlRepository` instance:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="01380-178">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="01380-178">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-   ```csharp
-   services.Configure<KeyManagementOptions>(options => options.XmlRepository = new MyCustomXmlRepository());
-   ```
-   
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="01380-179">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="01380-179">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-   ```csharp
-   services.AddSingleton<IXmlRepository>(new MyCustomXmlRepository());
-   ```
-
----
-
-<a name="data-protection-extensibility-key-management-ixmlencryptor"></a>
-
-## <a name="ixmlencryptor"></a><span data-ttu-id="01380-180">IXmlEncryptor</span><span class="sxs-lookup"><span data-stu-id="01380-180">IXmlEncryptor</span></span>
-
-<span data-ttu-id="01380-181">El `IXmlEncryptor` interfaz representa un tipo que puede cifrar un elemento XML de texto simple.</span><span class="sxs-lookup"><span data-stu-id="01380-181">The `IXmlEncryptor` interface represents a type that can encrypt a plaintext XML element.</span></span> <span data-ttu-id="01380-182">Expone una única API:</span><span class="sxs-lookup"><span data-stu-id="01380-182">It exposes a single API:</span></span>
-
-* <span data-ttu-id="01380-183">Cifrar (plaintextElement de XElement): EncryptedXmlInfo</span><span class="sxs-lookup"><span data-stu-id="01380-183">Encrypt(XElement plaintextElement) : EncryptedXmlInfo</span></span>
-
-<span data-ttu-id="01380-184">Si un número de serie `IAuthenticatedEncryptorDescriptor` contiene elementos marcados como "requiere cifrado", a continuación, `XmlKeyManager` ejecutará esos elementos a través de la configurada `IXmlEncryptor`del `Encrypt` método y se conservará el elemento descifra en lugar de la elemento de texto simple para el `IXmlRepository`.</span><span class="sxs-lookup"><span data-stu-id="01380-184">If a serialized `IAuthenticatedEncryptorDescriptor` contains any elements marked as "requires encryption", then `XmlKeyManager` will run those elements through the configured `IXmlEncryptor`'s `Encrypt` method, and it will persist the enciphered element rather than the plaintext element to the `IXmlRepository`.</span></span> <span data-ttu-id="01380-185">El resultado de la `Encrypt` método es un `EncryptedXmlInfo` objeto.</span><span class="sxs-lookup"><span data-stu-id="01380-185">The output of the `Encrypt` method is an `EncryptedXmlInfo` object.</span></span> <span data-ttu-id="01380-186">Este objeto es un contenedor que contiene tanto el resultante descifra `XElement` y el tipo que representa un `IXmlDecryptor` que puede utilizarse para descifrar el elemento correspondiente.</span><span class="sxs-lookup"><span data-stu-id="01380-186">This object is a wrapper which contains both the resultant enciphered `XElement` and the Type which represents an `IXmlDecryptor` which can be used to decipher the corresponding element.</span></span>
-
-<span data-ttu-id="01380-187">Hay cuatro tipos integrados concretos que implementan `IXmlEncryptor`:</span><span class="sxs-lookup"><span data-stu-id="01380-187">There are four built-in concrete types which implement `IXmlEncryptor`:</span></span>
-* `CertificateXmlEncryptor`
-* `DpapiNGXmlEncryptor`
-* `DpapiXmlEncryptor`
-* `NullXmlEncryptor`
-
-<span data-ttu-id="01380-188">Consulte la [cifrado de clave en el documento de rest](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) para obtener más información.</span><span class="sxs-lookup"><span data-stu-id="01380-188">See the [key encryption at rest document](xref:security/data-protection/implementation/key-encryption-at-rest#data-protection-implementation-key-encryption-at-rest) for more information.</span></span>
-
-<span data-ttu-id="01380-189">Para cambiar el mecanismo de cifrado de clave en el resto de predeterminado de toda la aplicación, registrar un personalizado `IXmlEncryptor` instancia:</span><span class="sxs-lookup"><span data-stu-id="01380-189">To change the default key-encryption-at-rest mechanism application-wide, register a custom `IXmlEncryptor` instance:</span></span>
-
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[<span data-ttu-id="01380-190">ASP.NET Core 2.x</span><span class="sxs-lookup"><span data-stu-id="01380-190">ASP.NET Core 2.x</span></span>](#tab/aspnetcore2x)
-
-   ```csharp
-   services.Configure<KeyManagementOptions>(options => options.XmlEncryptor = new MyCustomXmlEncryptor());
-   ```
-   
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[<span data-ttu-id="01380-191">ASP.NET Core 1.x</span><span class="sxs-lookup"><span data-stu-id="01380-191">ASP.NET Core 1.x</span></span>](#tab/aspnetcore1x)
-
-   ```csharp
-   services.AddSingleton<IXmlEncryptor>(new MyCustomXmlEncryptor());
-   ```
-
----
-
-## <a name="ixmldecryptor"></a><span data-ttu-id="01380-192">IXmlDecryptor</span><span class="sxs-lookup"><span data-stu-id="01380-192">IXmlDecryptor</span></span>
-
-<span data-ttu-id="01380-193">El `IXmlDecryptor` interfaz representa un tipo que sabe cómo descifrar un `XElement` que se descifra mediante una `IXmlEncryptor`.</span><span class="sxs-lookup"><span data-stu-id="01380-193">The `IXmlDecryptor` interface represents a type that knows how to decrypt an `XElement` that was enciphered via an `IXmlEncryptor`.</span></span> <span data-ttu-id="01380-194">Expone una única API:</span><span class="sxs-lookup"><span data-stu-id="01380-194">It exposes a single API:</span></span>
-
-* <span data-ttu-id="01380-195">Descifrar (encryptedElement de XElement): XElement</span><span class="sxs-lookup"><span data-stu-id="01380-195">Decrypt(XElement encryptedElement) : XElement</span></span>
-
-<span data-ttu-id="01380-196">El `Decrypt` método deshace el cifrado realizado por `IXmlEncryptor.Encrypt`.</span><span class="sxs-lookup"><span data-stu-id="01380-196">The `Decrypt` method undoes the encryption performed by `IXmlEncryptor.Encrypt`.</span></span> <span data-ttu-id="01380-197">Por lo general, cada hormigón `IXmlEncryptor` implementación tendrá un hormigón correspondiente `IXmlDecryptor` implementación.</span><span class="sxs-lookup"><span data-stu-id="01380-197">Generally, each concrete `IXmlEncryptor` implementation will have a corresponding concrete `IXmlDecryptor` implementation.</span></span>
-
-<span data-ttu-id="01380-198">Los tipos que implementan `IXmlDecryptor` debe tener uno de los dos constructores públicos siguientes:</span><span class="sxs-lookup"><span data-stu-id="01380-198">Types which implement `IXmlDecryptor` should have one of the following two public constructors:</span></span>
-
-* <span data-ttu-id="01380-199">.ctor(IServiceProvider)</span><span class="sxs-lookup"><span data-stu-id="01380-199">.ctor(IServiceProvider)</span></span>
-* <span data-ttu-id="01380-200">.ctor()</span><span class="sxs-lookup"><span data-stu-id="01380-200">.ctor()</span></span>
+<span data-ttu-id="9a789-213">Ejemplo de código siguiente muestra cómo crear y registrar un `IKeyEscrowSink` donde se puede custodiar claves tal que solo los miembros del "CONTOSODomain Admins" pueden recuperarlos.</span><span class="sxs-lookup"><span data-stu-id="9a789-213">The following sample code demonstrates creating and registering an `IKeyEscrowSink` where keys are escrowed such that only members of "CONTOSODomain Admins" can recover them.</span></span>
 
 > [!NOTE]
-> <span data-ttu-id="01380-201">El `IServiceProvider` pasado al constructor puede ser null.</span><span class="sxs-lookup"><span data-stu-id="01380-201">The `IServiceProvider` passed to the constructor may be null.</span></span>
-
-## <a name="ikeyescrowsink"></a><span data-ttu-id="01380-202">IKeyEscrowSink</span><span class="sxs-lookup"><span data-stu-id="01380-202">IKeyEscrowSink</span></span>
-
-<span data-ttu-id="01380-203">El `IKeyEscrowSink` interfaz representa un tipo que puede realizar la custodia de la información confidencial.</span><span class="sxs-lookup"><span data-stu-id="01380-203">The `IKeyEscrowSink` interface represents a type that can perform escrow of sensitive information.</span></span> <span data-ttu-id="01380-204">Recuerde que descriptores serializados podrían contener información confidencial (por ejemplo, el material criptográfico) y esto es lo que ha provocado la introducción de la [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor) escriba en primer lugar.</span><span class="sxs-lookup"><span data-stu-id="01380-204">Recall that serialized descriptors might contain sensitive information (such as cryptographic material), and this is what led to the introduction of the [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor) type in the first place.</span></span> <span data-ttu-id="01380-205">Sin embargo, los accidentes y llaveros pueden eliminarse o están dañados.</span><span class="sxs-lookup"><span data-stu-id="01380-205">However, accidents happen, and key rings can be deleted or become corrupted.</span></span>
-
-<span data-ttu-id="01380-206">La interfaz de custodia proporciona una trama de escape de emergencia, permitir el acceso al XML serializado sin procesar antes de que se transforme en ninguno configurado [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor).</span><span class="sxs-lookup"><span data-stu-id="01380-206">The escrow interface provides an emergency escape hatch, allowing access to the raw serialized XML before it's transformed by any configured [IXmlEncryptor](xref:security/data-protection/extensibility/key-management#data-protection-extensibility-key-management-ixmlencryptor).</span></span> <span data-ttu-id="01380-207">La interfaz expone una única API:</span><span class="sxs-lookup"><span data-stu-id="01380-207">The interface exposes a single API:</span></span>
-
-* <span data-ttu-id="01380-208">Almacén (keyId de Guid, elemento de XElement)</span><span class="sxs-lookup"><span data-stu-id="01380-208">Store(Guid keyId, XElement element)</span></span>
-
-<span data-ttu-id="01380-209">Depende del `IKeyEscrowSink` implementación para controlar el elemento proporcionado de forma segura coherente con la directiva empresarial.</span><span class="sxs-lookup"><span data-stu-id="01380-209">It's up to the `IKeyEscrowSink` implementation to handle the provided element in a secure manner consistent with business policy.</span></span> <span data-ttu-id="01380-210">Una posible implementación podría ser para que el receptor de custodia cifrar el elemento XML mediante un certificado X.509 corporativo conocido donde se ha custodiado clave privada del certificado; el `CertificateXmlEncryptor` tipo puede ayudarle con esto.</span><span class="sxs-lookup"><span data-stu-id="01380-210">One possible implementation could be for the escrow sink to encrypt the XML element using a known corporate X.509 certificate where the certificate's private key has been escrowed; the `CertificateXmlEncryptor` type can assist with this.</span></span> <span data-ttu-id="01380-211">El `IKeyEscrowSink` implementación también es responsable de conservar el elemento proporcionado de forma adecuada.</span><span class="sxs-lookup"><span data-stu-id="01380-211">The `IKeyEscrowSink` implementation is also responsible for persisting the provided element appropriately.</span></span>
-
-<span data-ttu-id="01380-212">De forma predeterminada ningún mecanismo de custodia está habilitado, aunque los administradores de servidor pueden [configurarlo global](xref:security/data-protection/configuration/machine-wide-policy).</span><span class="sxs-lookup"><span data-stu-id="01380-212">By default no escrow mechanism is enabled, though server administrators can [configure this globally](xref:security/data-protection/configuration/machine-wide-policy).</span></span> <span data-ttu-id="01380-213">También puede configurar mediante programación a través de la `IDataProtectionBuilder.AddKeyEscrowSink` método tal como se muestra en el ejemplo siguiente.</span><span class="sxs-lookup"><span data-stu-id="01380-213">It can also be configured programmatically via the `IDataProtectionBuilder.AddKeyEscrowSink` method as shown in the sample below.</span></span> <span data-ttu-id="01380-214">El `AddKeyEscrowSink` reflejado de las sobrecargas de método la `IServiceCollection.AddSingleton` y `IServiceCollection.AddInstance` sobrecargas, como `IKeyEscrowSink` instancias están pensadas para ser singletons.</span><span class="sxs-lookup"><span data-stu-id="01380-214">The `AddKeyEscrowSink` method overloads mirror the `IServiceCollection.AddSingleton` and `IServiceCollection.AddInstance` overloads, as `IKeyEscrowSink` instances are intended to be singletons.</span></span> <span data-ttu-id="01380-215">Si hay varios `IKeyEscrowSink` instancias registradas, se llamará a cada uno de ellos durante la generación de claves, por lo que las claves se pueden custodiar a varios mecanismos simultáneamente.</span><span class="sxs-lookup"><span data-stu-id="01380-215">If multiple `IKeyEscrowSink` instances are registered, each one will be called during key generation, so keys can be escrowed to multiple mechanisms simultaneously.</span></span>
-
-<span data-ttu-id="01380-216">No hay ninguna API para leer el material de un `IKeyEscrowSink` instancia.</span><span class="sxs-lookup"><span data-stu-id="01380-216">There's no API to read material from an `IKeyEscrowSink` instance.</span></span> <span data-ttu-id="01380-217">Esto es coherente con la teoría del diseño del mecanismo de custodia: se ha diseñado para hacer que el material de clave sea accesible a una autoridad de confianza y, puesto que la aplicación de sí mismo no es una entidad de confianza, no debería tener acceso a su propio material custodiada.</span><span class="sxs-lookup"><span data-stu-id="01380-217">This is consistent with the design theory of the escrow mechanism: it's intended to make the key material accessible to a trusted authority, and since the application is itself not a trusted authority, it shouldn't have access to its own escrowed material.</span></span>
-
-<span data-ttu-id="01380-218">El código de ejemplo siguiente muestra cómo crear y registrar un `IKeyEscrowSink` donde se custodiar claves de modo que solo los miembros del "CONTOSODomain Admins" pueden recuperarlos.</span><span class="sxs-lookup"><span data-stu-id="01380-218">The following sample code demonstrates creating and registering an `IKeyEscrowSink` where keys are escrowed such that only members of "CONTOSODomain Admins" can recover them.</span></span>
-
-> [!NOTE]
-> <span data-ttu-id="01380-219">Para ejecutar este ejemplo, debe ser en un equipo con Windows 8 Unidos a un dominio / máquina con Windows Server 2012 y el controlador de dominio deben ser Windows Server 2012 o posterior.</span><span class="sxs-lookup"><span data-stu-id="01380-219">To run this sample, you must be on a domain-joined Windows 8 / Windows Server 2012 machine, and the domain controller must be Windows Server 2012 or later.</span></span>
+> <span data-ttu-id="9a789-214">Para ejecutar este ejemplo, debe estar en un dominio de Windows 8 / máquina con Windows Server 2012 y el controlador de dominio deben ser Windows Server 2012 o posterior.</span><span class="sxs-lookup"><span data-stu-id="9a789-214">To run this sample, you must be on a domain-joined Windows 8 / Windows Server 2012 machine, and the domain controller must be Windows Server 2012 or later.</span></span>
 
 [!code-csharp[](key-management/samples/key-management-extensibility.cs)]
