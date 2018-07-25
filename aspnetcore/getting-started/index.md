@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/31/2018
 uid: getting-started
-ms.openlocfilehash: 22e9c982921cc03d89506e18ff99bf481027dda6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 7ab9f303d74786c4ac76f002d0f2c66371e78cb8
+ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "38216218"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39228587"
 ---
 # <a name="get-started-with-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -25,7 +25,7 @@ ms.locfileid: "38216218"
     dotnet new webapp -o aspnetcoreapp
     ```
 
-    [!INCLUDE [](~/includes/webapp-alias-notice.md) [](~/includes/webapp-alias-notice.md)]
+    [!INCLUDE [](~/includes/webapp-alias-notice.md)]
 
 3. Confíe en el certificado de desarrollo HTTPS:
 
@@ -35,11 +35,11 @@ ms.locfileid: "38216218"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following dialog:
+   El comando anterior muestra el siguiente cuadro de diálogo:
 
-    ![Security warning dialog](_static/cert.png)
+   ![Cuadro de diálogo de advertencia de seguridad](_static/cert.png)
 
-    Select **Yes** if you agree to trust the development certificate.
+   Si acepta confiar en el certificado de desarrollo, seleccione **Sí**.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
@@ -47,18 +47,15 @@ ms.locfileid: "38216218"
     dotnet dev-certs https --trust
     ```
 
-    The preceding command displays the following message:
+   El comando anterior muestra el siguiente mensaje:
 
-    *Trusting the HTTPS development certificate was requested. If the certificate is not already trusted we will run the following command:*
-    `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'`
-    *This command might prompt you for your password to install the certificate on the system keychain.
-    Password:*
+   *Se ha solicitado que confíe en el certificado de desarrollo HTTPS. Si el certificado todavía no es de confianza, se ejecutará el siguiente comando:* `'sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain <<certificate>>'` *Es posible que este comando le solicite su contraseña para instalar el certificado en la cadena de claves del sistema.    Contraseña:*
 
-    Enter your password if you agree to trust the development certificate.
+   Si acepta confiar en el certificado de desarrollo, escriba la contraseña.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-    See the documentation for your Linux distribution on how to trust the HTTPS development certificate
+   <a name="see-the-documentation-for-your-linux-distribution-on-how-to-trust-the-https-development-certificate"></a>Consulte la documentación correspondiente a su distribución Linux sobre cómo confiar en el certificado de desarrollo HTTPS.
 ---
 
 4. Ejecute la aplicación:
