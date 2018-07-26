@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: web-api/index
-ms.openlocfilehash: 0ff0bbc629930666d46247d6c1257fac8bfaf7c2
-ms.sourcegitcommit: 260abb706ed17f07a53288d8a0c3e69fc13e7468
+ms.openlocfilehash: ccee4f7bae0abe1b36088d58e5c1e1362d8de9f0
+ms.sourcegitcommit: 5338b1ed9e2ef225ab565d6cba072b474fd9324d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38966814"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39243102"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Compilación de API web con ASP.NET Core
 
@@ -63,7 +63,7 @@ En las secciones siguientes se describen las ventajas de las características qu
 
 Los errores de validación desencadenan automáticamente una respuesta HTTP 400. El código siguiente deja de ser necesario en las acciones:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?range=46-49)]
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
 
 El comportamiento predeterminado se deshabilita cuando la propiedad [SuppressModelStateInvalidFilter](/dotnet/api/microsoft.aspnetcore.mvc.apibehavioroptions.suppressmodelstateinvalidfilter) se establece en `true`. Agregue el siguiente código en *Startup.ConfigureServices* después de `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
 
