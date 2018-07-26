@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/17/2017
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: f3cac3541ffe633886f82cec8180a219272c24d6
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: fd3e5dff114c81eae07186e735a15314d984dcc3
+ms.sourcegitcommit: 5338b1ed9e2ef225ab565d6cba072b474fd9324d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095605"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39243115"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurar la protección de datos de ASP.NET Core
 
@@ -84,7 +84,44 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
+::: moniker range=">= aspnetcore-2.1"
+
+En ASP.NET Core 2.1 o posterior, puede proporcionar un [X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) a [ProtectKeysWithCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.protectkeyswithcertificate), como cargar un certificado desde un archivo:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"))
+        .ProtectKeysWithCertificate(
+            new X509Certificate2("certificate.pfx", "password"));
+}
+```
+
+::: moniker-end
+
 Consulte [clave de cifrado en reposo](xref:security/data-protection/implementation/key-encryption-at-rest) para obtener más ejemplos e información sobre los mecanismos de cifrado de claves integrada.
+
+::: moniker range=">= aspnetcore-2.1"
+
+## <a name="unprotectkeyswithanycertificate"></a>UnprotectKeysWithAnyCertificate
+
+En ASP.NET Core 2.1 o posterior, puede girar certificados y descifrar las claves en reposo mediante una matriz de [X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) certificados con [UnprotectKeysWithAnyCertificate](/dotnet/api/microsoft.aspnetcore.dataprotection.dataprotectionbuilderextensions.unprotectkeyswithanycertificate):
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddDataProtection()
+        .PersistKeysToFileSystem(new DirectoryInfo(@"\\server\share\directory\"))
+        .ProtectKeysWithCertificate(
+            new X509Certificate2("certificate.pfx", "password"));
+        .UnprotectKeysWithAnyCertificate(
+            new X509Certificate2("certificate_old_1.pfx", "password_1"),
+            new X509Certificate2("certificate_old_2.pfx", "password_2"));
+}
+```
+
+::: moniker-end
 
 ## <a name="setdefaultkeylifetime"></a>SetDefaultKeyLifetime
 
