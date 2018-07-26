@@ -5,12 +5,12 @@ description: Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET web app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 331c17de33b5c13221385ffb4282bc16bde32289
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095722"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254836"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -37,6 +37,11 @@ Se recomienda que todas las aplicaciones web de ASP.NET Core llamará Middleware
 El código siguiente llama `UseHttpsRedirection` en el `Startup` clase:
 
 [!code-csharp[](enforcing-ssl/sample/Startup.cs?name=snippet1&highlight=13)]
+
+El código resaltado anterior:
+
+* Usa el valor predeterminado [HttpsRedirectionOptions.RedirectStatusCode](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.redirectstatuscode) (`Status307TemporaryRedirect`). Deben llamar las aplicaciones de producción [UseHsts](#hsts).
+* Usa el valor predeterminado [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport) (443).
 
 El código siguiente llama [AddHttpsRedirection](/dotnet/api/microsoft.aspnetcore.builder.httpsredirectionservicesextensions.addhttpsredirection) para configurar las opciones de middleware:
 
