@@ -1,0 +1,123 @@
+---
+title: Acceso a HttpContext en ASP.NET Core
+author: coderandhiker
+description: Obtenga información sobre cómo acceder a HttpContext en ASP.NET Core.
+ms.author: riande
+ms.custom: mvc
+ms.date: 07/20/2018
+uid: fundamentals/httpcontext
+ms.openlocfilehash: b1ff80943db1788b465accd51c70a3c3a3462d5c
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202715"
+---
+# <a name="access-httpcontext-in-aspnet-core"></a>Acceso a HttpContext en ASP.NET Core
+
+Las aplicaciones ASP.NET Core acceden a `HttpContext` a través de la interfaz [IHttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.ihttpcontextaccessor) y de su implementación predeterminada [HttpContextAccessor](/dotnet/api/microsoft.aspnetcore.http.httpcontextaccessor).
+
+::: moniker range=">= aspnetcore-2.0"
+
+## <a name="use-httpcontext-from-razor-pages"></a>Uso de HttpContext desde Razor Pages
+
+[PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel) de Razor Pages expone la propiedad [HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel.httpcontext):
+
+```csharp
+public class AboutModel : PageModel
+{
+    public string Message { get; set; }
+
+    public void OnGet()
+    {
+        Message = HttpContext.Request.PathBase;
+    }
+}
+```
+
+::: moniker-end
+
+## <a name="use-httpcontext-from-a-controller"></a>Uso de HttpContext desde un controlador
+
+Los controladores exponen la propiedad [ControllerBase.HttpContext](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.httpcontext):
+
+```csharp
+public class HomeController : Controller
+{
+    public IActionResult About()
+    {
+        var pathBase = HttpContext.Request.PathBase;
+        // Do something with the PathBase.
+
+        return View();
+    }
+}
+```
+
+## <a name="use-httpcontext-from-middleware"></a>Uso de HttpContext desde el software intermedio
+
+Cuando se trabaja con componentes de software intermedio personalizado, `HttpContext` se pasa al método `Invoke` o `InvokeAsync` y es accesible cuando el software intermedio está configurado:
+
+```csharp
+public class MyCustomMiddleware
+{
+    public Task InvokeAsync(HttpContext context)
+    {
+        // Middleware initialization optionally using HttpContext
+    }
+}
+```
+
+## <a name="use-httpcontext-from-custom-components"></a>Uso de HttpContext desde componentes personalizados
+
+Para los componentes de otro marco y componentes personalizados que requieren acceso a `HttpContext`, el enfoque recomendado es registrar una dependencia mediante el contenedor integrado de [inserción de dependencias](xref:fundamentals/dependency-injection). El contenedor de inserción de dependencias proporciona `IHttpContextAccessor` a cualquier clase que la declare como una dependencia en sus constructores.
+
+::: moniker range=">= aspnetcore-2.1"
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+     services.AddMvc()
+         .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+     services.AddHttpContextAccessor();
+     services.AddTransient<IUserRepository, UserRepository>();
+}
+```
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+     services.AddMvc();
+     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+     services.AddTransient<IUserRepository, UserRepository>();
+}
+```
+
+::: moniker-end
+
+En el ejemplo anterior:
+
+* `UserRepository` declara su dependencia de `IHttpContextAccessor`.
+* La dependencia se proporciona cuando la inserción de dependencias resuelve la cadena de dependencias y crea una instancia de `UserRepository`.
+
+```csharp
+public class UserRepository : IUserRepository
+{
+    private readonly IHttpContextAccessor _httpContextAccessor;
+
+    public UserRepository(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpContextAccessor = httpContextAccessor;
+    }
+
+    public void LogCurrentUser()
+    {
+        var username = _httpContextAccessor.HttpContext.User.Identity.Name;
+        service.LogAccessRequest(username);
+    }
+}
+```

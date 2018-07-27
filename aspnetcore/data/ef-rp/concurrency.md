@@ -5,15 +5,13 @@ description: Este tutorial muestra cómo tratar los conflictos cuando varios usu
 ms.author: riande
 ms.date: 11/15/2017
 uid: data/ef-rp/concurrency
-ms.openlocfilehash: c6ec07eb7bf484490bd7730edc44bf2d89e8fb2a
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: ff9e52df63f9c9f47ee659a68beb28b773a114a1
+ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38150488"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39202697"
 ---
-es-es/
-
 # <a name="razor-pages-with-ef-core-in-aspnet-core---concurrency---8-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Simultaneidad (8 de 8)
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Tom Dykstra](https://github.com/tdykstra) y [Jon P Smith](https://twitter.com/thereformedprog)
@@ -54,17 +52,21 @@ La simultaneidad optimista incluye las siguientes opciones:
 
 * Puede realizar un seguimiento de la propiedad que ha modificado un usuario y actualizar solo las columnas correspondientes de la base de datos.
 
-  En el escenario, no se perderá ningún dato. Los dos usuarios actualizaron diferentes propiedades. La próxima vez que un usuario examine el departamento de inglés, verá los cambios tanto de Jane como de John. Este método de actualización puede reducir el número de conflictos que pueden dar lugar a una pérdida de datos. Este enfoque: * No puede evitar la pérdida de datos si se realizan cambios paralelos a la misma propiedad.
-        * Por lo general no es práctico en una aplicación web. Requiere mantener un estado significativo para realizar un seguimiento de todos los valores capturados y nuevos. El mantenimiento de grandes cantidades de estado puede afectar al rendimiento de la aplicación.
-        * Puede aumentar la complejidad de las aplicaciones en comparación con la detección de simultaneidad en una entidad.
+  En el escenario, no se perderá ningún dato. Los dos usuarios actualizaron diferentes propiedades. La próxima vez que un usuario examine el departamento de inglés, verá los cambios tanto de Jane como de John. Este método de actualización puede reducir el número de conflictos que pueden dar lugar a una pérdida de datos. Este enfoque:
+ 
+  * No puede evitar la pérdida de datos si se realizan cambios paralelos a la misma propiedad.
+  * Por lo general, no es práctico en una aplicación web. Requiere mantener un estado significativo para realizar un seguimiento de todos los valores capturados y nuevos. El mantenimiento de grandes cantidades de estado puede afectar al rendimiento de la aplicación.
+  * Puede aumentar la complejidad de las aplicaciones en comparación con la detección de simultaneidad en una entidad.
 
 * Puede permitir que los cambios de John sobrescriban los cambios de Jane.
 
   La próxima vez que un usuario examine el departamento de inglés, verá 9/1/2013 y el valor de 350.000,00 USD capturado. Este enfoque se denomina un escenario de *Prevalece el cliente* o *Prevalece el último*. (Todos los valores del cliente tienen prioridad sobre lo que aparece en el almacén de datos). Si no hace ninguna codificación para el control de la simultaneidad, Prevalece el cliente se realizará automáticamente.
 
-* Puede evitar que el cambio de John se actualice en la base de datos. Normalmente, la aplicación podría: * Mostrar un mensaje de error.
-        * Mostrar el estado actual de los datos.
-        * Permitir al usuario volver a aplicar los cambios.
+* Puede evitar que el cambio de John se actualice en la base de datos. Normalmente, la aplicación podría:
+
+  * Mostrar un mensaje de error.
+  * Mostrar el estado actual de los datos.
+  * Permitir al usuario volver a aplicar los cambios.
 
   Esto se denomina un escenario de *Prevalece el almacén*. (Los valores del almacén de datos tienen prioridad sobre los valores enviados por el cliente). En este tutorial implementará el escenario de Prevalece el almacén. Este método garantiza que ningún cambio se sobrescriba sin que se avise al usuario.
 
@@ -144,7 +146,7 @@ Los comandos anteriores:
 * Agregan el archivo de migración *Migrations/{time stamp}_RowVersion.cs*.
 * Actualizan el archivo *Migrations/SchoolContextModelSnapshot.cs*. La actualización agrega el siguiente código resaltado al método `BuildModel`:
 
-[!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
+  [!code-csharp[](intro/samples/cu/Migrations/SchoolContextModelSnapshot2.cs?name=snippet&highlight=14-16)]
 
 * Ejecutan las migraciones para actualizar la base de datos.
 
