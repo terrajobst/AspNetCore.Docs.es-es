@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 02/14/2017
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 3e4e597fde829ae2e2ce4dbd19a4ec0b42d078df
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 34a553c7ff8a18c367bf5e8079e2ea71f968bf3b
+ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274858"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39219425"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
 
@@ -169,7 +169,7 @@ Las anotaciones de datos que se aplican a las propiedades `Email` y `Password` g
 
 ### <a name="expression-names"></a>Nombres de expresión
 
-El valor del atributo `asp-for` es una `ModelExpression` y la parte de la derecha de una expresión lambda. Por tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario incluir el prefijo `Model`. Puede usar el carácter "@" para iniciar una expresión insertada y moverla antes de `m.`:
+El valor del atributo `asp-for` es una `ModelExpression` y la parte de la derecha de una expresión lambda. Por tanto, `asp-for="Property1"` se convierte en `m => m.Property1` en el código generado, motivo por el que no es necesario incluir el prefijo `Model`. Puede usar el carácter "\@" para iniciar una expresión insertada y moverla antes de `m.`:
 
 ```HTML
 @{
@@ -551,7 +551,7 @@ La plantilla *Views/Shared/EditorTemplates/CountryViewModel.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/CountryViewModel.cshtml)]
 
-La posibilidad de agregar elementos HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) no se limita exclusivamente a los casos en los que *no se seleccionada* nada. Por ejemplo, el método de acción y vista siguientes generarán un código HTML similar al código anterior:
+La posibilidad de agregar elementos HTML [\<option>](https://www.w3.org/wiki/HTML/Elements/option) no se limita exclusivamente a los casos en los que no se *seleccionada nada*. Por ejemplo, el método de acción y vista siguientes generarán un código HTML similar al código anterior:
 
 [!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
 

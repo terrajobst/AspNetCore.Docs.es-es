@@ -5,12 +5,12 @@ description: Aprenda a controlar el comportamiento de las aplicaciones en varios
 ms.author: riande
 ms.date: 07/03/2018
 uid: fundamentals/environments
-ms.openlocfilehash: 3394113de37da2571ab6398405751961117f12d2
-ms.sourcegitcommit: 19cbda409bdbbe42553dc385ea72d2a8e246509c
+ms.openlocfilehash: eaa6fa44ed90d0c85a11f5e67a4bb9a91e84c196
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992878"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254875"
 ---
 # <a name="use-multiple-environments-in-aspnet-core"></a>Usar varios entornos en ASP.NET Core
 
@@ -219,7 +219,7 @@ Para establecer el valor globalmente en Windows, use cualquiera de los métodos 
   **Símbolo del sistema**
 
   ```console
-  setx ASPNETCORE_ENVIRONMENT=Development /M
+  setx ASPNETCORE_ENVIRONMENT Development /M
   ```
 
   El modificador `/M` indica que hay que establecer la variable de entorno en el nivel de sistema. Si no se usa el modificador `/M`, la variable de entorno se establece para la cuenta de usuario.
@@ -281,7 +281,7 @@ Vea la sección *Configuración de entorno* de <xref:fundamentals/configuration/
 
 ### <a name="startup-class-conventions"></a>Convenciones de la clase Startup
 
-Cuando se inicia una aplicación ASP.NET Core, la [clase Startup](xref:fundamentals/startup) arranca la aplicación. La aplicación puede definir clases `Startup` independientes para distintos entornos (por ejemplo, `StartupDevelopment`), y la clase `Startup` correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si no se encuentra una clase `Startup{EnvironmentName}` coincidente, se usa la clase `Startup`.
+Cuando se inicia una aplicación ASP.NET Core, la [clase Startup](xref:fundamentals/startup) arranca la aplicación. La aplicación puede definir clases `Startup` independientes para distintos entornos (por ejemplo, `StartupDevelopment`) y la clase `Startup` correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si no se encuentra una clase `Startup{EnvironmentName}` coincidente, se usa la clase `Startup`.
 
 Para implementar clases `Startup` basadas en entornos, cree una clase `Startup{EnvironmentName}` para cada entorno en uso y una clase `Startup` de reserva:
 

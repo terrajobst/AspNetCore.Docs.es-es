@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 0181566aeab1fa055435ac90887c019eef52878c
-ms.sourcegitcommit: b4c7b1a4c48dec0865f27874275c73da1f75e918
+ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
+ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228642"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39320757"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -56,7 +56,7 @@ Para usar un proveedor, llame al método de extensión `Add<ProviderName>` del p
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_ExpandDefault&highlight=16,17)]
 
-La plantilla de proyecto predeterminada permite el registro con el método [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder?view=aspnetcore-2.0#Microsoft_AspNetCore_WebHost_CreateDefaultBuilder_System_String___):
+La plantilla de proyecto predeterminada habilita los proveedores de registro de la consola y de depuración con una llamada al método de extensión [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) en *Program.cs*:
 
 [!code-csharp[](index/sample2/Program.cs?name=snippet_TemplateCode&highlight=7)]
 
@@ -77,11 +77,21 @@ La [inserción de dependencias](xref:fundamentals/dependency-injection) (DI) de 
 
 ::: moniker-end
 
-Puede encontrar información sobre cada [proveedor de registro integrado](#built-in-logging-providers) y vínculos a [proveedores de registro de terceros](#third-party-logging-providers) más adelante en el artículo.
+Obtenga más información sobre los [proveedores de registro integrados](#built-in-logging-providers) y encuentre [proveedores de registro de terceros](#third-party-logging-providers) más adelante en el artículo.
 
-## <a name="settings-file-configuration"></a>Configuración del archivo de configuración
+## <a name="configuration"></a>Configuración
 
-Cada uno de los ejemplos anteriores de la sección [Cómo agregar proveedores](#how-to-add-providers) carga la configuración de proveedor de registro de la sección `Logging` de los archivos de configuración de aplicación. En el ejemplo siguiente se muestra el contenido de un archivo *appsettings.Development.json* típico:
+Uno o varios proveedores de configuración proporcionan la configuración del proveedor de registro:
+
+* Formatos de archivo (INI, JSON y XML).
+* Argumentos de la línea de comandos.
+* Variables de entorno.
+* Objetos de .NET en memoria.
+* El almacenamiento de [administrador secreto](xref:security/app-secrets) sin cifrar.
+* Un almacén de usuario cifrado, como [Azure Key Vault](xref:security/key-vault-configuration).
+* Proveedores personalizados (instalados o creados).
+
+Por ejemplo, la sección `Logging` de archivos de configuración de aplicación suele proporcionar la configuración de registro. En el ejemplo siguiente se muestra el contenido de un archivo *appsettings.Development.json* típico:
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -122,6 +132,8 @@ Las claves `LogLevel` representan los nombres de registro. La clave `Default` se
 Las claves `LogLevel` representan los nombres de registro. La clave `Default` se aplica a los registros que no se enumeran de forma explícita. El valor representa el [nivel de registro](#log-level) aplicado al registro determinado.
 
 ::: moniker-end
+
+Para obtener información sobre cómo implementar proveedores de configuración, consulte <xref:fundamentals/configuration/index>.
 
 ## <a name="sample-logging-output"></a>Salida de registro de ejemplo
 
@@ -436,7 +448,7 @@ El código siguiente permite ámbitos para el proveedor de la consola:
 > [!NOTE]
 > Es necesario configurar la opción del registrador de consola `IncludeScopes` para habilitar el registro basado en el ámbito.
 >
-> `IncludeScopes` se puede configurar a través de archivos de configuración *appsettings*. Para obtener más información, vea la sección [Configuración del archivo de configuración](#settings-file-configuration).
+> Para obtener información sobre la configuración, consulte la sección [Configuración](#Configuration).
 
 ::: moniker-end
 
