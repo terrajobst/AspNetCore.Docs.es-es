@@ -5,12 +5,12 @@ description: Aplicación auxiliar de etiquetas de entorno de ASP.NET Core defini
 ms.author: riande
 ms.date: 07/14/2017
 uid: mvc/views/tag-helpers/builtin-th/environment-tag-helper
-ms.openlocfilehash: 05c07b06a4fedac0b0ff39d168807f5e2e6996cf
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 4a283a3a03aa6cac228ec6effd02e3f1095be260
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276921"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342229"
 ---
 # <a name="environment-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas de entorno en ASP.NET Core
 
@@ -61,4 +61,3 @@ En cambio, la propiedad `exclude` permite que `EnvironmentTagHelper` represente 
 ## <a name="additional-resources"></a>Recursos adicionales
 
 * <xref:fundamentals/environments>
-* <xref:fundamentals/dependency-injection#service-lifetimes-and-registration-options>
