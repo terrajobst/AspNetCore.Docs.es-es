@@ -114,7 +114,8 @@
 ## [Creación de servicios back-end para aplicaciones móviles](mobile/native-mobile-backend.md)
 
 # [Aspectos básicos](xref:fundamentals/index)
-## [Inicio de aplicaciones](xref:fundamentals/startup)
+## 
+  [Inicio de aplicaciones](xref:fundamentals/startup)
 ## [Inserción de dependencias (servicios)](xref:fundamentals/dependency-injection)
 ## [Middleware](xref:fundamentals/middleware/index)
 ### [Middleware](xref:fundamentals/middleware/index)
@@ -141,6 +142,7 @@
 ### [Kestrel](xref:fundamentals/servers/kestrel)
 ### [Módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module)
 ### [HTTP.sys](xref:fundamentals/servers/httpsys)
+## [Patrón de repositorio](xref:fundamentals/repository-pattern)
 ## [Globalización y localización](xref:fundamentals/localization)
 ### [Configuración de la localización de un objeto portable con Orchard Core](xref:fundamentals/portable-object-localization)
 ## [Inicio de solicitudes HTTP](xref:fundamentals/http-requests)
