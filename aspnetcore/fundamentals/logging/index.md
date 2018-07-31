@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: f629b062afb5c17cd05040a9ef0281aa7121aabc
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: 5d31c5609c0e98a81d76ce0581f1c63f349d14d0
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320757"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342476"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -34,7 +34,7 @@ Para obtener información sobre el registro de stdout al hospedar con IIS, consu
 
 ## <a name="how-to-create-logs"></a>Cómo crear registros
 
-Para crear registros, implemente un objeto [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) desde el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection):
+Para crear registros, implemente un objeto [ILogger&lt;TCategoryName&gt;](/dotnet/api/microsoft.extensions.logging.ilogger-1) desde el contenedor de [inserción de dependencias](xref:fundamentals/dependency-injection):
 
 [!code-csharp[](index/sample/Controllers/TodoController.cs?name=snippet_LoggerDI&highlight=7)]
 

@@ -1,16 +1,16 @@
 ---
 title: Migración de ASP.NET a ASP.NET Core 2.0
 author: isaac2004
-description: Reciben instrucciones para migrar aplicaciones existentes de ASP.NET MVC o Web API principales de ASP.NET 2.0.
+description: Proporciona orientación para migrar aplicaciones existentes de ASP.NET MVC o Web API a ASP.NET Core 2.0.
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/mvc2
-ms.openlocfilehash: 68b00ead1b0bf785211638692cdbeab226a2cb4e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: d8a3f76bb5125a1ec76d0435ff3317f939a4ec67
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278640"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342262"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core-20"></a>Migración de ASP.NET a ASP.NET Core 2.0
 
@@ -20,12 +20,12 @@ Este artículo sirve de guía de referencia para migrar aplicaciones de ASP.NET 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Instalar **una** de las siguientes en [.NET descargas: Windows](https://www.microsoft.com/net/download/windows):
+Instalar **una** siguiente desde [descargas de .NET: Windows](https://www.microsoft.com/net/download/windows):
 
 * SDK de .NET Core
 * Visual Studio para Windows
-  * **ASP.NET y desarrollo web** carga de trabajo
-  * **Desarrollo multiplataforma de .NET core** carga de trabajo
+  * Carga de trabajo de **ASP.NET y desarrollo web**
+  * Carga de trabajo **Desarrollo multiplataforma de .NET Core**
 
 ## <a name="target-frameworks"></a>Versiones de .NET Framework de destino
 Los proyectos de ASP.NET Core 2.0 proporcionan a los desarrolladores la flexibilidad de usar la versión .NET Core, .NET Framework o ambas. Vea [Selección entre .NET Core y .NET Framework para aplicaciones de servidor](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server) para determinar qué plataforma de destino es más adecuada.
@@ -110,11 +110,12 @@ services.Configure<AppConfiguration>(Configuration.GetSection("AppConfiguration"
 **Nota:** Para una referencia más detallada sobre la configuración de ASP.NET Core, vea [Configuration in ASP.NET Core](xref:fundamentals/configuration/index) (Configuración en ASP.NET Core).
 
 ## <a name="native-dependency-injection"></a>Inserción de dependencias nativa
-Un objetivo importante al compilar aplicaciones grandes y escalables es lograr el acoplamiento flexible de los componentes y los servicios. La [inserción de dependencias](xref:fundamentals/dependency-injection) es una técnica popular para lograrlo y se trata de un componente nativo de ASP.NET Core.
 
-En las aplicaciones ASP.NET, los desarrolladores se basan en una biblioteca de terceros para implementar la inserción de dependencias. Una de estas bibliotecas es [Unity](https://github.com/unitycontainer/unity), suministrada por Microsoft Patterns & Practices. 
+Un objetivo importante al compilar aplicaciones grandes y escalables es lograr el acoplamiento flexible de los componentes y los servicios. [Inserción de dependencias](xref:fundamentals/dependency-injection) es una técnica popular para lograrlo, y es un componente nativo de ASP.NET Core.
 
-Un ejemplo de configuración de la inserción de dependencias con Unity consiste en implementar `IDependencyResolver` que encapsula un `UnityContainer`:
+En aplicaciones ASP.NET, los desarrolladores confían en una biblioteca de terceros para implementar la inserción de dependencias. Una de estas bibliotecas es [Unity](https://github.com/unitycontainer/unity), suministrada por Microsoft Patterns & Practices.
+
+Un ejemplo de configuración de la inserción de dependencias con Unity, se implementa `IDependencyResolver` que ajusta un `UnityContainer`:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample8.cs)]
 
@@ -126,15 +127,16 @@ Inserte `IProductRepository` cuando sea necesario:
 
 [!code-csharp[](../../../aspnet/web-api/overview/advanced/dependency-injection/samples/sample5.cs)]
 
-Dado que la inserción de dependencia forma parte de ASP.NET Core, puede agregar el servicio en el método `ConfigureServices` de *Startup.cs*:
+Inserción de dependencia forma parte de ASP.NET Core, puede agregar el servicio en la `Startup.ConfigureServices`:
 
 [!code-csharp[](samples/configure-services.cs)]
 
 El repositorio se puede insertar en cualquier lugar, como ocurría con Unity.
 
-**Nota:** Para una referencia detallada sobre la inserción de dependencias en ASP.NET Core, vea [Dependency Injection in ASP.NET Core](xref:fundamentals/dependency-injection#replacing-the-default-services-container) (Inserción de dependencias en ASP.NET Core).
+Para obtener más información sobre la inserción de dependencias en ASP.NET Core, consulte [inserción de dependencias](xref:fundamentals/dependency-injection).
 
 ## <a name="serving-static-files"></a>Trabajar con archivos estáticos
+
 Una parte importante del desarrollo web es la capacidad de trabajar con activos estáticos de cliente. Los ejemplos más comunes de archivos estáticos son HTML, CSS, JavaScript e imágenes. Estos archivos deben guardarse en la ubicación de publicación de la aplicación (o la red de entrega de contenido) y es necesario hacer referencia a ellos para que una solicitud los pueda cargar. Este proceso ha cambiado en ASP.NET Core.
 
 En ASP.NET, los archivos estáticos se almacenan en directorios distintos y se hace referencia a ellos en las vistas.
@@ -147,7 +149,7 @@ En ASP.NET Core, los archivos estáticos se almacenan en la "raíz web" (*&lt;ra
 
 Por ejemplo, el explorador puede acceder a un recurso de imagen en la carpeta *wwwroot/images* en una ubicación como `http://<app>/images/<imageFileName>`.
 
-**Nota:** para una referencia más detallada para enviar archivos estáticos en ASP.NET Core, vea [archivos estáticos](xref:fundamentals/static-files).
+**Nota:** para una referencia más detallada sobre los archivos estáticos en ASP.NET Core, consulte [archivos estáticos](xref:fundamentals/static-files).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: e18c5704c9d4db9669d8f831f1b556d1723a0fc1
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 2a5adafd30aeca163063ea76857378e97163d0b9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894171"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342086"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -292,7 +292,7 @@ El SUT es un sistema de mensajes de las páginas de Razor con las siguientes car
 
 &#8224;El tema EF, [pruebas con InMemory](/ef/core/miscellaneous/testing/in-memory), se explica cómo usar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Los conceptos de pruebas e implementaciones de prueba a través de diferentes marcos son similares pero no idénticos.
 
-Aunque la aplicación no usa el [patrón de repositorio](http://martinfowler.com/eaaCatalog/repository.html) y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementar el repositorio y patrones de unidad de trabajo en una aplicación ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), y [controlador de pruebas lógica](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
+Aunque la aplicación no usa el [patrón de repositorio](xref:fundamentals/repository-pattern) y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), [implementar el repositorio y patrones de unidad de trabajo en una aplicación ASP.NET MVC](/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application), y [controlador de pruebas lógica](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
 
 ### <a name="test-app-organization"></a>Organización de la aplicación de prueba
 
