@@ -1,37 +1,37 @@
 ---
-title: Agrupación y minifiy activos estáticos en ASP.NET Core
+title: Agrupar y minificar recursos estáticos en ASP.NET Core
 author: scottaddie
-description: Obtenga información acerca de cómo optimizar recursos estáticos en una aplicación web de ASP.NET Core aplicando técnicas de agrupación y minificación.
+description: Aprenda a optimizar los recursos estáticos en una aplicación web ASP.NET Core aplicando técnicas de unión y minificación.
 ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: ae9836a6ad0ff0bc834bf2eb10ff5fd97c3c659a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: bab2f288f3c6956e44ff929bfd2e257301a5806a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279576"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356706"
 ---
-# <a name="bundle-and-minifiy-static-assets-in-aspnet-core"></a>Agrupación y minifiy activos estáticos en ASP.NET Core
+# <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Agrupar y minificar recursos estáticos en ASP.NET Core
 
 Por [Scott Addie](https://twitter.com/Scott_Addie)
 
-Este artículo explica las ventajas de aplicar la agrupación y minificación, incluido cómo estas características pueden utilizarse con las aplicaciones web de ASP.NET Core.
+En este artículo explica las ventajas de la aplicación de unión y minificación, incluido cómo se pueden usar estas características con aplicaciones web ASP.NET Core.
 
-## <a name="what-is-bundling-and-minification"></a>¿Qué es agrupar y minificar?
+## <a name="what-is-bundling-and-minification"></a>¿Qué es la unión y minificación
 
-Unión y minificación son dos optimizaciones de rendimiento distintas que puede aplicar en una aplicación web. Se usan juntos, agrupar y minificar mejoran el rendimiento reduciendo el número de solicitudes de servidor y reducir el tamaño de los activos estáticos solicitados.
+Unión y minificación son dos optimizaciones de rendimiento distintas que se pueden aplicar en una aplicación web. Se usan juntos, unión y minificación de mejoran el rendimiento mediante la reducción del número de solicitudes de servidor y reducir el tamaño de los activos estáticos solicitados.
 
-Agrupar y minificar mejoran principalmente el primer tiempo de carga de solicitud de página. Una vez que se ha solicitado una página web, el explorador almacena en caché los activos estáticos (JavaScript, CSS e imágenes). Por lo tanto, agrupar y minificar no mejoran el rendimiento cuando se solicita la misma página o páginas, en el mismo sitio que solicita los activos de la mismos. Si el expira encabezado no está configurado correctamente en los activos y si no usa la agrupación y minificación, heurística de actualización del explorador Active los recursos obsoletos después de unos días. Además, el explorador requiere que una solicitud de validación para cada activo. En este caso, agrupar y minificar proporcionan una mejora del rendimiento incluso después de la primera solicitud de página.
+Unión y minificación principalmente mejoran el tiempo de carga de solicitud de primera página. Una vez que se ha solicitado una página web, el explorador almacena en caché los recursos estáticos (imágenes, CSS y JavaScript). Por lo tanto, unión y minificación no mejoran el rendimiento cuando se solicita la misma página o páginas, en el mismo sitio que solicita los mismos recursos. Si el expira encabezado no está configurado correctamente en los activos y si no se usa la unión y minificación, la heurística de actualización del explorador marca los recursos obsoletos después de unos días. Además, el explorador requiere una solicitud de validación para cada recurso. En este caso, unión y minificación de proporcionan una mejora del rendimiento incluso después de la primera solicitud de página.
 
-### <a name="bundling"></a>Cómo agrupar
+### <a name="bundling"></a>La Unión
 
-Cómo agrupar combina varios archivos en un único archivo. Cómo agrupar, reduce el número de solicitudes de servidor que son necesarios para representar un recurso web, por ejemplo, una página web. Puede crear cualquier número de paquetes individuales específicamente para CSS, JavaScript, etcetera. Menos archivos significa menos solicitudes HTTP desde el explorador hasta el servidor o desde el servicio que proporciona la aplicación. El resultado de la mejora del rendimiento de carga de primera página.
+La Unión combina varios archivos en un único archivo. La unión, reduce el número de solicitudes del servidor que son necesarios para representar un activo de web, como una página web. Puede crear cualquier número de paquetes individuales específicamente para CSS, JavaScript, etcetera. Menos archivos significa menos solicitudes HTTP desde el explorador al servidor o desde el servicio que proporciona la aplicación. Este se produce en el mejor rendimiento de carga de primera página.
 
 ### <a name="minification"></a>Minificación
 
-Minificación quita caracteres innecesarios de código sin modificar la funcionalidad. El resultado es una reducción de un tamaño considerable en activos solicitados (por ejemplo, CSS, imágenes y archivos de JavaScript). Los efectos secundarios comunes de minificación incluyen acortar los nombres de variable a un carácter y quitar los comentarios y espacios en blanco innecesarios.
+Minificación quita caracteres innecesarios de código sin modificar la funcionalidad. El resultado es una reducción de tamaño considerable en los activos solicitados (como CSS, imágenes y archivos de JavaScript). Efectos secundarios comunes de minificación incluyen acortar los nombres de variable a un carácter y quitar los comentarios y espacios en blanco innecesarios.
 
 Tenga en cuenta la siguiente función de JavaScript:
 
@@ -49,9 +49,9 @@ Original | Se cambia el nombre
 `imageContext` | `a`
 `imageElement` | `r`
 
-## <a name="impact-of-bundling-and-minification"></a>Impacto de agrupar y minificar
+## <a name="impact-of-bundling-and-minification"></a>Impacto de la unión y minificación
 
-En la tabla siguiente se describe las diferencias entre individualmente carga activos y el uso de agrupación y minificación:
+En la tabla siguiente se describe las diferencias entre cargar activos y uso de unión y minificación individualmente:
 
 Acción | Con B/M | Sin B/M | Cambio
 --- | :---: | :---: | :---:
@@ -59,39 +59,39 @@ Solicitudes de archivos  | 7   | 18     | 157%
 KB transferido | 156 | 264.68 | 70%
 Tiempo de carga (ms) | 885 | 2360   | 167%
 
-Los exploradores son bastante detallados con respecto a los encabezados de solicitud HTTP. El número total de bytes enviados métrica vio una reducción significativa cuando se agrupa. El tiempo de carga muestra una mejora considerable, sin embargo, en este ejemplo se ejecutaba localmente. Mayores mejoras de rendimiento se percibe cuando el uso de agrupación y minificación con activos transfiere a través de una red.
+Los exploradores son bastante detallados con respecto a los encabezados de solicitud HTTP. El número total de bytes enviados métrica vio una reducción significativa cuando se agrupa. El tiempo de carga muestra una mejora considerable, aunque en este ejemplo se ejecutó localmente. Mejoras de rendimiento mayores se llevan a cabo cuando el uso de unión y minificación con activos transfiere a través de una red.
 
-## <a name="choose-a-bundling-and-minification-strategy"></a>Elegir una estrategia de agrupación y minificación
+## <a name="choose-a-bundling-and-minification-strategy"></a>Elegir una estrategia de unión y minificación
 
-Las plantillas de proyecto MVC y las páginas de Razor proporcionan una solución para agrupar y minificar que consta de un archivo de configuración de JSON. Herramientas de terceros, como el [Gulp](xref:client-side/using-gulp) y [Grunt](xref:client-side/using-grunt) corredores de tareas, realizar las mismas tareas con un poco más compleja. Una herramienta de terceros es una buena elección cuando el flujo de trabajo de desarrollo requiere un procesamiento más allá de la agrupación y minificación&mdash;como optimización linting e imagen. Mediante el uso de agrupación y minificación de tiempo de diseño, se crean los archivos reducidos antes de la implementación de la aplicación. Agrupar y minificar antes de la implementación proporcionan la ventaja de carga reducida del servidor. Sin embargo, es importante reconocer que agrupación de tiempo de diseño y minificación aumenta la complejidad de la compilación y solo funciona con archivos estáticos.
+Las plantillas de proyecto MVC y páginas de Razor proporcionan una solución para la unión y minificación que consta de un archivo de configuración de JSON. Herramientas de terceros, como el [Gulp](xref:client-side/using-gulp) y [Grunt](xref:client-side/using-grunt) ejecutores de tareas, realizar las mismas tareas con un poco más compleja. Una herramienta de terceros es una opción ideal cuando el flujo de trabajo de desarrollo requiere un procesamiento más allá de unión y minificación&mdash;como la optimización de la detección de errores y la imagen. Mediante el uso de unión y minificación de tiempo de diseño, se crean los archivos minimizados antes de la implementación de la aplicación. Agrupar y minificar antes de la implementación ofrece la ventaja de carga reducida del servidor. Sin embargo, es importante reconocer ese tiempo de diseño la unión y minificación aumenta la complejidad de la compilación y solo funciona con archivos estáticos.
 
-## <a name="configure-bundling-and-minification"></a>Configurar la agrupación y minificación
+## <a name="configure-bundling-and-minification"></a>Configurar la unión y minificación
 
-Las plantillas de proyecto MVC y las páginas de Razor proporcionan una *bundleconfig.json* archivo de configuración que define las opciones para cada paquete. De forma predeterminada, se define una configuración de agrupación única para el código de JavaScript personalizado (*wwwroot/js/site.js*) y hojas de estilo (*wwwroot/css/site.css*) archivos:
+Las plantillas de proyecto MVC y páginas de Razor proporcionan una *bundleconfig.json* archivo de configuración que define las opciones para cada paquete. De forma predeterminada, se define una configuración de lote único para el código JavaScript personalizado (*wwwroot/js/site.js*) y hojas de estilo (*wwwroot/css/site.css*) archivos:
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig.json)]
 
 Opciones de configuración incluyen:
 
 * `outputFileName`: El nombre del archivo de paquete para la salida. Puede contener una ruta de acceso relativa desde la *bundleconfig.json* archivo. **Obligatorio**
-* `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) patrones son compatibles.
+* `inputFiles`: Una matriz de archivos que se va a agrupar. Estas son las rutas de acceso relativas al archivo de configuración. **opcional**, * da como resultado un valor vacío en un archivo de resultados vacío. [uso de comodines](http://www.tldp.org/LDP/abs/html/globbingref.html) se admiten patrones.
 * `minify`: Las opciones de reducción para el tipo de salida. **opcional**, *predeterminado: `minify: { enabled: true }`*
-  * Opciones de configuración están disponibles por tipo de archivo de salida.
+  * Las opciones de configuración están disponibles por tipo de archivo de salida.
     * [Minificador CSS](https://github.com/madskristensen/BundlerMinifier/wiki/cssminifier)
     * [Minificador de JavaScript](https://github.com/madskristensen/BundlerMinifier/wiki/JavaScript-Minifier-settings)
     * [Minificador de HTML](https://github.com/madskristensen/BundlerMinifier/wiki)
-* `includeInProject`: Marca que indica si se debe agregar los archivos generados al archivo del proyecto. **opcional**, *predeterminado: false*
-* `sourceMap`: Marca que indica si se debe generar un mapa de código fuente para el archivo agrupado. **opcional**, *predeterminado: false*
+* `includeInProject`: Marca que indica si se debe agregar los archivos generados en el archivo de proyecto. **opcional**, *predeterminado: false*
+* `sourceMap`: Marca que indica si se debe generar un mapa de origen para el archivo agrupado. **opcional**, *predeterminado: false*
 * `sourceMapRootPath`: La ruta de acceso raíz para almacenar el archivo de mapa de código fuente generado.
 
-## <a name="build-time-execution-of-bundling-and-minification"></a>Ejecución en tiempo de compilación de agrupar y minificar
+## <a name="build-time-execution-of-bundling-and-minification"></a>Compilación en tiempo de ejecución de la unión y minificación
 
-El [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) paquete NuGet permite la ejecución de agrupación y minificación en tiempo de compilación. Inserta el paquete [destinos de MSBuild](/visualstudio/msbuild/msbuild-targets) que ejecutar en la compilación y tiempo de limpieza. El *bundleconfig.json* archivo se analiza el proceso de compilación para generar los archivos de salida en función de la configuración definida.
+El [BuildBundlerMinifier](https://www.nuget.org/packages/BuildBundlerMinifier/) paquete NuGet permite la ejecución de la unión y minificación en tiempo de compilación. Inserta el paquete [destinos de MSBuild](/visualstudio/msbuild/msbuild-targets) que se ejecutan en la compilación y tiempo de limpieza. El *bundleconfig.json* archivo analizado por el proceso de compilación para generar los archivos de salida según la configuración definida.
 
 > [!NOTE]
-> BuildBundlerMinifier pertenece a un proyecto controlado por la Comunidad en GitHub para el que Microsoft no proporciona compatibilidad con. Deben presentarse problemas [aquí](https://github.com/madskristensen/BundlerMinifier/issues).
+> BuildBundlerMinifier pertenece a un proyecto controlado por la Comunidad en GitHub para el que Microsoft no proporciona soporte. Se deben notificar problemas [aquí](https://github.com/madskristensen/BundlerMinifier/issues).
 
-# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
 Agregar el *BuildBundlerMinifier* paquete al proyecto.
 
@@ -118,7 +118,7 @@ Limpie el proyecto. Aparecerá el siguiente mensaje en la ventana de salida:
 ========== Clean: 1 succeeded, 0 failed, 0 skipped ==========
 ```
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli) 
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Agregar el *BuildBundlerMinifier* paquete al proyecto:
 
@@ -156,7 +156,7 @@ Limpie el proyecto:
 dotnet clean
 ```
 
-Aparecerá el siguiente resultado:
+Aparece el siguiente resultado:
 
 ```console
 Microsoft (R) Build Engine version 15.4.8.50001 for .NET Core
@@ -169,52 +169,52 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 
 ---
 
-## <a name="ad-hoc-execution-of-bundling-and-minification"></a>Ejecución ad hoc de agrupar y minificar
+## <a name="ad-hoc-execution-of-bundling-and-minification"></a>Ejecución ad hoc de unión y minificación
 
-Es posible ejecutar las tareas de agrupación y minificación de manera ad hoc, sin compilar el proyecto. Agregar el [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) paquete NuGet para el proyecto:
+Es posible ejecutar las tareas de unión y minificación en forma ad-hoc, sin compilar el proyecto. Agregar el [BundlerMinifier.Core](https://www.nuget.org/packages/BundlerMinifier.Core/) paquete NuGet al proyecto:
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=10)]
 
 > [!NOTE]
-> BundlerMinifier.Core pertenece a un proyecto controlado por la Comunidad en GitHub para el que Microsoft no proporciona compatibilidad con. Deben presentarse problemas [aquí](https://github.com/madskristensen/BundlerMinifier/issues).
+> BundlerMinifier.Core pertenece a un proyecto controlado por la Comunidad en GitHub para el que Microsoft no proporciona soporte. Se deben notificar problemas [aquí](https://github.com/madskristensen/BundlerMinifier/issues).
 
-Este paquete extiende la CLI de núcleo de .NET para incluir la *dotnet agrupación* herramienta. En la ventana de consola de administrador de paquetes (PMC) o en un shell de comandos, se puede ejecutar el comando siguiente:
+Este paquete amplía la CLI de .NET Core para incluir el *dotnet agrupación* herramienta. En la ventana de consola de administrador de paquetes (PMC) o en un shell de comandos, se puede ejecutar el comando siguiente:
 
 ```console
 dotnet bundle
 ```
 
 > [!IMPORTANT]
-> Administrador de paquetes de NuGet agrega las dependencias en el archivo *.csproj como `<PackageReference />` nodos. El `dotnet bundle` comando está registrado con la CLI de .NET Core solo cuando un `<DotNetCliToolReference />` nodo se utiliza. Modifique el archivo *.csproj según corresponda.
+> Administrador de paquetes NuGet agrega las dependencias al archivo *.csproj como `<PackageReference />` nodos. El `dotnet bundle` comando está registrado con la CLI de .NET Core solo cuando un `<DotNetCliToolReference />` nodo se utiliza. Modifique el archivo *.csproj según corresponda.
 
 ## <a name="add-files-to-workflow"></a>Agregar archivos al flujo de trabajo
 
-Considere un ejemplo en el que más *custom.css* archivo se agrega similar a lo siguiente:
+Considere un ejemplo en el que más *custom.css* archivo se agrega similar al siguiente:
 
 [!code-css[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/wwwroot/css/custom.css)]
 
-A minificar *custom.css* y agrupar con *site.css* en un *site.min.css* , agregue la ruta de acceso relativa a *bundleconfig.json*:
+Para minimizar *custom.css* y empaquetarla con *site.css* en un *site.min.css* , agregue la ruta de acceso relativa *bundleconfig.json*:
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/bundleconfig2.json?highlight=6)]
 
 > [!NOTE]
-> Como alternativa, podría utilizar el siguiente patrón de uso de comodines en:
+> Como alternativa, podría utilizar el siguiente patrón de uso de comodines:
 >
 > ```json
 > "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
 > ```
 >
-> Este patrón de uso de comodines coincide con todos los archivos CSS y excluye el patrón de archivo reducida.
+> Este patrón global coincide con todos los archivos CSS y excluye el patrón de archivo minimizado.
 
 Compile la aplicación. Abra *site.min.css* y observe el contenido de *custom.css* se anexa al final del archivo.
 
-## <a name="environment-based-bundling-and-minification"></a>Agrupar y minificar basado en el entorno
+## <a name="environment-based-bundling-and-minification"></a>Unión y minificación basado en el entorno
 
-Como práctica recomendada, los archivos integrados y reducidos de la aplicación deben usarse en un entorno de producción. Durante el desarrollo, los archivos originales se realizan para una depuración más sencilla de la aplicación.
+Como práctica recomendada, se deben usar los archivos y minificados de la aplicación en un entorno de producción. Durante el desarrollo, asegúrese de los archivos originales para una depuración más sencilla de la aplicación.
 
-Especificar qué archivos desea incluir en las páginas mediante el [auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) en las vistas. La aplicación auxiliar de etiquetas de entorno solo representa su contenido cuando se ejecuta en específico [entornos](xref:fundamentals/environments).
+Especificar qué archivos incluir en las páginas mediante el [aplicación auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper) en las vistas. La aplicación auxiliar de etiquetas de entorno solo procesa su contenido cuando se ejecuta en específico [entornos](xref:fundamentals/environments).
 
-El siguiente `environment` etiqueta representa los archivos sin procesar de CSS cuando se ejecuta en el `Development` entorno:
+La siguiente `environment` etiqueta representa los archivos CSS sin procesar cuando se ejecuta en el `Development` entorno:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -226,7 +226,7 @@ El siguiente `environment` etiqueta representa los archivos sin procesar de CSS 
 
 ---
 
-El siguiente `environment` etiqueta representa los archivos CSS agrupados y reducidos cuando se ejecuta en un entorno distinto de `Development`. Por ejemplo, que se ejecutan `Production` o `Staging` desencadena el procesamiento de estas hojas de estilos:
+La siguiente `environment` etiqueta representa los archivos CSS y minificados cuando se ejecuta en un entorno distinto `Development`. Por ejemplo, que se ejecutan en `Production` o `Staging` desencadena el procesamiento de estas hojas de estilo:
 
 # <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x/)
 
@@ -238,60 +238,60 @@ El siguiente `environment` etiqueta representa los archivos CSS agrupados y redu
 
 ---
 
-## <a name="consume-bundleconfigjson-from-gulp"></a>Consumir bundleconfig.json desde Gulp
+## <a name="consume-bundleconfigjson-from-gulp"></a>Consumir bundleconfig.json de Gulp
 
-Hay casos en los que el flujo de trabajo de una aplicación agrupar y minificar requiere un procesamiento adicional. Algunos ejemplos son la optimización de la imagen, la desactivación de caché y el procesamiento del recurso de red CDN. Para satisfacer estos requisitos, que puede convertir el flujo de trabajo de agrupación y minificación para usar Gulp.
+Hay casos en que el flujo de trabajo de unión y minificación de una aplicación requiere un procesamiento adicional. Algunos ejemplos son la optimización de la imagen, limpieza de caché y el procesamiento de activos de red CDN. Para satisfacer estos requisitos, que puede convertir el flujo de trabajo de unión y minificación para usar Gulp.
 
-### <a name="use-the-bundler--minifier-extension"></a>Utilizar la extensión de paquete de instalación & Minificador
+### <a name="use-the-bundler--minifier-extension"></a>Use la extensión Bundler & Minifier
 
-Visual Studio [paquete de instalación & Minificador](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) extensión controla la conversión a Gulp.
+Visual Studio [Bundler & Minifier](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier) extensión controla la conversión a Gulp.
 
 > [!NOTE]
-> La extensión del paquete de instalación & Minificador pertenece a un proyecto controlado por la Comunidad en GitHub para el que Microsoft no proporciona compatibilidad con. Deben presentarse problemas [aquí](https://github.com/madskristensen/BundlerMinifier/issues).
+> La extensión Bundler & Minifier pertenece a un proyecto controlado por la Comunidad en GitHub para el que Microsoft no proporciona soporte. Se deben notificar problemas [aquí](https://github.com/madskristensen/BundlerMinifier/issues).
 
-Haga clic en el *bundleconfig.json* un archivo en el Explorador de soluciones y seleccione **paquete de instalación & Minificador** > **convertir a Gulp...** :
+Haga clic en el *bundleconfig.json* de archivos en el Explorador de soluciones y seleccione **Bundler & Minifier** > **convertir a Gulp...** :
 
-![Convertir a Gulp elemento del menú contextual](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
+![Elemento de menú contextual de convertir a Gulp](../client-side/bundling-and-minification/_static/convert-to-gulp.png)
 
-El *gulpfile.js* y *package.json* archivos se agregan al proyecto. La compatibilidad con [npm](https://www.npmjs.com/) paquetes incluidos en el *package.json* del archivo `devDependencies` sección están instalados.
+El *gulpfile.js* y *package.json* archivos se agregan al proyecto. La compatibilidad con [npm](https://www.npmjs.com/) paquetes que aparecen en la *package.json* del archivo `devDependencies` sección están instalados.
 
-Ejecute el siguiente comando en la ventana PMC para instalar la CLI Gulp como una dependencia global:
+Ejecute el siguiente comando en la ventana PMC para instalar la CLI de Gulp como una dependencia global:
 
 ```console
 npm i -g gulp-cli
 ```
 
-El *gulpfile.js* lecturas de archivos la *bundleconfig.json* archivo de entradas, salidas y configuración.
+El *gulpfile.js* lecturas de archivos el *bundleconfig.json* archivo para las entradas, salidas y la configuración.
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-12&highlight=10)]
 
 ### <a name="convert-manually"></a>Convertir manualmente
 
-Si Visual Studio o la extensión del paquete de instalación & Minificador no está disponible, convertir manualmente.
+Si Visual Studio o la extensión Bundler & Minifier no está disponible, convertir manualmente.
 
-Agregar un *package.json* archivo, con el siguiente `devDependencies`, a la raíz del proyecto:
+Agregar un *package.json* archivo, por lo siguiente `devDependencies`, a la raíz del proyecto:
 
 [!code-json[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/package.json?range=5-13)]
 
-Instalar las dependencias ejecutando el siguiente comando en el mismo nivel que *package.json*:
+Instalar las dependencias ejecutando el comando siguiente en el mismo nivel que *package.json*:
 
 ```console
 npm i
 ```
 
-Instale la CLI Gulp como una dependencia global:
+Instale la CLI de Gulp como una dependencia global:
 
 ```console
 npm i -g gulp-cli
 ```
 
-Copia la *gulpfile.js* por debajo del archivo a la raíz del proyecto:
+Copia el *gulpfile.js* por debajo del archivo a la raíz del proyecto:
 
 [!code-javascript[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/gulpfile.js?range=1-11,14-)]
 
-### <a name="run-gulp-tasks"></a>Ejecutar tareas de Gulp
+### <a name="run-gulp-tasks"></a>Ejecutar las tareas de Gulp
 
-Para desencadenar la tarea de preparación de minificación Gulp antes de que el proyecto se compila en Visual Studio, agregue las siguientes [destino de MSBuild](/visualstudio/msbuild/msbuild-targets) al archivo *.csproj:
+Para desencadenar la tarea de Gulp minificación antes de que el proyecto se compila en Visual Studio, agregue el siguiente [destino de MSBuild](/visualstudio/msbuild/msbuild-targets) al archivo *.csproj:
 
 [!code-xml[](../client-side/bundling-and-minification/samples/BuildBundlerMinifierApp/BuildBundlerMinifierApp.csproj?range=14-16)]
 
@@ -309,7 +309,7 @@ En este ejemplo, las tareas se definen en el `MyPreCompileTarget` destino ejecut
 ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 ```
 
-También se puede usar el explorador del ejecutor de tareas de Visual Studio para enlazar Gulp tareas a eventos específicos de Visual Studio. Vea [ejecutando tareas predeterminadas](xref:client-side/using-gulp#running-default-tasks) para obtener instrucciones sobre cómo hacer que.
+Como alternativa, Visual Studio Task Runner Explorer puede utilizarse para enlazar las tareas de Gulp a eventos específicos de Visual Studio. Consulte [ejecutando tareas predeterminadas](xref:client-side/using-gulp#running-default-tasks) para obtener instrucciones sobre cómo hacerlo.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

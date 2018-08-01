@@ -5,12 +5,12 @@ description: Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET web app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: c3d92994c0331b1408e246953454910ca1f4dc43
-ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
+ms.openlocfilehash: a4ab91ef23a798c919a23a44f5a050bd3c09d56a
+ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39254836"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39356693"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -64,11 +64,17 @@ Los mecanismos siguientes establecen automáticamente el puerto:
 > [!NOTE]
 > Cuando se ejecuta una aplicación detrás de un proxy inverso (por ejemplo, IIS, IIS Express), `IServerAddressesFeature` no está disponible. El puerto debe configurarse manualmente. Cuando no se configura el puerto, no se redirigen las solicitudes.
 
-El puerto puede configurarse estableciendo el:
+El puerto puede configurarse estableciendo el [https_port de configuración de Host Web](xref:fundamentals/host/web-host#https-port):
 
-* La variable de entorno `ASPNETCORE_HTTPS_PORT`.
-* `http_port` clave de configuración de host (por ejemplo, mediante *hostsettings.json* o un argumento de línea de comandos).
-* [HttpsRedirectionOptions.HttpsPort](/dotnet/api/microsoft.aspnetcore.httpspolicy.httpsredirectionoptions.httpsport). Vea el ejemplo anterior que se muestra cómo establecer el puerto a 5001.
+**Clave**: https_port **tipo**: *cadena*
+**predeterminada**: no se establece un valor predeterminado.
+**Establecer mediante**: `UseSetting` 
+ **variable de entorno**: `<PREFIX_>HTTPS_PORT` (el prefijo es `ASPNETCORE_` cuando se usa el Host de Web.)
+
+```csharp
+WebHost.CreateDefaultBuilder(args)
+    .UseSetting("https_port", "8080")
+```
 
 > [!NOTE]
 > Se puede configurar el puerto indirectamente estableciendo la dirección URL con el `ASPNETCORE_URLS` variable de entorno. La variable de entorno configura el servidor y, a continuación, el middleware detecta indirectamente el puerto HTTPS a través de `IServerAddressesFeature`.
