@@ -114,8 +114,7 @@
 ## [Creación de servicios back-end para aplicaciones móviles](mobile/native-mobile-backend.md)
 
 # [Aspectos básicos](xref:fundamentals/index)
-## 
-  [Inicio de aplicaciones](xref:fundamentals/startup)
+## [Inicio de aplicaciones](xref:fundamentals/startup)
 ## [Inserción de dependencias (servicios)](xref:fundamentals/dependency-injection)
 ## [Middleware](xref:fundamentals/middleware/index)
 ### [Middleware](xref:fundamentals/middleware/index)
