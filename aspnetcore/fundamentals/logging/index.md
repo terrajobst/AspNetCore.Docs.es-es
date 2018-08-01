@@ -5,12 +5,12 @@ description: Obtenga información sobre la plataforma de registro de ASP.NET Cor
 ms.author: tdykstra
 ms.date: 07/24/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: 5d31c5609c0e98a81d76ce0581f1c63f349d14d0
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 60777d4f8664b7f02c806abb6ca40a29602d207f
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342476"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378656"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -448,7 +448,7 @@ El código siguiente permite ámbitos para el proveedor de la consola:
 > [!NOTE]
 > Es necesario configurar la opción del registrador de consola `IncludeScopes` para habilitar el registro basado en el ámbito.
 >
-> Para obtener información sobre la configuración, consulte la sección [Configuración](#Configuration).
+> Para obtener información sobre la configuración, consulte la sección [Configuración](#configuration).
 
 ::: moniker-end
 
