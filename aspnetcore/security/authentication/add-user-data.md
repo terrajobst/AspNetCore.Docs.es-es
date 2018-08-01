@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 6/16/2018
 uid: security/authentication/add-user-data
-ms.openlocfilehash: ecd0e6d1c71b24309fab70fbb06af7731463bb0e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 6f583d65460803c816bf1ccd314216952710cd55
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38215940"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378620"
 ---
 # <a name="add-download-and-delete-custom-user-data-to-identity-in-an-aspnet-core-project"></a>Agregar, descargar y eliminar datos de usuario personalizado a la identidad en un proyecto de ASP.NET Core
 
@@ -61,8 +61,8 @@ dotnet new webapp -o WebApp1
   * Seleccione los archivos siguientes para reemplazar:
     * **Cuenta/Register**
     * **Cuenta/administrar o índice**
-  * Seleccione el **+** botón para crear un nuevo **clase de contexto de datos**. Acepte el tipo (**WebApp1.Models.WebApp1Context** si el nombre del proyecto **WebApp1**).
-  * Seleccione el **+** botón para crear un nuevo **clase User**. Acepte el tipo (**WebApp1User** si el nombre del proyecto **WebApp1**) > **agregar**.
+  * Seleccione el **+** botón para crear un nuevo **clase de contexto de datos**. Acepte el tipo (**WebApp1.Models.WebApp1Context** si el proyecto se denomina **WebApp1**).
+  * Seleccione el **+** botón para crear un nuevo **clase User**. Acepte el tipo (**WebApp1User** si el proyecto se denomina **WebApp1**) > **agregar**.
 * Seleccione **agregar**.
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
@@ -108,7 +108,7 @@ Siga las instrucciones [migraciones, UseAuthentication y diseño](xref:security/
 
 ## <a name="add-custom-user-data-to-the-identity-db"></a>Agregar datos de usuario personalizado a la base de datos de identidad
 
-Actualización de la `IdentityUser` derivados de la clase con propiedades personalizadas. Si el nombre de su proyecto WebApp1 el archivo se denomina *Areas/Identity/Data/WebApp1User.cs*. Actualice el archivo con el código siguiente:
+Actualización de la `IdentityUser` derivados de la clase con propiedades personalizadas. Si el nombre del proyecto WebApp1, el archivo se denomina *Areas/Identity/Data/WebApp1User.cs*. Actualice el archivo con el código siguiente:
 
 [!code-csharp[Main](add-user-data/sample/Areas/Identity/Data/WebApp1User.cs)]
 
