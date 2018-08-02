@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/22/2018
 uid: host-and-deploy/linux-nginx
-ms.openlocfilehash: 840a9f98b3409f74b9a41ee24ff7bcb33a875470
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: aba9ed41ac3650d8c645d71fb772e2a8e4f32f02
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433940"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254862"
 ---
 # <a name="host-aspnet-core-on-linux-with-nginx"></a>Hospedar ASP.NET Core en Linux con Nginx
 
@@ -285,6 +285,21 @@ Para obtener más opciones de filtrado, las opciones de tiempo como `--since tod
 sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-10-18 04:00"
 ```
 
+## <a name="data-protection"></a>Protección de datos
+
+Hay varios [softwares intermedios](xref:fundamentals/middleware/index) de ASP.NET Core que utilizan la [pila de protección de datos de ASP.NET Core](xref:security/data-protection/index), incluidos los de autenticación, como el de cookies, y las protecciones de falsificación de solicitud entre sitios (CSRF). Aunque el código de usuario no llame a las API de protección de datos, esta se debe configurar para crear un [almacén de claves](xref:security/data-protection/implementation/key-management) criptográficas persistente. Si no se configura la protección de datos, las claves se conservan en memoria y se descartan cuando se reinicia la aplicación.
+
+Si el conjunto de claves se almacena en memoria cuando se reinicia la aplicación:
+
+* Todos los tokens de autenticación basados en cookies se invalidan.
+* Los usuarios tienen que iniciar sesión de nuevo en la siguiente solicitud.
+* Ya no se pueden descifrar los datos protegidos con el conjunto de claves. Esto puede incluir [tokens CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) y [cookies de TempData de ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
+
+Para configurar la protección de datos de modo que sea persistente y permita cifrar el anillo de claves, consulte:
+
+* <xref:security/data-protection/implementation/key-storage-providers>
+* <xref:security/data-protection/implementation/key-encryption-at-rest>
+
 ## <a name="securing-the-app"></a>Protección de la aplicación
 
 ### <a name="enable-apparmor"></a>Habilitar AppArmor
@@ -293,14 +308,21 @@ Linux Security Modules (LSM) es una plataforma que forma parte del kernel de Lin
 
 ### <a name="configuring-the-firewall"></a>Configuración del firewall
 
-Cierre todos los puertos externos que no estén en uso. Uncomplicated Firewall (ufw) proporciona un front-end para `iptables` al proporcionar una interfaz de línea de comandos para configurar el firewall. Compruebe que `ufw` está configurado para permitir el tráfico en los puertos necesarios.
+Cierre todos los puertos externos que no estén en uso. Uncomplicated Firewall (ufw) proporciona un front-end para `iptables` al proporcionar una interfaz de línea de comandos para configurar el firewall.
+
+> [!WARNING]
+> Si tiene algún firewall activado y no está configurado correctamente, este impedirá el acceso a todo el sistema. Si usa SSH para establecer la conexión y no especifica el puerto SSH correcto, quedará bloqueado y no podrá acceder al sistema. El puerto predeterminado es el 22. Para obtener más información, consulte la [introducción a UFW](https://help.ubuntu.com/community/UFW) y el [manual](http://manpages.ubuntu.com/manpages/bionic/man8/ufw.8.html).
+
+Instale `ufw` y configúrelo para permitir el tráfico en los puertos que convenga.
 
 ```bash
 sudo apt-get install ufw
-sudo ufw enable
 
+sudo ufw allow 22/tcp
 sudo ufw allow 80/tcp
 sudo ufw allow 443/tcp
+
+sudo ufw enable
 ```
 
 ### <a name="securing-nginx"></a>Proteger Nginx

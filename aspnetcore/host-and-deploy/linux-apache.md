@@ -6,12 +6,12 @@ ms.author: spboyer
 ms.custom: mvc
 ms.date: 03/13/2018
 uid: host-and-deploy/linux-apache
-ms.openlocfilehash: d02fbd82be37e6d67214a9a0bf5851662b577cb9
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 2431e989d6fc2cf83bca47aaa41a2bf686c0ab54
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37433979"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219360"
 ---
 # <a name="host-aspnet-core-on-linux-with-apache"></a>Hospedar ASP.NET Core en Linux con Apache
 
@@ -260,6 +260,21 @@ Para el filtrado de tiempo, especifique las opciones de tiempo con el comando. P
 ```bash
 sudo journalctl -fu kestrel-hellomvc.service --since "2016-10-18" --until "2016-10-18 04:00"
 ```
+
+## <a name="data-protection"></a>Protección de datos
+
+Hay varios [softwares intermedios](xref:fundamentals/middleware/index) de ASP.NET Core que utilizan la [pila de protección de datos de ASP.NET Core](xref:security/data-protection/index), incluidos los de autenticación, como el de cookies, y las protecciones de falsificación de solicitud entre sitios (CSRF). Aunque el código de usuario no llame a las API de protección de datos, esta se debe configurar para crear un [almacén de claves](xref:security/data-protection/implementation/key-management) criptográficas persistente. Si no se configura la protección de datos, las claves se conservan en memoria y se descartan cuando se reinicia la aplicación.
+
+Si el conjunto de claves se almacena en memoria cuando se reinicia la aplicación:
+
+* Todos los tokens de autenticación basados en cookies se invalidan.
+* Los usuarios tienen que iniciar sesión de nuevo en la siguiente solicitud.
+* Ya no se pueden descifrar los datos protegidos con el conjunto de claves. Esto puede incluir [tokens CSRF](xref:security/anti-request-forgery#aspnet-core-antiforgery-configuration) y [cookies de TempData de ASP.NET Core MVC](xref:fundamentals/app-state#tempdata).
+
+Para configurar la protección de datos de modo que sea persistente y permita cifrar el anillo de claves, consulte:
+
+* <xref:security/data-protection/implementation/key-storage-providers>
+* <xref:security/data-protection/implementation/key-encryption-at-rest>
 
 ## <a name="securing-the-app"></a>Protección de la aplicación
 

@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: 6aded9525a0abd31dec8441c7fba60d8845c7d93
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: d7e60c0f615841461a17b093bffe5fb3f82f8616
+ms.sourcegitcommit: 506a199274e9fe5fb4070b273ba94f29f14cb619
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938246"
+ms.lasthandoff: 07/28/2018
+ms.locfileid: "39332280"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -103,11 +103,11 @@ Otro toma un tipo de contenido y una cadena de formato:
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
 
-También hay métodos de extensión de redireccionamiento y de nueva ejecución. El método de redireccionamiento envía al cliente un código de estado *302 - Encontrado*:
+También hay métodos de extensión de redireccionamiento y de nueva ejecución. El método de redireccionamiento envía un código de estado *302 Found* al cliente y lo redirige a la plantilla de la dirección URL de la ubicación facilitada. La plantilla puede incluir un marcador de posición `{0}` relativo al código de estado. Las direcciones URL que empiezan por `~` tienen la ruta de acceso base antepuesta. Las direcciones URL que no empiezan por `~` se usan tal cual.
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-El método de nueva ejecución devuelve el código de estado original al cliente, pero también ejecuta el controlador para la dirección URL de redireccionamiento:
+El método de reejecución devuelve el código de estado original al cliente y especifica que el cuerpo de la respuesta se debe generar volviendo a ejecutar la canalización de la solicitud mediante una ruta de acceso alternativa. Es posible que esta ruta de acceso contenga un marcador de posición `{0}` relativo al código de estado:
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");

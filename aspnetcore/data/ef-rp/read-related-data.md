@@ -5,12 +5,12 @@ description: En este tutorial, leerá y mostrará datos relacionados, es decir, 
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: bcea6aa6018a937979b8e0aaa2edcdd96da41559
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: bb1d087a5449c6e26c40e572d161dd9644ac2323
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202684"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219347"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -69,14 +69,19 @@ Para mostrar el nombre del departamento asignado en una lista de cursos:
 <a name="scaffold"></a>
 ### <a name="scaffold-the-course-model"></a>Aplicar scaffolding al modelo de Course
 
-* Salga de Visual Studio.
-* Abra una ventana de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*).
-* Ejecute el siguiente comando:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Siga las instrucciones que encontrará en [Aplicación de scaffolding al modelo de alumnos](xref:data/ef-rp/intro#scaffold-the-student-model) y use `Course` para la clase de modelo.
+
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+
+ Ejecute el siguiente comando:
 
   ```console
-  dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 2.1.0
   dotnet aspnet-codegenerator razorpage -m Course -dc SchoolContext -udl -outDir Pages\Courses --referenceScriptLibraries
   ```
+
+------
 
 El comando anterior aplica scaffolding al modelo `Course`. Abra el proyecto en Visual Studio.
 
@@ -150,21 +155,21 @@ En la carpeta *SchoolViewModels*, cree *InstructorIndexData.cs* con el código s
 
 ### <a name="scaffold-the-instructor-model"></a>Aplicar scaffolding al modelo de Instructor
 
-* Salga de Visual Studio.
-* Abra una ventana de comandos en el directorio del proyecto (el directorio que contiene los archivos *Program.cs*, *Startup.cs* y *.csproj*).
-* Ejecute el siguiente comando:
+# <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio) 
+
+Siga las instrucciones que encontrará en [Aplicación de scaffolding al modelo de alumnos](xref:data/ef-rp/intro#scaffold-the-student-model) y use `Instructor` para la clase de modelo.
+
+# <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
+
+ Ejecute el siguiente comando:
 
   ```console
   dotnet aspnet-codegenerator razorpage -m Instructor -dc SchoolContext -udl -outDir Pages\Instructors --referenceScriptLibraries
   ```
 
-El comando anterior aplica scaffolding al modelo `Instructor`. Abra el proyecto en Visual Studio.
+------
 
-Compile el proyecto. La compilación genera errores.
-
-Cambie globalmente `_context.Instructor` por `_context.Instructors` (es decir, agregue una "s" a `Instructor`). Se encuentran y actualizan siete repeticiones.
-
-Ejecute la aplicación y vaya a la página de instructores.
+El comando anterior aplica scaffolding al modelo `Instructor`. Ejecute la aplicación y vaya a la página de instructores.
 
 Reemplace *Pages/Instructors/Index.cshtml.cs* con el código siguiente:
 

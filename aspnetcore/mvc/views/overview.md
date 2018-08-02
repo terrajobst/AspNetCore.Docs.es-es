@@ -5,12 +5,12 @@ description: Obtenga información sobre la forma en que las vistas controlan la 
 ms.author: riande
 ms.date: 12/12/2017
 uid: mvc/views/overview
-ms.openlocfilehash: 4d5cb6288711cdef145ebb0b52e4e645c535bdf2
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 276540a5d77b1d65119d1b2104508d77f45d5588
+ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36278354"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39219373"
 ---
 # <a name="views-in-aspnet-core-mvc"></a>Vistas de ASP.NET Core MVC
 
@@ -39,7 +39,7 @@ Las vistas separan el marcado de la interfaz de usuario de otras partes de la ap
 * La aplicación es más fácil de mantener, ya que está mejor organizada. Las vistas generalmente se agrupan por característica de la aplicación. Esto facilita la búsqueda de vistas relacionadas cuando se trabaja en una característica.
 * Las partes de la aplicación están acopladas de forma ligera. Las vistas de la aplicación se pueden compilar y actualizar por separado de los componentes de la lógica de negocios y el acceso a datos. Las vistas de la aplicación se pueden modificar sin necesidad de tener que actualizar otras partes de la aplicación.
 * Es más fácil probar los elementos de la interfaz de usuario de la aplicación, ya que las vistas son unidades independientes.
-* Debido a una mejor organización, es menos probable que se repitan accidentalmente secciones de la interfaz de usuario.
+* Dada la mejora en la organización, es menos probable que se repitan secciones de la interfaz de usuario de forma accidental.
 
 ## <a name="creating-a-view"></a>Creación de una vista
 
@@ -123,15 +123,15 @@ Siga el procedimiento recomendado de organizar la estructura de archivos de vist
 Se pueden pasar datos a vistas con varios métodos:
 
 * Datos fuertemente tipados: ViewModel
-* Datos con establecimiento flexible de tipos
-  - `ViewData` (`ViewDataAttribute`)
-  - `ViewBag`
+* Datos débilmente tipados
+  * `ViewData` (`ViewDataAttribute`)
+  * `ViewBag`
 
 ### <a name="strongly-typed-data-viewmodel"></a>Datos fuertemente tipados (ViewModel)
 
 El enfoque más eficaz consiste en especificar un tipo de [modelo](xref:mvc/models/model-binding) en la vista. Este modelo se conoce normalmente como *viewmodel* (modelo de vista) y en él se pasa una instancia de tipo viewmodel a la vista de la acción.
 
-La utilización de un modelo de vista para pasar datos a una vista permite que la vista se beneficie de las ventajas de la comprobación de tipos *seguros*. La *especificación detallada de tipos* (*fuertemente tipado*) significa que cada variable y cada constante tienen un tipo definido de forma explícita (por ejemplo, `string`, `int` o `DateTime`). La validez de los tipos usados en una vista se comprueba en tiempo de compilación.
+La utilización de un modelo de vista para pasar datos a una vista permite que la vista se beneficie de las ventajas de la comprobación de tipos *seguros*. El término *establecimiento fuerte de tipos* (o *fuertemente tipado*) significa que cada variable y constante tienen un tipo definido explícitamente, por ejemplo, `string`, `int` o `DateTime`. La validez de los tipos usados en una vista se comprueba en tiempo de compilación.
 
 [Visual Studio](https://www.visualstudio.com/vs/) y [Visual Studio Code](https://code.visualstudio.com/) enumeran los miembros de clase fuertemente tipados mediante una característica denominada [IntelliSense](/visualstudio/ide/using-intellisense). Si quiere ver las propiedades de un modelo de vista, escriba el nombre de variable del modelo de vista seguido por un punto (`.`). Esto ayuda a escribir código más rápidamente y con menos errores.
 
@@ -188,11 +188,11 @@ Nada le impide usar las mismas clases tanto para los tipos de modelo de vista co
 
 <a name="VD_VB"></a>
 
-### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Datos con establecimiento flexible de tipos (ViewData, atributo ViewData y ViewBag)
+### <a name="weakly-typed-data-viewdata-viewdata-attribute-and-viewbag"></a>Datos débilmente tipados (ViewData, atributo ViewData y ViewBag)
 
 `ViewBag` *no está disponible en las páginas de Razor.*
 
-Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colección de datos *débilmente tipada* (también denominada *imprecisa*). A diferencia de los tipos fuertes, en los *tipos débiles* (o *débilmente tipados*) no se declara explícitamente el tipo de datos que se está utilizando. Puede usar la colección de datos débilmente tipada para introducir y sacar pequeñas cantidades de datos de los controladores y las vistas.
+Además de las vistas fuertemente tipadas, las vistas tienen acceso a una colección de datos *débilmente tipados*, también denominados *imprecisos*. A diferencia de los tipos fuertes, en los *tipos débiles* (o *débilmente tipados*) no se declara explícitamente el tipo de datos que se está utilizando. Puede usar la colección de datos débilmente tipados para pasar pequeñas cantidades de datos de los controladores y las vistas, tanto en dirección de entrada como de salida.
 
 | Pasar datos entre...                        | Ejemplo                                                                        |
 | ------------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -247,6 +247,7 @@ Trabajar con los datos en una vista:
 ```
 
 ::: moniker range=">= aspnetcore-2.1"
+
 **Atributo ViewData**
 
 Otro método en el que se usa [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary) es [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor completadas con `[ViewData]` se almacenan y cargan desde el diccionario.
@@ -284,6 +285,7 @@ En el diseño, el título se lee desde el diccionario ViewData:
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 **ViewBag**

@@ -5,12 +5,12 @@ description: En este tutorial agregará más entidades y relaciones, y personali
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 6888df174e92ab2ddf8add7b8927250be320bff8
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
+ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202658"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39220604"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -400,9 +400,9 @@ Si las reglas de negocios requieren que la propiedad `InstructorID` no acepte va
 
 El código anterior deshabilita la eliminación en cascada en la relación de instructor y departamento.
 
-## <a name="update-the-enrollment-entityupdate-the-enrollment-entity"></a>Actualización de la entidad Enrollment
+## <a name="update-the-enrollment-entity"></a>Actualizar la entidad Enrollment
 
-Un registro de inscripción es para un curso realizado por un alumno.
+Un registro de inscripción corresponde a un curso realizado por un alumno.
 
 ![La entidad Enrollment](complex-data-model/_static/enrollment-entity.png)
 

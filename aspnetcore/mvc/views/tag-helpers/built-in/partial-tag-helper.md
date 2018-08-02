@@ -5,14 +5,14 @@ description: Conozca la aplicación auxiliar de etiquetas parciales en ASP.NET C
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/06/2018
+ms.date: 07/25/2018
 uid: mvc/views/tag-helpers/builtin-th/partial-tag-helper
-ms.openlocfilehash: a289a946a6d3eb491a08103dcefdd688eab52072
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: cb63357b1859c3709b2eae9f4e380c4a74e5e448
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938344"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254758"
 ---
 # <a name="partial-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas parciales en ASP.NET Core
 
@@ -43,7 +43,7 @@ Ahora pasaremos a ver una relación de los atributos de la aplicación auxiliar 
 
 ## <a name="name"></a>name
 
-El atributo `name` es necesario. Señala el nombre o la ruta de acceso de la vista parcial que se va a representar. Cuando se indica el nombre de una vista parcial, se inicia el proceso de [detección de vista](xref:mvc/views/overview#view-discovery). Este proceso se omite cuando se proporciona una ruta de acceso explícita.
+El atributo `name` es necesario. Señala el nombre o la ruta de acceso de la vista parcial que se va a representar. Cuando se indica el nombre de una vista parcial, se inicia el proceso de [detección de vista](xref:mvc/views/overview#view-discovery). Este proceso se omite cuando se proporciona una ruta de acceso explícita. Para conocer todos los valores `name` aceptables, consulte [Detección de vistas parciales](xref:mvc/views/partial#partial-view-discovery).
 
 En el siguiente marcado se usa una ruta de acceso explícita, lo que indica que *_ProductPartial.cshtml* debe cargarse desde la carpeta *Shared*. Mediante el atributo [for](#for), se pasa un modelo a la vista parcial para el enlace.
 

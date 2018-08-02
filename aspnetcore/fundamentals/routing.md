@@ -3,14 +3,14 @@ title: Enrutamiento en ASP.NET Core
 author: ardalis
 description: Descubra la manera en que la funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta.
 ms.author: riande
-ms.date: 10/14/2016
+ms.date: 07/25/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 4482c865671eb4f5decbd5f1cd6e26f2e68e5c25
-ms.sourcegitcommit: e22097b84d26a812cd1380a6b2d12c93e522c125
+ms.openlocfilehash: 19265ac4d19915462c50628061600b1fde04694b
+ms.sourcegitcommit: c8e62aa766641aa55105f7db79cdf2b27a6e5977
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36314141"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39254888"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -322,26 +322,33 @@ En la tabla siguiente se muestran algunas restricciones de ruta y su comportamie
 | `regex(expression)` | `{ssn:regex(^\\d{{3}}-\\d{{2}}-\\d{{4}}$)}` | `123-45-6789` | La cadena debe coincidir con la expresión regular (vea las sugerencias sobre cómo definir una expresión regular) |
 | `required`  | `{name:required}` | `Rick` |  Se usa para exigir que un valor que no es de parámetro esté presente durante la generación de dirección URL |
 
+Es posible aplicar varias restricciones delimitadas por dos puntos a un único parámetro. Por ejemplo, la siguiente restricción permite limitar un parámetro a un valor entero de 1 o superior:
+
+```csharp
+[Route("users/{id:int:min(1)}")]
+public User GetUserById(int id) { }
+```
+
 >[!WARNING]
 > Las restricciones de ruta que comprueban que la dirección URL se puede convertir en un tipo CLR (como `int` o `DateTime`) usan siempre la referencia cultural invariable, es decir, dan por supuesto que la dirección URL no es localizable. Las restricciones de ruta proporcionadas por el marco de trabajo no modifican los valores almacenados en los valores de ruta. Todos los valores de ruta analizados desde la dirección URL se almacenarán como cadenas. Por ejemplo, la [restricción de ruta Float](https://github.com/aspnet/Routing/blob/1.0.0/src/Microsoft.AspNetCore.Routing/Constraints/FloatRouteConstraint.cs#L44-L60) intentará convertir el valor de ruta en un valor Float, pero el valor convertido se usa exclusivamente para comprobar que se puede convertir en Float.
 
-## <a name="regular-expressions"></a>Expresiones regulares 
+## <a name="regular-expressions"></a>Expresiones regulares
 
 El marco de trabajo de ASP.NET Core agrega `RegexOptions.IgnoreCase | RegexOptions.Compiled | RegexOptions.CultureInvariant` al constructor de expresiones regulares. En [RegexOptions Enumeration](/dotnet/api/system.text.regularexpressions.regexoptions) (Enumeración RegexOptions) puede ver una descripción de estos miembros.
 
-Las expresiones regulares usan delimitadores y tokens similares a los que usan el enrutamiento y el lenguaje C#. Es necesario usar secuencias de escape con los tokens de expresiones regulares. Por ejemplo, para usar la expresión regular `^\d{3}-\d{2}-\d{4}$` en el enrutamiento, es necesario escribir los caracteres `\` como `\\` en el archivo de código fuente de C# para que el carácter de escape de cadena `\` tenga una secuencia de escape (a menos que use [literales de cadena textuales](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/string). Es necesario incluir una secuencia de escape en los caracteres `{`, `}`, "[" y "]". Para ello, duplíquelos a fin de incluir una secuencia de escape en los caracteres delimitadores del parámetro de enrutamiento.  En la tabla siguiente se muestra una expresión regular y la versión con una secuencia de escape.
+Las expresiones regulares usan delimitadores y tokens similares a los que usan el enrutamiento y el lenguaje C#. Es necesario usar secuencias de escape con los tokens de expresiones regulares. Por ejemplo, para usar la expresión regular `^\d{3}-\d{2}-\d{4}$` en el enrutamiento, es necesario escribir los caracteres `\` como `\\` en el archivo de código fuente de C# para que el carácter de escape de cadena `\` tenga una secuencia de escape (a menos que use [literales de cadena textuales](/dotnet/csharp/language-reference/keywords/string). Es necesario incluir una secuencia de escape en los caracteres `{`, `}`, "[" y "]". Para ello, duplíquelos a fin de incluir una secuencia de escape en los caracteres delimitadores del parámetro de enrutamiento.  En la tabla siguiente se muestra una expresión regular y la versión con una secuencia de escape.
 
 | Expresión               | Nota |
-| ----------------- | ------------ | 
+| ----------------- | ------------ |
 | `^\d{3}-\d{2}-\d{4}$` | Expresión regular |
 | `^\\d{{3}}-\\d{{2}}-\\d{{4}}$` | Con secuencia de escape  |
 | `^[a-z]{2}$` | Expresión regular |
 | `^[[a-z]]{{2}}$` | Con secuencia de escape  |
 
-Las expresiones regulares usadas en el enrutamiento suelen empezar con el carácter `^` (coincidencia con la posición inicial de la cadena) y acabar con el carácter `$` (coincidencia con la posición final de la cadena). Los caracteres `^` y `$` garantizan que la expresión regular coincide con el valor completo del parámetro de ruta. Sin los caracteres `^` y `$`, la expresión regular coincidirá con cualquier subcadena de la cadena, lo que a menudo no es deseable. En la tabla siguiente se muestran algunos ejemplos y se explica por qué que coinciden o no.
+Las expresiones regulares usadas en el enrutamiento suelen empezar con el carácter `^` (coincidencia con la posición inicial de la cadena) y acabar con el carácter `$` (coincidencia con la posición final de la cadena). Los caracteres `^` y `$` garantizan que la expresión regular coincide con el valor completo del parámetro de ruta. Sin los caracteres `^` y `$`, la expresión regular coincidirá con cualquier subcadena de la cadena, algo que normalmente no es lo que se busca conseguir. En la tabla siguiente se muestran algunos ejemplos y se explica por qué que coinciden o no.
 
 | Expresión               | String | Coincidir con | Comentario |
-| ----------------- | ------------ |  ------------ |  ------------ | 
+| ----------------- | ------------ |  ------------ |  ------------ |
 | `[a-z]{2}` | hello | sí | coincidencias de subcadenas |
 | `[a-z]{2}` | 123abc456 | sí | coincidencias de subcadenas |
 | `[a-z]{2}` | mz | sí | coincide con la expresión |
