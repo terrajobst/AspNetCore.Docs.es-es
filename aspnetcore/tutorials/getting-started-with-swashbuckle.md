@@ -4,14 +4,14 @@ author: zuckerthoben
 description: Obtenga información sobre cómo agregar Swashbuckle a un proyecto de ASP.NET Core Web API para integrar la interfaz de usuario de Swagger.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 07/27/2018
 uid: tutorials/get-started-with-swashbuckle
-ms.openlocfilehash: 70a1503a1ddbfe7f569d12b0034d967b220c9c44
-ms.sourcegitcommit: 2941e24d7f3fd3d5e88d27e5f852aaedd564deda
+ms.openlocfilehash: 06f0ebae70fe43506d7edecbd0508968d1d00635
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126253"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342320"
 ---
 # <a name="get-started-with-swashbuckle-and-aspnet-core"></a>Introducción a Swashbuckle y ASP.NET Core
 
@@ -184,7 +184,7 @@ Puede habilitar los comentarios XML para proporcionar información de depuració
 warning CS1591: Missing XML comment for publicly visible type or member 'TodoController.GetAll()'
 ```
 
-Para eliminar las advertencias, defina una lista delimitada por punto y coma de códigos de advertencia que se deban omitir en el archivo *.csproj*. Al anexar los códigos de advertencia a `$(NoWarn);`, se aplican también los valores predeterminados de C#.
+Para eliminar las advertencias a nivel de proyecto, defina una lista delimitada por punto y coma de códigos de advertencia que se deban omitir en el archivo de proyecto. Al anexar los códigos de advertencia a `$(NoWarn);`, se aplican también los valores predeterminados de C#.
 
 ::: moniker range=">= aspnetcore-2.0"
 
@@ -197,6 +197,26 @@ Para eliminar las advertencias, defina una lista delimitada por punto y coma de 
 [!code-xml[](../tutorials/web-api-help-pages-using-swagger/samples/2.0/TodoApi.Swashbuckle/TodoApi.csproj?name=snippet_SuppressWarnings&highlight=3)]
 
 ::: moniker-end
+
+Para suprimir las advertencias solo para miembros específicos, incluya el código en directivas de preprocesador de [advertencias #pragma](/dotnet/csharp/language-reference/preprocessor-directives/preprocessor-pragma-warning). Este enfoque es útil para el código que no debe exponerse mediante los documentos de API. En el ejemplo siguiente, se omite el código de advertencia CS1591 para toda la clase `Program`. La ejecución del código de advertencia se restaura al cerrar la definición de clase. Especifique varios códigos de advertencia con una lista delimitada por comas.
+
+```csharp
+namespace TodoApi
+{
+#pragma warning disable CS1591
+    public class Program
+    {
+        public static void Main(string[] args) =>
+            BuildWebHost(args).Run();
+
+        public static IWebHost BuildWebHost(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .UseStartup<Startup>()
+                .Build();
+    }
+#pragma warning restore CS1591
+}
+```
 
 Configure Swagger para usar el archivo XML generado. En Linux o sistemas operativos que no sean Windows, las rutas de acceso y los nombres de archivo pueden distinguir entre mayúsculas y minúsculas. Por ejemplo, un archivo *TodoApi.XML* es válido en Windows, pero no en CentOS.
 

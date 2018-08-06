@@ -4,14 +4,14 @@ author: rick-anderson
 description: Compilar una API web con ASP.NET Core MVC y Visual Studio Code en macOS, Linux o Windows
 ms.author: riande
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/30/2018
 uid: tutorials/web-api-vsc
-ms.openlocfilehash: 4c41c949a9b5ca8db8928a0a53aff928fd7c8a4e
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 4ce808ec4241ab2fc3c2fb81c3fdb15dd853cd90
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216242"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342281"
 ---
 # <a name="create-a-web-api-with-aspnet-core-and-visual-studio-code"></a>Crear una API web con ASP.NET Core y Visual Studio Code
 
@@ -61,15 +61,20 @@ Vea [Ayuda de Visual Studio Code](#visual-studio-code-help) para obtener sugeren
 
 ## <a name="add-support-for-entity-framework-core"></a>Agregar compatibilidad con Entity Framework Core
 
+:::moniker range=">= aspnetcore-2.1"
+
+Al crear un proyecto en ASP.NET Core 2.1 o posterior, se agrega la referencia de paquete [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) al archivo *TodoApi.csproj*. Agregue el atributo `Version`, si aún no se ha especificado.
+
+[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
+
+:::moniker-end
+
 :::moniker range="<= aspnetcore-2.0"
+
 Al crear un proyecto en ASP.NET Core 2.0, se agrega la referencia de paquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) al archivo *TodoApi.csproj*:
 
 [!code-xml[](first-web-api/samples/2.0/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
-:::moniker-end
-:::moniker range=">= aspnetcore-2.1"
-Al crear un proyecto en ASP.NET Core 2.1 o posterior, se agrega la referencia de paquete [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App) al archivo *TodoApi.csproj*:
 
-[!code-xml[](first-web-api/samples/2.1/TodoApi/TodoApi.csproj?name=snippet_Metapackage&highlight=2)]
 :::moniker-end
 
 No es necesario instalar el proveedor de base de datos [Entity Framework Core InMemory](/ef/core/providers/in-memory/) por separado. Este proveedor de base de datos permite usar Entity Framework Core con una base de datos en memoria.

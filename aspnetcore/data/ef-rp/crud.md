@@ -5,12 +5,12 @@ description: Se muestra cómo crear, leer, actualizar y eliminar con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: 0a8d386104d9c62f37d0a94e66344d3f1e23bae9
-ms.sourcegitcommit: e12f45ddcbe99102a74d4077df27d6c0ebba49c1
+ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/15/2018
-ms.locfileid: "39063356"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342463"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: CRUD (2 de 8)
 
@@ -24,7 +24,7 @@ Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.co
 
 En este tutorial, se revisa y personaliza el código CRUD (crear, leer, actualizar y eliminar) con scaffolding.
 
-Para minimizar la complejidad y mantener estos tutoriales centrados en EF Core, en los modelos de página se usa código de EF Core. Algunos desarrolladores usan un patrón de capa o repositorio de servicio para crear una capa de abstracción entre la interfaz de usuario (las páginas de Razor) y la capa de acceso a datos.
+Para minimizar la complejidad y mantener estos tutoriales centrados en EF Core, en los modelos de página se usa código de EF Core. Algunos desarrolladores usan un patrón de capa o [patrón de repositorio](xref:fundamentals/repository-pattern) de servicio para crear una capa de abstracción entre la interfaz de usuario (Razor Pages) y la capa de acceso a datos.
 
 En este tutorial, se examinan las Razor Pages Create, Edit, Delete y Details de la carpeta *Student*.
 

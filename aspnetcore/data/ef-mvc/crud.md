@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: bc02ee6933634cc5987dbc3fcf57b0cce5a93bef
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
+ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216266"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39342437"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core: CRUD (2 de 10)
 
@@ -25,7 +25,7 @@ En la aplicación web de ejemplo Contoso University se muestra cómo crear aplic
 En el tutorial anterior, creó una aplicación MVC que almacena y muestra los datos con Entity Framework y SQL Server LocalDB. En este tutorial, podrá revisar y personalizar el código CRUD (crear, leer, actualizar y eliminar) que el scaffolding de MVC crea automáticamente para usted en controladores y vistas.
 
 > [!NOTE]
-> Es una práctica habitual implementar el modelo de repositorio con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para que estos tutoriales sean sencillos y se centren en enseñar a usar Entity Framework, no se usan repositorios. Para obtener información sobre los repositorios con EF, vea [el último tutorial de esta serie](advanced.md).
+> Es una práctica habitual implementar el [patrón de repositorio](xref:fundamentals/repository-pattern) con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para que estos tutoriales sean sencillos y se centren en enseñar a usar Entity Framework, no se usan repositorios. Para obtener información sobre los repositorios con EF, vea [el último tutorial de esta serie](advanced.md).
 
 En este tutorial, trabajará con las páginas web siguientes:
 

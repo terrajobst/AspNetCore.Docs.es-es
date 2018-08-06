@@ -1,0 +1,3 @@
+# <a name="aspnet-core-repository-pattern-2x-sample"></a>Ejemplo de patrón de repositorio de ASP.NET Core 2.x
+
+En este ejemplo se muestra el uso del patrón de repositorio con ASP.NET Core 2.x. En este ejemplo se muestra el escenario descrito en el tema [Patrón de repositorio con ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/repository-pattern).
