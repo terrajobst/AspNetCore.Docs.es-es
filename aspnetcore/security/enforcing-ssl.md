@@ -5,12 +5,12 @@ description: Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET web app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: d8bf11d7d2df8d8b197f001570a8fab1f3262814
-ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
+ms.openlocfilehash: 3bea8661e17fec5128e822d98741d1f8ed7434e5
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/04/2018
-ms.locfileid: "39514809"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655503"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -66,8 +66,8 @@ Los mecanismos siguientes establecen automáticamente el puerto:
 
 El puerto puede configurarse estableciendo el [https_port de configuración de Host Web](xref:fundamentals/host/web-host#https-port):
 
-**Clave**: https_port **tipo**: *cadena*
-**predeterminada**: no se establece un valor predeterminado.
+**Clave**: https_port **Tipo**: *string*
+**Valor predeterminada**: no se establece un valor predeterminado.
 **Establecer mediante**: `UseSetting` 
  **variable de entorno**: `<PREFIX_>HTTPS_PORT` (el prefijo es `ASPNETCORE_` cuando se usa el Host de Web.)
 
@@ -112,7 +112,10 @@ Requerir HTTPS globalmente (`options.Filters.Add(new RequireHttpsAttribute());`)
 <a name="hsts"></a>
 ## <a name="http-strict-transport-security-protocol-hsts"></a>Protocolo de seguridad de transporte estricto HTTP (HSTS)
 
-Por [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [seguridad de transporte estricto (HSTS) de HTTP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) es una mejora de seguridad opcional que se especifica mediante una aplicación web mediante el uso de un encabezado de respuesta especial. Cuando un explorador que admita HSTS recibe este encabezado, almacena la configuración para el dominio que impide el envío de cualquier comunicación a través de HTTP y en su lugar, obliga a todas las comunicaciones a través de HTTPS. También impide que el usuario mediante certificados de confianza o no es válidos, deshabilitar las indicaciones del explorador que un usuario pueda confiar temporalmente dicho certificado.
+Por [OWASP](https://www.owasp.org/index.php/About_The_Open_Web_Application_Security_Project), [seguridad de transporte estricto (HSTS) de HTTP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) es una mejora de seguridad opcional que se especifica mediante una aplicación web mediante el uso de un encabezado de respuesta. Cuando un explorador que admita HSTS recibe este encabezado:
+
+* El explorador almacena la configuración para el dominio que impide el envío de cualquier comunicación a través de HTTP. El explorador obliga a todas las comunicaciones a través de HTTPS. 
+* El explorador impide que el usuario mediante certificados de confianza o no es válidos. El explorador deshabilita avisos para que un usuario que confíe en temporalmente dicho certificado.
 
 ASP.NET Core 2.1 o posterior implementa HSTS con el `UseHsts` método de extensión. El código siguiente llama `UseHsts` cuando la aplicación no se encuentra en [modo de desarrollo](xref:fundamentals/environments):
 
