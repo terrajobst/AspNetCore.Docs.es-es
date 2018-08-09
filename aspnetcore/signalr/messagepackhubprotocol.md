@@ -73,7 +73,7 @@ MessagePack compatibilidad con el cliente de Javascript proporciona el `@aspnet/
 npm install @aspnet/signalr-protocol-msgpack
 ```
 
-Después de instalar el paquete de npm, el módulo se puede utilizar directamente a través de un cargador de módulos de JavaScript o importado en el explorador haciendo referencia a la *node_modules\\ @aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js*  archivo. En un explorador el `msgpack5` también se debe hacer referencia a la biblioteca. Use un `<script>` etiqueta para crear una referencia. La biblioteca puede encontrarse en *node_modules\msgpack5\dist\msgpack5.js*.
+Después de instalar el paquete de npm, el módulo se puede utilizar directamente a través de un cargador de módulos de JavaScript o importado en el explorador haciendo referencia a la *node_modules\\@aspnet\signalr-protocol-msgpack\dist\browser\signalr-protocol-msgpack.js* archivo. En un explorador el `msgpack5` también se debe hacer referencia a la biblioteca. Use un `<script>` etiqueta para crear una referencia. La biblioteca puede encontrarse en *node_modules\msgpack5\dist\msgpack5.js*.
 
 > [!NOTE]
 > Cuando se usa el `<script>` elemento, el orden es importante. Si *signalr-protocol-msgpack.js* se hace referencia antes de *msgpack5.js*, se produce un error al intentar conectarse con MessagePack. *signalr.js* también es necesaria antes de *signalr-protocol-msgpack.js*.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: aa9c490aff873d12c9417e7b611991617207c0d3
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: fd3e55ec821be336501f523550f547f6049c9937
+ms.sourcegitcommit: 4e34ce61e1e7f1317102b16012ce0742abf2cca6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342450"
+ms.lasthandoff: 08/04/2018
+ms.locfileid: "39514757"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -294,10 +294,17 @@ services.PostConfigureAll<MyOptions>("named_options_1", myOptions =>
 
 ## <a name="accessing-options-during-startup"></a>Acceso a opciones durante el inicio
 
-`IOptions` puede usarse en `Configure`, ya que los servicios se compilan antes de que se ejecute el método `Configure`. Si se compila un proveedor de servicios en `ConfigureServices` para acceder a opciones, no incluirá ninguna configuración de opción proporcionada después de que se compile el proveedor de servicios. Por tanto, puede que exista un estado incoherente de opciones debido al orden de los registros de servicio.
+`IOptions` puede usarse en `Startup.Configure`, ya que los servicios se compilan antes de que se ejecute el método `Configure`.
 
-Puesto que las opciones suelen cargarse a partir de la configuración, puede usar la configuración al inicio en `Configure` y `ConfigureServices`. Para obtener ejemplos de uso de la configuración durante el inicio, vea el tema [Inicio de la aplicación ASP.NET Core](xref:fundamentals/startup).
+```csharp
+public void Configure(IApplicationBuilder app, IOptions<MyOptions> optionsAccessor)
+{
+    var option1 = optionsAccessor.Value.Option1;
+}
+```
 
-## <a name="see-also"></a>Vea también
+`IOptions` no se debe usar `Startup.ConfigureServices`. Puede que exista un estado incoherente de opciones debido al orden de los registros de servicio.
 
-* [Configuración](xref:fundamentals/configuration/index)
+## <a name="additional-resources"></a>Recursos adicionales
+
+* <xref:fundamentals/configuration/index>

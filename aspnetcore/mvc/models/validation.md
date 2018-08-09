@@ -3,14 +3,14 @@ title: Validación de modelos en ASP.NET Core MVC
 author: tdykstra
 description: Obtenga información sobre la validación de modelos en ASP.NET Core MVC.
 ms.author: riande
-ms.date: 12/18/2016
+ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: 9c2ba1c1fad3ac077a886b3465142acfd4d639af
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095832"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378672"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Validación de modelos en ASP.NET Core MVC
 
@@ -208,11 +208,11 @@ Los atributos que implementan esta interfaz pueden agregar atributos HTML a los 
     id="ReleaseDate" name="ReleaseDate" value="" />
 ```
 
-La validación discreta usa los datos en los atributos `data-` para mostrar mensajes de error. Pero jQuery no sabe nada de reglas o mensajes hasta que estas se agregan al objeto `validator` de jQuery. Esto se muestra en el ejemplo siguiente, que agrega un método denominado `classicmovie` que contiene código de validación de cliente personalizada para el objeto `validator` de jQuery. [Aquí](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) encontrará una explicación del método unobtrusive.adapters.add.
+La validación discreta usa los datos en los atributos `data-` para mostrar mensajes de error. Pero jQuery no sabe nada de reglas o mensajes hasta que estas se agregan al objeto `validator` de jQuery. Esto se muestra en el ejemplo siguiente, que agrega un método de validación de cliente `classicmovie` personalizado para el objeto `validator` de jQuery. Para una explicación del método `unobtrusive.adapters.add`, consulte [Unobtrusive Client Validation in ASP.NET MVC](http://bradwilson.typepad.com/blog/2010/10/mvc3-unobtrusive-validation.html) (Validación discreta de cliente en ASP.NET MVC).
 
-[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?range=71-93)]
+[!code-javascript[](validation/sample/Views/Movies/Create.cshtml?name=snippet_UnobtrusiveValidation)]
 
-Ahora jQuery tiene información para ejecutar la validación personalizada de JavaScript, así como el mensaje de error que se debe mostrar si ese código de validación devuelve false.
+Con el código anterior, el método `classicmovie` realiza la validación del lado cliente en la fecha de lanzamiento de la película. El mensaje de error aparece si el método devuelve `false`.
 
 ## <a name="remote-validation"></a>Validación remota
 
@@ -222,11 +222,14 @@ Puede implementar la validación remota en un proceso de dos pasos. Primero, deb
 
 [!code-csharp[](validation/sample/User.cs?range=7-8)]
 
-El segundo paso consiste en colocar el código de validación en el método de acción correspondiente, tal como se define en el atributo `[Remote]`. Según la documentación del método [`remote()`](https://jqueryvalidation.org/remote-method/) de Validación de jQuery:
+El segundo paso consiste en colocar el código de validación en el método de acción correspondiente, tal como se define en el atributo `[Remote]`. Según la documentación del método [remoto](https://jqueryvalidation.org/remote-method/) de Validación de jQuery, la respuesta del servidor debe ser una cadena JSON que puede ser:
 
-> La respuesta del lado servidor debe ser una cadena JSON que debe ser `"true"` para elementos válidos y puede ser `"false"`, `undefined` o `null` para elementos no válidos, usando el mensaje de error predeterminado. Si la respuesta del lado servidor es una cadena, como por ejemplo, `"That name is already taken, try peter123 instead"`, dicha cadena se mostrará como un mensaje de error personalizado en lugar del predeterminado.
+* `"true"` para elementos válidos.
+* `"false"`, `undefined` o `null` para elementos no válidos, usando el mensaje de error predeterminado.
 
-La definición del método `VerifyEmail()` sigue estas reglas, tal y como se muestra abajo. Devuelve un mensaje de error de validación si la dirección de correo ya existe o muestra `true` si la dirección de correo está disponible, y ajusta el resultado en un objeto `JsonResult`. Después, el lado cliente puede usar el valor devuelto para continuar o mostrar el error si es necesario.
+Si la respuesta del servidor es una cadena (por ejemplo, `"That name is already taken, try peter123 instead"`), la cadena se muestra como un mensaje de error personalizado en lugar de la cadena predeterminada.
+
+La definición del método `VerifyEmail` sigue estas reglas, tal y como se muestra abajo. Devuelve un mensaje de error de validación si la dirección de correo ya existe o muestra `true` si la dirección de correo está disponible, y ajusta el resultado en un objeto `JsonResult`. Después, el lado cliente puede usar el valor devuelto para continuar o mostrar el error si es necesario.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=19-28)]
 
@@ -243,7 +246,7 @@ La propiedad `AdditionalFields` del atributo `[Remote]` es útil para validar co
 Cuando los usuarios escriben su nombre y sus apellidos, JavaScript hace lo siguiente:
 
 * Realiza una llamada remota para comprobar si ese par de nombres ya se está usando.
-* Si el par de nombres ya existe, se muestra un mensaje de error. 
+* Si el par de nombres ya existe, se muestra un mensaje de error.
 * Si está disponible, el usuario puede enviar el formulario.
 
 Si necesita validar dos o más campos adicionales con el atributo `[Remote]`, proporciónelos como una lista delimitada por comas. Por ejemplo, para agregar una `MiddleName` propiedad en el modelo, establezca el `[Remote]` atributo tal como se muestra en el código siguiente:

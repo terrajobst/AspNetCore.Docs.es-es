@@ -5,12 +5,12 @@ description: Conozca ASP.NET Core MVC, un marco completo para crear aplicaciones
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: aca34f91e8c7efaa34263ddf830b1662a2518969
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
+ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272597"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39378643"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -165,8 +165,7 @@ La aplicación también puede usar la [inserción de dependencias en archivos de
 
 ### <a name="filters"></a>Filtros
 
-Los [filtros](controllers/filters.md) ayudan a los desarrolladores a encapsular ciertas preocupaciones transversales, como el control de excepciones o la autorización. Los filtros habilitan la ejecución de lógica de procesamiento previo y posterior para métodos de acción y pueden configurarse para ejecutarse en ciertos puntos dentro de la canalización de ejecución para una solicitud determinada. Los filtros pueden aplicarse a controladores o acciones como atributos (o pueden ejecutarse globalmente). En el marco se incluyen varios filtros (como `Authorize`).
-
+Los [filtros](controllers/filters.md) ayudan a los desarrolladores a encapsular ciertas preocupaciones transversales, como el control de excepciones o la autorización. Los filtros habilitan la ejecución de lógica de procesamiento previo y posterior para métodos de acción y pueden configurarse para ejecutarse en ciertos puntos dentro de la canalización de ejecución para una solicitud determinada. Los filtros pueden aplicarse a controladores o acciones como atributos (o pueden ejecutarse globalmente). En el marco se incluyen varios filtros (como `Authorize`). `[Authorize]` es el atributo que se usa para crear filtros de autorización MVC.
 
 ```csharp
 [Authorize]
