@@ -35,7 +35,7 @@
 ## [Compilación de API web](xref:web-api/index)
 ### [Crear una Web API en Visual Studio Code](xref:tutorials/web-api-vsc)
 ### [Crear una Web API en Visual Studio para Mac](xref:tutorials/first-web-api-mac)
-### [Crear una Web API en Visual Studio para Windows](xref:tutorials/first-web-api)
+### [Crear una Web API en Visual Studio](xref:tutorials/first-web-api)
 ### [Creación de servicios back-end para aplicaciones móviles nativas](xref:mobile/native-mobile-backend)
 ### [Páginas de ayuda mediante Swagger](xref:tutorials/web-api-help-pages-using-swagger)
 #### [Get started with NSwag](xref:tutorials/get-started-with-nswag) (Introducción a NSwag)
@@ -218,8 +218,8 @@
 ## [Depuración en Visual Studio](/visualstudio/debugger/debug-live-azure-applications)
 ## [Solucionar problemas](xref:test/troubleshoot)
 
-# [Acceso a datos con EF Core y Azure](data/index.md)
-## [Introducción a las páginas de Razor y EF Core con Visual Studio](xref:data/ef-rp/intro)
+# [Acceso a datos con EF Core](xref:data/index)
+## [Introducción a las páginas de Razor y Entity Framework Core con Visual Studio](xref:data/ef-rp/intro)
 ## [Introducción a ASP.NET Core y EF Core con Visual Studio](data/ef-mvc/index.md)
 ## [ASP.NET Core con EF Core: nueva base de datos](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db)
 ## [ASP.NET Core con EF Core: base de datos existente](https://docs.microsoft.com/ef/core/get-started/aspnetcore/existing-db)
@@ -229,6 +229,15 @@
 ### [Introducción a Blob Storage y Servicios conectados de Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
 ### [Introducción a Queue Storage y Servicios conectados de Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 ### [Introducción a Table Storage y Servicios conectados de Visual Studio](https://azure.microsoft.com/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+
+# [Guía de Azure](xref:azure/index)
+## DevOps con ASP.NET Core y Azure
+### [Introducción](xref:azure/devops/index)
+### [Herramientas y descargas](xref:azure/devops/tools-and-downloads)
+### [Implementación en App Service](xref:azure/devops/deploy-to-app-service)
+### [Integración e implementación continuas](xref:azure/devops/cicd)
+### [Supervisión y solución de problemas](xref:azure/devops/monitor)
+### [Pasos siguientes](xref:azure/devops/next-steps)
 
 # [Desarrollo del lado cliente](xref:client-side/index)
 ## [Uso de Gulp](xref:client-side/using-gulp)
