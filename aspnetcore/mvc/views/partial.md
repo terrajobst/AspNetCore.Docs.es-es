@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/06/2018
 uid: mvc/views/partial
-ms.openlocfilehash: 7cb20fc30609adad83cb40e91316da115817f035
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 2223f3c6e42927def4b91ff9da58c228e5904756
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378688"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655328"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
@@ -35,7 +35,7 @@ Las vistas parciales son una forma eficaz de dividir vistas de gran tamaño en c
 
 En una página compleja compuesta por varias partes lógicas, puede ser útil trabajar con cada parte como su propia vista parcial. Cada parte de la página puede verse de forma aislada del resto de la página. La vista de la propia página se vuelve más sencilla, puesto que solo contiene la estructura general de la página y las llamadas para representar las vistas parciales.
 
-Los controladores ASP.NET Core MVC tienen un método [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) que se llama desde un método de acción. Razor Pages no tiene ningún método `PartialView` equivalente.
+Los controladores ASP.NET Core MVC tienen un método [PartialView](/dotnet/api/microsoft.aspnetcore.mvc.controller.partialview#Microsoft_AspNetCore_Mvc_Controller_PartialView) que se llama desde un método de acción. Razor Pages no tiene ningún método `PartialView` equivalente en [PageModel](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.pagemodel).
 
 ## <a name="declare-partial-views"></a>Declaración de vistas parciales
 

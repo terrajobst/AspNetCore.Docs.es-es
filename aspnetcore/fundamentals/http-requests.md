@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar la interfaz IHttpClientFactor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 08/07/2018
 uid: fundamentals/http-requests
-ms.openlocfilehash: 87424eaea499ba7ece1e5ef88649fcbb2e297635
-ms.sourcegitcommit: 516d0645c35ea784a3ae807be087ae70446a46ee
+ms.openlocfilehash: dd217cfed230ea92c31eeed64ec19838032dd224
+ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39320660"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39655237"
 ---
 # <a name="initiate-http-requests"></a>Inicio de solicitudes HTTP
 
@@ -20,7 +20,7 @@ Por [Glenn Condron](https://github.com/glennc), [Ryan Nowak](https://github.com/
 
 Se puede registrar y usar un [IHttpClientFactory](/dotnet/api/system.net.http.ihttpclientfactory) para crear y configurar instancias de [HttpClient](/dotnet/api/system.net.http.httpclient) en una aplicación. Esto reporta las siguientes ventajas:
 
-* Proporciona una ubicación central para denominar y configurar instancias de `HttpClient` lógicas. Así, por ejemplo, se podría registrar y configurar un cliente "github" para tener acceso a GitHub y, de igual modo, registrar otro cliente predeterminado para otros fines.
+* Proporciona una ubicación central para denominar y configurar instancias de `HttpClient` lógicas. Así, por ejemplo, se puede registrar y configurar un cliente *github* para tener acceso a GitHub. y, de igual modo, registrar otro cliente predeterminado para otros fines.
 * Codifica el concepto de middleware saliente a través de controladores de delegación en `HttpClient` y proporciona extensiones para middleware basado en Polly para poder sacar partido de este.
 * Administra la agrupación y duración de las instancias de `HttpClientMessageHandler` subyacentes para evitar los problemas de DNS que suelen producirse al administrar las duraciones de `HttpClient` manualmente.
 * Agrega una experiencia de registro configurable (a través de `ILogger`) en todas las solicitudes enviadas a través de los clientes creados por Factory.
@@ -52,7 +52,7 @@ Una vez registrado, el código puede aceptar un `IHttpClientFactory` en cualquie
 
 [!code-csharp[](http-requests/samples/Pages/BasicUsage.cshtml.cs?name=snippet1&highlight=9-12,20)]
 
-Cuando `IHttpClientFactory` se usa de este modo, constituye una excelente manera de refactorizar una aplicación existente. No tiene efecto alguno en la forma en que `HttpClient` se usa. En aquellos sitios en los que ya se hayan creado instancias de `HttpClient`, reemplace esas apariciones por una llamada a `CreateClient`.
+Cuando `IHttpClientFactory` se usa de este modo, constituye una excelente manera de refactorizar una aplicación existente. No tiene efecto alguno en la forma en que `HttpClient` se usa. En aquellos sitios en los que ya se hayan creado instancias de `HttpClient`, reemplace esas apariciones por una llamada a [CreateClient](/dotnet/api/system.net.http.ihttpclientfactory.createclient).
 
 ### <a name="named-clients"></a>Clientes con nombre
 
@@ -60,7 +60,7 @@ Si una aplicación necesita usar `HttpClient` de diversas maneras, cada una con 
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet2)]
 
-En el código anterior, se llama a `AddHttpClient` usando el nombre "github". Este cliente tiene aplicadas algunas configuraciones predeterminadas, a saber, la dirección base y dos encabezados necesarios para trabajar con la API de GitHub.
+En el código anterior, se llama a `AddHttpClient` usando el nombre *github*. Este cliente tiene aplicadas algunas configuraciones predeterminadas, a saber, la dirección base y dos encabezados necesarios para trabajar con la API de GitHub.
 
 Cada vez que se llama a `CreateClient`, se crea otra instancia de `HttpClient` y se llama a la acción de configuración.
 
@@ -161,13 +161,13 @@ Para crear un controlador, defina una clase que se derive de `DelegatingHandler`
 
 [!code-csharp[Main](http-requests/samples/Handlers/ValidateHeaderHandler.cs?name=snippet1)]
 
-El código anterior define un controlador básico. Comprueba si se ha incluido un encabezado X-API-KEY en la solicitud. Si no está presente, puede evitar la llamada HTTP y devolver una respuesta adecuada.
+El código anterior define un controlador básico. Comprueba si se ha incluido un encabezado `X-API-KEY` en la solicitud. Si no está presente, puede evitar la llamada HTTP y devolver una respuesta adecuada.
 
-Durante el registro, se pueden agregar uno o varios controladores a la configuración de un `HttpClient`. Esta tarea se realiza a través de métodos de extensión en `IHttpClientBuilder`.
+Durante el registro, se pueden agregar uno o varios controladores a la configuración de un `HttpClient`. Esta tarea se realiza a través de métodos de extensión en [IHttpClientBuilder](/dotnet/api/microsoft.extensions.dependencyinjection.ihttpclientbuilder).
 
 [!code-csharp[](http-requests/samples/Startup.cs?name=snippet5)]
 
-En el código anterior, `ValidateHeaderHandler` se ha registrado con inserción de dependencias. El controlador **debe** estar registrado en la inserción de dependencias como transitorio. Una vez registrado, se puede llamar a `AddHttpMessageHandler`, pasando el tipo del controlador.
+En el código anterior, `ValidateHeaderHandler` se ha registrado con inserción de dependencias. El controlador **debe** estar registrado en la inserción de dependencias como transitorio. Una vez registrado, se puede llamar a [AddHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.addhttpmessagehandler) pasando el tipo del controlador.
 
 Se pueden registrar varios controladores en el orden en que deben ejecutarse. Cada controlador contiene el siguiente controlador hasta que el último `HttpClientHandler` ejecuta la solicitud:
 
@@ -185,7 +185,7 @@ Tras restaurar este paquete, hay métodos de extensión disponibles para admitir
 
 ### <a name="handle-transient-faults"></a>Control de errores transitorios
 
-Los errores más comunes que se puede esperar que ocurran al realizar llamadas HTTP externas serán transitorios. Por ello, se incluye un método de extensión muy práctico denominado `AddTransientHttpErrorPolicy`, que permite definir una directiva para controlar los errores transitorios. Las directivas que se configuran con este método de extensión controlan `HttpRequestException`, las respuestas HTTP 5xx y las respuestas HTTP 408.
+Los errores más comunes se producen cuando las llamadas HTTP externas son transitorias. Por ello, se incluye un método de extensión muy práctico denominado `AddTransientHttpErrorPolicy`, que permite definir una directiva para controlar los errores transitorios. Las directivas que se configuran con este método de extensión controlan `HttpRequestException`, las respuestas HTTP 5xx y las respuestas HTTP 408.
 
 La extensión `AddTransientHttpErrorPolicy` se puede usar en `Startup.ConfigureServices`. La extensión da acceso a un objeto `PolicyBuilder`, configurado para controlar los errores que pueden constituir un posible error transitorio:
 
@@ -215,29 +215,33 @@ Una forma de administrar las directivas usadas habitualmente consiste en definir
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet10)]
 
-En el código anterior, se agrega un elemento PolicyRegistry a `ServiceCollection` y, con él, se registran dos directivas. Para poder usar una directiva del Registro, se usa el método `AddPolicyHandlerFromRegistry`, pasando el nombre de la directiva que se va a aplicar.
+En el código anterior, se registran dos directivas cuando se agrega `PolicyRegistry` a `ServiceCollection`. Para usar una directiva del Registro, se usa el método `AddPolicyHandlerFromRegistry` pasando el nombre de la directiva que se va a aplicar.
 
 Encontrará más información sobre `IHttpClientFactory` y las integraciones de Polly en la [wiki de Polly](https://github.com/App-vNext/Polly/wiki/Polly-and-HttpClientFactory).
 
 ## <a name="httpclient-and-lifetime-management"></a>HttpClient y administración de la duración
 
-Cada vez que se llama a `CreateClient` en `IHttpClientFactory`, se devuelve una nueva instancia de `HttpClient`. Habrá un `HttpMessageHandler` por cada cliente con nombre. `IHttpClientFactory` agrupará las instancias de `HttpMessageHandler` creadas por Factory para reducir el consumo de recursos. Se puede reutilizar una instancia de `HttpMessageHandler` del grupo al crear una instancia de `HttpClient` si su duración aún no ha expirado. 
+Cada vez que se llama a `CreateClient` en `IHttpClientFactory`, se devuelve una nueva instancia de `HttpClient`. Habrá un [HttpMessageHandler](/dotnet/api/system.net.http.httpmessagehandler) por cada cliente con nombre. `IHttpClientFactory` agrupa las instancias de `HttpMessageHandler` creadas por Factory para reducir el consumo de recursos. Se puede reutilizar una instancia de `HttpMessageHandler` del grupo al crear una instancia de `HttpClient` si su duración aún no ha expirado.
 
-La agrupación de controladores es conveniente porque cada controlador suele administrar sus propias conexiones HTTP subyacentes. Crear más controladores de lo necesario puede provocar retrasos en la conexión. Además, algunos controladores dejan las conexiones abiertas de forma indefinida, lo que puede ser un obstáculo a la hora de reaccionar ante los cambios de DNS.
+Se recomienda agrupar controladores porque cada uno de ellos normalmente administra sus propias conexiones HTTP subyacentes. Crear más controladores de los necesarios puede provocar retrasos en la conexión. Además, algunos controladores dejan las conexiones abiertas de forma indefinida, lo que puede ser un obstáculo a la hora de reaccionar ante los cambios de DNS.
 
-La duración de controlador predeterminada es dos minutos. El valor predeterminado se puede reemplazar individualmente en cada cliente con nombre. Para ello, llame a `SetHandlerLifetime` en el `IHttpClientBuilder` que se devuelve cuando se crea el cliente:
+La duración de controlador predeterminada es dos minutos. El valor predeterminado se puede reemplazar individualmente en cada cliente con nombre. Para ello, llame a [SetHandlerLifetime](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.sethandlerlifetime) en la interfaz `IHttpClientBuilder` que se devuelve cuando se crea el cliente:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet11)]
 
+No hace falta eliminar el cliente, ya que se cancelan las solicitudes salientes y la instancia de `HttpClient` determinada no se puede usar después de llamar a [Dispose](/dotnet/api/system.idisposable.dispose#System_IDisposable_Dispose). `IHttpClientFactory` realiza un seguimiento y elimina los recursos que usan las instancias de `HttpClient`. Normalmente, las instancias de `HttpClient` pueden tratarse como objetos de .NET que no requieren eliminación.
+
+Mantener una sola instancia de `HttpClient` activa durante un período prolongado es un patrón común que se utiliza antes de la concepción de `IHttpClientFactory`. Este patrón se convierte en innecesario tras la migración a `IHttpClientFactory`.
+
 ## <a name="logging"></a>Registro
 
-Los clientes que se han creado a través de `IHttpClientFactory` registran mensajes de registro de todas las solicitudes. Deberá habilitar el nivel de información adecuado en la configuración del registro para ver los mensajes de registro predeterminados. El registro de más información, como el registro de encabezados de solicitud, solo se incluye en el nivel de seguimiento.
+Los clientes que se han creado a través de `IHttpClientFactory` registran mensajes de registro de todas las solicitudes. Habilite el nivel de información adecuado en la configuración del registro para ver los mensajes de registro predeterminados. El registro de más información, como el registro de encabezados de solicitud, solo se incluye en el nivel de seguimiento.
 
-La categoría de registro usada en cada cliente incluye el nombre del cliente. Así, por ejemplo, un cliente llamado "MyNamedClient" registra mensajes con una categoría `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler`. Los mensajes con el sufijo "LogicalHandler" se producen fuera de la canalización de controlador de la solicitud. En la solicitud, los mensajes se registran antes de que cualquier otro controlador de la canalización haya procesado la solicitud. En la respuesta, los mensajes se registran después de que cualquier otro controlador de la canalización haya recibido la respuesta.
+La categoría de registro usada en cada cliente incluye el nombre del cliente. Así, por ejemplo, un cliente llamado *MyNamedClient* registra mensajes con una categoría `System.Net.Http.HttpClient.MyNamedClient.LogicalHandler`. Los mensajes con el sufijo *LogicalHandler* se producen fuera de la canalización de controlador de la solicitud. En la solicitud, los mensajes se registran antes de que cualquier otro controlador de la canalización haya procesado la solicitud. En la respuesta, los mensajes se registran después de que cualquier otro controlador de la canalización haya recibido la respuesta.
 
-El registro también se produce dentro de la canalización de controlador de la solicitud. En nuestro caso de ejemplo de "MyNamedClient", esos mensajes se registran en la categoría de registro `System.Net.Http.HttpClient.MyNamedClient.ClientHandler`. En la solicitud, esto tiene lugar después de que todos los demás controladores se hayan ejecutado y justo antes de que la solicitud se envíe por la red. En la respuesta, este registro incluye el estado de la respuesta antes de que vuelva a pasar por la canalización del controlador.
+El registro también se produce dentro de la canalización de controlador de la solicitud. En nuestro caso de ejemplo de *MyNamedClient*, esos mensajes se registran en la categoría de registro `System.Net.Http.HttpClient.MyNamedClient.ClientHandler`. En la solicitud, esto tiene lugar después de que todos los demás controladores se hayan ejecutado y justo antes de que la solicitud se envíe por la red. En la respuesta, este registro incluye el estado de la respuesta antes de que vuelva a pasar por la canalización del controlador.
 
-Si se habilita el registro tanto dentro como fuera de la canalización, se podrán inspeccionar los cambios realizados por otros controladores de la canalización. Esto puede englobar cambios, por ejemplo, en los encabezados de solicitud o en el código de estado de la respuesta.
+Al habilitar el registro tanto dentro como fuera de la canalización, se podrán inspeccionar los cambios realizados por otros controladores de la canalización. Esto puede englobar cambios, por ejemplo, en los encabezados de solicitud o en el código de estado de la respuesta.
 
 Si el nombre del cliente se incluye en la categoría de registro, dicho registro se podrá filtrar para encontrar clientes con nombre específicos cuando sea necesario.
 
@@ -245,6 +249,6 @@ Si el nombre del cliente se incluye en la categoría de registro, dicho registro
 
 Puede que sea necesario controlar la configuración del elemento `HttpMessageHandler` interno usado por un cliente.
 
-Se devuelve un `IHttpClientBuilder` cuando se agregan clientes con nombre o con tipo. Se puede usar el método de extensión `ConfigurePrimaryHttpMessageHandler` para definir un delegado. Este delegado servirá para crear y configurar el elemento principal `HttpMessageHandler` que ese cliente usa:
+Se devuelve un `IHttpClientBuilder` cuando se agregan clientes con nombre o con tipo. El método de extensión [ConfigurePrimaryHttpMessageHandler](/dotnet/api/microsoft.extensions.dependencyinjection.httpclientbuilderextensions.configureprimaryhttpmessagehandler) puede utilizarse para definir un delegado. Este delegado servirá para crear y configurar el elemento principal `HttpMessageHandler` que ese cliente usa:
 
 [!code-csharp[Main](http-requests/samples/Startup.cs?name=snippet12)]
