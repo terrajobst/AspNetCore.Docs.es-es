@@ -6,7 +6,7 @@ En esta sección se agregará lógica de validación al modelo `Movie` y se aseg
 
 ## <a name="keeping-things-dry"></a>Respetar el principio DRY
 
-Uno de los principios de diseño de MVC es [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("Una vez y solo una"). ASP.NET MVC le anima a que especifique la función o el comportamiento una sola vez y luego lo refleje en el resto de la aplicación. Esto reduce la cantidad de código que necesita escribir y hace que el código que escribe sea menos propenso a errores, así como más fácil probar y de mantener.
+Uno de los principios de diseño de MVC es [DRY](https://wikipedia.org/wiki/Don%27t_repeat_yourself) ("Una vez y solo una"). ASP.NET Core MVC le anima a que especifique la funcionalidad o el comportamiento una sola vez y a que luego los refleje en el resto de la aplicación. Esto reduce la cantidad de código que necesita escribir y hace que el código que escribe sea menos propenso a errores, así como más fácil probar y de mantener.
 
 La compatibilidad de validación proporcionada por MVC y Entity Framework Core Code First es un buen ejemplo del principio DRY. Puede especificar las reglas de validación mediante declaración en un lugar (en la clase del modelo) y las reglas se aplican en toda la aplicación.
 
@@ -25,7 +25,7 @@ Actualice la clase `Movie` para aprovechar los atributos de validación integrad
 
 Los atributos de validación especifican el comportamiento que quiere aplicar en las propiedades del modelo al que se aplican. Los atributos `Required` y `MinimumLength` indican que una propiedad debe tener un valor, pero nada evita que un usuario escriba espacios en blanco para satisfacer esta validación. El atributo `RegularExpression` se usa para limitar los caracteres que se pueden escribir. En el código anterior, `Genre` y `Rating` solo pueden usar letras (no se permiten mayúsculas iniciales, espacios en blanco, números ni caracteres especiales). El atributo `Range` restringe un valor a un intervalo determinado. El atributo `StringLength` permite establecer la longitud máxima de una propiedad de cadena y, opcionalmente, su longitud mínima. Los tipos de valor (como `decimal`, `int`, `float`, `DateTime`) son intrínsecamente necesarios y no necesitan el atributo `[Required]`.
 
-Cuando ASP.NET aplica automáticamente reglas de validación, logramos que la aplicación sea más sólida. También nos permite asegurarnos de que todo se valida y que no nos dejamos ningún dato incorrecto en la base de datos accidentalmente.
+El que ASP.NET Core aplique automáticamente las reglas de validación ayuda a que su aplicación sea más sólida. También nos permite asegurarnos de que todo se valida y que no nos dejamos ningún dato incorrecto en la base de datos accidentalmente.
 
 ## <a name="validation-error-ui-in-mvc"></a>Interfaz de usuario de error de validación en MVC
 

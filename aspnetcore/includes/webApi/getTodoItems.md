@@ -6,7 +6,12 @@ El código anterior define una clase de controlador de API sin métodos. En las 
 ::: moniker range=">= aspnetcore-2.1"
 [!code-csharp[](../../tutorials/first-web-api/samples/2.1/TodoApi/Controllers/TodoController2.cs?name=snippet_todo1)]
 
-El código anterior define una clase de controlador de API sin métodos. En las secciones siguientes, se agregan métodos para implementar la API. La clase se anota con un atributo `[ApiController]` para habilitar algunas características muy prácticas. Para más información sobre las características que el atributo habilita, vea [Anotación de una clase con ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
+El código anterior:
+
+* Define una clase de controlador de API sin métodos.
+* Crea una tarea pendiente cuando `TodoItems` está vacío. No podrá eliminar todas las tareas pendientes porque el constructor crea una si `TodoItems` está vacío.
+
+En las secciones siguientes, se agregan métodos para implementar la API. La clase se anota con un atributo `[ApiController]` para habilitar algunas características muy prácticas. Para más información sobre las características que el atributo habilita, vea [Anotación de una clase con ApiControllerAttribute](xref:web-api/index#annotate-class-with-apicontrollerattribute).
 ::: moniker-end
 
 El constructor del controlador usa la [inserción de dependencias](xref:fundamentals/dependency-injection) para insertar el contexto de base de datos (`TodoContext`) en el controlador. El contexto de base de datos se usa en cada uno de los métodos [CRUD](https://wikipedia.org/wiki/Create,_read,_update_and_delete) del controlador. El constructor agrega un elemento a la base de datos en memoria si no existe ninguno.
