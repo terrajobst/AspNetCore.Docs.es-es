@@ -3,17 +3,17 @@ uid: web-api/overview/releases/whats-new-in-aspnet-web-api-21
 title: Novedades de ASP.NET Web API 2.1 | Microsoft Docs
 author: microsoft
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2014
 ms.assetid: b6721bba-38c8-48c4-acbf-274c1a34e817
 msc.legacyurl: /web-api/overview/releases/whats-new-in-aspnet-web-api-21
 msc.type: authoredcontent
-ms.openlocfilehash: 7952614456b1de24e4c618b9e7ba8448b2a01741
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6c5a73b95955663d76238e88009ca700f9ace010
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838408"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828399"
 ---
 <a name="whats-new-in-aspnet-web-api-21"></a>Novedades de ASP.NET Web API 2.1
 ====================

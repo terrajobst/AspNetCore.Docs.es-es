@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/visual-studio-editor/javascript-debugging-in-vis
 title: Depuración de JavaScript en Visual Studio 2008 | Microsoft Docs
 author: JoeStagner
 description: Uso de una aplicación web existente, le mostraré cómo usar Visual Studio 2008 para depurar JavaScript en una aplicación web.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: 8b726bc6-b718-43a8-b019-7ea7f26944ca
 msc.legacyurl: /web-forms/videos/aspnet-35/visual-studio-editor/javascript-debugging-in-visual-studio-2008
 msc.type: video
-ms.openlocfilehash: e9ef2e28bf9ac928528cb79a5b8bee3038dbc49f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e0aafceb7e001c2195d7a29384b08b472246908a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813804"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828356"
 ---
 <a name="javascript-debugging-in-visual-studio-2008"></a>Depuración de JavaScript en Visual Studio 2008
 ====================

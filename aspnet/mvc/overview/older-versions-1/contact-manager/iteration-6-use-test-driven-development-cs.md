@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-d
 title: 'Iteración #6: usar el desarrollo controlado por pruebas (C#) | Microsoft Docs'
 author: microsoft
 description: En esta iteración sexta, se agregan nuevas funciones a nuestra aplicación escribir pruebas unitarias en primer lugar y escribir código en las pruebas unitarias. En esta iteración,...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: 013c3c26-7dc3-41d1-8064-f233c86008b5
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 4e07b23931d487ba3875bd96606b8329d84485cf
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 3c4358a1b979ab95d8ac25551e21ee95d75e5eae
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39395992"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828419"
 ---
 <a name="iteration-6--use-test-driven-development-c"></a>Iteración #6: usar el desarrollo controlado por pruebas (C#)
 ====================

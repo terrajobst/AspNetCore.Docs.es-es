@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/implement-infinite-data-patterns-in-ajax
 title: Implementar modelos de datos infinitos en AJAX | Microsoft Docs
 author: JoeStagner
 description: En este vídeo mostraré cómo implementar lo que me refiero a que el patrón de datos infinitos de AJAX.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/10/2008
 ms.assetid: 5e18f005-8b3d-4b9a-866c-c567874aa826
 msc.legacyurl: /web-forms/videos/aspnet-ajax/implement-infinite-data-patterns-in-ajax
 msc.type: video
-ms.openlocfilehash: 5c9c03792801c85b9687674bcfe99f3a0860ad33
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b2e282d88e677e283896a90df98152f26c43f637
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818863"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835697"
 ---
 <a name="implement-infinite-data-patterns-in-ajax"></a>Implementar modelos de datos infinitos en AJAX
 ====================

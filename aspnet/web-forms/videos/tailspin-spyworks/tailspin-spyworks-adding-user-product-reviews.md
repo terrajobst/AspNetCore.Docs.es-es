@@ -3,17 +3,17 @@ uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-user-product-re
 title: Tailspin Spyworks - agregar reseñas de productos de usuario | Microsoft Docs
 author: JoeStagner
 description: Joe Stagner agrega las revisiones de los clientes a la página de detalles del producto en la aplicación de formularios Web Forms de ejemplo Tailspin Spyworks.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: b2e8c3af-7dcf-432b-b01b-4740bcb00897
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-adding-user-product-reviews
 msc.type: video
-ms.openlocfilehash: b933c04b87fb831120e098fa254c4b115299ad52
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9bae0c07a5030085d783c6196a84f0ab4fd6443f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825248"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835706"
 ---
 <a name="tailspin-spyworks---adding-user-product-reviews"></a>Tailspin Spyworks - agregar reseñas de productos de usuario
 ====================

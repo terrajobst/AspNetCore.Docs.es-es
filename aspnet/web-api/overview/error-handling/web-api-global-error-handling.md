@@ -3,17 +3,17 @@ uid: web-api/overview/error-handling/web-api-global-error-handling
 title: Global Error Handling in ASP.NET Web API 2 | Microsoft Docs
 author: davidmatson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/03/2014
 ms.assetid: bffd7863-f63b-4b23-a13c-372b5492e9fb
 msc.legacyurl: /web-api/overview/error-handling/web-api-global-error-handling
 msc.type: authoredcontent
-ms.openlocfilehash: d1d1a081713da0771981229db8e8bd67a5103bf9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a52c2a1589327421b7f498ff551145676c80e3e8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815871"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828440"
 ---
 <a name="global-error-handling-in-aspnet-web-api-2"></a>Global Error Handling in ASP.NET Web API 2
 ====================

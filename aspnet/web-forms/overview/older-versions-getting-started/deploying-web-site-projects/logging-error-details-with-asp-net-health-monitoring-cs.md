@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Registrar detalles de Error con el estado de ASP.NET de supervisión (C#) | Microsoft Docs
 author: rick-anderson
 description: Sistema de supervisión de estado de Microsoft proporciona una manera fácil y personalizable para iniciar varios eventos de web, incluidos las excepciones no controladas. Este tutorial le guía acc...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: b1abb452-642a-4ff3-8504-37b85590ff79
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/logging-error-details-with-asp-net-health-monitoring-cs
 msc.type: authoredcontent
-ms.openlocfilehash: bd6b89f63c6d0634e6d6b809d8285b9870485c43
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 32f78927ae3e3f90392fea5968a035ab30c423ac
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842648"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828221"
 ---
 <a name="logging-error-details-with-aspnet-health-monitoring-c"></a>Registrar detalles de Error con el estado de ASP.NET de supervisión (C#)
 ====================

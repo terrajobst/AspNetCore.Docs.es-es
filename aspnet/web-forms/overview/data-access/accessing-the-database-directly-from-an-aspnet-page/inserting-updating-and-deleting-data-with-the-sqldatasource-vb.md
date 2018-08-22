@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspn
 title: Insertar, actualizar y eliminar datos con SqlDataSource (VB) | Microsoft Docs
 author: rick-anderson
 description: En los tutoriales anteriores, hemos aprendido cómo permitir que el control ObjectDataSource de inserción, actualización y eliminación de datos. El control SqlDataSource admite t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: 9673bef3-892c-45ba-a7d8-0da3d6f48ec5
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/inserting-updating-and-deleting-data-with-the-sqldatasource-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6914f0f30702f2943ed60ee6ec48bfac57fa90d5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3124d53bad0040938c6a1090971ceecdf8c92333
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835685"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828456"
 ---
 <a name="inserting-updating-and-deleting-data-with-the-sqldatasource-vb"></a>Insertar, actualizar y eliminar datos con SqlDataSource (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-col
 title: Agregar una columna GridView de casillas de verificación (C#) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial explica cómo agregar una columna de casillas de verificación a un control GridView para proporcionar al usuario una manera intuitiva de la selección de varias filas de la G...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2007
 ms.assetid: f63a9443-2db0-4f80-8246-840d3e86c2a3
 msc.legacyurl: /web-forms/overview/data-access/enhancing-the-gridview/adding-a-gridview-column-of-checkboxes-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 481ae436ef644bcc4d5a13d060ed87671cfcb4dc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1921ceeb33197299f3cedb0eef082af0fd8fa960
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814800"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835903"
 ---
 <a name="adding-a-gridview-column-of-checkboxes-c"></a>Agregar una columna GridView de casillas de verificación (C#)
 ====================

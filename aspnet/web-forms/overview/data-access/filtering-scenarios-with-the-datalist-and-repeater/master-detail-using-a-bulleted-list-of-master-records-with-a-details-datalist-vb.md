@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-re
 title: Maestro y detalles mediante una lista con viñetas de registros maestros con un control DataList de detalles (VB) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial se comprimirán el informe de dos páginas maestro y detalles del tutorial anterior en una sola página, que muestra una lista con viñetas de nombres de categoría en t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2006
 ms.assetid: ee20742f-6fb7-49a0-a009-058fe363aacb
 msc.legacyurl: /web-forms/overview/data-access/filtering-scenarios-with-the-datalist-and-repeater/master-detail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 90629046869460869d6c85e179980811b7bede51
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3a10d6e5f60efad1f88c5acc8371a24dbf8d2cb7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841997"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41839104"
 ---
 <a name="masterdetail-using-a-bulleted-list-of-master-records-with-a-details-datalist-vb"></a>Maestro y detalles mediante una lista con viñetas de registros maestros con un control DataList de detalles (VB)
 ====================

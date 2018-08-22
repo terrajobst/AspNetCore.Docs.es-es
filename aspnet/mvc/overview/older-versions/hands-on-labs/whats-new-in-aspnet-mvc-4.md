@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 title: Novedades de ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 4 es un marco para crear aplicaciones web escalable y basada en estándares con los patrones de diseño bien establecido y la eficacia de ASP.NET y...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 48f7feb3-872f-485d-b96f-e30011ff8c4a
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/whats-new-in-aspnet-mvc-4
 msc.type: authoredcontent
-ms.openlocfilehash: 718a31de3d2d60788ba4affb0463a4ae871ef89a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b1d80928d765bc71ea1579272662b6697371c47b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805355"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835935"
 ---
 # <a name="whats-new-in-aspnet-mvc-4"></a>Novedades de ASP.NET MVC 4
 

@@ -3,17 +3,17 @@ uid: web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-textboxw
 title: '[¿Cómo lo hago?:] ¿Usar el extensor de Control TextBoxWatermark ASP.NET AJAX? | Microsoft Docs'
 author: JoeStagner
 description: En este vídeo aprenderá a usar el extensor de control TextBoxWatermark de ASP.NET AJAX Control Toolkit, que agrega nuevas propiedades de marca de agua a un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/26/2007
 ms.assetid: a43d175e-7526-4dd9-b8ed-9348c3c3dd39
 msc.legacyurl: /web-forms/videos/ajax-control-toolkit/how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender
 msc.type: video
-ms.openlocfilehash: 7475da83fceb892550872d20a49e46a3051f5765
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 03b9da9c61784b864b1cb452569cb09742bbcf39
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808358"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828406"
 ---
 <a name="how-do-i-use-the-aspnet-ajax-textboxwatermark-control-extender"></a>[¿Cómo lo hago?:] ¿Usar el extensor de Control TextBoxWatermark ASP.NET AJAX?
 ====================

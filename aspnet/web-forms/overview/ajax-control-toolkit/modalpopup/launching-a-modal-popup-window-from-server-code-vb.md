@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-
 title: Iniciar una ventana emergente Modal desde el código de servidor (VB) | Microsoft Docs
 author: wenz
 description: El control ModalPopup de AJAX Control Toolkit ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Sin embargo, algunos escenarios requieren que t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 36ca81d7-906d-4db2-952b-add18a4ff421
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/launching-a-modal-popup-window-from-server-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 52eec262a9241aa7b11cbb892bdf2142c7a2b83a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 79c7281032d8b36d0e4f4b62dcbbad2ab5ebbb77
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822773"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828441"
 ---
 <a name="launching-a-modal-popup-window-from-server-code-vb"></a>Iniciar una ventana emergente Modal desde el código de servidor (VB)
 ====================

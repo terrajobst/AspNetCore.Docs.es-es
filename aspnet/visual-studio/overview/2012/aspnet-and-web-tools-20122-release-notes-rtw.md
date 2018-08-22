@@ -3,17 +3,17 @@ uid: visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 title: ASP.NET y Web Tools 2012.2 notas de la versión | Microsoft Docs
 author: rick-anderson
 description: Notas de la versión de ASP.NET y Web Tools 2012.2.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/14/2013
 ms.assetid: 9534e58b-1d15-4f1d-b04c-10c79b9d8227
 msc.legacyurl: /visual-studio/overview/2012/aspnet-and-web-tools-20122-release-notes-rtw
 msc.type: content
-ms.openlocfilehash: 607c6ae81f21feda16fecd8c676c289bf49a5dbb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0566a362b36f6cfb73b6479cd490e82c63455459
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817361"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828454"
 ---
 <a name="aspnet-and-web-tools-20122-release-notes"></a>Notas de versión ASP.NET y Web Tools 2012.2
 ====================

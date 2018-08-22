@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/accessing-your-models-data-from-a
 title: Acceso a los datos del modelo desde un controlador | Microsoft Docs
 author: Rick-Anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: caa1ba4a-f9f0-4181-ba21-042e3997861d
 msc.legacyurl: /mvc/overview/getting-started/introduction/accessing-your-models-data-from-a-controller
 msc.type: authoredcontent
-ms.openlocfilehash: a3f3f4a030650ff65b070528c5efa1605be764a0
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 16f4a61d048e90b7962f038e90e0721883726c44
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38120158"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835939"
 ---
 <a name="accessing-your-models-data-from-a-controller"></a>Acceso a los datos del modelo desde un controlador
 ====================

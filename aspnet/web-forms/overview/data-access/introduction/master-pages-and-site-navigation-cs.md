@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/introduction/master-pages-and-site-navigatio
 title: Páginas maestras y navegación del sitio (C#) | Microsoft Docs
 author: rick-anderson
 description: Una característica común de sitios Web fácil de usar es que tienen un esquema de diseño y la navegación de página coherente en todo el sitio. Este tutorial examina cómo y...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 5aee8202-a4e3-4aa9-8a95-cd5d156cea4c
 msc.legacyurl: /web-forms/overview/data-access/introduction/master-pages-and-site-navigation-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0ad86398122f3a47721bda689b7f5afc706047bc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d9ae2fb5a79817053a260e7d0f85992a011f471b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816501"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835966"
 ---
 <a name="master-pages-and-site-navigation-c"></a>Páginas maestras y navegación del sitio (C#)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding
 title: Descripción de las actualizaciones parciales de página con ASP.NET AJAX | Microsoft Docs
 author: scottcate
 description: Quizás la característica más visible de ASP.NET AJAX Extensions es la capacidad para realizar las actualizaciones de una página parcial o incremental sin tener que realizar una devolución completa a t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/28/2008
 ms.assetid: 54d9df99-1161-4899-b4e8-2679c85915e7
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-partial-page-updates-with-asp-net-ajax
 msc.type: authoredcontent
-ms.openlocfilehash: 8ec4df5ffeaab4490eaea0f0093d543d517bd5f4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2e0b1e1d4cbb282e7fd4b27e0a93ba1b9702edea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805277"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41839208"
 ---
 <a name="understanding-partial-page-updates-with-aspnet-ajax"></a>Descripción de página parcial se actualiza con ASP.NET AJAX
 ====================
@@ -146,7 +146,7 @@ Descendientes de marcado:
 | --- | --- |
 | &lt;AuthenticationService&gt; | Proporciona detalles sobre el proxy al servicio de autenticación de ASP.NET. |
 | &lt;ProfileService&gt; | Proporciona detalles sobre el proxy para el servicio de generación de perfiles de ASP.NET. |
-| &lt;Secuencias de comandos&gt; | Proporciona las referencias de script adicionales. |
+| &lt;Scripts&gt; | Proporciona las referencias de script adicionales. |
 | &lt;ASP: ScriptReference&gt; | Denota una referencia de script específicos. |
 | &lt;Servicio&gt; | Proporciona las referencias de servicio Web adicionales que tendrán las clases de proxy generadas. |
 | &lt;ASP: ServiceReference&gt; | Denota una referencia de servicio Web específica. |
