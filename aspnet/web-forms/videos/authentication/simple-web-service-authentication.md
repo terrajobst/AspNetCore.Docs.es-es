@@ -3,17 +3,17 @@ uid: web-forms/videos/authentication/simple-web-service-authentication
 title: Autenticación del servicio Web simple | Microsoft Docs
 author: JoeStagner
 description: En este vídeo, Joe Stagner muestra distintos mecanismos que se pueden agregar a una aplicación ASP.NET para restringir el acceso no autorizado a los servicios web ASMX...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/16/2010
 ms.assetid: 3b186578-16be-4e4f-a296-233df0381411
 msc.legacyurl: /web-forms/videos/authentication/simple-web-service-authentication
 msc.type: video
-ms.openlocfilehash: 4f14bbc0cc2dd6dbd6f6af8aad15d1aab91c1341
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: acb474fd060046c5ce9ff55717f2ef8c0760ca33
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814709"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828133"
 ---
 <a name="simple-web-service-authentication"></a>Autenticación del servicio Web simple
 ====================

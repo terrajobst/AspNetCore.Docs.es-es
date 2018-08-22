@@ -3,17 +3,17 @@ uid: web-forms/videos/tailspin-spyworks/tailspin-spyworks-displaying-user-review
 title: Tailspin Spyworks - mostrar las revisiones de usuario | Microsoft Docs
 author: JoeStagner
 description: Joe Stagner muestra las revisiones de los clientes en la aplicación de formularios Web Forms de ejemplo Tailspin Spyworks.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 55d5652a-bcf3-451e-89e4-8b907d88708f
 msc.legacyurl: /web-forms/videos/tailspin-spyworks/tailspin-spyworks-displaying-user-reviews
 msc.type: video
-ms.openlocfilehash: 105829c75da0fac31017ccaa5e9c5632861625ce
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d6d55140dd852e596e0dfc245332e8f4c03d1d43
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808083"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827934"
 ---
 <a name="tailspin-spyworks---displaying-user-reviews"></a>Tailspin Spyworks - mostrar las revisiones de usuario
 ====================

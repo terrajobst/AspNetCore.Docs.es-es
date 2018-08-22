@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: 'Escenario: Configurar un entorno de producción para la implementación Web | Microsoft Docs'
 author: jrjlee
 description: En este tema se describe un escenario de implementación web típica para un entorno de producción y se explica las tareas que necesita para completar con el fin de configurar un proceso similar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 2e861511-450e-4752-a61e-4a01933f9b6e
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/scenario-configuring-a-production-environment-for-web-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: dc16b2fadec8051f78d13ffeb97abf2d9e6930f5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3627d18e1b102c574726282780239464be04c04b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806718"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828149"
 ---
 <a name="scenario-configuring-a-production-environment-for-web-deployment"></a>Escenario: Configurar un entorno de producción para la implementación Web
 ====================

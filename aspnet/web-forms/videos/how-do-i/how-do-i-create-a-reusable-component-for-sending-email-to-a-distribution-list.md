@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-
 title: '[¿Cómo lo hago?:] Crear un componente reutilizable para enviar correo electrónico a una lista de distribución | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo Chris Pels muestra cómo crear un componente que se puede usar en varias páginas web y sitios web que envía mensajes de correo electrónico a una lista de destinatarios. Primera persona...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/04/2008
 ms.assetid: 13dd3a26-c210-432e-91fe-355c979060b3
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list
 msc.type: video
-ms.openlocfilehash: 71bed3d232703bbab0fd12414985a56f69af05f5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 70ec234f3c610027dd14995917b2757f4b8a63c5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812719"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838443"
 ---
 <a name="how-do-i-create-a-reusable-component-for-sending-email-to-a-distribution-list"></a>[¿Cómo lo hago?:] Crear un componente reutilizable para enviar correo electrónico a una lista de distribución
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/implemen
 title: Implementar la simultaneidad optimista (C#) | Microsoft Docs
 author: rick-anderson
 description: Para una aplicación web que permite que varios usuarios editar datos, existe el riesgo que dos usuarios pueden estar editando los mismos datos al mismo tiempo. En este tutori...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 56e15b33-93b8-43ad-8e19-44c6647ea05c
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/implementing-optimistic-concurrency-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9013eab1082c27aac3b561f9507842edc77c7da3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 700770946caa68fca2b3101dd91a683d10aae052
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824453"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828342"
 ---
 <a name="implementing-optimistic-concurrency-c"></a>Implementar la simultaneidad optimista (C#)
 ====================

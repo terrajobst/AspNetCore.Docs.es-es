@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/mvc-learning-sequence
 title: Artículos y tutoriales recomendados de MVC | Microsoft Docs
 author: Rick-Anderson
 description: Esta página contiene vínculos a tutoriales de ASP.NET MVC y una secuencia sugerida mantengan con ellos.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/22/2015
 ms.assetid: 8513a57a-2d45-4d6b-881c-15a01c5cbb1c
 msc.legacyurl: /mvc/overview/getting-started/mvc-learning-sequence
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9431123ea670b87949ed756aaf8e6d80011bc5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9ebe068cac7c4afaf223c948936afb66d6130fb1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37827021"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838436"
 ---
 <a name="mvc-recommended-tutorials-and-articles"></a>Artículos y tutoriales recomendados de MVC
 ====================

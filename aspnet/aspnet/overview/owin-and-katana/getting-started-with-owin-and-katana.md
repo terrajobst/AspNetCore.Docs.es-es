@@ -3,17 +3,17 @@ uid: aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 title: Introducción a OWIN y Katana | Microsoft Docs
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/27/2013
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 58a3d234867821d5e23cce2f01e105dfab88ac33
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f400ec887bdee123084f582d18016fb5ed3f2165
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826671"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829620"
 ---
 <a name="getting-started-with-owin-and-katana"></a>Introducción a OWIN y Katana
 ====================
@@ -105,6 +105,7 @@ Ahora utilice CTRL + F5 para ejecutar la aplicación sin depuración, para que V
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Detección de la clase de inicio OWIN](owin-startup-class-detection.md)
+- 
+  [Detección de la clase de inicio OWIN](owin-startup-class-detection.md)
 - [Use OWIN para autohospedaje de ASP.NET Web API](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [Use OWIN para autohospedaje de SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

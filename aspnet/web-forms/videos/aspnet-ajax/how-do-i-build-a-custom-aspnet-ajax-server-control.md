@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-build-a-custom-aspnet-ajax-server-con
 title: '[¿Cómo lo hago?:] ¿Crear un Control de servidor personalizados de ASP.NET AJAX? | Microsoft Docs'
 author: rick-anderson
 description: Obtenga información sobre cómo crear un control de servidor Web personalizado con funcionalidad de AJAX de ASP.NET mediante las extensiones de AJAX de Microsoft AJAX Library. Este vídeo le...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/25/2007
 ms.assetid: 1165e0b4-2240-4dc2-aa94-ef6664c71a8c
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-build-a-custom-aspnet-ajax-server-control
 msc.type: video
-ms.openlocfilehash: 06a95297fa3f9d8a581267e0604cbf2880429a85
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ae685bc2b8a236729f86ead591874421e92a642a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828506"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838133"
 ---
 <a name="how-do-i-build-a-custom-aspnet-ajax-server-control"></a>[¿Cómo lo hago?:] ¿Crear un Control de servidor personalizados de ASP.NET AJAX?
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and
 title: Compilar y empaquetar proyectos de aplicación Web | Microsoft Docs
 author: jrjlee
 description: Cuando desea implementar un proyecto de aplicación web en un entorno de servidor remoto, la primera tarea consiste en compilar el proyecto y generar una implementación de web paquetes?...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 94e92f80-a7e3-4d18-9375-ff8be5d666ac
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/building-and-packaging-web-application-projects
 msc.type: authoredcontent
-ms.openlocfilehash: b5342443fefd712aa95ac08a8edf708d55253816
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 406b8e6daf47196eb98700efe41e34c02d5682d3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810522"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827939"
 ---
 <a name="building-and-packaging-web-application-projects"></a>Compilar y empaquetar proyectos de aplicación Web
 ====================

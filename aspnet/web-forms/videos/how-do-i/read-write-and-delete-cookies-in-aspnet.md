@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/read-write-and-delete-cookies-in-aspnet
 title: Leer, escribir y eliminar las Cookies en ASP.NET | Microsoft Docs
 author: rick-anderson
 description: En este vídeo Chris Pels mostrará cómo leer, escribir y eliminar las cookies en una aplicación ASP.NET. En primer lugar, obtenga información sobre las operaciones básicas para manipular cooki...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/10/2008
 ms.assetid: 228b575b-8bf9-4c1a-b8e9-1a878861a6b3
 msc.legacyurl: /web-forms/videos/how-do-i/read-write-and-delete-cookies-in-aspnet
 msc.type: video
-ms.openlocfilehash: c24d1a8d34172cc718783eab4eb78a9d2c09aa48
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 092d8fbc8452d4501ede22c4805edc884fceae27
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822226"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827520"
 ---
 <a name="read-write-and-delete-cookies-in-aspnet"></a>Leer, escribir y eliminar las Cookies en ASP.NET
 ====================

@@ -3,17 +3,17 @@ uid: web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshoo
 title: Guía de solución de problemas (Razor) de ASP.NET Web Pages | Microsoft Docs
 author: tfitzmac
 description: En este artículo se describe problemas que podría tener cuando se trabaja con ASP.NET Web Pages (Razor) y algunas soluciones sugeridas. Versiones de software ASP.NET Web Pag...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: 2a2c1833-0bfe-4e2e-9cc0-341b52c7b121
 msc.legacyurl: /web-pages/overview/testing-and-debugging/aspnet-web-pages-razor-troubleshooting-guide
 msc.type: authoredcontent
-ms.openlocfilehash: 0d0e47ce1b52f0e9ac23a44bbd37ac1a38290dbd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c27139a720decd34a4ab89e6f93e71c97d123b45
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825168"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827744"
 ---
 <a name="aspnet-web-pages-razor-troubleshooting-guide"></a>Guía de solución de problemas (Razor) de ASP.NET Web Pages
 ====================

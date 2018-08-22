@@ -3,17 +3,17 @@ uid: web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-appl
 title: Llamar a API Web desde un Windows Phone 8 aplicación (C#) | Microsoft Docs
 author: rmcmurray
 description: Crear un escenario de extremo a otro completo que consta de una aplicación de ASP.NET Web API que proporciona un catálogo de libros a una aplicación de Windows Phone 8.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/09/2013
 ms.assetid: b9775f41-352a-4f82-baa6-23e95b342e20
 msc.legacyurl: /web-api/overview/mobile-clients/calling-web-api-from-a-windows-phone-8-application
 msc.type: authoredcontent
-ms.openlocfilehash: 6b7a833818424cbf3a3bf9e1e14e5b2864742c38
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ca2b5f41f6c3bd38faacd1e15c4dee6f6210aff7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805047"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827538"
 ---
 <a name="calling-web-api-from-a-windows-phone-8-application-c"></a>Llamar a API Web desde una aplicación de Windows Phone 8 (C#)
 ====================

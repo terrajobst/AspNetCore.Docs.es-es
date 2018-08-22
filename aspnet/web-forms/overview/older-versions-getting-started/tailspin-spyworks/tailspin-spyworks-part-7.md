@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspi
 title: 'Parte 7: Incorporación de características | Microsoft Docs'
 author: JoeStagner
 description: Esta serie de tutoriales detalla todos los pasos que se tarda en compilar la aplicación de ejemplo Tailspin Spyworks. Parte 7 agrega características adicionales, como revisa cuenta...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 50223ee9-11b9-4cf3-bca2-e2f10bf471f3
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-7
 msc.type: authoredcontent
-ms.openlocfilehash: 47402ccdfb702dc1bb1bdb4e634a7cd6f5ebc235
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cada8d9aee649e4f2a5afc1ca2b46863ea458207
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831653"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827943"
 ---
 <a name="part-7-adding-features"></a>Parte 7: Agregar características
 ====================

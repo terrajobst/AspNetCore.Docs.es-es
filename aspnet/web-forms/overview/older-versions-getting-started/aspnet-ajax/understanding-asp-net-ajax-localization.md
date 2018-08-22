@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding
 title: Descripción de localización de AJAX de ASP.NET | Microsoft Docs
 author: scottcate
 description: La localización es el proceso de diseño y la integración de soporte técnico para un idioma específico y la referencia cultural en una aplicación o un componente de aplicación. El Mic...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/14/2008
 ms.assetid: c1a35f18-bab9-41f7-8497-15530c37a09d
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/aspnet-ajax/understanding-asp-net-ajax-localization
 msc.type: authoredcontent
-ms.openlocfilehash: ce6404ce4faa1018a4f8118f6167a4f93956abd3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 86cbf150708f1db711b40ccbc25345afeb3e542a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815017"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835382"
 ---
 <a name="understanding-aspnet-ajax-localization"></a>Descripción de localización de AJAX de ASP.NET
 ====================

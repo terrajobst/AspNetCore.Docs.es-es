@@ -3,17 +3,17 @@ uid: web-forms/overview/presenting-and-managing-data/model-binding/retrieving-da
 title: Recuperar y mostrar datos con formularios web y el enlace de modelos | Microsoft Docs
 author: tfitzmac
 description: Esta serie de tutoriales muestra los aspectos básicos del uso de enlace de modelos con un proyecto de formularios Web Forms de ASP.NET. Enlace de modelos permite interactuar con los datos más sencilla de...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 9f24fb82-c7ac-48da-b8e2-51b3da17e365
 msc.legacyurl: /web-forms/overview/presenting-and-managing-data/model-binding/retrieving-data
 msc.type: authoredcontent
-ms.openlocfilehash: 8153642762cf7032f335d21c8c67eac9b52ed2f8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c04e4c94378c8143c919e83af90312dd003b8c84
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823928"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835384"
 ---
 <a name="retrieving-and-displaying-data-with-model-binding-and-web-forms"></a>Recuperar y mostrar datos con enlace de modelos y formularios web forms
 ====================
