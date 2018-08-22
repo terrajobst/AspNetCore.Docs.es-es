@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-conten
 title: Agregar contenido dinámico a una página almacenada en caché (C#) | Microsoft Docs
 author: microsoft
 description: Obtenga información sobre cómo mezclar contenido dinámico y almacenado en caché en la misma página. La substitución posterior a la caché le permite mostrar contenido dinámico, como o los anuncios de pancarta...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 2ddd4407-d143-4a94-877c-21771bfb97a6
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/adding-dynamic-content-to-a-cached-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 5c6d5a223a465a00a08f58a188a16cbf3c310431
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a03f943b936c68215d65dca92e62431642226993
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805586"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827776"
 ---
 <a name="adding-dynamic-content-to-a-cached-page-c"></a>Agregar contenido dinámico a una página almacenada en caché (C#)
 ====================

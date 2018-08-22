@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-con
 title: Controlar la simultaneidad con Entity Framework 6 en una aplicación de ASP.NET MVC 5 (10 de 12) | Microsoft Docs
 author: tdykstra
 description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/08/2014
 ms.assetid: be0c098a-1fb2-457e-b815-ddca601afc65
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/handling-concurrency-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: b971e4ca16ecbf79f47e0aab8303a05452279b68
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 708c38b8e0815c1d8b899c4d5a6f878e235340bc
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837236"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829775"
 ---
 <a name="handling-concurrency-with-the-entity-framework-6-in-an-aspnet-mvc-5-application-10-of-12"></a>Controlar la simultaneidad con Entity Framework 6 en una aplicación de ASP.NET MVC 5 (10 de 12)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-incremental-page-displa
 title: '[¿Cómo lo hago?:] ¿Implementar el patrón de presentación de página Incremental mediante HTTP GET y POST? | Microsoft Docs'
 author: JoeStagner
 description: Este vídeo examina otro AJAX Incremental página presentación patrón en el que la página Web se recupera y muestra de forma incremental. En este vídeo el...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/13/2007
 ms.assetid: 28d5bb59-9aad-4cdd-8088-1e9d3d230ac5
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post
 msc.type: video
-ms.openlocfilehash: 5b694836abd377259b72e8b48ce2a3b70196bfc1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c36b6d59dfa8d66f23542be466a1c614dfb263f2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842518"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827966"
 ---
 <a name="how-do-i-implement-the-incremental-page-display-pattern-using-http-get-and-post"></a>[¿Cómo lo hago?:] ¿Implementar el patrón de presentación de página Incremental mediante HTTP GET y POST?
 ====================

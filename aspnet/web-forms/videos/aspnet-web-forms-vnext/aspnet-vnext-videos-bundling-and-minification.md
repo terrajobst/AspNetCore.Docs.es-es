@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-bundling-and-mi
 title: 'ASP.NET vNext vídeos: unión y Minificación | Microsoft Docs'
 author: madskristensen
 description: Mads Kristensen muestra cómo el vNext ASP.NET puede agrupar y modificar recursos de JavaScript y CSS para mejorar el rendimiento automáticamente.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/29/2011
 ms.assetid: 8d04a9db-fa17-4233-bc74-6c040fd1c17a
 msc.legacyurl: /web-forms/videos/aspnet-web-forms-vnext/aspnet-vnext-videos-bundling-and-minification
 msc.type: video
-ms.openlocfilehash: 69333f448e9724c35f3066cfb1021cb28225a7ff
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3f311e53e7659a4e0458538177677d1a1b367181
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838324"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829936"
 ---
 <a name="aspnet-vnext-videos-bundling-and-minification"></a>ASP.NET vNext vídeos: unión y Minificación
 ====================

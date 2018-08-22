@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 title: Personalizar el comportamiento de todo el sitio para ASP.NET Web Pages (Razor) sitios | Microsoft Docs
 author: tfitzmac
 description: Este capítulo explica cómo realizar la configuración en todo el sitio Web o una carpeta completa, en lugar de simplemente una página.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: e158bed7-226f-4275-b02e-7553bd58c669
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior
 msc.type: authoredcontent
-ms.openlocfilehash: 6dcc9e2882e0a0ce28715d5d90b6d27c030f9aea
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a6737c05d3326a2cd7535f32e99482b0de394575
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801965"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829793"
 ---
 <a name="customizing-site-wide-behavior-for-aspnet-web-pages-razor-sites"></a>Personalizar el comportamiento de todo el sitio para los sitios de ASP.NET Web Pages (Razor)
 ====================

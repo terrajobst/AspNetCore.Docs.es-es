@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton
 title: Usar un ConfirmButton en un control Repeater (VB) | Microsoft Docs
 author: wenz
 description: El extensor ConfirmButton de AJAX Control Toolkit crea un Sí o ningún elemento emergente cuando el usuario hace clic en un botón (incluido el control LinkButton). Solo si sí es...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 18c31709-3f9d-4d93-8b01-f1356bf610b4
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/confirmbutton/using-a-confirmbutton-in-a-repeater-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 72c9493582f7b952d1efcb45d3bc95bc130a38e1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 38ac40776c2fdd14af046b5e13df0701c71a4ad0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826952"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838490"
 ---
 <a name="using-a-confirmbutton-in-a-repeater-vb"></a>Usar un ConfirmButton en un control Repeater (VB)
 ====================

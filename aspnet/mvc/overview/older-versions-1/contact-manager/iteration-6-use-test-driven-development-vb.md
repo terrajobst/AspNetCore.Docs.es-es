@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-d
 title: 'Iteración #6: usar el desarrollo controlado por pruebas (VB) | Microsoft Docs'
 author: microsoft
 description: En esta iteración sexta, se agregan nuevas funciones a nuestra aplicación escribir pruebas unitarias en primer lugar y escribir código en las pruebas unitarias. En esta iteración,...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: e1fd226f-3f8e-4575-a179-5c75b240333d
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-6-use-test-driven-development-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 5108e427025f42424c2dc6b657806544f9f8eeaa
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 7b1700e0ccece543c381dbb4fa7d6243de57ed4d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396119"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829883"
 ---
 <a name="iteration-6--use-test-driven-development-vb"></a>Iteración #6: usar el desarrollo controlado por pruebas (VB)
 ====================

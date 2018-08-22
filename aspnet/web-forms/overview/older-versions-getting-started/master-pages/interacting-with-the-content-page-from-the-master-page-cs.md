@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/master-pages/interacting-
 title: Interactuar con la página de contenido desde la página maestra (C#) | Microsoft Docs
 author: rick-anderson
 description: Examina cómo llamar a métodos, establecer propiedades, etc. de la página de contenido desde el código en la página maestra.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2008
 ms.assetid: 3282df5e-516c-4972-8666-313828b90fb5
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/master-pages/interacting-with-the-content-page-from-the-master-page-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 293e4dab6142393c9d57836a2f04244388e54cec
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 815752ee70eb761d7f9da24c9eada9d4c0c833a7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808371"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829938"
 ---
 <a name="interacting-with-the-content-page-from-the-master-page-c"></a>Interactuar con la página de contenido desde la página maestra (C#)
 ====================

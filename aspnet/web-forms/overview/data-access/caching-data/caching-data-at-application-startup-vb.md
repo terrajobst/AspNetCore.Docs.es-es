@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/caching-data/caching-data-at-application-sta
 title: Almacenamiento en caché de datos al iniciarse la aplicación (VB) | Microsoft Docs
 author: rick-anderson
 description: En cualquier aplicación Web algunos datos se usará con frecuencia y algunos datos se utilizarán con poca frecuencia. Podemos mejorar el rendimiento de nuestra aplicación de ASP.NET b...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: 84afe4ac-cc53-4f2e-a867-27eaf692c2df
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb
 msc.type: authoredcontent
-ms.openlocfilehash: cf63cafbd4fd3937d18afa0d72a48868d76d3888
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9d997cb0af8487b2a9d849f24f3bff8df8611f6d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841388"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829456"
 ---
 <a name="caching-data-at-application-startup-vb"></a>Datos en caché al iniciarse la aplicación (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Implementación de una base de datos (VB) | Microsoft Docs
 author: rick-anderson
 description: Implementar una aplicación web ASP.NET implica obtener los archivos necesarios y los recursos del entorno de desarrollo al entorno de producción. Para da...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 96ac3e69-04c7-4917-ad06-5f8968c3fbf1
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-a-database-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c49b963cb5cfc40d8a0b03eb3ca722e3b789eab2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9a0ec3ef1879839e3100f52ca2f2320a5aabdf7a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836280"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837944"
 ---
 <a name="deploying-a-database-vb"></a>Implementación de una base de datos (VB)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/moving-to-aspnet-20/master-pages
 title: Páginas maestras | Microsoft Docs
 author: microsoft
 description: Uno de los componentes clave para un sitio Web tenga éxito es un aspecto coherente. En ASP.NET 1.x, los desarrolladores usan los controles de usuario para replicar comunes elem. de página...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2005
 ms.assetid: 9c0cce4d-efd9-4c14-b0e8-a1a140abb3f4
 msc.legacyurl: /web-forms/overview/moving-to-aspnet-20/master-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 631aa39c51601f1ae843079d8cd930f77b1093ab
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f40eb338a1b6b8eebb6578dd7938e96a05b1617f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819220"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837642"
 ---
 <a name="master-pages"></a>Páginas maestras
 ====================

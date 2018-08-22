@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/configuring-t
 title: Configuración de las opciones de nivel de conexión y comando de la capa de acceso a datos (C#) | Microsoft Docs
 author: rick-anderson
 description: Los TableAdapters dentro de un conjunto de datos con tipo se ocupan automáticamente de conectarse a la base de datos, emisión de comandos y rellenar un DataTable con los resultados...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: cd330dd9-6254-4305-9351-dd727384c83b
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/configuring-the-data-access-layer-s-connection-and-command-level-settings-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 835f17c35d85658a855072bf6d9355fdae9f63ab
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 142c8e93422ac03d2f2205b6635f88b982b4c9e2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837842"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838271"
 ---
 <a name="configuring-the-data-access-layers-connection--and-command-level-settings-c"></a>Configuración de las opciones de nivel de conexión y comando de la capa de acceso a datos (C#)
 ====================

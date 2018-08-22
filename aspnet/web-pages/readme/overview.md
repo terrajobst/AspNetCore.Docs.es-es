@@ -3,17 +3,17 @@ uid: web-pages/readme/overview
 title: Archivo Léame de WebMatrix | Microsoft Docs
 author: rick-anderson
 description: WebMatrix y ASP.NET Web Pages (Razor) versión 1.0 Léame
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/06/2011
 ms.assetid: 36c5beeb-45a7-48a0-9c30-f82cdf5c5f5f
 msc.legacyurl: /web-pages/readme
 msc.type: content
-ms.openlocfilehash: 8aa0eedb3156ca33905c106b72d5fa553a917b16
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: aa852e7bbd93622154d59e0d0a13ffa680812df2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822867"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837671"
 ---
 <a name="webmatrix-readme"></a>Archivo Léame de WebMatrix
 ====================
@@ -119,7 +119,7 @@ ms.locfileid: "37822867"
 
 Esta sección del documento describen las nuevas características, cambios y problemas conocidos con la 1.0 versión de ASP.NET Web Pages con sintaxis Razor.
 
-- [Nuevas características](#NewFeatures)
+- [Características nuevas](#NewFeatures)
 - [Cambios](#Changes)
 - [Problemas](#Issues)
 

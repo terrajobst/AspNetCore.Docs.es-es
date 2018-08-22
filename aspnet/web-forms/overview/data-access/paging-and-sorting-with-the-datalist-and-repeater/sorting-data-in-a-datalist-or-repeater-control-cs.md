@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-rep
 title: Ordenar datos en un Control DataList o Repeater (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, examinaremos cómo incluir compatibilidad en los controles DataList y Repeater para ordenar, así como cómo construir un DataList o Repeater pueden cuyos datos...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: f52c302a-1b7c-46fe-8a13-8412c95cbf6d
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/sorting-data-in-a-datalist-or-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f394487523a7da112d32fb18b622bc73d5077aaa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 05fbc51d5341a4d3d634cbbc05c0e66a827b0394
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839997"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837846"
 ---
 <a name="sorting-data-in-a-datalist-or-repeater-control-c"></a>Ordenar datos en un Control DataList o Repeater (C#)
 ====================
@@ -226,7 +226,7 @@ Cuando se visita primero la página, los datos están ordenados alfabéticamente
 
 ## <a name="step-6-custom-paging-through-records-in-a-repeater"></a>Paso 6: Paginación personalizada a través de registros en un control Repeater
 
-El ejemplo de DataList examina en el paso 5 páginas a través de sus datos mediante la técnica de paginación predeterminada ineficaz. Si es así, envíeme una línea en  . En el [eficazmente paginar a través de grandes cantidades de datos](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) y [ordenar datos paginados personalizados](../paging-and-sorting/sorting-custom-paged-data-cs.md) tutoriales, examinamos las diferencias entre predeterminado y la paginación personalizada y los métodos creados en el nivel de lógica empresarial para uso personalizado de paginar y ordenar datos paginados personalizados. En concreto, en estos dos tutoriales anteriores se han agregado los tres métodos siguientes a la `ProductsBLL` clase:
+El ejemplo de DataList examina en el paso 5 páginas a través de sus datos mediante la técnica de paginación predeterminada ineficaz. Cuando la paginación a través de lo suficientemente grandes cantidades de datos, es imperativo que se utiliza la paginación personalizada. En el [eficazmente paginar a través de grandes cantidades de datos](../paging-and-sorting/efficiently-paging-through-large-amounts-of-data-cs.md) y [ordenar datos paginados personalizados](../paging-and-sorting/sorting-custom-paged-data-cs.md) tutoriales, examinamos las diferencias entre predeterminado y la paginación personalizada y los métodos creados en el nivel de lógica empresarial para uso personalizado de paginar y ordenar datos paginados personalizados. En concreto, en estos dos tutoriales anteriores se han agregado los tres métodos siguientes a la `ProductsBLL` clase:
 
 - `GetProductsPaged(startRowIndex, maximumRows)` Devuelve un subconjunto determinado de registros a partir de *startRowIndex* y que no supere *maximumRows*.
 - `GetProductsPagedAndSorted(sortExpression, startRowIndex, maximumRows)` Devuelve un subconjunto específico de registros ordenados por especificado *sortExpression* parámetro de entrada.

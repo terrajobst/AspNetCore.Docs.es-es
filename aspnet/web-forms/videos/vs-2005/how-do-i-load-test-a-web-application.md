@@ -3,17 +3,17 @@ uid: web-forms/videos/vs-2005/how-do-i-load-test-a-web-application
 title: '[¿Cómo lo hago?:] ¿Una aplicación Web de prueba de carga? | Microsoft Docs'
 author: rick-anderson
 description: Este vídeo le guiará a través del proceso de grabación de pruebas Web y, a continuación, la reproducción como una prueba de carga simula varios usuarios. Vemos cómo Visual Studio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/01/2007
 ms.assetid: 2b0649d3-d072-446a-9918-b2648de26472
 msc.legacyurl: /web-forms/videos/vs-2005/how-do-i-load-test-a-web-application
 msc.type: video
-ms.openlocfilehash: 6adc67a30890792da9b8337e18b6f2bb4a58cf07
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9171b4aeb806b20d9e5a8464d503551761d3b2b6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830113"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829796"
 ---
 <a name="how-do-i-load-test-a-web-application"></a>[¿Cómo lo hago?:] ¿Una aplicación Web de prueba de carga?
 ====================

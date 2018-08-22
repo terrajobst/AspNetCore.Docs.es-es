@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/troublesho
 title: Solucionar problemas del proceso de empaquetado | Microsoft Docs
 author: jrjlee
 description: Este tema describe cómo puede recopilar información detallada sobre el proceso de empaquetado mediante la propiedad EnablePackageProcessLoggingAndAssert en la letra M...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 794bd819-00fc-47e2-876d-fc5d15e0de1c
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment/troubleshooting-the-packaging-process
 msc.type: authoredcontent
-ms.openlocfilehash: e262968ffb1f847e393e13b4e82d4f1a6029028e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 22be1ccc5a1ec52d143bedffd79264918c1a45e1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802920"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829746"
 ---
 <a name="troubleshooting-the-packaging-process"></a>Solucionar problemas del proceso de empaquetado
 ====================

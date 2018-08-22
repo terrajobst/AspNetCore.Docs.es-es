@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/mapping-users-to-connections
 title: Asignar usuarios de SignalR a las conexiones en SignalR 1.x | Microsoft Docs
 author: pfletcher
 description: En este tema se muestra cómo conservar la información acerca de los usuarios y sus conexiones.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: ebbc93a8-e6c4-4122-8e0d-3aa42293c747
 msc.legacyurl: /signalr/overview/older-versions/mapping-users-to-connections
 msc.type: authoredcontent
-ms.openlocfilehash: 02ee9468ae4198af47226cdd5c22243f16e20da4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3ce651fa523743da536a9b73bb9bb8e21d8845c6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818118"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41839155"
 ---
 <a name="mapping-signalr-users-to-connections-in-signalr-1x"></a>Asignar usuarios de SignalR a las conexiones en SignalR 1.x
 ====================

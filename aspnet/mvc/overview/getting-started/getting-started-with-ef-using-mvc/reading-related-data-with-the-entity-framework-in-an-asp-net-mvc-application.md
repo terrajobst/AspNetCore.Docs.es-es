@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-rela
 title: Leer datos relacionados con Entity Framework en una aplicación ASP.NET MVC | Microsoft Docs
 author: tdykstra
 description: /AJAX/tutorials/Using-AJAX-Control-Toolkit-Controls-and-control-Extenders-vb
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/07/2014
 ms.assetid: 18cdd896-8ed9-4547-b143-114711e3eafb
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/reading-related-data-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 4147feda2b78eefa2f5e280e587759585da738b3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 16bef0094406f3f45307eabd19c0872e90ecf7ef
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839144"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838843"
 ---
 <a name="reading-related-data-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Lectura de datos relacionados con Entity Framework en una aplicación ASP.NET MVC
 ====================

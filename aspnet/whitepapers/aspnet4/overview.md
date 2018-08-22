@@ -3,17 +3,17 @@ uid: whitepapers/aspnet4/overview
 title: ASP.NET 4 y Visual Studio 2010 Introducción al desarrollo Web | Microsoft Docs
 author: rick-anderson
 description: Este documento proporciona información general de muchas de las nuevas características para ASP.NET que se incluyen en.NET Framework 4 y en Visual Studio 2010.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: d7729af4-1eda-4ff2-8b61-dbbe4fc11d10
 msc.legacyurl: /whitepapers/aspnet4
 msc.type: content
-ms.openlocfilehash: 5c7aa95b18bc0a97f42cc981476c110830286fa5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 775286df610df9040cbf04125b1742b6befa055b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37829048"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829897"
 ---
 <a name="aspnet-4-and-visual-studio-2010-web-development-overview"></a>ASP.NET 4 y Visual Studio 2010 Introducción al desarrollo Web
 ====================
@@ -982,7 +982,7 @@ A continuación, puede definir una clase CSS que solo se aplica a la *oculto* el
 De forma predeterminada, los siguientes controles de servidor Web de ASP.NET que admiten las plantillas se ajustan automáticamente en una tabla externa que se usa para aplicar estilos en línea:
 
 - *FormView*
-- *Inicio de sesión*
+- *inicio de sesión*
 - *PasswordRecovery*
 - *ChangePassword*
 - *Asistente para*

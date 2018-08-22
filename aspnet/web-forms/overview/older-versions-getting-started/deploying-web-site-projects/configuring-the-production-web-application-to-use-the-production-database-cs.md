@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Configurar la aplicación Web de producción para usar la base de datos de producción (C#) | Microsoft Docs
 author: rick-anderson
 description: Como se describe en los tutoriales anteriores, no es raro que difieren entre los entornos de desarrollo y producción información de configuración. Esto es es...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 0177dabd-d888-449f-91b2-24190cf5e842
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/configuring-the-production-web-application-to-use-the-production-database-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 559697a08200e43e955697a7ad8613f1a495c073
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e2560ae7a845c27f7fa5f420eaf1d89618397c60
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803021"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829460"
 ---
 <a name="configuring-the-production-web-application-to-use-the-production-database-c"></a>Configurar la aplicación Web de producción para usar la base de datos de producción (C#)
 ====================

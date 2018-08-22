@@ -3,17 +3,17 @@ uid: identity/overview/features-api/best-practices-for-deploying-passwords-and-o
 title: Procedimientos recomendados para implementar contraseñas y otros datos confidenciales en ASP.NET y Azure App Service | Microsoft Docs
 author: Rick-Anderson
 description: Este tutorial muestra cómo el código puede almacenar y tener acceso a información segura de forma segura. El punto más importante es que nunca debe almacenar contraseñas u otros sen...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/21/2015
 ms.assetid: 97902c66-cb61-4d11-be52-73f962f2db0a
 msc.legacyurl: /identity/overview/features-api/best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure
 msc.type: authoredcontent
-ms.openlocfilehash: 445e7c32baf4316273b0a5901a776684a6c5d73f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eda2277a4baad8f2a63aa2fdf6ab84f57f1eb0e0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832460"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828540"
 ---
 <a name="best-practices-for-deploying-passwords-and-other-sensitive-data-to-aspnet-and-azure-app-service"></a>Procedimientos recomendados para implementar contraseñas y otros datos confidenciales en ASP.NET y Azure App Service
 ====================

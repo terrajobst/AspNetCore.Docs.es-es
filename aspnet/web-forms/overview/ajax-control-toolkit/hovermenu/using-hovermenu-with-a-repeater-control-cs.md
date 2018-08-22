@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-re
 title: Usar HoverMenu con un Control Repeater (C#) | Microsoft Docs
 author: wenz
 description: 'El control de HoverMenu en AJAX Control Toolkit proporciona un efecto emergente simple: cuando el puntero del mouse se sitúa sobre un elemento, aparece un mensaje emergente en un específicamente...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e7700e7b-edc3-4183-a713-70e507cc7490
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/hovermenu/using-hovermenu-with-a-repeater-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f3135eb52bab1550b1c89dd6ce62044640e80198
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 33f65a132ea9f0a939ab70ac249b397ea883ac8c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832002"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829903"
 ---
 <a name="using-hovermenu-with-a-repeater-control-c"></a>Usar HoverMenu con un Control Repeater (C#)
 ====================

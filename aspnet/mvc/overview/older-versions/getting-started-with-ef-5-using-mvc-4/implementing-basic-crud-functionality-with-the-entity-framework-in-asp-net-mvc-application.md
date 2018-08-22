@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implement
 title: Implementación de la funcionalidad básica CRUD con Entity Framework en la aplicación de ASP.NET MVC (2 de 10) | Microsoft Docs
 author: tdykstra
 description: La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 4 mediante Code First de Entity Framework 5 y Visual Studio...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/30/2013
 ms.assetid: f7bace3f-b85a-47ff-b5fe-49e81441cdf9
 msc.legacyurl: /mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-basic-crud-functionality-with-the-entity-framework-in-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: f580ba6d0db07430e991fba2d061bb2632c95353
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 999a598b6f9c9a16c596cb6c8d7bb46439876f01
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817088"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838791"
 ---
 <a name="implementing-basic-crud-functionality-with-the-entity-framework-in-aspnet-mvc-application-2-of-10"></a>Implementación de la funcionalidad básica CRUD con Entity Framework en la aplicación de ASP.NET MVC (2 de 10)
 ====================

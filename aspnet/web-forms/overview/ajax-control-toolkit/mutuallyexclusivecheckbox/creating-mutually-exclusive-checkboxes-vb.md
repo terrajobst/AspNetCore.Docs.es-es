@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-
 title: Crear casillas de verificación mutuamente excluyentes (VB) | Microsoft Docs
 author: wenz
 description: 'Cuando se puede seleccionar solo uno de un conjunto de opciones, normalmente se utilizan los botones de radio. Un inconveniente, sin embargo hay: una vez que se selecciona un botón de radio en un grupo,...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: e9dd1d5a-a1db-4114-981d-6a91acb1d709
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/mutuallyexclusivecheckbox/creating-mutually-exclusive-checkboxes-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6badd005ed4775cb248784f3e9991132db1b3969
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fd338b622779b64dd59f9cf6f3e2365ef5cb3ffb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828804"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838815"
 ---
 <a name="creating-mutually-exclusive-checkboxes-vb"></a>Crear casillas de verificación mutuamente excluyentes (VB)
 ====================

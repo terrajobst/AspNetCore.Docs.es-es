@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/caching-data/caching-data-with-the-objectdat
 title: Almacenamiento en caché de datos con ObjectDataSource (C#) | Microsoft Docs
 author: rick-anderson
 description: Almacenamiento en caché puede significar la diferencia entre una lenta y una aplicación Web rápida. Este tutorial es el primero de cuatro que toman una visión detallada de almacenamiento en caché en ASP.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/30/2007
 ms.assetid: bd87413c-8160-4520-a8a2-43b555c4183a
 msc.legacyurl: /web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f6ca84dc11eb8ecd03aee91198e74b723cfdce7c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 770b1ae92db8384a0c0b7f038b1ea994ae4c1b4c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803050"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837962"
 ---
 <a name="caching-data-with-the-objectdatasource-c"></a>Datos en caché con ObjectDataSource (C#)
 ====================

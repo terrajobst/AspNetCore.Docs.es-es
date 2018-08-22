@@ -3,17 +3,17 @@ uid: mvc/overview/releases/whats-new-in-aspnet-mvc-52
 title: Novedades de ASP.NET MVC 5.2 | Microsoft Docs
 author: microsoft
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/25/2014
 ms.assetid: 97972587-2720-48b4-b158-f35f2e855fbf
 msc.legacyurl: /mvc/overview/releases/whats-new-in-aspnet-mvc-52
 msc.type: authoredcontent
-ms.openlocfilehash: 76e1c13453c45a1b8ca71dd6435dcbfbd8bec66d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8c3c5de55396635d2e7f2b7726f54be1c06bb691
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37801546"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41824028"
 ---
 <a name="whats-new-in-aspnet-mvc-52"></a>Novedades de ASP.NET MVC 5.2
 ====================

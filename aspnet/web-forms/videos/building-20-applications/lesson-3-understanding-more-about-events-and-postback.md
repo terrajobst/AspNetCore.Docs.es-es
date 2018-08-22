@@ -3,17 +3,17 @@ uid: web-forms/videos/building-20-applications/lesson-3-understanding-more-about
 title: '[Lección 3:]  Descripción de más información sobre los eventos y Postback | Microsoft Docs'
 author: microsoft
 description: En esta lección, obtendrá información sobre cómo se pueden usar eventos en el código y cómo debe reaccionar cuando tienen lugar estos eventos.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/28/2005
 ms.assetid: 59f0bccd-b604-47fa-a42b-71d8ab187bd2
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-3-understanding-more-about-events-and-postback
 msc.type: video
-ms.openlocfilehash: 83e6581fbbb53df8038006a755ebaf2293baac6b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c478423afbf0bcae3065b1f249881c8e3fa3f9bb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818613"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835714"
 ---
 <a name="lesson-3--understanding-more-about-events-and-postback"></a>[Lección 3:]  Información adicional acerca de eventos y devoluciones
 ====================

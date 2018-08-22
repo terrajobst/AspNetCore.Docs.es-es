@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sor
 title: Creación de una interfaz de usuario de ordenación personalizada (VB) | Microsoft Docs
 author: rick-anderson
 description: Al mostrar una larga lista de los datos ordenados, puede ser muy útil para agrupar los datos relacionados mediante la introducción de las filas de separador. En este tutorial veremos cómo cre...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: f3897a74-cc6a-4032-8f68-465f155e296a
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/creating-a-customized-sorting-user-interface-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 8e94bbda0ca89b409515db1e223637e3a554cd31
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b12baa5075b4e67018d8a98a92e807d1778737c8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835873"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838165"
 ---
 <a name="creating-a-customized-sorting-user-interface-vb"></a>Creación de una interfaz de usuario de ordenación personalizada (VB)
 ====================

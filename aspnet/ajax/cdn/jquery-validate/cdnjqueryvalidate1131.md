@@ -3,17 +3,17 @@ uid: ajax/cdn/jquery-validate/cdnjqueryvalidate1131
 title: Validación 1.13.1 jQuery | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/11/2014
 ms.assetid: b2a62d3a-de63-4c8e-94af-1cb904d81aeb
 msc.legacyurl: /ajax/cdn/jquery-validate/cdnjqueryvalidate1131
 msc.type: content
-ms.openlocfilehash: f8beeab54059fd77179ff6f20c6ce98a632112bd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ade90353fa38f235fe312d02e49c51b3935a112f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833907"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829646"
 ---
 <a name="jquery-validation-1131"></a>1.13.1 de validación de jQuery
 ====================

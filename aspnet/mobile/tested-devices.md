@@ -3,17 +3,17 @@ uid: mobile/tested-devices
 title: Dispositivos probados por controles ASP.NET Mobile | Microsoft Docs
 author: rick-anderson
 description: Se han probado los siguientes dispositivos y exploradores con el Microsoft Mobile Internet Toolkit v1.0 y los controles ASP.NET mobile. Microsoft Mobile Internet para...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/28/2011
 ms.assetid: 51b447d5-eaa1-4df1-917c-f4f2746ed62d
 msc.legacyurl: /mobile/tested-devices
 msc.type: content
-ms.openlocfilehash: dba860d74e2dbded832d4f6e9da6edfecbf4c303
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4576e176f3b5d6e3a1fbec16f098c64ec3f0d54d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815881"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835463"
 ---
 <a name="aspnet-mobile-controls-tested-devices"></a>Dispositivos probados por controles ASP.NET Mobile
 ====================

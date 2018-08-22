@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/deploying-web-applications-in-enterprise-scen
 title: 'Application Lifecycle Management: Entornos de desarrollo a producción | Microsoft Docs'
 author: jrjlee
 description: En este tema se muestra cómo una compañía ficticia administra la implementación de una aplicación web ASP.NET a través de entornos de prueba, ensayo y producción como par...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: f97a1145-6470-4bca-8f15-ccfb25fb903c
 msc.legacyurl: /web-forms/overview/deployment/deploying-web-applications-in-enterprise-scenarios/application-lifecycle-management-from-development-to-production
 msc.type: authoredcontent
-ms.openlocfilehash: 47af9504bdef294b987cdd23ab1bcefbeadd4681
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7cb9c949936c3af73d4c904d401c36d4d83f3e18
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808984"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838547"
 ---
 <a name="application-lifecycle-management-from-development-to-production"></a>Application Lifecycle Management: Entornos de desarrollo a producción
 ====================

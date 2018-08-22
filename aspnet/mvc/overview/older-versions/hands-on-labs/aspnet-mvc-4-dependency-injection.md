@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 title: Inserción de dependencias de ASP.NET MVC 4 | Microsoft Docs
 author: rick-anderson
 description: 'Nota: Esta práctica se supone que tiene conocimientos básicos de los filtros de MVC de ASP.NET y ASP.NET MVC 4. Si no ha usado los filtros de ASP.NET MVC 4 antes, se rec...'
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 84c7baca-1c54-4c44-8f52-4282122d6acb
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-dependency-injection
 msc.type: authoredcontent
-ms.openlocfilehash: 44c8f2055fb62d589e874683cbf43eed87a8c447
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3f9222c7b485f552da91f4875c882db7e03cdd0a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812349"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827792"
 ---
 # <a name="aspnet-mvc-4-dependency-injection"></a>Inserción de dependencias de ASP.NET MVC 4
 

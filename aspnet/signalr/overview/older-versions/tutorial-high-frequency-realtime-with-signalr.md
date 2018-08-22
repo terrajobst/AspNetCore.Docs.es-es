@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signa
 title: Alta frecuencia en tiempo real con SignalR 1.x | Microsoft Docs
 author: pfletcher
 description: Este tutorial muestra cómo crear una aplicación web que usa SignalR de ASP.NET para proporcionar funcionalidad de mensajería de alta frecuencia. Alta frecuencia de mensajería en...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/16/2013
 ms.assetid: ad2a5da5-2e79-40ea-bc84-028d327f5982
 msc.legacyurl: /signalr/overview/older-versions/tutorial-high-frequency-realtime-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 6056d42472f8663c366ebc224f56db8432e4eb2e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 53cc35d819c0d3a9bd84e8bfc44098a3b62e6db3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825342"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829917"
 ---
 <a name="high-frequency-realtime-with-signalr-1x"></a>Alta frecuencia en tiempo real con SignalR 1.x
 ====================

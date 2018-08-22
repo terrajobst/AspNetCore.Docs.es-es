@@ -3,17 +3,17 @@ uid: web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-
 title: Crear una aplicación de formularios Web Forms ASP.NET segura con el registro de usuario, por correo electrónico de confirmación y restablecimiento de contraseña (C#) | Microsoft Docs
 author: Erikre
 description: Este tutorial muestra cómo compilar una aplicación de formularios Web Forms ASP.NET con registro de usuario, confirmación por correo electrónico y restablecimiento de contraseña mediante el miembro de la identidad de ASP.NET...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/02/2014
 ms.assetid: 0a8d6044-5fab-4213-82d6-5618d5601358
 msc.legacyurl: /web-forms/overview/security/create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset
 msc.type: authoredcontent
-ms.openlocfilehash: 1c230c3f33bd8261312485e9d77f6f88adb49e9e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b964257165f8a50bef5cb5d8cee4fb30a5e91cf0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812774"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836079"
 ---
 <a name="create-a-secure-aspnet-web-forms-app-with-user-registration-email-confirmation-and-password-reset-c"></a>Crear una aplicación de formularios Web Forms ASP.NET segura con el registro de usuario, por correo electrónico de confirmación y restablecimiento de contraseña (C#)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-uno
 title: Crear un MVC 3 aplicaciones con JavaScript Razor y discreto | Microsoft Docs
 author: microsoft
 description: La aplicación web de lista de usuarios muestra lo sencillo que es crear aplicaciones de ASP.NET MVC 3 con el motor de vistas Razor. La s de aplicación de ejemplo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/01/2010
 ms.assetid: 658b149b-d770-46bf-8b4b-4e47cca242f3
 msc.legacyurl: /mvc/overview/older-versions/creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript
 msc.type: authoredcontent
-ms.openlocfilehash: 136c87cba70525da53c1f74576c50c12f8759539
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f60ca3e76fda8a18da1ad83e955e5e4759f5e3af
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840473"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829857"
 ---
 <a name="creating-a-mvc-3-application-with-razor-and-unobtrusive-javascript"></a>Crear un MVC 3 aplicaciones con JavaScript Razor y discreto
 ====================

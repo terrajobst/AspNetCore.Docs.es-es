@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspi
 title: 'Parte 3: Diseño y menú categoría | Microsoft Docs'
 author: JoeStagner
 description: Esta serie de tutoriales detalla todos los pasos que se tarda en compilar la aplicación de ejemplo Tailspin Spyworks. Parte 3 aborda la adición de diseño y un menú de la categoría.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/21/2010
 ms.assetid: 94ea1a70-a9bc-4241-8f36-08366d64bab9
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/tailspin-spyworks/tailspin-spyworks-part-3
 msc.type: authoredcontent
-ms.openlocfilehash: 3047c53e21a418aef8617bd772a247bc46edb98f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f55b29a271dbdb72d3e2249ed74517b77d78cf5e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817530"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829373"
 ---
 <a name="part-3-layout-and-category-menu"></a>Parte 3: Diseño y menú categoría
 ====================

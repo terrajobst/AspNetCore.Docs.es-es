@@ -3,17 +3,17 @@ uid: whitepapers/overview
 title: Notas del producto | Microsoft Docs
 author: rick-anderson
 description: En esta página encontrará las notas del producto que le ayudarán a instalar y configurar ASP.NET y para ayudarle a escribir aplicaciones ASP.NET seguras, rápidas y flexibles.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2011
 ms.assetid: d5e79470-01f2-4d65-8077-11c3e10a6784
 msc.legacyurl: /whitepapers
 msc.type: content
-ms.openlocfilehash: b2650c9a396b9049d9919a675be40df1ac1338c9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5017efc4d141afba206aaca5a8b5e6bab996ebbf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802944"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837670"
 ---
 <a name="whitepapers"></a>Notas del producto
 ====================

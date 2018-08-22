@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-cont
 title: Siguiente Top Model View Controller Framework del América | Microsoft Docs
 author: Haacked
 description: Vea cómo crear una aplicación simple que se resalta algunas de las funcionalidades principales de ASP.NET MVC. Además, obtenga información sobre cómo mejorar la productividad con algunos de los...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: 2ce3281d-dc92-4a43-9645-7e12ef6e72a6
 msc.legacyurl: /mvc/videos/mvc-1/conference-presentations/americas-next-top-model-view-controller-framework
 msc.type: video
-ms.openlocfilehash: be5c9b503cdf7c5650b55e73fd95b01864c03089
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f42dedbbe837fcfe922a8843527960e7f55f3b04
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804784"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828526"
 ---
 <a name="americas-next-top-model-view-controller-framework"></a>Siguiente Top Model View Controller Framework del América
 ====================

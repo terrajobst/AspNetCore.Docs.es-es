@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-incremental-page-d
 title: '[¿Cómo lo hago?:] ¿Implementar el patrón de presentación de página Incremental de AJAX? | Microsoft Docs'
 author: JoeStagner
 description: Tradicionalmente, cuando se solicita una página Web, el usuario debe esperar mientras se recupera toda la página desde el servidor después de que la página completa aparece sudde...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/05/2007
 ms.assetid: 17dfc331-1186-4240-8abf-f0220c90e081
 msc.legacyurl: /web-forms/videos/aspnet-ajax/how-do-i-implement-the-ajax-incremental-page-display-pattern
 msc.type: video
-ms.openlocfilehash: 214e2af5fbcdbf2491d1a11e84033bb2747cc26d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4a8f5e6acab452650996fcd8702b8078251d47cb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835190"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838494"
 ---
 <a name="how-do-i-implement-the-ajax-incremental-page-display-pattern"></a>[¿Cómo lo hago?:] ¿Implementar el patrón de presentación de página Incremental de AJAX?
 ====================

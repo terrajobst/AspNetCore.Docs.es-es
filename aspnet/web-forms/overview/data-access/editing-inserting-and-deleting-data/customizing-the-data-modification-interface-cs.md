@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/customiz
 title: Personalizar la interfaz de modificación de datos (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, echaremos un vistazo a cómo personalizar la interfaz de un control GridView editable reemplazando el cuadro de texto estándar y controles CheckBox con alterna...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: 22e99600-8d18-4a94-a20e-a3a62bb63798
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/customizing-the-data-modification-interface-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 6e04d9c09d9c359c223c70b11ab0f7909182bb46
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f7004192edd636f4660f3184c3e725a6bfda865c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808747"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838148"
 ---
 <a name="customizing-the-data-modification-interface-c"></a>Personalizar la interfaz de modificación de datos (C#)
 ====================

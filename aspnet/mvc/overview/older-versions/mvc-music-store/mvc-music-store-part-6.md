@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 title: 'Parte 6: Uso de anotaciones de datos para la validación del modelo | Microsoft Docs'
 author: jongalloway
 description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Music Store de ASP.NET MVC. Parte 6 se describe el uso de anotaciones de datos para el modelo V...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: b3193d33-2d0b-4d98-9712-58bd897c62ec
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 10884f569f0f5d95517b73daab31fbd269a4726a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b666c3cef0b09c6d68cee581a3c27c08e3357cca
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37825958"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829689"
 ---
 <a name="part-6-using-data-annotations-for-model-validation"></a>Parte 6: Usar anotaciones de datos para la validación del modelo
 ====================

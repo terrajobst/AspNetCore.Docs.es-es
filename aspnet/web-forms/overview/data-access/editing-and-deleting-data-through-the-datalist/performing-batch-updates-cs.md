@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Realizar actualizaciones por lotes (C#) | Microsoft Docs
 author: rick-anderson
 description: Obtenga información sobre cómo crear una completamente editable DataList donde todos sus elementos están en modo de edición y cuyos valores se pueden guardar haciendo clic en un botón "Actualizar todo" en los...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 57743ca7-5695-4e07-aed1-44b297f245a9
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3528444269a3595681696251d3906a204090410c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2ca91baa87d5bb748695b56bb8bf19698b0858f2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807810"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835445"
 ---
 <a name="performing-batch-updates-c"></a>Realizar actualizaciones por lotes (C#)
 ====================

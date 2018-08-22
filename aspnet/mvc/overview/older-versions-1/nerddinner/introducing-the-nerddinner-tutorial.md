@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutoria
 title: Introducción al Tutorial de NerdDinner | Microsoft Docs
 author: shanselman
 description: Es la mejor forma de aprender un nuevo marco crear algo con él. Este tutorial le guía a través de cómo crear una aplicación pequeña, pero completa, mediante la configuración de ASP.NE...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: 397522d5-0402-4b94-b810-a2fb564f869d
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/introducing-the-nerddinner-tutorial
 msc.type: authoredcontent
-ms.openlocfilehash: 9188df1eca7f488502640bc17d5034f93f4ac82c
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5efab525841b5c526aa3b656f27b1c42cc74648
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805115"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829678"
 ---
 <a name="introducing-the-nerddinner-tutorial"></a>Introducción al Tutorial de NerdDinner
 ====================

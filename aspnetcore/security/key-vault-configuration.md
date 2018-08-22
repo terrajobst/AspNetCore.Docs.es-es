@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar el proveedor de configuració
 ms.author: riande
 ms.date: 08/01/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 6474b9f5cb9e441854565a7891c4aac7f781c810
-ms.sourcegitcommit: 571d76fbbff05e84406b6d909c8fe9cbea2c8ff1
+ms.openlocfilehash: 829c6c7e2750879b51bf3ce8225c6e472900f2ad
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39410135"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828516"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de Azure Key Vault en ASP.NET Core
 
@@ -155,7 +155,7 @@ Generar secretos expirados y deshabilitados una `KeyVaultClientException`. Para 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura de registro de ASP.NET](xref:fundamentals/logging/index). Configuración de carga evitará que las condiciones siguientes:
+Cuando no se puede cargar la configuración mediante el proveedor de la aplicación, se escribe un mensaje de error en la [infraestructura de registro de ASP.NET Core](xref:fundamentals/logging/index). Configuración de carga evitará que las condiciones siguientes:
 
 * La aplicación no está configurada correctamente en Azure Active Directory.
 * El almacén de claves no existe en Azure Key Vault.

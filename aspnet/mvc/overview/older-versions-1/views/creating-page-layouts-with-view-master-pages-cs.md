@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-
 title: Crear diseños de página con páginas maestras de vista (C#) | Microsoft Docs
 author: microsoft
 description: En este tutorial, aprenderá a crear un diseño de página común para varias páginas en la aplicación aprovechando las ventajas de vista de las páginas maestras. Puede usar un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: dff54fcb-68b1-4488-89a2-ca97532d6a4c
 msc.legacyurl: /mvc/overview/older-versions-1/views/creating-page-layouts-with-view-master-pages-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 3e82d6d6aeb57cd414287e3fa0f9371a2c9fbc89
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: acf304d0f1cf349f7e9c30acb9271e602a47d3d9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820222"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835735"
 ---
 <a name="creating-page-layouts-with-view-master-pages-c"></a>Crear diseños de página con páginas maestras de vista (C#)
 ====================

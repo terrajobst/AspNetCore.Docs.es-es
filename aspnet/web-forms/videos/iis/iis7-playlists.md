@@ -3,17 +3,17 @@ uid: web-forms/videos/iis/iis7-playlists
 title: IIS7 Las listas de reproducción | Microsoft Docs
 author: JoeStagner
 description: Si se va a hospedar archivos multimedia en su sitio web, listas de reproducción le permitirá definir las secuencias para los medios y, opcionalmente, impedir que los usuarios omitir partes de t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/10/2009
 ms.assetid: b61968ac-6d9b-4b75-ab2a-934b609acba4
 msc.legacyurl: /web-forms/videos/iis/iis7-playlists
 msc.type: video
-ms.openlocfilehash: 1570842a618a832c81bd7a2976c53aa4aba07756
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 92f673fc637e2c5e7d4fd90a4e12c1b9c468f9ae
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806990"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838188"
 ---
 <a name="iis7-playlists"></a>Listas de reproducción de IIS7
 ====================

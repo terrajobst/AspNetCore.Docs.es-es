@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/creating-web-projects-in-visual-studio
 title: Creación de proyectos Web de ASP.NET en Visual Studio 2013 | Microsoft Docs
 author: tdykstra
 description: En este tema se explica las opciones para crear proyectos web de ASP.NET en Visual Studio 2013 con Update 3 aquí son algunas de las nuevas características de c de desarrollo web...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/01/2014
 ms.assetid: 61941e64-0c0d-4996-9270-cb8ccfd0cabc
 msc.legacyurl: /visual-studio/overview/2013/creating-web-projects-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: b57492a51f65e7ca861a7c354ded6ab170a92488
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3d96d796d22c3511fedc45c024274300143b119b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814525"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838294"
 ---
 <a name="creating-aspnet-web-projects-in-visual-studio-2013"></a>Crear proyectos Web ASP.NET en Visual Studio 2013
 ====================

@@ -3,17 +3,17 @@ uid: web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-
 title: Parámetro de enlace en ASP.NET Web API | Microsoft Docs
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/11/2013
 ms.assetid: e42c8388-04ed-4341-9fdb-41b1b4c06320
 msc.legacyurl: /web-api/overview/formats-and-model-binding/parameter-binding-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 97785db962691c25bac03f904924321af2f6b500
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4d29f087cd658faf1fadb0d9a85e9f32c03a2b3f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810087"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838276"
 ---
 <a name="parameter-binding-in-aspnet-web-api"></a>Parámetro de enlace en ASP.NET Web API
 ====================

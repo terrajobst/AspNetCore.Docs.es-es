@@ -3,17 +3,17 @@ uid: web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/usi
 title: 'Parte 6: Creación del producto y los controladores de orden | Microsoft Docs'
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/04/2012
 ms.assetid: 91ee29ee-0689-40ee-914a-e7dd733b6622
 msc.legacyurl: /web-api/overview/older-versions/using-web-api-1-with-entity-framework-5/using-web-api-with-entity-framework-part-6
 msc.type: authoredcontent
-ms.openlocfilehash: 6ba7c20d9f529ccee83ce4fd85a1294047643f85
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 642ff4554ed3664af0b5cc8e49d6b236c568131b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841084"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829683"
 ---
 <a name="part-6-creating-product-and-order-controllers"></a>Parte 6: Creación de producto y los controladores de orden
 ====================

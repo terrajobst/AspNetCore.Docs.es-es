@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/13-adding-social-networking-to-your-web-
 title: Agregar redes sociales para ASP.NET Web Pages (Razor) sitios | Microsoft Docs
 author: tfitzmac
 description: Este capítulo explica cómo integrar su sitio con servicios de redes sociales. En este capítulo, obtendrá información sobre cómo permitir a los usuarios de su sitio Web de marcador o vínculo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/21/2014
 ms.assetid: 03c342f9-b35c-4d7c-b9ed-cd9aaaffedb6
 msc.legacyurl: /web-pages/overview/getting-started/13-adding-social-networking-to-your-web-site
 msc.type: authoredcontent
-ms.openlocfilehash: e50a35d9770da247d18bbe1b3660b7bd5d46d8e9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 684fcfdde0aefeb168398bdf7a42f9fdbd6e48b3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822449"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829655"
 ---
 <a name="adding-social-networking-to-aspnet-web-pages-razor-sites"></a>Agregar redes sociales a ASP.NET Web Pages (Razor) sitios
 ====================

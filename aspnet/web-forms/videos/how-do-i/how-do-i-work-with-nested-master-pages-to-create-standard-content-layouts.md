@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-
 title: '[¿Cómo lo hago?:] Trabajar con páginas maestras anidadas para crear diseños de contenido estándares | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo Chris Pels mostrará cómo usar páginas maestras anidadas para crear páginas principales individuales que representan diferentes diseños de contenido estándares para una w...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/19/2008
 ms.assetid: c9af2298-7b95-4a5d-af1c-4f3589a2a8da
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts
 msc.type: video
-ms.openlocfilehash: ed99a390d076298761a2982c44ff14253eeb6a32
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9c86ec545e0b70007768a45c7bf61bd46bacbb8d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816910"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827762"
 ---
 <a name="how-do-i-work-with-nested-master-pages-to-create-standard-content-layouts"></a>[¿Cómo lo hago?:] Trabajar con páginas maestras anidadas para crear diseños de contenido estándares
 ====================

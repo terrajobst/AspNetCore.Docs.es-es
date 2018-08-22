@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/hub-authorization
 title: Autenticación y autorización para los concentradores de SignalR (SignalR 1.x) | Microsoft Docs
 author: pfletcher
 description: Este tema describe cómo restringir qué usuarios o roles pueden tener acceso a los métodos de concentrador.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 3d2dfc0e-eac2-4076-a468-325d3d01cc7b
 msc.legacyurl: /signalr/overview/older-versions/hub-authorization
 msc.type: authoredcontent
-ms.openlocfilehash: 1bb10a49a0d783300c145c30ad09e31f8e6055d6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6600e63371d54f14615e4c9af4c572e73464c2e4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808284"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836058"
 ---
 <a name="authentication-and-authorization-for-signalr-hubs-signalr-1x"></a>Autenticación y autorización para los concentradores de SignalR (SignalR 1.x)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 title: 'Parte 1: Información general y archivo -> Nuevo proyecto | Microsoft Docs'
 author: jongalloway
 description: Esta serie de tutoriales detalla todos los pasos realizados para compilar la aplicación de ejemplo de Music Store de ASP.NET MVC. Parte 1 abarca información general y archivo -> Nuevo proyecto.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/21/2011
 ms.assetid: bd356ca3-5bdb-4067-9dac-c9e9923a86e8
 msc.legacyurl: /mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 57856a4a78a650e4abe872004e5be5f8f3b2dbcd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d84a525221e40b79853be55069367134d17fb5ec
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816348"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829768"
 ---
 <a name="part-1-overview-and-file-new-project"></a>Parte 1: Información general y archivo -> Nuevo proyecto
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-da
 title: Cómo enlazar manualmente un conjunto de datos a un control Datagrid | Microsoft Docs
 author: JoeStagner
 description: En este vídeo, parte 2 de 3, Joe Stagner usa la aplicación de ASP de ejemplo creada en la primera parte, para demostrar cómo enlazar manualmente un conjunto de datos a un control datagrid. Para...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/07/2008
 ms.assetid: 1e339f8a-72ea-463a-b186-c09dd7b12993
 msc.legacyurl: /web-forms/videos/data-access/adonet-data-services/how-to-manually-bind-a-dataset-to-a-datagrid
 msc.type: video
-ms.openlocfilehash: 25c3ef065ef1681f3d85bb24cacaa1fc56359ae7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 36ca3880a95ebe9dd4823891a2ce1de1ef62a871
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818002"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835730"
 ---
 <a name="how-to-manually-bind-a-dataset-to-a-datagrid"></a>Cómo enlazar manualmente un conjunto de datos a un control Datagrid
 ====================

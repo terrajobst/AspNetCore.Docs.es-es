@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-team-foundation-server-for-web-de
 title: Implementar una compilación concreta | Microsoft Docs
 author: jrjlee
 description: Este tema describe cómo implementar paquetes web y scripts de base de datos desde una compilación anterior específico a un nuevo destino, como un enviro de ensayo o producción...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: c979535f-48a3-4ec4-a633-a77889b86ddb
 msc.legacyurl: /web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/deploying-a-specific-build
 msc.type: authoredcontent
-ms.openlocfilehash: 312cd6f42463722b76996a3a848102946e0ca265
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e788f02795fc83ac98c5a0ba307f16b0f506e489
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37832473"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829966"
 ---
 <a name="deploying-a-specific-build"></a>Implementar una compilación concreta
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipula
 title: '[¿Cómo lo hago?:] Usar un campo oculto para Store y manipular información del lado cliente | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo, Chris Pels mostrará cómo usar un campo oculto como un enfoque a la administración de estado simple en una página ASP.NET y para la comunicación del lado cliente...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/24/2008
 ms.assetid: 576ede31-e83a-4222-8f82-0aabb1dafe6a
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information
 msc.type: video
-ms.openlocfilehash: 84cb7ff3005eca8eaaed665d2a9cdcaa675a14d4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 64d3b6f7e817624b4fc329d3fc6548088f2a5f2d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842184"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837568"
 ---
 <a name="how-do-i-use-a-hidden-field-to-store-and-manipulate-client-side-information"></a>[¿Cómo lo hago?:] Usar un campo oculto para Store y manipular información del lado cliente
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 title: Habilitar las pruebas unitarias automatizadas | Microsoft Docs
 author: microsoft
 description: Paso 12 muestra cómo desarrollar un conjunto de pruebas unitarias automatizadas que comprueben la funcionalidad de NerdDinner, y que nos proporcionará la confianza para realizar cambios...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: a19ff2ce-3f7e-4358-9a51-a1403da9c63e
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/enable-automated-unit-testing
 msc.type: authoredcontent
-ms.openlocfilehash: 2247dc2e6d22cc0d5ddba97dfe6c7d2d1b0e49be
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 74abf391bb4aab3ff0d5079e0a24ba20287e18fb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819417"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41827608"
 ---
 <a name="enable-automated-unit-testing"></a>Habilitar pruebas unitarias automatizadas
 ====================

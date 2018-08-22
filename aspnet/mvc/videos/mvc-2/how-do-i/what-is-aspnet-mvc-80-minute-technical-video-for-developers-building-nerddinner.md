@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-
 title: ¿Qué es ASP.NET MVC? vídeo técnico de 80 minutos para desarrolladores y compilación de NerdDinner | Microsoft Docs
 author: robconery
 description: Un tutorial exhaustivo sobre la creación de una aplicación ASP.NET MVC. En este vídeo, creamos los aspectos básicos de Nerddinner.com y cubrir problemas, como pruebas unitarias...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/21/2009
 ms.assetid: a9f317b0-28c3-4838-bae0-cfa5ed5b3110
 msc.legacyurl: /mvc/videos/mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner
 msc.type: video
-ms.openlocfilehash: 2330a348aaf566dc25694506574842a33b6d6b47
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9a09b51ae86ee635a682ce5a2d90f2e7485a7edf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812693"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838240"
 ---
 <a name="what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner"></a>¿Qué es ASP.NET MVC? vídeo técnico de 80 minutos para desarrolladores y compilación de NerdDinner
 ====================

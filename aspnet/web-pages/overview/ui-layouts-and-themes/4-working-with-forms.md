@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 title: Trabajar con formularios HTML en sitios ASP.NET Web Pages (Razor) | Microsoft Docs
 author: tfitzmac
 description: Un formulario es una sección de un documento HTML en la que colocar los controles de entrada del usuario, como cuadros de texto, casillas, listas desplegables y botones de radio. Utilizar formularios qu...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: f3f4b8c8-e8f6-4474-ad94-69228a6c01ee
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/4-working-with-forms
 msc.type: authoredcontent
-ms.openlocfilehash: 4658e80d63c9c3665f197071f3f3d1420362e4a3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3f4effecb3b871f1bd7db1cd2a7aab6eeca80c50
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820290"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837529"
 ---
 <a name="working-with-html-forms-in-aspnet-web-pages-razor-sites"></a>Trabajar con formularios HTML en sitios de ASP.NET Web Pages (Razor)
 ====================

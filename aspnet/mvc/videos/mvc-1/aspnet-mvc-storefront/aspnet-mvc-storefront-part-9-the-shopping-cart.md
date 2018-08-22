@@ -3,17 +3,17 @@ uid: mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-sho
 title: 'Escaparate de ASP.NET MVC parte 9: Carro de la compra | Microsoft Docs'
 author: robconery
 description: Por lo que puede tener picos de cocina Rob Conery un sistema simple de carro.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/27/2008
 ms.assetid: 47d8a6e3-21de-4ac9-be5a-9f755c596529
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-9-the-shopping-cart
 msc.type: video
-ms.openlocfilehash: a90885ba777c134f8b1da29d8f4cb18e405a8219
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7dc4fa81dc8f861b51f64715403407997fbdfa24
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814587"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828570"
 ---
 <a name="aspnet-mvc-storefront-part-9-the-shopping-cart"></a>Escaparate de ASP.NET MVC parte 9: Carro de la compra
 ====================

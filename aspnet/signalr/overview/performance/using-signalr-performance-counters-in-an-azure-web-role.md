@@ -4,17 +4,17 @@ title: Uso de contadores de rendimiento de SignalR en un rol Web de Azure | Micr
 author: guardrex
 description: Cómo instalar y usar contadores de rendimiento de SignalR en un rol Web de Azure.
 keywords: Contador ASP.NET,signalr,performance, rol web de azure
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/11/2017
 ms.assetid: 2a127d3b-21ed-4cc9-bec0-cdab4e742a25
 msc.legacyurl: /signalr/overview/performance/using-signalr-performance-counters-in-an-azure-web-role
 msc.type: authoredcontent
-ms.openlocfilehash: b082e4052efa468543e7c2d92e4795234941beeb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: acc9836535466a801f1f46ec18d05937e2e42af2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37840081"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838284"
 ---
 # <a name="using-signalr-performance-counters-in-an-azure-web-role"></a>Uso de contadores de rendimiento de SignalR en un rol Web de Azure
 

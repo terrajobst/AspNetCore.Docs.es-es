@@ -3,17 +3,17 @@ uid: web-forms/videos/sql-2005/more-about-column-data-types-and-other-properties
 title: Más información acerca de los tipos de datos de columna y otras propiedades | Microsoft Docs
 author: microsoft
 description: Los principiantes de SQL Server se explore la integridad de los datos, obtenga información sobre qué tipos de datos que se usará para lo que y evitar problemas comunes de tipo de datos.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/22/2006
 ms.assetid: 8fcd3402-1711-4f19-b0cc-b91edfe285fc
 msc.legacyurl: /web-forms/videos/sql-2005/more-about-column-data-types-and-other-properties
 msc.type: video
-ms.openlocfilehash: b08d64353a5b4f1eb165e7e5eb1a79160ec5c254
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8a6eb053ae8059d2dbdeee5f96b69d22e0959559
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826914"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837524"
 ---
 <a name="more-about-column-data-types-and-other-properties"></a>Más información sobre los tipos de datos de columna y otras propiedades
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-pop
 title: Controlar los Postbacks desde un Control emergente con un UpdatePanel (C#) | Microsoft Docs
 author: wenz
 description: El extensor PopupControl en AJAX Control Toolkit ofrece una manera sencilla de desencadenar una ventana emergente cuando se activa cualquier otro control. Debe tenerse especial cuidado...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 1f68f59d-9c1e-4cf3-b304-c13ae6b7203e
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/handling-postbacks-from-a-popup-control-with-an-updatepanel-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 9fdf2821e005bfcb691134bb6994c01fa72b7abd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0f886ba0f3e79bc6d5daf193eaedfd627bc9b937
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815387"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837566"
 ---
 <a name="handling-postbacks-from-a-popup-control-with-an-updatepanel-c"></a>Controlar los Postbacks desde un Control emergente con un UpdatePanel (C#)
 ====================

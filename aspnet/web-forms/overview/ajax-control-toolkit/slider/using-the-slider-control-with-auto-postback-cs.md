@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-wit
 title: Usar el Control deslizante con Postback automático (C#) | Microsoft Docs
 author: wenz
 description: El control deslizante en AJAX Control Toolkit proporciona un control deslizante gráfico que se puede controlar con el mouse. Es posible hacer que el control deslizante Autocontab...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 4d85e9fb-91e6-41f2-9c13-754549b19c27
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/slider/using-the-slider-control-with-auto-postback-cs
 msc.type: authoredcontent
-ms.openlocfilehash: b5cb3c041f2a8a499d27cbcbc2f8975eedcac12e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4f776d609099c398b4937710487ba51a5efb1876
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37834156"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838513"
 ---
 <a name="using-the-slider-control-with-auto-postback-c"></a>Usar el Control deslizante con Postback automático (C#)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/data-controls/the-listview-control
 title: El Control ListView | Microsoft Docs
 author: JoeStagner
 description: Al crear un nuevo sitio Web, demuestro el nuevo control ListView. Dado que el ListView es la unidad de datos, se necesitará un origen de datos. Puede usar cualquier dato...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/15/2007
 ms.assetid: ab1bcde8-898b-487b-806a-4ced0f1284a2
 msc.legacyurl: /web-forms/videos/aspnet-35/data-controls/the-listview-control
 msc.type: video
-ms.openlocfilehash: 6c60d7cbc847bd4b74300948f9fd18efe9fc4d13
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b07fa67d35f0089f661f746d48702964a2a79ca9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817452"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837523"
 ---
 <a name="the-listview-control"></a>El Control ListView
 ====================

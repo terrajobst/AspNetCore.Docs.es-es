@@ -3,17 +3,17 @@ uid: visual-studio/overview/2012/windows-azure-authentication
 title: Windows autenticación de Azure | Microsoft Docs
 author: Rick-Anderson
 description: Herramientas de Microsoft ASP.NET para Windows Azure Active Directory simplifica el proceso de habilitar la autenticación para aplicaciones web hospedadas en sitios Web de Windows Azure...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2013
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: e3443fb627dc8d7d5011341828556b4c13836170
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d5d055d90b263050ef6defa1b98b139c4f8e4dee
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812820"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836110"
 ---
 <a name="windows-azure-authentication"></a>Windows autenticación de Azure
 ====================
