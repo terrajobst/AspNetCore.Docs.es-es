@@ -453,11 +453,13 @@
 #### [Almacenamiento de datos en caché](web-forms/overview/data-access/caching-data/index.md)
 ##### [Almacenar datos en caché con ObjectDataSource (C#)](web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-cs.md)
 ##### [Almacenar datos en caché en la arquitectura (C#)](web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-cs.md)
-##### [Almacenar datos en caché al iniciar la aplicación (C#)](web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs.md)
+##### 
+  [Almacenar datos en caché al iniciar la aplicación (C#)](web-forms/overview/data-access/caching-data/caching-data-at-application-startup-cs.md)
 ##### [Usar dependencias de caché de SQL (C#)](web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-cs.md)
 ##### [Almacenar datos en caché con ObjectDataSource (VB)](web-forms/overview/data-access/caching-data/caching-data-with-the-objectdatasource-vb.md)
 ##### [Almacenar datos en caché en la arquitectura (VB)](web-forms/overview/data-access/caching-data/caching-data-in-the-architecture-vb.md)
-##### [Almacenar datos en caché al iniciar la aplicación (VB)](web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb.md)
+##### 
+  [Almacenar datos en caché al iniciar la aplicación (VB)](web-forms/overview/data-access/caching-data/caching-data-at-application-startup-vb.md)
 ##### [Usar dependencias de caché de SQL (VB)](web-forms/overview/data-access/caching-data/using-sql-cache-dependencies-vb.md)
 #### [Mapas del sitio controlados por la base de datos](web-forms/overview/data-access/database-driven-site-maps/index.md)
 ##### [Crear un proveedor personalizado de mapas del sitio controlado por base de datos (C#)](web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-cs.md)
@@ -1640,7 +1642,8 @@
 
 
 
-
+# [Visual Studio 2017](visual-studio/overview/2017/index.md)
+## [Optimización del rendimiento de compilación de una solución](xref:visual-studio/overview/2017/optimize-build-perf)
 
 # [Visual Studio 2013](visual-studio/overview/2013/index.md)
 ## [Crear proyectos web de ASP.NET en Visual Studio 2013](visual-studio/overview/2013/creating-web-projects-in-visual-studio.md)
@@ -1834,7 +1837,8 @@
 ## [Información general del proyecto Katana](aspnet/overview/owin-and-katana/an-overview-of-project-katana.md)
 ## [Introducción a OWIN y Katana](aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana.md)
 ## [Ejemplos de Katana](aspnet/overview/owin-and-katana/katana-samples.md)
-## [Detección de la clase de inicio OWIN](aspnet/overview/owin-and-katana/owin-startup-class-detection.md)
+## 
+  [Detección de la clase de inicio OWIN](aspnet/overview/owin-and-katana/owin-startup-class-detection.md)
 ## [Habilitar la autenticación de Windows en Katana](aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana.md)
 ## [Middleware OWIN en la canalización integrada de IIS](aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline.md)
 ## [Servidor de autorización de OAuth 2.0 de OWIN](aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server.md)
