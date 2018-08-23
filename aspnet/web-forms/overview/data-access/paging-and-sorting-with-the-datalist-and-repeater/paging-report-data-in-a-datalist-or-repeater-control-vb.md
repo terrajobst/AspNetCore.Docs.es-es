@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-rep
 title: Paginación de datos del informe en un Control DataList o Repeater (VB) | Microsoft Docs
 author: rick-anderson
 description: Mientras el control DataList ni Repeater oferta la paginación automática o admitir la ordenación, este tutorial muestra cómo agregar compatibilidad con la paginación para el control DataList o Repeater...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/13/2006
 ms.assetid: bbd6b7f7-b98a-48b4-93f3-341d6a4f53c0
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting-with-the-datalist-and-repeater/paging-report-data-in-a-datalist-or-repeater-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: b1c3858e232d950d2cf9af0621f60cb9ba4ae767
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 64615f126f87cec7a96f86385ee7a717fdcdd103
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835222"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836917"
 ---
 <a name="paging-report-data-in-a-datalist-or-repeater-control-vb"></a>Paginar datos de informe en un Control DataList o Repeater (VB)
 ====================

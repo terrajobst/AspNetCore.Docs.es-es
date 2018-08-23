@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: Mostrar varios registros por fila con el Control DataList (C#) | Microsoft Docs
 author: rick-anderson
 description: En este breve tutorial exploraremos cómo personalizar el diseño de DataList a través de sus propiedades RepeatColumns y RepeatDirection.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: cf5acaf5-d4f6-4957-badc-b89956b285f3
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/showing-multiple-records-per-row-with-the-datalist-control-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 096959d0bf166b88f76e47e0efbd978cc23ce086
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f79c446a0c9407309ab65cd993df544e883afb22
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808176"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41839120"
 ---
 <a name="showing-multiple-records-per-row-with-the-datalist-control-c"></a>Mostrar varios registros por fila con el Control DataList (C#)
 ====================

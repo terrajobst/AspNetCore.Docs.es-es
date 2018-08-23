@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Los usuarios y Roles en el sitio Web de producción (VB) | Microsoft Docs
 author: rick-anderson
 description: La herramienta de administración de sitio Web de ASP.NET (WSAT) proporciona una interfaz de usuario basada en web para configurar las opciones de pertenencia y funciones y para crear, editar, un...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/09/2009
 ms.assetid: 491ed5ae-9be1-4191-87be-65e4e1c57690
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/users-and-roles-on-the-production-website-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 0b4b5edef5c0b78abefb007f05d856fddd567b5f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f63d64532543da681fdf88399d7dd365804674c4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820907"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836948"
 ---
 <a name="users-and-roles-on-the-production-website-vb"></a>Los usuarios y Roles en el sitio Web de producción (VB)
 ====================

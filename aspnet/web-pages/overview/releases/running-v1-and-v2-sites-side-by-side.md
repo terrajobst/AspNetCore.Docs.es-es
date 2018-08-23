@@ -3,17 +3,17 @@ uid: web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 title: Con distintas versiones de ASP.NET Web Pages (Razor) en paralelo | Microsoft Docs
 author: tfitzmac
 description: Este artículo explica cómo ejecutar sitios Web de ASP.NET Web Pages (Razor) en el mismo servidor o equipo cuando los sitios Web están configurados para usar diferentes versiones...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2014
 ms.assetid: a861409b-4ae6-4868-9e09-87edfac3535f
 msc.legacyurl: /web-pages/overview/releases/running-v1-and-v2-sites-side-by-side
 msc.type: authoredcontent
-ms.openlocfilehash: 86b1d5babac747eb4fa7ba8abde0e6155c8b17fb
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9021f9b7a68b8b20f7f2fbcd5649cc7226401a1b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810061"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837511"
 ---
 <a name="running-different-versions-of-aspnet-web-pages-razor-side-by-side"></a>Ejecución en paralelo diferentes versiones de ASP.NET Web Pages (Razor)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/database-first-development/setting-up-database
 title: Introducción a Entity Framework 6 Database First con MVC 5 | Microsoft Docs
 author: tfitzmac
 description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/01/2014
 ms.assetid: 095abad4-3bfe-4f06-b092-ae6a735b7e49
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/setting-up-database
 msc.type: authoredcontent
-ms.openlocfilehash: 20e590ad1b3a59f93d1ba48a2564ddc1a5cbb315
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 44725b772922426b08c72de83d384c1e03e319cb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37836125"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837196"
 ---
 <a name="getting-started-with-entity-framework-6-database-first-using-mvc-5"></a>Introducción a Entity Framework 6 Database First con MVC 5
 ====================

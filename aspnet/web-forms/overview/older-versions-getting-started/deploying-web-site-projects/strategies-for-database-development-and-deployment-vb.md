@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Las estrategias de desarrollo de base de datos y la implementación (VB) | Microsoft Docs
 author: rick-anderson
 description: Al implementar una aplicación controlada por datos por primera vez ciegamente puede copiar la base de datos en el entorno de desarrollo al entorno de producción. B...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/23/2009
 ms.assetid: 07b8905d-78ac-4252-97fb-8675b3fb0bbf
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/strategies-for-database-development-and-deployment-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 1964a8c482fba39aeb64158c2cb4624980bcff0d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e07da4b5263ac3c6db19c375ca00cbcf87e0b35a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838717"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837269"
 ---
 <a name="strategies-for-database-development-and-deployment-vb"></a>Estrategias de desarrollo de base de datos y la implementación (VB)
 ====================

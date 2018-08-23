@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeat
 title: Aplicar formato a los controles DataList y Repeater en función de datos (VB) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial le guiaré a través de ejemplos de cómo se dar formato a la apariencia de los controles DataList y Repeater, ya sea mediante el uso de funciones de formato con...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/13/2006
 ms.assetid: e2f401ae-37bb-4b19-aa97-d6b385d40f88
 msc.legacyurl: /web-forms/overview/data-access/displaying-data-with-the-datalist-and-repeater/formatting-the-datalist-and-repeater-based-upon-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 428438b2bae062c09d13c002f4729c3c394975a1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8d16f808101475b66b347e0e464800f247b3a611
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807715"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837191"
 ---
 <a name="formatting-the-datalist-and-repeater-based-upon-data-vb"></a>Aplicar formato a los controles DataList y Repeater en función de datos (VB)
 ====================

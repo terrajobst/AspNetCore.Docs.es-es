@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v
 title: Crear un punto de conexión de OData v4 con ASP.NET Web API 2.2 | Microsoft Docs
 author: MikeWasson
 description: Open Data Protocol (OData) es un protocolo de acceso a datos para la web. OData proporciona una manera uniforme para consultar y manipular conjuntos de datos mediante operaciones CRUD...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/24/2014
 ms.assetid: 1e1927c0-ded1-4752-80fd-a146628d2f09
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/create-an-odata-v4-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 04fad9b569972f11256c6b7288db34d4996ca8bf
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 7f2d0b8fa8ac290e5018cb5237b1fedb5f40eeb0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804217"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836975"
 ---
 <a name="create-an-odata-v4-endpoint-using-aspnet-web-api-22"></a>Crear un punto de conexión de OData v4 con ASP.NET Web API 2.2
 ====================

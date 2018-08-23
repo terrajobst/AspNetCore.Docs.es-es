@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/introduction/an-overview-of-form
 title: Información general sobre la autenticación de formularios (C#) | Microsoft Docs
 author: rick-anderson
 description: Crear rutas personalizadas
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/14/2008
 ms.assetid: de2d65b9-aadc-42ba-abe1-4e87e66521a0
 msc.legacyurl: /web-forms/overview/older-versions-security/introduction/an-overview-of-forms-authentication-cs
 msc.type: authoredcontent
-ms.openlocfilehash: a523e3c6ff79e7445813e2ef50eabc5b55d00144
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 64c8ccbc82a5c80a6f1e3199bfceb62add6cde51
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814451"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837190"
 ---
 <a name="an-overview-of-forms-authentication-c"></a>Información general sobre la autenticación de formularios (C#)
 ====================

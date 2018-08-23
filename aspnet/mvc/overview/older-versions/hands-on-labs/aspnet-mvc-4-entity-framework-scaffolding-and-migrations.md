@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-sca
 title: ASP.NET MVC 4 Entity Framework Scaffolding y migraciones | Microsoft Docs
 author: rick-anderson
 description: Si está familiarizado con los métodos de controlador de ASP.NET MVC 4 o ha completado la &quot;aplicaciones auxiliares, formularios y la validación&quot; laboratorio práctico, debe tener en cuenta...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 31f593f294c4865f621a8556cb43d0d9c42f2660
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 10a61b70ef52aa9f5bb9004df3dba9e323d021db
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814127"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837208"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework Scaffolding y migraciones
 

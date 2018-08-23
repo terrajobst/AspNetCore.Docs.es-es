@@ -3,17 +3,17 @@ uid: web-api/overview/data/using-web-api-with-entity-framework/part-6
 title: Crear el cliente de JavaScript | Microsoft Docs
 author: MikeWasson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/16/2014
 ms.assetid: 20360326-b123-4b1e-abae-1d350edf4ce4
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-6
 msc.type: authoredcontent
-ms.openlocfilehash: acadd8100b2698b4b17a750a02f875d4fd51c414
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 4967e21190c34f698e9c28fd9b921f07bef2ffaf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37826522"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837223"
 ---
 <a name="create-the-javascript-client"></a>Crear al cliente de JavaScript
 ====================

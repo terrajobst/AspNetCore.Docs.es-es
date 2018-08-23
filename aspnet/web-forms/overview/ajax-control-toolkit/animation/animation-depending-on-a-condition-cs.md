@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-
 title: Animación según una condición (C#) | Microsoft Docs
 author: wenz
 description: El control de animación en ASP.NET AJAX Control Toolkit no es simplemente un control, pero un marco completo para agregar animaciones a un control. Si una animación es...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: b7a28c0d-efb9-443a-80a4-1a5ee54671cd
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/animation/animation-depending-on-a-condition-cs
 msc.type: authoredcontent
-ms.openlocfilehash: cb08c330d6fbc86035a2f21ad382cc009411bcd6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e4705b6c590f153043082759f1269c8f2d927abe
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808429"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837224"
 ---
 <a name="animation-depending-on-a-condition-c"></a>Animación según una condición (C#)
 ====================
