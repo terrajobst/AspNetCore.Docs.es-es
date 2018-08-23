@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/basic-reporting/displaying-data-with-the-obj
 title: Visualización de datos con ObjectDataSource (C#) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial trata el control ObjectDataSource mediante este control que se puede enlazar los datos recuperados de BLL creada en el tutorial anterior sin havi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: af882aef-56f5-4e9a-8f95-3977fde20e74
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting/displaying-data-with-the-objectdatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f10745eee9f6ac04e670d710a4ac999c9ddda50b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 45f72cfb06cdd4ee624f9930a360d5a85a98a9c1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814930"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837075"
 ---
 <a name="displaying-data-with-the-objectdatasource-c"></a>Visualización de datos con ObjectDataSource (C#)
 ====================

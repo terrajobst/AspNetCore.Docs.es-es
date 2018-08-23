@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Configurar un servidor Web para Web (implementación sin conexión) de la publicación de la implementación | Microsoft Docs
 author: jrjlee
 description: Este tema describe cómo configurar un servidor web IIS para admitir la implementación y publicación en web sin conexión. Cuando se trabaja con Internet Information Services (Me...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: ba92788f-9f03-44b1-b6b2-af8413e6a35d
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-web-server-for-web-deploy-publishing-offline-deployment
 msc.type: authoredcontent
-ms.openlocfilehash: 048cd1855e3f03a6f348521c00acb03ddee8c630
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: eab69e93417ddedea9214523de34697b044a871e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824679"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828872"
 ---
 <a name="configuring-a-web-server-for-web-deploy-publishing-offline-deployment"></a>Configurar un servidor Web para la publicación (implementación sin conexión) de implementación Web
 ====================

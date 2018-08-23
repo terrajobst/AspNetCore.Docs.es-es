@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 09/22/2017
 uid: client-side/using-browserlink
-ms.openlocfilehash: 5ab15c841c472e6c9d47bad70fcf5e0c6dc3010f
-ms.sourcegitcommit: ea7ec8d47f94cfb8e008d771f647f86bbb4baa44
+ms.openlocfilehash: 452ba5149563c186750466f471c7b950f0017614
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37894184"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837078"
 ---
 # <a name="browser-link-in-aspnet-core"></a>Vínculo de explorador en ASP.NET Core
 
@@ -139,7 +139,7 @@ Cuando se habilita la sincronización automática de CSS, los exploradores conec
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Vínculo de explorador usa SignalR para crear un canal de comunicación entre Visual Studio y el explorador. Cuando se habilita el vínculo de explorador, Visual Studio actúa como un servidor de SignalR que varios clientes (exploradores) pueden conectarse a. Vínculo de explorador también registra un componente de middleware en la canalización de solicitudes ASP.NET. Este componente inserta especial `<script>` referencias en cada solicitud de página desde el servidor. Puede ver las referencias de script seleccionando **ver código fuente** en el explorador y desplácese hasta el final de la `<body>` etiquetar contenido:
+Vínculo de explorador usa SignalR para crear un canal de comunicación entre Visual Studio y el explorador. Cuando se habilita el vínculo de explorador, Visual Studio actúa como un servidor de SignalR que varios clientes (exploradores) pueden conectarse a. Vínculo de explorador también registra un componente de middleware en la canalización de solicitudes de ASP.NET Core. Este componente inserta especial `<script>` referencias en cada solicitud de página desde el servidor. Puede ver las referencias de script seleccionando **ver código fuente** en el explorador y desplácese hasta el final de la `<body>` etiquetar contenido:
 
 ```html
     <!-- Visual Studio Browser Link -->

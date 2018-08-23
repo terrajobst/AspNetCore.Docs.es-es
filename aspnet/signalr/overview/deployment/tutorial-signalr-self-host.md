@@ -3,17 +3,17 @@ uid: signalr/overview/deployment/tutorial-signalr-self-host
 title: 'Tutorial: Interna de SignalR | Microsoft Docs'
 author: pfletcher
 description: Este tutorial muestra cómo crear un servidor de SignalR 2 alojado en sí mismos y cómo conectarse a ella con un cliente de JavaScript. Versiones de software que se usa en el tutorial V...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: 400db427-27af-4f2f-abf0-5486d5e024b5
 msc.legacyurl: /signalr/overview/deployment/tutorial-signalr-self-host
 msc.type: authoredcontent
-ms.openlocfilehash: 71fb121377a49bb741ebff098ff20ec82e85c82a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5d7d485357a6c820f11e0135e2ff9479c1965d96
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821790"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837064"
 ---
 <a name="tutorial-signalr-self-host"></a>Tutorial: Interna de SignalR
 ====================

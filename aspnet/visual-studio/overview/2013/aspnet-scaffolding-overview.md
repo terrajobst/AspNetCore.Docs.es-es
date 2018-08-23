@@ -3,17 +3,17 @@ uid: visual-studio/overview/2013/aspnet-scaffolding-overview
 title: Scaffolding de ASP.NET en Visual Studio 2013 | Microsoft Docs
 author: tfitzmac
 description: Scaffolding de ASP.NET es una característica nueva que se incluye en Visual Studio 2013.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/09/2014
 ms.assetid: a41ec9d4-8287-4f31-9e2a-460e7b7f04be
 msc.legacyurl: /visual-studio/overview/2013/aspnet-scaffolding-overview
 msc.type: authoredcontent
-ms.openlocfilehash: 2fcfc31069e8fee79eb217ef6bad746f85a085e0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c554f592e57f2e6017f7fcfcc9b4c98051e21b37
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839573"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837292"
 ---
 <a name="aspnet-scaffolding-in-visual-studio-2013"></a>Scaffolding de ASP.NET en Visual Studio 2013
 ====================

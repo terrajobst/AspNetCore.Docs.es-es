@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-1
 title: '[¿Cómo lo hago?:]  Cargas de varios archivos en ASP.NET 1 | Microsoft Docs'
 author: JoeStagner
 description: En este vídeo que elaboraremos cargar varios archivos en una aplicación ASP.NET.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/12/2008
 ms.assetid: 2e95bedf-4741-4c9c-ab7a-0edfb171efcd
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-multiple-file-uploads-in-aspnet-1
 msc.type: video
-ms.openlocfilehash: 9e5ecc452cc6ea40090a9b21a08fafab2331e0ed
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 42d5bd0aa931e6dd0bfc22b998a7cc734807a3b7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833894"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837977"
 ---
 <a name="how-do-i--multiple-file-uploads-in-aspnet-1"></a>[¿Cómo lo hago?:]  Cargas de varios archivos en ASP.NET 1
 ====================

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: 49bed6cc150a74ff8b72848f276c55c2490b6fa5
-ms.sourcegitcommit: a09820f91e71a7d98b7347bf93210abb9e995e22
+ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889147"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41870885"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -261,7 +261,7 @@ public void OnHead()
 }
 ```
 
-Si no se define ningún controlador HEAD (`OnHead`), las páginas de Razor vuelven a llamar al controlador de páginas GET (`OnGet`) en ASP.NET Core 2.1 o posterior. Tiene la opción de usar este comportamiento con el [método SetCompatibilityVersion](xref:fundamentals/startup#setcompatibilityversion-for-aspnet-core-mvc) en `Startup.Configure` para ASP.NET Core 2.1 a 2.x:
+Si no se define ningún controlador HEAD (`OnHead`), las páginas de Razor vuelven a llamar al controlador de páginas GET (`OnGet`) en ASP.NET Core 2.1 o posterior. Tiene la opción de usar este comportamiento con el [método SetCompatibilityVersion](xref:mvc/compatibility-version) en `Startup.Configure` para ASP.NET Core 2.1 a 2.x:
 
 ```csharp
 services.AddMvc()
@@ -272,7 +272,6 @@ services.AddMvc()
 
 En lugar de participar en todos los comportamientos de 2.1 con `SetCompatibilityVersion`, puede participar explícitamente en comportamientos específicos. El código que se indica a continuación participa en las solicitudes HEAD de asignación del controlador GET.
 
-
 ```csharp
 services.AddMvc()
     .AddRazorPagesOptions(options =>
@@ -280,6 +279,7 @@ services.AddMvc()
         options.AllowMappingHeadRequestsToGetHandler = true;
     });
 ```
+
 ::: moniker-end
 
 <a name="xsrf"></a>

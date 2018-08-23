@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overv
 title: Información general de insertar, actualizar y eliminar datos (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial veremos cómo asignar Insert() de un origen ObjectDataSource, Update(), y las clases Delete() métodos a los métodos de BLL, así como cómo configu...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/17/2006
 ms.assetid: b651dc58-93c7-4f83-a74e-3b99f6d60848
 msc.legacyurl: /web-forms/overview/data-access/editing-inserting-and-deleting-data/an-overview-of-inserting-updating-and-deleting-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: abe42d01cc31ea46c97888f31d768ebfede64abd
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 82f1127b01c211a2af91623d4df7ca10dcad6d8a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821707"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828595"
 ---
 <a name="an-overview-of-inserting-updating-and-deleting-data-c"></a>Información general de insertar, actualizar y eliminar datos (C#)
 ====================

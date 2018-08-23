@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and
 title: Crear y ejecutar una implementación del comando archivo | Microsoft Docs
 author: jrjlee
 description: Este tema describe cómo crear un archivo de comandos que le permitirá ejecutar una implementación con los archivos de proyecto de Microsoft Build Engine (MSBuild) como un solo paso, re...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: c61560e9-9f6c-4985-834a-08a3eabf9c3c
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/creating-and-running-a-deployment-command-file
 msc.type: authoredcontent
-ms.openlocfilehash: 6b2a75e0740f648a3a6e4f39c00bd30609325728
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 121df7482f7cbd70b191e518bae791f0642ccc7c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830307"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828611"
 ---
 <a name="creating-and-running-a-deployment-command-file"></a>Crear y ejecutar un archivo de comandos de implementación
 ====================

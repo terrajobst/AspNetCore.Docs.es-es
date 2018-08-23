@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/editing-and-deleting-data-through-the-datali
 title: Realizar actualizaciones por lotes (VB) | Microsoft Docs
 author: rick-anderson
 description: Obtenga información sobre cómo crear una completamente editable DataList donde todos sus elementos están en modo de edición y cuyos valores se pueden guardar haciendo clic en un botón "Actualizar todo" en los...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/30/2006
 ms.assetid: 8dac22a7-91de-4e3b-888f-a4c438b03851
 msc.legacyurl: /web-forms/overview/data-access/editing-and-deleting-data-through-the-datalist/performing-batch-updates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 6d6575e5f13441c38c5d7c74c8b5136a5206ffa9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 67ab034880c8140e6156721956059b7cdd3f077b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803900"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837379"
 ---
 <a name="performing-batch-updates-vb"></a>Realizar actualizaciones por lotes (VB)
 ====================

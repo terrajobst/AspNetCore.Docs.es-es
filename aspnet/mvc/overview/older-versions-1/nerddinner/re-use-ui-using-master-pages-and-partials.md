@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-p
 title: Volver a usar la interfaz de usuario mediante páginas maestras y parciales | Microsoft Docs
 author: microsoft
 description: Paso 7 examina maneras que podemos aplicar el principio DRY dentro de nuestras plantillas de vista para eliminar la duplicación de código, con plantillas de vista parcial y páginas maestras.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/27/2010
 ms.assetid: d4243a4a-e91c-4116-9ae0-5c08e5285677
 msc.legacyurl: /mvc/overview/older-versions-1/nerddinner/re-use-ui-using-master-pages-and-partials
 msc.type: authoredcontent
-ms.openlocfilehash: 961378d6d710c678a0cd223a5c31544f014ace7f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0da32e6ac38f10df6e581517989b3b1fd2f2328c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37839599"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836072"
 ---
 <a name="re-use-ui-using-master-pages-and-partials"></a>Volver a usar la interfaz de usuario mediante páginas maestras y parciales
 ====================

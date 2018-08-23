@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-serialize-a-graph-with-the-ent
 title: '[¿Cómo lo hago?:] Serializar un gráfico con Entity Framework | Microsoft Docs'
 author: rick-anderson
 description: En esta introducción Brian Dawson vídeo mostrará cómo serializar un gráfico al desarrollar una aplicación ASP.NET con ADO.NET Entity Framework.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/22/2008
 ms.assetid: e8b41eed-5423-43d1-a54b-62f04bff371e
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-serialize-a-graph-with-the-entity-framework
 msc.type: video
-ms.openlocfilehash: a2c162faa162644ee7b051225a2eeb9eb20fae4e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6aef8c9d466bbf7e8e5a3863780272ab9779dfe4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37824856"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837372"
 ---
 <a name="how-do-i-serialize-a-graph-with-the-entity-framework"></a>[¿Cómo lo hago?:] Serializar un gráfico con Entity Framework
 ====================

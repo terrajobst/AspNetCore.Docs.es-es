@@ -3,17 +3,17 @@ uid: signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 title: 'Tutorial: Difusión de servidores con SignalR 2 | Microsoft Docs'
 author: tdykstra
 description: Este tutorial muestra cómo crear una aplicación web que usa ASP.NET SignalR 2 para proporcionar funcionalidad de difusión de servidor. Difusión de servidor significa que común...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/13/2014
 ms.assetid: 1568247f-60b5-4eca-96e0-e661fbb2b273
 msc.legacyurl: /signalr/overview/getting-started/tutorial-server-broadcast-with-signalr
 msc.type: authoredcontent
-ms.openlocfilehash: 0e86fbea9c5668e20fce7a494c76c52f9c089c09
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c2248e68b3c9411687ab6410f12ec85488fe0738
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37820702"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837631"
 ---
 <a name="tutorial-server-broadcast-with-signalr-2"></a>Tutorial: Difusión de servidores con SignalR 2
 ====================

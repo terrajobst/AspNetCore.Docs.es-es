@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/routing/how-do-i-use-routing-with-aspnet-web-forms
 title: 'Cómo: usar enrutamiento con formularios Web Forms ASP.NET? | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo, Chris Pels muestra cómo implementar el enrutamiento para formularios Web Forms en ASP.NET 4. En primer lugar, se compara el concepto de una dirección URL de enrutamiento para asignar la dirección URL a una p...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/15/2010
 ms.assetid: a3ab6cd9-8f71-4b73-9336-21c0de078269
 msc.legacyurl: /web-forms/videos/net-4/routing/how-do-i-use-routing-with-aspnet-web-forms
 msc.type: video
-ms.openlocfilehash: 4b570df24b7a931b3853c5117a29d405ca8ecf24
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b1bba2725f893032f49fa1d43dbc7348f2c21e6e
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830207"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837337"
 ---
 <a name="how-do-i-use-routing-with-aspnet-web-forms"></a>Cómo: usar enrutamiento con formularios Web Forms ASP.NET?
 ====================

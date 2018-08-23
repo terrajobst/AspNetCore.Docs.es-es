@@ -3,17 +3,17 @@ uid: web-pages/overview/security/16-adding-security-and-membership
 title: Agregar seguridad y pertenencia a ASP.NET Web Pages (Razor) sitio | Microsoft Docs
 author: tfitzmac
 description: Este capítulo muestra cómo proteger su sitio Web para que algunas de las páginas solo están disponibles para las personas que inicie sesión. (También verá cómo crear páginas tha...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/24/2014
 ms.assetid: 7a77c2c0-deea-4290-a9c3-97958891758e
 msc.legacyurl: /web-pages/overview/security/16-adding-security-and-membership
 msc.type: authoredcontent
-ms.openlocfilehash: 722d4bc8ab6b7d8eedac87961abdf4b9f900c613
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ae574706ecd14f1cafdb2d8b6340477e50246a32
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37817323"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835553"
 ---
 <a name="adding-security-and-membership-to-an-aspnet-web-pages-razor-site"></a>Agregar seguridad y pertenencia a un sitio Web de ASP.NET Pages (Razor)
 ====================

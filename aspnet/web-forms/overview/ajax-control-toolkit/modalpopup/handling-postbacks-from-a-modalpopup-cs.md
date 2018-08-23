@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-
 title: Controlar los Postbacks desde un ModalPopup (C#) | Microsoft Docs
 author: wenz
 description: El control ModalPopup de AJAX Control Toolkit ofrece una manera sencilla de crear un elemento emergente modal mediante medios de lado cliente. Debe tener especial cuidado cuando un punto de venta...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 7963890b-4ea3-4a1c-b65d-6098a3d56f62
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/modalpopup/handling-postbacks-from-a-modalpopup-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 0f27d28b9851f8e26c207a6bc495e98ad70577a2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9bcb1ad058b800f3f957cafff07a5a54b44178a6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838127"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838311"
 ---
 <a name="handling-postbacks-from-a-modalpopup-c"></a>Controlar los Postbacks desde un ModalPopup (C#)
 ====================

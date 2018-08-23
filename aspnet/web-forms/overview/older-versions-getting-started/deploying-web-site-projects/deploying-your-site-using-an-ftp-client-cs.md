@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-getting-started/deploying-web-site-projec
 title: Implementar el sitio mediante un cliente FTP (C#) | Microsoft Docs
 author: rick-anderson
 description: La manera más sencilla de implementar una aplicación ASP.NET es copiar manualmente los archivos necesarios del entorno de desarrollo en el entorno de producción. Thi...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2009
 ms.assetid: a3599cf7-8474-4006-954a-3bc693736b66
 msc.legacyurl: /web-forms/overview/older-versions-getting-started/deploying-web-site-projects/deploying-your-site-using-an-ftp-client-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 50e1522a39cb7b8ea2ee4c664f166b45f22ff070
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cdecc85c056fc5153763d938c665b473117df9ba
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842288"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837295"
 ---
 <a name="deploying-your-site-using-an-ftp-client-c"></a>Implementar el sitio mediante un cliente FTP (C#)
 ====================

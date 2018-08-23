@@ -3,17 +3,17 @@ uid: web-forms/videos/aspnet-35/how-do-i/how-do-i-working-with-visual-studio-200
 title: '[¿Cómo lo hago?:] Trabajar con Visual Studio 2008 .NET Framework | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo mostraré cómo usar Visual Studio 2008 para trabajar con varias versiones de .NET framework. Esto se denomina múltiples. También será...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/14/2008
 ms.assetid: babf24f7-f830-4091-a415-02a2661c724b
 msc.legacyurl: /web-forms/videos/aspnet-35/how-do-i/how-do-i-working-with-visual-studio-2008-net-framework
 msc.type: video
-ms.openlocfilehash: a946906ef5e4c1fb6149bf70d0c92dae283f1aec
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: dc3a3f8b4b4bd67fb74b704f97d90fd2bfe75d11
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809370"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828596"
 ---
 <a name="how-do-i-working-with-visual-studio-2008-net-framework"></a>[¿Cómo lo hago?:] Trabajar con Visual Studio 2008 .NET Framework
 ====================

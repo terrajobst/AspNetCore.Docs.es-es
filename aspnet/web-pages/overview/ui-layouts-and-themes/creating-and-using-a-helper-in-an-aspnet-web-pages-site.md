@@ -3,17 +3,17 @@ uid: web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-
 title: Crear y usar una aplicación auxiliar en ASP.NET Web Pages (Razor) sitio | Microsoft Docs
 author: tfitzmac
 description: En este artículo se describe cómo crear una aplicación auxiliar en un sitio Web de ASP.NET Web Pages (Razor). Una aplicación auxiliar es un componente reutilizable que incluye el código y el marcado para rendimiento...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/17/2014
 ms.assetid: 46bff772-01e0-40f0-9ae6-9e18c5442ee6
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: c2edc10e01f4d2358dd0b0bdf450348f01eb2bfa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a6d3074f39a1d7b81b173813a73380fe2a536e7a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811904"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836426"
 ---
 <a name="creating-and-using-a-helper-in-an-aspnet-web-pages-razor-site"></a>Crear y usar una aplicación auxiliar en un sitio ASP.NET Web Pages (Razor)
 ====================

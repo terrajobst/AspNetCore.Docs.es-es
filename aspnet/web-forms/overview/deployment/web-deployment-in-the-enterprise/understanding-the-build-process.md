@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/web-deployment-in-the-enterprise/understandin
 title: Descripción del proceso de compilación | Microsoft Docs
 author: jrjlee
 description: En este tema se ofrece un tutorial de un proceso de compilación e implementación de escala empresarial. El enfoque descrito en este tema usa Engin personalizado de compilación de Microsoft...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: 5b982451-547b-4a2f-a5dc-79bc64d84d40
 msc.legacyurl: /web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-build-process
 msc.type: authoredcontent
-ms.openlocfilehash: 581b7e996bf5aa4c76a6bf3d55a758677c0bf897
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9df145b281b086f546c55d0b26a8b0e44e896bb0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37804321"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838847"
 ---
 <a name="understanding-the-build-process"></a>Descripción del proceso de compilación
 ====================

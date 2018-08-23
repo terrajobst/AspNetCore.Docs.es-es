@@ -3,17 +3,17 @@ uid: web-pages/overview/getting-started/introducing-razor-syntax-c
 title: Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#) | Microsoft Docs
 author: tfitzmac
 description: Este capítulo ofrece una visión general de la programación con ASP.NET Web Pages usando la sintaxis Razor. ASP.NET es la tecnología de Microsoft para la ejecución de pa de web dinámico...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: 22985b71d39d93b8ad42ee923b872846f2fafa99
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 347e5ddbc02866887d3f422ecc291e5e3dfacaaf
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814306"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41839229"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#)
 ====================
@@ -340,84 +340,248 @@ Para convertir los valores enteros, se llama a la `AsInt` método. Si la convers
 
 En la tabla siguiente se enumera algunos métodos de conversión y prueba comunes para las variables.
 
-::: fila:::::: columna::: <strong>método</strong> ::: final de la columna:::::: columna::: <strong>descripción</strong> ::: final de la columna:::::: columna::: <strong>ejemplo</strong> ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        <strong>Método</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Descripción</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Ejemplo</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `AsInt(), IsInt()` ::: final de la columna:::::: columna::: convierte una cadena que representa un número entero (por ejemplo, "593") en un entero.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `AsInt(), IsInt()`
+    :::column-end:::
+    :::column:::
+        Convierte una cadena que representa un número entero (por ejemplo, "593") en un entero.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample28.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `AsBool(), IsBool()` ::: final de la columna:::::: columna::: convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `AsBool(), IsBool()`
+    :::column-end:::
+    :::column:::
+        Convierte una cadena como &quot;true&quot; o &quot;false&quot; a un tipo booleano.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample29.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `AsFloat(), IsFloat()` ::: final de la columna:::::: columna::: convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `AsFloat(), IsFloat()`
+    :::column-end:::
+    :::column:::
+        Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; un número de punto flotante.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample30.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `AsDecimal(), IsDecimal()` ::: final de la columna:::::: columna::: convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante). ::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `AsDecimal(), IsDecimal()`
+    :::column-end:::
+    :::column:::
+        Convierte una cadena que tiene un valor decimal como &quot;1.3&quot; o &quot;7.439&quot; en un número decimal. (En ASP.NET, un número decimal es más preciso que un número de punto flotante). :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample31.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `AsDateTime(), IsDateTime()` ::: final de la columna:::::: columna::: convierte una cadena que representa un valor de fecha y hora a ASP.NET `DateTime` tipo.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `AsDateTime(), IsDateTime()`
+    :::column-end:::
+    :::column:::
+        Convierte una cadena que representa un valor de fecha y hora a ASP.NET `DateTime` tipo.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample32.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `ToString()` ::: final de la columna:::::: columna::: convierte cualquier otro tipo de datos en una cadena.
-::: final de la columna:::::: columna::: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `ToString()`
+    :::column-end:::
+    :::column:::
+        Cualquier otro tipo de datos se convierte en una cadena.
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample33.js)]
+    :::column-end:::
+:::row-end:::
 
 ## <a name="operators"></a>Operadores
 
 Un operador es una palabra clave o el carácter que le indica a ASP.NET qué tipo de comando que se ejecuta en una expresión. El lenguaje C# (y la sintaxis de Razor que se basa en él) admiten muchos operadores, pero deberá reconocer algunas para comenzar. En la tabla siguiente se resume los operadores más comunes.
 
 
-::: fila:::::: columna::: <strong>operador</strong> ::: final de la columna:::::: columna::: <strong>descripción</strong> ::: final de la columna:::::: columna::: <strong>ejemplos</strong> ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        <strong>Operator</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Descripción</strong>
+    :::column-end:::
+    :::column:::
+        <strong>Ejemplos</strong>
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `+` `-` `*` `/` ::: final de la columna:::::: columna::: operadores matemáticos que puede usados en expresiones numéricas.
-::: final de la columna:::::: columna::: [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `+` `-` `*` `/`
+    :::column-end:::
+    :::column:::
+        Operadores matemáticos que puede usados en expresiones numéricas.
+    :::column-end:::
+    :::column:::
+        [!code-css[Main](introducing-razor-syntax-c/samples/sample34.css)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `=` ::: final de la columna:::::: columna::: asignación. Asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `=`
+    :::column-end:::
+    :::column:::
+        Asignación. Asigna el valor en el lado derecho de una instrucción para el objeto en el lado izquierdo.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample35.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `==` ::: final de la columna:::::: columna::: igualdad. Devuelve `true` si los valores son iguales. (Tenga en cuenta la distinción entre el `=` operador y el `==` operador.)::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `==`
+    :::column-end:::
+    :::column:::
+        Igualdad. Devuelve `true` si los valores son iguales. (Tenga en cuenta la distinción entre el `=` operador y el `==` operador.) :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample36.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `!=` ::: final de la columna:::::: columna::: desigualdad. Devuelve `true` si los valores no son iguales.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `!=`
+    :::column-end:::
+    :::column:::
+        Desigualdad. Devuelve `true` si los valores no son iguales.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample37.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `< > <= >=` ::: final de la columna:::::: columna::: menor-que, mayor-que, menor o igual que y mayor o igual.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `< > <= >=`
+    :::column-end:::
+    :::column:::
+        Menor-que, mayor-que, menor o igual que y mayor o igual.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample38.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `+` ::: final de la columna:::::: columna::: concatenación, que se usa para combinar cadenas. ASP.NET se conoce la diferencia entre este operador y el operador de suma en función del tipo de datos de la expresión.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `+`
+    :::column-end:::
+    :::column:::
+        Concatenación, que se usa para combinar cadenas. ASP.NET se conoce la diferencia entre este operador y el operador de suma en función del tipo de datos de la expresión.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample39.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `+=` `-=` ::: final de la columna:::::: columna::: los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `+=` `-=`
+    :::column-end:::
+    :::column:::
+        Los operadores de incremento y decremento, que la suma y resta 1 (respectivamente) de una variable.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample40.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `.` ::: final de la columna:::::: columna::: punto. Se usa para distinguir los objetos y sus propiedades y métodos.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `.`
+    :::column-end:::
+    :::column:::
+        Punto. Se usa para distinguir los objetos y sus propiedades y métodos.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample41.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `()` ::: final de la columna:::::: columna::: entre paréntesis. Se utiliza para las expresiones de grupo y pasar parámetros a métodos.
-::: final de la columna:::::: columna::: [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `()`
+    :::column-end:::
+    :::column:::
+        Paréntesis. Se utiliza para las expresiones de grupo y pasar parámetros a métodos.
+    :::column-end:::
+    :::column:::
+        [!code-javascript[Main](introducing-razor-syntax-c/samples/sample42.js)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `[]` ::: final de la columna:::::: columna::: corchetes. Se utiliza para tener acceso a los valores de las matrices o colecciones.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `[]`
+    :::column-end:::
+    :::column:::
+        Corchetes. Se utiliza para tener acceso a los valores de las matrices o colecciones.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample43.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `!` ::: final de la columna:::::: columna::: no. Invierte una `true` valor `false` y viceversa. Utiliza normalmente como una manera abreviada para probar `false` (es decir, para no `true`).
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `!`
+    :::column-end:::
+    :::column:::
+        No. Invierte una `true` valor `false` y viceversa. Utiliza normalmente como una manera abreviada para probar `false` (es decir, para no `true`).
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample44.cs)]
+    :::column-end:::
+:::row-end:::
 * * *
-::: fila:::::: columna::: `&&` <code>&#124;&#124;</code> ::: final de la columna:::::: columna::: y lógico y o que se usan para vincular condiciones juntas.
-::: final de la columna:::::: columna::: [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
-    ::: final de la columna:::::: fila final:::
+:::row:::
+    :::column:::
+        `&&` <code>&#124;&#124;</code>
+    :::column-end:::
+    :::column:::
+        AND lógico y o que se usan para vincular condiciones juntas.
+    :::column-end:::
+    :::column:::
+        [!code-csharp[Main](introducing-razor-syntax-c/samples/sample45.cs)]
+    :::column-end:::
+:::row-end:::
 
 <a id="ID_WorkingWithFileAndFolderPaths"></a>
 ## <a name="working-with-file-and-folder-paths-in-code"></a>Trabajar con archivos y rutas de acceso de carpeta en el código

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/database-first-development/generating-views
 title: 'EF Database First con MVC de ASP.NET: generación de vistas | Microsoft Docs'
 author: tfitzmac
 description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/29/2014
 ms.assetid: 669367cf-8e30-4eb6-821d-10a7d9bb906c
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/generating-views
 msc.type: authoredcontent
-ms.openlocfilehash: 9c85b330ac415d8c73d58b31a5108197b754669f
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 74c7abdc2d0f8fff9ad769d013fb001e2b9e427b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37835333"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837614"
 ---
 <a name="ef-database-first-with-aspnet-mvc-generating-views"></a>EF Database First con MVC de ASP.NET: generación de vistas
 ====================

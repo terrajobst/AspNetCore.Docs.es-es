@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/protecting-co
 title: Proteger las cadenas de conexión y otra información de configuración (VB) | Microsoft Docs
 author: rick-anderson
 description: Normalmente, una aplicación ASP.NET almacena información de configuración en un archivo Web.config. Parte de esta información es confidencial y garantiza la protección. Por def...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: cd17dbe1-c5e1-4be8-ad3d-57233d52cef1
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/protecting-connection-strings-and-other-configuration-information-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 7007496ad3aa137d8a6a9d4ba8e486d6b32ec295
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9713bbd983c4e922273a23356cbbb3848a8b7c50
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810909"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41838555"
 ---
 <a name="protecting-connection-strings-and-other-configuration-information-vb"></a>Proteger las cadenas de conexión y otra información de configuración (VB)
 ====================

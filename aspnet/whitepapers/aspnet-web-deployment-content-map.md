@@ -3,17 +3,17 @@ uid: whitepapers/aspnet-web-deployment-content-map
 title: 'Recursos recomendados de implementación Web de ASP.NET: | Microsoft Docs'
 author: rick-anderson
 description: En este tema proporciona vínculos a documentación (publicar), ASP.NET web recursos acerca de cómo implementar aplicaciones en IIS mediante el uso de Visual Studio 2010, Visual De Web...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/14/2014
 ms.assetid: 58b583cd-c4ab-47a3-8527-8c92c298c91f
 msc.legacyurl: /whitepapers/aspnet-web-deployment-content-map
 msc.type: content
-ms.openlocfilehash: f46a588144fb1af958737b07b73acbff60318fe6
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c970d929c4e6b581bedd2947982926ac448facfa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37809425"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836057"
 ---
 <a name="aspnet-web-deployment---recommended-resources"></a>Recursos recomendados de implementación Web de ASP.NET:
 ====================

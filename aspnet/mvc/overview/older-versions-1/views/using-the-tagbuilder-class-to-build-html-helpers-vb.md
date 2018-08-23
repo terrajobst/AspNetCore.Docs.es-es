@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-htm
 title: Uso de la clase TagBuilder para compilar aplicaciones auxiliares HTML (VB) | Microsoft Docs
 author: StephenWalther
 description: Stephen Walther presenta una clase de utilidad en el marco de MVC de ASP.NET con el nombre de la clase TagBuilder. Puede usar la clase TagBuilder para fácilmente...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/02/2009
 ms.assetid: ec26f264-d0ea-4031-9943-825505a3ac4b
 msc.legacyurl: /mvc/overview/older-versions-1/views/using-the-tagbuilder-class-to-build-html-helpers-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 85673837c105ecab8595568b028c9caa83f041d8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 783c5f73709de37f79c472e10c79e284cf25f8fd
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821941"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837013"
 ---
 <a name="using-the-tagbuilder-class-to-build-html-helpers-vb"></a>Uso de la clase TagBuilder para compilar aplicaciones auxiliares HTML (VB)
 ====================
