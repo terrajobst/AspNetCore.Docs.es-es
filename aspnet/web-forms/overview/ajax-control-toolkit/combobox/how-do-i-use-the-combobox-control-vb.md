@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-
 title: ¿Cómo se puede utilizar el Control de cuadro combinado? (VB) | Microsoft Docs
 author: microsoft
 description: Cuadro combinado es un control de AJAX de ASP.NET que combina la flexibilidad de un cuadro de texto con una lista de opciones desde el que los usuarios pueden elegir.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/12/2009
 ms.assetid: e887e7b2-a6e7-4a28-a134-ba334494badb
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/combobox/how-do-i-use-the-combobox-control-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 745871b7e8cca14b3458d9004d581dfacf55ea24
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ec00a58581f36f87ecdca2fbd96fcea645f75f48
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37837729"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829772"
 ---
 <a name="how-do-i-use-the-combobox-control-vb"></a>¿Cómo se puede utilizar el Control de cuadro combinado? (VB)
 ====================

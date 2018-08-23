@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/paging-and-sorting/efficiently-paging-throug
 title: Página de forma eficaz a través de grandes cantidades de datos (VB) | Microsoft Docs
 author: rick-anderson
 description: La opción de paginación predeterminada de un control de presentación de datos es adecuada cuando se trabaja con grandes cantidades de datos, como su retriev subyacente de control de origen de datos...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2006
 ms.assetid: 3e20e64a-8808-4b49-88d6-014e2629d56f
 msc.legacyurl: /web-forms/overview/data-access/paging-and-sorting/efficiently-paging-through-large-amounts-of-data-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 9b00e18287bdb791a353b7ebd1bbb6cc0ab586b5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 5870b9ac2af7d9df927edd8230334dee4885c6a1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37805511"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836350"
 ---
 <a name="efficiently-paging-through-large-amounts-of-data-vb"></a>Página de forma eficaz a través de grandes cantidades de datos (VB)
 ====================

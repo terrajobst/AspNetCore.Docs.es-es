@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-contr
 title: '[How Do I]: Synchronize Data in Secondary User Control(s) Based Upon User Selections | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo Chris Pels muestra cómo crear dos controles de DropDownList donde la selección de un elemento en la primera lista rellena los elementos en la segunda lista. Primera persona...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/06/2009
 ms.assetid: 55eadf85-3a2b-4993-8444-494cd2c92d65
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections
 msc.type: video
-ms.openlocfilehash: 1b8bd8c32de0174b6c40185904e2a675c621652a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0a49d363c0fec689d172f27f41fe84617300fcf5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818436"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836050"
 ---
 <a name="how-do-i-synchronize-data-in-secondary-user-controls-based-upon-user-selections"></a>[¿Cómo]: sincronizar los datos en controles de usuario secundarios según las selecciones del usuario
 ====================

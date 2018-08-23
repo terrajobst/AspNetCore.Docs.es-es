@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/advanced-data-access-scenarios/creating-stor
 title: Crear procedimientos almacenados y funciones definidas por el usuario con código (VB) administrado | Microsoft Docs
 author: rick-anderson
 description: Microsoft SQL Server 2005 se integra con .NET Common Language Runtime para permitir a los desarrolladores crear objetos de base de datos a través de código administrado. En este tutorial...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/03/2007
 ms.assetid: 8be9a51b-ea6b-46c7-bfa2-476d9b14c24c
 msc.legacyurl: /web-forms/overview/data-access/advanced-data-access-scenarios/creating-stored-procedures-and-user-defined-functions-with-managed-code-vb
 msc.type: authoredcontent
-ms.openlocfilehash: dcbd55185e7d5e3910b4f74f11554bae100057cc
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 438ebfa474ab510d90738c4a3ee40e172d838dcb
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806172"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836288"
 ---
 <a name="creating-stored-procedures-and-user-defined-functions-with-managed-code-vb"></a>Crear procedimientos almacenados y funciones definidas por el usuario con código administrado (VB)
 ====================

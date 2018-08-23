@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 title: Vistas de ASP.NET MVC Overview (C#) | Microsoft Docs
 author: StephenWalther
 description: ¿Qué es una vista de MVC de ASP.NET y cómo se diferencia de una página HTML? En este tutorial, Stephen Walther presenta las vistas y demuestra cómo puede t...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2008
 ms.assetid: 152ab1e5-aec2-4ea7-b8cc-27a24dd9acb8
 msc.legacyurl: /mvc/overview/older-versions-1/views/asp-net-mvc-views-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: d2fc96f7e991dd7c4e0b3e9ff5c589c1075010ac
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: ac47caa46d93c6157926f1c9b5112555fae4f8f5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37833664"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41837576"
 ---
 <a name="aspnet-mvc-views-overview-c"></a>Vistas de ASP.NET MVC Overview (C#)
 ====================
