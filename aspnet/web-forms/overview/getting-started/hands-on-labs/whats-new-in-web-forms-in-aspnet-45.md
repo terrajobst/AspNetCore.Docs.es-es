@@ -3,17 +3,17 @@ uid: web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-
 title: Novedades de Web Forms de ASP.NET 4.5 | Microsoft Docs
 author: rick-anderson
 description: La nueva versión de formularios Web Forms de ASP.NET presenta a una serie de mejoras que se centra en mejorar la experiencia del usuario al trabajar con datos. En versiones anteriores de...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/18/2013
 ms.assetid: 0a1f88bd-97da-4ed1-86f1-605199dc75a4
 msc.legacyurl: /web-forms/overview/getting-started/hands-on-labs/whats-new-in-web-forms-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: f36c50b64ed2363ba648297a1424b638bf9d4af5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 54e0234d6f13ce62803dbe55a836414a93a207b2
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830417"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836037"
 ---
 <a name="whats-new-in-web-forms-in-aspnet-45"></a>Novedades de formularios Web Forms en ASP.NET 4.5
 ====================
