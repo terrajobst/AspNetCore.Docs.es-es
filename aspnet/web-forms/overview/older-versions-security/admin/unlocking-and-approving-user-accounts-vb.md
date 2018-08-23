@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/admin/unlocking-and-approving-us
 title: Desbloquear y aprobar las cuentas de usuario (VB) | Microsoft Docs
 author: rick-anderson
 description: Este tutorial muestra cómo crear una página web para los administradores administrar bloqueada y aprueba los Estados de los usuarios. También verá cómo aprobar nuevos o de usuarios...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 04/01/2008
 ms.assetid: 041854a5-ea8c-4de0-82f1-121ba6cb2893
 msc.legacyurl: /web-forms/overview/older-versions-security/admin/unlocking-and-approving-user-accounts-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 4e41cee6f722d3fe6c19d8179b3f27800de80077
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 87f27dc1cc7271ddee8785c12d48913e3c9f2c98
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811301"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836404"
 ---
 <a name="unlocking-and-approving-user-accounts-vb"></a>Desbloquear y autorizar cuentas de usuario (VB)
 ====================

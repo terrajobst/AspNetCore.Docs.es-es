@@ -3,17 +3,17 @@ uid: web-forms/overview/deployment/configuring-server-environments-for-web-deplo
 title: Configurar un servidor de base de datos para Web publicación de la implementación | Microsoft Docs
 author: jrjlee
 description: Este tema describe cómo configurar un servidor de base de datos de SQL Server 2008 R2 para admitir la publicación e implementación de web. Las tareas descritas en este tema son co...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 05/04/2012
 ms.assetid: e7c447f9-eddf-4bbe-9f18-3326d965d093
 msc.legacyurl: /web-forms/overview/deployment/configuring-server-environments-for-web-deployment/configuring-a-database-server-for-web-deploy-publishing
 msc.type: authoredcontent
-ms.openlocfilehash: 9ec938298ea63609c276aed807a67722bf9bd66d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0f8639efcfcd02c9fdb65ce3ed25272965be8aa8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37841984"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836269"
 ---
 <a name="configuring-a-database-server-for-web-deploy-publishing"></a>Configurar un servidor de base de datos para publicación de la implementación Web
 ====================

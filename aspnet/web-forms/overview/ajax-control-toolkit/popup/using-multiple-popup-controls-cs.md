@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls
 title: Usar varios controles emergentes (C#) | Microsoft Docs
 author: wenz
 description: El extensor PopupControl en AJAX Control Toolkit ofrece una manera sencilla de desencadenar una ventana emergente cuando se activa cualquier otro control. También es posible usar m...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 91511b0b-311d-481f-9e7c-73f07b813b79
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/popup/using-multiple-popup-controls-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 681ee1433130ef1cf6d1521497001215a1bfbb66
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 8cf7f929b696240e6805a74fb576ad56738491fa
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814745"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836331"
 ---
 <a name="using-multiple-popup-controls-c"></a>Usar varios controles emergentes (C#)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-da
 title: Mostrar una tabla de base de datos (C#) | Microsoft Docs
 author: microsoft
 description: En este tutorial, muestran dos métodos para mostrar un conjunto de registros de base de datos. Muestran dos métodos para dar formato a un conjunto de registros de base de datos en un elemento HTML ta...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/07/2008
 ms.assetid: d6e758b6-6571-484d-a132-34ee6c47747a
 msc.legacyurl: /mvc/overview/older-versions-1/models-data/displaying-a-table-of-database-data-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 8409df940e0b5276c4f108531423aadeb2545ca3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d0d3f6a574a4b923d5da73ccb2ab3bfbd6f305ef
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828184"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828747"
 ---
 <a name="displaying-a-table-of-database-data-c"></a>Mostrar una tabla de base de datos (C#)
 ====================

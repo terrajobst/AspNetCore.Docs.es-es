@@ -3,17 +3,17 @@ uid: signalr/overview/performance/scaleout-with-sql-server
 title: Escalabilidad horizontal de SignalR con SQL Server | Microsoft Docs
 author: MikeWasson
 description: Las versiones de software usan en este tema Visual Studio 2013 .NET 4.5 SignalR las versiones anteriores de la versión 2 de este tema para obtener información acerca de las versiones anteriores de...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/10/2014
 ms.assetid: 98358b6e-9139-4239-ba3a-2d7dd74dd664
 msc.legacyurl: /signalr/overview/performance/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: fb21bee1737c5783d47abd2642af2c613b5d087b
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c99b38e9326ee60bfedbd7ec2f383685343cf3c0
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810216"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829116"
 ---
 <a name="signalr-scaleout-with-sql-server"></a>Escalabilidad horizontal de SignalR con SQL Server
 ====================

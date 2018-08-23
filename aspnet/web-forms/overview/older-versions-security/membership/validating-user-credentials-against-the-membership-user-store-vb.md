@@ -3,17 +3,17 @@ uid: web-forms/overview/older-versions-security/membership/validating-user-crede
 title: Validar las credenciales de usuario en el Store del usuario de pertenencia (VB) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, examinaremos cómo validar las credenciales del usuario en el almacén de usuario de pertenencia mediante medios de programación y el control de inicio de sesión...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/18/2008
 ms.assetid: 17772912-b47b-4557-9ce9-80f22df642f7
 msc.legacyurl: /web-forms/overview/older-versions-security/membership/validating-user-credentials-against-the-membership-user-store-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c5eeb67c8d175173f38ffcbc1b01fd5a5931866e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f5f1121bacdf287e346419d70ac155f47bc826ac
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821409"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828683"
 ---
 <a name="validating-user-credentials-against-the-membership-user-store-vb"></a>Validar las credenciales de usuario en el Store del usuario de pertenencia (VB)
 ====================

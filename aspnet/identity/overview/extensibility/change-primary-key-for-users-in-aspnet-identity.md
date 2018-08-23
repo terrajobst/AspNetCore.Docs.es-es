@@ -3,17 +3,17 @@ uid: identity/overview/extensibility/change-primary-key-for-users-in-aspnet-iden
 title: Cambiar la clave principal para los usuarios en ASP.NET Identity | Microsoft Docs
 author: tfitzmac
 description: En Visual Studio 2013, la aplicación web predeterminada utiliza un valor de cadena para la clave para las cuentas de usuario. ASP.NET Identity le permite cambiar el tipo de la...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 09/30/2014
 ms.assetid: 44925849-5762-4504-a8cd-8f0cd06f6dc3
 msc.legacyurl: /identity/overview/extensibility/change-primary-key-for-users-in-aspnet-identity
 msc.type: authoredcontent
-ms.openlocfilehash: 688a0dc09297a63bcf510aae9c25f303a5627df7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 2ec9894df2f9a48ef482715ce71bb09fb4758127
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808047"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828849"
 ---
 <a name="change-primary-key-for-users-in-aspnet-identity"></a>Cambiar la clave principal para los usuarios en ASP.NET Identity
 ====================

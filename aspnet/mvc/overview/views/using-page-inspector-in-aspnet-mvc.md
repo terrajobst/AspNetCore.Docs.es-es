@@ -3,17 +3,17 @@ uid: mvc/overview/views/using-page-inspector-in-aspnet-mvc
 title: Usar el Inspector de página en ASP.NET MVC | Microsoft Docs
 author: rick-anderson
 description: Inspector de página en Visual Studio 2012 es una herramienta de desarrollo web con un explorador integrado. Seleccione cualquier elemento en el explorador integrado y el Inspector de página i...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 08/15/2012
 ms.assetid: c7e4e1ab-4932-4614-9f53-aaf7c706d498
 msc.legacyurl: /mvc/overview/views/using-page-inspector-in-aspnet-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: e3a6b79811cae15ec69ba3c5babe38b117b697a5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: c465b0bac9af90a892d6e62a327ba36977d08d4a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37806091"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836376"
 ---
 <a name="using-page-inspector-in-aspnet-mvc"></a>Usar el Inspector de página en ASP.NET MVC
 ====================

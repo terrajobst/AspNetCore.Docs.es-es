@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/accessing-the-database-directly-from-an-aspn
 title: Usar consultas parametrizadas con SqlDataSource (C#) | Microsoft Docs
 author: rick-anderson
 description: En este tutorial, se continúa nuestro aspecto en el control SqlDataSource y obtenga información sobre cómo definir consultas con parámetros. Los parámetros se pueden especificar ambos decla...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2007
 ms.assetid: 9128aaac-afe2-449f-84b2-bb1d035083c4
 msc.legacyurl: /web-forms/overview/data-access/accessing-the-database-directly-from-an-aspnet-page/using-parameterized-queries-with-the-sqldatasource-cs
 msc.type: authoredcontent
-ms.openlocfilehash: e4612c48259bfee12a68080ec902c589b2a378b0
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 654c0ce5520a206e5e8e2fd20bed92ac1075bfe9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37819755"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829026"
 ---
 <a name="using-parameterized-queries-with-the-sqldatasource-c"></a>Usar consultas parametrizadas con SqlDataSource (C#)
 ====================

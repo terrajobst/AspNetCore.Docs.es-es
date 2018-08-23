@@ -3,17 +3,17 @@ uid: mvc/overview/security/preventing-open-redirection-attacks
 title: Prevención de ataques de redireccionamiento abierto (C#) | Microsoft Docs
 author: jongalloway
 description: Este tutorial explica cómo puede impedir los ataques de redireccionamiento abierto en sus aplicaciones de ASP.NET MVC. En este tutorial se describe los cambios que se han realizado...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/27/2014
 ms.assetid: 69fb02e0-f5b7-4c35-878c-fa87164fc785
 msc.legacyurl: /mvc/overview/security/preventing-open-redirection-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: 33d2d050805d9b65741c121cdb2b65a59e1ea392
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 767f9c85527fbcdf34e700eb32fe0c6cad30bf0c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813211"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828762"
 ---
 <a name="preventing-open-redirection-attacks-c"></a>Prevención de ataques de redireccionamiento abierto (C#)
 ====================

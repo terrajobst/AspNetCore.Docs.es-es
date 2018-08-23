@@ -3,17 +3,17 @@ uid: web-pages/videos/aspnet-razor-pages/working-with-files
 title: Trabajar con archivos | Microsoft Docs
 author: JoeStagner
 description: Vídeo acompañamiento para el trabajo con el tutorial de archivos
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/25/2011
 ms.assetid: 7245123a-244d-4665-bff4-5238d5ad3427
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages/working-with-files
 msc.type: video
-ms.openlocfilehash: a98f506293991d47f79f84006e3495eaa81ebf8e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 142ff352a3424a3fce3305f1c72c1b0eb578f139
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37807156"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836880"
 ---
 <a name="working-with-files"></a>Trabajar con archivos
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-acc
 title: Agregar dinámicamente un panel Accordion (C#) | Microsoft Docs
 author: wenz
 description: El control Accordion de AJAX Control Toolkit ofrece varios paneles y permite al usuario mostrar uno de ellos a la vez. Los paneles se declaran normalmente w...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/02/2008
 ms.assetid: 66d88cfa-f26f-46b1-ad52-1c9e03c04a48
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/accordion/dynamically-adding-an-accordion-pane-cs
 msc.type: authoredcontent
-ms.openlocfilehash: 60bff8dd2d06356a1f2cc771cf5b7fa9c4e4eac5
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 16cefadb7086a658b20558526757f9229a43fcc9
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803260"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836304"
 ---
 <a name="dynamically-adding-an-accordion-pane-c"></a>Agregar dinámicamente un panel Accordion (C#)
 ====================

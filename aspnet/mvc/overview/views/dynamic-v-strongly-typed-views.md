@@ -3,17 +3,17 @@ uid: mvc/overview/views/dynamic-v-strongly-typed-views
 title: Vistas dinámicas frente a Vistas de establecimiento inflexible de tipos | Microsoft Docs
 author: Rick-Anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2011
 ms.assetid: 0cbd88da-0da6-4605-b222-2835c6478304
 msc.legacyurl: /mvc/overview/views/dynamic-v-strongly-typed-views
 msc.type: authoredcontent
-ms.openlocfilehash: 941cb24b81721eb75a8f7150ddb17acf71287da3
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 41a47f0f6e5fd900e8bf35c37ed98566fe416ace
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822187"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828768"
 ---
 <a name="dynamic-v-strongly-typed-views"></a>Vistas dinámicas frente a Vistas fuertemente tipadas
 ====================

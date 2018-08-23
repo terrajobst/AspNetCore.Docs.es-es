@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-error-handling-when-sending-em
 title: '[¿Cómo lo hago?:] Implementar el control de errores al enviar correo electrónico con ASP.NET | Microsoft Docs'
 author: rick-anderson
 description: Chris Pels muestra cómo implementar el control de errores al enviar un correo electrónico con ASP.NET. Crea una página web ASP.NET para enviar correo electrónico, se muestra cómo configurar & lt....
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/06/2008
 ms.assetid: c02ffd50-aa19-4cdc-b1bf-760989979a61
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-error-handling-when-sending-email-with-aspnet
 msc.type: video
-ms.openlocfilehash: ebe6f451cad2ba4a9311b5882337b637de7f381e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6708a0a22e621d08301fb4228ec6c6e5f599d57a
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37814732"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836639"
 ---
 <a name="how-do-i-implement-error-handling-when-sending-email-with-aspnet"></a>[¿Cómo lo hago?:] Implementar el control de errores al enviar correo electrónico con ASP.NET
 ====================

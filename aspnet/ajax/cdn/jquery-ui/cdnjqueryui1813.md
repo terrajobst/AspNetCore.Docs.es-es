@@ -3,17 +3,17 @@ uid: ajax/cdn/jquery-ui/cdnjqueryui1813
 title: jQuery UI 1.8.13 en la red CDN de Microsoft Ajax | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 07/23/2014
 ms.assetid: f9ad2bf4-69eb-49f9-ac15-20b6bc9ba3e3
 msc.legacyurl: /ajax/cdn/jquery-ui/cdnjqueryui1813
 msc.type: content
-ms.openlocfilehash: 30d7824da838f394692b1448637ac7c7fa08bbee
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: cb4355da2129b94a736b59060a9280db201208c3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808134"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836647"
 ---
 <a name="jquery-ui-1813-on-the-microsoft-ajax-cdn"></a>jQuery UI 1.8.13 en la red CDN de Microsoft Ajax
 ====================

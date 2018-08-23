@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/database-driven-site-maps/building-a-custom-
 title: Creación de un proveedor del mapa del sitio controlado por base de datos personalizadas (VB) | Microsoft Docs
 author: rick-anderson
 description: El proveedor de mapa del sitio predeterminado en ASP.NET 2.0 recupera sus datos desde un archivo XML estático. Mientras que el proveedor basado en XML es adecuado para muchas pequeño y mediano ventana...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 06/26/2007
 ms.assetid: f904cd2c-a408-4484-9324-8b8d7fe33893
 msc.legacyurl: /web-forms/overview/data-access/database-driven-site-maps/building-a-custom-database-driven-site-map-provider-vb
 msc.type: authoredcontent
-ms.openlocfilehash: ecf09fc6adc59e1b6280ed6f3829f0add2b4a299
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 55658c563b6dd3c3b097e562cb1fe036bbfce815
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37815965"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828655"
 ---
 <a name="building-a-custom-database-driven-site-map-provider-vb"></a>Creación de un proveedor del mapa del sitio controlado por base de datos personalizadas (VB)
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/security/authenticating-users-with-windows-au
 title: Autenticar a los usuarios con la autenticación de Windows (VB) | Microsoft Docs
 author: microsoft
 description: Obtenga información sobre cómo usar la autenticación de Windows en el contexto de una aplicación MVC. Aprenda a habilitar la autenticación de Windows dentro de co de su aplicación web...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/27/2009
 ms.assetid: 532fa051-7d5c-4d6d-87f6-339ce4b84c44
 msc.legacyurl: /mvc/overview/older-versions-1/security/authenticating-users-with-windows-authentication-vb
 msc.type: authoredcontent
-ms.openlocfilehash: c3c7f7bfc15483451ede5382bf3fc02db47dea0e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e37508dedd4243dd1a1638e68760f6f4310e61a8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37811693"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829075"
 ---
 <a name="authenticating-users-with-windows-authentication-vb"></a>Autenticar a los usuarios con la autenticación de Windows (VB)
 ====================

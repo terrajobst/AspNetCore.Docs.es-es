@@ -3,17 +3,17 @@ uid: web-forms/videos/building-20-applications/lesson-7-databinding-to-user-inte
 title: '[Lección 7:] Enlace de datos a controles de interfaz de usuario | Microsoft Docs'
 author: microsoft
 description: En esta lección, obtendrá información sobre cómo mostrar datos en ASP.NET&#160;2.0 web aplicaciones a través de algunos de los nuevos controles enlazados a datos.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/29/2005
 ms.assetid: 49625de7-06c3-484c-bd76-d322b9ca41ea
 msc.legacyurl: /web-forms/videos/building-20-applications/lesson-7-databinding-to-user-interface-controls
 msc.type: video
-ms.openlocfilehash: 868072c6a3ccc8d461cd86d2092b5b8c82ed7fc9
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a166b3386bb4b2ce7d8215a1fb312d9d255c249d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37802234"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836018"
 ---
 <a name="lesson-7-databinding-to-user-interface-controls"></a>[Lección 7:] Enlace de datos a controles de interfaz de usuario
 ====================

@@ -3,17 +3,17 @@ uid: signalr/overview/older-versions/working-with-groups
 title: Trabajar con grupos en SignalR 1.x | Microsoft Docs
 author: pfletcher
 description: Este tema describe cómo conservar la información de pertenencia de grupo con la API de concentrador.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/21/2013
 ms.assetid: 22929efd-68c9-4609-b76d-f8ba42fda01e
 msc.legacyurl: /signalr/overview/older-versions/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: d0bdf81493ac7b5f929abd7d4336f04736467c66
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 0e24dced2fe16a14430f1d3948c79bb7f7d73065
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37803112"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828699"
 ---
 <a name="working-with-groups-in-signalr-1x"></a>Trabajar con grupos en SignalR 1.x
 ====================

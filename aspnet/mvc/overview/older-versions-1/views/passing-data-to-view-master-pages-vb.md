@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 title: Pasar datos a páginas maestras de vista (VB) | Microsoft Docs
 author: microsoft
 description: El objetivo de este tutorial es explicar cómo puede pasar datos de un controlador a una página maestra de la vista. Se examinan dos estrategias para pasar datos a una vista m...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: 37a1ebae-8773-408f-8645-d21da7ff9ae1
 msc.legacyurl: /mvc/overview/older-versions-1/views/passing-data-to-view-master-pages-vb
 msc.type: authoredcontent
-ms.openlocfilehash: 2daab1e8596035c1a70fb0f86ba752837d468ef2
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 9b840e0a5cc325a043ae88c10f52cca418589119
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37822249"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828817"
 ---
 <a name="passing-data-to-view-master-pages-vb"></a>Pasar datos a páginas maestras de vista (VB)
 ====================

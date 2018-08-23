@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/understanding-action-
 title: Descripción de los filtros de acción (C#) | Microsoft Docs
 author: microsoft
 description: El objetivo de este tutorial es explicar los filtros de acción. Un filtro de acción es un atributo que se puede aplicar a una acción de controlador o un controlador todo...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/16/2008
 ms.assetid: a94e4e81-40c1-47b7-8613-126a1a6cc93d
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/understanding-action-filters-cs
 msc.type: authoredcontent
-ms.openlocfilehash: aaec90a14e53f0173ea09fbdbaa591ec0eb680b1
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6c7706d8252d5a0271f1b9243fa8eb282f722654
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37810168"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829330"
 ---
 <a name="understanding-action-filters-c"></a>Descripción de los filtros de acción (C#)
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-eve
 title: '[¿Cómo lo hago?:] Implementar un evento de supervisión de estado personalizado | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo Chris Pels mostrará cómo crear un evento que se extiende a un estado estándar supervisar los eventos de ASP.NET de supervisión de estado personalizado. Los profesionales personalizados...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 12/17/2007
 ms.assetid: 5fa365a1-d709-40e2-b7bf-489ff687f2ce
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-implement-a-custom-health-monitoring-event
 msc.type: video
-ms.openlocfilehash: 161ed55459f5aaf93f6418bd4beeda98cbb464ff
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d3d5955cbb432390c48b7174c3cb35e6c282bf79
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37828785"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836344"
 ---
 <a name="how-do-i-implement-a-custom-health-monitoring-event"></a>[¿Cómo lo hago?:] Implementar un evento de supervisión de estado personalizado
 ====================

@@ -3,17 +3,17 @@ uid: web-forms/videos/how-do-i/how-do-i-create-a-full-featured-customer-login-po
 title: '[¿Cómo lo hago?:] ¿Crear un Portal de inicio de sesión de cliente completa? | Microsoft Docs'
 author: microsoft
 description: Continuar con la creación de un portal del cliente ficticio para obtener información sobre las páginas maestras, temas, pertenencia a grupos, roles, navegación del sitio, perfiles de usuario, y...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/05/2006
 ms.assetid: dfaffea8-c71c-4fa0-9f97-585c9ac95529
 msc.legacyurl: /web-forms/videos/how-do-i/how-do-i-create-a-full-featured-customer-login-portal
 msc.type: video
-ms.openlocfilehash: f6c1dedbac2c3b4679e53cd1979ef894a9a6b414
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 3ce5ed8b978b7bdce45cdc082f2ce89660e082ad
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37842855"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829091"
 ---
 <a name="how-do-i-create-a-full-featured-customer-login-portal"></a>[¿Cómo lo hago?:] ¿Crear un Portal de inicio de sesión de cliente completa?
 ====================

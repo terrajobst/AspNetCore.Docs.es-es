@@ -3,17 +3,17 @@ uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata
 title: Creación de un punto de conexión de OData v3 con Web API 2 | Microsoft Docs
 author: MikeWasson
 description: Open Data Protocol (OData) es un protocolo de acceso a datos para la web. OData proporciona una manera uniforme para estructurar datos, consultar los datos y manipular los datos...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 67a41f37a09d089336dc96d393f929e56661c4f8
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 654f697c8d095d45ba31e2808c52f9ad24b606c8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37813713"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835762"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Creación de un punto de conexión de OData v3 con Web API 2
 ====================

@@ -3,17 +3,17 @@ uid: mvc/overview/getting-started/introduction/adding-a-new-field
 title: Agregar un nuevo campo | Microsoft Docs
 author: Rick-Anderson
 description: ''
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/17/2013
 ms.assetid: 4085de68-d243-4378-8a64-86236ea8d2da
 msc.legacyurl: /mvc/overview/getting-started/introduction/adding-a-new-field
 msc.type: authoredcontent
-ms.openlocfilehash: a4eb759646fc77bbba687d8b4914465d58cd3aaa
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 7326f3d80030cdc5db1c25efc31f59f5b51594f4
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38151462"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835466"
 ---
 <a name="adding-a-new-field"></a>Adición de un nuevo campo
 ====================

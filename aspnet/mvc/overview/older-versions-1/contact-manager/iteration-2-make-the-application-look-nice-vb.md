@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-applicat
 title: 'Iteración #2: que la aplicación parezca interesante (VB) | Microsoft Docs'
 author: microsoft
 description: En esta iteración, mejorar la apariencia de la aplicación mediante la modificación de la página principal de la vista de MVC de ASP.NET predeterminada y en cascada de hoja de estilos.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/20/2009
 ms.assetid: f65cb436-e493-46fd-9608-384b27385aa1
 msc.legacyurl: /mvc/overview/older-versions-1/contact-manager/iteration-2-make-the-application-look-nice-vb
 msc.type: authoredcontent
-ms.openlocfilehash: a653d3f959756ab7cdc1e0a76e03cde3ec85a378
-ms.sourcegitcommit: a25b572eaed21791230c85416f449f66a405ec19
+ms.openlocfilehash: 7f27cbab17effc3b44649e06409893e6be09b011
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39396036"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829117"
 ---
 <a name="iteration-2--make-the-application-look-nice-vb"></a>Iteración #2: que la aplicación parezca interesante (VB)
 ====================

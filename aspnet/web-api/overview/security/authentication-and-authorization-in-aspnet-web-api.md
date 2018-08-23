@@ -3,17 +3,17 @@ uid: web-api/overview/security/authentication-and-authorization-in-aspnet-web-ap
 title: Autenticación y autorización en ASP.NET Web API | Microsoft Docs
 author: MikeWasson
 description: Se proporciona información general de autenticación y autorización en ASP.NET Web API.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/27/2012
 ms.assetid: 6dfb51ea-9f4d-4e70-916c-8ef8344a88d6
 msc.legacyurl: /web-api/overview/security/authentication-and-authorization-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: f882a9bb2922d0eb28eee7cdba0896bdc5318c2a
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: a78606a74b2149e68e3b01f4fe204f4a13edf4b5
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37812839"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836566"
 ---
 <a name="authentication-and-authorization-in-aspnet-web-api"></a>Autenticación y autorización en ASP.NET Web API
 ====================
@@ -117,6 +117,6 @@ El siguiente diagrama muestra la jerarquía de clases para el **AuthorizeAttribu
 
 ### <a name="authorization-inside-a-controller-action"></a>Autorización dentro de una acción de controlador
 
-En algunos casos, puede permitir que una solicitud para continuar, pero cambiar el comportamiento en función de la entidad de seguridad. Por ejemplo, puede cambiar la información que devuelve según el rol del usuario. Dentro de un método de controlador, puede obtener desde el principio de actual la **ApiController.User** propiedad.
+En algunos casos, puede permitir que una solicitud para continuar, pero cambiar el comportamiento en función de la entidad de seguridad. Por ejemplo, puede cambiar la información que devuelve según el rol del usuario. Dentro de un método de controlador, puede obtener la entidad de seguridad actual de la **ApiController.User** propiedad.
 
 [!code-csharp[Main](authentication-and-authorization-in-aspnet-web-api/samples/sample7.cs)]

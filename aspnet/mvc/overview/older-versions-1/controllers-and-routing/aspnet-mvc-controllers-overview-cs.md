@@ -3,17 +3,17 @@ uid: mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controller
 title: Información general del controlador de MVC de ASP.NET (C#) | Microsoft Docs
 author: StephenWalther
 description: En este tutorial, Stephen Walther presenta los controladores ASP.NET MVC. Aprenda a crear nuevos controladores y devolver tipos diferentes de res de acción...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/16/2008
 ms.assetid: b985c49a-3668-455c-a366-f85f6bc64b12
 msc.legacyurl: /mvc/overview/older-versions-1/controllers-and-routing/aspnet-mvc-controllers-overview-cs
 msc.type: authoredcontent
-ms.openlocfilehash: f8ff1ed19e6357a9a4e98f755a677d05ae5c2ec4
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: e9ec460d323866e231072ce587c25239141da711
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37821727"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828630"
 ---
 <a name="aspnet-mvc-controller-overview-c"></a>Información general del controlador de MVC de ASP.NET (C#)
 ====================

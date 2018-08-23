@@ -3,17 +3,17 @@ uid: web-forms/videos/net-4/routing/how-do-i-work-with-urls-in-aspnet-routing
 title: 'Cómo: trabajar con las direcciones URL de enrutamiento de ASP.NET? | Microsoft Docs'
 author: rick-anderson
 description: En este vídeo, Chris Pels muestra cómo especificar las direcciones URL en un sitio web que usa el enrutamiento de ASP.NET. En primer lugar, se crea un sitio web y el enrutamiento se define en el GL...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 10/15/2010
 ms.assetid: 08f9d0a7-cfa0-4914-a672-8a64295d7ba8
 msc.legacyurl: /web-forms/videos/net-4/routing/how-do-i-work-with-urls-in-aspnet-routing
 msc.type: video
-ms.openlocfilehash: 12b1b0bc41365b480c0104c1a1b00fa5ef515137
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: d9b0e086cceba5e2f7d372fb193eeeca891b5eb1
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37818558"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41829060"
 ---
 <a name="how-do-i-work-with-urls-in-aspnet-routing"></a>Cómo: trabajar con las direcciones URL de enrutamiento de ASP.NET?
 ====================

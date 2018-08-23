@@ -3,17 +3,17 @@ uid: web-forms/overview/data-access/custom-formatting/using-the-formview-s-templ
 title: Uso de las plantillas de FormView (VB) | Microsoft Docs
 author: rick-anderson
 description: A diferencia de DetailsView, FormView no se compone de campos. En su lugar, FormView se representa mediante plantillas. En este tutorial examinaremos utilizando la F...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 03/31/2010
 ms.assetid: 67b25f4c-2823-42b6-b07d-1d650b3fd711
 msc.legacyurl: /web-forms/overview/data-access/custom-formatting/using-the-formview-s-templates-vb
 msc.type: authoredcontent
-ms.openlocfilehash: bb613158343e6845e583ed823e2a2c16f958b720
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 6d16ef7ef8a3d5fce10e0d0b88421be294e9fc8d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37838159"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41835396"
 ---
 <a name="using-the-formviews-templates-vb"></a>Uso de las plantillas de FormView (VB)
 ====================

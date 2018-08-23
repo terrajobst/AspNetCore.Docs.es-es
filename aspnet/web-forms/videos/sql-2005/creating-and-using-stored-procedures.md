@@ -3,17 +3,17 @@ uid: web-forms/videos/sql-2005/creating-and-using-stored-procedures
 title: Crear y usar procedimientos almacenan | Microsoft Docs
 author: microsoft
 description: Este vídeo se expande en el tema de procedimientos almacenados que se introdujo hace varias lecciones. En este vídeo se explica la sintaxis básica para crear y actualizar...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/14/2006
 ms.assetid: 817bc763-7faa-4ac5-880b-b3f5531e9d07
 msc.legacyurl: /web-forms/videos/sql-2005/creating-and-using-stored-procedures
 msc.type: video
-ms.openlocfilehash: f1fc8fc6acda45352d24684d6f21adaf565d8d6e
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: f8397bfa9a6d162cfc6158fbd138dccf90d7e8a3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37816644"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836559"
 ---
 <a name="creating-and-using-stored-procedures"></a>Creación y uso de procedimientos almacenados
 ====================

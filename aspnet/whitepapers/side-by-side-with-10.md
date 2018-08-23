@@ -3,17 +3,17 @@ uid: whitepapers/side-by-side-with-10
 title: La ejecución de .NET Framework 1.0 y 1.1 de ASP.NET Side-by-Side | Microsoft Docs
 author: rick-anderson
 description: Estas notas del producto describen cómo instalar .NET 1.0 y 1.1 de .NET en el equipo, lo que permite a una aplicación Web ASP.NET para ejecutarse en cualquier versión de los fotogramas...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/10/2010
 ms.assetid: bdea2003-e964-4db5-9092-d56cc7560616
 msc.legacyurl: /whitepapers/side-by-side-with-10
 msc.type: content
-ms.openlocfilehash: 1018845e3d2c6603732bfbbde78f4a9183e49d5d
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: b5457a62e127ba555674fbe3b9f75552cad041c7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37808400"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836541"
 ---
 <a name="aspnet-side-by-side-execution-of-net-framework-10-and-11"></a>Ejecución de .NET Framework 1.0 y 1.1 de ASP.NET Side-by-Side
 ====================

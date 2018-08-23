@@ -3,17 +3,17 @@ uid: whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 title: 'Cómo: Agregar páginas de dispositivos móviles a los formularios Web de ASP.NET / MVC Application | Microsoft Docs'
 author: rick-anderson
 description: Esta página se describe varias maneras de servir páginas optimizadas para dispositivos móviles de los formularios Web Forms de ASP.NET / aplicación de MVC y sugiere la arquitectura y...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 01/20/2011
 ms.assetid: 3124f28e-cc32-418a-afe3-519fa56f4c36
 msc.legacyurl: /whitepapers/add-mobile-pages-to-your-aspnet-web-forms-mvc-application
 msc.type: content
-ms.openlocfilehash: 59b81184852a7fe0ad2dcad9718b572a8c756918
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 1693838a74f0564e38e11a2827cceb3d6474677b
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37823360"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41828645"
 ---
 <a name="how-to-add-mobile-pages-to-your-aspnet-web-forms--mvc-application"></a>Cómo: Agregar páginas de dispositivos móviles a los formularios de ASP.NET Web / aplicación de MVC
 ====================

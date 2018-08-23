@@ -3,17 +3,17 @@ uid: web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-searc
 title: Visual Studio 2010 Quick acierto - jerarquía de vistas de búsqueda de código
 author: JoeStagner
 description: En este vídeo, aprenderá acerca de la jerarquía de vista de búsqueda de código de Visual Studio.
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 11/11/2009
 ms.assetid: 0f24b680-e3a6-46f6-a52a-91191e09ab78
 msc.legacyurl: /web-forms/videos/visual-studio-2010/visual-studio-2010-quick-hit-code-search-view-hierarchy
 msc.type: video
-ms.openlocfilehash: f445e688f160c572438e38dff4a1c271229b36aa
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: fb04081e2d40c514c8902653373b08953d8219f6
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37831124"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836105"
 ---
 <a name="visual-studio-2010-quick-hit---code-search-view-hierarchy"></a>Visual Studio 2010 "Rápido Hit" - jerarquía de vistas de búsqueda de código
 ====================

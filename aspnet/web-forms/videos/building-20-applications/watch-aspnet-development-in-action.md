@@ -3,17 +3,17 @@ uid: web-forms/videos/building-20-applications/watch-aspnet-development-in-actio
 title: Ver el desarrollo de ASP.NET en acción | Microsoft Docs
 author: JoeStagner
 description: Vea lo fácil que es crear una ' to do' aplicación de lista desde cero mediante ASP.NET 2.0, AJAX de ASP.NET, SQL Server Express y Visual Web Developer de tareas. MIC...
-ms.author: aspnetcontent
+ms.author: riande
 ms.date: 02/24/2009
 ms.assetid: 23bdc2a7-417a-4ea8-b1ee-e3e1bd272223
 msc.legacyurl: /web-forms/videos/building-20-applications/watch-aspnet-development-in-action
 msc.type: video
-ms.openlocfilehash: 31be89a29c0ad2d3876d10e1cda52dc10ce78bf7
-ms.sourcegitcommit: b28cd0313af316c051c2ff8549865bff67f2fbb4
+ms.openlocfilehash: 92d2acd300c74edeb52bb674b270e2634e911b87
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37830385"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41836576"
 ---
 <a name="watch-aspnet-development-in-action"></a>Desarrollo de ASP.NET de inspección en acción
 ====================
