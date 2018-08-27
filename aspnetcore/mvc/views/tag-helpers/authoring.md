@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo crear aplicaciones auxiliares de etiquetas en ASP.NET Core.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
-ms.date: 01/19/2018
+ms.date: 08/20/2018
 uid: mvc/views/tag-helpers/authoring
-ms.openlocfilehash: 5873c6dbdeba1b5f2bf7ac85d8992480228b7125
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 2d39488caeea0c87d2efc79f265de7feb200f096
+ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275322"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41751451"
 ---
 # <a name="author-tag-helpers-in-aspnet-core"></a>Crear aplicaciones auxiliares de etiquetas en ASP.NET Core
 
@@ -35,7 +35,7 @@ En esta sección, escribirá una aplicación auxiliar de etiquetas que actualice
 
 ```html
 <email>Support</email>
-   ```
+```
 
 El servidor usará nuestra aplicación auxiliar de etiquetas de correo electrónico para convertir ese marcado en lo siguiente:
 
@@ -179,7 +179,7 @@ También puede usar `[HtmlTargetElement]` para cambiar el nombre del elemento de
 
 ```csharp
 [HtmlTargetElement("MyBold")]
-   ```
+```
 
 ## <a name="pass-a-model-to-a-tag-helper"></a>Pasar un modelo a una aplicación auxiliar de etiquetas
 
@@ -245,26 +245,8 @@ La aplicación auxiliar de etiquetas de condición representa la salida cuando s
 
 2. Reemplace el contenido del archivo *Views/Home/Index.cshtml* por el marcado siguiente:
 
-   ```cshtml
-   @using AuthoringTagHelpers.Models
-   @model WebsiteContext
-    
-   @{
-       ViewData["Title"] = "Home Page";
-   }
-    
-   <div>
-       <h3>Information about our website (outdated):</h3>
-       <website-information info=@Model />
-       <div condition="@Model.Approved">
-           <p>
-               This website has <strong surround="em"> @Model.Approved </strong> been approved yet.
-               Visit www.contoso.com for more information.
-           </p>
-       </div>
-   </div>
-   ```
-    
+   [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Views/Home/Index.cshtml)]
+
 3. Reemplace el método `Index` del controlador `Home` por el código siguiente:
 
    [!code-csharp[](authoring/sample/AuthoringTagHelpers/src/AuthoringTagHelpers/Controllers/HomeController.cs?range=9-18)]

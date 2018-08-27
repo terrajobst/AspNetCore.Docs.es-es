@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/31/2018
 uid: host-and-deploy/azure-apps/troubleshoot
-ms.openlocfilehash: f9918e9162329f4c5dbd1ff18e30fce0db24e651
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a995c743b4e43be8bea5329affb3f2c736b1d016
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272729"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902559"
 ---
 # <a name="troubleshoot-aspnet-core-on-azure-app-service"></a>Solución de problemas de ASP.NET Core en Azure App Service
 
@@ -178,7 +178,7 @@ Para más información, consulte [Habilitación del registro de diagnóstico par
 * [Introducción a control de errores en ASP.NET Core](xref:fundamentals/error-handling)
 * [Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)
 * [Solución de problemas de una aplicación web en Azure App Service con Visual Studio](/azure/app-service/web-sites-dotnet-troubleshoot-visual-studio)
-* [Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en las aplicaciones web de Azure](/app-service/app-service-web-troubleshoot-http-502-http-503)
+* [Solucionar los errores HTTP de "502 Puerta de enlace no válida" y "503 Servicio no disponible" en las aplicaciones web de Azure](/azure/app-service/app-service-web-troubleshoot-http-502-http-503)
 * [Solucionar los problemas de rendimiento reducido de aplicaciones web en Azure App Service](/azure/app-service/app-service-web-troubleshoot-performance-degradation)
 * [Preguntas más frecuentes sobre el rendimiento de aplicaciones para Web Apps de Azure](/azure/app-service/app-service-web-availability-performance-application-issues-faq)
 * [Azure Web App sandbox (App Service runtime execution limitations)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) (Espacio aislado de Azure Web App [limitaciones de ejecución del entono de tiempo de ejecución de App Service])
