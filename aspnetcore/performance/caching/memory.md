@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 7/22/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 468e85d3b9fddfa045de1725687a464dd2438ca4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
+ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828222"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42899849"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en caché en memoria en ASP.NET Core
 
@@ -127,11 +127,11 @@ El siguiente código registra `MyMemoryCache` con el [inserción de dependencias
 
 El siguiente código utiliza `MyMemoryCache`:
 
-[! [] de código csharp (memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet) [](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet)]
+[!code-csharp[](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet)]
 
 Se puede establecer el tamaño de la entrada de caché [tamaño](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryoptions.size?view=aspnetcore-2.1#Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_Size) o [SetSize](/dotnet/api/microsoft.extensions.caching.memory.memorycacheentryextensions.setsize?view=aspnetcore-2.0#Microsoft_Extensions_Caching_Memory_MemoryCacheEntryExtensions_SetSize_Microsoft_Extensions_Caching_Memory_MemoryCacheEntryOptions_System_Int64_) método de extensión:
 
-[! [] código csharp (memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet2 & resaltado = 9, 10, 14, 15) [](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet2&highlight=9,10,14,15)]
+[!code-csharp[](memory/sample/RPcache/Pages/About.cshtml.cs?name=snippet2&highlight=9,10,14,15)]
 
 ::: moniker-end
 
