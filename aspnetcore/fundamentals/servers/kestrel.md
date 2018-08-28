@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/02/2018
 uid: fundamentals/servers/kestrel
-ms.openlocfilehash: 797fce6273eba29d19e640c301d2f4d2059370cc
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 7c7ff337256792dde057c04a5b96a1eb1c093387
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342203"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902637"
 ---
 # <a name="kestrel-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web Kestrel en ASP.NET Core
 
@@ -788,7 +788,7 @@ public class HostFilteringMiddleware
 }
 ```
 
-Registre el `HostFilteringMiddleware` anterior en `Startup.Configure`. Cabe mencionar que el [orden de registro del middleware](xref:fundamentals/middleware/index#ordering) es importante. debe tener lugar inmediatamente después del registro del middleware de diagnóstico (por ejemplo, `app.UseExceptionHandler`).
+Registre el `HostFilteringMiddleware` anterior en `Startup.Configure`. Cabe mencionar que el [orden de registro del middleware](xref:fundamentals/middleware/index#order) es importante. debe tener lugar inmediatamente después del registro del middleware de diagnóstico (por ejemplo, `app.UseExceptionHandler`).
 
 ```csharp
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
