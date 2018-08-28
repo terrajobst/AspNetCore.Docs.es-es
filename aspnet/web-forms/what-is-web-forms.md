@@ -8,12 +8,12 @@ ms.date: 02/21/2014
 ms.assetid: 5fa1daf9-1161-4cfa-bd4c-658f48b2c229
 msc.legacyurl: /web-forms/what-is-web-forms
 msc.type: content
-ms.openlocfilehash: ccb0e6096b0281e5ef8af63bfd84b172e7f209b9
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: e135cfa2945b9e7e5269eb436ff0c1dff20aacdf
+ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837679"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43055717"
 ---
 <a name="what-is-web-forms"></a>¿Qué es Web Forms
 ====================
@@ -21,7 +21,7 @@ Formularios Web Forms ASP.NET es una parte del marco de aplicación web ASP.NET 
 
 Formularios Web Forms son páginas que los usuarios solicitan mediante su explorador. Estas páginas se pueden escribir mediante una combinación de HTML, script de cliente, los controles de servidor y código de servidor. Cuando los usuarios solicitan una página, se compila y se ejecuta en el servidor, el marco de trabajo y, a continuación, el marco de trabajo genera el marcado HTML que puede representar el explorador. Una página de formularios Web Forms de ASP.NET presenta información al usuario en cualquier explorador o dispositivo cliente.
 
-Con Visual Studio, puede crear formularios Web Forms de ASP.NET. El entorno de desarrollo integrado (IDE) de Visual Studio le permite arrastrar y colocar los controles de servidor para diseñar su página de formularios Web Forms. A continuación, puede establecer fácilmente las propiedades, métodos y eventos para controles de la página o para la misma página. Estas propiedades, métodos y eventos se usan para definir el comportamiento de la página web, apariencia y funcionamiento y así sucesivamente. Para escribir código para controlar la lógica de la página del servidor, puede usar un lenguaje. NET, como Visual Basic o C#.
+Con Visual Studio, puede crear formularios Web Forms de ASP.NET. El entorno de desarrollo integrado (IDE) de Visual Studio le permite arrastrar y colocar los controles de servidor para diseñar su página de formularios Web Forms. A continuación, puede establecer fácilmente las propiedades, métodos y eventos para controles de la página o para la propia página. Estas propiedades, métodos y eventos se usan para definir el comportamiento de la página web, apariencia y funcionamiento y así sucesivamente. Para escribir código para controlar la lógica de la página del servidor, puede usar un lenguaje. NET, como Visual Basic o C#.
 
 > [!NOTE] 
 > 
