@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 9a7d20378cac597b748d8a60eb0f0bf17c9ba082
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41751247"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927833"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
@@ -57,6 +57,14 @@ En ASP.NET Core 2.0 y versiones posteriores, los siguientes paquetes de NuGet pr
 Si tiene .NET Core como destino y hace referencia al [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage), los paquetes ya están incluidos. Los paquetes no están en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), que es más reciente. Si tiene .NET Framework como destino o hace referencia al metapaquete `Microsoft.AspNetCore.App`, haga referencia a los paquetes de registro individuales.
 
 ::: moniker-end
+
+## <a name="override-app-configuration-using-the-azure-portal"></a>Invalidación de la configuración de la aplicación mediante Azure Portal
+
+El área **Configuración de la aplicación** de la hoja **Configuración de la aplicación** le permite establecer variables de entorno para la aplicación. El [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider) puede consumir las variables de entorno.
+
+Cuando una aplicación usa el [host web](xref:fundamentals/host/web-host) y compila el host mediante [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), las variables de entorno que configuran el host usan el prefijo `ASPNETCORE_`. Para más información, consulte <xref:fundamentals/host/web-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
+
+Cuando una aplicación usa el [host genérico](xref:fundamentals/host/generic-host), no se cargan variables de entorno en la configuración de una aplicación de manera predeterminada y es el desarrollador el que debe agregar al proveedor de configuración. El desarrollador determina el prefijo de variable de entorno cuando se agrega el proveedor de configuración. Para más información, consulte <xref:fundamentals/host/generic-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 ## <a name="proxy-server-and-load-balancer-scenarios"></a>Escenarios de servidor proxy y equilibrador de carga
 
