@@ -8,12 +8,12 @@ ms.date: 09/08/2014
 ms.assetid: 9b96eaa1-8ef0-4338-a2e8-e0f970bfaf68
 msc.legacyurl: /web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/introduction-and-overview
 msc.type: authoredcontent
-ms.openlocfilehash: ad5e97cd596e146f742c4c5e882d3938005070d1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8e3ae964dafc73bdf703cd7cbab430bbc99a6188
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41824025"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336029"
 ---
 <a name="getting-started-with-aspnet-45-web-forms-and-visual-studio-2013"></a>Introducción a ASP.NET 4.5 Web Forms y Visual Studio 2013
 ====================
@@ -21,9 +21,7 @@ por [Erik Reitan](https://github.com/Erikre)
 
 [Descargar el proyecto de ejemplo de Wingtip Toys (C#)](http://go.microsoft.com/fwlink/?LinkID=389434&clcid=0x409) o [descargar eBook (PDF)](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20ASP.NET%204.5%20Web%20Forms%20and%20Visual%20Studio%202013.pdf)
 
-> Esta serie de tutoriales paso a paso le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para Web. [Cuestionario de ASP.NET Web Forms](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
-> Ponga a prueba sus conocimientos y reforzar los conceptos clave tomando el examen de ASP.NET Web Forms. Este examen se diseñó específicamente desde el contenido de esta serie de tutoriales. Cada pregunta de la prueba proporciona una explicación junto con vínculos a guías adicionales.
-
+Esta serie de tutoriales paso a paso le enseñará los aspectos básicos de la creación de una aplicación de formularios Web Forms ASP.NET con ASP.NET 4.5 y Microsoft Visual Studio Express 2013 para Web. [Cuestionario de ASP.NET Web Forms](http://quizapp.cloudapp.net/?quiz=ASP.NET)  
 
 ## <a name="introduction"></a>Introducción
 

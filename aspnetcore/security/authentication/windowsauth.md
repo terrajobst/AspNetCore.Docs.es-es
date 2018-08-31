@@ -5,12 +5,12 @@ description: En este artículo se describe cómo configurar la autenticación de
 ms.author: riande
 ms.date: 08/18/2018
 uid: security/authentication/windowsauth
-ms.openlocfilehash: 93b1a1de74ef6554d48709b04870f7e23738846b
-ms.sourcegitcommit: 15d7bd0b2c4e6fe9ac335d658bab71a45ca5bc72
+ms.openlocfilehash: a8066d248c0d4db1d1f61b2a14bdb4656a2f4265
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41828626"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312417"
 ---
 # <a name="configure-windows-authentication-in-aspnet-core"></a>Configurar la autenticación de Windows en ASP.NET Core
 
@@ -97,7 +97,7 @@ Aunque Kestrel no admite la autenticación de Windows, puede usar [HTTP.sys](xre
 [!code-csharp[](windowsauth/sample/Program2x.cs?highlight=9-14)]
 
 > [!NOTE]
-> Delegados de HTTP.sys para la autenticación de modo kernel con el protocolo de autenticación Kerberos. No se admite la autenticación de modo usuario con Kerberos y HTTP.sys. La cuenta de equipo debe tener usada para descifrar el token/vale de Kerberos que se obtienen de Active Directory y reenviada por el cliente en el servidor para autenticar al usuario. Registrar el nombre Principal de servicio (SPN) para el host, no el usuario de la aplicación.
+> HTTP.sys delega en la autenticación de modo kernel con el protocolo de autenticación de Kerberos. La autenticación de modo usuario no se admite con Kerberos y HTTP.sys. Se debe usar la cuenta de equipo para descifrar el token o el vale de Kerberos que se obtiene de Active Directory y que el cliente reenvía al servidor para autenticar al usuario. Registre el nombre de entidad de seguridad de servicio (SPN) para el host, no el usuario de la aplicación.
 
 ::: moniker-end
 
@@ -110,7 +110,7 @@ Aunque Kestrel no admite la autenticación de Windows, puede usar [WebListener](
 [!code-csharp[](windowsauth/sample/Program1x.cs?highlight=6-11)]
 
 > [!NOTE]
-> Delegados de WebListener para la autenticación de modo kernel con el protocolo de autenticación Kerberos. No se admite la autenticación de modo usuario con Kerberos y WebListener. La cuenta de equipo debe tener usada para descifrar el token/vale de Kerberos que se obtienen de Active Directory y reenviada por el cliente en el servidor para autenticar al usuario. Registrar el nombre Principal de servicio (SPN) para el host, no el usuario de la aplicación.
+> WebListener delega en la autenticación de modo kernel con el protocolo de autenticación de Kerberos. La autenticación de modo usuario no se admite con Kerberos y WebListener. Se debe usar la cuenta de equipo para descifrar el token o el vale de Kerberos que se obtiene de Active Directory y que el cliente reenvía al servidor para autenticar al usuario. Registre el nombre de entidad de seguridad de servicio (SPN) para el host, no el usuario de la aplicación.
 
 ::: moniker-end
 
@@ -129,7 +129,7 @@ Cuando se habilitan tanto la autenticación de Windows como el acceso anónimo, 
 En ASP.NET Core 2.x, el `[Authorize]` atributo requiere configuración adicional en *Startup.cs* Desafíe a las solicitudes anónimas para la autenticación de Windows. La configuración recomendada varía ligeramente según el servidor web que se va a usar.
 
 > [!NOTE]
-> De forma predeterminada, se presentan a los usuarios que no tienen autorización para acceder a una página con una respuesta HTTP 403 vacía. El [StatusCodePages middleware](xref:fundamentals/error-handling#configuring-status-code-pages) puede configurarse para proporcionar a los usuarios una mejor experiencia de "Acceso denegado".
+> De forma predeterminada, se presentan a los usuarios que no tienen autorización para acceder a una página con una respuesta HTTP 403 vacía. El [StatusCodePages middleware](xref:fundamentals/error-handling#configure-status-code-pages) puede configurarse para proporcionar a los usuarios una mejor experiencia de "Acceso denegado".
 
 #### <a name="iis"></a>IIS
 

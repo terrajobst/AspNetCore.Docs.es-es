@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear una aplicación de páginas 
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: ba59e8d6243965188397c4ba7a130eec42acfb91
-ms.sourcegitcommit: 847cc1de5526ff42a7303491e6336c2dbdb45de4
+ms.openlocfilehash: 9f264daa4a6b63478077cadb06a697f274014199
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43055885"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336016"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -19,7 +19,7 @@ Consulte [este PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/securi
 
 ::: moniker range="= aspnetcore-2.0"
 
-Consulte la [este pdf] ()https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
+Consulte [este pdf](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
 
 ::: moniker-end
 
@@ -75,7 +75,13 @@ En este tutorial se avanza. Debe estar familiarizado con:
 * [Autorización](xref:security/authorization/index)
 * [Entity Framework Core](xref:data/ef-mvc/intro)
 
-El código de descarga para este tutorial requiere ASP.NET Core 2.2 preview 1 o posterior. Consulte [este problema de GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) para una solución alternativa.
+::: moniker-end
+::: moniker range="= aspnetcore-2.1"
+
+En ASP.NET Core 2.1, `User.IsInRole` se produce un error cuando se usa `AddDefaultIdentity`. Este tutorial se usa `AddDefaultIdentity` y, por tanto, requiere la versión preliminar de ASP.NET Core 2.2 1 o posterior. Consulte [este problema de GitHub](https://github.com/aspnet/Identity/issues/1813#issuecomment-394543909) para una solución alternativa.
+
+::: moniker-end
+::: moniker range=">= aspnetcore-2.1"
 
 ## <a name="the-starter-and-completed-app"></a>El inicio y la aplicación completada
 
