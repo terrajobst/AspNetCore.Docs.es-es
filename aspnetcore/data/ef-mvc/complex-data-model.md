@@ -5,12 +5,12 @@ description: En este tutorial agregará más entidades y relaciones, y personali
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 1d3c69c8c658b5ca2f0253b790b0dc75d44d3064
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38194096"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751650"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core: Modelo de datos (5 de 10)
 
@@ -66,7 +66,7 @@ Ejecute la aplicación, vaya a la página Students Index y verá que ya no se mu
 
 ### <a name="the-stringlength-attribute"></a>El atributo StringLength
 
-También puede especificar reglas de validación de datos y mensajes de error de validación mediante atributos. El atributo `StringLength` establece la longitud máxima de la base de datos y proporciona la validación del lado cliente y el lado servidor para ASP.NET MVC. En este atributo también se puede especificar la longitud mínima de la cadena, pero el valor mínimo no influye en el esquema de la base de datos.
+También puede especificar reglas de validación de datos y mensajes de error de validación mediante atributos. El atributo `StringLength` establece la longitud máxima de la base de datos y proporciona la validación del lado cliente y el lado servidor para ASP.NET Core MVC. En este atributo también se puede especificar la longitud mínima de la cadena, pero el valor mínimo no influye en el esquema de la base de datos.
 
 Imagine que quiere asegurarse de que los usuarios no escriban más de 50 caracteres para un nombre. Para agregar esta limitación, agregue atributos `StringLength` a las propiedades `LastName` y `FirstMidName`, como se muestra en el ejemplo siguiente:
 

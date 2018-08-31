@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: fundamentals/owin
-ms.openlocfilehash: 04042eedc52b4e6f57685e2d9ec1a75cd130fd8d
-ms.sourcegitcommit: 08f1a9baa97060da5168840b332c9c0805b5f901
+ms.openlocfilehash: db28eeff88a13dc95c469f3b7c0746c807da830f
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37144968"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751762"
 ---
 # <a name="open-web-interface-for-net-owin-with-aspnet-core"></a>Interfaz web abierta para .NET (OWIN) con ASP.NET Core
 
@@ -31,7 +31,7 @@ Esto permite que ASP.NET Core se hospede sobre un servidor/host compatible con O
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/owin/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="running-owin-middleware-in-the-aspnet-pipeline"></a>Ejecución de software intermedio de OWIN en la canalización de ASP.NET
+## <a name="running-owin-middleware-in-the-aspnet-core-pipeline"></a>Ejecución de software intermedio de OWIN en la canalización de ASP.NET Core
 
 La compatibilidad con OWIN de ASP.NET Core se implementa como parte del paquete `Microsoft.AspNetCore.Owin`. Puede importar compatibilidad con OWIN en el proyecto mediante la instalación de este paquete.
 
@@ -56,7 +56,7 @@ public Task OwinHello(IDictionary<string, object> environment)
 
 La firma de ejemplo devuelve un valor `Task` y acepta un valor `IDictionary<string, object>`, según los requisitos de OWIN.
 
-En el código siguiente se muestra cómo agregar el software intermedio `OwinHello` (mostrado arriba) a la canalización ASP.NET con el método de extensión `UseOwin`.
+En el código siguiente se muestra cómo agregar el software intermedio `OwinHello` (mostrado arriba) a la canalización ASP.NET Core con el método de extensión `UseOwin`.
 
 ```csharp
 public void Configure(IApplicationBuilder app)
@@ -90,9 +90,9 @@ app.UseOwin(pipeline =>
 
 <a name="hosting-on-owin"></a>
 
-## <a name="using-aspnet-hosting-on-an-owin-based-server"></a>Uso de hospedaje de ASP.NET en un servidor basado en OWIN
+## <a name="using-aspnet-core-hosting-on-an-owin-based-server"></a>Uso de hospedaje de ASP.NET Core en un servidor basado en OWIN
 
-Los servidores basados en OWIN pueden hospedar aplicaciones de ASP.NET. Un servidor de este tipo es [Nowin](https://github.com/Bobris/Nowin), un servidor web de OWIN de .NET. En el ejemplo de este artículo, se ha incluido un proyecto que hace referencia a Nowin y lo usa para crear una interfaz `IServer` capaz de autohospedar ASP.NET Core.
+Los servidores basados en OWIN pueden hospedar aplicaciones ASP.NET Core. Un servidor de este tipo es [Nowin](https://github.com/Bobris/Nowin), un servidor web de OWIN de .NET. En el ejemplo de este artículo, se ha incluido un proyecto que hace referencia a Nowin y lo usa para crear una interfaz `IServer` capaz de autohospedar ASP.NET Core.
 
 [!code-csharp[](owin/sample/src/NowinSample/Program.cs?highlight=15)]
 
@@ -234,7 +234,7 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci�
 
 ### <a name="request-data-owin-v100"></a>Datos de solicitud (OWIN v1.0.0)
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | owin.RequestScheme | `String` |  |
 | owin.RequestMethod  | `String` | |    
@@ -247,13 +247,13 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci�
 
 ### <a name="request-data-owin-v110"></a>Datos de solicitud (OWIN v1.1.0)
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | owin.RequestId | `String` | Optional |
 
 ### <a name="response-data-owin-v100"></a>Datos de respuesta (OWIN v1.0.0)
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | owin.ResponseStatusCode | `int` | Optional |
 | owin.ResponseReasonPhrase | `String` | Optional |
@@ -263,7 +263,7 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci�
 
 ### <a name="other-data-owin-v100"></a>Otros datos (OWIN v1.0.0)
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | owin.CallCancelled | `CancellationToken` |  |
 | owin.Version  | `String` | |   
@@ -271,7 +271,7 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci�
 
 ### <a name="common-keys"></a>Claves comunes
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | ssl.ClientCertificate | `X509Certificate` |  |
 | ssl.LoadClientCertAsync  | `Func<Task>` | |    
@@ -285,14 +285,14 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci�
 
 ### <a name="sendfiles-v030"></a>SendFiles v0.3.0
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | sendfile.SendAsync | Vea [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Signatura de delegado) | Por solicitud |
 
 
 ### <a name="opaque-v030"></a>Opaque v0.3.0
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | opaque.Version | `String` |  |
 | opaque.Upgrade | `OpaqueUpgrade` | Vea [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Signatura de delegado) |
@@ -302,7 +302,7 @@ OWIN depende de un objeto `IDictionary<string,object>` para comunicar informaci�
 
 ### <a name="websocket-v030"></a>WebSocket v0.3.0
 
-| Key               | Valor (tipo) | Description |
+| Key               | Valor (tipo) | Descripción |
 | ----------------- | ------------ | ----------- |
 | websocket.Version | `String` |  |
 | websocket.Accept | `WebSocketAccept` | Vea [Delegate signature](http://owin.org/spec/extensions/owin-SendFile-Extension-v0.3.0.htm) (Signatura de delegado) |

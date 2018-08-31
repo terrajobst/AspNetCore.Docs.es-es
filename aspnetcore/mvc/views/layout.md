@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo usar diseños comunes, compartir d
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/layout
-ms.openlocfilehash: a99b239a0aeeb14492b1eee962dc1149f056f0eb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: ad0b339572f387be8a636204015ffc361947acb8
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274123"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751488"
 ---
 # <a name="layout-in-aspnet-core"></a>Diseño en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com/)
 
-Las vistas a menudo comparten elementos visuales y elementos mediante programación. En este artículo aprenderá a usar diseños comunes, compartir directivas y ejecutar código común antes de representar vistas en una aplicación ASP.NET.
+Las vistas a menudo comparten elementos visuales y elementos mediante programación. En este artículo obtendrá información sobre cómo usar diseños comunes, compartir directivas y ejecutar código común antes de representar vistas en la aplicación ASP.NET Core.
 
 ## <a name="what-is-a-layout"></a>Qué es un diseño
 
@@ -26,7 +26,7 @@ La mayoría de las aplicaciones web tienen un diseño común que ofrece al usuar
 
 Las estructuras HTML comunes, como los scripts y las hojas de estilos también se usan con frecuencia en muchas páginas dentro de una aplicación. Todos estos elementos compartidos se pueden definir en un archivo de *diseño*, al que se puede hacer referencia por cualquier vista que se use en la aplicación. Los diseños reducen el código duplicado en las vistas y ayudan a seguir el principio [Una vez y solo una (DRY)](http://deviq.com/don-t-repeat-yourself/).
 
-Por convención, el diseño predeterminado para una aplicación ASP.NET se denomina `_Layout.cshtml`. La plantilla de proyecto de Visual Studio ASP.NET Core MVC incluye este archivo de diseño en la carpeta `Views/Shared`:
+Por convención, el diseño predeterminado para una aplicación ASP.NET Core se denomina `_Layout.cshtml`. La plantilla de proyecto de Visual Studio ASP.NET Core MVC incluye este archivo de diseño en la carpeta `Views/Shared`:
 
 ![carpeta de vistas en el Explorador de soluciones](layout/_static/web-project-views.png)
 

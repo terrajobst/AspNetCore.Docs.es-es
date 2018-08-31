@@ -4,14 +4,14 @@ author: tdykstra
 description: Obtenga información sobre cómo el enlace de modelos en ASP.NET Core MVC asigna datos de solicitudes HTTP a parámetros de método de acción.
 ms.assetid: 0be164aa-1d72-4192-bd6b-192c9c301164
 ms.author: tdykstra
-ms.date: 01/22/2018
+ms.date: 08/14/2018
 uid: mvc/models/model-binding
-ms.openlocfilehash: 200e2c22e02ec9e24b7cdb3883cf6f2f93f2f4b7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 0ce20a8040c6b19da1f57e1c053a7ef81d8bcb23
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095738"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751637"
 ---
 # <a name="model-binding-in-aspnet-core"></a>Enlace de modelos en ASP.NET Core
 
@@ -99,6 +99,31 @@ MVC contiene varios atributos que puede usar para dirigir su comportamiento de e
 
 Los atributos son herramientas muy útiles cuando es necesario invalidar el comportamiento predeterminado del enlace de modelos.
 
+## <a name="customize-model-binding-and-validation-globally"></a>Personalizar la validación y el enlace de modelos de forma global
+
+El comportamiento del enlace de modelos y la validación del sistema se controla con [ModelMetadata](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.modelmetadata), que describe lo siguiente:
+
+* Cómo se va a enlazar un modelo.
+* Cómo se produce la validación en el tipo y sus propiedades.
+
+Los aspectos de comportamiento del sistema se pueden configurar de forma global mediante la adición de un proveedor de detalles para [MvcOptions.ModelMetadataDetailsProviders](/dotnet/api/microsoft.aspnetcore.mvc.mvcoptions.modelmetadatadetailsproviders#Microsoft_AspNetCore_Mvc_MvcOptions_ModelMetadataDetailsProviders). MVC tiene algunos proveedores de detalles integrados que permiten configurar el comportamiento, como deshabilitar el enlace de modelos o la validación para tipos concretos.
+
+Para deshabilitar el enlace de modelos en todos los modelos de un tipo determinado, agregue un [ExcludeBindingMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.metadata.excludebindingmetadataprovider) en `Startup.ConfigureServices`. Por ejemplo, para deshabilitar el enlace de modelos en todos los modelos del tipo `System.Version`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new ExcludeBindingMetadataProvider(typeof(System.Version))));
+```
+
+Para deshabilitar la validación en las propiedades de un tipo determinado, agregue un [SuppressChildValidationMetadataProvider](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.suppresschildvalidationmetadataprovider) en `Startup.ConfigureServices`. Por ejemplo, para deshabilitar la validación en las propiedades de tipo `System.Guid`:
+
+```csharp
+services.AddMvc().AddMvcOptions(options =>
+    options.ModelMetadataDetailsProviders.Add(
+        new SuppressChildValidationMetadataProvider(typeof(System.Guid))));
+```
+
 ## <a name="bind-formatted-data-from-the-request-body"></a>Enlazar datos con formato desde el cuerpo de la solicitud
 
 Los datos de la solicitud pueden proceder de una variedad de formatos como JSON, XML y muchos otros. Cuando se usa el atributo [FromBody] para indicar que quiere enlazar un parámetro a los datos en el cuerpo de la solicitud, MVC usa un conjunto de formateadores configurado para administrar los datos de la solicitud en función de su tipo de contenido. De forma predeterminada, MVC incluye una clase `JsonInputFormatter` para controlar datos JSON, pero puede agregar formateadores adicionales para administrar XML y otros formatos personalizados.
@@ -109,7 +134,7 @@ Los datos de la solicitud pueden proceder de una variedad de formatos como JSON,
 > [!NOTE]
 > `JsonInputFormatter` es el formateador predeterminado y se basa en [Json.NET](https://www.newtonsoft.com/json).
 
-ASP.NET selecciona formateadores de entradas basándose en el encabezado [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) y el tipo del parámetro, a menos que haya un atributo aplicado a él que especifique lo contrario. Si quiere usar XML u otro formato, debe configurarlo en el archivo *Startup.cs*, pero primero tiene que obtener una referencia a `Microsoft.AspNetCore.Mvc.Formatters.Xml` mediante NuGet. El código de inicio debe tener este aspecto:
+ASP.NET Core selecciona formateadores de entradas en función del encabezado [Content-Type](https://www.w3.org/Protocols/rfc1341/4_Content-Type.html) y el tipo del parámetro, a menos que tenga un atributo aplicado que especifique lo contrario. Si quiere usar XML u otro formato, debe configurarlo en el archivo *Startup.cs*, pero primero tiene que obtener una referencia a `Microsoft.AspNetCore.Mvc.Formatters.Xml` mediante NuGet. El código de inicio debe tener este aspecto:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -119,7 +144,7 @@ public void ConfigureServices(IServiceCollection services)
    }
 ```
 
-El código del archivo *Startup.cs* contiene un método `ConfigureServices` con un argumento `services` que puede usar para crear servicios para la aplicación ASP.NET. En el ejemplo, vamos a agregar un formateador XML como un servicio que MVC proporcionará para esta aplicación. El argumento `options` pasado al método `AddMvc` permite agregar y administrar filtros, formateadores y otras opciones del sistema desde MVC al inicio de la aplicación. Después, aplique el atributo `Consumes` a las clases de controlador o a los métodos de acción para que funcione con el formato que quiera.
+El código del archivo *Startup.cs* contiene un método `ConfigureServices` con un argumento `services` que se puede usar para crear servicios para la aplicación ASP.NET Core. En el ejemplo, vamos a agregar un formateador XML como un servicio que MVC proporcionará para esta aplicación. El argumento `options` pasado al método `AddMvc` permite agregar y administrar filtros, formateadores y otras opciones del sistema desde MVC al inicio de la aplicación. Después, aplique el atributo `Consumes` a las clases de controlador o a los métodos de acción para que funcione con el formato que quiera.
 
 ### <a name="custom-model-binding"></a>Enlace de modelos personalizado
 

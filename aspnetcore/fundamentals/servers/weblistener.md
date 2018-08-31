@@ -2,15 +2,16 @@
 title: Implementación del servidor web WebListener en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre WebListener, un servidor web para ASP.NET Core en Windows que se puede usar para conectarse directamente a Internet sin IIS.
+monikerRange: < aspnetcore-2.0
 ms.author: riande
-ms.date: 03/13/2018
+ms.date: 08/15/2018
 uid: fundamentals/servers/weblistener
-ms.openlocfilehash: 68aea99d6ce6af12655ef5fdb13130e9279e448a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5602c1ddbe76879587de12bcd82722c103dee03f
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274874"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751531"
 ---
 # <a name="weblistener-web-server-implementation-in-aspnet-core"></a>Implementación del servidor web WebListener en ASP.NET Core
 
@@ -45,11 +46,15 @@ WebListener es útil para las implementaciones donde es necesario exponer el ser
 
 ![WebListener se comunica directamente con Internet](weblistener/_static/weblistener-to-internet.png)
 
-Al estar basado en Http.Sys, WebListener no necesita un servidor proxy inverso para protegerse de ataques. Http.Sys es una tecnología consolidada que le protege contra muchos tipos de ataques y proporciona la solidez, la seguridad y la escalabilidad de un servidor web con todas las características. El propio IIS se ejecuta como una escucha HTTP sobre Http.Sys. 
+Al estar basado en Http.Sys, WebListener no necesita un servidor proxy inverso para protegerse de ataques. Http.Sys es una tecnología consolidada que le protege contra muchos tipos de ataques y proporciona la solidez, la seguridad y la escalabilidad de un servidor web con todas las características. El propio IIS se ejecuta como una escucha HTTP sobre Http.Sys.
 
 WebListener también es una buena elección para implementaciones internas cuando se necesita alguna de las características que ofrece y estas no se pueden obtener usando Kestrel.
 
 ![WebListener se comunica directamente con la red interna](weblistener/_static/weblistener-to-internal.png)
+
+## <a name="kernel-mode-authentication-with-kerberos"></a>Autenticación de modo kernel con Kerberos
+
+WebListener delega en la autenticación de modo kernel con el protocolo de autenticación de Kerberos. La autenticación de modo usuario no se admite con Kerberos y WebListener. Se debe usar la cuenta de equipo para descifrar el token o el vale de Kerberos que se obtiene de Active Directory y que el cliente reenvía al servidor para autenticar al usuario. Registre el nombre de entidad de seguridad de servicio (SPN) para el host, no el usuario de la aplicación.
 
 ## <a name="how-to-use-weblistener"></a>Cómo usar WebListener
 

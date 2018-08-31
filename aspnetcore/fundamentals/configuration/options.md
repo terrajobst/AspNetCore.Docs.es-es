@@ -6,23 +6,43 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: ef6b0117b88c4c79771f0280267bd99993028ac8
-ms.sourcegitcommit: 028ad28c546de706ace98066c76774de33e4ad20
+ms.openlocfilehash: 6258530beedced9570111478fea630b1556e1a1e
+ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39655425"
+ms.lasthandoff: 08/25/2018
+ms.locfileid: "42927963"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-El patrón de opciones usa clases para representar grupos de configuraciones relacionadas. Cuando los valores de configuración están aislados por característica en clases independientes, la aplicación se ajusta a dos principios de ingeniería de software importantes:
+El patrón de opciones usa clases para representar grupos de configuraciones relacionadas. Cuando los [valores de configuración](xref:fundamentals/configuration/index) están aislados por escenario en clases independientes, la aplicación se ajusta a dos principios de ingeniería de software importantes:
 
-* El [principio de segregación de interfaz (ISP)](http://deviq.com/interface-segregation-principle/): las características (clases) que dependen de valores de configuración dependerán únicamente de los valores de configuración que usen.
+* El [principio de segregación de interfaz (ISP)](http://deviq.com/interface-segregation-principle/): los escenarios (clases) que dependen de valores de configuración dependen únicamente de los valores de configuración que usen.
 * [Separación de intereses](http://deviq.com/separation-of-concerns/): los valores de configuración para distintos elementos de la aplicación no son dependientes entre sí ni están emparejados.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample)). Este artículo es más fácil de seguir con la aplicación de ejemplo.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+::: moniker range=">= aspnetcore-2.1"
+
+Haga referencia al [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app) o agregue una referencia de paquete al paquete [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/).
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+Haga referencia al [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage) o agregue una referencia de paquete al paquete [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+Agregue una referencia al paquete [Microsoft.Extensions.Options.ConfigurationExtensions](https://www.nuget.org/packages/Microsoft.Extensions.Options.ConfigurationExtensions/).
+
+::: moniker-end
 
 ## <a name="basic-options-configuration"></a>Configuración de opciones básicas
 
@@ -102,7 +122,7 @@ delegate_option1 = value1_configured_by_delgate, delegate_option2 = 500
 
 La configuración de subopciones se muestra en el ejemplo &num;3 en la [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/configuration/options/sample).
 
-Las aplicaciones deben crear clases de opciones que pertenezcan a grupos específicos de características (clases) en la aplicación. Los elementos de la aplicación que requieran valores de configuración deben acceder solamente a los valores de configuración que usen.
+Las aplicaciones deben crear clases de opciones que pertenezcan a grupos específicos de escenarios (clases) en la aplicación. Los elementos de la aplicación que requieran valores de configuración deben acceder solamente a los valores de configuración que usen.
 
 Al enlazar opciones para la configuración, cada propiedad en el tipo de opciones se enlaza a una clave de configuración del formulario `property[:sub-property:]`. Por ejemplo, la propiedad `MyOptions.Option1` se enlaza a la clave `Option1`, que se lee desde la propiedad `option1` en *appSettings.json*.
 

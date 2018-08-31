@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 2/14/2018
 uid: mvc/views/tag-helpers/intro
-ms.openlocfilehash: be75667f34eed7ba601eee331e3451c5738ef223
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c2af9099fe439e1cdbf9ba86ffae3b2b0f67391e
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273574"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751701"
 ---
 # <a name="tag-helpers-in-aspnet-core"></a>Aplicaciones auxiliares de etiquetas en ASP.NET Core
 
@@ -130,7 +130,7 @@ Las mismas reglas de jerarquía que se aplican a `@addTagHelper` también se apl
 
 ## <a name="intellisense-support-for-tag-helpers"></a>Compatibilidad de IntelliSense con aplicaciones auxiliares de etiquetas
 
-Cuando se crea una aplicación web ASP.NET en Visual Studio, se agrega el paquete NuGet "Microsoft.AspNetCore.Razor.Tools". Este es el paquete que agrega las herramientas de las aplicaciones auxiliares de etiquetas.
+Cuando se crea una aplicación web ASP.NET Core en Visual Studio, se agrega el paquete NuGet "Microsoft.AspNetCore.Razor.Tools". Este es el paquete que agrega las herramientas de las aplicaciones auxiliares de etiquetas.
 
 Considere la posibilidad de escribir un elemento HTML `<label>`. En cuanto escriba `<l` en el editor de Visual Studio, IntelliSense mostrará elementos coincidentes:
 

@@ -5,12 +5,12 @@ description: Muestra cómo trabajar con la aplicación auxiliar de etiqueta de c
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 969716e21211513053f52049368a0a7190ffba47
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 425d8c2235f0070665bc0c967d2498f2cff2a4a6
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276557"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751661"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
 
@@ -43,7 +43,7 @@ Puede establecer la duración de la caché con los siguientes atributos:
 |                   | "false"   |
 
 
-Determina si el contenido incluido en la aplicación auxiliar de etiqueta de caché se almacena en caché. El valor predeterminado es `true`.  Si se establece en `false`, la aplicación auxiliar de etiqueta de caché no tiene ningún efecto de almacenamiento en caché en la salida representada.
+Determina si el contenido incluido en la aplicación auxiliar de etiqueta de caché se almacena en caché. De manera predeterminada, es `true`.  Si se establece en `false`, la aplicación auxiliar de etiqueta de caché no tiene ningún efecto de almacenamiento en caché en la salida representada.
 
 Ejemplo:
 
@@ -181,7 +181,7 @@ routes.MapRoute(
 | String            | ".AspNetCore.Identity.Application"                |
 |                   | ".AspNetCore.Identity.Application,HairColor" |
 
-Acepta un valor de encabezado único o una lista separada por comas con los valores de encabezado que desencadenan una actualización de la caché cuando cambian los valores de encabezado. En el ejemplo siguiente se examina la cookie asociada con ASP.NET Identity. Cuando un usuario se autentica, la cookie de solicitud que se establece desencadena una actualización de la caché.
+Acepta un valor de encabezado único o una lista separada por comas con los valores de encabezado que desencadenan una actualización de la caché cuando cambian los valores de encabezado. En el ejemplo siguiente se examina la cookie asociada con ASP.NET Core Identity. Cuando un usuario se autentica, la cookie de solicitud que se establece desencadena una actualización de la caché.
 
 Ejemplo:
 

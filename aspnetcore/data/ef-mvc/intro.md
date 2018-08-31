@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: 4e0bcffd1162681aa4d31c4fe74acac5a7e981f1
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38216317"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751746"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC con Entity Framework Core: Tutorial 1 de 10
 
@@ -35,7 +35,7 @@ EF Core 2.0 es la versión más reciente de EF pero aún no dispone de todas las
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[!INCLUDE [](~/includes/net-core-prereqs.md) [](~/includes/net-core-prereqs.md)]
+[!INCLUDE [](~/includes/net-core-prereqs.md)]
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -80,7 +80,7 @@ Abra Visual Studio y cree un proyecto web de ASP.NET Core C# con el nombre "Cont
 
 * Haga clic en **Aceptar**.
 
-  ![Cuadro de diálogo Nuevo proyecto ASP.NET](intro/_static/new-aspnet.png)
+  ![Cuadro de diálogo Nuevo proyecto ASP.NET Core](intro/_static/new-aspnet.png)
 
 ## <a name="set-up-the-site-style"></a>Configurar el estilo del sitio
 
@@ -273,7 +273,7 @@ Observará que el controlador toma un `SchoolContext` como parámetro de constru
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Context&highlight=5,7,9)]
 
-La inserción de dependencias de ASP.NET se encargará de pasar una instancia de `SchoolContext` al controlador. Lo configuró anteriormente en el archivo *Startup.cs*.
+La inserción de dependencias de ASP.NET Core se encarga de pasar una instancia de `SchoolContext` al controlador. Lo configuró anteriormente en el archivo *Startup.cs*.
 
 El controlador contiene un método de acción `Index`, que muestra todos los alumnos en la base de datos. El método obtiene una lista de estudiantes de la entidad Students, que se establece leyendo la propiedad `Students` de la instancia del contexto de base de datos:
 

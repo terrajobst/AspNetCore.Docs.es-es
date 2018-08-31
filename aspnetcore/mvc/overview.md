@@ -5,12 +5,12 @@ description: Conozca ASP.NET Core MVC, un marco completo para crear aplicaciones
 ms.author: riande
 ms.date: 01/08/2018
 uid: mvc/overview
-ms.openlocfilehash: 7f8aab02c0ee37dad49ff224b182ec455e837a7a
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: d2a50e48c20fe69b1fe691bfc9c91a27d4219922
+ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378643"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "41902604"
 ---
 # <a name="overview-of-aspnet-core-mvc"></a>Información general de ASP.NET Core MVC
 
@@ -251,3 +251,9 @@ Las aplicaciones auxiliares de etiquetas ofrecen una experiencia de desarrollo c
 ### <a name="view-components"></a>Componentes de vista
 
 Los [componentes de vista](views/view-components.md) permiten empaquetar la lógica de representación y reutilizarla en toda la aplicación. Son similares a las [vistas parciales](views/partial.md), pero con lógica asociada.
+
+## <a name="compatibility-version"></a>Versión de compatibilidad
+
+El método <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*> permite a una aplicación participar o no en los cambios de comportamiento importantes incorporados en ASP.NET Core MVC 2.1 o una versión posterior.
+
+Para obtener más información, vea <xref:mvc/compatibility-version>.

@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 1c724da918640c514acbc24c390de4e735f8bf49
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
+ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342437"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41751702"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core: CRUD (2 de 10)
 
@@ -117,7 +117,7 @@ En *StudentsController.cs*, modifique el método HttpPost `Create` agregando un 
 
 [!code-csharp[](intro/samples/cu/Controllers/StudentsController.cs?name=snippet_Create&highlight=4,6-7,14-21)]
 
-Este código agrega la entidad Student creada por el enlazador de modelos de ASP.NET MVC al conjunto de entidades Students y después guarda los cambios en la base de datos. (El enlazador de modelos se refiere a la funcionalidad de ASP.NET MVC que facilita trabajar con datos enviados por un formulario; un enlazador de modelos convierte los valores de formulario enviados en tipos CLR y los pasa al método de acción en parámetros. En este caso, el enlazador de modelos crea instancias de una entidad Student mediante valores de propiedad de la colección Form).
+En este código se agrega la entidad Student creada por el enlazador de modelos de ASP.NET Core MVC al conjunto de entidades Students y después se guardan los cambios en la base de datos. (El enlazador de modelos se refiere a la funcionalidad de ASP.NET Core MVC que facilita trabajar con datos enviados por un formulario; un enlazador de modelos convierte los valores de formulario enviados en tipos CLR y los pasa al método de acción en parámetros. En este caso, el enlazador de modelos crea instancias de una entidad Student mediante valores de propiedad de la colección Form).
 
 Se ha quitado `ID` del atributo `Bind` porque ID es el valor de clave principal que SQL Server establecerá automáticamente cuando se inserte la fila. La entrada del usuario no establece el valor ID.
 
@@ -273,7 +273,7 @@ Haga clic en **Eliminar**. Se mostrará la página de índice sin el estudiante 
 
 Para liberar los recursos que contiene una conexión de base de datos, la instancia de contexto debe eliminarse tan pronto como sea posible cuando haya terminado con ella. La [inserción de dependencias](../../fundamentals/dependency-injection.md) integrada de ASP.NET Core se encarga de esa tarea.
 
-En *Startup.cs*, se llama al [método de extensión AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) para aprovisionar la clase `DbContext` en el contenedor de inserción de dependencias de ASP.NET. Ese método establece la duración del servicio en `Scoped` de forma predeterminada. `Scoped` significa que la duración del objeto de contexto coincide con la duración de la solicitud web, y el método `Dispose` se llamará automáticamente al final de la solicitud web.
+En *Startup.cs*, se llama al [método de extensión AddDbContext](https://github.com/aspnet/EntityFrameworkCore/blob/03bcb5122e3f577a84498545fcf130ba79a3d987/src/Microsoft.EntityFrameworkCore/EntityFrameworkServiceCollectionExtensions.cs) para aprovisionar la clase `DbContext` en el contenedor de inserción de dependencias de ASP.NET Core. Ese método establece la duración del servicio en `Scoped` de forma predeterminada. `Scoped` significa que la duración del objeto de contexto coincide con la duración de la solicitud web, y el método `Dispose` se llamará automáticamente al final de la solicitud web.
 
 ## <a name="handling-transactions"></a>Control de transacciones
 
