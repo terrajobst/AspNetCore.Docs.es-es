@@ -1,171 +1,251 @@
 ---
-title: Introducción a SignalR en ASP.NET Core
+title: 'Tutorial: Introducción a SignalR en ASP.NET Core'
 author: tdykstra
-description: En este tutorial, creará una aplicación con SignalR para ASP.NET Core.
+description: En este tutorial, creará una aplicación de chat en la que se usa SignalR para ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 08/20/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 83be28b30cf06eeea37e8d76b3f6444ffd9a10e8
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: db7f31963f6a4280069f1f4f82a547e2879e64bb
+ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095496"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41751626"
 ---
-# <a name="get-started-with-signalr-on-aspnet-core"></a><span data-ttu-id="19839-103">Introducción a SignalR en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="19839-103">Get started with SignalR on ASP.NET Core</span></span>
+# <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a><span data-ttu-id="6f639-103">Tutorial: Introducción a SignalR en ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="6f639-103">Tutorial: Get started with SignalR on ASP.NET Core</span></span>
 
-<span data-ttu-id="19839-104">Este tutorial le enseña los conceptos básicos de la creación de una aplicación en tiempo real con SignalR para ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="19839-104">This tutorial teaches the basics of building a real-time app using SignalR for ASP.NET Core.</span></span>
-
-   ![Soluciones](signalr/_static/signalr-get-started-finished.png)
-
-<span data-ttu-id="19839-106">En este tutorial se muestran las siguientes tareas de desarrollo de SignalR:</span><span class="sxs-lookup"><span data-stu-id="19839-106">This tutorial demonstrates the following SignalR development tasks:</span></span>
+<span data-ttu-id="6f639-104">En este tutorial se describen los conceptos básicos de la creación de una aplicación en tiempo real con SignalR.</span><span class="sxs-lookup"><span data-stu-id="6f639-104">This tutorial teaches the basics of building a real-time app using SignalR.</span></span> <span data-ttu-id="6f639-105">Aprenderá a:</span><span class="sxs-lookup"><span data-stu-id="6f639-105">You learn how to:</span></span>
 
 > [!div class="checklist"]
-> * <span data-ttu-id="19839-107">Crear una aplicación web de SignalR en ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="19839-107">Create a SignalR on ASP.NET Core web app.</span></span>
-> * <span data-ttu-id="19839-108">Cree un concentrador de SignalR para insertar contenido en los clientes.</span><span class="sxs-lookup"><span data-stu-id="19839-108">Create a SignalR hub to push content to clients.</span></span>
-> * <span data-ttu-id="19839-109">Modificar la clase `Startup` y configurar la aplicación.</span><span class="sxs-lookup"><span data-stu-id="19839-109">Modify the `Startup` class and configure the app.</span></span>
+> * <span data-ttu-id="6f639-106">Crear una aplicación web en la que se usa SignalR en ASP.NET Core.</span><span class="sxs-lookup"><span data-stu-id="6f639-106">Create a web app that uses SignalR on ASP.NET Core.</span></span>
+> * <span data-ttu-id="6f639-107">Crear un concentrador SignalR en el servidor.</span><span class="sxs-lookup"><span data-stu-id="6f639-107">Create a SignalR hub on the server.</span></span>
+> * <span data-ttu-id="6f639-108">Conectarse con el concentrador SignalR desde clientes de JavaScript.</span><span class="sxs-lookup"><span data-stu-id="6f639-108">Connect to the SignalR hub from JavaScript clients.</span></span>
+> * <span data-ttu-id="6f639-109">Usar el concentrador para enviar mensajes desde cualquier cliente a todos los clientes conectados.</span><span class="sxs-lookup"><span data-stu-id="6f639-109">Use the hub to send messages from any client to all connected clients.</span></span>
 
-<span data-ttu-id="19839-110">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))</span><span class="sxs-lookup"><span data-stu-id="19839-110">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample))</span></span>
+<span data-ttu-id="6f639-110">Al final, tendrá una aplicación de chat funcional:</span><span class="sxs-lookup"><span data-stu-id="6f639-110">At the end, you'll have a working chat app:</span></span>
 
-## <a name="prerequisites"></a><span data-ttu-id="19839-111">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="19839-111">Prerequisites</span></span>
+![Aplicación de ejemplo de SignalR](signalr/_static/signalr-get-started-finished.png)
 
-<span data-ttu-id="19839-112">Instale el software siguiente:</span><span class="sxs-lookup"><span data-stu-id="19839-112">Install the following software:</span></span>
+<span data-ttu-id="6f639-112">[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample)).</span><span class="sxs-lookup"><span data-stu-id="6f639-112">[View or download sample code](https://github.com/aspnet/Docs/tree/master/aspnetcore/tutorials/signalr/sample) ([how to download](xref:tutorials/index#how-to-download-a-sample)).</span></span>
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="19839-113">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="19839-113">Visual Studio</span></span>](#tab/visual-studio)
+## <a name="prerequisites"></a><span data-ttu-id="6f639-113">Requisitos previos</span><span class="sxs-lookup"><span data-stu-id="6f639-113">Prerequisites</span></span>
 
-* [<span data-ttu-id="19839-114">.NET Core SDK 2.1 o posterior</span><span class="sxs-lookup"><span data-stu-id="19839-114">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
-* <span data-ttu-id="19839-115">[Visual Studio 2017](https://www.visualstudio.com/downloads/) versión 15.7.3 o posterior con la carga de trabajo **ASP.NET y desarrollo web**</span><span class="sxs-lookup"><span data-stu-id="19839-115">[Visual Studio 2017](https://www.visualstudio.com/downloads/) version 15.7.3 or later with the **ASP.NET and web development** workload</span></span>
-* <span data-ttu-id="19839-116">[npm](https://www.npmjs.com/get-npm) (administrador de paquetes de Node.js)</span><span class="sxs-lookup"><span data-stu-id="19839-116">[npm](https://www.npmjs.com/get-npm) (package manager for Node.js)</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="6f639-114">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6f639-114">Visual Studio</span></span>](#tab/visual-studio)
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="19839-117">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="19839-117">Visual Studio Code</span></span>](#tab/visual-studio-code)
+* <span data-ttu-id="6f639-115">[Visual Studio 2017 versión 15.7.3 o posterior](https://www.visualstudio.com/downloads/) con la carga de trabajo **ASP.NET y desarrollo web**</span><span class="sxs-lookup"><span data-stu-id="6f639-115">[Visual Studio 2017 version 15.7.3 or later](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload</span></span>
+* [<span data-ttu-id="6f639-116">.NET Core SDK 2.1 o posterior</span><span class="sxs-lookup"><span data-stu-id="6f639-116">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
+* <span data-ttu-id="6f639-117">[npm](https://www.npmjs.com/get-npm) (administrador de paquetes para Node.js, que se usa para la biblioteca cliente de JavaScript de SignalR).</span><span class="sxs-lookup"><span data-stu-id="6f639-117">[npm](https://www.npmjs.com/get-npm) (Package manager for Node.js, used for the SignalR JavaScript client library.)</span></span>
 
-* [<span data-ttu-id="19839-118">.NET Core SDK 2.1 o posterior</span><span class="sxs-lookup"><span data-stu-id="19839-118">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
-* [<span data-ttu-id="19839-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="19839-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
-* [<span data-ttu-id="19839-120">C# para Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="19839-120">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
-* <span data-ttu-id="19839-121">[npm](https://www.npmjs.com/get-npm) (administrador de paquetes de Node.js)</span><span class="sxs-lookup"><span data-stu-id="19839-121">[npm](https://www.npmjs.com/get-npm) (package manager for Node.js)</span></span>
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="6f639-118">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6f639-118">Visual Studio Code</span></span>](#tab/visual-studio-code)
 
------
+* [<span data-ttu-id="6f639-119">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6f639-119">Visual Studio Code</span></span>](https://code.visualstudio.com/download)
+* [<span data-ttu-id="6f639-120">.NET Core SDK 2.1 o posterior</span><span class="sxs-lookup"><span data-stu-id="6f639-120">.NET Core SDK 2.1 or later</span></span>](https://www.microsoft.com/net/download/all)
+* [<span data-ttu-id="6f639-121">C# para Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6f639-121">C# for Visual Studio Code</span></span>](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
+* <span data-ttu-id="6f639-122">[npm](https://www.npmjs.com/get-npm) (administrador de paquetes para Node.js, que se usa para la biblioteca cliente de JavaScript de SignalR).</span><span class="sxs-lookup"><span data-stu-id="6f639-122">[npm](https://www.npmjs.com/get-npm) (Package manager for Node.js, used for the SignalR JavaScript client library.)</span></span>
 
-## <a name="create-an-aspnet-core-project-that-hosts-signalr-client-and-server"></a><span data-ttu-id="19839-122">Crear un proyecto de ASP.NET Core que hospede el servidor y cliente de SignalR</span><span class="sxs-lookup"><span data-stu-id="19839-122">Create an ASP.NET Core project that hosts SignalR client and server</span></span>
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="6f639-123">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="6f639-123">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="19839-123">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="19839-123">Visual Studio</span></span>](#tab/visual-studio/)
-
-1. <span data-ttu-id="19839-124">Use la opción de menú **Archivo** > **Nuevo proyecto** y elija **Aplicación web ASP.NET Core**.</span><span class="sxs-lookup"><span data-stu-id="19839-124">Use the **File** > **New Project** menu option and choose **ASP.NET Core Web Application**.</span></span> <span data-ttu-id="19839-125">Asigne al proyecto el nombre *SignalRChat*.</span><span class="sxs-lookup"><span data-stu-id="19839-125">Name the project *SignalRChat*.</span></span>
-
-   ![Cuadro de diálogo Nuevo proyecto en Visual Studio](signalr/_static/signalr-new-project-dialog.png)
-
-2. <span data-ttu-id="19839-127">Seleccione **Aplicación web** para crear un proyecto con Razor Pages.</span><span class="sxs-lookup"><span data-stu-id="19839-127">Select **Web Application** to create a project using Razor Pages.</span></span> <span data-ttu-id="19839-128">Después, haga clic en **Aceptar**.</span><span class="sxs-lookup"><span data-stu-id="19839-128">Then select **OK**.</span></span> <span data-ttu-id="19839-129">Asegúrese de que **ASP.NET Core 2.1** está seleccionada en el selector de framework, aunque se ejecute SignalR en versiones anteriores de .NET.</span><span class="sxs-lookup"><span data-stu-id="19839-129">Be sure that **ASP.NET Core 2.1** is selected from the framework selector, though SignalR runs on older versions of .NET.</span></span>
-
-   ![Cuadro de diálogo Nuevo proyecto en Visual Studio](signalr/_static/signalr-new-project-choose-type.png)
-
-<span data-ttu-id="19839-131">Visual Studio incluye el paquete `Microsoft.AspNetCore.SignalR` que contiene sus bibliotecas de servidor como parte de la plantilla **Aplicación web ASP.NET Core**.</span><span class="sxs-lookup"><span data-stu-id="19839-131">Visual Studio includes the `Microsoft.AspNetCore.SignalR` package containing its server libraries as part of its **ASP.NET Core Web Application** template.</span></span> <span data-ttu-id="19839-132">Pero debe instalarse la biblioteca de cliente de JavaScript para SignalR con *npm*.</span><span class="sxs-lookup"><span data-stu-id="19839-132">However, the JavaScript client library for SignalR must be installed using *npm*.</span></span>
-
-3. <span data-ttu-id="19839-133">Ejecute los comandos siguientes en la ventana **Consola del Administrador de paquetes**, desde la raíz del proyecto:</span><span class="sxs-lookup"><span data-stu-id="19839-133">Run the following commands in the **Package Manager Console** window, from the project root:</span></span>
-
-    ```console
-    npm init -y
-    npm install @aspnet/signalr
-    ```
-
-4. <span data-ttu-id="19839-134">Cree una carpeta denominada "signalr" dentro de la carpeta *wwwroot/lib* del proyecto.</span><span class="sxs-lookup"><span data-stu-id="19839-134">Create a new folder named "signalr" inside the  *wwwroot/lib* folder in your project.</span></span> <span data-ttu-id="19839-135">Copie el archivo *signalr.js* de *node_modules\\@aspnet\signalr\dist\browser*  a esta carpeta.</span><span class="sxs-lookup"><span data-stu-id="19839-135">Copy the *signalr.js* file from *node_modules\\@aspnet\signalr\dist\browser* to this folder.</span></span>
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="19839-136">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="19839-136">Visual Studio Code</span></span>](#tab/visual-studio-code/)
-
-1. <span data-ttu-id="19839-137">En el **terminal integrado**, ejecute el siguiente comando:</span><span class="sxs-lookup"><span data-stu-id="19839-137">From the **Integrated Terminal**, run the following command:</span></span>
-
-    ```console
-    dotnet new webapp -o SignalRChat
-    ```
-
-    [!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
-2. <span data-ttu-id="19839-138">Instale la biblioteca de cliente de JavaScript con *npm*.</span><span class="sxs-lookup"><span data-stu-id="19839-138">Install the JavaScript client library using *npm*.</span></span>
-
-    ```console
-    npm init -y
-    npm install @aspnet/signalr
-    ```
-
-3. <span data-ttu-id="19839-139">Cree una carpeta denominada "signalr" dentro de la carpeta *lib* del proyecto.</span><span class="sxs-lookup"><span data-stu-id="19839-139">Create a new folder named "signalr" inside the  *lib* folder in your project.</span></span> <span data-ttu-id="19839-140">Copie el archivo *signalr.js* de *node_modules\\@aspnet\signalr\dist\browser*  a esta carpeta.</span><span class="sxs-lookup"><span data-stu-id="19839-140">Copy the *signalr.js* file from *node_modules\\@aspnet\signalr\dist\browser* to this folder.</span></span>
+* [<span data-ttu-id="6f639-124">Visual Studio para Mac, versión 7.5.4 o posterior</span><span class="sxs-lookup"><span data-stu-id="6f639-124">Visual Studio for Mac version 7.5.4 or later</span></span>](https://www.visualstudio.com/downloads/)
+* <span data-ttu-id="6f639-125">[SDK de .NET Core 2.1 o posterior](https://www.microsoft.com/net/download/all) (incluido en la instalación de Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="6f639-125">[.NET Core SDK 2.1 or later](https://www.microsoft.com/net/download/all) (included in the Visual Studio install)</span></span>
+* <span data-ttu-id="6f639-126">[npm](https://www.npmjs.com/get-npm) (administrador de paquetes para Node.js, que se usa para la biblioteca cliente de JavaScript de SignalR).</span><span class="sxs-lookup"><span data-stu-id="6f639-126">[npm](https://www.npmjs.com/get-npm) (Package manager for Node.js, used for the SignalR JavaScript client library.)</span></span>
 
 ---
 
-## <a name="create-the-signalr-hub"></a><span data-ttu-id="19839-141">Crear el concentrador SignalR</span><span class="sxs-lookup"><span data-stu-id="19839-141">Create the SignalR Hub</span></span>
+## <a name="create-the-project"></a><span data-ttu-id="6f639-127">Crear el proyecto</span><span class="sxs-lookup"><span data-stu-id="6f639-127">Create the project</span></span>
 
-<span data-ttu-id="19839-142">Un concentrador es una clase que actúa como una canalización de alto nivel que permite al cliente y el servidor llamar a métodos entre sí.</span><span class="sxs-lookup"><span data-stu-id="19839-142">A hub is a class that serves as a high-level pipeline that allows the client and server to call methods on each other.</span></span>
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="6f639-128">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6f639-128">Visual Studio</span></span>](#tab/visual-studio/)
 
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="19839-143">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="19839-143">Visual Studio</span></span>](#tab/visual-studio/)
+* <span data-ttu-id="6f639-129">En el menú, seleccione **Archivo > Nuevo proyecto**.</span><span class="sxs-lookup"><span data-stu-id="6f639-129">From the menu, select **File > New Project**.</span></span>
 
-1. <span data-ttu-id="19839-144">Agregue una clase al proyecto eligiendo **Archivo** > **Nuevo** > **Archivo** y seleccionando **Clase de Visual C#**.</span><span class="sxs-lookup"><span data-stu-id="19839-144">Add a class to the project by choosing **File** > **New** > **File** and selecting **Visual C# Class**.</span></span> <span data-ttu-id="19839-145">Asigne el nombre `ChatHub` a la clase y *ChatHub.cs* al archivo.</span><span class="sxs-lookup"><span data-stu-id="19839-145">Name the class `ChatHub` and the file *ChatHub.cs*.</span></span>
+* <span data-ttu-id="6f639-130">En el cuadro de diálogo **Nuevo proyecto**, seleccione **Instalado > Visual C# > Web > Aplicación web ASP.NET Core**.</span><span class="sxs-lookup"><span data-stu-id="6f639-130">In the **New Project** dialog, select **Installed > Visual C# > Web > ASP.NET Core Web Application**.</span></span> <span data-ttu-id="6f639-131">Asigne al proyecto el nombre *SignalRChat*.</span><span class="sxs-lookup"><span data-stu-id="6f639-131">Name the project *SignalRChat*.</span></span>
 
-2. <span data-ttu-id="19839-146">Heredan de `Microsoft.AspNetCore.SignalR.Hub`.</span><span class="sxs-lookup"><span data-stu-id="19839-146">Inherit from `Microsoft.AspNetCore.SignalR.Hub`.</span></span> <span data-ttu-id="19839-147">La clase `Hub` contiene propiedades y eventos para administrar las conexiones y grupos, así como enviar y recibir datos.</span><span class="sxs-lookup"><span data-stu-id="19839-147">The `Hub` class contains properties and events for managing connections and groups, as well as sending and receiving data.</span></span>
+  ![Cuadro de diálogo Nuevo proyecto en Visual Studio](signalr/_static/signalr-new-project-dialog.png)
 
-3. <span data-ttu-id="19839-148">Cree el método `SendMessage` que envía un mensaje a todos los clientes de chat conectados.</span><span class="sxs-lookup"><span data-stu-id="19839-148">Create the `SendMessage` method that sends a message to all connected chat clients.</span></span> <span data-ttu-id="19839-149">Tenga en cuenta que devuelve una [Tarea](https://msdn.microsoft.com/library/system.threading.tasks.task(v=vs.110).aspx), porque SignalR es asincrónica.</span><span class="sxs-lookup"><span data-stu-id="19839-149">Notice it returns a [Task](https://msdn.microsoft.com/library/system.threading.tasks.task(v=vs.110).aspx), because SignalR is asynchronous.</span></span> <span data-ttu-id="19839-150">El código asincrónico se escala mejor.</span><span class="sxs-lookup"><span data-stu-id="19839-150">Asynchronous code scales better.</span></span>
+* <span data-ttu-id="6f639-133">Seleccione **Aplicación web** para crear un proyecto en el que se use Razor Pages.</span><span class="sxs-lookup"><span data-stu-id="6f639-133">Select **Web Application** to create a project that uses Razor Pages.</span></span>
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
+* <span data-ttu-id="6f639-134">Seleccione una plataforma de destino de **.NET Core**, seleccione **ASP.NET Core 2.1** y haga clic en **Aceptar**.</span><span class="sxs-lookup"><span data-stu-id="6f639-134">Select a target framework of **.NET Core**, select **ASP.NET Core 2.1**, and click **OK**.</span></span>
 
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="19839-151">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="19839-151">Visual Studio Code</span></span>](#tab/visual-studio-code/)
+  ![Cuadro de diálogo Nuevo proyecto en Visual Studio](signalr/_static/signalr-new-project-choose-type.png)
 
-1. <span data-ttu-id="19839-152">Abra la carpeta *SignalRChat* en Visual Studio Code.</span><span class="sxs-lookup"><span data-stu-id="19839-152">Open the *SignalRChat* folder in Visual Studio Code.</span></span>
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="6f639-136">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6f639-136">Visual Studio Code</span></span>](#tab/visual-studio-code/)
 
-2. <span data-ttu-id="19839-153">Agregue una clase al proyecto seleccionando **Archivo** > **Nuevo archivo** en el menú.</span><span class="sxs-lookup"><span data-stu-id="19839-153">Add a class to the project by selecting **File** > **New File** from the menu.</span></span> <span data-ttu-id="19839-154">Asigne el nombre `ChatHub` a la clase y *ChatHub.cs* al archivo.</span><span class="sxs-lookup"><span data-stu-id="19839-154">Name the class `ChatHub` and the file *ChatHub.cs*.</span></span>
+* <span data-ttu-id="6f639-137">Abra una carpeta que pueda usar para un proyecto nuevo.</span><span class="sxs-lookup"><span data-stu-id="6f639-137">Open a folder that you can use for a new project.</span></span>
 
-3. <span data-ttu-id="19839-155">Heredan de `Microsoft.AspNetCore.SignalR.Hub`.</span><span class="sxs-lookup"><span data-stu-id="19839-155">Inherit from `Microsoft.AspNetCore.SignalR.Hub`.</span></span> <span data-ttu-id="19839-156">La clase `Hub` contiene propiedades y eventos para administrar las conexiones y grupos, así como enviar y recibir datos de los clientes.</span><span class="sxs-lookup"><span data-stu-id="19839-156">The `Hub` class contains properties and events for managing connections and groups, as well as sending and receiving data to clients.</span></span>
+* <span data-ttu-id="6f639-138">En el **terminal integrado**, ejecute el comando siguiente:</span><span class="sxs-lookup"><span data-stu-id="6f639-138">In the **Integrated Terminal**, run the following command:</span></span>
 
-4. <span data-ttu-id="19839-157">Agregue un método `SendMessage` a la clase.</span><span class="sxs-lookup"><span data-stu-id="19839-157">Add a `SendMessage` method to the class.</span></span> <span data-ttu-id="19839-158">El método `SendMessage` envía un mensaje a todos los clientes de chat conectados.</span><span class="sxs-lookup"><span data-stu-id="19839-158">The `SendMessage` method sends a message to all connected chat clients.</span></span> <span data-ttu-id="19839-159">Tenga en cuenta que devuelve una [Tarea](/dotnet/api/system.threading.tasks.task), porque SignalR es asincrónica.</span><span class="sxs-lookup"><span data-stu-id="19839-159">Notice it returns a [Task](/dotnet/api/system.threading.tasks.task), because SignalR is asynchronous.</span></span> <span data-ttu-id="19839-160">El código asincrónico se escala mejor.</span><span class="sxs-lookup"><span data-stu-id="19839-160">Asynchronous code scales better.</span></span>
+   ```console
+   dotnet new webapp -o SignalRChat
+   ```
 
-   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
+   [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
------
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="6f639-139">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="6f639-139">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
 
-## <a name="configure-the-project-to-use-signalr"></a><span data-ttu-id="19839-161">Configurar el proyecto para que use SignalR</span><span class="sxs-lookup"><span data-stu-id="19839-161">Configure the project to use SignalR</span></span>
+* <span data-ttu-id="6f639-140">En el menú, seleccione **Archivo > Nueva solución**.</span><span class="sxs-lookup"><span data-stu-id="6f639-140">From the menu, select **File > New Solution**.</span></span>
 
-<span data-ttu-id="19839-162">El servidor de SignalR debe configurarse para que sepa pasar las solicitudes a SignalR.</span><span class="sxs-lookup"><span data-stu-id="19839-162">The SignalR server must be configured so that it knows to pass requests to SignalR.</span></span>
+* <span data-ttu-id="6f639-141">Seleccione **.NET Core > Aplicación > Aplicación web ASP.NET Core** (no seleccione **Aplicación web de ASP.NET Core (MVC)**).</span><span class="sxs-lookup"><span data-stu-id="6f639-141">Select **.NET Core > App > ASP.NET Core Web App** (Don't select **ASP.NET Core Web App (MVC)**).</span></span>
 
-1. <span data-ttu-id="19839-163">Para configurar un proyecto de SignalR, modifique el método `Startup.ConfigureServices` del proyecto.</span><span class="sxs-lookup"><span data-stu-id="19839-163">To configure a SignalR project, modify the project's `Startup.ConfigureServices` method.</span></span>
+* <span data-ttu-id="6f639-142">Seleccione **Siguiente**.</span><span class="sxs-lookup"><span data-stu-id="6f639-142">Select **Next**.</span></span>
 
-   <span data-ttu-id="19839-164">`services.AddSignalR` hace que los servicios SignalR estén disponibles para el sistema de [inserción de dependencias](xref:fundamentals/dependency-injection).</span><span class="sxs-lookup"><span data-stu-id="19839-164">`services.AddSignalR` makes the SignalR services available to the [dependency injection](xref:fundamentals/dependency-injection) system.</span></span>
-
-1. <span data-ttu-id="19839-165">Configure rutas a las centrales con `UseSignalR` en el método `Configure`.</span><span class="sxs-lookup"><span data-stu-id="19839-165">Configure routes to your hubs with `UseSignalR` in the `Configure` method.</span></span> <span data-ttu-id="19839-166">`app.UseSignalR` agrega SignalR a la canalización de [middleware](xref:fundamentals/middleware/index).</span><span class="sxs-lookup"><span data-stu-id="19839-166">`app.UseSignalR` adds SignalR to the [middleware](xref:fundamentals/middleware/index) pipeline.</span></span>
-
-   [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=37,57-60)]
-
-## <a name="create-the-signalr-client-code"></a><span data-ttu-id="19839-167">Crear el código de cliente de SignalR</span><span class="sxs-lookup"><span data-stu-id="19839-167">Create the SignalR client code</span></span>
-
-1. <span data-ttu-id="19839-168">Agregue un archivo de JavaScript denominado *chat.js*, a la carpeta *wwwroot\js*.</span><span class="sxs-lookup"><span data-stu-id="19839-168">Add a JavaScript file, named *chat.js*, to the *wwwroot\js* folder.</span></span> <span data-ttu-id="19839-169">Agregue el código siguiente a él:</span><span class="sxs-lookup"><span data-stu-id="19839-169">Add the following code to it:</span></span>
-
-   [!code-javascript[Index](signalr/sample/wwwroot/js/chat.js)]
-
-2. <span data-ttu-id="19839-170">Reemplace el contenido de *Pages/Index.cshtml* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="19839-170">Replace the content in *Pages\Index.cshtml* with the following code:</span></span>
-
-   [!code-cshtml[Index](signalr/sample/Pages/Index.cshtml)]
-
-   <span data-ttu-id="19839-171">El código HTML anterior muestra los campos de nombre y mensaje, y un botón de envío.</span><span class="sxs-lookup"><span data-stu-id="19839-171">The preceding HTML displays name and message fields, and a submit button.</span></span> <span data-ttu-id="19839-172">Tenga en cuenta las referencias de script en la parte inferior: una referencia a SignalR y *chat.js*.</span><span class="sxs-lookup"><span data-stu-id="19839-172">Notice the script references at the bottom: a reference to SignalR and *chat.js*.</span></span>
-
-## <a name="run-the-app"></a><span data-ttu-id="19839-173">Ejecutar la aplicación</span><span class="sxs-lookup"><span data-stu-id="19839-173">Run the app</span></span>
-
-# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="19839-174">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="19839-174">Visual Studio</span></span>](#tab/visual-studio)
-
-1. <span data-ttu-id="19839-175">Seleccione **Depurar** > **Iniciar sin depurar** para iniciar un explorador y cargar el sitio web de forma local.</span><span class="sxs-lookup"><span data-stu-id="19839-175">Select **Debug** > **Start without debugging** to launch a browser and load the website locally.</span></span> <span data-ttu-id="19839-176">Copie la dirección URL de la barra de direcciones.</span><span class="sxs-lookup"><span data-stu-id="19839-176">Copy the URL from the address bar.</span></span>
-
-1. <span data-ttu-id="19839-177">Abra otra instancia del explorador (cualquier explorador) y pegue la dirección URL en la barra de direcciones.</span><span class="sxs-lookup"><span data-stu-id="19839-177">Open another browser instance (any browser) and paste the URL in the address bar.</span></span>
-
-1. <span data-ttu-id="19839-178">Elija cualquier explorador, escriba un nombre y un mensaje, y haga clic en el botón **Enviar**.</span><span class="sxs-lookup"><span data-stu-id="19839-178">Choose either browser, enter a name and message, and click the **Send** button.</span></span> <span data-ttu-id="19839-179">El nombre y el mensaje se muestran en ambas páginas al instante.</span><span class="sxs-lookup"><span data-stu-id="19839-179">The name and message are displayed on both pages instantly.</span></span>
-
-# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="19839-180">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="19839-180">Visual Studio Code</span></span>](#tab/visual-studio-code)
-
-1. <span data-ttu-id="19839-181">Presione **Depurar** (F5) para compilar y ejecutar el programa.</span><span class="sxs-lookup"><span data-stu-id="19839-181">Press **Debug** (F5) to build and run the program.</span></span> <span data-ttu-id="19839-182">Al ejecutar el programa se abre una ventana del explorador.</span><span class="sxs-lookup"><span data-stu-id="19839-182">Running the program opens a browser window.</span></span>
-
-1. <span data-ttu-id="19839-183">Abra otra ventana del explorador y cargue el sitio web de forma local en ella.</span><span class="sxs-lookup"><span data-stu-id="19839-183">Open another browser window and load the website locally in it.</span></span>
-
-1. <span data-ttu-id="19839-184">Elija cualquier explorador, escriba un nombre y un mensaje, y haga clic en el botón **Enviar**.</span><span class="sxs-lookup"><span data-stu-id="19839-184">Choose either browser, enter a name and message, and click the **Send** button.</span></span> <span data-ttu-id="19839-185">El nombre y el mensaje se muestran en ambas páginas al instante.</span><span class="sxs-lookup"><span data-stu-id="19839-185">The name and message are displayed on both pages instantly.</span></span>
+* <span data-ttu-id="6f639-143">Asigne el nombre *SignalRChat* al proyecto y, después, haga clic en **Crear**.</span><span class="sxs-lookup"><span data-stu-id="6f639-143">Name the project *SignalRChat*, and then select **Create**.</span></span>
 
 ---
 
-  ![Soluciones](signalr/_static/signalr-get-started-finished.png)
+## <a name="add-the-signalr-client-library"></a><span data-ttu-id="6f639-144">Agregar la biblioteca cliente de SignalR</span><span class="sxs-lookup"><span data-stu-id="6f639-144">Add the SignalR client library</span></span>
 
-## <a name="related-resources"></a><span data-ttu-id="19839-187">Recursos relacionados</span><span class="sxs-lookup"><span data-stu-id="19839-187">Related resources</span></span>
+<span data-ttu-id="6f639-145">La biblioteca de servidor de SignalR se incluye en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).</span><span class="sxs-lookup"><span data-stu-id="6f639-145">The SignalR server library is included in the [Microsoft.AspNetCore.App metapackage](xref:fundamentals/metapackage-app).</span></span> <span data-ttu-id="6f639-146">Pero tendrá que obtener la biblioteca cliente de JavaScript de npm, el administrador de paquetes de Node.js.</span><span class="sxs-lookup"><span data-stu-id="6f639-146">But you have to get the JavaScript client library from npm, the Node.js package manager.</span></span>
 
-[<span data-ttu-id="19839-188">Introducción a SignalR de ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="19839-188">Introduction to ASP.NET Core SignalR</span></span>](xref:signalr/introduction)
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="6f639-147">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6f639-147">Visual Studio</span></span>](#tab/visual-studio/)
+
+* <span data-ttu-id="6f639-148">En **Consola del Administrador de paquetes** (PMC), cambie a la carpeta del proyecto (la que contiene el archivo *SignalRChat.csproj*).</span><span class="sxs-lookup"><span data-stu-id="6f639-148">In **Package Manager Console** (PMC), change to the project folder (the one that contains the *SignalRChat.csproj* file).</span></span>
+
+  ```console
+  cd SignalRChat
+  ```
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="6f639-149">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6f639-149">Visual Studio Code</span></span>](#tab/visual-studio-code/)
+
+2. <span data-ttu-id="6f639-150">Cambie a la nueva carpeta del proyecto.</span><span class="sxs-lookup"><span data-stu-id="6f639-150">Change to the new project folder.</span></span>
+
+  ```console
+  cd SignalRChat
+  ``` 
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="6f639-151">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="6f639-151">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+* <span data-ttu-id="6f639-152">En el **terminal**, vaya a la carpeta del proyecto (la que contiene el archivo *SignalRChat.csproj*).</span><span class="sxs-lookup"><span data-stu-id="6f639-152">In the **Terminal**, navigate to the project folder (the one that contains the *SignalRChat.csproj* file).</span></span>
+
+---
+
+* <span data-ttu-id="6f639-153">Ejecute el inicializador de npm para crear un archivo *package.json*:</span><span class="sxs-lookup"><span data-stu-id="6f639-153">Run the npm initializer to create a *package.json* file:</span></span>
+
+  ```console
+  npm init -y
+  ```
+
+  <span data-ttu-id="6f639-154">El comando crea un resultado similar al del ejemplo siguiente:</span><span class="sxs-lookup"><span data-stu-id="6f639-154">The command creates output similar to the following example:</span></span>
+
+  ```console
+  Wrote to C:\tmp\SignalRChat\package.json:
+  {
+    "name": "SignalRChat",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"0
+  }
+  ```
+
+* <span data-ttu-id="6f639-155">Instale el paquete de biblioteca cliente:</span><span class="sxs-lookup"><span data-stu-id="6f639-155">Install the client library package:</span></span>
+
+  ```console
+  npm install @aspnet/signalr
+  ```
+
+  <span data-ttu-id="6f639-156">El comando crea un resultado similar al del ejemplo siguiente:</span><span class="sxs-lookup"><span data-stu-id="6f639-156">The command creates output similar to the following example:</span></span>
+
+  ```
+  npm notice created a lockfile as package-lock.json. You should commit this file.
+  npm WARN signalrchat@1.0.0 No description
+  npm WARN signalrchat@1.0.0 No repository field.
+
+  + @aspnet/signalr@1.0.2
+  added 1 package in 0.98s
+  ```
+
+<span data-ttu-id="6f639-157">El comando `npm install` descarga la biblioteca cliente de JavaScript en una subcarpeta bajo *node_modules*.</span><span class="sxs-lookup"><span data-stu-id="6f639-157">The `npm install` command downloaded the JavaScript client library to a subfolder under *node_modules*.</span></span> <span data-ttu-id="6f639-158">Cópiela desde ahí a una carpeta bajo *wwwroot* a la que puede hacer referencia desde la página web de la aplicación de chat.</span><span class="sxs-lookup"><span data-stu-id="6f639-158">Copy it from there to a folder under *wwwroot* that you can reference from the chat app web page.</span></span>
+
+* <span data-ttu-id="6f639-159">Cree una carpeta *signalr* en *wwwroot/lib*.</span><span class="sxs-lookup"><span data-stu-id="6f639-159">Create a *signalr* folder in *wwwroot/lib*.</span></span>
+
+* <span data-ttu-id="6f639-160">Copie el archivo *signalr.js* desde *node_modules/@aspnet/signalr/dist/browser* a la nueva carpeta *wwwroot/lib/signalr*.</span><span class="sxs-lookup"><span data-stu-id="6f639-160">Copy the *signalr.js* file from *node_modules/@aspnet/signalr/dist/browser* to the new *wwwroot/lib/signalr* folder.</span></span>
+
+## <a name="create-the-signalr-hub"></a><span data-ttu-id="6f639-161">Crear el concentrador SignalR</span><span class="sxs-lookup"><span data-stu-id="6f639-161">Create the SignalR hub</span></span>
+
+<span data-ttu-id="6f639-162">Un [concentrador](xref:signalr/hubs) es una clase que actúa como una canalización general que controla la comunicación entre el cliente y el servidor.</span><span class="sxs-lookup"><span data-stu-id="6f639-162">A [hub](xref:signalr/hubs) is a class that serves as a high-level pipeline that handles client-server communication.</span></span>
+
+* <span data-ttu-id="6f639-163">En la carpeta del proyecto SignalRChat, cree una carpeta *Hubs*.</span><span class="sxs-lookup"><span data-stu-id="6f639-163">In the SignalRChat project folder, create a *Hubs* folder.</span></span>
+
+* <span data-ttu-id="6f639-164">En la carpeta *Hubs*, cree un archivo *ChatHub.cs* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="6f639-164">In the *Hubs* folder, create a *ChatHub.cs* file with the following code:</span></span>
+
+  [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
+
+  <span data-ttu-id="6f639-165">La clase `ChatHub` hereda de la clase [Hub](/dotnet/api/microsoft.aspnetcore.signalr.hub) de SignalR.</span><span class="sxs-lookup"><span data-stu-id="6f639-165">The `ChatHub` class inherits from the SignalR [Hub](/dotnet/api/microsoft.aspnetcore.signalr.hub) class.</span></span> <span data-ttu-id="6f639-166">La clase `Hub` administra las conexiones, los grupos y la mensajería.</span><span class="sxs-lookup"><span data-stu-id="6f639-166">The `Hub` class manages connections, groups, and messaging.</span></span>
+
+  <span data-ttu-id="6f639-167">Cualquier cliente conectado puede llamar al método `SendMessage`.</span><span class="sxs-lookup"><span data-stu-id="6f639-167">The `SendMessage` method can be called by any connected client.</span></span> <span data-ttu-id="6f639-168">Envía el mensaje recibido a todos los clientes.</span><span class="sxs-lookup"><span data-stu-id="6f639-168">It sends the received message to all clients.</span></span> <span data-ttu-id="6f639-169">El código de SignalR es asincrónico para proporcionar la máxima escalabilidad.</span><span class="sxs-lookup"><span data-stu-id="6f639-169">SignalR code is asynchronous to provide maximum scalability.</span></span>
+
+## <a name="configure-the-project-to-use-signalr"></a><span data-ttu-id="6f639-170">Configurar el proyecto para que use SignalR</span><span class="sxs-lookup"><span data-stu-id="6f639-170">Configure the project to use SignalR</span></span>
+
+<span data-ttu-id="6f639-171">El servidor de SignalR se debe configurar para que pase las solicitudes de SignalR a SignalR.</span><span class="sxs-lookup"><span data-stu-id="6f639-171">The SignalR server must be configured to pass SignalR requests to SignalR.</span></span>
+
+* <span data-ttu-id="6f639-172">Agregue el código resaltado siguiente al archivo *Startup.cs*.</span><span class="sxs-lookup"><span data-stu-id="6f639-172">Add the following highlighted code to the *Startup.cs* file.</span></span>
+
+  [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
+
+  <span data-ttu-id="6f639-173">Estos cambios agregan SignalR al sistema de [inserción de dependencias](xref:fundamentals/dependency-injection) y a la canalización de [software intermedio](xref:fundamentals/middleware/index).</span><span class="sxs-lookup"><span data-stu-id="6f639-173">These changes add SignalR to the [dependency injection](xref:fundamentals/dependency-injection) system and the [middleware](xref:fundamentals/middleware/index) pipeline.</span></span>
+
+## <a name="create-the-signalr-client-code"></a><span data-ttu-id="6f639-174">Crear el código de cliente de SignalR</span><span class="sxs-lookup"><span data-stu-id="6f639-174">Create the SignalR client code</span></span>
+
+* <span data-ttu-id="6f639-175">Reemplace el contenido de *Pages/Index.cshtml* con lo siguiente:</span><span class="sxs-lookup"><span data-stu-id="6f639-175">Replace the content in *Pages\Index.cshtml* with the following:</span></span>
+
+  [!code-cshtml[Index](signalr/sample/Pages/Index.cshtml)]
+
+  <span data-ttu-id="6f639-176">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="6f639-176">The preceding code:</span></span>
+
+  * <span data-ttu-id="6f639-177">Crea cuadros de texto para el nombre y el mensaje de texto, y un botón de envío.</span><span class="sxs-lookup"><span data-stu-id="6f639-177">Creates text boxes for name and message text, and a submit button.</span></span>
+  * <span data-ttu-id="6f639-178">Crea una lista con `id="messagesList"` para mostrar los mensajes que se reciben desde el concentrador SignalR.</span><span class="sxs-lookup"><span data-stu-id="6f639-178">Creates a list with `id="messagesList"` for displaying messages that are received from the SignalR hub.</span></span>
+  * <span data-ttu-id="6f639-179">Incluye las referencias de script en SignalR y el código de aplicación de *chat.js* que se va a crear en el paso siguiente.</span><span class="sxs-lookup"><span data-stu-id="6f639-179">Includes script references to SignalR and the *chat.js* application code that you create in the next step.</span></span>
+
+* <span data-ttu-id="6f639-180">En la carpeta *wwwroot/js*, cree un archivo *chat.js* con el código siguiente:</span><span class="sxs-lookup"><span data-stu-id="6f639-180">In the *wwwroot/js* folder, create a *chat.js* file with the following code:</span></span>
+
+  [!code-javascript[Index](signalr/sample/wwwroot/js/chat.js)]
+
+  <span data-ttu-id="6f639-181">El código anterior:</span><span class="sxs-lookup"><span data-stu-id="6f639-181">The preceding code:</span></span>
+
+  * <span data-ttu-id="6f639-182">Crea e inicia una conexión.</span><span class="sxs-lookup"><span data-stu-id="6f639-182">Creates and starts a connection.</span></span>
+  * <span data-ttu-id="6f639-183">Agrega al botón de envío un controlador que envía mensajes al concentrador.</span><span class="sxs-lookup"><span data-stu-id="6f639-183">Adds to the submit button a handler that sends messages to the hub.</span></span>
+  * <span data-ttu-id="6f639-184">Agrega al objeto de conexión un controlador que recibe mensajes desde el concentrador y los agrega a la lista.</span><span class="sxs-lookup"><span data-stu-id="6f639-184">Adds to the connection object a handler that receives messages from the hub and adds them to the list.</span></span>
+
+## <a name="run-the-app"></a><span data-ttu-id="6f639-185">Ejecutar la aplicación</span><span class="sxs-lookup"><span data-stu-id="6f639-185">Run the app</span></span>
+
+# <a name="visual-studiotabvisual-studio"></a>[<span data-ttu-id="6f639-186">Visual Studio</span><span class="sxs-lookup"><span data-stu-id="6f639-186">Visual Studio</span></span>](#tab/visual-studio)
+
+* <span data-ttu-id="6f639-187">Presione **CTRL+F5** para ejecutar la aplicación sin depurar.</span><span class="sxs-lookup"><span data-stu-id="6f639-187">Press **CTRL+F5** to run the app without debugging.</span></span>
+
+# <a name="visual-studio-codetabvisual-studio-code"></a>[<span data-ttu-id="6f639-188">Visual Studio Code</span><span class="sxs-lookup"><span data-stu-id="6f639-188">Visual Studio Code</span></span>](#tab/visual-studio-code)
+
+* <span data-ttu-id="6f639-189">Presione **CTRL+F5** para ejecutar la aplicación sin depurar.</span><span class="sxs-lookup"><span data-stu-id="6f639-189">Press **CTRL+F5** to run the app without debugging.</span></span>
+
+# <a name="visual-studio-for-mactabvisual-studio-mac"></a>[<span data-ttu-id="6f639-190">Visual Studio para Mac</span><span class="sxs-lookup"><span data-stu-id="6f639-190">Visual Studio for Mac</span></span>](#tab/visual-studio-mac)
+
+* <span data-ttu-id="6f639-191">En el menú, seleccione **Ejecutar > Iniciar sin depurar**.</span><span class="sxs-lookup"><span data-stu-id="6f639-191">From the menu, select **Run > Start Without Debugging**.</span></span>
+
+---
+
+* <span data-ttu-id="6f639-192">Copie la dirección URL de la barra de direcciones, abra otra instancia o pestaña del explorador, y pegue la dirección URL en la barra de direcciones.</span><span class="sxs-lookup"><span data-stu-id="6f639-192">Copy the URL from the address bar, open another browser instance or tab, and paste the URL in the address bar.</span></span>
+
+* <span data-ttu-id="6f639-193">Elija cualquier explorador, escriba un nombre y un mensaje, y haga clic en el botón **Enviar**.</span><span class="sxs-lookup"><span data-stu-id="6f639-193">Choose either browser, enter a name and message, and select the **Send** button.</span></span>
+
+  <span data-ttu-id="6f639-194">El nombre y el mensaje se muestran en ambas páginas al instante.</span><span class="sxs-lookup"><span data-stu-id="6f639-194">The name and message are displayed on both pages instantly.</span></span>
+
+  ![Aplicación de ejemplo de SignalR](signalr/_static/signalr-get-started-finished.png)
+
+> [!TIP]
+> <span data-ttu-id="6f639-196">Si la aplicación no funciona, abra las herramientas para desarrolladores del explorador (F12) y vaya a la consola.</span><span class="sxs-lookup"><span data-stu-id="6f639-196">If the app doesn't work, open your browser developer tools (F12) and go to the console.</span></span> <span data-ttu-id="6f639-197">Es posible que vea errores relacionados con el código HTML y JavaScript.</span><span class="sxs-lookup"><span data-stu-id="6f639-197">You might see errors related to your HTML and JavaScript code.</span></span> <span data-ttu-id="6f639-198">Por ejemplo, suponga que coloca *signalr.js* en una carpeta distinta a la indicada.</span><span class="sxs-lookup"><span data-stu-id="6f639-198">For example, suppose you put *signalr.js* in a different folder than directed.</span></span> <span data-ttu-id="6f639-199">En ese caso, la referencia a ese archivo no funcionará y verá un error 404 en la consola.</span><span class="sxs-lookup"><span data-stu-id="6f639-199">In that case the reference to that file won't work and you'll see a 404 error in the console.</span></span>
+> <span data-ttu-id="6f639-200">![Error: signalr.js no encontrado](signalr/_static/f12-console.png)</span><span class="sxs-lookup"><span data-stu-id="6f639-200">![signalr.js not found error](signalr/_static/f12-console.png)</span></span>
+
+## <a name="next-steps"></a><span data-ttu-id="6f639-201">Pasos siguientes</span><span class="sxs-lookup"><span data-stu-id="6f639-201">Next steps</span></span>
+
+<span data-ttu-id="6f639-202">Si quiere que los clientes se conecten a una aplicación de SignalR desde otros dominios, tendrá que habilitar el uso compartido de recursos entre orígenes (CORS).</span><span class="sxs-lookup"><span data-stu-id="6f639-202">If you want clients to connect to a SignalR app from different domains, you have to enable Cross-Origin Resource Sharing (CORS).</span></span> <span data-ttu-id="6f639-203">Para obtener más información, vea [Uso compartido de recursos entre orígenes](xref:signalr/security?view=aspnetcore-2.1#cross-origin-resource-sharing).</span><span class="sxs-lookup"><span data-stu-id="6f639-203">For more information, see [Cross-origin resource sharing](xref:signalr/security?view=aspnetcore-2.1#cross-origin-resource-sharing).</span></span>
+
+<span data-ttu-id="6f639-204">Para obtener más información sobre SignalR, los concentradores y los clientes de JavaScript, vea estos recursos:</span><span class="sxs-lookup"><span data-stu-id="6f639-204">To learn more about SignalR, hubs, and JavaScript clients, see these resources:</span></span>
+
+* [<span data-ttu-id="6f639-205">Introducción a SignalR para ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="6f639-205">Introduction to SignalR for ASP.NET Core</span></span>](xref:signalr/introduction)
+* [<span data-ttu-id="6f639-206">Uso de concentradores de SignalR para ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="6f639-206">Use hubs in SignalR for ASP.NET Core</span></span>](xref:signalr/hubs)
+* [<span data-ttu-id="6f639-207">Cliente de JavaScript de SignalR para ASP.NET Core</span><span class="sxs-lookup"><span data-stu-id="6f639-207">ASP.NET Core SignalR JavaScript client</span></span>](xref:signalr/javascript-client)
