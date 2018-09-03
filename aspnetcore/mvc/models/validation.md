@@ -5,12 +5,12 @@ description: Obtenga información sobre la validación de modelos en ASP.NET Cor
 ms.author: riande
 ms.date: 07/31/2018
 uid: mvc/models/validation
-ms.openlocfilehash: f407903577e40b6501737ef5b78d90e1e3e60c06
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39378672"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312159"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Validación de modelos en ASP.NET Core MVC
 
@@ -239,7 +239,7 @@ La propiedad `AdditionalFields` del atributo `[Remote]` es útil para validar co
 
 [!code-csharp[](validation/sample/User.cs?range=10-13)]
 
-`AdditionalFields` podría haberse configurado explícitamente para las cadenas `"FirstName"` y `"LastName"`, pero al usar el operador [`nameof`](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/nameof) de este modo se simplifica la refactorización posterior. El método de acción para realizar la validación debe aceptar dos argumentos, uno para el valor de `FirstName` y otro para el valor de `LastName`.
+`AdditionalFields` podría haberse configurado explícitamente para las cadenas `"FirstName"` y `"LastName"`, pero al usar el operador [`nameof`](/dotnet/csharp/language-reference/keywords/nameof) de este modo se simplifica la refactorización posterior. El método de acción para realizar la validación debe aceptar dos argumentos, uno para el valor de `FirstName` y otro para el valor de `LastName`.
 
 [!code-csharp[](validation/sample/UsersController.cs?range=30-39)]
 

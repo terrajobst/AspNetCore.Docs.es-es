@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/04/2018
 uid: host-and-deploy/iis/modules
-ms.openlocfilehash: 1ff0fdcaae066b493eeebf6a061e383f88c81052
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 40af94f9cbb83f27f22d90b6b0f2854090687d34
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272742"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312351"
 ---
 # <a name="iis-modules-with-aspnet-core"></a>Módulos de IIS con ASP.NET Core
 
@@ -30,7 +30,7 @@ En la tabla se indican los módulos nativos de IIS que son funcionales con solic
 | **Autenticación de asignaciones de certificados de cliente**<br>`CertificateMappingAuthenticationModule` | Sí | |
 | **CGI**<br>`CgiModule` | No | |
 | **Validación de configuración**<br>`ConfigurationValidationModule` | Sí | |
-| **Errores HTTP**<br>`CustomErrorModule` | No | [Middleware de páginas de códigos de estado](xref:fundamentals/error-handling#configuring-status-code-pages) |
+| **Errores HTTP**<br>`CustomErrorModule` | No | [Middleware de páginas de códigos de estado](xref:fundamentals/error-handling#configure-status-code-pages) |
 | **Registro personalizado**<br>`CustomLoggingModule` | Sí | |
 | **Documento predeterminado**<br>`DefaultDocumentModule` | No | [Middleware de archivos predeterminados](xref:fundamentals/static-files#serve-a-default-document) |
 | **Autenticación implícita**<br>`DigestAuthenticationModule` | Sí | |
