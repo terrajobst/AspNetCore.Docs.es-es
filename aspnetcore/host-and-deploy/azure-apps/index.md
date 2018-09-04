@@ -4,14 +4,14 @@ author: guardrex
 description: Descubra cómo hospedar aplicaciones de ASP.NET Core en Azure App Service con vínculos a recursos útiles.
 ms.author: riande
 ms.custom: mvc
-ms.date: 07/24/2018
+ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 42775bf4d3e88893260a5973f6f7bc9d3a006b5a
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: bc2a686c5ddc44fded135c9eed5caf676218773a
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927833"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312075"
 ---
 # <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
 
@@ -110,35 +110,55 @@ Las aplicaciones de versión preliminar de ASP.NET Core se pueden implementar en
 <!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
 * [Usar Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers)
 
-Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
-
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
+
+Si tiene algún problema al usar la extensión de sitio de versión preliminar, abra una incidencia en [GitHub](https://github.com/aspnet/azureintegration/issues/new).
 
 1. En Azure Portal, vaya a la hoja de App Service.
 1. Seleccione la aplicación web.
-1. Escriba "ex" en el cuadro de búsqueda o desplácese hacia abajo en la lista de paneles de administración hasta **HERRAMIENTAS DE DESARROLLO**.
+1. Escriba "ex" en el cuadro de búsqueda o desplácese hacia abajo en la lista de secciones de administración hasta llegar a **HERRAMIENTAS DE DESARROLLO**.
 1. Seleccione **HERRAMIENTAS DE DESARROLLO** > **Extensiones**.
 1. Seleccione **Agregar**.
-
-   ![Hoja de Azure App con los pasos anteriores](index/_static/x1.png)
-
-1. Seleccione **ASP.NET Core Extensions** (Extensiones de ASP.NET Core).
+1. Seleccione la extensión **Runtime de ASP.NET Core &lt;x.y&gt; (x86)** en la lista, donde `<x.y>` es la versión preliminar de ASP.NET Core (por ejemplo, **Runtime de ASP.NET Core 2.2 (x86)**). Runtime de x86 es adecuado para [implementaciones dependientes del marco](/dotnet/core/deploying/#framework-dependent-deployments-fdd), que se basan en el hospedaje fuera de proceso proporcionado por el módulo ASP.NET Core.
 1. Seleccione **Aceptar** para aceptar los términos legales.
 1. Seleccione **Aceptar** para instalar la extensión.
 
-Cuando se complete la operación de adición, se instalará la versión preliminar de .NET Core. Para comprobar la instalación, ejecute `dotnet --info` en la consola. En la hoja de **App Service**:
+Cuando se complete la operación, se instalará la versión preliminar de .NET Core. Compruebe la instalación:
 
-1. Escriba "con" en el cuadro de búsqueda o desplácese hacia abajo en la lista de paneles de administración hasta **HERRAMIENTAS DE DESARROLLO**.
-1. Seleccione **HERRAMIENTAS DE DESARROLLO** > **Consola**.
-1. Escriba `dotnet --info` en la consola.
+1. Seleccione **Herramientas avanzadas** en **HERRAMIENTAS DE DESARROLLO**.
+1. Seleccione **Ir** en la hoja **Herramientas avanzadas**.
+1. Seleccione el elemento de menú **Consola de depuración** > **PowerShell**.
+1. Ejecute el siguiente comando en el símbolo del sistema de PowerShell: Sustituya la versión de runtime de ASP.NET Core por `<x.y>` en el comando:
 
-Si la versión `2.1.300-preview1-008174` es la versión preliminar más reciente, se obtendrá el siguiente resultado al ejecutar `dotnet --info` en el símbolo del sistema:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x86\
+   ```
+   Si el runtime de la versión preliminar instalada es para ASP.NET Core 2.2, el comando será:
+   ```powershell
+   Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x86\
+   ```
+   El comando devuelve `True` cuando está instalado el runtime de la versión preliminar de x64.
 
-![Hoja de Azure App con los pasos anteriores](index/_static/cons.png)
+::: moniker range=">= aspnetcore-2.2"
 
-La versión de ASP.NET Core reflejada en la imagen anterior (`2.1.300-preview1-008174`) es un ejemplo. La versión preliminar más reciente de ASP.NET Core en el momento en que se configura la extensión del sitio aparece cuando se ejecuta `dotnet --info`.
+> [!NOTE]
+> La arquitectura de plataforma (x86/x64) de una aplicación de App Services se configura en la hoja **Configuración de la aplicación**, en **Configuración general**, para las aplicaciones hospedadas en un cálculo de serie A o en un mejor nivel de hospedaje. Si la aplicación se ejecuta en modo de en proceso y la arquitectura de plataforma está configurada para 64 bits (x64), el módulo ASP.NET Core usa el runtime de la versión preliminar de 64 bits, si está presente. Instale la extensión **Runtime de ASP.NET Core &lt;x.y&gt; (x64)** (por ejemplo, **Runtime de ASP.NET Core 2.2 (x64)**).
+>
+> Después de instalar el runtime de la versión preliminar de x64, ejecute el siguiente comando en la ventana de comandos de Kudu PowerShell para comprobar la instalación. Sustituya la versión de runtime de ASP.NET Core por `<x.y>` en el comando:
+>
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.<x.y>.x64\
+> ```
+> Si el runtime de la versión preliminar instalada es para ASP.NET Core 2.2, el comando será:
+> ```powershell
+> Test-Path D:\home\SiteExtensions\AspNetCoreRuntime.2.2.x64\
+> ```
+> El comando devuelve `True` cuando está instalado el runtime de la versión preliminar de x64.
 
-`dotnet --info` muestra la ruta de acceso a la extensión de sitio en la que se ha instalado la versión preliminar. Muestra que la aplicación se está ejecutando desde la extensión de sitio, en lugar de desde la ubicación predeterminada *ProgramFiles*. Si ve *ProgramFiles*, reinicie el sitio y ejecute `dotnet --info`.
+::: moniker-end
+
+> [!NOTE]
+> Con **Extensiones de ASP.NET Core** se obtienen funciones adicionales para ASP.NET Core en Azure App Services, como habilitar el registro de Azure. La extensión se instala automáticamente cuando se implementa desde Visual Studio. Si no se instala la extensión, instálela para la aplicación.
 
 **Uso de la extensión de sitio de versión preliminar con una plantilla de ARM**
 
