@@ -5,12 +5,12 @@ description: Descubra cómo configurar la autenticación de Azure Active Directo
 ms.date: 01/25/2018
 ms.custom: mvc
 uid: security/authentication/azure-ad-b2c
-ms.openlocfilehash: 731b25cac6f0d56fd34d12114a73e5cb5265dda6
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 73a66cea1533cc835796f673021bfa45c35f5935
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202645"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893199"
 ---
 # <a name="cloud-authentication-with-azure-active-directory-b2c-in-aspnet-core"></a>Autenticación en la nube con Azure Active Directory B2C en ASP.NET Core
 
@@ -107,7 +107,7 @@ Siga los pasos de la documentación de Azure AD B2C para [crear una directiva de
 
 ## <a name="run-the-app"></a>Ejecutar la aplicación
 
-En Visual Studio, presione **F5** para compilar y ejecutar la aplicación. Una vez que inicie la aplicación web, seleccione **inicie sesión en**.
+En Visual Studio, presione **F5** para compilar y ejecutar la aplicación. Una vez que inicie la aplicación web, seleccione **Accept** para aceptar el uso de cookies (si se le solicita) y, a continuación, seleccione **inicie sesión en**.
 
 ![Inicie sesión en la aplicación](./azure-ad-b2c/_static/signin.png)
 
