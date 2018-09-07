@@ -5,12 +5,12 @@ description: Obtenga información sobre los conceptos básicos de autenticación
 ms.author: tdykstra
 ms.date: 11/01/2017
 uid: security/index
-ms.openlocfilehash: 3a1c1ea1ad28fccbe5ae91b0be193938b095f60b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: d371d37690b6d641f8e584f5e51dcc074a581622
+ms.sourcegitcommit: 08bf41d4b3e696ab512b044970e8304816f8cc56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41750311"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44040087"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Introducción a la seguridad de ASP.NET Core
 
@@ -104,3 +104,4 @@ Hay más vulnerabilidades que debe tener en cuenta. Para obtener más informaci�
 *   [Prevención de scripting entre sitios](xref:security/cross-site-scripting)
 *   [Habilitar solicitudes entre orígenes (CORS)](xref:security/cors)
 *   [Compartir cookies entre aplicaciones](xref:security/cookie-sharing)
+*   [Lista de IP seguras](xref:security/ip-safelist)

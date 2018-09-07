@@ -5,12 +5,12 @@ description: Obtenga información sobre las áreas, una característica de ASP.N
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/controllers/areas
-ms.openlocfilehash: 3e998af42cd6209271495dd8dd97a8aed35717a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b78bb5146f1ab9039fa9ff015471654510718ed6
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274832"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312223"
 ---
 # <a name="areas-in-aspnet-core"></a>Áreas de ASP.NET Core
 
@@ -34,9 +34,9 @@ Características de las áreas:
 
 * Cada área tiene sus propios controladores, modelos y vistas.
 
-* Permiten organizar proyectos de MVC de gran tamaño en varios componentes de alto nivel en los que se puede trabajar de forma independiente.
+* Las áreas permiten organizar proyectos de MVC de gran tamaño en varios componentes generales en los que se puede trabajar de forma independiente.
 
-* Admiten varios controladores con el mismo nombre, siempre y cuando tengan *áreas* diferentes.
+* Las áreas admiten varios controladores con el mismo nombre, siempre y cuando tengan *áreas* diferentes.
 
 Veamos un ejemplo para ilustrar cómo se crean y se usan las áreas. Supongamos que tiene una aplicación de tienda con dos grupos distintos de controladores y vistas: Productos y Servicios. Una estructura de carpetas típica para dicha aplicación con áreas de MVC tendría un aspecto similar al siguiente:
 

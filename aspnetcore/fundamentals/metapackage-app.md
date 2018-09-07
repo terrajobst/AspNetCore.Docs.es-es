@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: e82c219635bbbebe1d6f5639308490c37361b286
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 95fd6b7e73cf325674f1c1e03f9eea88cbc1af13
+ms.sourcegitcommit: f3538693a12cf55b7f124a6519677239170b7c43
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952960"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43114780"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Metapaquete Microsoft.AspNetCore.App para ASP.NET Core 2.1
 
@@ -53,6 +53,15 @@ El archivo de proyecto siguiente hace referencia al metapaquete `Microsoft.AspNe
 
 El número de versión en la referencia de `Microsoft.AspNetCore.App` **no** garantiza que se vaya a usar la versión del marco compartido. Por ejemplo, suponga que se ha especificado la versión `2.1.1`, pero se ha instalado la `2.1.3`. En ese caso, la aplicación usa `2.1.3`. Aunque no se recomienda, puede deshabilitar el comportamiento de puesta al día (revisión o secundaria). Para obtener más información sobre el comportamiento de puesta al día de la versión del paquete, vea [dotnet host roll forward](https://github.com/dotnet/core-setup/blob/master/Documentation/design-docs/roll-forward-on-no-candidate-fx.md) (puesta al día del host de dotnet).
 
+## <a name="update-aspnet-core"></a>Actualización de ASP.NET Core
+
 El [metapaquete](/dotnet/core/packages#metapackages) `Microsoft.AspNetCore.App` no es un paquete habitual que se actualice desde NuGet. De forma similar a `Microsoft.NETCore.App`, `Microsoft.AspNetCore.App` representa un tiempo de ejecución compartido, con una semántica especial de control de versiones controlada de forma ajena a NuGet. Para obtener más información, vea [Paquetes, metapaquetes y marcos de trabajo](/dotnet/core/packages).
+
+Para actualizar ASP.NET Core:
+
+* En los equipos de desarrollo y los servidores de compilación: descargue e instale el [SDK de .NET Core](https://www.microsoft.com/net/download).
+* En los servidores de implementación: descargue e instale el [.NET Core Runtime](https://www.microsoft.com/net/download).
+
+ Las aplicaciones se pondrán al día con la última versión instalada al reiniciar la aplicación. No es necesario actualizar el número de versión de `Microsoft.AspNetCore.App` en el archivo de proyecto. Para obtener más información, vea [Puesta al día de las aplicaciones dependientes de la plataforma](/dotnet/core/versions/selection#framework-dependent-apps-roll-forward).
 
 Si la aplicación ha usado `Microsoft.AspNetCore.All` anteriormente, consulte [Migración desde Microsoft.AspNetCore.All a Microsoft.AspNetCore.App](xref:fundamentals/metapackage#migrate).

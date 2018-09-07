@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 07/05/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: ff04ebeb6a682ec924afe896fd6716010a63f7cd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 7ea944bc423001aa47ce684443b96104cf9174bf
+ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751621"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312252"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -45,7 +45,7 @@ Para configurar una aplicación de modo que muestre una página con información
 
 Realice una llamada a [UseDeveloperExceptionPage](/dotnet/api/microsoft.aspnetcore.builder.developerexceptionpageextensions.usedeveloperexceptionpage) delante de cualquier middleware en el que quiera capturar excepciones, como `app.UseMvc`.
 
->[!WARNING]
+> [!WARNING]
 > Habilite la página de excepciones para el desarrollador **solo cuando la aplicación se ejecute en el entorno de desarrollo**. No le interesa compartir públicamente información detallada sobre las excepciones cuando la aplicación se ejecute en producción. [Más información sobre la configuración de entornos](xref:fundamentals/environments).
 
 Para ver la página de excepciones para el desarrollador, ejecute la aplicación de ejemplo con el entorno establecido en `Development` y agregue `?throw=true` a la URL base de la aplicación. La página incluye varias pestañas con información sobre la excepción y la solicitud. La primera pestaña incluye un seguimiento de la pila:
@@ -60,7 +60,7 @@ Si la solicitud tiene cookies, aparecen en la pestaña **Cookies**. Los encabeza
 
 ![Encabezados](error-handling/_static/developer-exception-page-headers.png)
 
-## <a name="configuring-a-custom-exception-handling-page"></a>Configuración de una página personalizada de control de excepciones
+## <a name="configure-a-custom-exception-handling-page"></a>Configurar una página personalizada de control de excepciones
 
 Configure una página de controlador de excepciones para usarla cuando la aplicación no se ejecute en el entorno `Development`:
 
@@ -81,13 +81,35 @@ public IActionResult Error()
 }
 ```
 
-## <a name="configuring-status-code-pages"></a>Configuración de páginas de códigos de estado
+## <a name="configure-status-code-pages"></a>Configurar páginas de códigos de estado
 
-Una aplicación no proporciona de forma predeterminada una página de códigos de estado enriquecida para códigos de estado HTTP como *404 No encontrado*. Para proporcionarlas, configure el middleware de páginas de código de estado agregando una línea al método `Startup.Configure`:
+Una aplicación no proporciona de forma predeterminada una página de códigos de estado enriquecida para códigos de estado HTTP como *404 No encontrado*. Para proporcionar páginas de códigos de estado, use el middleware de páginas de código de estado.
+
+::: moniker range=">= aspnetcore-2.1"
+
+El middleware está disponible mediante el paquete [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/), a su vez disponible en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app).
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.0"
+
+El middleware está disponible mediante el paquete [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/), a su vez disponible en el [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
+
+El middleware está disponible mediante la adición de una referencia de paquete para el paquete [Microsoft.AspNetCore.Diagnostics](https://www.nuget.org/packages/Microsoft.AspNetCore.Diagnostics/) en el archivo de proyecto.
+
+::: moniker-end
+
+Agregue una línea al método `Startup.Configure`:
 
 ```csharp
 app.UseStatusCodePages();
 ```
+
+Hay que llamar a <xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePages*> antes de los middleware que administran las solicitudes en la canalización (por ejemplo, middleware de archivos estáticos y middleware de MVC).
 
 El middleware de páginas de código de estado agrega de forma predeterminada controladores de solo texto para códigos de estado comunes, como 404:
 

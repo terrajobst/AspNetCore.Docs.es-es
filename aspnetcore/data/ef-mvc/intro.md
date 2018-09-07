@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/intro
-ms.openlocfilehash: cbef7e5edf2950a87a4cd4155c63a22fff2990fe
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 46cc5144a289637a0fb1c1c2ac22aba2d881af52
+ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751746"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336112"
 ---
 # <a name="aspnet-core-mvc-with-entity-framework-core---tutorial-1-of-10"></a>ASP.NET Core MVC con Entity Framework Core: Tutorial 1 de 10
 
@@ -132,7 +132,7 @@ En la carpeta *Models*, cree un archivo de clase denominado *Student.cs* y reemp
 
 La propiedad `ID` se convertirá en la columna de clave principal de la tabla de base de datos que corresponde a esta clase. De forma predeterminada, Entity Framework interpreta como la clave principal una propiedad que se denomine `ID` o `classnameID`.
 
-La propiedad `Enrollments` es una propiedad de navegación. Las propiedades de navegación contienen otras entidades relacionadas con esta entidad. En este caso, la propiedad `Enrollments` de una `Student entity` contendrá todas las entidades `Enrollment` que estén relacionadas con esa entidad `Student`. En otras palabras, si una fila Student determinada en la base de datos tiene dos filas Enrollment relacionadas (filas que contienen el valor de clave principal de ese estudiante en la columna de clave externa StudentID), la propiedad de navegación `Enrollments` de esa entidad `Student` contendrá esas dos entidades `Enrollment`.
+La propiedad `Enrollments` es una [propiedad de navegación](/ef/core/modeling/relationships). Las propiedades de navegación contienen otras entidades relacionadas con esta entidad. En este caso, la propiedad `Enrollments` de una `Student entity` contendrá todas las entidades `Enrollment` que estén relacionadas con esa entidad `Student`. En otras palabras, si una fila Student determinada en la base de datos tiene dos filas Enrollment relacionadas (filas que contienen el valor de clave principal de ese estudiante en la columna de clave externa StudentID), la propiedad de navegación `Enrollments` de esa entidad `Student` contendrá esas dos entidades `Enrollment`.
 
 Si una propiedad de navegación puede contener varias entidades (como en las relaciones de varios a varios o uno a varios), su tipo debe ser una lista a la que se puedan agregar las entradas, eliminarlas y actualizarlas, como `ICollection<T>`. Puede especificar `ICollection<T>` o un tipo como `List<T>` o `HashSet<T>`. Si especifica `ICollection<T>`, EF crea una colección `HashSet<T>` de forma predeterminada.
 
