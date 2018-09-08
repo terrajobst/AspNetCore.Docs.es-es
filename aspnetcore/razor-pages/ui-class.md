@@ -4,16 +4,16 @@ author: Rick-Anderson
 description: Se explica cómo crear una interfaz de usuario de Razor reutilizable en una biblioteca de clases.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
-ms.date: 07/21/2018
+ms.date: 09/07/2018
 uid: razor-pages/ui-class
-ms.openlocfilehash: 1f0ef59ce3f3294d6a3bde015ca34800770b1be4
-ms.sourcegitcommit: e955a722c05ce2e5e21b4219f7d94fb878e255a6
+ms.openlocfilehash: 7e9ab07a9060b16c09afb1e88950f6a3e55b13cb
+ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "42909535"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44126753"
 ---
-# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Cree una interfaz de usuario reutilizable con el proyecto de biblioteca de clases de Razor en ASP.NET Core.
+# <a name="create-reusable-ui-using-the-razor-class-library-project-in-aspnet-core"></a>Crear la interfaz de usuario reutilizable con el proyecto de biblioteca de clases de Razor en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
@@ -41,7 +41,7 @@ Una biblioteca de clases de Razor tiene el siguiente archivo del proyecto:
 
 Ejecute `dotnet new razorclasslib` desde la línea de comandos. Por ejemplo:
 
-``` CLI
+```console
 dotnet new razorclasslib -o RazorUIClassLib
 ```
 
@@ -75,15 +75,16 @@ Abra el archivo *.sln* en Visual Studio. Ejecute la aplicación.
 
 Desde un símbolo del sistema en el directorio *cli*, cree la RCL y la aplicación web.
 
-``` CLI
+```console
 dotnet build
 ```
 
 Vaya al directorio *WebApp1* y ejecute la aplicación:
 
-``` CLI
+```console
 dotnet run
 ```
+
 ------
 
 Siga las instrucciones de [Probar WebApp1](#test).
@@ -107,7 +108,7 @@ Cree el proyecto de RCL:
 
 Ejecute lo siguiente desde la línea de comandos:
 
-``` CLI
+```console
 dotnet new razorclasslib -o RazorUIClassLib
 dotnet new page -n _Message -np -o RazorUIClassLib/Areas/MyFeature/Pages/Shared
 dotnet new viewstart -o RazorUIClassLib/Areas/MyFeature/Pages
@@ -117,33 +118,33 @@ Los comandos anteriores:
 
 * Crean la biblioteca de clases de Razor (RCL) `RazorUIClassLib`.
 * Crean una página _Message de Razor y la agrega a la RCL. El parámetro `-np` crea la página sin un `PageModel`.
-* Crean un archivo [viewstart](xref:mvc/views/layout#running-code-before-each-view) y lo agregan a la RCL.
+* Crea un [_ViewStart.cshtml](xref:mvc/views/layout#running-code-before-each-view) de archivo y lo agrega a la RCL.
 
-El archivo viewstart es necesario para poder usar el diseño del proyecto de páginas de Razor (que agregaremos en la siguiente sección).
+El *_ViewStart.cshtml* archivo es necesario para usar el diseño del proyecto de páginas de Razor (que se agrega en la sección siguiente).
 
 ------
 
-### <a name="add-razor-files-and-folders-to-the-project"></a>Agregue archivos y carpetas de Razor al proyecto.
+### <a name="add-razor-files-and-folders-to-the-project"></a>Agregar archivos de Razor y carpetas al proyecto
 
 * Reemplace el marcado de *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml* por el siguiente código:
 
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
+[!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cshtml)]
 
 * Reemplace el marcado de *RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml* por el siguiente código:
 
-[!code-html[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
+[!code-cshtml[Main](ui-class/samples/cli/RazorUIClassLib/Areas/MyFeature/Pages/Page1.cshtml)]
 
 Se necesita `@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers` para usar la vista parcial (`<partial name="_Message" />`). En lugar de incluir la directiva `@addTagHelper`, puede agregar un archivo *_ViewImports.cshtml*. Por ejemplo:
 
-``` CLI
+```console
 dotnet new viewimports -o RazorUIClassLib/Areas/MyFeature/Pages
 ```
 
-Para más información sobre viewimports, vea [Importar directivas compartidas](xref:mvc/views/layout#importing-shared-directives).
+Para obtener más información sobre *_ViewImports.cshtml*, consulte [importar directivas compartidas](xref:mvc/views/layout#importing-shared-directives)
 
 * Compile la biblioteca de clases para confirmar que no hay ningún error de compilador:
 
-``` CLI
+```console
 dotnet build RazorUIClassLib
 ```
 
@@ -202,7 +203,7 @@ Compruebe si la biblioteca de clases de interfaz de usuario de Razor se está us
 
 ## <a name="override-views-partial-views-and-pages"></a>Reemplazar vistas, vistas parciales y páginas
 
-Cuando existe una vista, vista parcial o página de Razor tanto en la aplicación web como en la biblioteca de clases de Razor, tendrá prioridad el marcado de Razor (archivo *.cshtml*) de la aplicación web. Por ejemplo, si agrega *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* a WebApp1, Page1 en WebApp1 prevalecerá sobre Page1 en la biblioteca de clases de Razor.
+Cuando existe una vista, vista parcial o página de Razor tanto en la aplicación web como en la biblioteca de clases de Razor, tendrá prioridad el marcado de Razor (archivo *.cshtml*) de la aplicación web. Por ejemplo, agregar *WebApp1/Areas/MyFeature/Pages/Page1.cshtml* a WebApp1, y Page1 en la WebApp1 tendrá prioridad sobre Page1 en la biblioteca de clases de Razor.
 
 En la descarga de ejemplo, cambie el nombre *WebApp1/Areas/MyFeature2* por *WebApp1/Areas/MyFeature* para comprobar la prioridad.
 
@@ -212,17 +213,17 @@ Copie la vista parcial *RazorUIClassLib/Areas/MyFeature/Pages/Shared/_Message.cs
 
 ### <a name="rcl-pages-layout"></a>Diseño de páginas RCL
 
-Para hacer referencia a contenido RCL como si formara parte de la carpeta de la aplicación web, cree el proyecto RCL con la siguiente estructura de archivos:
+Para hacer referencia RCL contenido como si formara parte de la aplicación web a *páginas* carpeta, cree el proyecto RCL con la siguiente estructura de archivos:
 
 * *Páginas/RazorUIClassLib*
 * *RazorUIClassLib/páginas/Shared*
 
-Supongamos que *RazorUIClassLib, compartidos o páginas* contiene dos archivos parciales, *_Header.cshtml* y *_Footer.cshtml*. El <partial> se puede agregar etiquetas a *_Layout.cshtml* archivo: 
+Supongamos que *RazorUIClassLib, compartidos o páginas* contiene dos archivos parciales: *_Header.cshtml* y *_Footer.cshtml*. El `<partial>` se puede agregar etiquetas a *_Layout.cshtml* archivo:
   
-```
-  <body>
-    <partial name="_Header">
-    @RenderBody()
-    <partial name="_Footer">
-  </body>
+```cshtml
+<body>
+  <partial name="_Header">
+  @RenderBody()
+  <partial name="_Footer">
+</body>
 ```
