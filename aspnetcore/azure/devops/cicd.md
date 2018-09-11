@@ -5,27 +5,27 @@ description: Una guía que proporciona guías de un extremo a otro sobre cómo c
 ms.author: scaddie
 ms.date: 08/17/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: e084a6115dc7e176c17b2b318233b7a003b39a83
-ms.sourcegitcommit: 1cf65c25ed16495e27f35ded98b3952a30c68f36
+ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42909546"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340113"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integración e implementación continuas
 
-En el capítulo anterior, ha creado un repositorio de Git local para la aplicación de lector de fuentes Simple. En este capítulo, podrá publicar ese código en un repositorio de GitHub y crear una canalización de DevOps de Visual Studio Team Services (VSTS). La canalización permite compilaciones continuas y las implementaciones de la aplicación. Cualquier confirmación en el repositorio de GitHub desencadena una compilación y una implementación de la ranura de ensayo de la aplicación Web de Azure.
+En el capítulo anterior, ha creado un repositorio de Git local para la aplicación de lector de fuentes Simple. En este capítulo, podrá publicar ese código en un repositorio de GitHub y crear una canalización de DevOps de Azure Services mediante canalizaciones de Azure. La canalización permite compilaciones continuas y las implementaciones de la aplicación. Cualquier confirmación en el repositorio de GitHub desencadena una compilación y una implementación de la ranura de ensayo de la aplicación Web de Azure.
 
 En esta sección, deberá completar las tareas siguientes:
 
 * Publicar el código de la aplicación en GitHub
 * Desconectar de la implementación de Git local
-* Crear una cuenta de VSTS
-* Crear un proyecto de equipo de VSTS
+* Creación de una organización de Azure DevOps
+* Crear un proyecto de equipo en servicios de Azure DevOps
 * Crear una definición de compilación
 * Crear una canalización de versiones
 * Confirmar cambios en GitHub e implementar automáticamente en Azure
-* Examine la canalización de DevOps de VSTS
+* Examine la canalización de canalizaciones de Azure
 
 ## <a name="publish-the-apps-code-to-github"></a>Publicar el código de la aplicación en GitHub
 
@@ -53,7 +53,7 @@ En esta sección, deberá completar las tareas siguientes:
 
 ## <a name="disconnect-local-git-deployment"></a>Desconectar de la implementación de Git local
 
-Quite la implementación de Git local con los pasos siguientes. VSTS tanto reemplaza y amplía dicha funcionalidad.
+Quite la implementación de Git local con los pasos siguientes. Las canalizaciones de Azure (un servicio de Azure DevOps) tanto reemplaza y amplía dicha funcionalidad.
 
 1. Abra el [portal de Azure](https://portal.azure.com/)y navegue hasta el *de almacenamiento provisional (mywebapp\<unique_number\>/ensayo)* Web App. La aplicación Web se pueden ubicar rápidamente escribiendo *ensayo* en el cuadro de búsqueda del portal:
 
@@ -63,26 +63,26 @@ Quite la implementación de Git local con los pasos siguientes. VSTS tanto reemp
 1. Navegue hasta la *mywebapp < unique_number >* App Service. Como recordatorio, cuadro de búsqueda del portal puede utilizarse para localizar rápidamente el servicio de aplicación.
 1. Haga clic en **opciones de implementación**. Aparece un nuevo panel. Haga clic en **desconexión** para quitar la configuración de control de código fuente de Git local que se agregó en el capítulo anterior. Confirmar la operación de eliminación, haga clic en el **Sí** botón.
 
-## <a name="create-a-vsts-account"></a>Crear una cuenta de VSTS
+## <a name="create-an-azure-devops-organization"></a>Creación de una organización de Azure DevOps
 
-1. Abra un explorador y navegue hasta la [página de creación de cuenta VSTS](https://go.microsoft.com/fwlink/?LinkId=307137).
-1. Escriba un nombre único en la **elegir un nombre fácil de recordar** textbox para formar la dirección URL para tener acceso a su cuenta de VSTS.
+1. Abra un explorador y navegue hasta la [página de creación de organización de Azure DevOps](https://go.microsoft.com/fwlink/?LinkId=307137).
+1. Escriba un nombre único en la **elegir un nombre fácil de recordar** textbox para formar la dirección URL para tener acceso a su organización de DevOps de Azure.
 1. Seleccione el **Git** botón de radio, puesto que el código se hospeda en un repositorio de GitHub.
 1. Haga clic en el botón **Continuar**. Tras una breve espera, una cuenta y un proyecto de equipo, nombre *MyFirstProject*, se crean.
 
-    ![Página de creación de cuenta VSTS](media/cicd/vsts-account-creation.png)
+    ![Página de creación de organización de Azure DevOps](media/cicd/vsts-account-creation.png)
 
-1. Abra el correo electrónico de confirmación que indica que la cuenta de VSTS y el proyecto están listos para su uso. Haga clic en el **comience su proyecto** botón:
+1. Abra el correo electrónico de confirmación que indica que la organización de DevOps de Azure y el proyecto están listos para su uso. Haga clic en el **comience su proyecto** botón:
 
     ![Botón de su proyecto inicial](media/cicd/vsts-start-project.png)
 
 1. Se abre un explorador para  *\<account_name\>. visualstudio.com*. Haga clic en el *MyFirstProject* vínculo para empezar a configurar la canalización de DevOps del proyecto.
 
-## <a name="configure-the-devops-pipeline"></a>Configurar la canalización de DevOps
+## <a name="configure-the-azure-pipelines-pipeline"></a>Configurar la canalización de canalizaciones de Azure
 
 Hay tres pasos diferentes para completar. Completando los pasos descritos en los resultados de tres secciones siguientes en una canalización de DevOps operativa.
 
-### <a name="grant-vsts-access-to-the-github-repository"></a>Conceder acceso VSTS en el repositorio de GitHub
+### <a name="grant-azure-devops-access-to-the-github-repository"></a>DevOps de Azure conceder acceso al repositorio de GitHub
 
 1. Expanda el **o compilar código desde un repositorio externo** accordion. Haga clic en el **compilar el programa de instalación** botón:
 
@@ -92,12 +92,12 @@ Hay tres pasos diferentes para completar. Completando los pasos descritos en los
 
     ![Seleccione un origen: GitHub](media/cicd/vsts-select-source.png)
 
-1. Se necesita autorización antes de VSTS puede tener acceso a su repositorio de GitHub. Escriba *< GitHub_username > GitHub conexión* en el **nombre de la conexión** cuadro de texto. Por ejemplo:
+1. Se necesita autorización antes de DevOps de Azure puede acceder al repositorio de GitHub. Escriba *< GitHub_username > GitHub conexión* en el **nombre de la conexión** cuadro de texto. Por ejemplo:
 
     ![Nombre de la conexión de GitHub](media/cicd/vsts-repo-authz.png)
 
 1. Si está habilitada la autenticación en dos fases en su cuenta de GitHub, se requiere un token de acceso personal. En ese caso, haga clic en el **autorizar con un token de acceso personal de GitHub** vínculo. Consulte la [instrucciones oficiales de creación del token de acceso personal de GitHub](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/) para obtener ayuda. Solo el *repositorio* ámbito de permisos es necesaria. En caso contrario, haga clic en el **autorizar el uso de OAuth** botón.
-1. Cuando se le solicite, inicie sesión en su cuenta de GitHub. A continuación, seleccione autorizar para conceder acceso a su cuenta de VSTS. Si se realiza correctamente, se crea un nuevo extremo de servicio.
+1. Cuando se le solicite, inicie sesión en su cuenta de GitHub. A continuación, seleccione autorizar para conceder acceso a su organización de DevOps de Azure. Si se realiza correctamente, se crea un nuevo extremo de servicio.
 1. Haga clic en el botón de puntos suspensivos junto a la **repositorio** botón. Seleccione el *< GitHub_username > / lectura de fuentes simple* repositorio en la lista. Haga clic en el **seleccione** botón.
 1. Seleccione el *maestro* bifurcación desde la **rama predeterminada para compilaciones manuales y programadas** lista desplegable. Haga clic en el botón **Continuar**. Aparece la página de selección de plantilla.
 
@@ -205,7 +205,7 @@ Hay tres pasos diferentes para completar. Completando los pasos descritos en los
 
     ![habilitar la integración continua](media/cicd/enable-ci.png)
 
-1. Vaya a la **en cola** pestaña de la **compilación y versión** > **compilaciones** página en VSTS. La compilación en cola muestra la rama y confirmar que desencadenó la compilación:
+1. Navegue hasta la **en cola** pestaña de la **canalizaciones de Azure** > **compilaciones** página en los servicios de Azure DevOps. La compilación en cola muestra la rama y confirmar que desencadenó la compilación:
 
     ![compilación en cola](media/cicd/build-queued.png)
 
@@ -213,7 +213,7 @@ Hay tres pasos diferentes para completar. Completando los pasos descritos en los
 
     ![aplicación actualizada](media/cicd/updated-app-v4.png)
 
-## <a name="examine-the-vsts-devops-pipeline"></a>Examine la canalización de DevOps de VSTS
+## <a name="examine-the-azure-pipelines-pipeline"></a>Examine la canalización de canalizaciones de Azure
 
 ### <a name="build-definition"></a>Definición de compilación
 
@@ -275,6 +275,6 @@ La suscripción, grupo de recursos, tipo de servicio, nombre de la aplicación w
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
-* [Compilar la aplicación ASP.NET Core](https://docs.microsoft.com/vsts/build-release/apps/aspnet/build-aspnet-core)
-* [Compilar e implementar en una aplicación Web de Azure](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Definir un proceso de compilación de CI para el repositorio de GitHub](https://docs.microsoft.com/vsts/pipelines/build/ci-build-github)
+* [Crear su primera canalización con canalizaciones de Azure](/azure/devops/pipelines/get-started-yaml)
+* [Proyecto de compilación y .NET Core](/azure/devops/pipelines/languages/dotnet-core)
+* [Implementar una aplicación web con canalizaciones de Azure](/azure/devops/pipelines/targets/webapp)

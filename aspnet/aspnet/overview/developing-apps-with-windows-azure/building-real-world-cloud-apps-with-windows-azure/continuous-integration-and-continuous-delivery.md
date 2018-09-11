@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: eaece9f5-f80c-428b-b771-5db66d275b7d
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery
 msc.type: authoredcontent
-ms.openlocfilehash: 787aacfd843f5f72e567670d601fb036a2c474bc
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 7a92a68ce8bbeec604a22e082975d33f9f3377c1
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836962"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340074"
 ---
 <a name="continuous-integration-and-continuous-delivery-building-real-world-cloud-apps-with-azure"></a>La integración continua y entrega continua (crear aplicaciones de nube reales con Azure)
 ====================
@@ -40,9 +40,9 @@ El siguiente diagrama de [un Microsoft Patterns and Practices libro electrónico
 
 Es fácil automatizar estos procesos en Azure. Porque todo lo que se está ejecutando en la nube, no tienes que comprar ni administrar servidores para las compilaciones o en sus entornos de pruebas. Y no tiene que esperar a un servidor que esté disponible para realizar las pruebas en el. Con cada compilación que lo hace, podría poner en marcha un entorno de prueba en Azure mediante el script de automatización, pruebas de aceptación de ejecución o más comprobaciones exhaustivas en él y, a continuación, cuando haya terminado simplemente Deshágase de él. Y si sólo ejecuta ese servidor durante 2 horas o 8 horas o un día, la cantidad de dinero que tiene que pagar por ello es mínima, ya que está pagando solo por el tiempo que se está ejecutando realmente una máquina. Por ejemplo, el entorno necesario para la corrección de aplicación básicamente cuesta aproximadamente 1 céntimos por hora si Subir un nivel desde el nivel gratuito. En el transcurso de un mes, si solo se ejecuta el entorno de una hora a la vez, el entorno de pruebas probablemente costaría menos de un café con leche que se compra en Starbucks.
 
-## <a name="visual-studio-team-services-vsts"></a>Visual Studio Team Services (VSTS)
+## <a name="azure-devops-services"></a>Servicios de Azure DevOps 
 
-VSTS proporciona una serie de características para ayudarle con el desarrollo de aplicaciones de planeación de la implementación.
+Servicios de Azure DevOps proporciona una serie de características para ayudarle con el desarrollo de aplicaciones de planeación de la implementación.
 
 - Es compatible con Git (distribuido) y control de código fuente TFVC (centralizado).
 - Ofrece un servicio de compilación elástica, lo que significa que dinámicamente crea los servidores de compilación cuando se necesitan y les lleva inactivo cuando hayan terminado. Automáticamente, puede iniciar una compilación cuando alguien protege cambios de código fuente y no tiene que haber asignar y pagar por sus propios servidores de compilación que se encuentran inactivos la mayor parte del tiempo. El servicio de compilación es gratuita, siempre y cuando no supere un determinado número de compilaciones. Si piensa hacer un gran volumen de compilaciones, puede pagar un poco de trabajo adicional para los servidores de compilación reservado.
@@ -52,9 +52,9 @@ VSTS proporciona una serie de características para ayudarle con el desarrollo d
 - Admite la administración de proyectos ágiles.
 
 
-Para obtener más información sobre la integración continua y las características de entrega de VSTS, consulte [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Para obtener más información sobre la integración continua y las características de entrega de servicios de DevOps de Azure, consulte [la documentación de Azure DevOps](/azure/devops/index).
 
-Si está buscando una administración de proyectos de llave en mano, colaboración en equipo y la solución de control de código fuente, consulte VSTS. El servicio es gratuito para 5 usuarios, y puede suscribirse en [Visual Studio Team Services](https://www.visualstudio.com/team-services/).
+Si está buscando una comprobación de llave en mano de administración de proyectos de colaboración en equipo y solución de control de código fuente, los servicios de Azure DevOps. Regístrese en [servicios de Azure DevOps](https://dev.azure.com/).
 
 ## <a name="summary"></a>Resumen
 

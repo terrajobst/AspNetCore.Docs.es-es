@@ -5,12 +5,12 @@ description: Una guía que proporciona guías de un extremo a otro sobre cómo c
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/deploy-to-app-service
-ms.openlocfilehash: abd7167b313e131dc8b7ea6a49b774e14ae53bb9
-ms.sourcegitcommit: 29dfe436f54a27fbb4f6494bc639d16c75001fab
+ms.openlocfilehash: 710e65a048fdc062219e90b0db323e8e96fd8e9d
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42909494"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340139"
 ---
 # <a name="deploy-an-app-to-app-service"></a>Implementar una aplicación en App Service
 
@@ -234,7 +234,7 @@ En esta sección, se completaron las siguientes tareas:
 * Implementar una actualización en la ranura de ensayo.
 * Intercambiar las ranuras de ensayo y producción.
 
-En la sección siguiente, obtendrá información sobre cómo crear una canalización de DevOps con Azure y Visual Studio Team Services.
+En la sección siguiente, obtendrá información sobre cómo crear una canalización de DevOps con canalizaciones de Azure.
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 

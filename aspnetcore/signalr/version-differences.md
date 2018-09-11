@@ -4,14 +4,14 @@ author: tdykstra
 description: Diferencias entre SignalR y ASP.NET Core SignalR
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
-ms.date: 08/20/2018
+ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: b904f57af3700b6e1e2143913dfa08da9bf8bbd2
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 2f3458f27fd7f22339751e0734dd8c5da709a3c0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41837079"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340126"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Diferencias entre SignalR de ASP.NET y ASP.NET Core SignalR
 
@@ -132,6 +132,20 @@ connection = new HubConnectionBuilder()
     .WithUrl("url")
     .Build();
 ```
+
+## <a name="scaleout-differences"></a>Diferencias de escalabilidad horizontal
+
+SignalR de ASP.NET es compatible con SQL Server y Redis. ASP.NET Core SignalR es compatible con Azure SignalR Service y Redis.
+
+### <a name="aspnet"></a>ASP.NET
+
+* [Escalabilidad horizontal de SignalR con Azure Service Bus](/aspnet/signalr/overview/performance/scaleout-with-windows-azure-service-bus)
+* [Escalabilidad horizontal de SignalR con Redis](/aspnet/signalr/overview/performance/scaleout-with-redis)
+* [Escalabilidad horizontal de SignalR con SQL Server](/aspnet/signalr/overview/performance/scaleout-with-sql-server)
+
+### <a name="aspnet-core"></a>ASP.NET Core
+
+* [Servicio Azure SignalR](/azure/azure-signalr/)
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
