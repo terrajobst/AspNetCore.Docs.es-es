@@ -38,13 +38,14 @@
     "externalReference": [],
     "globalMetadata": {
       "bilingual_type": "hover over",
-      "breadcrumb_path": "/aspnet/breadcrumb/toc.json",
       "_navPath": "/foo",
       "_navRel": "/foo",
+      "breadcrumb_path": "/aspnet/breadcrumb/toc.json",
+      "ms.prod": "aspnet-framework",
+      "ms.topic": "conceptual",
       "searchScope": [
         "ASP.NET"
-      ],
-      "bilingual_type": "hover over"
+      ]
     },
     "fileMetadata": {
       "ms.technology": {
