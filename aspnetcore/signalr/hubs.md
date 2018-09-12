@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 05/01/2018
 uid: signalr/hubs
-ms.openlocfilehash: be39666373e2b099054bb71f4a7fcf17aeb9a01c
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: e583676ab0eed45aeaf6391d8cdf8c1485aa914e
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095286"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510342"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usar concentradores de SignalR para ASP.NET Core
 
@@ -42,9 +42,29 @@ Crear un centro mediante la declaración de una clase que hereda de `Hub`y agreg
 
 Puede especificar un tipo de valor devuelto y parámetros, incluidos los tipos complejos y matrices, como lo haría en cualquier método de C#. SignalR controla la serialización y deserialización de objetos complejos y matrices en sus parámetros y valores devueltos.
 
+## <a name="the-context-object"></a>El objeto de contexto
+
+El `Hub` clase tiene un `Context` propiedad que contiene las siguientes propiedades con información sobre la conexión:
+
+| Property | Descripción |
+| ------ | ----------- |
+| `ConnectionId` | Obtiene el identificador único para la conexión, asignada por SignalR. Hay un identificador de conexión para cada conexión.|
+| `UserIdentifier` | Obtiene el [useridentifier](xref:signalr/groups). De forma predeterminada, usa SignalR el `ClaimTypes.NameIdentifier` desde el `ClaimsPrincipal` asociado a la conexión como el identificador de usuario. |
+| `User` | Obtiene el `ClaimsPrincipal` asociada con el usuario actual. |
+| `Items` | Obtiene una colección de pares clave-valor que se puede usar para compartir datos dentro del ámbito de esta conexión. Se pueden almacenar datos en esta colección y conservará para la conexión entre las invocaciones de método de concentrador. |
+| `Features` | Obtiene la colección de las características disponibles en la conexión. Por ahora, esta colección no es necesario en la mayoría de los escenarios, por lo que no se documentan detalladamente todavía. |
+| `ConnectionAborted` | Obtiene un `CancellationToken` que le notifica cuando se anula la conexión. |
+
+`Hub.Context` También contiene los métodos siguientes:
+
+| Método | Descripción |
+| ------ | ----------- |
+| `GetHttpContext` | Devuelve el `HttpContext` para la conexión, o `null` si la conexión no está asociada a una solicitud HTTP. Para las conexiones HTTP, puede usar este método para obtener información como los encabezados HTTP y las cadenas de consulta. |
+| `Abort` | Anula la conexión. |
+
 ## <a name="the-clients-object"></a>El objeto de los clientes
 
-Cada instancia de la `Hub` clase tiene una propiedad denominada `Clients` que contiene los siguientes miembros para la comunicación entre cliente y servidor:
+El `Hub` clase tiene un `Clients` propiedad que contiene las siguientes propiedades para la comunicación entre cliente y servidor:
 
 | Property | Descripción |
 | ------ | ----------- |
@@ -53,7 +73,7 @@ Cada instancia de la `Hub` clase tiene una propiedad denominada `Clients` que co
 | `Others` | Llama a un método en todos los clientes conectados, excepto el cliente que invocó el método |
 
 
-Además, `Hub.Clients` contiene los siguientes métodos:
+`Hub.Clients` También contiene los métodos siguientes:
 
 | Método | Descripción |
 | ------ | ----------- |

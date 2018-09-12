@@ -11,7 +11,7 @@ Ejecute el proveedor de scaffolding de identidad:
 
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
-Si no ha instalado previamente el proveedor de scaffolding ASP.NET, lo instale ahora:
+Si no ha instalado previamente el proveedor de scaffolding de ASP.NET Core, instalar ahora:
 
 ```cli
 dotnet tool install -g dotnet-aspnet-codegenerator

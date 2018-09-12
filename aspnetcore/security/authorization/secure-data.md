@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear una aplicación de páginas 
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 9f264daa4a6b63478077cadb06a697f274014199
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
+ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336016"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44510368"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -268,6 +268,10 @@ Actualice la vista de detalles para que los administradores pueden aprobar o rec
 Actualice el modelo de página de detalles:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
+
+## <a name="add-a-user-to-a-role"></a>Agregar un usuario a un rol
+
+Roles se almacenan en la cookie de identidad. Los cambios realizados en los roles no se conservan en la cookie hasta que se vuelve a generar la cookie de usuario o el usuario cierra la sesión y se inicia la sesión. Deben llamar las aplicaciones que agregue usuarios a un rol `SignInManager.RefreshSignInAsync(user)` para actualizar la cookie.
 
 ## <a name="test-the-completed-app"></a>Probar la aplicación completada
 
