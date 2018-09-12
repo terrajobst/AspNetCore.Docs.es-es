@@ -5,12 +5,12 @@ description: Una guía que proporciona guías de un extremo a otro sobre cómo c
 ms.author: casoper
 ms.date: 08/07/2018
 uid: azure/devops/index
-ms.openlocfilehash: f2eb2499a61ce639457f30f4d182dac6ff677a0f
-ms.sourcegitcommit: 6d02e26748a09eabeb0e11740a398cc2bc90b098
+ms.openlocfilehash: 53667831f5e33107178a947f23d957ff22e8c1a0
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41746069"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340100"
 ---
 # <a name="devops-with-aspnet-core-and-azure"></a>DevOps con ASP.NET Core y Azure
 
@@ -46,7 +46,7 @@ Obtenga información sobre los distintos métodos para implementar una aplicaci�
 
 ### <a name="continuous-integration-and-deploymentxrefazuredevopscicd"></a>[Integración e implementación continuas](xref:azure/devops/cicd)
 
-Cree una solución de implementación e integración continuas de un extremo a otro para su aplicación ASP.NET Core con GitHub, VSTS y Azure.
+Cree una solución de implementación e integración continuas de un extremo a otro para su aplicación ASP.NET Core con GitHub, Azure DevOps Services y Azure.
 
 ### <a name="monitor-and-debugxrefazuredevopsmonitor"></a>[Supervisión y depuración](xref:azure/devops/monitor)
 

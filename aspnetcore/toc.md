@@ -287,7 +287,7 @@
 ### [Publicación en Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)
 ### [Publicación en Azure con herramientas de CLI](xref:tutorials/publish-to-azure-webapp-using-cli)
 ### [Implementación continua en Azure con Visual Studio y Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)
-### [Implementación continua en Azure con VSTS](https://www.visualstudio.com/docs/build/aspnet/core/quick-to-azure)
+### [Implementación continua en Azure con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 ### [Solución de problemas de ASP.NET Core en Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)
 ## [Hospedaje en Windows con IIS](xref:host-and-deploy/iis/index)
 ### [Solución de problemas de ASP.NET Core en IIS](xref:host-and-deploy/iis/troubleshoot)

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: 9e0fd0ee98c84bb2336749640b2a3c103e4639b6
-ms.sourcegitcommit: 661d30492d5ef7bbca4f7e709f40d8f3309d2dac
+ms.openlocfilehash: fb3a287725fa68ff9feb9935d7e6c5c2b8316517
+ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37938331"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43893125"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -103,14 +103,14 @@ Add-Migration Initial
 Update-Database
 ```
 
-Se pueden usar los siguientes comandos de la CLI de .NET Core de forma alternativa:
+Como alternativa, se pueden usar los siguientes comandos de la CLI de .NET Core de la carpeta de proyecto:
 
 ```console
 dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-Pase por alto el siguiente mensaje de advertencia, lo subsanaremos en el próximo tutorial:
+Pase por alto el siguiente mensaje de advertencia, se corregirá en un próximo tutorial:
 
 `Microsoft.EntityFrameworkCore.Model.Validation[30000]`
 
@@ -209,7 +209,7 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{
 
 ### <a name="test-the-app"></a>Prueba de la aplicación
 
-* Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador ( `http://localhost:port/movies` ).
+* Ejecute la aplicación y anexe `/Movies` a la dirección URL en el explorador (`http://localhost:port/movies`).
 * Pruebe el vínculo **Crear**.
 
   ![Página Crear](../../tutorials/razor-pages/model/_static/conan.png)
