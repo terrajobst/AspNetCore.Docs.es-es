@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear una aplicación de páginas 
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: a263b092194763ae4ff3360fc0d76e8ee494b5a6
-ms.sourcegitcommit: e7e1e531b80b3f4117ff119caadbebf4dcf5dcb7
+ms.openlocfilehash: e4a54c95aa8131441d29a835751ce6241aac2ed3
+ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44510368"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45601774"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -269,9 +269,12 @@ Actualice el modelo de página de detalles:
 
 [!code-csharp[](secure-data/samples/final2.1/Pages/Contacts/Details.cshtml.cs?name=snippet)]
 
-## <a name="add-a-user-to-a-role"></a>Agregar un usuario a un rol
+## <a name="add-or-remove-a-user-to-a-role"></a>Agregar o quitar un usuario a un rol
 
-Roles se almacenan en la cookie de identidad. Los cambios realizados en los roles no se conservan en la cookie hasta que se vuelve a generar la cookie de usuario o el usuario cierra la sesión y se inicia la sesión. Deben llamar las aplicaciones que agregue usuarios a un rol `SignInManager.RefreshSignInAsync(user)` para actualizar la cookie.
+Consulte [este problema](https://github.com/aspnet/Docs/issues/8502) para obtener información sobre:
+
+* Quita los privilegios de un usuario. Por ejemplo un usuario en una aplicación de chat de silencio.
+* Agregar privilegios a un usuario.
 
 ## <a name="test-the-completed-app"></a>Probar la aplicación completada
 
