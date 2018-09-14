@@ -5,12 +5,12 @@ description: Obtenga instrucciones para migrar aplicaciones existentes de ASP.NE
 ms.author: scaddie
 ms.date: 08/27/2017
 uid: migration/proper-to-2x/index
-ms.openlocfilehash: 4d71621e5d4a9ef7bfb8020acc2d4a5d3774514f
-ms.sourcegitcommit: 1a2fc47fb5d3da0f2a3c3269613ab20eb3b0da2c
+ms.openlocfilehash: 85f8ca30d4885476dea2da13c241483fc074c4b7
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44373363"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538471"
 ---
 # <a name="migrate-from-aspnet-to-aspnet-core"></a>Migración de ASP.NET a ASP.NET Core
 
@@ -32,7 +32,7 @@ Cuando se usa .NET Core, se pueden eliminar numerosas referencias explícitas de
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.3" />
+  <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
 </ItemGroup>
 ```
 
