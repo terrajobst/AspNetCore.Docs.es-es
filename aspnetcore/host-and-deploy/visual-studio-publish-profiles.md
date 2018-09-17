@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 04/10/2018
 uid: host-and-deploy/visual-studio-publish-profiles
-ms.openlocfilehash: 2958b83de13207b93790004a4fa60b0509af3cd2
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 751f25f74a0e24eb9ce4f2bd6b2fa462ccb03ecb
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41902591"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538406"
 ---
 # <a name="visual-studio-publish-profiles-for-aspnet-core-app-deployment"></a>Perfiles de publicación de Visual Studio para la implementación de aplicaciones ASP.NET Core
 
@@ -31,7 +31,7 @@ El siguiente archivo de proyecto se creó con el comando `dotnet new mvc`:
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.1.4" />
   </ItemGroup>
 
   <ItemGroup>

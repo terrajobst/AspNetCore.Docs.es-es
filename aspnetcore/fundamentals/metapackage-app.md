@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: riande
 ms.date: 09/20/2017
 uid: fundamentals/metapackage-app
-ms.openlocfilehash: 95fd6b7e73cf325674f1c1e03f9eea88cbc1af13
-ms.sourcegitcommit: f3538693a12cf55b7f124a6519677239170b7c43
+ms.openlocfilehash: d27c3aa53d6edd235006dc136f09558395e15b6e
+ms.sourcegitcommit: a742b55e4b8276a48b8b4394784554fecd883c84
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43114780"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45538458"
 ---
 # <a name="microsoftaspnetcoreapp-metapackage-for-aspnet-core-21"></a>Metapaquete Microsoft.AspNetCore.App para ASP.NET Core 2.1
 
@@ -45,7 +45,7 @@ El archivo de proyecto siguiente hace referencia al metapaquete `Microsoft.AspNe
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.4" />
   </ItemGroup>
 
 </Project>
