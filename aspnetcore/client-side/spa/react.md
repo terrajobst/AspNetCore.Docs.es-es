@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/react
-ms.openlocfilehash: 721ea1d4197ddd17dde657924f12dee2a6858d97
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: c83b119e81d7d0abfd727cb8c72abb09763d9448
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291508"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011436"
 ---
 # <a name="use-the-react-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de React con ASP.NET Core
 
@@ -34,9 +34,10 @@ La plantilla es equivalente a crear un proyecto de ASP.NET Core para que funcion
 Si usa ASP.NET Core 2.0, asegúrese de que ha [instalado la plantilla de proyecto actualizada de React](xref:spa/index#installation).
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
-Si tiene ASP.NET Core 2.1 instalado, no hay ninguna necesidad de instalar la plantilla de proyecto de reaccionar.
+Si tiene ASP.NET Core 2.1 instalado, no es necesario instalar la plantilla de proyecto de React.
 
 ::: moniker-end
 

@@ -7,12 +7,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 02/21/2018
 uid: spa/angular
-ms.openlocfilehash: 811e28af2b67c356ff038d8d673e2164bb56578e
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 763b4fff7c64432328af660c66e6ff3f8f697f71
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291468"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011365"
 ---
 # <a name="use-the-angular-project-template-with-aspnet-core"></a>Uso de la plantilla de proyecto de Angular con ASP.NET Core
 
@@ -34,9 +34,10 @@ La plantilla es equivalente a crear un proyecto de ASP.NET Core que funciona com
 Si usa ASP.NET Core 2.0, asegúrese de que ha [instalado la plantilla de proyecto actualizada de React](xref:spa/index#installation).
 
 ::: moniker-end
+
 ::: moniker range=">= aspnetcore-2.1"
 
-Si tiene ASP.NET Core 2.1 instalado, no hay ninguna necesidad de instalar la plantilla de proyecto Angular.
+Si tiene ASP.NET Core 2.1 instalado, no es necesario instalar la plantilla de proyecto de Angular.
 
 ::: moniker-end
 

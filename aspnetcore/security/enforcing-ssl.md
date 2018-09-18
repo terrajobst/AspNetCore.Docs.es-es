@@ -5,12 +5,12 @@ description: Muestra cómo requerir HTTPS/TLS en un núcleo de ASP.NET web app.
 ms.author: riande
 ms.date: 2/9/2018
 uid: security/enforcing-ssl
-ms.openlocfilehash: 838cd00545f36736461616f806942249aaf6eee0
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 06ff89d30fb3586c69274cc7cb3e6c75065b098a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893183"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011331"
 ---
 # <a name="enforce-https-in-aspnet-core"></a>Exigir HTTPS en ASP.NET Core
 
@@ -167,6 +167,7 @@ El código siguiente:
 * `[::1]` : La dirección de bucle invertido de IPv6.
 
 El ejemplo anterior muestra cómo agregar hosts adicionales.
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"

@@ -3,14 +3,14 @@ title: Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 author: ardalis
 description: Obtenga información sobre cómo configurar los proveedores de almacenamiento personalizados para ASP.NET Core Identity.
 ms.author: riande
-ms.date: 05/24/2017
+ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: 4b210a52ae9761bb838dd5611e86ce8f71345499
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837694"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011266"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -59,7 +59,7 @@ Al crear una nueva instancia de `UserManager` o `RoleManager` proporcionar el ti
 
 ### <a name="users"></a>Usuarios
 
-Usuarios registrados de su sitio web. El [IdentityUser](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser) tipo puede ampliada o se utiliza como ejemplo para su propio tipo personalizado. No necesita heredar de un tipo determinado para implementar su propia solución de almacenamiento de información de identidad personalizada.
+Usuarios registrados de su sitio web. El [IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser) tipo puede ampliada o se utiliza como ejemplo para su propio tipo personalizado. No necesita heredar de un tipo determinado para implementar su propia solución de almacenamiento de información de identidad personalizada.
 
 ### <a name="user-claims"></a>Notificaciones de usuario
 
@@ -67,11 +67,11 @@ Un conjunto de instrucciones (o [notificaciones](/dotnet/api/system.security.cla
 
 ### <a name="user-logins"></a>Inicios de sesión de usuario
 
-Información sobre el proveedor de autenticación externos (como Facebook o una cuenta de Microsoft) que se usará al iniciar sesión en un usuario. [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
+Información sobre el proveedor de autenticación externos (como Facebook o una cuenta de Microsoft) que se usará al iniciar sesión en un usuario. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin)
 
 ### <a name="roles"></a>Roles
 
-Grupos de autorización para su sitio. Incluye el nombre de identificador y el rol del rol (por ejemplo, "Admin" o "Employee"). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityrole)
+Grupos de autorización para su sitio. Incluye el nombre de identificador y el rol del rol (por ejemplo, "Admin" o "Employee"). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identityrole)
 
 ## <a name="the-data-access-layer"></a>La capa de acceso a datos
 
@@ -83,11 +83,11 @@ La capa de acceso a datos proporciona la lógica para guardar los datos de ASP.N
 
 ### <a name="context-class"></a>Context (clase)
 
-Encapsula la información para conectarse a su mecanismo de persistencia y ejecutar consultas. Varias clases de datos requieren una instancia de esta clase, que normalmente se suministran mediante la inserción de dependencias. [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
+Encapsula la información para conectarse a su mecanismo de persistencia y ejecutar consultas. Varias clases de datos requieren una instancia de esta clase, que normalmente se suministran mediante la inserción de dependencias. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.identitydbcontext-1).
 
 ### <a name="user-storage"></a>Almacenamiento de información de usuario
 
-Almacena y recupera información de usuario (por ejemplo, hash de nombre y la contraseña de usuario). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de usuario (por ejemplo, hash de nombre y la contraseña de usuario). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="role-storage"></a>Almacenamiento de rol
 
@@ -95,15 +95,15 @@ Almacena y recupera información de funciones (por ejemplo, el nombre del rol). 
 
 ### <a name="userclaims-storage"></a>Almacenamiento de UserClaims
 
-Almacena y recupera información de notificaciones de usuario (por ejemplo, el tipo de notificación y el valor). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de notificaciones de usuario (por ejemplo, el tipo de notificación y el valor). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userlogins-storage"></a>Almacenamiento de UserLogins
 
-Almacena y recupera información de inicio de sesión de usuario (por ejemplo, un proveedor de autenticación externo). [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera información de inicio de sesión de usuario (por ejemplo, un proveedor de autenticación externo). [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 ### <a name="userrole-storage"></a>Almacenamiento de UserRole
 
-Almacena y recupera los roles asignados a los usuarios. [Ejemplo](/aspnet/core/api/microsoft.aspnet.identity.corecompat.userstore-1)
+Almacena y recupera los roles asignados a los usuarios. [Ejemplo](/dotnet/api/microsoft.aspnet.identity.corecompat.userstore-1)
 
 **Sugerencia:** implementar sólo las clases que va a usar en la aplicación.
 
@@ -115,7 +115,7 @@ La lógica de implementación para crear el usuario está en el `_usersTable.Cre
 
 ## <a name="customize-the-user-class"></a>Personalizar la clase de usuario
 
-Al implementar un proveedor de almacenamiento, cree una clase de usuario que es equivalente a la [ `IdentityUser` clase](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuser).
+Al implementar un proveedor de almacenamiento, cree una clase de usuario que es equivalente a la [clase IdentityUser](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuser).
 
 Como mínimo, la clase de usuario debe incluir un `Id` y un `UserName` propiedad.
 
@@ -185,7 +185,7 @@ public class UserStore : IUserStore<IdentityUser>,
 
 ### <a name="identityuserclaim-identityuserlogin-and-identityuserrole"></a>IdentityUserClaim IdentityUserLogin y IdentityUserRole
 
-El `Microsoft.AspNet.Identity.EntityFramework` espacio de nombres contiene las implementaciones de la [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/aspnet/core/api/microsoft.aspnet.identity.corecompat.identityuserlogin), y [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) clases. Si está usando estas características, es posible que desee crear sus propias versiones de estas clases y definir las propiedades de la aplicación. Sin embargo, a veces es más eficaz para no cargar estas entidades en memoria al realizar operaciones básicas (como agregar o quitar notificaciones de un usuario). En su lugar, las clases de almacén de back-end pueden ejecutar estas operaciones directamente en el origen de datos. Por ejemplo, el `UserStore.GetClaimsAsync` puede llamar al método el `userClaimTable.FindByUserId(user.Id)` método para ejecutar una consulta en que directamente de la tabla y devuelve una lista de notificaciones.
+El `Microsoft.AspNet.Identity.EntityFramework` espacio de nombres contiene las implementaciones de la [IdentityUserClaim](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserclaim-1), [IdentityUserLogin](/dotnet/api/microsoft.aspnet.identity.corecompat.identityuserlogin), y [IdentityUserRole](/dotnet/api/microsoft.aspnetcore.identity.entityframeworkcore.identityuserrole-1) clases. Si está usando estas características, es posible que desee crear sus propias versiones de estas clases y definir las propiedades de la aplicación. Sin embargo, a veces es más eficaz para no cargar estas entidades en memoria al realizar operaciones básicas (como agregar o quitar notificaciones de un usuario). En su lugar, las clases de almacén de back-end pueden ejecutar estas operaciones directamente en el origen de datos. Por ejemplo, el `UserStore.GetClaimsAsync` puede llamar al método el `userClaimTable.FindByUserId(user.Id)` método para ejecutar una consulta en que directamente de la tabla y devuelve una lista de notificaciones.
 
 ## <a name="customize-the-role-class"></a>Personalizar la clase de función
 
