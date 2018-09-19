@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 697e7e91ae2d9d5712d9306a291635793063117b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 02805eda4f8dceb467547fa4e00aef8ea956f228
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828746"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292289"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Seguimiento en ASP.NET Web API 2
 ====================
@@ -114,7 +114,7 @@ Escritor de seguimiento solo una puede estar activa. De forma predeterminada, We
 
 ## <a name="how-web-api-tracing-works"></a>Cómo Web API Tracing Works
 
-Seguimiento de los usos de Web API usa una API Web en un *fachada* patrón: cuando se habilita el seguimiento, API Web ajusta distintas partes de la canalización de solicitudes con las clases que realizan llamadas de seguimiento.
+Seguimiento de API Web usa un *fachada* patrón: cuando se habilita el seguimiento, API Web ajusta distintas partes de la canalización de solicitudes con las clases que realizan llamadas de seguimiento.
 
 Por ejemplo, al seleccionar un controlador, la canalización usa el **IHttpControllerSelector** interfaz. Con el seguimiento habilitado, inserta una clase que implementa la canalización de **IHttpControllerSelector** pero las llamadas a través de la implementación real:
 

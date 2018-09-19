@@ -5,12 +5,12 @@ description: Obtenga información sobre el concepto de protección de datos y lo
 ms.author: riande
 ms.date: 10/14/2016
 uid: security/data-protection/introduction
-ms.openlocfilehash: 29a2bbef6f2fd9b61541173af143926ca82bfad7
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: a49eee89e8c11b26c76ba167215c141482159933
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095700"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292302"
 ---
 # <a name="aspnet-core-data-protection"></a>Protección de datos de ASP.NET Core
 
@@ -66,15 +66,15 @@ El sistema de protección de datos se divide en cinco paquetes principales. Dest
 
 La pila de protección de datos consta de cinco paquetes.
 
-* Microsoft.AspNetCore.DataProtection.Abstractions contiene las interfaces básicas de IDataProtectionProvider y IDataProtector. También contiene métodos de extensión útiles que pueden ayudar a trabajar con estos tipos (por ejemplo, las sobrecargas de IDataProtector.Protect). Consulte la sección de interfaces de consumidor para obtener más información. Si alguien más es responsable de crear instancias del sistema de protección de datos y simplemente va a consumir las API, deseará Microsoft.AspNetCore.DataProtection.Abstractions de referencia.
+* [Microsoft.AspNetCore.DataProtection.Abstractions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Abstractions/) contiene el <xref:Microsoft.AspNetCore.DataProtection.IDataProtectionProvider> y <xref:Microsoft.AspNetCore.DataProtection.IDataProtector> interfaces para crear servicios de protección de datos. También contiene métodos de extensión útiles para trabajar con estos tipos (por ejemplo, [IDataProtector.Protect](xref:Microsoft.AspNetCore.DataProtection.DataProtectionCommonExtensions.Protect*)). Si el sistema de protección de datos se crea una instancia en otro lugar y consumen la API, referencia `Microsoft.AspNetCore.DataProtection.Abstractions`.
 
-* Microsoft.AspNetCore.DataProtection contiene la implementación del núcleo del sistema de protección de datos, incluidas las operaciones criptográficas de core, administración de claves, configuración y extensibilidad. Si usted es responsable de crear una instancia del sistema de protección de datos (por ejemplo, agregarlo a una IServiceCollection) o modificar o extender su comportamiento, querrá Microsoft.AspNetCore.DataProtection de referencia.
+* [Microsoft.AspNetCore.DataProtection](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection/) contiene la implementación del núcleo del sistema de protección de datos, incluidas las operaciones criptográficas de core, administración de claves, configuración y extensibilidad. Para crear una instancia del sistema de protección de datos (por ejemplo, éste se agrega a un <xref:Microsoft.Extensions.DependencyInjection.IServiceCollection>) o hacer referencia a modificar o extender su comportamiento, `Microsoft.AspNetCore.DataProtection`.
 
-* Microsoft.AspNetCore.DataProtection.Extensions contiene API adicionales que los desarrolladores pueden resultar útiles pero que no pertenecen en el paquete principal. Por ejemplo, este paquete contiene una API sencilla "crear una instancia del sistema que señala a un directorio de almacenamiento de claves específico con ninguna instalación de inserción de dependencia" (más información). También contiene métodos de extensión para limitar la duración de cargas protegidas (más información).
+* [Microsoft.AspNetCore.DataProtection.Extensions](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.Extensions/) contiene API adicionales que los desarrolladores pueden resultar útiles pero que no pertenecen en el paquete principal. Por ejemplo, este paquete contiene métodos de generador para crear una instancia del sistema de protección de datos para almacenar las claves en una ubicación en el sistema de archivos sin la inserción de dependencias (consulte <xref:Microsoft.AspNetCore.DataProtection.DataProtectionProvider>). También contiene métodos de extensión para limitar la duración de cargas protegidas (consulte <xref:Microsoft.AspNetCore.DataProtection.ITimeLimitedDataProtector>).
 
-* Microsoft.AspNetCore.DataProtection.SystemWeb puede instalarse en una aplicación existente de 4.x ASP.NET para redirigir su &lt;machineKey&gt; las operaciones en su lugar, use la nueva pila de protección de datos. Consulte [compatibilidad](xref:security/data-protection/compatibility/replacing-machinekey#compatibility-replacing-machinekey) para obtener más información.
+* [Microsoft.AspNetCore.DataProtection.SystemWeb](https://www.nuget.org/packages/Microsoft.AspNetCore.DataProtection.SystemWeb/) puede instalarse en una aplicación existente de 4.x ASP.NET para redirigir su `<machineKey>` operaciones para usar la nueva pila de protección de datos de ASP.NET Core. Para obtener más información, consulta <xref:security/data-protection/compatibility/replacing-machinekey>.
 
-* Microsoft.AspNetCore.Cryptography.KeyDerivation proporciona una implementación de la contraseña PBKDF2 hash rutina y puede usarse en sistemas que necesitan para administrar de forma segura las contraseñas de usuario. Consulte [Hash de contraseñas](xref:security/data-protection/consumer-apis/password-hashing) para obtener más información.
+* [Microsoft.AspNetCore.Cryptography.KeyDerivation](https://www.nuget.org/packages/Microsoft.AspNetCore.Cryptography.KeyDerivation/) proporciona una implementación de la contraseña PBKDF2 hash rutina y se puede usar los sistemas que deben administrar de forma segura las contraseñas de usuario. Para obtener más información, consulta <xref:security/data-protection/consumer-apis/password-hashing>.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
