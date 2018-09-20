@@ -1,45 +1,45 @@
 ---
-title: Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
+title: Asistentes de etiquetas integradas de ASP.NET Core
 author: pkellner
-description: Descubra cómo las aplicaciones auxiliares de etiquetas integradas de ASP.NET Core le ayudan a mejorar su productividad.
+description: Descubra cómo los asistentes de etiquetas integradas de ASP.NET Core le ayudan a mejorar su productividad.
 ms.author: riande
-ms.date: 09/13/2017
+ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 4f2ebf1600f42847db1c1f9517787b020d2e86c9
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
+ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36279173"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46292315"
 ---
-# <a name="aspnet-core-built-in-tag-helpers"></a>Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
+# <a name="aspnet-core-built-in-tag-helpers"></a>Asistentes de etiquetas integradas de ASP.NET Core
 
 Por [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core incluye varias aplicaciones auxiliares de etiquetas integradas para aumentar la productividad. En esta sección se proporciona un resumen de las aplicaciones auxiliares de etiquetas integradas.
+ASP.NET Core incluye varios asistentes de etiquetas integradas para aumentar la productividad. En esta sección se proporciona un resumen de los asistentes de etiquetas integradas.
 
 > [!NOTE]
-> Algunas aplicaciones auxiliares de etiquetas integradas no figuran en la sección, ya que se usan internamente en el motor de vistas de [Razor](xref:mvc/views/razor). Esto incluye una aplicación auxiliar de etiquetas para el carácter ~, que se expande hasta la ruta de acceso raíz del sitio web.
+> Algunos asistentes de etiquetas integradas no figuran en la sección, ya que se usan internamente en el motor de vistas de [Razor](xref:mvc/views/razor). Esto incluye un asistente de etiquetas para el carácter ~, que se expande hasta la ruta de acceso raíz del sitio web.
 
-## <a name="built-in-aspnet-core-tag-helpers"></a>Aplicaciones auxiliares de etiquetas integradas de ASP.NET Core
+## <a name="built-in-aspnet-core-tag-helpers"></a>Asistentes de etiquetas integradas de ASP.NET Core
 
-**[Aplicación auxiliar de etiquetas de delimitador](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
+**[Asistente de etiquetas de delimitador](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
+**[Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
+**[Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
+**[Asistente de etiquetas de entorno](xref:mvc/views/tag-helpers/builtin-th/environment-tag-helper)**
 
 [comment]: **[FormActionTagHelper](xref:mvc/views/tag-helpers/builtin-th/form-action-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de formulario](xref:mvc/views/working-with-forms#the-form-tag-helper)**
+**[Asistente de etiquetas de formulario](xref:mvc/views/working-with-forms#the-form-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de imagen](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
+**[Asistente de etiquetas de imagen](xref:mvc/views/tag-helpers/builtin-th/image-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de entrada](xref:mvc/views/working-with-forms#the-input-tag-helper)**
+**[Asistente de etiquetas de entrada](xref:mvc/views/working-with-forms#the-input-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de elementos de etiqueta](xref:mvc/views/working-with-forms#the-label-tag-helper)**
+**[Asistente de etiquetas de elementos de etiqueta](xref:mvc/views/working-with-forms#the-label-tag-helper)**
 
 [comment]: **[LinkTagHelper](xref:mvc/views/tag-helpers/builtin-th/link-tag-helper)**
 
@@ -47,17 +47,17 @@ ASP.NET Core incluye varias aplicaciones auxiliares de etiquetas integradas para
 
 [comment]: **[ScriptTagHelper](xref:mvc/views/tag-helpers/builtin-th/script-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas parciales](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
+**[Asistente de etiquetas parciales](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de selección](xref:mvc/views/working-with-forms#the-select-tag-helper)**
+**[Asistente de etiquetas de selección](xref:mvc/views/working-with-forms#the-select-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de área de texto](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
+**[Asistente de etiquetas de área de texto](xref:mvc/views/working-with-forms#the-textarea-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de mensaje de validación](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
+**[Asistente de etiquetas de mensaje de validación](xref:mvc/views/working-with-forms#the-validation-message-tag-helper)**
 
-**[Aplicación auxiliar de etiquetas de resumen de validación](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
+**[Asistente de etiquetas de resumen de validación](xref:mvc/views/working-with-forms#the-validation-summary-tag-helper)**
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Desarrollo del lado cliente](xref:client-side/index)
-* [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/th-components>
