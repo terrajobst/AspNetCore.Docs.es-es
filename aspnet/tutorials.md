@@ -7,14 +7,16 @@ ms.assetid: fddf8e5e-c055-4f81-b691-78deef871112
 ms.author: riande
 ms.date: 09/20/2017
 ms.technology: aspnet
-ms.openlocfilehash: fa7fe92ae0a6545986f816c04c18e659718846f1
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8f45f73c691600ae5138170db5cc4794246c4f2e
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827806"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482975"
 ---
 # <a name="aspnet-tutorials"></a>Tutoriales de ASP.NET
+
+[!INCLUDE[](~/includes/rp.md)]
 
 Están disponibles las siguientes guías paso a paso para desarrollar aplicaciones de ASP.NET.
 
@@ -23,8 +25,6 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 
 ## <a name="web-forms"></a>formularios Web Forms
 
-* [Introducción a los formularios Web Forms de ASP.NET 4.5 y Visual Studio 2013](web-forms/overview/getting-started/getting-started-with-aspnet-45-web-forms/index.md)
-* [Crear una página básica de formularios Web Forms en Visual Studio 2013](web-forms/overview/getting-started/creating-a-basic-web-forms-page.md)
 * [Edición del código de formularios Web Forms de ASP.NET en Visual Studio 2013](web-forms/overview/getting-started/code-editing-in-web-forms-pages.md)
 * [Usar el Inspector de página en Visual Studio 2012](web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
 * [Enlace de modelos y formularios Web Forms en Visual Studio 2013](web-forms/overview/presenting-and-managing-data/model-binding/index.md)
@@ -45,9 +45,6 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 
 ## <a name="mvc"></a>MVC
 
-* [Introducción a ASP.NET MVC 5 ](mvc/overview/getting-started/introduction/index.md)
-* [Introducción a EF 6 mediante MVC 5](mvc/overview/getting-started/getting-started-with-ef-using-mvc/index.md)
-* [EF Database First con ASP.NET MVC](mvc/overview/getting-started/database-first-development/index.md)
 * [Usar el Inspector de página en ASP.NET MVC](mvc/overview/views/using-page-inspector-in-aspnet-mvc.md)
 * [Crear una aplicación de ASP.NET MVC 5 con el inicio de sesión OAuth2 de Facebook, Twitter, LinkedIn y Google (C#)](mvc/overview/security/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on.md)
 * [Crear una aplicación web de ASP.NET MVC 5 segura con inicio de sesión, confirmación por correo electrónico y restablecimiento de contraseña (C#)](mvc/overview/security/create-an-aspnet-mvc-5-web-app-with-email-confirmation-and-password-reset.md)
@@ -99,9 +96,9 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 * [Personalizar el comportamiento de todo el sitio](web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior.md)
 * [Working with Images (Trabajo con imágenes)](web-pages/overview/ui-layouts-and-themes/9-working-with-images.md)
 * [Trabajar con vídeo](web-pages/overview/ui-layouts-and-themes/10-working-with-video.md)
-* [Crear y usar una aplicación auxiliar en un sitio de ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site.md)
-* [Instalar una aplicación auxiliar](web-pages/overview/ui-layouts-and-themes/installing-helpers.md)
-* [Aplicación auxiliar de Twitter con ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/twitter-helper.md)
+* [Crear y usar un asistente en un sitio de ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site.md)
+* [Instalar un asistente](web-pages/overview/ui-layouts-and-themes/installing-helpers.md)
+* [Asistente de Twitter con ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/twitter-helper.md)
 * [Mostrar mapas en un sitio de ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/displaying-maps-in-an-aspnet-web-pages-site.md)
 * [Representar sitios de ASP.NET Web Pages para dispositivos móviles](web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
 * [Trabajar con datos](web-pages/overview/data/5-working-with-data.md)

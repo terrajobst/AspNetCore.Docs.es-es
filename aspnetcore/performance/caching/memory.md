@@ -4,14 +4,14 @@ author: rick-anderson
 description: Obtenga información sobre cómo almacenar en caché los datos en memoria en ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 7/22/2018
+ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: 091d00ca7a30b61bdd83618e055bf23e0f2753c4
-ms.sourcegitcommit: 67a0a04ebb3b21c826e5b9600bacfc897abd6a46
+ms.openlocfilehash: 2570ad7d939d67530b3de8cd0147815c2e25ecc8
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42899849"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482988"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en caché en memoria en ASP.NET Core
 
@@ -31,7 +31,19 @@ El `IMemoryCache` caché expulsará las entradas de caché bajo presión de memo
 
 La memoria caché en memoria puede almacenar cualquier objeto; la interfaz de la memoria caché distribuida se limita a `byte[]`.
 
-### <a name="cache-guidelines"></a>Directrices de caché
+## <a name="systemruntimecachingmemorycache"></a>System.Runtime.Caching/MemoryCache
+
+<xref:System.Runtime.Caching>/<xref:System.Runtime.Caching.MemoryCache> ([Paquete NuGet](https://www.nuget.org/packages/System.Runtime.Caching/)) se pueden usar con:
+
+* .NET standard 2.0 o posterior.
+* Cualquier [implementación .NET](/dotnet/standard/net-standard#net-implementation-support) que tiene como destino .NET Standard 2.0 o posterior. Por ejemplo, ASP.NET Core 2.0 o posterior.
+* .NET framework 4.5 o posterior.
+
+[Microsoft.Extensions.Caching.Memory](https://www.nuget.org/packages/Microsoft.Extensions.Caching.Memory/) / `IMemoryCache` (descrita en este tema) es preferible a `System.Runtime.Caching` / `MemoryCache` porque se integra mejor en ASP.NET Core. Por ejemplo, `IMemoryCache` funciona de forma nativa con ASP.NET Core [inserción de dependencias](xref:fundamentals/dependency-injection).
+
+Use `System.Runtime.Caching` / `MemoryCache` como un puente de compatibilidad al trasladar código de ASP.NET 4.x a ASP.NET Core.
+
+## <a name="cache-guidelines"></a>Directrices de caché
 
 * Código debería tener siempre una opción de reserva para capturar los datos y **no** dependen de un valor almacenado en caché que están disponibles.
 * La memoria caché usa un recurso escaso, la memoria. Limitar el crecimiento de la memoria caché:
@@ -160,5 +172,5 @@ Mediante un `CancellationTokenSource` permite varias entradas de caché se expul
 * [Detectar cambios con tokens de cambio](xref:fundamentals/primitives/change-tokens)
 * [Almacenamiento en caché de respuestas](xref:performance/caching/response)
 * [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Aplicación auxiliar de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Aplicación auxiliar de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* [Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
+* [Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)

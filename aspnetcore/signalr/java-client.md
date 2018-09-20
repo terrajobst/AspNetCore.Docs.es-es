@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/java-client
-ms.openlocfilehash: f110f5391ac34f5cb4a72f64c16d86c8a37369a2
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 0eba59a05ea6fd3fed46fcab86ac20caf40ebb65
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43995423"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482923"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Cliente de SignalR Java de ASP.NET Core
 
@@ -26,12 +26,12 @@ En este artículo hace referencia a la aplicación de consola de Java de ejemplo
 
 ## <a name="install-the-signalr-java-client-package"></a>Instale el paquete de cliente de SignalR Java
 
-El *signalr-0.1.0-preview1-35029* archivo JAR permite a los clientes para conectarse a los concentradores de SignalR. Para buscar el número de versión de archivo JAR más reciente, consulte el [los resultados de búsqueda de Maven](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
+El *signalr-0.1.0-preview2-35174* archivo JAR permite a los clientes para conectarse a los concentradores de SignalR. Para buscar el número de versión de archivo JAR más reciente, consulte el [los resultados de búsqueda de Maven](https://search.maven.org/search?q=g:com.microsoft.aspnet%20AND%20a:signalr&core=gav).
 
 Si usa Gradle, agregue la siguiente línea a la `dependencies` sección de su *build.gradle* archivo:
 
 ```gradle
-implementation 'com.microsoft.aspnet:signalr:0.1.0-preview1-35029'
+implementation 'com.microsoft.aspnet:signalr:0.1.0-preview2-35174'
 ```
 
 Si con Maven, agregue las siguientes líneas dentro de la `<dependencies>` elemento de su *pom.xml* archivo:
@@ -63,12 +63,12 @@ Se trata de una versión preliminar del cliente de Java. Hay muchas característ
 * Solo los tipos primitivos se pueden aceptar como parámetros y tipos de valor devuelto.
 * Las API son sincrónicas.
 * Solo el tipo de llamada de "Envío" se admite en este momento. No se admiten "Invocar" y la transmisión por secuencias de valores devueltos.
-* El cliente no admite actualmente la [Azure SignalR Service](/azure/azure-signalr/).
 * Se admite solo el protocolo JSON.
 * Se admite sólo el transporte de WebSockets.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
+* [Referencia de la API de Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>

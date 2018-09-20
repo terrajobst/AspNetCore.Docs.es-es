@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 0d6f02389fe4292bd0f7cf9a2a58c53449e1810a
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 3394eb167d925451947114ea410ef7cb117dd1e2
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312089"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46482936"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Soporte técnico del Reglamento General de protección de datos (RGPD) de la UE en ASP.NET Core
 
@@ -47,7 +47,7 @@ Las páginas de Razor y MVC los proyectos creados con las plantillas de proyecto
 
 [UseCookiePolicy](/dotnet/api/microsoft.aspnetcore.builder.cookiepolicyappbuilderextensions.usecookiepolicy) se denomina en `Startup.Configure`:
 
-[!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=49)]
+[!code-csharp[](gdpr/sample/Startup.cs?name=snippet1&highlight=51)]
 
 ### <a name="cookieconsentpartialcshtml-partial-view"></a>Vista parcial _CookieConsentPartial.cshtml
 

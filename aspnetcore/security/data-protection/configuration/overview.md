@@ -6,16 +6,14 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/17/2017
 uid: security/data-protection/configuration/overview
-ms.openlocfilehash: fd3e5dff114c81eae07186e735a15314d984dcc3
-ms.sourcegitcommit: 5338b1ed9e2ef225ab565d6cba072b474fd9324d
+ms.openlocfilehash: 0377fe9fbe5a1eeddb384443370751baa3c0ee43
+ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39243115"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46483001"
 ---
 # <a name="configure-aspnet-core-data-protection"></a>Configurar la protección de datos de ASP.NET Core
-
-Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 Cuando se inicializa el sistema de protección de datos, se aplica [configuración predeterminada](xref:security/data-protection/configuration/default-settings) según el entorno operativo. Esta configuración es normalmente adecuada para las aplicaciones que se ejecutan en una sola máquina. Hay casos donde un desarrollador puede querer cambiar la configuración predeterminada:
 
