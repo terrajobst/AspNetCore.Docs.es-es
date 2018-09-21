@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: H1Hack27Feb2017
 ms.date: 08/02/2017
 uid: client-side/spa-services
-ms.openlocfilehash: 6ac922d82e5c93343cd0e9df312719c6df121dcb
-ms.sourcegitcommit: 18339e3cb5a891a3ca36d8146fa83cf91c32e707
+ms.openlocfilehash: 6d6a92427d5d4b853248e60a12625573c4375515
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434005"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523303"
 ---
 # <a name="use-javascriptservices-to-create-single-page-applications-in-aspnet-core"></a>Uso de JavaScriptServices para crear aplicaciones de página única en ASP.NET Core
 
@@ -19,20 +19,20 @@ Por [Scott Addie](https://github.com/scottaddie) y [Fiyaz Hasan](http://fiyazhas
 
 Una aplicación de página única (SPA) es un tipo conocido de aplicación web debido a su experiencia de usuario completa e inherente. La integración de marcos o bibliotecas SPA del lado cliente, como [Angular](https://angular.io/) o [React](https://facebook.github.io/react/), con marcos del lado servidor como ASP.NET Core puede ser difícil. [JavaScriptServices](https://github.com/aspnet/JavaScriptServices) se desarrolló para reducir la fricción en el proceso de integración. Permite el funcionamiento sin problemas entre los distintos componentes tecnológicos del lado servidor y cliente.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/client-side/spa-services/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
-
 <a name="what-is-js-services"></a>
 
-## <a name="what-is-javascriptservices"></a>¿Qué es JavaScriptServices?
+## <a name="what-is-javascriptservices"></a>¿Qué es JavaScriptServices
 
 JavaScriptServices es una colección de tecnologías de cliente para ASP.NET Core. Su objetivo es a la posición de ASP.NET Core como plataforma de servidor preferido de los desarrolladores para la creación de spa.
 
 JavaScriptServices consta de tres paquetes de NuGet distintos:
+
 * [Microsoft.AspNetCore.NodeServices](https://www.nuget.org/packages/Microsoft.AspNetCore.NodeServices/) (NodeServices)
 * [Microsoft.AspNetCore.SpaServices](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaServices/) (SpaServices)
 * [Microsoft.AspNetCore.SpaTemplates](https://www.nuget.org/packages/Microsoft.AspNetCore.SpaTemplates/) (SpaTemplates)
 
 Estos paquetes son útiles si es:
+
 * Ejecutar JavaScript en el servidor
 * Usa un marco o biblioteca de SPA
 * Compile los recursos del lado cliente con Webpack
@@ -41,11 +41,12 @@ Gran parte el foco en este artículo se coloca sobre el uso del paquete SpaServi
 
 <a name="what-is-spa-services"></a>
 
-## <a name="what-is-spaservices"></a>¿Qué es SpaServices?
+## <a name="what-is-spaservices"></a>¿Qué es SpaServices
 
 SpaServices se creó para colocar ASP.NET Core como la plataforma del lado servidor preferida de los desarrolladores para compilar las SPA. SpaServices no es necesario para desarrollar SPA con ASP.NET Core y no le obliga a usar un marco de cliente en particular.
 
 SpaServices proporciona infraestructura útil, como:
+
 * [Procesamiento previo del lado servidor](#server-prerendering)
 * [Middleware de desarrollo de Webpack](#webpack-dev-middleware)
 * [Sustitución del módulo de acceso frecuente](#hot-module-replacement)
@@ -58,6 +59,7 @@ De forma colectiva, estos componentes de infraestructura mejoran el flujo de tra
 ## <a name="prerequisites-for-using-spaservices"></a>Requisitos previos para usar SpaServices
 
 Para trabajar con SpaServices, instale lo siguiente:
+
 * [Node.js](https://nodejs.org/) (versión 6 o posterior) con npm
   * Para comprobar estos componentes se instalan y se pueden encontrar, ejecute lo siguiente desde la línea de comandos:
 
@@ -84,6 +86,7 @@ ASP.NET Core [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/i
 ### <a name="prerequisites"></a>Requisitos previos
 
 Instale el software siguiente:
+
 * [ASPNET-procesamiento previo](https://www.npmjs.com/package/aspnet-prerendering) paquete npm:
 
     ```console
@@ -136,11 +139,14 @@ El `postList` matriz definida dentro de la `globals` objeto está adjunto al exp
 
 [Middleware de desarrollo de Webpack](https://webpack.github.io/docs/webpack-dev-middleware.html) incorpora un flujo de trabajo de desarrollo optimizado por el cual Webpack compila los recursos a petición. El middleware automáticamente compila y sirve de recursos del cliente cuando se vuelve a cargar una página en el explorador. El enfoque alternativo es invocar manualmente la Webpack a través de script de compilación del proyecto npm cuando cambia una dependencia de terceros o código personalizado. Script de compilación de un npm el *package.json* archivo se muestra en el ejemplo siguiente:
 
-[!code-json[](../client-side/spa-services/sample/SpaServicesSampleApp/package.json?range=5)]
+```json
+"build": "npm run build:vendor && npm run build:custom",
+```
 
 ### <a name="prerequisites"></a>Requisitos previos
 
 Instale el software siguiente:
+
 * [ASPNET webpack](https://www.npmjs.com/package/aspnet-webpack) paquete npm:
 
     ```console
@@ -168,6 +174,7 @@ Piense de Webpack [reemplazo en caliente módulo](https://webpack.js.org/concept
 ### <a name="prerequisites"></a>Requisitos previos
 
 Instale el software siguiente:
+
 * [middleware "hot" webpack](https://www.npmjs.com/package/webpack-hot-middleware) paquete npm:
 
     ```console
@@ -205,6 +212,7 @@ Considere el escenario en el que una ruta sin extensión de `/some/page` se util
 ### <a name="prerequisites"></a>Requisitos previos
 
 Instale el software siguiente:
+
 * El paquete de npm enrutamiento del lado cliente. Uso de Angular como ejemplo:
 
     ```console
@@ -250,12 +258,13 @@ dotnet new angular
 ### <a name="set-the-runtime-configuration-mode"></a>Establecer el modo de configuración en tiempo de ejecución
 
 Existen dos modos de configuración en tiempo de ejecución principal:
+
 * **Desarrollo**:
-    * Incluye mapas de código fuente para facilitar la depuración.
-    * No optimice el código del lado cliente para el rendimiento.
+  * Incluye mapas de código fuente para facilitar la depuración.
+  * No optimice el código del lado cliente para el rendimiento.
 * **Producción**:
-    * Excluye los mapas de código fuente.
-    * Optimiza el código del lado cliente a través de la unión y minificación.
+  * Excluye los mapas de código fuente.
+  * Optimiza el código del lado cliente a través de la unión y minificación.
 
 ASP.NET Core usa una variable de entorno denominada `ASPNETCORE_ENVIRONMENT` para almacenar el modo de configuración. Consulte **[establecer el entorno](xref:fundamentals/environments#set-the-environment)** para obtener más información.
 
@@ -277,7 +286,7 @@ Se inicia la aplicación en el host local según el [modo de configuración en t
 
 ### <a name="running-with-visual-studio-2017"></a>Ejecución con Visual Studio 2017
 
-Abra el *.csproj* archivo generado por el [dotnet nuevo](/dotnet/core/tools/dotnet-new) comando. Los paquetes de NuGet y npm necesarios se restauran automáticamente al proyecto abierto. Este proceso de restauración puede tardar varios minutos, y la aplicación está lista para ejecutarse cuando se complete. Haga clic en el botón verde de ejecución o presione `Ctrl + F5`, y el explorador se abre en la página de aterrizaje de la aplicación. La aplicación se ejecuta en localhost según la [modo de configuración en tiempo de ejecución](#runtime-config-mode). 
+Abra el *.csproj* archivo generado por el [dotnet nuevo](/dotnet/core/tools/dotnet-new) comando. Los paquetes de NuGet y npm necesarios se restauran automáticamente al proyecto abierto. Este proceso de restauración puede tardar varios minutos, y la aplicación está lista para ejecutarse cuando se complete. Haga clic en el botón verde de ejecución o presione `Ctrl + F5`, y el explorador se abre en la página de aterrizaje de la aplicación. La aplicación se ejecuta en localhost según la [modo de configuración en tiempo de ejecución](#runtime-config-mode).
 
 <a name="app-testing"></a>
 
@@ -308,6 +317,7 @@ Combinación de los recursos del lado cliente generados y los artefactos de ASP.
 [!code-xml[](../client-side/spa-services/sample/SpaServicesSampleApp/SpaServicesSampleApp.csproj?range=31-45)]
 
 El destino de MSBuild tiene las siguientes responsabilidades:
+
 1. Restaure los paquetes de npm
 1. Crear una compilación de producción de los recursos de otros fabricantes, del lado cliente
 1. Crear una compilación de producción de los activos de cliente personalizadas

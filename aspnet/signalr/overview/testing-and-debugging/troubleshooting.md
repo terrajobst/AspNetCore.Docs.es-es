@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: 4b559e6c-4fb0-4a04-9812-45cf08ae5779
 msc.legacyurl: /signalr/overview/testing-and-debugging/troubleshooting
 msc.type: authoredcontent
-ms.openlocfilehash: 77eedeb962bed06f1375284bcf05c4e4ffcdde3b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9ef69ece2558260f0409e9388751f77ac84a06f1
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836596"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523082"
 ---
 <a name="signalr-troubleshooting"></a>Solución de problemas de SignalR
 ====================
@@ -157,7 +157,7 @@ Una conexión en una aplicación de cliente de .NET que usa seguridad de dominio
 
 ## <a name="configuring-iis-websockets-to-pingpong-to-detect-a-dead-client"></a>Configuración de websockets de IIS a ping/pong para detectar a un cliente inactivo
 
-Servidores de SignalR no saben si el cliente está inactiva o no y dependen de notificación desde el socket Web subyacente para los errores de conexión, es decir, la devolución de llamada OnClose. Una solución a este problema consiste en configurar websockets de IIS para hacer el pong de ping por usted. Esto garantiza que la conexión se cerrará si interrumpe inesperadamente. Para obtener más información, consulte [esta entrada de StackOverflow](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
+Servidores de SignalR no saben si el cliente está inactiva o no y se basan en la notificación de websocket subyacente para los errores de conexión, es decir, el `OnClose` devolución de llamada. Una solución a este problema consiste en configurar websockets de IIS para hacer el pong de ping por usted. Esto garantiza que la conexión se cerrará si interrumpe inesperadamente. Para obtener más información, consulte [esta entrada de StackOverflow](http://stackoverflow.com/questions/19502755/websocket-clients-state-not-changing-on-network-loss).
 
 <a id="other"></a>
 
