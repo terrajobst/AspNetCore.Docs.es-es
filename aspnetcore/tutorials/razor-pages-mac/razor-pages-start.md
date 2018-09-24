@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 07/27/2017
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: c2d2038a77a67d4e955856756f73e18e31f13a5d
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 0e1c2a9ab436968e2c24aa5f306ec69674fb025b
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38193788"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523277"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core-on-macos-with-visual-studio-for-mac"></a>Introducción a las páginas de Razor en ASP.NET Core en macOS con Visual Studio para Mac
 
@@ -34,8 +34,6 @@ dotnet new webapp -o RazorPagesMovie
 cd RazorPagesMovie
 dotnet run
 ```
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 

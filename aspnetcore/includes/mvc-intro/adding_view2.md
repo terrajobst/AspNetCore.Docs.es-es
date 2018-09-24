@@ -21,12 +21,15 @@ Las plantillas de [diseño](xref:mvc/views/layout) permiten especificar el dise�
 En el elemento de título, cambie `MvcMovie` por `Movie App`. Cambie el texto del delimitador en la plantilla de diseño de `MvcMovie` a `Movie App` y el controlador de `Home` a `Movies` como se resalta aquí:
 
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout.cshtml?highlight=7,31)]
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-html[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Views/Shared/_Layout21.cshtml?highlight=7,31)]
+
 ::: moniker-end
 
 >[!WARNING]

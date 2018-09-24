@@ -5,12 +5,12 @@ description: Agregue un modelo a una aplicación sencilla de ASP.NET Core.
 ms.author: riande
 ms.date: 12/8/2017
 uid: tutorials/first-mvc-app/adding-model
-ms.openlocfilehash: 28a63498bc1a3c7b6ad6be038209dacdb49e44ee
-ms.sourcegitcommit: 356c8d394aaf384c834e9c90cabab43bfe36e063
+ms.openlocfilehash: 5a820789ee3a761025d09aa78f3c42e59fc5fa38
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960673"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011383"
 ---
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model1.md)]
 
@@ -102,6 +102,7 @@ En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet > Con
 En PCM, escriba los siguientes comandos:
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ``` PMC
 Add-Migration Initial
 Update-Database
@@ -113,6 +114,7 @@ Pase por alto el siguiente mensaje de error, lo subsanaremos en el próximo tuto
       *No type was specified for the decimal column 'Price' on entity type 'Movie'. This will cause values to be silently truncated if they do not fit in the default precision and scale. Explicitly specify the SQL server column type that can accommodate all the values using 'ForHasColumnType()'.* (No se ha especificado ningún tipo en la columna decimal "Price" en el tipo de entidad "Movie". Especifique expresamente el tipo de columna de SQL Server que tenga cabida para todos los valores usando "ForHasColumnType()". Esto hará que los valores se trunquen inadvertidamente si no caben según la precisión y escala predeterminados.)
 
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
 
 ``` PMC
@@ -152,10 +154,15 @@ Probablemente se deba a que no ha ejecutado `dotnet ef database update`.
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model3.md)]
 
 ::: moniker range=">= aspnetcore-2.1"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie21/Startup.cs?name=ConfigureServices&highlight=13-99)]
+
 ::: moniker-end
+
 ::: moniker range="<= aspnetcore-2.0"
+
 [!code-csharp[](~/tutorials/first-mvc-app/start-mvc/sample/MvcMovie/Startup.cs?name=ConfigureServices&highlight=6-7)]
+
 ::: moniker-end
 
 [!INCLUDE [adding-model](~/Includes/mvc-intro/adding-model4.md)]
@@ -164,7 +171,7 @@ Probablemente se deba a que no ha ejecutado `dotnet ef database update`.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
+* [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)
 * [Globalización y localización](xref:fundamentals/localization)
 
 > [!div class="step-by-step"]

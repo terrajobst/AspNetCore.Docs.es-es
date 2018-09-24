@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: fb3a287725fa68ff9feb9935d7e6c5c2b8316517
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893125"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011371"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -126,6 +126,7 @@ SqlException: No se puede abrir la base de datos "RazorPagesMovieContext-GUID" s
 Error de inicio de sesión del usuario <nombre de usuario>.
 
 Quiere decir que falta el [paso de migraciones](#pmc).
+
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"

@@ -5,12 +5,12 @@ description: En este tutorial agregará más entidades y relaciones, y personali
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: c97acd2b943e1d4c466c060247220b3b8bab6d6b
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751650"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011776"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core: Modelo de datos (5 de 10)
 
@@ -58,7 +58,7 @@ Se puede usar el atributo `DisplayFormat` por sí solo, pero normalmente se reco
 
 * De manera predeterminada, el explorador representa los datos con el formato correcto según la configuración regional.
 
-Para obtener más información, vea la [documentación de la aplicación auxiliar de etiquetas \<entrada>](../../mvc/views/working-with-forms.md#the-input-tag-helper).
+Para obtener más información, vea la [documentación del asistente de etiquetas \<entrada&gt;](../../mvc/views/working-with-forms.md#the-input-tag-helper).
 
 Ejecute la aplicación, vaya a la página Students Index y verá que ya no se muestran las horas para las fechas de inscripción. Lo mismo sucede para cualquier vista en la que se use el modelo Student.
 
@@ -495,6 +495,7 @@ Haga clic con el botón derecho en la tabla **CourseAssignment** y seleccione **
 ## <a name="summary"></a>Resumen
 
 Ahora tiene un modelo de datos más complejo y la base de datos correspondiente. En el siguiente tutorial, obtendrá más información sobre cómo obtener acceso a datos relacionados.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

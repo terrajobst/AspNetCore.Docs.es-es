@@ -5,12 +5,12 @@ description: En este tutorial agregará la funcionalidad de ordenación, filtrad
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/sort-filter-page
-ms.openlocfilehash: ee5a0dae41ba0afba518f0bd6fbd379fdbbfb1c1
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 668d6e54a64022dda948170f72538f6d4cd9a49f
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202619"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011643"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---sort-filter-paging---3-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Ordenación, filtrado y paginación (3 de 8)
 
@@ -40,7 +40,7 @@ Actualice *Students/Index.cshtml.cs* `OnGetAsync` con el código siguiente:
 
 [!code-csharp[](intro/samples/cu21/Pages/Students/Index.cshtml.cs?name=snippet_SortOnly)]
 
-El código anterior recibe un parámetro `sortOrder` de la cadena de consulta en la dirección URL. La [aplicación auxiliar de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
+El código anterior recibe un parámetro `sortOrder` de la cadena de consulta en la dirección URL. El [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper
 ) genera la dirección URL (incluida la cadena de consulta).
 
 El parámetro `sortOrder` es "Name" o "Date". Opcionalmente, el parámetro `sortOrder` puede ir seguido de "_desc" para especificar el orden descendente. El criterio de ordenación predeterminado es el ascendente.
@@ -140,7 +140,7 @@ En *Pages/Student/Index.cshtml*, agregue el siguiente código resaltado para cre
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index3.cshtml?highlight=14-23&range=1-25)]
 
-El código anterior usa la [aplicación auxiliar de etiquetas](xref:mvc/views/tag-helpers/intro) `<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, la aplicación auxiliar de etiquetas `<form>` envía datos de formulario con POST. Con POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se usa el método HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta. Pasar los datos con cadenas de consulta permite a los usuarios marcar la dirección URL. Las [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomiendan el uso de GET cuando la acción no produzca ninguna actualización.
+El código anterior usa el [asistente de etiquetas](xref:mvc/views/tag-helpers/intro)`<form>` para agregar el cuadro de texto de búsqueda y el botón. De forma predeterminada, el asistente de etiquetas `<form>` envía datos de formulario con POST. Con POST, los parámetros se pasan en el cuerpo del mensaje HTTP y no en la dirección URL. Cuando se usa el método HTTP GET, los datos del formulario se pasan en la dirección URL como cadenas de consulta. Pasar los datos con cadenas de consulta permite a los usuarios marcar la dirección URL. Las [directrices de W3C](https://www.w3.org/2001/tag/doc/whenToUseGet.html) recomiendan el uso de GET cuando la acción no produzca ninguna actualización.
 
 Pruebe la aplicación:
 
@@ -222,7 +222,7 @@ Los vínculos del encabezado de la columna usan la cadena de consulta para pasar
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index.cshtml?range=28-31)]
 
-Los botones de paginación se muestran mediante aplicaciones auxiliares de etiquetas:
+Los botones de paginación se muestran mediante asistentes de etiquetas:
 
 [!code-html[](intro/samples/cu21/Pages/Students/Index.cshtml?range=72-)]
 
@@ -281,6 +281,7 @@ Si experimenta problemas que no puede resolver, descargue la [aplicación comple
 * [Depuración del código fuente de ASP.NET Core 2.x](https://github.com/aspnet/Docs/issues/4155)
 
 En el tutorial siguiente, la aplicación usa las migraciones para actualizar el modelo de datos.
+
 ::: moniker-end
 
 > [!div class="step-by-step"]

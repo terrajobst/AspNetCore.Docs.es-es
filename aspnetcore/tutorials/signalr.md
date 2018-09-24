@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6d96331a4630f766ca11edb056fd3e13b52b6ae4
-ms.sourcegitcommit: 4cd8dce371d63a66d780e4af1baab2bcf9d61b24
+ms.openlocfilehash: 8581628b3f0cf878b8cc1d0684046d22a8374af9
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43893170"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523225"
 ---
 # <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Tutorial: Introducción a SignalR en ASP.NET Core
 
@@ -75,8 +75,6 @@ Al final, tendrá una aplicación de chat funcional:
    ```console
    dotnet new webapp -o SignalRChat
    ```
-
-   [!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 # <a name="visual-studio-for-mactabvisual-studio-mac"></a>[Visual Studio para Mac](#tab/visual-studio-mac)
 

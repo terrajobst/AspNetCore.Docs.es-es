@@ -14,4 +14,5 @@ En el tutorial para la versión 2.0 se explica el funcionamiento de ASP.NET Core
 * Es el método preferido para el desarrollo de nuevas aplicaciones.
 
 Si elige este tutorial en lugar de la versión de [Razor Pages](xref:data/ef-rp/intro), le agradeceremos que nos explique el motivo en esta [discusión de GitHub](https://github.com/aspnet/Docs/issues/6146).
+
 ::: moniker-end

@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: 6c23e5ab21dbb94c69ba50200a1d76647e22410a
-ms.sourcegitcommit: 4afaa55918262c8dcbd3efa9584959a731b47681
+ms.openlocfilehash: d6d59ff336095e2f1b8b2e9a0338b7791605ad7a
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45613458"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46010902"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Agregar un campo nuevo a una página de Razor en ASP.NET Core
 
@@ -50,7 +50,7 @@ Edite *Pages/Movies/Index.cshtml* y agregue un campo `Rating`:
 
 Agregue el campo `Rating` a las páginas Delete y Details.
 
-Actualice *Create.cshtml* con un campo `Rating`. Puede copiar o pegar el elemento `<div>` anterior y permitir que IntelliSense le ayude a actualizar los campos. IntelliSense funciona con [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro).
+Actualice *Create.cshtml* con un campo `Rating`. Puede copiar o pegar el elemento `<div>` anterior y permitir que IntelliSense le ayude a actualizar los campos. IntelliSense funciona con [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro).
 
 ![El desarrollador ha escrito la letra R para el valor del atributo de asp-for en el segundo elemento de etiqueta de la vista. Ha aparecido un menú contextual de IntelliSense que muestra los campos disponibles, incluido Rating, que se resalta en la lista automáticamente. Cuando el programador hace clic en el campo o presiona Entrar en el teclado, el valor se establece en Rating.](new-field/_static/cr.png)
 
@@ -83,11 +83,15 @@ Actualice la clase `SeedData` para que proporcione un valor para la nueva column
 [!code-csharp[](razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs?name=snippet1&highlight=8)]
 
 ::: moniker range="= aspnetcore-2.0"
+
 Vea el [archivo completado SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie/Models/SeedDataRating.cs).
+
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
+
 Vea el [archivo completado SeedData.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/tutorials/razor-pages/razor-pages-start/sample/RazorPagesMovie21/Models/SeedDataRating.cs).
+
 ::: moniker-end
 
 Compile la solución.
