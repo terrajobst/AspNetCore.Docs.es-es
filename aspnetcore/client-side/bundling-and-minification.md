@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 01/10/2018
 uid: client-side/bundling-and-minification
-ms.openlocfilehash: bab2f288f3c6956e44ff929bfd2e257301a5806a
-ms.sourcegitcommit: d99a8554c91f626cf5e466911cf504dcbff0e02e
+ms.openlocfilehash: 45200d34974cbbb44787616eba7508458882416c
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39356706"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028146"
 ---
 # <a name="bundle-and-minify-static-assets-in-aspnet-core"></a>Agrupar y minificar recursos estáticos en ASP.NET Core
 
@@ -201,7 +201,7 @@ Para minimizar *custom.css* y empaquetarla con *site.css* en un *site.min.css* ,
 > Como alternativa, podría utilizar el siguiente patrón de uso de comodines:
 >
 > ```json
-> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css)"]
+> "inputFiles": ["wwwroot/**/*(*.css|!(*.min.css))"]
 > ```
 >
 > Este patrón global coincide con todos los archivos CSS y excluye el patrón de archivo minimizado.
@@ -316,4 +316,4 @@ Como alternativa, Visual Studio Task Runner Explorer puede utilizarse para enlaz
 * [Uso de Gulp](xref:client-side/using-gulp)
 * [Uso de Grunt](xref:client-side/using-grunt)
 * [Uso de varios entornos](xref:fundamentals/environments)
-* [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
+* [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)
