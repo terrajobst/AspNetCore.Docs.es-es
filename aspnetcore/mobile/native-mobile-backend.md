@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear servicios back-end con ASP.N
 ms.author: riande
 ms.date: 10/14/2016
 uid: mobile/native-mobile-backend
-ms.openlocfilehash: 27051cd3c4e2c3aa1ebf6d5510db4645651120e8
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 3ebd30ad1ffbd66b256e7f3954a07d682f76a754
+ms.sourcegitcommit: 517bb1366da2a28b0014e384fa379755c21b47d8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276131"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47230183"
 ---
 # <a name="create-backend-services-for-native-mobile-apps-with-aspnet-core"></a>Crear servicios back-end para aplicaciones móviles nativas con ASP.NET Core
 
@@ -151,3 +151,7 @@ Tenga en cuenta que, al probar la funcionalidad de eliminar, no se necesita nada
 Al desarrollar los servicios back-end de la aplicación, necesitará acceder a un conjunto coherente de convenciones o directivas para controlar cuestiones transversales. Por ejemplo, en el servicio mostrado anteriormente, las solicitudes de registros específicos que no se encontraron recibieron una respuesta `NotFound`, en lugar de una respuesta `BadRequest`. De forma similar, los comandos realizados a este servicio que pasaron en tipos enlazados a un modelo siempre se comprobaron como `ModelState.IsValid` y devolvieron una `BadRequest` para los tipos de modelos no válidos.
 
 Después de identificar una directiva común para las API, normalmente puede encapsularla en un [filtro](../mvc/controllers/filters.md). Obtenga más información sobre [cómo encapsular directivas de API comunes en aplicaciones de ASP.NET Core MVC](https://msdn.microsoft.com/magazine/mt767699.aspx).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+* [Autenticación y autorización](/xamarin/xamarin-forms/enterprise-application-patterns/authentication-and-authorization)
