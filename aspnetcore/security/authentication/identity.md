@@ -5,12 +5,12 @@ description: Usar identidad con una aplicación ASP.NET Core. Obtenga informaci�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: ca83d07f7d93bd0cc61cd17cc373096b8e6aa2e1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: d427932bb175c09105534379be4d71760f4e04e5
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010980"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860958"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad en ASP.NET Core
 
@@ -45,7 +45,7 @@ Cree un proyecto de aplicación Web ASP.NET Core con cuentas de usuario individu
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
-* Seleccione **Archivo** > **Nuevo** > **Proyecto**. 
+* Seleccione **Archivo** > **Nuevo** > **Proyecto**.
 * Seleccione **Aplicación web de ASP.NET Core**. Denomine el proyecto **WebApp1** tener el mismo espacio de nombres como la descarga del proyecto. Haga clic en **Aceptar**.
 * Seleccione una de ASP.NET Core **aplicación Web** para ASP.NET Core 2.1, a continuación, seleccione **Cambiar autenticación**.
 * Seleccione **cuentas de usuario individuales** y haga clic en **Aceptar**.
@@ -119,15 +119,12 @@ Siga el [aplicar la técnica scaffolding en un proyecto de Razor sin autorizaci�
 
 Agregue los archivos de registro, inicio de sesión y cierre de sesión.
 
-
 # <a name="net-core-clitabnetcore-cli"></a>[CLI de .NET Core](#tab/netcore-cli)
 
 Si ha creado el proyecto con el nombre **WebApp1**, ejecute los siguientes comandos. En caso contrario, use el espacio de nombres correcto para el `ApplicationDbContext`:
 
-
 ```cli
 dotnet aspnet-codegenerator identity -dc WebApp1.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
-
 ```
 
 PowerShell usa el punto y coma como separador de comandos. Cuando se usa PowerShell, el punto y coma en la lista de archivos de escape o coloque la lista de archivos en las comillas dobles, como se muestra en el ejemplo anterior.
@@ -163,7 +160,7 @@ PowerShell usa el punto y coma como separador de comandos. Cuando se usa PowerSh
 Se muestra el formulario de inicio de sesión cuando:
 
 * El **iniciarla** vínculo está seleccionado.
-* Cuando un usuario accede a una página donde no se autentican **o** autorizado, se le redirigirá a la página de inicio de sesión. 
+* Cuando un usuario accede a una página donde no se autentican **o** autorizado, se le redirigirá a la página de inicio de sesión.
 
 Cuando se envía el formulario de la página de inicio de sesión, el `OnPostAsync` se llama a la acción. `PasswordSignInAsync` se llama en el `_signInManager` objeto (proporcionado por la inserción de dependencias).
 
@@ -254,7 +251,6 @@ Consulte [configuración](#pw) para obtener un ejemplo que establece los requisi
 * <xref:security/authorization/secure-data>
 * <xref:security/authentication/add-user-data>
 * <xref:security/authentication/identity-enable-qrcodes>
-* [Configurar el tipo de datos de las claves principales de identidad](xref:security/authentication/identity-primary-key-configuration).
 * <xref:migration/identity>
 * <xref:security/authentication/accconfirm>
 * <xref:security/authentication/2fa>
