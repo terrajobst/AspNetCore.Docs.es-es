@@ -17,10 +17,10 @@ ms.locfileid: "41829088"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
-> [!WARNING]
-> Las aplicaciones de producción no deberían adoptar una dependencia fuerte de activos de la red CDN. Las aplicaciones deben comprobar el recurso de red CDN al que hace referencia y utilizar un recurso de reserva cuando la red CDN no está disponible. 
+> [!PRECAUCION]
+> Las aplicaciones de producción no deberían adoptar una dependencia fuerte de activos de la red CDN. Las aplicaciones deben comprobar el recurso de la red CDN al que hace referencia y utilizar un recurso de reserva cuando la red CDN no está disponible. 
 >
-> CDN de Microsoft Ajax no tiene ningún SLA más allá de una red CDN de Azure.
+>La CDN de Microsoft Ajax no tiene ningún SLA más allá de una red CDN de Azure.
 >
 > Use [este problema de GitHub](https://github.com/aspnet/Docs/issues/5832) para notificar los problemas con la red CDN de Microsoft Ajax.
 
@@ -53,9 +53,9 @@ ms.locfileid: "41829088"
  [ASP.NET MVC se libera en la red CDN](#ASPNET_MVC_Releases_on_the_CDN_16)  
  [ASP.NET SignalR se libera en la red CDN](#ASPNET_SignalR_Releases_on_the_CDN_17)
 
-Microsoft Ajax Content Delivery Network (CDN) hospeda las bibliotecas de JavaScript de terceros populares como jQuery y podrá agregarlos fácilmente a sus aplicaciones Web. Por ejemplo, puede empezar a usar jQuery que se hospeda en esta red CDN mediante la adición de un &lt;script&gt; etiqueta a la página que apunta a ajax.aspnetcdn.com.
+Microsoft Ajax Content Delivery Network (CDN) hospeda las bibliotecas de JavaScript de terceros populares como jQuery y podrá agregarlos fácilmente a sus aplicaciones Web. Por ejemplo, puede empezar a usar jQuery que se hospeda en esta red CDN mediante la adición de una etiqueta &lt;script&gt; a la página que apunta a ajax.aspnetcdn.com.
 
-Aprovechando las ventajas de la red CDN, puede mejorar significativamente el rendimiento de las aplicaciones Ajax. El contenido de la red CDN se almacenan en caché en servidores ubicados en todo el mundo. Además, la red CDN permite a los exploradores reutilicen los archivos de JavaScript de terceros en caché para sitios web que se encuentran en dominios diferentes.
+Aprovechando las ventajas de la red CDN, puede mejorar significativamente el rendimiento de las aplicaciones Ajax. El contenido de la red CDN se almacena en caché en servidores ubicados en todo el mundo. Además, la red CDN permite que los exploradores reutilicen los archivos de JavaScript de terceros en caché para sitios web que se encuentran en dominios diferentes.
 
 La red CDN admite SSL (HTTPS) en caso de que necesite servir una página web mediante la capa de Sockets seguros.
 
@@ -65,7 +65,7 @@ La red CDN hospeda las siguientes bibliotecas de scripts de terceros que se han 
 - jQuery UI (www.jqueryui.com)
 - jQuery Mobile (www.jquerymobile.com)
 - Validación (www.jquery.com) de jQuery
-- jQuery ciclo (www.malsup.com/jquery/cycle/)
+- Ciclo de jQuery (www.malsup.com/jquery/cycle/)
 - DataTables de jQuery (http://datatables.net/)
 
 Microsoft Ajax CDN también incluye las siguientes bibliotecas que se han cargado por Microsoft:
@@ -74,7 +74,7 @@ Microsoft Ajax CDN también incluye las siguientes bibliotecas que se han cargad
 - Archivos de JavaScript de ASP.NET MVC
 - Archivos SignalR JavaScript ASP.NET
 
-Microsoft no reclama la propiedad de las bibliotecas de terceros hospedadas en esta red CDN. Los propietarios de las bibliotecas de copyright licencian estas bibliotecas para usted. Se conceden los derechos que es posible que deba descargar y usar estas bibliotecas únicamente por los propietarios de propiedad intelectual respectivos. Dado que no son las bibliotecas de Microsoft, Microsoft no ofrece ninguna garantía ni licencias de derechos de propiedad intelectual (no incluido derechos de patente implícitas) para las bibliotecas de terceros hospedadas en esta red CDN.
+Microsoft no reclama la propiedad de las bibliotecas de terceros hospedadas en esta red CDN. Los propietarios de las bibliotecas de derechos de autor licencian estas bibliotecas para usted. Se conceden los derechos que es posible que deba descargar y usar estas bibliotecas únicamente por los propietarios de propiedad intelectual respectivos. Dado que no son las bibliotecas de Microsoft, Microsoft no ofrece ninguna garantía ni licencias de derechos de propiedad intelectual (no incluido derechos de patente implícitas) para las bibliotecas de terceros hospedadas en esta red CDN.
 
 Si desea enviar la biblioteca de JavaScript y la biblioteca es una de las bibliotecas de JavaScript superiores (como se muestra en http://trends.builtwith.com) o complementos o extensiones para estas bibliotecas son (a) populares; o (b) útil para su uso en ASP.NET, a continuación, póngase en contacto con AjaxCDNSubmission@Microsoft.com.
 
@@ -82,7 +82,7 @@ Si desea enviar la biblioteca de JavaScript y la biblioteca es una de las biblio
 
 ## <a name="ajaxmicrosoftcom-renamed-to-ajaxaspnetcdncom"></a>AJAX.Microsoft.com ha cambiado a ajax.aspnetcdn.com
 
-La red CDN usa para usar el nombre de dominio microsoft.com y se ha cambiado para usar el nombre de dominio aspnetcdn.com. Este cambio se realizó para aumentar el rendimiento porque cuando un explorador al que hace referencia el dominio microsoft.com tendría que enviar las cookies desde ese dominio a través de la conexión con cada solicitud. Al cambiar el nombre a un nombre de dominio que no sea de microsoft.com rendimiento se puede aumentar por tanta al 25%. Tenga en cuenta ajax.microsoft.com seguirán funcionando pero se recomienda ajax.aspnetcdn.com.
+La red CDN usa el nombre de dominio microsoft.com y se ha cambiado para usar el nombre de dominio aspnetcdn.com. Este cambio se realizó para aumentar el rendimiento porque cuando un explorador al que hace referencia el dominio microsoft.com tendría que enviar las cookies desde ese dominio a través de la conexión con cada solicitud. Al cambiar el nombre de dominio que no sea de microsoft.com, el rendimiento se puede aumentar hasta un 25%. Tenga en cuenta que ajax.microsoft.com seguirá funcionando pero se recomienda ajax.aspnetcdn.com.
 
 - Formato antiguo: https://ajax.microsoft.com/ajax/jQuery/jquery-1.8.0.js
 - Nuevo formato: https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js
@@ -128,13 +128,13 @@ La página de ejemplo siguiente usa la versión de la red CDN de la biblioteca d
 
 [!code-html[Main](overview/samples/sample5.html)]
 
-Puede obtener más información acerca de jQuery y descargar una copia local de jQuery visitando el [jQuery](http://jquery.com/) sitio Web.
+Puede obtener más información acerca de jQuery y descargar una copia local visitando el [sitio Web](http://jquery.com/).
 
 <a id="Using_jQuery_UI_from_the_CDN_22"></a>
 
 ## <a name="using-jquery-ui-from-the-cdn"></a>Mediante jQuery UI desde la red CDN
 
-La red CDN también hospeda la biblioteca de interfaz de usuario de jQuery. La biblioteca de jQuery UI incluye un amplio conjunto de widgets y efectos que puede usar en sus aplicaciones ASP.NET. Por ejemplo, la siguiente página muestra cómo puede usar jQuery Datepicker de la interfaz de usuario en el contexto de una aplicación de formularios Web Forms ASP.NET para mostrar un calendario emergente:
+La red CDN también hospeda la biblioteca de interfaz de usuario de jQuery. La biblioteca de jQuery UI incluye un amplio conjunto de widgets y efectos que puede usar en sus aplicaciones ASP.NET. Por ejemplo, la siguiente página muestra cómo puede usar jQuery Datepicker de la interfaz de usuario en el contexto de una aplicación de formularios ASP.NET Web Forms para mostrar un calendario emergente:
 
 [!code-aspx[Main](overview/samples/sample6.aspx)]
 
@@ -144,19 +144,19 @@ Al mover el foco al cuadro de texto con el teclado, se muestra un calendario:
 
 Tenga en cuenta que debe incluir tres archivos de la red CDN en el código anterior:
 
-- La biblioteca jQuery &mdash; la biblioteca de interfaz de usuario de jQuery depende de la biblioteca de jQuery. Debe agregar la biblioteca de jQuery a la página antes de agregar la biblioteca de interfaz de usuario de jQuery.
-- La biblioteca de jQuery UI &mdash; la biblioteca de jQuery UI contiene todos los efectos de la interfaz de usuario de jQuery y widgets, como el widget Datepicker utilizada en la página anterior.
+- La biblioteca de jQuery &mdash; la biblioteca de interfaz de usuario de jQuery depende de la biblioteca de jQuery. Debe agregar la biblioteca de jQuery a la página antes de agregar la biblioteca de interfaz de usuario de jQuery.
+- La biblioteca de jQuery UI &mdash; la biblioteca de jQuery UI (o interfaz de usuario) contiene todos los efectos de la interfaz de usuario de jQuery y widgets, como el widget Datepicker utilizado en la página anterior.
 - Un tema de la interfaz de usuario de jQuery &mdash; la interfaz de usuario de jQuery es compatible con diferentes temas. La página anterior incluye un vínculo a un archivo CSS para importar el tema de Redmond.
 
 Todos los temas de la interfaz de usuario estándar de jQuery se hospedan en la red CDN. [Visite esta página](jquery-ui/cdnjqueryui1910.md "jQuery UI 1.8.10 en la red CDN de Microsoft Ajax") para ver las miniaturas para cada tema.
 
-Para obtener más información acerca de la biblioteca de jQuery UI, visite el sitio oficial [sitio Web de la interfaz de usuario de jQuery](http://jQueryUI.com "sitio Web de la interfaz de usuario de jQuery").
+Para obtener más información acerca de la biblioteca de jQuery UI, visite el sitio oficial [de la interfaz de usuario de jQuery](http://jQueryUI.com "sitio Web de la interfaz de usuario de jQuery").
 
 <a id="Third-Party_Files_on_the_CDN_23"></a>
 
 ## <a name="third-party-files-on-the-cdn"></a>Archivos de terceros en la red CDN
 
-La red CDN hospeda algunas de las bibliotecas de JavaScript de terceros más populares. Microsoft no reclama la propiedad de las bibliotecas de terceros hospedadas en esta red CDN. Los propietarios de las bibliotecas de copyright licencian estas bibliotecas para usted. Se conceden los derechos que es posible que deba descargar y usar estas bibliotecas únicamente por los propietarios de propiedad intelectual respectivos. Dado que no son las bibliotecas de Microsoft, Microsoft no ofrece ninguna garantía ni licencias de derechos de propiedad intelectual (no incluido derechos de patente implícitas) para las bibliotecas de terceros hospedadas en esta red CDN.
+La red CDN hospeda algunas de las bibliotecas de JavaScript de terceros más populares. Microsoft no reclama la propiedad de las bibliotecas de terceros hospedadas en esta red CDN. Los propietarios de las bibliotecas de derechos de autor licencian estas bibliotecas para usted. Se conceden los derechos que es posible que deba descargar y usar estas bibliotecas únicamente por los propietarios de propiedad intelectual respectivos. Dado que no son las bibliotecas de Microsoft, Microsoft no ofrece ninguna garantía ni licencias de derechos de propiedad intelectual (no incluido derechos de patente implícitas) para las bibliotecas de terceros hospedadas en esta red CDN.
 
 <a id="jQuery_Releases_on_the_CDN_0"></a>
 
@@ -559,7 +559,7 @@ Migrar la versión 1.2.0 de jQuery
 
 ### <a name="jquery-ui-releases-on-the-cdn"></a>las versiones de la interfaz de usuario en la red CDN de jQuery
 
-Las versiones siguientes de la biblioteca de interfaz de usuario de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
+Las siguientes versiones de la biblioteca de interfaz de usuario de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
 - [jQuery UI 1.12.1](jquery-ui/cdnjqueryui1121.md "jQuery UI 1.12.1 en la red CDN de Microsoft Ajax")
 - [jQuery UI 1.12.0](jquery-ui/cdnjqueryui1120.md "jQuery UI 1.12.0 en la red CDN de Microsoft Ajax")
@@ -601,7 +601,7 @@ Las versiones siguientes de la biblioteca de interfaz de usuario de jQuery se ho
 
 ### <a name="jquery-validation-releases-on-the-cdn"></a>las versiones de validación en la red CDN de jQuery
 
-Las versiones siguientes de la biblioteca de validación de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
+Las siguientes versiones de la biblioteca de validación de jQuery se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
 - [1.17.0 de validación de jQuery](jquery-validate/cdnjqueryvalidate1170.md "1.17.0 de validación de jQuery")
 - [1.16.0 de validación de jQuery](jquery-validate/cdnjqueryvalidate1160.md "1.16.0 de validación de jQuery")
@@ -625,7 +625,7 @@ Las versiones siguientes de la biblioteca de validación de jQuery se hospedan e
 
 ### <a name="jquery-mobile-releases-on-the-cdn"></a>jQuery Mobile versiones en la red CDN
 
-Las versiones siguientes de la biblioteca de jQuery Mobile se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
+Las siguientes versiones de la biblioteca de jQuery Mobile se hospedan en esta red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
 - [jQuery Mobile 1.4.5](jquery-mobile/cdnjquerymobile145.md "jQuery Mobile 1.4.5 en la red CDN de Microsoft Ajax")
 - [jQuery Mobile 1.4.2](jquery-mobile/cdnjquerymobile142.md "jQuery Mobile 1.4.2 en la red CDN de Microsoft Ajax")
@@ -749,7 +749,7 @@ Las siguientes versiones de [Globalize](https://github.com/jquery/globalize "Glo
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/globalize.js
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.cultures.js
 
-    - todas las referencias culturales
+    - Todas las referencias culturales
 - https://ajax.aspnetcdn.com/ajax/globalize/0.1.1/cultures/globalize.culture.{culture-code}.js
 
     - Reemplace "{-código de referencia cultural}" con el código de la referencia cultural deseada, por ejemplo, Microsoft globalize.culture.en GB.js== archivos en la red CDN == estas bibliotecas se cargaron por Microsoft.
@@ -758,7 +758,7 @@ Las siguientes versiones de [Globalize](https://github.com/jquery/globalize "Glo
 
 ### <a name="respond-releases-on-the-cdn"></a>Responder a las versiones en la red CDN
 
-Las siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") responden se hospedan en la red CDN:
+Las siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") Respond se hospedan en la red CDN:
 
 #### <a name="respond-version-142"></a>Responder versión 1.4.2
 
@@ -1056,7 +1056,7 @@ Las siguientes versiones de [getbootstrap.com](http://getbootstrap.com "getboots
 
 ### <a name="bootstrap-touchcarousel-releases-on-the-cdn"></a>Versiones de bootstrap TouchCarousel en la red CDN
 
-Las siguientes versiones de [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") versiones TouchCarousel Bootstrap se hospedan en la red CDN:
+Las siguientes versiones de [https://github.com/ixisio/bootstrap-touch-carousel](https://github.com/ixisio/bootstrap-touch-carousel "https://github.com/ixisio/bootstrap-touch-carousel") Bootstrap TouchCarousel se hospedan en la red CDN:
 
 #### <a name="bootstrap-touchcarousel-version-080"></a>Bootstrap TouchCarousel versión 0.8.0
 
@@ -1079,7 +1079,7 @@ Las siguientes versiones de [http://hammerjs.github.io/](http://hammerjs.github.
 
 ### <a name="aspnet-web-forms-and-ajax-releases-on-the-cdn"></a>Formularios Web Forms ASP.NET y las versiones de Ajax en la red CDN
 
-Las versiones siguientes de la biblioteca de Ajax de ASP.NET se hospedan en la red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
+Las siguientes versiones de la biblioteca de Ajax de ASP.NET se hospedan en la red CDN. Haga clic en cada vínculo para ver la lista real de archivos.
 
 - [Versión de formularios Web Forms ASP.NET y Ajax 4.5.2](cdnajax452.md "formularios Web Forms ASP.NET y Ajax 4.5.2")
 - [Versión de formularios Web Forms ASP.NET y Ajax 4](cdnajax4.md "formularios Web Forms ASP.NET y Ajax 4")
@@ -1089,7 +1089,7 @@ Las versiones siguientes de la biblioteca de Ajax de ASP.NET se hospedan en la r
 
 ### <a name="aspnet-mvc-releases-on-the-cdn"></a>ASP.NET MVC se libera en la red CDN
 
-Los siguientes archivos JavaScript de MVC de ASP.NET se hospedan en esta red CDN:
+Los siguientes archivos JavaScript de ASP.NET MVC se hospedan en esta red CDN:
 
 #### <a name="aspnet-mvc-523"></a>ASP.NET MVC 5.2.3
 
@@ -1138,7 +1138,7 @@ Los siguientes archivos JavaScript de MVC de ASP.NET se hospedan en esta red CDN
 
 ### <a name="aspnet-signalr-releases-on-the-cdn"></a>ASP.NET SignalR se libera en la red CDN
 
-Los siguientes archivos SignalR JavaScript de ASP.NET se hospedan en esta red CDN:
+Los siguientes archivos JavaScript SignalR de ASP.NET se hospedan en esta red CDN:
 
 #### <a name="aspnet-signalr-222"></a>ASP.NET SignalR 2.2.2
 

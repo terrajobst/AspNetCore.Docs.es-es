@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax4
-title: Formularios Web Forms ASP.NET y Ajax 4 | Microsoft Docs
+title: Formularios ASP.NET Web Forms y Ajax 4 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41835509"
 ---
-<a name="aspnet-web-forms-and-ajax-4"></a>Formularios Web Forms ASP.NET y Ajax 4
+<a name="aspnet-web-forms-and-ajax-4"></a>Formularios ASP.NET Web Forms y Ajax 4
 ====================
 Los siguientes archivos se hospedan en la red CDN:
 
