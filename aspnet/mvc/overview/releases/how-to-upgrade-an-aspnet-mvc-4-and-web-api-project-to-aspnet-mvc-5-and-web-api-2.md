@@ -8,16 +8,16 @@ ms.date: 10/17/2013
 ms.assetid: db0d02d9-58e8-4a0b-8d7d-b8df8ea97b88
 msc.legacyurl: /mvc/overview/releases/how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: e313fc2229026f1b11d2f6a046a8b550c08ba96b
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d6fb40741c5f7b992e907a462ac92972fe603624
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837870"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578372"
 ---
 <a name="how-to-upgrade-an-aspnet-mvc-4-and-web-api-project-to-aspnet-mvc-5-and-web-api-2"></a>Cómo actualizar un ASP.NET MVC 4 y el proyecto de API Web a ASP.NET MVC 5 y Web API 2
 ====================
-por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > ASP.NET MVC 5 y Web API 2 poner un sinfín de características nuevas, como el enrutamiento mediante atributos, los filtros de autenticación y mucho más. Consulte [ https://www.asp.net/vnext ](https://www.asp.net/core) para obtener más detalles.
 > 

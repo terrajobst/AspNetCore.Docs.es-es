@@ -8,16 +8,16 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 7b9ba2ca0cd0269ebb3e0e4ae056d4597a198a03
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829144"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578047"
 ---
 <a name="owin-oauth-20-authorization-server"></a>Servidor de autorización de OAuth 2.0 de OWIN
 ====================
-por [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson](https://github.com/Rick-Anderson)
+por [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Este tutorial le guiará para implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth. Se trata de un tutorial avanzado que solo se describe los pasos para crear un servidor de autorización de OWIN OAuth 2.0. Esto no es un tutorial paso a paso. [Descargar el código de ejemplo](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
 > 

@@ -8,16 +8,16 @@ ms.date: 02/20/2013
 ms.assetid: a3cef801-a54b-4ebd-93c3-55764e2e14b1
 msc.legacyurl: /visual-studio/overview/2012/windows-azure-authentication
 msc.type: authoredcontent
-ms.openlocfilehash: d5d055d90b263050ef6defa1b98b139c4f8e4dee
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a45b0ad2b61c2b78f7f06e85fe5e92193d73041d
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836110"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577514"
 ---
 <a name="windows-azure-authentication"></a>Windows autenticación de Azure
 ====================
-por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Herramientas de Microsoft ASP.NET para Windows Azure Active Directory simplifica el proceso de habilitar la autenticación para aplicaciones web hospedadas en [sitios Web Windows Azure](https://www.windowsazure.com/home/features/web-sites/). Puede usar la autenticación de Windows Azure para autenticar a los usuarios de Office 365 de su organización, las cuentas corporativas sincronizadas desde Active Directory local o los usuarios creados en su propio dominio personalizado de Windows Azure Active Directory. Habilitar la autenticación de Windows Azure configura la aplicación para autenticar usuarios mediante una sola [Windows Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) inquilino.
 > 

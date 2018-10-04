@@ -8,16 +8,16 @@ ms.date: 03/26/2015
 ms.assetid: c205805f-efdd-4fa7-9616-f26eab180611
 msc.legacyurl: /mvc/overview/performance/profile-and-debug-your-aspnet-mvc-app-with-glimpse
 msc.type: authoredcontent
-ms.openlocfilehash: f5d174ff6823d654a24dcb2c90f10a3cbd24f1e7
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 94a72f22cbcd7fa84528dde502cceaa1e26dcaa1
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837055"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48577293"
 ---
 <a name="profile-and-debug-your-aspnet-mvc-app-with-glimpse"></a>Generar perfiles y depurar la aplicación de ASP.NET MVC con Glimpse
 ====================
-por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Glimpse es un próspero y aumentando la familia de paquetes de NuGet de código abierto que proporciona detallados de rendimiento, depuración e información de diagnóstico para aplicaciones de ASP.NET. Es muy fácil instalar, ultrarrápidas ligero y muestra las métricas clave de rendimiento en la parte inferior de cada página. Permite explorar en profundidad de la aplicación cuando necesite averiguar qué está ocurriendo en el servidor. Glimpse proporciona tanto información valiosa y que se recomienda que utilizarlo durante su ciclo de desarrollo, incluidos el entorno de prueba de Azure. Mientras [Fiddler](http://www.telerik.com/fiddler) y [herramientas de desarrollo F-12](https://msdn.microsoft.com/library/ie/gg589512(v=vs.85).aspx) proporcionan un cliente, vista de Glimpse proporciona una vista detallada del servidor. En este tutorial se centrará en utilizar los paquetes EF y un vistazo a ASP.NET MVC, pero hay muchos otros paquetes disponibles. Siempre que sea posible se vinculará a la correspondiente [vislumbrar docs](http://getglimpse.com/Docs/) que ayudan a mantener. Glimpse es un proyecto de código abierto, también puede contribuir en el código fuente y los documentos.
 

@@ -8,16 +8,16 @@ ms.date: 04/10/2014
 ms.assetid: 7958d725-e958-4566-a85b-535eeb985f94
 msc.legacyurl: /mvc/overview/getting-started/recommended-resources-for-mvc
 msc.type: authoredcontent
-ms.openlocfilehash: 57997241afc0a326d5381c7dcef15122fb04ab7d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: cbd72233fb5688c27d3675e2621eab58a64db80c
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837024"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578189"
 ---
 <a name="mvc-recommended-resources"></a>Recursos recomendados de MVC
 ====================
-por [Rick Anderson](https://github.com/Rick-Anderson)
+por [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Este tema proporcionan vínculos a recursos de documentación sobre ASP.NET MVC 5. Si necesita registrar, tengo un estupendo blog [stackoverflow](http://stackoverflow.com/) subproceso o cualquier otro vínculo que podría ser útil, enviar [me](mailto:aspnetue@microsoft.com?subject=Great ASP.NET MVC link) un correo electrónico con el vínculo. Los vínculos que aparecen aquí se actualizan periódicamente. Puede encontrar más antiguos (pero en muchos casos, siguen siendo pertinentes) vínculos de ASP.NET MVC en el [mapa de contenido de MSDN](https://msdn.microsoft.com/library/gg416514(v=vs.108).aspx).
 > 
@@ -216,7 +216,7 @@ por [Rick Anderson](https://github.com/Rick-Anderson)
 - [Crear Interfaces de usuario enriquecidas con jQuery](https://msdn.microsoft.com/magazine/dd722809.aspx)
 - [Auto rellenar DataTable columnas a las vistas de MVC de ASP.NET](http://www.dotnetfunda.com/articles/show/2669/auto-populate-datatable-columns-to-the-views-in-aspnet-mvc) por Sheo Narayan
 - [Uso de HTML5 y calendario emergente de la interfaz de usuario Datepicker de jQuery con ASP.NET MVC](../older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1.md)
-- [Usar la aplicación auxiliar DropDownList con ASP.NET MVC](../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
+- [Usar el asistente DropDownList con ASP.NET MVC](../older-versions/working-with-the-dropdownlist-box-and-jquery/using-the-dropdownlist-helper-with-aspnet-mvc.md)
 - [DropDownListFor con ASP.NET MVC](http://odetocode.com/blogs/scott/archive/2013/03/11/dropdownlistfor-with-asp-net-mvc.aspx)
 - [Enlace de datos de aplicación auxiliar DropDownList en ASP.NET MVC](http://www.itorian.com/2013/02/dropdownlist-helper-data-binding-in-mvc.html)
 - [Vídeo de Pluralsight que muestran cómo trabajar con JavaScript y Ajax](http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&amp;name=mvc3-building-ajax&amp;mode=live&amp;clip=0&amp;course=aspdotnet-mvc3-intro)
