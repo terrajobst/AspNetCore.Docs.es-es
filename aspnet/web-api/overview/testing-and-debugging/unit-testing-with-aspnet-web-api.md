@@ -8,12 +8,12 @@ ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 0a3f9ddde725995359de85c5e0783106f5de02bd
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838011"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795439"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>ASP.NET Web API 2 de pruebas unitarias
 ====================
@@ -22,17 +22,15 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 [Descargue el proyecto completado](https://code.msdn.microsoft.com/Unit-Testing-with-ASPNET-1374bc11)
 
 > Esta guía y la aplicación muestran cómo crear pruebas unitarias simple para la aplicación Web API 2. Este tutorial muestra cómo incluir un proyecto de prueba unitaria en la solución y escribir métodos de prueba que comprueban los valores devueltos desde un método de controlador.
-> 
+>
 > En este tutorial se da por supuesto que está familiarizado con los conceptos básicos de ASP.NET Web API. Para ver un tutorial introductorio, vea [Introducción a ASP.NET Web API 2](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
-> 
+>
 > Las pruebas unitarias en este tema se limita deliberadamente a escenarios de datos simple. Para escenarios más avanzados de datos de pruebas unitarias, vea [simulación Entity Framework cuando unidad pruebas ASP.NET Web API 2](mocking-entity-framework-when-unit-testing-aspnet-web-api-2.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
-> 
-> 
-> - [Visual Studio 2017](https://www.visualstudio.com/vs/)
+>
+> - [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web API 2
-
 
 ## <a name="in-this-topic"></a>En este tema
 
@@ -41,7 +39,6 @@ Este tema contiene las siguientes secciones:
 - [Requisitos previos](#prereqs)
 - [Descargue el código](#download)
 - [Crear la aplicación con el proyecto de prueba unitaria](#appwithunittest)
-
     - [Agregar proyecto de prueba unitaria al crear la aplicación](#whencreate)
     - [Agregar proyecto de prueba unitaria a una aplicación existente](#addtoexisting)
 - [Configurar la aplicación Web API 2](#setupproject)
@@ -52,7 +49,7 @@ Este tema contiene las siguientes secciones:
 <a id="prereqs"></a>
 ## <a name="prerequisites"></a>Requisitos previos
 
-Visual Studio 2017 Community, Professional o Enterprise edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition
 
 <a id="download"></a>
 ## <a name="download-code"></a>Descargue el código

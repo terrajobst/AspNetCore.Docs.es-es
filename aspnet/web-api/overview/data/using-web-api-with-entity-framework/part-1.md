@@ -8,12 +8,12 @@ ms.date: 05/28/2015
 ms.assetid: e879487e-dbcd-4b33-b092-d67c37ae768c
 msc.legacyurl: /web-api/overview/data/using-web-api-with-entity-framework/part-1
 msc.type: authoredcontent
-ms.openlocfilehash: 4abe0e06dfd927765efd8e566584e111cf4117d5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d65c0ea35ec766ef9d9093c6502230f9de72a3f3
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828999"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795219"
 ---
 <a name="using-web-api-2-with-entity-framework-6"></a>Usar Web API 2 con Entity Framework 6
 ====================
@@ -22,16 +22,14 @@ por [Mike Wasson](https://github.com/MikeWasson)
 [Descargue el proyecto completado](https://github.com/MikeWasson/BookService)
 
 > Este tutorial le enseñará los aspectos básicos de la creación de una aplicación web con ASP.NET Web API back-end. El tutorial usa Entity Framework 6 para la capa de datos y Knockout.js para la aplicación de JavaScript del lado cliente. El tutorial también muestra cómo implementar la aplicación en Azure App Service Web Apps.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
-> 
-> 
+>
 > - Web API 2.1
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Descargar Visual Studio 2017 [aquí](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
 > - [Knockout.js](http://knockoutjs.com/) 3.1
-
 
 Este tutorial usa para crear una aplicación web que se manipula una base de datos back-end ASP.NET Web API 2 con Entity Framework 6. Aquí es una captura de pantalla de la aplicación que va a crear.
 

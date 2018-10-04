@@ -8,41 +8,37 @@ ms.date: 06/26/2014
 ms.assetid: 72657550-ec09-4779-9bfc-2fb15ecd51c7
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4/entity-relations-in-odata-v4
 msc.type: authoredcontent
-ms.openlocfilehash: 80173519f1c8abd77b4138b7d29f780ffc60a188
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d07ddab83462ee1bc84ba8ab15fe906937f506e6
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828551"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795397"
 ---
 <a name="entity-relations-in-odata-v4-using-aspnet-web-api-22"></a>Relaciones de entidad en OData v4 con ASP.NET Web API 2.2
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
 > La mayoría de los conjuntos de datos definen las relaciones entre entidades: los clientes tienen pedidos; los libros en pantalla tienen autores; los productos tienen proveedores. Con OData, los clientes pueden navegar por las relaciones de entidad. Dado un producto, puede encontrar el proveedor. También puede crear o eliminar las relaciones. Por ejemplo, puede establecer el proveedor de un producto.
-> 
+>
 > Este tutorial muestra cómo admitir estas operaciones en OData v4 mediante ASP.NET Web API. El tutorial se basa en el tutorial [crear OData v4 extremo mediante ASP.NET Web API 2](create-an-odata-v4-endpoint.md).
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
-> 
-> 
+>
 > - Web API 2.1
 > - OData v4
-> - [Visual Studio 2013 Update 2](https://www.visualstudio.com/downloads/download-visual-studio-vs)
+> - Visual Studio 2013 (Descargar Visual Studio 2017 [aquí](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017))
 > - Entity Framework 6
 > - .NET 4.5
-> 
-> 
+>
 > ## <a name="tutorial-versions"></a>Versiones de tutoriales
-> 
+>
 > Para la versión 3 de OData, consulte [que admiten relaciones de entidad en OData v3](https://asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/working-with-entity-relations).
-
 
 ## <a name="add-a-supplier-entity"></a>Agregar una entidad de proveedor
 
 > [!NOTE]
 > El tutorial se basa en el tutorial [crear OData v4 extremo mediante ASP.NET Web API 2](create-an-odata-v4-endpoint.md).
-
 
 En primer lugar, necesitamos una entidad relacionada. Agregue una clase denominada `Supplier` en la carpeta Models.
 

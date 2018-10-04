@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: f13720c5e9de99fb4ae5b27a757c257cac881f89
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
+ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838819"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48795556"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Enrutamiento mediante atributos en ASP.NET Web API 2
 ====================
@@ -25,10 +25,9 @@ El estilo anterior de enrutamiento, llamado basado en convenciones de enrutamien
 
 En este tema se muestra cómo habilitar el enrutamiento mediante atributos y se describe las diversas opciones para el enrutamiento mediante atributos. Para obtener un tutorial to-end que usa el enrutamiento mediante atributos, vea [crear una API de REST con enrutamiento mediante atributos en Web API 2](create-a-rest-api-with-attribute-routing.md).
 
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-[Visual Studio 2017](https://www.visualstudio.com/vs/) Community, Professional o Enterprise Edition
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition
 
 Como alternativa, use el Administrador de paquetes de NuGet para instalar los paquetes necesarios. Desde el **herramientas** menú en Visual Studio, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. Escriba el siguiente comando en la ventana de consola de administrador de paquetes:
 
@@ -55,21 +54,21 @@ Estos son algunos otros patrones de ese atributo enrutamiento hace fácil.
 
 En este ejemplo, "/ api/v1/products" sería enrutado a un controlador diferente que "/ v2/api/products".
 
-`/api/v1/products`  
+`/api/v1/products`
 `/api/v2/products`
 
 **Segmentos URI sobrecargados**
 
 En este ejemplo, "1" es un número de pedido, pero "pendiente" se asigna a una colección.
 
-`/orders/1`  
+`/orders/1`
 `/orders/pending`
 
 **Varios tipos de parámetro**
 
 En este ejemplo, "1" es un número de pedido, pero "2013/06/16" especifica una fecha.
 
-`/orders/1`  
+`/orders/1`
 `/orders/2013/06/16`
 
 <a id="enable"></a>
@@ -251,7 +250,7 @@ Cuando el marco de trabajo intenta hacer coincidir un URI con una ruta, evalúa 
 Aquí es cómo se determina el orden total:
 
 1. Comparar el **RouteOrder** propiedad del atributo de ruta.
-2. Examine cada segmento URI de la plantilla de ruta. Para cada segmento, pedido como sigue: 
+2. Examine cada segmento URI de la plantilla de ruta. Para cada segmento, pedido como sigue:
 
     1. Segmentos literales.
     2. Parámetros de ruta con restricciones.
