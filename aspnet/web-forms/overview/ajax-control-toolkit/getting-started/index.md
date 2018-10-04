@@ -1,32 +1,28 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/getting-started/index
-title: Introducción | Documentos de Microsoft
+title: Introducción | Microsoft Docs
 author: rick-anderson
 description: Esta página describe cómo descargar el Kit de herramientas de Control de Ajax y cómo agregar sus controles al cuadro de herramientas de Visual Studio o Visual Web Developer.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: e87dbaaf-fcbe-4e42-87ee-e60e25856e8c
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/getting-started
 msc.type: chapter
-ms.openlocfilehash: a2bee0fa190a0215546bd5ac72e14df23b2be87b
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 20e41a1fb79a5b8c81952fb84f131f3a97da2aa3
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510504"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256513"
 ---
 <a name="getting-started"></a>Introducción
 ====================
 > Esta página describe cómo descargar el Kit de herramientas de Control de Ajax y cómo agregar sus controles al cuadro de herramientas de Visual Studio o Visual Web Developer.
 
 
-- [Empezar a trabajar con el Kit de herramientas de Control de AJAX (C#)](get-started-with-the-ajax-control-toolkit-cs.md)
-- [Usar controles de Kit de herramientas de Control de AJAX y los extensores de Control (C#)](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
-- [Creación de un extensor de Control del Kit de herramientas de Control de AJAX personalizados (C#)](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
-- [Empezar a trabajar con el Kit de herramientas de Control de AJAX (VB)](get-started-with-the-ajax-control-toolkit-vb.md)
-- [Usar controles de Kit de herramientas de Control de AJAX y los extensores de Control (VB)](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
-- [Creación de un extensor de Control del Kit de herramientas de Control de AJAX personalizado (VB)](creating-a-custom-ajax-control-toolkit-control-extender-vb.md)
+- [Introducción a AJAX Control Toolkit (C#)](get-started-with-the-ajax-control-toolkit-cs.md)
+- [Usar los controles de AJAX Control Toolkit y los controles extensores (C#)](using-ajax-control-toolkit-controls-and-control-extenders-cs.md)
+- [Crear un extensor de control personalizado de AJAX Control Toolkit (C#)](creating-a-custom-ajax-control-toolkit-control-extender-cs.md)
+- [Introducción a AJAX Control Toolkit (VB)](get-started-with-the-ajax-control-toolkit-vb.md)
+- [Usar los controles de AJAX Control Toolkit y los controles extensores (VB)](using-ajax-control-toolkit-controls-and-control-extenders-vb.md)
+- [Crear un extensor de control personalizado de AJAX Control Toolkit (VB)](creating-a-custom-ajax-control-toolkit-control-extender-vb.md)

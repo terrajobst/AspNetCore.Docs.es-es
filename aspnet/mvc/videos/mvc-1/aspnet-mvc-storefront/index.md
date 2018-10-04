@@ -1,27 +1,23 @@
 ---
 uid: mvc/videos/mvc-1/aspnet-mvc-storefront/index
-title: ASP.NET MVC Storefront | Microsoft Docs
+title: Escaparate de ASP.NET MVC | Microsoft Docs
 author: rick-anderson
-description: Escaparate Starter Kit de ASP.NET MVC
-ms.author: aspnetcontent
-manager: wpickett
+description: Escaparate de Starter Kit de ASP.NET MVC
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: 296b3a7a-483d-4937-ba2f-3f9c1319616a
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1/aspnet-mvc-storefront
 msc.type: chapter
-ms.openlocfilehash: 78b42135d38918fb1d5c1d7a9dcdae1da9b660f1
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: b6030c14980bfe86b04284160d2c1e4a5ccc8bf7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29153247"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256526"
 ---
-<a name="aspnet-mvc-storefront"></a>Storefront de ASP.NET MVC
+<a name="aspnet-mvc-storefront"></a>Escaparate de ASP.NET MVC
 ====================
-> Escaparate Starter Kit de ASP.NET MVC
+> Escaparate de Starter Kit de ASP.NET MVC
 
 
 - [Escaparate de ASP.NET MVC, parte 1: Información general y debate sobre la arquitectura](aspnet-mvc-storefront-part-1-architectural-discussion-and-overview.md)
@@ -42,7 +38,7 @@ ms.locfileid: "29153247"
 - [Escaparate de ASP.NET MVC, parte 16: Puesta al día de la pertenencia con OpenID](aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
 - [Escaparate de ASP.NET MVC, parte 17: Finalización de la compra con Jeff Atwood](aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
 - [Escaparate de ASP.NET MVC, parte 18: Experiencia de creación](aspnet-mvc-storefront-part-18-creating-an-experience.md)
-- [ASP.NET MVC escaparate parte 19: Procesar pedidos con el flujo de trabajo de Windows](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+- [Escaparate de ASP.NET MVC, parte 19: Procesar pedidos con el flujo de trabajo de Windows](aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
 - [Escaparate de ASP.NET MVC, parte 19a: Seguimiento del flujo de trabajo de Windows](aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
 - [Escaparate de ASP.NET MVC, parte 20: Registro](aspnet-mvc-storefront-part-20-logging.md)
 - [Escaparate de ASP.NET MVC, parte 21: Administrador de pedidos y personalización](aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

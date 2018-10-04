@@ -1,27 +1,23 @@
 ---
 uid: signalr/videos/getting-started/index
-title: Vídeos de ASP.NET SignalR | Documentos de Microsoft
+title: Vídeos de ASP.NET SignalR | Microsoft Docs
 author: rick-anderson
-description: Estos ofrecen a de vídeos en segundo plano que y ejemplos de aplicación de uso de SignalR para agregar funcionalidad en tiempo real a las aplicaciones web.
-ms.author: aspnetcontent
-manager: wpickett
+description: Estos ofrecen vídeos en segundo plano y ejemplos de aplicaciones para usar SignalR para agregar funcionalidad en tiempo real a las aplicaciones web.
+ms.author: riande
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: d8d03cc9-13bc-4921-9aca-3dfbda53660d
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/videos/getting-started
 msc.type: chapter
-ms.openlocfilehash: 509d5475650e758960da3116b53cd21c0b628edf
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 3c80a4f96fb0b70667dae054cec5444b093a3845
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505624"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256527"
 ---
 <a name="aspnet-signalr-videos"></a>Vídeos de ASP.NET SignalR
 ====================
-> Estos ofrecen a de vídeos en segundo plano que y ejemplos de aplicación de uso de SignalR para agregar funcionalidad en tiempo real a las aplicaciones web.
+> Estos ofrecen vídeos en segundo plano y ejemplos de aplicaciones para usar SignalR para agregar funcionalidad en tiempo real a las aplicaciones web.
 
 
-- [SignalR y Websockets](signalr-and-web-sockets.md)
+- [SignalR y Web Sockets](signalr-and-web-sockets.md)

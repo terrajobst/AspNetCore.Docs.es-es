@@ -1,28 +1,24 @@
 ---
 uid: signalr/overview/deployment/index
-title: SignalR implementación y hospedaje | Documentos de Microsoft
+title: SignalR implementación y hospedaje | Microsoft Docs
 author: rick-anderson
-description: Cómo implementar y alojar aplicaciones SignalR.
-ms.author: aspnetcontent
-manager: wpickett
+description: Cómo implementar y hospedar aplicaciones de SignalR.
+ms.author: riande
 ms.date: 09/19/2014
-ms.topic: article
 ms.assetid: 62482bdd-e2a4-46e5-b909-6d0c6bc07114
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/overview/deployment
 msc.type: chapter
-ms.openlocfilehash: 8c018a2fe92c90e3264326116cb4b21a0070bff4
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: df56c36ba757192169fa6aac0fa48a120dfc717c
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26504074"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256825"
 ---
-<a name="signalr-deployment-and-hosting"></a>Implementación de SignalR y el hospedaje
+<a name="signalr-deployment-and-hosting"></a>Implementación de SignalR y hospedaje
 ====================
-> Cómo implementar y alojar aplicaciones SignalR.
+> Cómo implementar y hospedar aplicaciones de SignalR.
 
 
-- [Tutorial: SignalR autohospedaje](tutorial-signalr-self-host.md)
-- [Uso de SignalR con las aplicaciones Web en el servicio de aplicación de Azure](using-signalr-with-azure-web-sites.md)
+- [Tutorial: Prueba interna de SignalR](tutorial-signalr-self-host.md)
+- [Usar SignalR con Web Apps en Azure App Service](using-signalr-with-azure-web-sites.md)

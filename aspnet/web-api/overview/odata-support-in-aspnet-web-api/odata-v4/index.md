@@ -1,34 +1,30 @@
 ---
 uid: web-api/overview/odata-support-in-aspnet-web-api/odata-v4/index
-title: Compatibilidad con OData v4 en ASP.NET Web API | Documentos de Microsoft
+title: Compatibilidad con OData v4 en ASP.NET Web API | Microsoft Docs
 author: rick-anderson
-description: Use la API Web de ASP.NET para crear extremos que admiten OData versión 4.
-ms.author: aspnetcontent
-manager: wpickett
+description: Usar ASP.NET Web API para crear extremos que admiten OData versión 4.
+ms.author: riande
 ms.date: 06/26/2014
-ms.topic: article
 ms.assetid: bb807fdd-0bd8-43d0-b068-e88de7e5fd87
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v4
 msc.type: chapter
-ms.openlocfilehash: 10e1d36f88fe0d094c6465ebf159cac25ced3d80
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: ea6bb911ccda4f78192463c3029d073ed64b4568
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26508014"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256638"
 ---
 <a name="supporting-odata-v4-in-aspnet-web-api"></a>Compatibilidad con OData v4 en ASP.NET Web API
 ====================
-> Use la API Web de ASP.NET para crear extremos que admiten OData versión 4.
+> Usar ASP.NET Web API para crear extremos que admiten OData versión 4.
 
 
-- [Cree un extremo de OData v4](create-an-odata-v4-endpoint.md)
+- [Crear un punto de conexión de OData v4](create-an-odata-v4-endpoint.md)
 - [Crear una aplicación de cliente de OData v4 (C#)](create-an-odata-v4-client-app.md)
 - [Relaciones de entidad en OData v4](entity-relations-in-odata-v4.md)
-- [Acciones y funciones de OData v4](odata-actions-and-functions.md)
-- [Contención de OData v4](odata-containment-in-web-api-22.md)
-- [Crear un Singleton en OData v4](using-a-singleton-in-an-odata-endpoint-in-web-api-22.md)
+- [Acciones y funciones en OData v4](odata-actions-and-functions.md)
+- [Contención en OData v4](odata-containment-in-web-api-22.md)
+- [Crear un singleton en OData v4](using-a-singleton-in-an-odata-endpoint-in-web-api-22.md)
 - [Tipos abiertos en OData v4](use-open-types-in-odata-v4.md)
-- [Herencia de tipo complejo de OData v4](complex-type-inheritance-in-odata-v4.md)
+- [Herencia de tipo complejo en OData v4](complex-type-inheritance-in-odata-v4.md)

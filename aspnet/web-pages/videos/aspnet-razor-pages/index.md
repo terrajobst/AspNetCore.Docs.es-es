@@ -1,31 +1,27 @@
 ---
 uid: web-pages/videos/aspnet-razor-pages/index
-title: Páginas de ASP.NET Razor | Documentos de Microsoft
+title: Páginas de Razor de ASP.NET | Microsoft Docs
 author: rick-anderson
-description: Los vídeos verá a profundizar en las páginas Web y WebMatrix.
-ms.author: aspnetcontent
-manager: wpickett
+description: Vídeos de qué puede ver para profundizar en Web Pages y WebMatrix.
+ms.author: riande
 ms.date: 05/18/2012
-ms.topic: article
 ms.assetid: ffad842d-548c-40c6-84c5-10858133e972
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/videos/aspnet-razor-pages
 msc.type: chapter
-ms.openlocfilehash: c2656e666e3267895ced67562e0b3e6292d83d3d
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: e0c0c719ef628a4e5050e908d45421d5bfd6d983
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529934"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256493"
 ---
 <a name="aspnet-web-pages"></a>ASP.NET Web Pages
 =================
-> Los vídeos verá a profundizar en las páginas Web y WebMatrix.
+> Vídeos de qué puede ver para profundizar en Web Pages y WebMatrix.
 
 
 - [Introducción a WebMatrix y ASP.NET Web Pages](getting-started-with-webmatrix-and-aspnet-web-pages.md)
-- [Introducción a la sintaxis Razor de programación Web ASP.NET](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
+- [Introducción a la sintaxis de Razor de programación web de ASP.NET](introduction-to-aspnet-web-programming-using-the-razor-syntax.md)
 - [Crear una apariencia coherente (parte 1)](creating-a-consistent-look-part-1.md)
 - [Crear una apariencia coherente (parte 2)](creating-a-consistent-look-part-2.md)
 - [Trabajar con formularios (parte 1)](working-with-forms-part-1.md)
@@ -38,6 +34,6 @@ ms.locfileid: "26529934"
 - [Working with Files (Trabajo con archivos)](working-with-files.md)
 - [Working with Images (Trabajo con imágenes)](working-with-images.md)
 - [Trabajar con vídeo](working-with-video.md)
-- [Adición de correo electrónico a su sitio Web](adding-email-to-your-web-site.md)
-- [Adición de búsqueda a su sitio Web](adding-search-to-your-web-site.md)
-- [Agregar redes sociales a su sitio Web](adding-social-networking-to-your-website.md)
+- [Agregar correo electrónico al sitio web](adding-email-to-your-web-site.md)
+- [Agregar búsqueda al sitio web](adding-search-to-your-web-site.md)
+- [Agregar redes sociales al sitio web](adding-social-networking-to-your-website.md)

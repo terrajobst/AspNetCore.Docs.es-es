@@ -1,26 +1,22 @@
 ---
 uid: mobile/index
-title: Sitios con ASP.NET y aplicaciones móviles | Documentos de Microsoft
+title: Mobile Apps y sitios con ASP.NET
 author: rick-anderson
-description: Obtenga información acerca de cómo ASP.NET facilita compilar aplicaciones Web móviles
-ms.author: aspnetcontent
-manager: wpickett
+description: Obtenga información sobre cómo ASP.NET facilita la creación de aplicaciones Web móviles
+ms.author: riande
 ms.date: 01/28/2011
-ms.topic: article
 ms.assetid: 71217425-e015-41af-b88a-1f4472f81886
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: ''
 msc.type: content
-ms.openlocfilehash: b20f99d92451ac96f11c05db38c737102c714891
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: c09089bc84304ec3ea91d069f183d57665763f58
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26498104"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256614"
 ---
-<a name="mobile-apps--sites-with-aspnet"></a>Aplicaciones móviles & sitios con ASP.NET
+<a name="mobile-apps--sites-with-aspnet"></a>Aplicaciones móviles y sitios con ASP.NET
 ====================
 - [Móvil](overview.md)
-- [Dispositivos probados de controles de ASP.NET Mobile](tested-devices.md)
-- [Simular dispositivos móviles más conocidos para la prueba](device-simulators.md)
+- [Dispositivos probados por controles móviles de ASP.NET](tested-devices.md)
+- [Simular dispositivos móviles conocidos para efectuar pruebas](device-simulators.md)

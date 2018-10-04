@@ -1,23 +1,19 @@
 ---
 uid: mvc/videos/index
-title: Vídeos | Documentos de Microsoft
+title: Vídeos | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 06/24/2011
-ms.topic: article
 ms.assetid: e618c37c-68f3-49aa-9fda-f86cb3b578b9
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos
 msc.type: book
-ms.openlocfilehash: 03e8129816a2fb8b9261618207b0e1795fb7cf23
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: 1f284bb52bb45880d656592f173b3e57fbc47118
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29152968"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256680"
 ---
 <a name="videos"></a>Vídeos
 ====================
@@ -28,7 +24,7 @@ ms.locfileid: "29152968"
 - [ASP.NET MVC 3](mvc-3/index.md)
 
     - [MVC 3: Motor de vistas de Razor](mvc-3/mvc-3-razor-view-engine.md)
-    - [MVC 3- Aplicaciones auxiliares de Razor](mvc-3/mvc-3-razor-helpers.md)
+    - [MVC 3- Asistentes de Razor](mvc-3/mvc-3-razor-helpers.md)
 - [ASP.NET MVC 2](mvc-2/index.md)
 
     - [¿Cómo puedo...?](mvc-2/how-do-i/index.md)
@@ -38,11 +34,11 @@ ms.locfileid: "29152968"
         - [Descripción de los modelos, las vistas y los controladores](mvc-2/how-do-i/understanding-models-views-and-controllers.md)
         - [Información general sobre el controlador de ASP.NET MVC](mvc-2/how-do-i/aspnet-mvc-controller-overview.md)
         - [Descripción de los controladores, las acciones de controlador y los resultados de las acciones](mvc-2/how-do-i/understanding-controllers-controller-actions-and-action-results.md)
-        - [Descripción de vistas, datos de vistas y aplicaciones auxiliares HTML](mvc-2/how-do-i/understanding-views-view-data-and-html-helpers.md)
+        - [Descripción de vistas, datos de vistas y asistentes de HTML](mvc-2/how-do-i/understanding-views-view-data-and-html-helpers.md)
         - [Introducción al enrutamiento de direcciones URL](mvc-2/how-do-i/an-introduction-to-url-routing.md)
         - [Prevenir ataques por inyección de código de JavaScript](mvc-2/how-do-i/preventing-javascript-injection-attacks.md)
         - [Crear pruebas unitarias para aplicaciones de ASP.NET MVC](mvc-2/how-do-i/creating-unit-tests-for-aspnet-mvc-applications.md)
-        - [Crear aplicaciones auxiliares HTML personalizadas](mvc-2/how-do-i/creating-custom-html-helpers.md)
+        - [Crear asistentes de HTML personalizadas](mvc-2/how-do-i/creating-custom-html-helpers.md)
         - [Crear clases de modelo con LINQ to SQL](mvc-2/how-do-i/creating-model-classes-with-linq-to-sql.md)
         - [Mostrar una tabla de los datos de la base de datos](mvc-2/how-do-i/displaying-a-table-of-database-data.md)
         - [Vídeo técnico de 80 minutos sobre ASP.NET MVC para desarrolladores y compilación de NerdDinner](mvc-2/how-do-i/what-is-aspnet-mvc-80-minute-technical-video-for-developers-building-nerddinner.md)
@@ -51,11 +47,11 @@ ms.locfileid: "29152968"
         - [Devolver datos con formato JSON para una llamada de AJAX en una aplicación web de ASP.NET MVC](mvc-2/how-do-i/how-do-i-return-json-formatted-data-for-an-ajax-call-in-an-aspnet-mvc-web-application.md)
         - [Trabajar con datos en las vistas parciales de ASP.NET MVC](mvc-2/how-do-i/how-do-i-work-with-data-in-aspnet-mvc-partial-views.md)
         - [Implementar modelos de vista para administrar los datos para las vistas de MVC de ASP.NET](mvc-2/how-do-i/how-do-i-implement-view-models-to-manage-data-for-aspnet-mvc-views.md)
-        - [Crear una aplicación auxiliar HTML personalizada para una aplicación MVC](mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
+        - [Crear un asistente de HTML personalizada para una aplicación MVC](mvc-2/how-do-i/how-do-i-create-a-custom-html-helper-for-an-mvc-application.md)
         - [Trabajar con los enlazadores de modelos en una aplicación MVC](mvc-2/how-do-i/how-do-i-work-with-model-binders-in-an-mvc-application.md)
         - [Usar atributos HttpVerbs en una aplicación MVC](mvc-2/how-do-i/how-do-i-use-httpverbs-attributes-in-an-mvc-application.md)
         - [MVC2 - Codificación HTML](mvc-2/how-do-i/mvc2-html-encoding.md)
-        - [MVC2 - Aplicaciones auxiliares fuertemente tipadas](mvc-2/how-do-i/mvc2-stronglytyped-helpers.md)
+        - [MVC2 - Asistentes fuertemente tipadas](mvc-2/how-do-i/mvc2-stronglytyped-helpers.md)
         - [MVC2 - Validación de modelos](mvc-2/how-do-i/mvc2-model-validation.md)
         - [MVC2 - Personalización de plantillas](mvc-2/how-do-i/mvc2-template-customization.md)
         - [ASP.NET MVC 2 - Áreas](mvc-2/how-do-i/aspnet-mvc-2-areas.md)
@@ -95,7 +91,7 @@ ms.locfileid: "29152968"
         - [Escaparate de ASP.NET MVC, parte 16: Puesta al día de la pertenencia con OpenID](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
         - [Escaparate de ASP.NET MVC, parte 17: Finalización de la compra con Jeff Atwood](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
         - [Escaparate de ASP.NET MVC, parte 18: Experiencia de creación](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-        - [ASP.NET MVC escaparate parte 19: Procesar pedidos con el flujo de trabajo de Windows](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+        - [Escaparate de ASP.NET MVC, parte 19: Procesar pedidos con el flujo de trabajo de Windows](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
         - [Escaparate de ASP.NET MVC, parte 19a: Seguimiento del flujo de trabajo de Windows](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
         - [Escaparate de ASP.NET MVC, parte 20: Registro](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
         - [Escaparate de ASP.NET MVC, parte 21: Administrador de pedidos y personalización](mvc-1/aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

@@ -1,27 +1,23 @@
 ---
 uid: visual-studio/overview/2012/index
-title: ASP.NET y Visual Studio 2012 | Documentos de Microsoft
+title: ASP.NET y Visual Studio 2012 | Microsoft Docs
 author: rick-anderson
-description: Desarrollar aplicaciones web ASP.NET con Visual Studio 2012
-ms.author: aspnetcontent
-manager: wpickett
+description: Desarrollo de aplicaciones web ASP.NET con Visual Studio 2012
+ms.author: riande
 ms.date: 06/25/2013
-ms.topic: article
 ms.assetid: 51900291-7787-4a6e-be4e-fa558486f5ff
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /visual-studio/overview/2012
 msc.type: chapter
-ms.openlocfilehash: 21f7800b2a5d396b040fe5a04b70214469e74392
-ms.sourcegitcommit: 3625e4f7a667641b058d23126f0d9d1844fee886
-ms.translationtype: HT
+ms.openlocfilehash: 7d49d7cf865bb6fad0bf4e90788bcf5c2613ab87
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/20/2018
-ms.locfileid: "27980142"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256528"
 ---
 <a name="aspnet-and-visual-studio-2012"></a>ASP.NET y Visual Studio 2012
 ====================
-> Desarrollar aplicaciones web ASP.NET con Visual Studio 2012
+> Desarrollo de aplicaciones web ASP.NET con Visual Studio 2012
 
 
 - [Características de edición HTML de Visual Studio 2012](visual-studio-2012-html-editing-features.md)

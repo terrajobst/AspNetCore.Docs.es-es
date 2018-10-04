@@ -1,35 +1,31 @@
 ---
 uid: web-forms/overview/deployment/advanced-enterprise-web-deployment/index
-title: ASP.NET 4 - 4 de la serie de implementación empresarial temas avanzados | Documentos de Microsoft
+title: ASP.NET 4 - implementación de empresa, serie 4 temas avanzados | Microsoft Docs
 author: rick-anderson
 description: Este tutorial le mostrará cómo realizar diversas tareas que están necesario o deseable en muchos escenarios de implementación de empresa.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 05/16/2012
-ms.topic: article
 ms.assetid: eacf0e3a-c2e9-4f77-a676-249146f393e8
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/deployment/advanced-enterprise-web-deployment
 msc.type: chapter
-ms.openlocfilehash: 42e80df6040dec0194bc1a5ba6ccc79c09c65ea6
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: b042faf38fe0269508895f1b7826908cf086222d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26515154"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256724"
 ---
-<a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a>ASP.NET 4 - 4 de la serie de implementación empresarial temas avanzados
+<a name="aspnet-4---enterprise-deployment-series-4-advanced-topics"></a>ASP.NET 4 - implementación de empresa, serie 4 temas avanzados
 ====================
 > Este tutorial le mostrará cómo realizar diversas tareas que están necesario o deseable en muchos escenarios de implementación de empresa.
 
 
-- [Implementación de Web de empresa avanzadas](advanced-enterprise-web-deployment.md)
-- [Realizar una implementación de "¿Qué ocurre si"](performing-a-what-if-deployment.md)
-- [Personalización de las implementaciones de la base de datos para varios entornos](customizing-database-deployments-for-multiple-environments.md)
-- [Implementación de las pertenencias a roles de base de datos en entornos de prueba](deploying-database-role-memberships-to-test-environments.md)
-- [Implementación de las bases de datos de pertenencia en entornos empresariales](deploying-membership-databases-to-enterprise-environments.md)
-- [Excluir archivos y carpetas de implementación](excluding-files-and-folders-from-deployment.md)
-- [Implementarán aplicaciones sin conexión de toma de Web con Web](taking-web-applications-offline-with-web-deploy.md)
-- [Ejecutar Scripts de Windows PowerShell desde archivos de proyecto de MSBuild](running-windows-powershell-scripts-from-msbuild-project-files.md)
+- [Implementación web avanzada de empresa](advanced-enterprise-web-deployment.md)
+- [Realizar una implementación de hipótesis](performing-a-what-if-deployment.md)
+- [Personalizar las implementaciones de la base de datos para varios entornos](customizing-database-deployments-for-multiple-environments.md)
+- [Implementar las pertenencias a roles de base de datos en entornos de prueba](deploying-database-role-memberships-to-test-environments.md)
+- [Implementar bases de datos de pertenencia en entornos empresariales](deploying-membership-databases-to-enterprise-environments.md)
+- [Excluir archivos y carpetas de la implementación](excluding-files-and-folders-from-deployment.md)
+- [Desconectar aplicaciones web con Web Deploy](taking-web-applications-offline-with-web-deploy.md)
+- [Ejecutar scripts de Windows PowerShell desde archivos de proyecto de MSBuild](running-windows-powershell-scripts-from-msbuild-project-files.md)
 - [Solucionar problemas del proceso de empaquetado](troubleshooting-the-packaging-process.md)

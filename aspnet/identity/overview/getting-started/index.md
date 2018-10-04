@@ -1,31 +1,27 @@
 ---
 uid: identity/overview/getting-started/index
-title: Introducción a ASP.NET Identity | Documentos de Microsoft
+title: Introducción a ASP.NET Identity | Microsoft Docs
 author: rick-anderson
-description: El sistema de identidades de ASP.NET está diseñado para reemplazar los sistemas anteriores de pertenencia a ASP.NET y pertenencia sencillo. Incluye compatibilidad con el perfil, integrado y OAuth...
-ms.author: aspnetcontent
-manager: wpickett
+description: El sistema ASP.NET Identity está diseñado para reemplazar los sistemas de pertenencia a ASP.NET y pertenencia sencilla anteriores. Incluye compatibilidad con el perfil, integrarlo OAuth...
+ms.author: riande
 ms.date: 10/02/2013
-ms.topic: article
 ms.assetid: 72bb0051-a696-437e-a4e6-ca1225a6e271
-ms.technology: ''
-ms.prod: .net-framework
 msc.legacyurl: /identity/overview/getting-started
 msc.type: chapter
-ms.openlocfilehash: c798b7fd79591ad4dffba21b4a3c110590edc7a5
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 5e124c3ae59cabcdb90872bbf5470964aed148c8
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26497894"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256604"
 ---
-<a name="getting-started-with-aspnet-identity"></a>Introducción a la identidad de ASP.NET
+<a name="getting-started-with-aspnet-identity"></a>Introducción a ASP.NET Identity
 ====================
-> El sistema de identidades de ASP.NET está diseñado para reemplazar los sistemas anteriores de pertenencia a ASP.NET y pertenencia sencillo. Incluye compatibilidad con el perfil, la integración de OAuth, funciona con OWIN y se incluye con las plantillas ASP.NET que se incluye con Visual Studio 2013.
+> El sistema ASP.NET Identity está diseñado para reemplazar los sistemas de pertenencia a ASP.NET y pertenencia sencilla anteriores. Incluye compatibilidad con el perfil, integración de OAuth, funciona con OWIN y se incluye con las plantillas de ASP.NET incluidas con Visual Studio 2013.
 
 
-- [Introducción a la identidad de ASP.NET](introduction-to-aspnet-identity.md)
-- [Identidad de ASP.NET de los recursos recomendados](aspnet-identity-recommended-resources.md)
-- [Proyecto de forma de agregar identidades de ASP.NET a un Web vacío o existente](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
+- [Introducción a ASP.NET Identity](introduction-to-aspnet-identity.md)
+- [Recursos recomendados de ASP.NET Identity](aspnet-identity-recommended-resources.md)
+- [Agregar ASP.NET Identity a un proyecto de formularios Web Forms vacío o existente](adding-aspnet-identity-to-an-empty-or-existing-web-forms-project.md)
 - [Desarrollo de aplicaciones ASP.NET con Azure Active Directory](developing-aspnet-apps-with-windows-azure-active-directory.md)
-- [Identidad de ASP.NET: Uso del almacenamiento de MySQL con un proveedor de Entity Framework MySQL (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)
+- [ASP.NET Identity: Usar Almacenamiento de MySQL con un proveedor de MySQL de Entity Framework (C#)](aspnet-identity-using-mysql-storage-with-an-entityframework-mysql-provider.md)

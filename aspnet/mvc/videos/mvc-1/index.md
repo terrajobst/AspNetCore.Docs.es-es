@@ -3,21 +3,17 @@ uid: mvc/videos/mvc-1/index
 title: ASP.NET MVC 1 | Microsoft Docs
 author: rick-anderson
 description: ASP.NET MVC 1
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: a780d06b-36cd-410a-b95a-b6b935b5a7fa
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/videos/mvc-1
 msc.type: chapter
-ms.openlocfilehash: ad33f7cb81b0124728cfa36c8ff3ba0a473e351f
-ms.sourcegitcommit: 016f4d58663bcd442930227022de23fb3abee0b3
-ms.translationtype: HT
+ms.openlocfilehash: ab03d8df4b149e32dd32c26a5b9ae29e2b7be353
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2018
-ms.locfileid: "29153909"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256485"
 ---
 <a name="aspnet-mvc-1"></a>ASP.NET MVC 1
 ====================
@@ -44,7 +40,7 @@ ms.locfileid: "29153909"
     - [Escaparate de ASP.NET MVC, parte 16: Puesta al día de la pertenencia con OpenID](aspnet-mvc-storefront/aspnet-mvc-storefront-part-16-membership-redo-with-openid.md)
     - [Escaparate de ASP.NET MVC, parte 17: Finalización de la compra con Jeff Atwood](aspnet-mvc-storefront/aspnet-mvc-storefront-part-17-checkout-with-jeff-atwood.md)
     - [Escaparate de ASP.NET MVC, parte 18: Experiencia de creación](aspnet-mvc-storefront/aspnet-mvc-storefront-part-18-creating-an-experience.md)
-    - [ASP.NET MVC escaparate parte 19: Procesar pedidos con el flujo de trabajo de Windows](aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
+    - [Escaparate de ASP.NET MVC, parte 19: Procesar pedidos con el flujo de trabajo de Windows](aspnet-mvc-storefront/aspnet-mvc-storefront-part-19-processing-orders-with-windows-workflow.md)
     - [Escaparate de ASP.NET MVC, parte 19a: Seguimiento del flujo de trabajo de Windows](aspnet-mvc-storefront/aspnet-mvc-storefront-part-19a-windows-workflow-followup.md)
     - [Escaparate de ASP.NET MVC, parte 20: Registro](aspnet-mvc-storefront/aspnet-mvc-storefront-part-20-logging.md)
     - [Escaparate de ASP.NET MVC, parte 21: Administrador de pedidos y personalización](aspnet-mvc-storefront/aspnet-mvc-storefront-part-21-order-manager-and-personalization.md)

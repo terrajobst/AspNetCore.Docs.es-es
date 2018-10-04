@@ -1,32 +1,28 @@
 ---
 uid: web-forms/overview/data-access/basic-reporting/index
-title: Informes básicos | Documentos de Microsoft
+title: Informes básicos | Microsoft Docs
 author: rick-anderson
-description: Este conjunto de tutoriales examina cómo usar el control ObjectDataSource para trabajar con datos recuperados de la capa BLL, todo ello sin necesidad de código.
-ms.author: aspnetcontent
-manager: wpickett
+description: Este conjunto de tutoriales explica cómo usar el control ObjectDataSource para trabajar con datos recuperados de BLL, todo ello sin necesidad de código.
+ms.author: riande
 ms.date: 10/05/2011
-ms.topic: article
 ms.assetid: cbd98d24-8281-4415-87df-8365f0fbe7fc
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/data-access/basic-reporting
 msc.type: chapter
-ms.openlocfilehash: 86c675e3618b1bc21ff05dcae3525aa3de725516
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 9323886ed50df775ac587b0473126fbdc28a7a19
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26512604"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256336"
 ---
 <a name="basic-reporting"></a>Informes básicos
 ====================
-> Este conjunto de tutoriales examina cómo usar el control ObjectDataSource para trabajar con datos recuperados de la capa BLL, todo ello sin necesidad de código.
+> Este conjunto de tutoriales explica cómo usar el control ObjectDataSource para trabajar con datos recuperados de BLL, todo ello sin necesidad de código.
 
 
-- [Mostrar datos con ObjectDataSource (C#)](displaying-data-with-the-objectdatasource-cs.md)
+- [Visualizar datos con ObjectDataSource (C#)](displaying-data-with-the-objectdatasource-cs.md)
 - [Parámetros declarativos (C#)](declarative-parameters-cs.md)
-- [Establecer mediante programación los valores de parámetro de ObjectDataSource (C#)](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
-- [Mostrar datos con ObjectDataSource (VB)](displaying-data-with-the-objectdatasource-vb.md)
+- [Configurar los valores de parámetro de ObjectDataSource mediante programación (C#)](programmatically-setting-the-objectdatasource-s-parameter-values-cs.md)
+- [Visualizar datos con ObjectDataSource (VB)](displaying-data-with-the-objectdatasource-vb.md)
 - [Parámetros declarativos (VB)](declarative-parameters-vb.md)
-- [Establecer mediante programación los valores de parámetro de ObjectDataSource (VB)](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)
+- [Configurar los valores de parámetro de ObjectDataSource mediante programación (VB)](programmatically-setting-the-objectdatasource-s-parameter-values-vb.md)

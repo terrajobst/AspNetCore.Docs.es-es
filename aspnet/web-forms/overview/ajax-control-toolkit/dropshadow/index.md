@@ -1,30 +1,26 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/dropshadow/index
-title: Sombra paralela | Documentos de Microsoft
+title: Un objeto DropShadow | Microsoft Docs
 author: rick-anderson
-description: Este tutorial muestra cómo utilizar el control de sombra paralela, que dibuja una sombra detrás de un panel.
-ms.author: aspnetcontent
-manager: wpickett
+description: Este tutorial muestra cómo usar el control DropShadow, que dibuja una sombra detrás de un panel.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: ccd48877-ed83-43fe-9b3b-ed8855e58833
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/dropshadow
 msc.type: chapter
-ms.openlocfilehash: 60725a1fa9d23831ecbe639d09b54ab57384e384
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: be935a4fd87767b83d5692e683db800a4e5d5801
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510414"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256549"
 ---
-<a name="dropshadow"></a>Sombra paralela
+<a name="dropshadow"></a>Objeto DropShadow
 ====================
-> Este tutorial muestra cómo utilizar el control de sombra paralela, que dibuja una sombra detrás de un panel.
+> Este tutorial muestra cómo usar el control DropShadow, que dibuja una sombra detrás de un panel.
 
 
-- [Ajustar el índice Z de una sombra paralela (C#)](adjusting-the-z-index-of-a-dropshadow-cs.md)
-- [Manipular propiedades de sombra paralela desde el código de cliente (C#)](manipulating-dropshadow-properties-from-client-code-cs.md)
-- [Ajustar el índice Z de una sombra paralela (VB)](adjusting-the-z-index-of-a-dropshadow-vb.md)
-- [Manipular propiedades de sombra paralela desde el código de cliente (VB)](manipulating-dropshadow-properties-from-client-code-vb.md)
+- [Ajustar el índice Z de un control DropShadow (C#)](adjusting-the-z-index-of-a-dropshadow-cs.md)
+- [Manipular propiedades DropShadow desde el código de cliente (C#)](manipulating-dropshadow-properties-from-client-code-cs.md)
+- [Ajustar el índice Z de un control DropShadow (VB)](adjusting-the-z-index-of-a-dropshadow-vb.md)
+- [Manipular propiedades DropShadow desde el código de cliente (VB)](manipulating-dropshadow-properties-from-client-code-vb.md)

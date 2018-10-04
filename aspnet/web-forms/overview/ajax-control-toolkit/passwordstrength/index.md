@@ -1,27 +1,23 @@
 ---
 uid: web-forms/overview/ajax-control-toolkit/passwordstrength/index
-title: PasswordStrength | Documentos de Microsoft
+title: PasswordStrength | Microsoft Docs
 author: rick-anderson
-description: Este tutorial muestra cómo controlar PasswordStrength para comprobar el nivel de seguridad es una contraseña como un usuario lo crea.
-ms.author: aspnetcontent
-manager: wpickett
+description: Este tutorial se muestra cómo controlar PasswordStrength para comprobar qué grado es una contraseña como un usuario lo crea.
+ms.author: riande
 ms.date: 11/14/2011
-ms.topic: article
 ms.assetid: bdbeb8f7-90e7-4bc5-aeb6-0f928660fb4f
-ms.technology: dotnet-webforms
-ms.prod: .net-framework
 msc.legacyurl: /web-forms/overview/ajax-control-toolkit/passwordstrength
 msc.type: chapter
-ms.openlocfilehash: 8bed18ed3d711c09e27ff6b0b04cb7ee769460ab
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 08a4dab55e5084286e6ae6c397c018ce5030dbce
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26510634"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256720"
 ---
 <a name="passwordstrength"></a>PasswordStrength
 ====================
-> Este tutorial muestra cómo controlar PasswordStrength para comprobar el nivel de seguridad es una contraseña como un usuario lo crea.
+> Este tutorial se muestra cómo controlar PasswordStrength para comprobar qué grado es una contraseña como un usuario lo crea.
 
 
 - [Probar la seguridad de una contraseña (C#)](testing-the-strength-of-a-password-cs.md)
