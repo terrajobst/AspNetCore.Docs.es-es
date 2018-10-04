@@ -1,28 +1,24 @@
 ---
 uid: web-pages/overview/testing-and-debugging/index
-title: Probar y depurar | Documentos de Microsoft
+title: Probar y depurar | Microsoft Docs
 author: rick-anderson
 description: Cómo probar y depurar aplicaciones de ASP.NET Web Pages.
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 09/08/2014
-ms.topic: article
 ms.assetid: 1cc6d774-e991-4aa1-8efd-e83a4e0ba247
-ms.technology: dotnet-webpages
-ms.prod: .net-framework
 msc.legacyurl: /web-pages/overview/testing-and-debugging
 msc.type: chapter
-ms.openlocfilehash: c9c43ce6c25496049c4788efc0cb5e39cb0db42a
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 47c99dd62796b6c0849ff1832550690aee6e43ea
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26529524"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256355"
 ---
-<a name="testing-and-debugging"></a><span data-ttu-id="80751-103">Pruebas y depuración</span><span class="sxs-lookup"><span data-stu-id="80751-103">Testing and Debugging</span></span>
+<a name="testing-and-debugging"></a><span data-ttu-id="6431d-103">Probar y depurar</span><span class="sxs-lookup"><span data-stu-id="6431d-103">Testing and Debugging</span></span>
 ====================
-> <span data-ttu-id="80751-104">Cómo probar y depurar aplicaciones de ASP.NET Web Pages.</span><span class="sxs-lookup"><span data-stu-id="80751-104">How to test and debug ASP.NET Web Pages applications.</span></span>
+> <span data-ttu-id="6431d-104">Cómo probar y depurar aplicaciones de ASP.NET Web Pages.</span><span class="sxs-lookup"><span data-stu-id="6431d-104">How to test and debug ASP.NET Web Pages applications.</span></span>
 
 
-- [<span data-ttu-id="80751-105">Introducción a la depuración</span><span class="sxs-lookup"><span data-stu-id="80751-105">Intro to Debugging</span></span>](introduction-to-debugging.md)
-- [<span data-ttu-id="80751-106">Guía de solución de problemas (Razor) de ASP.NET Web Pages</span><span class="sxs-lookup"><span data-stu-id="80751-106">ASP.NET Web Pages (Razor) Troubleshooting Guide</span></span>](aspnet-web-pages-razor-troubleshooting-guide.md)
+- [<span data-ttu-id="6431d-105">Introducción a la depuración</span><span class="sxs-lookup"><span data-stu-id="6431d-105">Intro to Debugging</span></span>](introduction-to-debugging.md)
+- [<span data-ttu-id="6431d-106">Guía de solución de problemas de ASP.NET Web Pages (Razor)</span><span class="sxs-lookup"><span data-stu-id="6431d-106">ASP.NET Web Pages (Razor) Troubleshooting Guide</span></span>](aspnet-web-pages-razor-troubleshooting-guide.md)

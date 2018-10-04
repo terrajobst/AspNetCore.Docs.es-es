@@ -1,28 +1,24 @@
 ---
 uid: mvc/overview/older-versions-1/unit-testing/index
-title: Pruebas unitarias | Documentos de Microsoft
+title: Las pruebas unitarias | Microsoft Docs
 author: rick-anderson
-description: Este conjunto de tutorial muestra cómo crear pruebas unitarias para ASP.NET MVC acciones del controlador.
-ms.author: aspnetcontent
-manager: wpickett
+description: Esta serie de tutoriales muestra cómo crear pruebas unitarias para ASP.NET MVC con acciones de controlador.
+ms.author: riande
 ms.date: 09/28/2011
-ms.topic: article
 ms.assetid: b21d9a30-6b5c-41ab-a8e4-2fa18acd8e9b
-ms.technology: dotnet-mvc
-ms.prod: .net-framework
 msc.legacyurl: /mvc/overview/older-versions-1/unit-testing
 msc.type: chapter
-ms.openlocfilehash: 8d003486ae45938dfed93b908c4be44e66085189
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: d51c89c6b61c7092fcfcdbd11bd0cd7940afa70d
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26500724"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256633"
 ---
-<a name="unit-testing"></a><span data-ttu-id="52375-103">Pruebas unitarias</span><span class="sxs-lookup"><span data-stu-id="52375-103">Unit Testing</span></span>
+<a name="unit-testing"></a><span data-ttu-id="99d26-103">Pruebas unitarias</span><span class="sxs-lookup"><span data-stu-id="99d26-103">Unit Testing</span></span>
 ====================
-> <span data-ttu-id="52375-104">Este conjunto de tutorial muestra cómo crear pruebas unitarias para ASP.NET MVC acciones del controlador.</span><span class="sxs-lookup"><span data-stu-id="52375-104">This tutorial set shows you how to create unit tests for ASP.NET MVC controller actions.</span></span>
+> <span data-ttu-id="99d26-104">Esta serie de tutoriales muestra cómo crear pruebas unitarias para ASP.NET MVC con acciones de controlador.</span><span class="sxs-lookup"><span data-stu-id="99d26-104">This tutorial set shows you how to create unit tests for ASP.NET MVC controller actions.</span></span>
 
 
-- [<span data-ttu-id="52375-105">Crear pruebas unitarias para aplicaciones de ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="52375-105">Creating Unit Tests for ASP.NET MVC Applications (C#)</span></span>](creating-unit-tests-for-asp-net-mvc-applications-cs.md)
-- [<span data-ttu-id="52375-106">Crear pruebas unitarias para aplicaciones de MVC de ASP.NET (VB)</span><span class="sxs-lookup"><span data-stu-id="52375-106">Creating Unit Tests for ASP.NET MVC Applications (VB)</span></span>](creating-unit-tests-for-asp-net-mvc-applications-vb.md)
+- [<span data-ttu-id="99d26-105">Crear pruebas unitarias para aplicaciones de ASP.NET MVC (C#)</span><span class="sxs-lookup"><span data-stu-id="99d26-105">Creating Unit Tests for ASP.NET MVC Applications (C#)</span></span>](creating-unit-tests-for-asp-net-mvc-applications-cs.md)
+- [<span data-ttu-id="99d26-106">Crear pruebas unitarias para aplicaciones de ASP.NET MVC (VB)</span><span class="sxs-lookup"><span data-stu-id="99d26-106">Creating Unit Tests for ASP.NET MVC Applications (VB)</span></span>](creating-unit-tests-for-asp-net-mvc-applications-vb.md)

@@ -1,28 +1,24 @@
 ---
 uid: web-api/overview/error-handling/index
-title: Control de errores en ASP.NET Web API | Documentos de Microsoft
+title: Control de errores en ASP.NET Web API | Microsoft Docs
 author: rick-anderson
-description: Cómo controlar las excepciones en ASP.NET Web API.
-ms.author: aspnetcontent
-manager: wpickett
+description: Cómo controlar excepciones en ASP.NET Web API.
+ms.author: riande
 ms.date: 10/23/2014
-ms.topic: article
 ms.assetid: 0b2f1edb-816c-4a86-95bc-0c55797eb3af
-ms.technology: dotnet-webapi
-ms.prod: .net-framework
 msc.legacyurl: /web-api/overview/error-handling
 msc.type: chapter
-ms.openlocfilehash: 955c334f1e11b9dc28e2cc0a0fc055226fa0607f
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 6c66910237fbf8686d5f9fce023e8efea35c06f7
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26506784"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256885"
 ---
-<a name="error-handling-in-aspnet-web-api"></a><span data-ttu-id="b7e66-103">Control de errores en ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="b7e66-103">Error Handling in ASP.NET Web API</span></span>
+<a name="error-handling-in-aspnet-web-api"></a><span data-ttu-id="3c41b-103">Control de errores en ASP.NET Web API</span><span class="sxs-lookup"><span data-stu-id="3c41b-103">Error Handling in ASP.NET Web API</span></span>
 ====================
-> <span data-ttu-id="b7e66-104">Cómo controlar las excepciones en ASP.NET Web API.</span><span class="sxs-lookup"><span data-stu-id="b7e66-104">How to handle exceptions in ASP.NET Web API.</span></span>
+> <span data-ttu-id="3c41b-104">Cómo controlar excepciones en ASP.NET Web API.</span><span class="sxs-lookup"><span data-stu-id="3c41b-104">How to handle exceptions in ASP.NET Web API.</span></span>
 
 
-- [<span data-ttu-id="b7e66-105">Control de excepciones en la API Web</span><span class="sxs-lookup"><span data-stu-id="b7e66-105">Exception Handling in Web API</span></span>](exception-handling.md)
-- [<span data-ttu-id="b7e66-106">Global control de errores en Web API 2</span><span class="sxs-lookup"><span data-stu-id="b7e66-106">Global Error Handling in Web API 2</span></span>](web-api-global-error-handling.md)
+- [<span data-ttu-id="3c41b-105">Control de excepciones en Web API</span><span class="sxs-lookup"><span data-stu-id="3c41b-105">Exception Handling in Web API</span></span>](exception-handling.md)
+- [<span data-ttu-id="3c41b-106">Control de errores globales en Web API 2</span><span class="sxs-lookup"><span data-stu-id="3c41b-106">Global Error Handling in Web API 2</span></span>](web-api-global-error-handling.md)

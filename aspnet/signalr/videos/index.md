@@ -1,26 +1,22 @@
 ---
 uid: signalr/videos/index
-title: Vídeos de ASP.NET SignalR | Documentos de Microsoft
+title: Vídeos de ASP.NET SignalR | Microsoft Docs
 author: rick-anderson
 description: ''
-ms.author: aspnetcontent
-manager: wpickett
+ms.author: riande
 ms.date: 12/12/2012
-ms.topic: article
 ms.assetid: c0ea52a3-7497-4204-88c6-91591ac1a6b2
-ms.technology: dotnet-signalr
-ms.prod: .net-framework
 msc.legacyurl: /signalr/videos
 msc.type: book
-ms.openlocfilehash: c05938c415b1dd9eae60b865fc4434660b767579
-ms.sourcegitcommit: 9a9483aceb34591c97451997036a9120c3fe2baf
-ms.translationtype: HT
+ms.openlocfilehash: 41722eb0c46836942f8b0042e14ddadbbff73c2f
+ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "26505514"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "48256525"
 ---
-<a name="aspnet-signalr-videos"></a><span data-ttu-id="21457-102">Vídeos de ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="21457-102">ASP.NET SignalR Videos</span></span>
+<a name="aspnet-signalr-videos"></a><span data-ttu-id="29fcf-102">Vídeos de ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="29fcf-102">ASP.NET SignalR Videos</span></span>
 ====================
-- [<span data-ttu-id="21457-103">Vídeos de ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="21457-103">ASP.NET SignalR Videos</span></span>](getting-started/index.md)
+- [<span data-ttu-id="29fcf-103">Vídeos de ASP.NET SignalR</span><span class="sxs-lookup"><span data-stu-id="29fcf-103">ASP.NET SignalR Videos</span></span>](getting-started/index.md)
 
-    - [<span data-ttu-id="21457-104">SignalR y Websockets</span><span class="sxs-lookup"><span data-stu-id="21457-104">SignalR and Web Sockets</span></span>](getting-started/signalr-and-web-sockets.md)
+    - [<span data-ttu-id="29fcf-104">SignalR y Web Sockets</span><span class="sxs-lookup"><span data-stu-id="29fcf-104">SignalR and Web Sockets</span></span>](getting-started/signalr-and-web-sockets.md)
