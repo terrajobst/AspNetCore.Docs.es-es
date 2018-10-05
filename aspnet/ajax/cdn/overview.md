@@ -17,7 +17,7 @@ ms.locfileid: "41829088"
 ---
 <a name="microsoft-ajax-content-delivery-network"></a>Microsoft Ajax Content Delivery Network
 ====================
-> [!PRECAUCION]
+> [!WARNING]
 > Las aplicaciones de producción no deberían adoptar una dependencia fuerte de activos de la red CDN. Las aplicaciones deben comprobar el recurso de la red CDN al que hace referencia y utilizar un recurso de reserva cuando la red CDN no está disponible. 
 >
 >La CDN de Microsoft Ajax no tiene ningún SLA más allá de una red CDN de Azure.
