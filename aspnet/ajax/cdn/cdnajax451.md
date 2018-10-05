@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax451
-title: Formularios Web Forms ASP.NET y Ajax 4.5.1 | Microsoft Docs
+title: Formularios ASP.NET Web Forms y Ajax 4.5.1 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41837343"
 ---
-<a name="aspnet-web-forms-and-ajax-451"></a>Formularios Web Forms ASP.NET y Ajax 4.5.1
+<a name="aspnet-web-forms-and-ajax-451"></a>Formularios ASP.NET Web Forms y Ajax 4.5.1
 ====================
 Los siguientes archivos se hospedan en la red CDN:
 
