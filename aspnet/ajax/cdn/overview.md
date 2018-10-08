@@ -20,7 +20,7 @@ ms.locfileid: "48578307"
 > [!WARNING]
 > Las aplicaciones de producción no deberían adoptar una dependencia fuerte de activos de la red CDN. Las aplicaciones deben comprobar el recurso de la red CDN al que hace referencia y utilizar un recurso de reserva cuando la red CDN no está disponible. 
 >
->La CDN de Microsoft Ajax no tiene ningún SLA más allá de una red CDN de Azure.
+> La CDN de Microsoft Ajax no tiene ningún SLA más allá de una red CDN de Azure.
 >
 > Use [este problema de GitHub](https://github.com/aspnet/Docs/issues/5832) para notificar los problemas con la red CDN de Microsoft Ajax.
 
@@ -758,7 +758,7 @@ Las siguientes versiones de [Globalize](https://github.com/jquery/globalize "Glo
 
 ### <a name="respond-releases-on-the-cdn"></a>Responder a las versiones en la red CDN
 
-Las siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") Respond se hospedan en la red CDN:
+Las siguientes versiones de [ https://github.com/scottjehl/Respond ] (https://github.com/scottjehl/Respond " https://github.com/scottjehl/Respond ") responden se hospedan en la red CDN:
 
 #### <a name="respond-version-142"></a>Responder versión 1.4.2
 
