@@ -1,6 +1,6 @@
 ---
 uid: ajax/cdn/cdnajax4
-title: Formularios Web Forms ASP.NET y Ajax 4 | Microsoft Docs
+title: Formularios ASP.NET Web Forms y Ajax 4 | Microsoft Docs
 author: rick-anderson
 description: ''
 ms.author: riande
@@ -15,9 +15,9 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 08/16/2018
 ms.locfileid: "41835509"
 ---
-<a name="aspnet-web-forms-and-ajax-4"></a><span data-ttu-id="a888f-102">Formularios Web Forms ASP.NET y Ajax 4</span><span class="sxs-lookup"><span data-stu-id="a888f-102">ASP.NET Web Forms and Ajax 4</span></span>
+<a name="aspnet-web-forms-and-ajax-4"></a><span data-ttu-id="d97d5-102">Formularios ASP.NET Web Forms y Ajax 4</span><span class="sxs-lookup"><span data-stu-id="d97d5-102">ASP.NET Web Forms and Ajax 4</span></span>
 ====================
-<span data-ttu-id="a888f-103">Los siguientes archivos se hospedan en la red CDN:</span><span class="sxs-lookup"><span data-stu-id="a888f-103">The following files are hosted on the CDN:</span></span>
+<span data-ttu-id="d97d5-103">Los siguientes archivos se hospedan en la red CDN:</span><span class="sxs-lookup"><span data-stu-id="d97d5-103">The following files are hosted on the CDN:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/4.0/1/Date.HijriCalendar.debug.js
 - https://ajax.aspnetcdn.com/ajax/4.0/1/Date.HijriCalendar.js
@@ -56,6 +56,6 @@ ms.locfileid: "41835509"
 - https://ajax.aspnetcdn.com/ajax/4.0/1/WebParts.js
 - https://ajax.aspnetcdn.com/ajax/4.0/1/WebUIValidation.js
 
-<span data-ttu-id="a888f-104">Nota: Los scripts de globalización, por ejemplo, fr-FR.js, pueden encontrarse en la siguiente carpeta:</span><span class="sxs-lookup"><span data-stu-id="a888f-104">Note: The globalization scripts, such as fr-FR.js, can be found in the following folder:</span></span>
+<span data-ttu-id="d97d5-104">Nota: Los scripts de globalización, por ejemplo, fr-FR.js, pueden encontrarse en la siguiente carpeta:</span><span class="sxs-lookup"><span data-stu-id="d97d5-104">Note: The globalization scripts, such as fr-FR.js, can be found in the following folder:</span></span>
 
 - https://ajax.aspnetcdn.com/ajax/4.0/1/globalization/
