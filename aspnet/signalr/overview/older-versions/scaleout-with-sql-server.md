@@ -8,12 +8,12 @@ ms.date: 05/01/2013
 ms.assetid: 1dca7967-8296-444a-9533-837eb284e78c
 msc.legacyurl: /signalr/overview/older-versions/scaleout-with-sql-server
 msc.type: authoredcontent
-ms.openlocfilehash: cd0e3d4bdb4d2eb78e5c41167a17f8673584f654
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: d68196aa8e4d0c60570a0e36ccc75a2a080d57bc
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837514"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912753"
 ---
 <a name="signalr-scaleout-with-sql-server-signalr-1x"></a>Escalabilidad horizontal de SignalR con SQL Server (SignalR 1.x)
 ====================
@@ -66,7 +66,6 @@ Para habilitar a Service Broker, use la siguiente consulta SQL:
 > [!NOTE]
 > Si esta consulta se parece a un interbloqueo, asegúrese de que no hay ninguna aplicación conectada a la base de datos.
 
-
 Si ha habilitado el seguimiento, los seguimientos se mostrarán también si Service Broker está habilitado.
 
 ## <a name="create-a-signalr-application"></a>Crear una aplicación de SignalR
@@ -76,7 +75,7 @@ Cree una aplicación de SignalR con cualquiera de estos tutoriales:
 - [Introducción a SignalR](../getting-started/tutorial-getting-started-with-signalr.md)
 - [Introducción a SignalR y MVC 4](tutorial-getting-started-with-signalr-and-mvc-4.md)
 
-A continuación, modificaremos la aplicación de chat para admitir la escalabilidad horizontal con SQL Server. En primer lugar, agregue el paquete de SignalR.SqlServer NuGet al proyecto. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+A continuación, modificaremos la aplicación de chat para admitir la escalabilidad horizontal con SQL Server. En primer lugar, agregue el paquete de SignalR.SqlServer NuGet al proyecto. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-powershell[Main](scaleout-with-sql-server/samples/sample4.ps1)]
 

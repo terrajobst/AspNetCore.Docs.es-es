@@ -8,12 +8,12 @@ ms.date: 01/26/2012
 ms.assetid: be5ab1e2-4140-4275-ac59-ca82a1bac0c1
 msc.legacyurl: /web-api/overview/older-versions/self-host-a-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: cac0d5aeaf49f45051d062935e0e9207ce59c7eb
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 63d192a6fa2aafef3770d5b0b97ec32e001b69db
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829125"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912707"
 ---
 <a name="self-host-aspnet-web-api-1-c"></a>Autohospedar ASP.NET Web API 1 (C#)
 ====================
@@ -50,7 +50,7 @@ En el Explorador de soluciones, haga clic en el proyecto y seleccione **propieda
 
 El Administrador de paquetes de NuGet es la manera más fácil de agregar los ensamblados de la API Web a un proyecto que no sean ASP.NET.
 
-Para comprobar si está instalado el Administrador de paquetes de NuGet, haga clic en el **herramientas** menú en Visual Studio. Si ve un elemento de menú denominado **Administrador de paquetes de biblioteca**, tendrá que Administrador de paquetes de NuGet.
+Para comprobar si está instalado el Administrador de paquetes de NuGet, haga clic en el **herramientas** menú en Visual Studio. Si ve un elemento de menú denominado **Administrador de paquetes de NuGet**, tendrá que Administrador de paquetes de NuGet.
 
 Para instalar el Administrador de paquetes de NuGet:
 
@@ -68,8 +68,8 @@ Para instalar el Administrador de paquetes de NuGet:
 
 Después de instalar Administrador de paquetes de NuGet, agregue el paquete de Web API Self al proyecto.
 
-1. Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**. *Tenga en cuenta*: si no se ve este menú de elemento, asegúrese de que ese administrador de paquetes de NuGet instalado correctamente.
-2. Seleccione **administrar paquetes de NuGet para la solución...**
+1. Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**. *Tenga en cuenta*: si no se ve este menú de elemento, asegúrese de que ese administrador de paquetes de NuGet instalado correctamente.
+2. Seleccione **administrar paquetes de NuGet para la solución**
 3. En el **administrar paquetes de NuGet** cuadro de diálogo, seleccione **Online**.
 4. En el cuadro de búsqueda, escriba &quot;Microsoft.AspNet.WebApi.SelfHost&quot;.
 5. Seleccione el paquete de Host automático de ASP.NET Web API y haga clic en **instalar**.
@@ -77,7 +77,6 @@ Después de instalar Administrador de paquetes de NuGet, agregue el paquete de W
 
 > [!NOTE]
 > Asegúrese de instalar el paquete denominado Microsoft.AspNet.WebApi.SelfHost, no AspNetWebApi.SelfHost.
-
 
 ![](self-host-a-web-api/_static/image4.png)
 
@@ -141,8 +140,8 @@ Agregue un nuevo proyecto de aplicación de consola a la solución:
 
 Use el Administrador de paquetes de NuGet para agregar el paquete de bibliotecas de núcleo de ASP.NET Web API:
 
-- En el menú Herramientas, seleccione **Administrador de paquetes de biblioteca**.
-- Seleccione **administrar paquetes de NuGet para la solución...**
+- En el menú Herramientas, seleccione **Administrador de paquetes de NuGet**.
+- Seleccione **administrar paquetes de NuGet para la solución**
 - En el **administrar paquetes de NuGet** cuadro de diálogo, seleccione **Online**.
 - En el cuadro de búsqueda, escriba &quot;Microsoft.AspNet.WebApi.Client&quot;.
 - Seleccione el paquete de bibliotecas de cliente de Microsoft ASP.NET Web API y haga clic en **instalar**.

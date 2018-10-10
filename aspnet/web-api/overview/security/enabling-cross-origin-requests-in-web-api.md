@@ -8,12 +8,12 @@ ms.date: 07/15/2014
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: eddf61a4468807f5efd658438c1c27a1d2f9c486
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: dc95c39af0821c2f456f5a312de5532c5aeb3c10
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836628"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912207"
 ---
 <a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Habilitación de solicitudes entre orígenes en ASP.NET Web API 2
 ====================
@@ -102,7 +102,7 @@ Al hacer clic en el botón "Pruébelo" envía una solicitud AJAX a la aplicació
 <a id="enable-cors"></a>
 ## <a name="enable-cors"></a>Habilitar la CORS
 
-Ahora vamos a habilitar la CORS en la aplicación de servicio Web. En primer lugar, agregue el paquete NuGet de la CORS. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+Ahora vamos a habilitar la CORS en la aplicación de servicio Web. En primer lugar, agregue el paquete NuGet de la CORS. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-powershell[Main](enabling-cross-origin-requests-in-web-api/samples/sample3.ps1)]
 

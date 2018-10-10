@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: 35cf3bf555218b6b49b30f48186e4c67aff4ff7b
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795556"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912157"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Enrutamiento mediante atributos en ASP.NET Web API 2
 ====================
@@ -29,7 +29,7 @@ En este tema se muestra cómo habilitar el enrutamiento mediante atributos y se 
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017) Community, Professional o Enterprise edition
 
-Como alternativa, use el Administrador de paquetes de NuGet para instalar los paquetes necesarios. Desde el **herramientas** menú en Visual Studio, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. Escriba el siguiente comando en la ventana de consola de administrador de paquetes:
+Como alternativa, use el Administrador de paquetes de NuGet para instalar los paquetes necesarios. Desde el **herramientas** menú en Visual Studio, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. Escriba el siguiente comando en la ventana de consola de administrador de paquetes:
 
 `Install-Package Microsoft.AspNet.WebApi.WebHost`
 

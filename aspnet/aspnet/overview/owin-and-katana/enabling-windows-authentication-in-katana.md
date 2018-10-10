@@ -8,12 +8,12 @@ ms.date: 07/30/2013
 ms.assetid: 82324ef0-3b75-4f63-a217-76ef4036ec93
 msc.legacyurl: /aspnet/overview/owin-and-katana/enabling-windows-authentication-in-katana
 msc.type: authoredcontent
-ms.openlocfilehash: 0aa578020a1f02fa68c74e758014c642219b4265
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8afa2c9dfbe03a9874513f7d083adf7608f4218f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41827962"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910465"
 ---
 <a name="enabling-windows-authentication-in-katana"></a>Habilitar la autenticación de Windows en Katana
 ====================
@@ -36,7 +36,6 @@ Katana ofrece actualmente dos servidores, los cuales admiten la autenticación i
 > [!NOTE]
 > Katana no actualmente proporciona middleware de OWIN para la autenticación de Windows, porque esta funcionalidad ya está disponible en los servidores.
 
-
 ## <a name="windows-authentication-in-iis"></a>Autenticación de Windows en IIS
 
 Usar Microsoft.Owin.Host.SystemWeb, simplemente puede habilitar la autenticación de Windows en IIS.
@@ -45,7 +44,7 @@ Comencemos por crear una nueva aplicación de ASP.NET mediante la plantilla de p
 
 ![](enabling-windows-authentication-in-katana/_static/image1.png)
 
-A continuación, agregue los paquetes de NuGet. Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+A continuación, agregue los paquetes de NuGet. Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample1.cmd)]
 
@@ -75,7 +74,7 @@ Más adelante, al implementar la aplicación en un servidor, siga [estos pasos](
 
 Si usas Microsoft.Owin.Host.HttpListener autohospedaje Katana, puede habilitar la autenticación de Windows directamente en el **HttpListener** instancia.
 
-En primer lugar, cree una nueva aplicación de consola. A continuación, agregue los paquetes de NuGet. Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+En primer lugar, cree una nueva aplicación de consola. A continuación, agregue los paquetes de NuGet. Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-console[Main](enabling-windows-authentication-in-katana/samples/sample4.cmd)]
 

@@ -8,12 +8,12 @@ ms.date: 04/01/2013
 ms.assetid: 0150e67b-c50d-4613-83ea-7b4ef8cacc5a
 msc.legacyurl: /web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 2d8758034ca4339ed7e9699cf2f2643bfab87ba4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c081064a32151a71fc4f3ea407e0c48a1539432a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837260"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913130"
 ---
 <a name="creating-help-pages-for-aspnet-web-api"></a>Crear páginas de ayuda para ASP.NET Web API
 ====================
@@ -55,7 +55,7 @@ Cada API tiene un vínculo a una página con información más detallada, inclui
 
 Puede agregar páginas de ayuda a un proyecto Web API existente mediante el uso de administrador de paquetes de NuGet. Esta opción es útil que empezar con una plantilla de proyecto diferente de la plantilla "API Web".
 
-Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**y, a continuación, seleccione **Package Manager Console**. En el [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ventana, escriba uno de los siguientes comandos:
+Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**y, a continuación, seleccione **Package Manager Console**. En el [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ventana, escriba uno de los siguientes comandos:
 
 Para un **C#** aplicación: `Install-Package Microsoft.AspNet.WebApi.HelpPage`
 

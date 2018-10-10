@@ -8,12 +8,12 @@ ms.date: 02/18/2013
 ms.assetid: 093c1362-f10b-407c-a708-be370f4b62b0
 msc.legacyurl: /mvc/overview/older-versions/hands-on-labs/aspnet-mvc-4-entity-framework-scaffolding-and-migrations
 msc.type: authoredcontent
-ms.openlocfilehash: 10a61b70ef52aa9f5bb9004df3dba9e323d021db
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: bfb1edfcb756706e44126e7e96803bd2e9ce99fb
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41837208"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911024"
 ---
 # <a name="aspnet-mvc-4-entity-framework-scaffolding-and-migrations"></a>ASP.NET MVC 4 Entity Framework Scaffolding y migraciones
 
@@ -172,7 +172,7 @@ En este momento, no se ha creado la base de datos. En esta tarea, ejecutará la 
 
 En esta tarea se actualizará la base de datos mediante migraciones de Entity Framework. Descubrirá lo fácil que es cambiar el modelo y reflejar los cambios en las bases de datos mediante la característica de migraciones de Entity Framework.
 
-1. Abra la consola de administrador de paquetes. Seleccione **herramientas | Administrador de paquetes de biblioteca | Consola de administrador de paquetes**.
+1. Abra la consola de administrador de paquetes. Seleccione **herramientas** > **Administrador de paquetes de NuGet** > **Package Manager Console**.
 2. En la consola de administrador de paquetes, escriba el siguiente comando:
 
     PMC

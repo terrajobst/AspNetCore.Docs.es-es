@@ -8,12 +8,12 @@ ms.date: 06/26/2013
 ms.assetid: 23fc77da-2725-4434-99a0-ff872d96336b
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/create-a-rest-api-with-attribute-routing
 msc.type: authoredcontent
-ms.openlocfilehash: 191452204d4347396b1d339d9b82d583a2ce9f3c
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 3b66f02c9be6441ff7d6c38d6180cc8556c6b8b9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795523"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912896"
 ---
 <a name="create-a-rest-api-with-attribute-routing-in-aspnet-web-api-2"></a>Creación de una API de REST con enrutamiento de atributos en ASP.NET Web API 2
 ====================
@@ -104,7 +104,7 @@ Haga clic en **agregar** en el **Agregar controlador** cuadro de diálogo. El sc
 
 ### <a name="seed-the-database"></a>Valor de inicialización de la base de datos
 
-En el menú Herramientas, seleccione **Administrador de paquetes de biblioteca**y, a continuación, seleccione **Package Manager Console**.
+En el menú Herramientas, seleccione **Administrador de paquetes de NuGet**y, a continuación, seleccione **Package Manager Console**.
 
 En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 

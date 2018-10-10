@@ -1,21 +1,21 @@
 ---
 uid: web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
-title: Prevención de ataques de falsificación (CSRF) de solicitud entre sitios en ASP.NET Web API | Microsoft Docs
+title: Prevención de ataques de falsificación (CSRF) de solicitud entre sitios en ASP.NET MVC
 author: MikeWasson
-description: Describe el ataque de solicitudes entre sitios (CSRF) de la falsificación y cómo implementar medidas de anti-CSRF en ASP.NET Web API.
+description: Describe el ataque de solicitudes entre sitios (CSRF) de la falsificación y cómo implementar medidas de anti-CSRF en Web de ASP.NET MVC.
 ms.author: riande
 ms.date: 12/12/2012
 ms.assetid: 81d46f14-8f48-4d8c-830d-cc8d594dc11b
 msc.legacyurl: /web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 msc.type: authoredcontent
-ms.openlocfilehash: cd7d978190d28a028285746781a380d9bb5f91d4
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c88975d1c205e9d0733bfb4c710b92bc8fdaaa7a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838526"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911502"
 ---
-<a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-web-api"></a>Prevención de ataques de falsificación (CSRF) de solicitud entre sitios en ASP.NET Web API
+<a name="preventing-cross-site-request-forgery-csrf-attacks-in-aspnet-mvc-application"></a>Prevención de ataques de falsificación (CSRF) de solicitudes entre sitios en la aplicación ASP.NET MVC
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 

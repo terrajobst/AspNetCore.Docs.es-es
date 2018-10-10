@@ -8,30 +8,30 @@ ms.date: 06/10/2014
 ms.assetid: d1983524-e0d5-4ee6-9d87-1f552f7cb964
 msc.legacyurl: /signalr/overview/testing-and-debugging/unit-testing-signalr-applications
 msc.type: authoredcontent
-ms.openlocfilehash: c6c57026a54775857921075b176e893b5449d4a5
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ba8f5d4577403fe9765641d7ee5d88bde045680a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828993"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910829"
 ---
 <a name="unit-testing-signalr-applications"></a>Las pruebas unitarias de aplicaciones de SignalR
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher)
 
-> En este artículo se describe el uso de las características de las pruebas unitarias de SignalR 2. 
-> 
+> En este artículo se describe el uso de las características de las pruebas unitarias de SignalR 2.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versiones de software que se usa en este tema
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - Versión 2 de SignalR
->   
-> 
-> 
+>
+>
+>
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
-> 
+>
 > Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar en los comentarios en la parte inferior de la página. Si tiene preguntas que no están directamente relacionados con el tutorial, puede publicarlos en el [foro de ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](http://stackoverflow.com/).
 
 

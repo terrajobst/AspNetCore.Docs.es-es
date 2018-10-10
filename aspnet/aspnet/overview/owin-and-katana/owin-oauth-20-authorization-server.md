@@ -8,33 +8,33 @@ ms.date: 03/20/2014
 ms.assetid: 20acee16-c70c-41e9-b38f-92bfcf9a4c1c
 msc.legacyurl: /aspnet/overview/owin-and-katana/owin-oauth-20-authorization-server
 msc.type: authoredcontent
-ms.openlocfilehash: 2dd4af4543713ab08ad9427d183f667e2dc04f1f
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 095dad49a8e9f963d941a84398afe9da0f46ce0b
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578047"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912272"
 ---
 <a name="owin-oauth-20-authorization-server"></a>Servidor de autorización de OAuth 2.0 de OWIN
 ====================
 por [Hongye Sun](https://github.com/hongyes), [Praburaj Thiagarajan](https://github.com/Praburaj), [Rick Anderson]((https://twitter.com/RickAndMSFT))
 
 > Este tutorial le guiará para implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth. Se trata de un tutorial avanzado que solo se describe los pasos para crear un servidor de autorización de OWIN OAuth 2.0. Esto no es un tutorial paso a paso. [Descargar el código de ejemplo](https://code.msdn.microsoft.com/OWIN-OAuth-20-Authorization-ba2b8783/file/114932/1/AuthorizationServer.zip).
-> 
+>
 > > [!NOTE]
 > > Este esquema no debe ser intencionado que se usará para crear una aplicación de producción seguro. Este tutorial está pensado para proporcionar solo una descripción sobre cómo implementar un servidor de autorización de OAuth 2.0 con middleware de OWIN OAuth.
-> 
-> 
+>
+>
 > ## <a name="software-versions"></a>Versiones de software
-> 
+>
 > | **Se muestra en el tutorial** | **También funciona con** |
 > | --- | --- |
 > | Windows 8.1 | Windows 8, Windows 7 |
-> | [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads) | [Visual Studio 2013 Express para escritorio](https://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express). Visual Studio 2012 con la actualización más reciente debería funcionar, pero el tutorial no se ha probado con él, y algunas opciones de menú y los cuadros de diálogo son diferentes. |
+> | [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013) | [Visual Studio 2013 Express para escritorio](https://my.visualstudio.com/Downloads?q=visual%20studio%202013#d-2013-express). Visual Studio 2012 con la actualización más reciente debería funcionar, pero el tutorial no se ha probado con él, y algunas opciones de menú y los cuadros de diálogo son diferentes. |
 > | .NET 4.5 |  |
-> 
+>
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
-> 
+>
 > Si tiene preguntas que no están directamente relacionados con el tutorial, puede publicarlos en [proyecto Katana en GitHub](https://github.com/aspnet/AspNetKatana/). Para preguntas y comentarios sobre el tutorial en Sí, consulte la sección de comentarios en la parte inferior de la página.
 
 
@@ -81,11 +81,11 @@ El `UseOAuthAuthorizationServer` método de extensión consiste en configurar el
 
 - `AuthorizeEndpointPath`: La ruta de acceso de solicitud que las aplicaciones cliente redirigirá el agente de usuario con el fin de obtener los usuarios de dar su consentimiento para emitir un token o código. Debe comenzar con una barra inicial, por ejemplo, "`/Authorize`".
 - `TokenEndpointPath`: Las aplicaciones de cliente de la ruta de acceso de solicitud se comunican directamente para obtener el token de acceso. Debe comenzar con una barra inicial, como "/ Token". Si el cliente ha emitido una [cliente\_secreto](http://tools.ietf.org/html/rfc6749#appendix-A.2), pero se debe proporcionar a este extremo.
-- `ApplicationCanDisplayErrors`: Establézcalo en `true` si desea implementar la aplicación web generar una página de error personalizado para los errores de validación del cliente en `/Authorize` punto de conexión. Esto solo es necesario para los casos donde no se redirige el Explorador de nuevo a la aplicación cliente, por ejemplo, cuando el `client_id` o `redirect_uri` son incorrectas. El `/Authorize` punto de conexión debería ver la "oauth. Error","oauth. ErrorDescription"y"oauth. Propiedades de ErrorUri"se agregan al entorno OWIN. 
+- `ApplicationCanDisplayErrors`: Establézcalo en `true` si desea implementar la aplicación web generar una página de error personalizado para los errores de validación del cliente en `/Authorize` punto de conexión. Esto solo es necesario para los casos donde no se redirige el Explorador de nuevo a la aplicación cliente, por ejemplo, cuando el `client_id` o `redirect_uri` son incorrectas. El `/Authorize` punto de conexión debería ver la "oauth. Error","oauth. ErrorDescription"y"oauth. Propiedades de ErrorUri"se agregan al entorno OWIN.
 
     > [!NOTE]
     > Si no es true, el servidor de autorización devolverá una página de error predeterminada con los detalles del error.
-- `AllowInsecureHttp`: True para permitir autorizar y solicitudes de token para llegar de direcciones URI HTTP y permitir la entrada `redirect_uri` autorizar a los parámetros de solicitud tenga direcciones URI de HTTP. 
+- `AllowInsecureHttp`: True para permitir autorizar y solicitudes de token para llegar de direcciones URI HTTP y permitir la entrada `redirect_uri` autorizar a los parámetros de solicitud tenga direcciones URI de HTTP.
 
     > [!WARNING]
     > Seguridad: Esto es solamente para desarrollo.
@@ -107,9 +107,9 @@ A continuación se muestra la página de inicio de sesión:
 
 ![](owin-oauth-20-authorization-server/_static/image1.png)
 
-Revise el IETF OAuth 2 [concesión de código de autorización](http://tools.ietf.org/html/rfc6749#section-4.1) sección ahora. 
+Revise el IETF OAuth 2 [concesión de código de autorización](http://tools.ietf.org/html/rfc6749#section-4.1) sección ahora.
 
-**Proveedor** (en la tabla siguiente) es [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Proveedor, que es de tipo `OAuthAuthorizationServerProvider`, que contiene todos los eventos de servidor de OAuth. 
+**Proveedor** (en la tabla siguiente) es [OAuthAuthorizationServerOptions](https://msdn.microsoft.com/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.111).aspx). Proveedor, que es de tipo `OAuthAuthorizationServerProvider`, que contiene todos los eventos de servidor de OAuth.
 
 | Pasos del flujo de la sección de concesión de código de autorización | Descarga de ejemplo lleva a cabo estos pasos con: |
 | --- | --- |
@@ -134,13 +134,13 @@ El `Authorize` acción comprobará primero si el usuario ha iniciado sesión el 
 
 ![](owin-oauth-20-authorization-server/_static/image2.png)
 
-Si el **Grant** botón está seleccionado, el `Authorize` acción creará una nueva identidad de "Bearer" e inicie sesión con el. Desencadenará el servidor de autorización para generar un token de portador y enviar al cliente con la carga de JSON. 
+Si el **Grant** botón está seleccionado, el `Authorize` acción creará una nueva identidad de "Bearer" e inicie sesión con el. Desencadenará el servidor de autorización para generar un token de portador y enviar al cliente con la carga de JSON.
 
 ### <a name="implicit-grant"></a>Concesión implícita
 
 Consulte el IETF OAuth 2 [concesión implícita](http://tools.ietf.org/html/rfc6749#section-4.2) sección ahora.
 
- El [concesión implícita](http://tools.ietf.org/html/rfc6749#section-4.2) flujo que se muestra en la figura 4 es el flujo y asignación que la OAuth de OWIN middleware sigue.  
+ El [concesión implícita](http://tools.ietf.org/html/rfc6749#section-4.2) flujo que se muestra en la figura 4 es el flujo y asignación que la OAuth de OWIN middleware sigue.
 
 | Pasos del flujo de la sección de concesión implícita | Descarga de ejemplo lleva a cabo estos pasos con: |
 | --- | --- |
@@ -159,7 +159,7 @@ Puesto que ya hemos implementado el extremo de autorización (`OAuthController.A
 
 Consulte el IETF OAuth 2 [concesión de credenciales de contraseña de propietario de recursos](http://tools.ietf.org/html/rfc6749#section-4.3) sección ahora.
 
- El [concesión de credenciales de contraseña de propietario de recursos](http://tools.ietf.org/html/rfc6749#section-4.3) flujo que se muestra en la figura 5 es el flujo y asignación que la OAuth de OWIN middleware sigue.  
+ El [concesión de credenciales de contraseña de propietario de recursos](http://tools.ietf.org/html/rfc6749#section-4.3) flujo que se muestra en la figura 5 es el flujo y asignación que la OAuth de OWIN middleware sigue.
 
 | Pasos del flujo de la sección de concesión de credenciales de contraseña de propietario de recursos | Descarga de ejemplo lleva a cabo estos pasos con: |
 | --- | --- |
@@ -182,7 +182,7 @@ Esta es la implementación de ejemplo para `Provider.GrantResourceOwnerCredentia
 
 Consulte el IETF OAuth 2 [concesión de credenciales de cliente](http://tools.ietf.org/html/rfc6749#section-4.4) sección ahora.
 
- El [concesión de credenciales de cliente](http://tools.ietf.org/html/rfc6749#section-4.4) flujo que se muestra en la figura 6 es el flujo y asignación que la OAuth de OWIN middleware sigue.  
+ El [concesión de credenciales de cliente](http://tools.ietf.org/html/rfc6749#section-4.4) flujo que se muestra en la figura 6 es el flujo y asignación que la OAuth de OWIN middleware sigue.
 
 | Pasos del flujo de la sección de concesión de credenciales de cliente | Descarga de ejemplo lleva a cabo estos pasos con: |
 | --- | --- |
@@ -203,7 +203,7 @@ Esta es la implementación de ejemplo para `Provider.GrantClientCredentials`:
 
 Consulte el IETF OAuth 2 [Token de actualización](http://tools.ietf.org/html/rfc6749#section-1.5) sección ahora.
 
- El [Token de actualización](http://tools.ietf.org/html/rfc6749#section-1.5) flujo que se muestra en la figura 2 es el flujo y asignación que la OAuth de OWIN middleware sigue.  
+ El [Token de actualización](http://tools.ietf.org/html/rfc6749#section-1.5) flujo que se muestra en la figura 2 es el flujo y asignación que la OAuth de OWIN middleware sigue.
 
 | Pasos del flujo de la sección de concesión de credenciales de cliente | Descarga de ejemplo lleva a cabo estos pasos con: |
 | --- | --- |
@@ -212,7 +212,7 @@ Consulte el IETF OAuth 2 [Token de actualización](http://tools.ietf.org/html/rf
 |  |  |
 | (H) en el servidor de autorización autentica al cliente y valida el token de actualización y, si es válido, emite un nuevo token de acceso (y, opcionalmente, un nuevo token de actualización). |  |
 
-Esta es la implementación de ejemplo para `Provider.GrantRefreshToken`: 
+Esta es la implementación de ejemplo para `Provider.GrantRefreshToken`:
 
 [!code-csharp[Main](owin-oauth-20-authorization-server/samples/sample9.cs)]
 

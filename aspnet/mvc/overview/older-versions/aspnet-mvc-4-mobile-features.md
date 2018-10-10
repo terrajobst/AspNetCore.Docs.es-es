@@ -8,12 +8,12 @@ ms.date: 08/15/2012
 ms.assetid: 27dc4fc8-1b51-43b0-933f-fc1b52476523
 msc.legacyurl: /mvc/overview/older-versions/aspnet-mvc-4-mobile-features
 msc.type: authoredcontent
-ms.openlocfilehash: 8b82b8b9b1ee6646072931da889c643afb34d474
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6fe55a14b40f8c50dee91cdc7f59d0378f2a1ea2
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578164"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912337"
 ---
 <a name="aspnet-mvc-4-mobile-features"></a>Características para móviles de ASP.NET MVC 4
 ====================
@@ -184,7 +184,7 @@ Cambiar el nombre de *Views\Home\AllTags.Mobile.cshtml* y *Views\Home\AllTags.iP
 
 Instalar el *jQuery.Mobile.MVC* paquete de NuGet haciendo lo siguiente:
 
-1. Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**y, a continuación, seleccione **Package Manager Console**.
+1. Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**y, a continuación, seleccione **Package Manager Console**.
 
     [![p3_packageMgr](aspnet-mvc-4-mobile-features/_static/image20.png)](aspnet-mvc-4-mobile-features/_static/image19.png)
 2. En el **Package Manager Console**, escriba `Install-Package jQuery.Mobile.MVC -version 1.0.0`
@@ -245,11 +245,11 @@ Actualizar el *AllTags* vista en el explorador móvil. Ahora puede desplazarse e
 
 > [!NOTE]
 > Depurar Nota: puede agregar el código siguiente al final de la Views\Shared\\_ViewSwitcher.cshtml para ayudar a depurar las vistas cuando mediante un explorador, la cadena de agente de usuario establecido en un dispositivo móvil.
-> 
+>
 > [!code-csharp[Main](aspnet-mvc-4-mobile-features/samples/sample15.cs)]
-> 
->  y agregar el encabezado siguiente a la *Views\Shared\\_Layout.cshtml* archivo.  
-> 
+>
+>  y agregar el encabezado siguiente a la *Views\Shared\\_Layout.cshtml* archivo.
+>
 > [!code-html[Main](aspnet-mvc-4-mobile-features/samples/sample16.html)]
 
 

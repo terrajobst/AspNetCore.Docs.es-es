@@ -8,40 +8,40 @@ ms.date: 06/10/2014
 ms.assetid: 03960de2-8d95-4444-9169-4426dcc64913
 msc.legacyurl: /signalr/overview/guide-to-the-api/handling-connection-lifetime-events
 msc.type: authoredcontent
-ms.openlocfilehash: 42cf7faf9112875e15072993b6210348d0c42534
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 1783a3ab292a5460d5cc1b7ad78073071d65d379
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828994"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911961"
 ---
 <a name="understanding-and-handling-connection-lifetime-events-in-signalr"></a>Entender y controlar eventos de duración de la conexión en SignalR
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher), [Tom Dykstra](https://github.com/tdykstra)
 
 > En este artículo se proporciona información general de los eventos de conexión, la reconexión y la desconexión de SignalR que se pueden controlar y la configuración de tiempo de espera y keepalive que puede configurar.
-> 
+>
 > Este artículo se supone que ya tiene algunos conocimientos de eventos de duración de la conexión y SignalR. Para obtener una introducción a SignalR, consulte [Introducción a SignalR](../getting-started/introduction-to-signalr.md). Para las listas de eventos de duración de la conexión, consulte los siguientes recursos:
-> 
+>
 > - [Cómo controlar eventos de duración de la conexión en la clase Hub](hubs-api-guide-server.md#connectionlifetime)
 > - [Cómo controlar eventos de duración de la conexión en los clientes de JavaScript](hubs-api-guide-javascript-client.md#connectionlifetime)
 > - [Cómo controlar eventos de duración de la conexión en los clientes de .NET](hubs-api-guide-net-client.md#connectionlifetime)
-> 
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versiones de software que se usa en este tema
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - Versión 2 de SignalR
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versiones anteriores de este tema.
-> 
+>
 > Para obtener información acerca de las versiones anteriores de SignalR, consulte [versiones anteriores de SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
-> 
+>
 > Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar en los comentarios en la parte inferior de la página. Si tiene preguntas que no están directamente relacionados con el tutorial, puede publicarlos en el [foro de ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -144,8 +144,8 @@ Las interrupciones de la conexión de transporte que no se detectan mediante la 
 
 Algunos entornos de red deliberadamente cerrar las conexiones inactivas y otra función de los paquetes keepalive es ayudar a evitar que esto al permitir que estas redes se sabe que una conexión de SignalR está en uso. En casos extremos la frecuencia predeterminada de pings keepalive no podría ser suficiente para impedir las conexiones cerradas. En ese caso puede configurar keepalive pings se envíen con más frecuencia. Para obtener más información, consulte [tiempo de espera y keepalive](#timeoutkeepalive) más adelante en este tema.
 
-> [!NOTE] 
-> 
+> [!NOTE]
+>
 > **Importante**: no se garantiza que la secuencia de eventos que se describen aquí. SignalR realiza todos los intentos para provocar eventos de duración de la conexión de una manera predecible según este esquema, pero existen muchas variaciones de eventos de la red y de muchas maneras en que los marcos de comunicaciones subyacente como las API de transporte de controlan. Por ejemplo, el `Reconnected` no es posible que se produce el evento cuando se vuelve a conectar el cliente, o la `OnConnected` controlador en el servidor puede ejecutar si el intento para establecer una conexión es incorrecto. Este tema describe únicamente los efectos que normalmente se generarían en determinadas circunstancias típicas.
 
 

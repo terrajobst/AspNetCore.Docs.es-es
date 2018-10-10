@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: cd378ecd-3e9e-4236-b902-65916d85a048
 msc.legacyurl: /signalr/overview/guide-to-the-api/working-with-groups
 msc.type: authoredcontent
-ms.openlocfilehash: 31dd3239e2e0cd919c23419459bc43ae8e1a6437
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 75ef2998efe4d9bcea62c4a42a2043e2dabd6d85
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828557"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911516"
 ---
 <a name="working-with-groups-in-signalr"></a>Trabajar con grupos en SignalR
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> Este tema describe cómo agregar usuarios a grupos y conservar la información de pertenencia a grupo. 
-> 
+> Este tema describe cómo agregar usuarios a grupos y conservar la información de pertenencia a grupo.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versiones de software que se usa en este tema
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - Versión 2 de SignalR
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versiones anteriores de este tema.
-> 
+>
 > Para obtener información acerca de las versiones anteriores de SignalR, consulte [versiones anteriores de SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
-> 
+>
 > Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar en los comentarios en la parte inferior de la página. Si tiene preguntas que no están directamente relacionados con el tutorial, puede publicarlos en el [foro de ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -81,13 +81,13 @@ En general, no debe incluir `await` al llamar a la `Groups.Remove` método porqu
 
 Puede enviar mensajes a todos los miembros de un grupo o solo los miembros especificados del grupo, tal como se muestra en los ejemplos siguientes.
 
-- **Todos los** conectado a los clientes en un grupo especificado. 
+- **Todos los** conectado a los clientes en un grupo especificado.
 
     [!code-css[Main](working-with-groups/samples/sample3.css)]
-- Todos los clientes en un grupo especificado conectados **excepto los clientes especificados**, identificado por el identificador de conexión. 
+- Todos los clientes en un grupo especificado conectados **excepto los clientes especificados**, identificado por el identificador de conexión.
 
     [!code-csharp[Main](working-with-groups/samples/sample4.cs)]
-- Todos los clientes en un grupo especificado conectados **excepto el cliente que realiza la llamada**. 
+- Todos los clientes en un grupo especificado conectados **excepto el cliente que realiza la llamada**.
 
     [!code-css[Main](working-with-groups/samples/sample5.css)]
 

@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 66a837e9-600b-4b72-97a9-19804231c64a
 msc.legacyurl: /web-api/overview/testing-and-debugging/tracing-in-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 426e3500c504a651a325eec021e2d9e8b9cc1d32
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: e0d525e497cf41a79820417a9c832fa6b5cd7f8a
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795285"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912844"
 ---
 <a name="tracing-in-aspnet-web-api-2"></a>Seguimiento en ASP.NET Web API 2
 ====================
@@ -37,7 +37,7 @@ Elija la plantilla de proyecto Web API.
 
 [![](tracing-in-aspnet-web-api/_static/image4.png)](tracing-in-aspnet-web-api/_static/image3.png)
 
-Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, **consola de administración de paquetes**.
+Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, **consola de administración de paquetes**.
 
 En la ventana de consola de administrador de paquetes, escriba los siguientes comandos.
 
@@ -47,7 +47,6 @@ El primer comando instala el paquete más reciente de seguimiento de API Web. Ta
 
 > [!NOTE]
 > Si desea tener como destino una versión específica de la API Web, utilice-marca de versión cuando se instala el paquete de seguimiento.
-
 
 Abra el archivo WebApiConfig.cs en la aplicación\_carpeta de inicio. Agregue el código siguiente a la **registrar** método.
 

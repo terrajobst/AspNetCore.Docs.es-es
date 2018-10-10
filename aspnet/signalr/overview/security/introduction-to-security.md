@@ -8,34 +8,34 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 62f835349697d02ebe7363b00a032a5353d3dfc2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836667"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910865"
 ---
 <a name="introduction-to-signalr-security"></a>Introducción a la seguridad de SignalR
 ====================
 por [Patrick Fletcher](https://github.com/pfletcher), [Tom FitzMacken](https://github.com/tfitzmac)
 
-> En este artículo se describe los problemas de seguridad que debe tener en cuenta al desarrollar una aplicación de SignalR. 
-> 
+> En este artículo se describe los problemas de seguridad que debe tener en cuenta al desarrollar una aplicación de SignalR.
+>
 > ## <a name="software-versions-used-in-this-topic"></a>Versiones de software que se usa en este tema
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - .NET 4.5
 > - Versión 2 de SignalR
->   
-> 
-> 
+>
+>
+>
 > ## <a name="previous-versions-of-this-topic"></a>Versiones anteriores de este tema.
-> 
+>
 > Para obtener información acerca de las versiones anteriores de SignalR, consulte [versiones anteriores de SignalR](../older-versions/index.md).
-> 
+>
 > ## <a name="questions-and-comments"></a>Preguntas y comentarios
-> 
+>
 > Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar en los comentarios en la parte inferior de la página. Si tiene preguntas que no están directamente relacionados con el tutorial, puede publicarlos en el [foro de ASP.NET SignalR](https://forums.asp.net/1254.aspx/1?ASP+NET+SignalR) o [StackOverflow.com](http://stackoverflow.com/).
 
 
@@ -108,7 +108,7 @@ Este es un ejemplo de un ataque CSRF:
 
 1. Un usuario inicia sesión en www.example.com, utilizando la autenticación de formularios.
 2. El servidor autentica al usuario. La respuesta del servidor incluye una cookie de autenticación.
-3. Sin cerrar la sesión, el usuario visita un sitio web malicioso. Este sitio malintencionado contiene el siguiente formulario HTML: 
+3. Sin cerrar la sesión, el usuario visita un sitio web malicioso. Este sitio malintencionado contiene el siguiente formulario HTML:
 
     [!code-html[Main](introduction-to-security/samples/sample1.html)]
 
@@ -124,12 +124,9 @@ Normalmente, los ataques CSRF son posibles con sitios web que usan cookies para 
 
 SignalR realiza los pasos siguientes para evitar que un sitio malintencionado creen solicitudes válidas para la aplicación. SignalR realiza estos pasos de forma predeterminada, no es necesario realizar ninguna acción en el código.
 
-- **Deshabilitar las solicitudes entre dominios**  
- SignalR deshabilita las solicitudes entre dominios para evitar que los usuarios de la llamada a un punto de conexión SignalR desde un dominio externo. SignalR se considera que cualquier solicitud de un dominio externo no es válido y bloquea la solicitud. Se recomienda que mantenga este comportamiento predeterminado; en caso contrario, un sitio malintencionado podría engañar a los usuarios enviar comandos a su sitio. Si necesita usar solicitudes entre dominios, consulte [cómo establecer una conexión entre dominios](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
-- **Pasar el token de conexión en la cadena de consulta, no en cookies**  
- SignalR pasa el token de conexión como un valor de cadena de consulta, en lugar de como una cookie. Dado que el explorador puede reenviar accidentalmente el token de conexión cuando se encuentra el código malintencionado no es seguro almacenar el token de conexión en una cookie. Además, pasando el token de conexión en la cadena de consulta impide que el token de conexión almacenar más allá de la conexión actual. Por lo tanto, un usuario malintencionado no puede realizar una solicitud con credenciales de autenticación de otro usuario.
-- **Comprobar el token de conexión**  
- Como se describe en el [token de conexión](#connectiontoken) sección, el servidor sabe qué identificador de conexión está asociado a cada usuario autenticado. El servidor no procesa cualquier solicitud de un identificador de conexión que no coincide con el nombre de usuario. No es probable que un usuario malintencionado pueda adivinar una solicitud válida porque el usuario malintencionado tendría que conocer el nombre de usuario y el identificador de conexión generada aleatoriamente actual. Id. de esa conexión deja de ser válido tan pronto como finaliza la conexión. Los usuarios anónimos no deben tener acceso a información confidencial.
+- **Deshabilitar las solicitudes entre dominios** SignalR deshabilita las solicitudes entre dominios para evitar que los usuarios de la llamada a un punto de conexión SignalR desde un dominio externo. SignalR se considera que cualquier solicitud de un dominio externo no es válido y bloquea la solicitud. Se recomienda que mantenga este comportamiento predeterminado; en caso contrario, un sitio malintencionado podría engañar a los usuarios enviar comandos a su sitio. Si necesita usar solicitudes entre dominios, consulte [cómo establecer una conexión entre dominios](../guide-to-the-api/hubs-api-guide-javascript-client.md#crossdomain) .
+- **Pasar el token de conexión en la cadena de consulta, cookie no** SignalR pasa el token de conexión como un valor de cadena de consulta, en lugar de como una cookie. Dado que el explorador puede reenviar accidentalmente el token de conexión cuando se encuentra el código malintencionado no es seguro almacenar el token de conexión en una cookie. Además, pasando el token de conexión en la cadena de consulta impide que el token de conexión almacenar más allá de la conexión actual. Por lo tanto, un usuario malintencionado no puede realizar una solicitud con credenciales de autenticación de otro usuario.
+- **Comprobar conexión token** como se describe en el [token de conexión](#connectiontoken) sección, el servidor sabe qué identificador de conexión está asociado a cada usuario autenticado. El servidor no procesa cualquier solicitud de un identificador de conexión que no coincide con el nombre de usuario. No es probable que un usuario malintencionado pueda adivinar una solicitud válida porque el usuario malintencionado tendría que conocer el nombre de usuario y el identificador de conexión generada aleatoriamente actual. Id. de esa conexión deja de ser válido tan pronto como finaliza la conexión. Los usuarios anónimos no deben tener acceso a información confidencial.
 
 <a id="recommendations"></a>
 

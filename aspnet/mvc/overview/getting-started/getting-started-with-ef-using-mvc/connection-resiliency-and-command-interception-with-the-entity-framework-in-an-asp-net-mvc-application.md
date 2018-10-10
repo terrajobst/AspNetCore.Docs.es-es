@@ -8,21 +8,20 @@ ms.date: 01/13/2015
 ms.assetid: c89d809f-6c65-4425-a3fa-c9f6e8ac89f2
 msc.legacyurl: /mvc/overview/getting-started/getting-started-with-ef-using-mvc/connection-resiliency-and-command-interception-with-the-entity-framework-in-an-asp-net-mvc-application
 msc.type: authoredcontent
-ms.openlocfilehash: 9b326ec22fc70a8c1746c5cd2c302c7f04fa8d3e
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: ab6a553100d704746840eaad512ec140d4576c44
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836337"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911791"
 ---
 <a name="connection-resiliency-and-command-interception-with-the-entity-framework-in-an-aspnet-mvc-application"></a>Resistencia de conexión e intercepción de comandos con Entity Framework en una aplicación ASP.NET MVC
 ====================
 por [Tom Dykstra](https://github.com/tdykstra)
 
-[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8) o [descargar PDF](http://download.microsoft.com/download/0/F/B/0FBFAA46-2BFD-478F-8E56-7BF3C672DF9D/Getting%20Started%20with%20Entity%20Framework%206%20Code%20First%20using%20MVC%205.pdf)
+[Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-MVC-Application-b01a9fe8)
 
-> La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio 2013. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
-
+> La aplicación web de Contoso University muestra cómo crear aplicaciones de ASP.NET MVC 5 con Entity Framework 6 Code First y Visual Studio. Para obtener información sobre la serie de tutoriales, consulte [el primer tutorial de la serie](creating-an-entity-framework-data-model-for-an-asp-net-mvc-application.md).
 
 Hasta ahora la aplicación se ejecutaba localmente en IIS Express en el equipo de desarrollo. Para que una aplicación real disponible para otras personas a través de Internet, tendrá que implementarlo en un proveedor de hospedaje web, y se debe implementar la base de datos a un servidor de base de datos.
 
@@ -73,7 +72,7 @@ También puede usar intercepción de consulta con el fin de implementar una prá
 
 ### <a name="create-a-logging-interface-and-class"></a>Crear una interfaz de registro y la clase
 
-Un [recomendado para el registro](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) es hacerlo mediante una interfaz en lugar de codificar de forma rígida las llamadas a System.Diagnostics.Trace o a una clase de registro. Que resulta más fácil cambiar su mecanismo de registro más adelante si necesita hacerlo. Por lo que en esta sección creará la interfaz de registro y una clase para implementar lo/p > 
+Un [recomendado para el registro](../../../../aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry.md#log) es hacerlo mediante una interfaz en lugar de codificar de forma rígida las llamadas a System.Diagnostics.Trace o a una clase de registro. Que resulta más fácil cambiar su mecanismo de registro más adelante si necesita hacerlo. Por lo que en esta sección creará la interfaz de registro y una clase para implementar lo/p >
 
 1. Cree una carpeta en el proyecto y denomínelo *registro*.
 2. En el *registro* carpeta, cree un archivo de clase denominado *ILogger.cs*y reemplace el código de plantilla con el código siguiente:
@@ -138,7 +137,7 @@ A continuación creará las clases que Entity Framework llamará a cada vez que 
 
 ## <a name="test-logging-and-connection-resiliency"></a>Resistencia de conexión y registro de prueba
 
-1. Presione F5 para ejecutar la aplicación en modo de depuración y, a continuación, haga clic en el **estudiantes** ficha.
+1. Presione **F5** para ejecutar la aplicación en modo de depuración y, a continuación, haga clic en el **estudiantes** ficha.
 2. Examine el Visual Studio **salida** ventana para ver los resultados del seguimiento. Es posible que deba desplazarse hacia arriba, más allá de algunos errores de JavaScript para llegar a los registros escritos por el registrador.
 
     Tenga en cuenta que puede ver las consultas SQL reales que se envían a la base de datos. Verá algunas consultas iniciales y los comandos que Entity Framework realiza para comenzar, comprobación de la versión de la base de datos y tabla de historial de migración (obtendrá información sobre las migraciones en el tutorial siguiente). Y verá una consulta para la paginación, para averiguar cuántos alumnos hay, y, por último, verá que la consulta que obtiene los datos de estudiante.
@@ -172,7 +171,7 @@ A continuación creará las clases que Entity Framework llamará a cada vez que 
 
 En este tutorial, ha visto cómo habilitar la resistencia de conexión y los comandos SQL que Entity Framework crea y envía a la base de datos de registro. En el siguiente tutorial, va a implementar la aplicación a Internet, mediante migraciones de Code First para implementar la base de datos.
 
-Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar. También puede solicitar nuevos temas en [mostrar Me cómo con código](http://aspnet.uservoice.com/forums/228522-show-me-how-with-code).
+Deje comentarios sobre cómo le gustó de este tutorial y que podíamos mejorar.
 
 Pueden encontrar vínculos a otros recursos de Entity Framework en [acceso a datos de ASP.NET - recursos recomendados](../../../../whitepapers/aspnet-data-access-content-map.md).
 

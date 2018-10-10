@@ -8,12 +8,12 @@ ms.date: 07/16/2014
 ms.assetid: 4fe2558d-67cc-4d12-a5c1-6fb9f6f16137
 msc.legacyurl: /visual-studio/overview/2013/one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: b6ac0dca92ab3d75eb871099882dcea549264354
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: c18911680b59448cd67190f71e951a3fcf3d0478
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838765"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912740"
 ---
 <a name="hands-on-lab-one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api"></a>Laboratorio práctico: One ASP.NET: integrar formularios Web Forms ASP.NET, MVC y Web API
 ====================
@@ -372,7 +372,7 @@ En esta tarea usará el Explorador de Internet **herramientas de desarrollo F12*
 
 Cuando se crea una API Web, es útil crear una página de ayuda para que otros desarrolladores sepan cómo llamar a la API. Puede crear y actualizar manualmente las páginas de documentación, pero es mejor para evitar tener que realizar trabajo de mantenimiento genere automáticamente. En esta tarea usará un paquete Nuget para generar automáticamente las páginas de Ayuda de API Web a la solución.
 
-1. Desde el **herramientas** menú en Visual Studio, seleccione **Administrador de paquetes de biblioteca**y, a continuación, haga clic en **Package Manager Console**.
+1. Desde el **herramientas** menú en Visual Studio, seleccione **Administrador de paquetes de NuGet**y, a continuación, haga clic en **Package Manager Console**.
 2. En el **Package Manager Console** ventana, ejecute el siguiente comando:
 
     [!code-powershell[Main](one-aspnet-integrating-aspnet-web-forms-mvc-and-web-api/samples/sample7.ps1)]

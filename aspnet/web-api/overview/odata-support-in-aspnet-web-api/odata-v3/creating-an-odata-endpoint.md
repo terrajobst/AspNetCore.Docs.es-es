@@ -8,12 +8,12 @@ ms.date: 02/25/2014
 ms.assetid: 262843d6-43a2-4f1c-82d9-0b90ae6df0cf
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-v3/creating-an-odata-endpoint
 msc.type: authoredcontent
-ms.openlocfilehash: 654f697c8d095d45ba31e2808c52f9ad24b606c8
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 2e0d3b45fd51192d227d852dc2f05b45ca42944c
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835762"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48910920"
 ---
 <a name="creating-an-odata-v3-endpoint-with-web-api-2"></a>Creación de un punto de conexión de OData v3 con Web API 2
 ====================
@@ -22,18 +22,18 @@ por [Mike Wasson](https://github.com/MikeWasson)
 [Descargue el proyecto completado](http://code.msdn.microsoft.com/ASPNET-Web-API-OData-cecdb524)
 
 > El [Open Data Protocol](http://www.odata.org/) (OData) es un protocolo de acceso a datos para la web. OData proporciona una manera uniforme para estructurar datos, consultar los datos y manipular el conjunto de datos a través de las operaciones CRUD (crear, leer, actualizar y eliminar). OData admite formatos JSON y AtomPub (XML). OData también define un método para exponer metadatos sobre los datos. Los clientes pueden usar los metadatos para detectar la información de tipos y relaciones para el conjunto de datos.
-> 
+>
 > ASP.NET Web API facilita la creación de un extremo de OData para un conjunto de datos. Puede controlar exactamente qué operaciones de OData en el extremo admite. Puede hospedar varios puntos de conexión de OData, junto con los puntos de conexión no OData. Tiene control total sobre su modelo de datos, la lógica de negocios de back-end y la capa de datos.
-> 
+>
 > ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
-> 
-> 
-> - [Visual Studio 2013](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+>
+> - [Visual Studio 2013](https://my.visualstudio.com/Downloads?q=visual%20studio%202013)
 > - Web API 2
 > - OData versión 3
 > - Entity Framework 6
 > - [(Opcional) de Proxy de depuración de Web de Fiddler](http://www.fiddler2.com)
-> 
+>
 > Se agregó compatibilidad con la Web API OData en [ASP.NET y Web Tools 2012.2 Update](https://go.microsoft.com/fwlink/?LinkId=282650). Sin embargo, en este tutorial se usa scaffolding que se agregó en Visual Studio 2013.
 
 
@@ -154,7 +154,7 @@ El primer parámetro es un nombre descriptivo para la ruta. Los clientes del ser
 
 En este paso, usará Entity Framework para inicializar la base de datos con algunos datos de prueba. Este paso es opcional, pero le permite probar el punto de conexión de OData de inmediato.
 
-Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-console[Main](creating-an-odata-endpoint/samples/sample5.cmd)]
 
@@ -240,7 +240,7 @@ OData admite varios formatos de serialización:
 - JSON "light" (introducida en OData v3)
 - JSON "detallado" (OData v2)
 
-De forma predeterminada, API Web usa el formato de AtomPubJSON "light". 
+De forma predeterminada, API Web usa el formato de AtomPubJSON "light".
 
 Para obtener el formato AtomPub, establezca el encabezado Accept "aplicación/Atom+XML". Este es un cuerpo de respuesta de ejemplo:
 

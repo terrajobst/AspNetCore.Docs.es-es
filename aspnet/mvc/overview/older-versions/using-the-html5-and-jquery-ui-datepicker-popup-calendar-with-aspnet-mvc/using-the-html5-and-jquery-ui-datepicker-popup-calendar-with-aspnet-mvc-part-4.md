@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: 57666c69-2b0f-423a-a61d-be49547fa585
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4
 msc.type: authoredcontent
-ms.openlocfilehash: 7ecd180b7608e82ea143575c6590574b92843dcf
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 6768472b0c75757c9f368cfea58d5084c26719e1
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577501"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913169"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-4"></a>Uso de HTML5 y calendario emergente de la interfaz de usuario Datepicker de jQuery con ASP.NET MVC - parte 4
 ====================
@@ -76,13 +76,13 @@ En esta sección agregará el [datepicker de jQuery UI](http://jqueryui.com/demo
 
 En primer lugar, debe instalar las bibliotecas de interfaz de usuario de jQuery. Para ello, deberá usar NuGet, que es un administrador de paquetes que se incluye en las versiones de SP1 de Visual Studio 2010 y Visual Web Developer.
 
-En Visual Web Developer, desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca** y, a continuación, seleccione **administrar paquetes de NuGet**.
+En Visual Web Developer, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet** y, a continuación, seleccione **administrar paquetes de NuGet**.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image3.png)
 
-Nota: Si el **herramientas** menú no se muestra el **Administrador de paquetes de biblioteca** de comandos, deberá instalar NuGet, siga las instrucciones de la [instalación de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) página de el sitio Web de NuGet.   
+Nota: Si el **herramientas** menú no se muestra el **Administrador de paquetes de NuGet** de comandos, deberá instalar NuGet, siga las instrucciones de la [instalación de NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) página de el sitio Web de NuGet.   
   
-Si usa Visual Studio en lugar de Visual Web Developer, desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca** y, a continuación, seleccione **Agregar referencia de paquetes de biblioteca**.
+Si usa Visual Studio en lugar de Visual Web Developer, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet** y, a continuación, seleccione **Agregar referencia de paquetes de biblioteca**.
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-4/_static/image4.png)
 

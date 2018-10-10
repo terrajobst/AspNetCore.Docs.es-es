@@ -8,12 +8,12 @@ ms.date: 09/27/2013
 ms.assetid: 6dae249f-5ac6-4f6e-bc49-13bcd5a54a70
 msc.legacyurl: /aspnet/overview/owin-and-katana/getting-started-with-owin-and-katana
 msc.type: authoredcontent
-ms.openlocfilehash: f400ec887bdee123084f582d18016fb5ed3f2165
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9920861da0e67d9304a944cacfb8ff8685267cd6
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829620"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48913182"
 ---
 <a name="getting-started-with-owin-and-katana"></a>Introducción a OWIN y Katana
 ====================
@@ -39,7 +39,7 @@ En el **nuevo proyecto ASP.NET** cuadro de diálogo, seleccione el **vacía** pl
 
 ### <a name="add-nuget-packages"></a>Agregar paquetes de NuGet
 
-A continuación, agregue los paquetes de NuGet necesarios. Desde el **herramientas** menú, seleccione **Administrador de paquetes de biblioteca**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
+A continuación, agregue los paquetes de NuGet necesarios. Desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 `install-package Microsoft.Owin.Host.SystemWeb –Pre`
 
@@ -105,7 +105,6 @@ Ahora utilice CTRL + F5 para ejecutar la aplicación sin depuración, para que V
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- 
-  [Detección de la clase de inicio OWIN](owin-startup-class-detection.md)
+- [Detección de la clase de inicio OWIN](owin-startup-class-detection.md)
 - [Use OWIN para autohospedaje de ASP.NET Web API](../../../web-api/overview/hosting-aspnet-web-api/use-owin-to-self-host-web-api.md)
 - [Use OWIN para autohospedaje de SignalR](../../../signalr/overview/deployment/tutorial-signalr-self-host.md)

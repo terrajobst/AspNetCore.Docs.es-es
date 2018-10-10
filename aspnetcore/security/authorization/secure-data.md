@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear una aplicación de páginas 
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 2fb13f0772a1f8aa4ed2ff3ece2a2c5d3b7360c9
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010941"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912636"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -350,6 +350,7 @@ Probar que la aplicación había propagado la base de datos. Si no hay ninguna f
 
 ### <a name="additional-resources"></a>Recursos adicionales
 
+* [Compilar una aplicación web de .NET Core y SQL Database en Azure App Service](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 * [Laboratorio de autorización de ASP.NET Core](https://github.com/blowdart/AspNetAuthorizationWorkshop). Este laboratorio explica con más detalle en las características de seguridad, presentadas en este tutorial.
 * [Autorización en ASP.NET Core: Simple, en roles, basada en notificaciones y personalizada](xref:security/authorization/index)
 * [Autorización personalizada basada en directivas](xref:security/authorization/policies)

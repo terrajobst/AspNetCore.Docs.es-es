@@ -8,12 +8,12 @@ ms.date: 06/12/2014
 ms.assetid: 1bc333c5-f096-4ea7-b170-779accc21c1a
 msc.legacyurl: /aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application
 msc.type: authoredcontent
-ms.openlocfilehash: 435ee61a9c28ad0035457990cd3a889f5b240517
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: de3c8ea29f2c271136f58d8165bb92f4ab28ce83
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795543"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912831"
 ---
 <a name="appendix-the-fix-it-sample-application-building-real-world-cloud-apps-with-azure"></a>Apéndice: Corrección de la aplicación de ejemplo (creación de aplicaciones de nube reales con Azure)
 ====================
@@ -221,7 +221,7 @@ Hay dos maneras de ejecutar la aplicación Fix It:
 4. En el Explorador de archivos, haga clic en el archivo .zip y propiedades, haga clic en la ventana Propiedades, haga clic en Desbloquear.
 5. Descomprima el archivo.
 6. Haga doble clic en el archivo .sln para iniciar Visual Studio.
-7. En el menú Herramientas, haga clic en Administrador de paquetes de biblioteca y, después, en la consola de administrador de paquetes.
+7. Desde el **herramientas** menú, haga clic en **Administrador de paquetes de NuGet**, a continuación, **Package Manager Console**.
 8. En la consola de administrador de paquetes (PMC), haga clic en restaurar.
 9. Salga de Visual Studio.
 10. Iniciar el [emulador de Azure storage](/azure/storage/common/storage-use-emulator).
