@@ -4,14 +4,14 @@ author: guardrex
 description: Aprenda a hospedar una aplicación ASP.NET Core en un servicio de Windows.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/04/2018
+ms.date: 09/25/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: 68afe77b05a717cffecc32188f18e9fde208b81f
-ms.sourcegitcommit: 3ca20ed63bf1469f4365f0c1fbd00c98a3191c84
+ms.openlocfilehash: eb88b0bb2e9ce4cfd3a7db2081ad7d62d5dcb08e
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41751450"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211044"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
@@ -21,13 +21,13 @@ Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
-## <a name="get-started"></a>Primeros pasos
+## <a name="convert-a-project-into-a-windows-service"></a>Convertir un proyecto en un servicio de Windows
 
-Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET Core existente para que se ejecute en un servicio:
+Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET Core existente para que se ejecute como un servicio:
 
 1. El archivo del proyecto:
 
-   1. Confirme la presencia del identificador en tiempo de ejecución o agregarlo al **\<PropertyGroup>** que contiene el marco de destino:
+   * Confirme la presencia del [identificador en tiempo de ejecución](/dotnet/core/rid-catalog) de Windows o agréguelo al `<PropertyGroup>` que contiene la plataforma de destino:
 
       ::: moniker range=">= aspnetcore-2.1"
 
@@ -62,7 +62,14 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
 
       ::: moniker-end
 
-   1. Agregue una referencia de paquete de [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices/).
+      Para publicar para varios RID:
+
+      * Proporcione los RID en una lista delimitada por punto y coma.
+      * Use el nombre de la propiedad `<RuntimeIdentifiers>` (plural).
+
+      Para más información, vea el [Catálogo de identificadores de entorno de ejecución (RID) de .NET Core](/dotnet/core/rid-catalog).
+
+   * Agregue una referencia de paquete de [Microsoft.AspNetCore.Hosting.WindowsServices](https://www.nuget.org/packages/Microsoft.AspNetCore.Hosting.WindowsServices).
 
 1. Realice los siguientes cambios en `Program.Main`.
 
@@ -84,10 +91,10 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
 
 1. Publique la aplicación. Use [dotnet publish](/dotnet/articles/core/tools/dotnet-publish) o un [perfil de publicación de Visual Studio](xref:host-and-deploy/visual-studio-publish-profiles). Al utilizar Visual Studio, seleccione **FolderProfile**.
 
-   Para publicar la aplicación de ejemplo desde la línea de comandos, ejecute el siguiente comando en una ventana de la consola desde la carpeta de proyecto:
+   Para publicar la aplicación de ejemplo mediante herramientas de la interfaz de la línea de comandos (CLI), ejecute el comando [dotnet publish](/dotnet/core/tools/dotnet-publish) en un símbolo del sistema desde la carpeta del proyecto. El identificador relativo debe especificarse en la propiedad `<RuntimeIdenfifier>` o `<RuntimeIdentifiers>` del archivo del proyecto. En el ejemplo siguiente, la aplicación se publica en la configuración de lanzamiento para `win7-x64` en tiempo de ejecución:
 
    ```console
-   dotnet publish --configuration Release
+   dotnet publish --configuration Release --runtime win7-x64
    ```
 
 1. Use la herramienta de línea de comandos [sc.exe](https://technet.microsoft.com/library/bb490995) para crear el servicio. El valor `binPath` es la ruta de acceso al archivo ejecutable de la aplicación, que incluye el nombre del archivo ejecutable. **El espacio entre el signo igual y las comillas al inicio de la cadena de ruta de acceso es obligatorio.**
@@ -98,7 +105,7 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
 
    En el caso de un servicio publicado en la carpeta del proyecto, use la ruta de acceso a la carpeta *publish* para crear el servicio. En el ejemplo siguiente:
 
-   * El proyecto se encuentra en la carpeta `c:\my_services\AspNetCoreService`.
+   * El proyecto reside en la carpeta *c:\\my_services\\AspNetCoreService*.
    * El proyecto se publica en la configuración `Release`.
    * El moniker de la plataforma de destino (TFM) es `netcoreapp2.1`.
    * El identificador del entorno de ejecución (RID) es `win7-x64`.
@@ -110,14 +117,14 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
    ```console
    sc create MyService binPath= "c:\my_services\AspNetCoreService\bin\Release\netcoreapp2.1\win7-x64\publish\AspNetCoreService.exe"
    ```
-   
+
    > [!IMPORTANT]
    > No olvide incluir el espacio entre el argumento `binPath=` y su valor.
-   
+
    Para publicar e iniciar el servicio desde otra carpeta:
-   
-      1. Use la opción [--output &lt;DIRECTORIO_DE_SALIDA&gt;](/dotnet/core/tools/dotnet-publish#options) en el comando `dotnet publish`. Si utiliza Visual Studio, configure el valor **Ubicación de destino** de la página de la propiedad de publicación **FolderProfile** antes de hacer clic en el botón **Publicar**.
-   1. Cree el servicio con el comando `sc.exe` utilizando la ruta de acceso de la carpeta de salida. Incluya el nombre del archivo ejecutable del servicio en la ruta de acceso proporcionada a `binPath`.
+
+      * Use la opción [--output &lt;DIRECTORIO_DE_SALIDA&gt;](/dotnet/core/tools/dotnet-publish#options) en el comando `dotnet publish`. Si utiliza Visual Studio, configure el valor **Ubicación de destino** de la página de la propiedad de publicación **FolderProfile** antes de hacer clic en el botón **Publicar**.
+      * Cree el servicio con el comando `sc.exe` utilizando la ruta de acceso de la carpeta de salida. Incluya el nombre del archivo ejecutable del servicio en la ruta de acceso proporcionada a `binPath`.
 
 1. Inicie el servicio con el comando `sc start <SERVICE_NAME>`.
 
@@ -129,7 +136,7 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
 
    Este comando tarda unos segundos en iniciar el servicio.
 
-1. El comando `sc query <SERVICE_NAME>` se puede usar para comprobar el estado del servicio con objeto de conocer su estado:
+1. Para comprobar el estado del servicio, use el comando `sc query <SERVICE_NAME>`. El estado se notifica como uno de los siguientes valores:
 
    * `START_PENDING`
    * `RUNNING`
@@ -168,7 +175,7 @@ Estos son los cambios mínimos necesarios para configurar un proyecto de ASP.NET
    sc delete MyService
    ```
 
-## <a name="provide-a-way-to-run-outside-of-a-service"></a>Proporcionar una forma de ejecutar la aplicación fuera de un servicio
+## <a name="run-the-app-outside-of-a-service"></a>Ejecutar la aplicación fuera de un servicio
 
 Probar y depurar una aplicación resulta más sencillo cuando se ejecuta fuera de un servicio, por lo que es habitual agregar código que llame a `RunAsService` solo bajo determinadas condiciones. Por ejemplo, la aplicación se puede ejecutar como una aplicación de consola con un argumento de línea de comandos `--console` o si el depurador está asociado:
 
@@ -232,7 +239,7 @@ Especifique una [configuración de punto de conexión HTTPS de servidor Kestrel]
 
 ## <a name="current-directory-and-content-root"></a>Directorio actual y raíz del contenido
 
-El directorio de trabajo actual devuelto por una llamada a `Directory.GetCurrentDirectory()` para un servicio de Windows es la carpeta *C:\WINDOWS\system32*. La carpeta *system32* no es una ubicación adecuada para almacenar los archivos de un servicio (por ejemplo los archivos de configuración). Use uno de los enfoques siguientes para mantener y acceder a los recursos y los archivos de configuración de un servicio con [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) cuando se usa una interfaz [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
+El directorio de trabajo actual devuelto por una llamada a `Directory.GetCurrentDirectory()` para un servicio de Windows es la carpeta *C:\\WINDOWS\\system32*. La carpeta *system32* no es una ubicación adecuada para almacenar los archivos de un servicio (por ejemplo los archivos de configuración). Use uno de los enfoques siguientes para mantener y acceder a los recursos y los archivos de configuración de un servicio con [FileConfigurationExtensions.SetBasePath](/dotnet/api/microsoft.extensions.configuration.fileconfigurationextensions.setbasepath) cuando se usa una interfaz [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder):
 
 * Use la ruta de acceso raíz del contenido. `IHostingEnvironment.ContentRootPath` es la misma ruta de acceso proporcionada al argumento `binPath` cuando se crea el servicio. En lugar de usar `Directory.GetCurrentDirectory()` para crear rutas de acceso a los archivos de configuración, use la ruta de acceso raíz del contenido y mantenga los archivos en la raíz de contenido de la aplicación.
 * Almacene los archivos en una ubicación adecuada en el disco. Especifique una ruta de acceso absoluta con `SetBasePath` a la carpeta que contiene los archivos.

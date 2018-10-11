@@ -1,22 +1,22 @@
 ---
-title: Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
+title: Asistente de etiquetas de caché en ASP.NET Core MVC
 author: pkellner
-description: Muestra cómo trabajar con la aplicación auxiliar de etiqueta de caché
+description: Obtenga información sobre cómo usar el asistente de etiquetas de caché.
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 425d8c2235f0070665bc0c967d2498f2cff2a4a6
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 11754d2858d8f02c7eb9baac8feda9b50ddb3d79
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751661"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028160"
 ---
-# <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Aplicación auxiliar de etiquetas de caché en ASP.NET Core MVC
+# <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Asistente de etiquetas de caché en ASP.NET Core MVC
 
 Por [Peter Kellner](http://peterkellner.net) 
 
-La aplicación auxiliar de etiqueta de caché proporciona la capacidad para mejorar drásticamente el rendimiento de la aplicación de ASP.NET Core al permitir almacenar en memoria caché su contenido en el proveedor de caché interno de ASP.NET Core.
+El asistente de etiquetas de caché proporciona la capacidad para mejorar drásticamente el rendimiento de la aplicación de ASP.NET Core al permitir almacenar en memoria caché su contenido en el proveedor de caché interno de ASP.NET Core.
 
 El motor de visualización Razor establece el valor predeterminado `expires-after` en veinte minutos.
 
@@ -30,7 +30,7 @@ La primera solicitud a la página que contiene `CacheTagHelper` mostrará la fec
 
 Puede establecer la duración de la caché con los siguientes atributos:
 
-## <a name="cache-tag-helper-attributes"></a>Atributos de la aplicación auxiliar de etiqueta de caché
+## <a name="cache-tag-helper-attributes"></a>Atributos del asistente de etiqueta de caché
 
 - - -
 
@@ -43,7 +43,7 @@ Puede establecer la duración de la caché con los siguientes atributos:
 |                   | "false"   |
 
 
-Determina si el contenido incluido en la aplicación auxiliar de etiqueta de caché se almacena en caché. De manera predeterminada, es `true`.  Si se establece en `false`, la aplicación auxiliar de etiqueta de caché no tiene ningún efecto de almacenamiento en caché en la salida representada.
+Determina si el contenido incluido en el asistente de etiquetas de caché se almacena en caché. De manera predeterminada, es `true`.  Si se establece en `false`, el asistente de etiquetas de caché no tiene ningún efecto de almacenamiento en caché en la salida representada.
 
 Ejemplo:
 
@@ -61,7 +61,7 @@ Ejemplo:
 |----------------|------------------------------------|
 | DateTimeOffset | "@new DateTime(2025,1,29,17,02,0)" |
 
-Establece una fecha de expiración absoluta. En el ejemplo siguiente, se almacenará en memoria caché el contenido de la aplicación auxiliar de etiqueta de caché hasta las 17:02 del 29 de enero de 2025.
+Establece una fecha de expiración absoluta. En el ejemplo siguiente, se almacenará en memoria caché el contenido del asistente de etiqueta de caché hasta las 17:02 del 29 de enero de 2025.
 
 Ejemplo:
 
@@ -222,9 +222,9 @@ Con este atributo, se mantiene el contenido en caché a través de un ciclo de i
 |----------------|----------------|
 |     String     |    "@Model"    |
 
-Permite la personalización de los datos que se almacenan en caché. Cuando el objeto al que hace referencia el valor de cadena del atributo cambia, el contenido de la aplicación auxiliar de etiqueta de caché se actualiza. A menudo se asignan a este atributo una concatenación de cadenas de valores del modelo.  De hecho, eso significa que una actualización de cualquiera de los valores concatenados invalida la memoria caché.
+Permite la personalización de los datos que se almacenan en caché. Cuando el objeto al que hace referencia el valor de cadena del atributo cambia, el contenido del asistente de etiqueta de caché se actualiza. A menudo se asignan a este atributo una concatenación de cadenas de valores del modelo.  De hecho, eso significa que una actualización de cualquiera de los valores concatenados invalida la memoria caché.
 
-En el ejemplo siguiente se supone que el método de controlador que representa la vista suma el valor del entero de los dos parámetros de ruta, `myParam1` y `myParam2`, y devuelve el resultado como la propiedad de modelo simple. Cuando se cambia esta suma, el contenido de la aplicación auxiliar de etiqueta de caché se representa y almacena en caché de nuevo.  
+En el ejemplo siguiente se supone que el método de controlador que representa la vista suma el valor del entero de los dos parámetros de ruta, `myParam1` y `myParam2`, y devuelve el resultado como la propiedad de modelo simple. Cuando se cambia esta suma, el contenido del asistente de etiqueta de caché se representa y almacena en caché de nuevo.  
 
 Ejemplo:
 
@@ -272,7 +272,7 @@ Ejemplo:
 
 El atributo `priority` no garantiza un nivel específico de retención de la memoria caché. `CacheItemPriority` es solo una sugerencia. Establecer este atributo en `NeverRemove` no garantiza que siempre se conservará la memoria caché. Para más información, consulte [Recursos adicionales](#additional-resources).
 
-La aplicación auxiliar de etiqueta de caché es dependiente del [servicio de caché de memoria](xref:performance/caching/memory). La aplicación auxiliar de etiqueta de caché agrega el servicio si no se ha agregado.
+El asistente de etiquetas de caché es dependiente del [servicio de caché de memoria](xref:performance/caching/memory). El asistente de etiquetas de caché agrega el servicio si no se ha agregado.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

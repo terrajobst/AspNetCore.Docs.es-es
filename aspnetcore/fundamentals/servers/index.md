@@ -4,14 +4,14 @@ author: rick-anderson
 description: Detecte los servidores web Kestrel y HTTP.sys de ASP.NET Core. Obtenga más información sobre cómo elegir un servidor y cuándo se debe usar un servidor proxy inverso.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/13/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: bb0331d7201d4e979e6c6524cbf630280c4eaeb6
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 0f1460af5bc1cd879ff11e43775ac16ca36b150e
+ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36274448"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46011760"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 
@@ -28,7 +28,7 @@ ASP.NET Core incluye dos implementaciones de servidor:
 
 Kestrel es el servidor web predeterminado que se incluye en las plantillas de proyecto de ASP.NET Core.
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Se puede usar Kestrel por sí solo o con un *servidor proxy inverso*, como IIS, Nginx o Apache. Un servidor proxy inverso recibe las solicitudes HTTP de Internet y las reenvía a Kestrel después de un control preliminar.
 
@@ -38,7 +38,9 @@ Se puede usar Kestrel por sí solo o con un *servidor proxy inverso*, como IIS, 
 
 Cualquiera de las configuraciones&mdash;con o sin un servidor proxy inverso&mdash;es una configuración de hospedaje válida y admitida para ASP.NET 2.0 o aplicaciones posteriores. Para más información, vea [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Cuándo se debe usar Kestrel con un proxy inverso).
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Si la aplicación únicamente acepta solicitudes de una red interna, Kestrel puede usarse por sí solo.
 
@@ -52,7 +54,7 @@ El motivo más importante por el que se debe usar un proxy inverso para las impl
 
 Para más información, vea [When to use Kestrel with a reverse proxy](xref:fundamentals/servers/kestrel#when-to-use-kestrel-with-a-reverse-proxy) (Cuándo se debe usar Kestrel con un proxy inverso).
 
----
+::: moniker-end
 
 No se puede usar IIS, Nginx o Apache sin Kestrel ni ninguna [implementación de servidor personalizado](#custom-servers). ASP.NET Core se ha diseñado para ejecutarse en su propio proceso de modo que pueda comportarse de forma coherente entre varias plataformas. IIS, Nginx y Apache dictan su propio procedimiento y entorno de inicio. Para usar estas tecnologías de servidor directamente, ASP.NET Core tendría que adaptarse a los requisitos de cada servidor. El uso de una implementación de servidor web como Kestrel proporciona a ASP.NET Core el control sobre el entorno y el proceso de inicio cuando se hospedan en tecnologías de servidor diferentes.
 
@@ -70,27 +72,29 @@ Para información sobre cómo usar Apache en Linux como servidor proxy inverso p
 
 ## <a name="httpsys"></a>HTTP.sys
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
-Si las aplicaciones ASP.NET Core se ejecutan en Windows, HTTP.sys es una alternativa a Kestrel. Suele recomendarse Kestrel para un rendimiento óptimo. HTTP.sys se puede usar en escenarios en los que la aplicación se expone a Internet y las características necesarias son compatibles con HTTP.sys pero no Kestrel. Para información sobre las características de HTTP.sys, vea [HTTP.sys](xref:fundamentals/servers/httpsys).
+Si las aplicaciones ASP.NET Core se ejecutan en Windows, HTTP.sys es una alternativa a Kestrel. Suele recomendarse Kestrel para un rendimiento óptimo. HTTP.sys se puede usar en escenarios en los que la aplicación se expone a Internet y las funcionalidades necesarias son compatibles con HTTP.sys pero no con Kestrel. Para información sobre HTTP.sys, vea [HTTP.sys](xref:fundamentals/servers/httpsys).
 
 ![HTTP.sys se comunica directamente con Internet](httpsys/_static/httpsys-to-internet.png)
 
-HTTP.sys también se puede usar para las aplicaciones que solo se exponen a una red interna. 
+HTTP.sys también se puede usar para las aplicaciones que solo se exponen a una red interna.
 
 ![HTTP.sys se comunica directamente con la red interna](httpsys/_static/httpsys-to-internal.png)
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 HTTP.sys se denomina [WebListener](xref:fundamentals/servers/weblistener) en ASP.NET Core 1.x. Si las aplicaciones ASP.NET Core se ejecutan en Windows, WebListener es una alternativa para los escenarios en los que IIS no está disponible para hospedar aplicaciones.
 
 ![WebListener se comunica directamente con Internet](weblistener/_static/weblistener-to-internet.png)
 
-WebListener también se puede usar en lugar de Kestrel para las aplicaciones que solo se exponen a una red interna, en el caso de que las características necesarias sean compatibles con WebListener pero no con Kestrel. Para información sobre las características de WebListener, vea [WebListener](xref:fundamentals/servers/weblistener).
+WebListener también se puede usar en lugar de Kestrel para las aplicaciones que solo se exponen a una red interna, en el caso de que las funcionalidades necesarias sean compatibles con WebListener pero no con Kestrel. Para información sobre WebListener, vea [WebListener](xref:fundamentals/servers/weblistener).
 
 ![WebListener se comunica directamente con la red interna](weblistener/_static/weblistener-to-internal.png)
 
----
+::: moniker-end
 
 ## <a name="aspnet-core-server-infrastructure"></a>Infraestructura de servidores de ASP.NET Core
 
@@ -108,10 +112,51 @@ Cuando se usa [Visual Studio](https://www.visualstudio.com/vs/), [Visual Studio 
 
 Al iniciar una aplicación desde un símbolo del sistema en la carpeta del proyecto, [dotnet run](/dotnet/core/tools/dotnet-run) inicia la aplicación y el servidor (solo Kestrel y HTTP.sys). La configuración se especifica mediante la opción `-c|--configuration`, que está establecida en `Debug` (valor predeterminado) o `Release`. Si no hay perfiles de inicio en un archivo *launchSettings.json*, use la opción `--launch-profile <NAME>` para establecer el perfil de inicio (por ejemplo, `Development` o `Production`). Para más información, vea los temas [dotnet run](/dotnet/core/tools/dotnet-run) y [Empaquetado de distribución de .NET Core](/dotnet/core/build/distribution-packaging).
 
+## <a name="http2-support"></a>Compatibilidad con HTTP/2
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con ASP.NET Core en los escenarios de implementación siguientes:
+
+::: moniker range=">= aspnetcore-2.2"
+
+* [Kestrel](xref:fundamentals/servers/kestrel#http2-support)
+  * Sistema operativo
+    * Windows Server 2012 R2 o Windows 8.1 o posterior
+    * Linux con OpenSSL 1.0.2 o posterior (por ejemplo, Ubuntu 16.04 o posterior)
+    * HTTP/2 se admitirá en una versión futura en macOS.
+  * Plataforma de destino: .NET Core 2.2 o posterior
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+  * Windows Server 2016/Windows 10 o posterior
+  * Plataforma de destino: no aplicable a implementaciones de HTTP.sys.
+* [IIS (en proceso)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Plataforma de destino: .NET Core 2.2 o posterior
+* [IIS (fuera de proceso)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Las conexiones de Edge usan HTTP/2, pero la conexión de proxy inverso a Kestrel usa HTTP/1.1.
+  * Plataforma de destino: no aplicable a implementaciones fuera de proceso de IIS.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+* [HTTP.sys](xref:fundamentals/servers/httpsys#http2-support)
+  * Windows Server 2016/Windows 10 o posterior
+  * Plataforma de destino: no aplicable a implementaciones de HTTP.sys.
+* [IIS (fuera de proceso)](xref:host-and-deploy/iis/index#http2-support)
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Las conexiones de Edge usan HTTP/2, pero la conexión de proxy inverso a Kestrel usa HTTP/1.1.
+  * Plataforma de destino: no aplicable a implementaciones fuera de proceso de IIS.
+
+::: moniker-end
+
+Una conexión HTTP/2 debe usar [Application-Layer Protocol Negotiation (ALPN)](https://tools.ietf.org/html/rfc7301#section-3) y TLS 1.2 o posterior. Para más información, vea los temas que pertenecen a los escenarios de implementación de servidor.
+
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Kestrel](xref:fundamentals/servers/kestrel)
-* [Kestrel con IIS](xref:fundamentals/servers/aspnet-core-module)
-* [Hospedaje en Linux con Nginx](xref:host-and-deploy/linux-nginx)
-* [Hospedaje en Linux con Apache](xref:host-and-deploy/linux-apache)
-* [HTTP.sys](xref:fundamentals/servers/httpsys) (para ASP.NET Core 1.x, vea [WebListener](xref:fundamentals/servers/weblistener))
+* <xref:fundamentals/servers/kestrel>
+* <xref:fundamentals/servers/aspnet-core-module>
+* <xref:host-and-deploy/iis/index>
+* <xref:host-and-deploy/azure-apps/index>
+* <xref:host-and-deploy/linux-nginx>
+* <xref:host-and-deploy/linux-apache>
+* <xref:fundamentals/servers/httpsys> (para ASP.NET Core 1.x, vea <xref:fundamentals/servers/weblistener>)

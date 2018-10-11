@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo se usan los componentes de vista e
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: c4e4de6e4ffb634a636bccdb2a929a524baebecf
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
+ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751449"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47211070"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -75,9 +75,9 @@ Un componente de vista define su lógica en un método `InvokeAsync` que devuelv
 
 El tiempo de ejecución busca la vista en las rutas de acceso siguientes:
 
-* /Pages/Components/<component name>/\<nombre_de_vista>
-* Views/\<nombre_del_contrlador>/Components/\<nombre_del_componente_de_vista>/\<nombre_de_vista>
-* Views/Shared/Components/\<nombre_del_componente_de_vista>/\<nombre_de_vista>
+* /Pages/Components/\<view_component_name>/\<view_name>
+* /Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
+* /Views/Shared/Components/\<view_component_name>/\<view_name>
 
 El nombre de vista predeterminado para un componente de vista es *Default*, lo que significa que el archivo de vista normalmente se denominará *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o al llamar al método `View`.
 
@@ -95,13 +95,15 @@ Los parámetros se pasarán al método `InvokeAsync`. El componente de vista `Pr
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-## <a name="invoking-a-view-component-as-a-tag-helper"></a>Invocación de un componente de vista como una aplicación auxiliar de etiquetas
+::: moniker range=">= aspnetcore-1.1"
 
-Para ASP.NET Core 1.1 y versiones posteriores, puede invocar un componente de vista como una [aplicación auxiliar de etiquetas](xref:mvc/views/tag-helpers/intro):
+## <a name="invoking-a-view-component-as-a-tag-helper"></a>Invocación de un componente de vista como un asistente de etiquetas
+
+Para ASP.NET Core 1.1 y versiones posteriores, puede invocar un componente de vista como un [asistente de etiquetas](xref:mvc/views/tag-helpers/intro):
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
-Los parámetros de clase y método con grafía Pascal para las aplicaciones auxiliares de etiquetas se convierten a su [grafía kebab en minúsculas](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). La aplicación auxiliar de etiquetas que va a invocar un componente de vista usa el elemento `<vc></vc>`. El componente de vista se especifica de la manera siguiente:
+Los parámetros de clase y método con grafía Pascal para los asistentes de etiquetas se convierten a su [grafía kebab en minúsculas](https://stackoverflow.com/questions/11273282/whats-the-name-for-dash-separated-case/12273101). El asistente de etiquetas que va a invocar un componente de vista usa el elemento `<vc></vc>`. El componente de vista se especifica de la manera siguiente:
 
 ```cshtml
 <vc:[view-component-name]
@@ -110,23 +112,25 @@ Los parámetros de clase y método con grafía Pascal para las aplicaciones auxi
 </vc:[view-component-name]>
 ```
 
-Nota: Para poder usar un componente de vista como una aplicación auxiliar de etiquetas, debe registrar el ensamblado que contiene el componente de vista mediante la directiva `@addTagHelper`. Por ejemplo, si el componente de vista está en un ensamblado denominado "MyWebApp", agregue la directiva siguiente al archivo `_ViewImports.cshtml`:
+Para usar un componente de vista como un asistente de etiquetas, registre el ensamblado que contiene el componente de vista mediante la directiva `@addTagHelper`. Si el componente de vista está en un ensamblado denominado `MyWebApp`, agregue la directiva siguiente al archivo *_ViewImports.cshtml*:
 
 ```cshtml
 @addTagHelper *, MyWebApp
 ```
 
-Puede registrar un componente de vista como una aplicación auxiliar de etiquetas en cualquier archivo que haga referencia al componente de vista. Vea [Administración del ámbito de las aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) para más información sobre cómo registrar aplicaciones auxiliares de etiquetas.
+Puede registrar un componente de vista como un asistente de etiquetas en cualquier archivo que haga referencia al componente de vista. Vea [Administración del ámbito de los asistentes de etiquetas](xref:mvc/views/tag-helpers/intro#managing-tag-helper-scope) para más información sobre cómo registrar asistentes de etiquetas.
 
 El método `InvokeAsync` usado en este tutorial:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexFinal.cshtml?range=35)]
 
-En el marcado de la aplicación auxiliar de etiquetas:
+En el marcado del asistente de etiquetas:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexTagHelper.cshtml?range=37-38)]
 
 En el ejemplo anterior, el componente de vista `PriorityList` se convierte en `priority-list`. Los parámetros para el componente de vista se pasan como atributos en grafía kebab en minúsculas.
+
+::: moniker-end
 
 ### <a name="invoking-a-view-component-directly-from-a-controller"></a>Invocar un componente de vista directamente desde un controlador
 
@@ -243,6 +247,76 @@ Si busca seguridad en tiempo de compilación, puede reemplazar el nombre del com
 Agregue una instrucción `using` para su archivo de vista de Razor y use el operador `nameof`:
 
 [!code-cshtml[](view-components/sample/ViewCompFinal/Views/Todo/IndexNameof.cshtml?range=1-6,35-)]
+
+## <a name="perform-synchronous-work"></a>Realizar el trabajo sincrónico
+
+El marco controla la invocación de un método `Invoke` sincrónico si no necesita realizar un trabajo asincrónico. El método siguiente crea un componente de vista `Invoke` sincrónico:
+
+```csharp
+public class PriorityList : ViewComponent
+{
+    public IViewComponentResult Invoke(int maxPriority, bool isDone)
+    {
+        var items = new List<string> { $"maxPriority: {maxPriority}", $"isDone: {isDone}" };
+        return View(items);
+    }
+}
+```
+
+El archivo de Razor del componente de vista enumera las cadenas pasadas al método `Invoke` (*Views/Home/Components/PriorityList/Default.cshtml*):
+
+```cshtml
+@model List<string>
+
+<h3>Priority Items</h3>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item</li>
+    }
+</ul>
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Se invoca el componente de vista en un archivo de Razor (por ejemplo, *Views/Home/Index.cshtml*) con uno de los siguientes métodos:
+
+* <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>
+* [Asistente de etiquetas](xref:mvc/views/tag-helpers/intro)
+
+Para usar el método <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>, llame a `Component.InvokeAsync`:
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-1.1"
+
+Se invoca el componente de vista en un archivo de Razor (por ejemplo, *Views/Home/Index.cshtml*) con <xref:Microsoft.AspNetCore.Mvc.IViewComponentHelper>.
+
+Llame a `Component.InvokeAsync`:
+
+::: moniker-end
+
+```cshtml
+@await Component.InvokeAsync(nameof(PriorityList), new { maxPriority = 4, isDone = true })
+```
+
+::: moniker range=">= aspnetcore-1.1"
+
+Para usar el asistente de etiquetas, registre el ensamblado que contiene el componente de vista con el uso de la directiva `@addTagHelper` (el componente de vista se encuentra en un ensamblado denominado `MyWebApp`):
+
+```cshtml
+@addTagHelper *, MyWebApp
+```
+
+Use el asistente de etiquetas del componente de vista en el archivo de marcado de Razor:
+
+```cshtml
+<vc:priority-list max-priority="999" is-done="false">
+</vc:priority-list>
+```
+::: moniker-end
+
+La firma del método de `PriorityList.Invoke` es sincrónica, pero Razor busca y llama al método con `Component.InvokeAsync` en el archivo de marcado.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

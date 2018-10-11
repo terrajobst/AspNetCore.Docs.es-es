@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f5549a24c5b5fe2e6b33bd55960f87a8bf86bd19
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870885"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523316"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -41,8 +41,6 @@ Vea [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pag
 
 Ejecute `dotnet new webapp` desde la línea de comandos.
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -59,8 +57,6 @@ Abra el archivo *.csproj* generado desde Visual Studio para Mac.
 
 Ejecute `dotnet new webapp` desde la línea de comandos.
 
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
-
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
@@ -74,8 +70,6 @@ Ejecute `dotnet new razor` desde la línea de comandos.
 ::: moniker range=">= aspnetcore-2.1"
 
 Ejecute `dotnet new webapp` desde la línea de comandos.
-
-[!INCLUDE[](~/includes/webapp-alias-notice.md)]
 
 ::: moniker-end
 
@@ -125,7 +119,7 @@ Notas:
 
 ## <a name="writing-a-basic-form"></a>Escribir un formulario básico
 
-Las páginas de Razor están diseñadas para facilitar la implementación de patrones comunes que se usan con exploradores web al compilar una aplicación. Los [enlaces de modelos](xref:mvc/models/model-binding), las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y las aplicaciones auxiliares de HTML *simplemente funcionan* con las propiedades definidas en una clase de página de Razor. Considere la posibilidad de una página que implementa un formulario básico del estilo "Póngase en contacto con nosotros" para el modelo `Contact`:
+Las páginas de Razor están diseñadas para facilitar la implementación de patrones comunes que se usan con exploradores web al compilar una aplicación. Los [enlaces de modelos](xref:mvc/models/model-binding), los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) y los asistentes de HTML *simplemente funcionan* con las propiedades definidas en una clase de página de Razor. Considere la posibilidad de una página que implementa un formulario básico del estilo "Póngase en contacto con nosotros" para el modelo `Contact`:
 
 Para los ejemplos de este documento, `DbContext` se inicializa en el archivo [Startup.cs](https://github.com/aspnet/Docs/blob/master/aspnetcore/razor-pages/index/sample/RazorPagesContacts/Startup.cs#L15-L16).
 
@@ -169,9 +163,9 @@ Compruebe los errores de validación.
 *  Si no hay ningún error, guarde los datos y redirija.
 *  Si hay errores, muestre la página de nuevo con mensajes de validación. La validación del lado cliente es idéntica a las aplicaciones de ASP.NET Core MVC tradicionales. En muchos casos, los errores de validación se detectan en el cliente y nunca se envían al servidor.
 
-Cuando los datos se escriben correctamente, el método del controlador `OnPostAsync` llama al método auxiliar `RedirectToPage` para devolver una instancia de `RedirectToPageResult`. `RedirectToPage` es un resultado de acción nueva, similar a `RedirectToAction` o `RedirectToRoute`, pero personalizada para las páginas. En el ejemplo anterior, redirige a la página de índice raíz (`/Index`). `RedirectToPage` se detalla en la sección [Generación de direcciones URL para las páginas](#url_gen).
+Cuando los datos se escriben correctamente, el método del controlador `OnPostAsync` llama al método del asistente `RedirectToPage` para devolver una instancia de `RedirectToPageResult`. `RedirectToPage` es un resultado de acción nueva, similar a `RedirectToAction` o `RedirectToRoute`, pero personalizada para las páginas. En el ejemplo anterior, redirige a la página de índice raíz (`/Index`). `RedirectToPage` se detalla en la sección [Generación de direcciones URL para las páginas](#url_gen).
 
-Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método auxiliar `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el tipo de valor devuelto <!-- Review  --> predeterminado para un método de controlador. Un método de controlador que devuelve `void` representa la página.
+Cuando el formulario enviado tiene errores de validación (que se pasan al servidor), el método del controlador `OnPostAsync` llama al método del asistente `Page`. `Page` devuelve una instancia de `PageResult`. Devolver `Page` es similar a cómo las acciones en los controladores devuelven `View`. `PageResult` es el tipo de valor devuelto <!-- Review  --> predeterminado para un método de controlador. Un método de controlador que devuelve `void` representa la página.
 
 La propiedad `Customer` usa el atributo `[BindProperty]` para participar en el enlace de modelos.
 
@@ -196,7 +190,7 @@ El archivo *Index.cshtml* contiene el siguiente marcado para crear un vínculo d
 
 [!code-cshtml[](index/sample/RazorPagesContacts/Pages/Index.cshtml?range=21)]
 
-La [aplicación auxiliar de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`.
+El [asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) ha usado el atributo `asp-route-{value}` para generar un vínculo a la página de edición. El vínculo contiene datos de ruta con el identificador del contacto. Por ejemplo: `http://localhost:5000/Edit/1`.
 
 El archivo *Pages/Edit.cshtml*:
 
@@ -289,9 +283,9 @@ services.AddMvc()
 No tiene que escribir ningún código para la [validación antifalsificación](xref:security/anti-request-forgery). La validación y generación de tokens antifalsificación se incluyen automáticamente en las páginas de Razor.
 
 <a name="layout"></a>
-## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Usar diseños, parciales, plantillas y aplicaciones auxiliares de etiquetas con las páginas de Razor
+## <a name="using-layouts-partials-templates-and-tag-helpers-with-razor-pages"></a>Usar diseños, parciales, plantillas y asistentes de etiquetas con las páginas de Razor
 
-Las páginas funcionan con todas las características del motor de vista de Razor. Los diseños, parciales, plantillas, aplicaciones auxiliares de etiquetas, *_ViewStart.cshtml*, *_ViewImports.cshtml* funcionan de la misma manera que lo hacen con las vistas de Razor convencionales.
+Las páginas funcionan con todas las características del motor de vista de Razor. Los diseños, parciales, plantillas, asistentes de etiquetas, *_ViewStart.cshtml*, *_ViewImports.cshtml* funcionan de la misma manera que lo hacen con las vistas de Razor convencionales.
 
 Para simplificar esta página, aprovecharemos algunas de esas características.
 
@@ -342,7 +336,7 @@ Agregue un archivo *Pages/_ViewImports.cshtml*:
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/_ViewImports.cshtml)]
 
-`@namespace` se explica más adelante en el tutorial. La directiva `@addTagHelper` pone las [aplicaciones auxiliares de etiquetas integradas](xref:mvc/views/tag-helpers/builtin-th/Index) en todas las páginas de la carpeta *Pages*.
+`@namespace` se explica más adelante en el tutorial. La directiva `@addTagHelper` pone los [asistentes de etiquetas integradas](xref:mvc/views/tag-helpers/builtin-th/Index) en todas las páginas de la carpeta *Pages*.
 
 <a name="namespace"></a>
 
@@ -375,6 +369,8 @@ El archivo de vista *Pages/Create.cshtml* actualizado:
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/Create.cshtml?highlight=2)]
 
 El [proyecto de inicio de las páginas de Razor](#rpvs17) contiene *Pages/_ValidationScriptsPartial.cshtml*, que enlaza la validación del lado cliente.
+
+Para más información sobre las vistas parciales, vea <xref:mvc/views/partial>.
 
 <a name="url_gen"></a>
 
@@ -417,6 +413,7 @@ La generación de direcciones URL para las páginas admite nombres relativos. En
 Vincular el nombre relativo es útil al crear sitios con una estructura compleja. Si usa nombres relativos para vincular entre páginas en una carpeta, puede cambiar el nombre de esa carpeta. Todos los vínculos seguirán funcionando (porque no incluyen el nombre de carpeta).
 
 ::: moniker range=">= aspnetcore-2.1"
+
 ## <a name="viewdata-attribute"></a>Atributo ViewData
 
 Se pueden pasar datos a una página con [ViewDataAttribute](/dotnet/api/microsoft.aspnetcore.mvc.viewdataattribute). Los valores de las propiedades de controladores o modelos de página de Razor decoradas con `[ViewData]` se almacenan y cargan desde [ViewDataDictionary](/dotnet/api/microsoft.aspnetcore.mvc.viewfeatures.viewdatadictionary).
@@ -450,6 +447,7 @@ En el diseño, el título se lee desde el diccionario ViewData:
     <title>@ViewData["Title"] - WebApplication</title>
     ...
 ```
+
 ::: moniker-end
 
 ## <a name="tempdata"></a>TempData
@@ -480,7 +478,7 @@ Vea [TempData](xref:fundamentals/app-state#tempdata) para obtener más informaci
 <a name="mhpp"></a>
 ## <a name="multiple-handlers-per-page"></a>Varios controladores por página
 
-La siguiente página genera marcado para dos controladores de páginas mediante la aplicación auxiliar de etiquetas `asp-page-handler`:
+La siguiente página genera marcado para dos controladores de páginas mediante el asistente de etiquetas `asp-page-handler`:
 
 [!code-cshtml[](index/sample/RazorPagesContacts2/Pages/Customers/CreateFATH.cshtml?highlight=12-13)]
 
@@ -558,11 +556,12 @@ services.AddMvc()
     .WithRazorPagesRoot("/path/to/razor/pages");
 ```
 
-## <a name="see-also"></a>Vea también
+## <a name="additional-resources"></a>Recursos adicionales
 
-* [Introducción a ASP.NET Core](xref:index)
-* [Sintaxis de Razor](xref:mvc/views/razor)
-* [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
-* [Convenciones de autorización de las páginas de Razor](xref:security/authorization/razor-pages-authorization)
-* [Proveedores personalizados de rutas y modelos de página de páginas de Razor](xref:razor-pages/razor-pages-conventions)
-* [Pruebas unitarias de páginas de Razor](xref:test/razor-pages-tests)
+* <xref:index>
+* <xref:mvc/views/razor>
+* <xref:tutorials/razor-pages/razor-pages-start>
+* <xref:security/authorization/razor-pages-authorization>
+* <xref:razor-pages/razor-pages-conventions>
+* <xref:test/razor-pages-tests>
+* <xref:mvc/views/partial>

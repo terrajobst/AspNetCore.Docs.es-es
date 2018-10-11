@@ -4,30 +4,30 @@ author: rsuter
 description: En este tutorial se proporciona una guía sobre cómo incorporar Swagger para generar documentación y páginas de ayuda para una aplicación de API web.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 03/09/2018
+ms.date: 09/20/2018
 uid: tutorials/web-api-help-pages-using-swagger
-ms.openlocfilehash: 56e146337ad9e94298f72abf5ede009eea65fb46
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 586195e3a29130c0b638ed6763ea5c9032ca6b2b
+ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272256"
+ms.lasthandoff: 09/21/2018
+ms.locfileid: "46523134"
 ---
-# <a name="aspnet-core-web-api-help-pages-with-swagger--open-api"></a>Páginas de ayuda de ASP.NET Core Web API con Swagger/Open API
+# <a name="aspnet-core-web-api-help-pages-with-swagger--openapi"></a>Páginas de ayuda de ASP.NET Core Web API con Swagger/Open API
 
 Por [Christoph Nienaber](https://twitter.com/zuckerthoben) y [Rico Suter](http://rsuter.com)
 
-Cuando un desarrollador usa una API Web, puede que le resulte complicado comprender sus diversos métodos. [Swagger](https://swagger.io/), también conocido como Open API, resuelve el problema de generar páginas útiles de ayuda y documentación relativas a las API Web. Así, reporta ventajas como una documentación interactiva, la generación de SDK de cliente y la detectabilidad de API.
+Cuando un desarrollador usa una API Web, puede que le resulte complicado comprender sus diversos métodos. [Swagger](https://swagger.io/), también conocido como [OpenAPI](https://www.openapis.org/), resuelve el problema de generar páginas útiles de ayuda y documentación relativas a las API web. Así, reporta ventajas como una documentación interactiva, la generación de SDK de cliente y la detectabilidad de API.
 
 En este artículo, nos centraremos en las implementaciones de Swagger .NET [Swashbuckle.AspNetCore](https://github.com/domaindrivendev/Swashbuckle.AspNetCore) y [NSwag](https://github.com/RSuter/NSwag):
 
 * **Swashbuckle.AspNetCore** es un proyecto de código abierto para generar documentos de Swagger para las API web de ASP.NET Core.
 
-* **NSwag** es otro proyecto de código abierto que sirve para integrar la [interfaz de usuario de Swagger](https://swagger.io/swagger-ui/) o [ReDoc](https://github.com/Rebilly/ReDoc) en las API Web de ASP.NET Core. Ofrece métodos para generar código de cliente de C# y TypeScript para la API.
+* **NSwag** es otro proyecto de código abierto para generar documentos de Swagger y que sirve para integrar la [interfaz de usuario de Swagger](https://swagger.io/swagger-ui/) o [ReDoc](https://github.com/Rebilly/ReDoc) en las API web de ASP.NET Core. De manera opcional, NSwag ofrece métodos para generar código de cliente de C# y TypeScript para la API.
 
-## <a name="what-is-swagger--open-api"></a>¿Qué es Swagger/Open API?
+## <a name="what-is-swagger--openapi"></a>¿Qué es Swagger/OpenAPI?
 
-Swagger es una especificación independiente del lenguaje que sirve para describir API de [REST](https://en.wikipedia.org/wiki/Representational_state_transfer). El proyecto de Swagger se donó a la [iniciativa OpenAPI](https://www.openapis.org/), donde se ahora conoce como Open API. Ambos nombres se usan indistintamente, aunque se prefiere Open API. Gracias a esta API, tanto los equipos como los personas podrán conocer las funciones de un servicio sin necesidad de obtener acceso directo a la implementación (código fuente, acceso a la red, documentación). Uno de los objetivos consiste en reducir al mínimo la cantidad de trabajo necesario para conectar servicios que no están asociados. Otro es reducir la cantidad de tiempo necesario para documentar un servicio con precisión.
+Swagger es una especificación independiente del lenguaje que sirve para describir API de [REST](https://en.wikipedia.org/wiki/Representational_state_transfer). El proyecto de Swagger se donó a la [iniciativa OpenAPI](https://www.openapis.org/), donde ahora se conoce como OpenAPI. Ambos nombres se usan indistintamente, aunque se prefiere OpenAPI. Gracias a esta API, tanto los equipos como los personas podrán conocer las funciones de un servicio sin necesidad de obtener acceso directo a la implementación (código fuente, acceso a la red, documentación). Uno de los objetivos consiste en reducir al mínimo la cantidad de trabajo necesario para conectar servicios que no están asociados. Otro es reducir la cantidad de tiempo necesario para documentar un servicio con precisión.
 
 ## <a name="swagger-specification-swaggerjson"></a>Especificación de Swagger (swagger.json)
 

@@ -4,18 +4,18 @@ author: guardrex
 description: Obtenga información sobre cómo hospedar aplicaciones de ASP.NET Core en Windows Server Internet Information Services (IIS).
 ms.author: riande
 ms.custom: mvc
-ms.date: 03/13/2018
+ms.date: 09/13/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 1a7769e12728b09b04749a124c50366ddb1374d7
-ms.sourcegitcommit: a3675f9704e4e73ecc7cbbbf016a13d2a5c4d725
+ms.openlocfilehash: 8f2155cbf0bc3101b78b890c1d66797278f1ca4b
+ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39202671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47028315"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
-Por [Luke Latham](https://github.com/guardrex) y [Rick Anderson](https://twitter.com/RickAndMSFT)
+Por [Luke Latham](https://github.com/guardrex)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -26,11 +26,48 @@ Los siguientes sistemas operativos son compatibles:
 
 El [servidor HTTP.sys](xref:fundamentals/servers/httpsys) (anteriormente denominado [WebListener](xref:fundamentals/servers/weblistener)) no funciona en una configuración de proxy inverso con IIS. Use el [servidor Kestrel](xref:fundamentals/servers/kestrel).
 
+Para obtener información sobre el hospedaje en Azure, vea <xref:host-and-deploy/azure-apps/index>.
+
+## <a name="http2-support"></a>Compatibilidad con HTTP/2
+
+::: moniker range=">= aspnetcore-2.2"
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con ASP.NET Core en los escenarios de implementación de IIS siguientes:
+
+* En proceso
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Plataforma de destino: .NET Core 2.2 o posterior
+  * Conexión con TLS 1.2 o una versión posterior
+* Fuera de proceso
+  * Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+  * Las conexiones de Edge usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
+  * Plataforma de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
+  * Conexión con TLS 1.2 o una versión posterior
+
+Para una implementación en proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/2`. Para una implementación fuera de proceso cuando se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+[HTTP/2](https://httpwg.org/specs/rfc7540.html) es compatible con las implementaciones fuera de proceso que cumplen los requisitos básicos siguientes:
+
+* Windows Server 2016/Windows 10 o posterior; IIS 10 o posterior
+* Las conexiones de Edge usan HTTP/2, pero la conexión de proxy inverso al [servidor de Kestrel](xref:fundamentals/servers/kestrel) usa HTTP/1.1.
+* Plataforma de destino: no es aplicable a las implementaciones fuera de proceso, ya que IIS controla completamente la conexión HTTP/2.
+* Conexión con TLS 1.2 o una versión posterior
+
+Si se establece una conexión HTTP/2, [HttpRequest.Protocol](xref:Microsoft.AspNetCore.Http.HttpRequest.Protocol*) notifica `HTTP/1.1`.
+
+::: moniker-end
+
+HTTP/2 está habilitado de forma predeterminada. Las conexiones vuelven a HTTP/1.1 si no se establece una conexión HTTP/2. Para más información sobre la configuración HTTP/2 con implementaciones de IIS, vea [HTTP/2 en IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis).
+
 ## <a name="application-configuration"></a>Configuración de aplicación
 
 ### <a name="enable-the-iisintegration-components"></a>Habilitación de los componentes de integración con IIS
 
-# <a name="aspnet-core-2xtabaspnetcore2x"></a>[ASP.NET Core 2.x](#tab/aspnetcore2x)
+::: moniker range=">= aspnetcore-2.0"
 
 Los archivos *Program.cs* estándar llaman a [CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder) para empezar a configurar un host. `CreateDefaultBuilder` configura [Kestrel](xref:fundamentals/servers/kestrel) como el servidor web y habilita IIS Integration configurando la ruta de acceso base y el puerto para el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module):
 
@@ -42,7 +79,9 @@ public static IWebHost BuildWebHost(string[] args) =>
 
 El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back-end. `CreateDefaultBuilder` llama al método [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration), que toma el puerto dinámico y configura Kestrel para que escuche en `http://localhost:{dynamicPort}/`. Esto invalida otras configuraciones de URL, como las llamadas a `UseUrls` o a la [API Listen de Kestrel](xref:fundamentals/servers/kestrel#endpoint-configuration). Por lo tanto, no es necesario realizar llamadas a `UseUrls` o a la API `Listen` de Kestrel cuando se usa el módulo. Si se llama a `UseUrls` o `Listen`, Kestrel escucha en el puerto especificado cuando se ejecuta la aplicación sin IIS.
 
-# <a name="aspnet-core-1xtabaspnetcore1x"></a>[ASP.NET Core 1.x](#tab/aspnetcore1x)
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.0"
 
 Incluya una dependencia en el paquete [Microsoft.AspNetCore.Server.IISIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.Server.IISIntegration/) de dependencias de la aplicación. Use el middleware de integración con IIS agregando el método de extensión [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions.useiisintegration) a [WebHostBuilder](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilder):
 
@@ -59,7 +98,7 @@ El módulo ASP.NET Core genera un puerto dinámico que se asigna al proceso back
 
 Si se llama a `UseUrls` en una aplicación de ASP.NET Core 1.0, hágalo **antes** de llamar a `UseIISIntegration` para que no se sobrescriba el puerto configurado por el módulo. Este orden de llamada no es necesario en ASP.NET Core 1.1, ya que la configuración del módulo reemplaza a `UseUrls`.
 
----
+::: moniker-end
 
 Para obtener más información sobre el hospedaje, consulte [Hospedaje en ASP.NET Core](xref:fundamentals/host/index).
 
@@ -177,6 +216,8 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
    Para evitar que el instalador instale paquetes x86 en un sistema operativo x64, ejecute el instalador desde un símbolo del sistema de administrador con el modificador `OPT_NO_X86=1`.
 
 1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
+
+   Si el instalador del conjunto de hospedaje de Windows detecta que IIS requiere un reinicio para completar la instalación, el instalador reinicia IIS. Si el instalador desencadena un reinicio de IIS, se reiniciarán todos los sitios web y los grupos de aplicaciones de IIS.
 
 > [!NOTE]
 > Para obtener información sobre la configuración compartida de IIS, vea [ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration) (Módulo de ASP.NET Core con configuración compartida de IIS).
@@ -438,3 +479,4 @@ Identifique los errores comunes al hospedar aplicaciones ASP.NET Core en IIS.
 * [Introducción a ASP.NET Core](xref:index)
 * [Sitio oficial de Microsoft IIS](https://www.iis.net/)
 * [Biblioteca de contenido técnico de Windows Server](/windows-server/windows-server)
+* [HTTP/2 en IIS](/iis/get-started/whats-new-in-iis-10/http2-on-iis)

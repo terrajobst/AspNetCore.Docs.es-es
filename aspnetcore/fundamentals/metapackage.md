@@ -1,17 +1,17 @@
 ---
 title: Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.0
 author: Rick-Anderson
-description: El metapaquete Microsoft.AspNetCore.All incluye todos los paquetes de ASP.NET Core y Entity Framework Core, junto con sus dependencias.
+description: El metapaquete Microsoft.AspNetCore.All no se recomienda para ASP.NET Core 2.1 y versiones posteriores.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/20/2017
+ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: fbc0f5465dc37a612b81c293f1a58b53ea4b2238
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
+ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123832"
+ms.lasthandoff: 09/29/2018
+ms.locfileid: "47454744"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.0
 
@@ -65,3 +65,11 @@ No se incluye implícitamente ninguna dependencia de los paquetes anteriores que
 
 * `StackExchange.Redis` como dependencia de `Microsoft.Extensions.Caching.Redis`
 * `Microsoft.ApplicationInsights` como dependencia de `Microsoft.AspNetCore.ApplicationInsights.HostingStartup`
+
+## <a name="update-aspnet-core-21"></a>Actualización de ASP.NET Core 2.1
+
+Se recomienda migrar al metapaquete `Microsoft.AspNetCore.App` para 2.1 y versiones posteriores. Para seguir usando el metapaquete `Microsoft.AspNetCore.All` y asegurarse de que se ha implementado la última versión de la revisión:
+
+* En los equipos de desarrollo y los servidores de compilación: instale el último [SDK de .NET Core](https://www.microsoft.com/net/download).
+* En los servidores de implementación: instale el último [.NET Core Runtime](https://www.microsoft.com/net/download).
+ Su aplicación se pondrá al día con la última versión instalada al reiniciar la aplicación.

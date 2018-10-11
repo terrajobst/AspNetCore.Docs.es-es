@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/14/2016
 uid: host-and-deploy/azure-apps/azure-continuous-deployment
-ms.openlocfilehash: 3470d9278574a95115b14f25b90a0a93bb3b8a67
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 5ae8ce01610828417fc76ed6626e518c8493bd0f
+ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751598"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44340204"
 ---
 # <a name="continuous-deployment-to-azure-with-visual-studio-and-git-with-aspnet-core"></a>Implementación continua en Azure con Visual Studio y Git con ASP.NET Core
 
@@ -21,7 +21,7 @@ Por [Erik Reitan](https://github.com/Erikre)
 
 En este tutorial se muestra cómo crear una aplicación web de ASP.NET Core con Visual Studio e implementarla desde Visual Studio en Azure App Service mediante una implementación continua.
 
-Vea también [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic) (Usar VSTS para crear y publicar una aplicación web de Azure con la implementación continua), donde se muestra cómo configurar un flujo de trabajo de una entrega continua (CD) para [Azure App Service](/azure/app-service/app-service-web-overview) con Visual Studio Team Services. La entrega continua de Azure en Team Services simplifica la configuración de una canalización de implementación sólida para publicar actualizaciones de aplicaciones hospedadas en Azure App Service. La canalización se puede configurar desde Azure Portal para crear y ejecutar pruebas, implementarlas en un espacio de ensayo y luego implementarlas en un entorno de producción.
+Vea también [Creación de la primera canalización con Azure Pipelines](/azure/devops/pipelines/get-started-yaml), donde se explica cómo configurar un flujo de trabajo de entrega continua (CD) para [Azure App Service](/azure/app-service/app-service-web-overview) mediante Azure DevOps Services. Azure Pipelines, un servicio de Azure DevOps Services, simplifica la configuración de una canalización de implementación sólida para publicar actualizaciones de aplicaciones hospedadas en Azure App Service. La canalización se puede configurar desde Azure Portal para crear y ejecutar pruebas, implementarlas en un espacio de ensayo y luego implementarlas en un entorno de producción.
 
 > [!NOTE]
 > Para realizar este tutorial, necesita una cuenta de Microsoft Azure. Para obtener una, [active las ventajas de suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) o [regístrese para una prueba gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -228,5 +228,5 @@ Para ver la aplicación web actualizada, seleccione **Examinar** en la hoja de l
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic) (Uso de VSTS para compilar y publicar una aplicación web de Azure con la implementación continua)
+* [Creación de la primera canalización con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 * [Proyecto Kudu](https://github.com/projectkudu/kudu/wiki)
