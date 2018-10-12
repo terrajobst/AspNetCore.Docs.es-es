@@ -1,19 +1,19 @@
 ---
-title: Hospedaje de ASP.NET Core en Azure App Service
+title: Implementar aplicaciones de ASP.NET Core en Azure App Service
 author: guardrex
-description: Descubra cómo hospedar aplicaciones de ASP.NET Core en Azure App Service con vínculos a recursos útiles.
+description: Este artículo contiene vínculos a recursos de implementación y hospedaje de Azure.
 ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 23289823e154d93e4bedd23a1efae0e58c71eae0
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340191"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47860971"
 ---
-# <a name="host-aspnet-core-on-azure-app-service"></a>Hospedaje de ASP.NET Core en Azure App Service
+# <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) es un [servicio de plataforma de informática en la nube de Microsoft](https://azure.microsoft.com/) que sirve para hospedar aplicaciones web, como ASP.NET Core.
 
@@ -31,9 +31,6 @@ Los artículos siguientes están disponibles en la documentación de ASP.NET Cor
 
 [Publicación en Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
 Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
-
-[Publicación en Azure con herramientas de CLI](xref:tutorials/publish-to-azure-webapp-using-cli)  
-Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con el cliente de línea de comandos de Git.
 
 [Implementación continua en Azure con Visual Studio y Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
 Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con Visual Studio e implementarla en Azure App Service con Git para una implementación continua.
