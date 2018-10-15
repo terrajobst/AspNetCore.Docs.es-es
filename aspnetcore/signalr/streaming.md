@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/07/2018
 uid: signalr/streaming
-ms.openlocfilehash: 0001eed830249ac46ba35331759187bb4e7e8fd3
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 3ae9b83d60019eaa3196f35645bf9b4b03f6d8c6
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095267"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325645"
 ---
 # <a name="use-streaming-in-aspnet-core-signalr"></a>Usar la transmisión por secuencias en ASP.NET Core SignalR
 
@@ -62,7 +62,7 @@ Los clientes de JavaScript llamar a métodos de transmisión por secuencias en c
 
 [!code-javascript[Streaming javascript](streaming/sample/wwwroot/js/stream.js?range=19-36)]
 
-Para finalizar la secuencia de la llamada del cliente la `dispose` método en el `ISubscription` que se devuelve desde el `subscribe` método.
+Para finalizar la secuencia desde el cliente, llame a la `dispose` método en el `ISubscription` que se devuelve desde el `subscribe` método.
 
 ## <a name="related-resources"></a>Recursos relacionados
 

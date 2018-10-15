@@ -8,12 +8,12 @@ ms.date: 06/06/2012
 ms.assetid: a585c9a2-7c8e-478b-9706-90f3739c50d1
 msc.legacyurl: /web-forms/overview/performance-and-caching/using-asynchronous-methods-in-aspnet-45
 msc.type: authoredcontent
-ms.openlocfilehash: eeb8ac4402b5e3d233082a749ad16ed98d4a71fc
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 61bb977af9dca6fc080151ffd6ea3d966f1b1592
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577813"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325424"
 ---
 <a name="using-asynchronous-methods-in-aspnet-45"></a>Usar métodos asincrónicos en ASP.NET 4.5
 ====================
@@ -62,7 +62,7 @@ En general, use los métodos sincrónicos para las condiciones siguientes:
 - La simplicidad es más importante que la eficacia.
 - Las operaciones son principalmente operaciones de la CPU en lugar de las operaciones que implican una amplia disco o una sobrecarga de la red. Usar métodos asincrónicos en operaciones relacionadas con la CPU no proporciona ninguna ventaja y da lugar a mayor sobrecarga.
 
-  En general, utilice los métodos asincrónicos para las condiciones siguientes:
+En general, utilice los métodos asincrónicos para las condiciones siguientes:
 
 - Se están llamando a los servicios que se pueden consumir mediante los métodos asincrónicos, y usa .NET 4.5 o superior.
 - Las operaciones son enlazada a la red o puedo enlazadas en lugar de a la CPU.

@@ -8,12 +8,12 @@ ms.date: 02/06/2013
 ms.assetid: b91e6424-1544-4747-bd0b-d1f8418c9653
 msc.legacyurl: /web-api/overview/odata-support-in-aspnet-web-api/odata-security-guidance
 msc.type: authoredcontent
-ms.openlocfilehash: 2a5b776a81cb3e3cf809dd3c4229448988086a32
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 4ba53e15dab83368097a58ba4d0d2e46d113d1d2
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41823992"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325723"
 ---
 <a name="security-guidance-for-aspnet-web-api-2-odata"></a>Guía de seguridad para ASP.NET Web API 2 OData
 ====================
@@ -59,7 +59,7 @@ Si sabe que todos los clientes son de confianza (por ejemplo, en un entorno empr
 - Considere la posibilidad de deshabilitar las funciones any() y all(), como pueden ser lentas. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample7.cs)]
-- Si las propiedades de cadena contienen cadenas grandes & #8212for ejemplo, una descripción de producto o una entrada de blog & 8212consider # deshabilitar las funciones de cadena. 
+- Si las propiedades de cadena contienen cadenas grandes&#8212;por ejemplo, una descripción de producto o una entrada de blog&#8212;considerar la deshabilitación de las funciones de cadena. 
 
     [!code-csharp[Main](odata-security-guidance/samples/sample8.cs)]
 - Considere la posibilidad de no permitir el filtrado en las propiedades de navegación. Filtrado en las propiedades de navegación puede dar lugar a una combinación, que podría ser lenta, dependiendo de su esquema de base de datos. El código siguiente muestra un validador de consulta que impide que el filtrado en las propiedades de navegación. Para obtener más información acerca de los validadores de consulta, vea [validación de la consulta](supporting-odata-query-options.md#query-validation). 
