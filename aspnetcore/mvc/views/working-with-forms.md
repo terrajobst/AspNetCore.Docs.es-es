@@ -1,31 +1,31 @@
 ---
-title: Aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
+title: Asistentes de etiquetas en formularios de ASP.NET Core
 author: rick-anderson
-description: En este tema se describen las aplicaciones auxiliares de etiquetas que se usan en los formularios.
+description: En este tema se describen los asistentes de etiquetas que se usan en los formularios.
 ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 02/14/2017
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: 34a553c7ff8a18c367bf5e8079e2ea71f968bf3b
-ms.sourcegitcommit: 75bf5fdbfdcb6a7cfe8fe207b9ff37655ccbacd4
+ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39219425"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911284"
 ---
-# <a name="tag-helpers-in-forms-in-aspnet-core"></a>Aplicaciones auxiliares de etiquetas en formularios de ASP.NET Core
+# <a name="tag-helpers-in-forms-in-aspnet-core"></a>Asistentes de etiquetas en formularios de ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Dave Paquette](https://twitter.com/Dave_Paquette) y [Jerrie Pelser](https://github.com/jerriep)
 
-En este documento se explica cómo trabajar con formularios y se detallan los elementos HTML que se usan habitualmente en un formulario. El elemento HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) proporciona el mecanismo principal que las aplicaciones web usan a la hora de devolver datos al servidor. La mayor parte de este documento se centra en describir las [aplicaciones auxiliares de etiquetas](tag-helpers/intro.md) y cómo pueden servir para crear formularios HTML eficaces de manera productiva. Se recomienda leer [Introduction to Tag Helpers](tag-helpers/intro.md) (Introducción a las aplicaciones auxiliares de etiquetas) antes de este documento.
+En este documento se explica cómo trabajar con formularios y se detallan los elementos HTML que se usan habitualmente en un formulario. El elemento HTML [Form](https://www.w3.org/TR/html401/interact/forms.html) proporciona el mecanismo principal que las aplicaciones web usan a la hora de devolver datos al servidor. La mayor parte de este documento se centra en describir los [asistentes de etiquetas](tag-helpers/intro.md) y cómo pueden servir para crear formularios HTML eficaces de manera productiva. Se recomienda leer [Introduction to Tag Helpers](tag-helpers/intro.md) (Introducción a los asistentes de etiquetas) antes de este documento.
 
-En muchos casos, las aplicaciones auxiliares HTML proporcionan un método alternativo a una aplicación auxiliar de etiquetas específica, pero es importante tener en cuenta que las aplicaciones auxiliares de etiquetas no reemplazan a las aplicaciones auxiliares HTML y que, de igual modo, no hay una aplicación auxiliar de etiqueta para cada aplicación auxiliar HTML. Si existe una alternativa de aplicación auxiliar HTML, se mencionará aquí.
+En muchos casos, los asistentes de HTML proporcionan un método alternativo para un asistente de etiquetas específico, pero es importante tener en cuenta que los asistentes de etiquetas no reemplazan a los asistentes de HTML y que no hay un asistente de etiquetas para cada asistente de HTML. Si existe una alternativa del asistente de HTML, se mencionará aquí.
 
 <a name="my-asp-route-param-ref-label"></a>
 
-## <a name="the-form-tag-helper"></a>Aplicación auxiliar de etiquetas de formulario (Form)
+## <a name="the-form-tag-helper"></a>Asistente de etiquetas de formulario (Form)
 
-La aplicación auxiliar de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.html) hace lo siguiente:
+El asistente de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.html) hace lo siguiente:
 
 * Genera el valor de atributo `action` del elemento HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) de una acción de controlador MVC o ruta con nombre.
 
@@ -33,13 +33,13 @@ La aplicación auxiliar de etiquetas [Form](https://www.w3.org/TR/html401/intera
 
 * Proporciona el atributo `asp-route-<Parameter Name>`, donde `<Parameter Name>` se agrega a los valores de ruta. Los parámetros `routeValues` de `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.
 
-* Tiene `Html.BeginForm` y `Html.BeginRouteForm` como alternativa de aplicación auxiliar HTML.
+* Tiene `Html.BeginForm` y `Html.BeginRouteForm` como alternativa del asistente de HTML.
 
 Ejemplo:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Demo/RegisterFormOnly.cshtml)]
 
-La aplicación auxiliar de etiquetas Form anterior genera el siguiente HTML:
+El asistente de etiquetas Form anterior genera el siguiente HTML:
 
 ```HTML
 <form method="post" action="/Demo/Register">
@@ -48,11 +48,11 @@ La aplicación auxiliar de etiquetas Form anterior genera el siguiente HTML:
 </form>
 ```
 
-El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos de aplicación auxiliar de etiquetas Form `asp-controller` y `asp-action`. La aplicación auxiliar de etiquetas Form genera también un [token de comprobación de solicitudes](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post). Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y la aplicación auxiliar de etiquetas Form presta este servicio.
+El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos del asistente de etiquetas Form `asp-controller` y `asp-action`. El asistente de etiquetas Form genera también un [token de comprobación de solicitudes](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post). Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y el asistente de etiquetas Form presta este servicio.
 
 ### <a name="using-a-named-route"></a>Uso de una ruta con nombre
 
-El atributo de aplicación auxiliar de etiquetas `asp-route` puede generar también el marcado del atributo HTML `action`. Una aplicación con una [ruta](../../fundamentals/routing.md) denominada `register` podría usar el siguiente marcado para la página de registro:
+El atributo del asistente de etiquetas `asp-route` puede generar también el marcado del atributo HTML `action`. Una aplicación con una [ruta](../../fundamentals/routing.md) denominada `register` podría usar el siguiente marcado para la página de registro:
 
 [!code-HTML[](../../mvc/views/working-with-forms/sample/final/Views/Demo/RegisterRoute.cshtml)]
 
@@ -67,9 +67,9 @@ Muchas de las vistas de la carpeta *Views/Account* (que se genera cuando se crea
 >[!NOTE]
 >Con las plantillas integradas, `returnUrl` se rellena automáticamente solo cuando alguien intenta obtener acceso a un recurso autorizado, pero no se ha autenticado o no tiene autorización. Si se intenta realizar un acceso no autorizado, el middleware de seguridad redirige a la página de inicio de sesión con `returnUrl` configurado.
 
-## <a name="the-input-tag-helper"></a>Aplicación auxiliar de etiquetas de entrada (Input)
+## <a name="the-input-tag-helper"></a>Asistente de etiquetas de entrada (Input)
 
-La aplicación auxiliar de etiquetas Input enlaza un elemento HTML [\<input>](https://www.w3.org/wiki/HTML/Elements/input) a una expresión de modelo en la vista de Razor.
+El asistente de etiquetas Input enlaza un elemento HTML [\<input&gt;](https://www.w3.org/wiki/HTML/Elements/input) a una expresión de modelo en la vista de Razor.
 
 Sintaxis:
 
@@ -77,7 +77,7 @@ Sintaxis:
 <input asp-for="<Expression Name>" />
 ```
 
-La aplicación auxiliar de etiquetas Input hace lo siguiente:
+El asistente de etiquetas Input hace lo siguiente:
 
 * Genera los atributos HTML `id` y `name` del nombre de expresión especificado en el atributo `asp-for`. `asp-for="Property1.Property2"` es equivalente a `m => m.Property1.Property2`. El nombre de una expresión es lo que se usa para el valor de atributo `asp-for`. Vea la sección [Nombres de expresión](#expression-names) para obtener más información.
 
@@ -87,9 +87,9 @@ La aplicación auxiliar de etiquetas Input hace lo siguiente:
 
 * Genera atributos de validación [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) a partir de los atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) aplicados a las propiedades de modelo.
 
-* Tiene características de aplicación auxiliar HTML que se superponen a `Html.TextBoxFor` y `Html.EditorFor`. Vea la sección **Alternativas de aplicación auxiliar HTML a la aplicación auxiliar de etiquetas Input** para obtener más información.
+* Tiene características del asistente de HTML que se superponen a `Html.TextBoxFor` y `Html.EditorFor`. Vea la sección **Alternativas del asistente de HTML al asistente de etiquetas Input** para obtener más información.
 
-* Permite establecer tipado fuerte. Si el nombre de la propiedad cambia y no se actualiza la aplicación auxiliar de etiquetas, aparecerá un error similar al siguiente:
+* Permite establecer tipado fuerte. Si el nombre de la propiedad cambia y no se actualiza el asistente de etiquetas, aparecerá un error similar al siguiente:
 
 ```HTML
 An error occurred during the compilation of a resource required to process
@@ -102,7 +102,7 @@ Type expected
  could be found (are you missing a using directive or an assembly reference?)
 ```
 
-La aplicación auxiliar de etiquetas `Input` establece el atributo HTML `type` en función del tipo .NET. En la siguiente tabla se enumeran algunos tipos .NET habituales y el tipo HTML generado correspondiente (no incluimos aquí todos los tipos .NET).
+El asistente de etiquetas `Input` establece el atributo HTML `type` en función del tipo .NET. En la siguiente tabla se enumeran algunos tipos .NET habituales y el tipo HTML generado correspondiente (no incluimos aquí todos los tipos .NET).
 
 |Tipo de .NET|Tipo de entrada|
 |---|---|
@@ -114,7 +114,7 @@ La aplicación auxiliar de etiquetas `Input` establece el atributo HTML `type` e
 |Single, Double|type=”number”|
 
 
-En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que la aplicación auxiliar de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):
+En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que el asistente de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):
 
 
 |Atributo|Tipo de entrada|
@@ -152,15 +152,15 @@ El código anterior genera el siguiente HTML:
    </form>
 ```
 
-Las anotaciones de datos que se aplican a las propiedades `Email` y `Password` generan metadatos en el modelo. La aplicación auxiliar de etiquetas Input usa esos metadatos del modelo y genera atributos [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-val-*`. Vea [Model Validation](../models/validation.md) (Validación del modelo). Estos atributos describen los validadores que se van a adjuntar a los campos de entrada, lo que proporciona HTML5 discreto y validación de [jQuery](https://jquery.com/). Los atributos discretos tienen el formato `data-val-rule="Error Message"`, donde "rule" es el nombre de la regla de validación (como `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.). Si aparece un mensaje de error en el atributo, se mostrará como el valor del atributo `data-val-rule`. También hay atributos con el formato `data-val-ruleName-argumentName="argumentValue"` que aportan más información sobre la regla, por ejemplo, `data-val-maxlength-max="1024"`.
+Las anotaciones de datos que se aplican a las propiedades `Email` y `Password` generan metadatos en el modelo. El asistente de etiquetas Input usa esos metadatos del modelo y genera atributos [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5)`data-val-*`. Vea [Model Validation](../models/validation.md) (Validación del modelo). Estos atributos describen los validadores que se van a adjuntar a los campos de entrada, lo que proporciona HTML5 discreto y validación de [jQuery](https://jquery.com/). Los atributos discretos tienen el formato `data-val-rule="Error Message"`, donde "rule" es el nombre de la regla de validación (como `data-val-required`, `data-val-email`, `data-val-maxlength`, etc.). Si aparece un mensaje de error en el atributo, se mostrará como el valor del atributo `data-val-rule`. También hay atributos con el formato `data-val-ruleName-argumentName="argumentValue"` que aportan más información sobre la regla, por ejemplo, `data-val-maxlength-max="1024"`.
 
-### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternativas de aplicación auxiliar HTML a la aplicación auxiliar de etiquetas Input
+### <a name="html-helper-alternatives-to-input-tag-helper"></a>Alternativas del asistente de HTML al asistente de etiquetas Input
 
-`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características que se superponen a la aplicación auxiliar de etiquetas Input. La aplicación auxiliar de etiquetas Input establecerá automáticamente el atributo `type`, cosa que no ocurrirá con `Html.TextBox` ni `Html.TextBoxFor`. `Html.Editor` y `Html.EditorFor` controlan colecciones, objetos complejos y plantillas, pero la aplicación auxiliar de etiquetas Input no. La aplicación auxiliar de etiquetas Input, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usan expresiones lambda), pero `Html.TextBox` y `Html.Editor` no (usan nombres de expresión).
+`Html.TextBox`, `Html.TextBoxFor`, `Html.Editor` y `Html.EditorFor` tienen características que se superponen al asistente de etiquetas Input. El asistente de etiquetas Input establecerá automáticamente el atributo `type`, cosa que no ocurrirá con `Html.TextBox` ni `Html.TextBoxFor`. `Html.Editor` y `Html.EditorFor` controlan colecciones, objetos complejos y plantillas, pero el asistente de etiquetas Input no. El asistente de etiquetas Input, `Html.EditorFor` y `Html.TextBoxFor` están fuertemente tipados (usan expresiones lambda), pero `Html.TextBox` y `Html.Editor` no (usan nombres de expresión).
 
 ### <a name="htmlattributes"></a>HtmlAttributes
 
-`@Html.Editor()` y `@Html.EditorFor()` usan una entrada `ViewDataDictionary` especial denominada `htmlAttributes` al ejecutar sus plantillas predeterminadas. Si lo desea, este comportamiento se puede enriquecer con parámetros `additionalViewData`. En la clave "htmlAttributes" se distingue entre mayúsculas y minúsculas. La clave "htmlAttributes" se controla de forma similar al objeto `htmlAttributes` pasado a aplicaciones auxiliares de etiqueta Input como `@Html.TextBox()`.
+`@Html.Editor()` y `@Html.EditorFor()` usan una entrada `ViewDataDictionary` especial denominada `htmlAttributes` al ejecutar sus plantillas predeterminadas. Si lo desea, este comportamiento se puede enriquecer con parámetros `additionalViewData`. En la clave "htmlAttributes" se distingue entre mayúsculas y minúsculas. La clave "htmlAttributes" se controla de forma similar al objeto `htmlAttributes` pasado a asistentes de etiquetas Input como `@Html.TextBox()`.
 
 ```HTML
 @Html.EditorFor(model => model.YourProperty, 
@@ -254,15 +254,15 @@ La plantilla *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 >[!NOTE]
 >El código de ejemplo comentado anterior muestra cómo reemplazaríamos la expresión lambda por el operador `@` para tener acceso a cada elemento `ToDoItem` de la lista.
 
-## <a name="the-textarea-tag-helper"></a>Aplicación auxiliar de etiquetas de área de texto (Textarea)
+## <a name="the-textarea-tag-helper"></a>Asistente de etiquetas de área de texto (Textarea)
 
-La aplicación auxiliar de etiquetas `Textarea Tag Helper` es similar a la aplicación auxiliar de etiquetas Input.
+El asistente de etiquetas `Textarea Tag Helper` es similar al asistente de etiquetas Input.
 
 * Genera los atributos `id` y `name`, y los atributos de validación de datos del modelo de un elemento [\<textarea>](https://www.w3.org/wiki/HTML/Elements/textarea).
 
 * Permite establecer tipado fuerte.
 
-* Alternativa de aplicación auxiliar HTML: `Html.TextAreaFor`.
+* Alternativa del asistente de HTML: `Html.TextAreaFor`
 
 Ejemplo:
 
@@ -286,15 +286,15 @@ Se genera el siguiente código HTML:
 </form>
 ```
 
-## <a name="the-label-tag-helper"></a>Aplicación auxiliar de etiquetas Label
+## <a name="the-label-tag-helper"></a>Asistente de etiquetas Label
 
 * Genera el título de la etiqueta y el atributo `for` en un elemento [<label>](https://www.w3.org/wiki/HTML/Elements/label) de un nombre de expresión.
 
-* Alternativa de aplicación auxiliar HTML: `Html.LabelFor`.
+* Alternativa del asistente de HTML: `Html.LabelFor`.
 
 `Label Tag Helper` proporciona las siguientes ventajas con respecto a un elemento HTML Label puro:
 
-* Obtendrá automáticamente el valor de la etiqueta descriptiva del atributo `Display`. El nombre para mostrar que se busca puede cambiar con el tiempo y la combinación del atributo `Display`, y la aplicación auxiliar de etiquetas Label aplicará el elemento `Display` en cualquier lugar donde se use.
+* Obtendrá automáticamente el valor de la etiqueta descriptiva del atributo `Display`. El nombre para mostrar que se busca puede cambiar con el tiempo y la combinación del atributo `Display`, y el asistente de etiquetas Label aplicará el elemento `Display` en cualquier lugar donde se use.
 
 * El código fuente contiene menos marcado.
 
@@ -312,19 +312,19 @@ Se genera el siguiente código HTML para el elemento `<label>`:
 <label for="Email">Email Address</label>
 ```
 
-La aplicación auxiliar de etiquetas Label genera el valor de atributo `for` de "Email", que es el identificador asociado al elemento `<input>`. Las aplicaciones auxiliares de etiqueta generan elementos `id` y `for` coherentes para que se puedan asociar correctamente. El título de este ejemplo proviene del atributo `Display`. Si el modelo no contuviera un atributo `Display`, el título sería el nombre de propiedad de la expresión.
+El asistente de etiquetas Label genera el valor de atributo `for` de "Email", que es el identificador asociado al elemento `<input>`. Los asistentes de etiquetas generan elementos `id` y `for` coherentes para que se puedan asociar correctamente. El título de este ejemplo proviene del atributo `Display`. Si el modelo no contuviera un atributo `Display`, el título sería el nombre de propiedad de la expresión.
 
-## <a name="the-validation-tag-helpers"></a>Aplicaciones auxiliares de etiquetas de validación
+## <a name="the-validation-tag-helpers"></a>Asistentes de etiquetas de validación
 
-Hay dos aplicaciones auxiliares de etiquetas de validación: `Validation Message Tag Helper` (que muestra un mensaje de validación relativo a una única propiedad del modelo) y `Validation Summary Tag Helper` (que muestra un resumen de los errores de validación). `Input Tag Helper` agrega atributos de validación del lado cliente HTML5 a los elementos de entrada en función de los atributos de anotación de datos de las clases del modelo. La validación también se realiza en el lado servidor. La aplicación auxiliar de etiquetas de validación muestra estos mensajes de error cuando se produce un error de validación.
+Hay dos asistentes de etiquetas de validación. `Validation Message Tag Helper` (que muestra un mensaje de validación relativo a una única propiedad del modelo) y `Validation Summary Tag Helper` (que muestra un resumen de los errores de validación). `Input Tag Helper` agrega atributos de validación del lado cliente HTML5 a los elementos de entrada en función de los atributos de anotación de datos de las clases del modelo. La validación también se realiza en el lado servidor. El asistente de etiquetas de validación muestra estos mensajes de error cuando se produce un error de validación.
 
-### <a name="the-validation-message-tag-helper"></a>Aplicación auxiliar de etiquetas de mensaje de validación
+### <a name="the-validation-message-tag-helper"></a>Asistente de etiquetas de mensaje de validación
 
 * Agrega el atributo [HTML5](https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5) `data-valmsg-for="property"` al elemento [span](https://developer.mozilla.org/docs/Web/HTML/Element/span), que adjunta los mensajes de error de validación en el campo de entrada de la propiedad de modelo especificada. Cuando se produce un error de validación en el lado cliente, [jQuery](https://jquery.com/) muestra el mensaje de error en el elemento `<span>`.
 
 * La validación también tiene lugar en el lado servidor. Puede que JavaScript esté deshabilitado en los clientes, mientras que hay algunas validaciones que solo se pueden realizar en el lado servidor.
 
-* Alternativa de aplicación auxiliar HTML: `Html.ValidationMessageFor`.
+* Alternativa del asistente de HTML: `Html.ValidationMessageFor`
 
 `Validation Message Tag Helper` se usa con el atributo `asp-validation-for` en un elemento HTML [span](https://developer.mozilla.org/docs/Web/HTML/Element/span).
 
@@ -332,7 +332,7 @@ Hay dos aplicaciones auxiliares de etiquetas de validación: `Validation Message
 <span asp-validation-for="Email"></span>
 ```
 
-La aplicación auxiliar de etiquetas de mensaje de validación generará el siguiente código HTML:
+El asistente de etiquetas de mensaje de validación generará el siguiente código HTML:
 
 ```HTML
 <span class="field-validation-valid"
@@ -340,7 +340,7 @@ La aplicación auxiliar de etiquetas de mensaje de validación generará el sigu
   data-valmsg-replace="true"></span>
 ```
 
-`Validation Message Tag Helper` suele usarse por lo general después de una aplicación auxiliar de etiquetas `Input` en la misma propiedad. Gracias a esto, se mostrarán todos los mensajes de error de validación cerca de la entrada que produjo el error.
+`Validation Message Tag Helper` suele usarse por lo general después de un asistente de etiquetas `Input` en la misma propiedad. Gracias a esto, se mostrarán todos los mensajes de error de validación cerca de la entrada que produjo el error.
 
 > [!NOTE]
 > Debe tener una vista con las referencias de script de JavaScript y de [jQuery](https://jquery.com/) adecuadas para la validación del lado cliente. Para más información, vea [Introduction to model validation in ASP.NET Core MVC](../models/validation.md) (Introducción a la validación de modelos en ASP.NET Core MVC).
@@ -354,11 +354,11 @@ Cuando se produce un error de validación del lado servidor (por ejemplo, porque
 </span>
 ```
 
-### <a name="the-validation-summary-tag-helper"></a>Aplicación auxiliar de etiquetas de resumen de validación
+### <a name="the-validation-summary-tag-helper"></a>Asistente de etiquetas de resumen de validación
 
 * Tiene como destino todos los elementos `<div>` con el atributo `asp-validation-summary`.
 
-* Alternativa de aplicación auxiliar HTML: `@Html.ValidationSummary`.
+* Alternativa del asistente de HTML: `@Html.ValidationSummary`
 
 `Validation Summary Tag Helper` se usa para mostrar un resumen de los mensajes de validación. El valor de atributo `asp-validation-summary` puede ser cualquiera de los siguientes:
 
@@ -370,7 +370,7 @@ Cuando se produce un error de validación del lado servidor (por ejemplo, porque
 
 ### <a name="sample"></a>Ejemplo
 
-En el siguiente ejemplo, el modelo de datos se complementa con atributos `DataAnnotation`, lo que genera mensajes de error de validación sobre el elemento `<input>`.  Cuando se produce un error de validación, la aplicación auxiliar de etiquetas de validación muestra el mensaje de error:
+En el siguiente ejemplo, el modelo de datos se complementa con atributos `DataAnnotation`, lo que genera mensajes de error de validación sobre el elemento `<input>`.  Cuando se produce un error de validación, el asistente de etiquetas de validación muestra el mensaje de error:
 
 [!code-csharp[](working-with-forms/sample/final/ViewModels/RegisterViewModel.cs)]
 
@@ -397,11 +397,11 @@ El código HTML generado (cuando el modelo es válido) es este:
 </form>
 ```
 
-## <a name="the-select-tag-helper"></a>Aplicación auxiliar de etiquetas de selección (Select)
+## <a name="the-select-tag-helper"></a>Asistente de etiquetas de selección (Select)
 
 * Genera el elemento [select](https://www.w3.org/wiki/HTML/Elements/select) y el elemento asociado [option](https://www.w3.org/wiki/HTML/Elements/option) de las propiedades del modelo.
 
-* Tiene `Html.DropDownListFor` y `Html.ListBoxFor` como alternativa de aplicación auxiliar HTML.
+* Tiene `Html.DropDownListFor` y `Html.ListBoxFor` como alternativa del asistente de HTML.
 
 El elemento `asp-for` de `Select Tag Helper` especifica el nombre de la propiedad de modelo del elemento [select](https://www.w3.org/wiki/HTML/Elements/select), mientras que `asp-items` especifica los elementos [option](https://www.w3.org/wiki/HTML/Elements/option).  Por ejemplo:
 
@@ -413,7 +413,7 @@ Ejemplo:
 
 El método `Index` inicializa `CountryViewModel`, establece el país seleccionado y lo pasa a la vista `Index`.
 
-[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=114-119)]
+[!code-csharp[](working-with-forms/sample/final/Controllers/HomeController.cs?range=8-13)]
 
 El método HTTP POST `Index` muestra la selección:
 
@@ -438,9 +438,9 @@ Genera el siguiente código HTML (con la selección "CA"):
 ```
 
 > [!NOTE]
-> No se recomienda usar `ViewBag` o `ViewData` con la aplicación auxiliar de etiquetas Select. Un modelo de vista es más eficaz a la hora de proporcionar metadatos MVC y suele ser menos problemático.
+> No se recomienda usar `ViewBag` o `ViewData` con el asistente de etiquetas Select. Un modelo de vista es más eficaz a la hora de proporcionar metadatos MVC y suele ser menos problemático.
 
-El valor de atributo `asp-for` es un caso especial y no necesita un prefijo `Model`, mientras que los otros atributos de aplicación auxiliar de etiquetas sí (como `asp-items`).
+El valor de atributo `asp-for` es un caso especial y no necesita un prefijo `Model`, mientras que los otros atributos del asistente de etiquetas sí (como `asp-items`).
 
 [!code-HTML[](working-with-forms/sample/final/Views/Home/Index.cshtml?range=4)]
 
@@ -515,7 +515,7 @@ El código HTML generado:
 
 ### <a name="multiple-select"></a>Selección múltiple
 
-La aplicación auxiliar de etiquetas Select generará automáticamente el atributo [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) si la propiedad especificada en el atributo `asp-for` es `IEnumerable`. Por ejemplo, si tenemos el siguiente modelo:
+El asistente de etiquetas Select generará automáticamente el atributo [multiple = "multiple"](http://w3c.github.io/html-reference/select.html) si la propiedad especificada en el atributo `asp-for` es `IEnumerable`. Por ejemplo, si tenemos el siguiente modelo:
 
 [!code-csharp[](../../mvc/views/working-with-forms/sample/final/ViewModels/CountryViewModelIEnumerable.cs?highlight=6)]
 
@@ -574,7 +574,7 @@ Se seleccionará el elemento `<option>` correcto (que contenga el atributo `sele
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro)
+* [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)
 * [HTML Form element](https://www.w3.org/TR/html401/interact/forms.html) (Elemento HTML Form)
 * [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Token de comprobación de solicitudes)
 * [Enlace de modelos](xref:mvc/models/model-binding)
