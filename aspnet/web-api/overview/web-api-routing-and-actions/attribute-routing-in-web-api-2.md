@@ -8,12 +8,12 @@ ms.date: 01/20/2014
 ms.assetid: 979d6c9f-0129-4e5b-ae56-4507b281b86d
 msc.legacyurl: /web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
 msc.type: authoredcontent
-ms.openlocfilehash: d16dcc618bf6c60714179601db14f4dd2a9e41ce
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 22eb2fd748d52ec95e813ada8b1bf3b4826ad573
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912157"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348486"
 ---
 <a name="attribute-routing-in-aspnet-web-api-2"></a>Enrutamiento mediante atributos en ASP.NET Web API 2
 ====================
@@ -245,11 +245,11 @@ Para especificar el nombre de ruta, establezca la **nombre** propiedad del atrib
 <a id="order"></a>
 ## <a name="route-order"></a>Orden de la ruta
 
-Cuando el marco de trabajo intenta hacer coincidir un URI con una ruta, evalúa las rutas en un orden concreto. Para especificar el orden, establezca el **RouteOrder** propiedad del atributo de ruta. Los valores más bajos se evalúan primero. El valor de orden predeterminado es cero.
+Cuando el marco de trabajo intenta hacer coincidir un URI con una ruta, evalúa las rutas en un orden concreto. Para especificar el orden, establezca el **orden** propiedad del atributo de ruta. Los valores más bajos se evalúan primero. El valor de orden predeterminado es cero.
 
 Aquí es cómo se determina el orden total:
 
-1. Comparar el **RouteOrder** propiedad del atributo de ruta.
+1. Comparar el **orden** propiedad del atributo de ruta.
 2. Examine cada segmento URI de la plantilla de ruta. Para cada segmento, pedido como sigue:
 
     1. Segmentos literales.
@@ -271,4 +271,4 @@ Estas rutas se ordenan como sigue.
 4. pedidos / {\*fecha}
 5. pedidos / pendiente
 
-Tenga en cuenta que "Detalles" es un segmento literal y aparece antes que "{id}", pero "pendiente" aparece por última vez porque el **RouteOrder** propiedad es 1. (En este ejemplo se supone que hay es ningún cliente denominado "Detalles" o "pendiente". En general, intente evitar rutas ambiguas. En este ejemplo, una plantilla de ruta mejor para `GetByCustomer` es "customers / {customerName}")
+Tenga en cuenta que "Detalles" es un segmento literal y aparece antes que "{id}", pero "pendiente" aparece por última vez porque el **orden** propiedad es 1. (En este ejemplo se supone que hay es ningún cliente denominado "Detalles" o "pendiente". En general, intente evitar rutas ambiguas. En este ejemplo, una plantilla de ruta mejor para `GetByCustomer` es "customers / {customerName}")

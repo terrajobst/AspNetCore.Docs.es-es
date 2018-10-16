@@ -4,14 +4,14 @@ author: guardrex
 description: Vea cómo las convenciones de proveedor de modelos de aplicación y de ruta sirven para controlar el enrutamiento, la detección y el procesamiento de páginas.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 09/17/2018
+ms.date: 10/12/2018
 uid: razor-pages/razor-pages-conventions
-ms.openlocfilehash: ea4f785dc8a64b430e312fd122a4d3184b61949e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 13fd6c156afd5ab62739b09296a929120ce3450f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011867"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348538"
 ---
 # <a name="razor-pages-route-and-app-conventions-in-aspnet-core"></a>Convenciones de aplicación y de ruta de páginas de Razor en ASP.NET Core
 
@@ -87,13 +87,13 @@ Procesamiento de la ruta se establece mediante la convención:
 
 Si es posible, evite según un orden de procesamiento de la ruta establecida. Por lo general, selecciona la ruta correcta con coincidencia de dirección URL de enrutamiento. Si se debe establecer ruta `Order` propiedades para enrutar las solicitudes correctamente, esquema de enrutamiento de la aplicación es probablemente confuso para los clientes y frágil mantener. Buscar simplificar el esquema de enrutamiento de la aplicación. La aplicación de ejemplo requiere una ruta explicita de procesamiento de orden en que se muestran varios escenarios de enrutamientos mediante una sola aplicación. Sin embargo, debe intentar evitar la práctica de la ruta de configuración `Order` en aplicaciones de producción.
 
-Enrutamiento de las páginas de Razor y compartir de enrutamiento de controlador MVC una implementación. Información sobre el orden de la ruta en los temas MVC está disponible en [enrutamiento a acciones del controlador: orden de las rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
+El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparten una implementación. Información sobre el orden de la ruta en los temas MVC está disponible en [enrutamiento a acciones del controlador: orden de las rutas de atributo](xref:mvc/controllers/routing#ordering-attribute-routes).
 
 ## <a name="model-conventions"></a>Convenciones de modelo
 
 Agregue un delegado de [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) con el fin de agregar [convenciones de modelo](xref:mvc/controllers/application-model#conventions) y aplicarlas a páginas de Razor.
 
-**Agregar una convención de modelo de ruta a todas las páginas**
+### <a name="add-a-route-model-convention-to-all-pages"></a>Agregar una convención de modelo de ruta a todas las páginas
 
 Use [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) para crear y agregar un [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) a la colección de instancias [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) que se van a aplicar durante la construcción del modelo de ruta de página.
 
@@ -117,7 +117,7 @@ Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue`
 
 ![La página About se solicita con un segmento de ruta de GlobalRouteValue. La página presentada refleja que el valor de datos de ruta se captura en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-template.png)
 
-**Agregar una convención de modelo de aplicación a todas las páginas**
+### <a name="add-an-app-model-convention-to-all-pages"></a>Agregar una convención de modelo de aplicación a todas las páginas
 
 Use [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) para crear y agregar un [IPageApplicationModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageapplicationmodelconvention) a la colección de instancias [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) que se van a aplicar durante la construcción del modelo de aplicación de página.
 
@@ -137,12 +137,12 @@ Solicite la página About del ejemplo en `localhost:5000/About` y revise los enc
 
 ::: moniker range=">= aspnetcore-2.1"
 
-**Agregar una convención de modelo de controlador a todas las páginas**
+### <a name="add-a-handler-model-convention-to-all-pages"></a>Agregar una convención de modelo de controlador a todas las páginas
 
 Use [Conventions](/dotnet/api/microsoft.aspnetcore.mvc.razorpages.razorpagesoptions.conventions) para crear y agregar un [IPageHandlerModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipagehandlermodelconvention) a la colección de instancias [IPageConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageconvention) que se van a aplicar durante la construcción del modelo de controlador de página.
 
 ```csharp
-public class GlobalPageHandlerModelConvention 
+public class GlobalPageHandlerModelConvention
     : IPageHandlerModelConvention
 {
     public void Apply(PageHandlerModel model)
@@ -168,7 +168,7 @@ services.AddMvc()
 
 El proveedor de modelos de ruta predeterminado que se deriva de [IPageRouteModelProvider](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelprovider) invoca convenciones diseñadas para proporcionar puntos de extensibilidad que permitan configurar rutas de página.
 
-**Convención de modelo de ruta de carpeta**
+### <a name="folder-route-model-convention"></a>Convención de modelo de ruta de carpeta
 
 Use [AddFolderRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addfolderroutemodelconvention) para crear y agregar un [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) que invoque una acción en el modelo [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) de todas las páginas contenidas en la carpeta especificada.
 
@@ -184,7 +184,7 @@ Solicite la página Page1 del ejemplo en `localhost:5000/OtherPages/Page1/Global
 
 ![Page1 en la carpeta OtherPages solicitada con un segmento de ruta de GlobalRouteValue y OtherPagesRouteValue La página presentada refleja que los valores de datos de ruta se capturan en el método OnGet de la página.](razor-pages-conventions/_static/otherpages-page1-global-and-otherpages-templates.png)
 
-**Convención de modelo de ruta de página**
+### <a name="page-route-model-convention"></a>Convención de modelo de ruta de página
 
 Use [AddPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageconventioncollection.addpageroutemodelconvention) para crear y agregar un [IPageRouteModelConvention](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.ipageroutemodelconvention) que invoque una acción en el modelo [PageRouteModel](/dotnet/api/microsoft.aspnetcore.mvc.applicationmodels.pageroutemodel) de la página con el nombre especificado.
 
@@ -199,6 +199,44 @@ Siempre que sea posible, no establezca la `Order`, que da como resultado `Order 
 Solicite la página About del ejemplo en `localhost:5000/About/GlobalRouteValue/AboutRouteValue` y revise el resultado:
 
 ![La página About se solicita con los segmentos de ruta de GlobalRouteValue y AboutRouteValue. La página presentada refleja que los valores de datos de ruta se capturan en el método OnGet de la página.](razor-pages-conventions/_static/about-page-global-and-about-templates.png)
+
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="use-a-parameter-transformer-to-customize-page-routes"></a>Usar un transformador de parámetro para personalizar las rutas de página
+
+Las rutas de página generadas por ASP.NET Core pueden personalizarse mediante un transformador de parámetro. Implementa un transformador parámetro `IOutboundParameterTransformer` y transforma el valor de parámetros. Por ejemplo, un personalizado `SlugifyParameterTransformer` cambios de transformador parámetro el `SubscriptionManagement` enrutar valor a `subscription-management`.
+
+El `PageRouteTransformerConvention` convención de modelo de ruta de página aplica un transformador de parámetro a los segmentos de nombre de carpeta y archivo de rutas de página generada automáticamente en una aplicación. Por ejemplo, las páginas de Razor de archivos en */Pages/SubscriptionManagement/ViewAll.cshtml* tendría su ruta reescribe desde `/SubscriptionManagement/ViewAll` a `/subscription-management/view-all`.
+
+`PageRouteTransformerConvention` solo transforma los segmentos de una ruta de página generados automáticamente que proceden de la carpeta de las páginas de Razor y el nombre de archivo. No transforma los segmentos de ruta agregados con el `@page` directiva. La convención también no transforma las rutas agregadas por <xref:Microsoft.Extensions.DependencyInjection.PageConventionCollectionExtensions.AddPageRoute*>.
+
+El `PageRouteTransformerConvention` está registrado como una opción en `Startup.ConfigureServices`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc()
+        .AddRazorPagesOptions(options =>
+            {
+                options.Conventions.Add(
+                    new PageRouteTransformerConvention(
+                        new SlugifyParameterTransformer()));
+            });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 ## <a name="configure-a-page-route"></a>Configurar una ruta de página
 

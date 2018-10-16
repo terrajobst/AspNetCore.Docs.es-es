@@ -4,40 +4,37 @@ title: Habilitación de solicitudes entre orígenes en ASP.NET Web API 2 | Micro
 author: MikeWasson
 description: Muestra cómo admitir el uso compartido de recursos entre orígenes (CORS) en ASP.NET Web API.
 ms.author: riande
-ms.date: 07/15/2014
+ms.date: 10/10/2018
 ms.assetid: 9b265a5a-6a70-4a82-adce-2d7c56ae8bdd
 msc.legacyurl: /web-api/overview/security/enabling-cross-origin-requests-in-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: dc95c39af0821c2f456f5a312de5532c5aeb3c10
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 118b779c89edb874f7f928315d1094738be5f097
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912207"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348525"
 ---
-<a name="enabling-cross-origin-requests-in-aspnet-web-api-2"></a>Habilitación de solicitudes entre orígenes en ASP.NET Web API 2
+<a name="enable-cross-origin-requests-in-aspnet-web-api-2"></a>Habilitar solicitudes entre orígenes en ASP.NET Web API 2
 ====================
 por [Mike Wasson](https://github.com/MikeWasson)
 
 > La seguridad del explorador impide que una página web realice solicitudes AJAX a otro dominio. Esta restricción se denomina *"directiva de mismo origen"* e impide que un sitio malintencionado lea los datos confidenciales desde otro sitio. Sin embargo, a veces es posible que desee permitir que otros sitios de llamada a la API web.
-> 
+>
 > El [uso compartido de recursos entre orígenes](http://www.w3.org/TR/cors/) (CORS) es un estándar del W3C que permite que un servidor modere la directiva de mismo origen. Mediante CORS, un servidor puede permitir explícitamente algunas solicitudes entre orígenes y rechazar otras. CORS es más seguro y flexible que técnicas anteriores como [JSONP](http://en.wikipedia.org/wiki/JSONP). Este tutorial muestra cómo se habilita la CORS en la aplicación de API Web.
-> 
-> ## <a name="software-versions-used-in-the-tutorial"></a>Versiones de software que se usa en el tutorial
-> 
-> 
-> - [Visual Studio 2013 Update 2](https://www.microsoft.com/visualstudio/eng/2013-downloads)
+>
+> ## <a name="software-used-in-the-tutorial"></a>Software que se usa en el tutorial
+>
+> - [Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=button+cta&utm_content=download+vs2017)
 > - Web API 2.2
 
-
-<a id="intro"></a>
 ## <a name="introduction"></a>Introducción
 
 Este tutorial se muestra la compatibilidad con CORS en ASP.NET Web API. Comenzaremos creando dos proyectos ASP.NET: uno llamado "WebService", que hospeda un controlador Web API, y otra llamada "WebClient", que llama al servicio Web. Dado que las dos aplicaciones se hospedan en dominios diferentes, una solicitud de AJAX de WebClient para el servicio Web es una solicitud entre orígenes.
 
 ![](enabling-cross-origin-requests-in-web-api/_static/image1.png)
 
-### <a name="what-is-same-origin"></a>¿Qué es el "Mismo origen"?
+### <a name="what-is-same-origin"></a>¿Qué es el "mismo origen"?
 
 Dos direcciones URL tienen el mismo origen si tienen puertos, hosts y esquemas idénticos. ([RFC 6454](http://tools.ietf.org/html/rfc6454))
 
@@ -56,59 +53,56 @@ Estas direcciones URL tienen orígenes diferentes de los dos anteriores:
 > [!NOTE]
 > Internet Explorer no tiene en cuenta el puerto al comparar orígenes.
 
-
-<a id="create-webapi-project"></a>
 ## <a name="create-the-webservice-project"></a>Crear el proyecto WebService
 
 > [!NOTE]
 > En esta sección se da por supuesto que ya sabe cómo crear proyectos de Web API. Si no, consulte [Introducción a ASP.NET Web API](../getting-started-with-aspnet-web-api/tutorial-your-first-web-api.md).
 
+1. Inicie Visual Studio y cree un nuevo **aplicación Web ASP.NET (.NET Framework)** proyecto.
+2. En el **nueva aplicación Web ASP.NET** cuadro de diálogo, seleccione el **vacía** plantilla de proyecto. En **agregar carpetas y referencias centrales para**, seleccione el **API Web** casilla de verificación.
 
-Inicie Visual Studio y cree un nuevo **aplicación Web ASP.NET** proyecto. Seleccione el **vacía** plantilla de proyecto. En "Agregar carpetas y referencias centrales para", seleccione el **API Web** casilla de verificación. Opcionalmente, seleccione la opción "Hospedar en la nube" para implementar la aplicación en Microsoft Azure. Microsoft ofrece hospedaje web gratuito para hasta 10 sitios Web en un [cuenta gratuita de Azure prueba](https://azure.microsoft.com/free/?WT.mc_id=A443DD604).
+   ![Nuevo cuadro de diálogo de proyecto ASP.NET en Visual Studio](enabling-cross-origin-requests-in-web-api/_static/new-web-app-dialog.png)
 
-[![](enabling-cross-origin-requests-in-web-api/_static/image3.png)](enabling-cross-origin-requests-in-web-api/_static/image2.png)
+3. Agregar un controlador de Web API llamado `TestController` con el código siguiente:
 
-Agregar un controlador de Web API llamado `TestController` con el código siguiente:
+   [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
 
-[!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample1.cs)]
+4. Puede ejecutar la aplicación localmente o implementar en Azure. (Para las capturas de pantalla en este tutorial, la aplicación se implementa en Azure App Service Web Apps.) Para comprobar que funciona la API web, vaya a `http://hostname/api/test/`, donde *hostname* es el dominio donde se implementa la aplicación. Debería ver el texto de respuesta, &quot;obtener: mensaje de prueba&quot;.
 
-Puede ejecutar la aplicación localmente o implementar en Azure. (Para las capturas de pantalla en este tutorial, se implementó en Azure App Service Web Apps.) Para comprobar que funciona la API web, vaya a `http://hostname/api/test/`, donde *hostname* es el dominio donde se implementa la aplicación. Debería ver el texto de respuesta, &quot;obtener: mensaje de prueba&quot;.
+   ![Mensaje de prueba de que se muestra de explorador Web](enabling-cross-origin-requests-in-web-api/_static/image4.png)
 
-![](enabling-cross-origin-requests-in-web-api/_static/image4.png)
-
-<a id="create-client"></a>
 ## <a name="create-the-webclient-project"></a>Crear el proyecto de WebClient
 
-Cree otro proyecto de aplicación Web ASP.NET y seleccione el **MVC** plantilla de proyecto. Si lo desea, seleccione **Cambiar autenticación** > **sin autenticación**. No necesita autenticación para este tutorial.
+1. Crear otro **aplicación Web ASP.NET (.NET Framework)** del proyecto y seleccione el **MVC** plantilla de proyecto. Si lo desea, seleccione **Cambiar autenticación** > **sin autenticación**. No necesita autenticación para este tutorial.
 
-[![](enabling-cross-origin-requests-in-web-api/_static/image6.png)](enabling-cross-origin-requests-in-web-api/_static/image5.png)
+   ![Plantilla MVC en el cuadro de diálogo nuevo proyecto de ASP.NET en Visual Studio](enabling-cross-origin-requests-in-web-api/_static/new-web-app-dialog-mvc.png)
 
-En el Explorador de soluciones, abra el archivo Views/Home/Index.cshtml. Reemplace el código de este archivo por lo siguiente:
+2. En **el Explorador de soluciones**, abra el archivo *Views/Home/Index.cshtml*. Reemplace el código de este archivo por lo siguiente:
 
-[!code-cshtml[Main](enabling-cross-origin-requests-in-web-api/samples/sample2.cshtml?highlight=13)]
+   [!code-cshtml[Main](enabling-cross-origin-requests-in-web-api/samples/sample2.cshtml?highlight=13)]
 
-Para el *serviceUrl* variable, use el identificador URI de la aplicación de servicio Web. Ahora ejecute la aplicación de WebClient localmente o publicarla en otro sitio Web.
+   Para el *serviceUrl* variable, use el identificador URI de la aplicación de servicio Web.
 
-Al hacer clic en el botón "Pruébelo" envía una solicitud AJAX a la aplicación de servicio Web, mediante el método HTTP que se muestran en el cuadro de lista desplegable (GET, POST o PUT). Esto nos permite examinar las solicitudes entre orígenes diferentes. En este momento, la aplicación de servicio Web no admite la CORS, por lo que si hace clic en el botón, se producirá un error.
+3. Ejecutar la aplicación de WebClient localmente o publicarla en otro sitio Web.
 
-![](enabling-cross-origin-requests-in-web-api/_static/image7.png)
+Al hacer clic en el botón "Pruébelo", se envía una solicitud AJAX a la aplicación de servicio Web mediante el método HTTP que se muestran en el cuadro de lista desplegable (GET, POST o PUT). Esto le permite examinar las solicitudes entre orígenes diferentes. Actualmente, la aplicación de servicio Web no admite la CORS, por lo que si hace clic en el botón aparece un error.
+
+!['Try' error en el explorador](enabling-cross-origin-requests-in-web-api/_static/image7.png)
 
 > [!NOTE]
 > Si observa que el tráfico HTTP en una herramienta como [Fiddler](http://www.telerik.com/fiddler), verá que el explorador envía la solicitud GET y la solicitud se realiza correctamente, pero la llamada AJAX devuelve un error. Es importante comprender que la directiva de mismo origen no evita que el Explorador de *enviar* la solicitud. En su lugar, impide que la aplicación vean el *respuesta*.
 
+![Depurador de Fiddler web que muestra las solicitudes web](enabling-cross-origin-requests-in-web-api/_static/image8.png)
 
-![](enabling-cross-origin-requests-in-web-api/_static/image8.png)
-
-<a id="enable-cors"></a>
 ## <a name="enable-cors"></a>Habilitar la CORS
 
 Ahora vamos a habilitar la CORS en la aplicación de servicio Web. En primer lugar, agregue el paquete NuGet de la CORS. En Visual Studio, desde el **herramientas** menú, seleccione **Administrador de paquetes de NuGet**, a continuación, seleccione **Package Manager Console**. En la ventana de consola de administrador de paquetes, escriba el siguiente comando:
 
 [!code-powershell[Main](enabling-cross-origin-requests-in-web-api/samples/sample3.ps1)]
 
-Este comando instala el paquete más reciente y actualiza todas las dependencias, incluidas las bibliotecas de core Web API. Usuario-marca de versión para tener como destino una versión específica. El paquete de la CORS necesita Web API 2.0 o posterior.
+Este comando instala el paquete más reciente y actualiza todas las dependencias, incluidas las bibliotecas de core Web API. Use el `-Version` marca como destino una versión específica. El paquete de la CORS necesita Web API 2.0 o posterior.
 
-Abra el archivo de aplicación\_Start/WebApiConfig.cs. Agregue el código siguiente a la **WebApiConfig.Register** método.
+Abra el archivo *aplicación\_Start/WebApiConfig.cs*. Agregue el código siguiente a la **WebApiConfig.Register** método:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample4.cs?highlight=9)]
 
@@ -122,9 +116,8 @@ No incluya una barra diagonal al final de la *orígenes* dirección URL.
 
 Volver a implementar la aplicación de servicio Web actualizada. No es necesario actualizar WebClient. Ahora debería realizarse correctamente la solicitud de AJAX de WebClient. Todos los métodos GET, PUT y POST se permiten.
 
-![](enabling-cross-origin-requests-in-web-api/_static/image9.png)
+![Mensaje de prueba correcta de mostrando de explorador Web](enabling-cross-origin-requests-in-web-api/_static/image9.png)
 
-<a id="how-it-works"></a>
 ## <a name="how-cors-works"></a>Cómo funciona la CORS
 
 En esta sección se describe lo que sucede en una solicitud CORS, en el nivel de los mensajes HTTP. Es importante entender cómo funciona la CORS, lo que puede configurar el **[EnableCors]** atributo correctamente y solucionar problemas si algo no funciona según lo esperado.
@@ -149,7 +142,7 @@ El explorador puede omitir la solicitud preparatoria si se cumplen las condicion
 
 - El método de solicitud es GET, HEAD o POST, *y*
 - La aplicación no establece los encabezados de solicitud que no sean Accept, Accept-Language, Content-Language, Content-Type o último-Event-ID, *y*
-- El encabezado Content-Type (si se establece) es uno de los siguientes: 
+- El encabezado Content-Type (si se establece) es uno de los siguientes:
 
     - application/x-www-form-urlencoded
     - varias partes/datos de formulario
@@ -172,7 +165,6 @@ Este es un ejemplo de respuesta, suponiendo que el servidor permite la solicitud
 
 La respuesta incluye un encabezado Access-Control-Allow-Methods que enumera los métodos permitidos y, opcionalmente, un encabezado Access-Control-Allow-Headers, que muestra los encabezados permitidos. Si la solicitud de comprobaciones preparatorias se realiza correctamente, el explorador envía la solicitud real, como se ha descrito anteriormente.
 
-<a id="scope"></a>
 ## <a name="scope-rules-for-enablecors"></a>Reglas de ámbito para [EnableCors]
 
 Puede habilitar la CORS por cada acción, por controlador o globalmente para todos los controladores de API Web en la aplicación.
@@ -201,7 +193,6 @@ Si establece el atributo en más de un ámbito, el orden de prioridad es:
 2. Controlador
 3. Global
 
-<a id="allowed-origins"></a>
 ## <a name="set-the-allowed-origins"></a>Establecer los orígenes permitidos
 
 El *orígenes* parámetro de la **[EnableCors]** atributo especifica qué orígenes tienen permiso para acceder al recurso. El valor es una lista separada por comas de los orígenes permitidos.
@@ -214,25 +205,22 @@ Considere detenidamente antes de permitir las solicitudes desde cualquier origen
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample14.cs)]
 
-<a id="allowed-methods"></a>
 ## <a name="set-the-allowed-http-methods"></a>Establecer los métodos HTTP permitidos
 
 El *métodos* parámetro de la **[EnableCors]** atributo especifica qué métodos HTTP pueden tener acceso al recurso. Para permitir que todos los métodos, use el valor de carácter comodín "\*". El ejemplo siguiente permite solo las solicitudes GET y POST.
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample15.cs)]
 
-<a id="allowed-request-headers"></a>
-## <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitud permitidos
+## <a name="set-the-allowed-request-headers"></a>Establecer los encabezados de solicitudes permitidos
 
-Anteriormente describí cómo una solicitud de preflight podría incluir un encabezado de Access-Control-Request-Headers, enumerar los encabezados HTTP establecidos por la aplicación (el llamado "author encabezados de solicitud"). El *encabezados* parámetro de la **[EnableCors]** atributo especifica qué encabezados de solicitud del autor se permiten. Para permitir que todos los encabezados, establezca *encabezados* a "\*". A encabezados específicos de la lista de permitidos, establezca *encabezados* a una lista separada por comas de los encabezados permitidos:
+En este artículo se describe cómo una solicitud de preflight podría incluir un encabezado de Access-Control-Request-Headers, enumerar los encabezados HTTP establecidos por la aplicación (el llamado "author encabezados de solicitud"). El *encabezados* parámetro de la **[EnableCors]** atributo especifica qué encabezados de solicitud del autor se permiten. Para permitir que todos los encabezados, establezca *encabezados* a "\*". A encabezados específicos de la lista de permitidos, establezca *encabezados* a una lista separada por comas de los encabezados permitidos:
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample16.cs)]
 
-Sin embargo, los exploradores no son totalmente coherentes en forma de conjunto de Access-Control-Request-Headers. Por ejemplo, Chrome actualmente incluye "origen"; mientras que FireFox no incluye encabezados estándar, como "Accept", incluso cuando la aplicación establece en la secuencia de comandos.
+Sin embargo, los exploradores no son totalmente coherentes en forma de conjunto de Access-Control-Request-Headers. Por ejemplo, Chrome actualmente incluye "origin". FireFox no incluye encabezados estándar, como "Accept", incluso cuando la aplicación establece en la secuencia de comandos.
 
 Si establece *encabezados* para que no sea "\*", debe incluir al menos "accept", "content-type" y "origen", además de los encabezados personalizados que desee admitir.
 
-<a id="allowed-response-headers"></a>
 ## <a name="set-the-allowed-response-headers"></a>Establecer los encabezados de respuesta permitidos
 
 De forma predeterminada, el explorador no expone todos los encabezados de respuesta a la aplicación. Los encabezados de respuesta que están disponibles de forma predeterminada son:
@@ -250,8 +238,7 @@ En del ejemplo siguiente, el controlador `Get` método establece un encabezado p
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample17.cs)]
 
-<a id="credentials"></a>
-## <a name="passing-credentials-in-cross-origin-requests"></a>Transferencia de credenciales en solicitudes entre orígenes
+## <a name="pass-credentials-in-cross-origin-requests"></a>Pase las credenciales en solicitudes entre orígenes
 
 Las credenciales requieren un tratamiento especial en una solicitud de CORS. De forma predeterminada, el explorador no envía ninguna credencial con una solicitud entre orígenes. Las credenciales incluyen las cookies, así como los esquemas de autenticación HTTP. Para enviar las credenciales con una solicitud entre orígenes, el cliente debe establecer **XMLHttpRequest.withCredentials** en true.
 
@@ -271,10 +258,9 @@ Si esta propiedad es true, la respuesta HTTP incluirá un encabezado de Access-C
 
 Si el explorador envía credenciales, pero la respuesta no incluye un encabezado válido de Access-Control-Allow-Credentials, el explorador no expondrá la respuesta a la aplicación y se produce un error en la solicitud de AJAX.
 
-Tener mucho cuidado sobre la configuración de **SupportsCredentials** en true, ya que significa que un sitio Web en otro dominio puede enviar credenciales ha iniciado la sesión de un usuario a la API Web en el nombre de usuario, sin que el usuario que se va a tener en cuenta. La especificación CORS también establece ese valor *orígenes* a &quot; \* &quot; no es válido si **SupportsCredentials** es true.
+Tenga cuidado sobre la configuración de **SupportsCredentials** en true, ya que significa que un sitio Web en otro dominio puede enviar credenciales ha iniciado la sesión de un usuario a la API Web en el nombre de usuario, sin que el usuario que se va a tener en cuenta. La especificación CORS también establece ese valor *orígenes* a &quot; \* &quot; no es válido si **SupportsCredentials** es true.
 
-<a id="cors-policy-providers"></a>
-## <a name="custom-cors-policy-providers"></a>Proveedores de directiva CORS personalizada
+## <a name="custom-cors-policy-providers"></a>Proveedores personalizados de directiva CORS
 
 El **[EnableCors]** atributo implementa el **ICorsPolicyProvider** interfaz. Puede proporcionar su propia implementación mediante la creación de una clase que derive de **atributo** e implementa **ICorsProlicyProvider**.
 
@@ -294,9 +280,6 @@ Para establecer el **ICorsPolicyProviderFactory**, llame a la **SetCorsPolicyPro
 
 [!code-csharp[Main](enabling-cross-origin-requests-in-web-api/samples/sample24.cs)]
 
-<a id="browser-support"></a>
-## <a name="browser-support"></a>Compatibilidad de exploradores
+## <a name="browser-support"></a>Compatibilidad con exploradores
 
 El paquete de Web API CORS es una tecnología del lado servidor. El explorador del usuario también debe admitir la CORS. Afortunadamente, las versiones actuales de todos los exploradores principales incluyen [compatibilidad con CORS](http://caniuse.com/cors).
-
-Internet Explorer 8 e Internet Explorer 9 tienen compatibilidad parcial con la CORS, utilizando el objeto XDomainRequest heredado en lugar de XMLHttpRequest. Para obtener más información, consulte [XDomainRequest - las restricciones, las limitaciones y soluciones alternativas](https://blogs.msdn.com/b/ieinternals/archive/2010/05/13/xdomainrequest-restrictions-limitations-and-workarounds.aspx).
