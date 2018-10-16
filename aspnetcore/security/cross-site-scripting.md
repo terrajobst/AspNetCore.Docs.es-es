@@ -1,4 +1,4 @@
----
+﻿---
 title: Evitar Cross-Site Scripting (XSS) en ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre Cross-Site Scripting (XSS) y las técnicas para solucionar esta vulnerabilidad en una aplicación ASP.NET Core.
