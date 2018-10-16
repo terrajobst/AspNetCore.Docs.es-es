@@ -57,7 +57,7 @@ Esta vista muestra el contenido de la variable *untrustedInput* . Esta variable 
 
 ## <a name="javascript-encoding-using-razor"></a>Codificación de JavaScript usa Razor
 
-Puede haber ocasiones en el cual desee insertar un valor en JavaScript para procesar en la vista. Hay dos formas de hacerlo. La forma más segura para insertar valores es colocar el valor en un atributo de la etiqueta utilizado para datos y recuperarlo en el código JavaScript. Por ejemplo:
+Puede haber ocasiones en que desea insertar un valor en JavaScript para procesar en la vista. Hay dos formas de hacerlo. La forma más segura para insertar valores es colocar el valor en un atributo de datos de una etiqueta y recuperarlo en el código JavaScript. Por ejemplo:
 
 ```cshtml
 @{
@@ -214,7 +214,7 @@ En este ejemplo se amplía la lista segura para que incluya el intervalo Unicode
 <p>This link text is in Chinese: <a href="/">汉语/漢語</a></p>
    ```
 
-Los intervalos de la lista segura se especifican como gráficos de código Unicode, no los idiomas. El [estándar Unicode](http://unicode.org/) tiene una lista de [gráficos de código](http://www.unicode.org/charts/index.html) donde puede usar para buscar el gráfico que contiene los caracteres. Cada codificador, Html, JavaScript y dirección Url, debe configurarse por separado.
+Los intervalos de la lista segura se especifican como gráficos de código Unicode, no los idiomas. El [estándar Unicode](http://unicode.org/) tiene una lista de [gráficos de código](http://www.unicode.org/charts/index.html) puede usar para buscar el gráfico que contiene los caracteres. Cada codificador, Html, JavaScript y dirección Url, debe configurarse por separado.
 
 > [!NOTE]
 > La personalización de la lista segura solo afecta a los codificadores de código abiertos a través de DI. Si tiene acceso directamente a un codificador a través de `System.Text.Encodings.Web.*Encoder.Default` , a continuación, el valor predeterminado, Latín básico solo safelist se usará.
