@@ -8,12 +8,12 @@ ms.date: 03/03/2014
 ms.assetid: 5344b74e-b888-479a-92bc-601a33bd61a2
 msc.legacyurl: /web-forms/overview/getting-started/code-editing-in-web-forms-pages
 msc.type: authoredcontent
-ms.openlocfilehash: 5bf10a78b106475ffc01b732b21088bad67eb93d
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 670f81ca1ef9923575cb2fee1747f06f426963d8
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836075"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391224"
 ---
 <a name="code-editing-aspnet-web-forms-in-visual-studio-2013"></a>Código edición de formularios Web Forms ASP.NET en Visual Studio 2013
 ====================
@@ -42,9 +42,6 @@ Para poder completar este tutorial, necesitará:
     > Microsoft Visual Studio 2013 y Microsoft Visual Studio Express 2013 para Web a menudo se hará referencia a que Visual Studio a lo largo de esta serie de tutoriales.  
     >   
     > Si utiliza Visual Studio, en este tutorial se supone que seleccionó el **desarrollo Web** colección de valores de la primera vez que inicia Visual Studio. Para obtener más información, consulte [Cómo: seleccionar configuración de entorno de desarrollo Web](https://msdn.microsoft.com/library/ff521558.aspx).
-
-  Para obtener una introducción a Visual Studio y ASP.NET, vea [crear una página básica de ASP.NET 4.5 Web Forms en Visual Studio 2013](creating-a-basic-web-forms-page.md).   
- 
 
 ## <a name="creating-a-web-application-project-and-a-page"></a>Creación de un proyecto de aplicación Web y una página
 

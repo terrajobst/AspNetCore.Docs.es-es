@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: ed562717-8591-4936-8e10-c7e63dcb570a
 msc.legacyurl: /signalr/overview/security/introduction-to-security
 msc.type: authoredcontent
-ms.openlocfilehash: 765abd36c5182f291499042e787bcb4fcc727997
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 6336d9608f41c367c46d5b9552141546bc782b7d
+ms.sourcegitcommit: 12a8bdb8e83ca9c23c06f3bc6507c9e1a60ea7e5
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48910865"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49401873"
 ---
 <a name="introduction-to-signalr-security"></a>Introducción a la seguridad de SignalR
 ====================
@@ -85,6 +85,14 @@ Para cada solicitud, el servidor valida el contenido del token para asegurarse d
 ![](introduction-to-security/_static/image4.png)
 
 Dado que el identificador de conexión es parte del proceso de comprobación, no debe revelar el identificador de conexión de un usuario a otros usuarios o almacenar el valor en el cliente, como en una cookie.
+
+#### <a name="connection-tokens-vs-other-token-types"></a>Tokens de conexión frente a otros tipos de token
+
+Los tokens de la conexión se marcan ocasionalmente mediante herramientas de seguridad porque parecen ser tokens de sesión o tokens de autenticación, lo que supone un riesgo si expone.
+
+Token de conexión de SignalR no es un token de autenticación. Sirve para confirmar que el usuario que realiza esta solicitud es el mismo que ha creado la conexión. El token de conexión es necesario porque SignalR de ASP.NET permite las conexiones mover entre servidores. El token asocia la conexión a un usuario determinado, pero no confirman la identidad del usuario que realiza la solicitud. Para que una solicitud SignalR autenticarse correctamente, debe tener algún otro símbolo (token) que valida la identidad del usuario, como una cookie o token de portador. Sin embargo, la conexión de token Sí hace ninguna notificación de que la solicitud se realizó por parte de ese usuario, solo que el identificador de conexión contenido en el token está asociada a ese usuario.
+
+Puesto que el token de conexión proporciona ninguna solicitud de autenticación propios, no se considera una "sesión" o "autenticación" token. Tomar la conexión de un usuario determinado token y reproducirlo en una solicitud se autentica como un usuario diferente (o una solicitud no autenticada) se producirá un error, porque no coincide con la identidad del usuario de la solicitud y la identidad almacenada en el token.
 
 <a id="rejoingroup"></a>
 

@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/security
-ms.openlocfilehash: b66c7fbfbaee4c70a68f3132875fbc81018c3e20
-ms.sourcegitcommit: 3ca527f27c88cfc9d04688db5499e372fbc2c775
+ms.openlocfilehash: 98b5eb7be87920aacf7a941f76ff652ae7905303
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39095137"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391263"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Consideraciones de seguridad en ASP.NET Core SignalR
 
@@ -57,6 +57,58 @@ public void Configure(IApplicationBuilder app)
 
 > [!NOTE]
 > SignalR no es compatible con la característica CORS integrada en Azure App Service.
+
+### <a name="websocket-origin-restriction"></a>Restricción de origen de WebSocket
+
+Las protecciones proporcionadas por la CORS no se aplican a WebSockets. Los exploradores no realizan solicitudes preparatorias CORS, ni tampoco se respetan las restricciones especificadas en `Access-Control` encabezados al realizar solicitudes de WebSocket. Sin embargo, los exploradores envían el `Origin` encabezado al emitir solicitudes de WebSocket. Debe configurar la aplicación para validar estos encabezados para asegurarse de que solo WebSockets procedentes de los orígenes que se espera que se permiten.
+
+En ASP.NET Core 2.1, esto puede lograrse mediante un software intermedio personalizado puede colocar **anteriormente `UseSignalR`y cualquier middleware de autenticación** en su `Configure` método:
+
+```csharp
+// In your Startup class, add a static field listing the allowed Origin values:
+private static readonly HashSet<string> _allowedOrigins = new HashSet<string>()
+{
+    // Add allowed origins here. For example:
+    "http://www.mysite.com",
+    "http://mysite.com",
+};
+
+// In your Configure method:
+public void Configure(IApplicationBuilder app)
+{
+    // ... other middleware ...
+
+    // Validate Origin header on WebSocket requests to prevent unexpected cross-site WebSocket requests
+    app.Use((context, next) =>
+    {
+        // Check for a WebSocket request.
+        if(string.Equals(context.Request.Headers["Upgrade"], "websocket"))
+        {
+            var origin = context.Request.Headers["Origin"];
+
+            // If there is no origin header, or if the origin header doesn't match an allowed value:
+            if(string.IsNullOrEmpty(origin) && !_allowedOrigins.Contains(origin))
+            {
+                // The origin is not allowed, reject the request
+                context.Response.StatusCode = StatusCodes.Status400BadRequest;
+                return Task.CompletedTask;
+            }
+        }
+
+        // The request is not a WebSocket request or is a valid Origin, so let it continue
+        return next();
+    });
+
+    // ... other middleware ...
+
+    app.UseSignalR();
+
+    // ... other middleware ...
+}
+```
+
+> [!NOTE]
+> El `Origin` encabezado completamente está controlado por el cliente y, al igual que el `Referer` encabezado, se pueden falsificar. Estos encabezados nunca deben utilizarse como mecanismo de autenticación.
 
 ### <a name="access-token-logging"></a>Registro de token de acceso
 

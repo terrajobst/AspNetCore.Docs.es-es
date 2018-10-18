@@ -1,6 +1,6 @@
 ---
 uid: web-forms/overview/getting-started/creating-a-basic-web-forms-page
-title: Crear una ASP.NET básica 4.5 Web Forms página en Visual Studio 2013 | Microsoft Docs
+title: Uso de Visual Studio 2013 para crear una página básica de ASP.NET 4.5 Web Forms
 author: Erikre
 description: ''
 ms.author: riande
@@ -8,16 +8,16 @@ ms.date: 03/03/2014
 ms.assetid: a2f1c635-0817-4a9a-8c13-d5b5d29727c0
 msc.legacyurl: /web-forms/overview/getting-started/creating-a-basic-web-forms-page
 msc.type: authoredcontent
-ms.openlocfilehash: fda6922c0703ca442d4f1ebc5b39dabeb5ee58cd
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: eb1a4632caf00097012bd1757da44016a076630f
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46483027"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391289"
 ---
-<a name="creating-a-basic-aspnet-45-web-forms-page-in-visual-studio-2013"></a>Crear una ASP.NET básica 4.5 Web Forms página en Visual Studio 2013
-====================
-por [Erik Reitan](https://github.com/Erikre)
+# <a name="using-visual-studio-2013-to-create-a-basic-aspnet-45-web-forms-page"></a>Uso de Visual Studio 2013 para crear una página básica de ASP.NET 4.5 Web Forms
+
+=== por [Erik Reitan](https://github.com/Erikre)
 
 [!INCLUDE[](~/includes/rp.md)]
 
@@ -33,7 +33,6 @@ Las tareas ilustradas en este tutorial incluyen:
 - Ejecutar y probar una página de Visual Studio.
 
 ## <a name="prerequisites"></a>Requisitos previos
-
 
 Para poder completar este tutorial, necesitará:
 

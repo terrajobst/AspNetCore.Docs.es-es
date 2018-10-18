@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/06/2018
 uid: signalr/configuration
-ms.openlocfilehash: 72fc53cad7caf55e85d0668c9dbea1a70fc8674b
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 855446003ae9d994854d4d8bb7d0f542a22734e4
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292341"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391107"
 ---
 # <a name="aspnet-core-signalr-configuration"></a>Configuración de ASP.NET Core SignalR
 
@@ -120,7 +120,7 @@ Se pueden configurar las opciones de cliente en el `HubConnectionBuilder` tipo (
 
 ### <a name="configure-logging"></a>Configurar el registro
 
-El registro está configurado en el cliente de .NET mediante el `ConfigureLogging` método. Registro de proveedores y los filtros se puede registrar en la misma manera, tal como están en el servidor. Consulte la [registro en ASP.NET Core](xref:fundamentals/logging/index#how-to-add-providers) documentación para obtener más información.
+El registro está configurado en el cliente de .NET mediante el `ConfigureLogging` método. Registro de proveedores y los filtros se puede registrar en la misma manera, tal como están en el servidor. Consulte la [registro en ASP.NET Core](xref:fundamentals/logging/index) documentación para obtener más información.
 
 > [!NOTE]
 > Con el fin de registrar los proveedores de registro, debe instalar los paquetes necesarios. Consulte la [proveedores de registro integrados](xref:fundamentals/logging/index#built-in-logging-providers) sección de la documentación para obtener una lista completa.
