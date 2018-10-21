@@ -1,17 +1,17 @@
 ---
 title: Trabajar con una memoria caché distribuida en ASP.NET Core
 author: ardalis
-description: Aprenda a usar ASP.NET Core distribuido de almacenamiento en caché para mejorar el rendimiento de la aplicación y la escalabilidad, especialmente en un entorno de granja de servidores en la nube o servidor.
+description: Obtenga información sobre cómo usar el almacenamiento en caché distribuido de ASP.NET Core para mejorar el rendimiento y la escalabilidad de las aplicaciones, sobre todo en un entorno de nube o de granja de servidores.
 ms.author: riande
 ms.custom: mvc
 ms.date: 02/14/2017
 uid: performance/caching/distributed
-ms.openlocfilehash: 9c41a6e008045231bd2e1c1f53a9161e11daafa9
-ms.sourcegitcommit: cb0c27fa0184f954fce591d417e6ab2a51d8bb22
+ms.openlocfilehash: 85da734f3ae7bcf0936888edfb6ac91d4362eef2
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39123845"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477481"
 ---
 # <a name="work-with-a-distributed-cache-in-aspnet-core"></a>Trabajar con una memoria caché distribuida en ASP.NET Core
 
@@ -148,7 +148,7 @@ La hora de decidir qué implementación de `IDistributedCache` es adecuado para 
 * [Redis Cache en Azure](https://azure.microsoft.com/documentation/services/redis-cache/)
 * [SQL Database en Azure](https://azure.microsoft.com/documentation/services/sql-database/)
 * <xref:performance/caching/memory>
-* <xref:fundamentals/primitives/change-tokens>
+* <xref:fundamentals/change-tokens>
 * <xref:performance/caching/response>
 * <xref:performance/caching/middleware>
 * <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>

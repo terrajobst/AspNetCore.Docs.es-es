@@ -5,12 +5,12 @@ description: Obtenga información acerca de la extensibilidad de administración
 ms.author: riande
 ms.date: 11/22/2017
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: 965a7ed8ca2f72a66cfe093b5978a54fea5440fd
-ms.sourcegitcommit: 8f8924ce4eb9effeaf489f177fb01b66867da16f
+ms.openlocfilehash: b52212ff3462748a5c64f21e1b7854673e5fcadc
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39219321"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477467"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>Extensibilidad de administración de claves en ASP.NET Core
 
@@ -130,10 +130,23 @@ Las implementaciones de `IXmlRepository` no es necesario analizar el XML que se 
 
 Hay cuatro tipos concretos integrados que implementan `IXmlRepository`:
 
+::: moniker range=">= aspnetcore-2.2"
+
+* [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
+* [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
+* [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
+* [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.stackexchangeredis.redisxmlrepository)
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
 * [FileSystemXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.filesystemxmlrepository)
 * [RegistryXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.repositories.registryxmlrepository)
 * [AzureStorage.AzureBlobXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.azurestorage.azureblobxmlrepository)
 * [RedisXmlRepository](/dotnet/api/microsoft.aspnetcore.dataprotection.redisxmlrepository)
+
+::: moniker-end
 
 Consulte la [documento de proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers) para obtener más información.
 

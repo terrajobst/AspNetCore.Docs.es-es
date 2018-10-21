@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/30/2018
 uid: test/integration-tests
-ms.openlocfilehash: 758162eed6d6522986e1c7b93664c55d56216452
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: 15186383497f8dd9a9766f8fe7cf32f70a121c8e
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835570"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477597"
 ---
 # <a name="integration-tests-in-aspnet-core"></a>Pruebas de integración en ASP.NET Core
 
@@ -345,7 +345,7 @@ El SUT es un sistema de mensajes de las páginas de Razor con las siguientes car
 
 &#8224;El tema EF, [pruebas con InMemory](/ef/core/miscellaneous/testing/in-memory), se explica cómo usar una base de datos en memoria para las pruebas con MSTest. Este tema se usa el [xUnit](https://xunit.github.io/) marco de pruebas. Los conceptos de pruebas e implementaciones de prueba a través de diferentes marcos son similares pero no idénticos.
 
-Aunque la aplicación no usa el [patrón de repositorio](xref:fundamentals/repository-pattern) y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design), <xref:fundamentals/repository-pattern>, y [lógica del controlador de pruebas](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
+Aunque la aplicación no usa el modelo de repositorio y no es un ejemplo eficaz de la [patrón de unidades de trabajo (UoW)](https://martinfowler.com/eaaCatalog/unitOfWork.html), Razor Pages admite estos patrones de desarrollo. Para obtener más información, consulte [diseñar la capa de persistencia de infraestructura](/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) y [lógica del controlador de pruebas](/aspnet/core/mvc/controllers/testing) (el ejemplo implementa el modelo de repositorio).
 
 ### <a name="test-app-organization"></a>Organización de la aplicación de prueba
 

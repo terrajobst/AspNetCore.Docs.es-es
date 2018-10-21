@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo configurar los proveedores de alma
 ms.author: riande
 ms.date: 09/17/2018
 uid: security/authentication/identity-custom-storage-providers
-ms.openlocfilehash: db51c39cc700f93917f54c80adbfe7922ffcd67e
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: e206cf584d92a17d61676d71abc6fb577ae63453
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011266"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477623"
 ---
 # <a name="custom-storage-providers-for-aspnet-core-identity"></a>Proveedores de almacenamiento personalizados para ASP.NET Core Identity
 
@@ -41,7 +41,7 @@ dotnet new webapi -au Individual
 
 ## <a name="the-aspnet-core-identity-architecture"></a>La arquitectura de ASP.NET Core Identity
 
-ASP.NET Core Identity consta de las clases que se llama a los administradores y los almacenes. *Los administradores* son clases de alto nivel que un desarrollador de aplicaciones que se usa para realizar operaciones como la creación de un usuario de identidad. *Almacenes* son clases de nivel inferior que especifican cómo se conservan las entidades, como usuarios y roles. Almacenes de seguir la [patrón de repositorio](xref:fundamentals/repository-pattern) y se acopla estrechamente con el mecanismo de persistencia. Los administradores se desacoplan de los almacenes, lo que significa que puede reemplazar el mecanismo de persistencia sin cambiar el código de aplicación (excepto para la configuración).
+ASP.NET Core Identity consta de las clases que se llama a los administradores y los almacenes. *Los administradores* son clases de alto nivel que un desarrollador de aplicaciones que se usa para realizar operaciones como la creación de un usuario de identidad. *Almacenes* son clases de nivel inferior que especifican cómo se conservan las entidades, como usuarios y roles. Los almacenes siguen el patrón de repositorio y se acoplan estrechamente con el mecanismo de persistencia. Los administradores se desacoplan de los almacenes, lo que significa que puede reemplazar el mecanismo de persistencia sin cambiar el código de aplicación (excepto para la configuración).
 
 El diagrama siguiente muestra cómo una aplicación web se interactúa con los administradores, mientras que los almacenes de interactúan con la capa de acceso a datos.
 

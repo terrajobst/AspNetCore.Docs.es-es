@@ -5,126 +5,82 @@ description: Obtenga información sobre cómo utilizar la autenticación y autor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 06/29/2018
+ms.date: 10/17/2018
 uid: signalr/security
-ms.openlocfilehash: 98b5eb7be87920aacf7a941f76ff652ae7905303
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 1adf762cd6de4f0cf62e31c0ec6e595a32ed56f8
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391263"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477545"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Consideraciones de seguridad en ASP.NET Core SignalR
 
 Por [Andrew Stanton-Nurse](https://twitter.com/anurse)
 
-## <a name="overview"></a>Información general
+En este artículo se proporciona información sobre la protección de SignalR.
 
-SignalR proporciona una serie de protecciones de seguridad de forma predeterminada. Es importante entender cómo configurar estas protecciones.
+## <a name="cross-origin-resource-sharing"></a>Uso compartido de recursos entre orígenes
 
-### <a name="cross-origin-resource-sharing"></a>Uso compartido de recursos entre orígenes
+[Los recursos entre orígenes (CORS) de uso compartido](https://www.w3.org/TR/cors/) puede utilizarse para permitir que las conexiones de origen cruzado SignalR en el explorador. Si el código de JavaScript está hospedado en un dominio distinto de la aplicación de SignalR, [middleware CORS](xref:security/cors) debe habilitarse para permitir que el código JavaScript para conectarse a la aplicación de SignalR. Permitir solicitudes entre orígenes solo desde el control o dominios que confía. Por ejemplo:
 
-[Los recursos entre orígenes (CORS) de uso compartido](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) puede utilizarse para permitir que las conexiones de origen cruzado SignalR en el explorador. Si el código de JavaScript está hospedado en otro nombre de dominio de la aplicación de SignalR, tendrá que habilitar el [middleware de ASP.NET Core CORS](xref:security/cors) con el fin de permitir la conexión. En general, permitir solicitudes entre orígenes solo desde los dominios que controla. Por ejemplo, si su sitio está hospedado en `http://www.example.com` y la aplicación de SignalR se hospeda en `http://signalr.example.com`, debe configurar CORS en la aplicación de SignalR para permitir únicamente el origen `www.example.com`.
+* El sitio se hospeda en `http://www.example.com`
+* La aplicación de SignalR se hospeda en `http://signalr.example.com`
 
-Para obtener más información sobre cómo configurar la CORS, vea [la documentación sobre ASP.NET Core CORS](xref:security/cors). SignalR requiere las siguientes directivas CORS para poder funcionar correctamente:
+Debe configurarse la CORS en la aplicación de SignalR para permitir únicamente el origen `www.example.com`.
 
-* La directiva debe permitir los orígenes específicos previsto o permitir que cualquier origen (no recomendado).
+Para obtener más información sobre cómo configurar la CORS, vea [solicitudes habilitar de origen cruzado (CORS)](xref:security/cors). SignalR **requiere** las siguientes directivas CORS:
+
+* Permitir los orígenes específicos esperados. Permitir cualquier origen, es posible pero es **no** seguro o recomendada.
 * Métodos HTTP `GET` y `POST` debe estar permitido.
-* Deben habilitarse las credenciales, incluso cuando no está usando la autenticación.
+* Deben habilitarse las credenciales, incluso cuando no se usa la autenticación.
 
-Por ejemplo, la siguiente directiva CORS permite hospedado en un cliente del explorador SignalR `http://example.com` para tener acceso a la aplicación de SignalR:
+Por ejemplo, la siguiente directiva CORS permite hospedado en un cliente del explorador SignalR `http://example.com` para tener acceso a la aplicación de SignalR hospedada en `http://signalr.example.com`:
 
-```csharp
-public void Configure(IApplicationBuilder app)
-{
-    // ... other middleware ...
-
-    // Make sure the CORS middleware is ahead of SignalR.
-    app.UseCors(builder => {
-        builder.WithOrigins("http://example.com")
-            .AllowAnyHeader()
-            .WithMethods("GET", "POST")
-            .AllowCredentials();
-    });
-
-    // ... other middleware ...
-
-    app.UseSignalR();
-
-    // ... other middleware ...
-}
-```
+[!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
 > [!NOTE]
 > SignalR no es compatible con la característica CORS integrada en Azure App Service.
 
-### <a name="websocket-origin-restriction"></a>Restricción de origen de WebSocket
+## <a name="websocket-origin-restriction"></a>Restricción de origen de WebSocket
 
-Las protecciones proporcionadas por la CORS no se aplican a WebSockets. Los exploradores no realizan solicitudes preparatorias CORS, ni tampoco se respetan las restricciones especificadas en `Access-Control` encabezados al realizar solicitudes de WebSocket. Sin embargo, los exploradores envían el `Origin` encabezado al emitir solicitudes de WebSocket. Debe configurar la aplicación para validar estos encabezados para asegurarse de que solo WebSockets procedentes de los orígenes que se espera que se permiten.
+Las protecciones proporcionadas por la CORS no se aplican a WebSockets. Los exploradores lo hacen **no**:
 
-En ASP.NET Core 2.1, esto puede lograrse mediante un software intermedio personalizado puede colocar **anteriormente `UseSignalR`y cualquier middleware de autenticación** en su `Configure` método:
+* Realizar solicitudes preparatorias CORS.
+* Respeta las restricciones especificadas en `Access-Control` encabezados al realizar solicitudes de WebSocket.
 
-```csharp
-// In your Startup class, add a static field listing the allowed Origin values:
-private static readonly HashSet<string> _allowedOrigins = new HashSet<string>()
-{
-    // Add allowed origins here. For example:
-    "http://www.mysite.com",
-    "http://mysite.com",
-};
+Sin embargo, los exploradores envían el `Origin` encabezado al emitir solicitudes de WebSocket. Las aplicaciones deben configurarse para validar estos encabezados para asegurarse de que se permiten solo WebSockets procedentes de los orígenes esperados.
 
-// In your Configure method:
-public void Configure(IApplicationBuilder app)
-{
-    // ... other middleware ...
+En ASP.NET Core 2.1 y versiones posteriores, la validación del encabezado puede lograrse mediante un middleware personalizado colocarlo **antes `UseSignalR`y el middleware de autenticación** en `Configure`:
 
-    // Validate Origin header on WebSocket requests to prevent unexpected cross-site WebSocket requests
-    app.Use((context, next) =>
-    {
-        // Check for a WebSocket request.
-        if(string.Equals(context.Request.Headers["Upgrade"], "websocket"))
-        {
-            var origin = context.Request.Headers["Origin"];
-
-            // If there is no origin header, or if the origin header doesn't match an allowed value:
-            if(string.IsNullOrEmpty(origin) && !_allowedOrigins.Contains(origin))
-            {
-                // The origin is not allowed, reject the request
-                context.Response.StatusCode = StatusCodes.Status400BadRequest;
-                return Task.CompletedTask;
-            }
-        }
-
-        // The request is not a WebSocket request or is a valid Origin, so let it continue
-        return next();
-    });
-
-    // ... other middleware ...
-
-    app.UseSignalR();
-
-    // ... other middleware ...
-}
-```
+[!code-csharp[Main](security/sample/Startup.cs?name=snippet2)]
 
 > [!NOTE]
-> El `Origin` encabezado completamente está controlado por el cliente y, al igual que el `Referer` encabezado, se pueden falsificar. Estos encabezados nunca deben utilizarse como mecanismo de autenticación.
+> El `Origin` encabezado está controlado por el cliente y, al igual que el `Referer` encabezado, se pueden falsificar. Estos encabezados deben **no** utilizarse como mecanismo de autenticación.
 
-### <a name="access-token-logging"></a>Registro de token de acceso
+## <a name="access-token-logging"></a>Registro de token de acceso
 
-Al usar WebSockets o los eventos, el explorador del cliente envía el token de acceso en la cadena de consulta. Esto es generalmente tan seguro como usar el estándar `Authorization` encabezado, sin embargo, la dirección URL para cada solicitud de registro de muchos servidores web, incluida la cadena de consulta. Esto significa que el token de acceso que puede incluirse en los registros. Considere la posibilidad de revisar la configuración de registro del servidor web para evitar esta información de registro.
+Al usar WebSockets o los eventos, el explorador del cliente envía el token de acceso en la cadena de consulta. Recibir el token de acceso a través de la cadena de consulta es normalmente tan seguro como usar el estándar `Authorization` encabezado. Sin embargo, muchos servidores web de registro la dirección URL para cada solicitud, incluida la cadena de consulta. Las direcciones URL de registro, es posible que registre el token de acceso. Una práctica recomendada consiste en establecer configuración de registro del servidor para evitar que los tokens de acceso de registro de la web.
 
-### <a name="exceptions"></a>Excepciones
+## <a name="exceptions"></a>Excepciones
 
-Los mensajes de excepción normalmente se consideran información confidencial que no debe mostrarse a un cliente. De forma predeterminada, SignalR no envía los detalles de una excepción producida por un método de concentrador al cliente. En su lugar, el cliente recibe un mensaje genérico que indica que un error. Puede invalidar este comportamiento estableciendo el [ `EnableDetailedErrors` ](xref:signalr/configuration#configure-server-options) configuración.
+Los mensajes de excepción normalmente se consideran información confidencial que no debe mostrarse a un cliente. De forma predeterminada, SignalR no envía los detalles de una excepción producida por un método de concentrador al cliente. En su lugar, el cliente recibe un mensaje genérico que indica que un error. Entrega de mensajes de excepción al cliente se puede invalidar (por ejemplo, en el desarrollo o pruebas) con [ `EnableDetailedErrors` ](xref:signalr/configuration#configure-server-options). Los mensajes de excepción no se deben exponer al cliente en aplicaciones de producción.
 
-### <a name="buffer-management"></a>Administración de búfer
+## <a name="buffer-management"></a>Administración de búfer
 
-SignalR usa búferes por conexión con el fin de administrar los mensajes entrantes y salientes. De forma predeterminada, SignalR limita estos búferes a 32KB. Esto significa que el mensaje posible más grande que puede enviar un cliente o servidor es 32KB. Esto también significa que la cantidad máxima de memoria consumida por una conexión para los mensajes es 32KB. Si conoce que los mensajes siempre son menores que este límite, puede reducir este tamaño para impedir que un cliente puede enviar un mensaje mayor y forzar al servidor para asignar memoria para aceptarla. De forma similar, si sabe que los mensajes son mayores que este límite, se puede aumentar. Sin embargo, tenga en cuenta que al aumentar este límite significa que el cliente es capaz de hacer que el servidor asignar memoria adicional y puede reducir el número de conexiones simultáneas que puede controlar la aplicación.
+SignalR usa búferes por conexión para administrar los mensajes entrantes y salientes. De forma predeterminada, SignalR limita estos búferes a 32 KB. El mensaje más grande que puede enviar un cliente o servidor es 32 KB. La memoria máxima utilizada por una conexión para los mensajes es 32 KB. Si los mensajes siempre son menores que 32 KB, puede reducir el límite, que:
 
-Hay límites independientes para mensajes entrantes y salientes, ambos se pueden configurar en el [ `HttpConnectionDispatcherOptions` ](xref:signalr/configuration#configure-server-options) configurado en el objeto `MapHub`:
+* Impide que un cliente puede enviar un mensaje mayor.
+* El servidor nunca tendrá que asignar los búferes grandes para aceptar mensajes.
+
+Si los mensajes son superiores a 32 KB, puede aumentar el límite. Aumentar este límite significa:
+
+* El cliente puede hacer que el servidor asignar búferes de memoria de gran tamaño.
+* Asignación de servidor de los búferes grandes puede reducir el número de conexiones simultáneas.
+
+Hay límites para los mensajes entrantes y salientes, ambos se pueden configurar en el [ `HttpConnectionDispatcherOptions` ](xref:signalr/configuration#configure-server-options) configurado en el objeto `MapHub`:
 
 * `ApplicationMaxBufferSize` representa el número máximo de bytes desde el cliente que los búferes del servidor. Si el cliente intenta enviar un mensaje supere ese límite, se puede cerrar la conexión.
-* `TransportMaxBufferSize` representa el número máximo de bytes que el servidor puede enviar. Si el servidor intenta enviar un mensaje (incluye los valores devueltos de métodos de concentrador) supera este límite, se producirá una excepción.
+* `TransportMaxBufferSize` representa el número máximo de bytes que el servidor puede enviar. Si el servidor intenta enviar un mensaje (incluidos los valores devueltos de métodos de concentrador) supere ese límite, se producirá una excepción.
 
-Establecer el límite en `0` deshabilita totalmente el límite. Sin embargo, esto debe hacerse con sumo cuidado. Quitar el límite permite que un cliente enviar un mensaje de cualquier tamaño. Esto se puede utilizar un cliente malintencionado para provocar un exceso de memoria que se asignen, lo que podría disminuir considerablemente el número de conexiones simultáneas que puede admitir la aplicación.
+Establecer el límite en `0` desactivar el límite. Quitar el límite permite que un cliente enviar un mensaje de cualquier tamaño. Los clientes malintencionados enviar mensajes de gran tamaño pueden producir un exceso de memoria que se va a asignar. Uso de memoria excesivo puede reducir significativamente el número de conexiones simultáneas.
