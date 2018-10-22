@@ -5,12 +5,12 @@ description: ''
 ms.author: tdykstra
 ms.date: 03/15/2017
 uid: data/ef-mvc/crud
-ms.openlocfilehash: 626b828e2391d3982ff2cf393f0c9e0748c12810
-ms.sourcegitcommit: d53e0cc71542b92de867bcce51575b054886f529
+ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41751702"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477584"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core: CRUD (2 de 10)
 
@@ -25,7 +25,7 @@ En la aplicación web de ejemplo Contoso University se muestra cómo crear aplic
 En el tutorial anterior, creó una aplicación MVC que almacena y muestra los datos con Entity Framework y SQL Server LocalDB. En este tutorial, podrá revisar y personalizar el código CRUD (crear, leer, actualizar y eliminar) que el scaffolding de MVC crea automáticamente para usted en controladores y vistas.
 
 > [!NOTE]
-> Es una práctica habitual implementar el [patrón de repositorio](xref:fundamentals/repository-pattern) con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para que estos tutoriales sean sencillos y se centren en enseñar a usar Entity Framework, no se usan repositorios. Para obtener información sobre los repositorios con EF, vea [el último tutorial de esta serie](advanced.md).
+> Es una práctica habitual implementar el modelo de repositorio con el fin de crear una capa de abstracción entre el controlador y la capa de acceso a datos. Para que estos tutoriales sean sencillos y se centren en enseñar a usar Entity Framework, no se usan repositorios. Para obtener información sobre los repositorios con EF, vea [el último tutorial de esta serie](advanced.md).
 
 En este tutorial, trabajará con las páginas web siguientes:
 
@@ -67,7 +67,7 @@ La última parte de la dirección URL ("?courseID=2021") es un valor de cadena d
 http://localhost:1230/Instructor/Index?id=1&CourseID=2021
 ```
 
-En la página Index, las instrucciones de la aplicación auxiliar de etiquetas crean direcciones URL de hipervínculo en la vista de Razor. En el siguiente código de Razor, el parámetro `id` coincide con la ruta predeterminada, por lo que se agrega `id` a los datos de ruta.
+En la página Index, las instrucciones del asistente de etiquetas crean direcciones URL de hipervínculo en la vista de Razor. En el siguiente código de Razor, el parámetro `id` coincide con la ruta predeterminada, por lo que se agrega `id` a los datos de ruta.
 
 ```html
 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a>
@@ -91,11 +91,11 @@ Esto genera el siguiente código HTML cuando `item.ID` es 6:
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Para obtener más información sobre las aplicaciones auxiliares de etiquetas, vea [Aplicaciones auxiliares de etiquetas en ASP.NET Core](xref:mvc/views/tag-helpers/intro).
+Para obtener más información sobre los asistentes de etiquetas, vea [Asistentes de etiquetas en ASP.NET Core](xref:mvc/views/tag-helpers/intro).
 
 ### <a name="add-enrollments-to-the-details-view"></a>Agregar inscripciones a la vista de detalles
 
-Abra *Views/Students/Details.cshtml*. Cada campo se muestra mediante las aplicaciones auxiliares `DisplayNameFor` y `DisplayFor`, como se muestra en el ejemplo siguiente:
+Abra *Views/Students/Details.cshtml*. Cada campo se muestra mediante los asistentes `DisplayNameFor` y `DisplayFor`, como se muestra en el ejemplo siguiente:
 
 [!code-html[](intro/samples/cu/Views/Students/Details.cshtml?range=13-18&highlight=2,5)]
 
@@ -153,7 +153,7 @@ Una manera alternativa de evitar la publicación excesiva que muchos desarrollad
 
 ### <a name="test-the-create-page"></a>Probar la página Create
 
-En el código de *Views/Students/Create.cshtml* se usan las aplicaciones auxiliares de etiquetas `label`, `input` y `span` (para los mensajes de validación) en cada campo.
+En el código de *Views/Students/Create.cshtml* se usan los asistentes de etiquetas `label`, `input` y `span` (para los mensajes de validación) en cada campo.
 
 Ejecute la aplicación, haga clic en la pestaña **Students** y después en **Create New**.
 

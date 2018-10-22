@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/11/2018
 uid: mvc/views/partial
-ms.openlocfilehash: a836ed073dfe769fc3cc0cd0622b17937747928b
-ms.sourcegitcommit: 70fb7c9d5f2ddfcf4747382a9f7159feca7a6aa7
+ms.openlocfilehash: d3d2f55645881dd05f7663e0a9d3e45d6bb6d77f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45601761"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477688"
 ---
 # <a name="partial-views-in-aspnet-core"></a>Vistas parciales en ASP.NET Core
 
@@ -44,7 +44,7 @@ No utilice una vista parcial donde se requiera la ejecución de código o lógic
 
 ## <a name="declare-partial-views"></a>Declaración de vistas parciales
 
-::: moniker range=">= aspnetcore-2.1"
+::: moniker range=">= aspnetcore-2.0"
 
 Una vista parcial es un archivo de marcado *.cshtml* que se mantiene dentro de la carpeta *Vistas* (MVC) o *Páginas* (Razor Pages).
 
@@ -52,11 +52,11 @@ En ASP.NET Core MVC, la clase <xref:Microsoft.AspNetCore.Mvc.ViewResult> de un c
 
 A diferencia de la representación de páginas o vistas de MVC, una vista parcial no ejecuta *_ViewStart.cshtml*. Para más información sobre *_ViewStart.cshtml*, vea <xref:mvc/views/layout>.
 
-Los nombres de archivo de las vistas parciales suelen comenzar con un guión bajo (`_`). Esta convención de nomenclatura no es obligatoria, pero ayuda a diferenciar visualmente las vistas parciales de las vistas y las páginas. Si el nombre de archivo empieza con un guión bajo, Razor Pages no procesa el archivo de marcado como una página de Razor Pages, incluso cuando el marcado del archivo incluye la directiva `@page`.
+Los nombres de archivo de las vistas parciales suelen comenzar con un guión bajo (`_`). Esta convención de nomenclatura no es obligatoria, pero ayuda a diferenciar visualmente las vistas parciales de las vistas y las páginas.
 
 ::: moniker-end
 
-::: moniker range="< aspnetcore-2.1"
+::: moniker range="< aspnetcore-2.0"
 
 Una vista parcial es un archivo de marcado *.cshtml* que se mantiene dentro de la carpeta *Vistas*.
 
@@ -74,8 +74,8 @@ Los nombres de archivo de las vistas parciales suelen comenzar con un guión baj
 
 Dentro de un archivo de marcado, hay varias maneras de hacer referencia a una vista parcial. Se recomienda que las aplicaciones usen uno de los siguientes métodos de representación asincrónica:
 
-* [Aplicación auxiliar de etiquetas parciales](#partial-tag-helper)
-* [Asistente de HTML asincrónica](#asynchronous-html-helper)
+* [Asistente de etiquetas parciales](#partial-tag-helper)
+* [Asistente de HTML asincrónico](#asynchronous-html-helper)
 
 ::: moniker-end
 
@@ -92,7 +92,7 @@ Se recomienda que las aplicaciones usen el [Asistente de HTML asincrónico](#asy
 
 ::: moniker range=">= aspnetcore-2.1"
 
-### <a name="partial-tag-helper"></a>Aplicación auxiliar de etiquetas parciales
+### <a name="partial-tag-helper"></a>Asistente de etiquetas parciales
 
 El [asistente de etiquetas parciales](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper) requiere ASP.NET Core 2.1 o posterior.
 
@@ -134,7 +134,7 @@ Para obtener más información, vea <xref:mvc/views/tag-helpers/builtin-th/parti
 
 ::: moniker-end
 
-### <a name="asynchronous-html-helper"></a>Aplicación auxiliar HTML asincrónica
+### <a name="asynchronous-html-helper"></a>Asistente de HTML asincrónica
 
 Cuando se usa un asistente de HTML, el procedimiento recomendado es usar <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.PartialAsync*>. `PartialAsync` devuelve un tipo <xref:Microsoft.AspNetCore.Html.IHtmlContent> encapsulado en una clase <xref:System.Threading.Tasks.Task`1>. Para hacer referencia al método, se agrega a la llamada awaited un carácter `@` como prefijo:
 
@@ -180,7 +180,7 @@ También puede representar una vista parcial con <xref:Microsoft.AspNetCore.Mvc.
 
 Puesto que `RenderPartialAsync` transmite contenido representado, ofrece mayor rendimiento en algunos escenarios. En situaciones críticas de rendimiento, realice pruebas comparativas de la página con ambos métodos y use el que genera una respuesta más rápida.
 
-### <a name="synchronous-html-helper"></a>Aplicación auxiliar HTML sincrónica
+### <a name="synchronous-html-helper"></a>Asistente de HTML sincrónico
 
 <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.Partial*> y <xref:Microsoft.AspNetCore.Mvc.Rendering.HtmlHelperPartialExtensions.RenderPartial*> son los equivalentes sincrónicos de `PartialAsync` y `RenderPartialAsync`, respectivamente. Los equivalentes sincrónicos no son aconsejables, ya que hay escenarios donde producen interbloqueos. Se prevé la eliminación de los métodos sincrónicos en una futura versión.
 
@@ -193,7 +193,7 @@ La llamada a `Partial` o `RenderPartial` resulta en una advertencia del analizad
 
 > Use of IHtmlHelper.Partial may result in application deadlocks. Considere la posibilidad de utilizar el asistente de etiquetas &lt;parciales&gt; o IHtmlHelper.PartialAsync.
 
-Reemplace las llamadas a `@Html.Partial` por `@await Html.PartialAsync` o el [asistente de etiquetas parciales](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). Para más información sobre la migración de la aplicación auxiliar de etiquetas parciales, vea [Migración desde una aplicación auxiliar HTML](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper).
+Reemplace las llamadas a `@Html.Partial` por `@await Html.PartialAsync` o el [asistente de etiquetas parciales](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper). Para más información sobre la migración del asistente de etiquetas parciales, vea [Migración desde un asistente de HTML](xref:mvc/views/tag-helpers/builtin-th/partial-tag-helper#migrate-from-an-html-helper).
 
 ::: moniker-end
 
