@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/29/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: f2de81af4bd2992aec76a287484d0057021231d8
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47860971"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326061"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -59,6 +59,8 @@ Si tiene .NET Core como destino y hace referencia al [metapaquete Microsoft.AspN
 
 El área **Configuración de la aplicación** de la hoja **Configuración de la aplicación** le permite establecer variables de entorno para la aplicación. El [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider) puede consumir las variables de entorno.
 
+Cuando una configuración de aplicación se crea o modifica en Azure Portal y el botón **Guardar** está seleccionado, se reinicia la aplicación de Azure. La variable de entorno está disponible para la aplicación después de que se reinicie el servicio.
+
 Cuando una aplicación usa el [host web](xref:fundamentals/host/web-host) y compila el host mediante [WebHost.CreateDefaultBuilder](/dotnet/api/microsoft.aspnetcore.webhost.createdefaultbuilder), las variables de entorno que configuran el host usan el prefijo `ASPNETCORE_`. Para más información, consulte <xref:fundamentals/host/web-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
 
 Cuando una aplicación usa el [host genérico](xref:fundamentals/host/generic-host), no se cargan variables de entorno en la configuración de una aplicación de manera predeterminada y es el desarrollador el que debe agregar al proveedor de configuración. El desarrollador determina el prefijo de variable de entorno cuando se agrega el proveedor de configuración. Para más información, consulte <xref:fundamentals/host/generic-host> y el [proveedor de configuración de variables de entorno](xref:fundamentals/configuration/index#environment-variables-configuration-provider).
@@ -101,11 +103,11 @@ Para obtener más información, consulte [Proveedores de almacenamiento de clave
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Implementar una versión preliminar de ASP.NET Core en Azure App Service
 
-Las aplicaciones de versión preliminar de ASP.NET Core se pueden implementar en Azure App Service con los procedimientos siguientes:
+Siga uno de estos procedimientos:
 
-* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension)
-<!-- * [Deploy the app self-contained](#deploy-the-app-self-contained) -->
-* [Usar Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers)
+* [Instalación de la extensión de sitio de versión preliminar](#install-the-preview-site-extension).
+* [Implementación de la aplicación independiente](#deploy-the-app-self-contained).
+* [Uso de Docker con Web Apps para contenedores](#use-docker-with-web-apps-for-containers).
 
 ### <a name="install-the-preview-site-extension"></a>Instalación de la extensión de sitio de versión preliminar
 
@@ -161,18 +163,46 @@ Cuando se complete la operación, se instalará la versión preliminar de .NET C
 
 Si usa una plantilla de ARM para crear e implementar aplicaciones, puede usar el tipo de recurso `siteextensions` para agregar la extensión de sitio a una aplicación web. Por ejemplo:
 
-[!code-json[Main](index/sample/arm.json?highlight=2)]
+[!code-json[](index/sample/arm.json?highlight=2)]
 
-<!--
-### Deploy the app self-contained
+### <a name="deploy-the-app-self-contained"></a>Implementación de la aplicación independiente
 
-A [self-contained app](/dotnet/core/deploying/#self-contained-deployments-scd) can be deployed that carries the preview runtime in the deployment. When deploying a self-contained app:
+Una [implementación independiente (SCD)](/dotnet/core/deploying/#self-contained-deployments-scd) que tiene como destino un entorno de ejecución en versión preliminar transporta el entorno de ejecución en versión preliminar en la implementación.
 
-* The site doesn't need to be prepared.
-* The app must be published differently than when publishing for a framework-dependent deployment with the shared runtime and host on the server.
+Al implementar una aplicación independiente:
 
-Self-contained apps are an option for all ASP.NET Core apps.
--->
+* El sitio en Azure App Service no requiere la [extensión del sitio en versión preliminar](#install-the-preview-site-extension).
+* Se debe publicar la aplicación siguiendo un enfoque diferente que cuando se publica para una [implementación dependiente del marco (FDD)](/dotnet/core/deploying#framework-dependent-deployments-fdd).
+
+#### <a name="publish-from-visual-studio"></a>Publicación desde Visual Studio
+
+1. Seleccione **Compilar** > **Publicar {nombre de la aplicación}** desde la barra de herramientas de Visual Studio.
+1. En el cuadro de diálogo **Elegir un destino de publicación**, confirme que está seleccionado **App Service**.
+1. Seleccione **Opciones avanzadas**. Se abre el cuadro de diálogo **Publicar**.
+1. En el cuadro de diálogo **Publicar**:
+   * Confirme que está seleccionada la configuración de **Versión**.
+   * Abra la lista desplegable **Modo de implementación** y seleccione **Independiente**.
+   * Seleccione el entorno de ejecución de destino en la lista desplegable **Tiempo de ejecución de destino**. De manera predeterminada, es `win-x86`.
+   * Si necesita quitar archivos adicionales tras la implementación, abra **Opciones de publicación de archivos** y active la casilla de verificación para quitar archivos adicionales en el destino.
+   * Seleccione **Guardar**.
+1. Cree un sitio nuevo o actualice un sitio existente siguiendo las instrucciones restantes del asistente para publicación.
+
+#### <a name="publish-using-command-line-interface-cli-tools"></a>Publicación mediante las herramientas de la interfaz de la línea de comandos (CLI)
+
+1. En el archivo de proyecto, especifique uno o más [identificadores de entorno de ejecución (RID)](/dotnet/core/rid-catalog). Use `<RuntimeIdentifier>` (en singular) para un único RID o use `<RuntimeIdentifiers>` (en plural) para proporcionar una lista de RID delimitada por puntos y coma. En el ejemplo siguiente, se especifica el RID `win-x86`:
+
+   ```xml
+   <PropertyGroup>
+     <TargetFramework>netcoreapp2.1</TargetFramework>
+     <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+   </PropertyGroup>
+   ```
+1. Desde un shell de comandos, publique la aplicación en la configuración de la versión para el entorno de ejecución del host con el comando [dotnet publish](/dotnet/core/tools/dotnet-publish). En el ejemplo siguiente, la aplicación está publicada para el RID `win-x86`. El RID proporcionado para la opción `--runtime` debe indicarse en la propiedad `<RuntimeIdentifier>` (o `<RuntimeIdentifiers>`) del archivo de proyecto.
+
+   ```console
+   dotnet publish --configuration Release --runtime win-x86
+   ```
+1. Mueva el contenido del directorio *bin/Release/{TARGET FRAMEWORK}/{RUNTIME IDENTIFIER}/publish* al sitio de App Service.
 
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
 

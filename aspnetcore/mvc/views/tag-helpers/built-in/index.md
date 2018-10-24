@@ -3,23 +3,24 @@ title: Asistentes de etiquetas integradas de ASP.NET Core
 author: pkellner
 description: Descubra cómo los asistentes de etiquetas integradas de ASP.NET Core le ayudan a mejorar su productividad.
 ms.author: riande
-ms.date: 09/18/2018
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/Index
-ms.openlocfilehash: 5d9425e0b68578c86a6f9a691322e0bb63a860fb
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 58840d6ecd09bd2ae7f96c046a0cb93c018f9645
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46292315"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325489"
 ---
 # <a name="aspnet-core-built-in-tag-helpers"></a>Asistentes de etiquetas integradas de ASP.NET Core
 
 Por [Peter Kellner](http://peterkellner.net)
 
-ASP.NET Core incluye varios asistentes de etiquetas integradas para aumentar la productividad. En esta sección se proporciona un resumen de los asistentes de etiquetas integradas.
+Para obtener información general de asistentes de etiquetas, consulte <xref:mvc/views/tag-helpers/intro>.
 
 > [!NOTE]
-> Algunos asistentes de etiquetas integradas no figuran en la sección, ya que se usan internamente en el motor de vistas de [Razor](xref:mvc/views/razor). Esto incluye un asistente de etiquetas para el carácter ~, que se expande hasta la ruta de acceso raíz del sitio web.
+> Hay asistentes de etiquetas integradas que no se describen en la documentación. Estos asistentes de etiquetas se usan internamente por el motor de vista de [Razor](xref:mvc/views/razor). Esto incluye un asistente de etiquetas para el carácter `~`, que se expande hasta la ruta de acceso raíz del sitio web.
 
 ## <a name="built-in-aspnet-core-tag-helpers"></a>Asistentes de etiquetas integradas de ASP.NET Core
 

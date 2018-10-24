@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 05/12/2018
 uid: razor-pages/index
-ms.openlocfilehash: f55d0e534dafb0709f1411bad9b038a87abde7ab
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 7bd597acedade65f2be53f4f50a436981e576b1f
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523316"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326126"
 ---
 # <a name="introduction-to-razor-pages-in-aspnet-core"></a>Introducción a las páginas de Razor en ASP.NET Core
 
@@ -246,7 +246,9 @@ Para más información, vea [Validación de modelos](xref:mvc/models/validation)
 
 ## <a name="manage-head-requests-with-the-onget-handler"></a>Administración de solicitudes HEAD con el controlador OnGet
 
-Normalmente, se crea un controlador HEAD al que se llama para las solicitudes HEAD:
+Las solicitudes HEAD le permiten recuperar los encabezados de un recurso específico. A diferencia de las solicitudes GET, las solicitudes HEAD no devuelven un cuerpo de respuesta. 
+
+Normalmente, se crea un controlador HEAD al que se llama para las solicitudes HEAD: 
 
 ```csharp
 public void OnHead()
@@ -255,12 +257,14 @@ public void OnHead()
 }
 ```
 
-Si no se define ningún controlador HEAD (`OnHead`), las páginas de Razor vuelven a llamar al controlador de páginas GET (`OnGet`) en ASP.NET Core 2.1 o posterior. Tiene la opción de usar este comportamiento con el [método SetCompatibilityVersion](xref:mvc/compatibility-version) en `Startup.Configure` para ASP.NET Core 2.1 a 2.x:
+Si no se define ningún controlador HEAD (`OnHead`), las páginas de Razor vuelven a llamar al controlador de páginas GET (`OnGet`) en ASP.NET Core 2.1 o posterior. En ASP.NET Core 2.1 y 2.2, este comportamiento se produce con [SetCompatibilityVersion](xref:mvc/compatibility-version) en `Startup.Configure`:
 
 ```csharp
 services.AddMvc()
     .SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_2_1);
 ```
+
+Las plantillas predeterminadas generan la llamada `SetCompatibilityVersion` en ASP.NET Core 2.1 y 2.2.
 
 `SetCompatibilityVersion` define con eficacia la opción de las páginas de Razor `AllowMappingHeadRequestsToGetHandler` como `true`.
 
