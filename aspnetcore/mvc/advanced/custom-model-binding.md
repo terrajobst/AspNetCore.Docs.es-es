@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo el enlace de modelos permite que l
 ms.author: riande
 ms.date: 04/10/2017
 uid: mvc/advanced/custom-model-binding
-ms.openlocfilehash: f5bd9a3eefb1fd9c1534e8767ad8e8af37514adb
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b8745241b0699d270bb8f3a56ab614b0ca49e64b
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36275398"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045541"
 ---
 # <a name="custom-model-binding-in-aspnet-core"></a>Enlace de modelos personalizado en ASP.NET Core
 
@@ -101,7 +101,7 @@ El atributo `ModelBinder` se puede usar para aplicar `AuthorEntityBinder` a los 
 
 [!code-csharp[](custom-model-binding/sample/CustomModelBindingSample/Controllers/BoundAuthorsController.cs?name=demo1&highlight=2)]
 
-En este ejemplo, como el nombre del argumento no es el `authorId` predeterminado, se especifica en el parámetro por medio del atributo `ModelBinder`. Observe que tanto el controlador como el método de acción se simplifican, en contraste con tener que buscar la entidad en el método de acción. La lógica para capturar el autor a través de Entity Framework Core se traslada al enlazador de modelos. Esto puede reducir enormemente la complejidad cuando existen varios métodos que se enlazan con el modelo de autor, además de contribuir a seguir el [principio Una vez y solo una (DRY)](http://deviq.com/don-t-repeat-yourself/).
+En este ejemplo, como el nombre del argumento no es el `authorId` predeterminado, se especifica en el parámetro por medio del atributo `ModelBinder`. Observe que tanto el controlador como el método de acción se simplifican, en contraste con tener que buscar la entidad en el método de acción. La lógica para capturar el autor a través de Entity Framework Core se traslada al enlazador de modelos. Esto puede reducir enormemente la complejidad cuando existen varios métodos que se enlazan al modelo `Author`, además de contribuir a seguir el [principio Una vez y solo una (DRY)](http://deviq.com/don-t-repeat-yourself/).
 
 Puede aplicar el atributo `ModelBinder` a propiedades de modelo individuales (como en un modelo de vista) o a parámetros del método de acción para especificar un determinado nombre de modelo o enlazador de modelos que sea exclusivo de ese tipo o acción en particular.
 

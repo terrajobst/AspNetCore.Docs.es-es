@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 11/28/2017
 uid: fundamentals/configuration/options
-ms.openlocfilehash: 6258530beedced9570111478fea630b1556e1a1e
-ms.sourcegitcommit: 25150f4398de83132965a89f12d3a030f6cce48d
+ms.openlocfilehash: 0ab920cc8890f2a1e4d1fb8d783dea666751a53f
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/25/2018
-ms.locfileid: "42927963"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48911297"
 ---
 # <a name="options-pattern-in-aspnet-core"></a>Patrón de opciones en ASP.NET Core
 
@@ -108,7 +108,7 @@ En el código siguiente, un segundo servicio `IConfigureOptions<TOptions>` se ag
 
 [!code-csharp[](options/sample/Pages/Index.cshtml.cs?name=snippet_Example2)]
 
-Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet. Se aplican en el orden en que están registrados.
+Puede agregar varios proveedores de configuración. Los proveedores de configuración están disponibles en paquetes de NuGet. Se aplican en el orden en que se hayan registrado.
 
 Cada llamada a [Configure&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.options.iconfigureoptions-1.configure) agrega un servicio `IConfigureOptions<TOptions>` al contenedor de servicios. En el ejemplo anterior, los valores de `Option1` y `Option2` se especifican en *appSettings.json*, pero los valores de `Option1` y `Option2` se reemplazan por el delegado configurado.
 
@@ -250,7 +250,9 @@ Se proporcionan valores de `named_options_1` a partir de la configuración, que 
 * El delegado `named_options_2` en `ConfigureServices` para `Option1`.
 * El valor predeterminado para `Option2` proporcionado por la clase `MyOptions`.
 
-Configure todas las instancias de opciones con nombre con el método [OptionsServiceCollectionExtensions.ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall). El siguiente código configura `Option1` para todas las instancias de configuración con nombre con un valor común. Agregue manualmente este código al método `Configure`:
+## <a name="configure-all-options-with-the-configureall-method"></a>Configurar todas las opciones con el método ConfigureAll
+
+Configure todas las instancias de opciones con el método [OptionsServiceCollectionExtensions.ConfigureAll](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.configureall). El siguiente código configura `Option1` para todas las instancias de configuración con un valor común. Agregue manualmente este código al método `Configure`:
 
 ```csharp
 services.ConfigureAll<MyOptions>(myOptions => 
@@ -353,7 +355,7 @@ services.PostConfigure<MyOptions>("named_options_1", myOptions =>
 });
 ```
 
-Use [PostConfigureAll&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) para postconfigurar todas las instancias de configuración con nombre:
+Use [PostConfigureAll&lt;TOptions&gt;](/dotnet/api/microsoft.extensions.dependencyinjection.optionsservicecollectionextensions.postconfigureall) para configurar posteriormente todas las instancias de configuración:
 
 ```csharp
 services.PostConfigureAll<MyOptions>(myOptions =>

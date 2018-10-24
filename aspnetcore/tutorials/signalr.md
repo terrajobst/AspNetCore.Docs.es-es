@@ -1,28 +1,29 @@
 ---
-title: 'Tutorial: Introducción a SignalR en ASP.NET Core'
+title: Introducción a SignalR de ASP.NET Core
 author: tdykstra
-description: En este tutorial, creará una aplicación de chat en la que se usa SignalR para ASP.NET Core.
+description: En este tutorial, creará una aplicación de chat en la que se usa SignalR de ASP.NET Core.
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/31/2018
 uid: tutorials/signalr
-ms.openlocfilehash: 6f93d6dc664f68425ef0fa0d02f9011e4875bc33
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 55fb6b1c13549129a00541c1228956a93854ad78
+ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402138"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48578034"
 ---
-# <a name="tutorial-get-started-with-signalr-on-aspnet-core"></a>Tutorial: Introducción a SignalR en ASP.NET Core
+# <a name="tutorial-get-started-with-aspnet-core-signalr"></a>Tutorial: Introducción a SignalR de ASP.NET Core
 
 En este tutorial se describen los conceptos básicos de la creación de una aplicación en tiempo real con SignalR. Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear una aplicación web en la que se usa SignalR en ASP.NET Core.
-> * Crear un concentrador SignalR en el servidor.
-> * Conectarse con el concentrador SignalR desde clientes de JavaScript.
-> * Usar el concentrador para enviar mensajes desde cualquier cliente a todos los clientes conectados.
+> * Crear un proyecto de aplicación web.
+> * Agregar la biblioteca cliente de SignalR.
+> * Crear un concentrador de SignalR.
+> * Configurar el proyecto para usar SignalR.
+> * Agregar código que usa el concentrador para enviar mensajes desde cualquier cliente a todos los clientes conectados.
 
 Al final, tendrá una aplicación de chat funcional:
 
@@ -50,7 +51,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 ---
 
-## <a name="create-the-project"></a>Crear el proyecto
+## <a name="create-a-web-project"></a>Creación de un proyecto web
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -90,7 +91,7 @@ Al final, tendrá una aplicación de chat funcional:
 
 ## <a name="add-the-signalr-client-library"></a>Agregar la biblioteca cliente de SignalR
 
-La biblioteca de servidor de SignalR se incluye en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). La biblioteca cliente de JavaScript no se incluye automáticamente en el proyecto. En este tutorial, usará el [Administrador de bibliotecas (LibMan)](xref:client-side/libman/index) para obtener la biblioteca cliente de *unpkg*. [unpkg](https://unpkg.com/#/) es una [red de entrega de contenido](https://wikipedia.org/wiki/Content_delivery_network) que puede entregar todo lo que encuentre en [npm, el Administrador de paquetes Node.js](https://www.npmjs.com/get-npm).
+La biblioteca de servidor de SignalR se incluye en el metapaquete `Microsoft.AspNetCore.App`. La biblioteca cliente de JavaScript no se incluye automáticamente en el proyecto. En este tutorial, usará el Administrador de bibliotecas (LibMan) para obtener la biblioteca cliente de *unpkg*. unpkg es una red de entrega de contenido (CDN) que puede entregar todo lo que encuentre en npm, el administrador de paquetes de Node.js.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio/)
 
@@ -98,7 +99,7 @@ La biblioteca de servidor de SignalR se incluye en el [metapaquete Microsoft.Asp
 
 * En el cuadro de diálogo **Add Client-Side Library** (Agregar biblioteca del lado cliente), en **Proveedor**, seleccione **unpkg**. 
 
-* En **Biblioteca**, escriba _@aspnet/signalr@1_ y seleccione la versión más reciente que no sea una versión preliminar.
+* En **Biblioteca**, escriba `@aspnet/signalr@1` y seleccione la versión más reciente que no sea una versión preliminar.
 
   ![Cuadro de diálogo Add Client-Side Library (Agregar biblioteca del lado cliente): selección de la biblioteca](signalr/_static/libman1.png)
 
@@ -108,7 +109,7 @@ La biblioteca de servidor de SignalR se incluye en el [metapaquete Microsoft.Asp
 
   ![Cuadro de diálogo Add Client-Side Library (Agregar biblioteca del lado cliente): selección de archivos y destino](signalr/_static/libman2.png)
 
-  [LibMan](xref:client-side/libman/index) crea una carpeta *wwwroot/lib/signalr* y copia en ella los archivos seleccionados.
+  LibMan crea una carpeta *wwwroot/lib/signalr* y copia en ella los archivos seleccionados.
 
 # <a name="visual-studio-codetabvisual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code/)
 
@@ -170,9 +171,9 @@ La biblioteca de servidor de SignalR se incluye en el [metapaquete Microsoft.Asp
 
 ---
 
-## <a name="create-the-signalr-hub"></a>Crear el concentrador SignalR
+## <a name="create-a-signalr-hub"></a>Creación de un concentrador de SignalR
 
-Un [concentrador](xref:signalr/hubs) es una clase que actúa como una canalización general que controla la comunicación entre el cliente y el servidor.
+Un *concentrador* es una clase que actúa como una canalización general que controla la comunicación entre el cliente y el servidor.
 
 * En la carpeta del proyecto SignalRChat, cree una carpeta *Hubs*.
 
@@ -180,11 +181,11 @@ Un [concentrador](xref:signalr/hubs) es una clase que actúa como una canalizaci
 
   [!code-csharp[Startup](signalr/sample/Hubs/ChatHub.cs)]
 
-  La clase `ChatHub` hereda de la clase [Hub](/dotnet/api/microsoft.aspnetcore.signalr.hub) de SignalR. La clase `Hub` administra las conexiones, los grupos y la mensajería.
+  La clase `ChatHub` hereda de la clase `Hub` de SignalR. La clase `Hub` administra las conexiones, los grupos y la mensajería.
 
   Cualquier cliente conectado puede llamar al método `SendMessage`. Envía el mensaje recibido a todos los clientes. El código de SignalR es asincrónico para proporcionar la máxima escalabilidad.
 
-## <a name="configure-the-project-to-use-signalr"></a>Configurar el proyecto para que use SignalR
+## <a name="configure-signalr"></a>Configuración de SignalR
 
 El servidor de SignalR se debe configurar para que pase las solicitudes de SignalR a SignalR.
 
@@ -192,9 +193,9 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 
   [!code-csharp[Startup](signalr/sample/Startup.cs?highlight=7,33,52-55)]
 
-  Estos cambios agregan SignalR al sistema de [inserción de dependencias](xref:fundamentals/dependency-injection) y a la canalización de [software intermedio](xref:fundamentals/middleware/index).
+  Estos cambios agregan SignalR al sistema de inserción de dependencias de ASP.NET Core y a la canalización de software intermedio.
 
-## <a name="create-the-signalr-client-code"></a>Crear el código de cliente de SignalR
+## <a name="add-signalr-client-code"></a>Adición del código de cliente de SignalR
 
 * Reemplace el contenido de *Pages/Index.cshtml* con el código siguiente:
 
@@ -246,10 +247,16 @@ El servidor de SignalR se debe configurar para que pase las solicitudes de Signa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si quiere que los clientes se conecten a una aplicación de SignalR desde otros dominios, tendrá que habilitar el uso compartido de recursos entre orígenes (CORS). Para obtener más información, vea [Uso compartido de recursos entre orígenes](xref:signalr/security?view=aspnetcore-2.1#cross-origin-resource-sharing).
+En este tutorial ha aprendido a:
 
-Para obtener más información sobre SignalR, los concentradores y los clientes de JavaScript, vea estos recursos:
+> [!div class="checklist"]
+> * Crear un proyecto de aplicación web.
+> * Agregar la biblioteca cliente de SignalR.
+> * Crear un concentrador de SignalR.
+> * Configurar el proyecto para usar SignalR.
+> * Agregar código que usa el concentrador para enviar mensajes desde cualquier cliente a todos los clientes conectados.
 
-* [Introducción a SignalR para ASP.NET Core](xref:signalr/introduction)
-* [Uso de concentradores de SignalR para ASP.NET Core](xref:signalr/hubs)
-* [Cliente de JavaScript de SignalR para ASP.NET Core](xref:signalr/javascript-client)
+Para obtener más información sobre SignalR, vea la introducción:
+
+> [!div class="nextstepaction"]
+> [Introducción a SignalR de ASP.NET Core](xref:signalr/introduction)

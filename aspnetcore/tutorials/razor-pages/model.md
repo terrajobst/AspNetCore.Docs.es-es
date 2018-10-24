@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo agregar clases para administrar pe
 ms.author: riande
 ms.date: 05/30/2018
 uid: tutorials/razor-pages/model
-ms.openlocfilehash: de82738509bb009f030a02e28904e3155088fa6a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 5cd1e08ac52d352be23a280419d7456f685a03ad
+ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011371"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48045606"
 ---
 # <a name="add-a-model-to-a-razor-pages-app-in-aspnet-core"></a>Agregar un modelo a una aplicación de páginas de Razor en ASP.NET Core
 
@@ -22,9 +22,7 @@ ms.locfileid: "46011371"
 
 En el Explorador de soluciones, haga clic con el botón derecho en el proyecto **RazorPagesMovie** > **Agregar** > **Nueva carpeta**. Asigne a la carpeta el nombre *Models*.
 
-Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Asigne a la clase el nombre **Movie** y agregue las siguientes propiedades:
-
-Reemplace el contenido de la clase `Movie` por el siguiente código:
+Haga clic con el botón derecho en la carpeta *Models*. Seleccione **Agregar** > **Clase**. Cambie el nombre de la clase **Movie** y reemplace el contenido de la clase `Movie` con este código:
 
 [!code-csharp[Main](razor-pages-start/sample/RazorPagesMovie21/Models/Movie1.cs?name=snippet)]
 
@@ -41,7 +39,7 @@ En el **Explorador de soluciones**, haga clic con el botón derecho en la carpet
 
 ![Imagen de las instrucciones anteriores.](model/_static/sca.png)
 
-En el cuadro de diálogo **Agregar scaffold**, seleccione **Razor Pages using Entity Framework (CRUD)** [Páginas de Razor Pages que usan Entity Framework (CRUD)] > **AGREGAR**.
+En el cuadro de diálogo **Agregar scaffold**, seleccione **Páginas de Razor que usan Entity Framework (CRUD)** > **Agregar**.
 
 ![Imagen de las instrucciones anteriores.](model/_static/add_scaffold.png)
 
@@ -58,10 +56,10 @@ El proceso de scaffolding ha creado y cambiado los archivos siguientes:
 
 ### <a name="files-created"></a>Archivos creados
 
-* *Pages/Movies* Create, Delete, Details, Edit, Index. Estas páginas se detallan en el tutorial siguiente.
+* *Pages/Movies*: Create, Delete, Details, Edit, Index. Estas páginas se detallan en el tutorial siguiente.
 * *Data/RazorPagesMovieContext.cs*
 
-### <a name="files-updates"></a>Actualizaciones de archivos
+### <a name="file-updates"></a>Actualizaciones de archivos
 
 * *Startup.cs*: en la sección siguiente se detallan los cambios realizados en este archivo.
 * *appsettings.json*: se agrega la cadena de conexión que se usa para conectarse a una base de datos local.
@@ -122,8 +120,8 @@ El comando `Update-Database` ejecuta el método `Up` en el archivo *Migrations/{
 
 Si se produce un error:
 
-SqlException: No se puede abrir la base de datos "RazorPagesMovieContext-GUID" solicitada por el inicio de sesión. Error de inicio de sesión.
-Error de inicio de sesión del usuario <nombre de usuario>.
+`SqlException: Cannot open database "RazorPagesMovieContext-GUID" requested by the login. The login failed.
+Login failed for user 'User-name'.`
 
 Quiere decir que falta el [paso de migraciones](#pmc).
 

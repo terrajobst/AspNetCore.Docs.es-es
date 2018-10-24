@@ -5,12 +5,12 @@ description: En este tutorial, leerá y mostrará datos relacionados, es decir, 
 ms.author: riande
 ms.date: 11/05/2017
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: f57853fae7fb1cb7df130f38a6996c87a5c08e83
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: e23b8bb870b329bd705fbc9548df62524303893e
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523290"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912330"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -51,7 +51,7 @@ EF Core puede cargar datos relacionados en las propiedades de navegación de una
 
   ![Ejemplo de carga explícita](read-related-data/_static/explicit-loading.png)
 
-* [Carga diferida](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Actualmente EF Core no admite la carga diferida](https://github.com/aspnet/EntityFrameworkCore/issues/3797). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. La primera vez que se obtiene acceso a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Cada vez que se obtiene acceso a una propiedad de navegación, se envía una consulta a la base de datos.
+* [Carga diferida](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Se ha agregado la carga diferida a EF Core en la versión 2.1](/ef/core/querying/related-data#lazy-loading). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. La primera vez que se obtiene acceso a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Cada vez que se obtiene acceso a una propiedad de navegación, se envía una consulta a la base de datos.
 
 * El operador `Select` solo carga los datos relacionados necesarios.
 

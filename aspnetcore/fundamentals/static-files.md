@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/18/2018
 uid: fundamentals/static-files
-ms.openlocfilehash: 33fad930e617c74d9a8c07f850764a6b81fa8ab5
-ms.sourcegitcommit: 2c158fcfd325cad97ead608a816e525fe3dcf757
+ms.openlocfilehash: 52c7916b9fc55c875d56acd49c01f76dd2053817
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41751740"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861010"
 ---
 # <a name="static-files-in-aspnet-core"></a>Archivos estáticos en ASP.NET Core
 
@@ -216,7 +216,7 @@ Vea [Tipos de contenido MIME](http://www.iana.org/assignments/media-types/media-
 
 ## <a name="non-standard-content-types"></a>Tipos de contenido no estándar
 
-El middleware de archivos estáticos entiende casi 400 tipos de contenido de archivo conocidos. Si el usuario solicita un archivo de un tipo de archivo desconocido, el middleware de archivos estáticos devuelve una respuesta HTTP 404 (No encontrado). Si se habilita el examen de directorios, se muestra un vínculo al archivo. El URI devuelve un error HTTP 404.
+El middleware de archivos estáticos entiende casi 400 tipos de contenido de archivo conocidos. Si el usuario solicita un archivo con un tipo de archivo desconocido, el middleware de archivos estáticos pasa la solicitud al siguiente middleware de la canalización. Si ningún middleware se ocupa de la solicitud, se devuelve una respuesta *404 No encontrado*. Si se habilita la exploración de directorios, se muestra un vínculo al archivo en una lista de directorios.
 
 El código siguiente permite proporcionar tipos desconocidos y procesa el archivo desconocido como una imagen:
 

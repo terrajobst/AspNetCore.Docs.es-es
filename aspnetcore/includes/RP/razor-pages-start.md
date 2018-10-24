@@ -18,12 +18,12 @@ En la tabla siguiente se enumeran los archivos y las carpetas del proyecto. En e
 
 ### <a name="the-pages-folder"></a>Carpeta Páginas
 
-El archivo *_Layout.cshtml* contiene elementos HTML comunes (scripts y hojas de estilos) y establece el diseño de la aplicación. Por ejemplo, al hacer clic en **RazorPagesMovie**, **Inicio**, **Acerca de** o **Contacto**, verá los mismos elementos. Los elementos comunes incluyen el menú de navegación de la parte superior y el encabezado de la parte inferior de la ventana. Consulte [Diseño](xref:mvc/views/layout) para obtener más información.
-
-El archivo *_ViewStart.cshtml* establece la propiedad `Layout` de las páginas de Razor que para usar el archivo *_Layout.cshtml*. Vea [Layout](xref:mvc/views/layout) (Diseño) para más información.
+El archivo *_Layout.cshtml* contiene elementos HTML comunes (scripts y hojas de estilos) y establece el diseño de la aplicación. Por ejemplo, al hacer clic en **RazorPagesMovie**, **Inicio**, **Acerca de** o **Contacto**, verá los mismos elementos. Los elementos comunes incluyen el menú de navegación de la parte superior y el encabezado de la parte inferior de la ventana. Vea [Layout](xref:mvc/views/layout) (Diseño) para más información.
 
 El archivo *_ViewImports.cshtml* contiene directivas de Razor que se importan en cada página de Razor. Consulte [Importing Shared Directives](xref:mvc/views/layout#importing-shared-directives) (Importar directivas compartidas) para obtener más información.
 
+El archivo *_ViewStart.cshtml* establece la propiedad `Layout` de las páginas de Razor que para usar el archivo *_Layout.cshtml*. Vea [Layout](xref:mvc/views/layout) (Diseño) para más información.
+
 El archivo *_ValidationScriptsPartial.cshtml* proporciona una referencia de los scripts de validación de [jQuery](https://jquery.com/). Al agregar las páginas `Create` y `Edit` más adelante en el tutorial, se usará el archivo *_ValidationScriptsPartial.cshtml*.
 
-Las páginas `About`, `Contact` y `Index` son páginas básicas que puede usar para iniciar una aplicación. La página `Error` se usa para mostrar información de errores.
+Las páginas `About`, `Contact` y `Index` son páginas básicas que puede usar para iniciar una aplicación. La página `Error` se usa para mostrar información de errores. La página `Privacy` permite especificar los detalles sobre la directiva de privacidad de su sitio.

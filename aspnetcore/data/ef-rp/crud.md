@@ -5,12 +5,12 @@ description: Se muestra cómo crear, leer, actualizar y eliminar con EF Core
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/crud
-ms.openlocfilehash: e3a0ec2e21ae9e9eeaae1eb7c17f1604897fb6f9
-ms.sourcegitcommit: 927e510d68f269d8335b5a7c8592621219a90965
+ms.openlocfilehash: 25493f93daf3fe5e874ad1d06b918196cd1f074d
+ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39342463"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48912818"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---crud---2-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: CRUD (2 de 8)
 
@@ -26,7 +26,7 @@ En este tutorial, se revisa y personaliza el código CRUD (crear, leer, actualiz
 
 Para minimizar la complejidad y mantener estos tutoriales centrados en EF Core, en los modelos de página se usa código de EF Core. Algunos desarrolladores usan un patrón de capa o [patrón de repositorio](xref:fundamentals/repository-pattern) de servicio para crear una capa de abstracción entre la interfaz de usuario (Razor Pages) y la capa de acceso a datos.
 
-En este tutorial, se examinan las Razor Pages Create, Edit, Delete y Details de la carpeta *Student*.
+En este tutorial se examinan las páginas Create, Edit, Delete y Details de Razor Pages de la carpeta *Students*.
 
 En el código con scaffolding se usa el modelo siguiente para las páginas Create, Edit y Delete:
 
@@ -64,7 +64,7 @@ Sin embargo, si quiere aplicar `Include` a otras entidades, `FindAsync` ya no re
 
 ## <a name="customize-the-details-page"></a>Personalizar la página de detalles
 
-Vaya a la página `Pages/Students`. Los vínculos **Edit**, **Details** y **Delete** son generados por la [Aplicación auxiliar de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) del archivo *Pages/Students/Index.cshtml*.
+Vaya a la página `Pages/Students`. Los vínculos **Edit**, **Details** y **Delete** son generados por la [Asistente de etiquetas delimitadoras](xref:mvc/views/tag-helpers/builtin-th/anchor-tag-helper) del archivo *Pages/Students/Index.cshtml*.
 
 [!code-cshtml[](intro/samples/cu21/Pages/Students/Index1.cshtml?name=snippet)]
 
@@ -236,9 +236,9 @@ Pruebe Delete.
 
 ## <a name="common-errors"></a>Errores comunes
 
-Student/Index u otros vínculos no funcionan:
+Students/Index u otros vínculos no funcionan:
 
-Compruebe que la página de Razor contiene la directiva `@page` correcta. Por ejemplo, la página de Razor Student/Index **no** debe contener una plantilla de ruta:
+Compruebe que la página de Razor contiene la directiva `@page` correcta. Por ejemplo, la página de Razor Students/Index **no** debe contener una plantilla de ruta:
 
 ```cshtml
 @page "{id:int}"

@@ -4,14 +4,14 @@ author: ardalis
 description: Descubra la manera en que la funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 94fa6a278466c8cc9926d7893d1ef71d83b865df
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
+ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870856"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47861062"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -37,7 +37,7 @@ La clase <xref:Microsoft.AspNetCore.Builder.RouterMiddleware> conecta el enrutam
 
 ### <a name="url-matching"></a>Coincidencia de dirección URL
 
-La coincidencia de dirección URL es el proceso por el cual el enrutamiento envía una solicitud entrante a un *controlador*. Este proceso se suele basar en datos de la ruta de dirección URL, pero se puede ampliar para tener en cuenta cualquier dato de la solicitud. La capacidad de enviar solicitudes a controladores independientes es clave para escalar el tamaño y la complejidad de una aplicación.
+La coincidencia de dirección URL es el proceso por el cual el enrutamiento envía una solicitud entrante a un *controlador*. Este proceso se basa en datos de la ruta de dirección URL, pero se puede ampliar para tener en cuenta cualquier dato de la solicitud. La capacidad de enviar solicitudes a controladores independientes es clave para escalar el tamaño y la complejidad de una aplicación.
 
 Las solicitudes entrantes especifican la clase `RouterMiddleware`, que llama al método <xref:Microsoft.AspNetCore.Routing.IRouter.RouteAsync*> en cada ruta de la secuencia. La instancia de <xref:Microsoft.AspNetCore.Routing.IRouter> decide si *controla* la solicitud mediante el establecimiento de [RouteContext.Handler](xref:Microsoft.AspNetCore.Routing.RouteContext.Handler*) en un <xref:Microsoft.AspNetCore.Http.RequestDelegate> que no sea NULL. Si una ruta establece un controlador para la solicitud, el procesamiento de rutas se detiene y se invoca el controlador para procesar la solicitud. Si se prueban todas las rutas y no se encuentra ningún controlador para la solicitud, el software intermedio llama a *next* y se invoca el software intermedio siguiente de la canalización de solicitudes.
 
@@ -108,7 +108,7 @@ routes.MapRoute(
 
 Esta plantilla coincide con una ruta de dirección URL como `/Products/Details/17`, pero no con `/Products/Details/Apples`. La definición de parámetro de ruta `{id:int}` define una [restricción de ruta](#route-constraint-reference) para el parámetro de ruta `id`. Las restricciones de ruta implementan <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> e inspeccionan los valores de ruta para comprobarlos. En este ejemplo, el valor de ruta `id` debe poder convertirse en un entero. Vea en [Referencia de restricción de ruta](#route-constraint-reference) una explicación más detallada de las restricciones de ruta que se proporcionan con el marco de trabajo.
 
-Las sobrecargas adicionales de `MapRoute` aceptan valores para `constraints`, `dataTokens` y `defaults`. Estos parámetros adicionales de `MapRoute` se definen como un tipo `object`. Estos parámetros se suelen usar para pasar un objeto de tipo anónimo, donde los nombres de propiedad del tipo anónimo coinciden con los nombres de los parámetros de ruta.
+Las sobrecargas adicionales de `MapRoute` aceptan valores para `constraints`, `dataTokens` y `defaults`. Estos parámetros adicionales de `MapRoute` se definen como un tipo `object`. Estos parámetros suelen usarse para pasar un objeto de tipo anónimo, donde los nombres de propiedad del tipo anónimo coinciden con los nombres de los parámetros de ruta.
 
 En los dos ejemplos siguientes se crean rutas equivalentes:
 
@@ -169,12 +169,12 @@ routes.MapRoute(
 
 Con los valores de ruta `{ controller = Products, action = List }`, esta ruta genera la dirección URL `/Products/List`. Los valores de ruta se sustituyen por los parámetros de ruta correspondientes para formar la ruta de dirección URL. Dado que `id` es un parámetro de ruta opcional, no supone ningún problema que no tenga un valor.
 
-Con los valores de ruta `{ controller = Home, action = Index }`, esta ruta genera la dirección URL `/`. Los valores de ruta que se proporcionaron coinciden con los valores predeterminados, por lo que los segmentos correspondientes con esos valores se pueden omitir sin ningún riesgo. Tenga en cuenta que ambas direcciones URL generadas realizan un recorrido de ida y vuelta con esta definición de ruta y generan los mismos valores de ruta que se usaron para generar la dirección URL.
+Con los valores de ruta `{ controller = Home, action = Index }`, esta ruta genera la dirección URL `/`. Los valores de ruta que se proporcionaron coinciden con los valores predeterminados, por lo que los segmentos correspondientes con esos valores se pueden omitir sin ningún riesgo. Ambas direcciones URL generadas realizan un recorrido de ida y vuelta con esta definición de ruta y generan los mismos valores de ruta que se usaron para generar la dirección URL.
 
 > [!TIP]
 > Las aplicaciones con ASP.NET Core MVC deben usar <xref:Microsoft.AspNetCore.Mvc.Routing.UrlHelper> para generar direcciones URL en lugar de llamar directamente al enrutamiento.
 
-Para obtener más detalles sobre el proceso de generación de dirección URL, vea [Referencia de generación de dirección URL](#url-generation-reference).
+Para obtener más información sobre la generación de direcciones URL, vea [url-generation-reference](#url-generation-reference).
 
 ## <a name="use-routing-middleware"></a>Uso de software intermedio de enrutamiento
 
@@ -269,9 +269,31 @@ Es necesario tener en cuenta otras consideraciones en el caso de los patrones de
 
 Se puede usar el carácter `*` como prefijo de un parámetro de ruta para enlazar con el resto del URI. Es lo que se denomina un parámetro *comodín*. Por ejemplo, `blog/{*slug}` coincide con cualquier URI que empiece por `/blog` y que vaya seguido de cualquier valor (que se asigna al valor de ruta `slug`). Los parámetros comodín también pueden coincidir con una cadena vacía.
 
+::: moniker range=">= aspnetcore-2.2"
+
+El parámetro catch-all inserta los caracteres de escape correspondientes cuando se usa la ruta para generar una dirección URL, incluidos caracteres de separación de ruta de acceso (`/`). Por ejemplo, la ruta `foo/{*path}` con valores de ruta `{ path = "my/path" }` genera `foo/my%2Fpath`. Tenga en cuenta la barra diagonal de escape. Para los caracteres separadores de ruta de acceso de ida y vuelta, use el prefijo de parámetro de ruta `**`. La ruta `foo/{**path}` con `{ path = "my/path" }` genera `foo/my/path`.
+
+::: moniker-end
+
 Los parámetros de ruta pueden tener *valores predeterminados*. Para designar un valor predeterminado, se especifica después del nombre de parámetro, separado por un signo igual (`=`). Por ejemplo, `{controller=Home}` define `Home` como el valor predeterminado de `controller`. El valor predeterminado se usa si no hay ningún valor en la dirección URL para el parámetro. Además de los valores predeterminados, los parámetros de ruta pueden ser opcionales (para especificarlos, se anexa un signo de interrogación (`?`) al final del nombre del parámetro, como en `id?`). La diferencia entre los valores opcionales y los parámetros de ruta predeterminados es que un parámetro de ruta con un valor predeterminado siempre genera un valor, mientras que un parámetro opcional tiene un valor solo cuando la dirección URL de solicitud le proporciona uno.
 
-Los parámetros de ruta también pueden tener restricciones, que deben coincidir con el valor de ruta enlazado desde la dirección URL. Si se agrega un carácter de dos puntos `:` y un nombre de restricción después del nombre del parámetro de ruta se especifica una *restricción insertada* en un parámetro de ruta. Si la restricción requiere argumentos, se proporcionan entre paréntesis `( )` después del nombre de restricción. Se pueden especificar varias restricciones insertadas si se anexa otro carácter de dos puntos `:` y un nombre de restricción. El nombre de restricción se pasa al servicio <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> para crear una instancia de <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> para su uso en el procesamiento de direcciones URL. Por ejemplo, la plantilla de ruta `blog/{article:minlength(10)}` especifica una restricción `minlength` con el argumento `10`. Para obtener más información sobre las restricciones de ruta y una lista de las restricciones proporcionadas por el marco de trabajo, vea la sección [Referencia de restricciones de ruta](#route-constraint-reference).
+::: moniker range=">= aspnetcore-2.2"
+
+Los parámetros de ruta pueden tener restricciones, que deben coincidir con el valor de ruta enlazado desde la dirección URL. Si se agrega un carácter de dos puntos (`:`) y un nombre de restricción después del nombre del parámetro de ruta, se especifica una *restricción insertada* en un parámetro de ruta. Si la restricción requiere argumentos, se incluyen entre paréntesis `( )` después del nombre de restricción. Se pueden especificar varias restricciones insertadas si se anexa otro carácter de dos puntos (`:`) y un nombre de restricción. El nombre de restricción y los argumentos se pasan al servicio <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> para crear una instancia de <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> para su uso en el procesamiento de direcciones URL. Si el constructor de restricción requiere servicios, se resuelven a partir de los servicios de aplicación de la inserción de dependencias. Por ejemplo, la plantilla de ruta `blog/{article:minlength(10)}` especifica una restricción `minlength` con el argumento `10`. Para obtener más información sobre las restricciones de ruta y una lista de las restricciones proporcionadas por el marco de trabajo, vea la sección [Referencia de restricciones de ruta](#route-constraint-reference).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
+
+Los parámetros de ruta pueden tener restricciones, que deben coincidir con el valor de ruta enlazado desde la dirección URL. Si se agrega un carácter de dos puntos (`:`) y un nombre de restricción después del nombre del parámetro de ruta, se especifica una *restricción insertada* en un parámetro de ruta. Si la restricción requiere argumentos, se incluyen entre paréntesis `( )` después del nombre de restricción. Se pueden especificar varias restricciones insertadas si se anexa otro carácter de dos puntos (`:`) y un nombre de restricción. El nombre de restricción y los argumentos se pasan al servicio <xref:Microsoft.AspNetCore.Routing.IInlineConstraintResolver> para crear una instancia de <xref:Microsoft.AspNetCore.Routing.IRouteConstraint> para su uso en el procesamiento de direcciones URL. Por ejemplo, la plantilla de ruta `blog/{article:minlength(10)}` especifica una restricción `minlength` con el argumento `10`. Para obtener más información sobre las restricciones de ruta y una lista de las restricciones proporcionadas por el marco de trabajo, vea la sección [Referencia de restricciones de ruta](#route-constraint-reference).
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Los parámetros de ruta también pueden tener transformadores de parámetros, que transforman el valor de un parámetro al generar vínculos y acciones y páginas coincidentes para los URI. Al igual que las restricciones, los transformadores de parámetros se pueden agregar en línea a un parámetro de ruta al incorporar un carácter de dos puntos (`:`) y un nombre de transformador después del nombre del parámetro de ruta. Por ejemplo, la plantilla de ruta `blog/{article:slugify}` especifica un transformador `slugify`.
+
+::: moniker-end
 
 En la tabla siguiente se muestran algunas plantillas de ruta y su comportamiento.
 
@@ -361,11 +383,31 @@ Las expresiones regulares que se usan en el enrutamiento suelen empezar con el c
 | `^[a-z]{2}$` |  hello    | No    | Vea `^` y `$` más arriba |
 | `^[a-z]{2}$` | 123abc456 | No    | Vea `^` y `$` más arriba |
 
-Consulte las [expresiones regulares de .NET Framework](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) para obtener más información sobre la sintaxis de expresiones regulares.
+Para obtener más información sobre la sintaxis de expresiones regulares, vea [Expresiones regulares de .NET Framework](/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 Para restringir un parámetro a un conjunto conocido de valores posibles, use una expresión regular. Por ejemplo, `{action:regex(^(list|get|create)$)}` solo hace coincidir el valor de ruta `action` con `list`, `get` o `create`. Si se pasa al diccionario de restricciones, la cadena `^(list|get|create)$` es equivalente. Las restricciones que se pasan al diccionario de restricciones (no insertado en una plantilla) que no coinciden con una de las restricciones conocidas también se tratan como expresiones regulares.
 
-## <a name="url-generation-reference"></a>Referencia de generación de dirección URL
+::: moniker range=">= aspnetcore-2.2"
+
+## <a name="parameter-transformer-reference"></a>Referencia de transformadores de parámetros
+
+Los transformadores de parámetros se ejecutan cuando se genera un vínculo para una `Route`. Los transformadores de parámetros toman el valor de ruta del parámetro y lo transforman en un nuevo valor de cadena. El valor transformado se usa en el vínculo generado. Por ejemplo, un transformador de parámetros personalizado `slugify` en el patrón de ruta `blog\{article:slugify}` con `Url.Action(new { article = "MyTestArticle" })` genera `blog\my-test-article`. Los transformadores de parámetros implementan `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` y se configuran mediante <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+
+Los marcos también usan transformadores de parámetros para transformar el URI en el que se resuelve un punto de conexión. Por ejemplo, ASP.NET Core MVC usa transformadores de parámetros para transformar el valor de ruta usado para hacer coincidir elementos `area`, `controller`, `action` y `page`.
+
+```csharp
+routes.MapRoute(
+    name: "default",
+    template: "{controller=Home:slugify}/{action=Index:slugify}/{id?}");
+```
+
+Con la ruta anterior, la acción `SubscriptionManagementController.GetAll()` coincide con el URI `/subscription-management/get-all`. Un transformador de parámetros no cambia los valores de ruta usados para generar un vínculo. `Url.Action("GetAll", "SubscriptionManagement")` genera `/subscription-management/get-all`.
+
+ASP.NET Core MVC también incluye la convención de API `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`. La convención aplica un transformador de parámetros especificado a todos los tokens de ruta de atributo de la aplicación.
+
+::: moniker-end
+
+## <a name="url-generation-reference"></a>Referencia de generación de direcciones URL
 
 En el ejemplo siguiente se muestra cómo se genera un vínculo a una ruta, dado un diccionario de valores de ruta y un valor <xref:Microsoft.AspNetCore.Routing.RouteCollection>.
 
