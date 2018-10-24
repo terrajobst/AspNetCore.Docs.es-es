@@ -5,12 +5,12 @@ description: Obtenga información sobre la manera en que ASP.NET Core proporcion
 ms.author: riande
 ms.date: 01/14/2017
 uid: fundamentals/localization
-ms.openlocfilehash: 6e8c4723ab0105b8c756221d3e3c5eebba6cc4e2
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 375d09d9bef59cf18b7805cbefe500aeb2e0cde7
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912044"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49326009"
 ---
 # <a name="globalization-and-localization-in-aspnet-core"></a>Globalización y localización en ASP.NET Core
 
@@ -206,9 +206,9 @@ Cada combinación de idioma y referencia cultural (que no sea el idioma predeter
 
 ### <a name="configure-localization"></a>Configurar la localización
 
-La localización se configura en el método `ConfigureServices`:
+La localización se configura en el método `Startup.ConfigureServices`:
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet1)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet1)]
 
 * `AddLocalization` agrega los servicios de localización al contenedor de servicios. El código anterior también establece la ruta de acceso a los recursos en "Resources".
 
@@ -218,9 +218,9 @@ La localización se configura en el método `ConfigureServices`:
 
 ### <a name="localization-middleware"></a>Software intermedio de localización
 
-La referencia cultural actual de una solicitud se establece en el [software intermedio](xref:fundamentals/middleware/index) de localización. El software intermedio de localización se habilita en el método `Configure`. El software intermedio de localización debe configurarse antes que cualquier software intermedio que pueda comprobar la referencia cultural de la solicitud (por ejemplo, `app.UseMvcWithDefaultRoute()`).
+La referencia cultural actual de una solicitud se establece en el [software intermedio](xref:fundamentals/middleware/index) de localización. El software intermedio de localización se habilita en el método `Startup.Configure`. El software intermedio de localización debe configurarse antes que cualquier software intermedio que pueda comprobar la referencia cultural de la solicitud (por ejemplo, `app.UseMvcWithDefaultRoute()`).
 
-[!code-csharp[](localization/sample/Localization/Program.cs?name=snippet2)]
+[!code-csharp[](localization/sample/Localization/Startup.cs?name=snippet2)]
 
 `UseRequestLocalization` inicializa un objeto `RequestLocalizationOptions`. En todas las solicitudes, se enumera la lista de `RequestCultureProvider` en `RequestLocalizationOptions` y se usa el primer proveedor que puede determinar correctamente la referencia cultural de la solicitud. Los proveedores predeterminados proceden de la clase `RequestLocalizationOptions`:
 
