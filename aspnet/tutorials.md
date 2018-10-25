@@ -16,14 +16,13 @@ ms.locfileid: "46482975"
 ---
 # <a name="aspnet-tutorials"></a>Tutoriales de ASP.NET
 
-[!INCLUDE[](~/includes/rp.md)]
+
 
 Están disponibles las siguientes guías paso a paso para desarrollar aplicaciones de ASP.NET.
 
-> [!NOTE]
 > ¿Buscar tutoriales de ASP.NET Core?  Encontrarlos [aquí](https://docs.microsoft.com/aspnet/core/tutorials/).
 
-## <a name="web-forms"></a>formularios Web Forms
+## <a name="web-forms"></a>Formularios Web Forms
 
 * [Edición del código de formularios Web Forms de ASP.NET en Visual Studio 2013](web-forms/overview/getting-started/code-editing-in-web-forms-pages.md)
 * [Usar el Inspector de página en Visual Studio 2012](web-forms/overview/getting-started/hands-on-labs/using-page-inspector-in-visual-studio-2012.md)
@@ -39,7 +38,7 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 * [ASP.NET 4 - Implementación de empresa, serie 3: configuración de TFS](web-forms/overview/deployment/configuring-team-foundation-server-for-web-deployment/index.md)
 * [ASP.NET 4 - Implementación de empresa, serie 4: temas avanzados](web-forms/overview/deployment/advanced-enterprise-web-deployment/index.md)
 * [ASP.NET 4 - Tailspin Spyworks](web-forms/overview/older-versions-getting-started/tailspin-spyworks/index.md)
-* [ASP.NET 4: Introducción a Entity Framework 4 y formularios Web Forms](web-forms/overview/older-versions-getting-started/getting-started-with-ef/index.md)
+* [ASP.NET 4 - Introducción a Entity Framework 4 y formularios Web Forms](web-forms/overview/older-versions-getting-started/getting-started-with-ef/index.md)
 * [ASP.NET 4 - Continuación de Entity Framework 4 y los formularios Web Forms](web-forms/overview/older-versions-getting-started/continuing-with-ef/index.md)
 * [ASP.NET 4 - Implementación web con SQL Server Compact mediante Visual Studio](web-forms/overview/older-versions-getting-started/deployment-to-a-hosting-provider/index.md)
 
@@ -94,7 +93,7 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 * [Validar la entrada del usuario en los sitios de ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/validating-user-input-in-aspnet-web-pages-sites.md)
 * [Crear una apariencia coherente](web-pages/overview/ui-layouts-and-themes/3-creating-a-consistent-look.md)
 * [Personalizar el comportamiento de todo el sitio](web-pages/overview/ui-layouts-and-themes/18-customizing-site-wide-behavior.md)
-* [Working with Images (Trabajo con imágenes)](web-pages/overview/ui-layouts-and-themes/9-working-with-images.md)
+* [Trabajar con imágenes](web-pages/overview/ui-layouts-and-themes/9-working-with-images.md)
 * [Trabajar con vídeo](web-pages/overview/ui-layouts-and-themes/10-working-with-video.md)
 * [Crear y usar un asistente en un sitio de ASP.NET Web Pages](web-pages/overview/ui-layouts-and-themes/creating-and-using-a-helper-in-an-aspnet-web-pages-site.md)
 * [Instalar un asistente](web-pages/overview/ui-layouts-and-themes/installing-helpers.md)
@@ -103,7 +102,7 @@ Están disponibles las siguientes guías paso a paso para desarrollar aplicacion
 * [Representar sitios de ASP.NET Web Pages para dispositivos móviles](web-pages/overview/mobile/rendering-aspnet-web-pages-sites-for-mobile-devices.md)
 * [Trabajar con datos](web-pages/overview/data/5-working-with-data.md)
 * [Mostrar datos en un gráfico](web-pages/overview/data/7-displaying-data-in-a-chart.md)
-* [Working with Files (Trabajo con archivos)](web-pages/overview/data/working-with-files.md)
+* [Trabajar con archivos](web-pages/overview/data/working-with-files.md)
 * [Introducción a la depuración](web-pages/overview/testing-and-debugging/introduction-to-debugging.md)
 * [Agregar seguridad y pertenencia](web-pages/overview/security/16-adding-security-and-membership.md)
 * [Habilitar el inicio de sesión desde sitios externos en un sitio de ASP.NET Web Pages](web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site.md)
