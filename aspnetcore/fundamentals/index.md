@@ -4,22 +4,27 @@ author: rick-anderson
 description: Descubra los conceptos básicos para crear aplicaciones de ASP.NET Core.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/20/2018
+ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 83dfb5707700da01c45bae3c0c00e67ca397d402
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 56344315acc59003248ffaf1e61455b94a93a545
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325476"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090724"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
-Una aplicación de ASP.NET Core es una aplicación de consola que crea un servidor web en su método `Main`:
+Una aplicación de ASP.NET Core es una aplicación de consola que crea un servidor web en su método `Program.Main`. El método `Main` es el *punto de entrada administrado* de la aplicación:
 
 ::: moniker range=">= aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/2.x/Program.cs)]
+
+Host de .NET Core:
+
+* Carga el [entorno de ejecución de .NET Core](https://github.com/dotnet/coreclr).
+* Usa el primer argumento de la línea de comandos como la ruta de acceso al binario administrado que contiene el punto de entrada (`Main`) e inicia la ejecución del código.
 
 El método `Main` invoca [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCore.WebHost.CreateDefaultBuilder*), que sigue el [patrón del generador](https://wikipedia.org/wiki/Builder_pattern) para crear un host de web. El generador tiene métodos que definen el servidor web (por ejemplo, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) y la clase de inicio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). En el ejemplo anterior, se asigna automáticamente el servidor web [Kestrel](xref:fundamentals/servers/kestrel). El host web de ASP.NET Core intenta ejecutarse en IIS, si está disponible. Otros servidores web, como [HTTP.sys](xref:fundamentals/servers/httpsys), se pueden usar al invocar el método de extensión adecuado. `UseStartup` se explica en la sección siguiente.
 
@@ -30,6 +35,11 @@ El método `Main` invoca [WebHost.CreateDefaultBuilder](xref:Microsoft.AspNetCor
 ::: moniker range="< aspnetcore-2.0"
 
 [!code-csharp[](index/snapshots/1.x/Program.cs)]
+
+Host de .NET Core:
+
+* Carga el [entorno de ejecución de .NET Core](https://github.com/dotnet/coreclr).
+* Usa el primer argumento de la línea de comandos como la ruta de acceso al binario administrado que contiene el punto de entrada (`Main`) e inicia la ejecución del código.
 
 El método `Main` usa <xref:Microsoft.AspNetCore.Hosting.WebHostBuilder>, que sigue el [patrón del generador](https://wikipedia.org/wiki/Builder_pattern) para crear un host de aplicación web. El generador tiene métodos que definen el servidor web (por ejemplo, <xref:Microsoft.AspNetCore.Hosting.WebHostBuilderKestrelExtensions.UseKestrel*>) y la clase de inicio (<xref:Microsoft.AspNetCore.Hosting.WebHostBuilderExtensions.UseStartup*>). En el ejemplo anterior, se usa el servidor web [Kestrel](xref:fundamentals/servers/kestrel). Si se invoca el método de extensión adecuado, se pueden usar otros servidores web, como [WebListener](xref:fundamentals/servers/weblistener). `UseStartup` se explica en la sección siguiente.
 
@@ -75,9 +85,11 @@ Para obtener más información, vea <xref:fundamentals/startup>.
 
 La raíz del contenido es la ruta de acceso base a cualquier contenido que usa la aplicación, como [Razor Pages](xref:razor-pages/index), las vistas de MVC y los recursos estáticos. De forma predeterminada, la raíz del contenido es la misma ubicación que la ruta de acceso base de la aplicación para el archivo ejecutable que hospeda la aplicación.
 
-## <a name="web-root"></a>Raíz web
+## <a name="web-root-webroot"></a>Raíz web (webroot)
 
-La raíz web de una aplicación es el directorio del proyecto que contiene recursos públicos y estáticos, como archivos de imagen, CSS y JavaScript.
+La raíz web de una aplicación es el directorio del proyecto que contiene recursos públicos y estáticos, como archivos de imagen, CSS y JavaScript. De forma predeterminada, la raíz web es *wwwroot*.
+
+Para los archivos de Razor (*.cshtml*), la virgulilla `~/` apunta a la raíz web. Las rutas de acceso que empiezan por `~/` se conocen como rutas de acceso virtuales.
 
 ## <a name="dependency-injection-services"></a>Inserción de dependencias (servicios)
 

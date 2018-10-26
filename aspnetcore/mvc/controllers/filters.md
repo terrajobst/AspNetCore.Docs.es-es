@@ -3,14 +3,15 @@ title: Filtros en ASP.NET Core
 author: ardalis
 description: Obtenga información sobre cómo funcionan los filtros y cómo se pueden usar en ASP.NET Core MVC.
 ms.author: riande
-ms.date: 08/15/2018
+ms.custom: mvc
+ms.date: 10/15/2018
 uid: mvc/controllers/filters
-ms.openlocfilehash: e20d934a17337d404249220d703ac4bb7164dfa6
-ms.sourcegitcommit: 9bdba90b2c97a4016188434657194b2d7027d6e3
+ms.openlocfilehash: 6803e8e3a285716792427e9fb059c204f5a88ecb
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47402164"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391315"
 ---
 # <a name="filters-in-aspnet-core"></a>Filtros en ASP.NET Core
 
@@ -159,7 +160,7 @@ La secuencia de ejecución predeterminada se puede invalidar implementando `IOrd
 
 Si tuviéramos estos tres mismos filtros de acciones del ejemplo anterior, pero estableciéramos la propiedad `Order` de los filtros global y del controlador en 1 y 2 respectivamente, el orden de ejecución se invertiría.
 
-| Secuencia | Ámbito del filtro | Propiedad `Order` | Método de filtro |
+| Secuencia | Ámbito del filtro | Propiedad`Order`  | Método de filtro |
 |:--------:|:------------:|:-----------------:|:-------------:|
 | 1 | Método | 0 | `OnActionExecuting` |
 | 2 | Controlador | 1  | `OnActionExecuting` |
@@ -204,13 +205,15 @@ Si los filtros tienen dependencias a las que hay que tener acceso desde la inser
 
 ### <a name="servicefilterattribute"></a>ServiceFilterAttribute
 
-`ServiceFilter` recupera una instancia del filtro de la inserción de dependencias. Para ello, se agrega el filtro en cuestión al contenedor de `ConfigureServices` y se hace referencia a él en un atributo `ServiceFilter`.
+Los tipos de implementación de filtro de servicio se registran en la inserción de dependencias. `ServiceFilterAttribute` recupera una instancia del filtro de la inserción de dependencias. Agregue `ServiceFilterAttribute` al contenedor en `Startup.ConfigureServices` y haga referencia a él en un atributo `[ServiceFilter]`:
 
 [!code-csharp[](./filters/sample/src/FiltersSample/Startup.cs?name=snippet_ConfigureServices&highlight=11)]
 
 [!code-csharp[](../../mvc/controllers/filters/sample/src/FiltersSample/Controllers/HomeController.cs?name=snippet_ServiceFilter&highlight=1)]
 
-Si `ServiceFilter` se usa sin registrar el tipo de filtro, se producirá una excepción:
+Al usar `ServiceFilterAttribute`, el valor `IsReusable` es una sugerencia de que la instancia de filtro *podría* reutilizarse fuera del ámbito de la solicitud en la que se creó. El marco no ofrece ninguna garantía de que se vaya a crear una única instancia del filtro o de que el filtro no vuelva a solicitarse desde el contenedor de DI en algún momento posterior. Evite el uso de `IsReusable` cuando use un filtro que dependa de servicios con una duración distinta de singleton.
+
+Si `ServiceFilterAttribute` se usa sin registrar el tipo de filtro, se producirá una excepción:
 
 ```
 System.InvalidOperationException: No service for type
@@ -226,7 +229,9 @@ System.InvalidOperationException: No service for type
 Debido a esta diferencia:
 
 * Los tipos a los que se hace referencia con `TypeFilterAttribute` no tienen que estar ya registrados con el contenedor.  Sus dependencias se completan a través del contenedor. 
-* `TypeFilterAttribute` puede aceptar opcionalmente argumentos de constructor del tipo en cuestión. 
+* `TypeFilterAttribute` puede aceptar opcionalmente argumentos de constructor del tipo en cuestión.
+
+Al usar `TypeFilterAttribute`, el valor `IsReusable` es una sugerencia de que la instancia de filtro *podría* reutilizarse fuera del ámbito de la solicitud en la que se creó. El marco no ofrece ninguna garantía de que se vaya a crear una única instancia del filtro. Evite el uso de `IsReusable` cuando use un filtro que dependa de servicios con una duración distinta de singleton.
 
 En el siguiente ejemplo se muestra cómo pasar argumentos a un tipo usando `TypeFilterAttribute`:
 

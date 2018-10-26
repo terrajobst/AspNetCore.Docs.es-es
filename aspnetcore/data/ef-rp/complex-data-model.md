@@ -5,12 +5,12 @@ description: En este tutorial agregará más entidades y relaciones, y personali
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: 88d727b0545f1dacb56ea889e45b02f947867b19
-ms.sourcegitcommit: 6425baa92cec4537368705f8d27f3d0e958e43cd
+ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39220604"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477662"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -68,7 +68,7 @@ El atributo `DisplayFormat` puede usarse por sí solo. Normalmente se recomienda
 * El explorador puede habilitar características de HTML5. Por ejemplo, mostrar un control de calendario, el símbolo de divisa adecuado según la configuración regional, vínculos de correo electrónico, validación de entradas del lado cliente, etc.
 * De manera predeterminada, el explorador representa los datos con el formato correcto según la configuración regional.
 
-Para obtener más información, vea la [documentación de la aplicación auxiliar de etiquetas \<entrada>](xref:mvc/views/working-with-forms#the-input-tag-helper).
+Para obtener más información, vea la [documentación del asistente de etiquetas \<entrada&gt;](xref:mvc/views/working-with-forms#the-input-tag-helper).
 
 Ejecute la aplicación. Vaya a la página de índice de Students. Ya no se muestran las horas. Todas las vistas que usa el modelo `Student` muestran la fecha sin hora.
 
@@ -432,7 +432,7 @@ public Student Student { get; set; }
 
 Hay una relación de varios a varios entre las entidades `Student` y `Course`. La entidad `Enrollment` funciona como una tabla combinada varios a varios *con carga útil* en la base de datos. "Con carga útil" significa que la tabla `Enrollment` contiene datos adicionales, además de claves externas de las tablas combinadas (en este caso, la clave principal y `Grade`).
 
-En la ilustración siguiente se muestra el aspecto de estas relaciones en un diagrama de entidades. (Este diagrama se ha generado mediante EF Power Tools para EF 6.x. Crear el diagrama no forma parte del tutorial).
+En la ilustración siguiente se muestra el aspecto de estas relaciones en un diagrama de entidades. (Este diagrama se ha generado mediante [EF Power Tools](https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition) para EF 6.x. Crear el diagrama no forma parte del tutorial).
 
 ![Relación de varios a varios entre estudiantes y cursos](complex-data-model/_static/student-course.png)
 
@@ -574,9 +574,15 @@ The ALTER TABLE statement conflicted with the FOREIGN KEY constraint "FK_dbo.Cou
 database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ```
 
-Cuando se ejecutan migraciones con datos existentes, puede haber restricciones de clave externa que no se cumplen con los datos existentes. Para este tutorial, se crea una base de datos, por lo que no hay ninguna infracción de restricciones de clave externa. Vea la sección [Corregir las restricciones de claves externas con datos heredados](#fk) para obtener instrucciones sobre cómo corregir las infracciones de clave externa en la base de datos actual.
+## <a name="apply-the-migration"></a>Aplicar la migración
 
-### <a name="drop-and-update-the-database"></a>Eliminación y actualización de la base de datos
+Ahora que tiene una base de datos existente, debe pensar cómo aplicar los cambios futuros en ella. En este tutorial se muestran dos enfoques:
+* [Quitar y volver a crear la base de datos](#drop)
+* [Aplicar la migración a la base de datos existente](#applyexisting). Aunque este método es más complejo y lento, es el método preferido para entornos de producción del mundo real. **Nota**: Esta es una sección opcional del tutorial. Puede realizar la operación de quitar y volver a crear, y omitir esta sección. Si quiere seguir los pasos descritos en esta sección, no realice la operación de quitar y volver a crear. 
+
+<a name="drop"></a>
+
+### <a name="drop-and-re-create-the-database"></a>Quitar y volver a crear la base de datos
 
 El código en la `DbInitializer` actualizada agrega los datos de inicialización para las nuevas entidades. Para obligar a EF Core a crear una base de datos, quite y actualice la base de datos:
 
@@ -620,11 +626,11 @@ Examine la tabla **CourseAssignment**:
 
 ![Datos de CourseAssignment en SSOX](complex-data-model/_static/ssox-ci-data.png)
 
-<a name="fk"></a>
+<a name="applyexisting"></a>
 
-## <a name="fixing-foreign-key-constraints-with-legacy-data"></a>Corregir las restricciones de claves externas con datos heredados
+### <a name="apply-the-migration-to-the-existing-database"></a>Aplicar la migración a la base de datos existente
 
-Esta sección es opcional.
+Esta sección es opcional. Estos pasos solo funcionan si pasó por alto la sección [Quitar y volver a crear la base de datos](#drop).
 
 Cuando se ejecutan migraciones con datos existentes, puede haber restricciones de clave externa que no se cumplen con los datos existentes. Con los datos de producción, se deben realizar algunos pasos para migrar los datos existentes. En esta sección se proporciona un ejemplo de corrección de las infracciones de restricción de clave externa. No realice estos cambios de código sin hacer una copia de seguridad. No realice estos cambios de código si realizó la sección anterior y actualizó la base de datos.
 
@@ -639,7 +645,7 @@ Para realizar la migración de `ComplexDataModel`, trabaje con los datos existen
 * Cambie el código para asignar a la nueva columna (`DepartmentID`) un valor predeterminado.
 * Cree un departamento falso denominado "Temp" para que actúe como el departamento predeterminado.
 
-### <a name="fix-the-foreign-key-constraints"></a>Corregir las restricciones de clave externa
+#### <a name="fix-the-foreign-key-constraints"></a>Corregir las restricciones de clave externa
 
 Actualice el método `Up` de las clases `ComplexDataModel`:
 

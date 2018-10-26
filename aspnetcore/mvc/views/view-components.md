@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo se usan los componentes de vista e
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: cf2cfcdb07271503b844e31940e90b7376db0a6f
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 49c8be655f151e219c8fa0854dbcf510d7bbd158
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211070"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325593"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -75,20 +75,20 @@ Un componente de vista define su lógica en un método `InvokeAsync` que devuelv
 
 El tiempo de ejecución busca la vista en las rutas de acceso siguientes:
 
-* /Pages/Components/\<view_component_name>/\<view_name>
-* /Views/\<controller_name>/Components/\<view_component_name>/\<view_name>
-* /Views/Shared/Components/\<view_component_name>/\<view_name>
+* /Pages/Components/{Nombre de componente de vista}/{Nombre de vista}
+* /Views/{Controller Name}/Components/{Nombre de componente de vista}/{Nombre de vista}
+* /Views/Shared/Components/{Nombre de componente de vista}/{Nombre de vista}
 
 El nombre de vista predeterminado para un componente de vista es *Default*, lo que significa que el archivo de vista normalmente se denominará *Default.cshtml*. Puede especificar un nombre de vista diferente al crear el resultado del componente de vista o al llamar al método `View`.
 
-Se recomienda que asigne al archivo de vista el nombre *Default.cshtml* y que use la ruta de acceso *Views/Shared/Components/\<nombre_del_componente_de_vista>/\<nombre_de_vista>*. El componente de vista `PriorityList` usado en este ejemplo usa *Views/Shared/Components/PriorityList/Default.cshtml* para la vista del componente de vista.
+Se recomienda que asigne el nombre *Default.cshtml* al archivo de vista y use la ruta de acceso *Views/Shared/Components/{Nombre de componente de vista}/{Nombre de vista}*. El componente de vista `PriorityList` usado en este ejemplo usa *Views/Shared/Components/PriorityList/Default.cshtml* para la vista del componente de vista.
 
 ## <a name="invoking-a-view-component"></a>Invocar un componente de vista
 
 Para usar el componente de vista, llame a lo siguiente dentro de una vista:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", <anonymous type containing parameters>)
+@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 Los parámetros se pasarán al método `InvokeAsync`. El componente de vista `PriorityList` desarrollado en el artículo se invoca desde el archivo de vista *Views/Todo/Index.cshtml*. En la tabla siguiente, se llama al método `InvokeAsync` con dos parámetros:

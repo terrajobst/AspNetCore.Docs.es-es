@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
 ms.date: 09/20/2018
 uid: fundamentals/metapackage
-ms.openlocfilehash: 1942426dbd5c15ae4a5fa5fbb931b94f50aa6043
-ms.sourcegitcommit: 32f5ee0690604d451f61e9a5c28881c9fcf85738
+ms.openlocfilehash: b1924e07acd2b4feb25c69b8c4674002e6ba0464
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/29/2018
-ms.locfileid: "47454744"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325684"
 ---
 # <a name="microsoftaspnetcoreall-metapackage-for-aspnet-core-20"></a>Metapaquete Microsoft.AspNetCore.All para ASP.NET Core 2.0
 
@@ -68,7 +68,7 @@ No se incluye implícitamente ninguna dependencia de los paquetes anteriores que
 
 ## <a name="update-aspnet-core-21"></a>Actualización de ASP.NET Core 2.1
 
-Se recomienda migrar al metapaquete `Microsoft.AspNetCore.App` para 2.1 y versiones posteriores. Para seguir usando el metapaquete `Microsoft.AspNetCore.All` y asegurarse de que se ha implementado la última versión de la revisión:
+Se recomienda migrar al metapaquete `Microsoft.AspNetCore.App` con la versión 2.1 y versiones posteriores. Para seguir usando el metapaquete `Microsoft.AspNetCore.All` y asegurarse de que se ha implementado la última versión de la revisión:
 
 * En los equipos de desarrollo y los servidores de compilación: instale el último [SDK de .NET Core](https://www.microsoft.com/net/download).
 * En los servidores de implementación: instale el último [.NET Core Runtime](https://www.microsoft.com/net/download).

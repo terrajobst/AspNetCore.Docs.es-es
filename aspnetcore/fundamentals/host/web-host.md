@@ -4,14 +4,14 @@ author: guardrex
 description: Obtenga información sobre el host de web en ASP.NET Core, que es responsable de la administración de inicio y duración de la aplicación.
 ms.author: riande
 ms.custom: mvc
-ms.date: 09/01/2018
+ms.date: 10/18/2018
 uid: fundamentals/host/web-host
-ms.openlocfilehash: 7440ab26534840b190a346614f645860fc2b7d78
-ms.sourcegitcommit: 7211ae2dd702f67d36365831c490d6178c9a46c8
+ms.openlocfilehash: e19f12f69dfdd5653aea9c6be2b05f24009b875e
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44089904"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477454"
 ---
 # <a name="aspnet-core-web-host"></a>Host web de ASP.NET Core
 
@@ -46,10 +46,10 @@ public class Program
 * Carga la [configuración de host](#host-configuration-values) de:
   * Variables de entorno con el prefijo `ASPNETCORE_` (por ejemplo, `ASPNETCORE_ENVIRONMENT`).
   * Argumentos de la línea de comandos.
-* Carga la configuración de aplicación de:
+* Carga la configuración de la aplicación en el siguiente orden:
   * *appsettings.json*.
   * *appsettings.{Environment}.json*.
-  * [Secretos del usuario](xref:security/app-secrets) cuando la aplicación se ejecuta en el entorno `Development` por medio del ensamblado de entrada.
+  * [Administrador de secretos](xref:security/app-secrets) cuando la aplicación se ejecuta en el entorno `Development` por medio del ensamblado de entrada.
   * Variables de entorno.
   * Argumentos de la línea de comandos.
 * Configura el [registro](xref:fundamentals/logging/index) para la salida de consola y de depuración. El registro incluye reglas de [filtrado del registro](xref:fundamentals/logging/index#log-filtering) especificadas en una sección de configuración de registro de un archivo *appSettings.json* o *appsettings.{Environment}.json*.
@@ -146,7 +146,7 @@ public class Program
 
 La *raíz del contenido* determina la ubicación en la que el host busca archivos de contenido como, por ejemplo, archivos de vista MVC. La raíz de contenido predeterminada se obtiene para `UseContentRoot` mediante [Directory.GetCurrentDirectory](/dotnet/api/system.io.directory.getcurrentdirectory?view=netcore-1.1). Cuando la aplicación se inicia desde la carpeta raíz del proyecto, esta se utiliza como la raíz del contenido. Este es el valor predeterminado usado en [Visual Studio](https://www.visualstudio.com/) y las [nuevas plantillas dotnet](/dotnet/core/tools/dotnet-new).
 
-Para utilizar IIS como un proxy inverso, llame a [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) como parte de la creación del host. A diferencia de [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1), `UseIISIntegration` no configura un *servidor*. `UseIISIntegration` configura la ruta de acceso base y el puerto que escucha el servidor cuando se usa el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) para crear un proxy inverso entre Kestrel e IIS. Para utilizar IIS con ASP.NET Core, deben especificarse `UseKestrel` y `UseIISIntegration`. `UseIISIntegration` solo se activa cuando se ejecuta en segundo plano de IIS o IIS Express. Para obtener más información, consulte <xref:fundamentals/servers/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
+Para utilizar IIS como un proxy inverso, llame a [UseIISIntegration](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderiisextensions) como parte de la creación del host. A diferencia de [UseKestrel](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderkestrelextensions.usekestrel?view=aspnetcore-1.1), `UseIISIntegration` no configura un *servidor*. `UseIISIntegration` configura la ruta de acceso base y el puerto que escucha el servidor cuando se usa el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module) para crear un proxy inverso entre Kestrel e IIS. Para utilizar IIS con ASP.NET Core, deben especificarse `UseKestrel` y `UseIISIntegration`. `UseIISIntegration` solo se activa cuando se ejecuta en segundo plano de IIS o IIS Express. Para obtener más información, vea <xref:fundamentals/servers/aspnet-core-module> y <xref:host-and-deploy/aspnet-core-module>.
 
 Una implementación mínima que configura un host (y una aplicación de ASP.NET Core) tendrá que especificar un servidor y la configuración de la canalización de solicitudes de la aplicación:
 
@@ -184,7 +184,7 @@ La propiedad [IHostingEnvironment.ApplicationName](/dotnet/api/microsoft.extensi
 **Tipo**: *cadena*  
 **Valor predeterminado**: nombre del ensamblado que contiene el punto de entrada de la aplicación.  
 **Establecer mediante**: `UseSetting`  
-**Variable de entorno**: `ASPNETCORE_APPLICATIONKEY`
+**Variable de entorno**: `ASPNETCORE_APPLICATIONNAME`
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -365,15 +365,13 @@ WebHost.CreateDefaultBuilder(args)
 
 ### <a name="hosting-startup-exclude-assemblies"></a>Ensamblados de exclusión de inicio de hospedaje
 
-DESCRIPTION
+Una cadena delimitada por punto y coma de ensamblados de inicio de hospedaje para excluir en el inicio.
 
 **Clave**: hostingStartupExcludeAssemblies  
 **Tipo**: *cadena*  
 **Valor predeterminado**: una cadena vacía  
 **Establecer mediante**: `UseSetting`  
 **Variable de entorno**: `ASPNETCORE_HOSTINGSTARTUPEXCLUDEASSEMBLIES`
-
-Una cadena delimitada por punto y coma de ensamblados de inicio de hospedaje para excluir en el inicio.
 
 ```csharp
 WebHost.CreateDefaultBuilder(args)
@@ -659,7 +657,7 @@ El método `Run` inicia la aplicación web y bloquea el subproceso que realiza l
 host.Run();
 ```
 
-**Start**
+**Iniciar**
 
 Ejecute el host de manera que se evite un bloqueo mediante una llamada a su método `Start`:
 
@@ -832,7 +830,7 @@ El método `Run` inicia la aplicación web y bloquea el subproceso que realiza l
 host.Run();
 ```
 
-**Start**
+**Iniciar**
 
 Ejecute el host de manera que se evite un bloqueo mediante una llamada a su método `Start`:
 

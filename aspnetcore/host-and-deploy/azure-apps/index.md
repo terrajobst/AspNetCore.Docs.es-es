@@ -4,14 +4,14 @@ author: guardrex
 description: Este artículo contiene vínculos a recursos de implementación y hospedaje de Azure.
 ms.author: riande
 ms.custom: mvc
-ms.date: 08/29/2018
+ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: 315261c4d20970fc399cc2a879dd452bdf3be93f
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: b238630d6f762e2b9fad1060f8150185bcf413fe
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49326061"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090233"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -29,10 +29,10 @@ Usar la línea de comandos para crear e implementar una aplicación web de ASP.N
 
 Los artículos siguientes están disponibles en la documentación de ASP.NET Core:
 
-[Publicación en Azure con Visual Studio](xref:tutorials/publish-to-azure-webapp-using-vs)  
+<xref:tutorials/publish-to-azure-webapp-using-vs>  
 Obtenga información sobre cómo publicar una aplicación de ASP.NET Core en Azure App Service con Visual Studio.
 
-[Implementación continua en Azure con Visual Studio y Git](xref:host-and-deploy/azure-apps/azure-continuous-deployment)  
+<xref:host-and-deploy/azure-apps/azure-continuous-deployment>  
 Obtenga información sobre cómo crear una aplicación web de ASP.NET Core con Visual Studio e implementarla en Azure App Service con Git para una implementación continua.
 
 [Creación de la primera canalización con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)  
@@ -45,13 +45,13 @@ Detecte limitaciones de ejecución en tiempo de ejecución de Azure App Service 
 
 ## <a name="application-configuration"></a>Configuración de aplicación
 
-En ASP.NET Core 2.0 y versiones posteriores, los siguientes paquetes de NuGet proporcionan características de registro automáticas para aplicaciones implementadas en Azure App Service:
+Los siguientes paquetes de NuGet proporcionan características de registro automáticas para aplicaciones implementadas en Azure App Service:
 
 * [Microsoft.AspNetCore.AzureAppServices.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServices.HostingStartup/) usa [IHostingStartup](xref:fundamentals/configuration/platform-specific-configuration) para proporcionar a ASP.NET Core una integración ligera (Light-Up) con Azure App Service. El paquete `Microsoft.AspNetCore.AzureAppServicesIntegration` proporciona las características de registro agregadas.
 * [Microsoft.AspNetCore.AzureAppServicesIntegration](https://www.nuget.org/packages/Microsoft.AspNetCore.AzureAppServicesIntegration/) ejecuta [AddAzureWebAppDiagnostics](/dotnet/api/microsoft.extensions.logging.azureappservicesloggerfactoryextensions.addazurewebappdiagnostics) para agregar a Azure App Service proveedores de registro de diagnósticos en el paquete `Microsoft.Extensions.Logging.AzureAppServices`.
 * [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices/) proporciona implementaciones de registrador para admitir registros de diagnósticos de Azure App Service y características de transmisión en secuencias de registro.
 
-Si tiene .NET Core como destino y hace referencia al [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage), los paquetes ya están incluidos. Los paquetes no están en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), que es más reciente. Si tiene .NET Framework como destino o hace referencia al metapaquete `Microsoft.AspNetCore.App`, haga referencia a los paquetes de registro individuales.
+Si tiene .NET Core como destino y hace referencia al [metapaquete Microsoft.AspNetCore.All](xref:fundamentals/metapackage), los paquetes precedentes están incluidos. Los paquetes no están en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app). Si tiene .NET Framework como destino o hace referencia al metapaquete `Microsoft.AspNetCore.App`, haga referencia a los paquetes de registro individuales.
 
 ::: moniker-end
 
@@ -79,13 +79,13 @@ Obtenga información sobre cómo revisar las cuotas y las métricas para las apl
 [Habilitar el registro de diagnósticos para las aplicaciones web en Azure App Service](/azure/app-service/web-sites-enable-diagnostic-log)  
 Descubra cómo habilitar y acceder a registro de diagnóstico para los códigos de estado HTTP, solicitudes con error y actividad del servidor web.
 
-[Introducción a control de errores en ASP.NET Core](xref:fundamentals/error-handling)  
+<xref:fundamentals/error-handling>  
 Conozca los métodos habituales para controlar los errores en las aplicaciones de ASP.NET Core.
 
-[Solución de problemas de ASP.NET Core en Azure App Service](xref:host-and-deploy/azure-apps/troubleshoot)  
+<xref:host-and-deploy/azure-apps/troubleshoot>  
 Obtenga información sobre cómo diagnosticar problemas con las implementaciones de Azure App Service con las aplicaciones de ASP.NET Core.
 
-[Referencia de errores comunes de Azure App Service e IIS con ASP.NET Core](xref:host-and-deploy/azure-iis-errors-reference)  
+<xref:host-and-deploy/azure-iis-errors-reference>  
 Consulte los errores comunes de configuración de implementación para las aplicaciones hospedadas por Azure App Service/IIS con consejos de solución de problemas.
 
 ## <a name="data-protection-key-ring-and-deployment-slots"></a>Anillo de clave de protección de datos y ranuras de implementación
@@ -99,7 +99,7 @@ Al realizar un intercambio entre ranuras de implementación, cualquier sistema q
 * Almacén SQL
 * Redis Cache
 
-Para obtener más información, consulte [Proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers).
+Para obtener más información, vea <xref:security/data-protection/implementation/key-storage-providers>.
 
 ## <a name="deploy-aspnet-core-preview-release-to-azure-app-service"></a>Implementar una versión preliminar de ASP.NET Core en Azure App Service
 

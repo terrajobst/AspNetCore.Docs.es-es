@@ -1,25 +1,27 @@
 ---
-title: Aplicación auxiliar de etiquetas delimitadoras en ASP.NET Core
+title: Asistente de etiquetas delimitadoras en ASP.NET Core
 author: pkellner
-description: Descubra los atributos de la aplicación auxiliar de etiquetas delimitadoras de ASP.NET Core y el papel que desempeña cada atributo al ampliar el comportamiento de la etiqueta delimitadora de código HTML.
+description: Descubra los atributos del asistente de etiquetas delimitadoras de ASP.NET Core y el papel que desempeña cada atributo al ampliar el comportamiento de la etiqueta delimitadora de código HTML.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 01/31/2018
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/anchor-tag-helper
-ms.openlocfilehash: 6bdf71eaf38f134cb15b5950d2cae6ab67f861a4
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 13508729c1e3b64a8b0e6965da57880738ab85c3
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273889"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325554"
 ---
-# <a name="anchor-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas delimitadoras en ASP.NET Core
+# <a name="anchor-tag-helper-in-aspnet-core"></a>Asistente de etiquetas delimitadoras en ASP.NET Core
 
 De [Peter Kellner](http://peterkellner.net) y [Scott Addie](https://github.com/scottaddie)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+El [asistente de etiquetas delimitadoras](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper) mejora la etiqueta delimitadora de código HTML estándar (`<a ... ></a>`) agregando nuevos atributos. Por convención, los nombres de atributo tienen el prefijo `asp-`. El valor de atributo `href` del elemento delimitador representado se determina mediante los valores de los atributos `asp-`.
 
-La [aplicación auxiliar de etiquetas delimitadoras](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper) mejora la etiqueta delimitadora de código HTML estándar (`<a ... ></a>`) agregando nuevos atributos. Por convención, los nombres de atributo tienen el prefijo `asp-`. El valor de atributo `href` del elemento delimitador representado se determina mediante los valores de los atributos `asp-`.
+Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
+
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/built-in/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 En los ejemplos de todo este documento se usa *SpeakerController*:
 
@@ -39,7 +41,7 @@ El código HTML generado:
 <a href="/Speaker">All Speakers</a>
 ```
 
-Si el atributo `asp-controller` está especificado y `asp-action` no lo está, el valor `asp-action` predeterminado es la acción del controlador asociada a la vista que se está ejecutando. Si se omite `asp-action` en el marcado anterior y se usa la aplicación auxiliar de etiquetas delimitadoras en la vista *Index* de *HomeController* (*/Home*), el código HTML generado es el siguiente:
+Si el atributo `asp-controller` está especificado y `asp-action` no lo está, el valor `asp-action` predeterminado es la acción del controlador asociada a la vista que se está ejecutando. Si se omite `asp-action` en el marcado anterior y se usa el asistente de etiquetas delimitadoras en la vista *Index* de *HomeController* (*/Home*), el código HTML generado es el siguiente:
 
 ```html
 <a href="/Home">All Speakers</a>
@@ -125,7 +127,7 @@ En el siguiente marcado, el atributo `asp-route` hace referencia a la ruta con n
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspRoute)]
 
-La aplicación auxiliar de etiquetas delimitadoras genera una ruta directamente a esa acción de controlador mediante la dirección URL */Speaker/Evaluations*. El código HTML generado:
+El asistente de etiquetas delimitadoras genera una ruta directamente a esa acción de controlador mediante la dirección URL */Speaker/Evaluations*. El código HTML generado:
 
 ```html
 <a href="/Speaker/Evaluations">Speaker Evaluations</a>
@@ -155,7 +157,7 @@ Si alguna de las claves del diccionario coincide con los parámetros de ruta, es
 
 ## <a name="asp-fragment"></a>asp-fragment
 
-El atributo [asp-fragment](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.fragment) define un fragmento de dirección URL que se anexará a la dirección URL. La aplicación auxiliar de etiquetas delimitadoras agrega el carácter de almohadilla (#). Observe el siguiente marcado:
+El atributo [asp-fragment](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.fragment) define un fragmento de dirección URL que se anexará a la dirección URL. El asistente de etiquetas delimitadoras agrega el carácter de almohadilla (#). Observe el siguiente marcado:
 
 [!code-cshtml[](samples/TagHelpersBuiltIn/Views/Home/Index.cshtml?name=snippet_AspFragment)]
 
@@ -171,7 +173,7 @@ Las etiquetas hash son útiles al crear aplicaciones del lado cliente. Por ejemp
 
 El atributo [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortaghelper.area) establece el nombre de área que se usa para establecer la ruta adecuada. En el siguiente ejemplo se muestra cómo el atributo de área provoca una reasignación de rutas. Al establecer `asp-area` en "Blogs", el directorio *Areas/Blogs* se prefija en las rutas de los controladores y vistas asociados de esta etiqueta delimitadora.
 
-* **<Nombre del proyecto\>**
+* **{Nombre del proyecto}**
   * **wwwroot**
   * **Áreas**
     * **Blogs**
@@ -181,7 +183,7 @@ El atributo [asp-area](/dotnet/api/microsoft.aspnetcore.mvc.taghelpers.anchortag
         * **Página principal**
           * *AboutBlog.cshtml*
           * *Index.cshtml*
-        * *_ViewStart.cshtml*
+        * *\_ViewStart.cshtml*
   * **Controladores**
 
 Dada la jerarquía de directorios anterior, el marcado para hacer referencia al archivo *AboutBlog.cshtml* es el siguiente:
@@ -195,7 +197,9 @@ El código HTML generado:
 ```
 
 > [!TIP]
-> Para que las áreas funcionen en una aplicación de MVC, la plantilla de ruta debe incluir una referencia al área, en el caso de que exista. Esta plantilla se representa mediante el segundo parámetro de la llamada de método `routes.MapRoute` en *Startup.Configure*:[!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
+> Para que las áreas funcionen en una aplicación de MVC, la plantilla de ruta debe incluir una referencia al área, en el caso de que exista. Esta plantilla se representa mediante el segundo parámetro de la llamada de método `routes.MapRoute` en *Startup.Configure*:
+>
+> [!code-csharp[](samples/TagHelpersBuiltIn/Startup.cs?name=snippet_UseMvc&highlight=5)]
 
 ## <a name="asp-protocol"></a>asp-protocol
 
@@ -209,7 +213,7 @@ El código HTML generado:
 <a href="https://localhost/Home/About">About</a>
 ```
 
-El nombre de host del ejemplo es localhost, pero la aplicación auxiliar de etiquetas delimitadoras usa el dominio público del sitio web al generar la dirección URL.
+El nombre de host del ejemplo es localhost, pero el asistente de etiquetas delimitadoras usa el dominio público del sitio web al generar la dirección URL.
 
 ## <a name="asp-host"></a>asp-host
 
@@ -267,5 +271,5 @@ El código HTML generado:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Áreas](xref:mvc/controllers/areas)
-* [Introducción a las páginas de Razor](xref:razor-pages/index)
+* <xref:mvc/controllers/areas>
+* <xref:razor-pages/index>

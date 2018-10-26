@@ -6,18 +6,18 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/25/2018
 uid: host-and-deploy/windows-service
-ms.openlocfilehash: eb88b0bb2e9ce4cfd3a7db2081ad7d62d5dcb08e
-ms.sourcegitcommit: 599ebae5c2d6fcb22dfa6ae7d1f4bdfcacb79af4
+ms.openlocfilehash: 7f19db0a1d12b904daff989bc969daf8d2302bfa
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47211044"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325788"
 ---
 # <a name="host-aspnet-core-in-a-windows-service"></a>Hospedaje de ASP.NET Core en un servicio de Windows
 
 Por [Luke Latham](https://github.com/guardrex) y [Tom Dykstra](https://github.com/tdykstra)
 
-Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [servicio de Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Cuando se hospeda como un servicio de Windows, la aplicación puede iniciarse automáticamente después de reinicios y bloqueos sin necesidad de intervención humana.
+Una aplicación de ASP.NET Core se puede hospedar en Windows sin usar IIS como [servicio de Windows](/dotnet/framework/windows-services/introduction-to-windows-service-applications). Cuando se aloja como un servicio de Windows, la aplicación se inicia automáticamente después de reiniciar el equipo.
 
 [Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/host-and-deploy/windows-service/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 

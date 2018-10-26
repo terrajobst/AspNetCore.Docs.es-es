@@ -1,58 +1,62 @@
 ---
-title: Aplicación auxiliar de etiquetas de imagen en ASP.NET Core
+title: Asistente de etiquetas de imagen en ASP.NET Core
 author: pkellner
-description: Muestra cómo trabajar con la aplicación auxiliar de etiquetas de imagen
+description: Muestra cómo trabajar con el asistente de etiquetas de imagen.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/image-tag-helper
-ms.openlocfilehash: 7ed160354b25aa0183ac49db93307b1f1b4d0666
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 5eb74a6698911a1c594d11573192cb1b9ed53b49
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276648"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325840"
 ---
-# <a name="image-tag-helper-in-aspnet-core"></a>Aplicación auxiliar de etiquetas de imagen en ASP.NET Core
+# <a name="image-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de imagen en ASP.NET Core
 
-Por [Peter Kellner](http://peterkellner.net) 
+Por [Peter Kellner](http://peterkellner.net)
 
-La aplicación auxiliar de etiquetas de imagen es una mejora de la etiqueta `img` (`<img>`). Requiere una etiqueta `src`, así como el atributo `boolean` `asp-append-version`.
+El asistente de etiquetas de imagen mejora la etiqueta `<img>` para proporcionar un comportamiento de limpieza de caché para archivos de imagen estática.
 
-Si el origen de la imagen (`src`) es un archivo estático en el servidor web del host, se anexa una cadena única de bloqueo de la caché como parámetro de consulta a ese origen de la imagen. De este modo, si el archivo en el servidor web del host cambia, se generará una dirección URL de solicitud única que incluye el parámetro de solicitud actualizada. La cadena de limpieza de memoria caché es un valor único que representa el valor hash del archivo de imagen estático.
+Una cadena de limpieza de memoria caché es un valor único que representa el valor hash del archivo de imagen estático anexados a la URL del activo. La cadena única pide a los clientes (y algunos servidores proxy) que vuelva a cargar la imagen desde el servidor web del host y no desde la memoria caché del cliente.
 
-Si el origen de la imagen (`src`) no es un archivo estático (por ejemplo, es una dirección URL remota o se trata de un archivo que no existe en el servidor) el atributo `src` de la etiqueta `<img>` se genera sin parámetro de cadena de consulta de limpieza de caché.
+Si el origen de la imagen (`src`) es un archivo estático en el servidor web del host:
 
-## <a name="image-tag-helper-attributes"></a>Atributos de la aplicación auxiliar de etiquetas de imagen
+* Se anexa una cadena única de limpieza de caché como un parámetro de consulta al origen de la imagen.
+* Si el archivo en el servidor web del host cambia, se genera una dirección URL de solicitud única que incluye el parámetro de solicitud actualizada.
 
+Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
 
-### <a name="asp-append-version"></a>asp-append-version
-
-Cuando se especifica junto con un atributo `src`, se invoca la aplicación auxiliar de etiquetas de imagen.
-
-Este es un ejemplo de aplicación auxiliar de etiquetas `img` válido:
-
-```cshtml
-<img src="~/images/asplogo.png" 
-    asp-append-version="true"  />
-```
-
-Si el archivo estático existe en el directorio *..wwwroot/images/asplogo.png*, el código HTML generado es similar al siguiente (el valor hash será diferente):
-
-```html
-<img 
-    src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM"/>
-```
-
-El valor asignado al parámetro `v` es el valor hash del archivo almacenado en disco. Si el servidor web no es capaz de obtener acceso de lectura al archivo estático al que se hace referencia, no se agregará ningún parámetro `v` al atributo `src`.
-
-- - -
+## <a name="image-tag-helper-attributes"></a>Atributos del asistente de etiquetas de imagen
 
 ### <a name="src"></a>src
 
-Para activar la aplicación auxiliar de etiquetas de imagen, se requiere el atributo src en el elemento `<img>`. 
+Para activar el asistente de etiquetas de imagen, se necesita el atributo `src` en el elemento `<img>`.
 
-> [!NOTE]
-> La aplicación auxiliar de etiquetas de imagen usa el proveedor `Cache` en el servidor web local para almacenar el valor de `Sha512` calculado de un archivo determinado. Si el archivo se vuelve a solicitar, no es necesario volver a calcular `Sha512`. La memoria caché queda invalidada por un monitor del archivo que se adjunta al archivo cuando el valor de `Sha512` del archivo se calcula.
+El origen de la imagen (`src`) debe apuntar a un archivo estático físico en el servidor. Si `src` es un identificador URI remoto, el parámetro de cadena de consulta de limpieza de caché no se genera.
+
+### <a name="asp-append-version"></a>asp-append-version
+
+Cuando se especifica `asp-append-version` con un valor `true` junto con un atributo `src`, se invoca el asistente de etiquetas de imagen.
+
+En este ejemplo se usa un asistente de etiquetas de imagen:
+
+```cshtml
+<img src="~/images/asplogo.png" asp-append-version="true" />
+```
+
+Si el archivo estático existe en el directorio */wwwroot/images/*, el código HTML generado es similar al siguiente (el valor hash será diferente):
+
+```html
+<img src="/images/asplogo.png?v=Kl_dqr9NVtnMdsM2MUg4qthUnWZm5T1fCEimBPWDNgM" />
+```
+
+El valor asignado al parámetro `v` es el valor hash del archivo */wwwroot/images/* almacenado en disco. Si el servidor web no es capaz de tener acceso de lectura al archivo estático, no se agregará ningún parámetro `v` al atributo `src` en el marcado representado.
+
+## <a name="hash-caching-behavior"></a>Comportamiento de almacenamiento en caché de hash
+
+El asistente de etiquetas de imagen usa el proveedor de caché en el servidor web local para almacenar el hash `Sha512` calculado de un archivo determinado. Si se solicita el archivo varias veces, no se vuelven a calcular el hash. La memoria caché queda invalidada por un monitor del archivo que se adjunta al archivo cuando se calcula el hash `Sha512` del archivo. Cuando el archivo se cambia en el disco, se calcula un nuevo hash y se almacena en caché.
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

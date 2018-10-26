@@ -6,12 +6,12 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/15/2018
 uid: web-api/index
-ms.openlocfilehash: d410f28ff7fda3bf33f73c06b3e626dfd4ee7dd8
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: 763b95fb8ed3806bc67b7ad199153ea1027efa57
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41822145"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090425"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Compilación de API web con ASP.NET Core
 
@@ -47,7 +47,7 @@ ASP.NET Core 2.1 incorpora el atributo [[ApiController]](xref:Microsoft.AspNetCo
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 
-Para usar este atributo se requiere una versión de compatibilidad de 2.1 o posterior, establecida mediante <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>. Por ejemplo, el código resaltado en *Startup.ConfigureServices* establece la marca de compatibilidad 2.1:
+Para usar este atributo se requiere una versión de compatibilidad de 2.1 o posterior, establecida mediante <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>. Por ejemplo, el código resaltado en *Startup.ConfigureServices* establece la marca de compatibilidad 2.2:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
 
@@ -61,15 +61,46 @@ Otro enfoque consiste en crear una clase de controlador base personalizada anota
 
 En las secciones siguientes se describen las ventajas de las características que aporta el atributo.
 
+### <a name="problem-details-responses-for-error-status-codes"></a>Respuestas de los detalles de problemas para los códigos de estado de error
+
+ASP.NET Core 2.1 y las versiones posteriores incluyen [ProblemDetails](xref:Microsoft.AspNetCore.Mvc.ProblemDetails), un tipo basado en la [especificación RFC 7807](https://tools.ietf.org/html/rfc7807). El tipo `ProblemDetails` proporciona un formato estandarizado para tratar los detalles de los errores legibles por una máquina en una respuesta HTTP.
+
+En ASP.NET Core 2.2 y las versiones posteriores, MVC transforma los resultados del código de estado de error (código de estado 400 y superiores) en un resultado con `ProblemDetails`. Observe el código siguiente:
+
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_ProblemDetails_StatusCode&highlight=4)]
+
+La respuesta HTTP del resultado `NotFound` tiene un código de estado 404 con un cuerpo `ProblemDetails` similar al siguiente:
+
+```js
+{
+    type: "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+    title: "Not Found",
+    status: 404,
+    traceId: "0HLHLV31KRN83:00000001"
+}
+```
+
+La característica de los detalles del problema requiere una marca de compatibilidad 2.2 o posterior. El comportamiento predeterminado se deshabilita cuando la propiedad [SuppressMapClientErrors](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors> --> se establece en `true`. El siguiente código de resaltado `Startup.ConfigureServices` deshabilita los detalles del problema:
+
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=8)]
+
+Use la propiedad [ClientErrorMapping](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping> --> para configurar el contenido de la respuesta `ProblemDetails`. Por ejemplo, el código siguiente permite actualizar la propiedad `type` para respuestas 404:
+
+[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=10)]
+
 ### <a name="automatic-http-400-responses"></a>Respuestas HTTP 400 automáticas
 
 Los errores de validación desencadenan automáticamente una respuesta HTTP 400. El código siguiente deja de ser necesario en las acciones:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
 
+Use <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> para personalizar la salida de la respuesta resultante.
+
 El comportamiento predeterminado se deshabilita al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> en `true`. Agregue el siguiente código en *Startup.ConfigureServices* después de `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+
+Con una marca de compatibilidad de 2.2 o posterior, el tipo de respuesta predeterminada que se devuelve para las respuestas 400 es un elemento <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Use la propiedad [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> para emplear el formato de error de ASP.NET Core 2.1.
 
 ### <a name="binding-source-parameter-inference"></a>Inferencia de parámetro de origen de enlace
 

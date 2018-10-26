@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo ASP.NET Core MVC usa el middleware
 ms.author: riande
 ms.date: 09/17/2018
 uid: mvc/controllers/routing
-ms.openlocfilehash: d66c2f14adf55dd0c4a7c3adfad7e5737e4deda1
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 2f6328a5efaa96fd8e4f0cafdbde77dd63a1548f
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011658"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477649"
 ---
 # <a name="routing-to-controller-actions-in-aspnet-core"></a>Enrutar a acciones de controlador de ASP.NET Core
 
@@ -383,7 +383,7 @@ El enrutamiento del controlador de MVC y el enrutamiento de Razor Pages comparte
 
 ## <a name="token-replacement-in-route-templates-controller-action-area"></a>Reemplazo de tokens en plantillas de ruta ([controller], [action], [area])
 
-Para mayor comodidad, las rutas de atributo admiten *reemplazo de token*. Para ello, incluyen un token entre corchetes (`[`, `]`). Los tokens `[action]`, `[area]` y `[controller]` se reemplazarán por los valores del nombre de la acción, el nombre del área y el nombre del controlador de la acción donde se define la ruta. En este ejemplo, las acciones pueden coincidir con las rutas de dirección URL, tal como se describe en los comentarios:
+Para mayor comodidad, las rutas de atributo admiten *reemplazo de token*. Para ello, incluyen un token entre corchetes (`[`, `]`). Los tokens `[action]`, `[area]` y `[controller]` se reemplazan con los valores del nombre de la acción, el nombre del área y el nombre del controlador de la acción donde se define la ruta. En este ejemplo, las acciones coinciden con las rutas de dirección URL, tal como se describe en los comentarios:
 
 [!code-csharp[](routing/sample/main/Controllers/ProductsController.cs?range=7-11,13-17,20-22)]
 
@@ -407,9 +407,56 @@ public class ProductsController : MyBaseController
 }
 ```
 
-El reemplazo de token también se aplica a los nombres de ruta definidos por las rutas de atributo. `[Route("[controller]/[action]", Name="[controller]_[action]")]` generará un nombre de ruta único para cada acción.
+El reemplazo de token también se aplica a los nombres de ruta definidos por las rutas de atributo. `[Route("[controller]/[action]", Name="[controller]_[action]")]` genera un nombre de ruta único para cada acción.
 
 Para que el delimitador de reemplazo de token `[` o `]` coincida, repita el carácter (`[[` o `]]`) para usarlo como secuencia de escape.
+
+::: moniker range=">= aspnetcore-2.2"
+
+<a name="routing-token-replacement-transformers-ref-label"></a>
+
+### <a name="use-a-parameter-transformer-to-customize-token-replacement"></a>Usar un transformador de parámetro para personalizar el reemplazo de tokens
+
+El reemplazo de tokens se puede personalizarse mediante un transformador de parámetro. Un transformador de parámetro implementa `IOutboundParameterTransformer` y transforma el valor de parámetros. Por ejemplo, un transformador de parámetros `SlugifyParameterTransformer` personalizado cambia el valor de ruta `SubscriptionManagement` a `subscription-management`.
+
+`RouteTokenTransformerConvention` es una convención de modelo de aplicación que:
+
+* Aplica un transformador de parámetro a todas las rutas de atributo en una aplicación.
+* Personaliza los valores de token de ruta de atributo que se reemplazan.
+
+```csharp
+public class SubscriptionManagementController : Controller
+{
+    [HttpGet("[controller]/[action]")] // Matches '/subscription-management/list-all'
+    public IActionResult ListAll() { ... }
+}
+```
+
+`RouteTokenTransformerConvention` está registrado como una opción en `ConfigureServices`.
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddMvc(options =>
+    {
+        options.Conventions.Add(new RouteTokenTransformerConvention(
+                                     new SlugifyParameterTransformer()));
+    });
+}
+
+public class SlugifyParameterTransformer : IOutboundParameterTransformer
+{
+    public string TransformOutbound(object value)
+    {
+        if (value == null) { return null; }
+
+        // Slugify value
+        return Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1-$2").ToLower();
+    }
+}
+```
+
+::: moniker-end
 
 <a name="routing-multiple-routes-ref-label"></a>
 
@@ -510,6 +557,10 @@ Las acciones se enrutan bien mediante convención o bien mediante atributos. Col
 
 > [!NOTE]
 > Lo que distingue los dos tipos de sistemas de enrutamiento es el proceso que se aplica después de que una dirección URL coincida con una plantilla de ruta. En el enrutamiento convencional, los valores de ruta de la coincidencia se usan para elegir la acción y el controlador en una tabla de búsqueda de todas las acciones enrutadas convencionales. En el enrutamiento mediante atributos, cada plantilla ya está asociada a una acción y no es necesaria ninguna otra búsqueda.
+
+## <a name="complex-segments"></a>Segmentos complejos
+
+Los segmentos complejos (por ejemplo, `[Route("/dog{token}cat")]`), se procesan buscando coincidencias de literales de derecha a izquierda de un modo no expansivo. Para ver una descripción, eche un vistazo al [código fuente](https://github.com/aspnet/Routing/blob/9cea167cfac36cf034dbb780e3f783114ef94780/src/Microsoft.AspNetCore.Routing/Patterns/RoutePatternMatcher.cs#L296). Para más información, vea [este problema](https://github.com/aspnet/Docs/issues/8197).
 
 <a name="routing-url-gen-ref-label"></a>
 

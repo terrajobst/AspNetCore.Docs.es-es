@@ -3,44 +3,54 @@ title: Asistente de etiquetas de caché distribuida en ASP.NET Core
 author: pkellner
 description: Obtenga información sobre cómo usar el asistente de etiquetas de caché distribuida.
 ms.author: riande
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper
-ms.openlocfilehash: 1b51164a6d3dab2eeaf64262d6f0d9961bd00d12
-ms.sourcegitcommit: 4d5f8680d68b39c411b46c73f7014f8aa0f12026
+ms.openlocfilehash: a5b33451a763c297c6d7885855a321c43435abb4
+ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47028101"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49325216"
 ---
 # <a name="distributed-cache-tag-helper-in-aspnet-core"></a>Asistente de etiquetas de caché distribuida en ASP.NET Core
 
-Por [Peter Kellner](http://peterkellner.net) 
+Por [Peter Kellner](http://peterkellner.net) y [Luke Latham](https://github.com/guardrex)
 
 El asistente de etiquetas de caché distribuida proporciona la capacidad de mejorar drásticamente el rendimiento de la aplicación ASP.NET Core al permitir almacenar en caché su contenido en un origen de caché distribuida.
 
-El asistente de etiquetas de caché distribuida hereda de la misma clase base que el asistente de etiquetas de caché. Todos los atributos asociados al asistente de etiquetas de caché también funcionarán en el asistente de etiquetas de caché distribuida.
+Para obtener información general sobre asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
 
-El asistente de etiquetas de caché distribuida sigue el **principio de dependencias explícitas** conocido como **inserción de constructores**. En concreto, el contenedor de interfaz `IDistributedCache` se pasa al constructor del asistente de etiquetas de caché distribuida. Si no se ha creado ninguna implementación específica de `IDistributedCache` en `ConfigureServices`, que normalmente se encuentra en startup.cs, el asistente de etiquetas de caché distribuida usará el mismo proveedor en memoria para almacenar datos en caché que el asistente de etiquetas de caché básica.
+El asistente de etiquetas de caché distribuida hereda de la misma clase base que el asistente de etiquetas de caché. Todos los atributos del [asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper) están disponibles para el asistente de etiquetas distribuidas.
+
+El asistente de etiquetas de caché distribuida usa la [inserción de constructor](xref:fundamentals/dependency-injection#constructor-injection-behavior). La interfaz <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> se pasa al constructor del asistente de etiquetas de caché distribuida. Si no se ha creado ninguna implementación específica de `IDistributedCache` en `Startup.ConfigureServices` (*Startup.cs*), el asistente de etiquetas de caché distribuida usa el mismo proveedor en memoria para almacenar datos en caché como el [asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
 ## <a name="distributed-cache-tag-helper-attributes"></a>Atributos del asistente de etiquetas de caché distribuida
 
-- - -
+### <a name="attributes-shared-with-the-cache-tag-helper"></a>Atributos compartidos con el asistente de etiquetas de caché
 
-### <a name="enabled-expires-on-expires-after-expires-sliding-vary-by-header-vary-by-query-vary-by-route-vary-by-cookie-vary-by-user-vary-by-priority"></a>enabled expires-on expires-after expires-sliding vary-by-header vary-by-query vary-by-route vary-by-cookie vary-by-user vary-by priority
+* `enabled`
+* `expires-on`
+* `expires-after`
+* `expires-sliding`
+* `vary-by-header`
+* `vary-by-query`
+* `vary-by-route`
+* `vary-by-cookie`
+* `vary-by-user`
+* `vary-by priority`
 
-Vea el asistente de etiquetas de caché para obtener las definiciones. El asistente de etiquetas de caché distribuida hereda de la misma clase que el asistente de etiquetas de caché, de modo que todos estos atributos son iguales que los del asistente de etiquetas de caché.
+El asistente de etiquetas de caché distribuida hereda de la misma clase que el asistente de etiquetas de caché. Para obtener descripciones de estos atributos, vea el [asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper).
 
-- - -
+### <a name="name"></a>name
 
-### <a name="name-required"></a>Atributo name (obligatorio)
+| Tipo de atributo | Ejemplo                               |
+| -------------- | ------------------------------------- |
+| String         | `my-distributed-cache-unique-key-101` |
 
-| Tipo de atributo    | Valor de ejemplo     |
-|----------------   |----------------   |
-| cadena    | "my-distributed-cache-unique-key-101"     |
+`name` es obligatorio. El atributo `name` se usa como clave para cada instancia de caché almacenada. A diferencia del asistente de etiquetas de caché, que asigna una clave de caché a cada instancia en función del nombre de la página de Razor y la ubicación en la página de Razor, el asistente de etiquetas de caché distribuida solo basa su clave en el atributo `name`.
 
-El atributo `name` obligatorio se usa como clave de la caché almacenada para cada instancia de un asistente de etiquetas de caché distribuida. A diferencia del asistente de etiquetas de caché básica, que asigna una clave a cada instancia del asistente de etiquetas de caché en función del nombre de la página de Razor y la ubicación del asistente de etiquetas en la página de Razor, el asistente de etiquetas de caché distribuida solo basa su clave en el atributo `name`.
-
-Ejemplo de uso:
+Ejemplo:
 
 ```cshtml
 <distributed-cache name="my-distributed-cache-unique-key-101">
@@ -50,7 +60,7 @@ Ejemplo de uso:
 
 ## <a name="distributed-cache-tag-helper-idistributedcache-implementations"></a>Implementaciones de IDistributedCache del asistente de etiquetas de caché distribuida
 
-Hay dos implementaciones de `IDistributedCache` integradas en ASP.NET Core. Una se basa en SQL Server y la otra, en Redis. En <xref:performance/caching/distributed> encontrará detalles de estas implementaciones. Ambas implementaciones requieren establecer una instancia de `IDistributedCache` en el archivo *Startup.cs* de ASP.NET Core.
+Hay dos implementaciones de <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> integradas en ASP.NET Core. Una se basa en SQL Server y la otra en Redis. En <xref:performance/caching/distributed> encontrará detalles de estas implementaciones. Para ambas implementaciones hay que establecer una instancia de `IDistributedCache` en `Startup`.
 
 No hay atributos de etiqueta asociados específicamente con el uso de implementaciones concretas de `IDistributedCache`.
 

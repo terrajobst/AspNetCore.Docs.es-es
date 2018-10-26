@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo empezar a usar ASP.NET Core MVC y 
 ms.author: riande
 ms.date: 10/07/2017
 uid: tutorials/first-mvc-app/start-mvc
-ms.openlocfilehash: 41f986a06ec46dc025c4e8218745b4a513e8ee2a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: fe555e4cfcaec5d4bb8ccee00b06d1bbcaae9dcd
+ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011711"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49391211"
 ---
 # <a name="get-started-with-aspnet-core-mvc-and-visual-studio"></a>Introducción a ASP.NET Core MVC y Visual Studio
 
@@ -48,7 +48,7 @@ Complete el cuadro de diálogo **Nuevo proyecto**:
 Complete el cuadro de diálogo **Nueva aplicación web ASP.NET Core (.NET Core) - MvcMovie**:
 
 * En el cuadro desplegable del selector de versión, seleccione **ASP.NET Core 2.1**.
-* Seleccione **Aplicación web (controlador de vista de modelos)**.
+* Seleccione **Aplicación web (Modelo-Vista-Controlador)**.
 * Pulse **Aceptar**.
 
 ![Cuadro de diálogo Nuevo proyecto, .NET CORE en el panel izquierdo, Aplicación web ASP.NET Core ](start-mvc/_static/new_project22-21.png)

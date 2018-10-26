@@ -5,12 +5,12 @@ description: Se muestra cómo crear una aplicación de páginas de Razor mediant
 ms.author: riande
 ms.date: 6/31/2017
 uid: data/ef-rp/intro
-ms.openlocfilehash: 89002f7b4a5af17a9404b14822086c7a9a6ec265
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f714934a2ef804813290ae0c04432470a2ba5816
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011466"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477571"
 ---
 # <a name="razor-pages-with-entity-framework-core-in-aspnet-core---tutorial-1-of-8"></a>Páginas de Razor con Entity Framework Core en ASP.NET Core: Tutorial 1 de 8
 
@@ -187,7 +187,7 @@ El proceso de scaffolding ha creado y cambiado los archivos siguientes:
 * *Pages/Students* Create, Delete, Details, Edit, Index.
 * *Data/SchoolContext.cs*
 
-### <a name="files-updates"></a>Actualizaciones de archivos
+### <a name="file-updates"></a>Actualizaciones de archivos
 
 * *Startup.cs*: en la sección siguiente se detallan los cambios realizados en este archivo.
 * *appsettings.json*: se agrega la cadena de conexión que se usa para conectarse a una base de datos local.

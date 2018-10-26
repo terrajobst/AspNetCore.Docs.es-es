@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: f036181f43d12ece89243fa3b0b0070ea84f8bc7
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010993"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477168"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -67,7 +67,7 @@ Si [ModelState](xref:Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary)
 
 La segunda prueba verifica que, cuando `ModelState` es válido:
 
-* Se agrega un nuevo elemento `BrainstormSession` (mediante el [repositorio](xref:fundamentals/repository-pattern)).
+* Se agrega un nuevo elemento `BrainstormSession` (mediante el repositorio).
 * El método devuelve un elemento `RedirectToActionResult` con las propiedades esperadas.
 
 Las llamadas ficticias que no se efectúan se suelen ignorar, aunque llamar a `Verifiable` al final de la llamada de configuración permite realizar una validación ficticia de la prueba. Esto se realiza con una llamada a `mockRepo.Verify`, que producirá un error en la prueba si no se ha llamado al método esperado.
@@ -185,5 +185,4 @@ Para una sesión válida `id`, la prueba final confirma que:
 * <xref:test/index>
 * <xref:test/integration-tests>
 * [Cree y ejecute pruebas unitarias con Visual Studio](/visualstudio/test/unit-test-your-code).
-* <xref:fundamentals/repository-pattern>
 * [Principio de dependencias explícitas](https://deviq.com/explicit-dependencies-principle/)
