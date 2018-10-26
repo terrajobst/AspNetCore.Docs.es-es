@@ -16,7 +16,7 @@ ms.locfileid: "46482975"
 ---
 # <a name="aspnet-tutorials"></a>Tutoriales de ASP.NET
 
-
+[!INCLUDE[](~/includes/rp.md)]
 
 Están disponibles las siguientes guías paso a paso para desarrollar aplicaciones de ASP.NET.
 
