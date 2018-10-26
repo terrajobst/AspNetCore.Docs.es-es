@@ -3,14 +3,15 @@ title: Introducción a ASP.NET Core
 author: rick-anderson
 description: Consulte una introducción a ASP.NET Core, un marco multiplataforma de código abierto y de alto rendimiento que tiene como finalidad compilar modernas aplicaciones conectadas a Internet y basadas en la nube.
 ms.author: riande
-ms.date: 9/28/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: 3bb86fa255548ff66592ac14c1020e0c6b47959c
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391162"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090659"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -21,11 +22,11 @@ ASP.NET Core es un marco multiplataforma de [código abierto](https://github.com
 * Compilar servicios y aplicaciones web, aplicaciones de [IoT](https://www.microsoft.com/internet-of-things/) y back-ends móviles.
 * Usar sus herramientas de desarrollo favoritas en Windows, macOS y Linux.
 * Efectuar implementaciones locales y en la nube.
-* Ejecutarlo en [.NET Core o en .NET Framework](https://docs.microsoft.com/dotnet/articles/standard/choosing-core-framework-server).
+* Ejecutarlo en [.NET Core o en .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
 
 ## <a name="why-use-aspnet-core"></a>¿Por qué debería usar ASP.NET Core?
 
-Millones de desarrolladores han usado [ASP.NET 4.x](https://docs.microsoft.com/aspnet/overview) (y siguen usándolo) para crear aplicaciones web. ASP.NET Core es un nuevo diseño de ASP.NET 4.x que cuenta con cambios en la arquitectura que dan como resultado un marco más sencillo y modular.
+Millones de desarrolladores han usado [ASP.NET 4.x](/aspnet/overview) (y siguen usándolo) para crear aplicaciones web. ASP.NET Core es un nuevo diseño de ASP.NET 4.x que cuenta con cambios en la arquitectura que dan como resultado un marco más sencillo y modular.
 
 [!INCLUDE[](~/includes/benefits.md)]
 
