@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/15/2018
 uid: performance/caching/memory
-ms.openlocfilehash: be2e81d1aa6a89d65414d53a70ca2d2fb5d2d3a3
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f0d5bb74985b6ce0da7d4c5b69e31b8d2bbb5105
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477194"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090051"
 ---
 # <a name="cache-in-memory-in-aspnet-core"></a>Almacenar en caché en memoria en ASP.NET Core
 
@@ -172,9 +172,9 @@ Mediante un `CancellationTokenSource` permite varias entradas de caché se expul
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
-* [Detectar cambios con tokens de cambio](xref:fundamentals/change-tokens)
-* [Almacenamiento en caché de respuestas](xref:performance/caching/response)
-* [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar el almacenamiento en caché d
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: 4bf61502738d70760679ec98c8f2f303eca9d504
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477494"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090698"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Almacenamiento en caché de respuesta en ASP.NET Core
 
@@ -68,7 +68,7 @@ Para obtener más información, consulte [almacenar en caché en memoria](xref:p
 
 Usar una caché distribuida para almacenar datos en memoria cuando la aplicación se hospeda en una granja de servidores en la nube o el servidor. La memoria caché se comparte entre los servidores que procesan las solicitudes. Un cliente puede enviar una solicitud que se controla mediante cualquier servidor en el grupo si los datos almacenados en caché para el cliente están disponibles. ASP.NET Core ofrece SQL Server y las memorias caché de Redis distribuida.
 
-Para obtener más información, vea [Working with a Distributed Cache](xref:performance/caching/distributed) (Trabajar con una memoria caché distribuida).
+Para obtener más información, consulta <xref:performance/caching/distributed>.
 
 ### <a name="cache-tag-helper"></a>Aplicación auxiliar de etiquetas de caché
 
@@ -230,9 +230,9 @@ Cache-Control: public,max-age=60
 
 * [Almacenar las respuestas en las memorias caché](https://tools.ietf.org/html/rfc7234#section-3)
 * [Control de caché](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
-* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
-* [Detectar cambios con tokens de cambio](xref:fundamentals/change-tokens)
-* [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

@@ -1,32 +1,33 @@
 ---
-title: Desproteger cargas cuyas claves se han revocado en ASP.NET Core
+title: Desprotección de cargas cuyas claves se han revocado en ASP.NET Core
 author: rick-anderson
-description: Obtenga información acerca de cómo desproteger los datos, protegidos con claves que ya han sido revocadas, en una aplicación de ASP.NET Core.
+description: Obtenga información sobre cómo desproteger los datos, protegidos con las claves que desde entonces han sido revocadas, en una aplicación ASP.NET Core.
 ms.author: riande
-ms.date: 10/14/2016
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/consumer-apis/dangerous-unprotect
-ms.openlocfilehash: ed0c2a309e899f018b09b3edc86b65b299647914
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: b93ab0fa650041afdfaf1ed5572cc7e081bba244
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272391"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089355"
 ---
-# <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>Desproteger cargas cuyas claves se han revocado en ASP.NET Core
+# <a name="unprotect-payloads-whose-keys-have-been-revoked-in-aspnet-core"></a>Desprotección de cargas cuyas claves se han revocado en ASP.NET Core
 
 
 <a name="data-protection-consumer-apis-dangerous-unprotect"></a>
 
-La API de protección de datos de ASP.NET Core no están pensados principalmente para la persistencia indefinido de cargas confidenciales. Otras tecnologías, como [Windows CNG DPAPI](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) y [Azure Rights Management](https://docs.microsoft.com/rights-management/) son más adecuados para el escenario de almacenamiento indefinido, y tienen capacidades de administración de claves seguro según corresponda. Es decir, no hay nada prohibir a un desarrollador usa las API de protección de datos de ASP.NET Core para la protección a largo plazo de información confidencial. Claves nunca se eliminan desde el anillo de clave, por lo que `IDataProtector.Unprotect` siempre se puede recuperar cargas existentes siempre que las claves sean disponible y es válido.
+Las API de protección de datos de ASP.NET Core no están pensados principalmente para la persistencia indefinido de cargas confidenciales. Otras tecnologías como [DPAPI de Windows CNG](https://msdn.microsoft.com/library/windows/desktop/hh706794%28v=vs.85%29.aspx) y [Azure Rights Management](/rights-management/) son más adecuados para el escenario de almacenamiento ilimitada, y tienen capacidades de administración de claves seguro según corresponda. Es decir, no hay nada que prohíben un desarrollador del uso de las API de protección de datos de ASP.NET Core para la protección a largo plazo de los datos confidenciales. Las claves no se quitan nunca de conjunto de claves, por lo que `IDataProtector.Unprotect` siempre se puede recuperar las cargas existentes siempre que las claves están disponibles y son válidos.
 
-Sin embargo, un problema se produce cuando el programador intenta desproteger los datos que se ha protegido con una clave revocada, como `IDataProtector.Unprotect` se iniciará una excepción en este caso. Esto podría ser bien para las cargas breves o temporales (por ejemplo, tokens de autenticación), tal y como fácilmente se pueden volver a crear estos tipos de cargas por el sistema y en el peor el visitante del sitio podría ser necesario volver a iniciar sesión. Pero para cargas persistentes, tener `Unprotect` throw podría provocar la pérdida de datos aceptable.
+Sin embargo, un problema se produce cuando el desarrollador intenta desproteger los datos que se ha protegido con una clave revocada, como `IDataProtector.Unprotect` se iniciará una excepción en este caso. Esto podría ser interesante cargas breves o temporales (por ejemplo, tokens de autenticación), que fácilmente se pueden volver a crear estos tipos de cargas por el sistema y, en el peor caso el visitante del sitio podría ser necesario volver a iniciar sesión. Pero para las cargas persistentes, tener `Unprotect` throw podría provocar la pérdida de datos inaceptable.
 
 ## <a name="ipersisteddataprotector"></a>IPersistedDataProtector
 
-Para admitir el escenario de permitir cargas que se debe desproteger incluso de cara a revocados claves, el sistema de protección de datos contiene un `IPersistedDataProtector` tipo. Para obtener una instancia de `IPersistedDataProtector`, simplemente obtener una instancia de `IDataProtector` en el modo normal y conversión de try el `IDataProtector` a `IPersistedDataProtector`.
+Para admitir el escenario de permitir que las cargas que se debe desproteger aunque se produzcan revocadas claves, el sistema de protección de datos contiene un `IPersistedDataProtector` tipo. Para obtener una instancia de `IPersistedDataProtector`, obtener simplemente una instancia de `IDataProtector` en la forma normal y la conversión de try el `IDataProtector` a `IPersistedDataProtector`.
 
 > [!NOTE]
-> No todos los `IDataProtector` instancias pueden convertirse a `IPersistedDataProtector`. Los programadores deben utilizar el C# como operador o similar evitar las excepciones en tiempo de ejecución deberse a conversiones no válidas y que deben estar preparado para controlar el caso de fallo adecuadamente.
+> No todos los `IDataProtector` instancias se pueden convertir en `IPersistedDataProtector`. Los desarrolladores deben usar la C# como operador o similar evitar las excepciones en tiempo de ejecución causados por las conversiones no válidas, y deben estar preparados para controlar el caso de error adecuadamente.
 
 `IPersistedDataProtector` expone la superficie de API siguiente:
 
@@ -35,13 +36,13 @@ DangerousUnprotect(byte[] protectedData, bool ignoreRevocationErrors,
      out bool requiresMigration, out bool wasRevoked) : byte[]
 ```
 
-Esta API toma la carga protegida (como una matriz de bytes) y devuelve la carga sin protección. No hay ninguna sobrecarga basada en cadena. Los dos parámetros de salida son los siguientes.
+Esta API toma la carga protegida (como una matriz de bytes) y devuelve la carga no protegida. No hay ninguna sobrecarga basada en cadena. Los dos parámetros de salida son los siguientes.
 
-* `requiresMigration`: se establece en true si la clave utilizada para proteger esta carga ya no es la clave predeterminada activa, por ejemplo, la clave utilizada para proteger esta carga es antigua y tiene una operación de reversión de clave desde tendrán lugar. El llamador puede llamar a considere la posibilidad de volver a proteger la carga de la función de sus necesidades empresariales.
+* `requiresMigration`: se establece en true si la clave utilizada para proteger esta carga ya no es la clave activa de forma predeterminada, por ejemplo, la clave utilizada para proteger esta carga es antigua y tiene una clave de revertir la operación desde tendrán lugar. El llamador que desee considerar volver a proteger la carga según sus necesidades empresariales.
 
 * `wasRevoked`: se establecerá en true si la clave utilizada para proteger esta carga se ha revocado.
 
 >[!WARNING]
-> Debe extremar las precauciones al pasar `ignoreRevocationErrors: true` a la `DangerousUnprotect` método. Si después de llamar a este método la `wasRevoked` valor es true, a continuación, la clave utilizada para proteger esta carga ha sido revocada y autenticidad de la carga debe tratarse como sospechosa. En este caso, solo seguir funcionando en la carga sin protección si tienen seguridad independiente que es auténtica, por ejemplo, que procede de una base de datos segura en lugar de enviarse por un cliente web no es de confianza.
+> Debe extremar las precauciones al pasar `ignoreRevocationErrors: true` a la `DangerousUnprotect` método. Si después de llamar a este método la `wasRevoked` valor es true, a continuación, la clave utilizada para proteger esta carga se ha revocado y autenticidad de la carga se debe tratar como sospechosa. En este caso, sólo seguir funcionando en la carga no protegida si tiene cierta seguridad independiente que es auténtico, por ejemplo, que procede de una base de datos seguro en lugar de que se envían por un cliente web de confianza.
 
 [!code-csharp[](dangerous-unprotect/samples/dangerous-unprotect.cs)]

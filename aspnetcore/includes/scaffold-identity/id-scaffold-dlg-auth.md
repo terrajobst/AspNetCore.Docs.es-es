@@ -5,7 +5,7 @@ Ejecute el proveedor de scaffolding de identidad:
 * Desde **el Explorador de soluciones**, haga doble clic en el proyecto > **agregar** > **nuevo elemento de scaffolding**.
 * En el panel izquierdo de la **agregar Scaffold** cuadro de diálogo, seleccione **identidad** > **agregar**.
 * En el **identidad de ADD** cuadro de diálogo, seleccione las opciones que desee.
-  * Seleccione la página de diseño existente, o se sobrescribirá el archivo de diseño con formato incorrecto. Cuando se selecciona un archivo _Layout.cshtml existente, es **no** sobrescribe.
+  * Seleccione la página de diseño existente, o se sobrescribirá el archivo de diseño con formato incorrecto. Cuando una existente  *\_Layout.cshtml* archivo seleccionado, es **no** sobrescribe.
 
  Por ejemplo `~/Pages/Shared/_Layout.cshtml` para las páginas de Razor `~/Views/Shared/_Layout.cshtml` para los proyectos de MVC
 * Para usar el contexto de datos existente, seleccione al menos un archivo para invalidar. Debe seleccionar al menos un archivo para agregar el contexto de datos.
@@ -49,4 +49,7 @@ PowerShell usa el punto y coma como separador de comandos. Cuando se usa powersh
 ```cli
 dotnet aspnet-codegenerator identity -dc MyWeb.Data.ApplicationDbContext --files "Account.Register;Account.Login;Account.Logout"
 ```
+
+Si ejecuta el proveedor de scaffolding de identidad sin especificar el `--files` marca o `--useDefaultUI` marca todas las páginas disponibles de la interfaz de usuario de identidad se creará en el proyecto.
+
 -------------

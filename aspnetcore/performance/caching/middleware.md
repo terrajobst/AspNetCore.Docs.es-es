@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 01/26/2017
 uid: performance/caching/middleware
-ms.openlocfilehash: d991bc48ed07ee71b0decaa0bee4df811fdc74c4
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: b5eef012356236d600d026e5161a2df5a7954e3b
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477532"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090490"
 ---
 # <a name="response-caching-middleware-in-aspnet-core"></a>Respuesta de almacenamiento en caché de Middleware en ASP.NET Core
 
@@ -120,12 +120,12 @@ El middleware respeta las reglas de la [especificación HTTP 1.1 Caching](https:
 
 Para obtener más control sobre el comportamiento de almacenamiento en caché, explore otras características de almacenamiento en caché de ASP.NET Core. Consulte los temas siguientes:
 
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
-* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
-* [Caché de aplicación auxiliar de etiquetas en ASP.NET Core MVC](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>Solución de problemas
 
 Si el comportamiento de almacenamiento en caché no es como se esperaba, confirme que las respuestas son almacenables en caché y es capaz de que se sirven desde la memoria caché. Examine los encabezados de la solicitud entrante y los encabezados de la respuesta saliente. Habilitar [registro](xref:fundamentals/logging/index) para ayudar con la depuración.
 
@@ -155,11 +155,11 @@ Cuando las pruebas y solución de problemas de comportamiento de almacenamiento 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Inicio de aplicaciones](xref:fundamentals/startup)
-* [Middleware](xref:fundamentals/middleware/index)
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
-* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
-* [Detectar cambios con tokens de cambio](xref:fundamentals/change-tokens)
-* [Almacenamiento en caché de respuestas](xref:performance/caching/response)
-* [Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:fundamentals/startup>
+* <xref:fundamentals/middleware/index>
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:fundamentals/change-tokens>
+* <xref:performance/caching/response>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

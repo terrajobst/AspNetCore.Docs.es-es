@@ -3,14 +3,14 @@ title: DevOps con ASP.NET Core y Azure | Integración e implementación continua
 author: CamSoper
 description: Una guía que proporciona guías de un extremo a otro sobre cómo crear una canalización de DevOps para una aplicación ASP.NET Core hospedada en Azure.
 ms.author: scaddie
-ms.date: 08/17/2018
+ms.date: 10/24/2018
 uid: azure/devops/cicd
-ms.openlocfilehash: 0bfe1545da4c0778055d7c81c1588d3267d2e711
-ms.sourcegitcommit: 57eccdea7d89a62989272f71aad655465f1c600a
+ms.openlocfilehash: 18a59a1ff6fd6bbf51ff664764725b8972dfa1bf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44340113"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090542"
 ---
 # <a name="continuous-integration-and-deployment"></a>Integración e implementación continuas
 
@@ -230,7 +230,7 @@ La definición de compilación **tareas** pestaña enumera los pasos individuale
     > [!NOTE]
     > Para comprobar el trabajo de pruebas unitarias, modificar *SimpleFeedReader.Tests\Services\NewsServiceTests.cs* intencionadamente interrumpir una de las pruebas. Por ejemplo, cambiar `Assert.True(result.Count > 0);` a `Assert.False(result.Count > 0);` en el `Returns_News_Stories_Given_Valid_Uri` método. Confirme e inserte el cambio a GitHub. La compilación se desencadena y se produce un error. El estado de la canalización de compilación cambia a **no se pudo**. Revertir el cambio, confirmarlo e insertarlo de nuevo. La compilación se realiza correctamente.
 
-1. **Publicar** &mdash; ejecuta el `dotnet publish --configuration release --output <local_path_on_build_agent>` comando para generar un *.zip* archivo con los artefactos que se va a implementarse. El `--output` opción especifica la ubicación de publicación de la *.zip* archivo. Que la ubicación se especifica pasando una [variable predefinida](https://docs.microsoft.com/vsts/pipelines/build/variables) denominado `$(build.artifactstagingdirectory)`. Esa variable se expande a una ruta de acceso local, como *c:\agent\_work\1\a*, en el agente de compilación.
+1. **Publicar** &mdash; ejecuta el `dotnet publish --configuration release --output <local_path_on_build_agent>` comando para generar un *.zip* archivo con los artefactos que se va a implementarse. El `--output` opción especifica la ubicación de publicación de la *.zip* archivo. Que la ubicación se especifica pasando una [variable predefinida](/azure/devops/pipelines/build/variables) denominado `$(build.artifactstagingdirectory)`. Esa variable se expande a una ruta de acceso local, como *c:\agent\_work\1\a*, en el agente de compilación.
 1. **Publicar artefacto** &mdash; Publishes el *.zip* archivo generado por el **publicar** tarea. La tarea acepta el *.zip* ubicación como un parámetro, que es la variable predefinida del archivo `$(build.artifactstagingdirectory)`. El *.zip* archivo se publica como una carpeta denominada *drop*.
 
 Haga clic en la definición de compilación **resumen** vínculo para ver un historial de compilaciones con la definición de:
@@ -275,6 +275,6 @@ La suscripción, grupo de recursos, tipo de servicio, nombre de la aplicación w
 
 ## <a name="additional-reading"></a>Lecturas adicionales
 
-* [Crear su primera canalización con canalizaciones de Azure](/azure/devops/pipelines/get-started-yaml)
+* [Creación de la primera canalización con Azure Pipelines](/azure/devops/pipelines/get-started-yaml)
 * [Proyecto de compilación y .NET Core](/azure/devops/pipelines/languages/dotnet-core)
 * [Implementar una aplicación web con canalizaciones de Azure](/azure/devops/pipelines/targets/webapp)

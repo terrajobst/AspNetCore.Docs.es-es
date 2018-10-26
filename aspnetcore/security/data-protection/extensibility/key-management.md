@@ -3,14 +3,15 @@ title: Extensibilidad de administración de claves en ASP.NET Core
 author: rick-anderson
 description: Obtenga información acerca de la extensibilidad de administración de claves de protección de datos de ASP.NET Core.
 ms.author: riande
-ms.date: 11/22/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: security/data-protection/extensibility/key-management
-ms.openlocfilehash: b52212ff3462748a5c64f21e1b7854673e5fcadc
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 1cf3fc30f72fb872ff9d7f33fc5ffb12a11a982f
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477467"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090620"
 ---
 # <a name="key-management-extensibility-in-aspnet-core"></a>Extensibilidad de administración de claves en ASP.NET Core
 
@@ -60,7 +61,7 @@ El `IKeyManager` interfaz representa un objeto responsable de almacenamiento de 
 
 ## <a name="xmlkeymanager"></a>XmlKeyManager
 
-El `XmlKeyManager` es de tipo de la implementación concreta en el cuadro de `IKeyManager`. Proporciona varias utilidades útiles, incluida la custodia de clave y el cifrado de claves en reposo. Las claves en este sistema se representan como elementos XML (en concreto, [XElement](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
+El `XmlKeyManager` es de tipo de la implementación concreta en el cuadro de `IKeyManager`. Proporciona varias utilidades útiles, incluida la custodia de clave y el cifrado de claves en reposo. Las claves en este sistema se representan como elementos XML (en concreto, [XElement](/dotnet/csharp/programming-guide/concepts/linq/xelement-class-overview)).
 
 `XmlKeyManager` depende de otros componentes en el transcurso de cumplimiento de sus tareas:
 
