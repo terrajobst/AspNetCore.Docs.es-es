@@ -7,12 +7,12 @@ ms.author: mimengis
 ms.custom: mvc
 ms.date: 10/18/2018
 uid: signalr/java-client
-ms.openlocfilehash: 77ea338f08b1986e69ba8ef1578c4cfe01a310de
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 3d2cfe5f58cc41741512c68cebbbc90e8f714cba
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49652311"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148790"
 ---
 # <a name="aspnet-core-signalr-java-client"></a>Cliente ASP.NET Core SignalR Java
 
@@ -85,7 +85,7 @@ Se trata de una versión preliminar del cliente de Java. No se admiten algunas c
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Referencia de la API de Java](/java/api/com.microsoft.aspnet.signalr?view=aspnet-signalr-java)
+* [Referencia de API de Java](/java/api/com.microsoft.signalr?view=aspnet-signalr-java)
 * <xref:signalr/hubs>
 * <xref:signalr/javascript-client>
 * <xref:signalr/publish-to-azure-web-app>

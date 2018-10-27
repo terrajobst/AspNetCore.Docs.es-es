@@ -7,12 +7,12 @@ ms.author: riande
 ms.date: 10/29/2018
 ms.technology: aspnet
 msc.type: content
-ms.openlocfilehash: d5a3916c3df9778d14be80342bafbc3456a69a03
-ms.sourcegitcommit: f2d14a7518d6ee51aca9333818ac1276e7b5ecef
+ms.openlocfilehash: 4dcc62573fad13ec8b37b2c59e884eec7ca80b92
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/26/2018
-ms.locfileid: "50134540"
+ms.locfileid: "50148842"
 ---
 # <a name="configuration-builders-for-aspnet"></a>Generadores de configuración de ASP.NET
 
@@ -29,7 +29,7 @@ Generadores de configuración:
 
 ## <a name="keyvalue-configuration-builders"></a>Generadores de configuración de clave/valor
 
-Un escenario común que puede controlarse mediante generadores de configuración es proporcionar un mecanismo de reemplazo básico de pares clave-valor para secciones de configuración que siguen un patrón de clave/valor. El concepto de .NET Framework de ConfigurationBuilders no se limita a secciones de configuración específico o patrones. Sin embargo, muchos de los generadores de configuración en `Microsoft.Configuration.ConfigurationBuilders` ([github](https://github.com/aspnet/MicrosoftConfigurationBuilders)), [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders) profesional dentro del patrón de clave/valor.
+Un escenario común que puede controlarse mediante generadores de configuración es proporcionar un mecanismo de reemplazo básico de pares clave-valor para secciones de configuración que siguen un patrón de clave/valor. El concepto de .NET Framework de ConfigurationBuilders no se limita a secciones de configuración específico o patrones. Sin embargo, muchos de los generadores de configuración en `Microsoft.Configuration.ConfigurationBuilders` ([github](https://github.com/aspnet/MicrosoftConfigurationBuilders), [NuGet](https://www.nuget.org/packages?q=Microsoft.Configuration.ConfigurationBuilders)) funcionan dentro del patrón de clave/valor.
 
 ## <a name="keyvalue-configuration-builders-settings"></a>Valores de los generadores de configuración de clave/valor
 
