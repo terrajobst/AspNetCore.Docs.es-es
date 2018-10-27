@@ -9,7 +9,7 @@ ms.date: 09/20/2017
 ms.technology: aspnet
 ms.openlocfilehash: 8f45f73c691600ae5138170db5cc4794246c4f2e
 ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/20/2018
 ms.locfileid: "46482975"
@@ -20,6 +20,7 @@ ms.locfileid: "46482975"
 
 Están disponibles las siguientes guías paso a paso para desarrollar aplicaciones de ASP.NET.
 
+> [!NOTE]
 > ¿Buscar tutoriales de ASP.NET Core?  Encontrarlos [aquí](https://docs.microsoft.com/aspnet/core/tutorials/).
 
 ## <a name="web-forms"></a>Formularios Web Forms
