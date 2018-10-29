@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC con EF Core: Modelo de datos (5 de 10)'
 author: rick-anderson
 description: En este tutorial agregará más entidades y relaciones, y personalizará el modelo de datos especificando reglas de formato, validación y asignación.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/complex-data-model
-ms.openlocfilehash: 3714cf7ce705a52653394319fef1728a6ddcc3ee
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 87212edbfe34af6de938cf95314501e56e64a8be
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011776"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091046"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---data-model---5-of-10"></a>ASP.NET Core MVC con EF Core: Modelo de datos (5 de 10)
 
@@ -232,7 +233,7 @@ En *Models/Course.cs*, reemplace el código que agregó anteriormente con el có
 
 La entidad Course tiene una propiedad de clave externa `DepartmentID` que señala a la entidad Department relacionada y tiene una propiedad de navegación `Department`.
 
-Entity Framework no requiere que agregue una propiedad de clave externa al modelo de datos cuando tenga una propiedad de navegación para una entidad relacionada.  EF crea automáticamente claves externas en la base de datos siempre que se necesiten y crea [propiedades reemplazadas](https://docs.microsoft.com/ef/core/modeling/shadow-properties) para ellas. Pero tener la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, al recuperar una entidad Course para modificarla, la entidad Department es NULL si no la carga, por lo que cuando se actualiza la entidad Course, deberá capturar primero la entidad Department. Cuando la propiedad de clave externa `DepartmentID` se incluye en el modelo de datos, no es necesario capturar la entidad Department antes de actualizar.
+Entity Framework no requiere que agregue una propiedad de clave externa al modelo de datos cuando tenga una propiedad de navegación para una entidad relacionada.  EF crea automáticamente claves externas en la base de datos siempre que se necesiten y crea [propiedades reemplazadas](/ef/core/modeling/shadow-properties) para ellas. Pero tener la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, al recuperar una entidad Course para modificarla, la entidad Department es NULL si no la carga, por lo que cuando se actualiza la entidad Course, deberá capturar primero la entidad Department. Cuando la propiedad de clave externa `DepartmentID` se incluye en el modelo de datos, no es necesario capturar la entidad Department antes de actualizar.
 
 ### <a name="the-databasegenerated-attribute"></a>El atributo DatabaseGenerated
 
@@ -246,7 +247,7 @@ public int CourseID { get; set; }
 
 De forma predeterminada, Entity Framework da por supuesto que la base de datos genera los valores de clave principal. Es lo que le interesa en la mayoría de los escenarios. Pero para las entidades Course, usará un número de curso especificado por el usuario como una serie 1000 para un departamento, una serie 2000 para otro y así sucesivamente.
 
-También se puede usar el atributo `DatabaseGenerated` para generar valores predeterminados, como en el caso de las columnas de base de datos que se usan para registrar la fecha de creación o actualización de una fila.  Para obtener más información, vea [Propiedades generadas](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+También se puede usar el atributo `DatabaseGenerated` para generar valores predeterminados, como en el caso de las columnas de base de datos que se usan para registrar la fecha de creación o actualización de una fila.  Para obtener más información, vea [Propiedades generadas](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Propiedades de clave externa y de navegación
 
@@ -373,7 +374,7 @@ Se requiere una tabla de combinación en la base de datos para la relación de v
 
 Puesto que las claves externas no aceptan valores NULL y juntas identifican de forma única a cada fila de la tabla, una clave principal independiente no es necesaria. Las propiedades *InstructorID* y *CourseID* deben funcionar como una clave principal compuesta. La única manera de identificar claves principales compuestas para EF es mediante la *API fluida* (no se puede realizar mediante el uso de atributos). En la sección siguiente verá cómo configurar la clave principal compuesta.
 
-La clave compuesta garantiza que, aunque es posible tener varias filas para un curso y varias filas para un instructor, no se pueden tener varias filas para el mismo instructor y curso. La entidad de combinación `Enrollment` define su propia clave principal, por lo que este tipo de duplicados son posibles. Para evitar estos duplicados, podría agregar un índice único en los campos de clave externa o configurar `Enrollment` con una clave principal compuesta similar a `CourseAssignment`. Para obtener más información, vea [Índices](https://docs.microsoft.com/ef/core/modeling/indexes).
+La clave compuesta garantiza que, aunque es posible tener varias filas para un curso y varias filas para un instructor, no se pueden tener varias filas para el mismo instructor y curso. La entidad de combinación `Enrollment` define su propia clave principal, por lo que este tipo de duplicados son posibles. Para evitar estos duplicados, podría agregar un índice único en los campos de clave externa o configurar `Enrollment` con una clave principal compuesta similar a `CourseAssignment`. Para obtener más información, vea [Índices](/ef/core/modeling/indexes).
 
 ## <a name="update-the-database-context"></a>Actualizar el contexto de base de datos
 
@@ -385,7 +386,7 @@ Este código agrega las nuevas entidades y configura la clave principal compuest
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Alternativa de la API fluida a los atributos
 
-En el código del método `OnModelCreating` de la clase `DbContext` se usa la *API fluida* para configurar el comportamiento de EF. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción, como en este ejemplo de la [documentación de EF Core](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration):
+En el código del método `OnModelCreating` de la clase `DbContext` se usa la *API fluida* para configurar el comportamiento de EF. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción, como en este ejemplo de la [documentación de EF Core](/ef/core/modeling/#methods-of-configuration):
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -400,7 +401,7 @@ En este tutorial, solo se usa la API fluida para la asignación de base de datos
 
 Algunos desarrolladores prefieren usar la API fluida exclusivamente para mantener "limpias" las clases de entidad. Si quiere, puede mezclar atributos y la API fluida, y hay algunas personalizaciones que solo se pueden realizar mediante la API fluida, pero en general el procedimiento recomendado es elegir uno de estos dos enfoques y usarlo de forma constante siempre que sea posible. Si usa ambos enfoques, tenga en cuenta que siempre que hay un conflicto, la API fluida invalida los atributos.
 
-Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Diagrama de entidades en el que se muestran las relaciones
 

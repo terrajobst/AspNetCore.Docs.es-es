@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/13/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: bb07a3b5c6e153092635fa4e1283619777865a53
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 8be888e1f7b16d65ebbaa24b618e84fca029d80b
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325359"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207958"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Enviar mensajes desde fuera de un concentrador
 
@@ -20,7 +20,7 @@ Por [Mikael Mengistu](https://twitter.com/MikaelM_12)
 
 El centro de SignalR es la abstracción principal para enviar mensajes a los clientes conectados al servidor de SignalR. También es posible enviar mensajes desde otros lugares de la aplicación mediante el `IHubContext` service. En este artículo se explica cómo obtener acceso a un SignalR `IHubContext` para enviar notificaciones a los clientes desde fuera de un concentrador.
 
-[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(cómo descargar)](xref:tutorials/index#how-to-download-a-sample)
+[Ver o descargar el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/signalr/hubcontext/sample/) [(cómo descargar)](xref:index#how-to-download-a-sample)
 
 ## <a name="get-an-instance-of-ihubcontext"></a>Obtener una instancia de IHubContext
 

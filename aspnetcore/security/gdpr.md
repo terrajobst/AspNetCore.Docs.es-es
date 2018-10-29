@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 05/29/2018
 uid: security/gdpr
-ms.openlocfilehash: 3394eb167d925451947114ea410ef7cb117dd1e2
-ms.sourcegitcommit: 8bf4dff3069e62972c1b0839a93fb444e502afe7
+ms.openlocfilehash: 8fba3016de5460fd61574887501f7c453d5e5c30
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46482936"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207932"
 ---
 # <a name="eu-general-data-protection-regulation-gdpr-support-in-aspnet-core"></a>Soporte técnico del Reglamento General de protección de datos (RGPD) de la UE en ASP.NET Core
 
@@ -28,7 +28,7 @@ ASP.NET Core proporciona las API y plantillas para ayudar a cumplir algunos de l
 
 El [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) permite probar la mayoría de los puntos de extensión de RGPD y las API agregadas a las plantillas de ASP.NET Core 2.1. Consulte la [Léame](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) archivo para las pruebas de instrucciones.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/security/gdpr/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="aspnet-core-gdpr-support-in-template-generated-code"></a>Compatibilidad con GDPR de ASP.NET Core en el código de plantilla generada
 

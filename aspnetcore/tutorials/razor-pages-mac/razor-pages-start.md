@@ -4,14 +4,15 @@ author: rick-anderson
 description: Obtenga información sobre cómo empezar a usar las páginas de Razor de ASP.NET Core con Visual Studio para Mac.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 07/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages-mac/razor-pages-start
-ms.openlocfilehash: 0e1c2a9ab436968e2c24aa5f306ec69674fb025b
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 8a4cc6c52684558ce9176f98205e439096e88cbf
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46523277"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089656"
 ---
 # <a name="get-started-with-razor-pages-in-aspnet-core-on-macos-with-visual-studio-for-mac"></a>Introducción a las páginas de Razor en ASP.NET Core en macOS con Visual Studio para Mac
 
@@ -47,7 +48,7 @@ dotnet run
 
 ::: moniker-end
 
-Los comandos anteriores usan el [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/dotnet) para crear y ejecutar un proyecto de páginas de Razor. Abra http://localhost:5000 en un explorador para ver la aplicación.
+Los comandos anteriores usan el [CLI de .NET Core](/dotnet/core/tools/dotnet) para crear y ejecutar un proyecto de páginas de Razor. Abra http://localhost:5000 en un explorador para ver la aplicación.
 
 ![Página Inicio o Índice](../razor-pages/razor-pages-start/_static/home.png)
 

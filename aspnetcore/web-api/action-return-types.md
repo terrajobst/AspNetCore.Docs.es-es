@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 07/23/2018
 uid: web-api/action-return-types
-ms.openlocfilehash: 179a3e23ebc13a40b8e2d955b6adcc23d9a0f323
-ms.sourcegitcommit: 8268cc67beb1bb1ca470abb0e28b15a7a71b8204
+ms.openlocfilehash: 84300eae4271c3ee4387be022c3576dc83e144eb
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44126727"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207529"
 ---
 # <a name="controller-action-return-types-in-aspnet-core-web-api"></a>Tipos de valor devuelto de acción del controlador de ASP.NET Core Web API
 
 Por [Scott Addie](https://github.com/scottaddie)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/action-return-types/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ASP.NET Core ofrece las siguientes opciones relativas a los tipos de valor devuelto de acción del controlador de Web API:
 
@@ -60,7 +60,7 @@ Veamos la siguiente acción sincrónica, en la que pueden darse dos tipos de val
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=8,11)]
 
-En la acción anterior, se devuelve un código de estado 404 cuando el producto representado por `id` no existe en el almacén de datos subyacente. El método auxiliar [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) se invoca como una forma abreviada de `return new NotFoundResult();`. Si el producto existe, se devuelve un objeto `Product` que representa la carga con un código de estado 200. El método auxiliar [Ok](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.ok) se invoca como una forma abreviada de `return new OkObjectResult(product);`.
+En la acción anterior, se devuelve un código de estado 404 cuando el producto representado por `id` no existe en el almacén de datos subyacente. El método del asistente [NotFound](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.notfound) se invoca como una forma abreviada de `return new NotFoundResult();`. Si el producto existe, se devuelve un objeto `Product` que representa la carga con un código de estado 200. El método del asistente [Ok](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.ok) se invoca como una forma abreviada de `return new OkObjectResult(product);`.
 
 ### <a name="asynchronous-action"></a>Acción asincrónica
 
@@ -68,11 +68,11 @@ Veamos la siguiente acción asincrónica, en la que pueden darse dos tipos de va
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.Pre21/Controllers/ProductsController.cs?name=snippet_CreateAsync&highlight=8,13)]
 
-En la acción anterior, se devuelve un código de estado 400 cuando se produce un error en la validación de modelos y se invoca el método auxiliar [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest). Por ejemplo, el siguiente modelo indica que las solicitudes deben proporcionar la propiedad `Name` y un valor. Por lo tanto, si no se proporciona una propiedad `Name` adecuada en la solicitud, se producirá un error en la validación de modelos.
+En la acción anterior, se devuelve un código de estado 400 cuando se produce un error en la validación de modelos y se invoca el método del asistente [BadRequest](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.badrequest). Por ejemplo, el siguiente modelo indica que las solicitudes deben proporcionar la propiedad `Name` y un valor. Por lo tanto, si no se proporciona una propiedad `Name` adecuada en la solicitud, se producirá un error en la validación de modelos.
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.DataAccess/Models/Product.cs?name=snippet_ProductClass&highlight=5-6)]
 
-Otro código de retorno conocido de la acción anterior es un 201, que se genera con el método auxiliar [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction). En esta ruta de acceso, se devuelve el objeto `Product`.
+Otro código de retorno conocido de la acción anterior es un 201, que se genera con el método del asistente [CreatedAtAction](/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdataction). En esta ruta de acceso, se devuelve el objeto `Product`.
 
 ::: moniker range=">= aspnetcore-2.1"
 

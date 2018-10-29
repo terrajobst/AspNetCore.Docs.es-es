@@ -8,12 +8,12 @@ ms.date: 01/30/2013
 ms.assetid: f9c07af0-4b20-4b08-af8f-47fc3df169a2
 msc.legacyurl: /single-page-application/overview/introduction/knockoutjs-template
 msc.type: authoredcontent
-ms.openlocfilehash: 328046363666944f121dedc1883bbe83f5b079d2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 60bc8bf95cace722244ffc87ff4c00126a0ed2a0
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828648"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207451"
 ---
 <a name="single-page-application-knockoutjs-template"></a>Aplicación de página única: Plantilla KnockoutJS
 ====================
@@ -163,7 +163,7 @@ Los controladores MVC también se encuentran en la carpeta de controladores de l
 
 [!code-cshtml[Main](knockoutjs-template/samples/sample4.cshtml)]
 
-Cuando los usuarios iniciar sesión, verán la interfaz de usuario principal. En caso contrario, verán el panel de inicio de sesión. Tenga en cuenta que esta representación condicional se produce en el lado del servidor. Nunca intentan ocultar contenido confidencial en el lado cliente & #8212anything que envía en una respuesta HTTP es visible para alguien que está inspeccionando los mensajes HTTP sin formato.
+Cuando los usuarios iniciar sesión, verán la interfaz de usuario principal. En caso contrario, verán el panel de inicio de sesión. Tenga en cuenta que esta representación condicional se produce en el lado del servidor. Nunca intentan ocultar contenido confidencial en el lado cliente&#8212;todo lo que se envía en una respuesta HTTP es visible para alguien que está inspeccionando los mensajes HTTP sin formato.
 
 ## <a name="client-side-javascript-and-knockoutjs"></a>Knockout.js y JavaScript del lado cliente
 

@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar LoggerMessage para crear dele
 ms.author: riande
 ms.date: 11/03/2017
 uid: fundamentals/logging/loggermessage
-ms.openlocfilehash: e952591bac29868d87d765820e88c74b50a1fe88
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a0080a20fed2d8fc295e55822c11d5731c6910ca
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272440"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207516"
 ---
 # <a name="high-performance-logging-with-loggermessage-in-aspnet-core"></a>Registro de alto rendimiento con LoggerMessage en ASP.NET Core
 
@@ -23,7 +23,7 @@ Las características de [LoggerMessage](/dotnet/api/microsoft.extensions.logging
 * Los métodos de extensión del registrador requieren la conversión boxing de tipos de valor, como `int`, en `object`. El patrón `LoggerMessage` impide la conversión boxing mediante métodos de extensión y campos `Action` estáticos con parámetros fuertemente tipados.
 * Los métodos de extensión del registrador deben analizar la plantilla de mensaje (cadena de formato con nombre) cada vez que se escribe un mensaje de registro. `LoggerMessage` solo necesita analizar una vez una plantilla cuando se define el mensaje.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/loggermessage/sample/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 La aplicación de ejemplo muestra las características de `LoggerMessage` con un sistema de seguimiento de citas básico. La aplicación agrega y elimina citas mediante una base de datos en memoria. A medida que se producen estas operaciones, se generan mensajes de registro mediante el patrón `LoggerMessage`.
 

@@ -3,14 +3,15 @@ title: 'Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)'
 author: rick-anderson
 description: En este tutorial agregará más entidades y relaciones, y personalizará el modelo de datos especificando reglas de formato, validación y asignación.
 ms.author: riande
-ms.date: 6/31/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/complex-data-model
-ms.openlocfilehash: b81918cbd74200f0672f3002f916523fb4a9a914
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 9a0d5a8e722487ccf7e08aadb39f838a0963451d
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477662"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090983"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---data-model---5-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Modelo de datos (5 de 8)
 
@@ -121,6 +122,7 @@ La adición del atributo `Column` cambia el modelo de respaldo de `SchoolContext
 ```SQL
 SqlException: Invalid column name 'FirstName'.
 ```
+
 Para actualizar la base de datos:
 
 * Compile el proyecto.
@@ -157,7 +159,7 @@ Abra la tabla de estudiantes en SSOX:
 
 ![Tabla de estudiantes en SSOX después de las migraciones](complex-data-model/_static/ssox-after-migration.png)
 
-Antes de aplicar la migración, las columnas de nombre eran de tipo [nvarchar(MAX)](https://docs.microsoft.com/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Las columnas de nombre ahora son `nvarchar(50)`. El nombre de columna ha cambiado de `FirstMidName` a `FirstName`.
+Antes de aplicar la migración, las columnas de nombre eran de tipo [nvarchar(MAX)](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql). Las columnas de nombre ahora son `nvarchar(50)`. El nombre de columna ha cambiado de `FirstMidName` a `FirstName`.
 
 > [!Note]
 > En la sección siguiente, la creación de la aplicación en algunas de las fases genera errores del compilador. Las instrucciones especifican cuándo se debe compilar la aplicación.
@@ -295,7 +297,7 @@ La entidad `Course` tiene una propiedad de clave externa (FK) `DepartmentID`. `D
 
 EF Core no requiere una propiedad de clave externa para un modelo de datos cuando el modelo tiene una propiedad de navegación para una entidad relacionada.
 
-EF Core crea automáticamente claves externas en la base de datos siempre que se necesiten. EF Core crea [propiedades paralelas](https://docs.microsoft.com/ef/core/modeling/shadow-properties) para las claves externas creadas automáticamente. Tener la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, considere la posibilidad de un modelo donde la propiedad de la clave externa `DepartmentID` *no* está incluida. Cuando se captura una entidad de curso para editar:
+EF Core crea automáticamente claves externas en la base de datos siempre que se necesiten. EF Core crea [propiedades paralelas](/ef/core/modeling/shadow-properties) para las claves externas creadas automáticamente. Tener la clave externa en el modelo de datos puede hacer que las actualizaciones sean más sencillas y eficaces. Por ejemplo, considere la posibilidad de un modelo donde la propiedad de la clave externa `DepartmentID` *no* está incluida. Cuando se captura una entidad de curso para editar:
 
 * La entidad `Department` es NULL si no se carga explícitamente.
 * Para actualizar la entidad Course, la entidad `Department` debe capturarse en primer lugar.
@@ -314,7 +316,7 @@ public int CourseID { get; set; }
 
 De forma predeterminada, EF Core da por supuesto que la base de datos genera valores de clave principal. Los valores de clave principal generados por la base de datos suelen ser el mejor método. Para las entidades `Course`, el usuario especifica la clave principal. Por ejemplo, un número de curso como una serie de 1000 para el departamento de matemáticas, una serie de 2000 para el departamento de inglés.
 
-También se puede usar el atributo `DatabaseGenerated` para generar valores predeterminados. Por ejemplo, la base de datos puede generar automáticamente un campo de fecha para registrar la fecha en que se crea o actualiza una fila. Para obtener más información, vea [Propiedades generadas](https://docs.microsoft.com/ef/core/modeling/generated-properties).
+También se puede usar el atributo `DatabaseGenerated` para generar valores predeterminados. Por ejemplo, la base de datos puede generar automáticamente un campo de fecha para registrar la fecha en que se crea o actualiza una fila. Para obtener más información, vea [Propiedades generadas](/ef/core/modeling/generated-properties).
 
 ### <a name="foreign-key-and-navigation-properties"></a>Propiedades de clave externa y de navegación
 
@@ -478,7 +480,7 @@ La clave compuesta asegura que:
 La entidad de combinación `Enrollment` define su propia clave principal, por lo que este tipo de duplicados son posibles. Para evitar los duplicados:
 
 * Agregue un índice único en los campos de clave externa, o
-* Configure `Enrollment` con una clave compuesta principal similar a `CourseAssignment`. Para obtener más información, vea [Índices](https://docs.microsoft.com/ef/core/modeling/indexes).
+* Configure `Enrollment` con una clave compuesta principal similar a `CourseAssignment`. Para obtener más información, vea [Índices](/ef/core/modeling/indexes).
 
 ## <a name="update-the-db-context"></a>Actualizar el contexto de la base de datos
 
@@ -490,7 +492,7 @@ El código anterior agrega las nuevas entidades y configura la clave principal c
 
 ## <a name="fluent-api-alternative-to-attributes"></a>Alternativa de la API fluida a los atributos
 
-El método `OnModelCreating` del código anterior usa la *API fluida* para configurar el comportamiento de EF Core. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción. El [código siguiente](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration) es un ejemplo de la API fluida:
+El método `OnModelCreating` del código anterior usa la *API fluida* para configurar el comportamiento de EF Core. La API se denomina "fluida" porque a menudo se usa para encadenar una serie de llamadas de método en una única instrucción. El [código siguiente](/ef/core/modeling/#methods-of-configuration) es un ejemplo de la API fluida:
 
 ```csharp
 protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -516,7 +518,7 @@ Algunos de los atributos utilizados en este tutorial se usan para:
 * Solo configuración de EF Core (por ejemplo, `HasKey`).
 * Validación y configuración de EF Core (por ejemplo, `[StringLength(50)]`).
 
-Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](https://docs.microsoft.com/ef/core/modeling/#methods-of-configuration).
+Para obtener más información sobre la diferencia entre los atributos y la API fluida, vea [Métodos de configuración](/ef/core/modeling/#methods-of-configuration).
 
 ## <a name="entity-diagram-showing-relationships"></a>Diagrama de entidades en el que se muestran las relaciones
 
@@ -577,6 +579,7 @@ database "ContosoUniversity", table "dbo.Department", column 'DepartmentID'.
 ## <a name="apply-the-migration"></a>Aplicar la migración
 
 Ahora que tiene una base de datos existente, debe pensar cómo aplicar los cambios futuros en ella. En este tutorial se muestran dos enfoques:
+
 * [Quitar y volver a crear la base de datos](#drop)
 * [Aplicar la migración a la base de datos existente](#applyexisting). Aunque este método es más complejo y lento, es el método preferido para entornos de producción del mundo real. **Nota**: Esta es una sección opcional del tutorial. Puede realizar la operación de quitar y volver a crear, y omitir esta sección. Si quiere seguir los pasos descritos en esta sección, no realice la operación de quitar y volver a crear. 
 

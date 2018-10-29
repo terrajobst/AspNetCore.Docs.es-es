@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear una aplicación de páginas 
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 71b7855958b530b8bac32843a8d1e7db0113ffd9
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 7d9521686c67ab9120238886d50af081ce4c6907
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912636"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207867"
 ---
 ::: moniker range="<= aspnetcore-1.1"
 
@@ -88,11 +88,11 @@ En ASP.NET Core 2.1, `User.IsInRole` se produce un error cuando se usa `AddDefau
 
 ## <a name="the-starter-and-completed-app"></a>El inicio y la aplicación completada
 
-[Descargar](xref:tutorials/index#how-to-download-a-sample) el [completado](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) app. [Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.
+[Descargar](xref:index#how-to-download-a-sample) el [completado](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2) app. [Prueba](#test-the-completed-app) la aplicación completa, por lo que se familiarice con sus características de seguridad.
 
 ### <a name="the-starter-app"></a>La aplicación de inicio
 
-[Descargar](xref:tutorials/index#how-to-download-a-sample) el [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
+[Descargar](xref:index#how-to-download-a-sample) el [starter](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/starter2) app.
 
 Ejecute la aplicación, pulse el **ContactManager** vincular y compruebe que puede crear, editar y eliminar un contacto.
 

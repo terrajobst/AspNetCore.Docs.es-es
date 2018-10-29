@@ -2,16 +2,15 @@
 title: Novedades de ASP.NET Core 1.1
 author: rick-anderson
 description: Obtenga información sobre las nuevas características de ASP.NET Core 1.1.
-monikerRange: = aspnetcore-1.1
 ms.author: riande
 ms.date: 02/14/2017
 uid: aspnetcore-1.1
-ms.openlocfilehash: 4ea2819699552162ec8077afacb368388dc1f903
-ms.sourcegitcommit: d27317c16f113e7c111583042ec7e4c5a26adf6f
+ms.openlocfilehash: 1f35874b253ca23743e1b046732723c3a75e855e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42908952"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207828"
 ---
 # <a name="whats-new-in-aspnet-core-11"></a>Novedades de ASP.NET Core 1.1
 
@@ -19,7 +18,7 @@ ASP.NET Core 1.1 incluye las siguientes características nuevas:
 
 - [Middleware de reescritura de dirección URL](xref:fundamentals/url-rewriting)
 - [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-- [Componentes de vista como aplicaciones auxiliares de etiquetas](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
+- [Componentes de vista como asistentes de etiquetas](xref:mvc/views/view-components#invoking-a-view-component-as-a-tag-helper)
 - [Middleware como filtros de MVC](xref:mvc/controllers/filters#using-middleware-in-the-filter-pipeline)
 - [Proveedor TempData basado en cookies](xref:fundamentals/app-state#tempdata)
 - [Proveedor de registros de Azure App Service](xref:fundamentals/logging/index#azure-app-service-provider)

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/25/2018
 uid: fundamentals/index
-ms.openlocfilehash: 56344315acc59003248ffaf1e61455b94a93a545
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: ab140051648c1640b3c4f382bfd8201c5c0c2039
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090724"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207477"
 ---
 # <a name="aspnet-core-fundamentals"></a>Conceptos básicos de ASP.NET Core
 
@@ -159,36 +159,6 @@ ASP.NET Core ofrece casos para el enrutamiento de solicitudes de aplicación a l
 
 Para obtener más información, vea <xref:fundamentals/routing>.
 
-## <a name="file-providers"></a>Proveedores de archivos
-
-ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveedores de archivos, lo que ofrece una interfaz común para trabajar con archivos entre plataformas.
-
-Para obtener más información, vea <xref:fundamentals/file-providers>.
-
-## <a name="static-files"></a>Archivos estáticos
-
-El software intermedio de archivos estáticos trabaja con archivos estáticos, por ejemplo, HTML, CSS, imágenes y JavaScript.
-
-Para obtener más información, vea <xref:fundamentals/static-files>.
-
-## <a name="session-and-app-state"></a>Estado de sesión y aplicación
-
-ASP.NET Core ofrece varios enfoques para conservar el estado de sesión y aplicación mientras el usuario examina una aplicación web.
-
-Para obtener más información, vea <xref:fundamentals/app-state>.
-
-## <a name="globalization-and-localization"></a>Globalización y localización
-
-El hecho de crear un sitio web multilingüe con ASP.NET Core permite que este llegue a un público más amplio. Además, proporciona servicios y software intermedio para la localización de contenido en diferentes idiomas y referencias culturales.
-
-Para obtener más información, vea <xref:fundamentals/localization>.
-
-## <a name="request-features"></a>Características de la solicitud
-
-Los detalles de implementación del servidor web relacionados con las solicitudes HTTP y las respuestas se definen en las interfaces. En las implementaciones del servidor web y el software intermedio se usan estas interfaces para crear y modificar la canalización de hospedaje de la aplicación.
-
-Para obtener más información, vea <xref:fundamentals/request-features>.
-
 ## <a name="background-tasks"></a>Tareas en segundo plano
 
 Las tareas en segundo plano se implementan como *servicios hospedados*. Un servicio hospedado es una clase con lógica de tarea en segundo plano que implementa la interfaz <xref:Microsoft.Extensions.Hosting.IHostedService>.
@@ -200,43 +170,3 @@ Para obtener más información, vea <xref:fundamentals/host/hosted-services>.
 `HttpContext` está disponible automáticamente al procesar las solicitudes con Razor Pages y MVC. En los casos en los que `HttpContext` no esté disponible, podrá acceder a `HttpContext` a través de la interfaz de <xref:Microsoft.AspNetCore.Http.IHttpContextAccessor> y su implementación predeterminada, <xref:Microsoft.AspNetCore.Http.HttpContextAccessor>.
 
 Para obtener más información, vea <xref:fundamentals/httpcontext>.
-
-## <a name="websockets"></a>WebSockets
-
-[WebSocket](https://wikipedia.org/wiki/WebSocket) es un protocolo que habilita canales de comunicación bidireccional persistentes a través de conexiones TCP. Se usa para aplicaciones de chat, tableros de cotizaciones, juegos y donde se necesite funcionalidad en tiempo real en una aplicación web. ASP.NET Core es compatible con casos de socket web.
-
-Para obtener más información, vea <xref:fundamentals/websockets>.
-
-::: moniker range=">= aspnetcore-2.1"
-
-## <a name="microsoftaspnetcoreapp-metapackage"></a>Metapaquete Microsoft.AspNetCore
-
-El metapaquete [Microsoft.AspNetCore.App](https://www.nuget.org/packages/Microsoft.AspNetCore.App/) simplifica la administración de metapaquetes.
-
-Para obtener más información, vea <xref:fundamentals/metapackage-app>.
-
-::: moniker-end
-
-::: moniker range="= aspnetcore-2.0"
-
-## <a name="microsoftaspnetcoreall-metapackage"></a>Metapaquete Microsoft.AspNetCore.All
-
-El metapaquete [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) para ASP.NET Core incluye lo siguiente:
-
-* Todos los paquetes admitidos por el equipo de ASP.NET Core.
-* Todos los paquetes admitidos por Entity Framework Core.
-* Dependencias internas y de terceros usadas por ASP.NET Core y Entity Framework Core.
-
-Para obtener más información, vea <xref:fundamentals/metapackage>.
-
-::: moniker-end
-
-## <a name="net-core-vs-net-framework-runtime"></a>Entorno de ejecución de .NET Core frente a .NET Framework
-
-Una aplicación de ASP.NET Core puede tener como destino el entorno de ejecución de .NET Core o .NET Framework.
-
-Para más información, vea [Selección entre .NET Core y .NET Framework](/dotnet/articles/standard/choosing-core-framework-server).
-
-## <a name="choose-between-aspnet-core-and-aspnet"></a>Elección entre ASP.NET Core y ASP.NET
-
-Para obtener más información sobre cómo elegir entre ASP.NET Core y ASP.NET, vea <xref:fundamentals/choose-between-aspnet-and-aspnetcore>.

@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 08/14/2018
 uid: signalr/javascript-client
-ms.openlocfilehash: 10958c414aa4a285c8a2810bb99e278f719c5b7f
-ms.sourcegitcommit: ce6b6792c650708e92cdea051a5d166c0708c7c0
+ms.openlocfilehash: 02844c35d1933d36576c25ff335a572fb65eff5c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "46483054"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50208023"
 ---
 # <a name="aspnet-core-signalr-javascript-client"></a>Cliente ASP.NET Core SignalR JavaScript
 
@@ -20,7 +20,7 @@ Por [Rachel Appel](http://twitter.com/rachelappel)
 
 La biblioteca de cliente de ASP.NET Core SignalR JavaScript permite a los desarrolladores llamar a código de concentrador de servidor.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/live/aspnetcore/signalr/javascript-client/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="install-the-signalr-client-package"></a>Instale el paquete de cliente de SignalR
 

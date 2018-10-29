@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC con EF Core: Actualización de datos relacionados (7 de
 author: rick-anderson
 description: En este tutorial, actualizará datos relacionados mediante la actualización de campos de clave externa y propiedades de navegación.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/update-related-data
-ms.openlocfilehash: ef8cb3916e5d1542e4d36cad694351462b94ed32
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 37985c945f2e4b15cfcefb0c126c3209e0bdeac4
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38126731"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090738"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---update-related-data---7-of-10"></a>ASP.NET Core MVC con EF Core: Actualización de datos relacionados (7 de 10)
 
@@ -48,7 +49,7 @@ Después del método HttpPost de `Edit`, cree un método que cargue la informaci
 
 [!code-csharp[](intro/samples/cu/Controllers/CoursesController.cs?name=snippet_Departments)]
 
-El método `PopulateDepartmentsDropDownList` obtiene una lista de todos los departamentos ordenados por nombre, crea una colección `SelectList` para obtener una lista desplegable y pasa la colección a la vista en `ViewBag`. El método acepta el parámetro opcional `selectedDepartment`, que permite al código que realiza la llamada especificar el elemento que se seleccionará cuando se procese la lista desplegable. La vista pasará el nombre "DepartmentID" a la aplicación auxiliar de etiquetas `<select>`, y luego la aplicación auxiliar sabe que puede buscar en el objeto `ViewBag` una `SelectList` denominada "DepartmentID".
+El método `PopulateDepartmentsDropDownList` obtiene una lista de todos los departamentos ordenados por nombre, crea una colección `SelectList` para obtener una lista desplegable y pasa la colección a la vista en `ViewBag`. El método acepta el parámetro opcional `selectedDepartment`, que permite al código que realiza la llamada especificar el elemento que se seleccionará cuando se procese la lista desplegable. La vista pasará el nombre "DepartmentID" al asistente de etiquetas `<select>`, y luego el asistente sabe que puede buscar en el objeto `ViewBag` una `SelectList` denominada "DepartmentID".
 
 El método `Create` de HttpGet llama al método `PopulateDepartmentsDropDownList` sin configurar el elemento seleccionado, ya que el departamento todavía no está establecido para un nuevo curso:
 
@@ -80,7 +81,7 @@ También en *Views/Courses/Edit.cshtml*, agregue un campo de número de curso an
 
 [!code-html[](intro/samples/cu/Views/Courses/Edit.cshtml?range=15-18)]
 
-Ya hay un campo oculto (`<input type="hidden">`) para el número de curso en la vista Edit. Agregar una aplicación auxiliar de etiquetas `<label>` no elimina la necesidad de un campo oculto, porque no hace que el número de curso se incluya en los datos enviados cuando el usuario hace clic en **Save** en la página **Edit**.
+Ya hay un campo oculto (`<input type="hidden">`) para el número de curso en la vista Edit. Agregar un asistente de etiquetas `<label>` no elimina la necesidad de un campo oculto, porque no hace que el número de curso se incluya en los datos enviados cuando el usuario hace clic en **Save** en la página **Edit**.
 
 En *Views/Courses/Delete.cshtml*, agregue un campo de número de curso en la parte superior y cambie el identificador del departamento por el nombre del departamento.
 
@@ -290,7 +291,7 @@ Pruebe a ejecutar la aplicación y crear un instructor.
 
 ## <a name="handling-transactions"></a>Control de transacciones
 
-Como se explicó en el [tutorial de CRUD](crud.md), Entity Framework implementa las transacciones de manera implícita. Para escenarios donde se necesita más control, por ejemplo, si se quieren incluir operaciones realizadas fuera de Entity Framework en una transacción, vea [Transacciones](https://docs.microsoft.com/ef/core/saving/transactions).
+Como se explicó en el [tutorial de CRUD](crud.md), Entity Framework implementa las transacciones de manera implícita. Para escenarios donde se necesita más control, por ejemplo, si se quieren incluir operaciones realizadas fuera de Entity Framework en una transacción, vea [Transacciones](/ef/core/saving/transactions).
 
 ## <a name="summary"></a>Resumen
 

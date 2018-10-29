@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo crear y utilizar formateadores per
 ms.author: tdykstra
 ms.date: 02/08/2017
 uid: web-api/advanced/custom-formatters
-ms.openlocfilehash: a21fcea68d957d0344309c9bbd3286b71c092f60
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: a038cd9c05950333fce9e72f67d6721198fae4d3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36273863"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206320"
 ---
 # <a name="custom-formatters-in-aspnet-core-web-api"></a>Formateadores personalizados en ASP.NET Core Web API
 
@@ -18,7 +18,7 @@ Por [Tom Dykstra](https://github.com/tdykstra)
 
 ASP.NET Core MVC ofrece compatibilidad integrada con el intercambio de datos en las API web mediante el uso de formatos de texto sin formato, JSON o XML. En este artículo se muestra cómo agregar compatibilidad con formatos adicionales mediante la creación de formateadores personalizados.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/custom-formatters/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="when-to-use-custom-formatters"></a>Cuándo usar formateadores personalizados
 

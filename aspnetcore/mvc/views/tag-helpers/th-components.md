@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.0'
 ms.author: scaddie
 ms.date: 09/18/2018
 uid: mvc/views/tag-helpers/th-components
-ms.openlocfilehash: c6986ebd179be588b0dc829065a3a8dc36ede3f5
-ms.sourcegitcommit: c684eb6c0999d11d19e15e65939e5c7f99ba47df
+ms.openlocfilehash: 3d21e12650d844f05bdfdf5b3451ab6219e3c3b7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293445"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206879"
 ---
 # <a name="tag-helper-components-in-aspnet-core"></a>Componentes del asistente de etiquetas en ASP.NET Core
 
@@ -21,7 +21,7 @@ El componente de un asistente de etiquetas es un asistente de etiquetas que perm
 
 ASP.NET Core incluye dos componentes de asistente de etiquetas integrados: `head` y `body`. Se encuentran en el espacio de nombres <xref:Microsoft.AspNetCore.Mvc.Razor.TagHelpers> y pueden usarse tanto en MVC como en Razor Pages. Los componentes de asistente de etiquetas no requieren el registro en la aplicación en *_ViewImports.cshtml*.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/tag-helpers/th-components/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="use-cases"></a>Casos de uso
 

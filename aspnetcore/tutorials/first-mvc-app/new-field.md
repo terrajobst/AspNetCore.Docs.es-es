@@ -3,20 +3,21 @@ title: Agregar un campo nuevo a una aplicación de ASP.NET Core MVC
 author: rick-anderson
 description: Obtenga información sobre cómo usar Migraciones de Entity Framework Code First para agregar un nuevo campo al modelo y migrar ese cambio a una base de datos.
 ms.author: riande
-ms.date: 10/06/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/first-mvc-app/new-field
-ms.openlocfilehash: b63bad99c4a966703634c711e5406d86e5bd140c
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: e58d5af90b997c66cb749ab8f1b2f8049b8f7303
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010889"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089691"
 ---
 # <a name="add-a-new-field-to-an-aspnet-core-mvc-app"></a>Agregar un campo nuevo a una aplicación de ASP.NET Core MVC
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En esta sección se usa Migraciones de [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First para agregar un nuevo campo al modelo y migrar ese cambio a la base de datos.
+En esta sección se usa Migraciones de [Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First para agregar un nuevo campo al modelo y migrar ese cambio a la base de datos.
 
 Cuando se usa EF Code First para crear una base de datos de forma automática, Code First agrega una tabla a la base de datos para ayudar a saber si el esquema de la base de datos está sincronizado con las clases del modelo a partir del que se ha generado. Si no está sincronizado, EF produce una excepción. Esto facilita la detección de problemas de código o base de datos incoherentes.
 

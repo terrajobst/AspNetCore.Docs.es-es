@@ -8,12 +8,12 @@ ms.date: 02/10/2010
 ms.assetid: 1365eebb-bdf7-4a05-8d18-7f200531be55
 msc.legacyurl: /whitepapers/ms03-32-issue
 msc.type: content
-ms.openlocfilehash: ce2d705a93577b0c6d28f86069873c6ecd891db6
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 9041f8d15a449a517594f8051c3d9f0ceb18a8a3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829462"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207022"
 ---
 <a name="fix-for-server-application-unavailable-error-after-applying-security-update-for-ie"></a>Corrección para el Error de "Aplicación de servidor no disponible" después de aplicar la actualización de seguridad para Internet Explorer
 ====================
@@ -38,7 +38,7 @@ Estamos trabajando duro en una solución definitiva para resolver este problema.
 4. Vuelve a registrar ASP.NET. Esto crea una nueva contraseña aleatoria para la cuenta y aplica la configuración predeterminada de control de acceso ASP.NET para él
 5. Reinicia el servicio IIS
 
-El archivo por lotes contiene una contraseña temporal codificado de forma rígida de "<strong>1pass@word</strong>" que le pedirá que escriba para la ejecución de comandos cuando se ejecuta el archivo por lotes. Después de que se complete el comando "runas", se vuelve a crear la contraseña de la cuenta ASPNET con un valor aleatorio seguro. Tenga en cuenta que el archivo por lotes puede producir un error si la contraseña codificada no cumple los requisitos de complejidad de contraseña en su entorno. Si es así, puede cambiarlo a otro valor que sea adecuado para su entorno.
+El archivo por lotes contiene una contraseña temporal codificado de forma rígida de "<strong>1pasar\@word</strong>" que le pedirá que escriba para la ejecución de comandos cuando se ejecuta el archivo por lotes. Después de que se complete el comando "runas", se vuelve a crear la contraseña de la cuenta ASPNET con un valor aleatorio seguro. Tenga en cuenta que el archivo por lotes puede producir un error si la contraseña codificada no cumple los requisitos de complejidad de contraseña en su entorno. Si es así, puede cambiarlo a otro valor que sea adecuado para su entorno.
 
 *> [!IMPORTANT]* Si ha agregado la configuración de control de acceso personalizados o los permisos de cuenta de base de datos para la cuenta ASPNET, necesitará volver a crear después de este archivo por lotes. Esto es porque cuando se vuelve a crear la cuenta, obtendrá un nuevo identificador de seguridad (SID).
 
@@ -51,7 +51,7 @@ El archivo por lotes se incluye en el archivo autoextraíble siguiente. Para usa
 3. Extraiga el contenido en c:\
 4. Seleccione Ejecutar... en el menú Inicio y escriba `cmd.exe`
 5. En las ventanas de comandos abierto, escriba `c:\fixup.cmd`.
-6. Cuando se le solicite, escriba <strong>1pass@word</strong> como contraseña.
+6. Cuando se le solicite, escriba <strong>1pasar\@word</strong> como contraseña.
 7. Si tiene permisos de cuenta de base de datos para la cuenta ASPNET o de configuración de control de acceso anteriormente personalizado, deberá volver a aplicar esta configuración ahora.
 
 Mis disculpas muchas las molestias que esto ha causado. Publicaremos información adicional cuando se encuentre disponible.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/19/2018
 uid: performance/caching/distributed
-ms.openlocfilehash: 46a93125e8b25a66b5a1ead3b72c55db146b5a10
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 37806cc5c8da115f6a95fdad5ccc716d6375cb6e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090568"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206254"
 ---
 # <a name="distributed-caching-in-aspnet-core"></a>Almacenamiento en caché en ASP.NET Core distribuido
 
@@ -29,7 +29,7 @@ Cuando se distribuyen los datos almacenados en caché, los datos:
 
 Configuración de caché distribuida es específico de la implementación. En este artículo se describe cómo configurar SQL Server y las memorias caché distribuidas de Redis. Las implementaciones de otros fabricantes también están disponibles, como [NCache](http://www.alachisoft.com/ncache/aspnet-core-idistributedcache-ncache.html) ([NCache en GitHub](https://github.com/Alachisoft/NCache)). Independientemente de qué implementación está seleccionada, la aplicación interactúa con la caché mediante el <xref:Microsoft.Extensions.Caching.Distributed.IDistributedCache> interfaz.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/distributed/samples/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
 
 ## <a name="prerequisites"></a>Requisitos previos
 

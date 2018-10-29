@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/01/2018
 uid: fundamentals/file-providers
-ms.openlocfilehash: a0d326f5fc995cb903380315879d39a8ce851d06
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 3274615a0d6b6f928301ce97d18f5d9768963a30
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48913221"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207321"
 ---
 # <a name="file-providers-in-aspnet-core"></a>Proveedores de archivo en ASP.NET Core
 
@@ -24,7 +24,7 @@ ASP.NET Core abstrae el acceso al sistema de archivos mediante el uso de proveed
 * [Razor](xref:mvc/views/razor) usa proveedores de archivos para localizar páginas y vistas.
 * Las herramientas de .NET Core usan proveedores de archivos y patrones globales para especificar los archivos que deben publicarse.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/file-providers/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="file-provider-interfaces"></a>Interfaces de proveedor de archivos
 

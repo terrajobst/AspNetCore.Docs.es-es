@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar tokens de cambio para realiza
 ms.author: riande
 ms.date: 11/10/2017
 uid: fundamentals/change-tokens
-ms.openlocfilehash: 1cf3693764919a8fd064584ab7b7ad237e8465b3
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 7ad580a7e999a4eae006ce5dd07cca0cbdbe9ab6
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391423"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206489"
 ---
 # <a name="detect-changes-with-change-tokens-in-aspnet-core"></a>Detección de cambios con tokens de cambio en ASP.NET Core
 
@@ -18,7 +18,7 @@ Por [Luke Latham](https://github.com/guardrex)
 
 Un *token de cambio* es un bloque de creación de bajo nivel y uso general que se usa para realizar el seguimiento de los cambios.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/change-tokens/sample/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="ichangetoken-interface"></a>Interfaz IChangeToken
 
@@ -195,9 +195,9 @@ En el token compuesto, `HasChanged` notifica `true` si algún token representado
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Almacenamiento en caché en memoria](xref:performance/caching/memory)
-* [Trabajar con una memoria caché distribuida](xref:performance/caching/distributed)
-* [Almacenamiento en caché de respuestas](xref:performance/caching/response)
-* [Middleware de almacenamiento en caché de respuestas](xref:performance/caching/middleware)
-* [Asistente de etiquetas de caché](xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper)
-* [Asistente de etiquetas de caché distribuida](xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper)
+* <xref:performance/caching/memory>
+* <xref:performance/caching/distributed>
+* <xref:performance/caching/response>
+* <xref:performance/caching/middleware>
+* <xref:mvc/views/tag-helpers/builtin-th/cache-tag-helper>
+* <xref:mvc/views/tag-helpers/builtin-th/distributed-cache-tag-helper>

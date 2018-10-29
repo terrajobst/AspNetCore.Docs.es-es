@@ -7,12 +7,12 @@ author: BillWagner
 ms.author: wiwagn
 ms.date: 02/01/2017
 ms.assetid: c9f1d52c-b4bd-4b5d-b7f9-8f9ceaf778c4
-ms.openlocfilehash: b3eb643daf230336ce5def96007b6096f86390e6
-ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
+ms.openlocfilehash: 7b34187747d3081998b8b60a72adae78cafe2c3e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50148946"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207971"
 ---
 # <a name="migrating-aspnet-mvc-applications-to-windows-containers"></a>Migrar aplicaciones de ASP.NET MVC a contenedores de Windows
 
@@ -71,7 +71,7 @@ Haga clic en **Publicar** y Visual Studio copiará todos los recursos necesarios
 Defina la imagen de Docker en un Dockerfile. El Dockerfile que contenga instrucciones para la imagen base, componentes adicionales, la aplicación que quiere ejecutar y otras imágenes de configuración.  El Dockerfile es la entrada al comando `docker build`, que crea la imagen.
 
 Creará una imagen basada en la imagen `microsoft/aspnet` que se encuentra en [Docker Hub](https://hub.docker.com/r/microsoft/aspnet/).
-La imagen base, `microsoft/aspnet`, es una imagen de Windows Server. Contiene Windows Server Core, IIS y ASP.NET 4.6.2. Al ejecutar esta imagen en el contenedor, iniciará de forma automática IIS y los sitios web instalados.
+La imagen base, `microsoft/aspnet`, es una imagen de Windows Server. Contiene Windows Server Core, IIS y ASP.NET 4.7.2. Al ejecutar esta imagen en el contenedor, iniciará de forma automática IIS y los sitios web instalados.
 
 El Dockerfile que crea la imagen tiene el siguiente aspecto:
 
@@ -122,18 +122,7 @@ El argumento `mvcrandomanswers` es el nombre de la imagen que se iniciará.
 
 ## <a name="verify-in-the-browser"></a>Comprobar en el explorador
 
-> [!NOTE]
-> Con la versión actual del contenedor de Windows, no puede ir al `http://localhost`.
-> Esto se debe a un comportamiento conocido en WinNAT y se resolverá en el futuro. Hasta que se solucione, debe usar la dirección IP del contenedor.
-
-Una vez iniciado el contenedor, encontrará su dirección IP para poder conectarse al contenedor en ejecución desde un explorador:
-
-```console
-docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" randomanswers
-172.31.194.61
-```
-
-Conéctese al contenedor en ejecución mediante la dirección IPv4, `http://172.31.194.61` en el ejemplo mostrado. Escriba esa dirección URL en el explorador y debería ver el sitio en ejecución.
+Una vez que se inicie el contenedor, conectar con el contenedor en ejecución mediante `http://localhost` en el ejemplo mostrado. Escriba esa dirección URL en el explorador y debería ver el sitio en ejecución.
 
 > [!NOTE]
 > Algún software de proxy o VPN puede impedir que explore su sitio.
@@ -145,10 +134,9 @@ El directorio de ejemplo en GitHub contiene un [script de PowerShell](https://gi
 ./run.ps1
 ```
 
-El comando anterior crea la imagen, muestra la lista de imágenes del equipo, inicia un contenedor y muestra la dirección IP de ese contenedor.
+El comando anterior crea la imagen, muestra la lista de imágenes del equipo e inicia un contenedor.
 
-Para detener el contenedor, envíe un comando `docker
-stop`:
+Para detener el contenedor, envíe un comando `docker stop`:
 
 ```console
 docker stop randomanswers

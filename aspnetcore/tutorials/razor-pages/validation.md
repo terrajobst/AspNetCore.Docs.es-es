@@ -4,14 +4,15 @@ author: rick-anderson
 description: Obtenga información sobre cómo agregar validación a una página de Razor de ASP.NET Core.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/07/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/validation
-ms.openlocfilehash: cd958b9c084de4b3e12784774544610873a519f9
-ms.sourcegitcommit: 317f9be24db600499e79d25872d743af74bd86c0
+ms.openlocfilehash: 2518b9911f13da79c76c84e530cf53fc2df474e5
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045528"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090451"
 ---
 # <a name="add-validation-to-an-aspnet-core-razor-page"></a>Agregar la validación a una página de Razor de ASP.NET Core
 
@@ -27,7 +28,7 @@ La compatibilidad de validación proporcionada por las páginas de Razor y Entit
 
 ### <a name="adding-validation-rules-to-the-movie-model"></a>Adición de reglas de validación al modelo de película
 
-Abra el archivo *Models/Movie.cs*. [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) proporciona un conjunto integrado de atributos de validación que se aplican mediante declaración a una clase o propiedad. DataAnnotations también contiene atributos de formato como `DataType` que ayudan a aplicar formato y no proporcionan validación.
+Abra el archivo *Models/Movie.cs*. [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) proporciona un conjunto integrado de atributos de validación que se aplican mediante declaración a una clase o propiedad. DataAnnotations también contiene atributos de formato como `DataType` que ayudan a aplicar formato y no proporcionan validación.
 
 Actualice la clase `Movie` para aprovechar los atributos de validación `Required`, `StringLength`, `RegularExpression` y `Range`.
 
@@ -45,7 +46,7 @@ Actualice la clase `Movie` para aprovechar los atributos de validación `Require
 
 Los atributos de validación especifican el comportamiento que se aplica a las propiedades del modelo:
 
-* Los atributos `Required` y `MinimumLength` indican que una propiedad debe tener un valor. Aun así, nada impide que el usuario escriba un espacio en blanco para cumplir la restricción de validación de un tipo que acepta valores NULL. Los [tipos de valor](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/value-types) que no aceptan valores NULL (como `decimal`, `int`, `float` y `DateTime`) son intrínsecamente necesarios y no necesitan el atributo `Required`.
+* Los atributos `Required` y `MinimumLength` indican que una propiedad debe tener un valor. Aun así, nada impide que el usuario escriba un espacio en blanco para cumplir la restricción de validación de un tipo que acepta valores NULL. Los [tipos de valor](/dotnet/csharp/language-reference/keywords/value-types) que no aceptan valores NULL (como `decimal`, `int`, `float` y `DateTime`) son intrínsecamente necesarios y no necesitan el atributo `Required`.
 * El atributo `RegularExpression` limita los caracteres que el usuario puede escribir. En el código anterior, `Genre` debe comenzar por una o varias letras en mayúscula y continuar con cero o más letras, comillas simples o dobles, caracteres de espacio en blanco o guiones. `Rating` debe comenzar por una o varias letras en mayúscula y continuar con cero o más letras, números, comillas simples o dobles, caracteres de espacio en blanco o guiones.
 * El atributo `Range` restringe un valor a un intervalo determinado.
 * El atributo `StringLength` establece la longitud máxima de una cadena y, de forma opcional, la longitud mínima. 
@@ -95,7 +96,7 @@ El código siguiente muestra una parte de la página *Create.cshtml* a la que se
 
 [!code-cshtml[](razor-pages-start/sample/RazorPagesMovie/Pages/Movies/Create.cshtml?range=14-20)]
 
-El [asistente de etiquetas de entrada](xref:mvc/views/working-with-forms) usa los atributos [DataAnnotations](https://docs.microsoft.com/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) y genera los atributos HTML necesarios para la validación de jQuery en el cliente. El [asistente de etiquetas de validación](xref:mvc/views/working-with-forms#the-validation-tag-helpers) muestra errores de validación. Para más información, vea [Validación](xref:mvc/models/validation).
+El [asistente de etiquetas de entrada](xref:mvc/views/working-with-forms) usa los atributos [DataAnnotations](/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-6) y genera los atributos HTML necesarios para la validación de jQuery en el cliente. El [asistente de etiquetas de validación](xref:mvc/views/working-with-forms#the-validation-tag-helpers) muestra errores de validación. Para más información, vea [Validación](xref:mvc/models/validation).
 
 Las páginas de creación y edición no tienen ninguna regla de validación. Las reglas de validación y las cadenas de error solo se especifican en la clase `Movie`. Estas reglas de validación se aplican automáticamente a las páginas de Razor que editan el modelo `Movie`.
 
@@ -166,10 +167,10 @@ Gracias por seguir esta introducción a las páginas de Razor. Le agradeceremos 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Trabajar con formularios](xref:mvc/views/working-with-forms)
-* [Globalización y localización](xref:fundamentals/localization)
-* [Introducción a los asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)
-* [Creación de asistentes de etiquetas](xref:mvc/views/tag-helpers/authoring)
+* <xref:mvc/views/working-with-forms>
+* <xref:fundamentals/localization>
+* <xref:mvc/views/tag-helpers/intro>
+* <xref:mvc/views/tag-helpers/authoring>
 
 > [!div class="step-by-step"]
 > [Anterior: Adición de un nuevo campo](xref:tutorials/razor-pages/new-field)

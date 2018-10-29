@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/13/2018
 uid: fundamentals/configuration/platform-specific-configuration
-ms.openlocfilehash: 2eddfa03b28564fcca7cc098e353b05e23b7c6f6
-ms.sourcegitcommit: a669c4e3f42e387e214a354ac4143555602e6f66
+ms.openlocfilehash: a06c2da04c1631f5811a535c891ca5190b0d8864
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336269"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207568"
 ---
 # <a name="enhance-an-app-from-an-external-assembly-in-aspnet-core-with-ihostingstartup"></a>Mejorar una aplicación desde un ensamblado externo en ASP.NET Core con IHostingStartup
 
@@ -20,7 +20,7 @@ Por [Luke Latham](https://github.com/guardrex)
 
 Una implementación de [IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup) (inicio de hospedaje) permite agregar mejoras a una aplicación al iniciarla a partir de un ensamblado externo. Por ejemplo, una biblioteca externa puede usar una implementación de inicio de hospedaje para suministrar más servicios o proveedores de configuración a una aplicación. `IHostingStartup` *está disponible en ASP.NET Core 2.0 o versiones posteriores.*
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="hostingstartup-attribute"></a>Atributo HostingStartup
 
@@ -381,7 +381,7 @@ Un ensamblado implementado por *bin* puede proporcionar una mejora del inicio de
 
 ## <a name="sample-code"></a>Código de ejemplo
 
-En el [código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample)) se muestran escenarios de implementación de inicio de hospedaje:
+En el [código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/host/platform-specific-configuration/samples/) ([cómo descargar](xref:index#how-to-download-a-sample)) se muestran escenarios de implementación de inicio de hospedaje:
 
 * Cada uno de los dos ensamblados de inicio de hospedaje (bibliotecas de clases) establece un par clave-valor de configuración en memoria:
   * Paquete NuGet (*HostingStartupPackage*)

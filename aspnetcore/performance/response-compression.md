@@ -1,24 +1,24 @@
 ---
 title: Compresión de respuesta en ASP.NET Core
 author: guardrex
-description: Obtenga información sobre la compresión de respuesta y cómo usar el Middleware de compresión de respuesta en aplicaciones ASP.NET Core.
+description: Obtenga información sobre la compresión de respuesta y cómo usar Middleware de compresión de respuesta en aplicaciones de ASP.NET Core.
 monikerRange: '>= aspnetcore-1.1'
 ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: performance/response-compression
-ms.openlocfilehash: d5e0b6ed21c14f2e76396cde846c69a76ad40794
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: 8c3d74b6a346d51507d3c278b03ddc842feea13e
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48578151"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207984"
 ---
 # <a name="response-compression-in-aspnet-core"></a>Compresión de respuesta en ASP.NET Core
 
 Por [Luke Latham](https://github.com/guardrex)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/response-compression/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 Ancho de banda de red es un recurso limitado. Reducir el tamaño de la respuesta normalmente aumenta la capacidad de respuesta de una aplicación, a menudo drásticamente. Una forma de reducir los tamaños de carga es comprimir las respuestas de una aplicación.
 

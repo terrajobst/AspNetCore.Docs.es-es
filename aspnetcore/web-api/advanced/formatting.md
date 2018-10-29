@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: H1Hack27Feb2017
 ms.date: 10/14/2016
 uid: web-api/advanced/formatting
-ms.openlocfilehash: 3891e8d000c091f34e39a5e40d9bcd12e854a478
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 819bf1b49b56e953a9a4398e82866ba0b01ab4db
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36276534"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207113"
 ---
 # <a name="format-response-data-in-aspnet-core-web-api"></a>Aplicación de formato a datos de respuesta en ASP.NET Core Web API
 
@@ -19,16 +19,16 @@ Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core MVC tiene compatibilidad integrada para dar formato a datos de respuesta, en función de formatos fijos o especificaciones del cliente.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/formatting/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/advanced/formatting/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="format-specific-action-results"></a>Resultados de acción específica de formato
 
 Algunos tipos de resultado de acción son específicos de un formato determinado, como `JsonResult` y `ContentResult`. Las acciones pueden devolver resultados específicos a los que siempre se da formato de una manera determinada. Por ejemplo, si se devuelve un `JsonResult`, se devolverán datos con formato JSON, independientemente de las preferencias del cliente. Del mismo modo, si se devuelve un `ContentResult`, se devolverán datos de cadena con formato de texto sin formato (al igual que si se devuelve simplemente una cadena).
 
 > [!NOTE]
-> No se requieren acciones para devolver un tipo en particular, ya que MVC es compatible con cualquier valor devuelto por un objeto. Si una acción devuelve una implementación `IActionResult` y el controlador hereda de `Controller`, los desarrolladores disponen de diversos métodos auxiliares que se corresponden con muchas de las opciones. Los resultados de acciones que devuelven objetos que no son tipos `IActionResult` se serializarán con la implementación `IOutputFormatter` correspondiente.
+> No se requieren acciones para devolver un tipo en particular, ya que MVC es compatible con cualquier valor devuelto por un objeto. Si una acción devuelve una implementación `IActionResult` y el controlador hereda de `Controller`, los desarrolladores disponen de diversos métodos del asistente que se corresponden con muchas de las opciones. Los resultados de acciones que devuelven objetos que no son tipos `IActionResult` se serializarán con la implementación `IOutputFormatter` correspondiente.
 
-Para devolver datos en un formato específico desde un controlador que hereda de la clase base `Controller`, use el método auxiliar integrado `Json` para devolver JSON y `Content` para texto sin formato. El método de acción debe devolver el tipo de resultado específico (por ejemplo, `JsonResult`) o bien `IActionResult`.
+Para devolver datos en un formato específico desde un controlador que hereda de la clase base `Controller`, use el método del asistente integrado `Json` para devolver JSON y `Content` para texto sin formato. El método de acción debe devolver el tipo de resultado específico (por ejemplo, `JsonResult`) o bien `IActionResult`.
 
 Para devolver datos con formato JSON:
 
@@ -40,7 +40,7 @@ Respuesta de ejemplo de esta acción:
 
 Tenga en cuenta que el tipo de contenido de la respuesta es `application/json`, y se muestra en la lista de solicitudes de red y en la sección Encabezados de respuesta. Observe también la lista de opciones que aparecen en el explorador (en este caso, Microsoft Edge) en el encabezado Accept de la sección Encabezados de solicitud. La técnica actual omite este encabezado; más adelante se describe su uso.
 
-Para devolver datos con formato de texto sin formato, use `ContentResult` y el método auxiliar `Content`:
+Para devolver datos con formato de texto sin formato, use `ContentResult` y el método del asistente `Content`:
 
 [!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=3,5&range=47-52)]
 
@@ -57,9 +57,9 @@ Observe que en este caso el `Content-Type` devuelto es `text/plain`. También pu
 
 ## <a name="content-negotiation"></a>Negociación de contenido
 
-La negociación de contenido (o *conneg*) se produce cuando el cliente especifica un [encabezado Accept](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). El formato predeterminado que usa ASP.NET Core MVC es JSON. La negociación de contenido se implementa mediante `ObjectResult`. También se integra en los resultados de acción específicos del código de estado devueltos por los métodos auxiliares (que se basan en `ObjectResult`). También puede devolver un tipo de modelo (es decir, una clase que haya definido como tipo de transferencia de datos) y el marco de trabajo lo ajustará automáticamente en un `ObjectResult`.
+La negociación de contenido (o *conneg*) se produce cuando el cliente especifica un [encabezado Accept](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html). El formato predeterminado que usa ASP.NET Core MVC es JSON. La negociación de contenido se implementa mediante `ObjectResult`. También se integra en los resultados de acción específicos del código de estado devueltos por los métodos del asistente (que se basan en `ObjectResult`). También puede devolver un tipo de modelo (es decir, una clase que haya definido como tipo de transferencia de datos) y el marco de trabajo lo ajustará automáticamente en un `ObjectResult`.
 
-El siguiente método de acción usa los métodos auxiliares `Ok` y `NotFound`:
+El siguiente método de acción usa los métodos del asistente `Ok` y `NotFound`:
 
 [!code-csharp[](./formatting/sample/Controllers/Api/AuthorsController.cs?highlight=8,10&range=28-38)]
 

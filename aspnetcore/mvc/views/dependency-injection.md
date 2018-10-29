@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo ASP.NET Core admite la inserción 
 ms.author: riande
 ms.date: 10/14/2016
 uid: mvc/views/dependency-injection
-ms.openlocfilehash: 753a335ec4f9f6a62fd20851af43da078b6f6a37
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 9b437d27a8d391db4533596674d144628a0c10b1
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36277337"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207067"
 ---
 # <a name="dependency-injection-into-views-in-aspnet-core"></a>Inserción de dependencias en vistas de ASP.NET Core
 
@@ -18,7 +18,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 ASP.NET Core admite la [inserción de dependencias](xref:fundamentals/dependency-injection) en vistas. Esto puede ser útil para servicios específicos de vistas, como la localización o los datos necesarios solamente para rellenar los elementos de vistas. Debe intentar mantener la [separación de intereses](http://deviq.com/separation-of-concerns/) entre los controladores y las vistas. La mayoría de los datos que muestran las vistas deben pasarse desde el controlador.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/dependency-injection/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="a-simple-example"></a>Ejemplo sencillo
 
@@ -73,7 +73,7 @@ Además de insertar nuevos servicios, esta técnica también puede usarse para r
 
 ![Menú contextual de IntelliSense de un símbolo @ de tipo que enumera los campos Html, componente, StatsService y URL](dependency-injection/_static/razor-fields.png)
 
-Como puede ver, los campos predeterminados incluyen `Html`, `Component` y `Url` (además de `StatsService` que hemos insertado). Si, por ejemplo, quisiera reemplazar las aplicaciones auxiliares de HTML predeterminadas con las suyas propias, puede hacerlo fácilmente mediante `@inject`:
+Como puede ver, los campos predeterminados incluyen `Html`, `Component` y `Url` (además de `StatsService` que hemos insertado). Si, por ejemplo, quisiera reemplazar los asistentes de HTML predeterminadas con las suyas propias, puede hacerlo fácilmente mediante `@inject`:
 
 [!code-cshtml[](../../mvc/views/dependency-injection/sample/src/ViewInjectSample/Views/Helper/Index.cshtml?highlight=3,11)]
 

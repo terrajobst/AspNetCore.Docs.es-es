@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo usar el almacenamiento en caché d
 ms.author: riande
 ms.date: 09/20/2017
 uid: performance/caching/response
-ms.openlocfilehash: bbf5b649bac9d31aa6d0ecdc3828648677b05716
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 99093cd281ffa8dddc574dc27254c0175e2651b3
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090698"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207373"
 ---
 # <a name="response-caching-in-aspnet-core"></a>Almacenamiento en caché de respuesta en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [John Luo](https://github.com/JunTaoLuo), [Rick Anderson](https://twitter.co
 > [!NOTE]
 > Almacenamiento en caché de respuesta en las páginas de Razor está disponible en ASP.NET Core 2.1 o posterior.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/performance/caching/response/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 Almacenamiento en caché de respuesta reduce el número de solicitudes hace que un cliente o un proxy a un servidor web. Almacenamiento en caché de respuesta también reduce la cantidad de trabajo se realiza el servidor web para generar una respuesta. Almacenamiento en caché de respuesta se controla mediante los encabezados que especifican cómo desea que client, proxy y middleware en caché las respuestas.
 

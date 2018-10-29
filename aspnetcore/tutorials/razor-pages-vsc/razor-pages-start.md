@@ -4,14 +4,15 @@ author: rick-anderson
 description: Obtenga información sobre los conceptos básicos para compilar una aplicación web de páginas de Razor de ASP.NET Core con Visual Studio Code.
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 08/27/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: b7f6ca377a892fce912dc0ee9d4b7378f40fbf24
-ms.sourcegitcommit: c12ebdab65853f27fbb418204646baf6ce69515e
+ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/21/2018
-ms.locfileid: "46522932"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089857"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code
 
@@ -47,7 +48,7 @@ dotnet run
 
 ::: moniker-end
 
-Los comandos anteriores usan el [CLI de .NET Core](https://docs.microsoft.com/dotnet/core/tools/dotnet) para crear y ejecutar un proyecto de páginas de Razor. Abra http://localhost:5000 en un explorador para ver la aplicación.
+Los comandos anteriores usan el [CLI de .NET Core](/dotnet/core/tools/dotnet) para crear y ejecutar un proyecto de páginas de Razor. Abra http://localhost:5000 en un explorador para ver la aplicación.
 
 ![Página Inicio o Índice](../razor-pages/razor-pages-start/_static/home.png)
 

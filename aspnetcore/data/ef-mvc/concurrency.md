@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)'
 author: rick-anderson
 description: Este tutorial muestra cómo tratar los conflictos cuando varios usuarios actualizan la misma entidad al mismo tiempo.
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/concurrency
-ms.openlocfilehash: 9bf65621213c9657232dfff1701c9937d5105a9c
-ms.sourcegitcommit: b8a2f14bf8dd346d7592977642b610bbcb0b0757
+ms.openlocfilehash: 0ae566a76a2ef656843452ed537b8fdfbddaed22
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38186642"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090906"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---concurrency---8-of-10"></a>ASP.NET Core MVC con EF Core: Simultaneidad (8 de 10)
 
@@ -219,7 +220,6 @@ Reemplace el código en el método `Delete` de HttpPost (denominado `DeleteConfi
 
 En el código al que se aplicó la técnica scaffolding que acaba de reemplazar, este método solo acepta un identificador de registro:
 
-
 ```csharp
 public async Task<IActionResult> DeleteConfirmed(int id)
 ```
@@ -278,7 +278,7 @@ Reemplace el código de *Views/Departments/Create.cshtml* para agregar una opci�
 
 ## <a name="summary"></a>Resumen
 
-Con esto finaliza la introducción para el control de los conflictos de simultaneidad. Para obtener más información sobre cómo administrar la simultaneidad en EF Core, vea [Concurrency conflicts](https://docs.microsoft.com/ef/core/saving/concurrency) (Conflictos de simultaneidad). El siguiente tutorial muestra cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
+Con esto finaliza la introducción para el control de los conflictos de simultaneidad. Para obtener más información sobre cómo administrar la simultaneidad en EF Core, vea [Concurrency conflicts](/ef/core/saving/concurrency) (Conflictos de simultaneidad). El siguiente tutorial muestra cómo implementar la herencia de tabla por jerarquía para las entidades Instructor y Student.
 
 ::: moniker-end
 

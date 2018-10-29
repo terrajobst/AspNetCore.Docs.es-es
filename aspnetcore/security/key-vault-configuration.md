@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/key-vault-configuration
-ms.openlocfilehash: 06445eb2ecec4cf101b23a4bfe131b2c56a18f62
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
-ms.translationtype: HT
+ms.openlocfilehash: c6dc8b9c462841351b3ada72deeae727da356a6c
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090311"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207893"
 ---
 # <a name="azure-key-vault-configuration-provider-in-aspnet-core"></a>Proveedor de configuración de Azure Key Vault en ASP.NET Core
 
@@ -20,7 +20,7 @@ Por [Halter](https://github.com/guardrex) y [Andrew Stanton-Nurse](https://githu
 
 Este documento explica cómo usar el [Microsoft Azure Key Vault](https://azure.microsoft.com/services/key-vault/) proveedor de configuración para cargar los valores de configuración de aplicación de secretos de Azure Key Vault. Azure Key Vault es un servicio basado en la nube que le ayuda a proteger claves criptográficas y secretos usados por aplicaciones y servicios. Escenarios comunes incluyen control de acceso a datos confidenciales de la configuración y cumple el requisito de FIPS 140-2 nivel 2 validado módulos de seguridad de Hardware (HSM) al almacenar datos de configuración. Esta característica está disponible para las aplicaciones que tienen como destino ASP.NET Core 1.1 o posterior.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/key-vault-configuration/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="package"></a>Package
 
