@@ -6,16 +6,18 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 8986eec479dc69a144c30820d5775efe51386579
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 72c32b9c66b50663b33a5274b8f60de126622535
+ms.sourcegitcommit: 76ffb9456e0a44651dfcf052ce133f728ae2359b
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091124"
+ms.locfileid: "50132210"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
 Por [Luke Latham](https://github.com/guardrex)
+
+[Instalación del conjunto de hospedaje de .NET Core](#install-the-NET-core-hosting-bundle)
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -262,28 +264,42 @@ Habilite **Consola de administración de IIS** y **Servicios World Wide Web**.
 
 ![Consola de administración de IIS y Servicios World Wide Web se activan en Características de Windows.](index/_static/windows-features-win10.png)
 
----
-
 ## <a name="install-the-net-core-hosting-bundle"></a>Instalación del conjunto de hospedaje de .NET Core
 
-1. Instale el *conjunto de hospedaje de .NET Core* en el sistema de hospedaje. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el conjunto de hospedaje de .NET Core.
+Instale el *conjunto de hospedaje de .NET Core* en el sistema de hospedaje. El lote instala .NET Core Runtime, .NET Core Library y el [módulo ASP.NET Core](xref:fundamentals/servers/aspnet-core-module). El módulo crea el proxy inverso entre IIS y el servidor Kestrel. Si el sistema no tiene conexión a Internet, obtenga e instale [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/download/details.aspx?id=53840) antes de instalar el conjunto de hospedaje de .NET Core.
 
-   1. Vaya a la [página de descargas de .NET](https://www.microsoft.com/net/download/windows).
-   1. En **.NET Core**, seleccione el botón **Download .NET Core Runtime** (Descargar .NET Core Runtime), junto a la etiqueta **Run Apps** (Ejecutar aplicaciones). El archivo ejecutable del instalador contiene la palabra "hosting" en el nombre de archivo, por ejemplo, *dotnet-hosting-2.1.2-win.exe*.
-   1. Ejecute el instalador en el servidor.
+> [!IMPORTANT]
+> Si el conjunto de hospedaje se instala antes que IIS, se debe reparar la instalación de dicho conjunto. Vuelva a ejecutar el instalador del conjunto de hospedaje después de instalar IIS.
 
-   **¡Importante!** Si el conjunto de hospedaje se instala antes que IIS, se debe reparar la instalación de dicho conjunto. Vuelva a ejecutar el instalador del conjunto de hospedaje después de instalar IIS.
+### <a name="direct-download-current-version"></a>Descarga directa (versión actual)
 
-   Ejecute el programa de instalación desde un símbolo del sistema de administrador con uno o varios conmutadores para controlar el comportamiento del instalador:
+Descargue al instalador mediante el vínculo siguiente:
+
+[Instalador del conjunto de hospedaje de .NET Core actual (descarga directa)](https://www.microsoft.com/net/permalink/dotnetcore-current-windows-runtime-bundle-installer)
+
+### <a name="earlier-versions-of-the-installer"></a>Versiones anteriores del instalador
+
+Para obtener una versión anterior del instalador:
+
+1. Vaya a los [archivos de descarga de .NET](https://www.microsoft.com/net/download/archives).
+1. En **.NET Core**, seleccione la versión de .NET Core.
+1. En la columna **Run apps - Runtime** (Ejecutar aplicaciones - Runtime), busque la fila de la versión del runtime de .NET Core que quiera instalar.
+1. Descargue el instalador mediante el vínculo **Runtime & Hosting Bundle** (Runtime y conjunto de hospedaje).
+
+> [!WARNING]
+> Algunos instaladores contienen versiones que han alcanzado el final del ciclo de vida (EOL) y ya no son compatibles con Microsoft. Para obtener más información, consulte la [política de soporte técnico](https://www.microsoft.com/net/download/dotnet-core/2.0).
+
+### <a name="install-the-hosting-bundle"></a>Instalación del conjunto de hospedaje
+
+1. Ejecute el instalador en el servidor. Los modificadores siguientes están disponibles cuando se ejecuta el instalador desde un símbolo del sistema de administrador:
 
    * `OPT_NO_ANCM=1` &ndash; Omita la instalación del módulo de ASP.NET Core.
    * `OPT_NO_RUNTIME=1` &ndash; Omita la instalación del entorno de ejecución de .NET Core.
    * `OPT_NO_SHAREDFX=1` &ndash; Omita la instalación del marco compartido de ASP.NET (entorno de ejecución de ASP.NET).
    * `OPT_NO_X86=1` &ndash; Omita la instalación de entornos de ejecución x86. Utilice este conmutador cuando sepa que no va a hospedar aplicaciones de 32 bits. Si hay alguna posibilidad que vaya a hospedar aplicaciones de 32 bits y 64 bits en el futuro, no use este modificador e instale ambos entornos de ejecución.
-
 1. Reinicie el sistema o ejecute **net stop was /y** seguido de **net start w3svc** desde un símbolo del sistema. Al reiniciar IIS, se recoge un cambio en la variable PATH del sistema, que es una variable de entorno, realizado por el programa de instalación.
 
-   Si el instalador del conjunto de hospedaje de Windows detecta que IIS requiere un reinicio para completar la instalación, el instalador reinicia IIS. Si el instalador desencadena un reinicio de IIS, se reiniciarán todos los sitios web y los grupos de aplicaciones de IIS.
+Si el instalador del conjunto de hospedaje de Windows detecta que IIS requiere un reinicio para completar la instalación, el instalador reinicia IIS. Si el instalador desencadena un reinicio de IIS, se reiniciarán todos los sitios web y los grupos de aplicaciones de IIS.
 
 > [!NOTE]
 > Para obtener información sobre la configuración compartida de IIS, vea [ASP.NET Core Module with IIS Shared Configuration](xref:host-and-deploy/aspnet-core-module#aspnet-core-module-with-an-iis-shared-configuration) (Módulo de ASP.NET Core con configuración compartida de IIS).
