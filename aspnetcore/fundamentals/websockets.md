@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 06/28/2018
 uid: fundamentals/websockets
-ms.openlocfilehash: e46c2decf92d21322f2079bf880df534e0224db5
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: b1e2180ed8dc93e2474ecca371d386830b7f3a9f
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911657"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348460"
 ---
 # <a name="websockets-support-in-aspnet-core"></a>Compatibilidad con WebSockets en ASP.NET Core
 
@@ -35,7 +35,7 @@ En este artículo se ofrece una introducción a WebSockets en ASP.NET Core. [Web
 
   * Windows 8/Windows Server 2012 o versiones posteriores
   * IIS 8/Express IIS 8
-  * WebSockets debe estar habilitado en IIS (vea la sección [Compatibilidad con IIS/IIS Express](#iisiis-express-support)).
+  * WebSockets debe estar habilitado (consulte la sección [Compatibilidad con IIS/IIS Express](#iisiis-express-support)).
   
 * Si la aplicación se ejecuta en [HTTP.sys](xref:fundamentals/servers/httpsys):
 
@@ -133,7 +133,15 @@ Cuando la conexión WebSocket se acepta antes de que el bucle comience, la canal
 
 El protocolo WebSocket se puede usar en Windows Server 2012 o posterior, y en Windows 8 o posterior con IIS o IIS Express 8 o posterior.
 
+> [!NOTE]
+> WebSocket siempre está habilitado cuando se usa IIS Express.
+
+### <a name="enabling-websockets-on-iis"></a>Habilitación de WebSocket en IIS
+
 Para habilitar la compatibilidad con el protocolo WebSocket en Windows Server 2012 o posterior:
+
+> [!NOTE]
+> Estos pasos no son necesarios cuando se usa IIS Express
 
 1. Use el asistente **Agregar roles y características** del menú **Administrar** o el vínculo de **Administrador del servidor**.
 1. Seleccione **Instalación basada en características o en roles**. Seleccione **Siguiente**.
@@ -145,6 +153,9 @@ Para habilitar la compatibilidad con el protocolo WebSocket en Windows Server 20
 1. Cuando la instalación finalice, haga clic en **Cerrar** para salir del asistente.
 
 Para habilitar la compatibilidad con el protocolo WebSocket en Windows Server 8 o posterior:
+
+> [!NOTE]
+> Estos pasos no son necesarios cuando se usa IIS Express
 
 1. Vaya a **Panel de control** > **Programas** > **Programas y características** > **Activar o desactivar las características de Windows** (lado izquierdo de la pantalla).
 1. Abra los siguientes nodos: **Internet Information Services** > **Servicios World Wide Web** > **Características de desarrollo de aplicaciones**.

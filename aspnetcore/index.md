@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: fcd95b88b970073f4d7eddf89729683d18be449d
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 37448b1b3d0da4e3cb34b1cd51f663b7e53ddced
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090659"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207399"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -66,6 +66,14 @@ El uso de .NET Core como destino cuenta con varias ventajas que van en aumento c
 * Abrir origen
 
 Estamos trabajando intensamente para cerrar la brecha de API entre .NET Framework y .NET Core. El [paquete de compatibilidad de Windows](/dotnet/core/porting/windows-compat-pack) ha permitido que miles de API solo de Windows estén disponibles en .NET Core. Estas API no estaban disponibles en .NET Core 1.x.
+
+## <a name="how-to-download-a-sample"></a>Cómo descargar un ejemplo
+
+En muchos de los artículos y tutoriales se incluyen vínculos a código de ejemplo.
+
+1. [Descargue el archivo ZIP del repositorio de ASP.NET](https://codeload.github.com/aspnet/Docs/zip/master).
+1. Descomprima el archivo *Docs-master.zip*.
+1. Use la dirección URL del vínculo de ejemplo para ir al directorio de ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

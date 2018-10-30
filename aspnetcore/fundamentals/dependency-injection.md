@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 07/02/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: 33fae5d87029c8b3afdc321e0247555c1e479d07
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
+ms.openlocfilehash: 193bfc7651b6da6db69e8c15bd6beb82906bde0a
+ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48912623"
+ms.lasthandoff: 10/20/2018
+ms.locfileid: "49477675"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -287,9 +287,9 @@ Las interfaces se implementan en la clase `Operation`. El constructor `Operation
 
 Se registra una instancia de `OperationService` que depende de cada uno de los demás tipos `Operation`. Cuando `OperationService` se solicita con la inserción de dependencias, recibe una instancia nueva de cada servicio o una instancia existente en función de la duración de los servicios dependientes.
 
-* Si se crean servicios transitorios cuando se solicitan, el elemento `OperationsId` del servicio `IOperationTransient` varía del objeto `OperationsId` de `OperationService`. `OperationService` recibe una instancia nueva de la clase `IOperationTransient`. La nueva instancia produce un objeto `OperationsId` diferente.
-* Si se crean servicios con ámbito por cada solicitud, el objeto `OperationsId` del servicio `IOperationScoped` es el mismo que para `OperationService` dentro de la solicitud. Entre las solicitudes, ambos servicios comparten un valor `OperationsId` diferente.
-* Si se crean servicios singleton y servicios de instancia singleton una vez y se usan en todas las solicitudes y servicios, el objeto `OperationsId` es constante en todas las solicitudes de servicio.
+* Si se crean servicios transitorios cuando se solicitan, el elemento `OperationId` del servicio `IOperationTransient` varía del objeto `OperationId` de `OperationService`. `OperationService` recibe una instancia nueva de la clase `IOperationTransient`. La nueva instancia produce un objeto `OperationId` diferente.
+* Si se crean servicios con ámbito por cada solicitud, el objeto `OperationId` del servicio `IOperationScoped` es el mismo que para `OperationService` dentro de la solicitud. Entre las solicitudes, ambos servicios comparten un valor `OperationId` diferente.
+* Si se crean servicios singleton y servicios de instancia singleton una vez y se usan en todas las solicitudes y servicios, el objeto `OperationId` es constante en todas las solicitudes de servicio.
 
 ::: moniker range=">= aspnetcore-2.1"
 
@@ -538,7 +538,7 @@ El patrón de diseño Factory Method de un servicio único, como el segundo argu
 
 ## <a name="recommendations"></a>Recomendaciones
 
-Cuando trabaje con la inserción de dependencias, tenga en cuenta las recomendaciones siguientes:
+* No se admite la resolución de servicio basada en `async/await` y `Task`. C# no admite los constructores asincrónicos, por lo que el patrón recomendado es usar métodos asincrónicos después de resolver el servicio de manera sincrónica.
 
 * Evite almacenar datos y configuraciones directamente en el contenedor de servicios. Por ejemplo, el carro de la compra de un usuario no debería agregarse al contenedor de servicios. La configuración debe usar el [patrón de opciones](xref:fundamentals/configuration/options). Del mismo modo, evite los objetos de tipo "contenedor de datos" que solo existen para permitir el acceso a otro objeto. Es mejor solicitar el elemento real que se necesita mediante la inserción de dependencias.
 
@@ -557,7 +557,6 @@ La inserción de dependencias es una *alternativa* a los patrones de acceso a ob
 * <xref:mvc/views/dependency-injection>
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
-* <xref:fundamentals/repository-pattern>
 * <xref:fundamentals/startup>
 * <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>

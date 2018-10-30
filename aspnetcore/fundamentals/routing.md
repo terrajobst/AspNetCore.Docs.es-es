@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: d9ba96c7b2abd35b1b13c84814bf3f776e8d8731
-ms.sourcegitcommit: 13940eb53c68664b11a2d685ee17c78faab1945d
+ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
+ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47861062"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49348564"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
@@ -391,7 +391,15 @@ Para restringir un parámetro a un conjunto conocido de valores posibles, use un
 
 ## <a name="parameter-transformer-reference"></a>Referencia de transformadores de parámetros
 
-Los transformadores de parámetros se ejecutan cuando se genera un vínculo para una `Route`. Los transformadores de parámetros toman el valor de ruta del parámetro y lo transforman en un nuevo valor de cadena. El valor transformado se usa en el vínculo generado. Por ejemplo, un transformador de parámetros personalizado `slugify` en el patrón de ruta `blog\{article:slugify}` con `Url.Action(new { article = "MyTestArticle" })` genera `blog\my-test-article`. Los transformadores de parámetros implementan `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer` y se configuran mediante <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+Transformadores de parámetros:
+
+* Se ejecutan al generar un vínculo para `Route`.
+* Implemente `Microsoft.AspNetCore.Routing.IOutboundParameterTransformer`.
+* Se configuran con <xref:Microsoft.AspNetCore.Routing.RouteOptions.ConstraintMap>.
+* Toman el valor de ruta del parámetro y lo transforman en un nuevo valor de cadena.
+* El valor transformado se usa en el vínculo generado.
+
+Por ejemplo, un transformador de parámetros personalizado `slugify` en el patrón de ruta `blog\{article:slugify}` con `Url.Action(new { article = "MyTestArticle" })` genera `blog\my-test-article`.
 
 Los marcos también usan transformadores de parámetros para transformar el URI en el que se resuelve un punto de conexión. Por ejemplo, ASP.NET Core MVC usa transformadores de parámetros para transformar el valor de ruta usado para hacer coincidir elementos `area`, `controller`, `action` y `page`.
 
@@ -403,7 +411,10 @@ routes.MapRoute(
 
 Con la ruta anterior, la acción `SubscriptionManagementController.GetAll()` coincide con el URI `/subscription-management/get-all`. Un transformador de parámetros no cambia los valores de ruta usados para generar un vínculo. `Url.Action("GetAll", "SubscriptionManagement")` genera `/subscription-management/get-all`.
 
-ASP.NET Core MVC también incluye la convención de API `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`. La convención aplica un transformador de parámetros especificado a todos los tokens de ruta de atributo de la aplicación.
+ASP.NET Core proporciona las convenciones de API para usar transformadores de parámetros con rutas generadas:
+
+* ASP.NET Core MVC tiene la convención de API `Microsoft.AspNetCore.Mvc.ApplicationModels.RouteTokenTransformerConvention`. Esta convención aplica un transformador de parámetro especificado a todas las rutas de atributo de la aplicación. El transformador de parámetro transforma los tokens de rutas de atributo a medida que se reemplazan. Para más información, consulte [Usar un transformador de parámetro para personalizar el reemplazo de tokens](/aspnet/core/mvc/controllers/routing#use-a-parameter-transformer-to-customize-token-replacement).
+* Razor Pages tiene la convención de API `Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteTransformerConvention`. Esta convención aplica un transformador de parámetro especificado a todas las instancias de Razor Pages descubiertas automáticamente. El transformador de parámetro transforma los segmentos nombre de archivo y carpeta de las rutas de Razor Pages. Para más información, consulte el artículo sobre cómo [usar un transformador de parámetro para personalizar rutas de Razor Pages](/aspnet/core/razor-pages/razor-pages-conventions#use-a-parameter-transformer-to-customize-page-routes).
 
 ::: moniker-end
 

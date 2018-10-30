@@ -6,18 +6,18 @@ ms.author: scaddie
 ms.custom: mvc
 ms.date: 08/15/2018
 uid: web-api/index
-ms.openlocfilehash: 763b95fb8ed3806bc67b7ad199153ea1027efa57
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: e4615e5d416ba2433d55309b25ee3643c6c636ac
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090425"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207009"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Compilación de API web con ASP.NET Core
 
 Por [Scott Addie](https://github.com/scottaddie)
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/web-api/define-controller/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 En este documento se explica cómo crear una API web en ASP.NET Core y los casos en los que se recomienda usar cada una.
 
@@ -100,7 +100,7 @@ El comportamiento predeterminado se deshabilita al establecer la propiedad <xref
 
 [!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
 
-Con una marca de compatibilidad de 2.2 o posterior, el tipo de respuesta predeterminada que se devuelve para las respuestas 400 es un elemento <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Use la propiedad [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> para emplear el formato de error de ASP.NET Core 2.1.
+Con una marca de compatibilidad de 2.2 o posterior, el tipo de respuesta predeterminada que se devuelve para las respuestas 400 es un elemento <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Utilice la propiedad [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> para usar el formato de error de ASP.NET Core 2.1.
 
 ### <a name="binding-source-parameter-inference"></a>Inferencia de parámetro de origen de enlace
 

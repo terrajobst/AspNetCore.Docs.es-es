@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/11/2018
 uid: fundamentals/logging/index
-ms.openlocfilehash: e11657e27787e2fab8eacc8d4148a7ab089f9f53
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: f7cfb3823a188f28398d59e0d009e9ddc159dc32
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391328"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207581"
 ---
 # <a name="logging-in-aspnet-core"></a>Registro en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Steve Smith](https://ardalis.com/) y [Tom Dykstra](https://github.com/tdyks
 
 ASP.NET Core es compatible con una API de registro que funciona con una gran variedad de proveedores de registro integrados y de terceros. En este artículo se muestra cómo usar las API de registro con proveedores integrados.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/logging/index/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="add-providers"></a>Incorporación de proveedores
 
@@ -444,7 +444,7 @@ Para suprimir todos los registros, especifique `LogLevel.None` como el nivel de 
 
 El código de la plantilla de proyecto llama a `CreateDefaultBuilder` para configurar el registro para los proveedores de consola y de depuración. El método `CreateDefaultBuilder` también establece el registro para buscar la configuración en una sección `Logging`, mediante código similar al siguiente:
 
-[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=15)]
+[!code-csharp[](index/samples/2.x/TodoApiSample/Program.cs?name=snippet_ExpandDefault&highlight=16)]
 
 Los datos de configuración especifican niveles de registro mínimo por proveedor y categoría, como en el ejemplo siguiente:
 
@@ -879,6 +879,7 @@ Plataformas de registro de terceros que funcionan con ASP.NET Core:
 * [NLog](http://nlog-project.org/) ([repositorio de GitHub](https://github.com/NLog/NLog.Extensions.Logging))
 * [Sentry](https://sentry.io/welcome/) ([repositorio de GitHub](https://github.com/getsentry/sentry-dotnet))
 * [Serilog](https://serilog.net/) ([repositorio de GitHub](https://github.com/serilog/serilog-extensions-logging))
+* [Stackdriver](https://cloud.google.com/dotnet/docs/stackdriver#logging) ([repositorio de GitHub](https://github.com/googleapis/google-cloud-dotnet))
 
 Algunas plataformas de terceros pueden realizar [registro semántico, también conocido como registro estructurado](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
