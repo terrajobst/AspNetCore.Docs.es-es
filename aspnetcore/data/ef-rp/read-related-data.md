@@ -3,14 +3,15 @@ title: 'Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacion
 author: rick-anderson
 description: En este tutorial, leerá y mostrará datos relacionados, es decir, los datos que Entity Framework carga en las propiedades de navegación.
 ms.author: riande
-ms.date: 11/05/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-rp/read-related-data
-ms.openlocfilehash: e8b59c19eac2c2adc1f13cf1e44f750576686c87
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: cf8733e1e806c4be0c4b217fc45c7a338a03a3ce
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348499"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207561"
 ---
 # <a name="razor-pages-with-ef-core-in-aspnet-core---read-related-data---6-of-8"></a>Páginas de Razor con EF Core en ASP.NET Core: Lectura de datos relacionados (6 de 8)
 
@@ -20,7 +21,7 @@ Por [Tom Dykstra](https://github.com/tdykstra), [Jon P Smith](https://twitter.co
 
 En este tutorial, se leen y se muestran datos relacionados. Los datos relacionados son los que EF Core carga en las propiedades de navegación.
 
-Si experimenta problemas que no puede resolver, [descargue o vea la aplicación completada](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Instrucciones de descarga](xref:tutorials/index#how-to-download-a-sample).
+Si experimenta problemas que no puede resolver, [descargue o vea la aplicación completada](https://github.com/aspnet/Docs/tree/master/aspnetcore/data/ef-rp/intro/samples). [Instrucciones de descarga](xref:index#how-to-download-a-sample).
 
 En las ilustraciones siguientes se muestran las páginas completadas para este tutorial:
 
@@ -32,7 +33,7 @@ En las ilustraciones siguientes se muestran las páginas completadas para este t
 
 EF Core puede cargar datos relacionados en las propiedades de navegación de una entidad de varias maneras:
 
-* [Carga diligente](https://docs.microsoft.com/ef/core/querying/related-data#eager-loading). La carga diligente es cuando una consulta para un tipo de entidad también carga las entidades relacionadas. Cuando se lee la entidad, se recuperan sus datos relacionados. Esto normalmente da como resultado una única consulta de combinación en la que se recuperan todos los datos que se necesitan. EF Core emitirá varias consultas para algunos tipos de carga diligente. La emisión de varias consultas puede ser más eficaz de lo que eran algunas consultas de EF6 cuando había una sola consulta. La carga diligente se especifica con los métodos `Include` y `ThenInclude`.
+* [Carga diligente](/ef/core/querying/related-data#eager-loading). La carga diligente es cuando una consulta para un tipo de entidad también carga las entidades relacionadas. Cuando se lee la entidad, se recuperan sus datos relacionados. Esto normalmente da como resultado una única consulta de combinación en la que se recuperan todos los datos que se necesitan. EF Core emitirá varias consultas para algunos tipos de carga diligente. La emisión de varias consultas puede ser más eficaz de lo que eran algunas consultas de EF6 cuando había una sola consulta. La carga diligente se especifica con los métodos `Include` y `ThenInclude`.
 
   ![Ejemplo de carga diligente](read-related-data/_static/eager-loading.png)
  
@@ -47,11 +48,11 @@ EF Core puede cargar datos relacionados en las propiedades de navegación de una
 
   Nota: EF Core corrige automáticamente las propiedades de navegación para todas las entidades que se cargaron previamente en la instancia del contexto. Incluso si los datos de una propiedad de navegación *no* se incluyen explícitamente, es posible que la propiedad se siga rellenando si algunas o todas las entidades relacionadas se cargaron previamente.
 
-* [Carga explícita](https://docs.microsoft.com/ef/core/querying/related-data#explicit-loading). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. Se debe escribir código para recuperar los datos relacionados cuando sea necesario. La carga explícita con consultas independientes da como resultado varias consultas que se envían a la base de datos. Con la carga explícita, el código especifica las propiedades de navegación que se van a cargar. Use el método `Load` para realizar la carga explícita. Por ejemplo:
+* [Carga explícita](/ef/core/querying/related-data#explicit-loading). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. Se debe escribir código para recuperar los datos relacionados cuando sea necesario. La carga explícita con consultas independientes da como resultado varias consultas que se envían a la base de datos. Con la carga explícita, el código especifica las propiedades de navegación que se van a cargar. Use el método `Load` para realizar la carga explícita. Por ejemplo:
 
   ![Ejemplo de carga explícita](read-related-data/_static/explicit-loading.png)
 
-* [Carga diferida](https://docs.microsoft.com/ef/core/querying/related-data#lazy-loading). [Se ha agregado la carga diferida a EF Core en la versión 2.1](/ef/core/querying/related-data#lazy-loading). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. La primera vez que se obtiene acceso a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Cada vez que se obtiene acceso a una propiedad de navegación, se envía una consulta a la base de datos.
+* [Carga diferida](/ef/core/querying/related-data#lazy-loading). [Se ha agregado la carga diferida a EF Core en la versión 2.1](/ef/core/querying/related-data#lazy-loading). Cuando la entidad se lee por primera vez, no se recuperan datos relacionados. La primera vez que se obtiene acceso a una propiedad de navegación, se recuperan automáticamente los datos necesarios para esa propiedad de navegación. Cada vez que se obtiene acceso a una propiedad de navegación, se envía una consulta a la base de datos.
 
 * El operador `Select` solo carga los datos relacionados necesarios.
 
