@@ -5,30 +5,30 @@ description: Obtenga información sobre cómo crear una aplicación de páginas 
 ms.author: riande
 ms.date: 7/24/2018
 uid: security/authorization/secure-data
-ms.openlocfilehash: 7d9521686c67ab9120238886d50af081ce4c6907
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 786e83eb28722e83eea46def962593f58ad524e2
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207867"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244845"
 ---
+# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización
+
+Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twitter.com/joeaudette)
+
 ::: moniker range="<= aspnetcore-1.1"
 
-Consulte [este PDF](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_1-16-18.pdf) para la versión de ASP.NET Core MVC. La versión 1.1 de ASP.NET Core de este tutorial se encuentra en [esto](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) carpeta. La 1.1 de ejemplo de ASP.NET Core se encuentra en la [ejemplos](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
+Consulte [este PDF](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_1-16-18.pdf) para la versión de ASP.NET Core MVC. La versión 1.1 de ASP.NET Core de este tutorial se encuentra en [esto](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data) carpeta. La 1.1 de ejemplo de ASP.NET Core se encuentra en la [ejemplos](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/samples/final2).
 
 ::: moniker-end
 
 ::: moniker range="= aspnetcore-2.0"
 
-Consulte [este pdf](https://github.com/aspnet/Docs/tree/master/aspnetcore/security/authorization/secure-data/asp.net_repo_pdf_July16_18.pdf)
+Consulte [este pdf](https://webpifeed.blob.core.windows.net/webpifeed/Partners/asp.net_repo_pdf_July16_18.pdf)
 
 ::: moniker-end
 
 ::: moniker range=">= aspnetcore-2.1"
-
-# <a name="create-an-aspnet-core-app-with-user-data-protected-by-authorization"></a>Crear una aplicación ASP.NET Core con datos de usuario protegidos por autorización
-
-Por [Rick Anderson](https://twitter.com/RickAndMSFT) y [Joe Audette](https://twitter.com/joeaudette)
 
 Este tutorial muestra cómo crear una aplicación web ASP.NET Core con los datos protegidos por autorización del usuario. Muestra una lista de contactos que autentican los usuarios (registrados) ha creado. Hay tres grupos de seguridad:
 
