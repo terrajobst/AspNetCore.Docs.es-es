@@ -8,12 +8,12 @@ ms.date: 08/29/2011
 ms.assetid: c23d27f7-b0cf-44f2-8445-fb69e045c674
 msc.legacyurl: /mvc/overview/older-versions/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc/using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1
 msc.type: authoredcontent
-ms.openlocfilehash: a9a373a54458faa21199019a4adbe69c0b94cb60
-ms.sourcegitcommit: 7b4e3936feacb1a8fcea7802aab3e2ea9c8af5b4
+ms.openlocfilehash: a4cd6e9adfcd85503b9843232903a243bc07c959
+ms.sourcegitcommit: 392a36ed269b88899d6bb652aa7f4dfb72e43e7f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48577351"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50220666"
 ---
 <a name="using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc---part-1"></a>Uso de HTML5 y calendario emergente de la interfaz de usuario Datepicker de jQuery con ASP.NET MVC - parte 1
 ====================
@@ -54,7 +54,7 @@ Aquí es lo que aprenderá:
 
 ### <a name="getting-started"></a>Introducción
 
-Si no dispone de la aplicación de la lista de películas desde el proyecto de inicio, descargarlo mediante el siguiente vínculo: [descargar](https://code.msdn.microsoft.com/Project/Download/FileDownload.aspx? https://archive.msdn.microsoft.com/Project/Download/FileDownload.aspx?ProjectName=aspnetmvcsamples&amp;DownloadId=15800). A continuación, en el Explorador de Windows, haga clic en el *MvcMovie.zip* de archivo y seleccione **propiedades**. En el **MvcMovie.zip propiedades** cuadro de diálogo, seleccione **desbloquear**. (Desbloqueo evita recibir una advertencia de seguridad que se produce cuando se intenta usar un *.zip* archivo que ha descargado desde el web.)
+Si no dispone de la aplicación de la lista de películas desde el proyecto de inicio, descargarlo mediante el siguiente vínculo: [descargar](https://code.msdn.microsoft.com/Introduction-to-MVC-3-10d1b098). A continuación, en el Explorador de Windows, haga clic en el *MvcMovie.zip* de archivo y seleccione **propiedades**. En el **MvcMovie.zip propiedades** cuadro de diálogo, seleccione **desbloquear**. (Desbloqueo evita recibir una advertencia de seguridad que se produce cuando se intenta usar un *.zip* archivo que ha descargado desde el web.)
 
 ![](using-the-html5-and-jquery-ui-datepicker-popup-calendar-with-aspnet-mvc-part-1/_static/image2.png)
 

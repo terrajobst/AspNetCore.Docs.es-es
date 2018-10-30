@@ -6,23 +6,23 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 500cefbc7caee2054b4afda7c1277685862f5ad4
-ms.sourcegitcommit: 6e6002de467cd135a69e5518d4ba9422d693132a
+ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49348564"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207761"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
 Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-La funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta. Las rutas se definen en la aplicación y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación, la funcionalidad de enrutamiento también puede generar direcciones URL que se asignan a controladores de ruta. Por tanto, el enrutamiento puede buscar un controlador de ruta basado en una dirección URL o la dirección URL correspondiente a un controlador de ruta determinado en función de la información del controlador de ruta.
+La funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta. Las rutas se definen en la aplicación y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación, la funcionalidad de enrutamiento también puede generar direcciones URL que se asignan a controladores de ruta. Por tanto, el enrutamiento puede buscar un controlador de ruta a partir de una dirección URL, o bien encontrar la dirección URL correspondiente a un controlador de ruta determinado en función de la información del controlador de ruta.
 
 > [!IMPORTANT]
 > En este documento se describe el enrutamiento de ASP.NET Core de bajo nivel. Para obtener información sobre el enrutamiento de ASP.NET Core MVC, vea <xref:mvc/controllers/routing>.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/routing/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="routing-basics"></a>Fundamentos del enrutamiento
 
@@ -47,7 +47,7 @@ Una coincidencia durante `RouteAsync` también establece las propiedades de `Rou
 
 [RouteData.Values](xref:Microsoft.AspNetCore.Routing.RouteData.Values*) es un diccionario de los *valores de ruta* generados desde la ruta. Estos valores se suelen determinar mediante la conversión en tokens de la dirección URL, y se pueden usar para aceptar la entrada del usuario o para tomar otras decisiones sobre el envío dentro de la aplicación.
 
-[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) es un contenedor de propiedades de datos adicionales relacionados con la ruta coincidente. Se proporcionan `DataTokens` para permitir la asociación de datos de estado con cada ruta, de modo que la aplicación pueda tomar decisiones más adelante en función de las rutas que han coincidido. Estos valores los define el desarrollador y **no** afectan de ninguna manera al comportamiento del enrutamiento. Además, los valores que se guardan provisionalmente en tokens de datos pueden ser de cualquier tipo, a diferencia de los valores de ruta, que deben poder convertirse fácilmente en cadenas y a partir de estas.
+[RouteData.DataTokens](xref:Microsoft.AspNetCore.Routing.RouteData.DataTokens*) es un contenedor de propiedades de datos adicionales relacionados con la ruta coincidente. Se proporcionan `DataTokens` para permitir la asociación de datos de estado con cada ruta, de modo que la aplicación pueda tomar decisiones más adelante en función de las rutas que han coincidido. Estos valores los define el desarrollador y **no** afectan de ninguna manera al comportamiento del enrutamiento. Además, los valores que se guardan provisionalmente en `RouteData.DataTokens` pueden ser de cualquier tipo, a diferencia de `RouteData.Values`, que deben poder convertirse fácilmente en cadenas y a partir de estas.
 
 [RouteData.Routers](xref:Microsoft.AspNetCore.Routing.RouteData.Routers*) es una lista de las rutas que han participado en encontrar una coincidencia correcta con la solicitud. Las rutas se pueden anidar unas dentro de otras. La propiedad `Routers` refleja la ruta de acceso del árbol lógico de rutas que han tenido como resultado una coincidencia. Por lo general, el primer elemento de `Routers` es la colección de rutas y se debe usar para la generación de direcciones URL. El último elemento de `Routers` es el controlador de ruta que ha coincidido.
 
@@ -63,7 +63,7 @@ La principal entradas de `GetVirtualPath` son:
 * [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*)
 * [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*)
 
-Las rutas usan principalmente los valores de ruta proporcionados por `Values` y `AmbientValues` para decidir dónde se puede generar una dirección URL y qué valores se deben incluir. `AmbientValues` son el conjunto de valores de ruta producidos cuando la solicitud actual coincide con el sistema de enrutamiento. En cambio, `Values` son los valores de ruta que especifican cómo se genera la dirección URL deseada para la operación actual. Se proporciona `HttpContext` por si una ruta necesita obtener servicios o datos adicionales asociados con el contexto actual.
+Las rutas usan principalmente los valores de ruta proporcionados por `Values` y `AmbientValues` para decidir si es posible generar una dirección URL y qué valores se deben incluir. `AmbientValues` son el conjunto de valores de ruta producidos cuando la solicitud actual coincide con el sistema de enrutamiento. En cambio, `Values` son los valores de ruta que especifican cómo se genera la dirección URL deseada para la operación actual. Se proporciona `HttpContext` por si una ruta necesita obtener servicios o datos adicionales asociados con el contexto actual.
 
 > [!TIP]
 > Piense en [VirtualPathContext.Values](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.Values*) como un conjunto de invalidaciones para [VirtualPathContext.AmbientValues](xref:Microsoft.AspNetCore.Routing.VirtualPathContext.AmbientValues*). La generación de direcciones URL intenta reutilizar los valores de ruta de la solicitud actual para que sea más fácil generar direcciones URL para los vínculos con la misma ruta o valores de ruta.

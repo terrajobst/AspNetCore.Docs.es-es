@@ -6,12 +6,12 @@ monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.date: 09/10/2018
 uid: signalr/version-differences
-ms.openlocfilehash: 4ac7952f26500285fc1c8f9453feb3ea8b33851a
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 3cec37719b743b3c805ada77249f526278e44599
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089835"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234610"
 ---
 # <a name="differences-between-aspnet-signalr-and-aspnet-core-signalr"></a>Diferencias entre SignalR de ASP.NET y ASP.NET Core SignalR
 
@@ -56,9 +56,9 @@ app.UseSignalR(routes =>
 });
 ```
 
-### <a name="sticky-sessions-now-required"></a>Ahora requeridas sesiones
+### <a name="sticky-sessions"></a>Sesiones permanentes
 
-Debido a cómo escalar horizontalmente trabajado en SignalR de ASP.NET, los clientes podrían volver a conectarse y enviar mensajes a cualquier servidor de la granja de servidores. Debido a cambios en el modelo de escalabilidad horizontal, así como que no admiten reconexiones, ya no se admite. Una vez que el cliente se conecta al servidor, debe interactuar con el mismo servidor para la duración de la conexión.
+El modelo de escalabilidad horizontal de SignalR de ASP.NET permite a los clientes volver a conectarse y enviar mensajes a cualquier servidor de la granja de servidores. En ASP.NET Core SignalR, el cliente debe interactuar con el mismo servidor para la duración de la conexión. Para el escalado horizontal con Redis, que significa que se requieren sesiones permanentes. Para usar el escalado horizontal [Azure SignalR Service](/azure/azure-signalr/), sesiones temporales no son necesarias porque el servicio controla las conexiones a los clientes. 
 
 ### <a name="single-hub-per-connection"></a>Centro único por conexión
 

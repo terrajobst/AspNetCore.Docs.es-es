@@ -7,12 +7,12 @@ ms.author: anurse
 ms.custom: mvc
 ms.date: 06/29/2018
 uid: signalr/authn-and-authz
-ms.openlocfilehash: 31d5f753e043157caf43fa8df54e310ea0efd17b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7cfe90115b0710fba196693efd309f7c914f0ad4
+ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207945"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50234545"
 ---
 # <a name="authentication-and-authorization-in-aspnet-core-signalr"></a>Autenticación y autorización en ASP.NET Core SignalR
 
@@ -28,11 +28,13 @@ Se puede usar SignalR con [autenticación de ASP.NET Core](xref:security/authent
 
 Autenticación con cookies en una aplicación basada en explorador, permite que sus credenciales de usuario existente fluya automáticamente a las conexiones de SignalR. Cuando se usa el explorador del cliente, no se necesita ninguna configuración adicional. Si el usuario inicia sesión en su aplicación, la conexión de SignalR hereda automáticamente esta autenticación.
 
-Autenticación con cookies no se recomienda a menos que la aplicación solo necesita autenticar a los usuarios desde el explorador del cliente. Cuando se usa el [cliente.NET](xref:signalr/dotnet-client), el `Cookies` propiedad se puede configurar en el `.WithUrl` llamada con el fin de proporcionar una cookie. Sin embargo, requiere la aplicación para proporcionar una API para intercambiar datos de autenticación para una cookie mediante la autenticación de cookies del cliente. NET.
+Las cookies son una manera específica del explorador para enviar tokens de acceso, pero los clientes sin explorador pueden enviarlos. Cuando se usa el [cliente.NET](xref:signalr/dotnet-client), el `Cookies` propiedad se puede configurar en el `.WithUrl` llamada con el fin de proporcionar una cookie. Sin embargo, requiere la aplicación para proporcionar una API para intercambiar datos de autenticación para una cookie mediante la autenticación de cookies del cliente. NET.
 
 ### <a name="bearer-token-authentication"></a>Autenticación de token de portador
 
-Autenticación de token de portador es el enfoque recomendado al usar a los clientes que no sea el explorador del cliente. En este enfoque, el cliente proporciona un token de acceso que el servidor valida y se utiliza para identificar al usuario. Los detalles de autenticación de token de portador son más allá del ámbito de este documento. En el servidor, la autenticación de token de portador se configura mediante el [middleware de portador JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
+El cliente puede proporcionar un token de acceso en lugar de usar una cookie. El servidor valida el token y lo usa para identificar al usuario. Esta validación se realiza solo cuando se establece la conexión. Durante la vida de la conexión, el servidor no validar automáticamente para comprobar la revocación del token.
+
+En el servidor, la autenticación de token de portador se configura mediante el [middleware de portador JWT](/dotnet/api/microsoft.extensions.dependencyinjection.jwtbearerextensions.addjwtbearer).
 
 En el cliente de JavaScript, se puede proporcionar el token mediante el [accessTokenFactory](xref:signalr/configuration#configure-bearer-authentication) opción.
 
@@ -55,6 +57,10 @@ var connection = new HubConnectionBuilder()
 En las API web estándar, se envían los tokens de portador en un encabezado HTTP. Sin embargo, SignalR es no se puede establecer estos encabezados en los exploradores cuando se usa algunos transportes. Cuando se usa WebSockets y los eventos, el token se transmite como un parámetro de cadena de consulta. Para admitir esto en el servidor, se requiere configuración adicional:
 
 [!code-csharp[Configure Server to accept access token from Query String](authn-and-authz/sample/Startup.cs?name=snippet)]
+
+### <a name="cookies-vs-bearer-tokens"></a>Cookies frente a los tokens de portador 
+
+Dado que las cookies son específicas de los exploradores, enviarlos de otros tipos de clientes agrega complejidad al comparado con el envío de tokens de portador. Por este motivo, la autenticación de cookies no se recomienda a menos que la aplicación solo necesita autenticar a los usuarios desde el explorador del cliente. Autenticación de token de portador es el enfoque recomendado al usar a los clientes que no sea el explorador del cliente.
 
 ### <a name="windows-authentication"></a>Autenticación de Windows
 
