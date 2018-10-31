@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: security/index
-ms.openlocfilehash: f3b1f74f2e3a991b72cae94019f42548e3858f20
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: 4277266e20ab1921a2ba24d4500358ba90330370
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091033"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50252950"
 ---
 # <a name="overview-of-aspnet-core-security"></a>Introducción a la seguridad de ASP.NET Core
 
@@ -40,7 +40,7 @@ Hay más vulnerabilidades que debe tener en cuenta. Para obtener más informaci�
 
 ## <a name="aspnet-core-security-documentation"></a>Documentación de seguridad de ASP.NET Core
 
-* [Autenticación](xref:security/authentication/index)
+* Autenticación
   * [Introducción a Identity](xref:security/authentication/identity)
   * [Habilitar la autenticación con Facebook, Google y otros proveedores externos](xref:security/authentication/social/index)
   * [Habilitar la autenticación con WS-Federation](xref:security/authentication/ws-federation)
@@ -54,7 +54,7 @@ Hay más vulnerabilidades que debe tener en cuenta. Para obtener más informaci�
     * [Llamada a una API web en una aplicación web de ASP.NET Core con Azure AD](https://azure.microsoft.com/documentation/samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/)
     * [Una aplicación web de ASP.NET Core con Azure AD B2C](https://azure.microsoft.com/resources/samples/active-directory-b2c-dotnetcore-webapp/)
   * [Protección de aplicaciones de ASP.NET Core con IdentityServer4](https://identityserver4.readthedocs.io)
-* [Autorización](xref:security/authorization/index)
+* Autorización
   * [Introducción](xref:security/authorization/introduction)
   * [Creación de una aplicación con datos de usuario protegidos por autorización](xref:security/authorization/secure-data)
   * [Autorización simple](xref:security/authorization/simple)
@@ -65,10 +65,10 @@ Hay más vulnerabilidades que debe tener en cuenta. Para obtener más informaci�
   * [Autorización basada en recursos](xref:security/authorization/resourcebased)
   * [Autorización basada en visualizaciones](xref:security/authorization/views)
   * [Limitación de la identidad por esquema](xref:security/authorization/limitingidentitybyscheme)
-* [Protección de datos](xref:security/data-protection/index)
+* Protección de datos
   * [Introducción a la protección de datos](xref:security/data-protection/introduction)
   * [Introducción a las API de protección de datos](xref:security/data-protection/using-data-protection)
-  * [API de consumidor](xref:security/data-protection/consumer-apis/index)
+  * API de consumidor
     * [Información general sobre las API de consumidor](xref:security/data-protection/consumer-apis/overview)
     * [Cadenas de propósito](xref:security/data-protection/consumer-apis/purpose-strings)
     * [Jerarquía de propósito y configuración multiempresa](xref:security/data-protection/consumer-apis/purpose-strings-multitenancy)

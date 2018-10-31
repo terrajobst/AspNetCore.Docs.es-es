@@ -1,8 +1,8 @@
 # <a name="aspnet-core-authorization-sample"></a>Ejemplo de autorización de ASP.NET Core
 
-Este ejemplo muestra el uso de la autorización de las páginas de Razor convenciones. Este ejemplo muestra las características descritas en la [convenciones de autorización de las páginas de Razor](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) tema.
+Este ejemplo ilustra el uso de la autorización de las páginas de Razor mediante convenciones. Este ejemplo muestra las características descritas en la [convenciones de autorización de las páginas de Razor](https://docs.microsoft.com/aspnet/core/security/authorization/razor-pages-authorization) tema.
 
-Autorización del usuario en este ejemplo utiliza la autenticación de cookie características se describen en la [utilizar autenticación de cookie sin ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tema. Para obtener información sobre el uso de la identidad de núcleo de ASP.NET, vea los temas de la [autenticación](https://docs.microsoft.com/aspnet/core/security/authentication/index) sección de la documentación.
+Autorización de usuario en este ejemplo usa características que se describen en la autenticación con cookies la [utilizar autenticación de cookies sin ASP.NET Core Identity](https://docs.microsoft.com/aspnet/core/security/authentication/cookie) tema. Para obtener información sobre el uso de ASP.NET Core Identity, vea <xref:security/authentication/identity>.
 
 Al ejecutar el ejemplo, use la dirección de correo electrónico **maria.rodriguez@contoso.com** para autenticar al usuario.
 
