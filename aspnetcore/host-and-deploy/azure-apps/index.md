@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: host-and-deploy/azure-apps/index
-ms.openlocfilehash: b238630d6f762e2b9fad1060f8150185bcf413fe
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: c55a5202643bb947b3f38f67aec55ee5cf7b1496
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50090233"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244754"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-app-service"></a>Implementar aplicaciones de ASP.NET Core en Azure App Service
 
@@ -207,6 +207,10 @@ Al implementar una aplicación independiente:
 ### <a name="use-docker-with-web-apps-for-containers"></a>Usar Docker con Web Apps para contenedores
 
 [Docker Hub](https://hub.docker.com/r/microsoft/aspnetcore/) contiene las imágenes de Docker de versión preliminar más recientes. Las imágenes se pueden usar como base. Use la imagen y efectúe la implementación en Web App for Containers con normalidad.
+
+## <a name="protocol-settings-https"></a>Configuración del protocolo (HTTPS)
+
+Los enlaces de protocolo seguro permiten especificar un certificado para usarlo al responder a solicitudes a través de HTTPS. Los enlaces requieren un certificado privado válido (*.pfx*) que se haya emitido para el nombre de host en cuestión. Para obtener más información, vea [Tutorial: Enlace de un certificado SSL personalizado existente con Azure Web Apps](/azure/app-service/app-service-web-tutorial-custom-ssl).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

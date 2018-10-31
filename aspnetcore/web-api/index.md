@@ -4,14 +4,14 @@ author: scottaddie
 description: Obtenga información sobre las características disponibles para la compilación de una API web en ASP.NET Core y los casos en los que se recomienda usar cada una.
 ms.author: scaddie
 ms.custom: mvc
-ms.date: 08/15/2018
+ms.date: 10/30/2018
 uid: web-api/index
-ms.openlocfilehash: 950f4e8afa13bf297ea8658ef1c1bea0c9b62936
-ms.sourcegitcommit: 2ef32676c16f76282f7c23154d13affce8c8bf35
+ms.openlocfilehash: b3e26bee5e4dc8937e810bc5db300a486437f568
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50234597"
+ms.locfileid: "50244767"
 ---
 # <a name="build-web-apis-with-aspnet-core"></a>Compilación de API web con ASP.NET Core
 
@@ -27,13 +27,13 @@ Herede desde la clase <xref:Microsoft.AspNetCore.Mvc.ControllerBase> en un contr
 
 ::: moniker range=">= aspnetcore-2.1"
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
 
 ::: moniker-end
 
 ::: moniker range="<= aspnetcore-2.0"
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_PetsController&highlight=3)]
 
 ::: moniker-end
 
@@ -41,66 +41,81 @@ La clase `ControllerBase` proporciona acceso a varios métodos y propiedades. En
 
 ::: moniker range=">= aspnetcore-2.1"
 
-## <a name="annotate-class-with-apicontrollerattribute"></a>Anotación de una clase con ApiControllerAttribute
+## <a name="annotation-with-apicontrollerattribute"></a>Anotación con ApiControllerAttribute
 
 ASP.NET Core 2.1 incorpora el atributo [[ApiController]](xref:Microsoft.AspNetCore.Mvc.ApiControllerAttribute) para designar una clase de controlador de API web. Por ejemplo:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=2)]
 
-Para usar este atributo se requiere una versión de compatibilidad de 2.1 o posterior, establecida mediante <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>. Por ejemplo, el código resaltado en *Startup.ConfigureServices* establece la marca de compatibilidad 2.2:
+Para usar este atributo a nivel de controlador, se requiere una versión de compatibilidad de 2.1 o posterior, establecida mediante <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>. Por ejemplo, el código resaltado en `Startup.ConfigureServices` establece la marca de compatibilidad 2.1:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=2)]
 
 Para obtener más información, vea <xref:mvc/compatibility-version>.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+En ASP.NET Core 2.2 o versiones posteriores, el atributo `[ApiController]` se puede aplicar a un ensamblado. En este contexto, la anotación aplica el comportamiento de API web a todos los controladores del ensamblado. Tenga en cuenta que no hay ninguna manera de excluir controladores específicos. Le recomendamos que aplique atributos de nivel de ensamblado a la clase `Startup`:
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ApiControllerAttributeOnAssembly&highlight=1)]
+
+Para usar este atributo a nivel de ensamblado, se requiere una versión de compatibilidad de 2.2 o posterior, establecida mediante <xref:Microsoft.Extensions.DependencyInjection.MvcCoreMvcBuilderExtensions.SetCompatibilityVersion*>.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 El atributo `[ApiController]` se suele emparejar con `ControllerBase` para habilitar el comportamiento específico de REST para los controladores. `ControllerBase` proporciona acceso a métodos como <xref:Microsoft.AspNetCore.Mvc.ControllerBase.NotFound*> y <xref:Microsoft.AspNetCore.Mvc.ControllerBase.File*>.
 
 Otro enfoque consiste en crear una clase de controlador base personalizada anotada con el atributo `[ApiController]`:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/MyBaseController.cs?name=snippet_ControllerSignature)]
 
 En las secciones siguientes se describen las ventajas de las características que aporta el atributo.
-
-### <a name="problem-details-responses-for-error-status-codes"></a>Respuestas de los detalles de problemas para los códigos de estado de error
-
-ASP.NET Core 2.1 y las versiones posteriores incluyen [ProblemDetails](xref:Microsoft.AspNetCore.Mvc.ProblemDetails), un tipo basado en la [especificación RFC 7807](https://tools.ietf.org/html/rfc7807). El tipo `ProblemDetails` proporciona un formato estandarizado para tratar los detalles de los errores legibles por una máquina en una respuesta HTTP.
-
-En ASP.NET Core 2.2 y las versiones posteriores, MVC transforma los resultados del código de estado de error (código de estado 400 y superiores) en un resultado con `ProblemDetails`. Observe el código siguiente:
-
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/PetsController.cs?name=snippet_ProblemDetails_StatusCode&highlight=4)]
-
-La respuesta HTTP del resultado `NotFound` tiene un código de estado 404 con un cuerpo `ProblemDetails` similar al siguiente:
-
-```json
-{
-    type: "https://tools.ietf.org/html/rfc7231#section-6.5.4",
-    title: "Not Found",
-    status: 404,
-    traceId: "0HLHLV31KRN83:00000001"
-}
-```
-
-La característica de los detalles del problema requiere una marca de compatibilidad 2.2 o posterior. El comportamiento predeterminado se deshabilita cuando la propiedad [SuppressMapClientErrors](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressMapClientErrors> --> se establece en `true`. El siguiente código de resaltado `Startup.ConfigureServices` deshabilita los detalles del problema:
-
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=8)]
-
-Use la propiedad [ClientErrorMapping](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  Until these resolve, link to the parent class <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.ClientErrorMapping> --> para configurar el contenido de la respuesta `ProblemDetails`. Por ejemplo, el código siguiente permite actualizar la propiedad `type` para respuestas 404:
-
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_SetCompatibilityVersion&highlight=10)]
 
 ### <a name="automatic-http-400-responses"></a>Respuestas HTTP 400 automáticas
 
 Los errores de validación desencadenan automáticamente una respuesta HTTP 400. El código siguiente deja de ser necesario en las acciones:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.Pre21/Controllers/PetsController.cs?name=snippet_ModelStateIsValidCheck)]
 
 Use <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.InvalidModelStateResponseFactory> para personalizar la salida de la respuesta resultante.
 
-El comportamiento predeterminado se deshabilita al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> en `true`. Agregue el siguiente código en *Startup.ConfigureServices* después de `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
+El comportamiento predeterminado se deshabilita al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressModelStateInvalidFilter> en `true`. Agregue el código siguiente en `Startup.ConfigureServices` tras `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);`:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+::: moniker-end
 
-Con una marca de compatibilidad de 2.2 o posterior, el tipo de respuesta predeterminada que se devuelve para las respuestas 400 es un elemento <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. Utilice la propiedad [SuppressUseValidationProblemDetailsForInvalidModelStateResponses](/dotnet/api/microsoft.aspnetcore.Mvc.ApiBehaviorOptions) <!--  <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressUseValidationProblemDetailsForInvalidModelStateResponses> --> para usar el formato de error de ASP.NET Core 2.1.
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=7)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Con una marca de compatibilidad de 2.2 o posterior, el tipo de respuesta predeterminada para las respuestas HTTP 400 es <xref:Microsoft.AspNetCore.Mvc.ValidationProblemDetails>. El tipo `ValidationProblemDetails` cumple los requisitos de la [especificación RFC 7807](https://tools.ietf.org/html/rfc7807). Configure la propiedad `SuppressUseValidationProblemDetailsForInvalidModelStateResponses` como `true` para que devuelva el formato de error de ASP.NET Core 2.1 de <xref:Microsoft.AspNetCore.Mvc.SerializableError> en su lugar. Agregue el siguiente código en `Startup.ConfigureServices`:
+
+```csharp
+services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+    .ConfigureApiBehaviorOptions(options =>
+    {
+        options
+          .SuppressUseValidationProblemDetailsForInvalidModelStateResponses = true;
+    });
+```
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="binding-source-parameter-inference"></a>Inferencia de parámetro de origen de enlace
 
@@ -120,37 +135,103 @@ Un atributo de origen de enlace define la ubicación del valor del parámetro de
 
 Sin el `[ApiController]` atributo, los atributos de origen de enlace se definen explícitamente. En el ejemplo siguiente, el atributo `[FromQuery]` indica que el valor del parámetro `discontinuedOnly` se proporciona en la cadena de consulta de la dirección URL de la solicitud:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_BindingSourceAttributes&highlight=3)]
 
 Las reglas de inferencia se aplican para los orígenes de datos predeterminados de los parámetros de acción. Estas reglas configuran los orígenes de enlace que aplicaría manualmente a los parámetros de acción. Los atributos de origen de enlace presentan este comportamiento:
 
 * **[FromBody]** se infiere para los parámetros de tipo complejo. La excepción a esta regla es cualquier tipo integrado complejo que tenga un significado especial, como <xref:Microsoft.AspNetCore.Http.IFormCollection> y <xref:System.Threading.CancellationToken>. El código de inferencia del origen de enlace omite esos tipos especiales. En el caso de los tipos simples, como `string` y `int`, `[FromBody]` no se infiere. Así pues, para los tipos simples, en los casos en los que quiera utilizar dicha funcionalidad, conviene usar el atributo `[FromBody]`. Cuando una acción contiene más de un parámetro que se especifica explícitamente (a través de `[FromBody]`) o se infiere como enlazado desde el cuerpo de la solicitud, se produce una excepción. Por ejemplo, las firmas de acción siguientes provocan una excepción:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/TestController.cs?name=snippet_ActionsCausingExceptions)]
 
 * **[FromForm]** se infiere para los parámetros de acción de tipo <xref:Microsoft.AspNetCore.Http.IFormFile> y <xref:Microsoft.AspNetCore.Http.IFormFileCollection>. No se infiere para los tipos simples o definidos por el usuario.
 * **[FromRoute]** se infiere para cualquier nombre de parámetro de acción que coincida con un parámetro de la plantilla de ruta. Si varias rutas coinciden con un parámetro de acción, cualquier valor de ruta se considera `[FromRoute]`.
 * **[FromQuery]** se infiere para cualquier otro parámetro de acción.
 
-Las reglas de inferencia predeterminadas se deshabilitan al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> en `true`. Agregue el siguiente código en *Startup.ConfigureServices* después de `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
+Las reglas de inferencia predeterminadas se deshabilitan al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressInferBindingSourcesForParameters> en `true`. Agregue el código siguiente en `Startup.ConfigureServices` tras `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_<version_number>);`:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=6)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=4)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="multipartform-data-request-inference"></a>Inferencia de solicitud de varios elementos o datos de formulario
 
 Si un parámetro de acción se anota con el atributo [[FromForm]](xref:Microsoft.AspNetCore.Mvc.FromFormAttribute), se infiere el tipo de contenido de la solicitud `multipart/form-data`.
 
-El comportamiento predeterminado se deshabilita al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> en `true`. Agregue el siguiente código en *Startup.ConfigureServices* después de `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
+El comportamiento predeterminado se deshabilita al establecer la propiedad <xref:Microsoft.AspNetCore.Mvc.ApiBehaviorOptions.SuppressConsumesConstraintForFormFileParameters> en `true`.
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+Agregue el siguiente código en `Startup.ConfigureServices`:
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=5)]
+
+::: moniker-end
+
+::: moniker range="= aspnetcore-2.1"
+
+Agregue el código siguiente en `Startup.ConfigureServices` tras `services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);`:
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=3)]
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.1"
 
 ### <a name="attribute-routing-requirement"></a>Requisito de enrutamiento mediante atributos
 
 El enrutamiento mediante atributos pasa a ser un requisito. Por ejemplo:
 
-[!code-csharp[](../web-api/define-controller/samples/WebApiSample.Api/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
+[!code-csharp[](define-controller/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_ControllerSignature&highlight=1)]
 
-Las acciones dejan de estar disponibles a través de las [rutas convencionales](xref:mvc/controllers/routing#conventional-routing) definidas en <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> o mediante <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> en *Startup.Configure*.
+Las acciones dejan de estar disponibles a través de las [rutas convencionales](xref:mvc/controllers/routing#conventional-routing) definidas en <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvc*> o mediante <xref:Microsoft.AspNetCore.Builder.MvcApplicationBuilderExtensions.UseMvcWithDefaultRoute*> en `Startup.Configure`.
+
+::: moniker-end
+
+::: moniker range=">= aspnetcore-2.2"
+
+### <a name="problem-details-responses-for-error-status-codes"></a>Respuestas de los detalles de problemas para los códigos de estado de error
+
+En ASP.NET Core 2.2 o versiones posteriores, MVC transforma un resultado de error (un resultado con el código de estado 400 o superior) en un resultado con <xref:Microsoft.AspNetCore.Mvc.ProblemDetails>. `ProblemDetails` es:
+
+* Un tipo basado en la [especificación RFC 7807](https://tools.ietf.org/html/rfc7807).
+* Un formato estandarizado usado para especificar detalles de error de lectura mecánica en una respuesta HTTP.
+
+Observe el código siguiente en una acción de controlador:
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Controllers/ProductsController.cs?name=snippet_ProblemDetailsStatusCode)]
+
+La respuesta HTTP para `NotFound` tiene un código de estado 404 con un cuerpo `ProblemDetails`. Por ejemplo:
+
+```json
+{
+    type: "https://tools.ietf.org/html/rfc7231#section-6.5.4",
+    title: "Not Found",
+    status: 404,
+    traceId: "0HLHLV31KRN83:00000001"
+}
+```
+
+La característica de los detalles del problema requiere una marca de compatibilidad 2.2 o posterior. El comportamiento predeterminado se deshabilita al establecer la propiedad `SuppressMapClientErrors` en `true`. Agregue el siguiente código en `Startup.ConfigureServices`:
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8)]
+
+Use la propiedad `ClientErrorMapping` para configurar el contenido de la respuesta `ProblemDetails`. Por ejemplo, el código siguiente permite actualizar la propiedad `type` para respuestas 404:
+
+[!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
 
 ::: moniker-end
 
