@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: host-and-deploy/iis/index
-ms.openlocfilehash: 6b2cf853575b02de76d44bf79849fe11bb458fbd
-ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
+ms.openlocfilehash: b204eeb35f8765bbafc85b3bb283809727356d3e
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/30/2018
-ms.locfileid: "50244949"
+ms.locfileid: "50253213"
 ---
 # <a name="host-aspnet-core-on-windows-with-iis"></a>Hospedaje de ASP.NET Core en Windows con IIS
 
@@ -401,7 +401,7 @@ Los archivos de la carpeta de implementación se bloquean cuando se ejecuta la a
 
 ## <a name="data-protection"></a>Protección de datos
 
-La [pila de protección de datos de ASP.NET Core](xref:security/data-protection/index) la usan varios [middlewares](xref:fundamentals/middleware/index) de ASP.NET Core, incluidos los que se emplean en la autenticación. Aunque el código de usuario no llame a las API de protección de datos, la protección de datos se debe configurar con un script de implementación o en el código de usuario para crear un [almacén de claves](xref:security/data-protection/implementation/key-management) criptográficas persistente. Si no se configura la protección de datos, las claves se conservan en memoria y se descartan cuando se reinicia la aplicación.
+La [pila de protección de datos de ASP.NET Core](xref:security/data-protection/introduction) la usan varios [middlewares](xref:fundamentals/middleware/index) de ASP.NET Core, incluidos los que se emplean en la autenticación. Aunque el código de usuario no llame a las API de protección de datos, la protección de datos se debe configurar con un script de implementación o en el código de usuario para crear un [almacén de claves](xref:security/data-protection/implementation/key-management) criptográficas persistente. Si no se configura la protección de datos, las claves se conservan en memoria y se descartan cuando se reinicia la aplicación.
 
 Si el conjunto de claves se almacena en memoria cuando se reinicia la aplicación:
 
@@ -434,7 +434,7 @@ Para configurar la protección de datos en IIS para conservar el conjunto de cla
 
 * **Establecer una directiva para todo el equipo para la protección de datos**
 
-  El sistema de protección de datos tiene compatibilidad limitada con el establecimiento de una [directiva de equipo](xref:security/data-protection/configuration/machine-wide-policy) predeterminada para todas las aplicaciones que usan las API de protección de datos. Vea la [documentación de protección de datos](xref:security/data-protection/index) para más detalles.
+  El sistema de protección de datos tiene compatibilidad limitada con el establecimiento de una [directiva de equipo](xref:security/data-protection/configuration/machine-wide-policy) predeterminada para todas las aplicaciones que usan las API de protección de datos. Para obtener más información, vea <xref:security/data-protection/introduction>.
 
 ## <a name="sub-application-configuration"></a>Configuración de aplicaciones secundarias
 
