@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: index
-ms.openlocfilehash: 37448b1b3d0da4e3cb34b1cd51f663b7e53ddced
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: e9bca9fe22dbb64086eba3445c50941c5440974c
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207399"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253072"
 ---
 # <a name="introduction-to-aspnet-core"></a>Introducción a ASP.NET Core
 
@@ -32,9 +32,9 @@ Millones de desarrolladores han usado [ASP.NET 4.x](/aspnet/overview) (y siguen 
 
 ## <a name="build-web-apis-and-web-ui-using-aspnet-core-mvc"></a>Creación de API web e interfaces de usuario web mediante ASP.NET Core MVC
 
-ASP.NET Core MVC proporciona características para crear [API web](xref:tutorials/index#build-web-apis) y [aplicaciones web](xref:tutorials/index#build-web-apps):
+ASP.NET Core MVC proporciona características para crear [API web](xref:tutorials/first-web-api) y [aplicaciones web](xref:tutorials/razor-pages/index):
 
-* El [patrón Modelo-Vista-Controlador (MVC)](xref:mvc/overview) permite que se [puedan hacer pruebas](xref:test/index) en las API web y en las aplicaciones web.
+* El [patrón Modelo-Vista-Controlador (MVC)](xref:mvc/overview) permite que se puedan hacer pruebas en las API web y en las aplicaciones web.
 * [Páginas de Razor](xref:razor-pages/index) (novedad de ASP.NET Core 2.0) es un modelo de programación basado en páginas que facilita la compilación de interfaces de usuario web y hace que sea más productiva.
 * El [marcado de Razor](xref:mvc/views/razor) proporciona una sintaxis productiva para las [páginas de Razor](xref:razor-pages/index) y las [vistas de MVC](xref:mvc/views/overview).
 * Los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) permiten que el código de servidor participe en la creación y la representación de elementos HTML en archivos de Razor.
@@ -80,7 +80,6 @@ En muchos de los artículos y tutoriales se incluyen vínculos a código de ejem
 Para obtener más información, vea los siguientes recursos:
 
 * [Introducción a las páginas de Razor](xref:tutorials/razor-pages/razor-pages-start)
-* [Tutoriales de ASP.NET Core](xref:tutorials/index)
 * <xref:tutorials/publish-to-azure-webapp-using-vs>
 * [Conceptos básicos de ASP.NET Core](xref:fundamentals/index)
 * [La reunión semanal de la comunidad de ASP.NET](https://live.asp.net/) trata el progreso y los planes del equipo. Incluye nuevos blogs y nuevo software de terceros.
