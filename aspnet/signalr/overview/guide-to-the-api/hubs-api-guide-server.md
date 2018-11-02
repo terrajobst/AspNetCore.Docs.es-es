@@ -8,12 +8,12 @@ ms.date: 06/10/2014
 ms.assetid: b19913e5-cd8a-4e4b-a872-5ac7a858a934
 msc.legacyurl: /signalr/overview/guide-to-the-api/hubs-api-guide-server
 msc.type: authoredcontent
-ms.openlocfilehash: 03dd8a73141330348f2877760a5978a8a0b95122
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 6545491cfa36bb9fee555eb0348ec0a319bff470
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836672"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758250"
 ---
 <a name="aspnet-signalr-hubs-api-guide---server-c"></a>Guía de la API SignalR de ASP.NET Hubs - servidor (C#)
 ====================
@@ -304,6 +304,11 @@ Para llamar métodos de cliente desde el servidor, use el `Clients` propiedad en
 
 [!code-csharp[Main](hubs-api-guide-server/samples/sample23.cs?highlight=5)]
 
+Invocar un método de cliente es una operación asincrónica y devuelve un `Task`. Use `await`:
+
+* Para asegurarse de que el mensaje se envió sin errores. 
+* Para habilitar la detección y control de errores en un bloque try-catch.
+
 **Cliente de JavaScript mediante el proxy generado**
 
 [!code-html[Main](hubs-api-guide-server/samples/sample24.html?highlight=1)]
@@ -572,7 +577,7 @@ En VB.NET o en un concentrador fuertemente tipada, el objeto de estado de autor 
 
 ## <a name="how-to-handle-errors-in-the-hub-class"></a>Cómo controlar los errores en la clase Hub
 
-Para controlar los errores que se producen en los métodos de clase de Hub, use uno o varios de los métodos siguientes:
+Para controlar los errores que se producen en los métodos de clase de concentrador, asegúrese en primer lugar "observar" las excepciones de operaciones asincrónicas (como la invocación de métodos de cliente) mediante el uso de `await`. A continuación, use uno o varios de los métodos siguientes:
 
 - Ajustar el código del método en bloques try-catch y registrar el objeto de excepción. Con fines de depuración puede enviar la excepción al cliente, pero para la seguridad no se recomienda motivos enviar información detallada a los clientes en producción.
 - Crear un módulo de canalización de concentradores controla la [OnIncomingError](https://msdn.microsoft.com/library/microsoft.aspnet.signalr.hubs.hubpipelinemodule.onincomingerror(v=vs.111).aspx) método. El ejemplo siguiente muestra un módulo de la canalización que registra los errores, seguidos por el código en Startup.cs que inserta el módulo en la canalización de concentradores.

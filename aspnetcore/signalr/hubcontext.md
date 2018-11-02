@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo usar el servicio de ASP.NET Core S
 monikerRange: '>= aspnetcore-2.1'
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 06/13/2018
+ms.date: 11/01/2018
 uid: signalr/hubcontext
-ms.openlocfilehash: 8be888e1f7b16d65ebbaa24b618e84fca029d80b
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: af125791a75a2dd68c236dd8c5b51eecff244ce4
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207958"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758159"
 ---
 # <a name="send-messages-from-outside-a-hub"></a>Enviar mensajes desde fuera de un concentrador
 
@@ -54,6 +54,27 @@ app.Use(next => async (context) =>
 
 > [!NOTE]
 > Cuando se llaman a métodos de concentrador desde fuera de la `Hub` clase, no hay ningún autor de llamada asociada con la invocación. Por lo tanto, no hay ningún acceso a la `ConnectionId`, `Caller`, y `Others` propiedades.
+
+### <a name="inject-a-strongly-typed-hubcontext"></a>Insertar un HubContext fuertemente tipados
+
+Para insertar un HubContext fuertemente tipado, asegúrese de que hereda de su centro de `Hub<T>`. Insertar mediante el `IHubContext<THub, T>` interfaz en lugar de `IHubContext<THub>`.
+
+```csharp
+public class ChatController : Controller
+{
+    public IHubContext<ChatHub, IChatClient> _strongChatHubContext { get; }
+
+    public SampleDataController(IHubContext<ChatHub, IChatClient> chatHubContext)
+    {
+        _strongChatHubContext = chatHubContext;
+    }
+
+    public async Task SendMessage(string message)
+    {
+        await _strongChatHubContext.Clients.All.ReceiveMessage(message);
+    }
+}
+```
 
 ## <a name="related-resources"></a>Recursos relacionados
 
