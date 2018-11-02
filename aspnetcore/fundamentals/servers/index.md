@@ -6,12 +6,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/21/2018
 uid: fundamentals/servers/index
-ms.openlocfilehash: 161ab3fdf48e58d8c9af991dc5531e46d9c5adff
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 6b6ebbe9d31d571ea470fba0989d622dcf6e68af
+ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325866"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50758211"
 ---
 # <a name="web-server-implementations-in-aspnet-core"></a>Implementaciones de servidores web en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Tom Dykstra](https://github.com/tdykstra), [Steve Smith](https://ardalis.co
 
 Una aplicación ASP.NET Core se ejecuta con una implementación de servidor HTTP en proceso. La implementación del servidor realiza escuchas de solicitudes HTTP y las muestra en la aplicación como conjuntos de [características de solicitud](xref:fundamentals/request-features) compuestos en un <xref:Microsoft.AspNetCore.Http.HttpContext>.
 
-ASP.NET Core incluye tres implementaciones de servidor:
+ASP.NET Core incluye las implementaciones de servidor siguientes:
 
 ::: moniker range=">= aspnetcore-2.2"
 
