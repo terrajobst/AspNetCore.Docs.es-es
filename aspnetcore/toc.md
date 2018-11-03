@@ -179,8 +179,8 @@
 ### [API web con Visual Studio para Mac](xref:tutorials/first-web-api-mac)
 ### [API web para aplicaciones móviles nativas](xref:mobile/native-mobile-backend)
 ## Swagger / OpenAPI
-### [Información general](xref:tutorials/get-started-with-swashbuckle)
-### [Páginas de ayuda de Swagger](xref:tutorials/web-api-help-pages-using-swagger)
+### [Información general](xref:tutorials/web-api-help-pages-using-swagger)
+### [Get started with Swashbuckle](xref:tutorials/get-started-with-swashbuckle) (Introducción a Swashbuckle)
 ### [Get started with NSwag](xref:tutorials/get-started-with-nswag) (Introducción a NSwag)
 ## [Tipos de valor devueltos de acción](xref:web-api/action-return-types)
 ## [Aplicación de formato a datos de respuesta](xref:web-api/advanced/formatting)
