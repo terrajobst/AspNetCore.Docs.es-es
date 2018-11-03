@@ -5,12 +5,12 @@ description: Usar identidad con una aplicación ASP.NET Core. Obtenga informaci�
 ms.author: riande
 ms.date: 08/08/2018
 uid: security/authentication/identity
-ms.openlocfilehash: 4e162edc8fb63457c8690692685f344dccdfc659
-ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
+ms.openlocfilehash: 099ebd398238173079e5e659171f31ee5b1f7452
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252934"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968337"
 ---
 # <a name="introduction-to-identity-on-aspnet-core"></a>Introducción a la identidad en ASP.NET Core
 
@@ -113,7 +113,7 @@ Para obtener más información, consulte el [IdentityOptions clase](/dotnet/api/
 
 ## <a name="scaffold-register-login-and-logout"></a>Aplicar la técnica scaffolding registrar, inicio de sesión y cierre de sesión
 
-Siga el [aplicar la técnica scaffolding en un proyecto de Razor sin autorización identidad](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization) instrucciones.
+Siga el [aplicar la técnica scaffolding identidad en un proyecto de Razor sin autorización](xref:security/authentication/scaffold-identity#scaffold-identity-into-a-razor-project-with-authorization) instrucciones para generar el código mostrado en esta sección.
 
 # <a name="visual-studiotabvisual-studio"></a>[Visual Studio](#tab/visual-studio)
 
