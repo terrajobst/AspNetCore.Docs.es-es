@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/10/2018
 uid: mvc/views/tag-helpers/builtin-th/cache-tag-helper
-ms.openlocfilehash: 7d64c500168166b0a7a29d5b92473726d5a9f49a
-ms.sourcegitcommit: 4bdf7703aed86ebd56b9b4bae9ad5700002af32d
+ms.openlocfilehash: 2590682755721a4bb14902b9fe7138a3bff56d31
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49325346"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148816"
 ---
 # <a name="cache-tag-helper-in-aspnet-core-mvc"></a>Asistente de etiquetas de caché en ASP.NET Core MVC
 
@@ -119,7 +119,7 @@ En el ejemplo siguiente se supervisa el valor del encabezado `User-Agent`. En el
 | -------------- | -------------------- |
 | String         | `Make`, `Make,Model` |
 
-`vary-by-query` acepta una lista de los valores de encabezado separados por comas que desencadenan una actualización de la caché cuando cambia el valor del encabezado.
+`vary-by-query` acepta una lista de valores separados por comas de <xref:Microsoft.AspNetCore.Http.IQueryCollection.Keys*> en una cadena de consulta (<xref:Microsoft.AspNetCore.Http.HttpRequest.Query*>) que desencadenan una actualización de la caché cuando cambia el valor de cualquiera de las claves.
 
 En este ejemplo se supervisan los valores de `Make` y `Model`. En el ejemplo se almacena en caché el contenido de cada `Make` y `Model`diferente que se presenta al servidor web:
 

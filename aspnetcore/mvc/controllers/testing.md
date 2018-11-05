@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 582a5ba461ee2df73b99e4f499e8152f7c6cb7cf
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 18674f85a0cf8c6dfffa94a2160f7182752674f7
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477168"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207997"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Steve Smith](https://ardalis.com/)
 
 Los [controles](xref:mvc/controllers/actions) desempeñan un rol fundamental en cualquier aplicación de ASP.NET Core MVC. Por tanto, debe tener la seguridad de que los controladores se comportan según lo previsto. Las pruebas automatizadas pueden detectar errores antes de que la aplicación se implemente en un entorno de producción.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/controllers/testing/sample) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="unit-tests-of-controller-logic"></a>Pruebas unitarias de la lógica del controlador
 
@@ -75,7 +75,7 @@ Las llamadas ficticias que no se efectúan se suelen ignorar, aunque llamar a `V
 > [!NOTE]
 > La biblioteca Moq usada en este ejemplo permite mezclar fácilmente objetos ficticios comprobables o "estrictos" con objetos ficticios no comprobables (también denominados "flexibles" o stub). Obtenga más información sobre cómo [personalizar el comportamiento de objetos ficticios con Moq](https://github.com/Moq/moq4/wiki/Quickstart#customizing-mock-behavior).
 
-Otro controlador de la aplicación de ejemplo muestra información relacionada con una sesión de lluvia de ideas determinada. El controlador incluye lógica para tratar valores `id` no válidos (hay dos escenarios `return` en el ejemplo siguiente para abarcar estos escenarios). La instrucción `return` final devuelve un nuevo elemento `StormSessionViewModel` en la vista:
+[SessionController](https://github.com/aspnet/Docs/blob/master/aspnetcore/mvc/controllers/testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs) en la aplicación de ejemplo muestra información relacionada con una sesión de lluvia de ideas determinada. El controlador incluye lógica para tratar valores `id` no válidos (hay dos escenarios `return` en el ejemplo siguiente para abarcar estos escenarios). La última instrucción `return` devuelve un `StormSessionViewModel` nuevo a la vista (*Controllers/SessionController.cs*):
 
 [!code-csharp[](testing/sample/TestingControllersSample/src/TestingControllersSample/Controllers/SessionController.cs?name=snippet_SessionController&highlight=12-16,18-22,31)]
 

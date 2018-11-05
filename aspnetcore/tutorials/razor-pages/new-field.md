@@ -4,20 +4,21 @@ author: rick-anderson
 description: Muestra cómo agregar un nuevo campo a una página de Razor con Entity Framework Core
 monikerRange: '>= aspnetcore-2.0'
 ms.author: riande
-ms.date: 05/30/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: tutorials/razor-pages/new-field
-ms.openlocfilehash: d6d59ff336095e2f1b8b2e9a0338b7791605ad7a
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: f8be269887903797803257d8a21e002519102047
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46010902"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50089518"
 ---
 # <a name="add-a-new-field-to-a-razor-page-in-aspnet-core"></a>Agregar un campo nuevo a una página de Razor en ASP.NET Core
 
 Por [Rick Anderson](https://twitter.com/RickAndMSFT)
 
-En esta sección se usa Migraciones de [Entity Framework](https://docs.microsoft.com/ef/core/get-started/aspnetcore/new-db) Code First para agregar un nuevo campo al modelo y migrar ese cambio a la base de datos.
+En esta sección se usa Migraciones de [Entity Framework](/ef/core/get-started/aspnetcore/new-db) Code First para agregar un nuevo campo al modelo y migrar ese cambio a la base de datos.
 
 Al usar EF Code First para crear una base de datos automáticamente, Code First hace lo siguiente:
 
@@ -96,7 +97,9 @@ Vea el [archivo completado SeedData.cs](https://github.com/aspnet/Docs/blob/mast
 
 Compile la solución.
 
-<a name="pmc"></a> En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet > Consola del Administrador de paquetes**.
+<a name="pmc"></a>
+
+En el menú **Herramientas**, seleccione **Administrador de paquetes NuGet > Consola del Administrador de paquetes**.
 En PCM, escriba los siguientes comandos:
 
 ```powershell
@@ -111,7 +114,9 @@ El comando `Add-Migration` indica al marco de trabajo que:
 
 El nombre "Rating" es arbitrario y se usa para asignar nombre al archivo de migración. Resulta útil emplear un nombre descriptivo para el archivo de migración.
 
-<a name="ssox"></a> Si elimina todos los registros de la base de datos, el inicializador inicializa la base de datos e incluye el campo `Rating`. Puede hacerlo con los vínculos de eliminación en el explorador o desde el [Explorador de objetos de SQL Server](xref:tutorials/razor-pages/sql#ssox) (SSOX). Para eliminar la base de datos desde SSOX:
+<a name="ssox"></a>
+
+Si elimina todos los registros de la base de datos, el inicializador inicializará la base de datos e incluirá el campo `Rating`. Puede hacerlo con los vínculos de eliminación en el explorador o desde el [Explorador de objetos de SQL Server](xref:tutorials/razor-pages/sql#ssox) (SSOX). Para eliminar la base de datos desde SSOX:
 
 * Seleccione la base de datos en SSOX.
 * Haga clic con el botón derecho en la base de datos y seleccione *Eliminar*.

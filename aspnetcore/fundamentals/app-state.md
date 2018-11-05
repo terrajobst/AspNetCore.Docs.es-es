@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: 7794b3c10e26720d3e7ef8965f99b204a3c58d5c
-ms.sourcegitcommit: 5a2456cbf429069dc48aaa2823cde14100e4c438
+ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41870939"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50207295"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -19,7 +19,7 @@ Por [Rick Anderson](https://twitter.com/RickAndMSFT), [Steve Smith](https://arda
 
 HTTP es un protocolo sin estado. Sin realizar pasos adicionales, las solicitudes HTTP son mensajes independientes que no conservan los valores de usuario ni el estado de la aplicación. En este artículo se describen varios enfoques para conservar el estado de la aplicación y los datos de usuario entre las solicitudes.
 
-[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples) ([cómo descargarlo](xref:tutorials/index#how-to-download-a-sample))
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/app-state/samples) ([cómo descargarlo](xref:index#how-to-download-a-sample))
 
 ## <a name="state-management"></a>Administración de estado
 
@@ -70,7 +70,7 @@ El estado de sesión muestra los siguientes comportamientos:
 
 El proveedor de caché en memoria almacena datos de sesión en la memoria del servidor donde reside la aplicación. En un escenario de granja de servidores:
 
-* Use *sesiones permanentes* para asociar cada sesión a una instancia de aplicación específica en un servidor individual. [Azure App Service](https://azure.microsoft.com/services/app-service/) usa [enrutamiento de solicitud de aplicaciones (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) para exigir sesiones permanentes de forma predeterminada. Pero las sesiones permanentes pueden afectar a la escalabilidad y complicar la actualización de las aplicaciones web. Un enfoque mejor consiste en usar una memoria caché distribuida de Redis o SQL Server, que no requiere sesiones permanentes. Para obtener más información, vea [Working with a Distributed Cache](xref:performance/caching/distributed) (Trabajar con una memoria caché distribuida).
+* Use *sesiones permanentes* para asociar cada sesión a una instancia de aplicación específica en un servidor individual. [Azure App Service](https://azure.microsoft.com/services/app-service/) usa [enrutamiento de solicitud de aplicaciones (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) para exigir sesiones permanentes de forma predeterminada. Pero las sesiones permanentes pueden afectar a la escalabilidad y complicar la actualización de las aplicaciones web. Un enfoque mejor consiste en usar una memoria caché distribuida de Redis o SQL Server, que no requiere sesiones permanentes. Para obtener más información, vea <xref:performance/caching/distributed>.
 * La cookie de sesión se cifra mediante [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). La protección de datos debe configurarse correctamente para que lea las cookies de sesión en cada equipo. Para obtener más información, vea [Protección de datos en ASP.NET Core](xref:security/data-protection/index) y [Key storage providers](xref:security/data-protection/implementation/key-storage-providers) (Proveedores de almacenamiento de claves).
 
 ### <a name="configure-session-state"></a>Configurar el estado de sesión
@@ -87,7 +87,7 @@ El paquete [Microsoft.AspNetCore.Session](https://www.nuget.org/packages/Microso
 
 ::: moniker-end
 
-* Cualquiera de las cachés de memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). La implementación de `IDistributedCache` se usa como una memoria auxiliar para la sesión. Para obtener más información, vea [Working with a Distributed Cache](xref:performance/caching/distributed) (Trabajar con una memoria caché distribuida).
+* Cualquiera de las cachés de memoria [IDistributedCache](/dotnet/api/microsoft.extensions.caching.distributed.idistributedcache). La implementación de `IDistributedCache` se usa como una memoria auxiliar para la sesión. Para obtener más información, vea <xref:performance/caching/distributed>.
 * Una llamada a [AddSession](/dotnet/api/microsoft.extensions.dependencyinjection.sessionservicecollectionextensions.addsession) en `ConfigureServices`.
 * Una llamada a [UseSession](/dotnet/api/microsoft.aspnetcore.builder.sessionmiddlewareextensions#methods_) en `Configure`.
 
@@ -128,8 +128,8 @@ Para reemplazar los valores predeterminados de la sesión, use [SessionOptions](
 | Opción | Descripción |
 | ------ | ----------- |
 | [Cookie](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.cookie) | Determina la configuración usada para crear la cookie. [Name](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.name) tiene como valor predeterminado [SessionDefaults.CookieName](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiename) (`.AspNetCore.Session`). [Path](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.path) tiene como valor predeterminado [SessionDefaults.CookiePath](/dotnet/api/microsoft.aspnetcore.session.sessiondefaults.cookiepath) (`/`). [SameSite](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.samesite) tiene como valor predeterminado [SameSiteMode.Lax](/dotnet/api/microsoft.aspnetcore.http.samesitemode) (`1`). [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) tiene como valor predeterminado `true`. [IsEssential](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.isessential) tiene como valor predeterminado `false`. |
-| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` indica cuánto tiempo puede estar inactiva la sesión antes de que se abandone su contenido. Cada acceso a la sesión restablece el tiempo de espera. Tenga en cuenta que esto solo es aplicable al contenido de la sesión, no a la cookie. El valor predeterminado es de 20 minutos. |
-| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | El período máximo de tiempo permitido para cargar una sesión del almacén o devolverla a él. Tenga en cuenta que esto solo es aplicable a las operaciones asincrónicas. Puede deshabilitar este tiempo de espera mediante [InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan). El valor predeterminado es 1 minuto. |
+| [IdleTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.idletimeout) | `IdleTimeout` indica cuánto tiempo puede estar inactiva la sesión antes de que se abandone su contenido. Cada acceso a la sesión restablece el tiempo de espera. Este valor solo es aplicable al contenido de la sesión, no a la cookie. El valor predeterminado es de 20 minutos. |
+| [IOTimeout](/dotnet/api/microsoft.aspnetcore.builder.sessionoptions.iotimeout) | El período máximo de tiempo permitido para cargar una sesión del almacén o devolverla a él. Este valor solo es aplicable a las operaciones asincrónicas. Puede deshabilitar este tiempo de espera mediante [InfiniteTimeSpan](/dotnet/api/system.threading.timeout.infinitetimespan). El valor predeterminado es 1 minuto. |
 
 La sesión utiliza una cookie para realizar el seguimiento de las solicitudes emitidas por un solo explorador e identificarlas. De manera predeterminada, esta cookie se denomina `.AspNetCore.Session` y usa una ruta de acceso de `/`. Dado que el valor predeterminado de la cookie no especifica un dominio, no estará disponible para el script de cliente en la página (porque [HttpOnly](/dotnet/api/microsoft.aspnetcore.http.cookiebuilder.httponly) tiene como valor predeterminado `true`).
 
@@ -434,7 +434,7 @@ Use [inserción de dependencias](xref:fundamentals/dependency-injection) para qu
 
 * "No se puede resolver el servicio para el tipo 'Microsoft.Extensions.Caching.Distributed.IDistributedCache' al intentar activar 'Microsoft.AspNetCore.Session.DistributedSessionStore'".
 
-  Esto puede deberse a que no se ha configurado al menos una implementación `IDistributedCache`. Para obtener más información, vea [Working with a Distributed Cache](xref:performance/caching/distributed) (Trabajar con una memoria caché distribuida) e [In memory caching](xref:performance/caching/memory) (Almacenamiento en memoria caché).
+  Esto puede deberse a que no se ha configurado al menos una implementación `IDistributedCache`. Para obtener más información, vea <xref:performance/caching/distributed> y <xref:performance/caching/memory>.
 
 * En caso de que el middleware de sesión no logre conservar una sesión (por ejemplo, si la memoria auxiliar no está disponible), el middleware registra la excepción y la solicitud continúa con normalidad. Esto provoca un comportamiento imprevisible.
 

@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC con EF Core: Migraciones (4 de 10)'
 author: rick-anderson
 description: En este tutorial, empezará usando la característica de migraciones de EF Core para administrar cambios en el modelo de datos en una aplicación ASP.NET Core MVC.
 ms.author: tdykstra
-ms.date: 03/15/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/migrations
-ms.openlocfilehash: 556d7d4ad05679ebfce6c909b29610482bb3f350
-ms.sourcegitcommit: b2723654af4969a24545f09ebe32004cb5e84a96
+ms.openlocfilehash: 21ef3a675579d8a6671343d84cbe4f4b62979679
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46011474"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090815"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---migrations---4-of-10"></a>ASP.NET Core MVC con EF Core: Migraciones (4 de 10)
 
@@ -37,7 +38,7 @@ Para trabajar con las migraciones, puede usar la **Consola del Administrador de 
 Las herramientas de EF para la interfaz de nivel de la línea de comandos se proporcionan en [Microsoft.EntityFrameworkCore.Tools.DotNet](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools.DotNet). Para instalar este paquete, agréguelo a la colección `DotNetCliToolReference` del archivo *.csproj*, como se muestra a continuación. **Nota**: Tendrá que instalar este paquete mediante la edición del archivo *.csproj*; no se puede usar el comando `install-package` ni la interfaz gráfica de usuario del administrador de paquetes. Puede editar el archivo *.csproj* si hace clic con el botón derecho en el nombre del proyecto en el **Explorador de soluciones** y selecciona **Editar ContosoUniversity.csproj**.
 
 [!code-xml[](intro/samples/cu/ContosoUniversity.csproj?range=12-15&highlight=2)]
-  
+
 (Los números de versión en este ejemplo eran los actuales cuando se escribió el tutorial).
 
 ## <a name="change-the-connection-string"></a>Cambiar la cadena de conexión
@@ -104,7 +105,7 @@ Si creó la migración inicial cuando la base de datos ya existía, se genera el
 
 Las migraciones crean una *instantánea* del esquema de la base de datos actual en *Migrations/SchoolContextModelSnapshot.cs*. Cuando se agrega una migración, EF determina qué ha cambiado mediante la comparación del modelo de datos con el archivo de instantánea.
 
-Cuando elimine una migración, use el comando [dotnet ef migrations remove](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove). `dotnet ef migrations remove` elimina la migración y garantiza que la instantánea se restablece correctamente.
+Cuando elimine una migración, use el comando [dotnet ef migrations remove](/ef/core/miscellaneous/cli/dotnet#dotnet-ef-migrations-remove). `dotnet ef migrations remove` elimina la migración y garantiza que la instantánea se restablece correctamente.
 
 Vea [Migraciones en entornos de equipo](/ef/core/managing-schemas/migrations/teams) para más información sobre cómo se usa el archivo de instantánea.
 
@@ -116,7 +117,7 @@ En la ventana de comandos, escriba el comando siguiente para crear la base de da
 dotnet ef database update
 ```
 
-El resultado del comando es similar al comando `migrations add`, con la excepción de que verá registros para los comandos SQL que configuran la base de datos. La mayoría de los registros se omite en la siguiente salida de ejemplo. Si prefiere no ver este nivel de detalle en los mensajes de registro, puede cambiarlo en el archivo *appsettings.Development.json*. Para obtener más información, vea [Introducción al registro](xref:fundamentals/logging/index).
+El resultado del comando es similar al comando `migrations add`, con la excepción de que verá registros para los comandos SQL que configuran la base de datos. La mayoría de los registros se omite en la siguiente salida de ejemplo. Si prefiere no ver este nivel de detalle en los mensajes de registro, puede cambiarlo en el archivo *appsettings.Development.json*. Para obtener más información, vea <xref:fundamentals/logging/index>.
 
 ```text
 info: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[0]
@@ -143,7 +144,7 @@ info: Microsoft.EntityFrameworkCore.Database.Command[200101]
 Done.
 ```
 
-Use el **Explorador de objetos de SQL Server** para inspeccionar la base de datos como hizo en el primer tutorial.  Observará la adición de una tabla __EFMigrationsHistory que realiza el seguimiento de las migraciones que se han aplicado a la base de datos. Si examina los datos de esa tabla, verá una fila para la primera migración. (En el último registro del ejemplo de salida de la CLI anterior se muestra la instrucción INSERT que crea esta fila).
+Use el **Explorador de objetos de SQL Server** para inspeccionar la base de datos como hizo en el primer tutorial.  Observará la adición de una tabla \_\_EFMigrationsHistory que realiza el seguimiento de las migraciones que se han aplicado a la base de datos. Si examina los datos de esa tabla, verá una fila para la primera migración. (En el último registro del ejemplo de salida de la CLI anterior se muestra la instrucción INSERT que crea esta fila).
 
 Ejecute la aplicación para comprobar que todo funciona igual que antes.
 
@@ -154,13 +155,13 @@ Ejecute la aplicación para comprobar que todo funciona igual que antes.
 
 Las herramientas de EF para la administración de migraciones están disponibles desde los comandos de la CLI de .NET Core o los cmdlets de PowerShell en la ventana **Consola del Administrador de paquetes** (PMC) de Visual Studio. En este tutorial se muestra cómo usar la CLI, pero puede usar la PMC si lo prefiere.
 
-Los comandos de EF para los comandos de la PMC están en el paquete [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools). Este paquete ya está incluido en el metapaquete [Microsoft.AspNetCore.All](xref:fundamentals/metapackage), por lo que no es necesario instalarlo.
+Los comandos de EF para los comandos de la PMC están en el paquete [Microsoft.EntityFrameworkCore.Tools](https://www.nuget.org/packages/Microsoft.EntityFrameworkCore.Tools). Este paquete se incluye en el [metapaquete Microsoft.AspNetCore.App](xref:fundamentals/metapackage-app), por lo que no es necesario agregar una referencia de paquete si la aplicación tiene una para `Microsoft.AspNetCore.App`.
 
 **Importante:** Este no es el mismo paquete que el que se instala para la CLI mediante la edición del archivo *.csproj*. El nombre de este paquete termina en `Tools`, a diferencia del nombre de paquete de la CLI que termina en `Tools.DotNet`.
 
-Para obtener más información sobre los comandos de la CLI, vea [CLI de .NET Core](https://docs.microsoft.com/ef/core/miscellaneous/cli/dotnet).
+Para obtener más información sobre los comandos de la CLI, vea [CLI de .NET Core](/ef/core/miscellaneous/cli/dotnet).
 
-Para obtener más información sobre los comandos de la PMC, vea [Consola del Administrador de paquetes (Visual Studio)](https://docs.microsoft.com/ef/core/miscellaneous/cli/powershell).
+Para obtener más información sobre los comandos de la PMC, vea [Consola del Administrador de paquetes (Visual Studio)](/ef/core/miscellaneous/cli/powershell).
 
 ## <a name="summary"></a>Resumen
 

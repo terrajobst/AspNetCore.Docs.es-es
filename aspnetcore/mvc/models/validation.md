@@ -3,14 +3,15 @@ title: Validación de modelos en ASP.NET Core MVC
 author: tdykstra
 description: Obtenga información sobre la validación de modelos en ASP.NET Core MVC.
 ms.author: riande
-ms.date: 07/31/2018
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/models/validation
-ms.openlocfilehash: fe036f261b80f6134078835080409720d149374d
-ms.sourcegitcommit: ecf2cd4e0613569025b28e12de3baa21d86d4258
+ms.openlocfilehash: 73d41b4718071d00a6f80b33de182da2ad90f331
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43312159"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090955"
 ---
 # <a name="model-validation-in-aspnet-core-mvc"></a>Validación de modelos en ASP.NET Core MVC
 
@@ -27,6 +28,13 @@ Por suerte, .NET ha abstraído la validación en atributos de validación. Estos
 ## <a name="validation-attributes"></a>Atributos de validación
 
 Los atributos de validación son una forma de configurar la validación del modelo, por lo que conceptualmente es similar a la validación en campos de tablas de base de datos. Esto incluye las restricciones, como la asignación de tipos de datos o los campos obligatorios. Entre otros tipos de validación se encuentran el de aplicar patrones a datos para aplicar reglas de negocio, como tarjetas de crédito, números de teléfono o direcciones de correo electrónico. Con los atributos de validación, es mucho más sencillo aplicar estos requisitos y son más fáciles de usar.
+
+Los atributos de validación se especifican en el nivel de propiedad: 
+
+```csharp 
+[Required] 
+public string MyProperty { get; set; } 
+``` 
 
 Aquí mostramos un modelo `Movie` anotado desde una aplicación que almacena información sobre películas y programas de TV. La mayoría de las propiedades son obligatorias y varias propiedades de cadena tienen requisitos de longitud. Además, hay una restricción de rango numérico para la propiedad `Price` de 0 a 999,99 $, junto con un atributo de validación personalizado.
 
@@ -62,7 +70,7 @@ Los [tipos de valor](/dotnet/csharp/language-reference/keywords/value-types) que
 
 El enlace de modelos de MVC, que no está relacionado con la validación y los atributos de validación, rechaza el envío de un campo de formulario que contenga un valor que falta o un espacio en blanco para un tipo que no acepta valores NULL. En ausencia de un atributo `BindRequired` en la propiedad de destino, el enlace de modelos omite datos que faltan para los tipos que no aceptan valores NULL, donde el campo de formulario está ausente en los datos entrantes del formulario.
 
-El [atributo BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (vea también [Personalizar el comportamiento de enlace de modelo con atributos](xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes)) es útil para garantizar que los datos de formulario se completan. Cuando se aplica a una propiedad, el sistema de enlace de modelos requiere un valor para esa propiedad. Cuando se aplica a un tipo, el sistema de enlace de modelos requiere valores para todas las propiedades de ese tipo.
+El [atributo BindRequired](/dotnet/api/microsoft.aspnetcore.mvc.modelbinding.bindrequiredattribute) (vea también <xref:mvc/models/model-binding#customize-model-binding-behavior-with-attributes>) es útil para garantizar que los datos de formulario están completos. Cuando se aplica a una propiedad, el sistema de enlace de modelos requiere un valor para esa propiedad. Cuando se aplica a un tipo, el sistema de enlace de modelos requiere valores para todas las propiedades de ese tipo.
 
 Cuando se usa un tipo [Nullable\<T >](/dotnet/csharp/programming-guide/nullable-types/) (por ejemplo, `decimal?` o `System.Nullable<decimal>`) y se marca como `Required`, se realiza una comprobación de validación del lado servidor como si la propiedad fuera un tipo que acepta valores NULL estándar (por ejemplo, un `string`).
 
@@ -118,11 +126,11 @@ Debe tener una vista con las referencias de script de JavaScript adecuadas para 
 
 [!code-cshtml[](validation/sample/Views/Shared/_ValidationScriptsPartial.cshtml)]
 
-El script [Validación discreta de jQuery](https://github.com/aspnet/jquery-validation-unobtrusive) es una biblioteca front-end personalizada de Microsoft que se basa en el conocido complemento [Validación de jQuery](https://jqueryvalidation.org/). Si no usa Validación discreta de jQuery, deberá codificar la misma lógica de validación dos veces: una vez en los atributos de validación del lado servidor en las propiedades del modelo y luego en los scripts del lado cliente (los ejemplos del método [`validate()`](https://jqueryvalidation.org/validate/) de Validación de jQuery muestran lo complejo que podría resultar). En su lugar, las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) y las [aplicaciones auxiliares de HTML](xref:mvc/views/overview) de MVC pueden usar los atributos de validación y escribir metadatos de las propiedades del modelo para representar [atributos de datos](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) HTML 5 en los elementos de formulario que necesitan validación. MVC genera los atributos `data-` para los atributos integrados y los personalizados. La Validación discreta de jQuery analiza después los atributos `data-` y pasa la lógica a Validación de jQuery. De este modo, la lógica de validación del lado servidor se "copia" de manera eficaz en el cliente. Puede mostrar errores de validación en el cliente usando las aplicaciones auxiliares de etiquetas relevantes, como se muestra aquí:
+El script [Validación discreta de jQuery](https://github.com/aspnet/jquery-validation-unobtrusive) es una biblioteca front-end personalizada de Microsoft que se basa en el conocido complemento [Validación de jQuery](https://jqueryvalidation.org/). Si no usa Validación discreta de jQuery, deberá codificar la misma lógica de validación dos veces: una vez en los atributos de validación del lado servidor en las propiedades del modelo y luego en los scripts del lado cliente (los ejemplos del método [`validate()`](https://jqueryvalidation.org/validate/) de Validación de jQuery muestran lo complejo que podría resultar). En su lugar, los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) y los [asistentes de HTML](xref:mvc/views/overview) de MVC pueden usar los atributos de validación y escribir metadatos de las propiedades del modelo para representar [atributos de datos](http://w3c.github.io/html/dom.html#embedding-custom-non-visible-data-with-the-data-attributes) HTML 5 en los elementos de formulario que necesitan validación. MVC genera los atributos `data-` para los atributos integrados y los personalizados. La Validación discreta de jQuery analiza después los atributos `data-` y pasa la lógica a Validación de jQuery. De este modo, la lógica de validación del lado servidor se "copia" de manera eficaz en el cliente. Puede mostrar errores de validación en el cliente usando los asistentes de etiquetas relevantes, como se muestra aquí:
 
 [!code-cshtml[](validation/sample/Views/Movies/Create.cshtml?highlight=4,5&range=19-25)]
 
-Las anteriores aplicaciones auxiliares de etiqueta representan el código HTML siguiente. Tenga en cuenta que los atributos `data-` en los resultados HTML corresponden a los atributos de validación para la propiedad `ReleaseDate`. El atributo `data-val-required` siguiente contiene un mensaje de error que se muestra si el usuario no rellena el campo de fecha de estreno. La Validación discreta de jQuery pasa este valor al método [`required()`](https://jqueryvalidation.org/required-method/) de la Validación de jQuery, que muestra un mensaje en el elemento **\<span>** que lo acompaña.
+Los anteriores asistentes de etiquetas representan el código HTML siguiente. Tenga en cuenta que los atributos `data-` en los resultados HTML corresponden a los atributos de validación para la propiedad `ReleaseDate`. El atributo `data-val-required` siguiente contiene un mensaje de error que se muestra si el usuario no rellena el campo de fecha de estreno. La Validación discreta de jQuery pasa este valor al método [`required()`](https://jqueryvalidation.org/required-method/) de la Validación de jQuery, que muestra un mensaje en el elemento **\<span>** que lo acompaña.
 
 ```html
 <form action="/Movies/Create" method="post">
@@ -256,4 +264,4 @@ Si necesita validar dos o más campos adicionales con el atributo `[Remote]`, pr
 public string MiddleName { get; set; }
 ```
 
-`AdditionalFields`, al igual que todos los argumentos de atributo, debe ser una expresión constante. Por lo tanto, no se debe usar una [cadena interpolada](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/interpolated-strings) ni llamar a [`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) para inicializar `AdditionalFields`. Para cada campo adicional que agregue al atributo `[Remote]`, debe agregar otro argumento al método de acción de controlador correspondiente.
+`AdditionalFields`, al igual que todos los argumentos de atributo, debe ser una expresión constante. Por lo tanto, no se debe usar una [cadena interpolada](/dotnet/csharp/language-reference/keywords/interpolated-strings) ni llamar a [`string.Join()`](https://msdn.microsoft.com/library/system.string.join(v=vs.110).aspx) para inicializar `AdditionalFields`. Para cada campo adicional que agregue al atributo `[Remote]`, debe agregar otro argumento al método de acción de controlador correspondiente.

@@ -3,14 +3,15 @@ title: 'ASP.NET Core MVC con EF Core: CRUD (2 de 10)'
 author: rick-anderson
 description: ''
 ms.author: tdykstra
-ms.date: 03/15/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: data/ef-mvc/crud
-ms.openlocfilehash: de9b0bd1e0346d4c12f256e6226353f1ab47ed11
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: 34927415beadaa3f5c9035a9101e3c99f7cbc395
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477584"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090828"
 ---
 # <a name="aspnet-core-mvc-with-ef-core---crud---2-of-10"></a>ASP.NET Core MVC con EF Core: CRUD (2 de 10)
 
@@ -91,7 +92,7 @@ Esto genera el siguiente código HTML cuando `item.ID` es 6:
 <a href="/Students/Edit?studentID=6">Edit</a>
 ```
 
-Para obtener más información sobre los asistentes de etiquetas, vea [Asistentes de etiquetas en ASP.NET Core](xref:mvc/views/tag-helpers/intro).
+Para obtener más información sobre los asistentes de etiquetas, vea <xref:mvc/views/tag-helpers/intro>.
 
 ### <a name="add-enrollments-to-the-details-view"></a>Agregar inscripciones a la vista de detalles
 
@@ -121,7 +122,7 @@ En este código se agrega la entidad Student creada por el enlazador de modelos 
 
 Se ha quitado `ID` del atributo `Bind` porque ID es el valor de clave principal que SQL Server establecerá automáticamente cuando se inserte la fila. La entrada del usuario no establece el valor ID.
 
-Aparte del atributo `Bind`, el bloque try-catch es el único cambio que se ha realizado en el código con scaffolding. Si se detecta una excepción derivada de `DbUpdateException` mientras se guardan los cambios, se muestra un mensaje de error genérico. En ocasiones, las excepciones `DbUpdateException` se deben a algo externo a la aplicación y no a un error de programación, por lo que se recomienda al usuario que vuelva a intentarlo. Aunque no se ha implementado en este ejemplo, en una aplicación de producción de calidad se debería registrar la excepción. Para obtener más información, vea la sección **Registro para obtener información** de [Supervisión y telemetría (creación de aplicaciones de nube reales con Azure)](https://docs.microsoft.com/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
+Aparte del atributo `Bind`, el bloque try-catch es el único cambio que se ha realizado en el código con scaffolding. Si se detecta una excepción derivada de `DbUpdateException` mientras se guardan los cambios, se muestra un mensaje de error genérico. En ocasiones, las excepciones `DbUpdateException` se deben a algo externo a la aplicación y no a un error de programación, por lo que se recomienda al usuario que vuelva a intentarlo. Aunque no se ha implementado en este ejemplo, en una aplicación de producción de calidad se debería registrar la excepción. Para obtener más información, vea la sección **Registro para obtener información** de [Supervisión y telemetría (creación de aplicaciones de nube reales con Azure)](/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
 
 El atributo `ValidateAntiForgeryToken` ayuda a evitar ataques de falsificación de solicitud entre sitios (CSRF). El token se inserta automáticamente en la vista por medio de [FormTagHelper](xref:mvc/views/working-with-forms#the-form-tag-helper) y se incluye cuando el usuario envía el formulario. El token se valida mediante el atributo `ValidateAntiForgeryToken`. Para obtener más información sobre CSRF, vea [Prevención de ataques de falsificación de solicitud](../../security/anti-request-forgery.md).
 
@@ -277,7 +278,7 @@ En *Startup.cs*, se llama al [método de extensión AddDbContext](https://github
 
 ## <a name="handling-transactions"></a>Control de transacciones
 
-De forma predeterminada, Entity Framework implementa las transacciones de manera implícita. En escenarios donde se realizan cambios en varias filas o tablas, y después se llama a `SaveChanges`, Entity Framework se asegura automáticamente de que todos los cambios se realicen correctamente o se produzca un error en todos ellos. Si primero se realizan algunos cambios y después se produce un error, los cambios se revierten automáticamente. Para escenarios donde se necesita más control, por ejemplo, si se quieren incluir operaciones realizadas fuera de Entity Framework en una transacción, vea [Transacciones](https://docs.microsoft.com/ef/core/saving/transactions).
+De forma predeterminada, Entity Framework implementa las transacciones de manera implícita. En escenarios donde se realizan cambios en varias filas o tablas, y después se llama a `SaveChanges`, Entity Framework se asegura automáticamente de que todos los cambios se realicen correctamente o se produzca un error en todos ellos. Si primero se realizan algunos cambios y después se produce un error, los cambios se revierten automáticamente. Para escenarios donde se necesita más control, por ejemplo, si se quieren incluir operaciones realizadas fuera de Entity Framework en una transacción, vea [Transacciones](/ef/core/saving/transactions).
 
 ## <a name="no-tracking-queries"></a>Consultas de no seguimiento
 
@@ -291,7 +292,7 @@ Puede deshabilitar el seguimiento de los objetos de entidad en memoria mediante 
 
 * Se quiere adjuntar una entidad para actualizarla, pero antes se recuperó la misma entidad para un propósito diferente. Como el contexto de base de datos ya está realizando el seguimiento de la entidad, no se puede adjuntar la entidad que se quiere cambiar. Una manera de controlar esta situación consiste en llamar a `AsNoTracking` en la consulta anterior.
 
-Para obtener más información, vea [Tracking vs. No-Tracking](https://docs.microsoft.com/ef/core/querying/tracking) (Diferencia entre consultas de seguimiento y no seguimiento).
+Para obtener más información, vea [Tracking vs. No-Tracking](/ef/core/querying/tracking) (Diferencia entre consultas de seguimiento y no seguimiento).
 
 ## <a name="summary"></a>Resumen
 

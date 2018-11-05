@@ -3,15 +3,15 @@ title: Asistentes de etiquetas en formularios de ASP.NET Core
 author: rick-anderson
 description: En este tema se describen los asistentes de etiquetas que se usan en los formularios.
 ms.author: riande
-ms.custom: H1Hack27Feb2017
-ms.date: 02/14/2017
+ms.custom: mvc
+ms.date: 10/24/2018
 uid: mvc/views/working-with-forms
-ms.openlocfilehash: e613dc1e85b84cc5e2b8ad2bf3958040257d1966
-ms.sourcegitcommit: a4dcca4f1cb81227c5ed3c92dc0e28be6e99447b
-ms.translationtype: HT
+ms.openlocfilehash: efc71cc8d072769cde07e129b6d9bb933fc2f7af
+ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48911284"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50090221"
 ---
 # <a name="tag-helpers-in-forms-in-aspnet-core"></a>Asistentes de etiquetas en formularios de ASP.NET Core
 
@@ -29,7 +29,7 @@ El asistente de etiquetas [Form](https://www.w3.org/TR/html401/interact/forms.ht
 
 * Genera el valor de atributo `action` del elemento HTML [\<FORM>](https://www.w3.org/TR/html401/interact/forms.html) de una acción de controlador MVC o ruta con nombre.
 
-* Genera un [token comprobación de solicitudes](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).
+* Genera un [token comprobación de solicitudes](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post).
 
 * Proporciona el atributo `asp-route-<Parameter Name>`, donde `<Parameter Name>` se agrega a los valores de ruta. Los parámetros `routeValues` de `Html.BeginForm` y `Html.BeginRouteForm` proporcionan una funcionalidad similar.
 
@@ -48,7 +48,7 @@ El asistente de etiquetas Form anterior genera el siguiente HTML:
 </form>
 ```
 
-El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos del asistente de etiquetas Form `asp-controller` y `asp-action`. El asistente de etiquetas Form genera también un [token de comprobación de solicitudes](https://docs.microsoft.com/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post). Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y el asistente de etiquetas Form presta este servicio.
+El tiempo de ejecución MVC genera el valor de atributo `action` de los atributos del asistente de etiquetas Form `asp-controller` y `asp-action`. El asistente de etiquetas Form genera también un [token de comprobación de solicitudes](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) oculto que impide que se falsifiquen solicitudes entre sitios (cuando se usa con el atributo `[ValidateAntiForgeryToken]` en el método de acción HTTP Post). Proteger un elemento HTML Form puro de la falsificación de solicitudes entre sitios no es tarea fácil, y el asistente de etiquetas Form presta este servicio.
 
 ### <a name="using-a-named-route"></a>Uso de una ruta con nombre
 
@@ -106,12 +106,12 @@ El asistente de etiquetas `Input` establece el atributo HTML `type` en función 
 
 |Tipo de .NET|Tipo de entrada|
 |---|---|
-|Bool|type=”checkbox”|
-|String|type=”text”|
-|DateTime|type=”datetime”|
-|Byte|type=”number”|
-|Valor int.|type=”number”|
-|Single, Double|type=”number”|
+|Bool|type="checkbox"|
+|String|type="text"|
+|DateTime|type="datetime"|
+|Byte|type="number"|
+|Valor int.|type="number"|
+|Single, Double|type="number"|
 
 
 En la siguiente tabla se muestran algunos atributos de [anotación de datos](/dotnet/api/microsoft.aspnetcore.mvc.dataannotations.iattributeadapter) comunes que el asistente de etiquetas Input asignará a tipos de entrada concretos (no incluimos aquí todos los atributo de validación):
@@ -119,13 +119,13 @@ En la siguiente tabla se muestran algunos atributos de [anotación de datos](/do
 
 |Atributo|Tipo de entrada|
 |---|---|
-|[EmailAddress]|type=”email”|
-|[Url]|type=”url”|
-|[HiddenInput]|type=”hidden”|
-|[Phone]|type=”tel”|
-|[DataType(DataType.Password)]| type=”password”|
-|[DataType(DataType.Date)]| type=”date”|
-|[DataType(DataType.Time)]| type=”time”|
+|[EmailAddress]|type="email"|
+|[Url]|type="url"|
+|[HiddenInput]|type="hidden"|
+|[Phone]|type="tel"|
+|[DataType(DataType.Password)]| type="password"|
+|[DataType(DataType.Date)]| type="date"|
+|[DataType(DataType.Time)]| type="time"|
 
 
 Ejemplo:
@@ -244,7 +244,6 @@ El siguiente código de Razor muestra cómo iterar por una colección:
 La plantilla *Views/Shared/EditorTemplates/ToDoItem.cshtml*:
 
 [!code-HTML[](working-with-forms/sample/final/Views/Shared/EditorTemplates/ToDoItem.cshtml)]
-
 
 >[!NOTE]
 >Use siempre `for` (y *no* `foreach`) para iterar por una lista. Evaluar un indizador en una expresión de LINQ puede ser costoso, con lo cual esa posibilidad hay que reducirla al mínimo.
@@ -574,10 +573,10 @@ Se seleccionará el elemento `<option>` correcto (que contenga el atributo `sele
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Asistentes de etiquetas](xref:mvc/views/tag-helpers/intro)
+* <xref:mvc/views/tag-helpers/intro>
 * [HTML Form element](https://www.w3.org/TR/html401/interact/forms.html) (Elemento HTML Form)
 * [Request Verification Token](/aspnet/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) (Token de comprobación de solicitudes)
-* [Enlace de modelos](xref:mvc/models/model-binding)
-* [Introduction to model validation in ASP.NET Core MVC](xref:mvc/models/validation) (Introducción a la validación de modelos en ASP.NET Core MVC)
+* <xref:mvc/models/model-binding>
+* <xref:mvc/models/validation>
 * [IAttributeAdapter Interface](/dotnet/api/Microsoft.AspNetCore.Mvc.DataAnnotations.IAttributeAdapter) (Interfaz IAttributeAdapter)
 * [Fragmentos de código de este documento](https://github.com/aspnet/Docs/tree/master/aspnetcore/mvc/views/working-with-forms/sample/final)

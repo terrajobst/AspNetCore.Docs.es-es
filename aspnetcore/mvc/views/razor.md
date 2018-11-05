@@ -3,14 +3,14 @@ title: Referencia de sintaxis de Razor para ASP.NET Core
 author: rick-anderson
 description: Obtenga información sobre la sintaxis de marcado de Razor para insertar código basado en servidor en páginas web.
 ms.author: riande
-ms.date: 10/18/2017
+ms.date: 10/26/2018
 uid: mvc/views/razor
-ms.openlocfilehash: d0f4d59cb605cc3cc7cdfa84bfc65399699e475a
-ms.sourcegitcommit: a1afd04758e663d7062a5bfa8a0d4dca38f42afc
+ms.openlocfilehash: 10f0db168b36fed82def8227b3c3edcf5b57f6d7
+ms.sourcegitcommit: 54655f1e1abf0b64d19506334d94cfdb0caf55f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36272693"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50148894"
 ---
 # <a name="razor-syntax-reference-for-aspnet-core"></a>Referencia de sintaxis de Razor para ASP.NET Core
 
@@ -335,7 +335,7 @@ Se permiten las siguientes instrucciones en bucle:
 
 ### <a name="compound-using"></a>Instrucción @using compuesta
 
-En C#, las instrucciones `using` se usan para garantizar que un objeto se elimina. En Razor, el mismo mecanismo se emplea para crear aplicaciones auxiliares HTML que incluyen contenido adicional. En el siguiente código, las aplicaciones auxiliares HTML representan una etiqueta Form con la instrucción `@using`:
+En C#, las instrucciones `using` se usan para garantizar que un objeto se elimina. En Razor, el mismo mecanismo se emplea para crear asistentes de HTML que incluyen contenido adicional. En el siguiente código, los asistentes de HTML representan una etiqueta Form con la instrucción `@using`:
 
 
 ```cshtml
@@ -349,7 +349,7 @@ En C#, las instrucciones `using` se usan para garantizar que un objeto se elimin
 }
 ```
 
-Con las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro) se pueden realizar acciones de nivel de ámbito.
+Con los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro) se pueden realizar acciones de nivel de ámbito.
 
 ### <a name="try-catch-finally"></a>@try, catch, finally
 
@@ -404,7 +404,7 @@ Las directivas de Razor se representan en las expresiones implícitas con palabr
 
 Conocer el modo en que Razor genera el código de una vista hace que sea más fácil comprender cómo funcionan las directivas.
 
-[!code-html[](razor/sample/Views/Home/Contact8.cshtml)]
+[!code-cshtml[](razor/sample/Views/Home/Contact8.cshtml)]
 
 El código genera una clase similar a la siguiente:
 
@@ -422,7 +422,7 @@ public class _Views_Something_cshtml : RazorPage<dynamic>
 }
 ```
 
-Más adelante en este artículo, en la sección [Visualización de la clase C# de Razor generada por una vista](#viewing-the-razor-c-class-generated-for-a-view), se explica cómo ver esta clase generada.
+Más adelante en este artículo, en la sección [Inspección de la clase C# de Razor generada por una vista](#inspect-the-razor-c-class-generated-for-a-view), se explica cómo ver esta clase generada.
 
 <a name="using"></a>
 ### <a name="using"></a>@using
@@ -498,7 +498,6 @@ Si "rick@contoso.com" se pasa en el modelo, la vista genera el siguiente marcado
 
 ### <a name="inject"></a>@inject
 
-
 La directiva `@inject` permite a la página de Razor insertar un servicio del [contenedor de servicios](xref:fundamentals/dependency-injection) en una vista. Para más información, vea [Dependency injection into views](xref:mvc/views/dependency-injection) (Inserción de dependencias en vistas).
 
 ### <a name="functions"></a>@functions
@@ -527,15 +526,15 @@ El siguiente código es la clase C# de Razor generada:
 
 La directiva `@section` se usa junto con el [diseño](xref:mvc/views/layout) para permitir que las vistas representen el contenido en diferentes partes de la página HTML. Para más información, vea [Sections](xref:mvc/views/layout#layout-sections-label) (Secciones).
 
-## <a name="tag-helpers"></a>Aplicaciones auxiliares de etiquetas
+## <a name="tag-helpers"></a>Asistentes de etiquetas
 
-Hay tres directivas que pertenecen a las [aplicaciones auxiliares de etiquetas](xref:mvc/views/tag-helpers/intro).
+Hay tres directivas que pertenecen a los [asistentes de etiquetas](xref:mvc/views/tag-helpers/intro).
 
 | Directiva | Función |
 | --------- | -------- |
-| [&commat;addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Pone las aplicaciones auxiliares de etiquetas a disposición de una vista. |
-| [&commat;removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Quita las aplicaciones auxiliares de etiquetas agregadas anteriormente desde una vista. |
-| [&commat;tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Especifica una cadena de prefijo de etiqueta para permitir la compatibilidad con la aplicación auxiliar de etiquetas y hacer explícito su uso. |
+| [&commat;addTagHelper](xref:mvc/views/tag-helpers/intro#add-helper-label) | Pone los asistentes de etiquetas a disposición de una vista. |
+| [&commat;removeTagHelper](xref:mvc/views/tag-helpers/intro#remove-razor-directives-label) | Quita los asistentes de etiquetas agregadas anteriormente desde una vista. |
+| [&commat;tagHelperPrefix](xref:mvc/views/tag-helpers/intro#prefix-razor-directives-label) | Especifica una cadena de prefijo de etiqueta para permitir la compatibilidad con el asistente de etiquetas y hacer explícito su uso. |
 
 ## <a name="razor-reserved-keywords"></a>Palabras clave reservadas de Razor
 
@@ -574,32 +573,76 @@ Las palabras clave C# de Razor deben tener doble escape con `@(@C# Razor Keyword
 
 * clase
 
-## <a name="viewing-the-razor-c-class-generated-for-a-view"></a>Visualización de la clase C# de Razor generada por una vista
+## <a name="inspect-the-razor-c-class-generated-for-a-view"></a>Inspección de la clase C# de Razor generada por una vista
+
+::: moniker range=">= aspnetcore-2.1"
+
+Con el SDK de .NET Core 2.1 o posterior, el [SDK de Razor](xref:razor-pages/sdk) controla la compilación de los archivos de Razor. Al compilar un proyecto, el SDK de Razor genera un directorio *obj/<configuración_de_compilación>/<moniker_de_la_plataforma_de_destino>/Razor* en la raíz del proyecto. La estructura de directorios dentro del directorio *Razor* refleja la del proyecto.
+
+Tenga en cuenta la estructura de directorios siguiente en un proyecto de Razor Pages de ASP.NET Core 2.1 destinado a .NET Core 2.1:
+
+* **Areas/**
+  * **Admin/**
+    * **Pages/**
+      * *Index.cshtml*
+      * *Index.cshtml.cs*
+* **Pages/**
+  * **Shared/**
+    * *_Layout.cshtml*
+  * *_ViewImports.cshtml*
+  * *_ViewStart.cshtml*
+  * *Index.cshtml*
+  * *Index.cshtml.cs*
+
+Al compilar el proyecto en la configuración *Depurar* se crea el directorio *obj* siguiente:
+
+* **obj/**
+  * **Debug/**
+    * **netcoreapp2.1/**
+      * **Razor/**
+        * **Areas/**
+          * **Admin/**
+            * **Pages/**
+              * *Index.g.cshtml.cs*
+        * **Pages/**
+          * **Shared/**
+            * *_Layout.g.cshtml.cs*
+          * *_ViewImports.g.cshtml.cs*
+          * *_ViewStart.g.cshtml.cs*
+          * *Index.g.cshtml.cs*
+
+Para ver la clase generada para *Pages/Index.cshtml*, abra *obj/Debug/netcoreapp2.1/Razor/Pages/Index.g.cshtml.cs*.
+
+::: moniker-end
+
+::: moniker range="<= aspnetcore-2.0"
 
 Agregue la siguiente clase al proyecto de ASP.NET Core MVC:
 
 [!code-csharp[](razor/sample/Utilities/CustomTemplateEngine.cs)]
 
-Invalide el elemento `RazorTemplateEngine` agregado por MVC con la clase `CustomTemplateEngine`:
+En `Startup.ConfigureServices`, invalide el elemento `RazorTemplateEngine` agregado por MVC con la clase `CustomTemplateEngine`:
 
 [!code-csharp[](razor/sample/Startup.cs?highlight=4&range=10-14)]
 
-Establezca un punto de interrupción en la instrucción `return csharpDocument` de `CustomTemplateEngine`. Cuando la ejecución del programa se detenga en el punto de interrupción, vea el valor de `generatedCode`.
+Establezca un punto de interrupción en la instrucción `return csharpDocument;` de `CustomTemplateEngine`. Cuando la ejecución del programa se detenga en el punto de interrupción, vea el valor de `generatedCode`.
 
 ![Vista del visualizador de texto de generatedCode](razor/_static/tvr.png)
+
+::: moniker-end
 
 ## <a name="view-lookups-and-case-sensitivity"></a>Búsquedas de vistas y distinción entre mayúsculas y minúsculas
 
 El motor de vista de Razor realiza búsquedas de vistas en las que se distingue entre mayúsculas y minúsculas. Pero la búsqueda real viene determinada por el sistema de archivos subyacente:
 
-* Origen basado en archivos: 
+* Origen basado en archivos:
   * En los sistemas operativos con sistemas de archivos que no distinguen entre mayúsculas y minúsculas (por ejemplo, Windows), las búsquedas de proveedor de archivos físicos no distinguirán mayúsculas de minúsculas. Por ejemplo, `return View("Test")` arrojará como resultados */Views/Home/Test.cshtml*, */Views/home/test.cshtml* y cualquier otra variante de mayúsculas y minúsculas.
   * En los sistemas de archivos en los que sí se distingue entre mayúsculas y minúsculas (por ejemplo, Linux, OSX y al usar `EmbeddedFileProvider`), las búsquedas distinguirán mayúsculas de minúsculas. Por ejemplo, `return View("Test")` mostrará el resultado */Views/Home/Test.cshtml* única y exclusivamente.
 * Vistas precompiladas: En ASP.NET Core 2.0 y versiones posteriores, las búsquedas de vistas precompiladas no distinguen mayúsculas de minúsculas en todos los sistemas operativos. Este comportamiento es idéntico al comportamiento del proveedor de archivos físicos en Windows. Si dos vistas precompiladas difieren solo por sus mayúsculas o minúsculas, el resultado de la búsqueda será no determinante.
 
 Por tanto, se anima a todos los desarrolladores a intentar que las mayúsculas y minúsculas de los nombres de archivo y de directorio sean las mismas que las mayúsculas y minúsculas de:
 
-    * Nombres de acciones, controladores y áreas. 
+    * Nombres de acciones, controladores y áreas.
     * Páginas de Razor.
-    
+
 La coincidencia de mayúsculas y minúsculas garantiza que las implementaciones van a encontrar sus vistas, independientemente de cuál sea el sistema de archivos subyacente.

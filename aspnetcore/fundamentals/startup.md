@@ -6,18 +6,20 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 4/13/2018
 uid: fundamentals/startup
-ms.openlocfilehash: 392dc83666bc6b9012adc6c32169ae7bdc7ed8d7
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 2212344cb3c651714e8c520b096ab0c4eaf5a180
+ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391120"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50206461"
 ---
-# <a name="application-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
+# <a name="app-startup-in-aspnet-core"></a>Inicio de la aplicación en ASP.NET Core
 
 Por [Steve Smith](https://ardalis.com), [Tom Dykstra](https://github.com/tdykstra) y [Luke Latham](https://github.com/guardrex)
 
 La clase `Startup` configura los servicios y la canalización de solicitudes de la aplicación.
+
+[Vea o descargue el código de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([cómo descargarlo](xref:index#how-to-download-a-sample)).
 
 ## <a name="the-startup-class"></a>Clase Startup
 
@@ -44,7 +46,7 @@ Un uso común de la [inserción de dependencias](xref:fundamentals/dependency-in
 
 [!code-csharp[](startup/snapshot_sample/Startup2.cs)]
 
-Una alternativa a la inserción de `IHostingEnvironment` consiste en utilizar un enfoque basado en convenciones. La aplicación puede definir clases `Startup` independientes para distintos entornos (por ejemplo, `StartupDevelopment`) y la clase `Startup` correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto la clase `Startup` como la clase `StartupDevelopment`, se utiliza la clase `StartupDevelopment`. Para obtener más información, consulte [Uso de varios entornos](xref:fundamentals/environments#environment-based-startup-class-and-methods).
+Una alternativa a la inserción de `IHostingEnvironment` consiste en utilizar un enfoque basado en convenciones. Cuando la aplicación define clases `Startup` independientes para otros entornos (por ejemplo, `StartupDevelopment`), la clase `Startup` correspondiente se selecciona en tiempo de ejecución. La clase cuyo sufijo de nombre coincide con el entorno actual se establece como prioritaria. Si la aplicación se ejecuta en el entorno de desarrollo e incluye tanto la clase `Startup` como la clase `StartupDevelopment`, se utiliza la clase `StartupDevelopment`. Para obtener más información, consulte [Uso de varios entornos](xref:fundamentals/environments#environment-based-startup-class-and-methods).
 
 Para obtener más información sobre `WebHostBuilder`, consulte el tema [Hospedaje](xref:fundamentals/host/index). Para obtener información sobre cómo controlar los errores que se producen durante el inicio, consulte [Control de excepciones de inicio](xref:fundamentals/error-handling#startup-exception-handling).
 
@@ -96,7 +98,7 @@ Use [IStartupFilter](/dotnet/api/microsoft.aspnetcore.hosting.istartupfilter) pa
 
 Cada `IStartupFilter` implementa uno o más middleware en la canalización de solicitudes. Los filtros se invocan en el orden en que se agregaron al contenedor de servicios. Los filtros pueden agregar middleware antes o después de pasar el control al siguiente filtro, por lo que se anexan al principio o al final de la canalización de la aplicación.
 
-La [aplicación de ejemplo](https://github.com/aspnet/Docs/tree/master/aspnetcore/fundamentals/startup/sample/) ([cómo descargar](xref:tutorials/index#how-to-download-a-sample)) muestra cómo se registra un middleware con `IStartupFilter`. La aplicación de ejemplo incluye un middleware que establece un valor de opciones de un parámetro de cadena de consulta:
+En la aplicación de ejemplo se muestra cómo se registra un middleware con `IStartupFilter`. La aplicación de ejemplo incluye un middleware que establece un valor de opciones de un parámetro de cadena de consulta:
 
 [!code-csharp[](startup/sample/RequestSetOptionsMiddleware.cs?name=snippet1)]
 
