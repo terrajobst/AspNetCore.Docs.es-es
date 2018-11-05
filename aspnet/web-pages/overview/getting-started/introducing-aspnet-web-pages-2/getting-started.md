@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 title: Introducción | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: WebMatrix no se recomienda como un entorno de desarrollo integrado para ASP.NET Web Pages. Use Visual Studio o Visual Studio Code. Esta guía un...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: a36d3bdf-ef1b-47a4-b932-3a0cf4cad716
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/getting-started
 msc.type: authoredcontent
-ms.openlocfilehash: 467239fdd2758240e589f4e1bfb40501502b83cf
-ms.sourcegitcommit: f43f430a166a7ec137fcad12ded0372747227498
+ms.openlocfilehash: 79f76410e091b137e2792127b0a42524270761e8
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49391276"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021500"
 ---
 <a name="getting-started"></a>Introducción
 ====================

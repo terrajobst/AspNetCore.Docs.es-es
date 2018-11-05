@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/enhancing-data-validation
 title: 'EF Database First con MVC de ASP.NET: mejora de la validación de datos | Microsoft Docs'
-author: tfitzmac
+author: Rick-Anderson
 description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: riande
 ms.date: 12/29/2014
 ms.assetid: 0ed5e67a-34c0-4b57-84a6-802b0fb3cd00
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/enhancing-data-validation
 msc.type: authoredcontent
-ms.openlocfilehash: dbff33a1c4f47474adda82e796d9c292392142f2
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: df2cd99619f097c9f392e8fe7352c1ce3a69c8df
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41835960"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021669"
 ---
 <a name="ef-database-first-with-aspnet-mvc-enhancing-data-validation"></a>EF Database First con MVC de ASP.NET: mejora de la validación de datos
 ====================
@@ -38,7 +38,7 @@ En Enrollment.cs, agregue el siguiente código resaltado.
 
 [!code-csharp[Main](enhancing-data-validation/samples/sample2.cs?highlight=5,10)]
 
-Compile la solución.
+Compila la solución.
 
 Vaya a la página de edición o creación de un alumno. Si se intenta escribir más de 50 caracteres, se muestra un mensaje de error.
 

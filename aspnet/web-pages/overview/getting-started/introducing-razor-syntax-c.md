@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-razor-syntax-c
 title: Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#) | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Este capítulo ofrece una visión general de la programación con ASP.NET Web Pages usando la sintaxis Razor. ASP.NET es la tecnología de Microsoft para la ejecución de pa de web dinámico...
 ms.author: riande
 ms.date: 02/07/2014
 ms.assetid: aa67d304-583b-4bf8-a231-195656cfb587
 msc.legacyurl: /web-pages/overview/getting-started/introducing-razor-syntax-c
 msc.type: authoredcontent
-ms.openlocfilehash: b242bf52bbd63d726e6ce6ab7be01a1b81c5bf1b
-ms.sourcegitcommit: fc2486ddbeb15ab4969168d99b3fe0fbe91e8661
+ms.openlocfilehash: b5eb98dfdf3fc013920f45080d4a20e1fa507725
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50758263"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021786"
 ---
 <a name="introduction-to-aspnet-web-programming-using-the-razor-syntax-c"></a>Introducción a la programación Web de ASP.NET mediante la sintaxis Razor (C#)
 ====================
@@ -431,7 +431,7 @@ Un operador es una palabra clave o el carácter que le indica a ASP.NET qué tip
 
 :::row:::
     :::column:::
-    <strong>Operator</strong>
+    <strong>Operador</strong>
     :::column-end:::
     :::column:::
     <strong>Descripción</strong>

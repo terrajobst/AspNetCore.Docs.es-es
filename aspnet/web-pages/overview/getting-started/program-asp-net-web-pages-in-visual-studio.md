@@ -1,19 +1,19 @@
 ---
 uid: aspnet/web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 title: Programación de ASP.NET Web Pages (Razor) con Visual Studio | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: En este apéndice se explica cómo puede usar Visual Studio 2010 o Visual Web Developer 2010 Express programar ASP.NET Web Pages con la sintaxis Razor.
 ms.author: riande
 ms.date: 02/13/2014
 ms.assetid: 0acfec5a-48f2-4766-a801-a0f426966f0a
 msc.legacyurl: /web-pages/overview/getting-started/program-asp-net-web-pages-in-visual-studio
 msc.type: authoredcontent
-ms.openlocfilehash: f3c1a74b23a0d9535256caa660408701062fe21c
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 5b8df17ec1021d133579e23cb4f5b0d0f67d4c7c
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795452"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020460"
 ---
 <a name="programming-aspnet-web-pages-razor-using-visual-studio"></a>Programación de ASP.NET Web Pages (Razor) con Visual Studio
 ====================
@@ -87,7 +87,7 @@ Para crear un sitio Web de ASP.NET Razor en Visual Studio:
 
 El nuevo proyecto existe y se rellena con algunas páginas de web predeterminada que le ayudarán a empezar a trabajar.
 
-### <a name="using-intellisense"></a>Using IntelliSense
+### <a name="using-intellisense"></a>Utilizar IntelliSense
 
 Ahora que ha creado un sitio, puede ver el funcionamiento de IntelliSense en Visual Studio.
 

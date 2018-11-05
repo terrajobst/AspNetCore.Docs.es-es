@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/ui-layouts-and-themes/installing-helpers
 title: Instalar una aplicación auxiliar en ASP.NET Web Pages (Razor) sitio | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: En este artículo se describe cómo instalar una aplicación auxiliar en un sitio Web de ASP.NET Web Pages (Razor). Una aplicación auxiliar es un componente reutilizable que incluye código y marcado en por...
 ms.author: riande
 ms.date: 02/18/2014
 ms.assetid: 5e968ead-906a-45ea-ac2a-c70e57e1a9b1
 msc.legacyurl: /web-pages/overview/ui-layouts-and-themes/installing-helpers
 msc.type: authoredcontent
-ms.openlocfilehash: 8629d91e1e297244228898e28f70616c7ccf1acf
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 5ad717cd7c64e830ce66d5e1361d0eb6ef3cbbec
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828459"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021370"
 ---
 <a name="installing-a-helper-in-an-aspnet-web-pages-razor-site"></a>Instalar una aplicación auxiliar en un sitio Web de ASP.NET Pages (Razor)
 ====================

@@ -1,19 +1,19 @@
 ---
 uid: web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 title: ASP.NET Web API 2 de pruebas unitarias | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: Esta guía y la aplicación muestran cómo crear pruebas unitarias simple para la aplicación Web API 2. Este tutorial muestra cómo incluir un proj de prueba unitaria...
 ms.author: riande
 ms.date: 06/05/2014
 ms.assetid: bf20f78d-ff91-48be-abd1-88e23dcc70ba
 msc.legacyurl: /web-api/overview/testing-and-debugging/unit-testing-with-aspnet-web-api
 msc.type: authoredcontent
-ms.openlocfilehash: 91cca2789b66b7b8983f8786b506c5fc71db8b75
-ms.sourcegitcommit: 7890dfb5a8f8c07d813f166d3ab0c263f893d0c6
+ms.openlocfilehash: 915610e6646ebe86dd8f16f290ecabd36bf7f48d
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48795439"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51020838"
 ---
 <a name="unit-testing-aspnet-web-api-2"></a>ASP.NET Web API 2 de pruebas unitarias
 ====================
@@ -98,7 +98,7 @@ En el proyecto StoreApp, agregue un archivo de clase para el **modelos** carpeta
 
 [!code-csharp[Main](unit-testing-with-aspnet-web-api/samples/sample1.cs)]
 
-Compile la solución.
+Compila la solución.
 
 Haga clic en la carpeta Controllers y seleccione **agregar** y **nuevo elemento de scaffolding**. Seleccione **controlador - Web API 2 blanco**.
 
@@ -114,7 +114,7 @@ Reemplace el código existente por el siguiente código. Para simplificar este e
 
 El método GetProduct devuelve una instancia de la **IHttpActionResult** interfaz. IHttpActionResult es una de las nuevas características de Web API 2, y simplifica el desarrollo de pruebas unitarias. Las clases que implementan la interfaz IHttpActionResult se encuentran en el [System.Web.Http.Results](https://msdn.microsoft.com/library/system.web.http.results.aspx) espacio de nombres. Estas clases representan las posibles respuestas de una solicitud de acción y corresponden a los códigos de estado HTTP.
 
-Compile la solución.
+Compila la solución.
 
 Ahora está listo para configurar el proyecto de prueba.
 

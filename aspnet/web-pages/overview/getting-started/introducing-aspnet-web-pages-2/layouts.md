@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 title: 'Introducción a ASP.NET Web Pages: crear un diseño coherente | Microsoft Docs'
-author: tfitzmac
+author: Rick-Anderson
 description: Este tutorial muestra cómo utilizar los diseños para crear una apariencia coherente para las páginas de un sitio que use ASP.NET Web Pages. Supone que ha completado la...
 ms.author: riande
 ms.date: 05/28/2015
 ms.assetid: c85ec591-f8d7-4882-b763-de6ab9f3df7a
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/layouts
 msc.type: authoredcontent
-ms.openlocfilehash: 8f3d9e8a6f6a0179224e18faf11db3dc1510a095
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: a6a007678d58547e9987ebda46bd08ae8aea66f7
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41836561"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021188"
 ---
 <a name="introducing-aspnet-web-pages---creating-a-consistent-layout"></a>Introducción a las páginas Web ASP.NET - crear un diseño coherente
 ====================

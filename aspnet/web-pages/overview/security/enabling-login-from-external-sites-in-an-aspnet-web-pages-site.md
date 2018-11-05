@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 title: Iniciar sesión en sitios externos en ASP.NET Web Pages (Razor) sitio | Microsoft Docs
-author: tfitzmac
+author: Rick-Anderson
 description: En este artículo se explica cómo iniciar sesión en el sitio de ASP.NET Web Pages (Razor) con Facebook, Twitter, Google, Yahoo y otros sitios, es decir, cómo admitir...
 ms.author: riande
 ms.date: 02/21/2014
 ms.assetid: ef852096-a5bf-47b3-9945-125cde065093
 msc.legacyurl: /web-pages/overview/security/enabling-login-from-external-sites-in-an-aspnet-web-pages-site
 msc.type: authoredcontent
-ms.openlocfilehash: a74b13e9d1ddb5bc02f4ea5184108de5e014ead0
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 188a9203ba7b04f5a88d0f802f1a05bf35d58d8c
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41828142"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021136"
 ---
 <a name="logging-in-using-external-sites-in-an-aspnet-web-pages-razor-site"></a>Iniciar sesión con sitios externos en un sitio Web de ASP.NET Pages (Razor)
 ====================

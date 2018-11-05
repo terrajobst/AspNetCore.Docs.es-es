@@ -1,19 +1,19 @@
 ---
 uid: mvc/overview/getting-started/database-first-development/changing-the-database
 title: 'EF Database First con MVC de ASP.NET: cambiar la base de datos | Microsoft Docs'
-author: tfitzmac
+author: Rick-Anderson
 description: Con Scaffolding de ASP.NET, MVC y Entity Framework, puede crear una aplicación web que proporciona una interfaz a una base de datos existente. Este tutorial seri...
 ms.author: riande
 ms.date: 10/01/2014
 ms.assetid: cfd5c083-a319-482e-8f25-5b38caa93954
 msc.legacyurl: /mvc/overview/getting-started/database-first-development/changing-the-database
 msc.type: authoredcontent
-ms.openlocfilehash: 4ee73dc066a56944dd2e5600460628656ae87e37
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 8d0eff37ced757cd8be74f8171c9aaa430940010
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41829035"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021279"
 ---
 <a name="ef-database-first-with-aspnet-mvc-changing-the-database"></a>EF Database First con MVC de ASP.NET: cambiar la base de datos
 ====================
@@ -48,7 +48,7 @@ Haga clic en **Finalizar**.
 
 Cuando finalice el proceso de actualización, el diagrama de base de datos incluye el nuevo **MiddleName** propiedad. Guardar el **ContosoModel.edmx** archivo. Debe guardar este archivo para la nueva propiedad se propagará a la **Student.cs** clase. Ahora que ha actualizado la base de datos y el modelo.
 
-Compile la solución.
+Compila la solución.
 
 Lamentablemente, las vistas todavía no contienen la nueva propiedad. Para actualizar las vistas tiene dos opciones: puede generar volver a las vistas mediante la adición de una vez más scaffolding para la clase Student o puede agregar manualmente la nueva propiedad a las vistas existentes. En este tutorial, agregará el scaffolding de nuevo porque no ha realizado los cambios personalizados en las vistas que se genera automáticamente. Considere la posibilidad de agregar manualmente la propiedad cuando ha realizado cambios en las vistas y no desea perder los cambios.
 

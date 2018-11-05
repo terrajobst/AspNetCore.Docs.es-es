@@ -1,19 +1,19 @@
 ---
 uid: web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 title: 'Introducción a ASP.NET Web Pages: actualización de la base de datos | Microsoft Docs'
-author: tfitzmac
+author: Rick-Anderson
 description: Este tutorial muestra cómo actualizar la entrada de una base de datos existente (cambiar) al usar ASP.NET Web Pages (Razor). Supone que ha completado la serie th...
 ms.author: riande
 ms.date: 01/02/2018
 ms.assetid: ac86ec9c-6b69-485b-b9e0-8b9127b13e6b
 msc.legacyurl: /web-pages/overview/getting-started/introducing-aspnet-web-pages-2/updating-data
 msc.type: authoredcontent
-ms.openlocfilehash: 9d0da2eed9964e56a01f3c811d6a14c9d1735e10
-ms.sourcegitcommit: 45ac74e400f9f2b7dbded66297730f6f14a4eb25
+ms.openlocfilehash: 206d7e209857aceb3eb92c2405bb73f7ff7dbaeb
+ms.sourcegitcommit: 2d3e5422d530203efdaf2014d1d7df31f88d08d0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41838931"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51021435"
 ---
 <a name="introducing-aspnet-web-pages---updating-database-data"></a>Introducción a ASP.NET Web Pages: actualización de la base de datos
 ====================
@@ -35,7 +35,7 @@ por [Tom FitzMacken](https://github.com/tfitzmac)
 > 
 > - El `WebGrid` auxiliar.
 > - El código SQL `Update` comando.
-> - Método `Database.Execute`.
+> - El método `Database.Execute`.
 > - Campos ocultos (`<input type="hidden">`).
 
 
