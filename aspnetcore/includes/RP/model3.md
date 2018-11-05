@@ -1,4 +1,5 @@
 <a name="cli"></a>
+
 ## <a name="add-scaffold-tooling-and-perform-initial-migration"></a>Agregar herramientas de scaffolding y realizar la migración inicial
 
 Agregue las líneas siguientes al archivo *RazorPagesMovie.csproj*, justo antes de la etiqueta `</Project>` de cierre:
@@ -7,7 +8,8 @@ Agregue las líneas siguientes al archivo *RazorPagesMovie.csproj*, justo antes 
 <ItemGroup>
   <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.1.0-preview1-final"/>
 </ItemGroup>
-```  
+```
+  
 Desde la línea de comandos, ejecute los comandos CLI de .NET Core:
 
 ```console

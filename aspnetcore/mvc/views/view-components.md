@@ -5,12 +5,12 @@ description: Obtenga información sobre cómo se usan los componentes de vista e
 ms.author: riande
 ms.date: 02/14/2017
 uid: mvc/views/view-components
-ms.openlocfilehash: 52bfb9e3983eb49aabdef238d53c6fdd2950c075
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 91399acafb36f1f8759ed1783e70e59b631e3bf0
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207607"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253138"
 ---
 # <a name="view-components-in-aspnet-core"></a>Componentes de vista en ASP.NET Core
 
@@ -88,7 +88,7 @@ Se recomienda que asigne el nombre *Default.cshtml* al archivo de vista y use la
 Para usar el componente de vista, llame a lo siguiente dentro de una vista:
 
 ```cshtml
-@Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
+@await Component.InvokeAsync("Name of view component", {Anonymous Type Containing Parameters})
 ```
 
 Los parámetros se pasarán al método `InvokeAsync`. El componente de vista `PriorityList` desarrollado en el artículo se invoca desde el archivo de vista *Views/Todo/Index.cshtml*. En la tabla siguiente, se llama al método `InvokeAsync` con dos parámetros:
