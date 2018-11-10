@@ -7,12 +7,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: tutorials/razor-pages-vsc/razor-pages-start
-ms.openlocfilehash: 9ea66134c524a6a1a670d55bae4e66cf38a45274
-ms.sourcegitcommit: 4d74644f11e0dac52b4510048490ae731c691496
+ms.openlocfilehash: f18d0a8b3ce24c9844b02f8a0b6360f7e1b1bdb7
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50089857"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244858"
 ---
 # <a name="get-started-with-aspnet-core-razor-pages-in-visual-studio-code"></a>Introducción a las páginas de Razor en ASP.NET Core con Visual Studio Code
 
@@ -65,7 +65,7 @@ En Visual Studio Code (VS Code), seleccione **Archivo > Abrir carpeta** y elija 
 
 ### <a name="launch-the-app"></a>Iniciar la aplicación
 
-Presione Ctrl+F5 para iniciar la aplicación sin depurar. Si lo prefiere, puede ir al menú **Depurar** y seleccionar **Iniciar sin depurar**.
+En el menú **Depurar**, seleccione **Iniciar sin depurar**. Como alternativa, puede presionar el método abreviado de teclado que aparece junto a la opción de menú. Este método abreviado varía según el sistema operativo.
 
 En el tutorial siguiente, agregaremos un modelo al proyecto. 
 

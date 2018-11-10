@@ -6,18 +6,29 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/01/2018
 uid: fundamentals/routing
-ms.openlocfilehash: 06059d720bd4444b1ec12e42d466ee54d1658203
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: a014782ba503bc8bd0fdefb4cb4f382aa8fde4cd
+ms.sourcegitcommit: c43a6f1fe72d7c2db4b5815fd532f2b45d964e07
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207761"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50244975"
 ---
 # <a name="routing-in-aspnet-core"></a>Enrutamiento en ASP.NET Core
 
 Por [Ryan Nowak](https://github.com/rynowak), [Steve Smith](https://ardalis.com/) y [Rick Anderson](https://twitter.com/RickAndMSFT)
 
 La funcionalidad de enrutamiento de ASP.NET Core se encarga de asignar una solicitud entrante a un controlador de ruta. Las rutas se definen en la aplicación y se configuran cuando se inicia la aplicación. Una ruta puede extraer opcionalmente valores de la dirección URL contenida en la solicitud, que se pueden usar para procesar las solicitudes. Con la información de ruta de la aplicación, la funcionalidad de enrutamiento también puede generar direcciones URL que se asignan a controladores de ruta. Por tanto, el enrutamiento puede buscar un controlador de ruta a partir de una dirección URL, o bien encontrar la dirección URL correspondiente a un controlador de ruta determinado en función de la información del controlador de ruta.
+
+La mayoría de las aplicaciones deben elegir un esquema de enrutamiento básico y descriptivo para que las direcciones URL sean legibles y significativas. La ruta convencional predeterminada `{controller=Home}/{action=Index}/{id?}`:
+
+* Admite un esquema de enrutamiento básico y descriptivo:
+* Es un buen punto de partida para las aplicaciones web destinadas a usarse en los exploradores.
+
+Es habitual agregar rutas breves adicionales a áreas de mucho tráfico de la aplicación en situaciones especializadas (por ejemplo, blogs o comercio electrónico) con el [enrutamiento mediante atributos](xref:mvc/controllers/routing#attribute-routing) o rutas convencionales dedicadas.
+
+Las API web deben usar el enrutamiento mediante atributos para modelar la funcionalidad de la aplicación como un conjunto de recursos donde las operaciones se representan mediante verbos HTTP. Esto significa que muchas operaciones (por ejemplo, GET y POST) del mismo recurso lógico usarán la misma dirección URL. El enrutamiento mediante atributos ofrece un nivel de control que resulta necesario para diseñar cuidadosamente un espacio de direcciones URL de la API.
+
+La compatibilidad de la generación de direcciones URL de MVC permite desarrollar la aplicación sin necesidad de codificar de forma rígida las direcciones URL para vincular la aplicación. Esto permite partir con una configuración de enrutamiento básica y modificar las rutas una vez determinada la forma de la aplicación.
 
 > [!IMPORTANT]
 > En este documento se describe el enrutamiento de ASP.NET Core de bajo nivel. Para obtener información sobre el enrutamiento de ASP.NET Core MVC, vea <xref:mvc/controllers/routing>.

@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 06/14/2018
 uid: fundamentals/app-state
-ms.openlocfilehash: da20538a0dc6e13caedaf6a1130e66981dcb7af2
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 5ca909681ca9da3fae0391991902da97581852be
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207295"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253187"
 ---
 # <a name="session-and-app-state-in-aspnet-core"></a>Estado de sesión y aplicación en ASP.NET Core
 
@@ -71,7 +71,7 @@ El estado de sesión muestra los siguientes comportamientos:
 El proveedor de caché en memoria almacena datos de sesión en la memoria del servidor donde reside la aplicación. En un escenario de granja de servidores:
 
 * Use *sesiones permanentes* para asociar cada sesión a una instancia de aplicación específica en un servidor individual. [Azure App Service](https://azure.microsoft.com/services/app-service/) usa [enrutamiento de solicitud de aplicaciones (ARR)](/iis/extensions/planning-for-arr/using-the-application-request-routing-module) para exigir sesiones permanentes de forma predeterminada. Pero las sesiones permanentes pueden afectar a la escalabilidad y complicar la actualización de las aplicaciones web. Un enfoque mejor consiste en usar una memoria caché distribuida de Redis o SQL Server, que no requiere sesiones permanentes. Para obtener más información, vea <xref:performance/caching/distributed>.
-* La cookie de sesión se cifra mediante [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). La protección de datos debe configurarse correctamente para que lea las cookies de sesión en cada equipo. Para obtener más información, vea [Protección de datos en ASP.NET Core](xref:security/data-protection/index) y [Key storage providers](xref:security/data-protection/implementation/key-storage-providers) (Proveedores de almacenamiento de claves).
+* La cookie de sesión se cifra mediante [IDataProtector](/dotnet/api/microsoft.aspnetcore.dataprotection.idataprotector). La protección de datos debe configurarse correctamente para que lea las cookies de sesión en cada equipo. Para más información, vea <xref:security/data-protection/introduction> y [Proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers).
 
 ### <a name="configure-session-state"></a>Configurar el estado de sesión
 
@@ -274,7 +274,7 @@ Elegir un proveedor TempData implica una serie de consideraciones:
 
 1. ¿La aplicación ya usa el estado de sesión? Si es así, el uso del proveedor TempData de estado de sesión no tiene costo adicional para la aplicación (excepto en el tamaño de los datos).
 2. ¿La aplicación usa TempData con moderación, solo para cantidades relativamente pequeñas de datos (hasta 500 bytes)? Si es así, el proveedor TempData de cookies agrega un pequeño costo a cada solicitud que transporta TempData. De lo contrario, el proveedor TempData de estado de sesión puede ser beneficioso para evitar que una gran cantidad de datos hagan un recorrido de ida y vuelta en cada solicitud hasta que se consuma TempData.
-3. ¿La aplicación se ejecuta en una granja de servidores en varios servidores? Si es así, no es necesaria ninguna configuración adicional para usar el proveedor de TempData de cookies además de la protección de datos (vea [Protección de datos ](xref:security/data-protection/index) y [Key storage providers](xref:security/data-protection/implementation/key-storage-providers) (Proveedores de almacenamiento de claves)).
+3. ¿La aplicación se ejecuta en una granja de servidores en varios servidores? Si es así, no es necesaria ninguna configuración adicional para usar el proveedor de TempData de cookies además de la protección de datos (vea <xref:security/data-protection/introduction> y [Proveedores de almacenamiento de claves](xref:security/data-protection/implementation/key-storage-providers)).
 
 > [!NOTE]
 > La mayoría de los clientes de web (por ejemplo, los exploradores web) aplican límites en el tamaño máximo de cada cookie, el número total de cookies o ambos. Cuando use el proveedor TempData de cookies, compruebe que la aplicación no supera esos límites. Tenga en cuenta el tamaño total de los datos. Cuenta para los aumentos de tamaño de cookie debidos a la fragmentación y el cifrado.

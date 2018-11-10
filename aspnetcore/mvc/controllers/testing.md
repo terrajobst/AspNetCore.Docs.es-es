@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 08/23/2018
 uid: mvc/controllers/testing
-ms.openlocfilehash: 18674f85a0cf8c6dfffa94a2160f7182752674f7
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 7e27f30e35c2c6e9062c8321b8b8544a38a69605
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207997"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "50758146"
 ---
 # <a name="test-controller-logic-in-aspnet-core"></a>Probar la lógica del controlador en ASP.NET Core
 
@@ -141,7 +141,7 @@ La primera prueba confirma que el controlador devuelve `ActionResult`, pero no u
 
 [!code-csharp[](testing/sample/TestingControllersSample/tests/TestingControllersSample.Tests/UnitTests/ApiIdeasControllerTests.cs?name=snippet_ForSessionActionResult_ReturnsNotFoundObjectResultForNonexistentSession&highlight=7,10,13-14)]
 
-Para una sesión válida `id`, la segunda prueba confirma que el método devuelve:
+Para obtener un elemento `id` de sesión válido, la segunda prueba confirma que el método devuelve:
 
 * Un `ActionResult` con un tipo `List<IdeaDTO>`.
 * [ActionResult&lt;T&gt;.Value](xref:Microsoft.AspNetCore.Mvc.ActionResult`1.Value*) es de un tipo `List<IdeaDTO>`.
@@ -182,7 +182,6 @@ Para una sesión válida `id`, la prueba final confirma que:
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* <xref:test/index>
 * <xref:test/integration-tests>
 * [Cree y ejecute pruebas unitarias con Visual Studio](/visualstudio/test/unit-test-your-code).
 * [Principio de dependencias explícitas](https://deviq.com/explicit-dependencies-principle/)

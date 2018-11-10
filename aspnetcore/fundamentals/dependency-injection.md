@@ -6,12 +6,12 @@ ms.author: riande
 ms.custom: mvc
 ms.date: 10/24/2018
 uid: fundamentals/dependency-injection
-ms.openlocfilehash: d9eb6a01e096c7e8cbcb0979e24331a8d5316a14
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 3626ce834b904db64c1976aefc77dc60a7bfdf1c
+ms.sourcegitcommit: 4a6bbe84db24c2f3dd2de065de418fde952c8d40
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50207659"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50253174"
 ---
 # <a name="dependency-injection-in-aspnet-core"></a>Inserción de dependencias en ASP.NET Core
 
@@ -427,7 +427,7 @@ Los servicios disponibles en una solicitud de ASP.NET Core desde `HttpContext` s
 
 Los servicios de solicitud representan los servicios configurados y solicitados como parte de la aplicación. Cuando los objetos especifican dependencias, estas se cumplen mediante los tipos que se encuentran en `RequestServices`, no en `ApplicationServices`.
 
-Por lo general, la aplicación no debe usar estas propiedades directamente. En su lugar, solicite los tipos que las clases requieren mediante el constructor de clases y permita que el marco de trabajo inserte las dependencias. Esto da como resultado clases más fáciles de probar (vea [Pruebas y depuración](xref:test/index)).
+Por lo general, la aplicación no debe usar estas propiedades directamente. En su lugar, solicite los tipos que las clases requieren mediante el constructor de clases y permita que el marco de trabajo inserte las dependencias. Esto produce clases que son más fáciles de probar.
 
 > [!NOTE]
 > Se recomienda que solicite las dependencias como parámetros del constructor para obtener acceso a la colección `RequestServices`.
@@ -558,7 +558,6 @@ La inserción de dependencias es una *alternativa* a los patrones de acceso a ob
 * <xref:mvc/controllers/dependency-injection>
 * <xref:security/authorization/dependencyinjection>
 * <xref:fundamentals/startup>
-* <xref:test/index>
 * <xref:fundamentals/middleware/extensibility>
 * [Escritura de código limpio en ASP.NET Core con inserción de dependencias (MSDN)](https://msdn.microsoft.com/magazine/mt703433.aspx)
 * [Preludio del diseño de aplicaciones administradas por contenedor: ¿cuál es el lugar del contenedor?](https://blogs.msdn.microsoft.com/nblumhardt/2008/12/26/container-managed-application-design-prelude-where-does-the-container-belong/)

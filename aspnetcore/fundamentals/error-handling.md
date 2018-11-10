@@ -1,17 +1,17 @@
 ---
 title: Controlar errores en ASP.NET Core
-author: ardalis
+author: tdykstra
 description: Descubra cómo controlar errores en aplicaciones ASP.NET Core.
 ms.author: tdykstra
 ms.custom: mvc
-ms.date: 07/05/2018
+ms.date: 11/01/2018
 uid: fundamentals/error-handling
-ms.openlocfilehash: d1e94fdc89fbebc264dc001bbf35666af16f4799
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 89117d78486493747d649c3bb0d9cce9f97ef419
+ms.sourcegitcommit: 85f2939af7a167b9694e1d2093277ffc9a741b23
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208036"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50968324"
 ---
 # <a name="handle-errors-in-aspnet-core"></a>Controlar errores en ASP.NET Core
 
@@ -119,17 +119,28 @@ El middleware admite diversos métodos de extensión. Uno de ellos es una expres
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePages)]
 
-Otro toma un tipo de contenido y una cadena de formato:
+Una sobrecarga de `UseStatusCodePages` toma un tipo de contenido y una cadena de formato:
 
 ```csharp
 app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
 ```
+### <a name="redirect-re-execute-extension-methods"></a>Métodos de extensión de redireccionamiento y de nueva ejecución
 
-También hay métodos de extensión de redireccionamiento y de nueva ejecución. El método de redireccionamiento envía un código de estado *302 Found* al cliente y lo redirige a la plantilla de la dirección URL de la ubicación facilitada. La plantilla puede incluir un marcador de posición `{0}` relativo al código de estado. Las direcciones URL que empiezan por `~` tienen la ruta de acceso base antepuesta. Las direcciones URL que no empiezan por `~` se usan tal cual.
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithRedirects*>:
+
+* Envía un código de estado *302 - Encontrado* al cliente.
+* Redirige al cliente a la ubicación proporcionada en la plantilla de dirección URL. 
+
+La plantilla puede incluir un marcador de posición `{0}` relativo al código de estado. La plantilla debe empezar con una barra diagonal (`/`).
 
 [!code-csharp[](error-handling/samples/2.x/ErrorHandlingSample/Startup.cs?name=snippet_StatusCodePagesWithRedirect)]
 
-El método de reejecución devuelve el código de estado original al cliente y especifica que el cuerpo de la respuesta se debe generar volviendo a ejecutar la canalización de la solicitud mediante una ruta de acceso alternativa. Es posible que esta ruta de acceso contenga un marcador de posición `{0}` relativo al código de estado:
+<xref:Microsoft.AspNetCore.Builder.StatusCodePagesExtensions.UseStatusCodePagesWithReExecute*>:
+
+* Devuelve el código de estado original al cliente.
+* Especifica que el cuerpo de la respuesta se debe generar volviendo a ejecutar la canalización de la solicitud mediante una ruta de acceso alternativa. 
+
+La plantilla puede incluir un marcador de posición `{0}` relativo al código de estado. La plantilla debe empezar con una barra diagonal (`/`).
 
 ```csharp
 app.UseStatusCodePagesWithReExecute("/error/{0}");
@@ -146,7 +157,7 @@ if (statusCodePagesFeature != null)
 }
 ```
 
-Si se usa una sobrecarga `UseStatusCodePages*` que apunta a un punto de conexión dentro de la aplicación, cree una vista de MVC o una página de Razor Pages para ese punto de conexión. Por ejemplo, la plantilla [dotnet new](/dotnet/core/tools/dotnet-new) de una aplicación de Razor Pages genera la página y la clase de modelo de página siguientes:
+Para usar una sobrecarga `UseStatusCodePages*` que apunta a un punto de conexión dentro de la aplicación, cree una vista de MVC o una página de Razor Pages para ese punto de conexión. Por ejemplo, la plantilla [dotnet new](/dotnet/core/tools/dotnet-new) de una aplicación de Razor Pages genera la página y la clase de modelo de página siguientes:
 
 *Error.cshtml*:
 
