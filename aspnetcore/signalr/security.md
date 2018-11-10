@@ -5,14 +5,14 @@ description: Obtenga información sobre cómo utilizar la autenticación y autor
 monikerRange: '>= aspnetcore-2.1'
 ms.author: anurse
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 11/06/2018
 uid: signalr/security
-ms.openlocfilehash: 1adf762cd6de4f0cf62e31c0ec6e595a32ed56f8
-ms.sourcegitcommit: f5d403004f3550e8c46585fdbb16c49e75f495f3
+ms.openlocfilehash: f646d319cf3030fd4d769e882514da14b230bbdd
+ms.sourcegitcommit: c3fa5aded0bf76a7414047d50b8a2311d27ee1ef
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/20/2018
-ms.locfileid: "49477545"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276150"
 ---
 # <a name="security-considerations-in-aspnet-core-signalr"></a>Consideraciones de seguridad en ASP.NET Core SignalR
 
@@ -35,7 +35,7 @@ Para obtener más información sobre cómo configurar la CORS, vea [solicitudes 
 * Métodos HTTP `GET` y `POST` debe estar permitido.
 * Deben habilitarse las credenciales, incluso cuando no se usa la autenticación.
 
-Por ejemplo, la siguiente directiva CORS permite hospedado en un cliente del explorador SignalR `http://example.com` para tener acceso a la aplicación de SignalR hospedada en `http://signalr.example.com`:
+Por ejemplo, la siguiente directiva CORS permite hospedado en un cliente del explorador SignalR `https://example.com` para tener acceso a la aplicación de SignalR hospedada en `https://signalr.example.com`:
 
 [!code-csharp[Main](security/sample/Startup.cs?name=snippet1)]
 
@@ -43,6 +43,14 @@ Por ejemplo, la siguiente directiva CORS permite hospedado en un cliente del exp
 > SignalR no es compatible con la característica CORS integrada en Azure App Service.
 
 ## <a name="websocket-origin-restriction"></a>Restricción de origen de WebSocket
+
+::: moniker range=">= aspnetcore-2.2"
+
+Las protecciones proporcionadas por la CORS no se aplican a WebSockets. Para la restricción de origen de WebSockets, lea [restricción de origen de WebSockets](xref:fundamentals/websockets#websocket-origin-restriction).
+
+::: moniker-end
+
+::: moniker range="< aspnetcore-2.2"
 
 Las protecciones proporcionadas por la CORS no se aplican a WebSockets. Los exploradores lo hacen **no**:
 
@@ -58,9 +66,18 @@ En ASP.NET Core 2.1 y versiones posteriores, la validación del encabezado puede
 > [!NOTE]
 > El `Origin` encabezado está controlado por el cliente y, al igual que el `Referer` encabezado, se pueden falsificar. Estos encabezados deben **no** utilizarse como mecanismo de autenticación.
 
+::: moniker-end
+
 ## <a name="access-token-logging"></a>Registro de token de acceso
 
-Al usar WebSockets o los eventos, el explorador del cliente envía el token de acceso en la cadena de consulta. Recibir el token de acceso a través de la cadena de consulta es normalmente tan seguro como usar el estándar `Authorization` encabezado. Sin embargo, muchos servidores web de registro la dirección URL para cada solicitud, incluida la cadena de consulta. Las direcciones URL de registro, es posible que registre el token de acceso. Una práctica recomendada consiste en establecer configuración de registro del servidor para evitar que los tokens de acceso de registro de la web.
+Al usar WebSockets o los eventos, el explorador del cliente envía el token de acceso en la cadena de consulta. Recibir el token de acceso a través de la cadena de consulta es normalmente tan seguro como usar el estándar `Authorization` encabezado. Siempre debe usar HTTPS para garantizar una conexión segura de extremo a otro entre el cliente y el servidor. La dirección URL para cada solicitud, incluida la cadena de consulta de registro de muchos servidores web. Las direcciones URL de registro, es posible que registre el token de acceso. ASP.NET Core, se registra la dirección URL para cada solicitud de forma predeterminada, que incluirá la cadena de consulta. Por ejemplo:
+
+```
+info: Microsoft.AspNetCore.Hosting.Internal.WebHost[1]
+      Request starting HTTP/1.1 GET http://localhost:5000/myhub?access_token=1234
+```
+
+Si le preocupa sobre el registro de estos datos con los registros de servidor, puede deshabilitar este registro mediante la configuración de la `Microsoft.AspNetCore.Hosting` registrador para el `Warning` nivel o superior (estos mensajes se escriben en `Info` nivel). Consulte la documentación sobre [filtrado del registro](xref:fundamentals/logging/index#log-filtering) para obtener más información. Si aún desea cierta información de solicitud de registro, puede [escribir un middleware](xref:fundamentals/middleware/index#write-middleware) para registrar los datos que necesita y filtra el `access_token` el valor de cadena de consulta (si existe).
 
 ## <a name="exceptions"></a>Excepciones
 

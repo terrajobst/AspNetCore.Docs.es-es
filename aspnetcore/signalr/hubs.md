@@ -7,12 +7,12 @@ ms.author: tdykstra
 ms.custom: mvc
 ms.date: 09/12/2018
 uid: signalr/hubs
-ms.openlocfilehash: be42314afad4ff43d2fcf1abbc96c5b78c773977
-ms.sourcegitcommit: 375e9a67f5e1f7b0faaa056b4b46294cc70f55b7
+ms.openlocfilehash: 27aedc5b2f2060d961070fbd1ff5304eaa3956d1
+ms.sourcegitcommit: fc7eb4243188950ae1f1b52669edc007e9d0798d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50206021"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51225361"
 ---
 # <a name="use-hubs-in-signalr-for-aspnet-core"></a>Usar concentradores de SignalR para ASP.NET Core
 
@@ -41,6 +41,11 @@ Crear un centro mediante la declaración de una clase que hereda de `Hub`y agreg
 [!code-csharp[Create and use hubs](hubs/sample/hubs/chathub.cs?range=8-37)]
 
 Puede especificar un tipo de valor devuelto y parámetros, incluidos los tipos complejos y matrices, como lo haría en cualquier método de C#. SignalR controla la serialización y deserialización de objetos complejos y matrices en sus parámetros y valores devueltos.
+
+> [!NOTE]
+> Los concentradores son transitorios:
+> * No almacene el estado en una propiedad de la clase de concentrador. Cada llamada al método de concentrador se ejecuta en una nueva instancia de concentrador.  
+> * Use `await` al llamar a métodos asincrónicos que dependen del concentrador permanecer activo. Por ejemplo, un método como `Clients.All.SendAsync(...)` puede producir un error si se llama sin `await` y el método de concentrador se completa antes de `SendAsync` finaliza.
 
 ## <a name="the-context-object"></a>El objeto de contexto
 
